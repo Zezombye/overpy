@@ -84,8 +84,10 @@ function replaceJsonObjectsInFile(path) {
             tmp = eval("("+currentJsonStr+")");
             for (var key in tmp) {
                 console.log(key);
-                if ("descriptionLocalized" in tmp[key]) {
-                    tmp[key].descriptionLocalized = addTranslations(tmp[key].descriptionLocalized)
+                if (tmp[key]["args"]) {
+                    for (var arg of tmp[key]["args"]) {
+                        addTranslations(arg.descriptionLocalized)
+                    }
                 }
             }
             result += JSON.stringify(tmp, null, 4)+"\n";
@@ -124,6 +126,7 @@ function iterateOnObject(content) {
 
 function addTranslations(content) {
     //Find the guid, if it isn't already added
+    if (content.guid === "<unknown guid>") return;
     if (!("guid" in content)) {
         var matchingGuids = [];
         for (var elem of guids["en-US"]) {
@@ -136,7 +139,7 @@ function addTranslations(content) {
             content.guid = "<unknown guid>";
             return content;
         } else if (matchingGuids.length > 1) {
-            throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
+            //throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
         }
         content.guid = matchingGuids[0];
     }
@@ -180,7 +183,7 @@ function normalizeName(content) {
 
 //generateStringFiles();
 getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
 //replaceJsonObjectsInFile(docFolder+"constants.js");
 //replaceJsonObjectsInFile(docFolder+"heroes.js");

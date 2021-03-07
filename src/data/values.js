@@ -25,13 +25,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ability to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ability to check."
+                }
             },
             {
                 "name": "BUTTON",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
-                "default": "BUTTON"
+                "default": "BUTTON",
+                "decriptionLocalized": {
+                    "en-US": "The ability to check associated by button."
+                }
             }
         ],
         "return": "unsigned int",
@@ -65,13 +71,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ability to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ability to check."
+                }
             },
             {
                 "name": "BUTTON",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
-                "default": "BUTTON"
+                "default": "BUTTON",
+                "decriptionLocalized": {
+                    "en-US": "The ability to check associated by button."
+                }
             }
         ],
         "return": "unsigned float",
@@ -105,13 +117,19 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "The hero for the ability that will be converted to an icon.",
                 "type": "Hero",
-                "default": "HERO"
+                "default": "HERO",
+                "decriptionLocalized": {
+                    "en-US": "The hero for the ability that will be converted to an icon."
+                }
             },
             {
                 "name": "Button",
                 "description": "The button for the ability that will be converted to an icon.",
                 "type": "Button",
-                "default": "Button"
+                "default": "Button",
+                "decriptionLocalized": {
+                    "en-US": "The button for the ability that will be converted to an icon."
+                }
             }
         ],
         "isConstant": true,
@@ -147,13 +165,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ability to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ability to check."
+                }
             },
             {
                 "name": "BUTTON",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
-                "default": "BUTTON"
+                "default": "BUTTON",
+                "decriptionLocalized": {
+                    "en-US": "The ability to check associated by button."
+                }
             }
         ],
         "return": "unsigned float",
@@ -187,7 +211,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The real number value whose absolute value will be computed.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The real number value whose absolute value will be computed."
+                }
             }
         ],
         "isConstant": true,
@@ -227,7 +254,10 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                }
             },
             {
                 "name": "VALUE",
@@ -237,7 +267,10 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                }
             }
         ],
         "isConstant": true,
@@ -274,7 +307,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which players may come."
+                }
             }
         ],
         "return": {
@@ -319,11 +355,7 @@ var valueFuncKw =
         "fr-FR": "Tous les héros de dégâts",
         "ja-JP": "全ダメージヒーロー",
         "pt-BR": "Todos os Heróis de Dano",
-        "zh-CN": "所有输出英雄",
-        "descriptionLocalized": {
-            "en-US": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Doomfist\n        15. Ashe  \n        16. Echo  \n",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "所有输出英雄"
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
@@ -339,11 +371,7 @@ var valueFuncKw =
         "fr-FR": "Tous les héros",
         "ja-JP": "全ヒーロー",
         "pt-BR": "Todos os Heróis",
-        "zh-CN": "全部英雄",
-        "descriptionLocalized": {
-            "en-US": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. McCree   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Ashe     \n        29. Echo \n        30. Baptiste    \n        31. Sigma    \n",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "全部英雄"
     },
     "getLivingPlayers": {
         "description": "An array containing all living players on a team or in the match.",
@@ -352,7 +380,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which players may come."
+                }
             }
         ],
         "return": {
@@ -389,7 +420,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which players may come."
+                }
             }
         ],
         "return": {
@@ -426,7 +460,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which players may come."
+                }
             }
         ],
         "return": {
@@ -463,7 +500,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which players may come."
+                }
             }
         ],
         "return": {
@@ -500,7 +540,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose allowed heroes to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose allowed heroes to acquire."
+                }
             }
         ],
         "return": {
@@ -545,11 +588,7 @@ var valueFuncKw =
         "fr-FR": "Tous les héros de soutien",
         "ja-JP": "全サポートヒーロー",
         "pt-BR": "Todos os Heróis de Suporte",
-        "zh-CN": "所有支援英雄",
-        "descriptionLocalized": {
-            "en-US": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        ",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "所有支援英雄"
     },
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
@@ -566,11 +605,7 @@ var valueFuncKw =
         "fr-FR": "Tous les héros tanks",
         "ja-JP": "全タンクヒーロー",
         "pt-BR": "Todos os Heróis de Tanque",
-        "zh-CN": "所有重装英雄",
-        "descriptionLocalized": {
-            "en-US": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Orisa\n        6. Hammond\n        7. Sigma    \n        ",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "所有重装英雄"
     },
     "_&getAltitude": {
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
@@ -579,7 +614,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose altitude to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose altitude to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -613,7 +651,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ammo to acquire."
+                }
             },
             {
                 "name": "CLIP",
@@ -621,7 +662,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                }
             }
         ],
         "return": "unsigned float",
@@ -656,13 +700,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
+                }
             }
         ],
         "isConstant": true,
@@ -697,13 +747,19 @@ var valueFuncKw =
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
+                }
             },
             {
                 "name": "VECTOR",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
+                }
             }
         ],
         "isConstant": true,
@@ -738,13 +794,19 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "One of the two angles between which to measure the resulting angle."
+                }
             },
             {
                 "name": "ANGLE",
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "One of the two angles between which to measure the resulting angle."
+                }
             }
         ],
         "isConstant": true,
@@ -780,7 +842,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array to which to append.",
                 "type": "Array",
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array to which to append."
+                }
             },
             {
                 "name": "VALUE",
@@ -792,7 +857,10 @@ var valueFuncKw =
                     }
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended."
+                }
             }
         ],
         "isConstant": true,
@@ -826,7 +894,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "Input value for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Input value for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -861,7 +932,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "Input value for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Input value for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -896,7 +970,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "Input value for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Input value for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -931,7 +1008,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "Input value for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Input value for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -966,13 +1046,19 @@ var valueFuncKw =
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Numerator input for the function."
+                }
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Denominator input for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -1007,13 +1093,19 @@ var valueFuncKw =
                 "name": "NUMERATOR",
                 "description": "Numerator input for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Numerator input for the function."
+                }
             },
             {
                 "name": "DENOMINATOR",
                 "description": "Denominator input for the function.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Denominator input for the function."
+                }
             }
         ],
         "isConstant": true,
@@ -1052,7 +1144,10 @@ var valueFuncKw =
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be stored in the array at index [0]."
+                }
             }
         ],
         "isConstant": true,
@@ -1087,14 +1182,20 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array in which to search for the specified value.",
                 "type": "Array",
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array in which to search for the specified value."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The value for which to search."
+                }
             }
         ],
         "isConstant": true,
@@ -1131,7 +1232,10 @@ var valueFuncKw =
                 "type": {
                     "Array": "Object"
                 },
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array from which to make a copy."
+                }
             },
             {
                 "name": "START INDEX",
@@ -1139,7 +1243,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The first index of the range."
+                }
             },
             {
                 "name": "COUNT",
@@ -1147,7 +1254,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array."
+                }
             }
         ],
         "isConstant": true,
@@ -1247,7 +1357,10 @@ var valueFuncKw =
                 "name": "BUTTON",
                 "description": "A button constant.",
                 "type": "ButtonLiteral",
-                "default": "PRIMARY FIRE"
+                "default": "PRIMARY FIRE",
+                "decriptionLocalized": {
+                    "en-US": "A button constant."
+                }
             }
         ],
         "isConstant": true,
@@ -1283,13 +1396,19 @@ var valueFuncKw =
                 "name": "CENTER",
                 "description": "The position from which to measure proximity.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position from which to measure proximity."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the closest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which the closest player will come."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -1324,7 +1443,10 @@ var valueFuncKw =
                 "name": "Color",
                 "description": "A Color Constant",
                 "type": "ColorLiteral",
-                "default": "White"
+                "default": "White",
+                "decriptionLocalized": {
+                    "en-US": "A Color Constant"
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -1335,11 +1457,7 @@ var valueFuncKw =
         "fr-FR": "Couleur",
         "ja-JP": "色",
         "pt-BR": "Cor",
-        "zh-CN": "颜色",
-        "descriptionLocalized": {
-            "en-US": "A Color Constant",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "颜色"
     },
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
@@ -1351,13 +1469,19 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
+                }
             },
             {
                 "name": "COMPARISON",
                 "description": "",
                 "type": "__Operator__",
-                "default": "=="
+                "default": "==",
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "VALUE",
@@ -1366,7 +1490,10 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
+                }
             }
         ],
         "isConstant": true,
@@ -1401,7 +1528,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose score percentage to acquire.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose score percentage to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -1463,7 +1593,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in degrees."
+                }
             }
         ],
         "isConstant": true,
@@ -1498,7 +1631,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in radians.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in radians."
+                }
             }
         ],
         "isConstant": true,
@@ -1533,7 +1669,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose elements will be counted.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose elements will be counted."
+                }
             }
         ],
         "isConstant": true,
@@ -1544,11 +1683,7 @@ var valueFuncKw =
         "fr-FR": "Décompte de",
         "ja-JP": "カウント: ",
         "pt-BR": "Contagem de",
-        "zh-CN": "数量",
-        "descriptionLocalized": {
-            "en-US": "The number of elements in the specified array. For strings, use `strLen`.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "数量"
     },
     "crossProduct": {
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
@@ -1557,13 +1692,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand-side vector operand of the cross product.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand-side vector operand of the cross product."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand-side vector operand of the cross product.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand-side vector operand of the cross product."
+                }
             }
         ],
         "isConstant": true,
@@ -1719,25 +1860,37 @@ var valueFuncKw =
                 "name": "Red",
                 "description": "The red component of a color, from 0 to 255.",
                 "type": "unsigned int",
-                "default": 255
+                "default": 255,
+                "decriptionLocalized": {
+                    "en-US": "The red component of a color, from 0 to 255."
+                }
             },
             {
                 "name": "Green",
                 "description": "The green component of a color, from 0 to 255.",
                 "type": "unsigned int",
-                "default": 255
+                "default": 255,
+                "decriptionLocalized": {
+                    "en-US": "The green component of a color, from 0 to 255."
+                }
             },
             {
                 "name": "Blue",
                 "description": "The blue component of a color, from 0 to 255.",
                 "type": "unsigned int",
-                "default": 255
+                "default": 255,
+                "decriptionLocalized": {
+                    "en-US": "The blue component of a color, from 0 to 255."
+                }
             },
             {
                 "name": "Alpha",
                 "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
                 "type": "unsigned int",
-                "default": 255
+                "default": 255,
+                "decriptionLocalized": {
+                    "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -1749,11 +1902,7 @@ var valueFuncKw =
         "fr-FR": "Couleur personnalisée",
         "ja-JP": "カスタム・カラー",
         "pt-BR": "Cor Personalizada",
-        "zh-CN": "自定义颜色",
-        "descriptionLocalized": {
-            "en-US": "A custom color with the specified red, green, blue and alpha values.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "自定义颜色"
     },
     "__customString__": {
         "description": "ty magzie for adding that",
@@ -1762,28 +1911,40 @@ var valueFuncKw =
                 "name": "STRING",
                 "description": "",
                 "type": "CustomStringLiteral",
-                "default": "HELLO"
+                "default": "HELLO",
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {0}."
+                }
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {1}."
+                }
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {2}."
+                }
             }
         ],
         "isConstant": true,
@@ -1795,11 +1956,7 @@ var valueFuncKw =
         "fr-FR": "Chaîne personnalisée",
         "ja-JP": "カスタムストリング",
         "pt-BR": "String Personalizada",
-        "zh-CN": "自定义字符串",
-        "descriptionLocalized": {
-            "en-US": "ty magzie for adding that",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "自定义字符串"
     },
     "angleToDirection": {
         "description": "The unit-length direction vector corresponding to the specified angles.",
@@ -1808,13 +1965,19 @@ var valueFuncKw =
                 "name": "HORIZONTAL ANGLE",
                 "description": "The horizontal angle in degrees used to construct the resulting vector.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The horizontal angle in degrees used to construct the resulting vector."
+                }
             },
             {
                 "name": "VERTICAL ANGLE",
                 "description": "The vertical angle in degrees used to construct the resulting vector.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The vertical angle in degrees used to construct the resulting vector."
+                }
             }
         ],
         "isConstant": true,
@@ -1850,13 +2013,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "The position from which the resulting direction vector will point.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position from which the resulting direction vector will point."
+                }
             },
             {
                 "name": "END POS",
                 "description": "The position to which the resulting direction vector will point.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position to which the resulting direction vector will point."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -1892,13 +2061,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of the two positions used in the distance measurement."
+                }
             },
             {
                 "name": "END POS",
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of the two positions used in the distance measurement."
+                }
             }
         ],
         "isConstant": true,
@@ -1938,7 +2113,10 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                }
             },
             {
                 "name": "VALUE",
@@ -1947,7 +2125,10 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                }
             }
         ],
         "isConstant": true,
@@ -1984,13 +2165,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of two vector operands of the dot product."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "One of two vector operands of the dot product."
+                }
             }
         ],
         "isConstant": true,
@@ -2091,7 +2278,10 @@ var valueFuncKw =
                     "Player",
                     "EntityId"
                 ],
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player, icon entity, or effect entity whose existence to check."
+                }
             }
         ],
         "return": "bool",
@@ -2128,7 +2318,10 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The value that will be only evaluated once."
+                }
             }
         ],
         "isConstant": true,
@@ -2142,11 +2335,7 @@ var valueFuncKw =
         "fr-FR": "Évaluer une fois",
         "ja-JP": "一度だけ評価",
         "pt-BR": "Avaliar Uma Vez",
-        "zh-CN": "单次赋值",
-        "descriptionLocalized": {
-            "en-US": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "单次赋值"
     },
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
@@ -2350,11 +2539,7 @@ var valueFuncKw =
         "fr-FR": "L’évènement était un kit de soins",
         "ja-JP": "ライフ・パックのイベントだった",
         "pt-BR": "Evento foi kit Médico",
-        "zh-CN": "事件为急救包",
-        "descriptionLocalized": {
-            "en-US": "Whether the healing was a health pack for the event currently being processed by this rule.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "事件为急救包"
     },
     "_&getEyePosition": {
         "guid": "00000000C595",
@@ -2364,7 +2549,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The position of a player's first person view (used for aiming)",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The position of a player's first person view (used for aiming)"
+                }
             }
         ],
         "return": "Position",
@@ -2398,7 +2586,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose facing direction to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose facing direction to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -2459,13 +2650,19 @@ var valueFuncKw =
                 "name": "CENTER",
                 "description": "The position from which to measure distance.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position from which to measure distance."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which the farthest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which the farthest player will come."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -2500,13 +2697,19 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose copy will be filtered.",
                 "type": "Array",
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array whose copy will be filtered."
+                }
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
-                "default": "COMPARE"
+                "default": "COMPARE",
+                "decriptionLocalized": {
+                    "en-US": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered."
+                }
             }
         ],
         "isConstant": true,
@@ -2541,7 +2744,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array from which the value is acquired."
+                }
             }
         ],
         "isConstant": true,
@@ -2579,7 +2785,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose flag position to acquire.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose flag position to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -2659,7 +2868,10 @@ var valueFuncKw =
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
                 "type": "GlobalVariable",
-                "default": "A"
+                "default": "A",
+                "decriptionLocalized": {
+                    "en-US": "The variable whose value to acquire."
+                }
             }
         ],
         "return": "Value",
@@ -2693,7 +2905,10 @@ var valueFuncKw =
                 "name": "ENTITY",
                 "description": "The player, icon entity, or effect entity whose presence in world to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player, icon entity, or effect entity whose presence in world to check."
+                }
             }
         ],
         "return": "bool",
@@ -2727,13 +2942,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose status to check."
+                }
             },
             {
                 "name": "STATUS",
                 "description": "The status to check for.",
                 "type": "Status",
-                "default": "HACKED"
+                "default": "HACKED",
+                "decriptionLocalized": {
+                    "en-US": "The status to check for."
+                }
             }
         ],
         "return": "bool",
@@ -2822,7 +3043,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose health to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose health to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -2855,13 +3079,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose health to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose health to acquire."
+                }
             },
             {
                 "name": "HEALTH",
                 "description": "The type of health to acquire.",
                 "type": "Health",
-                "default": "HEALTH"
+                "default": "HEALTH",
+                "decriptionLocalized": {
+                    "en-US": "The type of health to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -2871,11 +3101,7 @@ var valueFuncKw =
         "fr-FR": "Points de vie par type",
         "ja-JP": "タイプごとのライフ",
         "pt-BR": "Vida do Tipo",
-        "zh-CN": "类型的生命值",
-        "descriptionLocalized": {
-            "en-US": "The current health of the specified player, filtered by the given health type.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "类型的生命值"
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -2884,7 +3110,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose normalized health to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose normalized health to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -2919,7 +3148,10 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "A hero constant.",
                 "type": "HeroLiteral",
-                "default": "ANA"
+                "default": "ANA",
+                "decriptionLocalized": {
+                    "en-US": "A hero constant."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -2954,7 +3186,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player performing the duplication.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player performing the duplication."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -2989,7 +3224,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The hero that will be converted to an icon.",
                 "type": "Hero",
-                "default": "HERO"
+                "default": "HERO",
+                "decriptionLocalized": {
+                    "en-US": "The hero that will be converted to an icon."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -3001,11 +3239,7 @@ var valueFuncKw =
         "fr-FR": "Chaîne d’icône du héros",
         "ja-JP": "ヒーローアイコン文字列",
         "pt-BR": "String de Ícone de Herói",
-        "zh-CN": "英雄图标字符串",
-        "descriptionLocalized": {
-            "en-US": "Converts a hero parameter into a string that shows up as an icon.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "英雄图标字符串"
     },
     "_&getCurrentHero": {
         "description": "The current hero of a player.",
@@ -3014,7 +3248,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose hero to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose hero to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -3049,7 +3286,10 @@ var valueFuncKw =
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins."
+                }
             }
         ],
         "isConstant": true,
@@ -3084,13 +3324,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player from whose current facing the angle begins."
+                }
             },
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position in the world where the angle ends."
+                }
             }
         ],
         "return": "float",
@@ -3100,11 +3346,7 @@ var valueFuncKw =
         "fr-FR": "Angle horizontal vers",
         "ja-JP": "水平角の方向: ",
         "pt-BR": "Ângulo Horizontal Rumo a",
-        "zh-CN": "水平方向夹角",
-        "descriptionLocalized": {
-            "en-US": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "水平方向夹角"
     },
     "__gamemode__": {
         "guid": "00000000F161",
@@ -3114,7 +3356,10 @@ var valueFuncKw =
                 "name": "GAME MODE",
                 "description": "A game mode constant.",
                 "type": "GamemodeLiteral",
-                "default": "ASSAULT"
+                "default": "ASSAULT",
+                "decriptionLocalized": {
+                    "en-US": "A game mode constant."
+                }
             }
         ],
         "isConstant": true,
@@ -3149,7 +3394,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose horizontal facing angle to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose horizontal facing angle to acquire."
+                }
             }
         ],
         "return": "float",
@@ -3183,7 +3431,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose horizontal speed to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose horizontal speed to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -3244,7 +3495,10 @@ var valueFuncKw =
                 "name": "Icon",
                 "description": "The icon to display.",
                 "type": "Icon",
-                "default": "ARROW: DOWN"
+                "default": "ARROW: DOWN",
+                "decriptionLocalized": {
+                    "en-US": "The icon to display."
+                }
             }
         ],
         "isConstant": true,
@@ -3256,11 +3510,7 @@ var valueFuncKw =
         "fr-FR": "Chaîne d’icône",
         "ja-JP": "アイコンストリング",
         "pt-BR": "String de Ícone",
-        "zh-CN": "图标字符串",
-        "descriptionLocalized": {
-            "en-US": "Allows you to use an icon inside of a string.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "图标字符串"
     },
     "__ifThenElse__": {
         "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
@@ -3269,7 +3519,10 @@ var valueFuncKw =
                 "name": "IF",
                 "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else."
+                }
             },
             {
                 "name": "THEN",
@@ -3279,7 +3532,10 @@ var valueFuncKw =
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The result of the value when the if condition evaluates to true."
+                }
             },
             {
                 "name": "ELSE",
@@ -3289,7 +3545,10 @@ var valueFuncKw =
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The result of the value when the if condition evaluates to false."
+                }
             }
         ],
         "isConstant": true,
@@ -3326,14 +3585,20 @@ var valueFuncKw =
                 "type": {
                     "Array": "Object"
                 },
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array in which to search for the specified value."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "The value for which to search.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The value for which to search."
+                }
             }
         ],
         "isConstant": true,
@@ -3368,7 +3633,10 @@ var valueFuncKw =
                 "name": "BUTTON",
                 "description": "The button for the input binding that will be converted to a string.",
                 "type": "Button",
-                "default": "Button"
+                "default": "Button",
+                "decriptionLocalized": {
+                    "en-US": "The button for the input binding that will be converted to a string."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -3404,7 +3672,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose life to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose life to check."
+                }
             }
         ],
         "return": "bool",
@@ -3492,13 +3763,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose button to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose button to check."
+                }
             },
             {
                 "name": "BUTTON",
                 "description": "The button to check.",
                 "type": "Button",
-                "default": "PRIMARY FIRE"
+                "default": "PRIMARY FIRE",
+                "decriptionLocalized": {
+                    "en-US": "The button to check."
+                }
             }
         ],
         "return": "bool",
@@ -3532,13 +3809,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose communication status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose communication status to check."
+                }
             },
             {
                 "name": "TYPE",
                 "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
                 "type": "Comms",
-                "default": "VOICE LINE UP"
+                "default": "VOICE LINE UP",
+                "decriptionLocalized": {
+                    "en-US": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds."
+                }
             }
         ],
         "return": "bool",
@@ -3548,11 +3831,7 @@ var valueFuncKw =
         "fr-FR": "Communication",
         "ja-JP": "コミュニケーションしている",
         "pt-BR": "É Comunicando",
-        "zh-CN": "正在交流",
-        "descriptionLocalized": {
-            "en-US": "Whether a player is using a specific communication type (such as emoting, using a voice line, etc.).",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在交流"
     },
     "_&isCommunicatingAnything": {
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
@@ -3561,7 +3840,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose communication status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose communication status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3571,11 +3853,7 @@ var valueFuncKw =
         "fr-FR": "N’importe quelle communication",
         "ja-JP": "任意の方法でコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer",
-        "zh-CN": "正在与人交流",
-        "descriptionLocalized": {
-            "en-US": "Whether a player is using any communication type (such as emoting, using a voice line, etc.).",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在与人交流"
     },
     "_&isCommunicatingEmote": {
         "description": "Whether a player is using an emote.",
@@ -3584,7 +3862,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose emoting status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose emoting status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3618,7 +3899,10 @@ var valueFuncKw =
                 "name": "Player",
                 "description": "The Player whose spray status to check.",
                 "type": "Player",
-                "default": "Event Player"
+                "default": "Event Player",
+                "decriptionLocalized": {
+                    "en-US": "The Player whose spray status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3652,7 +3936,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose voice line status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose voice line status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3713,7 +4000,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose crouching status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose crouching status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3747,7 +4037,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose form to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose form to check."
+                }
             }
         ],
         "return": "bool",
@@ -3757,11 +4050,7 @@ var valueFuncKw =
         "fr-FR": "Est dans une forme alternative",
         "ja-JP": "異なる形態である",
         "pt-BR": "Está em uma Forma Alternativa",
-        "zh-CN": "处于非初始状态",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "处于非初始状态"
     },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
@@ -3797,7 +4086,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose death to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose death to check."
+                }
             }
         ],
         "return": "bool",
@@ -3831,7 +4123,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "Player to consider.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "Player to consider."
+                }
             }
         ],
         "return": "bool",
@@ -3865,7 +4160,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose duplication status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose duplication status to check."
+                }
             }
         ],
         "return": "bool",
@@ -3875,11 +4173,7 @@ var valueFuncKw =
         "fr-FR": "Effectue une duplication",
         "ja-JP": "コピー中",
         "pt-BR": "Está Duplicando",
-        "zh-CN": "正在人格复制",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在人格复制"
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -3888,7 +4182,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose primary weapon attack usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose primary weapon attack usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -3922,7 +4219,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose secondary weapon attack usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose secondary weapon attack usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -3956,7 +4256,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose flag to check."
+                }
             }
         ],
         "return": "bool",
@@ -3990,7 +4293,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose flag to check."
+                }
             }
         ],
         "return": "bool",
@@ -4051,13 +4357,19 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "The hero to check for play.",
                 "type": "Hero",
-                "default": "HERO"
+                "default": "HERO",
+                "decriptionLocalized": {
+                    "en-US": "The hero to check for play."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to check for the hero being played."
+                }
             }
         ],
         "return": "bool",
@@ -4091,7 +4403,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose airborne status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose airborne status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4128,7 +4443,10 @@ var valueFuncKw =
                     "Position",
                     "Player"
                 ],
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "END POS",
@@ -4137,13 +4455,19 @@ var valueFuncKw =
                     "Position",
                     "Player"
                 ],
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "BARRIERS",
                 "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
                 "type": "BarrierLos",
-                "default": "BARRIERS DO NOT BLOCK LOS"
+                "default": "BARRIERS DO NOT BLOCK LOS",
+                "decriptionLocalized": {
+                    "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used."
+                }
             }
         ],
         "return": "bool",
@@ -4204,7 +4528,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose spawn room status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose spawn room status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4238,19 +4565,28 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose view to use for the check."
+                }
             },
             {
                 "name": "LOCATION",
                 "description": "The location to test if it's within view.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The location to test if it's within view."
+                }
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The view angle to compare against in degrees."
+                }
             }
         ],
         "return": "bool",
@@ -4284,7 +4620,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose jump usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose jump usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4294,11 +4633,7 @@ var valueFuncKw =
         "fr-FR": "Utilise Saut",
         "ja-JP": "ジャンプ中",
         "pt-BR": "Está Pulando",
-        "zh-CN": "正在跳跃",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified player is jumping.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在跳跃"
     },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
@@ -4334,7 +4669,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose melee usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose melee usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4344,11 +4682,7 @@ var valueFuncKw =
         "fr-FR": "Utilise Mêlée",
         "ja-JP": "近接攻撃中",
         "pt-BR": "Está Usando Corpo a Corpo",
-        "zh-CN": "正在近战攻击",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified player is meleeing.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在近战攻击"
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a nonzero current speed).",
@@ -4357,7 +4691,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose moving status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose moving status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4367,11 +4704,7 @@ var valueFuncKw =
         "fr-FR": "Se déplace",
         "ja-JP": "移動している",
         "pt-BR": "É Movimentando-se",
-        "zh-CN": "正在移动",
-        "descriptionLocalized": {
-            "en-US": "Whether a player is moving (defined as having a nonzero current speed).",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "正在移动"
     },
     "isObjectiveComplete": {
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
@@ -4382,7 +4715,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
+                }
             }
         ],
         "return": "bool",
@@ -4392,11 +4728,7 @@ var valueFuncKw =
         "fr-FR": "Objectif accompli",
         "ja-JP": "目標をクリアした",
         "pt-BR": "É Objetivo Concluído",
-        "zh-CN": "目标是否完成",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or assault/escort.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "目标是否完成"
     },
     "_&isOnGround": {
         "description": "Whether a player is on the ground (or other walkable surface).",
@@ -4405,7 +4737,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ground status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ground status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4439,7 +4774,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose objective status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose objective status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4473,7 +4811,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose wall status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose wall status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4507,7 +4848,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose portrait to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose portrait to check."
+                }
             }
         ],
         "return": "bool",
@@ -4541,7 +4885,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose reload usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose reload usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4575,7 +4922,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose standing status to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose standing status to check."
+                }
             }
         ],
         "return": "bool",
@@ -4609,7 +4959,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose role to check.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose role to check."
+                }
             }
         ],
         "return": "bool",
@@ -4643,7 +4996,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose role to check.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose role to check."
+                }
             }
         ],
         "return": "bool",
@@ -4677,13 +5033,19 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose values will be considered."
+                }
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
-                "default": "COMPARE"
+                "default": "COMPARE",
+                "decriptionLocalized": {
+                    "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
+                }
             }
         ],
         "isConstant": true,
@@ -4718,13 +5080,19 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose values will be considered.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose values will be considered."
+                }
             },
             {
                 "name": "CONDITION",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
-                "default": "COMPARE"
+                "default": "COMPARE",
+                "decriptionLocalized": {
+                    "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
+                }
             }
         ],
         "isConstant": true,
@@ -4759,7 +5127,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ability 1 usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ability 1 usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4793,7 +5164,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ability 2 usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ability 2 usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4827,7 +5201,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ultimate ability usage to check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ultimate ability usage to check."
+                }
             }
         ],
         "return": "bool",
@@ -4919,11 +5296,7 @@ var valueFuncKw =
         "fr-FR": "Dernière entité créée",
         "ja-JP": "最新のエンティティ",
         "pt-BR": "Entidade Criada por Último",
-        "zh-CN": "最后创建的实体",
-        "descriptionLocalized": {
-            "en-US": "A reference to the last effect or icon entity created by the event player (or created at the global level).",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "最后创建的实体"
     },
     "getLastCreatedHealthPool": {
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
@@ -5067,7 +5440,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array from which the value is acquired."
+                }
             }
         ],
         "isConstant": true,
@@ -5108,11 +5484,7 @@ var valueFuncKw =
         "fr-FR": "Dernier identifiant de texte",
         "ja-JP": "最新のテキストID",
         "pt-BR": "ID de Texto Mais Recente",
-        "zh-CN": "上一个文本ID",
-        "descriptionLocalized": {
-            "en-US": "A reference to the last piece of text created by the event player (or created at the global level) via the create hud text or create in-world text action.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "上一个文本ID"
     },
     "Vector.LEFT": {
         "guid": "00000000B116",
@@ -5156,19 +5528,28 @@ var valueFuncKw =
                 "name": "WORLD VECTOR",
                 "description": "The vector in world coordinates that will be converted to local coordinates.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector in world coordinates that will be converted to local coordinates."
+                }
             },
             {
                 "name": "RELATIVE PLAYER",
                 "description": "The player to whom the resulting vector will be relative.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player to whom the resulting vector will be relative."
+                }
             },
             {
                 "name": "TRANSFORMATION",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
-                "default": "ROTATION"
+                "default": "ROTATION",
+                "decriptionLocalized": {
+                    "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -5203,7 +5584,10 @@ var valueFuncKw =
                 "name": "vector",
                 "description": "The vector to calculate the magnitude of.",
                 "type": "Vector",
-                "default": "Vector"
+                "default": "Vector",
+                "decriptionLocalized": {
+                    "en-US": "The vector to calculate the magnitude of."
+                }
             }
         ],
         "isConstant": true,
@@ -5214,11 +5598,7 @@ var valueFuncKw =
         "fr-FR": "Ampleur de",
         "ja-JP": "変化の大きさ:",
         "pt-BR": "Magnitude de",
-        "zh-CN": "幅值",
-        "descriptionLocalized": {
-            "en-US": "The magnitude (length) of the specified vector",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "幅值"
     },
     "__map__": {
         "guid": "00000000D411",
@@ -5228,7 +5608,10 @@ var valueFuncKw =
                 "name": "MAP",
                 "description": "A map constant.",
                 "type": "MapLiteral",
-                "default": "AYUTTHAYA"
+                "default": "AYUTTHAYA",
+                "decriptionLocalized": {
+                    "en-US": "A map constant."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -5268,13 +5651,19 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose copy will be mapped.",
                 "type": "Array",
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array whose copy will be mapped."
+                }
             },
             {
                 "name": "CONDITION",
                 "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
-                "default": "COMPARE"
+                "default": "COMPARE",
+                "decriptionLocalized": {
+                    "en-US": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered."
+                }
             }
         ],
         "isConstant": true,
@@ -5366,7 +5755,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number."
+                }
             },
             {
                 "name": "VALUE",
@@ -5374,7 +5766,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number."
+                }
             }
         ],
         "isConstant": true,
@@ -5408,7 +5803,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose max ammo to acquire."
+                }
             },
             {
                 "name": "CLIP",
@@ -5416,7 +5814,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                }
             }
         ],
         "return": "unsigned float",
@@ -5450,7 +5851,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose max health to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -5484,13 +5888,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose max health to acquire."
+                }
             },
             {
                 "name": "HEALTH",
                 "description": "The type of max health to acquire.",
                 "type": "Health",
-                "default": "HEALTH"
+                "default": "HEALTH",
+                "decriptionLocalized": {
+                    "en-US": "The type of max health to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -5500,11 +5910,7 @@ var valueFuncKw =
         "fr-FR": "Points de vie maximum par type",
         "ja-JP": "タイプごとの最大ライフ",
         "pt-BR": "Vida Máxima do Tipo",
-        "zh-CN": "类型的最大生命值",
-        "descriptionLocalized": {
-            "en-US": "The max health of the specified player, filtered by the given health type.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "类型的最大生命值"
     },
     "min": {
         "guid": "00000000C416",
@@ -5516,7 +5922,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number."
+                }
             },
             {
                 "name": "VALUE",
@@ -5524,7 +5933,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number."
+                }
             }
         ],
         "isConstant": true,
@@ -5560,14 +5972,20 @@ var valueFuncKw =
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number."
+                }
             }
         ],
         "isConstant": true,
@@ -5604,7 +6022,10 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                }
             },
             {
                 "name": "VALUE",
@@ -5613,7 +6034,10 @@ var valueFuncKw =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                }
             }
         ],
         "isConstant": true,
@@ -5650,7 +6074,10 @@ var valueFuncKw =
                 "name": "POSITION",
                 "description": "The position from which to search for the nearest walkable position.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position from which to search for the nearest walkable position."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -5685,7 +6112,10 @@ var valueFuncKw =
                 "name": "VECTOR",
                 "description": "The vector to normalize.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector to normalize."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -5722,7 +6152,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false."
+                }
             }
         ],
         "isConstant": true,
@@ -5785,7 +6218,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to count players."
+                }
             }
         ],
         "return": "unsigned int",
@@ -5821,7 +6257,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose death count to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose death count to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -5857,7 +6296,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose elimination count to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose elimination count to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -5893,7 +6335,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose final blow count to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose final blow count to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -5929,13 +6374,19 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "The hero to check for play.",
                 "type": "Hero",
-                "default": "HERO"
+                "default": "HERO",
+                "decriptionLocalized": {
+                    "en-US": "The hero to check for play."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to check for the hero being played."
+                }
             }
         ],
         "return": "unsigned int",
@@ -5971,7 +6422,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to count players."
+                }
             }
         ],
         "return": "unsigned int",
@@ -6007,7 +6461,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to count players."
+                }
             }
         ],
         "return": "unsigned int",
@@ -6043,7 +6500,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to count players."
+                }
             }
         ],
         "return": "unsigned int",
@@ -6079,7 +6539,10 @@ var valueFuncKw =
                 "name": "Team",
                 "description": "The team or teams on which to count slots.",
                 "type": "Team",
-                "default": "Team"
+                "default": "Team",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to count slots."
+                }
             }
         ],
         "isConstant": true,
@@ -6118,11 +6581,7 @@ var valueFuncKw =
         "fr-FR": "Index de l’objectif",
         "ja-JP": "コントロール・モードのサブマップ番号",
         "pt-BR": "Índice do Objetivo",
-        "zh-CN": "对象索引",
-        "descriptionLocalized": {
-            "en-US": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, assault/escort, escort, and control.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "对象索引"
     },
     "getObjectivePosition": {
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
@@ -6133,7 +6592,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
+                }
             }
         ],
         "isConstant": true,
@@ -6144,11 +6606,7 @@ var valueFuncKw =
         "fr-FR": "Position de l’objectif",
         "ja-JP": "目標の位置",
         "pt-BR": "Posição do Objetivo",
-        "zh-CN": "目标位置",
-        "descriptionLocalized": {
-            "en-US": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, assault/escort, escort, and control.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "目标位置"
     },
     "getOppositeTeam": {
         "description": "The team opposite the specified team.",
@@ -6157,7 +6615,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose opposite to acquire. If all, the result will be all.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose opposite to acquire. If all, the result will be all."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6169,11 +6630,7 @@ var valueFuncKw =
         "fr-FR": "Équipe opposée à",
         "ja-JP": "相手チーム: ",
         "pt-BR": "Equipe Adversária de",
-        "zh-CN": "对方队伍",
-        "descriptionLocalized": {
-            "en-US": "The team opposite the specified team.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "对方队伍"
     },
     "__or__": {
         "guid": "00000000B274",
@@ -6183,13 +6640,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
+                }
             }
         ],
         "isConstant": true,
@@ -6278,7 +6741,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose flag to check.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose flag to check."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6313,13 +6779,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player from whose reticle to search for the closest player."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to search for the closest player.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to search for the closest player."
+                }
             }
         ],
         "return": "Player",
@@ -6353,19 +6825,28 @@ var valueFuncKw =
                 "name": "Player",
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
-                "default": "Event Player"
+                "default": "Event Player",
+                "decriptionLocalized": {
+                    "en-US": "The Player whose statistic to acquire."
+                }
             },
             {
                 "name": "Hero",
                 "description": "The hero whose statistic to acquire",
                 "type": "Hero",
-                "default": "Hero"
+                "default": "Hero",
+                "decriptionLocalized": {
+                    "en-US": "The hero whose statistic to acquire"
+                }
             },
             {
                 "name": "Stat",
                 "description": "The statistic to acquire.",
                 "type": "HeroStat",
-                "default": "All Damage Dealt"
+                "default": "All Damage Dealt",
+                "decriptionLocalized": {
+                    "en-US": "The statistic to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -6399,13 +6880,19 @@ var valueFuncKw =
                 "name": "Player",
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
-                "default": "Event Player"
+                "default": "Event Player",
+                "decriptionLocalized": {
+                    "en-US": "The Player whose statistic to acquire."
+                }
             },
             {
                 "name": "Statistic",
                 "description": "The statistic to acquire.",
                 "type": "Stat",
-                "default": "All Damage Dealt"
+                "default": "All Damage Dealt",
+                "decriptionLocalized": {
+                    "en-US": "The statistic to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -6439,13 +6926,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose variable value to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose variable value to acquire."
+                }
             },
             {
                 "name": "VARIABLE",
                 "description": "The variable whose value to acquire.",
                 "type": "PlayerVariable",
-                "default": "A"
+                "default": "A",
+                "decriptionLocalized": {
+                    "en-US": "The variable whose value to acquire."
+                }
             }
         ],
         "return": "Value",
@@ -6481,13 +6974,19 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams from which to acquire a player or players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams from which to acquire a player or players."
+                }
             }
         ],
         "return": [
@@ -6527,19 +7026,28 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose view to use for the check."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to consider players.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to consider players."
+                }
             },
             {
                 "name": "VIEW ANGLE",
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The view angle to compare against in degrees."
+                }
             }
         ],
         "return": {
@@ -6575,13 +7083,19 @@ var valueFuncKw =
                 "name": "HERO",
                 "description": "The hero to check for play.",
                 "type": "Hero",
-                "default": "HERO"
+                "default": "HERO",
+                "decriptionLocalized": {
+                    "en-US": "The hero to check for play."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams on which to check for the hero being played."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6618,25 +7132,37 @@ var valueFuncKw =
                 "name": "CENTER",
                 "description": "The center position from which to measure distance.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The center position from which to measure distance."
+                }
             },
             {
                 "name": "RADIUS",
                 "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
                 "type": "unsigned float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The radius in meters inside which players must be in order to be included in the resulting array."
+                }
             },
             {
                 "name": "TEAM",
                 "description": "The team or teams to which a player must belong to be included in the resulting array.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team or teams to which a player must belong to be included in the resulting array."
+                }
             },
             {
                 "name": "LOS CHECK",
                 "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
                 "type": "LosCheck",
-                "default": "OFF"
+                "default": "OFF",
+                "decriptionLocalized": {
+                    "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6700,7 +7226,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose position to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose position to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6736,13 +7265,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number."
+                }
             },
             {
                 "name": "VALUE",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number."
+                }
             }
         ],
         "isConstant": true,
@@ -6778,7 +7313,10 @@ var valueFuncKw =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
+                }
             },
             {
                 "name": "MAX",
@@ -6786,7 +7324,10 @@ var valueFuncKw =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
+                }
             }
         ],
         "return": "int",
@@ -6820,13 +7361,19 @@ var valueFuncKw =
                 "name": "MIN",
                 "description": "The smallest real number allowed.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The smallest real number allowed."
+                }
             },
             {
                 "name": "MAX",
                 "description": "The largest real number allowed.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The largest real number allowed."
+                }
             }
         ],
         "return": "float",
@@ -6860,7 +7407,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value."
+                }
             }
         ],
         "return": [
@@ -6897,7 +7447,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose copy will be randomized.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose copy will be randomized."
+                }
             }
         ],
         "return": "Array",
@@ -6931,13 +7484,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "PLAYERS TO INCLUDE",
@@ -6945,7 +7504,10 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "Which players can be hit by this ray cast."
+                }
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
@@ -6953,13 +7515,19 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                }
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -6994,13 +7562,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "PLAYERS TO INCLUDE",
@@ -7008,7 +7582,10 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "Which players can be hit by this ray cast."
+                }
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
@@ -7016,13 +7593,19 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                }
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -7057,13 +7640,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "END POS",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                }
             },
             {
                 "name": "PLAYERS TO INCLUDE",
@@ -7071,7 +7660,10 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "Which players can be hit by this ray cast."
+                }
             },
             {
                 "name": "PLAYERS TO EXCLUDE",
@@ -7079,13 +7671,19 @@ var valueFuncKw =
                 "type": {
                     "Array": "Player"
                 },
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                }
             },
             {
                 "name": "INCLUDE PLAYER OWNED OBJECTS",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": "TRUE",
+                "decriptionLocalized": {
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -7120,7 +7718,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array from which to remove values.",
                 "type": "Array",
-                "default": "ALL PLAYERS"
+                "default": "ALL PLAYERS",
+                "decriptionLocalized": {
+                    "en-US": "The array from which to remove values."
+                }
             },
             {
                 "name": "VALUE",
@@ -7130,7 +7731,10 @@ var valueFuncKw =
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed."
+                }
             }
         ],
         "isConstant": true,
@@ -7200,13 +7804,19 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The real number to round.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The real number to round."
+                }
             },
             {
                 "name": "ROUNDING TYPE",
                 "description": "Determines the direction in which the value will be rounded.",
                 "type": "__Rounding__",
-                "default": "UP"
+                "default": "UP",
+                "decriptionLocalized": {
+                    "en-US": "Determines the direction in which the value will be rounded."
+                }
             }
         ],
         "isConstant": true,
@@ -7241,7 +7851,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose score to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose score to acquire."
+                }
             }
         ],
         "return": "int",
@@ -7359,7 +7972,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in degrees."
+                }
             }
         ],
         "isConstant": true,
@@ -7394,7 +8010,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in radians.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in radians."
+                }
             }
         ],
         "isConstant": true,
@@ -7429,7 +8048,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose slot number to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose slot number to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -7465,13 +8087,19 @@ var valueFuncKw =
                 "type": {
                     "Array": "Object"
                 },
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose copy will be sorted."
+                }
             },
             {
                 "name": "VALUE RANK",
                 "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "Object",
-                "default": "CURRENT ARRAY ELEMENT"
+                "default": "CURRENT ARRAY ELEMENT",
+                "decriptionLocalized": {
+                    "en-US": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered."
+                }
             }
         ],
         "isConstant": true,
@@ -7508,7 +8136,10 @@ var valueFuncKw =
                 "name": "Team",
                 "description": "The team whose spawn points to acquire.",
                 "type": "Team",
-                "default": "Team"
+                "default": "Team",
+                "decriptionLocalized": {
+                    "en-US": "The team whose spawn points to acquire."
+                }
             }
         ],
         "return": {
@@ -7544,7 +8175,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose speed to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -7578,13 +8212,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose speed to acquire."
+                }
             },
             {
                 "name": "DIRECTION",
                 "description": "The direction of travel in which to measure the player's speed.",
                 "type": "Direction",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The direction of travel in which to measure the player's speed."
+                }
             }
         ],
         "return": "unsigned float",
@@ -7618,7 +8258,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The real number value whose square root will be computed. Negative values result in zero.",
                 "type": "unsigned float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The real number value whose square root will be computed. Negative values result in zero."
+                }
             }
         ],
         "isConstant": true,
@@ -7654,28 +8297,40 @@ var valueFuncKw =
                 "name": "STRING",
                 "description": "",
                 "type": "LocalizedStringLiteral",
-                "default": "HELLO"
+                "default": "HELLO",
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "{0}",
                 "description": "The value that will be converted to text and used to replace {0}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {0}."
+                }
             },
             {
                 "name": "{1}",
                 "description": "The value that will be converted to text and used to replace {1}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {1}."
+                }
             },
             {
                 "name": "{2}",
                 "description": "The value that will be converted to text and used to replace {2}.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "NULL"
+                "default": "NULL",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be converted to text and used to replace {2}."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -7709,13 +8364,19 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The string in which to search for the specified substring.",
                 "type": "String",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The string in which to search for the specified substring."
+                }
             },
             {
                 "name": "Substring",
                 "description": "The substring for which to search.",
                 "type": "String",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The substring for which to search."
+                }
             }
         ],
         "isConstant": true,
@@ -7726,11 +8387,7 @@ var valueFuncKw =
         "fr-FR": "Contenu de la chaîne",
         "ja-JP": "含む文字列",
         "pt-BR": "String Contém",
-        "zh-CN": "字符串包含",
-        "descriptionLocalized": {
-            "en-US": "Whether the specified string contains the specified substring.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "字符串包含"
     },
     "strLen": {
         "description": "The length in characters of the provided string.",
@@ -7739,7 +8396,10 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The string whose characters to count.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The string whose characters to count."
+                }
             }
         ],
         "isConstant": true,
@@ -7750,11 +8410,7 @@ var valueFuncKw =
         "fr-FR": "Longueur de la chaîne",
         "ja-JP": "文字列の長さ",
         "pt-BR": "Tamanho da String",
-        "zh-CN": "字符串长度",
-        "descriptionLocalized": {
-            "en-US": "The length in characters of the provided string.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "字符串长度"
     },
     "__substring__": {
         "description": "The substring of the provided string.",
@@ -7763,19 +8419,28 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The string value from which to build the substring.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The string value from which to build the substring."
+                }
             },
             {
                 "name": "Substring Start Index",
                 "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.)."
+                }
             },
             {
                 "name": "Substring Length",
                 "description": "Specifies the number of characters in the substring.",
                 "type": "unsigned int",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "Specifies the number of characters in the substring."
+                }
             }
         ],
         "isConstant": true,
@@ -7786,11 +8451,7 @@ var valueFuncKw =
         "fr-FR": "Section de la chaîne",
         "ja-JP": "文字列の切り取り",
         "pt-BR": "Fatia da String",
-        "zh-CN": "截取字符串",
-        "descriptionLocalized": {
-            "en-US": "The substring of the provided string.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "截取字符串"
     },
     "__subtract__": {
         "guid": "00000000C40A",
@@ -7805,7 +8466,10 @@ var valueFuncKw =
                 ],
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                }
             },
             {
                 "name": "VALUE",
@@ -7815,7 +8479,10 @@ var valueFuncKw =
                     "Vector"
                 ],
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                }
             }
         ],
         "isConstant": true,
@@ -7852,7 +8519,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in degrees.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in degrees."
+                }
             }
         ],
         "isConstant": true,
@@ -7887,7 +8557,10 @@ var valueFuncKw =
                 "name": "ANGLE",
                 "description": "Angle in radians.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "Angle in radians."
+                }
             }
         ],
         "isConstant": true,
@@ -7922,7 +8595,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose team to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose team to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -7958,7 +8634,10 @@ var valueFuncKw =
                 "name": "TEAM",
                 "description": "The team whose score to acquire.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "TEAM",
+                "decriptionLocalized": {
+                    "en-US": "The team whose score to acquire."
+                }
             }
         ],
         "return": "int",
@@ -7991,7 +8670,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose directional input to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose directional input to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -8079,7 +8761,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose ultimate charge percentage to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose ultimate charge percentage to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -8116,7 +8801,10 @@ var valueFuncKw =
                     "Object",
                     "Array"
                 ],
-                "default": "Position Of"
+                "default": "Position Of",
+                "decriptionLocalized": {
+                    "en-US": "The value that will be updated once per tick."
+                }
             }
         ],
         "isConstant": true,
@@ -8130,11 +8818,7 @@ var valueFuncKw =
         "fr-FR": "Actualiser à chaque image",
         "ja-JP": "フレームごとに更新",
         "pt-BR": "Atualizar a Cada Quadro",
-        "zh-CN": "逐帧更新",
-        "descriptionLocalized": {
-            "en-US": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "逐帧更新"
     },
     "Vector.UP": {
         "guid": "00000000B118",
@@ -8178,7 +8862,10 @@ var valueFuncKw =
                 "name": "ARRAY",
                 "description": "The array whose element to acquire.",
                 "type": "Array",
-                "default": "GLOBAL VARIABLE"
+                "default": "GLOBAL VARIABLE",
+                "decriptionLocalized": {
+                    "en-US": "The array whose element to acquire."
+                }
             },
             {
                 "name": "INDEX",
@@ -8186,7 +8873,10 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The index of the element to acquire."
+                }
             }
         ],
         "isConstant": true,
@@ -8227,7 +8917,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The x value of the vector."
+                }
             },
             {
                 "name": "Y",
@@ -8235,7 +8928,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The y value of the vector."
+                }
             },
             {
                 "name": "Z",
@@ -8243,7 +8939,10 @@ var valueFuncKw =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": "NUMBER",
+                "decriptionLocalized": {
+                    "en-US": "The z value of the vector."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -8277,13 +8976,19 @@ var valueFuncKw =
                 "name": "START POS",
                 "description": "The position from which the resulting displacement vector begins.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position from which the resulting displacement vector begins."
+                }
             },
             {
                 "name": "END POS",
                 "description": "The position at which the resulting displacement vector ends.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position at which the resulting displacement vector ends."
+                }
             }
         ],
         "isConstant": true,
@@ -8319,7 +9024,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose velocity to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose velocity to acquire."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -8354,7 +9062,10 @@ var valueFuncKw =
                 "name": "DIRECTION",
                 "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins."
+                }
             }
         ],
         "isConstant": true,
@@ -8389,13 +9100,19 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player from whose current facing the angle begins."
+                }
             },
             {
                 "name": "POSITION",
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The position in the world where the angle ends."
+                }
             }
         ],
         "return": "float",
@@ -8405,11 +9122,7 @@ var valueFuncKw =
         "fr-FR": "Angle vertical vers",
         "ja-JP": "頂角の方向: ",
         "pt-BR": "Ângulo Vertical Rumo a",
-        "zh-CN": "垂直方向夹角",
-        "descriptionLocalized": {
-            "en-US": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "垂直方向夹角"
     },
     "_&getVerticalFacingAngle": {
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
@@ -8418,7 +9131,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose vertical facing angle to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose vertical facing angle to acquire."
+                }
             }
         ],
         "return": "float",
@@ -8452,7 +9168,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose vertical speed to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose vertical speed to acquire."
+                }
             }
         ],
         "return": "unsigned float",
@@ -8514,7 +9233,10 @@ var valueFuncKw =
                 "name": "PLAYER",
                 "description": "The player whose weapon to acquire.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player whose weapon to acquire."
+                }
             }
         ],
         "return": "unsigned int",
@@ -8524,11 +9246,7 @@ var valueFuncKw =
         "fr-FR": "Arme",
         "ja-JP": "武器",
         "pt-BR": "Arma",
-        "zh-CN": "武器",
-        "descriptionLocalized": {
-            "en-US": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "武器"
     },
     "__workshopSettingCombo__": {
         "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
@@ -8537,19 +9255,28 @@ var valueFuncKw =
                 "name": "Category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The name of the category in which this setting will be found."
+                }
             },
             {
                 "name": "Name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The name of this setting."
+                }
             },
             {
                 "name": "Default",
                 "description": "The default value for this setting.",
                 "type": "UnsignedIntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The default value for this setting."
+                }
             },
             {
                 "name": "Options",
@@ -8557,13 +9284,19 @@ var valueFuncKw =
                 "type": {
                     "Array": "CustomStringLiteral"
                 },
-                "default": "Array"
+                "default": "Array",
+                "decriptionLocalized": {
+                    "en-US": "The options for this setting."
+                }
             },
             {
                 "name": "Sort Order",
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
+                }
             }
         ],
         "return": "unsigned int",
@@ -8597,25 +9330,37 @@ var valueFuncKw =
                 "name": "Category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The name of the category in which this setting will be found."
+                }
             },
             {
                 "name": "Name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "Custom String"
+                "default": "Custom String",
+                "decriptionLocalized": {
+                    "en-US": "The name of this setting."
+                }
             },
             {
                 "name": "Default",
                 "description": "The default value for this setting.",
                 "type": "HeroLiteral",
-                "default": "Ana"
+                "default": "Ana",
+                "decriptionLocalized": {
+                    "en-US": "The default value for this setting."
+                }
             },
             {
                 "name": "Sort Order",
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
+                }
             }
         ],
         "return": "Hero",
@@ -8625,11 +9370,7 @@ var valueFuncKw =
         "fr-FR": "Paramètre héros de la Forge",
         "ja-JP": "ワークショップ設定ヒーロー",
         "pt-BR": "Herói de Configuração do Workshop",
-        "zh-CN": "地图工坊设置英雄",
-        "descriptionLocalized": {
-            "en-US": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
-            "guid": "<unknown guid>"
-        }
+        "zh-CN": "地图工坊设置英雄"
     },
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
@@ -8638,37 +9379,55 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of the category in which this setting will be found."
+                }
             },
             {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of this setting."
+                }
             },
             {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "MIN",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "MAX",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 100
+                "default": 100,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "SORT ORDER",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             }
         ],
         "isConstant": true,
@@ -8703,37 +9462,55 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of the category in which this setting will be found."
+                }
             },
             {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of this setting."
+                }
             },
             {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "MIN",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "MAX",
                 "description": "",
                 "type": "FloatLiteral",
-                "default": 100
+                "default": 100,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "SORT ORDER",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             }
         ],
         "isConstant": true,
@@ -8768,25 +9545,37 @@ var valueFuncKw =
                 "name": "CATEGORY",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of the category in which this setting will be found."
+                }
             },
             {
                 "name": "NAME",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
+                "default": "CUSTOM STRING",
+                "decriptionLocalized": {
+                    "en-US": "The name of this setting."
+                }
             },
             {
                 "name": "DEFAULT",
                 "description": "",
                 "type": "BoolLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             },
             {
                 "name": "SORT ORDER",
                 "description": "",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": ""
+                }
             }
         ],
         "isConstant": true,
@@ -8821,19 +9610,28 @@ var valueFuncKw =
                 "name": "LOCAL VECTOR",
                 "description": "The vector in local coordinates that will be converted to world coordinates.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector in local coordinates that will be converted to world coordinates."
+                }
             },
             {
                 "name": "RELATIVE PLAYER",
                 "description": "The player to whom the local vector is relative.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
+                "default": "EVENT PLAYER",
+                "decriptionLocalized": {
+                    "en-US": "The player to whom the local vector is relative."
+                }
             },
             {
                 "name": "TRANSFORMATION",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
-                "default": "ROTATION"
+                "default": "ROTATION",
+                "decriptionLocalized": {
+                    "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
+                }
             }
         ],
         "canBePutInBoolean": false,
@@ -8868,7 +9666,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The vector from which to acquire the x component.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector from which to acquire the x component."
+                }
             }
         ],
         "isConstant": true,
@@ -8903,7 +9704,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The vector from which to acquire the y component.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector from which to acquire the y component."
+                }
             }
         ],
         "isConstant": true,
@@ -8938,7 +9742,10 @@ var valueFuncKw =
                 "name": "VALUE",
                 "description": "The vector from which to acquire the z component.",
                 "type": "Vector",
-                "default": "VECTOR"
+                "default": "VECTOR",
+                "decriptionLocalized": {
+                    "en-US": "The vector from which to acquire the z component."
+                }
             }
         ],
         "isConstant": true,
@@ -8970,81 +9777,49 @@ var valueFuncKw =
         "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
         "args": [],
         "en-US": "Damage Over Time Count",
-        "return": "unsigned int",
-        "descriptionLocalized": {
-            "en-US": "The current number of Damage Over Time instances started from the Damage Over Time action.",
-            "guid": "<unknown guid>"
-        }
+        "return": "unsigned int"
     },
     "getNumberOfHoTIds": {
         "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Heal Over Time Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Heal Over Time instances started from the Heal Over Time action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Heal Over Time Count"
     },
     "getNumberOfTextIds": {
         "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Text Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Text Count"
     },
     "getNumberOfDamageModificationIds": {
         "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Damage Modification Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Damage Modification Count"
     },
     "getNumberOfHealingModificationIds": {
         "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Healing Modification Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Healing Modification Count"
     },
     "getNumberOfAssistIds": {
         "description": "The current number of Assist instances started from the Start Assist Action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Assist Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Assist instances started from the Start Assist Action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Assist Count"
     },
     "getNumberOfEntityIds": {
         "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
         "args": [],
         "return": "unsigned int",
-        "en-US": "Entity Count",
-        "descriptionLocalized": {
-            "en-US": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Entity Count"
     },
     "localPlayer": {
         "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
         "args": null,
         "return": "Player",
-        "en-US": "Local Player",
-        "descriptionLocalized": {
-            "en-US": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Local Player"
     },
     "__strCharAt__": {
         "description": "The character found at a specified index of a String.",
@@ -9053,21 +9828,23 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The String value whose character to acquire.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String value whose character to acquire."
+                }
             },
             {
                 "name": "Index",
                 "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
-                "default": 0
+                "default": 0,
+                "decriptionLocalized": {
+                    "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.)."
+                }
             }
         ],
         "return": "String",
-        "en-US": "Char In String",
-        "descriptionLocalized": {
-            "en-US": "The character found at a specified index of a String.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Char In String"
     },
     "__strIndex__": {
         "description": "The index of a character within a String or -1 if no such character can be found.",
@@ -9076,21 +9853,23 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The String Value from which to search for the character.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String Value from which to search for the character."
+                }
             },
             {
                 "name": "Character",
                 "description": "The character for which to search",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The character for which to search"
+                }
             }
         ],
         "return": "int",
-        "en-US": "Index Of String Char",
-        "descriptionLocalized": {
-            "en-US": "The index of a character within a String or -1 if no such character can be found.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "Index Of String Char"
     },
     "__strSplit__": {
         "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
@@ -9099,23 +9878,25 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The String Value to split.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String Value to split."
+                }
             },
             {
                 "name": "Separator",
                 "description": "The separator String with which to split the String Value.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The separator String with which to split the String Value."
+                }
             }
         ],
         "return": {
             "Array": "String"
         },
-        "en-US": "String Split",
-        "descriptionLocalized": {
-            "en-US": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "String Split"
     },
     "__strReplace__": {
         "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
@@ -9124,27 +9905,32 @@ var valueFuncKw =
                 "name": "String",
                 "description": "The String Value with which to search for replacements.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String Value with which to search for replacements."
+                }
             },
             {
                 "name": "Pattern",
                 "description": "The String pattern to be replaced.",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String pattern to be replaced."
+                }
             },
             {
                 "name": "Replacement",
                 "description": "The String Value with which to replace the pattern String",
                 "type": "String",
-                "default": "Global Variable"
+                "default": "Global Variable",
+                "decriptionLocalized": {
+                    "en-US": "The String Value with which to replace the pattern String"
+                }
             }
         ],
         "return": "String",
-        "en-US": "String Replace",
-        "descriptionLocalized": {
-            "en-US": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
-            "guid": "<unknown guid>"
-        }
+        "en-US": "String Replace"
     }
 }
 //end-json

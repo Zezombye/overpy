@@ -260,8 +260,8 @@ a {
             }
 
             result = `
-alphabet = [${alphabet.map(x => JSON.stringify(x).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c"))}]
-data = ${JSON.stringify(strData).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u0008").replace(/\\f/g, "\\u000c")}
+alphabet = [${alphabet.map(x => JSON.stringify(x))}]
+data = ${JSON.stringify(strData)}
 `
 
             document.getElementById("output").value = result;
@@ -273,10 +273,6 @@ data = ${JSON.stringify(strData).replace(/\\t/g, "\\u0009").replace(/\\b/g, "\\u
         }
     }
 
-    function updateNbChars(textarea) {
-        document.getElementById("nbchars").innerText = getUtf8ByteLength(textarea.innerText.trim())+"/511 bytes";
-        document.getElementById("output").value = textarea.innerText.trim().replace(/ㆍ/g, "ㅤ").replace(/\n/g, "")
-    }
 </script>
 
 <h1>Zez's Compressed Pathmap generator</h1>

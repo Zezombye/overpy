@@ -3922,7 +3922,25 @@ const customGameSettingsSchema =
                     "ru-RU": "Зарядка суперспособности пассивная",
                     "zh-CN": "终极技能自动充能速度",
                     "zh-TW": "絕招自動蓄力速度"
-                }
+                },
+                "enableUlt": {
+                    "guid": "0000000058A9",
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "en-US": "Ultimate Ability",
+                    "de-DE": "Ultimative Fähigkeit",
+                    "es-ES": "Habilidad definitiva",
+                    "es-MX": "Habilidad máxima",
+                    "fr-FR": "Capacité ultime",
+                    "it-IT": "Abilità Ultra",
+                    "ja-JP": "アルティメット・アビリティ",
+                    "ko-KR": "궁극기",
+                    "pl-PL": "Superzdolność",
+                    "pt-BR": "Habilidade Suprema",
+                    "ru-RU": "Суперспособности",
+                    "zh-CN": "终极技能",
+                    "zh-TW": "絕招"
+                },
             },
             "__generalAndEachHero__": {
                 "enableMelee": {
@@ -3942,24 +3960,6 @@ const customGameSettingsSchema =
                     "ru-RU": "Быстрый удар",
                     "zh-CN": "近身攻击",
                     "zh-TW": "快速近戰攻擊"
-                },
-                "enableUlt": {
-                    "guid": "0000000058A9",
-                    "values": "__boolOnOff__",
-                    "default": "on",
-                    "en-US": "Ultimate Ability",
-                    "de-DE": "Ultimative Fähigkeit",
-                    "es-ES": "Habilidad definitiva",
-                    "es-MX": "Habilidad máxima",
-                    "fr-FR": "Capacité ultime",
-                    "it-IT": "Abilità Ultra",
-                    "ja-JP": "アルティメット・アビリティ",
-                    "ko-KR": "궁극기",
-                    "pl-PL": "Superzdolność",
-                    "pt-BR": "Habilidade Suprema",
-                    "ru-RU": "Суперспособности",
-                    "zh-CN": "终极技能",
-                    "zh-TW": "絕招"
                 },
                 "enableSpawningWithUlt": {
                     "values": "__boolOnOff__",
@@ -4524,6 +4524,24 @@ const customGameSettingsSchema =
                     "ru-RU": "Пассивная зарядка суперспособности %1$s",
                     "zh-CN": "终极技能自动充能速度 %1$s",
                     "zh-TW": "%1$s的絕招自動蓄力速度"
+                },
+                "enableUlt": {
+                    "guid": "000000005B85",
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "en-US": "Ultimate Ability",
+                    "de-DE": "Ultimative Fähigkeit",
+                    "es-ES": "Habilidad definitiva",
+                    "es-MX": "Habilidad máxima",
+                    "fr-FR": "Capacité ultime",
+                    "it-IT": "Abilità Ultra",
+                    "ja-JP": "アルティメット・アビリティ",
+                    "ko-KR": "궁극기",
+                    "pl-PL": "Superzdolność",
+                    "pt-BR": "Habilidade Suprema",
+                    "ru-RU": "Суперспособности",
+                    "zh-CN": "终极技能",
+                    "zh-TW": "絕招"
                 },
                 "enablePassive": {
                     "guid": "00000001005E",
