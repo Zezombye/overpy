@@ -27,7 +27,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ability to check."
+                    "guid": "0000000109BC",
+                    "en-US": "The Player whose ability to check.",
+                    "de-DE": "Der Spieler dessen Fähigkeit geprüft werden soll.",
+                    "es-ES": "Jugador cuya habilidad se comprueba.",
+                    "es-MX": "El jugador cuya habilidad se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la capacité.",
+                    "it-IT": "Il Giocatore la cui abilità sarà controllata.",
+                    "ja-JP": "アビリティをチェックするプレイヤー",
+                    "ko-KR": "기술을 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdolność zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cuja Habilidade será verificada.",
+                    "ru-RU": "Игрок к способности которого применяется проверка.",
+                    "zh-CN": "检测此玩家的技能状态。"
                 }
             },
             {
@@ -36,7 +48,19 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "BUTTON",
                 "descriptionLocalized": {
-                    "en-US": "The ability to check associated by button."
+                    "guid": "0000000109BD",
+                    "en-US": "The ability to check associated by button.",
+                    "de-DE": "Die per Taste zugeordnete zu prüfende Fähigkeit.",
+                    "es-ES": "Habilidad que se comprueba asociada por botón.",
+                    "es-MX": "La habilidad que se verificará asociada por botón",
+                    "fr-FR": "La capacité à vérifier associée à un bouton.",
+                    "it-IT": "L'abilità da controllare associata al tasto.",
+                    "ja-JP": "チェックするボタンに割り当てられたアビリティ",
+                    "ko-KR": "버튼으로 확인할 기술입니다.",
+                    "pl-PL": "Zdolność która zostanie sprawdzona; powiązana z przyciskiem.",
+                    "pt-BR": "A habilidade a ser verificada associada por botão.",
+                    "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
+                    "zh-CN": "检测此按键对应的技能状态。"
                 }
             }
         ],
@@ -73,7 +97,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ability to check."
+                    "guid": "0000000109BC",
+                    "en-US": "The Player whose ability to check.",
+                    "de-DE": "Der Spieler dessen Fähigkeit geprüft werden soll.",
+                    "es-ES": "Jugador cuya habilidad se comprueba.",
+                    "es-MX": "El jugador cuya habilidad se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la capacité.",
+                    "it-IT": "Il Giocatore la cui abilità sarà controllata.",
+                    "ja-JP": "アビリティをチェックするプレイヤー",
+                    "ko-KR": "기술을 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdolność zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cuja Habilidade será verificada.",
+                    "ru-RU": "Игрок к способности которого применяется проверка.",
+                    "zh-CN": "检测此玩家的技能状态。"
                 }
             },
             {
@@ -82,7 +118,19 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "BUTTON",
                 "descriptionLocalized": {
-                    "en-US": "The ability to check associated by button."
+                    "guid": "0000000109BD",
+                    "en-US": "The ability to check associated by button.",
+                    "de-DE": "Die per Taste zugeordnete zu prüfende Fähigkeit.",
+                    "es-ES": "Habilidad que se comprueba asociada por botón.",
+                    "es-MX": "La habilidad que se verificará asociada por botón",
+                    "fr-FR": "La capacité à vérifier associée à un bouton.",
+                    "it-IT": "L'abilità da controllare associata al tasto.",
+                    "ja-JP": "チェックするボタンに割り当てられたアビリティ",
+                    "ko-KR": "버튼으로 확인할 기술입니다.",
+                    "pl-PL": "Zdolność która zostanie sprawdzona; powiązana z przyciskiem.",
+                    "pt-BR": "A habilidade a ser verificada associada por botão.",
+                    "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
+                    "zh-CN": "检测此按键对应的技能状态。"
                 }
             }
         ],
@@ -119,7 +167,19 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero for the ability that will be converted to an icon."
+                    "guid": "000000010B54",
+                    "en-US": "The hero for the ability that will be converted to an icon.",
+                    "de-DE": "Der Held für die Fähigkeit die in ein Icon umgewandelt wird.",
+                    "es-ES": "Héroe de la habilidad que se convertirá en un icono.",
+                    "es-MX": "El héroe de la habilidad que se convertirá en un ícono.",
+                    "fr-FR": "Le héros pour la capacité qui sera convertie en icône.",
+                    "it-IT": "L'eroe per l'abilità che sarà convertito in icona.",
+                    "ja-JP": "アイコンに変換されるアビリティのヒーロー",
+                    "ko-KR": "아이콘으로 변환될 기술의 영웅입니다.",
+                    "pl-PL": "Bohater dla danej zdolności który zostanie przekonwertowany na symbol.",
+                    "pt-BR": "O herói da habilidade que será convertido em ícone.",
+                    "ru-RU": "Герой связанный со способностью которая будет преобразована в значок.",
+                    "zh-CN": "将这个英雄的技能转化为图标。"
                 }
             },
             {
@@ -128,7 +188,8 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "Button",
                 "descriptionLocalized": {
-                    "en-US": "The button for the ability that will be converted to an icon."
+                    "en-US": "The button for the ability that will be converted to an icon.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -167,7 +228,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ability to check."
+                    "guid": "0000000109BC",
+                    "en-US": "The Player whose ability to check.",
+                    "de-DE": "Der Spieler dessen Fähigkeit geprüft werden soll.",
+                    "es-ES": "Jugador cuya habilidad se comprueba.",
+                    "es-MX": "El jugador cuya habilidad se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la capacité.",
+                    "it-IT": "Il Giocatore la cui abilità sarà controllata.",
+                    "ja-JP": "アビリティをチェックするプレイヤー",
+                    "ko-KR": "기술을 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdolność zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cuja Habilidade será verificada.",
+                    "ru-RU": "Игрок к способности которого применяется проверка.",
+                    "zh-CN": "检测此玩家的技能状态。"
                 }
             },
             {
@@ -176,7 +249,19 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "BUTTON",
                 "descriptionLocalized": {
-                    "en-US": "The ability to check associated by button."
+                    "guid": "0000000109BD",
+                    "en-US": "The ability to check associated by button.",
+                    "de-DE": "Die per Taste zugeordnete zu prüfende Fähigkeit.",
+                    "es-ES": "Habilidad que se comprueba asociada por botón.",
+                    "es-MX": "La habilidad que se verificará asociada por botón",
+                    "fr-FR": "La capacité à vérifier associée à un bouton.",
+                    "it-IT": "L'abilità da controllare associata al tasto.",
+                    "ja-JP": "チェックするボタンに割り当てられたアビリティ",
+                    "ko-KR": "버튼으로 확인할 기술입니다.",
+                    "pl-PL": "Zdolność która zostanie sprawdzona; powiązana z przyciskiem.",
+                    "pt-BR": "A habilidade a ser verificada associada por botão.",
+                    "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
+                    "zh-CN": "检测此按键对应的技能状态。"
                 }
             }
         ],
@@ -213,7 +298,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The real number value whose absolute value will be computed."
+                    "guid": "00000000C35F",
+                    "en-US": "The real number Value whose absolute value will be computed.",
+                    "de-DE": "Die reelle Zahl deren Absolutbetrag berechnet wird.",
+                    "es-ES": "Valor de número real cuyo valor absoluto se computará.",
+                    "es-MX": "El valor del número real cuyo valor absoluto se calculará.",
+                    "fr-FR": "La valeur en nombre réel dont la valeur absolue sera calculée",
+                    "it-IT": "Il numero reale di cui verrà calcolato il valore assoluto.",
+                    "ja-JP": "実数値で、この絶対値が計算される",
+                    "ko-KR": "절대값을 계산할 실수값입니다.",
+                    "pl-PL": "Wartość z liczbą rzeczywistą której absolutna wartość zostanie obliczona.",
+                    "pt-BR": "O Valor em número real cujo valor absoluto será calculado.",
+                    "ru-RU": "Действительное число абсолютная величина которого вычисляется.",
+                    "zh-CN": "计算此实数值的绝对值。"
                 }
             }
         ],
@@ -256,7 +353,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C405",
+                    "en-US": "The left-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "左側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
                 }
             },
             {
@@ -269,7 +378,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C407",
+                    "en-US": "The right-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "右側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
                 }
             }
         ],
@@ -309,7 +430,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which players may come."
+                    "guid": "00000000BE63",
+                    "en-US": "The Team or Teams from which Players may come.",
+                    "de-DE": "Das Team oder die Teams aus denen Spieler stammen können.",
+                    "es-ES": "Equipo o equipos de los que pueden proceder los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde pueden provenir los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles peuvent appartenir les joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali potrebbero provenire i Giocatori.",
+                    "ja-JP": "プレイヤーが所属するチーム",
+                    "ko-KR": "플레이어가 속한 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których pochodzić mogą gracze.",
+                    "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
+                    "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
+                    "zh-CN": "玩家所在的队伍。"
                 }
             }
         ],
@@ -382,7 +515,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which players may come."
+                    "guid": "00000000BE63",
+                    "en-US": "The Team or Teams from which Players may come.",
+                    "de-DE": "Das Team oder die Teams aus denen Spieler stammen können.",
+                    "es-ES": "Equipo o equipos de los que pueden proceder los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde pueden provenir los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles peuvent appartenir les joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali potrebbero provenire i Giocatori.",
+                    "ja-JP": "プレイヤーが所属するチーム",
+                    "ko-KR": "플레이어가 속한 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których pochodzić mogą gracze.",
+                    "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
+                    "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
+                    "zh-CN": "玩家所在的队伍。"
                 }
             }
         ],
@@ -422,7 +567,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which players may come."
+                    "guid": "00000000BE63",
+                    "en-US": "The Team or Teams from which Players may come.",
+                    "de-DE": "Das Team oder die Teams aus denen Spieler stammen können.",
+                    "es-ES": "Equipo o equipos de los que pueden proceder los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde pueden provenir los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles peuvent appartenir les joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali potrebbero provenire i Giocatori.",
+                    "ja-JP": "プレイヤーが所属するチーム",
+                    "ko-KR": "플레이어가 속한 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których pochodzić mogą gracze.",
+                    "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
+                    "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
+                    "zh-CN": "玩家所在的队伍。"
                 }
             }
         ],
@@ -462,7 +619,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which players may come."
+                    "guid": "00000000BE63",
+                    "en-US": "The Team or Teams from which Players may come.",
+                    "de-DE": "Das Team oder die Teams aus denen Spieler stammen können.",
+                    "es-ES": "Equipo o equipos de los que pueden proceder los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde pueden provenir los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles peuvent appartenir les joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali potrebbero provenire i Giocatori.",
+                    "ja-JP": "プレイヤーが所属するチーム",
+                    "ko-KR": "플레이어가 속한 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których pochodzić mogą gracze.",
+                    "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
+                    "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
+                    "zh-CN": "玩家所在的队伍。"
                 }
             }
         ],
@@ -502,7 +671,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which players may come."
+                    "guid": "00000000BE63",
+                    "en-US": "The Team or Teams from which Players may come.",
+                    "de-DE": "Das Team oder die Teams aus denen Spieler stammen können.",
+                    "es-ES": "Equipo o equipos de los que pueden proceder los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde pueden provenir los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles peuvent appartenir les joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali potrebbero provenire i Giocatori.",
+                    "ja-JP": "プレイヤーが所属するチーム",
+                    "ko-KR": "플레이어가 속한 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których pochodzić mogą gracze.",
+                    "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
+                    "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
+                    "zh-CN": "玩家所在的队伍。"
                 }
             }
         ],
@@ -542,7 +723,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose allowed heroes to acquire."
+                    "guid": "00000000BF4F",
+                    "en-US": "The Player whose allowed Heroes to acquire.",
+                    "de-DE": "Der Spieler dessen erlaubte Helden abgerufen werden sollen.",
+                    "es-ES": "Jugador cuyos héroes permitidos se adquieren.",
+                    "es-MX": "El jugador cuyos héroes permitidos se adquirirán.",
+                    "fr-FR": "Le joueur dont il faut acquérir les héros autorisés.",
+                    "it-IT": "Il Giocatore i cui Eroi permessi saranno acquisiti.",
+                    "ja-JP": "選択可能ヒーローを取得するプレイヤー",
+                    "ko-KR": "이 플레이어가 선택할 수 있는 영웅 목록을 가져옵니다.",
+                    "pl-PL": "Gracz którego dozwolonych bohaterów należy pozyskać.",
+                    "pt-BR": "O Jogador cujos Heróis permitidos serão adquiridos.",
+                    "ru-RU": "Игрок список открытых героев которого нужно получить.",
+                    "zh-CN": "获取此玩家可用的英雄。"
                 }
             }
         ],
@@ -616,7 +809,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose altitude to acquire."
+                    "guid": "00000000BE25",
+                    "en-US": "The Player whose altitude to acquire.",
+                    "de-DE": "Der Spieler dessen Höhe abgerufen werden soll.",
+                    "es-ES": "Jugador cuya altitud se adquiere.",
+                    "es-MX": "El jugador cuya altura se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’altitude.",
+                    "it-IT": "Il Giocatore la cui altitudine sarà acquisita.",
+                    "ja-JP": "高度を取得するプレイヤー",
+                    "ko-KR": "고도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego wysokość należy pozyskać.",
+                    "pt-BR": "O Jogador cuja altitude será adquirida.",
+                    "ru-RU": "Игрок высоту нахождения которого нужно определить.",
+                    "zh-CN": "获取此玩家的高度。"
                 }
             }
         ],
@@ -653,7 +858,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ammo to acquire."
+                    "guid": "0000000110ED",
+                    "en-US": "The Player whose ammo to acquire.",
+                    "de-DE": "Der Spieler dessen Munition abgerufen werden soll.",
+                    "es-ES": "Jugador cuya munición se adquiere.",
+                    "es-MX": "El jugador cuya munición se adquirirá.",
+                    "fr-FR": "Le joueur dont les munitions seront appelées.",
+                    "it-IT": "Il Giocatore le cui munizioni saranno acquisite.",
+                    "ja-JP": "弾薬数を取得するプレイヤー",
+                    "ko-KR": "탄약 수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego amunicję należy pozyskać.",
+                    "pt-BR": "O Jogador cuja munição será adquirida.",
+                    "ru-RU": "Игрок у которого нужно определить количество боеприпасов.",
+                    "zh-CN": "获取此玩家的弹药数量。"
                 }
             },
             {
@@ -664,7 +881,8 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -702,7 +920,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
+                    "guid": "00000000BE9D",
+                    "en-US": "One of the two Inputs considered. If both are True or equivalent to True then the And Value is True.",
+                    "de-DE": "Eine der zwei berücksichtigten Eingaben. Wenn beide True oder mit True gleichwertig sind ist der Wert [And] True.",
+                    "es-ES": "Una de las dos entradas consideradas. Si las dos son «True» o equivalentes a «True» entonces el valor de «And» es «True».",
+                    "es-MX": "Una de las dos entradas consideradas. Si ambas son verdaderas o equivalentes a verdaderas el valor conjuntivo será verdadero.",
+                    "fr-FR": "Une des deux entrées prises en compte. Si les deux sont vraies ou équivalent alors la valeur « Et » est vraie.",
+                    "it-IT": "Uno dei due Input considerati. Se entrambi corrispondono a True o sono equivalenti a True il Valore And sarà True.",
+                    "ja-JP": "検討される2つの入力のうちいずれか。両方が「TRUE」（または「TRUE」と同等）である場合、「AND」の値は「TRUE」を返す",
+                    "ko-KR": "두 입력 정보를 확인하여 둘 다 True또는 그에 상응하는 경우인 경우 And 값은 True입니다.",
+                    "pl-PL": "Jedne z dwóch uwzględnionych danych wejściowych. Jeśli obie są prawdą lub jej odpowiednikiem wtedy „And Value” „I wartość” jest prawdą.",
+                    "pt-BR": "Uma das duas Entradas consideradas. Se ambas forem Verdadeiras ou equivalentes a Verdadeiras então o Valor de E será Verdadeiro.",
+                    "ru-RU": "Один из двух рассматриваемых аргументов. Если оба из них верны True или эквивалент True то результат [And] тоже верен.",
+                    "zh-CN": "考察的两个输入值中的一个。如果两个值均为“真”（或等效于“真”），则“与”的值为“真”。"
                 }
             },
             {
@@ -711,7 +941,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true."
+                    "guid": "00000000BE9E",
+                    "en-US": "One of the two Inputs considered. If both are True or equivalent to True then the And Value is True.",
+                    "de-DE": "Eine der zwei berücksichtigten Eingaben. Wenn beide True oder mit True gleichwertig sind ist der Wert [And] True.",
+                    "es-ES": "Una de las dos entradas consideradas. Si las dos son «True» o equivalentes a «True» entonces el valor de «And» es «True».",
+                    "es-MX": "Una de las dos entradas consideradas. Si ambas son verdaderas o equivalentes a verdaderas el valor conjuntivo será verdadero.",
+                    "fr-FR": "Une des deux entrées prises en compte. Si les deux sont vraies ou équivalent alors la valeur « Et » est vraie.",
+                    "it-IT": "Uno dei due Input considerati. Se entrambi corrispondono a True o sono equivalenti a True il Valore And sarà True.",
+                    "ja-JP": "検討される2つの入力のうちいずれか。両方が「TRUE」（または「TRUE」と同等）である場合、「AND」の値は「TRUE」を返す",
+                    "ko-KR": "두 입력 정보를 확인하여 둘 다 True또는 그에 상응하는 경우인 경우 And 값은 True입니다.",
+                    "pl-PL": "Jedne z dwóch uwzględnionych danych wejściowych. Jeśli oba są prawdą lub jej odpowiednikiem wtedy „And Value” „I wartość” jest prawdą.",
+                    "pt-BR": "Uma das duas Entradas consideradas. Se ambas forem Verdadeiras ou equivalentes a Verdadeiras então o Valor de E será Verdadeiro.",
+                    "ru-RU": "Один из двух рассматриваемых аргументов. Если оба из них верны True или эквивалент True то результат [And] тоже верен.",
+                    "zh-CN": "考察的两个输入值中的一个。如果两个值均为“真”（或等效于“真”），则“与”的值为“真”。"
                 }
             }
         ],
@@ -749,7 +991,19 @@ var valueFuncKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
+                    "guid": "00000000C816",
+                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                    "de-DE": "Einer der beiden Richtungsvektoren zwischen denen der Winkel in Grad gemessen werden soll. Dieser Vektor muss nicht vorher normiert werden.",
+                    "es-ES": "Uno de los dos vectores direccionales entre los que medir el ángulo en grados. Este vector no necesita una normalización previa.",
+                    "es-MX": "Uno de dos vectores direccionales entre los cuales se medirá el ángulo en grados. Este vector no necesita estar prenormalizado.",
+                    "fr-FR": "L’un des deux vecteurs directionnels entre lesquels l’angle est calculé en degrés. Ce vecteur n’a pas besoin d’être normalisé au préalable.",
+                    "it-IT": "Uno dei due vettori direzionali tra i quali misurare l'angolo in gradi. Questo vettore non richiede di essere pre-normalizzato.",
+                    "ja-JP": "度単位の角度を計算するための2つの方向ベクトルの1つこのベクトルのあらかじめの正規化は不要",
+                    "ko-KR": "사이의 각단위: 도을 측정하기 위한 두 방향 벡터 중 하나입니다. 이 벡터를 미리 정규화할 필요는 없습니다.",
+                    "pl-PL": "Jeden lub dwa wektory kierunkowe tworzące kąt mierzony w stopniach. Ten wektor nie musi być wstępnie znormalizowany.",
+                    "pt-BR": "Um dos dois vetores direcionais entre os quais o ângulo em graus será medido. Este vetor não precisa ser normalizado previamente.",
+                    "ru-RU": "Один из двух векторов направления между которыми нужно измерить угол в градусах. Нормализовать вектор не требуется.",
+                    "zh-CN": "需以角度为单位测量夹角的两个方向性矢量之一。该矢量不需要预先归一化。"
                 }
             },
             {
@@ -758,7 +1012,19 @@ var valueFuncKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized."
+                    "guid": "00000000C816",
+                    "en-US": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
+                    "de-DE": "Einer der beiden Richtungsvektoren zwischen denen der Winkel in Grad gemessen werden soll. Dieser Vektor muss nicht vorher normiert werden.",
+                    "es-ES": "Uno de los dos vectores direccionales entre los que medir el ángulo en grados. Este vector no necesita una normalización previa.",
+                    "es-MX": "Uno de dos vectores direccionales entre los cuales se medirá el ángulo en grados. Este vector no necesita estar prenormalizado.",
+                    "fr-FR": "L’un des deux vecteurs directionnels entre lesquels l’angle est calculé en degrés. Ce vecteur n’a pas besoin d’être normalisé au préalable.",
+                    "it-IT": "Uno dei due vettori direzionali tra i quali misurare l'angolo in gradi. Questo vettore non richiede di essere pre-normalizzato.",
+                    "ja-JP": "度単位の角度を計算するための2つの方向ベクトルの1つこのベクトルのあらかじめの正規化は不要",
+                    "ko-KR": "사이의 각단위: 도을 측정하기 위한 두 방향 벡터 중 하나입니다. 이 벡터를 미리 정규화할 필요는 없습니다.",
+                    "pl-PL": "Jeden lub dwa wektory kierunkowe tworzące kąt mierzony w stopniach. Ten wektor nie musi być wstępnie znormalizowany.",
+                    "pt-BR": "Um dos dois vetores direcionais entre os quais o ângulo em graus será medido. Este vetor não precisa ser normalizado previamente.",
+                    "ru-RU": "Один из двух векторов направления между которыми нужно измерить угол в градусах. Нормализовать вектор не требуется.",
+                    "zh-CN": "需以角度为单位测量夹角的两个方向性矢量之一。该矢量不需要预先归一化。"
                 }
             }
         ],
@@ -796,7 +1062,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "One of the two angles between which to measure the resulting angle."
+                    "guid": "00000000BEBB",
+                    "en-US": "One of the two angles between which to measure the resulting angle.",
+                    "de-DE": "Einer der beiden Winkel zwischen denen der resultierende Winkel gemessen werden soll.",
+                    "es-ES": "Uno de los dos ángulos entre los que se mide el ángulo resultante.",
+                    "es-MX": "Uno de los dos ángulos entre los cuales se medirá el ángulo resultante.",
+                    "fr-FR": "Un des deux angles entre lesquels mesurer l’angle résultant.",
+                    "it-IT": "Uno dei due angoli tra i quali misurare l'angolo risultante.",
+                    "ja-JP": "結果として生じる角度を計算するための2つの角度の1つ",
+                    "ko-KR": "결과각을 도출하기 위한 두 각 중 하나입니다.",
+                    "pl-PL": "Jeden z dwóch kątów między którymi mierzy się kąt wynikowy.",
+                    "pt-BR": "Um dos dois ângulos entre os quais o ângulo resultante será medido.",
+                    "ru-RU": "Один из двух углов между которыми измеряется результирующий угол.",
+                    "zh-CN": "用于计算结果角度的两个角度之一。"
                 }
             },
             {
@@ -805,7 +1083,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "One of the two angles between which to measure the resulting angle."
+                    "guid": "00000000BEBB",
+                    "en-US": "One of the two angles between which to measure the resulting angle.",
+                    "de-DE": "Einer der beiden Winkel zwischen denen der resultierende Winkel gemessen werden soll.",
+                    "es-ES": "Uno de los dos ángulos entre los que se mide el ángulo resultante.",
+                    "es-MX": "Uno de los dos ángulos entre los cuales se medirá el ángulo resultante.",
+                    "fr-FR": "Un des deux angles entre lesquels mesurer l’angle résultant.",
+                    "it-IT": "Uno dei due angoli tra i quali misurare l'angolo risultante.",
+                    "ja-JP": "結果として生じる角度を計算するための2つの角度の1つ",
+                    "ko-KR": "결과각을 도출하기 위한 두 각 중 하나입니다.",
+                    "pl-PL": "Jeden z dwóch kątów między którymi mierzy się kąt wynikowy.",
+                    "pt-BR": "Um dos dois ângulos entre os quais o ângulo resultante será medido.",
+                    "ru-RU": "Один из двух углов между которыми измеряется результирующий угол.",
+                    "zh-CN": "用于计算结果角度的两个角度之一。"
                 }
             }
         ],
@@ -844,7 +1134,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array to which to append."
+                    "guid": "00000000C41E",
+                    "en-US": "The array to which to append.",
+                    "de-DE": "Das Array das ergänzt werden soll.",
+                    "es-ES": "Matriz a la que se agrega.",
+                    "es-MX": "La matriz a la cual se anexará.",
+                    "fr-FR": "Le tableau qui reçoit l’ajout.",
+                    "it-IT": "L'array al quale aggiungere Valori.",
+                    "ja-JP": "追加先の配列",
+                    "ko-KR": "덧붙일 대상 배열입니다.",
+                    "pl-PL": "Tabela do której należy dołączyć.",
+                    "pt-BR": "A matriz a ser juntada.",
+                    "ru-RU": "Массив который нужно дополнить.",
+                    "zh-CN": "要添加至数组的值。"
                 }
             },
             {
@@ -859,7 +1161,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value to append to the end of the array. If this value is itself an array, each element is appended."
+                    "guid": "00000000C41C",
+                    "en-US": "The Value to append to the end of the array. If this Value is itself an array each element is appended.",
+                    "de-DE": "Der am Ende des festgelegten Arrays anzuhängende Wert. Ist dieser Wert selbst ein Array wird jedes seiner Elemente angehängt.",
+                    "es-ES": "Valor que se agrega al final de la matriz. Si el propio valor es una matriz se agrega cada elemento.",
+                    "es-MX": "El valor que se anexará al final de la matriz. Si este valor es una matriz propia se anexarán todos los elementos.",
+                    "fr-FR": "La valeur à ajouter à la fin du tableau. Si cette valeur est elle-même un tableau chacun de ses éléments est ajouté.",
+                    "it-IT": "Il Valore da aggiungere alla fine dell'array. Se il Valore è esso stesso un array ogni suo elemento sarà aggiunto.",
+                    "ja-JP": "配列の最後に追加する値。値自体が配列である場合、マッチする各要素が追加される",
+                    "ko-KR": "배열 후미에 덧붙일 값입니다. 이 값 자체가 배열인 경우 각 요소를 덧붙입니다.",
+                    "pl-PL": "Wartość do dołączenia do końca tabeli. Jeśli wartością jest sama tabela dołączony zostaje każdy element.",
+                    "pt-BR": "O Valor a ser juntado ao final da matriz. Se este Valor for uma matriz cada elemento dela será juntado.",
+                    "ru-RU": "Значение добавляемое в конец массива. Если это значение представляет собой массив то из него берутся все элементы.",
+                    "zh-CN": "加入数列尾端的值。如果值本身是一个数列，则添加其中的每一个元素。"
                 }
             }
         ],
@@ -896,7 +1210,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Input value for the function."
+                    "guid": "00000000C810",
+                    "en-US": "Input value for the function.",
+                    "de-DE": "Eingabe des Werts der Funktion.",
+                    "es-ES": "Valor introducido para la función.",
+                    "es-MX": "Valor de entrada para la función.",
+                    "fr-FR": "Valeur d'entrée de la fonction.",
+                    "it-IT": "Input valore per la funzione.",
+                    "ja-JP": "値の入力が必要です",
+                    "ko-KR": "함수의 입력값입니다.",
+                    "pl-PL": "Wartość danych wejściowych dla funkcji.",
+                    "pt-BR": "Valor de entrada da função.",
+                    "ru-RU": "Аргумент функции.",
+                    "zh-CN": "为函数输入值。"
                 }
             }
         ],
@@ -934,7 +1260,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Input value for the function."
+                    "guid": "00000000C810",
+                    "en-US": "Input value for the function.",
+                    "de-DE": "Eingabe des Werts der Funktion.",
+                    "es-ES": "Valor introducido para la función.",
+                    "es-MX": "Valor de entrada para la función.",
+                    "fr-FR": "Valeur d'entrée de la fonction.",
+                    "it-IT": "Input valore per la funzione.",
+                    "ja-JP": "値の入力が必要です",
+                    "ko-KR": "함수의 입력값입니다.",
+                    "pl-PL": "Wartość danych wejściowych dla funkcji.",
+                    "pt-BR": "Valor de entrada da função.",
+                    "ru-RU": "Аргумент функции.",
+                    "zh-CN": "为函数输入值。"
                 }
             }
         ],
@@ -972,7 +1310,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Input value for the function."
+                    "guid": "00000000C810",
+                    "en-US": "Input value for the function.",
+                    "de-DE": "Eingabe des Werts der Funktion.",
+                    "es-ES": "Valor introducido para la función.",
+                    "es-MX": "Valor de entrada para la función.",
+                    "fr-FR": "Valeur d'entrée de la fonction.",
+                    "it-IT": "Input valore per la funzione.",
+                    "ja-JP": "値の入力が必要です",
+                    "ko-KR": "함수의 입력값입니다.",
+                    "pl-PL": "Wartość danych wejściowych dla funkcji.",
+                    "pt-BR": "Valor de entrada da função.",
+                    "ru-RU": "Аргумент функции.",
+                    "zh-CN": "为函数输入值。"
                 }
             }
         ],
@@ -1010,7 +1360,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Input value for the function."
+                    "guid": "00000000C810",
+                    "en-US": "Input value for the function.",
+                    "de-DE": "Eingabe des Werts der Funktion.",
+                    "es-ES": "Valor introducido para la función.",
+                    "es-MX": "Valor de entrada para la función.",
+                    "fr-FR": "Valeur d'entrée de la fonction.",
+                    "it-IT": "Input valore per la funzione.",
+                    "ja-JP": "値の入力が必要です",
+                    "ko-KR": "함수의 입력값입니다.",
+                    "pl-PL": "Wartość danych wejściowych dla funkcji.",
+                    "pt-BR": "Valor de entrada da função.",
+                    "ru-RU": "Аргумент функции.",
+                    "zh-CN": "为函数输入值。"
                 }
             }
         ],
@@ -1048,7 +1410,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Numerator input for the function."
+                    "guid": "00000000C811",
+                    "en-US": "Numerator input for the function.",
+                    "de-DE": "Eingabe des Dividenden der Funktion.",
+                    "es-ES": "Numerador introducido para la función.",
+                    "es-MX": "Entrada de numerador para la función.",
+                    "fr-FR": "Numérateur de la fonction.",
+                    "it-IT": "Input numeratore per la funzione.",
+                    "ja-JP": "分子の入力が必要です",
+                    "ko-KR": "함수의 분자 입력 정보입니다.",
+                    "pl-PL": "Dane wejściowe licznika dla funkcji.",
+                    "pt-BR": "Entrada com o numerador da função.",
+                    "ru-RU": "Аргумент числителя функции.",
+                    "zh-CN": "为函数输入分子。"
                 }
             },
             {
@@ -1057,7 +1431,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Denominator input for the function."
+                    "guid": "00000000C812",
+                    "en-US": "Denominator input for the function.",
+                    "de-DE": "Eingabe des Divisors der Funktion.",
+                    "es-ES": "Denominador introducido para la función.",
+                    "es-MX": "Entrada de denominador para la función.",
+                    "fr-FR": "Dénominateur de la fonction.",
+                    "it-IT": "Input denominatore per la funzione.",
+                    "ja-JP": "分母の入力が必要です",
+                    "ko-KR": "함수의 분모 입력 정보입니다.",
+                    "pl-PL": "Dane wejściowe mianownika dla funkcji.",
+                    "pt-BR": "Entrada com o denominador da função.",
+                    "ru-RU": "Аргумент знаменателя функции.",
+                    "zh-CN": "为函数输入分母。"
                 }
             }
         ],
@@ -1095,7 +1481,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Numerator input for the function."
+                    "guid": "00000000C811",
+                    "en-US": "Numerator input for the function.",
+                    "de-DE": "Eingabe des Dividenden der Funktion.",
+                    "es-ES": "Numerador introducido para la función.",
+                    "es-MX": "Entrada de numerador para la función.",
+                    "fr-FR": "Numérateur de la fonction.",
+                    "it-IT": "Input numeratore per la funzione.",
+                    "ja-JP": "分子の入力が必要です",
+                    "ko-KR": "함수의 분자 입력 정보입니다.",
+                    "pl-PL": "Dane wejściowe licznika dla funkcji.",
+                    "pt-BR": "Entrada com o numerador da função.",
+                    "ru-RU": "Аргумент числителя функции.",
+                    "zh-CN": "为函数输入分子。"
                 }
             },
             {
@@ -1104,7 +1502,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Denominator input for the function."
+                    "guid": "00000000C812",
+                    "en-US": "Denominator input for the function.",
+                    "de-DE": "Eingabe des Divisors der Funktion.",
+                    "es-ES": "Denominador introducido para la función.",
+                    "es-MX": "Entrada de denominador para la función.",
+                    "fr-FR": "Dénominateur de la fonction.",
+                    "it-IT": "Input denominatore per la funzione.",
+                    "ja-JP": "分母の入力が必要です",
+                    "ko-KR": "함수의 분모 입력 정보입니다.",
+                    "pl-PL": "Dane wejściowe mianownika dla funkcji.",
+                    "pt-BR": "Entrada com o denominador da função.",
+                    "ru-RU": "Аргумент знаменателя функции.",
+                    "zh-CN": "为函数输入分母。"
                 }
             }
         ],
@@ -1146,7 +1556,8 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be stored in the array at index [0]."
+                    "en-US": "The value that will be stored in the array at index [0].",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1184,7 +1595,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array in which to search for the specified value."
+                    "guid": "00000000C333",
+                    "en-US": "The Array in which to search for the specified Value.",
+                    "de-DE": "Das nach dem festgelegten Wert abzusuchende Array.",
+                    "es-ES": "Matriz en la que se busca el valor especificado.",
+                    "es-MX": "La matriz en la que se buscará el valor especificado.",
+                    "fr-FR": "Le tableau qui contient la valeur spécifiée.",
+                    "it-IT": "L'Array nel quale cercare il Valore specificato.",
+                    "ja-JP": "指定値の検索を行う配列",
+                    "ko-KR": "지정된 값을 검색할 배열입니다.",
+                    "pl-PL": "Tabela w której należy szukać określonej wartości.",
+                    "pt-BR": "A Matriz na qual o Valor especificado será buscado.",
+                    "ru-RU": "Массив в котором нужно найти указанное значение.",
+                    "zh-CN": "在此数组中搜索指定的值。"
                 }
             },
             {
@@ -1194,7 +1617,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value for which to search."
+                    "guid": "00000000C334",
+                    "en-US": "The Value for which to search.",
+                    "de-DE": "Der zu suchende Wert.",
+                    "es-ES": "Valor que se busca.",
+                    "es-MX": "El valor que se buscará.",
+                    "fr-FR": "La valeur à chercher.",
+                    "it-IT": "Il Valore da cercare.",
+                    "ja-JP": "検索する値",
+                    "ko-KR": "검색할 값입니다.",
+                    "pl-PL": "Wartość której należy szukać.",
+                    "pt-BR": "O Valor a ser buscado.",
+                    "ru-RU": "Значение которое нужно найти.",
+                    "zh-CN": "要搜索的值。"
                 }
             }
         ],
@@ -1234,7 +1669,19 @@ var valueFuncKw =
                 },
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array from which to make a copy."
+                    "guid": "00000000BF21",
+                    "en-US": "The array from which to make a copy.",
+                    "de-DE": "Das Array von dem eine Kopie erstellt werden soll.",
+                    "es-ES": "Matriz que se copia.",
+                    "es-MX": "La matriz a partir de la cual se hará una copia.",
+                    "fr-FR": "Le tableau dont il faut faire une copie.",
+                    "it-IT": "L'array dal quale creare una copia.",
+                    "ja-JP": "コピーを作成する配列",
+                    "ko-KR": "복사본을 만들 배열입니다.",
+                    "pl-PL": "Tabela z której wykonywana jest kopia.",
+                    "pt-BR": "A matriz a ser copiada.",
+                    "ru-RU": "Массив копию значений из которого нужно создать.",
+                    "zh-CN": "产生此数组的复制。"
                 }
             },
             {
@@ -1245,7 +1692,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The first index of the range."
+                    "guid": "00000000BF22",
+                    "en-US": "The first index of the range.",
+                    "de-DE": "Der erste Index des Bereichs.",
+                    "es-ES": "Primer índice del intervalo.",
+                    "es-MX": "El primer índice del intervalo.",
+                    "fr-FR": "Le premier index de l’intervalle.",
+                    "it-IT": "Il primo indice dell'intervallo.",
+                    "ja-JP": "範囲の最初の値",
+                    "ko-KR": "범위의 첫 번째 인덱스입니다.",
+                    "pl-PL": "Pierwszy indeks zakresu.",
+                    "pt-BR": "O primeiro índice do intervalo.",
+                    "ru-RU": "Первое значение диапазона.",
+                    "zh-CN": "范围内的第一个索引。"
                 }
             },
             {
@@ -1256,7 +1715,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array."
+                    "guid": "00000000BF23",
+                    "en-US": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
+                    "de-DE": "Die Anzahl der Elemente im resultierenden Array. Das resultierende Array enthält weniger Elemente wenn der festgelegte Bereich die Grenzen des Arrays überschreitet.",
+                    "es-ES": "Número de elementos en la matriz resultante. La matriz resultante contendrá menos elementos si el intervalo especificado supera los límites de la matriz.",
+                    "es-MX": "La cantidad de elementos de la matriz resultante. La matriz resultante contendrá menos elementos si el intervalo especificado excede los límites de la matriz.",
+                    "fr-FR": "Le nombre d’éléments du tableau résultant. Le tableau résultant contiendra moins d’éléments si l’intervalle spécifié excède les limites du tableau.",
+                    "it-IT": "Il numero degli elementi nell'array risultante. Esso conterrà meno elementi se l'intervallo specificato supera i limiti dell'array.",
+                    "ja-JP": "結果として生じる配列に含まれる要素の数。指定した範囲が配列の範囲を超えると、配列に含まれる要素の数は少なくなる",
+                    "ko-KR": "결과 배열의 요소 개수입니다. 설정 영역이 배열 범위를 벗어나는 경우 결과 배열이 갖는 요소의 수가 상대적으로 적을 수 있습니다.",
+                    "pl-PL": "Liczba elementów w wynikowej tabeli. Wynikowa tabela zawiera mniej elementów jeśli określony zakres przekracza jej granice.",
+                    "pt-BR": "O número de elementos na matriz resultante. A matriz resultante conterá menos elementos se o intervalo especificado exceder os limites da matriz.",
+                    "ru-RU": "Количество элементов в итоговом массиве. Итоговый массив будет содержать меньшее количество элементов если указанный диапазон превышает границы массива.",
+                    "zh-CN": "结果数组中的元素数量。如果指定的范围超过此数组的限制，则结果数组中会包含较少的元素。"
                 }
             }
         ],
@@ -1359,7 +1830,19 @@ var valueFuncKw =
                 "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "A button constant."
+                    "guid": "000000010B3C",
+                    "en-US": "A Button constant.",
+                    "de-DE": "Eine Tastenkonstante.",
+                    "es-ES": "Constante de un botón.",
+                    "es-MX": "Una constante de botón.",
+                    "fr-FR": "Une constante de bouton.",
+                    "it-IT": "Una costante del Tasto.",
+                    "ja-JP": "ボタンの定数",
+                    "ko-KR": "버튼 상수입니다.",
+                    "pl-PL": "Stała „Button” Przycisk.",
+                    "pt-BR": "Uma constante de Botão.",
+                    "ru-RU": "Константа кнопки.",
+                    "zh-CN": "一个按钮常量。"
                 }
             }
         ],
@@ -1398,7 +1881,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position from which to measure proximity."
+                    "guid": "00000000BE28",
+                    "en-US": "The position from which to measure proximity.",
+                    "de-DE": "Die Position von der die Nähe gemessen wird.",
+                    "es-ES": "Posición desde la que se mide la proximidad.",
+                    "es-MX": "La posición desde la cual se medirá la proximidad.",
+                    "fr-FR": "La position à partir de laquelle mesurer la proximité.",
+                    "it-IT": "La posizione dalla quale misurare la vicinanza.",
+                    "ja-JP": "距離の近さを計測し始める位置",
+                    "ko-KR": "거리를 측정할 위치입니다.",
+                    "pl-PL": "Pozycja z której mierzy się bliskość.",
+                    "pt-BR": "A posição da qual a proximidade será medida.",
+                    "ru-RU": "Точка от которой измеряется близость.",
+                    "zh-CN": "用于测定距离的位置。"
                 }
             },
             {
@@ -1407,7 +1902,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which the closest player will come."
+                    "guid": "00000000BE29",
+                    "en-US": "The Team or Teams from which the closest Player will come.",
+                    "de-DE": "Das Team oder die Teams aus denen der am nächsten gelegene Spieler stammt.",
+                    "es-ES": "Equipo o equipos de los que procederá el jugador más cercano.",
+                    "es-MX": "El equipo o los equipos de donde vendrá el jugador más cercano.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles appartiendra le joueur le plus proche.",
+                    "it-IT": "La Squadra o le Squadre dalle quali proverrà il Giocatore più vicino.",
+                    "ja-JP": "最も近くにいるプレイヤーが所属するチーム",
+                    "ko-KR": "가장 가까이 있는 플레이어가 소속된 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z której pochodzić będzie najbliżej znajdujący się gracz.",
+                    "pt-BR": "As Equipes de onde o Jogador mais próximo virá.",
+                    "ru-RU": "Команда или команды к которым принадлежит самый ближний из игроков.",
+                    "zh-CN": "最近一名玩家所在的队伍。"
                 }
             }
         ],
@@ -1445,7 +1952,8 @@ var valueFuncKw =
                 "type": "ColorLiteral",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "A Color Constant"
+                    "en-US": "A Color Constant",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1471,7 +1979,19 @@ var valueFuncKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
+                    "guid": "00000000BEA5",
+                    "en-US": "The left-hand side of the comparison. This may be any Value type if the operation is == or !=. Otherwise real numbers are expected.",
+                    "de-DE": "Die linke Seite des Vergleichs. Dabei kann es sich um jeden Wertetyp handeln wenn die Operation == oder != ist. Ansonsten werden reelle Zahlen erwartet.",
+                    "es-ES": "Parte izquierda de la comparación. Puede ser cualquier tipo de valor si la operación es «==» o «!=»; de lo contrario se esperan números reales.",
+                    "es-MX": "El lado izquierdo de la comparación. Si la operación es == o != puede ser cualquier tipo de valor. Caso contrario se esperan números reales.",
+                    "fr-FR": "La partie gauche de la comparaison. N’importe quel type de valeur est valide si l’opération est == ou !=. Sinon doit correspondre à des nombres réels.",
+                    "it-IT": "La componente sinistra del confronto. Il Valore può essere di qualsiasi tipo se l'operazione è == o !=. Altrimenti sono richiesti numeri reali.",
+                    "ja-JP": "比較対象の左側作業が「==」または「!=」の場合は、どの値タイプでも使用可能。それ以外の場合、実数を入力する必要がある",
+                    "ko-KR": "비교 연산의 좌측단입니다. 연산이 == 또는 != 인 경우 어떤 값 유형이든 상관없지만 그 이외에는 실수 형식이어야 합니다.",
+                    "pl-PL": "Lewa strona porównania. Może to być dowolny typ wartości jeśli działaniem jest „==” lub „!=”. W przeciwnym razie oczekiwane są liczby rzeczywiste.",
+                    "pt-BR": "O lado esquerdo da comparação. Pode ser qualquer tipo de Valor se a operação for == ou !=. Caso contrário esperam-se números reais.",
+                    "ru-RU": "Левая сторона сравнения. Значение может быть любого типа если выполняется операция [==] или [!=]. В остальных случаях используются действительные числа.",
+                    "zh-CN": "比较式的左边。如果操作为“==”或“!=”，则可以为任意类型的值。否则此值应为实数。"
                 }
             },
             {
@@ -1480,6 +2000,7 @@ var valueFuncKw =
                 "type": "__Operator__",
                 "default": "==",
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -1492,7 +2013,19 @@ var valueFuncKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected."
+                    "guid": "00000000BEA6",
+                    "en-US": "The right-hand side of the comparison. This may be any Value type if the operation is == or !=. Otherwise real numbers are expected.",
+                    "de-DE": "Die rechte Seite des Vergleichs. Dabei kann es sich um jeden Wertetyp handeln wenn die Operation == oder != ist. Ansonsten werden reelle Zahlen erwartet.",
+                    "es-ES": "Parte derecha de la comparación. Puede ser cualquier tipo de valor si la operación es «==» o «!=»; de lo contrario se esperan números reales.",
+                    "es-MX": "El lado derecho de la comparación. Si la operación es == o != puede ser cualquier tipo de valor. Caso contrario se esperan números reales.",
+                    "fr-FR": "La partie droite de la comparaison. N’importe quel type de valeur est valide si l’opération est == ou !=. Sinon doit correspondre à des nombres réels.",
+                    "it-IT": "La componente destra del confronto. Il Valore può essere di qualsiasi tipo se l'operazione è == o !=. Altrimenti sono richiesti numeri reali.",
+                    "ja-JP": "比較対象の右側。作業が「==」または「!=」の場合は、どの値タイプでも使用可能。それ以外の場合、実数を入力する必要がある",
+                    "ko-KR": "비교 연산의 우측단입니다. 연산이 == 또는 != 인 경우 어떤 값 유형이든 상관없지만 그 이외에는 실수 형식이어야 합니다.",
+                    "pl-PL": "Prawa strona porównania. Może to być dowolny typ wartości jeśli działaniem jest „==” lub „!=”. W przeciwnym razie oczekiwane są liczby rzeczywiste.",
+                    "pt-BR": "O lado direito da comparação. Pode ser qualquer tipo de Valor se a operação for == ou !=. Caso contrário esperam-se números reais.",
+                    "ru-RU": "Правая сторона сравнения. Значение может быть любого типа если выполняется операция [==] или [!=]. В остальных случаях используются действительные числа.",
+                    "zh-CN": "比较式的右边。如果操作为“==”或“!=”，则可以为任意类型的值。否则此值应为实数。"
                 }
             }
         ],
@@ -1530,7 +2063,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose score percentage to acquire."
+                    "guid": "00000000BF00",
+                    "en-US": "The Team whose score percentage to acquire.",
+                    "de-DE": "Das Team dessen Punkteprozentsatz abgerufen werden soll.",
+                    "es-ES": "Equipo cuyo porcentaje de puntuación se adquiere.",
+                    "es-MX": "El equipo cuyo porcentaje de puntuación se adquirirá.",
+                    "fr-FR": "L’équipe dont il faut acquérir le pourcentage de score.",
+                    "it-IT": "La Squadra la cui percentuale di punteggio sarà acquisita.",
+                    "ja-JP": "スコア・パーセンテージを取得するチーム",
+                    "ko-KR": "점수 비율 정보를 가져올 팀입니다.",
+                    "pl-PL": "Drużyna której wynik procentowy należy pozyskać.",
+                    "pt-BR": "A Equipe cuja pontuação em porcentagem será adquirida.",
+                    "ru-RU": "Команда процентную долю очков которой нужно определить.",
+                    "zh-CN": "获取此队伍的得分百分比。"
                 }
             }
         ],
@@ -1595,7 +2140,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in degrees."
+                    "guid": "00000000C346",
+                    "en-US": "Angle in degrees.",
+                    "de-DE": "Winkel in Grad.",
+                    "es-ES": "Ángulo en grados.",
+                    "es-MX": "Ángulo en grados.",
+                    "fr-FR": "Angle en degrés.",
+                    "it-IT": "L'Angolo in gradi.",
+                    "ja-JP": "度単位の角度",
+                    "ko-KR": "각단위: 도입니다.",
+                    "pl-PL": "Kąt w stopniach.",
+                    "pt-BR": "Ângulo em graus.",
+                    "ru-RU": "Угол в градусах.",
+                    "zh-CN": "角度，以角度为单位。"
                 }
             }
         ],
@@ -1633,7 +2190,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in radians."
+                    "guid": "00000000C34A",
+                    "en-US": "Angle in radians.",
+                    "de-DE": "Winkel in Radiant.",
+                    "es-ES": "Ángulo en radianes.",
+                    "es-MX": "Ángulo en radianes.",
+                    "fr-FR": "Angle en radians.",
+                    "it-IT": "L'Angolo in radianti.",
+                    "ja-JP": "ラジアンの角度",
+                    "ko-KR": "각단위: Rad입니다.",
+                    "pl-PL": "Kąt w radianach.",
+                    "pt-BR": "Ângulo em radianos.",
+                    "ru-RU": "Угол в радианах.",
+                    "zh-CN": "角度，以弧度为单位。"
                 }
             }
         ],
@@ -1671,7 +2240,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose elements will be counted."
+                    "guid": "00000000BE95",
+                    "en-US": "The array whose elements will be counted.",
+                    "de-DE": "Das Array dessen Elemente gezählt werden.",
+                    "es-ES": "Matriz cuyos elementos se cuentan.",
+                    "es-MX": "La matriz cuyos elementos serán contados.",
+                    "fr-FR": "Le tableau dont les éléments seront comptés.",
+                    "it-IT": "L'array i cui elementi saranno contati.",
+                    "ja-JP": "要素がカウントされる配列",
+                    "ko-KR": "요소의 개수를 셀 배열입니다.",
+                    "pl-PL": "Tabela której elementy zostaną policzone.",
+                    "pt-BR": "A Matriz cujos elementos serão contados.",
+                    "ru-RU": "Массив количество элементов в котором нужно подсчитать.",
+                    "zh-CN": "计算此数组的元素个数。"
                 }
             }
         ],
@@ -1694,7 +2275,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand-side vector operand of the cross product."
+                    "guid": "00000000C362",
+                    "en-US": "The left-hand-side Vector operand of the cross product.",
+                    "de-DE": "Der linke Vektoroperand eines Kreuzprodukts.",
+                    "es-ES": "Operando de vector de la parte izquierda del producto vectorial.",
+                    "es-MX": "El operando del lado izquierdo del vector del producto vectorial.",
+                    "fr-FR": "L’opérande vectorielle de gauche du produit vectoriel.",
+                    "it-IT": "L'operando vettoriale a sinistra del prodotto vettoriale.",
+                    "ja-JP": "クロス積の左側のベクトル被演算子",
+                    "ko-KR": "가위곱의 왼쪽 벡터 피연산자입니다.",
+                    "pl-PL": "Lewostronny operand parametru „Vector” Wektor iloczynu wektorowego.",
+                    "pt-BR": "O operando de Vetor do lado esquerdo do produto vetorial.",
+                    "ru-RU": "Левый векторный операнд векторного произведения.",
+                    "zh-CN": "用于计算矢量积的左边矢量。"
                 }
             },
             {
@@ -1703,7 +2296,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand-side vector operand of the cross product."
+                    "guid": "00000000C363",
+                    "en-US": "The right-hand-side Vector operand of the cross product.",
+                    "de-DE": "Der rechte Vektoroperand des Kreuzprodukts.",
+                    "es-ES": "Operando de vector de la parte derecha del producto vectorial.",
+                    "es-MX": "El operando del lado derecho del vector del producto vectorial.",
+                    "fr-FR": "L’opérande vectorielle de droite du produit vectoriel.",
+                    "it-IT": "L'operando vettoriale a destra del prodotto vettoriale.",
+                    "ja-JP": "クロス積の右側のベクトル被演算子",
+                    "ko-KR": "가위곱의 오른쪽 벡터 피연산자입니다.",
+                    "pl-PL": "Prawostronny operand parametru „Vector” Wektor iloczynu wektorowego.",
+                    "pt-BR": "O operando de Vetor do lado direito do produto vetorial.",
+                    "ru-RU": "Правый векторный операнд векторного произведения.",
+                    "zh-CN": "用于计算矢量积的右边矢量。"
                 }
             }
         ],
@@ -1862,7 +2467,8 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 255,
                 "descriptionLocalized": {
-                    "en-US": "The red component of a color, from 0 to 255."
+                    "en-US": "The red component of a color, from 0 to 255.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1871,7 +2477,8 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 255,
                 "descriptionLocalized": {
-                    "en-US": "The green component of a color, from 0 to 255."
+                    "en-US": "The green component of a color, from 0 to 255.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1880,7 +2487,8 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 255,
                 "descriptionLocalized": {
-                    "en-US": "The blue component of a color, from 0 to 255."
+                    "en-US": "The blue component of a color, from 0 to 255.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1889,7 +2497,8 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 255,
                 "descriptionLocalized": {
-                    "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible."
+                    "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1913,6 +2522,7 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "HELLO",
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -1923,7 +2533,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {0}."
+                    "guid": "00000000BF52",
+                    "en-US": "The Value that will be converted to text and used to replace {0}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {0} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {0}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {0}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {0}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {0}.",
+                    "ja-JP": "テキストに変換され、{0}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {0}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{0}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {0}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{0}].",
+                    "zh-CN": "此值将转换为文本并用于替代{0}。"
                 }
             },
             {
@@ -1933,7 +2555,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {1}."
+                    "guid": "00000000BF54",
+                    "en-US": "The Value that will be converted to text and used to replace {1}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {1} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {1}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {1}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {1}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {1}.",
+                    "ja-JP": "テキストに変換され、{1}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {1}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{1}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {1}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{1}].",
+                    "zh-CN": "此值将转换为文本并用于替代{1}。"
                 }
             },
             {
@@ -1943,7 +2577,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {2}."
+                    "guid": "00000000BF51",
+                    "en-US": "The Value that will be converted to text and used to replace {2}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {2} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {2}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {2}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {2}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {2}.",
+                    "ja-JP": "テキストに変換され、{2}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {2}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{2}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {2}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{2}].",
+                    "zh-CN": "此值将转换为文本并用于替代{2}。"
                 }
             }
         ],
@@ -1967,7 +2613,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The horizontal angle in degrees used to construct the resulting vector."
+                    "guid": "00000000BF46",
+                    "en-US": "The horizontal angle in degrees used to construct the resulting Vector.",
+                    "de-DE": "Der horizontale Winkel in Grad der zur Konstruktion des resultierenden Vektors verwendet wird.",
+                    "es-ES": "Ángulo horizontal en grados que se utiliza para construir el vector resultante.",
+                    "es-MX": "El ángulo horizontal en grados utilizado para construir el vector resultante.",
+                    "fr-FR": "L’angle horizontal en degrés servant à tracer le vecteur résultant.",
+                    "it-IT": "L'angolo orizzontale in gradi usato per creare il Vettore risultante.",
+                    "ja-JP": "結果として生じるベクトルを構築する水平角（度）",
+                    "ko-KR": "결과 벡터를 도출하는 데 사용되는 횡축각단위: 도입니다.",
+                    "pl-PL": "Poziomy kąt w stopniach służący do stworzenia wynikowego parametru „Vector” Wektor.",
+                    "pt-BR": "O ângulo horizontal em graus usado para construir o Vetor resultante.",
+                    "ru-RU": "Горизонтальный угол в градусах используемый для построения результирующего вектора.",
+                    "zh-CN": "用于构建结果矢量的水平角度，单位为度。"
                 }
             },
             {
@@ -1976,7 +2634,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The vertical angle in degrees used to construct the resulting vector."
+                    "guid": "00000000BF47",
+                    "en-US": "The vertical angle in degrees used to construct the resulting Vector.",
+                    "de-DE": "Der vertikale Winkel in Grad der zur Konstruktion des resultierenden Vektors verwendet wird.",
+                    "es-ES": "Ángulo vertical en grados que se utiliza para construir el vector resultante.",
+                    "es-MX": "El ángulo vertical en grados utilizado para construir el vector resultante.",
+                    "fr-FR": "L’angle vertical en degrés servant à tracer le vecteur résultant.",
+                    "it-IT": "L'angolo verticale in gradi usato per creare il Vettore risultante.",
+                    "ja-JP": "結果として生じるベクトルを構築する頂角（度）",
+                    "ko-KR": "결과 벡터를 도출하는 데 사용되는 종축각단위: 도입니다.",
+                    "pl-PL": "Pionowy kąt w stopniach służący do stworzenia wynikowego parametru „Vector” Wektor.",
+                    "pt-BR": "O ângulo vertical em graus usado para construir o Vetor resultante.",
+                    "ru-RU": "Вертикальный угол в градусах используемый для построения результирующего вектора.",
+                    "zh-CN": "用于构建结果矢量的垂直角度，单位为度。"
                 }
             }
         ],
@@ -2015,7 +2685,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position from which the resulting direction vector will point."
+                    "guid": "00000000BE41",
+                    "en-US": "The position from which the resulting direction Vector will point.",
+                    "de-DE": "Die Position von der der resultierende Vektor ausgeht.",
+                    "es-ES": "Posición desde la que apunta el vector de dirección resultante.",
+                    "es-MX": "La posición desde la cual apuntará el vector de dirección resultante.",
+                    "fr-FR": "La position d’où pointera le vecteur de direction résultant.",
+                    "it-IT": "La posizione dalla quale il Vettore direzionale risultante punterà.",
+                    "ja-JP": "結果として生じる方向ベクトルが指す開始位置",
+                    "ko-KR": "결과로 도출되는 방향 벡터가 시작되는 위치입니다.",
+                    "pl-PL": "Pozycja z której zaczyna się wynikowy parametr kierunkowy „Vector” Wektor.",
+                    "pt-BR": "A posição da qual o Vetor direcional resultante apontará.",
+                    "ru-RU": "Точка от которой строится результирующий вектор направления.",
+                    "zh-CN": "用于获取方向矢量的起点位置。"
                 }
             },
             {
@@ -2024,7 +2706,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position to which the resulting direction vector will point."
+                    "guid": "00000000BE40",
+                    "en-US": "The position to which the resulting direction Vector will point.",
+                    "de-DE": "Die Position auf die der resultierende Vektor zeigt.",
+                    "es-ES": "Posición hacia la que apunta el vector de dirección resultante.",
+                    "es-MX": "La posición hacia la cual apuntará el vector de dirección resultante.",
+                    "fr-FR": "La position vers laquelle pointera le vecteur de direction résultant.",
+                    "it-IT": "La posizione verso la quale il Vettore direzionale risultante punterà.",
+                    "ja-JP": "結果として生じる方向ベクトルが指す終了位置",
+                    "ko-KR": "결과로 도출되는 방향 벡터가 끝나는 위치입니다.",
+                    "pl-PL": "Pozycja na którą wskazuje wynikowy parametr kierunkowy „Vector” Wektor.",
+                    "pt-BR": "A posição para a qual o Vetor direcional resultante apontará.",
+                    "ru-RU": "Точка к которой строится результирующий вектор направления.",
+                    "zh-CN": "用于获取方向矢量的终点位置。"
                 }
             }
         ],
@@ -2063,7 +2757,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of the two positions used in the distance measurement."
+                    "guid": "00000000BE3C",
+                    "en-US": "One of the two positions used in the distance measurement.",
+                    "de-DE": "Eine der zwei Positionen die für die Distanzmessung verwendet werden.",
+                    "es-ES": "Una de las dos posiciones utilizadas en la medición de distancia.",
+                    "es-MX": "Una de las dos posiciones utilizadas en la medición de distancia.",
+                    "fr-FR": "Une des deux positions servant à mesurer la distance.",
+                    "it-IT": "Una delle due posizioni usate nella misurazione della distanza.",
+                    "ja-JP": "距離を計測するのに使用された2つの位置のうちの1つ",
+                    "ko-KR": "거리 측정에 사용되는 두 위치 중 하나입니다.",
+                    "pl-PL": "Jedna z dwóch pozycji służących do mierzenia odległości.",
+                    "pt-BR": "Uma das duas posições usadas na medida de distância.",
+                    "ru-RU": "Одна из двух точек используемых для измерения расстояния.",
+                    "zh-CN": "用于测量距离的两个位置之一。"
                 }
             },
             {
@@ -2072,7 +2778,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of the two positions used in the distance measurement."
+                    "guid": "00000000BE3C",
+                    "en-US": "One of the two positions used in the distance measurement.",
+                    "de-DE": "Eine der zwei Positionen die für die Distanzmessung verwendet werden.",
+                    "es-ES": "Una de las dos posiciones utilizadas en la medición de distancia.",
+                    "es-MX": "Una de las dos posiciones utilizadas en la medición de distancia.",
+                    "fr-FR": "Une des deux positions servant à mesurer la distance.",
+                    "it-IT": "Una delle due posizioni usate nella misurazione della distanza.",
+                    "ja-JP": "距離を計測するのに使用された2つの位置のうちの1つ",
+                    "ko-KR": "거리 측정에 사용되는 두 위치 중 하나입니다.",
+                    "pl-PL": "Jedna z dwóch pozycji służących do mierzenia odległości.",
+                    "pt-BR": "Uma das duas posições usadas na medida de distância.",
+                    "ru-RU": "Одна из двух точек используемых для измерения расстояния.",
+                    "zh-CN": "用于测量距离的两个位置之一。"
                 }
             }
         ],
@@ -2115,7 +2833,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C405",
+                    "en-US": "The left-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "左側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
                 }
             },
             {
@@ -2127,7 +2857,19 @@ var valueFuncKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C407",
+                    "en-US": "The right-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "右側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
                 }
             }
         ],
@@ -2167,7 +2909,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of two vector operands of the dot product."
+                    "guid": "00000000C361",
+                    "en-US": "One of two Vector operands of the dot product.",
+                    "de-DE": "Einer der beiden Vektoroperanden des Skalarprodukts.",
+                    "es-ES": "Uno de los dos operandos de vector del producto escalar.",
+                    "es-MX": "Uno de los dos operandos del vector del producto escalar.",
+                    "fr-FR": "L’une des deux opérandes vectorielles du produit scalaire.",
+                    "it-IT": "Uno dei due operandi vettoriali del prodotto scalare.",
+                    "ja-JP": "ドット積のベクトル被演算子の1つ",
+                    "ko-KR": "점곱의 벡터 피연산자 두 개 중 하나입니다.",
+                    "pl-PL": "Jeden z dwóch operandów parametru „Vector” Wektor iloczynu skalarnego.",
+                    "pt-BR": "Um dos dois operandos de Vetor do produto escalar.",
+                    "ru-RU": "Один из двух векторных операндов скалярного произведения.",
+                    "zh-CN": "用于计算标量积的矢量之一。"
                 }
             },
             {
@@ -2176,7 +2930,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "One of two vector operands of the dot product."
+                    "guid": "00000000C361",
+                    "en-US": "One of two Vector operands of the dot product.",
+                    "de-DE": "Einer der beiden Vektoroperanden des Skalarprodukts.",
+                    "es-ES": "Uno de los dos operandos de vector del producto escalar.",
+                    "es-MX": "Uno de los dos operandos del vector del producto escalar.",
+                    "fr-FR": "L’une des deux opérandes vectorielles du produit scalaire.",
+                    "it-IT": "Uno dei due operandi vettoriali del prodotto scalare.",
+                    "ja-JP": "ドット積のベクトル被演算子の1つ",
+                    "ko-KR": "점곱의 벡터 피연산자 두 개 중 하나입니다.",
+                    "pl-PL": "Jeden z dwóch operandów parametru „Vector” Wektor iloczynu skalarnego.",
+                    "pt-BR": "Um dos dois operandos de Vetor do produto escalar.",
+                    "ru-RU": "Один из двух векторных операндов скалярного произведения.",
+                    "zh-CN": "用于计算标量积的矢量之一。"
                 }
             }
         ],
@@ -2280,7 +3046,19 @@ var valueFuncKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player, icon entity, or effect entity whose existence to check."
+                    "guid": "00000000BF32",
+                    "en-US": "The Player icon entity or effect entity whose existence to check.",
+                    "de-DE": "Der Spieler die Iconentität oder die Effektentität deren Existenz geprüft werden soll.",
+                    "es-ES": "Jugador entidad de icono o entidad de efecto cuya existencia se comprueba.",
+                    "es-MX": "El jugador la entidad de ícono o de efecto cuya existencia se verificará.",
+                    "fr-FR": "Le joueur l’entité d’icône ou l’entité d’effet dont il faut vérifier l’existence.",
+                    "it-IT": "Il Giocatore entità icona o entità effetto la cui esistenza sarà controllata.",
+                    "ja-JP": "存在するかチェックするプレイヤー、アイコン・エンティティ、エフェクト・エンティティ",
+                    "ko-KR": "존재를 확인할 플레이어 아이콘 개체 또는 효과 개체입니다.",
+                    "pl-PL": "Gracz encja symbolu lub encja efektu których istnienie zostanie sprawdzone.",
+                    "pt-BR": "O Jogador entidade de ícone ou entidade de efeito cuja existência será verificada.",
+                    "ru-RU": "Игрок экземпляр значка или экземпляр эффекта существование которого нужно проверить.",
+                    "zh-CN": "检查是否存在此玩家、图标实体或效果实体。"
                 }
             }
         ],
@@ -2320,7 +3098,8 @@ var valueFuncKw =
                 ],
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The value that will be only evaluated once."
+                    "en-US": "The value that will be only evaluated once.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -2551,7 +3330,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The position of a player's first person view (used for aiming)"
+                    "guid": "00000000C596",
+                    "en-US": "The position of a Player's first person view used for aiming",
+                    "de-DE": "Die Position der Egoperspektive des Spielers wird zum Zielen genutzt.",
+                    "es-ES": "La posición de la vista en primera persona de un jugador se utiliza para apuntar.",
+                    "es-MX": "La posición de una vista en primera persona del jugador utilizada para apuntar",
+                    "fr-FR": "La position de la vue subjective d’un joueur utilisée pour la visée",
+                    "it-IT": "La posizione della visuale in soggettiva del Giocatore usata per mirare.",
+                    "ja-JP": "プレイヤーの一人称視点の位置（照準に使用）",
+                    "ko-KR": "조준에 쓰인 플레이어의 1인칭 시점 위치입니다.",
+                    "pl-PL": "Pozycja kamery pierwszoosobowej gracza do celowania",
+                    "pt-BR": "A posição da visão em primeira pessoa do Jogador usada para mira.",
+                    "ru-RU": "Местоположение вида игрока от первого лица используется для прицеливания.",
+                    "zh-CN": "玩家第一人称视角的位置（用于瞄准）"
                 }
             }
         ],
@@ -2588,7 +3379,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose facing direction to acquire."
+                    "guid": "00000000BEB9",
+                    "en-US": "The Player whose facing direction to acquire.",
+                    "de-DE": "Der Spieler dessen Blickrichtung abgerufen werden soll.",
+                    "es-ES": "Jugador cuya dirección de orientación se adquiere.",
+                    "es-MX": "El jugador cuya dirección de orientación se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’orientation.",
+                    "it-IT": "Il Giocatore la cui direzione di osservazione sarà acquisita.",
+                    "ja-JP": "向いている方向を取得するプレイヤー",
+                    "ko-KR": "바라보는 방향 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego kierunek ustawienia należy pozyskać.",
+                    "pt-BR": "O Jogador cuja direção frontal será adquirida.",
+                    "ru-RU": "Игрок направление взгляда которого нужно получить.",
+                    "zh-CN": "获取此玩家面向的方向 。"
                 }
             }
         ],
@@ -2652,7 +3455,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position from which to measure distance."
+                    "guid": "00000000BE35",
+                    "en-US": "The position from which to measure distance.",
+                    "de-DE": "Die Position von der die Distanz gemessen wird.",
+                    "es-ES": "Posición desde la que se mide la distancia.",
+                    "es-MX": "La posición desde la cual se medirá la distancia.",
+                    "fr-FR": "La position à partir de laquelle mesurer la distance.",
+                    "it-IT": "La posizione dalla quale misurare la distanza.",
+                    "ja-JP": "距離を計測するための位置",
+                    "ko-KR": "거리 측정을 위한 위치입니다.",
+                    "pl-PL": "Pozycja z której mierzy się odległość.",
+                    "pt-BR": "A posição da qual a distância será medida.",
+                    "ru-RU": "Точка от которой измеряется расстояние.",
+                    "zh-CN": "以此位置为起点测量距离。"
                 }
             },
             {
@@ -2661,7 +3476,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which the farthest player will come."
+                    "guid": "00000000BE34",
+                    "en-US": "The Team or Teams from which the farthest Player will come.",
+                    "de-DE": "Das Team oder die Teams aus denen der am weitesten entfernte Spieler stammt.",
+                    "es-ES": "Equipo o equipos de los que procederá el jugador más alejado.",
+                    "es-MX": "El equipo o los equipos de donde vendrá el jugador más lejano.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles appartiendra le joueur le plus éloigné.",
+                    "it-IT": "La Squadra o le Squadre dalle quali proverrà il Giocatore più lontano.",
+                    "ja-JP": "最も遠くにいるプレイヤーが所属するチーム",
+                    "ko-KR": "가장 멀리 떨어진 플레이어가 소속된 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z której pochodzić będzie najdalej znajdujący się gracz.",
+                    "pt-BR": "As Equipes de onde o Jogador mais distante virá.",
+                    "ru-RU": "Команда или команды к которым принадлежит самый дальний из игроков.",
+                    "zh-CN": "最远一名玩家所在的队伍。"
                 }
             }
         ],
@@ -2699,7 +3526,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array whose copy will be filtered."
+                    "guid": "00000000BE04",
+                    "en-US": "The array whose copy will be filtered.",
+                    "de-DE": "Das Array dessen Kopie gefiltert wird.",
+                    "es-ES": "Matriz cuya copia se filtrará.",
+                    "es-MX": "La matriz cuya copia será filtrada.",
+                    "fr-FR": "Le tableau dont la copie sera filtrée.",
+                    "it-IT": "L'array la cui copia sarà filtrata.",
+                    "ja-JP": "コピーがフィルタリングされる配列",
+                    "ko-KR": "복사본을 필터링할 배열입니다.",
+                    "pl-PL": "Tabela której kopia zostanie przefiltrowana.",
+                    "pt-BR": "A matriz cuja cópia será filtrada.",
+                    "ru-RU": "Массив содержимое копии которого будет отфильтровано.",
+                    "zh-CN": "对此数组的复制进行过滤。"
                 }
             },
             {
@@ -2708,7 +3547,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered."
+                    "guid": "00000000BE05",
+                    "en-US": "The Condition that is evaluated for each element of the copied array. If the Condition is true the element is kept in the copied array. Use the Current Array Element Value to reference the element of the array currently being considered.",
+                    "de-DE": "Die Bedingung die für jedes Element des kopierten Arrays bewertet wird. Wenn die Bedingung True ist verbleibt das Element im kopierten Array. Für die Referenzierung des Elements des aktuell berücksichtigten Arrays wird der Wert [Current Array Element] verwendet.",
+                    "es-ES": "Condición que se evalúa para cada elemento de la matriz copiada. Si la condición es verdadera el elemento se mantiene en la matriz copiada. Utiliza el valor de «Current Array Element» para hacer referencia al elemento de la matriz que se está considerando actualmente.",
+                    "es-MX": "La condición que se evalúa para cada elemento de la matriz copiada. Si la condición es verdadera el elemento permanecerá en la matriz copiada. Usa el valor del elemento de la matriz actual para establecer una referencia al elemento de la matriz considerado actualmente.",
+                    "fr-FR": "La condition évaluée pour chaque élément du tableau copié. Si la condition est vraie l’élément est conservé dans le tableau copié. Utilisez la valeur « Élément de tableau actuel » pour renvoyer vers l’élément du tableau actuellement pris en compte.",
+                    "it-IT": "La Condizione valutata per ogni elemento dell'array copiato. Se la Condizione è vera l'elemento viene mantenuto nell'array copiato. Usa il Valore Elemento Array Attuale per fare riferimento all'elemento dell'array che è attualmente considerato.",
+                    "ja-JP": "コピーされた配列の各要素で評価される条件。条件が「TRUE」の場合、要素はコピーされた配列に残る。「現在の配列の要素」の値を使って、評価される配列の要素を参照する",
+                    "ko-KR": "복사된 배열의 각 요소에 대해 확인할 조건입니다. 조건이 참이면 요소는 복사된 배열에 보관됩니다. 현재 확인 대상인 배열의 요소를 참조할 때는 Current Array Element 값을 사용하세요.",
+                    "pl-PL": "Warunek który jest oceniany dla każdego elementy skopiowanej tabeli. Jeśli warunek jest prawdą element pozostaje w skopiowanej tabeli. Użyj wartości „Current Array Element” Aktualny element tabeli aby odnieść się do aktualnie uwzględnianego elementu.",
+                    "pt-BR": "A Condição avaliada para cada elemento da matriz copiada. Se a Condição for verdadeira o elemento será mantido na matriz copiada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado.",
+                    "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента копии массива. Если условие верно то элемент сохраняется в копии массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
+                    "zh-CN": "对复制的数组中每个元素判断此条件。如果条件为“真”，则在复制的数组中保留此元素。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
                 }
             }
         ],
@@ -2746,7 +3597,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array from which the value is acquired."
+                    "guid": "00000000BF2B",
+                    "en-US": "The array from which the Value is acquired.",
+                    "de-DE": "Das Array aus dem der Wert abgerufen wird.",
+                    "es-ES": "Matriz de la que se adquiere el valor.",
+                    "es-MX": "La matriz de la cual se adquirirá el valor.",
+                    "fr-FR": "Le tableau dans lequel la valeur est acquise.",
+                    "it-IT": "L'array dal quale il Valore sarà acquisito.",
+                    "ja-JP": "値を取得する配列",
+                    "ko-KR": "값을 가져올 배열입니다.",
+                    "pl-PL": "Tabela z której pozyskiwana jest wartość.",
+                    "pt-BR": "A matriz da qual o Valor será adquirido.",
+                    "ru-RU": "Массив из которого получено значение.",
+                    "zh-CN": "获取此数组中的值。"
                 }
             }
         ],
@@ -2787,7 +3650,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose flag position to acquire."
+                    "guid": "00000000BF04",
+                    "en-US": "The Team whose flag position to acquire.",
+                    "de-DE": "Das Team dessen Flaggenposition abgerufen werden soll.",
+                    "es-ES": "Equipo cuya posición de bandera se adquiere.",
+                    "es-MX": "El equipo cuya posición de la bandera se adquirirá.",
+                    "fr-FR": "L’équipe dont il faut acquérir la position du drapeau.",
+                    "it-IT": "La Squadra la cui posizione della bandiera sarà acquisita.",
+                    "ja-JP": "フラッグの位置を取得するチーム",
+                    "ko-KR": "깃발 위치 정보를 가져올 팀입니다.",
+                    "pl-PL": "Drużyna pozycję flagi której należy pozyskać.",
+                    "pt-BR": "A Equipe cuja posição da bandeira será adquirida.",
+                    "ru-RU": "Команда расположение флага которой следует определить.",
+                    "zh-CN": "获取此队伍旗帜的位置。"
                 }
             }
         ],
@@ -2870,7 +3745,19 @@ var valueFuncKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The variable whose value to acquire."
+                    "guid": "00000000BE0D",
+                    "en-US": "The Variable whose Value to acquire.",
+                    "de-DE": "Die Variable deren Wert abgerufen werden soll.",
+                    "es-ES": "Variable cuyo valor se adquiere.",
+                    "es-MX": "La variable cuyo valor se adquirirá.",
+                    "fr-FR": "La variable dont il faut acquérir la valeur.",
+                    "it-IT": "La Variabile dalla quale acquisire il Valore.",
+                    "ja-JP": "値を取得する変数",
+                    "ko-KR": "값 정보를 가져올 변수입니다.",
+                    "pl-PL": "Zmienna której wartość należy pozyskać.",
+                    "pt-BR": "A Variável cujo Valor será adquirido.",
+                    "ru-RU": "Переменная значение которой нужно получить.",
+                    "zh-CN": "获取此变量的值。"
                 }
             }
         ],
@@ -2907,7 +3794,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player, icon entity, or effect entity whose presence in world to check."
+                    "guid": "00000000C195",
+                    "en-US": "The Player icon entity or effect entity whose presence in world to check.",
+                    "de-DE": "Der Spieler die Iconentität oder die Effektentität deren Vorhandensein in der Welt geprüft werden soll.",
+                    "es-ES": "Jugador entidad de icono o entidad de efecto cuya presencia en el mundo se comprueba.",
+                    "es-MX": "El jugador la entidad de ícono o de efecto cuya presencia en el mundo se verificará.",
+                    "fr-FR": "Le joueur l’entité d’icône ou l’entité d’effet dont il faut vérifier la présence dans le monde.",
+                    "it-IT": "Il Giocatore l'entità icona o l'entità effetto la cui presenza nel mondo sarà controllata.",
+                    "ja-JP": "ワールド内に存在するかをチェックするプレイヤー、アイコン・エンティティ、エフェクト・エンティティ",
+                    "ko-KR": "월드에서 존재를 확인할 플레이어 아이콘 개체 또는 효과 개체입니다.",
+                    "pl-PL": "Gracz encja symbolu lub encja efektu których istnienie w świecie zostanie sprawdzone.",
+                    "pt-BR": "O Jogador entidade de ícone ou entidade de efeito cuja presença no mundo será verificada.",
+                    "ru-RU": "Игрок экземпляр значка или экземпляр эффекта присутствие которого в игровом мире нужно проверить.",
+                    "zh-CN": "检测此玩家、图标实体或效果实体是否存在于地图中。"
                 }
             }
         ],
@@ -2944,7 +3843,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose status to check."
+                    "guid": "00000000BEFC",
+                    "en-US": "The Player whose status to check.",
+                    "de-DE": "Der Spieler dessen Status geprüft werden soll.",
+                    "es-ES": "Jugador cuyo estado se comprueba.",
+                    "es-MX": "El jugador cuyo estado se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut.",
+                    "it-IT": "Il Giocatore il cui stato sarà controllato.",
+                    "ja-JP": "ステータスを確認するプレイヤー",
+                    "ko-KR": "상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status será verificado.",
+                    "ru-RU": "Игрок статус которого нужно проверить.",
+                    "zh-CN": "检测此玩家的状态。"
                 }
             },
             {
@@ -2953,7 +3864,19 @@ var valueFuncKw =
                 "type": "Status",
                 "default": "HACKED",
                 "descriptionLocalized": {
-                    "en-US": "The status to check for."
+                    "guid": "00000000BEFD",
+                    "en-US": "The status to check for.",
+                    "de-DE": "Der Status auf den geprüft werden soll.",
+                    "es-ES": "Estado que se comprueba.",
+                    "es-MX": "El estado que se verificará.",
+                    "fr-FR": "Le statut à vérifier.",
+                    "it-IT": "Lo stato da controllare.",
+                    "ja-JP": "チェックするステータス",
+                    "ko-KR": "확인할 상태입니다.",
+                    "pl-PL": "Status do sprawdzenia.",
+                    "pt-BR": "O status a ser verificado.",
+                    "ru-RU": "Проверяемый статус.",
+                    "zh-CN": "要检测的状态。"
                 }
             }
         ],
@@ -3045,7 +3968,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose health to acquire."
+                    "guid": "00000000BDEE",
+                    "en-US": "The Player whose health to acquire.",
+                    "de-DE": "Der Spieler dessen Trefferpunkte abgerufen werden sollen.",
+                    "es-ES": "Jugador cuya salud se adquiere.",
+                    "es-MX": "El jugador cuya salud se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les points de vie.",
+                    "it-IT": "Il Giocatore la cui salute sarà acquisita.",
+                    "ja-JP": "ライフを取得するプレイヤー",
+                    "ko-KR": "생명력 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdrowie należy pozyskać.",
+                    "pt-BR": "O Jogador cuja vida será adquirida.",
+                    "ru-RU": "Игрок запас здоровья которого нужно узнать.",
+                    "zh-CN": "获取此玩家的生命值。"
                 }
             }
         ],
@@ -3081,7 +4016,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose health to acquire."
+                    "guid": "00000000BDEE",
+                    "en-US": "The Player whose health to acquire.",
+                    "de-DE": "Der Spieler dessen Trefferpunkte abgerufen werden sollen.",
+                    "es-ES": "Jugador cuya salud se adquiere.",
+                    "es-MX": "El jugador cuya salud se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les points de vie.",
+                    "it-IT": "Il Giocatore la cui salute sarà acquisita.",
+                    "ja-JP": "ライフを取得するプレイヤー",
+                    "ko-KR": "생명력 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdrowie należy pozyskać.",
+                    "pt-BR": "O Jogador cuja vida será adquirida.",
+                    "ru-RU": "Игрок запас здоровья которого нужно узнать.",
+                    "zh-CN": "获取此玩家的生命值。"
                 }
             },
             {
@@ -3090,7 +4037,19 @@ var valueFuncKw =
                 "type": "Health",
                 "default": "HEALTH",
                 "descriptionLocalized": {
-                    "en-US": "The type of health to acquire."
+                    "guid": "00000001144C",
+                    "en-US": "The type of health to acquire.",
+                    "de-DE": "Der Typ der Trefferpunkte die abgerufen werden sollen.",
+                    "es-ES": "Tipo de salud que se adquiere.",
+                    "es-MX": "El tipo de salud que se adquirirá.",
+                    "fr-FR": "Le type de points de vie à acquérir.",
+                    "it-IT": "Il tipo di salute che sarà acquisita.",
+                    "ja-JP": "取得するライフの種類",
+                    "ko-KR": "가져올 생명력의 유형입니다.",
+                    "pl-PL": "Typ zdrowia do pozyskania.",
+                    "pt-BR": "O tipo de vida que será adquirido.",
+                    "ru-RU": "Тип запаса здоровья который нужно определить.",
+                    "zh-CN": "获取此类型的生命值。"
                 }
             }
         ],
@@ -3112,7 +4071,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose normalized health to acquire."
+                    "guid": "00000000BDF0",
+                    "en-US": "The Player whose normalized health to acquire.",
+                    "de-DE": "Der Spieler dessen normierte Trefferpunkte abgerufen werden sollen.",
+                    "es-ES": "Jugador cuya salud normalizada se adquiere.",
+                    "es-MX": "El jugador cuya salud normalizada se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les points de vie normalisés.",
+                    "it-IT": "Il Giocatore la cui salute normalizzata sarà acquisita.",
+                    "ja-JP": "正規化ライフを取得するプレイヤー",
+                    "ko-KR": "정규화된 생명력을 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego znormalizowane zdrowie należy pozyskać.",
+                    "pt-BR": "O Jogador cuja vida normalizada será adquirida.",
+                    "ru-RU": "Игрок нормализованный запас здоровья которого нужно узнать.",
+                    "zh-CN": "获取此玩家的标准化生命值。"
                 }
             }
         ],
@@ -3150,7 +4121,19 @@ var valueFuncKw =
                 "type": "HeroLiteral",
                 "default": "ANA",
                 "descriptionLocalized": {
-                    "en-US": "A hero constant."
+                    "guid": "00000000BDFB",
+                    "en-US": "A Hero constant.",
+                    "de-DE": "Eine Heldenkonstante.",
+                    "es-ES": "Una constante de héroe.",
+                    "es-MX": "Una constante de héroe.",
+                    "fr-FR": "Une constante de héros.",
+                    "it-IT": "Una costante dell'Eroe.",
+                    "ja-JP": "ヒーローの定数",
+                    "ko-KR": "영웅 상수입니다.",
+                    "pl-PL": "Stała bohatera.",
+                    "pt-BR": "Uma constante de Herói.",
+                    "ru-RU": "Константа героя.",
+                    "zh-CN": "一个英雄常量。"
                 }
             }
         ],
@@ -3188,7 +4171,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player performing the duplication."
+                    "guid": "000000010E6D",
+                    "en-US": "The Player performing the duplication.",
+                    "de-DE": "Der Spieler der die Duplikation durchführt.",
+                    "es-ES": "Jugador que realiza la duplicación.",
+                    "es-MX": "El jugador que realiza la copia.",
+                    "fr-FR": "Le joueur qui effectue la duplication.",
+                    "it-IT": "Il Giocatore che esegue la Duplicazione.",
+                    "ja-JP": "コピーを行っているプレイヤー",
+                    "ko-KR": "복제를 실행 중인 플레이어입니다.",
+                    "pl-PL": "Gracz wykonujący duplikację.",
+                    "pt-BR": "O Jogador realizando a duplicação.",
+                    "ru-RU": "Игрок использующий «Дубликацию».",
+                    "zh-CN": "正在施展人格复制的玩家。"
                 }
             }
         ],
@@ -3226,7 +4221,19 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero that will be converted to an icon."
+                    "guid": "00000000C201",
+                    "en-US": "The hero that will be converted to an icon.",
+                    "de-DE": "Der Held der in ein Icon umgewandelt wird.",
+                    "es-ES": "Héroe que se convertirá en un icono.",
+                    "es-MX": "El héroe que se convertirá en un ícono.",
+                    "fr-FR": "Le héros qui sera converti en icône.",
+                    "it-IT": "L'eroe che sarà convertito in icona.",
+                    "ja-JP": "アイコンに変換されるヒーロー",
+                    "ko-KR": "아이콘으로 변환될 영웅입니다.",
+                    "pl-PL": "Bohater który zostanie przekonwertowany na symbol.",
+                    "pt-BR": "O herói que será convertido em ícone.",
+                    "ru-RU": "Герой который будет преобразован в значок.",
+                    "zh-CN": "此英雄将被转换为一个图标。"
                 }
             }
         ],
@@ -3250,7 +4257,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose hero to acquire."
+                    "guid": "00000000BDFA",
+                    "en-US": "The Player whose Hero to acquire.",
+                    "de-DE": "Der Spieler dessen Held abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo héroe se adquiere.",
+                    "es-MX": "El jugador cuyo héroe se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le héros.",
+                    "it-IT": "Il Giocatore il cui Eroe sarà acquisito.",
+                    "ja-JP": "ヒーローを取得するプレイヤー",
+                    "ko-KR": "영웅 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego bohatera należy pozyskać.",
+                    "pt-BR": "O Jogador cujo Herói será adquirido.",
+                    "ru-RU": "Игрок героя которого нужно узнать.",
+                    "zh-CN": "获取此玩家的英雄。"
                 }
             }
         ],
@@ -3288,7 +4307,19 @@ var valueFuncKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins."
+                    "guid": "00000000BF48",
+                    "en-US": "The direction Vector from which to acquire a horizontal angle in degrees. The Vector is unitized before calculation begins.",
+                    "de-DE": "Der Richtungsvektor dessen horizontaler Winkel in Grad abgerufen werden soll. Der Vektor wird normiert bevor die Berechnung beginnt.",
+                    "es-ES": "Vector de dirección cuyo ángulo horizontal en grados se adquiere. El vector se normaliza antes del comienzo del cálculo.",
+                    "es-MX": "El vector de dirección a partir del cual se adquirirá un ángulo horizontal en grados. El vector es unificado antes de que comience el cálculo.",
+                    "fr-FR": "Le vecteur de direction à partir duquel acquérir un angle horizontal en degrés. Le vecteur est normalisé avant le calcul.",
+                    "it-IT": "Il Vettore direzionale dal quale acquisire l'angolo orizzontale in gradi. Il Vettore viene normalizzato prima dell'inizio del calcolo.",
+                    "ja-JP": "水平角の度数を取得するための方向ベクトル。計算を開始する前にベクトルは正規化される",
+                    "ko-KR": "횡축각단위: 도 정보를 가져올 방향 벡터입니다. 이 벡터는 연산 전에 단위 벡터로 정규화됩니다.",
+                    "pl-PL": "Kierunkowy parametr „Vector” Wektor z którego pobierany jest podany w stopniach kąt poziomy. Parametr „Vector” Wektor zostaje przekształcony na jednostki przed rozpoczęciem obliczeń.",
+                    "pt-BR": "O Vetor direcional do qual será adquirido um ângulo horizontal em graus. O Vetor é unitizado antes de o cálculo ser iniciado.",
+                    "ru-RU": "Вектор направления от которого строится горизонтальный угол в градусах. Перед вычислением вектор нормализуется.",
+                    "zh-CN": "对此方向矢量获取垂直角度，单位为度。此矢量在计算开始前进行统一化。"
                 }
             }
         ],
@@ -3326,7 +4357,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player from whose current facing the angle begins."
+                    "guid": "00000000BEB0",
+                    "en-US": "The Player from whose current facing the angle begins.",
+                    "de-DE": "Der Spieler bei dessen aktueller Blickrichtung der Winkel beginnt.",
+                    "es-ES": "Jugador desde cuya orientación actual comienza el ángulo.",
+                    "es-MX": "El jugador desde cuya orientación actual comienza el ángulo.",
+                    "fr-FR": "Le joueur dont l’orientation actuelle forme le point de départ de l’angle.",
+                    "it-IT": "Il Giocatore dalla cui direzione di osservazione inizia l'angolo.",
+                    "ja-JP": "正方向が開始角度となるプレイヤー",
+                    "ko-KR": "이 플레이어가 현재 바라보는 방향으로부터 각이 시작됩니다.",
+                    "pl-PL": "Gracz od którego rozpoczyna się bieżący kąt skierowania.",
+                    "pt-BR": "O Jogador cuja direção atual inicia o ângulo.",
+                    "ru-RU": "Игрок относительно направления взгляда которого вычисляется угол.",
+                    "zh-CN": "以此玩家当前面向的角度为起点。"
                 }
             },
             {
@@ -3335,7 +4378,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position in the world where the angle ends."
+                    "guid": "00000000BEAF",
+                    "en-US": "The position in the world where the angle ends.",
+                    "de-DE": "Die Position in der Welt bei der der Winkel endet.",
+                    "es-ES": "Posición en el mundo donde finaliza el ángulo.",
+                    "es-MX": "La posición en el mundo donde finaliza el ángulo.",
+                    "fr-FR": "La position dans le monde où l’angle prend fin.",
+                    "it-IT": "La posizione nel mondo di gioco dove termina l'angolo.",
+                    "ja-JP": "ワールドにおける、角度が終了する位置",
+                    "ko-KR": "각 각이 종료되는 월드 내 위치입니다.",
+                    "pl-PL": "Pozycja w świecie w której kończy się kąt.",
+                    "pt-BR": "A posição no mundo onde o ângulo termina.",
+                    "ru-RU": "Точка в игровом мире угол до которой нужно вычислить.",
+                    "zh-CN": "测定与地图中此位置的夹角。"
                 }
             }
         ],
@@ -3358,7 +4413,19 @@ var valueFuncKw =
                 "type": "GamemodeLiteral",
                 "default": "ASSAULT",
                 "descriptionLocalized": {
-                    "en-US": "A game mode constant."
+                    "guid": "00000000F162",
+                    "en-US": "A Game Mode constant.",
+                    "de-DE": "Eine Spielmoduskonstante.",
+                    "es-ES": "Una constante de modo de juego.",
+                    "es-MX": "Una constante de modo de juego.",
+                    "fr-FR": "Une constante du mode de jeu.",
+                    "it-IT": "Una costante della modalità di gioco.",
+                    "ja-JP": "ゲーム・モードの定数",
+                    "ko-KR": "게임 모드 상수입니다.",
+                    "pl-PL": "Stały punkt w trybach gry.",
+                    "pt-BR": "Uma constante do modo de jogo.",
+                    "ru-RU": "Константа игрового режима.",
+                    "zh-CN": "比赛模式常量。"
                 }
             }
         ],
@@ -3396,7 +4463,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose horizontal facing angle to acquire."
+                    "guid": "00000000BEB5",
+                    "en-US": "The Player whose horizontal facing angle to acquire.",
+                    "de-DE": "Der Spieler dessen horizontaler Blickrichtungswinkel abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo ángulo de orientación horizontal se adquiere.",
+                    "es-MX": "El jugador cuyo ángulo de orientación horizontal se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’angle d’orientation horizontal.",
+                    "it-IT": "Il Giocatore il cui angolo orizzontale di osservazione sarà acquisito.",
+                    "ja-JP": "水平方向の角度を取得するプレイヤー",
+                    "ko-KR": "바라보고 있는 방향의 횡축각 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego kąt poziomy skierowania należy pozyskać.",
+                    "pt-BR": "O Jogador cujo ângulo de direção horizontal será adquirido.",
+                    "ru-RU": "Игрок горизонтальный угол взгляда которого нужно определить.",
+                    "zh-CN": "获取此玩家的水平面向角度。"
                 }
             }
         ],
@@ -3433,7 +4512,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose horizontal speed to acquire."
+                    "guid": "00000000BE5C",
+                    "en-US": "The Player whose horizontal speed to acquire.",
+                    "de-DE": "Der Spieler dessen horizontale Geschwindigkeit abgerufen werden soll.",
+                    "es-ES": "Jugador cuya velocidad horizontal se adquiere.",
+                    "es-MX": "El jugador cuya velocidad horizontal se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la vitesse horizontale.",
+                    "it-IT": "Il Giocatore la cui velocità orizzontale non direzionale sarà acquisita.",
+                    "ja-JP": "水平方向の速度を取得するプレイヤー",
+                    "ko-KR": "횡축 속도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego szybkość poziomą należy pozyskać.",
+                    "pt-BR": "O Jogador cuja velocidade horizontal será adquirida.",
+                    "ru-RU": "Игрок горизонтальную скорость которого нужно определить.",
+                    "zh-CN": "获取此玩家的水平速度。"
                 }
             }
         ],
@@ -3497,7 +4588,8 @@ var valueFuncKw =
                 "type": "Icon",
                 "default": "ARROW: DOWN",
                 "descriptionLocalized": {
-                    "en-US": "The icon to display."
+                    "en-US": "The icon to display.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3521,7 +4613,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else."
+                    "guid": "000000010BCA",
+                    "en-US": "If this condition evaluates to true the result of the value is Then; otherwise the result is Else.",
+                    "de-DE": "Wenn diese Bedingung True ist ist das Ergebnis dieses Werts [Then]; andernfalls ist das Ergebnis [Else].",
+                    "es-ES": "Si esta condición se evalúa como verdadera el resultado del valor es «Then»; de lo contrario el resultado es «Else».",
+                    "es-MX": "Si la condición es verdadera al ser evaluada el resultado del valor será Then; si no el resultado será Else.",
+                    "fr-FR": "Si cette condition est évaluée comme vraie le résultat de la valeur est « Alors » ; dans le cas contraire le résultat est « Sinon ».",
+                    "it-IT": "Se questa condizione risulta True il risultato del valore è Then; altrimenti il risultato è Else.",
+                    "ja-JP": "条件が「TRUE」の場合、値の結果は「THEN」。それ以外の場合は「ELSE」",
+                    "ko-KR": "이 조건이 참일 때 결과값이 Then이 됩니다. 그 외의 경우에는 결과값이 Else가 됩니다.",
+                    "pl-PL": "Jeśli ten warunek zostanie oceniony jako prawda efekt wartości to „Then” Wtedy w przeciwnym razie efektem jest wartość „Else” Inaczej.",
+                    "pt-BR": "Se essa condição for avaliada como verdadeira o resultado do valor será Then; caso contrário o resultado será Else.",
+                    "ru-RU": "Если это условие верно возвращает значение «То»; в остальных случаях возвращает значение «В противном случае».",
+                    "zh-CN": "如果此条件为真，则结果为Then后面的值；否则结果为Else后面的值。"
                 }
             },
             {
@@ -3534,7 +4638,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The result of the value when the if condition evaluates to true."
+                    "guid": "000000010BCC",
+                    "en-US": "The result of the value when the If condition evaluates to true.",
+                    "de-DE": "Das Ergebnis des Werts wenn die [If]-Bedingung True ist.",
+                    "es-ES": "Resultado del valor cuando la condición «If» se evalúa como verdadera.",
+                    "es-MX": "El resultado del valor si la condición If es verdadera al ser evaluada.",
+                    "fr-FR": "Le résultat de la valeur quand la condition « Si » est évaluée comme vraie.",
+                    "it-IT": "Il risultato del valore quando la condizione If risulta True.",
+                    "ja-JP": "条件が「TRUE」の場合の値の結果",
+                    "ko-KR": "조건이 참일 때의 결과값입니다.",
+                    "pl-PL": "Efekt wartości kiedy warunek „If” Jeśli zostanie zweryfikowany jako prawda.",
+                    "pt-BR": "O resultado do valor se a condição If for avaliada como verdadeira.",
+                    "ru-RU": "Результат возвращаемый если условие «Если» верно.",
+                    "zh-CN": "如果条件为真，则结果是这个值。"
                 }
             },
             {
@@ -3547,7 +4663,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The result of the value when the if condition evaluates to false."
+                    "guid": "000000010BCE",
+                    "en-US": "The result of the value when the If condition evaluates to false.",
+                    "de-DE": "Das Ergebnis des Werts wenn die [If]-Bedingung False ist.",
+                    "es-ES": "Resultado del valor cuando la condición «If» se evalúa como falsa.",
+                    "es-MX": "El resultado del valor si la condición If es falsa al ser evaluada.",
+                    "fr-FR": "Le résultat de la valeur quand la condition « Si » est évaluée comme fausse.",
+                    "it-IT": "Il risultato del valore quando la condizione If risulta False.",
+                    "ja-JP": "条件が「FALSE」の場合の値の結果",
+                    "ko-KR": "조건이 거짓일 때의 결과값입니다.",
+                    "pl-PL": "Efekt wartości kiedy warunek „If” Jeśli zostanie oceniony jako fałsz.",
+                    "pt-BR": "O resultado do valor se a condição If for avaliada como falsa.",
+                    "ru-RU": "Результат возвращаемый если условие «Если» ложно.",
+                    "zh-CN": "如果条件不为真，则结果是这个值。"
                 }
             }
         ],
@@ -3587,7 +4715,19 @@ var valueFuncKw =
                 },
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array in which to search for the specified value."
+                    "guid": "00000000C333",
+                    "en-US": "The Array in which to search for the specified Value.",
+                    "de-DE": "Das nach dem festgelegten Wert abzusuchende Array.",
+                    "es-ES": "Matriz en la que se busca el valor especificado.",
+                    "es-MX": "La matriz en la que se buscará el valor especificado.",
+                    "fr-FR": "Le tableau qui contient la valeur spécifiée.",
+                    "it-IT": "L'Array nel quale cercare il Valore specificato.",
+                    "ja-JP": "指定値の検索を行う配列",
+                    "ko-KR": "지정된 값을 검색할 배열입니다.",
+                    "pl-PL": "Tabela w której należy szukać określonej wartości.",
+                    "pt-BR": "A Matriz na qual o Valor especificado será buscado.",
+                    "ru-RU": "Массив в котором нужно найти указанное значение.",
+                    "zh-CN": "在此数组中搜索指定的值。"
                 }
             },
             {
@@ -3597,7 +4737,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value for which to search."
+                    "guid": "00000000C334",
+                    "en-US": "The Value for which to search.",
+                    "de-DE": "Der zu suchende Wert.",
+                    "es-ES": "Valor que se busca.",
+                    "es-MX": "El valor que se buscará.",
+                    "fr-FR": "La valeur à chercher.",
+                    "it-IT": "Il Valore da cercare.",
+                    "ja-JP": "検索する値",
+                    "ko-KR": "검색할 값입니다.",
+                    "pl-PL": "Wartość której należy szukać.",
+                    "pt-BR": "O Valor a ser buscado.",
+                    "ru-RU": "Значение которое нужно найти.",
+                    "zh-CN": "要搜索的值。"
                 }
             }
         ],
@@ -3635,7 +4787,8 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "Button",
                 "descriptionLocalized": {
-                    "en-US": "The button for the input binding that will be converted to a string."
+                    "en-US": "The button for the input binding that will be converted to a string.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3674,7 +4827,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose life to check."
+                    "guid": "00000000BEAB",
+                    "en-US": "The Player whose life to check.",
+                    "de-DE": "Bei diesem Spieler wird geprüft ob er am Leben ist.",
+                    "es-ES": "Jugador cuya vida se comprueba.",
+                    "es-MX": "El jugador cuya vida se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la survie.",
+                    "it-IT": "Il Giocatore la cui salute sarà controllata.",
+                    "ja-JP": "生きているかどうか確認するプレイヤー",
+                    "ko-KR": "생존 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego życie zostanie sprawdzone.",
+                    "pt-BR": "O Jogador cuja vida será verificada.",
+                    "ru-RU": "Игрок для которого выполняется проверка на жизнь.",
+                    "zh-CN": "检测此玩家的生命状态。"
                 }
             }
         ],
@@ -3765,7 +4930,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose button to check."
+                    "guid": "00000000BED4",
+                    "en-US": "The Player whose button to check.",
+                    "de-DE": "Der Spieler dessen Taste geprüft werden soll.",
+                    "es-ES": "Jugador cuyo botón se comprueba.",
+                    "es-MX": "El jugador cuyo botón se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le bouton.",
+                    "it-IT": "Il Giocatore la cui pressione del tasto sarà controllata.",
+                    "ja-JP": "ボタンをチェックするプレイヤー",
+                    "ko-KR": "버튼을 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego przycisk zostanie sprawdzony",
+                    "pt-BR": "O Jogador cujo botão será verificado.",
+                    "ru-RU": "Игрок кнопку которого нужно проверить.",
+                    "zh-CN": "检测此玩家的按钮。"
                 }
             },
             {
@@ -3774,7 +4951,19 @@ var valueFuncKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The button to check."
+                    "guid": "00000000BED5",
+                    "en-US": "The button to check.",
+                    "de-DE": "Die zu prüfende Taste.",
+                    "es-ES": "Botón que se comprueba.",
+                    "es-MX": "El botón que se verificará.",
+                    "fr-FR": "Le bouton à vérifier.",
+                    "it-IT": "Il tasto da controllare.",
+                    "ja-JP": "チェックするボタン",
+                    "ko-KR": "확인할 버튼입니다.",
+                    "pl-PL": "Przycisk do sprawdzenia.",
+                    "pt-BR": "O botão a ser verificado.",
+                    "ru-RU": "Проверяемая кнопка.",
+                    "zh-CN": "用于检测的按钮。"
                 }
             }
         ],
@@ -3811,7 +5000,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose communication status to check."
+                    "guid": "00000000BE77",
+                    "en-US": "The Player whose communication status to check.",
+                    "de-DE": "Der Spieler dessen Kommunikationsstatus geprüft werden soll.",
+                    "es-ES": "Jugador cuyo estado de comunicación se comprueba.",
+                    "es-MX": "El jugador cuyo estado de comunicación se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de communication.",
+                    "it-IT": "Il Giocatore il cui stato delle comunicazioni sarà controllato.",
+                    "ja-JP": "コミュニケーション・ステータスを確認するプレイヤー",
+                    "ko-KR": "의사소통 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status komunikacji zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de comunicação será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса коммуникации.",
+                    "zh-CN": "检测此玩家的交流状态。"
                 }
             },
             {
@@ -3820,7 +5021,19 @@ var valueFuncKw =
                 "type": "Comms",
                 "default": "VOICE LINE UP",
                 "descriptionLocalized": {
-                    "en-US": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds."
+                    "guid": "00000000BE78",
+                    "en-US": "The type of communication to consider. The duration of emotes is exact the duration of voice lines is assumed to be 4 seconds and all other durations are assumed to be 2 seconds.",
+                    "de-DE": "Der Typ der zu berücksichtigenden Kommunikation. Die Dauer von Emotes ist genau als Dauer von Sprüchen werden 4 Sekunden angenommen. Für jede andere Dauer werden 2 Sekunden angenommen.",
+                    "es-ES": "Tipo de comunicación que se considera. La duración de los gestos es exacta la duración de las frases se presupone que es 4 segundos y las demás duraciones se presuponen de 2 segundos.",
+                    "es-MX": "El tipo de comunicación que se considerará. La duración de los gestos es exacta se calcula que la duración de las líneas de voz es de 4 segundos y que las demás duraciones son de 2 segundos.",
+                    "fr-FR": "Le type de communication à prendre en compte. La durée des emotes est exacte la durée des répliques est supposée être de 4 secondes et toutes les autres durées sont supposées être de 2 secondes.",
+                    "it-IT": "Il tipo di comunicazione da considerare. La durata delle emote è esatta la durata delle battute audio è impostata a 4 secondi mentre tutte le altre durate sono impostate a 2 secondi.",
+                    "ja-JP": "検討されるコミュニケーションのタイプ。エモートの持続時間は固定、ボイス・ラインは4秒を想定、その他の所要時間は2秒を想定している",
+                    "ko-KR": "고려할 의사소통 유형입니다. 감정 표현의 지속 시간은 정확하게 적용되며 음성 대사의 지속 시간은 4초로 간주합니다. 그 이외의 지속 시간은 2초로 간주합니다.",
+                    "pl-PL": "Typ komunikacji do uwzględnienia. Czas działania emotek jest dokładny domyślny czas trwania kwestii to 4 sekundy a pozostałe czasy to domyślnie 2 sekundy.",
+                    "pt-BR": "O tipo de comunicação a ser considerado. A duração dos emotes é exata presume-se que a duração das falas seja de 4 segundos e presume-se que todas as outras durações sejam de 2 segundos.",
+                    "ru-RU": "Рассматриваемый тип коммуникации. Длительность эмоций ограничена жестко длительность реплик приравнивается к 4 секундам длительность остальных видов коммуникации приравнивается к 2 секундам.",
+                    "zh-CN": "考察的交流类型。表情的持续时间为准确值，语音的播放时间视为4秒，其他所有交流类型的持续时间视为2秒。"
                 }
             }
         ],
@@ -3842,7 +5055,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose communication status to check."
+                    "guid": "00000000BE77",
+                    "en-US": "The Player whose communication status to check.",
+                    "de-DE": "Der Spieler dessen Kommunikationsstatus geprüft werden soll.",
+                    "es-ES": "Jugador cuyo estado de comunicación se comprueba.",
+                    "es-MX": "El jugador cuyo estado de comunicación se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de communication.",
+                    "it-IT": "Il Giocatore il cui stato delle comunicazioni sarà controllato.",
+                    "ja-JP": "コミュニケーション・ステータスを確認するプレイヤー",
+                    "ko-KR": "의사소통 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status komunikacji zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de comunicação será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса коммуникации.",
+                    "zh-CN": "检测此玩家的交流状态。"
                 }
             }
         ],
@@ -3864,7 +5089,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose emoting status to check."
+                    "guid": "00000000BF3C",
+                    "en-US": "The Player whose emoting status to check.",
+                    "de-DE": "Der Spieler dessen Emote-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está usando un gesto.",
+                    "es-MX": "El jugador cuyo estado de gesto se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut d’utilisation d’emotes.",
+                    "it-IT": "Il Giocatore il cui stato delle emote sarà controllato.",
+                    "ja-JP": "エモート・ステータスを確認するプレイヤー",
+                    "ko-KR": "감정 표현 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status emotkowy zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de emote será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса выражения эмоции.",
+                    "zh-CN": "检测此玩家是否在使用表情。"
                 }
             }
         ],
@@ -3901,7 +5138,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player whose spray status to check."
+                    "guid": "000000012292",
+                    "en-US": "The Player whose spray status to check.",
+                    "de-DE": "Der Spieler dessen Spray-Status geprüft werden soll.",
+                    "es-ES": "Jugador cuyo estado de grafiti se comprueba.",
+                    "es-MX": "El jugador cuyo estado de spray se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut d’utilisation de tags.",
+                    "it-IT": "Il Giocatore il cui stato dello spray sarà controllato.",
+                    "ja-JP": "スプレー・ステータスを確認するプレイヤー",
+                    "ko-KR": "스프레이 상태를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz status graffiti którego zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de spray será verificado.",
+                    "ru-RU": "Игрок для которого производится проверка статуса граффити.",
+                    "zh-CN": "检测此玩家的喷漆状态。"
                 }
             }
         ],
@@ -3938,7 +5187,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose voice line status to check."
+                    "guid": "00000000BF39",
+                    "en-US": "The Player whose voice line status to check.",
+                    "de-DE": "Der Spieler dessen Spruch-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está usando una frase.",
+                    "es-MX": "El jugador cuyo estado de línea de voz se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de réplique.",
+                    "it-IT": "Il Giocatore il cui stato delle battute audio sarà controllato.",
+                    "ja-JP": "ボイス・ライン・ステータスを確認するプレイヤー",
+                    "ko-KR": "음성 대사 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status kwestii zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de fala será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса использования реплики.",
+                    "zh-CN": "检测此玩家是否在播放语音。"
                 }
             }
         ],
@@ -4002,7 +5263,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose crouching status to check."
+                    "guid": "00000000BEC1",
+                    "en-US": "The Player whose crouching status to check.",
+                    "de-DE": "Der Spieler dessen Status [Is Crouching] geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está agachado.",
+                    "es-MX": "El jugador cuyo estado de agachado se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut d’accroupissement.",
+                    "it-IT": "Il Giocatore il cui stato di accovacciamento sarà controllato.",
+                    "ja-JP": "しゃがみステータスを確認するプレイヤー",
+                    "ko-KR": "웅크린 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status kucnięcia zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de agachamento será verificado.",
+                    "ru-RU": "Игрок которого нужно проверить не крадется ли он.",
+                    "zh-CN": "检测此玩家是否正在下蹲。"
                 }
             }
         ],
@@ -4039,7 +5312,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose form to check."
+                    "guid": "000000010E64",
+                    "en-US": "The Player whose form to check.",
+                    "de-DE": "Der Spieler dessen Form geprüft werden soll.",
+                    "es-ES": "Jugador cuya forma se comprueba.",
+                    "es-MX": "El jugador cuya forma se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la forme.",
+                    "it-IT": "Il Giocatore la cui forma sarà controllata.",
+                    "ja-JP": "形態を確認するプレイヤー",
+                    "ko-KR": "모습을 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego postać zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cuja forma será verificada.",
+                    "ru-RU": "Игрок у которого нужно проверить форму героя.",
+                    "zh-CN": "检测此玩家的状态。"
                 }
             }
         ],
@@ -4088,7 +5373,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose death to check."
+                    "guid": "00000000BEAC",
+                    "en-US": "The Player whose death to check.",
+                    "de-DE": "Bei diesem Spieler wird geprüft ob er tot ist.",
+                    "es-ES": "Jugador cuya muerte se comprueba.",
+                    "es-MX": "El jugador cuya muerte se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier la mort.",
+                    "it-IT": "Il Giocatore la cui morte sarà controllata.",
+                    "ja-JP": "倒されたかどうか確認するプレイヤー",
+                    "ko-KR": "사망 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego śmierć zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cuja morte será verificada.",
+                    "ru-RU": "Игрок для которого выполняется проверка на смерть.",
+                    "zh-CN": "检测此玩家的死亡状态。"
                 }
             }
         ],
@@ -4125,7 +5422,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "Player to consider."
+                    "guid": "00000000CEE2",
+                    "en-US": "Player to consider.",
+                    "de-DE": "Der zu berücksichtigende Spieler.",
+                    "es-ES": "Jugador que se considera.",
+                    "es-MX": "Jugador a considerar.",
+                    "fr-FR": "Joueur à prendre en compte.",
+                    "it-IT": "Giocatore da considerare.",
+                    "ja-JP": "推定プレイヤー",
+                    "ko-KR": "고려할 플레이어입니다.",
+                    "pl-PL": "Gracze do uwzględnienia.",
+                    "pt-BR": "Jogador a ser considerado.",
+                    "ru-RU": "Рассматриваемый игрок.",
+                    "zh-CN": "考察此玩家。"
                 }
             }
         ],
@@ -4162,7 +5471,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose duplication status to check."
+                    "guid": "000000010E67",
+                    "en-US": "The Player whose duplication status to check.",
+                    "de-DE": "Der Spieler dessen Duplikationsstatus geprüft werden soll.",
+                    "es-ES": "Jugador cuyo estado de duplicación se comprueba.",
+                    "es-MX": "El jugador cuyo estado de copia se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de duplication.",
+                    "it-IT": "Il Giocatore il cui stato della Duplicazione sarà controllato.",
+                    "ja-JP": "コピーステータスを確認するプレイヤー",
+                    "ko-KR": "복제 상태를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego status duplikacji zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de duplicação será verificado.",
+                    "ru-RU": "Игрок которого нужно проверить на использование «Дубликации».",
+                    "zh-CN": "检测此玩家的人格复制状态。"
                 }
             }
         ],
@@ -4184,7 +5505,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose primary weapon attack usage to check."
+                    "guid": "00000000C3F2",
+                    "en-US": "The Player whose primary weapon attack usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung seines Primärwaffenangriffs geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso del ataque principal con arma se comprueba.",
+                    "es-MX": "El jugador cuyo uso del ataque de arma principal se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation du tir principal.",
+                    "it-IT": "Il Giocatore il cui utilizzo dell'attacco dell'arma primaria sarà controllato.",
+                    "ja-JP": "メイン攻撃を使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "주무기 공격 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego atak podstawowy zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo uso do ataque primário da arma será verificado.",
+                    "ru-RU": "Игрок у которого нужно получить информацию об использовании основного режима атаки.",
+                    "zh-CN": "检测此玩家的主要武器攻击状态。"
                 }
             }
         ],
@@ -4221,7 +5554,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose secondary weapon attack usage to check."
+                    "guid": "00000000C3F1",
+                    "en-US": "The Player whose secondary weapon attack usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung seines Sekundärwaffenangriffs geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso del ataque secundario con arma se comprueba.",
+                    "es-MX": "El jugador cuyo uso del ataque de arma secundario se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation du tir secondaire.",
+                    "it-IT": "Il Giocatore il cui utilizzo dell'attacco dell'arma secondaria sarà controllato.",
+                    "ja-JP": "サブ攻撃を使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "보조 무기 공격 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego atak alternatywny zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo uso do ataque secundário da arma será verificado.",
+                    "ru-RU": "Игрок у которого нужно получить информацию об использовании альтернативного режима атаки.",
+                    "zh-CN": "检测此玩家的辅助武器攻击状态。"
                 }
             }
         ],
@@ -4258,7 +5603,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose flag to check."
+                    "guid": "00000000BF06",
+                    "en-US": "The Team whose flag to check.",
+                    "de-DE": "Das Team dessen Flagge geprüft werden soll.",
+                    "es-ES": "Equipo cuya bandera se comprueba.",
+                    "es-MX": "El equipo cuya bandera se verificará.",
+                    "fr-FR": "L’équipe dont il faut vérifier le drapeau.",
+                    "it-IT": "La Squadra la cui bandiera sarà controllata.",
+                    "ja-JP": "フラッグをチェックするチーム",
+                    "ko-KR": "깃발을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna której flaga zostanie sprawdzona.",
+                    "pt-BR": "A Equipe cuja bandeira será verificada.",
+                    "ru-RU": "Команда флаг которой нужно проверить.",
+                    "zh-CN": "检测此队伍的旗帜。"
                 }
             }
         ],
@@ -4295,7 +5652,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose flag to check."
+                    "guid": "00000000BF06",
+                    "en-US": "The Team whose flag to check.",
+                    "de-DE": "Das Team dessen Flagge geprüft werden soll.",
+                    "es-ES": "Equipo cuya bandera se comprueba.",
+                    "es-MX": "El equipo cuya bandera se verificará.",
+                    "fr-FR": "L’équipe dont il faut vérifier le drapeau.",
+                    "it-IT": "La Squadra la cui bandiera sarà controllata.",
+                    "ja-JP": "フラッグをチェックするチーム",
+                    "ko-KR": "깃발을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna której flaga zostanie sprawdzona.",
+                    "pt-BR": "A Equipe cuja bandeira será verificada.",
+                    "ru-RU": "Команда флаг которой нужно проверить.",
+                    "zh-CN": "检测此队伍的旗帜。"
                 }
             }
         ],
@@ -4359,7 +5728,19 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero to check for play."
+                    "guid": "00000000BEC6",
+                    "en-US": "The Hero to check for play.",
+                    "de-DE": "Der Held auf dessen Einsatz im Spiel geprüft werden soll.",
+                    "es-ES": "Héroe cuya presencia en juego se comprueba.",
+                    "es-MX": "El héroe que se verificará para jugar.",
+                    "fr-FR": "Le héros dont il faut vérifier la présence en jeu.",
+                    "it-IT": "L'Eroe il cui utilizzo sarà controllato.",
+                    "ja-JP": "プレイされているかチェックするヒーロー",
+                    "ko-KR": "플레이 현황을 확인할 영웅입니다.",
+                    "pl-PL": "Bohater do sprawdzenia czy jest w rozgrywce.",
+                    "pt-BR": "O Herói a ser verificado em jogo.",
+                    "ru-RU": "Герой факт игры за которого нужно проверить.",
+                    "zh-CN": "检测此英雄是否在使用。"
                 }
             },
             {
@@ -4368,7 +5749,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to check for the hero being played."
+                    "guid": "00000000BEC7",
+                    "en-US": "The Team or Teams on which to check for the Hero being played.",
+                    "de-DE": "Das Team oder die Teams die auf den gespielten Helden geprüft werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se comprueba si el héroe está en juego.",
+                    "es-MX": "El equipo o los equipos en los que se verificará el héroe con el que se está jugando.",
+                    "fr-FR": "L’équipe ou les équipes dans lesquelles il faut vérifier la présence du héros.",
+                    "it-IT": "La Squadra o le Squadre il cui utilizzo dell'Eroe sarà controllato.",
+                    "ja-JP": "ヒーローがプレイされているかチェックするチーム",
+                    "ko-KR": "영웅 플레이 현황을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których zostanie sprawdzone czy bohater jest w rozgrywce.",
+                    "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
+                    "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
+                    "zh-CN": "检测队伍中是否正在使用这名英雄。"
                 }
             }
         ],
@@ -4405,7 +5798,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose airborne status to check."
+                    "guid": "00000000BEC4",
+                    "en-US": "The Player whose airborne status to check.",
+                    "de-DE": "Der Spieler dessen Status [Is In Air] geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en el aire.",
+                    "es-MX": "El jugador cuyo estado en el aire se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut aérien.",
+                    "it-IT": "Il Giocatore il cui stato di volo in aria sarà controllato.",
+                    "ja-JP": "空中ステータスを確認するプレイヤー",
+                    "ko-KR": "공중에 있는 상태인지를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status powietrzny zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status no ar será verificado.",
+                    "ru-RU": "Игрок для которого проверяется статус нахождения в воздухе.",
+                    "zh-CN": "检测此玩家的浮空状态。"
                 }
             }
         ],
@@ -4445,7 +5850,19 @@ var valueFuncKw =
                 ],
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
+                    "guid": "00000000BE4D",
+                    "en-US": "The start position for the line-of-sight check. If a Player is provided a position 2 meters above the Player's feet is used.",
+                    "de-DE": "Die Ausgangsposition für die Sichtfeld-Prüfung. Wenn ein Spieler angegeben ist wird eine Position 2 Meter über den Füßen des Spielers verwendet.",
+                    "es-ES": "Posición inicial para la comprobación de línea de visión. Si se indica un jugador se utiliza una posición 2 metros por encima de sus pies.",
+                    "es-MX": "La posición inicial para la verificación de la línea de visión. Si se detecta a un jugador se utilizará una posición 2 metros sobre los pies del jugador.",
+                    "fr-FR": "La position de départ pour la vérification de la ligne de vue. Si un joueur est indiqué une position située 2 mètres au-dessus des pieds du joueur sert de point de référence.",
+                    "it-IT": "La posizione iniziale del controllo sulla linea di tiro. Se viene fornito un Giocatore viene utilizzata una posizione equivalente a 2 metri sopra i piedi dello stesso.",
+                    "ja-JP": "射線チェックの開始位置。プレイヤーが指定されている場合、プレイヤーの足から2メートル上の位置が使用される",
+                    "ko-KR": "시야 확인의 시작 위치입니다. 플레이어가 설정되어 있으면 해당 플레이어의 발 위로 2미터 위치가 사용됩니다.",
+                    "pl-PL": "Pozycja startowa do weryfikacji pola widzenia. Jeśli podano gracza użyta zostanie pozycja 2 metry nad jego stopami.",
+                    "pt-BR": "A posição inicial da verificação de linha de visão. Se um Jogador for atribuído será usada uma posição a 2 metros acima dos pés do Jogador.",
+                    "ru-RU": "Начальная точка проверки прямой видимости. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
+                    "zh-CN": "用于进行视线检测的起点位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
                 }
             },
             {
@@ -4457,7 +5874,19 @@ var valueFuncKw =
                 ],
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used."
+                    "guid": "00000000BE4C",
+                    "en-US": "The end position for the line-of-sight check. If a Player is provided a position 2 meters above the Player's feet is used.",
+                    "de-DE": "Die Endposition für die Sichtfeld-Prüfung. Wenn ein Spieler angegeben ist wird eine Position 2 Meter über den Füßen des Spielers verwendet.",
+                    "es-ES": "Posición final para la comprobación de línea de visión. Si se indica un jugador se utiliza una posición 2 metros por encima de sus pies.",
+                    "es-MX": "La posición final para la verificación de línea de visión. Si se detecta a un jugador se utilizará una posición 2 metros sobre los pies del jugador.",
+                    "fr-FR": "La position de fin pour la vérification de la ligne de vue. Si un joueur est indiqué une position située 2 mètres au-dessus des pieds du joueur sert de point de référence.",
+                    "it-IT": "La posizione finale del controllo sulla linea di tiro. Se viene fornito un Giocatore viene utilizzata una posizione equivalente a 2 metri sopra i piedi dello stesso.",
+                    "ja-JP": "射線チェックの終了位置。プレイヤーが指定されている場合、プレイヤーの足から2メートル上の位置が使用される",
+                    "ko-KR": "시야 확인의 종료 위치입니다. 플레이어가 설정되어 있으면 해당 플레이어의 발 위로 2미터 위치가 사용됩니다.",
+                    "pl-PL": "Pozycja końcowa do weryfikacji pola widzenia. Jeśli podano gracza użyta zostanie pozycja 2 metry nad jego stopami.",
+                    "pt-BR": "A posição final da verificação de linha de visão. Se um Jogador for atribuído será usada uma posição a 2 metros acima dos pés do Jogador.",
+                    "ru-RU": "Конечная точка проверки прямой видимости. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
+                    "zh-CN": "用于进行视线检测的终点位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
                 }
             },
             {
@@ -4466,7 +5895,8 @@ var valueFuncKw =
                 "type": "BarrierLos",
                 "default": "BARRIERS DO NOT BLOCK LOS",
                 "descriptionLocalized": {
-                    "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used."
+                    "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4530,7 +5960,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose spawn room status to check."
+                    "guid": "00000000BF11",
+                    "en-US": "The Player whose spawn room status to check.",
+                    "de-DE": "Der Spieler dessen Startbereich-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en la sala de inicio.",
+                    "es-MX": "El jugador cuyo estado de cuarto de reaparición se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de salle d’apparition.",
+                    "it-IT": "Il Giocatore il cui stato dell'area di partenza sarà controllato.",
+                    "ja-JP": "リスポーンルームのステータスを確認するプレイヤー",
+                    "ko-KR": "전투준비실 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status pomieszczenia startowego zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de sala de ressurgimento será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса нахождения в стартовой комнате.",
+                    "zh-CN": "检测此玩家的重生室状态。"
                 }
             }
         ],
@@ -4567,7 +6009,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose view to use for the check."
+                    "guid": "00000000BF81",
+                    "en-US": "The Player whose view to use for the check.",
+                    "de-DE": "Der Spieler dessen Sicht für die Prüfung verwendet wird.",
+                    "es-ES": "Jugador cuya visión se utiliza para la comprobación.",
+                    "es-MX": "El jugador cuya vista se utilizará para la verificación.",
+                    "fr-FR": "Le joueur dont le champ de vision servira à effectuer la vérification.",
+                    "it-IT": "Il Giocatore la cui area di visuale sarà controllata.",
+                    "ja-JP": "チェックのために視点を使用するプレイヤー",
+                    "ko-KR": "시야를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego pola widzenia użyć do sprawdzenia.",
+                    "pt-BR": "O Jogador cuja visão será usada na verificação.",
+                    "ru-RU": "Игрок поле зрения которого используется для проверки.",
+                    "zh-CN": "检测此名玩家的视野。"
                 }
             },
             {
@@ -4576,7 +6030,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The location to test if it's within view."
+                    "guid": "00000000BF82",
+                    "en-US": "The Location to test if it's within view.",
+                    "de-DE": "Der Ort der darauf geprüft werden soll ob er im Sichtfeld liegt.",
+                    "es-ES": "Ubicación que se comprueba si está a la vista.",
+                    "es-MX": "La ubicación que se evaluará si está a la vista.",
+                    "fr-FR": "Le lieu à tester s’il est dans la ligne de vue.",
+                    "it-IT": "Il Luogo la cui presenza nell'area di visuale sarà controllata.",
+                    "ja-JP": "視角範囲内かどうかテストするための位置",
+                    "ko-KR": "시야에 있는지 테스트할 Location입니다.",
+                    "pl-PL": "Lokalizacja do przetestowania czy jest w polu widzenia.",
+                    "pt-BR": "O Local a ser testado para saber se está na visão.",
+                    "ru-RU": "Местоположение которое нужно проверить на предмет нахождения в поле зрения.",
+                    "zh-CN": "检测此坐标是否在视角内。"
                 }
             },
             {
@@ -4585,7 +6051,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The view angle to compare against in degrees."
+                    "guid": "00000000BF83",
+                    "en-US": "The View Angle to compare against in degrees.",
+                    "de-DE": "Der Blickwinkel zum Vergleich in Grad.",
+                    "es-ES": "Ángulo de visión en grados con el que se compara.",
+                    "es-MX": "El ángulo de vista en grados con el cual se comparará.",
+                    "fr-FR": "L’angle de vision en degrés avec lequel effectuer la comparaison.",
+                    "it-IT": "L'Angolo di Visuale da confrontare in gradi.",
+                    "ja-JP": "比較対象となる視覚範囲",
+                    "ko-KR": "비교 대상인 View Angle단위: 도입니다.",
+                    "pl-PL": "Kąt widzenia w stopniach do którego należy dokonać porównania.",
+                    "pt-BR": "O Ângulo de Visão a ser comparado em graus.",
+                    "ru-RU": "Угол поля зрения в градусах по которому проводится сравнение.",
+                    "zh-CN": "用于比较的视角，单位为度。"
                 }
             }
         ],
@@ -4622,7 +6100,8 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose jump usage to check."
+                    "en-US": "The player whose jump usage to check.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4671,7 +6150,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose melee usage to check."
+                    "guid": "00000001059C",
+                    "en-US": "The Player whose Melee usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung seines Nahkampfangriffs geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso del ataque cuerpo a cuerpo se comprueba.",
+                    "es-MX": "El jugador cuyo uso de ataques melé se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation de Mêlée.",
+                    "it-IT": "Il Giocatore il cui utilizzo della Mischia sarà controllato.",
+                    "ja-JP": "近接攻撃を使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "근접 공격의 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz u którego użycie ataku wręcz zostanie sprawdzone.",
+                    "pt-BR": "O Jogador cujo uso de Corpo a Corpo será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса использования атаки ближнего боя.",
+                    "zh-CN": "检测此玩家的近战攻击状态。"
                 }
             }
         ],
@@ -4693,7 +6184,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose moving status to check."
+                    "guid": "00000000BEC0",
+                    "en-US": "The Player whose moving status to check.",
+                    "de-DE": "Der Spieler dessen Status [Is Moving] geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en movimiento.",
+                    "es-MX": "El jugador cuyo estado en movimiento se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut de mouvement.",
+                    "it-IT": "Il Giocatore il cui stato di movimento sarà controllato.",
+                    "ja-JP": "移動ステータスを確認するプレイヤー",
+                    "ko-KR": "이동 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status ruchu zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de movimento será verificado.",
+                    "ru-RU": "Игрок к которому применяется проверка статуса движения.",
+                    "zh-CN": "检测此玩家的运动状态。"
                 }
             }
         ],
@@ -4717,7 +6220,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
+                    "guid": "00000000BEED",
+                    "en-US": "The index of the objective to consider starting at 0 and counting up. Each control point payload checkpoint and payload destination has its own index.",
+                    "de-DE": "Der Index des zu berücksichtigenden Zielpunkts ab 0 gezählt. Jeder Kontrollpunkt Fracht-Checkpoint und Frachtzielpunkt hat seinen eigenen Index.",
+                    "es-ES": "Índice del objetivo que se considera empezando a contar desde 0. Cada punto del modo control punto de control de la carga y destino de la carga tiene su propio índice.",
+                    "es-MX": "El índice del objetivo que se considerará la cuenta comienza de 0 en adelante. Cada punto de captura punto de control de la carga y destino de la carga tiene su propio índice.",
+                    "fr-FR": "L’index de l’objectif à prendre en compte débutant à 0 et progressant. Chaque point de contrôle point de contrôle de convoi et destination de convoi possède son propre index.",
+                    "it-IT": "L'indice dell'obiettivo da considerare che incrementa a partire da 0. Ogni punto di controllo checkpoint del carico e destinazione del carico ha il suo indice specifico.",
+                    "ja-JP": "検討される目標のインデックス。カウントは0から開始される。各コントロール・ポイント、ペイロード・チェックポイント、ペイロード目的地にはそれぞれにインデックスがある",
+                    "ko-KR": "고려해야 하는 목표의 인덱스로서 0에서 시작하여 증가합니다. 각 거점 화물 경유지 화물 목적지에는 각기 고유의 인덱스가 있습니다.",
+                    "pl-PL": "Indeks zadania do uwzględnienia zaczynając od 0 i licząc w górę. Każdy punkt kontrolny punkt kontrolny ładunku i miejsce docelowe ładunku posiadają własny indeks.",
+                    "pt-BR": "O índice do objetivo a ser considerado iniciando em 0 e somando. Cada ponto de controle ponto de verificação de carga e destino de carga tem seu próprio índice.",
+                    "ru-RU": "Индекс рассматриваемой задачи от 0 и выше. Каждая контрольная точка объект контрольная или конечная точка доставки груза имеют свой индекс.",
+                    "zh-CN": "考察的目标点的索引，从0开始逐渐累加。每个控制点、运载目标检查点、运载目标目的地都有其独自的索引。"
                 }
             }
         ],
@@ -4739,7 +6254,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ground status to check."
+                    "guid": "00000000BF71",
+                    "en-US": "The Player whose ground status to check.",
+                    "de-DE": "Der Spieler dessen Boden-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en el suelo.",
+                    "es-MX": "El jugador cuyo estado en el suelo se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut au sol.",
+                    "it-IT": "Il Giocatore il cui stato sulla superficie sarà controllato.",
+                    "ja-JP": "地面に対してのステータスを確認するプレイヤー",
+                    "ko-KR": "착지 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status naziemny zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de chão será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка статуса стояния на земле.",
+                    "zh-CN": "检测此玩家是否处于地面上。"
                 }
             }
         ],
@@ -4776,7 +6303,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose objective status to check."
+                    "guid": "00000000BF0F",
+                    "en-US": "The Player whose objective status to check.",
+                    "de-DE": "Der Spieler dessen Zielpunkt-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en el objetivo.",
+                    "es-MX": "El jugador cuyo estado de objetivo se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut d’objectif.",
+                    "it-IT": "Il Giocatore il cui stato dell'obiettivo sarà controllato.",
+                    "ja-JP": "目標ステータスを確認するプレイヤー",
+                    "ko-KR": "목표 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status zadania zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de objetivo será verificado.",
+                    "ru-RU": "Игрок статус выполнения задачи которым нужно проверить.",
+                    "zh-CN": "检测此玩家的目标点状态。"
                 }
             }
         ],
@@ -4813,7 +6352,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose wall status to check."
+                    "guid": "00000000BF44",
+                    "en-US": "The Player whose wall status to check.",
+                    "de-DE": "Der Spieler dessen Wand-Status geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está en un muro.",
+                    "es-MX": "El jugador cuyo estado sobre el muro se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut relatif aux murs.",
+                    "it-IT": "Il Giocatore il cui stato del muro sarà controllato.",
+                    "ja-JP": "ステータスを確認するプレイヤー",
+                    "ko-KR": "벽 상태를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego status ścienny zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status de parede será verificado.",
+                    "ru-RU": "Игрок чей статус нахождения на стене нужно проверить.",
+                    "zh-CN": "检测此玩家的滑墙状态。"
                 }
             }
         ],
@@ -4850,7 +6401,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose portrait to check."
+                    "guid": "00000000BF0D",
+                    "en-US": "The Player whose portrait to check.",
+                    "de-DE": "Der Spieler dessen Porträt geprüft werden soll.",
+                    "es-ES": "Jugador cuyo retrato se comprueba.",
+                    "es-MX": "El jugador cuyo retrato se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le portrait.",
+                    "it-IT": "Il Giocatore il cui ritratto sarà controllato.",
+                    "ja-JP": "ポートレートをチェックするプレイヤー",
+                    "ko-KR": "초상화를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego portret zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo retrato será verificado.",
+                    "ru-RU": "Игрок портрет которого нужно проверить.",
+                    "zh-CN": "检测此玩家的头像状态。"
                 }
             }
         ],
@@ -4887,7 +6450,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose reload usage to check."
+                    "guid": "000000011067",
+                    "en-US": "The Player whose Reload usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung von Nachladen geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso de la recarga se comprueba.",
+                    "es-MX": "El jugador cuya recarga se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation de Recharger.",
+                    "it-IT": "Il Giocatore il cui utilizzo della Ricarica sarà controllato.",
+                    "ja-JP": "リロードを使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "재장전 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz u którego przeładowanie zostanie sprawdzone.",
+                    "pt-BR": "O Jogador cujo uso de Recarregar será verificado.",
+                    "ru-RU": "Игрок у которого нужно проверить доступ к перезарядке.",
+                    "zh-CN": "检测此玩家的装填状态。"
                 }
             }
         ],
@@ -4924,7 +6499,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose standing status to check."
+                    "guid": "00000000BEBE",
+                    "en-US": "The Player whose standing status to check.",
+                    "de-DE": "Der Spieler dessen Status [Is Standing] geprüft werden soll.",
+                    "es-ES": "Jugador para el que se comprueba si está de pie.",
+                    "es-MX": "El jugador cuyo estado de pie se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier le statut d’immobilité.",
+                    "it-IT": "Il Giocatore il cui stato della posizione in piedi sarà controllato.",
+                    "ja-JP": "立ちステータスを確認するプレイヤー",
+                    "ko-KR": "서 있는 상태를 확인할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz którego status stania zostanie sprawdzony.",
+                    "pt-BR": "O Jogador cujo status parado será verificado.",
+                    "ru-RU": "Игрок к которому применяется проверка статуса стояния на месте.",
+                    "zh-CN": "检测此玩家的站立状态。"
                 }
             }
         ],
@@ -4961,7 +6548,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose role to check."
+                    "guid": "00000000BEEF",
+                    "en-US": "The Team whose role to check.",
+                    "de-DE": "Das Team dessen Rolle geprüft werden soll.",
+                    "es-ES": "Equipo cuyo papel se comprueba.",
+                    "es-MX": "El equipo cuyo rol se verificará.",
+                    "fr-FR": "L’équipe dont il faut vérifier le rôle.",
+                    "it-IT": "La Squadra il cui ruolo sarà controllato.",
+                    "ja-JP": "ロールを確認するチーム",
+                    "ko-KR": "역할을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna której rola zostanie sprawdzona.",
+                    "pt-BR": "A Equipe cuja função será verificada.",
+                    "ru-RU": "Команда роль которой нужно проверить.",
+                    "zh-CN": "检查此队伍的职责。"
                 }
             }
         ],
@@ -4998,7 +6597,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose role to check."
+                    "guid": "00000000BEEF",
+                    "en-US": "The Team whose role to check.",
+                    "de-DE": "Das Team dessen Rolle geprüft werden soll.",
+                    "es-ES": "Equipo cuyo papel se comprueba.",
+                    "es-MX": "El equipo cuyo rol se verificará.",
+                    "fr-FR": "L’équipe dont il faut vérifier le rôle.",
+                    "it-IT": "La Squadra il cui ruolo sarà controllato.",
+                    "ja-JP": "ロールを確認するチーム",
+                    "ko-KR": "역할을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna której rola zostanie sprawdzona.",
+                    "pt-BR": "A Equipe cuja função será verificada.",
+                    "ru-RU": "Команда роль которой нужно проверить.",
+                    "zh-CN": "检查此队伍的职责。"
                 }
             }
         ],
@@ -5035,7 +6646,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose values will be considered."
+                    "guid": "00000000BF25",
+                    "en-US": "The array whose Values will be considered.",
+                    "de-DE": "Das Array dessen Werte berücksichtigt werden.",
+                    "es-ES": "Matriz cuyos valores se considerarán.",
+                    "es-MX": "La matriz cuyos valores serán considerados.",
+                    "fr-FR": "Le tableau dont les valeurs seront prises en compte.",
+                    "it-IT": "L'array i cui Valori saranno considerati.",
+                    "ja-JP": "値が検討される配列",
+                    "ko-KR": "값을 확인할 배열입니다.",
+                    "pl-PL": "Tabela której wartości zostaną uwzględnione.",
+                    "pt-BR": "A matriz cujos Valores serão considerados.",
+                    "ru-RU": "Массив значения которого будут учитываться.",
+                    "zh-CN": "考察此数组中的值。"
                 }
             },
             {
@@ -5044,7 +6667,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
+                    "guid": "00000000BF26",
+                    "en-US": "The Condition that is evaluated for each element of the specified Array. Use the Current Array Element Value to reference the element of the array currently being considered.",
+                    "de-DE": "Die Bedingung die für jedes Element des festgelegten Arrays bewertet wird. Für die Referenzierung des Elements des aktuell berücksichtigten Arrays wird der Wert [Current Array Element] verwendet.",
+                    "es-ES": "Condición que se evalúa para cada elemento de la matriz especificada. Utiliza el valor de «Current Array Element» para hacer referencia al elemento de la matriz que se está considerando actualmente.",
+                    "es-MX": "La condición que se evalúa para cada elemento de la matriz especificada. Usa el valor del elemento de la matriz actual para establecer una referencia al elemento de la matriz considerado actualmente.",
+                    "fr-FR": "La condition évaluée pour chaque élément du tableau spécifié. Utilisez la valeur « Élément de tableau actuel » pour renvoyer vers l’élément du tableau actuellement pris en compte.",
+                    "it-IT": "La Condizione valutata per ogni elemento dell'Array specificato. Usa il Valore Current Array Element per fare riferimento all'elemento dell'array che è attualmente considerato.",
+                    "ja-JP": "指定された配列の各要素で評価される条件。「現在の配列の要素」の値を使って、評価される配列の要素を参照する",
+                    "ko-KR": "지정된 배열의 각 요소에 대해 확인할 조건입니다. 현재 확인 대상인 배열의 요소를 참조할 때는 Current Array Element 값을 사용하십시오.",
+                    "pl-PL": "Warunek który jest oceniany dla każdego elementy określonej tabeli. Użyj wartości „Current Array Element” Aktualny element tabeli aby odnieść się do aktualnie uwzględnianego elementu z tabeli.",
+                    "pt-BR": "A Condição avaliada para cada elemento da Matriz especificada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
+                    "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента указанного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
+                    "zh-CN": "对指定的数组中每个元素判断此条件。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
                 }
             }
         ],
@@ -5082,7 +6717,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose values will be considered."
+                    "guid": "00000000BF25",
+                    "en-US": "The array whose Values will be considered.",
+                    "de-DE": "Das Array dessen Werte berücksichtigt werden.",
+                    "es-ES": "Matriz cuyos valores se considerarán.",
+                    "es-MX": "La matriz cuyos valores serán considerados.",
+                    "fr-FR": "Le tableau dont les valeurs seront prises en compte.",
+                    "it-IT": "L'array i cui Valori saranno considerati.",
+                    "ja-JP": "値が検討される配列",
+                    "ko-KR": "값을 확인할 배열입니다.",
+                    "pl-PL": "Tabela której wartości zostaną uwzględnione.",
+                    "pt-BR": "A matriz cujos Valores serão considerados.",
+                    "ru-RU": "Массив значения которого будут учитываться.",
+                    "zh-CN": "考察此数组中的值。"
                 }
             },
             {
@@ -5091,7 +6738,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered."
+                    "guid": "00000000BF26",
+                    "en-US": "The Condition that is evaluated for each element of the specified Array. Use the Current Array Element Value to reference the element of the array currently being considered.",
+                    "de-DE": "Die Bedingung die für jedes Element des festgelegten Arrays bewertet wird. Für die Referenzierung des Elements des aktuell berücksichtigten Arrays wird der Wert [Current Array Element] verwendet.",
+                    "es-ES": "Condición que se evalúa para cada elemento de la matriz especificada. Utiliza el valor de «Current Array Element» para hacer referencia al elemento de la matriz que se está considerando actualmente.",
+                    "es-MX": "La condición que se evalúa para cada elemento de la matriz especificada. Usa el valor del elemento de la matriz actual para establecer una referencia al elemento de la matriz considerado actualmente.",
+                    "fr-FR": "La condition évaluée pour chaque élément du tableau spécifié. Utilisez la valeur « Élément de tableau actuel » pour renvoyer vers l’élément du tableau actuellement pris en compte.",
+                    "it-IT": "La Condizione valutata per ogni elemento dell'Array specificato. Usa il Valore Current Array Element per fare riferimento all'elemento dell'array che è attualmente considerato.",
+                    "ja-JP": "指定された配列の各要素で評価される条件。「現在の配列の要素」の値を使って、評価される配列の要素を参照する",
+                    "ko-KR": "지정된 배열의 각 요소에 대해 확인할 조건입니다. 현재 확인 대상인 배열의 요소를 참조할 때는 Current Array Element 값을 사용하십시오.",
+                    "pl-PL": "Warunek który jest oceniany dla każdego elementy określonej tabeli. Użyj wartości „Current Array Element” Aktualny element tabeli aby odnieść się do aktualnie uwzględnianego elementu z tabeli.",
+                    "pt-BR": "A Condição avaliada para cada elemento da Matriz especificada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
+                    "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента указанного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
+                    "zh-CN": "对指定的数组中每个元素判断此条件。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
                 }
             }
         ],
@@ -5129,7 +6788,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ability 1 usage to check."
+                    "guid": "00000000C3F0",
+                    "en-US": "The Player whose Ability 1 usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung seiner Fähigkeit 1 geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso de la habilidad 1 se comprueba.",
+                    "es-MX": "El jugador cuyo uso de la habilidad 1 se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation de la capacité 1.",
+                    "it-IT": "Il Giocatore il cui utilizzo dell'Abilità 1 sarà controllato.",
+                    "ja-JP": "アビリティ1を使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "기술 1의 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdolność „Ability 1” Zdolność 1 zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cujo uso da Habilidade 1 será verificado.",
+                    "ru-RU": "Игрок у которого нужно получить информацию об использовании способности 1.",
+                    "zh-CN": "检测此玩家的技能1状态。"
                 }
             }
         ],
@@ -5166,7 +6837,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ability 2 usage to check."
+                    "guid": "00000000C3EF",
+                    "en-US": "The Player whose Ability 2 usage to check.",
+                    "de-DE": "Der Spieler dessen Verwendung seiner Fähigkeit 2 geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso de la habilidad 2 se comprueba.",
+                    "es-MX": "El jugador cuyo uso de la habilidad 2 se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation de la capacité 2.",
+                    "it-IT": "Il Giocatore il cui utilizzo dell'Abilità 2 sarà controllato.",
+                    "ja-JP": "アビリティ2を使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "기술 2의 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego zdolność „Ability 2” Zdolność 2 zostanie sprawdzona.",
+                    "pt-BR": "O Jogador cujo uso da Habilidade 2 será verificado.",
+                    "ru-RU": "Игрок у которого нужно получить информацию об использовании способности 2.",
+                    "zh-CN": "检测此玩家的技能2状态。"
                 }
             }
         ],
@@ -5203,7 +6886,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ultimate ability usage to check."
+                    "guid": "00000000BF36",
+                    "en-US": "The Player whose ultimate ability usage to check.",
+                    "de-DE": "Der Spieler dessen Einsatz seiner ultimativen Fähigkeit geprüft werden soll.",
+                    "es-ES": "Jugador cuyo uso de definitiva se comprueba.",
+                    "es-MX": "El jugador cuyo uso de habilidad máxima se verificará.",
+                    "fr-FR": "Le joueur dont il faut vérifier l’utilisation de la capacité ultime.",
+                    "it-IT": "Il Giocatore il cui utilizzo dell'abilità Ultra sarà controllato.",
+                    "ja-JP": "アルティメット・アビリティを使用したかどうかチェックするプレイヤー",
+                    "ko-KR": "궁극기 사용 여부를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego użycie superzdolności zostanie sprawdzone.",
+                    "pt-BR": "O Jogador cujo uso de habilidade suprema será verificado.",
+                    "ru-RU": "Игрок для которого выполняется проверка использования суперспособности.",
+                    "zh-CN": "检测此玩家的终极技能状态。"
                 }
             }
         ],
@@ -5442,7 +7137,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array from which the value is acquired."
+                    "guid": "00000000BF2B",
+                    "en-US": "The array from which the Value is acquired.",
+                    "de-DE": "Das Array aus dem der Wert abgerufen wird.",
+                    "es-ES": "Matriz de la que se adquiere el valor.",
+                    "es-MX": "La matriz de la cual se adquirirá el valor.",
+                    "fr-FR": "Le tableau dans lequel la valeur est acquise.",
+                    "it-IT": "L'array dal quale il Valore sarà acquisito.",
+                    "ja-JP": "値を取得する配列",
+                    "ko-KR": "값을 가져올 배열입니다.",
+                    "pl-PL": "Tabela z której pozyskiwana jest wartość.",
+                    "pt-BR": "A matriz da qual o Valor será adquirido.",
+                    "ru-RU": "Массив из которого получено значение.",
+                    "zh-CN": "获取此数组中的值。"
                 }
             }
         ],
@@ -5530,7 +7237,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector in world coordinates that will be converted to local coordinates."
+                    "guid": "00000000BEE4",
+                    "en-US": "The Vector in world coordinates that will be converted to local coordinates.",
+                    "de-DE": "Der Vektor in Weltkoordinaten der in lokale Koordinaten umgewandelt wird.",
+                    "es-ES": "Vector en coordenadas del mundo que se convertirá a coordenadas locales.",
+                    "es-MX": "El vector en coordenadas globales que se convertirá en coordenadas locales.",
+                    "fr-FR": "Le vecteur en coordonnées mondiales qui sera converti en coordonnées locales.",
+                    "it-IT": "Il Vettore in coordinate del mondo di gioco che sarà convertito in coordinate locali.",
+                    "ja-JP": "ローカル座標に変換されるワールド座標のベクトル",
+                    "ko-KR": "로컬 좌표로 전환될 월드 좌표 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor we współrzędnych świata który zostanie przekonwertowany na lokalne współrzędne.",
+                    "pt-BR": "O Vetor em coordenadas do mundo que será convertido em coordenadas locais.",
+                    "ru-RU": "Вектор в глобальной системе координат который нужно перенести в локальную систему координат.",
+                    "zh-CN": "将此相对地图坐标的矢量值转化为相对于本地坐标的矢量值。"
                 }
             },
             {
@@ -5539,7 +7258,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player to whom the resulting vector will be relative."
+                    "guid": "00000000BEE3",
+                    "en-US": "The Player to whom the resulting Vector will be relative.",
+                    "de-DE": "Der Spieler zu dem der resultierende Vektor relativ ist.",
+                    "es-ES": "Jugador al que será relativo el vector resultante.",
+                    "es-MX": "El jugador vinculado al vector resultante.",
+                    "fr-FR": "Le joueur auquel se rapportera le vecteur résultant.",
+                    "it-IT": "Il Giocatore a cui il Vettore risultante farà riferimento.",
+                    "ja-JP": "結果として生じるベクトルに関連するプレイヤー",
+                    "ko-KR": "결과 벡터와 연관될 플레이어입니다.",
+                    "pl-PL": "Gracz do którego odnosi się wynikowy parametr „Vector” Wektor.",
+                    "pt-BR": "O Jogador a quem o Vetor resultante será relativo.",
+                    "ru-RU": "Игрок относительно которого строится результирующий вектор.",
+                    "zh-CN": "本地矢量是相对此玩家的。"
                 }
             },
             {
@@ -5548,7 +7279,19 @@ var valueFuncKw =
                 "type": "Transform",
                 "default": "ROTATION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
+                    "guid": "00000000BEE1",
+                    "en-US": "Specifies whether the Vector should receive a rotation and a translation usually applied to positions or only a rotation usually applied to directions and velocities.",
+                    "de-DE": "Legt fest ob der Vektor eine Rotation und eine Parallelverschiebung erhalten soll für gewöhnlich bei Positionen oder nur eine Rotation für gewöhnlich bei Richtungen und Geschwindigkeiten.",
+                    "es-ES": "Especifica si el vector debe recibir una rotación y una traslación normalmente aplicadas a posiciones o solo una rotación normalmente aplicada a direcciones y velocidades.",
+                    "es-MX": "Especifica si el vector debería recibir una rotación y una traslación por lo general aplicada a las posiciones o solo una rotación por lo general aplicada a las direcciones y las velocidades.",
+                    "fr-FR": "Spécifie s’il faut appliquer au vecteur une rotation et une translation généralement appliquées aux positions ou uniquement une rotation généralement appliquée aux directions et aux vélocités.",
+                    "it-IT": "Specifica se il Vettore deve ricevere una rotazione e una traslazione solitamente applicate a posizioni o solo una rotazione solitamente applicata a direzioni e velocità direzionali.",
+                    "ja-JP": "ベクトルが平行移動および回転を行う（通常は位置に適用）のか、回転のみを行う（通常は方向および速度に適用）のか指定する",
+                    "ko-KR": "벡터가 회전과 평행이동을 받는지일반적으로 위치에 적용 아니면 회전만 받는지일반적으로 방향 및 속도에 적용 여부를 설정합니다.",
+                    "pl-PL": "Określa czy parametr „Vector” Wektor powinien otrzymać rotację i przełożenie zazwyczaj stosowane do pozycji czy tylko rotację zazwyczaj stosowaną do kierunków i prędkości.",
+                    "pt-BR": "Especifica se o Vetor deve receber uma rotação e uma translação geralmente aplicada a posições ou apenas uma rotação geralmente aplicada a direções e velocidades.",
+                    "ru-RU": "Определяет требуется ли для вектора поворот и смещение обычно применяется к местоположениям или только поворот обычно применяется к направлениям и векторным скоростям.",
+                    "zh-CN": "指定此矢量是否接受旋转及平移（通常是位置），或者只接受旋转（通常是方向和速度）。"
                 }
             }
         ],
@@ -5586,7 +7329,8 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "Vector",
                 "descriptionLocalized": {
-                    "en-US": "The vector to calculate the magnitude of."
+                    "en-US": "The vector to calculate the magnitude of.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -5610,7 +7354,19 @@ var valueFuncKw =
                 "type": "MapLiteral",
                 "default": "AYUTTHAYA",
                 "descriptionLocalized": {
-                    "en-US": "A map constant."
+                    "guid": "00000000D416",
+                    "en-US": "A Map constant.",
+                    "de-DE": "Eine Kartenkonstante.",
+                    "es-ES": "Una constante de mapa.",
+                    "es-MX": "Una constante de mapa.",
+                    "fr-FR": "Une constante de carte.",
+                    "it-IT": "Una costante della Mappa.",
+                    "ja-JP": "マップの定数",
+                    "ko-KR": "전장 상수입니다.",
+                    "pl-PL": "Stała mapy.",
+                    "pt-BR": "Uma constante de Mapa.",
+                    "ru-RU": "Константа поля боя.",
+                    "zh-CN": "一个地图常量"
                 }
             }
         ],
@@ -5653,7 +7409,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array whose copy will be mapped."
+                    "guid": "000000011229",
+                    "en-US": "The array whose copy will be mapped.",
+                    "de-DE": "Das Array dessen Kopie abgebildet wird.",
+                    "es-ES": "Matriz cuya copia se mapeará.",
+                    "es-MX": "La matriz cuya copia será mapeada.",
+                    "fr-FR": "Le tableau dont la copie sera appliquée",
+                    "it-IT": "L'array la cui copia sarà mappata.",
+                    "ja-JP": "コピーがマッピングされる配列",
+                    "ko-KR": "복사본을 매핑할 배열입니다.",
+                    "pl-PL": "Tabela której kopia zostanie zmapowana.",
+                    "pt-BR": "A matriz cuja cópia será mapeada.",
+                    "ru-RU": "Массив копия которого будет сопоставлена.",
+                    "zh-CN": "对此数组的复制进行映射。"
                 }
             },
             {
@@ -5662,7 +7430,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered."
+                    "guid": "00000001122C",
+                    "en-US": "The Mapping Expression that is evaluated for each element of the copied array. Use the Current Array Element Value to reference the element of the array currently being considered.",
+                    "de-DE": "Der Abbildungsausdruck der für jedes Element des kopierten Arrays bewertet wird. Für die Referenzierung des Elements des aktuell berücksichtigten Arrays wird der Wert [Current Array Element] verwendet.",
+                    "es-ES": "Expresión de mapeado que se evalúa para cada elemento de la matriz copiada. Utiliza el valor de «Current Array Element» para hacer referencia al elemento de la matriz que se está considerando actualmente.",
+                    "es-MX": "La expresión de mapeo que se evalúa para cada elemento de la matriz copiada. Usa el valor del elemento de la matriz actual para establecer una referencia al elemento de la matriz considerado actualmente.",
+                    "fr-FR": "L’expression d’application évaluée pour chaque élément du tableau copié. Utilisez la valeur « Élément de tableau actuel » pour renvoyer vers l’élément du tableau actuellement pris en compte.",
+                    "it-IT": "L'Espressione di Mappatura valutata per ogni elemento dell'array copiato. Usa il Valore Current Array Element per fare riferimento all'elemento dell'array che è attualmente considerato.",
+                    "ja-JP": "コピーされた配列の各要素で評価されるマッピング表現。「現在の配列の要素」の値を使って、評価される配列の要素を参照する",
+                    "ko-KR": "복사한 배열의 각 요소에 대해 평가할 매핑 수식입니다. 현재 고려 대상인 배열의 요소를 참조할 때는 Current Array Element 값을 사용하십시오.",
+                    "pl-PL": "Wyrażenie mapowania które jest oceniane dla każdego elementu skopiowanej tabeli. Użyj wartości „Current Array Element” Aktualny element tabeli aby odnieść się do aktualnie uwzględnianego elementu z tabeli.",
+                    "pt-BR": "A Expressão de Mapeamento calculada para cada elemento da matriz copiada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
+                    "ru-RU": "Выражение сопоставления которое будет проверяться для каждого элемента скопированного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
+                    "zh-CN": "映射表达式将此数组中的每个元素复值为被复制的数组中的元素值。使用“当前数组元素值”可以指定当前考察的数组中元素的值。"
                 }
             }
         ],
@@ -5757,7 +7537,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number."
+                    "guid": "00000000C412",
+                    "en-US": "The left-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "左側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "左边的运算量，可以是结果为数字的值。"
                 }
             },
             {
@@ -5768,7 +7560,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number."
+                    "guid": "00000000C413",
+                    "en-US": "The right-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "右側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "右边的运算量，可以是结果为数字的值。"
                 }
             }
         ],
@@ -5805,7 +7609,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose max ammo to acquire."
+                    "guid": "0000000110EC",
+                    "en-US": "The Player whose max ammo to acquire.",
+                    "de-DE": "Der Spieler dessen maximale Munition abgerufen werden soll.",
+                    "es-ES": "Jugador cuya munición máxima se adquiere.",
+                    "es-MX": "El jugador cuya munición máxima se adquirirá.",
+                    "fr-FR": "Le joueur dont les munitions maximum seront appelées.",
+                    "it-IT": "Il Giocatore il cui numero massimo di munizioni sarà acquisito.",
+                    "ja-JP": "最大弾薬数を取得するプレイヤー",
+                    "ko-KR": "최대 탄약 수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego maksimum amunicji należy pozyskać.",
+                    "pt-BR": "O Jogador cuja munição máxima será adquirida.",
+                    "ru-RU": "Игрок у которого нужно определить максимальное количество боеприпасов.",
+                    "zh-CN": "获取此玩家的最大弹药数量。"
                 }
             },
             {
@@ -5816,7 +7632,8 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                    "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -5853,7 +7670,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose max health to acquire."
+                    "guid": "00000001144D",
+                    "en-US": "The Player whose max health to acquire.",
+                    "de-DE": "Der Spieler dessen maximale Trefferpunkte abgerufen werden sollen.",
+                    "es-ES": "Jugador cuya salud máxima se adquiere.",
+                    "es-MX": "El jugador cuya salud máxima se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les points de vie maximum.",
+                    "it-IT": "Il Giocatore la cui salute massima sarà acquisita.",
+                    "ja-JP": "最大ライフを取得するプレイヤー",
+                    "ko-KR": "최대 생명력 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego maksimum zdrowia należy pozyskać.",
+                    "pt-BR": "O Jogador cuja vida máxima será adquirida.",
+                    "ru-RU": "Игрок максимальный запас здоровья которого нужно узнать.",
+                    "zh-CN": "获取此玩家的最大生命值。"
                 }
             }
         ],
@@ -5890,7 +7719,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose max health to acquire."
+                    "guid": "00000001144D",
+                    "en-US": "The Player whose max health to acquire.",
+                    "de-DE": "Der Spieler dessen maximale Trefferpunkte abgerufen werden sollen.",
+                    "es-ES": "Jugador cuya salud máxima se adquiere.",
+                    "es-MX": "El jugador cuya salud máxima se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les points de vie maximum.",
+                    "it-IT": "Il Giocatore la cui salute massima sarà acquisita.",
+                    "ja-JP": "最大ライフを取得するプレイヤー",
+                    "ko-KR": "최대 생명력 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego maksimum zdrowia należy pozyskać.",
+                    "pt-BR": "O Jogador cuja vida máxima será adquirida.",
+                    "ru-RU": "Игрок максимальный запас здоровья которого нужно узнать.",
+                    "zh-CN": "获取此玩家的最大生命值。"
                 }
             },
             {
@@ -5899,7 +7740,19 @@ var valueFuncKw =
                 "type": "Health",
                 "default": "HEALTH",
                 "descriptionLocalized": {
-                    "en-US": "The type of max health to acquire."
+                    "guid": "00000001144E",
+                    "en-US": "The type of max health to acquire.",
+                    "de-DE": "Der Typ der maximalen Trefferpunkte die abgerufen werden sollen.",
+                    "es-ES": "Tipo de salud máxima que se adquiere.",
+                    "es-MX": "El tipo de salud máxima que se adquirirá.",
+                    "fr-FR": "Le type de points de vie maximum à acquérir.",
+                    "it-IT": "Il tipo di salute massima che sarà acquisita.",
+                    "ja-JP": "取得する最大ライフの種類",
+                    "ko-KR": "가져올 최대 생명력의 유형입니다.",
+                    "pl-PL": "Typ maksimum zdrowia do pozyskania.",
+                    "pt-BR": "O tipo de vida máxima que será adquirido.",
+                    "ru-RU": "Тип максимального запаса здоровья который нужно определить.",
+                    "zh-CN": "获取此类型的最大生命值。"
                 }
             }
         ],
@@ -5924,7 +7777,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number."
+                    "guid": "00000000C412",
+                    "en-US": "The left-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "左側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "左边的运算量，可以是结果为数字的值。"
                 }
             },
             {
@@ -5935,7 +7800,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number."
+                    "guid": "00000000C413",
+                    "en-US": "The right-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "右側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "右边的运算量，可以是结果为数字的值。"
                 }
             }
         ],
@@ -5974,7 +7851,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number."
+                    "guid": "00000000C412",
+                    "en-US": "The left-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "左側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "左边的运算量，可以是结果为数字的值。"
                 }
             },
             {
@@ -5984,7 +7873,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number."
+                    "guid": "00000000C413",
+                    "en-US": "The right-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "右側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "右边的运算量，可以是结果为数字的值。"
                 }
             }
         ],
@@ -6024,7 +7925,19 @@ var valueFuncKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C405",
+                    "en-US": "The left-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "左側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
                 }
             },
             {
@@ -6036,7 +7949,19 @@ var valueFuncKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C407",
+                    "en-US": "The right-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "右側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
                 }
             }
         ],
@@ -6076,7 +8001,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position from which to search for the nearest walkable position."
+                    "guid": "00000000C327",
+                    "en-US": "The position from which to search for the nearest walkable position.",
+                    "de-DE": "Die Position deren nächstgelegene begehbare Position gesucht wird.",
+                    "es-ES": "Posición desde la que se busca la posición más cercana por la que se pueda andar.",
+                    "es-MX": "La posición desde la cual se buscará la posición caminable más cercana.",
+                    "fr-FR": "La position à partir de laquelle déterminer la surface la plus proche sur laquelle il est possible de marcher.",
+                    "it-IT": "La posizione dalla quale cercare la più vicina posizione accessibile.",
+                    "ja-JP": "最も近い歩行可能な位置の検索を行う位置",
+                    "ko-KR": "가장 가까운 도보 가능 위치를 검색할 대상 위치입니다.",
+                    "pl-PL": "Pozycja z której należy szukać najbliższej pozycji do której można dojść.",
+                    "pt-BR": "A posição de onde buscar a posição transitável mais próxima.",
+                    "ru-RU": "Точка от которой нужно искать ближайшую проходимую точку.",
+                    "zh-CN": "寻找此位置附近最近的可行走位置。"
                 }
             }
         ],
@@ -6114,7 +8051,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector to normalize."
+                    "guid": "00000000C34C",
+                    "en-US": "The Vector to normalize.",
+                    "de-DE": "Der zu normierende Vektor.",
+                    "es-ES": "Vector que se normaliza.",
+                    "es-MX": "El vector que se normalizará.",
+                    "fr-FR": "Le vecteur à normaliser.",
+                    "it-IT": "Il Vettore da normalizzare.",
+                    "ja-JP": "正規化するベクトル",
+                    "ko-KR": "정규화할 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor do normalizacji.",
+                    "pt-BR": "O Vetor a ser normalizado.",
+                    "ru-RU": "Вектор который нужно нормализовать.",
+                    "zh-CN": "要归一化的矢量。"
                 }
             }
         ],
@@ -6154,7 +8103,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false."
+                    "guid": "00000000BEA3",
+                    "en-US": "When this Input is False or equivalent to False then the Not Value is True. Otherwise the Not Value is False.",
+                    "de-DE": "Wenn diese Eingabe False oder mit False gleichwertig ist ist der Wert [Not] True. Ansonsten ist der Wert [Not] False.",
+                    "es-ES": "Cuando esta entrada es «False» o equivalente a «False» entonces el valor de «Not» es «True»; de lo contrario el valor de «Not» es «False».",
+                    "es-MX": "Cuando esta entrada es falsa o equivalente a falsa el no valor es verdadero. Caso contrario el no valor es falso.",
+                    "fr-FR": "Quand cette entrée est fausse ou équivalent la valeur « Pas » est vraie. Sinon la valeur « Pas » est fausse.",
+                    "it-IT": "Quando l'Input corrisponde a False o è equivalente a False il Valore Not sarà True. Altrimenti il Valore Not sarà False.",
+                    "ja-JP": "入力が「FALSE」である場合、「NOT」の値は「TRUE」を返す。それ以外の場合、「NOT」の値は「FALSE」を返す",
+                    "ko-KR": "이 입력 정보가 False또는 그에 상응하는 경우라면 Not 값은 True입니다. 그 이외의 경우 Not 값은 False입니다.",
+                    "pl-PL": "Kiedy dane wejściowe są fałszem lub jego odpowiednikiem wtedy „Not Value” „Nie wartość” jest prawdą. W przeciwnym razie jest fałszem.",
+                    "pt-BR": "Quando esta Entrada for Falsa ou equivalente a Falsa então o Valor de Não será Verdadeiro. Caso contrário o Valor de Não será Falso.",
+                    "ru-RU": "Если этот аргумент ложный False или эквивалентен False то верно значение [Not] в противном случае значение [Not] ложно.",
+                    "zh-CN": "如果输入为“假”（或等效于“假”），则“非”值为“真”。否则，则“非”值为“假”。"
                 }
             }
         ],
@@ -6220,7 +8181,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to count players."
+                    "guid": "00000000BEC9",
+                    "en-US": "The Team or Teams on which to count Players.",
+                    "de-DE": "Das Team oder die Teams in denen Spieler gezählt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se deben contar los jugadores.",
+                    "es-MX": "El equipo o los equipos donde se contarán los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut compter les joueurs.",
+                    "it-IT": "La Squadra o le Squadre il cui numero di Eroi sarà controllato.",
+                    "ja-JP": "プレイヤー数をチェックするチーム",
+                    "ko-KR": "플레이어 수를 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których należy policzyć graczy.",
+                    "pt-BR": "As Equipes cujos Jogadores serão contados.",
+                    "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
+                    "zh-CN": "计算下列队伍中玩家的数量。"
                 }
             }
         ],
@@ -6259,7 +8232,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose death count to acquire."
+                    "guid": "00000000BE13",
+                    "en-US": "The Player whose death count to acquire.",
+                    "de-DE": "Der Spieler dessen Todesanzahl abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo recuento de muertes se adquiere.",
+                    "es-MX": "El jugador cuya cantidad de muertes se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le compte de morts.",
+                    "it-IT": "Il Giocatore il cui conteggio morti sarà acquisito.",
+                    "ja-JP": "デス数を取得するプレイヤー",
+                    "ko-KR": "사망 횟수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego liczbę zgonów należy pozyskać.",
+                    "pt-BR": "O Jogador cuja contagem de mortes será adquirida.",
+                    "ru-RU": "Игрок количество смертей которого нужно получить.",
+                    "zh-CN": "获取此玩家的死亡次数。"
                 }
             }
         ],
@@ -6298,7 +8283,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose elimination count to acquire."
+                    "guid": "00000000BE12",
+                    "en-US": "The Player whose elimination count to acquire.",
+                    "de-DE": "Der Spieler dessen Eliminierungsanzahl abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo recuento de eliminaciones se adquiere.",
+                    "es-MX": "El jugador cuya cantidad de eliminaciones se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le compte d’éliminations.",
+                    "it-IT": "Il Giocatore il cui conteggio eliminazioni sarà acquisito.",
+                    "ja-JP": "キル数を取得するプレイヤー",
+                    "ko-KR": "처치 횟수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego liczbę likwidacji należy pozyskać.",
+                    "pt-BR": "O Jogador cuja contagem de eliminações será adquirida.",
+                    "ru-RU": "Игрок для которого нужно получить количество совершенных им убийств.",
+                    "zh-CN": "获取此玩家的消灭次数。"
                 }
             }
         ],
@@ -6337,7 +8334,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose final blow count to acquire."
+                    "guid": "00000000BE15",
+                    "en-US": "The Player whose final blow count to acquire.",
+                    "de-DE": "Der Spieler dessen Todesstoß-Anzahl abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo recuento de golpes de gracia se adquiere.",
+                    "es-MX": "El jugador cuya cantidad de golpes de gracia se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le compte final de coups fatals.",
+                    "it-IT": "Il Giocatore il cui conteggio colpi di grazia sarà acquisito.",
+                    "ja-JP": "ファイナル・ブロウの数を取得するプレイヤー",
+                    "ko-KR": "결정타 개수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego liczbę trafień kończących należy pozyskać.",
+                    "pt-BR": "O Jogador cuja contagem de golpes finais será adquirida.",
+                    "ru-RU": "Игрок количество смертельных ударов которого нужно получить.",
+                    "zh-CN": "获取此玩家的最后一击次数。"
                 }
             }
         ],
@@ -6376,7 +8385,19 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero to check for play."
+                    "guid": "00000000BEC6",
+                    "en-US": "The Hero to check for play.",
+                    "de-DE": "Der Held auf dessen Einsatz im Spiel geprüft werden soll.",
+                    "es-ES": "Héroe cuya presencia en juego se comprueba.",
+                    "es-MX": "El héroe que se verificará para jugar.",
+                    "fr-FR": "Le héros dont il faut vérifier la présence en jeu.",
+                    "it-IT": "L'Eroe il cui utilizzo sarà controllato.",
+                    "ja-JP": "プレイされているかチェックするヒーロー",
+                    "ko-KR": "플레이 현황을 확인할 영웅입니다.",
+                    "pl-PL": "Bohater do sprawdzenia czy jest w rozgrywce.",
+                    "pt-BR": "O Herói a ser verificado em jogo.",
+                    "ru-RU": "Герой факт игры за которого нужно проверить.",
+                    "zh-CN": "检测此英雄是否在使用。"
                 }
             },
             {
@@ -6385,7 +8406,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to check for the hero being played."
+                    "guid": "00000000BEC7",
+                    "en-US": "The Team or Teams on which to check for the Hero being played.",
+                    "de-DE": "Das Team oder die Teams die auf den gespielten Helden geprüft werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se comprueba si el héroe está en juego.",
+                    "es-MX": "El equipo o los equipos en los que se verificará el héroe con el que se está jugando.",
+                    "fr-FR": "L’équipe ou les équipes dans lesquelles il faut vérifier la présence du héros.",
+                    "it-IT": "La Squadra o le Squadre il cui utilizzo dell'Eroe sarà controllato.",
+                    "ja-JP": "ヒーローがプレイされているかチェックするチーム",
+                    "ko-KR": "영웅 플레이 현황을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których zostanie sprawdzone czy bohater jest w rozgrywce.",
+                    "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
+                    "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
+                    "zh-CN": "检测队伍中是否正在使用这名英雄。"
                 }
             }
         ],
@@ -6424,7 +8457,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to count players."
+                    "guid": "00000000BEC9",
+                    "en-US": "The Team or Teams on which to count Players.",
+                    "de-DE": "Das Team oder die Teams in denen Spieler gezählt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se deben contar los jugadores.",
+                    "es-MX": "El equipo o los equipos donde se contarán los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut compter les joueurs.",
+                    "it-IT": "La Squadra o le Squadre il cui numero di Eroi sarà controllato.",
+                    "ja-JP": "プレイヤー数をチェックするチーム",
+                    "ko-KR": "플레이어 수를 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których należy policzyć graczy.",
+                    "pt-BR": "As Equipes cujos Jogadores serão contados.",
+                    "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
+                    "zh-CN": "计算下列队伍中玩家的数量。"
                 }
             }
         ],
@@ -6463,7 +8508,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to count players."
+                    "guid": "00000000BEC9",
+                    "en-US": "The Team or Teams on which to count Players.",
+                    "de-DE": "Das Team oder die Teams in denen Spieler gezählt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se deben contar los jugadores.",
+                    "es-MX": "El equipo o los equipos donde se contarán los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut compter les joueurs.",
+                    "it-IT": "La Squadra o le Squadre il cui numero di Eroi sarà controllato.",
+                    "ja-JP": "プレイヤー数をチェックするチーム",
+                    "ko-KR": "플레이어 수를 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których należy policzyć graczy.",
+                    "pt-BR": "As Equipes cujos Jogadores serão contados.",
+                    "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
+                    "zh-CN": "计算下列队伍中玩家的数量。"
                 }
             }
         ],
@@ -6502,7 +8559,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to count players."
+                    "guid": "00000000BEC9",
+                    "en-US": "The Team or Teams on which to count Players.",
+                    "de-DE": "Das Team oder die Teams in denen Spieler gezählt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se deben contar los jugadores.",
+                    "es-MX": "El equipo o los equipos donde se contarán los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut compter les joueurs.",
+                    "it-IT": "La Squadra o le Squadre il cui numero di Eroi sarà controllato.",
+                    "ja-JP": "プレイヤー数をチェックするチーム",
+                    "ko-KR": "플레이어 수를 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których należy policzyć graczy.",
+                    "pt-BR": "As Equipes cujos Jogadores serão contados.",
+                    "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
+                    "zh-CN": "计算下列队伍中玩家的数量。"
                 }
             }
         ],
@@ -6541,7 +8610,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "Team",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to count slots."
+                    "guid": "000000011CB9",
+                    "en-US": "The Team or Teams on which to count Slots.",
+                    "de-DE": "Das Team oder die Teams in denen die Plätze gezählt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se deben contar las ranuras.",
+                    "es-MX": "El equipo o los equipos donde se contarán los espacios.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut compter les emplacements.",
+                    "it-IT": "La Squadra o le Squadre il cui numero di Slot sarà controllato.",
+                    "ja-JP": "スロット数をチェックするチーム",
+                    "ko-KR": "슬롯 수를 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których miejsca zostaną policzone.",
+                    "pt-BR": "As Equipes de onde contar os Espaços.",
+                    "ru-RU": "Команда или команды для которых подсчитываются ячейки.",
+                    "zh-CN": "计算下列队伍中栏位的数量。"
                 }
             }
         ],
@@ -6594,7 +8675,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index."
+                    "guid": "00000000C2AD",
+                    "en-US": "The index of the objective to consider starting at 0 and counting up. Each control point payload checkpoint and payload destination has its own index.",
+                    "de-DE": "Der Index des zu berücksichtigenden Zielpunkts ab 0 gezählt. Jeder Kontrollpunkt Fracht-Checkpoint und Frachtzielpunkt hat seinen eigenen Index.",
+                    "es-ES": "Índice del objetivo que se considera empezando a contar desde 0. Cada punto del modo control punto de control de la carga y destino de la carga tiene su propio índice.",
+                    "es-MX": "El índice del objetivo que se considerará la cuenta comienza de 0 en adelante. Cada punto de captura punto de control de la carga y destino de la carga tiene su propio índice.",
+                    "fr-FR": "L’index de l’objectif à prendre en compte débutant à 0 et progressant. Chaque point de contrôle point de contrôle de convoi et destination de convoi possède son propre index.",
+                    "it-IT": "L'indice dell'obiettivo da considerare che incrementa a partire da 0. Ogni punto di controllo checkpoint del carico e destinazione del carico ha il suo indice specifico.",
+                    "ja-JP": "検討される目標のインデックス。カウントは0から開始される。各コントロール・ポイント、ペイロード・チェックポイント、ペイロード目的地にはそれぞれにインデックスがある",
+                    "ko-KR": "고려해야 하는 목표의 인덱스로서 0에서 시작하여 증가합니다. 각 거점 화물 경유지 화물 목적지에는 각기 고유의 인덱스가 있습니다.",
+                    "pl-PL": "Indeks zadania do uwzględnienia zaczynając od 0 i licząc w górę. Każdy punkt kontrolny punkt kontrolny ładunku i miejsce docelowe ładunku posiadają własny indeks.",
+                    "pt-BR": "O índice do objetivo a ser considerado iniciando em 0 e somando. Cada ponto de controle ponto de verificação de carga e destino de carga tem seu próprio índice.",
+                    "ru-RU": "Индекс рассматриваемой задачи от 0 и выше. Каждая контрольная точка объект контрольная или конечная точка доставки груза имеют свой индекс.",
+                    "zh-CN": "考察的目标点的索引，从0开始逐渐累加。每个控制点、运载目标检查点、运载目标目的地都有其独自的索引。"
                 }
             }
         ],
@@ -6617,7 +8710,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose opposite to acquire. If all, the result will be all."
+                    "guid": "00000000BF41",
+                    "en-US": "The Team whose opposite to acquire. If All the result will be All.",
+                    "de-DE": "Das Team dessen Gegenüberstellung abgerufen werden soll. Falls [All] lautet das Ergebnis [All].",
+                    "es-ES": "Equipo cuyo oponente se adquiere. Si es «Todos» el resultado será «Todos».",
+                    "es-MX": "El equipo cuya oposición se adquirirá. En caso de ser todos el resultado será todos.",
+                    "fr-FR": "L’équipe dont il faut acquérir l’adversaire. Si la valeur est « Tous » le résultat sera « Tous ».",
+                    "it-IT": "La Squadra i cui avversari saranno acquisiti. Se Tutti il risultato sarà Tutti.",
+                    "ja-JP": "相手チームを取得するチーム「すべて」の場合、結果は「すべて」になる",
+                    "ko-KR": "상대 팀 정보를 가져올 팀입니다. All인 경우 결과는 All입니다.",
+                    "pl-PL": "Drużyna których przeciwników należy pozyskać. Jeśli wybrano opcję „All” Wszystkie wynikiem będą wszystkie.",
+                    "pt-BR": "A Equipe cuja adversária será adquirida. Se for Todas o resultado será Todas.",
+                    "ru-RU": "Команда для которой нужно определить соперников. Если указать всех то действие вернет значение [All].",
+                    "zh-CN": "获得此队伍的对方队伍。如果选择“全部”，结果亦为“全部”。"
                 }
             }
         ],
@@ -6642,7 +8747,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
+                    "guid": "00000000BE9F",
+                    "en-US": "One of the two Inputs considered. If either one is True or equivalent to True then the Or Value is True.",
+                    "de-DE": "Eine der zwei berücksichtigten Eingaben. Wenn eine davon True oder mit True gleichwertig ist ist der Wert [Or] True.",
+                    "es-ES": "Una de las dos entradas consideradas. Si alguna de ellas es «True» o equivalente a «True» entonces el valor de «Or» es «True».",
+                    "es-MX": "Una de las dos entradas consideradas. Si una de las dos es verdadera o equivalente a verdadera el valor disyuntivo será verdadero.",
+                    "fr-FR": "Une des deux entrées prises en compte. Si une d’elles est vraie ou équivalent alors la valeur « Ou » est vraie.",
+                    "it-IT": "Uno dei due Input considerati. Se uno dei due corrisponde a True o è equivalente a True il Valore Or sarà True.",
+                    "ja-JP": "検討される2つの入力のうちいずれか。いずれかが「TRUE」（または「TRUE」と同等）である場合、「OR」の値は「TRUE」を返す",
+                    "ko-KR": "두 입력 정보를 확인하여 하나가 True또는 그에 상응하는 경우인 경우 Or 값은 True입니다.",
+                    "pl-PL": "Jedne z dwóch uwzględnionych danych wejściowych. Jeśli któreś z nich są prawdą lub jej odpowiednikiem wtedy „Or Value” „Lub wartość” jest prawdą.",
+                    "pt-BR": "Uma das duas Entradas consideradas. Se qualquer uma delas for Verdadeira ou equivalente a Verdadeira então o Valor de Ou será Verdadeiro.",
+                    "ru-RU": "Один из двух рассматриваемых аргументов. Если любой из них верен True или эквивалент True то результат [Or] тоже верен.",
+                    "zh-CN": "考察的两个输入值中的一个。如果两个值中有一个为“真”（或等效于“真”），则“或”的值为“真”。"
                 }
             },
             {
@@ -6651,7 +8768,19 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true."
+                    "guid": "00000000BEA0",
+                    "en-US": "One of the two Inputs considered. If either one is True or equivalent to True then the Or Value is True.",
+                    "de-DE": "Eine der zwei berücksichtigten Eingaben. Wenn eine davon True oder mit True gleichwertig ist ist der Wert [Or] True.",
+                    "es-ES": "Una de las dos entradas consideradas. Si alguna de ellas es «True» o equivalente a «True» entonces el valor de «Or» es «True».",
+                    "es-MX": "Una de las dos entradas consideradas. Si una de las dos es verdadera o equivalente a verdadera el valor disyuntivo será verdadero.",
+                    "fr-FR": "Une des deux entrées prises en compte. Si une d’elles est vraie ou équivalent alors la valeur « Ou » est vraie.",
+                    "it-IT": "Uno dei due Input considerati. Se uno dei due corrisponde a True o è equivalente a True il Valore Or sarà True.",
+                    "ja-JP": "検討される2つの入力のうちいずれか。いずれかが「TRUE」（または「TRUE」と同等）である場合、「OR」の値は「TRUE」を返す",
+                    "ko-KR": "두 입력 정보를 확인하여 하나가 True또는 그에 상응하는 경우인 경우 Or 값은 True입니다.",
+                    "pl-PL": "Jedne z dwóch uwzględnionych danych wejściowych. Jeśli któreś z nich są prawdą lub jej odpowiednikiem wtedy „Or Value” „Lub wartość” jest prawdą.",
+                    "pt-BR": "Uma das duas Entradas consideradas. Se qualquer uma delas for Verdadeira ou equivalente a Verdadeira então o Valor de Ou será Verdadeiro.",
+                    "ru-RU": "Один из двух рассматриваемых аргументов. Если любой из них верен True или эквивалент True то результат [Or] тоже верен.",
+                    "zh-CN": "考察的两个输入值中的一个。如果两个值中有一个为“真”（或等效于“真”），则“或”的值为“真”。"
                 }
             }
         ],
@@ -6743,7 +8872,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose flag to check."
+                    "guid": "00000000BF06",
+                    "en-US": "The Team whose flag to check.",
+                    "de-DE": "Das Team dessen Flagge geprüft werden soll.",
+                    "es-ES": "Equipo cuya bandera se comprueba.",
+                    "es-MX": "El equipo cuya bandera se verificará.",
+                    "fr-FR": "L’équipe dont il faut vérifier le drapeau.",
+                    "it-IT": "La Squadra la cui bandiera sarà controllata.",
+                    "ja-JP": "フラッグをチェックするチーム",
+                    "ko-KR": "깃발을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna której flaga zostanie sprawdzona.",
+                    "pt-BR": "A Equipe cuja bandeira será verificada.",
+                    "ru-RU": "Команда флаг которой нужно проверить.",
+                    "zh-CN": "检测此队伍的旗帜。"
                 }
             }
         ],
@@ -6781,7 +8922,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player from whose reticle to search for the closest player."
+                    "guid": "00000000C32B",
+                    "en-US": "The Player from whose reticle to search for the closest Player.",
+                    "de-DE": "Der Spieler von dessen Fadenkreuz ausgehend nach dem nächstgelegenen Spieler gesucht werden soll.",
+                    "es-ES": "Jugador desde cuya retícula se busca al jugador más cercano.",
+                    "es-MX": "El jugador desde cuyo retículo se buscará al jugador más cercano.",
+                    "fr-FR": "Le joueur dont le réticule doit chercher le joueur le plus proche.",
+                    "it-IT": "Il Giocatore dal cui reticolo inizierà la ricerca del Giocatore più vicino.",
+                    "ja-JP": "最も近いプレイヤーの検索を行う照準のプレイヤー",
+                    "ko-KR": "이 플레이어의 조준선으로부터 가장 가까운 플레이어를 검색합니다.",
+                    "pl-PL": "Gracz dla którego celownika należy szukać najbliższych graczy.",
+                    "pt-BR": "O Jogador cuja mira será usada para buscar o Jogador mais próximo.",
+                    "ru-RU": "Игрок в прицеле которого нужно искать ближайшего игрока.",
+                    "zh-CN": "搜索距此玩家准星最近的玩家。"
                 }
             },
             {
@@ -6790,7 +8943,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to search for the closest player."
+                    "guid": "00000000C32C",
+                    "en-US": "The Team or Teams on which to search for the closest Player.",
+                    "de-DE": "Das Team oder die Teams in denen nach dem nächstgelegenen Spieler gesucht werden soll.",
+                    "es-ES": "Equipo o equipos en los que se busca al jugador más cercano.",
+                    "es-MX": "El equipo o los equipos donde se buscará al jugador más cercano.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut chercher le joueur le plus proche.",
+                    "it-IT": "La Squadra o le Squadre tra le quali cercare il Giocatore più vicino.",
+                    "ja-JP": "最も近いプレイヤーを検索するチーム",
+                    "ko-KR": "가장 가까운 플레이어를 검색할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których należy szukać najbliższych graczy.",
+                    "pt-BR": "As Equipes usadas para buscar o Jogador mais próximo.",
+                    "ru-RU": "Команда или команды из числа игроков которых нужно определить ближайшего.",
+                    "zh-CN": "搜索此队伍中最近的玩家。"
                 }
             }
         ],
@@ -6827,7 +8992,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player whose statistic to acquire."
+                    "guid": "000000012508",
+                    "en-US": "The Player whose statistic to acquire.",
+                    "de-DE": "Der Spieler dessen Statistikwert abgerufen werden soll.",
+                    "es-ES": "Jugador cuyas estadísticas se adquieren.",
+                    "es-MX": "El jugador cuya estadística se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les statistiques.",
+                    "it-IT": "Il giocatore del quale acquisire la statistica.",
+                    "ja-JP": "統計を取得するプレイヤー",
+                    "ko-KR": "통계치를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego statystykę należy pozyskać.",
+                    "pt-BR": "O Jogador cuja estatística será obtida.",
+                    "ru-RU": "Игрок статистику которого нужно определить.",
+                    "zh-CN": "获取此玩家的数据。"
                 }
             },
             {
@@ -6836,7 +9013,8 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "Hero",
                 "descriptionLocalized": {
-                    "en-US": "The hero whose statistic to acquire"
+                    "en-US": "The hero whose statistic to acquire",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -6845,7 +9023,19 @@ var valueFuncKw =
                 "type": "HeroStat",
                 "default": "All Damage Dealt",
                 "descriptionLocalized": {
-                    "en-US": "The statistic to acquire."
+                    "guid": "00000001250B",
+                    "en-US": "The statistic to acquire.",
+                    "de-DE": "Der Statistikwert der abgerufen werden soll.",
+                    "es-ES": "Las estadísticas que se adquieren.",
+                    "es-MX": "La estadística que se adquirirá.",
+                    "fr-FR": "Les statistiques à acquérir.",
+                    "it-IT": "La statistica da acquisire.",
+                    "ja-JP": "取得する統計",
+                    "ko-KR": "가져올 통계치입니다.",
+                    "pl-PL": "Statystyka która zostanie pozyskana.",
+                    "pt-BR": "A estatística a ser obtida.",
+                    "ru-RU": "Статистика которую нужно определить.",
+                    "zh-CN": "获取数据。"
                 }
             }
         ],
@@ -6882,7 +9072,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player whose statistic to acquire."
+                    "guid": "000000012508",
+                    "en-US": "The Player whose statistic to acquire.",
+                    "de-DE": "Der Spieler dessen Statistikwert abgerufen werden soll.",
+                    "es-ES": "Jugador cuyas estadísticas se adquieren.",
+                    "es-MX": "El jugador cuya estadística se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir les statistiques.",
+                    "it-IT": "Il giocatore del quale acquisire la statistica.",
+                    "ja-JP": "統計を取得するプレイヤー",
+                    "ko-KR": "통계치를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego statystykę należy pozyskać.",
+                    "pt-BR": "O Jogador cuja estatística será obtida.",
+                    "ru-RU": "Игрок статистику которого нужно определить.",
+                    "zh-CN": "获取此玩家的数据。"
                 }
             },
             {
@@ -6891,7 +9093,19 @@ var valueFuncKw =
                 "type": "Stat",
                 "default": "All Damage Dealt",
                 "descriptionLocalized": {
-                    "en-US": "The statistic to acquire."
+                    "guid": "00000001250B",
+                    "en-US": "The statistic to acquire.",
+                    "de-DE": "Der Statistikwert der abgerufen werden soll.",
+                    "es-ES": "Las estadísticas que se adquieren.",
+                    "es-MX": "La estadística que se adquirirá.",
+                    "fr-FR": "Les statistiques à acquérir.",
+                    "it-IT": "La statistica da acquisire.",
+                    "ja-JP": "取得する統計",
+                    "ko-KR": "가져올 통계치입니다.",
+                    "pl-PL": "Statystyka która zostanie pozyskana.",
+                    "pt-BR": "A estatística a ser obtida.",
+                    "ru-RU": "Статистика которую нужно определить.",
+                    "zh-CN": "获取数据。"
                 }
             }
         ],
@@ -6928,7 +9142,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable value to acquire."
+                    "guid": "00000000BE0F",
+                    "en-US": "The Player whose Variable Value to acquire.",
+                    "de-DE": "Der Spieler dessen Variablenwert abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo valor de variable se adquiere.",
+                    "es-MX": "El jugador cuyo valor de variable se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la valeur de variable.",
+                    "it-IT": "Il Giocatore da cui acquisire il Valore della Variabile.",
+                    "ja-JP": "変数値を取得するプレイヤー",
+                    "ko-KR": "변수 값 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego wartość zmiennej należy pozyskać.",
+                    "pt-BR": "O Jogador cujo Valor de Variável será adquirido.",
+                    "ru-RU": "Игрок значение переменной которого нужно получить.",
+                    "zh-CN": "获取此玩家的变量值。"
                 }
             },
             {
@@ -6937,7 +9163,19 @@ var valueFuncKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The variable whose value to acquire."
+                    "guid": "00000000BE0D",
+                    "en-US": "The Variable whose Value to acquire.",
+                    "de-DE": "Die Variable deren Wert abgerufen werden soll.",
+                    "es-ES": "Variable cuyo valor se adquiere.",
+                    "es-MX": "La variable cuyo valor se adquirirá.",
+                    "fr-FR": "La variable dont il faut acquérir la valeur.",
+                    "it-IT": "La Variabile dalla quale acquisire il Valore.",
+                    "ja-JP": "値を取得する変数",
+                    "ko-KR": "값 정보를 가져올 변수입니다.",
+                    "pl-PL": "Zmienna której wartość należy pozyskać.",
+                    "pt-BR": "A Variável cujo Valor será adquirido.",
+                    "ru-RU": "Переменная значение которой нужно получить.",
+                    "zh-CN": "获取此变量的值。"
                 }
             }
         ],
@@ -6976,7 +9214,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11."
+                    "guid": "00000000BE08",
+                    "en-US": "The slot number from which to acquire a Player or Players. In team games each team has slots 0 through 5. In free-for-all games slots are numbered 0 through 11.",
+                    "de-DE": "Die Slot-Nummer von der ein oder mehrere Spieler abgerufen werden sollen. In Teamspielen hat jedes Team die Slots 0 bis 5. In klassischen Deathmatches werden die Slots mit 0 bis 11 durchnummeriert.",
+                    "es-ES": "Número de la ranura de la que se adquiere el jugador o los jugadores. En partidas por equipos cada equipo tiene ranuras del 0 al 5. En partidas todos contra todos las ranuras van del 0 al 11.",
+                    "es-MX": "El número de posición a partir del cual se adquirirá uno o más jugadores. En las partidas de equipos cada equipo cuenta con las posiciones 0 a 5. En las partidas de todos contra todos las posiciones se cuentan del 0 al 11.",
+                    "fr-FR": "Le numéro d’emplacement à partir duquel acquérir un ou plusieurs joueurs. Dans les parties en équipe chaque équipe dispose d’emplacements allant de 0 à 5. Dans les parties en mode Chacun pour soi les emplacements sont numérotés de 0 à 11.",
+                    "it-IT": "Il numero dello slot dal quale acquisire un Giocatore o i Giocatori. Nelle partite di squadra ogni squadra comprende gli slot da 0 a 5. Nelle partite Tutti contro tutti gli slot sono numerati da 0 a 11.",
+                    "ja-JP": "チームのスロット番号を取得する。チーム・ゲームの場合、各チームには0～5の番号がふられたスロットがある。FFAの場合、スロットには0～11がふられている",
+                    "ko-KR": "플레이어 정보를 가져올 슬롯 번호입니다. 팀전에서 각 팀은 0에서 5개의 슬롯을 보유하며 개별 전투 게임에서 슬롯 수는 0에서 11까지입니다.",
+                    "pl-PL": "Numer miejsca z którego należy pozyskać gracza lub graczy. W grach drużynowych każda drużyna ma miejsca od 0 do 5. W grach każdy na każdego miejsca są numerowane od 0 do 11.",
+                    "pt-BR": "O número de espaço de onde os Jogadores seráão adquiridos. Em partidas em equipe cada equipe tem espaços de 0 a 5. Em partidas todos contra todos os espaços são numerados de 0 a 11.",
+                    "ru-RU": "Номер ячейки из которой нужно получить данные занимающего ее игрока или игроков. В командных играх у каждой команды есть ячейки с номерами от 0 до 5. В FFA ячейки имеют номера от 0 до 11.",
+                    "zh-CN": "获取指定位置编号的玩家。在队伍模式中，每个队伍中玩家的位置编号为0到5的数字；在自由混战模式中，位置编号为0到11。"
                 }
             },
             {
@@ -6985,7 +9235,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams from which to acquire a player or players."
+                    "guid": "00000000BE09",
+                    "en-US": "The Team or Teams from which to acquire a Player or Players.",
+                    "de-DE": "Das Team oder die Teams von denen ein oder mehrere Spieler abgerufen werden sollen.",
+                    "es-ES": "Equipo o equipos de los que se adquieren los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde se adquirirá uno o más jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut acquérir un ou plusieurs joueurs.",
+                    "it-IT": "La Squadra o le Squadre dalle quali acquisire un Giocatore o i Giocatori.",
+                    "ja-JP": "プレイヤーを取得するチーム",
+                    "ko-KR": "플레이어 정보를 가져올 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których należy pozyskać gracza lub graczy.",
+                    "pt-BR": "As Equipes de onde os Jogadores seráão adquiridos.",
+                    "ru-RU": "Команда или команды игрока или игроков которых нужно получить.",
+                    "zh-CN": "从这些队伍中选择玩家。"
                 }
             }
         ],
@@ -7028,7 +9290,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose view to use for the check."
+                    "guid": "00000000BF81",
+                    "en-US": "The Player whose view to use for the check.",
+                    "de-DE": "Der Spieler dessen Sicht für die Prüfung verwendet wird.",
+                    "es-ES": "Jugador cuya visión se utiliza para la comprobación.",
+                    "es-MX": "El jugador cuya vista se utilizará para la verificación.",
+                    "fr-FR": "Le joueur dont le champ de vision servira à effectuer la vérification.",
+                    "it-IT": "Il Giocatore la cui area di visuale sarà controllata.",
+                    "ja-JP": "チェックのために視点を使用するプレイヤー",
+                    "ko-KR": "시야를 확인할 플레이어입니다.",
+                    "pl-PL": "Gracz którego pola widzenia użyć do sprawdzenia.",
+                    "pt-BR": "O Jogador cuja visão será usada na verificação.",
+                    "ru-RU": "Игрок поле зрения которого используется для проверки.",
+                    "zh-CN": "检测此名玩家的视野。"
                 }
             },
             {
@@ -7037,7 +9311,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to consider players."
+                    "guid": "00000000C32D",
+                    "en-US": "The Team or Teams on which to consider Players.",
+                    "de-DE": "Das Team oder die Teams deren Spieler berücksichtigt werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se consideran los jugadores.",
+                    "es-MX": "El equipo o los equipos de donde se adquirirán los jugadores.",
+                    "fr-FR": "L’équipe ou les équipes dont il faut prendre les joueurs en compte.",
+                    "it-IT": "La Squadra o le Squadre i cui Giocatori saranno considerati.",
+                    "ja-JP": "プレイヤーとしてみなすチーム",
+                    "ko-KR": "플레이어를 고려할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny z których graczy należy uwzględnić.",
+                    "pt-BR": "As Equipes cujos Jogadores serão considerados.",
+                    "ru-RU": "Команда или команды игроков из которых нужно учитывать.",
+                    "zh-CN": "考察的玩家所在的队伍。"
                 }
             },
             {
@@ -7046,7 +9332,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The view angle to compare against in degrees."
+                    "guid": "00000000BF83",
+                    "en-US": "The View Angle to compare against in degrees.",
+                    "de-DE": "Der Blickwinkel zum Vergleich in Grad.",
+                    "es-ES": "Ángulo de visión en grados con el que se compara.",
+                    "es-MX": "El ángulo de vista en grados con el cual se comparará.",
+                    "fr-FR": "L’angle de vision en degrés avec lequel effectuer la comparaison.",
+                    "it-IT": "L'Angolo di Visuale da confrontare in gradi.",
+                    "ja-JP": "比較対象となる視覚範囲",
+                    "ko-KR": "비교 대상인 View Angle단위: 도입니다.",
+                    "pl-PL": "Kąt widzenia w stopniach do którego należy dokonać porównania.",
+                    "pt-BR": "O Ângulo de Visão a ser comparado em graus.",
+                    "ru-RU": "Угол поля зрения в градусах по которому проводится сравнение.",
+                    "zh-CN": "用于比较的视角，单位为度。"
                 }
             }
         ],
@@ -7085,7 +9383,19 @@ var valueFuncKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero to check for play."
+                    "guid": "00000000BEC6",
+                    "en-US": "The Hero to check for play.",
+                    "de-DE": "Der Held auf dessen Einsatz im Spiel geprüft werden soll.",
+                    "es-ES": "Héroe cuya presencia en juego se comprueba.",
+                    "es-MX": "El héroe que se verificará para jugar.",
+                    "fr-FR": "Le héros dont il faut vérifier la présence en jeu.",
+                    "it-IT": "L'Eroe il cui utilizzo sarà controllato.",
+                    "ja-JP": "プレイされているかチェックするヒーロー",
+                    "ko-KR": "플레이 현황을 확인할 영웅입니다.",
+                    "pl-PL": "Bohater do sprawdzenia czy jest w rozgrywce.",
+                    "pt-BR": "O Herói a ser verificado em jogo.",
+                    "ru-RU": "Герой факт игры за которого нужно проверить.",
+                    "zh-CN": "检测此英雄是否在使用。"
                 }
             },
             {
@@ -7094,7 +9404,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams on which to check for the hero being played."
+                    "guid": "00000000BEC7",
+                    "en-US": "The Team or Teams on which to check for the Hero being played.",
+                    "de-DE": "Das Team oder die Teams die auf den gespielten Helden geprüft werden sollen.",
+                    "es-ES": "Equipo o equipos en los que se comprueba si el héroe está en juego.",
+                    "es-MX": "El equipo o los equipos en los que se verificará el héroe con el que se está jugando.",
+                    "fr-FR": "L’équipe ou les équipes dans lesquelles il faut vérifier la présence du héros.",
+                    "it-IT": "La Squadra o le Squadre il cui utilizzo dell'Eroe sarà controllato.",
+                    "ja-JP": "ヒーローがプレイされているかチェックするチーム",
+                    "ko-KR": "영웅 플레이 현황을 확인할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny w których zostanie sprawdzone czy bohater jest w rozgrywce.",
+                    "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
+                    "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
+                    "zh-CN": "检测队伍中是否正在使用这名英雄。"
                 }
             }
         ],
@@ -7134,7 +9456,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The center position from which to measure distance."
+                    "guid": "00000000BE3A",
+                    "en-US": "The center position from which to measure distance.",
+                    "de-DE": "Die zentrale Position von der die Distanz gemessen wird.",
+                    "es-ES": "Posición central desde la que se mide la distancia.",
+                    "es-MX": "La posición central desde la cual se medirá la distancia.",
+                    "fr-FR": "La position centrale à partir de laquelle mesurer la distance.",
+                    "it-IT": "La posizione centrale dalla quale misurare la distanza.",
+                    "ja-JP": "距離を計測するための中央位置",
+                    "ko-KR": "거리 측정이 시작되는 중간 위치입니다.",
+                    "pl-PL": "Pozycja środkowa z której mierzy się odległość.",
+                    "pt-BR": "A posição central da qual a distância será medida.",
+                    "ru-RU": "Центральная точка от которой измеряется расстояние.",
+                    "zh-CN": "以此位置为中心测定距离。"
                 }
             },
             {
@@ -7143,7 +9477,19 @@ var valueFuncKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The radius in meters inside which players must be in order to be included in the resulting array."
+                    "guid": "00000000BE39",
+                    "en-US": "The radius in meters inside which Players must be in order to be included in the resulting array.",
+                    "de-DE": "Der Radius in Metern innerhalb dessen Spieler sich befinden müssen um im resultierenden Array berücksichtigt zu werden.",
+                    "es-ES": "Radio en metros al que deben estar los jugadores para que se los incluya en la matriz resultante.",
+                    "es-MX": "El radio en metros dentro del cual los jugadores deben estar para ser incluidos en la matriz resultante.",
+                    "fr-FR": "Le rayon en mètres dans lequel les joueurs doivent se trouver pour être inclus dans le tableau résultant.",
+                    "it-IT": "Il raggio in metri all'interno del quale i Giocatori devono trovarsi per essere inclusi nell'array risultante.",
+                    "ja-JP": "この範囲内（メートル）にいるプレイヤーが結果として生じる配列に含まれる",
+                    "ko-KR": "결과 배열에 포함되기 위해 플레이어가 속해 있어야 하는 반경미터입니다.",
+                    "pl-PL": "Promień w metrach wewnątrz którego znajdować muszą się gracze aby trafić do wynikowej tabeli.",
+                    "pt-BR": "O raio em metros dentro do qual Jogadores precisam estar para serem incluídos na matriz resultante.",
+                    "ru-RU": "Радиус в метрах в пределах которого должны находиться игроки для включения в итоговый массив.",
+                    "zh-CN": "玩家需在此距离范围内（单位：米）才会出现在结果列表中。"
                 }
             },
             {
@@ -7152,7 +9498,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams to which a player must belong to be included in the resulting array."
+                    "guid": "00000000BE38",
+                    "en-US": "The Team or Teams to which a Player must belong to be included in the resulting array.",
+                    "de-DE": "Das Team oder die Teams denen ein Spieler angehören muss um im resultierenden Array berücksichtigt zu werden.",
+                    "es-ES": "Equipo o equipos a los que debe pertenecer un jugador para que se lo incluya en la matriz resultante.",
+                    "es-MX": "El equipo o los equipos a los cuales debe pertenecer el jugador para ser incluido en la matriz resultante.",
+                    "fr-FR": "L’équipe ou les équipes auxquelles un joueur doit appartenir pour être inclus dans le tableau résultant.",
+                    "it-IT": "La Squadra o le Squadre alle quali un Giocatore deve appartenere per essere incluso dell'array risultante.",
+                    "ja-JP": "このチームに所属しているプレイヤーが結果として生じる配列に含まれる",
+                    "ko-KR": "결과 배열에 포함되기 위해 플레이어가 속해 있어야 하는 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny do których należeć musi gracz aby znaleźć się w wynikowej tabeli.",
+                    "pt-BR": "As Equipes às qualis um Jogador precisa pertencer para ser incluído na matriz resultante.",
+                    "ru-RU": "Команда или команды к которым должен принадлежать игрок для включения в итоговый массив.",
+                    "zh-CN": "所选队伍的玩家会出现在结果列表中。"
                 }
             },
             {
@@ -7161,7 +9519,19 @@ var valueFuncKw =
                 "type": "LosCheck",
                 "default": "OFF",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array."
+                    "guid": "00000000BE37",
+                    "en-US": "Specifies whether and how a Player must pass a line-of-sight check to be included in the resulting array.",
+                    "de-DE": "Legt fest ob und wie ein Spieler eine Sichtfeldprüfung bestehen muss um im resultierenden Array berücksichtigt zu werden.",
+                    "es-ES": "Especifica si un jugador debe superar una comprobación de línea de visión para que se lo incluya en la matriz resultante y cómo.",
+                    "es-MX": "Especifica si un jugador debe pasar la verificación de línea de vista para ser incluido en la matriz resultante y cómo hacerlo.",
+                    "fr-FR": "Spécifie si et comment le cas échéant un joueur doit réussir un test de ligne de vue pour être inclus dans le tableau résultant.",
+                    "it-IT": "Specifica se e come un Giocatore deve superare il controllo sulla linea di tiro per essere incluso nell'array risultante.",
+                    "ja-JP": "配列に含まれるために、射線チェックに合格する必要があるかどうか、また合格する方法を指定する",
+                    "ko-KR": "결과 배열에 포함되기 위해 플레이어가 시야 확인을 통과해야 하는지 여부 및 방법을 지정합니다.",
+                    "pl-PL": "Określa czy i jak gracz musi przejść weryfikację pola widzenia aby znaleźć się w wynikowej tabeli.",
+                    "pt-BR": "Especifica se e como um Jogador precisa passar por uma verificação de linha de visão para ser incluído na matriz resultante.",
+                    "ru-RU": "Определяет необходимость и способ проверки игрока на нахождение в поле зрения для включения в итоговый массив.",
+                    "zh-CN": "只有通过视线检测的玩家才会出现在结果列表中。"
                 }
             }
         ],
@@ -7228,7 +9598,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose position to acquire."
+                    "guid": "00000000BE1E",
+                    "en-US": "The Player whose position to acquire.",
+                    "de-DE": "Der Spieler dessen Position abgerufen werden soll.",
+                    "es-ES": "Jugador cuya posición se adquiere.",
+                    "es-MX": "El jugador cuya posición se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la position.",
+                    "it-IT": "Il Giocatore la cui posizione sarà acquisita.",
+                    "ja-JP": "位置を取得するプレイヤー",
+                    "ko-KR": "위치 값 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego pozycję należy pozyskać.",
+                    "pt-BR": "O Jogador cuja posição será adquirida.",
+                    "ru-RU": "Игрок положение которого нужно определить.",
+                    "zh-CN": "获取此玩家的位置。"
                 }
             }
         ],
@@ -7267,7 +9649,19 @@ var valueFuncKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number."
+                    "guid": "00000000C412",
+                    "en-US": "The left-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "左側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "左边的运算量，可以是结果为数字的值。"
                 }
             },
             {
@@ -7276,7 +9670,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number."
+                    "guid": "00000000C413",
+                    "en-US": "The right-hand operand. May be any Value that results in a number.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero.",
+                    "ja-JP": "右側の被演算子。数値として導き出される値になる場合がある",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
+                    "zh-CN": "右边的运算量，可以是结果为数字的值。"
                 }
             }
         ],
@@ -7315,7 +9721,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
+                    "guid": "00000000BF17",
+                    "en-US": "The smallest integer allowed. If a real Number is provided to this Input it is rounded to the nearest integer.",
+                    "de-DE": "Die kleinste zulässige Ganzzahl. Wenn eine reelle Zahl für diese Eingabe verwendet wird wird sie auf die nächste Ganzzahl gerundet.",
+                    "es-ES": "Número entero más bajo permitido. Si se indica un número real en esta entrada se redondea al número entero más cercano.",
+                    "es-MX": "El número entero mínimo permitido. Si se detecta un número real en esta entrada se redondeará al número entero más cercano.",
+                    "fr-FR": "Le plus petit nombre entier autorisé. Si un nombre réel est indiqué pour cette entrée il est arrondi au nombre entier le plus proche.",
+                    "it-IT": "Il numero intero più piccolo permesso. Se a questo Input viene fornito un Numero reale esso viene arrotondato al numero intero più vicino.",
+                    "ja-JP": "使用できる整数の最小値この入力に実数が指定されている場合、最も近い整数に四捨五入される",
+                    "ko-KR": "허용된 최소 정수입니다. 이 입력 정보에 실수가 주어진 경우 가장 근접한 정수로 반올림됩니다.",
+                    "pl-PL": "Najmniejsza dozwolona liczba całkowita. Jeśli podano liczbę rzeczywistą zostanie ona zaokrąglona do najbliższej liczby całkowitej.",
+                    "pt-BR": "O menor número inteiro permitido. Se um Número real for fornecido nesta Entrada será arredondado para o inteiro mais próximo.",
+                    "ru-RU": "Минимально допустимое целое число. Если указано действительное число то оно округляется до ближайшего целого.",
+                    "zh-CN": "允许的最小整数。如果此处输入的是一个实数，则取最接近此实数的整数。"
                 }
             },
             {
@@ -7326,7 +9744,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer."
+                    "guid": "00000000BF18",
+                    "en-US": "The largest integer allowed. If a real Number is provided to this Input it is rounded to the nearest integer.",
+                    "de-DE": "Die größte zulässige Ganzzahl. Wenn eine reelle Zahl für diese Eingabe verwendet wird wird sie auf die nächste Ganzzahl gerundet.",
+                    "es-ES": "Número entero más alto permitido. Si se indica un número real en esta entrada se redondea al número entero más cercano.",
+                    "es-MX": "El número entero máximo permitido. Si se detecta un número real en esta entrada se redondeará al número entero más cercano.",
+                    "fr-FR": "Le plus grand nombre entier autorisé. Si un nombre réel est indiqué pour cette entrée il est arrondi au nombre entier le plus proche.",
+                    "it-IT": "Il numero intero più grande permesso. Se a questo Input viene fornito un Numero reale esso viene arrotondato al numero intero più vicino.",
+                    "ja-JP": "使用できる整数の最大値この入力に実数が指定されている場合、最も近い整数に四捨五入される",
+                    "ko-KR": "허용된 최대 정수입니다. 이 입력 정보에 실수가 주어진 경우 가장 근접한 정수로 반올림됩니다.",
+                    "pl-PL": "Największa dozwolona liczba całkowita. Jeśli podano liczbę rzeczywistą zostanie ona zaokrąglona do najbliższej liczby całkowitej.",
+                    "pt-BR": "O maior número inteiro permitido. Se um Número real for fornecido nesta Entrada será arredondado para o inteiro mais próximo.",
+                    "ru-RU": "Максимально допустимое целое число. Если указано действительное число то оно округляется до ближайшего целого.",
+                    "zh-CN": "允许的最大整数。如果此处输入的是一个实数，则取最接近此实数的整数。"
                 }
             }
         ],
@@ -7363,7 +9793,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The smallest real number allowed."
+                    "guid": "00000000BF1B",
+                    "en-US": "The smallest real Number allowed.",
+                    "de-DE": "Die kleinste zulässige reelle Zahl.",
+                    "es-ES": "Número real más bajo permitido.",
+                    "es-MX": "El número real mínimo permitido.",
+                    "fr-FR": "Le plus petit nombre réel autorisé.",
+                    "it-IT": "Il Numero reale più piccolo permesso.",
+                    "ja-JP": "使用できる実数の最小値",
+                    "ko-KR": "허용된 최소 실수값입니다.",
+                    "pl-PL": "Najmniejsza dozwolona liczba rzeczywista.",
+                    "pt-BR": "O menor Número real permitido.",
+                    "ru-RU": "Наименьшее из допустимых действительных чисел.",
+                    "zh-CN": "允许的最小实数。"
                 }
             },
             {
@@ -7372,7 +9814,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The largest real number allowed."
+                    "guid": "00000000BF1A",
+                    "en-US": "The largest real Number allowed.",
+                    "de-DE": "Die größte zulässige reelle Zahl.",
+                    "es-ES": "Número real más alto permitido.",
+                    "es-MX": "El número real máximo permitido.",
+                    "fr-FR": "Le plus grand nombre réel autorisé.",
+                    "it-IT": "Il Numero reale più grande permesso.",
+                    "ja-JP": "使用できる実数の最大値",
+                    "ko-KR": "허용된 최대 실수값입니다.",
+                    "pl-PL": "Największa dozwolona liczba rzeczywista.",
+                    "pt-BR": "O maior Número real permitido.",
+                    "ru-RU": "Наибольшее из допустимых действительных чисел.",
+                    "zh-CN": "允许的最大实数。"
                 }
             }
         ],
@@ -7409,7 +9863,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value."
+                    "guid": "00000000BF1C",
+                    "en-US": "The array from which to randomly take a Value. If a non-array Value is provided the result is simply the provided Value.",
+                    "de-DE": "Das Array aus dem zufällig ein Wert bezogen wird. Wenn ein Wert außerhalb des Arrays angegeben wird ist das Ergebnis einfach der angegebene Wert.",
+                    "es-ES": "Matriz de la que se extrae un valor aleatorio. Si se indica un valor que no está en la matriz el resultado será simplemente el valor proporcionado.",
+                    "es-MX": "La matriz a partir de la cual se tomará un valor aleatoriamente. Si se proporciona un valor no matricial el resultado será simplemente el valor proporcionado.",
+                    "fr-FR": "Le tableau dont il faut extraire une valeur aléatoire. Si une valeur étrangère au tableau est indiquée le résultat retournera simplement la valeur indiquée.",
+                    "it-IT": "L'array dal quale estrarre casualmente un Valore. Se viene fornito un Valore non appartenente all'array il risultato fornito equivale al Valore stesso.",
+                    "ja-JP": "値をランダム取得する配列。非配列の値が指定されている、結果は指定の値となる",
+                    "ko-KR": "무작위 값을 취할 배열입니다. 배열이 아닌 값이 주어진 경우 주어진 값이 그대로 결과값이 됩니다.",
+                    "pl-PL": "Tabela z której losowo pobierana jest wartość. Jeśli wartość nie pochodzi z tabeli wynikiem jest po prostu podana wartość.",
+                    "pt-BR": "A matriz da qual um Valor será obtido aleatoriamente. Se um Valor que não é de matriz for fornecido o resultado será simplesmente o Valor fornecido.",
+                    "ru-RU": "Массив из которого берется случайное значение. Если передан не массив возвращается само переданное значение.",
+                    "zh-CN": "从一个数组中随机取值。如果提供的值不是数组，则结果为提供的值。"
                 }
             }
         ],
@@ -7449,7 +9915,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose copy will be randomized."
+                    "guid": "00000000BF1F",
+                    "en-US": "The array whose copy will be randomized.",
+                    "de-DE": "Das Array dessen Kopie zufällig erstellt wird.",
+                    "es-ES": "Matriz cuya copia se hará aleatoria.",
+                    "es-MX": "La matriz cuya copia será aleatorizada.",
+                    "fr-FR": "Le tableau dont la copie sera randomisée.",
+                    "it-IT": "L'array la cui copia sarà ordinata casualmente.",
+                    "ja-JP": "ランダムなコピーを作成する配列",
+                    "ko-KR": "무작위 복사본을 만들 배열입니다.",
+                    "pl-PL": "Tabela której kopia ma kolejność losową.",
+                    "pt-BR": "A matriz cuja cópia será randomizada.",
+                    "ru-RU": "Массив копия которого будет создана со значениями в случайном порядке.",
+                    "zh-CN": "对此数组的复制进行随机排列。"
                 }
             }
         ],
@@ -7486,7 +9964,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "guid": "00000000C5A3",
+                    "en-US": "The start position for the ray cast. If a Player is provided a position 2 meters above the Player's feet is used.",
+                    "de-DE": "Der Startpunkt des Raycasts. Wenn ein Spieler angegeben ist wird eine Position 2 Meter über den Füßen des Spielers verwendet.",
+                    "es-ES": "La posición inicial del ray cast. Si se proporciona un jugador se utiliza una posición al menos 2 metros por encima de los pies del jugador.",
+                    "es-MX": "La posición inicial para el lanzamiento de rayo. Si se detecta a un jugador se utilizará una posición 2 metros sobre los pies del jugador.",
+                    "fr-FR": "Le point de départ du rayon émis. Si un joueur est renseigné le point utilisé se situe 2 mètres au-dessus de sa base.",
+                    "it-IT": "La posizione iniziale del lancio del raggio. Se viene fornito un Giocatore viene utilizzata una posizione equivalente a 2 metri sopra i piedi dello stesso.",
+                    "ja-JP": "レイ・キャストの開始位置。プレイヤーが指定されている場合、プレイヤーの足から2メートル上の位置が使用される",
+                    "ko-KR": "레이캐스트의 시작 위치입니다. 플레이어가 설정되어 있으면 해당 플레이어의 발 위로 2미터 지점이 사용됩니다.",
+                    "pl-PL": "Pozycja początkowa do weryfikacji raycastingu. Jeśli podano gracza użyta zostanie pozycja 2 metry nad jego stopami.",
+                    "pt-BR": "A posição inicial do lançamento de raio. Se um Jogador for atribuído será usada uma posição 2 metros acima dos pés dele.",
+                    "ru-RU": "Начальная точка луча функции [Ray Cast]. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
+                    "zh-CN": "射线开始施放的位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
                 }
             },
             {
@@ -7495,7 +9985,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "guid": "00000000C5A4",
+                    "en-US": "The end position for the ray cast. If a Player is provided a position 2 meters above the Player's feet is used.",
+                    "de-DE": "Der Endpunkt des Raycasts. Wenn ein Spieler angegeben ist wird eine Position 2 Meter über den Füßen des Spielers verwendet.",
+                    "es-ES": "La posición final del ray cast. Si se proporciona un jugador se utiliza una posición 2 metros por encima de los pies del jugador.",
+                    "es-MX": "La posición final para el lanzamiento de rayo. Si se detecta a un jugador se utilizará una posición 2 metros sobre los pies del jugador.",
+                    "fr-FR": "Le point final du rayon émis. Si un joueur est renseigné le point utilisé se situe 2 mètres au-dessus de sa base.",
+                    "it-IT": "La posizione finale del lancio del raggio. Se viene fornito un Giocatore viene utilizzata una posizione equivalente a 2 metri sopra i piedi dello stesso.",
+                    "ja-JP": "レイ・キャストの終了位置。プレイヤーが指定されている場合、プレイヤーの足から2メートル上の位置が使用される",
+                    "ko-KR": "레이캐스트의 종료 위치입니다. 플레이어가 설정되어 있으면 해당 플레이어의 발 위로 2미터 지점이 사용됩니다.",
+                    "pl-PL": "Pozycja końcowa do weryfikacji raycastingu. Jeśli podano gracza użyta zostanie pozycja 2 metry nad jego stopami.",
+                    "pt-BR": "A posição final do lançamento de raio. Se um Jogador for atribuído será usada uma posição 2 metros acima dos pés dele.",
+                    "ru-RU": "Конечная точка луча функции [Ray Cast]. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
+                    "zh-CN": "射线结束的位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
                 }
             },
             {
@@ -7506,7 +10008,19 @@ var valueFuncKw =
                 },
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "Which players can be hit by this ray cast."
+                    "guid": "00000000C5A8",
+                    "en-US": "Which players can be hit by this ray cast.",
+                    "de-DE": "Welche Spieler von diesem Raycast getroffen werden können.",
+                    "es-ES": "Los jugadores a los que puede alcanzar este ray cast.",
+                    "es-MX": "Los jugadores que pueden ser golpeados por este lanzamiento de rayo.",
+                    "fr-FR": "Les joueurs pouvant être intersectés par cette émission de rayons.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio.",
+                    "ja-JP": "このレイ・キャストが当たりうるプレイヤー",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 있는 플레이어입니다.",
+                    "pl-PL": "Którzy gracze mogą zostać oświetleni przez raycasting.",
+                    "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
+                    "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
+                    "zh-CN": "哪些玩家可以被射线击中。"
                 }
             },
             {
@@ -7517,7 +10031,19 @@ var valueFuncKw =
                 },
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                    "guid": "00000000C604",
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over Players To Include.",
+                    "de-DE": "Welche Spieler nicht von diesem Raycast getroffen werden können. Diese Liste hat Vorrang vor [Players To Include].",
+                    "es-ES": "Los jugadores que no pueden ser alcanzados por este ray cast. Esta lista tiene prioridad sobre «Players to Exclude».",
+                    "es-MX": "Los jugadores que no pueden ser golpeados por este lanzamiento de rayo. Esta lista tiene prioridad por sobre Jugadores para incluir.",
+                    "fr-FR": "Les joueurs ne pouvant pas être touchés par cette émission de rayons. Cette liste supplante celle des Joueurs à inclure.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio. Questo elenco ha la precedenza sui Giocatori da Includere.",
+                    "ja-JP": "レイ・キャストが当たらないプレイヤー。このリストは「含まれるプレイヤー」より優先される",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 없는 플레이어입니다. Players To Include보다 이 목록의 우선순위가 높습니다.",
+                    "pl-PL": "Którzy gracze nie mogą zostać oświetleni przez raycasting. Ta lista ma priorytet nad „Players To Include” Gracze do uwzględnienia.",
+                    "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
+                    "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
+                    "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
                 }
             },
             {
@@ -7526,7 +10052,8 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7564,7 +10091,8 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7573,7 +10101,8 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7584,7 +10113,19 @@ var valueFuncKw =
                 },
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "Which players can be hit by this ray cast."
+                    "guid": "00000000C5A8",
+                    "en-US": "Which players can be hit by this ray cast.",
+                    "de-DE": "Welche Spieler von diesem Raycast getroffen werden können.",
+                    "es-ES": "Los jugadores a los que puede alcanzar este ray cast.",
+                    "es-MX": "Los jugadores que pueden ser golpeados por este lanzamiento de rayo.",
+                    "fr-FR": "Les joueurs pouvant être intersectés par cette émission de rayons.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio.",
+                    "ja-JP": "このレイ・キャストが当たりうるプレイヤー",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 있는 플레이어입니다.",
+                    "pl-PL": "Którzy gracze mogą zostać oświetleni przez raycasting.",
+                    "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
+                    "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
+                    "zh-CN": "哪些玩家可以被射线击中。"
                 }
             },
             {
@@ -7595,7 +10136,19 @@ var valueFuncKw =
                 },
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                    "guid": "00000000C604",
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over Players To Include.",
+                    "de-DE": "Welche Spieler nicht von diesem Raycast getroffen werden können. Diese Liste hat Vorrang vor [Players To Include].",
+                    "es-ES": "Los jugadores que no pueden ser alcanzados por este ray cast. Esta lista tiene prioridad sobre «Players to Exclude».",
+                    "es-MX": "Los jugadores que no pueden ser golpeados por este lanzamiento de rayo. Esta lista tiene prioridad por sobre Jugadores para incluir.",
+                    "fr-FR": "Les joueurs ne pouvant pas être touchés par cette émission de rayons. Cette liste supplante celle des Joueurs à inclure.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio. Questo elenco ha la precedenza sui Giocatori da Includere.",
+                    "ja-JP": "レイ・キャストが当たらないプレイヤー。このリストは「含まれるプレイヤー」より優先される",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 없는 플레이어입니다. Players To Include보다 이 목록의 우선순위가 높습니다.",
+                    "pl-PL": "Którzy gracze nie mogą zostać oświetleni przez raycasting. Ta lista ma priorytet nad „Players To Include” Gracze do uwzględnienia.",
+                    "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
+                    "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
+                    "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
                 }
             },
             {
@@ -7604,7 +10157,8 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7642,7 +10196,8 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7651,7 +10206,8 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used."
+                    "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7662,7 +10218,19 @@ var valueFuncKw =
                 },
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "Which players can be hit by this ray cast."
+                    "guid": "00000000C5A8",
+                    "en-US": "Which players can be hit by this ray cast.",
+                    "de-DE": "Welche Spieler von diesem Raycast getroffen werden können.",
+                    "es-ES": "Los jugadores a los que puede alcanzar este ray cast.",
+                    "es-MX": "Los jugadores que pueden ser golpeados por este lanzamiento de rayo.",
+                    "fr-FR": "Les joueurs pouvant être intersectés par cette émission de rayons.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio.",
+                    "ja-JP": "このレイ・キャストが当たりうるプレイヤー",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 있는 플레이어입니다.",
+                    "pl-PL": "Którzy gracze mogą zostać oświetleni przez raycasting.",
+                    "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
+                    "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
+                    "zh-CN": "哪些玩家可以被射线击中。"
                 }
             },
             {
@@ -7673,7 +10241,19 @@ var valueFuncKw =
                 },
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over players to include."
+                    "guid": "00000000C604",
+                    "en-US": "Which players cannot be hit by this ray cast. This list takes precedence over Players To Include.",
+                    "de-DE": "Welche Spieler nicht von diesem Raycast getroffen werden können. Diese Liste hat Vorrang vor [Players To Include].",
+                    "es-ES": "Los jugadores que no pueden ser alcanzados por este ray cast. Esta lista tiene prioridad sobre «Players to Exclude».",
+                    "es-MX": "Los jugadores que no pueden ser golpeados por este lanzamiento de rayo. Esta lista tiene prioridad por sobre Jugadores para incluir.",
+                    "fr-FR": "Les joueurs ne pouvant pas être touchés par cette émission de rayons. Cette liste supplante celle des Joueurs à inclure.",
+                    "it-IT": "Quali giocatori possono essere colpiti dal lancio di questo raggio. Questo elenco ha la precedenza sui Giocatori da Includere.",
+                    "ja-JP": "レイ・キャストが当たらないプレイヤー。このリストは「含まれるプレイヤー」より優先される",
+                    "ko-KR": "이 레이캐스트로 맞힐 수 없는 플레이어입니다. Players To Include보다 이 목록의 우선순위가 높습니다.",
+                    "pl-PL": "Którzy gracze nie mogą zostać oświetleni przez raycasting. Ta lista ma priorytet nad „Players To Include” Gracze do uwzględnienia.",
+                    "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
+                    "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
+                    "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
                 }
             },
             {
@@ -7682,7 +10262,8 @@ var valueFuncKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast."
+                    "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7720,7 +10301,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The array from which to remove values."
+                    "guid": "00000000C426",
+                    "en-US": "The array from which to remove Values.",
+                    "de-DE": "Das Array aus dem Werte zu entfernen sind.",
+                    "es-ES": "Matriz de la que se eliminan valores.",
+                    "es-MX": "La matriz de la cual se eliminarán valores.",
+                    "fr-FR": "Le tableau dont il faut extraire des valeurs.",
+                    "it-IT": "L'array dal quale rimuovere Valori.",
+                    "ja-JP": "値を削除する配列",
+                    "ko-KR": "값을 제거할 배열입니다.",
+                    "pl-PL": "Tabela z której usuwane są wartości.",
+                    "pt-BR": "A matriz de onde os Valores serão removidos.",
+                    "ru-RU": "Массив из которого нужно удалить значения.",
+                    "zh-CN": "从此数列中移除值。"
                 }
             },
             {
@@ -7733,7 +10326,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed."
+                    "guid": "00000000C425",
+                    "en-US": "The Value to remove from the array if found. If this Value is itself an array each matching element is removed.",
+                    "de-DE": "Der aus dem Array zu entfernende Wert falls gefunden. Ist dieser Wert selbst ein Array wird jedes übereinstimmende Element daraus entfernt.",
+                    "es-ES": "Valor que se elimina de la matriz si se encuentra. Si el propio valor es una matriz se elimina cada elemento que coincida.",
+                    "es-MX": "El valor que se eliminará de la matriz si se encuentra. Si este valor es una matriz propia se eliminarán todos los elementos concordantes.",
+                    "fr-FR": "La valeur à extraire du tableau le cas échéant. Si cette valeur est elle-même un tableau chaque élément correspondant en est extrait.",
+                    "it-IT": "Il Valore da rimuovere dall'array se trovato. Se il Valore è esso stesso un array ogni elemento uguale sarà rimosso.",
+                    "ja-JP": "配列から削除する値存在する場合。値自体が配列である場合、マッチする各要素が削除される",
+                    "ko-KR": "배열에서 제거할 값있는 경우입니다. 이 값 자체가 배열인 경우 일치하는 각 요소가 제거됩니다.",
+                    "pl-PL": "Wartość do usunięcia z tabeli jeśli zostanie znaleziona. Jeśli wartością jest sama tabela usunięty zostaje każdy pasujący element.",
+                    "pt-BR": "O Valor a ser removido da matriz se encontrado. Se este Valor for uma matriz cada elemento correspondente dela será removido.",
+                    "ru-RU": "Значение которое нужно удалить из массива если таковое имеется. Если значение представляет собой массив то из него удаляются все соответствующие элементы.",
+                    "zh-CN": "要从数列中移除的值（如果能找到）。如果值本身是一个数列，则所有匹配的元素都将被移除。"
                 }
             }
         ],
@@ -7806,7 +10411,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The real number to round."
+                    "guid": "00000000C355",
+                    "en-US": "The real number to round.",
+                    "de-DE": "Die reelle Zahl die gerundet werden soll.",
+                    "es-ES": "Número real para redondear.",
+                    "es-MX": "El número real que se redondeará.",
+                    "fr-FR": "Le nombre réel arrondi.",
+                    "it-IT": "Il numero reale da arrotondare.",
+                    "ja-JP": "四捨五入する実数",
+                    "ko-KR": "반올림할 실수입니다.",
+                    "pl-PL": "Liczba rzeczywista do zaokrąglenia.",
+                    "pt-BR": "O número real a arredondar.",
+                    "ru-RU": "Действительное число которое нужно округлить.",
+                    "zh-CN": "要取整的实数。"
                 }
             },
             {
@@ -7815,7 +10432,19 @@ var valueFuncKw =
                 "type": "__Rounding__",
                 "default": "UP",
                 "descriptionLocalized": {
-                    "en-US": "Determines the direction in which the value will be rounded."
+                    "guid": "00000000C351",
+                    "en-US": "Determines the direction in which the Value will be rounded.",
+                    "de-DE": "Bestimmt ob der Wert auf- oder abgerundet wird.",
+                    "es-ES": "Determina la dirección a la que se redondeará el valor.",
+                    "es-MX": "Establece la dirección en la cual se redondeará el valor.",
+                    "fr-FR": "Détermine le sens de l’arrondi de la valeur.",
+                    "it-IT": "Determina la direzione verso cui il Valore sarà arrotondato.",
+                    "ja-JP": "数値が四捨五入される方位を決める",
+                    "ko-KR": "값을 반올림하는 규칙을 결정합니다.",
+                    "pl-PL": "Określa kierunek w którym zaokrąglona zostanie wartość.",
+                    "pt-BR": "Determina a direção na qual o Valor será arredondado.",
+                    "ru-RU": "Определяет сторону в которую будет округляться значение.",
+                    "zh-CN": "决定此值取整的方式。"
                 }
             }
         ],
@@ -7853,7 +10482,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose score to acquire."
+                    "guid": "00000000BDFF",
+                    "en-US": "The Player whose score to acquire.",
+                    "de-DE": "Der Spieler dessen Punktestand abgerufen werden soll.",
+                    "es-ES": "Jugador cuya puntuación se adquiere.",
+                    "es-MX": "El jugador cuya puntuación se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le score.",
+                    "it-IT": "Il Giocatore il cui punteggio sarà acquisito.",
+                    "ja-JP": "スコアを取得するプレイヤー",
+                    "ko-KR": "점수 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego wynik należy pozyskać.",
+                    "pt-BR": "O Jogador cuja pontuação será adquirida.",
+                    "ru-RU": "Игрок счет которого нужно узнать.",
+                    "zh-CN": "获取此玩家的分数。"
                 }
             }
         ],
@@ -7974,7 +10615,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in degrees."
+                    "guid": "00000000C346",
+                    "en-US": "Angle in degrees.",
+                    "de-DE": "Winkel in Grad.",
+                    "es-ES": "Ángulo en grados.",
+                    "es-MX": "Ángulo en grados.",
+                    "fr-FR": "Angle en degrés.",
+                    "it-IT": "L'Angolo in gradi.",
+                    "ja-JP": "度単位の角度",
+                    "ko-KR": "각단위: 도입니다.",
+                    "pl-PL": "Kąt w stopniach.",
+                    "pt-BR": "Ângulo em graus.",
+                    "ru-RU": "Угол в градусах.",
+                    "zh-CN": "角度，以角度为单位。"
                 }
             }
         ],
@@ -8012,7 +10665,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in radians."
+                    "guid": "00000000C34A",
+                    "en-US": "Angle in radians.",
+                    "de-DE": "Winkel in Radiant.",
+                    "es-ES": "Ángulo en radianes.",
+                    "es-MX": "Ángulo en radianes.",
+                    "fr-FR": "Angle en radians.",
+                    "it-IT": "L'Angolo in radianti.",
+                    "ja-JP": "ラジアンの角度",
+                    "ko-KR": "각단위: Rad입니다.",
+                    "pl-PL": "Kąt w radianach.",
+                    "pt-BR": "Ângulo em radianos.",
+                    "ru-RU": "Угол в радианах.",
+                    "zh-CN": "角度，以弧度为单位。"
                 }
             }
         ],
@@ -8050,7 +10715,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose slot number to acquire."
+                    "guid": "00000000BF4D",
+                    "en-US": "The player whose slot number to acquire.",
+                    "de-DE": "Der Spieler dessen Slot-Nummer abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo número de ranura se adquiere.",
+                    "es-MX": "El jugador cuyo número de posición se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le numéro d’emplacement.",
+                    "it-IT": "Il Giocatore il cui numero dello slot sarà acquisito.",
+                    "ja-JP": "スロット番号を取得するプレイヤー",
+                    "ko-KR": "슬롯 번호 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego miejsce należy pozyskać.",
+                    "pt-BR": "O Jogador cujo número de espaço será adquirido.",
+                    "ru-RU": "Игрок номер ячейки которого нужно получить.",
+                    "zh-CN": "获取此玩家的位置编号。"
                 }
             }
         ],
@@ -8089,7 +10766,19 @@ var valueFuncKw =
                 },
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose copy will be sorted."
+                    "guid": "00000000BF30",
+                    "en-US": "The array whose copy will be sorted.",
+                    "de-DE": "Das Array dessen Kopie sortiert wird.",
+                    "es-ES": "Matriz cuya copia se ordenará.",
+                    "es-MX": "La matriz cuya copia será ordenada.",
+                    "fr-FR": "Le tableau dont la copie sera triée.",
+                    "it-IT": "L'array la cui copia sarà ordinata.",
+                    "ja-JP": "コピーがソートされる配列",
+                    "ko-KR": "복사본을 정렬할 배열입니다.",
+                    "pl-PL": "Tabela której kopia zostanie posortowana.",
+                    "pt-BR": "A matriz cuja cópia será ordenada.",
+                    "ru-RU": "Массив в копии которого нужно выполнить сортировку.",
+                    "zh-CN": "对此数组的复制进行排序。"
                 }
             },
             {
@@ -8098,7 +10787,19 @@ var valueFuncKw =
                 "type": "Object",
                 "default": "CURRENT ARRAY ELEMENT",
                 "descriptionLocalized": {
-                    "en-US": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered."
+                    "guid": "00000000BF2F",
+                    "en-US": "The Value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the Current Array Element Value to reference the element of the array currently being considered.",
+                    "de-DE": "Der Wert der für jedes Element des kopierten Arrays bewertet wird. Das Array wird in aufsteigender Reihenfolge nach diesem Rang sortiert. Für die Referenzierung des Elements des aktuell berücksichtigten Arrays wird der Wert [Current Array Element] verwendet.",
+                    "es-ES": "Valor que se evalúa para cada elemento de la matriz copiada. La matriz se ordena mediante este rango en sentido ascendente. Utiliza el valor de «Current Array Element» para hacer referencia al elemento de la matriz que se está considerando actualmente.",
+                    "es-MX": "El valor que se evalúa para cada elemento de la matriz copiada. La matriz se ordenará de acuerdo con esta clasificación de forma ascendente. Usa el valor del elemento de la matriz actual para establecer una referencia al elemento de la matriz considerado actualmente.",
+                    "fr-FR": "La valeur évaluée pour chaque élément du tableau copié. Le tableau est trié selon ce rang par ordre croissant. Utilisez la valeur « Élément de tableau actuel » pour renvoyer vers l’élément du tableau actuellement pris en compte.",
+                    "it-IT": "Il Valore valutato per ogni elemento dell'array copiato. L'array è ordinato secondo questo grado e in ordine ascendente. Usa Valore Elemento Array Attuale per fare riferimento all'elemento dell'array che è attualmente considerato.",
+                    "ja-JP": "コピーされた配列の各要素で評価される値。配列はこのランクの昇順にソートされる。「現在の配列の要素」の値を使って、評価される配列の要素を参照する",
+                    "ko-KR": "복사할 배열의 각 요소마다 평가할 값입니다. 이 값의 순서에 따라 오름차순으로 복사본이 정렬됩니다. 현재 확인 대상인 배열의 요소를 참조할 때는 Current Array Element 값을 사용하십시오.",
+                    "pl-PL": "Wartość która jest oceniana dla każdego elementy skopiowanej tabeli. Tabela jest sortowana według te wartości w rosnącej kolejności. Użyj wartości „Current Array Element” Aktualny element tabeli aby odnieść się do aktualnie uwzględnianego elementu z tabeli.",
+                    "pt-BR": "O Valor avaliado para cada elemento da matriz copiada. A matriz é ordenada neste ranque em ordem crescente. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado.",
+                    "ru-RU": "Значение которое нужно проверить для каждого элемента скопированного массива. Сортировка массива выполняется с его учетом по восходящей. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
+                    "zh-CN": "将此值赋值给复制的数组中的每个元素。数组将以升序排列。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
                 }
             }
         ],
@@ -8138,7 +10839,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "Team",
                 "descriptionLocalized": {
-                    "en-US": "The team whose spawn points to acquire."
+                    "guid": "00000001205E",
+                    "en-US": "The Team whose spawn points to acquire.",
+                    "de-DE": "Das Team dessen Startbereiche abgerufen werden sollen.",
+                    "es-ES": "Equipo cuyos puntos de aparición se adquieren.",
+                    "es-MX": "El equipo cuyos puntos de aparición se adquirirán.",
+                    "fr-FR": "L’équipe dont il faut acquérir les points d’apparition.",
+                    "it-IT": "La Squadra la cui area di partenza bisogna acquisire.",
+                    "ja-JP": "リスポーン地点を取得するチーム",
+                    "ko-KR": "생성 지점 정보를 가져올 팀입니다.",
+                    "pl-PL": "Drużyna której punkt startowy należy pozyskać.",
+                    "pt-BR": "A Equipe cujos pontos de ressurgimento serão adquiridos.",
+                    "ru-RU": "Команда точки возрождения которой нужно определить.",
+                    "zh-CN": "获取此队伍的重生点。"
                 }
             }
         ],
@@ -8177,7 +10890,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose speed to acquire."
+                    "guid": "00000000BE5A",
+                    "en-US": "The Player whose speed to acquire.",
+                    "de-DE": "Der Spieler dessen Geschwindigkeit abgerufen werden soll.",
+                    "es-ES": "Jugador cuya velocidad se adquiere.",
+                    "es-MX": "El jugador cuya velocidad se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la vitesse.",
+                    "it-IT": "Il Giocatore la cui velocità non direzionale sarà acquisita.",
+                    "ja-JP": "速さを取得するプレイヤー",
+                    "ko-KR": "속도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego szybkość należy pozyskać.",
+                    "pt-BR": "O Jogador cuja velocidade será adquirida.",
+                    "ru-RU": "Игрок скорость которого нужно определить.",
+                    "zh-CN": "获取此玩家的速度。"
                 }
             }
         ],
@@ -8214,7 +10939,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose speed to acquire."
+                    "guid": "00000000BE5A",
+                    "en-US": "The Player whose speed to acquire.",
+                    "de-DE": "Der Spieler dessen Geschwindigkeit abgerufen werden soll.",
+                    "es-ES": "Jugador cuya velocidad se adquiere.",
+                    "es-MX": "El jugador cuya velocidad se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la vitesse.",
+                    "it-IT": "Il Giocatore la cui velocità non direzionale sarà acquisita.",
+                    "ja-JP": "速さを取得するプレイヤー",
+                    "ko-KR": "속도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego szybkość należy pozyskać.",
+                    "pt-BR": "O Jogador cuja velocidade será adquirida.",
+                    "ru-RU": "Игрок скорость которого нужно определить.",
+                    "zh-CN": "获取此玩家的速度。"
                 }
             },
             {
@@ -8223,7 +10960,19 @@ var valueFuncKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The direction of travel in which to measure the player's speed."
+                    "guid": "00000000BE5F",
+                    "en-US": "The direction of travel in which to measure the Player's speed.",
+                    "de-DE": "Die Fortbewegungsrichtung in der die Geschwindigkeit des Spielers gemessen werden soll.",
+                    "es-ES": "Dirección de desplazamiento en la cual se mide la velocidad del jugador.",
+                    "es-MX": "La dirección del recorrido en el cual se medirá la velocidad del jugador.",
+                    "fr-FR": "La direction de déplacement sur laquelle mesurer la vitesse du joueur.",
+                    "it-IT": "La direzione di movimento non direzionale verso la quale misurare la velocità del Giocatore.",
+                    "ja-JP": "プレイヤーの速さを測定する方向",
+                    "ko-KR": "플레이어의 속도를 측정할 이동 방향입니다.",
+                    "pl-PL": "Kierunek ruchu w którym należy zmierzyć szybkość gracza.",
+                    "pt-BR": "A direção de movimento na qual a velocidade do Jogador será medida.",
+                    "ru-RU": "Направление движения в котором нужно измерить скорость игрока.",
+                    "zh-CN": "行动的方向，用于测量玩家速度。"
                 }
             }
         ],
@@ -8260,7 +11009,19 @@ var valueFuncKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The real number value whose square root will be computed. Negative values result in zero."
+                    "guid": "00000000C35E",
+                    "en-US": "The real number Value whose square root will be computed. Negative Values result in zero.",
+                    "de-DE": "Die reelle Zahl deren Quadratwurzel berechnet wird. Negative Werte ergeben 0.",
+                    "es-ES": "Valor de número real cuya raíz cuadrada se computará. Los valores negativos tienen cero como resultado.",
+                    "es-MX": "El valor de número real cuya raíz cuadrada se calculará. El resultado de los valores negativos será 0.",
+                    "fr-FR": "La valeur en nombre réel dont la racine carrée sera calculée. Le résultat sera égal à 0 si la valeur est négative.",
+                    "it-IT": "Il numero reale di cui verrà calcolata la radice quadrata. Valori negativi risultano zero.",
+                    "ja-JP": "実数値で、この平方根が計算される。負の値は0になる",
+                    "ko-KR": "제곱근을 계산할 실수값입니다. 음수의 경우 0이 됩니다.",
+                    "pl-PL": "Wartość z liczbą rzeczywistą której pierwiastek kwadratowy zostanie obliczony. Wartości ujemne dają wynik zero.",
+                    "pt-BR": "O Valor em número real cuja raiz quadrada será calculada. Valores negativos resultam em zero.",
+                    "ru-RU": "Действительное число квадратный корень из которого нужно вычислить. Корень отрицательных значений приравнивается к нулю.",
+                    "zh-CN": "计算此实数值的平方根。负数值则为0。"
                 }
             }
         ],
@@ -8299,6 +11060,7 @@ var valueFuncKw =
                 "type": "LocalizedStringLiteral",
                 "default": "HELLO",
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -8309,7 +11071,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {0}."
+                    "guid": "00000000BF52",
+                    "en-US": "The Value that will be converted to text and used to replace {0}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {0} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {0}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {0}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {0}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {0}.",
+                    "ja-JP": "テキストに変換され、{0}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {0}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{0}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {0}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{0}].",
+                    "zh-CN": "此值将转换为文本并用于替代{0}。"
                 }
             },
             {
@@ -8319,7 +11093,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {1}."
+                    "guid": "00000000BF54",
+                    "en-US": "The Value that will be converted to text and used to replace {1}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {1} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {1}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {1}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {1}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {1}.",
+                    "ja-JP": "テキストに変換され、{1}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {1}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{1}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {1}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{1}].",
+                    "zh-CN": "此值将转换为文本并用于替代{1}。"
                 }
             },
             {
@@ -8329,7 +11115,19 @@ var valueFuncKw =
                 "canReplace0ByNull": true,
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be converted to text and used to replace {2}."
+                    "guid": "00000000BF51",
+                    "en-US": "The Value that will be converted to text and used to replace {2}.",
+                    "de-DE": "Der Wert der in Text umgewandelt und als Ersatz für {2} verwendet wird.",
+                    "es-ES": "Valor que se convertirá a texto y se utilizará para reemplazar a {2}.",
+                    "es-MX": "El valor que se convertirá en texto y se utilizará para reemplazar {2}.",
+                    "fr-FR": "La valeur qui sera convertie en texte et qui remplacera {2}.",
+                    "it-IT": "Il Valore che sarà convertito in testo e usato per sostituire {2}.",
+                    "ja-JP": "テキストに変換され、{2}を置き換える値",
+                    "ko-KR": "텍스트로 전환되어 {2}을를 대체할 값입니다.",
+                    "pl-PL": "Wartość która zostanie przekonwertowana na tekst i zastąpi zmienną „{2}”.",
+                    "pt-BR": "O Valor que será convertido em texto e usado para substituir {2}.",
+                    "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{2}].",
+                    "zh-CN": "此值将转换为文本并用于替代{2}。"
                 }
             }
         ],
@@ -8366,7 +11164,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The string in which to search for the specified substring."
+                    "en-US": "The string in which to search for the specified substring.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8375,7 +11174,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The substring for which to search."
+                    "en-US": "The substring for which to search.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8398,7 +11198,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The string whose characters to count."
+                    "en-US": "The string whose characters to count.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8421,7 +11222,19 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The string value from which to build the substring."
+                    "guid": "0000000124A8",
+                    "en-US": "The string value from which to build the substring.",
+                    "de-DE": "Der Stringwert von dem der Substring erstellt werden soll.",
+                    "es-ES": "Valor de la cadena desde la que se creará la subcadena.",
+                    "es-MX": "El valor de la cadena desde el cual se creará la subcadena.",
+                    "fr-FR": "La valeur de la chaîne à partir de laquelle est construite la sous-chaîne.",
+                    "it-IT": "Il valore della stringa dal quale costruire la sottostringa.",
+                    "ja-JP": "部分文字列の作成元となる文字列の値",
+                    "ko-KR": "하위 스트링을 만들 스트링 값입니다.",
+                    "pl-PL": "Wartość ciągu z której można zbudować podciąg.",
+                    "pt-BR": "O valor da string que será usada para construir a substring.",
+                    "ru-RU": "Значение строки из которой будет взята подстрока.",
+                    "zh-CN": "从此字符串值中构建子字符串。"
                 }
             },
             {
@@ -8430,7 +11243,19 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.)."
+                    "guid": "0000000124AA",
+                    "en-US": "Specifies the character that will start the substring with 0 as the first character 1 as the second character etc..",
+                    "de-DE": "Legt das Zeichen fest bei dem der Substring beginnt 0 für das erste Zeichen 1 für das zweite Zeichen usw..",
+                    "es-ES": "Especifica el carácter que comenzará en la subcadena 0 es el primer primero 1 es el segundo etc..",
+                    "es-MX": "Especifica el carácter que comenzará la subcadena con 0 como el primer carácter 1 como el segundo etc..",
+                    "fr-FR": "Spécifie le caractère qui commencera la sous-chaîne avec 0 comme premier caractère 1 comme second etc..",
+                    "it-IT": "Specifica il carattere all'inizio della sottostringa dove 0 indica il primo carattere 1 il secondo eccetera.",
+                    "ja-JP": "部分文字列を開始する文字数を指定する（1文字目が0、2文字目が1など）",
+                    "ko-KR": "하위 스트링을 시작할 문자를 지정합니다. 0이 첫 번째 문자 1이 두 번째 문자 등",
+                    "pl-PL": "Określa znak który uruchomi podciąg z 0 jako pierwszym znakiem 1 jako drugim itd..",
+                    "pt-BR": "Especifica o caractere que iniciará a substring 0 é o primeiro 1 é o segundo etc.",
+                    "ru-RU": "Указывает символ с которого будет начинаться подстрока первым символом будет 0 вторым – 1 и так далее.",
+                    "zh-CN": "指定一个字符作为子字符串的起始处（0表示第一个字符，1表示第二个字符，以此类推）。"
                 }
             },
             {
@@ -8439,7 +11264,19 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "Specifies the number of characters in the substring."
+                    "guid": "0000000124AC",
+                    "en-US": "Specifies the number of characters in the substring.",
+                    "de-DE": "Legt die Anzahl der Zeichen im Substring fest.",
+                    "es-ES": "Especifica el número de caracteres en la subcadena.",
+                    "es-MX": "Especifica la cantidad de caracteres de la subcadena.",
+                    "fr-FR": "Spécifie le nombre de caractères dans la sous-chaîne.",
+                    "it-IT": "Specifica il numero di caratteri nella sottostringa.",
+                    "ja-JP": "部分文字列の文字数を指定する",
+                    "ko-KR": "하위 스트링 내의 문자 수를 지정합니다.",
+                    "pl-PL": "Określa liczbę znaków w podciągu.",
+                    "pt-BR": "Especifica o número de caracteres na substring.",
+                    "ru-RU": "Указывает число символов в подстроке.",
+                    "zh-CN": "指定子字符串的字符数。"
                 }
             }
         ],
@@ -8468,7 +11305,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The left-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C405",
+                    "en-US": "The left-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der linke Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte izquierda. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado izquierdo. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de gauche. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a sinistra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "左側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "좌측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Lewostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
                 }
             },
             {
@@ -8481,7 +11330,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The right-hand operand. May be any value that results in a number or a vector."
+                    "guid": "00000000C407",
+                    "en-US": "The right-hand operand. May be any Value that results in a number or a vector.",
+                    "de-DE": "Der rechte Operand. Kann jeden Wert annehmen aus dem sich eine Zahl oder ein Vektor ergibt.",
+                    "es-ES": "Operando de la parte derecha. Puede ser cualquier valor que tenga un número o vector como resultado.",
+                    "es-MX": "El operando del lado derecho. Puede ser cualquier valor cuyo resultado sea un número o un vector.",
+                    "fr-FR": "L’opérande de droite. N’importe quel type de valeur est valide si elle donne un nombre ou un vecteur.",
+                    "it-IT": "L'operando a destra. Può essere qualsiasi Valore che risulti in un numero o un vettore.",
+                    "ja-JP": "右側の被演算子。数値またはベクトルとして導き出される任意の値",
+                    "ko-KR": "우측 피연산자입니다. 결과값이 숫자 또는 벡터로 나올 수 있는 아무 값이나 사용할 수 있습니다.",
+                    "pl-PL": "Prawostronny operand. Może być dowolną wartością której wynikiem jest liczba lub wektor.",
+                    "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
+                    "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
+                    "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
                 }
             }
         ],
@@ -8521,7 +11382,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in degrees."
+                    "guid": "00000000C346",
+                    "en-US": "Angle in degrees.",
+                    "de-DE": "Winkel in Grad.",
+                    "es-ES": "Ángulo en grados.",
+                    "es-MX": "Ángulo en grados.",
+                    "fr-FR": "Angle en degrés.",
+                    "it-IT": "L'Angolo in gradi.",
+                    "ja-JP": "度単位の角度",
+                    "ko-KR": "각단위: 도입니다.",
+                    "pl-PL": "Kąt w stopniach.",
+                    "pt-BR": "Ângulo em graus.",
+                    "ru-RU": "Угол в градусах.",
+                    "zh-CN": "角度，以角度为单位。"
                 }
             }
         ],
@@ -8559,7 +11432,19 @@ var valueFuncKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Angle in radians."
+                    "guid": "00000000C34A",
+                    "en-US": "Angle in radians.",
+                    "de-DE": "Winkel in Radiant.",
+                    "es-ES": "Ángulo en radianes.",
+                    "es-MX": "Ángulo en radianes.",
+                    "fr-FR": "Angle en radians.",
+                    "it-IT": "L'Angolo in radianti.",
+                    "ja-JP": "ラジアンの角度",
+                    "ko-KR": "각단위: Rad입니다.",
+                    "pl-PL": "Kąt w radianach.",
+                    "pt-BR": "Ângulo em radianos.",
+                    "ru-RU": "Угол в радианах.",
+                    "zh-CN": "角度，以弧度为单位。"
                 }
             }
         ],
@@ -8597,7 +11482,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose team to acquire."
+                    "guid": "00000000BEA9",
+                    "en-US": "The Player whose Team to acquire.",
+                    "de-DE": "Der Spieler dessen Team abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo equipo se adquiere.",
+                    "es-MX": "El jugador cuyo equipo se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’équipe.",
+                    "it-IT": "Il Giocatore la cui Squadra sarà acquisita.",
+                    "ja-JP": "チームを取得するプレイヤー",
+                    "ko-KR": "팀 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego drużynę należy pozyskać.",
+                    "pt-BR": "O Jogador cuja Equipe será adquirida.",
+                    "ru-RU": "Игрок команду которого нужно определить.",
+                    "zh-CN": "获取此玩家的队伍。"
                 }
             }
         ],
@@ -8636,7 +11533,19 @@ var valueFuncKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose score to acquire."
+                    "guid": "00000000BEE6",
+                    "en-US": "The Team whose score to acquire.",
+                    "de-DE": "Das Team dessen Punktestand abgerufen werden soll.",
+                    "es-ES": "Equipo cuya puntuación se adquiere.",
+                    "es-MX": "El equipo cuya puntuación se adquirirá.",
+                    "fr-FR": "L’équipe dont il faut acquérir le score.",
+                    "it-IT": "La Squadra il cui punteggio sarà acquisito.",
+                    "ja-JP": "スコアを取得するチーム",
+                    "ko-KR": "점수 정보를 가져올 팀입니다.",
+                    "pl-PL": "Drużyna której wynik należy pozyskać.",
+                    "pt-BR": "A Equipe cuja pontuação será adquirida.",
+                    "ru-RU": "Команда счет которой нужно получить.",
+                    "zh-CN": "获取此队伍的得分。"
                 }
             }
         ],
@@ -8672,7 +11581,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose directional input to acquire."
+                    "guid": "00000000BED7",
+                    "en-US": "The Player whose directional input to acquire.",
+                    "de-DE": "Der Spieler dessen Richtungseingabe abgerufen werden soll.",
+                    "es-ES": "Jugador cuya entrada direccional se adquiere.",
+                    "es-MX": "El jugador cuya entrada direccional se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’entrée directionnelle.",
+                    "it-IT": "Il Giocatore il cui input direzionale sarà acquisito.",
+                    "ja-JP": "方向入力を取得するプレイヤー",
+                    "ko-KR": "방향 입력 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego kierunkowe dane wejściowe należy pozyskać.",
+                    "pt-BR": "O Jogador cuja entrada direcional será adquirida.",
+                    "ru-RU": "Игрок аргумент направления которого нужно определить.",
+                    "zh-CN": "获取此玩家的方向输入。"
                 }
             }
         ],
@@ -8763,7 +11684,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose ultimate charge percentage to acquire."
+                    "guid": "00000000BDF4",
+                    "en-US": "The Player whose ultimate charge percentage to acquire.",
+                    "de-DE": "Der Spieler dessen prozentuale Aufladerate für seine ultimative Fähigkeit abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo porcentaje de carga de definitiva se adquiere.",
+                    "es-MX": "El jugador cuyo porcentaje de carga de habilidad máxima se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir le pourcentage de charge ultime.",
+                    "it-IT": "Il Giocatore la cui percentuale di carica della Ultra sarà acquisita.",
+                    "ja-JP": "アルティメット・チャージのパーセンテージを取得するプレイヤー",
+                    "ko-KR": "궁극기 충전량 비율 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego procent naładowania superzdolności należy pozyskać.",
+                    "pt-BR": "O Jogador cuja porcentagem de carga da suprema será adquirida.",
+                    "ru-RU": "Игрок процент заряда суперспособности которого нужно узнать.",
+                    "zh-CN": "获取此玩家当前终极技能的充能百分比。"
                 }
             }
         ],
@@ -8803,7 +11736,8 @@ var valueFuncKw =
                 ],
                 "default": "Position Of",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be updated once per tick."
+                    "en-US": "The value that will be updated once per tick.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8864,7 +11798,19 @@ var valueFuncKw =
                 "type": "Array",
                 "default": "GLOBAL VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "The array whose element to acquire."
+                    "guid": "00000000BF13",
+                    "en-US": "The Array whose element to acquire.",
+                    "de-DE": "Das Array dessen Element abgerufen werden soll.",
+                    "es-ES": "Matriz cuyo elemento se adquiere.",
+                    "es-MX": "La matriz cuyo elemento se adquirirá.",
+                    "fr-FR": "Le tableau dans lequel acquérir l’élément.",
+                    "it-IT": "L'Array dell'elemento da acquisire.",
+                    "ja-JP": "要素を取得する配列",
+                    "ko-KR": "요소 정보를 가져올 대상 배열입니다.",
+                    "pl-PL": "Tabela której element należy pozyskać.",
+                    "pt-BR": "A Matriz cujo elemento será adquirido.",
+                    "ru-RU": "Массив элемент которого нужно получить.",
+                    "zh-CN": "获取此数组中的元素。"
                 }
             },
             {
@@ -8875,7 +11821,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the element to acquire."
+                    "guid": "00000000BF12",
+                    "en-US": "The Index of the element to acquire.",
+                    "de-DE": "Der Index des abzurufenden Elements.",
+                    "es-ES": "Índice del elemento que se adquiere.",
+                    "es-MX": "El índice del elemento que se adquirirá.",
+                    "fr-FR": "L’index du premier élément à acquérir.",
+                    "it-IT": "L'Indice dell'elemento da acquisire.",
+                    "ja-JP": "要素を取得するインデックス",
+                    "ko-KR": "요소 정보를 가져올 인덱스입니다.",
+                    "pl-PL": "Indeks elementu do pozyskania.",
+                    "pt-BR": "O Índice do elemento a ser adquirido.",
+                    "ru-RU": "Индекс элемента который нужно получить.",
+                    "zh-CN": "获取索引中的元素。"
                 }
             }
         ],
@@ -8919,7 +11877,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The x value of the vector."
+                    "guid": "00000000BE01",
+                    "en-US": "The X Value of the vector.",
+                    "de-DE": "Der X-Wert des Vektors.",
+                    "es-ES": "Valor X del vector.",
+                    "es-MX": "El valor X del vector.",
+                    "fr-FR": "La valeur X du vecteur.",
+                    "it-IT": "Il Valore X del vettore.",
+                    "ja-JP": "ベクトルのX値",
+                    "ko-KR": "벡터의 X 값입니다.",
+                    "pl-PL": "Wartość X wektora.",
+                    "pt-BR": "O Valor X do vetor.",
+                    "ru-RU": "Компонент X значения вектора.",
+                    "zh-CN": "矢量的X轴值。"
                 }
             },
             {
@@ -8930,7 +11900,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The y value of the vector."
+                    "guid": "00000000BF6E",
+                    "en-US": "The Y Value of the vector.",
+                    "de-DE": "Der Y-Wert des Vektors.",
+                    "es-ES": "Valor Y del vector.",
+                    "es-MX": "El valor Y del vector.",
+                    "fr-FR": "La valeur Y du vecteur.",
+                    "it-IT": "Il Valore Y del vettore.",
+                    "ja-JP": "ベクトルのY値",
+                    "ko-KR": "벡터의 Y 값입니다.",
+                    "pl-PL": "Wartość Y wektora.",
+                    "pt-BR": "O Valor Y do vetor.",
+                    "ru-RU": "Компонент Y значения вектора.",
+                    "zh-CN": "矢量的Y轴值。"
                 }
             },
             {
@@ -8941,7 +11923,19 @@ var valueFuncKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The z value of the vector."
+                    "guid": "00000000BF6D",
+                    "en-US": "The Z Value of the vector.",
+                    "de-DE": "Der Z-Wert des Vektors.",
+                    "es-ES": "Valor Z del vector.",
+                    "es-MX": "El valor Z del vector.",
+                    "fr-FR": "La valeur Z du vecteur.",
+                    "it-IT": "Il Valore Z del vettore.",
+                    "ja-JP": "ベクトルのX値",
+                    "ko-KR": "벡터의 Z 값입니다.",
+                    "pl-PL": "Wartość Z wektora.",
+                    "pt-BR": "O Valor Z do vetor.",
+                    "ru-RU": "Компонент Z значения вектора.",
+                    "zh-CN": "矢量的Z轴值。"
                 }
             }
         ],
@@ -8978,7 +11972,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position from which the resulting displacement vector begins."
+                    "guid": "00000000BE43",
+                    "en-US": "The position from which the resulting displacement Vector begins.",
+                    "de-DE": "Die Position an der der resultierende Verschiebungsvektor beginnt.",
+                    "es-ES": "Posición desde la que comienza el vector de desplazamiento resultante.",
+                    "es-MX": "La posición desde la cual comienza el vector de desplazamiento resultante.",
+                    "fr-FR": "La position d’où part le vecteur de déplacement résultant.",
+                    "it-IT": "La posizione dalla quale il Vettore di spostamento risultante inizia.",
+                    "ja-JP": "結果として生じる転置ベクトルの開始位置",
+                    "ko-KR": "변위 벡터가 시작하는 위치입니다.",
+                    "pl-PL": "Pozycja w której rozpoczyna się wektor przemieszczenia.",
+                    "pt-BR": "A posição na qual o Vetor de deslocamento resultante começa.",
+                    "ru-RU": "Точка с которой начинается результирующий вектор смещения.",
+                    "zh-CN": "位移矢量的起点。"
                 }
             },
             {
@@ -8987,7 +11993,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position at which the resulting displacement vector ends."
+                    "guid": "00000000BE42",
+                    "en-US": "The position at which the resulting displacement Vector ends.",
+                    "de-DE": "Die Position an der der resultierende Verschiebungsvektor endet.",
+                    "es-ES": "Posición en la que finaliza el vector de desplazamiento resultante.",
+                    "es-MX": "La posición donde finaliza el vector de desplazamiento resultante.",
+                    "fr-FR": "La position où s’arrête le vecteur de déplacement résultant.",
+                    "it-IT": "La posizione alla quale il Vettore di spostamento risultante termina.",
+                    "ja-JP": "結果として生じる転置ベクトルの終了位置",
+                    "ko-KR": "변위 벡터가 종료되는 위치입니다.",
+                    "pl-PL": "Pozycja w której kończy się wektor przemieszczenia.",
+                    "pt-BR": "A posição na qual o Vetor de deslocamento resultante termina.",
+                    "ru-RU": "Точка в которой заканчивается результирующий вектор смещения.",
+                    "zh-CN": "位移矢量的终点。"
                 }
             }
         ],
@@ -9026,7 +12044,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose velocity to acquire."
+                    "guid": "00000000BE56",
+                    "en-US": "The Player whose velocity to acquire.",
+                    "de-DE": "Der Spieler dessen Geschwindigkeitsvektor abgerufen werden soll.",
+                    "es-ES": "Jugador cuya velocidad direccional se adquiere.",
+                    "es-MX": "El jugador cuya velocidad se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la vélocité.",
+                    "it-IT": "Il Giocatore la cui velocità direzionale sarà acquisita.",
+                    "ja-JP": "速度を取得するプレイヤー",
+                    "ko-KR": "속도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego prędkość należy pozyskać.",
+                    "pt-BR": "O Jogador cuja rapidez será adquirida.",
+                    "ru-RU": "Игрок векторную скорость которого нужно определить.",
+                    "zh-CN": "获取此玩家的速度。"
                 }
             }
         ],
@@ -9064,7 +12094,19 @@ var valueFuncKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins."
+                    "guid": "00000000BF4A",
+                    "en-US": "The direction Vector from which to acquire a vertical angle in degrees. The Vector is unitized before calculation begins.",
+                    "de-DE": "Der Richtungsvektor dessen vertikaler Winkel in Grad abgerufen werden soll. Der Vektor wird normiert bevor die Berechnung beginnt.",
+                    "es-ES": "Vector de dirección cuyo ángulo vertical en grados se adquiere. El vector se normaliza antes del comienzo del cálculo.",
+                    "es-MX": "El vector de dirección a partir del cual se adquirirá un ángulo vertical en grados. El vector es unificado antes de que comience el cálculo.",
+                    "fr-FR": "Le vecteur de direction à partir duquel acquérir un angle vertical en degrés. Le vecteur est normalisé avant le calcul.",
+                    "it-IT": "Il Vettore direzionale dal quale acquisire l'angolo verticale in gradi. Il Vettore viene normalizzato prima dell'inizio del calcolo.",
+                    "ja-JP": "頂角を算出するための方向ベクトル。計算を開始する前にベクトルは統合される",
+                    "ko-KR": "종축각단위: 도 정보를 가져올 방향 벡터입니다. 벡터는 연산 전에 정규화됩니다.",
+                    "pl-PL": "Kierunkowy parametr wektorowy z którego pobierany jest podany w stopniach kąt pionowy. Parametr „Vector” Wektor zostaje przekształcony na jednostki przed rozpoczęciem obliczeń.",
+                    "pt-BR": "O Vetor direcional do qual será adquirido um ângulo vertical em graus. O Vetor é unitizado antes de o cálculo ser iniciado.",
+                    "ru-RU": "Вектор направления от которого строится вертикальный угол в градусах. Перед вычислением вектор нормализуется.",
+                    "zh-CN": "对此方向矢量获取水平角度，单位为度。此矢量在计算开始前进行统一化。"
                 }
             }
         ],
@@ -9102,7 +12144,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player from whose current facing the angle begins."
+                    "guid": "00000000BEB0",
+                    "en-US": "The Player from whose current facing the angle begins.",
+                    "de-DE": "Der Spieler bei dessen aktueller Blickrichtung der Winkel beginnt.",
+                    "es-ES": "Jugador desde cuya orientación actual comienza el ángulo.",
+                    "es-MX": "El jugador desde cuya orientación actual comienza el ángulo.",
+                    "fr-FR": "Le joueur dont l’orientation actuelle forme le point de départ de l’angle.",
+                    "it-IT": "Il Giocatore dalla cui direzione di osservazione inizia l'angolo.",
+                    "ja-JP": "正方向が開始角度となるプレイヤー",
+                    "ko-KR": "이 플레이어가 현재 바라보는 방향으로부터 각이 시작됩니다.",
+                    "pl-PL": "Gracz od którego rozpoczyna się bieżący kąt skierowania.",
+                    "pt-BR": "O Jogador cuja direção atual inicia o ângulo.",
+                    "ru-RU": "Игрок относительно направления взгляда которого вычисляется угол.",
+                    "zh-CN": "以此玩家当前面向的角度为起点。"
                 }
             },
             {
@@ -9111,7 +12165,19 @@ var valueFuncKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position in the world where the angle ends."
+                    "guid": "00000000BEAF",
+                    "en-US": "The position in the world where the angle ends.",
+                    "de-DE": "Die Position in der Welt bei der der Winkel endet.",
+                    "es-ES": "Posición en el mundo donde finaliza el ángulo.",
+                    "es-MX": "La posición en el mundo donde finaliza el ángulo.",
+                    "fr-FR": "La position dans le monde où l’angle prend fin.",
+                    "it-IT": "La posizione nel mondo di gioco dove termina l'angolo.",
+                    "ja-JP": "ワールドにおける、角度が終了する位置",
+                    "ko-KR": "각 각이 종료되는 월드 내 위치입니다.",
+                    "pl-PL": "Pozycja w świecie w której kończy się kąt.",
+                    "pt-BR": "A posição no mundo onde o ângulo termina.",
+                    "ru-RU": "Точка в игровом мире угол до которой нужно вычислить.",
+                    "zh-CN": "测定与地图中此位置的夹角。"
                 }
             }
         ],
@@ -9133,7 +12199,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose vertical facing angle to acquire."
+                    "guid": "00000000BEB6",
+                    "en-US": "The Player whose vertical facing angle to acquire.",
+                    "de-DE": "Der Spieler dessen vertikaler Blickrichtungswinkel abgerufen werden soll.",
+                    "es-ES": "Jugador cuyo ángulo de orientación vertical se adquiere.",
+                    "es-MX": "El jugador cuyo ángulo de orientación vertical se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir l’angle d’orientation vertical.",
+                    "it-IT": "Il Giocatore il cui angolo verticale di osservazione sarà acquisito.",
+                    "ja-JP": "垂直方向の角度を取得するプレイヤー",
+                    "ko-KR": "바라보고 있는 방향의 종축각 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego kąt pionowy skierowania należy pozyskać.",
+                    "pt-BR": "O Jogador cujo ângulo de direção vertical será adquirido.",
+                    "ru-RU": "Игрок вертикальный угол взгляда которого нужно определить.",
+                    "zh-CN": "获取此玩家的面向角度。"
                 }
             }
         ],
@@ -9170,7 +12248,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose vertical speed to acquire."
+                    "guid": "00000000BE5E",
+                    "en-US": "The Player whose vertical speed to acquire.",
+                    "de-DE": "Der Spieler dessen vertikale Geschwindigkeit abgerufen werden soll.",
+                    "es-ES": "Jugador cuya velocidad vertical se adquiere.",
+                    "es-MX": "El jugador cuya velocidad vertical se adquirirá.",
+                    "fr-FR": "Le joueur dont il faut acquérir la vitesse verticale.",
+                    "it-IT": "Il Giocatore la cui velocità verticale non direzionale sarà acquisita.",
+                    "ja-JP": "垂直方向の速度を取得するプレイヤー",
+                    "ko-KR": "종축 속도 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego szybkość pionową należy pozyskać.",
+                    "pt-BR": "O Jogador cuja velocidade vertical será adquirida.",
+                    "ru-RU": "Игрок вертикальную скорость которого нужно определить.",
+                    "zh-CN": "获取此玩家的垂直速度。"
                 }
             }
         ],
@@ -9235,7 +12325,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose weapon to acquire."
+                    "guid": "00000001105B",
+                    "en-US": "The Player whose weapon to acquire.",
+                    "de-DE": "Der Spieler dessen Waffe abgerufen werden soll.",
+                    "es-ES": "Jugador cuya arma se adquiere.",
+                    "es-MX": "El jugador cuya arma se adquirirá.",
+                    "fr-FR": "Le joueur dont l’arme sera appelée.",
+                    "it-IT": "Il Giocatore la cui arma sarà acquisita.",
+                    "ja-JP": "武器を取得するプレイヤー",
+                    "ko-KR": "무기 정보를 가져올 플레이어입니다.",
+                    "pl-PL": "Gracz którego broń należy pozyskać.",
+                    "pt-BR": "O Jogador cuja arma será adquirida.",
+                    "ru-RU": "Игрок данные об оружии которого нужно получить.",
+                    "zh-CN": "获取此玩家的武器。"
                 }
             }
         ],
@@ -9257,7 +12359,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The name of the category in which this setting will be found."
+                    "guid": "00000001136E",
+                    "en-US": "The name of the category in which this setting will be found.",
+                    "de-DE": "Der Name der Kategorie in der diese Einstellung aufgeführt wird.",
+                    "es-ES": "Nombre de la categoría en la que se encuentra el ajuste.",
+                    "es-MX": "El nombre de la categoría en donde se encontrará esta configuración.",
+                    "fr-FR": "Le nom de la catégorie dans laquelle se trouvera ce paramètre.",
+                    "it-IT": "Il nome della categoria in cui si troverà questa impostazione.",
+                    "ja-JP": "この設定が含まれるカテゴリーの名称",
+                    "ko-KR": "이 설정을 포함하고 있는 범주 이름입니다.",
+                    "pl-PL": "Nazwa kategorii w której znajdzie się to ustawienie.",
+                    "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
+                    "ru-RU": "Название категории в которую будет помещен параметр.",
+                    "zh-CN": "此类别的名字，可以用来找到此设置。"
                 }
             },
             {
@@ -9266,7 +12380,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The name of this setting."
+                    "guid": "000000011370",
+                    "en-US": "The name of this setting.",
+                    "de-DE": "Der Name dieser Einstellung.",
+                    "es-ES": "Nombre de este ajuste.",
+                    "es-MX": "El nombre de esta configuración.",
+                    "fr-FR": "Le nom de ce paramètre.",
+                    "it-IT": "Il nome di questa impostazione.",
+                    "ja-JP": "この設定の名称",
+                    "ko-KR": "이 설정의 이름입니다.",
+                    "pl-PL": "Nazwa tego ustawienia.",
+                    "pt-BR": "O nome desta configuração.",
+                    "ru-RU": "Название параметра.",
+                    "zh-CN": "此设置的名称。"
                 }
             },
             {
@@ -9275,7 +12401,19 @@ var valueFuncKw =
                 "type": "UnsignedIntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The default value for this setting."
+                    "guid": "000000011373",
+                    "en-US": "The default value for this setting.",
+                    "de-DE": "Der Standardwert für diese Einstellung.",
+                    "es-ES": "Valor por defecto para este ajuste.",
+                    "es-MX": "El valor predeterminado en esta configuración.",
+                    "fr-FR": "La valeur par défaut de ce paramètre.",
+                    "it-IT": "Il valore predefinito per questa impostazione.",
+                    "ja-JP": "この設定の初期値",
+                    "ko-KR": "이 설정의 기본값입니다.",
+                    "pl-PL": "Domyślna wartość dla tego ustawienia.",
+                    "pt-BR": "O valor padrão desta configuração.",
+                    "ru-RU": "Значение этого параметра по умолчанию.",
+                    "zh-CN": "此设置的默认值。"
                 }
             },
             {
@@ -9286,7 +12424,19 @@ var valueFuncKw =
                 },
                 "default": "Array",
                 "descriptionLocalized": {
-                    "en-US": "The options for this setting."
+                    "guid": "000000011CC3",
+                    "en-US": "The options for this setting.",
+                    "de-DE": "Die Optionen für diese Einstellung.",
+                    "es-ES": "Las opciones para este ajuste.",
+                    "es-MX": "Las opciones en esta configuración.",
+                    "fr-FR": "Les options pour ce paramètre.",
+                    "it-IT": "Le opzioni per questa impostazione.",
+                    "ja-JP": "この設定のオプション",
+                    "ko-KR": "이 설정의 옵션입니다.",
+                    "pl-PL": "Opcje tego ustawienia.",
+                    "pt-BR": "As opções desta configuração.",
+                    "ru-RU": "Варианты этого параметра.",
+                    "zh-CN": "此设置的选项。"
                 }
             },
             {
@@ -9295,7 +12445,19 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
+                    "guid": "000000011C95",
+                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                    "de-DE": "Die Sortierreihenfolge der Einstellung relativ zu sonstigen Einstellungen an derselben Stelle. Einstellungen mit höherer Sortierreihenfolge erscheinen nach Einstellungen mit niedrigerer Sortierreihenfolge.",
+                    "es-ES": "Criterio de ordenación de ajuste respecto a otros ajustes en la misma categoría. Los ajustes con un criterio de ordenación mayor aparecerán después de los ajustes con menor criterio de ordenación.",
+                    "es-MX": "El orden de clasificación de la configuración con relación a otras configuraciones en la misma categoría. Las configuraciones que tengan un orden de clasificación superior aparecerán después de aquellas configuraciones que tengan un orden de clasificación inferior.",
+                    "fr-FR": "L’ordre de tri du paramètre par rapport aux autres paramètres dans la même catégorie. Les paramètres avec un ordre de tri élevé viendront après les paramètres avec un ordre de tri faible.",
+                    "it-IT": "L'ordinamento delle impostazioni relative ad altre impostazioni nella stessa categoria. Le impostazioni con un ordinamento superiore appariranno dopo le impostazioni con un ordinamento inferiore.",
+                    "ja-JP": "同じカテゴリーに属する別設定に対する、設定のソート順。ソート順の値が高い設定は、低い設定の下に表示される",
+                    "ko-KR": "동일한 위치에 있는 다른 설정과의 정렬 순서입니다. 정렬 순서 상 우선순위가 높은 설정 낮은 우선순위의 설정 다음에 위치하게 됩니다.",
+                    "pl-PL": "Kolejność sortowania ustawienia względem innego ustawienia w tym samym miejscu. Ustawienie o wyższej kolejności sortowania pokaże się po ustawieniu o niższej kolejności.",
+                    "pt-BR": "A ordem de classificação da configuração em relação a outras configurações na mesma categoria. Configurações com uma ordem de classificação maior virão depois de configurações com uma ordem de classificação menor.",
+                    "ru-RU": "Порядок сортировки параметра по отношению к другим настройкам той же категории. Настройки с более высоким значением будут идти после настроек с более низким значением.",
+                    "zh-CN": "此设置与其他同类别设置的排序关系。排序较高的设置会在排序较低的设置之后显示。"
                 }
             }
         ],
@@ -9332,7 +12494,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The name of the category in which this setting will be found."
+                    "guid": "00000001136E",
+                    "en-US": "The name of the category in which this setting will be found.",
+                    "de-DE": "Der Name der Kategorie in der diese Einstellung aufgeführt wird.",
+                    "es-ES": "Nombre de la categoría en la que se encuentra el ajuste.",
+                    "es-MX": "El nombre de la categoría en donde se encontrará esta configuración.",
+                    "fr-FR": "Le nom de la catégorie dans laquelle se trouvera ce paramètre.",
+                    "it-IT": "Il nome della categoria in cui si troverà questa impostazione.",
+                    "ja-JP": "この設定が含まれるカテゴリーの名称",
+                    "ko-KR": "이 설정을 포함하고 있는 범주 이름입니다.",
+                    "pl-PL": "Nazwa kategorii w której znajdzie się to ustawienie.",
+                    "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
+                    "ru-RU": "Название категории в которую будет помещен параметр.",
+                    "zh-CN": "此类别的名字，可以用来找到此设置。"
                 }
             },
             {
@@ -9341,7 +12515,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The name of this setting."
+                    "guid": "000000011370",
+                    "en-US": "The name of this setting.",
+                    "de-DE": "Der Name dieser Einstellung.",
+                    "es-ES": "Nombre de este ajuste.",
+                    "es-MX": "El nombre de esta configuración.",
+                    "fr-FR": "Le nom de ce paramètre.",
+                    "it-IT": "Il nome di questa impostazione.",
+                    "ja-JP": "この設定の名称",
+                    "ko-KR": "이 설정의 이름입니다.",
+                    "pl-PL": "Nazwa tego ustawienia.",
+                    "pt-BR": "O nome desta configuração.",
+                    "ru-RU": "Название параметра.",
+                    "zh-CN": "此设置的名称。"
                 }
             },
             {
@@ -9350,7 +12536,19 @@ var valueFuncKw =
                 "type": "HeroLiteral",
                 "default": "Ana",
                 "descriptionLocalized": {
-                    "en-US": "The default value for this setting."
+                    "guid": "000000011373",
+                    "en-US": "The default value for this setting.",
+                    "de-DE": "Der Standardwert für diese Einstellung.",
+                    "es-ES": "Valor por defecto para este ajuste.",
+                    "es-MX": "El valor predeterminado en esta configuración.",
+                    "fr-FR": "La valeur par défaut de ce paramètre.",
+                    "it-IT": "Il valore predefinito per questa impostazione.",
+                    "ja-JP": "この設定の初期値",
+                    "ko-KR": "이 설정의 기본값입니다.",
+                    "pl-PL": "Domyślna wartość dla tego ustawienia.",
+                    "pt-BR": "O valor padrão desta configuração.",
+                    "ru-RU": "Значение этого параметра по умолчанию.",
+                    "zh-CN": "此设置的默认值。"
                 }
             },
             {
@@ -9359,7 +12557,19 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order."
+                    "guid": "000000011C95",
+                    "en-US": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                    "de-DE": "Die Sortierreihenfolge der Einstellung relativ zu sonstigen Einstellungen an derselben Stelle. Einstellungen mit höherer Sortierreihenfolge erscheinen nach Einstellungen mit niedrigerer Sortierreihenfolge.",
+                    "es-ES": "Criterio de ordenación de ajuste respecto a otros ajustes en la misma categoría. Los ajustes con un criterio de ordenación mayor aparecerán después de los ajustes con menor criterio de ordenación.",
+                    "es-MX": "El orden de clasificación de la configuración con relación a otras configuraciones en la misma categoría. Las configuraciones que tengan un orden de clasificación superior aparecerán después de aquellas configuraciones que tengan un orden de clasificación inferior.",
+                    "fr-FR": "L’ordre de tri du paramètre par rapport aux autres paramètres dans la même catégorie. Les paramètres avec un ordre de tri élevé viendront après les paramètres avec un ordre de tri faible.",
+                    "it-IT": "L'ordinamento delle impostazioni relative ad altre impostazioni nella stessa categoria. Le impostazioni con un ordinamento superiore appariranno dopo le impostazioni con un ordinamento inferiore.",
+                    "ja-JP": "同じカテゴリーに属する別設定に対する、設定のソート順。ソート順の値が高い設定は、低い設定の下に表示される",
+                    "ko-KR": "동일한 위치에 있는 다른 설정과의 정렬 순서입니다. 정렬 순서 상 우선순위가 높은 설정 낮은 우선순위의 설정 다음에 위치하게 됩니다.",
+                    "pl-PL": "Kolejność sortowania ustawienia względem innego ustawienia w tym samym miejscu. Ustawienie o wyższej kolejności sortowania pokaże się po ustawieniu o niższej kolejności.",
+                    "pt-BR": "A ordem de classificação da configuração em relação a outras configurações na mesma categoria. Configurações com uma ordem de classificação maior virão depois de configurações com uma ordem de classificação menor.",
+                    "ru-RU": "Порядок сортировки параметра по отношению к другим настройкам той же категории. Настройки с более высоким значением будут идти после настроек с более низким значением.",
+                    "zh-CN": "此设置与其他同类别设置的排序关系。排序较高的设置会在排序较低的设置之后显示。"
                 }
             }
         ],
@@ -9381,7 +12591,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of the category in which this setting will be found."
+                    "guid": "00000001136E",
+                    "en-US": "The name of the category in which this setting will be found.",
+                    "de-DE": "Der Name der Kategorie in der diese Einstellung aufgeführt wird.",
+                    "es-ES": "Nombre de la categoría en la que se encuentra el ajuste.",
+                    "es-MX": "El nombre de la categoría en donde se encontrará esta configuración.",
+                    "fr-FR": "Le nom de la catégorie dans laquelle se trouvera ce paramètre.",
+                    "it-IT": "Il nome della categoria in cui si troverà questa impostazione.",
+                    "ja-JP": "この設定が含まれるカテゴリーの名称",
+                    "ko-KR": "이 설정을 포함하고 있는 범주 이름입니다.",
+                    "pl-PL": "Nazwa kategorii w której znajdzie się to ustawienie.",
+                    "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
+                    "ru-RU": "Название категории в которую будет помещен параметр.",
+                    "zh-CN": "此类别的名字，可以用来找到此设置。"
                 }
             },
             {
@@ -9390,7 +12612,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of this setting."
+                    "guid": "000000011370",
+                    "en-US": "The name of this setting.",
+                    "de-DE": "Der Name dieser Einstellung.",
+                    "es-ES": "Nombre de este ajuste.",
+                    "es-MX": "El nombre de esta configuración.",
+                    "fr-FR": "Le nom de ce paramètre.",
+                    "it-IT": "Il nome di questa impostazione.",
+                    "ja-JP": "この設定の名称",
+                    "ko-KR": "이 설정의 이름입니다.",
+                    "pl-PL": "Nazwa tego ustawienia.",
+                    "pt-BR": "O nome desta configuração.",
+                    "ru-RU": "Название параметра.",
+                    "zh-CN": "此设置的名称。"
                 }
             },
             {
@@ -9399,6 +12633,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9408,6 +12643,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9417,6 +12653,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 100,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9426,6 +12663,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             }
@@ -9464,7 +12702,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of the category in which this setting will be found."
+                    "guid": "00000001136E",
+                    "en-US": "The name of the category in which this setting will be found.",
+                    "de-DE": "Der Name der Kategorie in der diese Einstellung aufgeführt wird.",
+                    "es-ES": "Nombre de la categoría en la que se encuentra el ajuste.",
+                    "es-MX": "El nombre de la categoría en donde se encontrará esta configuración.",
+                    "fr-FR": "Le nom de la catégorie dans laquelle se trouvera ce paramètre.",
+                    "it-IT": "Il nome della categoria in cui si troverà questa impostazione.",
+                    "ja-JP": "この設定が含まれるカテゴリーの名称",
+                    "ko-KR": "이 설정을 포함하고 있는 범주 이름입니다.",
+                    "pl-PL": "Nazwa kategorii w której znajdzie się to ustawienie.",
+                    "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
+                    "ru-RU": "Название категории в которую будет помещен параметр.",
+                    "zh-CN": "此类别的名字，可以用来找到此设置。"
                 }
             },
             {
@@ -9473,7 +12723,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of this setting."
+                    "guid": "000000011370",
+                    "en-US": "The name of this setting.",
+                    "de-DE": "Der Name dieser Einstellung.",
+                    "es-ES": "Nombre de este ajuste.",
+                    "es-MX": "El nombre de esta configuración.",
+                    "fr-FR": "Le nom de ce paramètre.",
+                    "it-IT": "Il nome di questa impostazione.",
+                    "ja-JP": "この設定の名称",
+                    "ko-KR": "이 설정의 이름입니다.",
+                    "pl-PL": "Nazwa tego ustawienia.",
+                    "pt-BR": "O nome desta configuração.",
+                    "ru-RU": "Название параметра.",
+                    "zh-CN": "此设置的名称。"
                 }
             },
             {
@@ -9482,6 +12744,7 @@ var valueFuncKw =
                 "type": "FloatLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9491,6 +12754,7 @@ var valueFuncKw =
                 "type": "FloatLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9500,6 +12764,7 @@ var valueFuncKw =
                 "type": "FloatLiteral",
                 "default": 100,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9509,6 +12774,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             }
@@ -9547,7 +12813,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of the category in which this setting will be found."
+                    "guid": "00000001136E",
+                    "en-US": "The name of the category in which this setting will be found.",
+                    "de-DE": "Der Name der Kategorie in der diese Einstellung aufgeführt wird.",
+                    "es-ES": "Nombre de la categoría en la que se encuentra el ajuste.",
+                    "es-MX": "El nombre de la categoría en donde se encontrará esta configuración.",
+                    "fr-FR": "Le nom de la catégorie dans laquelle se trouvera ce paramètre.",
+                    "it-IT": "Il nome della categoria in cui si troverà questa impostazione.",
+                    "ja-JP": "この設定が含まれるカテゴリーの名称",
+                    "ko-KR": "이 설정을 포함하고 있는 범주 이름입니다.",
+                    "pl-PL": "Nazwa kategorii w której znajdzie się to ustawienie.",
+                    "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
+                    "ru-RU": "Название категории в которую будет помещен параметр.",
+                    "zh-CN": "此类别的名字，可以用来找到此设置。"
                 }
             },
             {
@@ -9556,7 +12834,19 @@ var valueFuncKw =
                 "type": "CustomStringLiteral",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The name of this setting."
+                    "guid": "000000011370",
+                    "en-US": "The name of this setting.",
+                    "de-DE": "Der Name dieser Einstellung.",
+                    "es-ES": "Nombre de este ajuste.",
+                    "es-MX": "El nombre de esta configuración.",
+                    "fr-FR": "Le nom de ce paramètre.",
+                    "it-IT": "Il nome di questa impostazione.",
+                    "ja-JP": "この設定の名称",
+                    "ko-KR": "이 설정의 이름입니다.",
+                    "pl-PL": "Nazwa tego ustawienia.",
+                    "pt-BR": "O nome desta configuração.",
+                    "ru-RU": "Название параметра.",
+                    "zh-CN": "此设置的名称。"
                 }
             },
             {
@@ -9565,6 +12855,7 @@ var valueFuncKw =
                 "type": "BoolLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             },
@@ -9574,6 +12865,7 @@ var valueFuncKw =
                 "type": "IntLiteral",
                 "default": 0,
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             }
@@ -9612,7 +12904,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector in local coordinates that will be converted to world coordinates."
+                    "guid": "00000000BEDF",
+                    "en-US": "The Vector in local coordinates that will be converted to world coordinates.",
+                    "de-DE": "Der Vektor in lokalen Koordinaten der in Weltkoordinaten umgewandelt wird.",
+                    "es-ES": "Vector en coordenadas locales que se convertirá a coordenadas del mundo.",
+                    "es-MX": "El vector en coordenadas locales que se convertirá en coordenadas globales.",
+                    "fr-FR": "Le vecteur en coordonnées locales qui sera converti en coordonnées mondiales.",
+                    "it-IT": "Il Vettore in coordinate locali che sarà convertito in coordinate del mondo di gioco.",
+                    "ja-JP": "ワールド座標に変換されるローカル座標のベクトル",
+                    "ko-KR": "월드 좌표로 전환될 로컬 좌표 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor w lokalnych współrzędnych który zostanie przekonwertowany na współrzędne świata.",
+                    "pt-BR": "O Vetor em coordenadas locais que será convertido em coordenadas do mundo.",
+                    "ru-RU": "Вектор в локальной системе координат который нужно перенести в глобальную систему координат.",
+                    "zh-CN": "将此相对本地坐标的矢量值转化为相对于地图坐标的矢量值。"
                 }
             },
             {
@@ -9621,7 +12925,19 @@ var valueFuncKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player to whom the local vector is relative."
+                    "guid": "00000000BEE0",
+                    "en-US": "The Player to whom the Local Vector is relative.",
+                    "de-DE": "Der Spieler zu dem [Local Vector] relativ ist.",
+                    "es-ES": "Jugador al que es relativo el «Local Vector».",
+                    "es-MX": "El jugador vinculado al vector local.",
+                    "fr-FR": "Le joueur auquel se rapporte le vecteur local.",
+                    "it-IT": "Il Giocatore a cui il Vettore Locale fa riferimento.",
+                    "ja-JP": "ローカル・ベクトルに関連するプレイヤー",
+                    "ko-KR": "로컬 벡터와 연관될 플레이어입니다.",
+                    "pl-PL": "Gracz do którego odnosi się lokalny parametr „Vector” Wektor.",
+                    "pt-BR": "O Jogador a quem o Vetor Local é relativo.",
+                    "ru-RU": "Игрок относительно которого строится локальный вектор.",
+                    "zh-CN": "本地矢量是相对此玩家的。"
                 }
             },
             {
@@ -9630,7 +12946,19 @@ var valueFuncKw =
                 "type": "Transform",
                 "default": "ROTATION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities)."
+                    "guid": "00000000BEE2",
+                    "en-US": "Specifies whether the Vector should receive a rotation and a translation usually applied to positions or only a rotation usually applied to directions and velocities.",
+                    "de-DE": "Legt fest ob der Vektor eine Rotation und eine Parallelverschiebung erhalten soll für gewöhnlich bei Positionen oder nur eine Rotation für gewöhnlich bei Richtungen und Geschwindigkeiten.",
+                    "es-ES": "Especifica si el vector debe recibir una rotación y una traslación normalmente aplicadas a posiciones o solo una rotación normalmente aplicada a direcciones y velocidades.",
+                    "es-MX": "Especifica si el vector debería recibir una rotación y una traslación por lo general aplicada a las posiciones o solo una rotación por lo general aplicada a las direcciones y las velocidades.",
+                    "fr-FR": "Spécifie s’il faut appliquer au vecteur une rotation et une translation généralement appliquées aux positions ou uniquement une rotation généralement appliquée aux directions et aux vélocités.",
+                    "it-IT": "Specifica se il Vettore deve ricevere una rotazione e una traslazione solitamente applicate a posizioni o solo una rotazione solitamente applicata a direzioni e velocità direzionali.",
+                    "ja-JP": "ベクトルが平行移動および回転を行う（通常は位置に適用）のか、回転のみを行う（通常は方向および速度に適用）のか指定する",
+                    "ko-KR": "벡터가 회전과 평행이동을 받는지일반적으로 위치에 적용 아니면 회전만 받는지일반적으로 방향 및 속도에 적용 여부를 설정합니다.",
+                    "pl-PL": "Określa czy parametr „Vector” Wektor powinien otrzymać rotację i przełożenie zazwyczaj stosowane do pozycji czy tylko rotację zazwyczaj stosowaną do kierunków i prędkości.",
+                    "pt-BR": "Especifica se o Vetor deve receber uma rotação e uma translação geralmente aplicada a posições ou apenas uma rotação geralmente aplicada a direções e velocidades.",
+                    "ru-RU": "Определяет требуется ли для вектора поворот и смещение обычно применяется к местоположениям или только поворот обычно применяется к направлениям и векторным скоростям.",
+                    "zh-CN": "指定此矢量是否接受旋转及平移（通常是位置），或者只接受旋转（通常是方向和速度）。"
                 }
             }
         ],
@@ -9668,7 +12996,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector from which to acquire the x component."
+                    "guid": "00000000BE97",
+                    "en-US": "The Vector from which to acquire the X component.",
+                    "de-DE": "Der Vektor dessen X-Komponente abgerufen wird.",
+                    "es-ES": "Vector cuyo componente X se adquiere.",
+                    "es-MX": "El vector a partir del cual se adquirirá el componente X.",
+                    "fr-FR": "Le vecteur dont il faut acquérir la composante X.",
+                    "it-IT": "Il Vettore dal quale la componente X sarà acquisita.",
+                    "ja-JP": "X成分を算出するベクトル",
+                    "ko-KR": "X 구성요소 정보를 가져올 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor od którego pobierana jest zmienna „X Component” Komponent X.",
+                    "pt-BR": "O Vetor do qual o componente X será adquirido.",
+                    "ru-RU": "Вектор из которого извлекается компонент X.",
+                    "zh-CN": "要获取X方向分量的矢量。"
                 }
             }
         ],
@@ -9706,7 +13046,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector from which to acquire the y component."
+                    "guid": "00000000BE99",
+                    "en-US": "The Vector from which to acquire the Y component.",
+                    "de-DE": "Der Vektor dessen Y-Komponente abgerufen wird.",
+                    "es-ES": "Vector cuyo componente Y se adquiere.",
+                    "es-MX": "El vector a partir del cual se adquirirá el componente Y.",
+                    "fr-FR": "Le vecteur dont il faut acquérir la composante Y.",
+                    "it-IT": "Il Vettore dal quale la componente Y sarà acquisita.",
+                    "ja-JP": "Y成分を算出するベクトル",
+                    "ko-KR": "Y 구성요소 정보를 가져올 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor od którego pobierana jest zmienna „Y Component” Komponent Y.",
+                    "pt-BR": "O Vetor do qual o componente Y será adquirido.",
+                    "ru-RU": "Вектор из которого извлекается компонент Y.",
+                    "zh-CN": "要获取Y方向分量的矢量。"
                 }
             }
         ],
@@ -9744,7 +13096,19 @@ var valueFuncKw =
                 "type": "Vector",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The vector from which to acquire the z component."
+                    "guid": "00000000BE9B",
+                    "en-US": "The Vector from which to acquire the Z component.",
+                    "de-DE": "Der Vektor dessen Z-Komponente abgerufen wird.",
+                    "es-ES": "Vector cuyo componente Z se adquiere.",
+                    "es-MX": "El vector a partir del cual se adquirirá el componente Z.",
+                    "fr-FR": "Le vecteur dont il faut acquérir la composante Z.",
+                    "it-IT": "Il Vettore dal quale la componente Z sarà acquisita.",
+                    "ja-JP": "Z成分を算出するベクトル",
+                    "ko-KR": "Z 구성요소 정보를 가져올 벡터입니다.",
+                    "pl-PL": "Parametr „Vector” Wektor od którego pobierana jest zmienna „Z Component” Komponent  Z.",
+                    "pt-BR": "O Vetor do qual o componente Z será adquirido.",
+                    "ru-RU": "Вектор из которого извлекается компонент Z.",
+                    "zh-CN": "要获取Z方向分量的矢量。"
                 }
             }
         ],
@@ -9830,7 +13194,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String value whose character to acquire."
+                    "en-US": "The String value whose character to acquire.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9839,7 +13204,8 @@ var valueFuncKw =
                 "type": "unsigned int",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.)."
+                    "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -9855,7 +13221,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String Value from which to search for the character."
+                    "en-US": "The String Value from which to search for the character.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9864,7 +13231,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The character for which to search"
+                    "en-US": "The character for which to search",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -9880,7 +13248,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String Value to split."
+                    "en-US": "The String Value to split.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9889,7 +13258,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The separator String with which to split the String Value."
+                    "en-US": "The separator String with which to split the String Value.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -9907,7 +13277,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String Value with which to search for replacements."
+                    "en-US": "The String Value with which to search for replacements.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9916,7 +13287,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String pattern to be replaced."
+                    "en-US": "The String pattern to be replaced.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9925,7 +13297,8 @@ var valueFuncKw =
                 "type": "String",
                 "default": "Global Variable",
                 "descriptionLocalized": {
-                    "en-US": "The String Value with which to replace the pattern String"
+                    "en-US": "The String Value with which to replace the pattern String",
+                    "guid": "<unknown guid>"
                 }
             }
         ],

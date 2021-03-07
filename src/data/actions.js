@@ -54,7 +54,19 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the execution is stopped."
+                    "guid": "00000000BD5F",
+                    "en-US": "Specifies whether the execution is stopped.",
+                    "de-DE": "Legt fest ob die Ausführung beendet wird.",
+                    "es-ES": "Especifica si se detiene la ejecución.",
+                    "es-MX": "Especifica si la ejecución se detiene.",
+                    "fr-FR": "Spécifie si l’exécution est stoppée.",
+                    "it-IT": "Specifica se l'esecuzione viene interrotta.",
+                    "ja-JP": "実行を停止するかを指定する",
+                    "ko-KR": "실행 중지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy uruchomienie zostaje zatrzymane.",
+                    "pt-BR": "Especifica se a execução será interrompida ou não.",
+                    "ru-RU": "Определяет будет ли остановлено выполнение.",
+                    "zh-CN": "是否停止执行。"
                 }
             }
         ],
@@ -150,7 +162,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement collision is affected."
+                    "guid": "000000011318",
+                    "en-US": "The Player or Players whose movement collision is affected.",
+                    "de-DE": "Der oder die Spieler deren Bewegungskollision betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento de colisión se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuya colisión de movimiento se encuentra afectada.",
+                    "fr-FR": "Le ou les joueurs dont la collision des mouvements est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.",
+                    "ja-JP": "移動時の衝突判定への影響を受けるプレイヤー",
+                    "ko-KR": "이동 시 충돌에 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kolizje w ruchu są zmodyfikowane.",
+                    "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
+                    "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
+                    "zh-CN": "下列玩家的移动碰撞将受到影响。"
                 }
             },
             {
@@ -159,7 +183,19 @@ const actionKw =
                 "type": "Health",
                 "default": "Armor",
                 "descriptionLocalized": {
-                    "en-US": "Specifies the type of health (Armor or shields) contained in the Health Pool."
+                    "guid": "00000001142A",
+                    "en-US": "Specifies the type of health armor or shields contained in the health pool.",
+                    "de-DE": "Legt den Typ dieses Trefferpunktevorrats fest Rüstung oder Schilde.",
+                    "es-ES": "Especifica el tipo de salud armadura o escudos que contiene la reserva de salud.",
+                    "es-MX": "Especifica el tipo de salud armadura o escudos que contiene la cantidad de salud.",
+                    "fr-FR": "Spécifie le type de points de vie armure ou bouclier contenu dans la réserve de points de vie.",
+                    "it-IT": "Specifica il tipo di salute armatura o scudi contenuto nella riserva di salute.",
+                    "ja-JP": "ライフプールのタイプ（ライフ、アーマーまたはシールド）を指定する",
+                    "ko-KR": "유효 생명력에 포함된 생명력 유형방어력 보호막을 지정합니다.",
+                    "pl-PL": "Określa rodzaj zdrowia – „Armor” Pancerz lub „Shields” Osłony – w puli zdrowia.",
+                    "pt-BR": "Especifica o tipo de vida armadura ou escudos contida na reserva de vida.",
+                    "ru-RU": "Определяет тип ресурса здоровье броня щиты составляющего запас здоровья.",
+                    "zh-CN": "指定此生命池中所包含的生命值类型（护甲或护盾）。"
                 }
             },
             {
@@ -168,7 +204,8 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 100,
                 "descriptionLocalized": {
-                    "en-US": "The size of the health pool"
+                    "en-US": "The size of the health pool",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -177,7 +214,19 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged."
+                    "guid": "000000011430",
+                    "en-US": "Whether health in this pool can be healed once it is lost. If this is value is false then the health pool will shrink and disappear as it is damaged.",
+                    "de-DE": "Ob die Trefferpunkte dieses Vorrats geheilt werden können wenn sie verloren gehen. Wenn dieser Wert False ist schrumpft der Vorrat bei erlittenem Schaden und verschwindet schließlich.",
+                    "es-ES": "Decide si la salud de esta reserva se puede sanar cuando se pierde. Si este valor es «False» la reserva de salud disminuirá y desaparecerá al recibir daño.",
+                    "es-MX": "Verifica si la salud en esta cantidad se puede sanar una vez que se pierde. Si este valor es Falso entonces la cantidad se salud se reducirá y desaparecerá a medida que recibe daño.",
+                    "fr-FR": "Détermine si les Points de vie de cette réserve peuvent être récupérés une fois perdus. Si cette valeur est fausse alors la réserve de Points de vie diminuera et disparaîtra à mesure qu’elle subit des dégâts.",
+                    "it-IT": "Specifica se la salute in questa riserva può essere rigenerata una volta persa. Se questo valore è False la riserva di salute si ridurrà fino a scomparire man mano che verrà danneggiata.",
+                    "ja-JP": "このプールのライフが失われた場合に回復できるかどうか。この値が「FALSE」の場合、ライフプールはダメージを受けると減少し消失する",
+                    "ko-KR": "이 유효 생명력 내의 생명력이 줄어들면 치유가 가능한지 여부입니다. 이 값이 거짓이면 유효 생명력은 피해를 입는 경우 줄어들고 사라집니다.",
+                    "pl-PL": "Czy zdrowie w tej puli można przywrócić po jego utracie. Jeśli ta wartość zwraca odpowiedź „False” Fałsz wtedy pula zdrowia maleje i znika gdy następują obrażenia.",
+                    "pt-BR": "Se a vida na reserva pode ser curada depois de perdida. Se o valor for falso a reserva de vida diminuirá e desaparecerá com o recebimento de dano.",
+                    "ru-RU": "Определяет можно ли восполнить запас после утраты здоровья. Если значение неверно запас здоровья будет уменьшаться вплоть до полного истощения при получении урона.",
+                    "zh-CN": "此生命池中的生命在失去后是否可以由治疗恢复。如果此值为假，则此生命值在受到伤害后会削减并消失。"
                 }
             },
             {
@@ -186,7 +235,8 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes."
+                    "en-US": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -213,7 +263,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose button is being reenabled."
+                    "guid": "00000000BD24",
+                    "en-US": "The Player or Players whose button is being reenabled.",
+                    "de-DE": "Der oder die Spieler deren Taste erneut aktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyo botón se rehabilita.",
+                    "es-MX": "El jugador o los jugadores cuyo botón está habilitado nuevamente.",
+                    "fr-FR": "Le ou les joueurs dont le bouton est réactivé.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui tasto sarà riabilitato.",
+                    "ja-JP": "ボタンが再有効化されたプレイヤー",
+                    "ko-KR": "버튼을 다시 사용할 수 있게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których przycisk zostaje znów wyłączony.",
+                    "pt-BR": "Os Jogadores cujo botão está sendo reativado.",
+                    "ru-RU": "Игрок или игроки которым нужно повторно включить кнопку.",
+                    "zh-CN": "下列玩家的按钮将重新启用。"
                 }
             },
             {
@@ -222,7 +284,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button that is being reenabled."
+                    "guid": "00000000BD23",
+                    "en-US": "The logical button that is being reenabled.",
+                    "de-DE": "Die logische Taste die erneut aktiviert wird.",
+                    "es-ES": "Botón lógico que se rehabilita.",
+                    "es-MX": "El botón lógico que se encuentra habilitado nuevamente.",
+                    "fr-FR": "Le bouton logique à réactiver.",
+                    "it-IT": "Il tasto logico da riabilitare.",
+                    "ja-JP": "再有効化されたロジカル・ボタン",
+                    "ko-KR": "다시 사용할 수 있게 될 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk który zostaje znów wyłączony.",
+                    "pt-BR": "O botão lógico que está sendo reativado.",
+                    "ru-RU": "Логическая кнопка которую нужно повторно включить.",
+                    "zh-CN": "将要重新启用的逻辑按键。"
                 }
             }
         ],
@@ -264,7 +338,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose velocity will be changed."
+                    "guid": "00000000BC7D",
+                    "en-US": "The Player or Players whose velocity will be changed.",
+                    "de-DE": "Der oder die Spieler deren Geschwindigkeitsvektor geändert wird.",
+                    "es-ES": "Jugador o jugadores cuya velocidad direccional se cambiará.",
+                    "es-MX": "El jugador o los jugadores cuya velocidad será modificada.",
+                    "fr-FR": "Le ou les joueurs dont la vélocité sera modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui Velocità Direzionale sarà modificata.",
+                    "ja-JP": "速度が変更されるプレイヤー",
+                    "ko-KR": "속도를 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których prędkość się zmieni.",
+                    "pt-BR": "Os Jogadores cuja velocidade será alterada.",
+                    "ru-RU": "Игрок или игроки чья векторная скорость будет изменена.",
+                    "zh-CN": "下列玩家的速度将被改变。"
                 }
             },
             {
@@ -273,7 +359,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The unit direction in which the impulse will be applied. This value is normalized internally."
+                    "guid": "00000000BC7E",
+                    "en-US": "The unit direction in which the impulse will be applied. This Value is normalized internally.",
+                    "de-DE": "Die normierte Richtung in der der Impuls angewendet wird. Dieser Wert wird intern normiert.",
+                    "es-ES": "Dirección en la que se aplicará el impulso. Este valor se normaliza internamente.",
+                    "es-MX": "La dirección unitaria a la cual se le aplicará el impulso. El valor se normaliza internamente.",
+                    "fr-FR": "La direction d’unité dans laquelle l’impulsion sera appliquée. Cette valeur est normalisée en interne.",
+                    "it-IT": "La direzione unitaria verso cui l'impulso sarà applicato. Questo Valore viene normalizzato internamente.",
+                    "ja-JP": "推進力が適用されるユニットの方向。この値は内部で正規化される",
+                    "ko-KR": "충격량을 적용할 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.",
+                    "pl-PL": "Jednostkowy kierunek w którym zastosowany zostanie impuls. Wartość jest normalizowana wewnętrznie.",
+                    "pt-BR": "A direção unitária na qual o impulso será aplicado. Esse Valor é normalizado internamente.",
+                    "ru-RU": "Направление в котором применяется импульс. Это значение нормализуется игрой.",
+                    "zh-CN": "施加推力的单位方向。此值将进行内部归一化。"
                 }
             },
             {
@@ -282,7 +380,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The magnitude of the change to the velocities of the player or players."
+                    "guid": "00000000BC7F",
+                    "en-US": "The magnitude of the change to the velocities of the Player or Players.",
+                    "de-DE": "Das Ausmaß der Änderung an den Geschwindigkeiten des Spielers oder der Spieler.",
+                    "es-ES": "Magnitud del cambio de las velocidades del jugador o los jugadores.",
+                    "es-MX": "La magnitud del cambio a las velocidades del jugador o los jugadores.",
+                    "fr-FR": "L’ampleur de la modification des vélocités pour le ou les joueurs.",
+                    "it-IT": "L'entità della modifica alle Velocità Direzionali del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーの速度の変化の大きさ",
+                    "ko-KR": "플레이어에 대한 속도 변경의 크기입니다.",
+                    "pl-PL": "Skala zmian prędkości gracza lub graczy.",
+                    "pt-BR": "A magnitude da alteração nas velocidades dos Jogadores.",
+                    "ru-RU": "Величина на которую изменится векторная скорость игрока или игроков.",
+                    "zh-CN": "玩家速度改变的数值。"
                 }
             },
             {
@@ -291,7 +401,19 @@ const actionKw =
                 "type": "Relativity",
                 "default": "TO WORLD",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
+                    "guid": "00000000BC80",
+                    "en-US": "Specifies whether Direction is relative to world coordinates or the local coordinates of the Player or Players.",
+                    "de-DE": "Legt fest ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.",
+                    "es-ES": "Especifica si la dirección es relativa a las coordenadas del mundo o a las coordenadas locales del jugador o los jugadores.",
+                    "es-MX": "Especifica si la dirección es relativa a las coordenadas universales o a las coordenadas locales del jugador o los jugadores.",
+                    "fr-FR": "Spécifie si la direction est relative aux coordonnées globales ou aux coordonnées locales du ou des joueurs.",
+                    "it-IT": "Specifica se la Direzione è relativa alle coordinate globali o locali del Giocatore o dei Giocatori.",
+                    "ja-JP": "方向がワールド座標に対して相対的か、プレイヤーのローカル座標に対して相対的かを指定する",
+                    "ko-KR": "방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy kierunek ma odniesienie do współrzędnych świata czy też lokalnych współrzędnych gracza lub graczy.",
+                    "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
+                    "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
+                    "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
                 }
             },
             {
@@ -300,7 +422,19 @@ const actionKw =
                 "type": "Impulse",
                 "default": "CANCEL CONTRARY MOTION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse."
+                    "guid": "00000000BC81",
+                    "en-US": "Specifies whether existing velocity that is counter to Direction should first be cancelled out before applying the impulse.",
+                    "de-DE": "Legt fest ob der bisherige Geschwindigkeitsvektor entgegengesetzt zu [Direction] erst ausgeglichen werden soll bevor der Impuls angewendet wird.",
+                    "es-ES": "Especifica si la velocidad direccional existente que es opuesta a la dirección debe cancelarse antes de aplicar el impulso.",
+                    "es-MX": "Especifica si la velocidad existente opuesta a la dirección debería cancelarse primero antes de aplicar el impulso.",
+                    "fr-FR": "Spécifie si la vélocité existante contraire à la direction doit d’abord être annulée avant d’appliquer l’impulsion.",
+                    "it-IT": "Specifica se l'attuale Velocità Direzionale contraria alla Direzione deve essere azzerata prima di applicare l'impulso.",
+                    "ja-JP": "方向と逆向きの既存の速度を、推進力の適用前に相殺するかどうかを指定する",
+                    "ko-KR": "충격량을 적용하기 전에 Direction과 반대 방향인 기존의 속도를 상쇄할지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy istniejąca prędkość która jest przeciwna do kierunku powinna być najpierw anulowana przed zastosowaniem impulsu.",
+                    "pt-BR": "Especifica se a velocidade existente contrária à Direção deve ser cancelada antes da aplicação do impulso.",
+                    "ru-RU": "Определяет следует ли перед применением импульса нейтрализовать существующую векторную скорость противоположную направлению.",
+                    "zh-CN": "确定在施加推力前是否首先消除已有的与此方向相反的速度。"
                 }
             }
         ],
@@ -337,7 +471,19 @@ const actionKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away."
+                    "guid": "000000010E80",
+                    "en-US": "The Player that will attach to the Parent. This Player will be unable to move freely until detached or teleported away.",
+                    "de-DE": "Der Spieler der an den [Parent] gebunden wird. Er kann sich nicht mehr unabhängig bewegen bis die Bindung wieder gelöst oder der Spieler wegteleportiert wird.",
+                    "es-ES": "Jugador que se acoplará al elemento primario. Este jugador no podrá moverse con libertad hasta que se desacople o se teletransporte a otro lugar.",
+                    "es-MX": "El jugador que se unirá al Padre. Este jugador no podrá moverse libremente hasta ser separado o transportado a otra ubicación.",
+                    "fr-FR": "Le joueur qui s’attachera au parent. Ce joueur ne pourra pas se déplacer librement tant qu’il ne sera pas détaché ou téléporté.",
+                    "it-IT": "Il Giocatore che si legherà al Genitore. Questo Giocatore non potrà muoversi liberamente finché non si separerà o sarà teletrasportato altrove.",
+                    "ja-JP": "親プレイヤーにくっつくプレイヤー。このプレイヤーは離されるかテレポートされるまで自由に移動できない",
+                    "ko-KR": "부모Parent에게 연결할 플레이어입니다. 이 플레이어는 분리되거나 순간이동으로 멀어지기 전에 자유롭게 움직일 수 없습니다.",
+                    "pl-PL": "Gracz który przyłączy się do drugiego „Parent” Nadrzędna. Gracz ten nie będzie mógł się swobodnie poruszać dopóki nie zostanie odłączony lub teleportowany.",
+                    "pt-BR": "O Jogador que será unido ao Pai. Este Jogador não poderá se mover livremente até ser separado ou teleportado.",
+                    "ru-RU": "Игрок которой будет привязан к ведущему игроку. Этот игрок не сможет свободно передвигаться пока не будет отвязан или телепортирован.",
+                    "zh-CN": "将此玩家绑定至父玩家。在解除绑定或传送离开之前，此玩家无法自由移动。"
                 }
             },
             {
@@ -346,7 +492,19 @@ const actionKw =
                 "type": "Player",
                 "default": "LAST CREATED ENTITY",
                 "descriptionLocalized": {
-                    "en-US": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position."
+                    "guid": "000000010E81",
+                    "en-US": "The Player to whom the Child will attach. This Player's movement will be unaffected and will determine the Child's position.",
+                    "de-DE": "Der Spieler an den das [Child] gebunden wird. Er kann sich weiter frei bewegen und bestimmt die Position des [Child].",
+                    "es-ES": "Jugador al que se acoplará el elemento secundario. El movimiento de este jugador no se verá afectado y determinará la posición del elemento secundario.",
+                    "es-MX": "El jugador al que se unirá el Hijo. El movimiento de este jugador no será afectado y determinará la posición del Hijo.",
+                    "fr-FR": "Le joueur auquel l’enfant s’attachera. Les déplacements de ce joueur ne seront pas affectés et détermineront la position de l’enfant.",
+                    "it-IT": "Il Giocatore a cui si legherà il Figlio. Il movimento di questo Giocatore non ne sarà influenzato e determinerà la posizione del Figlio.",
+                    "ja-JP": "子プレイヤーがくっつくプレイヤー。このプレイヤーの移動は阻害されず、移動によって子プレイヤーの位置が変わる",
+                    "ko-KR": "자녀Child가 연결할 플레이어입니다. 이 플레이어의 움직임은 영향을 받지 않으며 자녀의 위치를 지정하게 됩니다.",
+                    "pl-PL": "Gracz do którego zostanie przyłączony gracz „Child” Potomna. Ruch tego gracza pozostanie niezmienny i określi pozycję potomnej.",
+                    "pt-BR": "O Jogador a quem o Filho será unido. A movimentação deste Jogador não será afetada e determinará a posição do Filho.",
+                    "ru-RU": "Игрок к которому будет привязан ведомый. Движение данного игрока не изменится и будет определять позицию ведомого.",
+                    "zh-CN": "将子玩家绑定至此玩家。此玩家本身的动作不受影响，而其行动会决定子玩家的位置。"
                 }
             },
             {
@@ -356,7 +514,8 @@ const actionKw =
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head."
+                    "en-US": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -383,7 +542,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the message."
+                    "guid": "00000000BD3D",
+                    "en-US": "One or more Players who will see the message.",
+                    "de-DE": "Ein oder mehrere Spieler die die Nachricht sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el mensaje.",
+                    "es-MX": "Uno o más jugadores que verán el mensaje.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le message.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere il messaggio.",
+                    "ja-JP": "このメッセージを見ることのできる1人または複数のプレイヤー",
+                    "ko-KR": "해당 메시지를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą wiadomość.",
+                    "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
+                    "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
+                    "zh-CN": "下列玩家将看到此信息。"
                 }
             },
             {
@@ -393,7 +564,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "STRING",
                 "descriptionLocalized": {
-                    "en-US": "The message to be displayed."
+                    "guid": "00000000BD3E",
+                    "en-US": "The message to be displayed.",
+                    "de-DE": "Die anzuzeigende Nachricht.",
+                    "es-ES": "Mensaje que se muestra.",
+                    "es-MX": "El mensaje que se mostrará.",
+                    "fr-FR": "Le message à afficher.",
+                    "it-IT": "Il messaggio da visualizzare.",
+                    "ja-JP": "表示されるテキスト",
+                    "ko-KR": "표시할 메시지입니다.",
+                    "pl-PL": "Wiadomość do wyświetlenia.",
+                    "pt-BR": "A mensagem a ser exibida.",
+                    "ru-RU": "Отображаемое сообщение.",
+                    "zh-CN": "将要显示的信息。"
                 }
             }
         ],
@@ -441,7 +624,19 @@ const actionKw =
                 "type": "Subroutine",
                 "default": "Sub0",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored."
+                    "guid": "000000010021",
+                    "en-US": "Specifies which subroutine to call. If a rule with a Subroutine event type specifies the same subroutine then it will execute. Otherwise this action is ignored.",
+                    "de-DE": "Legt fest welche Subroutine aufgerufen wird. Wenn eine Regel mit dem Eventtyp [Subroutine] die gleiche Subroutine festlegt wird es ausgeführt. Ansonsten wird diese Aktion ignoriert.",
+                    "es-ES": "Especifica a qué subrutina se llama. Si una regla con un tipo de evento de subrutina especifica la misma subrutina se ejecuta. De lo contrario esta acción se ignora.",
+                    "es-MX": "Especifica cuál será la subrutina que se llamará. Si una regla con un tipo de evento de subrutina especifica la misma subrutina entonces se ejecutará. Caso contrario esta acción es ignorada.",
+                    "fr-FR": "Spécifie le sous-programme à appeler. Si une règle dont l’évènement est un sous-programme spécifie le même sous-programme alors il s’exécutera. Dans le cas contraire cette action sera ignorée.",
+                    "it-IT": "Specifica quale subroutine richiamare. Se una regola con un tipo di evento Subroutine specifica la stessa subroutine si avvia. Altrimenti questa azione viene ignorata.",
+                    "ja-JP": "呼び出すサブルーチンを指定する。サブルーチン・イベントタイプを持つルールで同じサブルーチンが指定されていれば、そのサブルーチンが実行される。そうでない場合、このアクションは無視される",
+                    "ko-KR": "어떤 서브루틴을 호출할지 지정합니다. 동일한 서브루틴을 지정한 서브루틴 이벤트 유형의 규칙이 있는 경우 해당 서브루틴을 실행합니다. 이외의 경우 이 액션은 무시합니다.",
+                    "pl-PL": "Określa które podprogramy mają być wywoływane. Jeśli reguła z typem zdarzenia podprogramowego określa tę samą podprogramową procedurę to zostanie ona wykonana. W przeciwnym razie to działanie zostanie pominięte.",
+                    "pt-BR": "Especifica qual sub-rotina será chamada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina então ela será executada. Caso contrário a ação é ignorada.",
+                    "ru-RU": "Задает подпрограмму для вызова. Если правило с типом события [Subroutine] задает ту же подпрограмму оно выполняется. В противном случае это действие пропускается.",
+                    "zh-CN": "指定要调用的子程序。如果一个事件类型为子程序的规则指定了同一段子程序，那么它将会被执行。否则会忽略此行动。"
                 }
             }
         ],
@@ -483,7 +678,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to cancel active abilities for."
+                    "guid": "0000000109CE",
+                    "en-US": "The Player or Players to cancel active abilities for.",
+                    "de-DE": "Der oder die Spieler deren aktive Fähigkeiten abgebrochen werden.",
+                    "es-ES": "Jugador o jugadores cuyas habilidades activas se cancelarán.",
+                    "es-MX": "El jugador o los jugadores a los que se les cancelarán habilidades activas.",
+                    "fr-FR": "Le ou les joueurs pour lesquels les capacités actives doivent être annulées.",
+                    "it-IT": "Il Giocatore o i Giocatori per cui disabilitare le abilità attive.",
+                    "ja-JP": "発動中のアビリティをキャンセルするプレイヤー",
+                    "ko-KR": "활성화된 기술을 취소할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których należy anulować aktywne zdolności.",
+                    "pt-BR": "Os Jogadores cujas habilidades ativas serão canceladas.",
+                    "ru-RU": "Игрок или игроки для которых прерывается действие активных способностей.",
+                    "zh-CN": "下列玩家的启动技能将取消。"
                 }
             }
         ],
@@ -505,7 +712,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which global variable to modify gradually."
+                    "guid": "00000000BCB1",
+                    "en-US": "Specifies which Global Variable to modify gradually.",
+                    "de-DE": "Legt fest welche globale Variable im Laufe der Zeit modifiziert werden soll.",
+                    "es-ES": "Especifica qué variable global debe modificarse gradualmente.",
+                    "es-MX": "Especifica la variable global que se modificará gradualmente.",
+                    "fr-FR": "Spécifie quelle variable globale modifier graduellement.",
+                    "it-IT": "Specifica la Variabile Globale da modificare gradualmente.",
+                    "ja-JP": "少しずつ変更するグローバル変数を指定する",
+                    "ko-KR": "점진적으로 수정할 전역 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych „Global Variable” Zmienna globalna modyfikować stopniowo.",
+                    "pt-BR": "Especifica qual Variável Global será modificada gradativamente.",
+                    "ru-RU": "Определяет какая из глобальных переменных должна постепенно изменяться.",
+                    "zh-CN": "指定要改变的全局变量。"
                 }
             },
             {
@@ -517,7 +736,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
+                    "guid": "00000000BCB2",
+                    "en-US": "The Value that the Global Variable will eventually reach. The type of this Value may be either a Number or a Vector though the Variable's existing Value must be of the same type before the chase begins.",
+                    "de-DE": "Der Wert den die globale Variable letztendlich erreicht. Der Typ dieses Werts kann eine Zahl oder ein Vektor sein wobei der bestehende Wert der Variable den gleichen Typ haben muss bevor die Änderung beginnt.",
+                    "es-ES": "Valor que acabará por alcanzar la variable global. El tipo de este valor puede ser un número o un vector aunque el valor existente de la variable debe ser del mismo tipo antes del comienzo de la búsqueda.",
+                    "es-MX": "El valor que la variable global alcanzará eventualmente. El tipo de valor puede ser tanto un número como un vector aunque el valor existente de la variable debe ser del mismo tipo antes de que comience el seguimiento.",
+                    "fr-FR": "La valeur que la variable globale finira par atteindre. Le type de cette valeur peut correspondre à un nombre ou un vecteur mais la valeur existante de la variable doit être du même type avant le début de la modification progressive.",
+                    "it-IT": "Il Valore che la Variabile Globale raggiungerà. Il Valore può essere un Numero o un Vettore ma il Valore attuale della Variabile deve essere dello stesso tipo prima dell'inizio della modifica.",
+                    "ja-JP": "グローバル変数が最終的に到達する値。値のタイプは数字かベクトル。ただし変数の既存の値が追跡開始前と同じタイプのものでなければならない",
+                    "ko-KR": "전역 변수가 궁극적으로 도달할 값입니다. 이 값의 유형은 숫자 또는 벡터가 될 수 있지만 추적 시작 전 기존 변수 값의 유형이 동일해야 합니다.",
+                    "pl-PL": "Wartość którą osiągnie ostatecznie zmienna „Global Variable” Zmienna globalna. Typem tej wartości może być albo „Number” Liczba Liczba albo „Vector” Wektor chociaż istniejąca wartość zmiennej musi być tego samego typu aby rozpoczęto stopniową modyfikację.",
+                    "pt-BR": "O Valor que a Variável Global atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
+                    "ru-RU": "Значение которого должна достигнуть глобальная переменная. Оно может быть численного или векторного типа но тип начального и конечного значений должен быть одинаковым.",
+                    "zh-CN": "该全局变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时全局变量所具有的值相同。"
                 }
             },
             {
@@ -526,7 +757,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of change that will happen to the variable's value each second."
+                    "guid": "00000000BCBE",
+                    "en-US": "The amount of change that will happen to the Variable's Value each second.",
+                    "de-DE": "Die Höhe der Änderung die pro Sekunde am Wert dieser Variable vorgenommen wird.",
+                    "es-ES": "Magnitud del cambio que sufrirá el valor de la variable cada segundo.",
+                    "es-MX": "La medida en que se modificará el valor de la variable por segundo.",
+                    "fr-FR": "L’amplitude des modifications apportées chaque seconde à la valeur de la variable.",
+                    "it-IT": "L'entità della modifica che si applicherà al Valore della Variabile per ogni secondo.",
+                    "ja-JP": "変数の値に毎秒生じる変化の量",
+                    "ko-KR": "변수값의 초당 변화량입니다.",
+                    "pl-PL": "Liczba zmian które nastąpią w każdej sekundzie dla wartości zmiennej.",
+                    "pt-BR": "A quantidade de mudança que ocorrerá no Valor da Variável a cada segundo.",
+                    "ru-RU": "Величина на которую будет изменяться значение переменной с каждой секундой.",
+                    "zh-CN": "此变量的值每秒改变的量。"
                 }
             },
             {
@@ -535,7 +778,19 @@ const actionKw =
                 "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -572,7 +827,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which global variable to modify gradually."
+                    "guid": "00000000BCB1",
+                    "en-US": "Specifies which Global Variable to modify gradually.",
+                    "de-DE": "Legt fest welche globale Variable im Laufe der Zeit modifiziert werden soll.",
+                    "es-ES": "Especifica qué variable global debe modificarse gradualmente.",
+                    "es-MX": "Especifica la variable global que se modificará gradualmente.",
+                    "fr-FR": "Spécifie quelle variable globale modifier graduellement.",
+                    "it-IT": "Specifica la Variabile Globale da modificare gradualmente.",
+                    "ja-JP": "少しずつ変更するグローバル変数を指定する",
+                    "ko-KR": "점진적으로 수정할 전역 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych „Global Variable” Zmienna globalna modyfikować stopniowo.",
+                    "pt-BR": "Especifica qual Variável Global será modificada gradativamente.",
+                    "ru-RU": "Определяет какая из глобальных переменных должна постепенно изменяться.",
+                    "zh-CN": "指定要改变的全局变量。"
                 }
             },
             {
@@ -584,7 +851,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
+                    "guid": "00000000BCBD",
+                    "en-US": "The Value that the Global Variable will eventually reach. The type of this Value may be either a Number or a Vector though the Variable's existing Value must be of the same type before the chase begins.",
+                    "de-DE": "Der Wert den die globale Variable letztendlich erreicht. Der Typ dieses Werts kann eine Zahl oder ein Vektor sein wobei der bestehende Wert der Variable den gleichen Typ haben muss bevor die Änderung beginnt.",
+                    "es-ES": "Valor que acabará por alcanzar la variable global. El tipo de este valor puede ser un número o un vector aunque el valor existente de la variable debe ser del mismo tipo antes del comienzo de la búsqueda.",
+                    "es-MX": "El valor que la variable global alcanzará eventualmente. El tipo de valor puede ser tanto un número como un vector aunque el valor existente de la variable debe ser del mismo tipo antes de que comience el seguimiento.",
+                    "fr-FR": "La valeur que la variable globale finira par atteindre. Le type de cette valeur peut correspondre à un nombre ou un vecteur mais la valeur existante de la variable doit être du même type avant le début de la modification progressive.",
+                    "it-IT": "Il Valore che la Variabile Globale raggiungerà. Il Valore può essere un Numero o un Vettore ma il Valore attuale della Variabile deve essere dello stesso tipo prima dell'inizio della modifica.",
+                    "ja-JP": "グローバル変数が最終的に到達する値。値のタイプは数字かベクトル。ただし変数の既存の値が追跡開始前と同じタイプのものでなければならない",
+                    "ko-KR": "전역 변수가 궁극적으로 도달할 값입니다. 이 값의 유형은 숫자 또는 벡터가 될 수 있지만 추적 시작 전 기존 변수 값의 유형이 동일해야 합니다.",
+                    "pl-PL": "Wartość którą osiągnie ostatecznie zmienna „Global Variable” Zmienna globalna. Typem tej wartości może być albo „Number” Liczba albo „Vector” Wektor chociaż istniejąca wartość zmiennej musi być tego samego typu aby rozpoczęto stopniową modyfikację.",
+                    "pt-BR": "O Valor que a Variável Global atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
+                    "ru-RU": "Значение которого должна достигнуть глобальная переменная. Оно может быть численного или векторного типа но тип начального и конечного значений должен быть одинаковым.",
+                    "zh-CN": "该全局变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时全局变量所具有的值相同。"
                 }
             },
             {
@@ -593,7 +872,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination."
+                    "guid": "00000000BCB3",
+                    "en-US": "The amount of time in seconds over which the Variable's Value will approach the Destination.",
+                    "de-DE": "Die Dauer in Sekunden über die sich der Wert der Variable dem Zielwert annähert.",
+                    "es-ES": "Cantidad de tiempo en segundos durante la cual el valor de la variable se aproximará al destino.",
+                    "es-MX": "La cantidad de tiempo en segundos durante el cual el valor de la variable se acercará al destino.",
+                    "fr-FR": "La durée en secondes pendant laquelle la valeur de la variable approchera de la valeur cible.",
+                    "it-IT": "La quantità di tempo in secondi che il Valore della Variabile impiegherà per raggiungere la Destinazione.",
+                    "ja-JP": "変数の値が目的の値に到達するまでの時間（秒）",
+                    "ko-KR": "해당 변수값이 목표치에 도달하기까지의 시간초입니다.",
+                    "pl-PL": "Czas w sekundach w którym wartość zmiennej zbliży się wartości docelowej.",
+                    "pt-BR": "A quantidade de tempo em segundos ao longo da qual o Valor da Variável atingirá o Destino.",
+                    "ru-RU": "Время в секундах в течение которого переменная должна достигнуть целевого значения.",
+                    "zh-CN": "变量到达最终值所用的时间，以秒为单位。"
                 }
             },
             {
@@ -602,7 +893,19 @@ const actionKw =
                 "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -644,7 +947,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently."
+                    "guid": "00000000BCB6",
+                    "en-US": "The Player whose Variable will gradually change. If multiple Players are provided each of their Variables will change independently.",
+                    "de-DE": "Der Spieler dessen Variable im Laufe der Zeit geändert wird. Wenn mehrere Spieler angegeben werden werden alle Variablen dieser Spieler unabhängig geändert.",
+                    "es-ES": "Jugador cuya variable cambiará gradualmente. Si se indican varios jugadores cada una de sus variables cambiará de forma independiente.",
+                    "es-MX": "El jugador cuya variable se modificará gradualmente. Si se detecta más de un jugador las variables de cada uno se modificarán de forma independiente.",
+                    "fr-FR": "Le joueur dont la variable changera graduellement. Si plusieurs joueurs sont indiqués chacune de leurs variables changera indépendamment.",
+                    "it-IT": "Il Giocatore a cui appartiene la Variabile da modificare gradualmente. Se sono specificati più Giocatori ogni rispettiva Variabile si modificherà indipendentemente.",
+                    "ja-JP": "変数を少しずつ変化させるプレイヤー。複数プレイヤーの場合、いずれの変数も変更される",
+                    "ko-KR": "점진적으로 변수를 변경할 플레이어입니다. 플레이어가 다수인 경우 각각의 변수가 독립적으로 변경됩니다.",
+                    "pl-PL": "Gracz którego zmienna ulegnie stopniowej modyfikacji. Jeśli podano wielu graczy każda z ich zmiennych zostanie zmodyfikowana niezależnie.",
+                    "pt-BR": "O Jogador cuja Variável será alterada gradativamente. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será alterada de forma independente.",
+                    "ru-RU": "Игрок переменную которого следует постепенно изменять. Если выбрано несколько игроков их переменные будут меняться независимо.",
+                    "zh-CN": "此玩家的变量将被逐渐改变。如果有多个玩家，则每个玩家的变量都将各自被改变。"
                 }
             },
             {
@@ -653,7 +968,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to modify gradually."
+                    "guid": "00000000BCB7",
+                    "en-US": "Specifies which of the Player's Variables to modify gradually.",
+                    "de-DE": "Legt fest welche der Variablen des Spielers im Laufe der Zeit modifiziert werden soll.",
+                    "es-ES": "Especifica qué variables del jugador deben modificarse gradualmente.",
+                    "es-MX": "Especifica las variables del jugador que se modificarán gradualmente.",
+                    "fr-FR": "Spécifie quelle variable du joueur il faut modifier graduellement.",
+                    "it-IT": "Specifica le Variabili del Giocatore da modificare gradualmente.",
+                    "ja-JP": "少しずつ変更するプレイヤー変数を指定する",
+                    "ko-KR": "점진적으로 수정할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych gracza stopniowo modyfikować.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador será modificada gradativamente.",
+                    "ru-RU": "Определяет какую из переменных игрока следует постепенно изменять.",
+                    "zh-CN": "指定将要改变的玩家变量。"
                 }
             },
             {
@@ -665,7 +992,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
+                    "guid": "00000000BCB8",
+                    "en-US": "The Value that the Player Variable will eventually reach. The type of this Value may be either a Number or a Vector though the Variable's existing Value must be of the same type before the chase begins.",
+                    "de-DE": "Der Wert den die Spielervariable letztendlich erreicht. Der Typ dieses Werts kann eine Zahl oder ein Vektor sein wobei der bestehende Wert der Variable den gleichen Typ haben muss bevor die Änderung beginnt.",
+                    "es-ES": "Valor que acabará por alcanzar la variable de jugador. El tipo de este valor puede ser un número o un vector aunque el valor existente de la variable debe ser del mismo tipo antes del comienzo de la búsqueda.",
+                    "es-MX": "El valor que la variable de jugador alcanzará eventualmente. El tipo de valor puede ser tanto un número como un vector aunque el valor existente de la variable debe ser del mismo tipo antes de que comience el seguimiento.",
+                    "fr-FR": "La valeur que la variable de joueur finira par atteindre. Le type de cette valeur peut correspondre à un nombre ou un vecteur mais la valeur existante de la variable doit être du même type avant le début de la modification progressive.",
+                    "it-IT": "Il Valore che la Variabile Giocatore raggiungerà. Il Valore può essere un Numero o un Vettore ma il Valore attuale della Variabile deve essere dello stesso tipo prima dell'inizio della modifica.",
+                    "ja-JP": "グローバル変数が最終的に到達する値。値のタイプは数字かベクトル。ただし変数の既存の値が追跡開始前と同じタイプのものでなければならない",
+                    "ko-KR": "플레이어 변수가 궁극적으로 도달할 값입니다. 이 값의 유형은 숫자 또는 벡터가 될 수 있지만 추적 시작 전 기존 변수 값의 유형이 동일해야 합니다.",
+                    "pl-PL": "Wartość którą osiągnie ostatecznie zmienna „Player Variable” Zmienna gracza. Typem tej wartości może być albo „Number” Liczba albo „Vector” Wektor chociaż istniejąca wartość zmiennej musi być tego samego typu aby rozpoczęto stopniową modyfikację.",
+                    "pt-BR": "O Valor que a Variável do Jogador atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
+                    "ru-RU": "Значение которого должна достигнуть переменная игрока. Оно может быть численного или векторного типа но тип начального и конечного значения должен быть одинаковым.",
+                    "zh-CN": "该玩家变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时玩家变量所具有的值相同。"
                 }
             },
             {
@@ -674,7 +1013,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of change that will happen to the variable's value each second."
+                    "guid": "00000000BCBE",
+                    "en-US": "The amount of change that will happen to the Variable's Value each second.",
+                    "de-DE": "Die Höhe der Änderung die pro Sekunde am Wert dieser Variable vorgenommen wird.",
+                    "es-ES": "Magnitud del cambio que sufrirá el valor de la variable cada segundo.",
+                    "es-MX": "La medida en que se modificará el valor de la variable por segundo.",
+                    "fr-FR": "L’amplitude des modifications apportées chaque seconde à la valeur de la variable.",
+                    "it-IT": "L'entità della modifica che si applicherà al Valore della Variabile per ogni secondo.",
+                    "ja-JP": "変数の値に毎秒生じる変化の量",
+                    "ko-KR": "변수값의 초당 변화량입니다.",
+                    "pl-PL": "Liczba zmian które nastąpią w każdej sekundzie dla wartości zmiennej.",
+                    "pt-BR": "A quantidade de mudança que ocorrerá no Valor da Variável a cada segundo.",
+                    "ru-RU": "Величина на которую будет изменяться значение переменной с каждой секундой.",
+                    "zh-CN": "此变量的值每秒改变的量。"
                 }
             },
             {
@@ -683,7 +1034,19 @@ const actionKw =
                 "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -725,7 +1088,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently."
+                    "guid": "00000000BCC1",
+                    "en-US": "The Player whose Variable will gradually change. If multiple Players are provided each of their Variables will change independently.",
+                    "de-DE": "Der Spieler dessen Variable im Laufe der Zeit geändert wird. Wenn mehrere Spieler angegeben werden werden alle Variablen dieser Spieler unabhängig geändert.",
+                    "es-ES": "Jugador cuya variable cambiará gradualmente. Si se indican varios jugadores cada una de sus variables cambiará de forma independiente.",
+                    "es-MX": "El jugador cuya variable se modificará gradualmente. Si se detecta más de un jugador las variables de cada uno se modificarán de forma independiente.",
+                    "fr-FR": "Le joueur dont la variable changera graduellement. Si plusieurs joueurs sont indiqués chacune de leurs variables changera indépendamment.",
+                    "it-IT": "Il Giocatore a cui appartiene la Variabile da modificare gradualmente. Se sono specificati più Giocatori ogni rispettiva Variabile si modificherà indipendentemente.",
+                    "ja-JP": "変数を少しずつ変化させるプレイヤー。複数プレイヤーの場合、いずれの変数も変更される",
+                    "ko-KR": "점진적으로 변수를 변경할 플레이어입니다. 플레이어가 다수인 경우 각각의 변수가 독립적으로 변경됩니다.",
+                    "pl-PL": "Gracz którego zmienna ulegnie stopniowej modyfikacji. Jeśli podano wielu graczy każda z ich zmiennych zostanie zmodyfikowana niezależnie.",
+                    "pt-BR": "O Jogador cuja Variável será alterada gradativamente. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será alterada de forma independente.",
+                    "ru-RU": "Игрок переменную которого следует постепенно изменять. Если выбрано несколько игроков их переменные будут меняться независимо.",
+                    "zh-CN": "此玩家的变量将被逐渐改变。如果有多个玩家，则每个玩家的变量都将各自被改变。"
                 }
             },
             {
@@ -734,7 +1109,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to modify gradually."
+                    "guid": "00000000BCB7",
+                    "en-US": "Specifies which of the Player's Variables to modify gradually.",
+                    "de-DE": "Legt fest welche der Variablen des Spielers im Laufe der Zeit modifiziert werden soll.",
+                    "es-ES": "Especifica qué variables del jugador deben modificarse gradualmente.",
+                    "es-MX": "Especifica las variables del jugador que se modificarán gradualmente.",
+                    "fr-FR": "Spécifie quelle variable du joueur il faut modifier graduellement.",
+                    "it-IT": "Specifica le Variabili del Giocatore da modificare gradualmente.",
+                    "ja-JP": "少しずつ変更するプレイヤー変数を指定する",
+                    "ko-KR": "점진적으로 수정할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych gracza stopniowo modyfikować.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador será modificada gradativamente.",
+                    "ru-RU": "Определяет какую из переменных игрока следует постепенно изменять.",
+                    "zh-CN": "指定将要改变的玩家变量。"
                 }
             },
             {
@@ -746,7 +1133,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins."
+                    "guid": "00000000BCC3",
+                    "en-US": "The Value that the Player Variable will eventually reach. The type of this Value may be either a Number or a Vector though the Variable's existing Value must be of the same type before the chase begins.",
+                    "de-DE": "Der Wert den die Spielervariable letztendlich erreicht. Der Typ dieses Werts kann eine Zahl oder ein Vektor sein wobei der bestehende Wert der Variable den gleichen Typ haben muss bevor die Änderung beginnt.",
+                    "es-ES": "Valor que acabará por alcanzar la variable de jugador. El tipo de este valor puede ser un número o un vector aunque el valor existente de la variable debe ser del mismo tipo antes del comienzo de la búsqueda.",
+                    "es-MX": "El valor que la variable de jugador alcanzará eventualmente. El tipo de valor puede ser tanto un número como un vector aunque el valor existente de la variable debe ser del mismo tipo antes de que comience el seguimiento.",
+                    "fr-FR": "La valeur que la variable de joueur finira par atteindre. Le type de cette valeur peut correspondre à un nombre ou un vecteur mais la valeur existante de la variable doit être du même type avant le début de la modification progressive.",
+                    "it-IT": "Il Valore che la Variabile Giocatore raggiungerà. Il Valore può essere un Numero o un Vettore ma il Valore attuale della Variabile deve essere dello stesso tipo prima dell'inizio della modifica.",
+                    "ja-JP": "グローバル変数が最終的に到達する値。値のタイプは数字かベクトル。ただし変数の既存の値が追跡開始前と同じタイプのものでなければならない",
+                    "ko-KR": "플레이어 변수가 궁극적으로 도달할 값입니다. 이 값의 유형은 숫자 또는 벡터가 될 수 있지만 추적 시작 전 기존 변수 값의 유형이 동일해야 합니다.",
+                    "pl-PL": "Wartość którą osiągnie ostatecznie zmienna „Player Variable” Zmienna gracza. Typem tej wartości może być albo „Number” Liczba albo „Vector” Wektor chociaż istniejąca wartość zmiennej musi być tego samego typu aby rozpoczęto stopniową modyfikację.",
+                    "pt-BR": "O Valor que a Variável do Jogador atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
+                    "ru-RU": "Значение которого должна достигнуть переменная игрока. Оно может быть численного или векторного типа но тип начального и конечного значения должен быть одинаковым.",
+                    "zh-CN": "该玩家变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时玩家变量所具有的值相同。"
                 }
             },
             {
@@ -755,7 +1154,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of time, in seconds, over which the variable's value will approach the destination."
+                    "guid": "00000000BCB9",
+                    "en-US": "The amount of time in seconds over which the Variable's Value will approach the Destination.",
+                    "de-DE": "Die Dauer in Sekunden über die sich der Wert der Variable dem Zielwert annähert.",
+                    "es-ES": "Cantidad de tiempo en segundos durante la cual el valor de la variable se aproximará al destino.",
+                    "es-MX": "La cantidad de tiempo en segundos durante el cual el valor de la variable se acercará al destino.",
+                    "fr-FR": "La durée en secondes pendant laquelle la valeur de la variable approchera de la valeur cible.",
+                    "it-IT": "La quantità di tempo in secondi che il Valore della Variabile impiegherà per raggiungere la Destinazione.",
+                    "ja-JP": "変数の値が目的の値に到達するまでの時間（秒）",
+                    "ko-KR": "해당 변수값이 목표치에 도달하기까지의 시간초입니다.",
+                    "pl-PL": "Czas w sekundach w którym wartość zmiennej zbliży się wartości docelowej.",
+                    "pt-BR": "A quantidade de tempo em segundos ao longo da qual o Valor da Variável atingirá o Destino.",
+                    "ru-RU": "Время в секундах в течение которого переменная должна достигнуть целевого значения.",
+                    "zh-CN": "变量到达最终值所用的时间，以秒为单位。"
                 }
             },
             {
@@ -764,7 +1175,19 @@ const actionKw =
                 "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -806,7 +1229,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players from whom the status will be removed."
+                    "guid": "00000000BCAB",
+                    "en-US": "The Player or Players from whom the status will be removed.",
+                    "de-DE": "Der oder die Spieler von denen der Status entfernt wird.",
+                    "es-ES": "Jugador o jugadores cuyo estado se eliminará.",
+                    "es-MX": "El jugador o los jugadores cuyos estados serán eliminados.",
+                    "fr-FR": "Le ou les joueurs dont le statut sera supprimé.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà rimosso lo stato.",
+                    "ja-JP": "ステータスを取り除かれるプレイヤー",
+                    "ko-KR": "상태를 제거할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których status zostanie usunięty.",
+                    "pt-BR": "Os Jogadores de quem o status será removido.",
+                    "ru-RU": "Игрок или игроки статус которых следует убрать.",
+                    "zh-CN": "下列玩家的状态将被清除。"
                 }
             },
             {
@@ -815,7 +1250,19 @@ const actionKw =
                 "type": "Status",
                 "default": "HACKED",
                 "descriptionLocalized": {
-                    "en-US": "The status to be removed from the player or players."
+                    "guid": "00000000BCAC",
+                    "en-US": "The status to be removed from the Player or Players.",
+                    "de-DE": "Der Status der vom Spieler oder von den Spielern entfernt wird.",
+                    "es-ES": "Estado que debe eliminarse del jugador o los jugadores.",
+                    "es-MX": "El estado que se eliminará del jugador o los jugadores.",
+                    "fr-FR": "Le statut à supprimer chez le ou les joueurs.",
+                    "it-IT": "Lo stato da rimuovere dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーから取り除くステータス",
+                    "ko-KR": "플레이어에게서 제거할 상태입니다.",
+                    "pl-PL": "Status do usunięcia dla gracza lub graczy.",
+                    "pt-BR": "O status a ser removido dos Jogadores.",
+                    "ru-RU": "Статус игрока или игроков который нужно убрать.",
+                    "zh-CN": "从指定玩家身上清除的状态。"
                 }
             }
         ],
@@ -857,7 +1304,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to perform the communication."
+                    "guid": "00000000BD2D",
+                    "en-US": "The Player or Players to perform the communication.",
+                    "de-DE": "Der oder die Spieler die die Kommunikation ausführen.",
+                    "es-ES": "Jugador o jugadores que realizarán la comunicación.",
+                    "es-MX": "El jugador o los jugadores que realizarán la comunicación.",
+                    "fr-FR": "Le ou les joueurs qui effectueront la communication.",
+                    "it-IT": "Il Giocatore o i Giocatori che eseguiranno la comunicazione.",
+                    "ja-JP": "コミュニケーションを行うプレイヤー",
+                    "ko-KR": "의사소통을 실행할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze do przeprowadzenia komunikacji.",
+                    "pt-BR": "Os Jogadores que usaráão a comunicação.",
+                    "ru-RU": "Игрок или игроки которые применят средство коммуникации.",
+                    "zh-CN": "下列玩家将自动开始交流。"
                 }
             },
             {
@@ -866,7 +1325,19 @@ const actionKw =
                 "type": "Comms",
                 "default": "VOICE LINE UP",
                 "descriptionLocalized": {
-                    "en-US": "The type of communication."
+                    "guid": "00000000BD2C",
+                    "en-US": "The type of communication.",
+                    "de-DE": "Der Typ der Kommunikation.",
+                    "es-ES": "Tipo de comunicación.",
+                    "es-MX": "El tipo de comunicación.",
+                    "fr-FR": "Le type de communication.",
+                    "it-IT": "Il tipo di comunicazione.",
+                    "ja-JP": "コミュニケーションのタイプ",
+                    "ko-KR": "의사소통 유형입니다.",
+                    "pl-PL": "Typ komunikacji.",
+                    "pt-BR": "O tipo de comunicação.",
+                    "ru-RU": "Тип коммуникации.",
+                    "zh-CN": "交流的类型。"
                 }
             }
         ],
@@ -920,7 +1391,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will be able to see the effect."
+                    "guid": "00000000BCCE",
+                    "en-US": "One or more Players who will be able to see the effect.",
+                    "de-DE": "Ein oder mehrere Spieler die den Effekt sehen können.",
+                    "es-ES": "Uno o más jugadores que podrán ver el efecto.",
+                    "es-MX": "Uno o más jugadores que podrán ver el efecto.",
+                    "fr-FR": "Un ou plusieurs joueurs qui pourront voir l’effet.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere l'effetto.",
+                    "ja-JP": "このエフェクトを見ることができる1人または複数のプレイヤー",
+                    "ko-KR": "해당 효과를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy będą mogli zobaczyć efekt.",
+                    "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
+                    "ru-RU": "Один или несколько игроков которым будет виден эффект.",
+                    "zh-CN": "一名或多名将家将可以看到此效果。"
                 }
             },
             {
@@ -929,7 +1412,19 @@ const actionKw =
                 "type": "Beam",
                 "default": "GOOD BEAM",
                 "descriptionLocalized": {
-                    "en-US": "The type of effect to be created."
+                    "guid": "00000000BCCF",
+                    "en-US": "The type of effect to be created.",
+                    "de-DE": "Der Typ des zu erstellenden Effekts.",
+                    "es-ES": "Tipo de efecto que se crea.",
+                    "es-MX": "El tipo de efecto que se creará.",
+                    "fr-FR": "Le type d’effet à créer.",
+                    "it-IT": "Il tipo di effetto da creare.",
+                    "ja-JP": "作成されるエフェクトのタイプ",
+                    "ko-KR": "생성할 효과의 형태입니다.",
+                    "pl-PL": "Typ efektu który zostanie stworzony.",
+                    "pt-BR": "O tipo de efeito a ser criado.",
+                    "ru-RU": "Тип создаваемого эффекта.",
+                    "zh-CN": "将要创建的效果类型。"
                 }
             },
             {
@@ -938,7 +1433,19 @@ const actionKw =
                 "type": "Position",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
+                    "guid": "00000000D2D7",
+                    "en-US": "The effect's start position. If this Value is a Player then the effect will move along with the Player. Otherwise the Value is interpreted as a position in the world.",
+                    "de-DE": "Die Startposition des Effekts. Wenn dieser Wert ein Spieler ist bewegt sich der Effekt mit dem Spieler. Ansonsten wird der Wert als Position in der Welt interpretiert.",
+                    "es-ES": "Posición inicial del efecto. Si este valor es un jugador el efecto se desplazará con el jugador; de lo contrario el valor se interpreta como una posición en el mundo.",
+                    "es-MX": "La posición inicial del efecto. Si este valor es un jugador el efecto acompañará al jugador. Caso contrario el valor se interpretará como una posición en el mundo.",
+                    "fr-FR": "La position de départ de l’effet. Si cette valeur correspond à un joueur l’effet se déplacera avec ce dernier. Sinon la valeur est interprétée en tant que position dans le monde.",
+                    "it-IT": "La posizione iniziale dell'effetto. Se il Valore rappresenta un Giocatore l'effetto seguirà i movimenti del Giocatore. Altrimenti il Valore viene interpretato come una posizione nel mondo di gioco.",
+                    "ja-JP": "エフェクトの開始位置。値がプレイヤーである場合、プレイヤーと共に移動しながら効果が再生される。それ以外の場合、値はワールド内の位置と解釈される",
+                    "ko-KR": "효과의 시작 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어를 따라다니고 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.",
+                    "pl-PL": "Pozycja początkowa efektu. Jeśli ta wartość jest graczem wtedy efekt przemieści się razem z nim. Inaczej wartość jest interpretowana jako pozycja w świecie.",
+                    "pt-BR": "A posição inicial do efeito. Se este Valor for um Jogador então o efeito se moverá junto com o Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
+                    "ru-RU": "Начальное местоположение эффекта. Если в качестве значения указан игрок то эффект будет перемещаться вместе с ним. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
+                    "zh-CN": "效果开始的位置。如果此值为一名玩家，那么效果将随此玩家移动。否则，此值将代表地图中的一个位置。"
                 }
             },
             {
@@ -947,7 +1454,19 @@ const actionKw =
                 "type": "Position",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
+                    "guid": "00000000BCD1",
+                    "en-US": "The effect's end position. If this Value is a Player then the effect will move along with the Player. Otherwise the Value is interpreted as a position in the world.",
+                    "de-DE": "Die Endposition des Effekts. Wenn dieser Wert ein Spieler ist bewegt sich der Effekt zusammen mit dem Spieler. Ansonsten wird der Wert als Position in der Welt interpretiert.",
+                    "es-ES": "Posición final del efecto. Si este valor es un jugador el efecto se desplazará con el jugador; de lo contrario el valor se interpreta como una posición en el mundo.",
+                    "es-MX": "La posición final del efecto. Si este valor es un jugador el efecto acompañará al jugador. Caso contrario el valor se interpretará como una posición en el mundo.",
+                    "fr-FR": "La position de fin de l’effet. Si cette valeur correspond à un joueur l’effet se déplacera avec ce dernier. Sinon la valeur est interprétée en tant que position dans le monde.",
+                    "it-IT": "La posizione finale dell'effetto. Se il Valore rappresenta un Giocatore l'effetto seguirà i movimenti del Giocatore. Altrimenti il Valore viene interpretato come una posizione nel mondo di gioco.",
+                    "ja-JP": "エフェクトの終了位置。値がプレイヤーである場合、エフェクトはプレイヤーと共に移動する。それ以外の場合、値はワールド内の位置と解釈される",
+                    "ko-KR": "효과의 종료 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어를 따라다니고 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.",
+                    "pl-PL": "Pozycja końcowa efektu. Jeśli ta wartość jest graczem wtedy efekt przemieści się razem z nim. Inaczej wartość jest interpretowana jako pozycja w świecie.",
+                    "pt-BR": "A posição final do efeito. Se este Valor for um Jogador o efeito se moverá junto com o Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
+                    "ru-RU": "Конечное местоположение эффекта. Если в качестве значения указан игрок то эффект будет перемещаться вместе с ним. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
+                    "zh-CN": "效果终点所在的位置。如果此值为一名玩家，那么该效果将与玩家一起移动。否则，此值将代表地图中的一个位置。"
                 }
             },
             {
@@ -956,7 +1475,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied."
+                    "en-US": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -965,7 +1485,19 @@ const actionKw =
                 "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCD3",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The effect will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Der Effekt fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El efecto no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El efecto continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. L’effet continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'effetto continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。エフェクトは、見直されたインプットから取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 효과는 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Efekt będzie prosił o i wykorzystywał nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O efeito continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Эффект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此效果会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -1002,7 +1534,19 @@ const actionKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random."
+                    "guid": "00000000CA76",
+                    "en-US": "The hero that the bot will be. If more than one hero is provided one will be chosen at random.",
+                    "de-DE": "Der Held der als Bot erscheint. Wenn mehr als ein Held angegeben ist wird ein zufälliger Held davon ausgewählt.",
+                    "es-ES": "El héroe que será el robot. Si se proporciona más de un héroe se elegirá uno aleatorio.",
+                    "es-MX": "El héroe que el robot será. Si hay más de un héroe disponible se elegirá uno al azar.",
+                    "fr-FR": "Le héros que l’I.A. incarnera. S’il y a plus d’un héros disponible le héros sera choisi aléatoirement.",
+                    "it-IT": "L'eroe controllato dal bot. Se viene specificato più di un eroe verrà scelto casualmente.",
+                    "ja-JP": "ボットがプレイするヒーロー。1人以上指定した場合、ランダムで1人選択される",
+                    "ko-KR": "봇으로 지정될 영웅입니다. 만약 하나 이상의 영웅에게 적용되면 무작위로 선택됩니다.",
+                    "pl-PL": "Gracz którego bot zginie. Jeśli podano więcej niż jednego gracza wybrany zostanie losowy.",
+                    "pt-BR": "O herói que o bot será. Se mais de um herói for fornecido um será escolhido aleatoriamente.",
+                    "ru-RU": "Герой которым будет управлять ИИ. Если указано несколько героев один из них будет выбран случайным образом.",
+                    "zh-CN": "机器人使用的英雄。如果提供了多于一个英雄，则会随机在其中选择。"
                 }
             },
             {
@@ -1011,7 +1555,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
+                    "guid": "00000000BC8B",
+                    "en-US": "The team on which to create the bot. The \"All\" option only works in free-for-all game modes while the \"Team\" options only work in team-based game modes.",
+                    "de-DE": "Das Team in dem der Bot erstellt wird. Die Option [All] funktioniert nur in klassischen Deathmatch-Modi die Option [Team] dagegen nur in teambasierten Spielmodi.",
+                    "es-ES": "El equipo en el que se crea el robot. La opción «Todos» solo funciona en modos de juego de todos contra todos mientras que las opciones de «Equipo» solo funcionan en modos de juego por equipos.",
+                    "es-MX": "El equipo en el que se creará el robot. La opción \"Todos\" solo funciona en los modos de juego todos contra todos mientras que las opciones \"Equipo\" solo funcionan en los modos de juego en equipo.",
+                    "fr-FR": "L’équipe dans laquelle l’I.A. sera créée. L’option « Toutes » ne fonctionne que dans les modes chacun pour soi tandis que les options « Équipe » ne fonctionnent que dans les modes de jeu où des équipes sont constituées.",
+                    "it-IT": "La squadra per cui creare il bot. L'opzione \"All\" funziona solo nelle modalità Tutti contro tutti mentre l'opzione \"Team\" funziona solo nelle modalità di gioco a squadre.",
+                    "ja-JP": "ボットを作成するチーム。「すべて」オプションはフリー・フォー・オールのゲーム・モードのみ、「チーム」オプションはチーム制ゲーム・モードのみで動作する",
+                    "ko-KR": "봇을 생성할 팀입니다. \"All\" 설정은 섬멸전 게임 모드에서만 작동하며 \"Team\" 설정은 팀 기반의 게임 모드에서만 작동합니다.",
+                    "pl-PL": "Drużyna dla której stworzony zostanie bot. Opcja „All” Wszystkie działa tylko w trybach każdy na każdego a opcja „Team” Drużyna działa tylko w trybach zespołowych.",
+                    "pt-BR": "A equipe que receberá o bot. A opção \"Todos\" só funciona no modo todos contra todos. A opção \"Equipe\" só funciona em modos de jogo com equipes.",
+                    "ru-RU": "Команда в которую будет добавлен ИИ. Вариант [All] подходит только для режимов FFA а параметр [Team] — только для командных режимов.",
+                    "zh-CN": "将机器人添加至此队伍。“全部”选项只适用于自由混战模式，“队伍”选项只适用于基于队伍的游戏模式。"
                 }
             },
             {
@@ -1022,7 +1578,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings."
+                    "guid": "00000000CA4B",
+                    "en-US": "The player slot which will receive the bot -1 for first available slot. Up to 6 bots may be added to each team or 12 bots to the free-for-all team regardless of lobby settings.",
+                    "de-DE": "Der Spielerslot in dem der Bot platziert wird -1 für den ersten verfügbaren Slot. Pro Team können bis zu 6 Bots hinzugefügt werden oder insgesamt 12 Bots bei klassischen Deathmatch-Modi unabhängig von den Lobby-Einstellungen.",
+                    "es-ES": "La ranura de jugador que recibirá el robot -1 para la primera ranura disponible. Se pueden añadir hasta 6 robots a cada equipo o 12 robots para todos contra todos independientemente de los ajustes de la sala.",
+                    "es-MX": "La posición de jugador que recibirá el robot -1 equivale a la primera posición disponible. Se puede agregar hasta 6 robots a cada equipo o 12 robots al equipo todos contra todos sin importar la configuración del lobby.",
+                    "fr-FR": "L’emplacement de joueur recevant l’I.A. -1 pour le premier emplacement libre. Il est possible d’ajouter jusqu’à 6 I.A. dans chaque équipe ou 12 I.A. dans l’équipe « chacun pour soi » et ce quels que soient les paramètres du salon.",
+                    "it-IT": "Lo slot giocatore che riceverà il bot -1 per il primo slot disponibile. È possibile aggiungere fino a 6 bot per ogni squadra o 12 bot per la squadra TCT indipendentemente dalle impostazioni della lobby.",
+                    "ja-JP": "ボットが入るプレイヤースロット（最初に使えるスロットは-1）。ロビーの設定に関わらず、各チームに最大で6体のボットを追加できる（フリー・フォー・オール・チームの場合は12体）",
+                    "ko-KR": "봇을 받을 플레이어 슬롯입니다 첫 번째로 가능한 슬롯은 -1입니다. 대기실 설정에 따라 각 팀에는 최대 6개까지 개별 전투 모드 팀에서는 최대 12개까지 봇을 추가할 수 있습니다.",
+                    "pl-PL": "Miejsce gracza które zajmie bot -1 dla pierwszego dostępnego miejsca. Do każdej drużyny dodać można 6 botów lub 12 w trybie każdy na każdego bez względu na ustawienia poczekalni.",
+                    "pt-BR": "O espaço de jogador que receberá o bot -1 para o primeiro espaço disponível. Até 6 bots podem ser adicionados a cada equipe ou 12 bots à equipe do modo todos contra todos independentemente das configurações do lobby.",
+                    "ru-RU": "Ячейка игрока которую займет ИИ -1 для первой доступной ячейки. Вне зависимости от настроек лобби в игру может быть добавлено до 6 ИИ за одну команду или до 12 в режиме FFA. ",
+                    "zh-CN": "在此玩家栏位添加机器人（-1表示第一个可用的空位）。不管游戏大厅中的设置如何，每支队伍最多可以加入6个机器人，自由混战队伍中最多可加入12个机器人。"
                 }
             },
             {
@@ -1032,7 +1600,19 @@ const actionKw =
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The initial position where the bot will appear."
+                    "guid": "00000000CB09",
+                    "en-US": "The initial position where the bot will appear.",
+                    "de-DE": "Die Position an der der Bot erscheint.",
+                    "es-ES": "La ubicación inicial en la que aparecerá el robot.",
+                    "es-MX": "La posición inicial en la cual el robot aparecerá.",
+                    "fr-FR": "Le point d’apparition initial de l’I.A.",
+                    "it-IT": "La posizione iniziale dove comparirà il bot.",
+                    "ja-JP": "ボットが最初に現れる位置",
+                    "ko-KR": "봇이 생성될 최초 위치입니다.",
+                    "pl-PL": "Początkowa lokalizacja w której pojawi się bot.",
+                    "pt-BR": "A posição inicial onde o bot aparecerá.",
+                    "ru-RU": "Начальная точка где появится ИИ.",
+                    "zh-CN": "机器人最初出现的位置。"
                 }
             },
             {
@@ -1042,7 +1622,19 @@ const actionKw =
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The initial direction that the bot will face."
+                    "guid": "00000000CB0C",
+                    "en-US": "The initial direction that the bot will face.",
+                    "de-DE": "Die Blickrichtung des Bots wenn er platziert wird.",
+                    "es-ES": "La dirección inicial hacia la que mirará el robot.",
+                    "es-MX": "La dirección inicial hacia la cual el robot se orientará.",
+                    "fr-FR": "L’orientation initiale de l’I.A.",
+                    "it-IT": "La direzione iniziale verso cui si rivolgerà il bot.",
+                    "ja-JP": "ボットが最初に向いている方向",
+                    "ko-KR": "봇이 바라보고 있을 최초 방향입니다.",
+                    "pl-PL": "Początkowy kierunek w którym ustawiony będzie bot.",
+                    "pt-BR": "A direção inicial para a qual o bot estará virado.",
+                    "ru-RU": "Направление в котором изначально будет повернут герой под управлением ИИ.",
+                    "zh-CN": "假人最初面向的方向。"
                 }
             }
         ],
@@ -1084,7 +1676,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will be able to see the effect."
+                    "guid": "00000000BCCE",
+                    "en-US": "One or more Players who will be able to see the effect.",
+                    "de-DE": "Ein oder mehrere Spieler die den Effekt sehen können.",
+                    "es-ES": "Uno o más jugadores que podrán ver el efecto.",
+                    "es-MX": "Uno o más jugadores que podrán ver el efecto.",
+                    "fr-FR": "Un ou plusieurs joueurs qui pourront voir l’effet.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere l'effetto.",
+                    "ja-JP": "このエフェクトを見ることができる1人または複数のプレイヤー",
+                    "ko-KR": "해당 효과를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy będą mogli zobaczyć efekt.",
+                    "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
+                    "ru-RU": "Один или несколько игроков которым будет виден эффект.",
+                    "zh-CN": "一名或多名将家将可以看到此效果。"
                 }
             },
             {
@@ -1093,7 +1697,19 @@ const actionKw =
                 "type": "Effect",
                 "default": "SPHERE",
                 "descriptionLocalized": {
-                    "en-US": "The type of effect to be created."
+                    "guid": "00000000BCCF",
+                    "en-US": "The type of effect to be created.",
+                    "de-DE": "Der Typ des zu erstellenden Effekts.",
+                    "es-ES": "Tipo de efecto que se crea.",
+                    "es-MX": "El tipo de efecto que se creará.",
+                    "fr-FR": "Le type d’effet à créer.",
+                    "it-IT": "Il tipo di effetto da creare.",
+                    "ja-JP": "作成されるエフェクトのタイプ",
+                    "ko-KR": "생성할 효과의 형태입니다.",
+                    "pl-PL": "Typ efektu który zostanie stworzony.",
+                    "pt-BR": "O tipo de efeito a ser criado.",
+                    "ru-RU": "Тип создаваемого эффекта.",
+                    "zh-CN": "将要创建的效果类型。"
                 }
             },
             {
@@ -1102,7 +1718,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects."
+                    "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1114,7 +1731,8 @@ const actionKw =
                 ],
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world."
+                    "en-US": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1125,7 +1743,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The radius of this effect."
+                    "en-US": "The radius of this effect.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1134,7 +1753,8 @@ const actionKw =
                 "type": "EffectReeval",
                 "default": "VISIBLE TO, POSITION, AND RADIUS",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated."
+                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1176,7 +1796,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the hud text."
+                    "guid": "00000000BD4A",
+                    "en-US": "One or more Players who will see the HUD text.",
+                    "de-DE": "Ein oder mehrere Spieler die den HUD-Text sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el texto de HUD.",
+                    "es-MX": "Uno o más jugadores que verán el texto del HUD.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le texte d’interface.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere il testo dell'HUD.",
+                    "ja-JP": "このHUDテキストを見ることのできる1人または複数のプレイヤー",
+                    "ko-KR": "해당 HUD 텍스트를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą tekst HUD-u.",
+                    "pt-BR": "Um ou mais Jogadores que verão o texto de HUD.",
+                    "ru-RU": "Один или несколько игроков которым будет виден текстовый объект интерфейса.",
+                    "zh-CN": "下列玩家将会看到这条HUD文本。"
                 }
             },
             {
@@ -1185,7 +1817,8 @@ const actionKw =
                 "type": "Object",
                 "default": "STRING",
                 "descriptionLocalized": {
-                    "en-US": "The text to be displayed (can be blank)"
+                    "en-US": "The text to be displayed (can be blank)",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1194,7 +1827,8 @@ const actionKw =
                 "type": "Object",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The subheader text to be displayed (can be blank)"
+                    "en-US": "The subheader text to be displayed (can be blank)",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1203,7 +1837,8 @@ const actionKw =
                 "type": "Object",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The body text to be displayed (can be blank)"
+                    "en-US": "The body text to be displayed (can be blank)",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1212,7 +1847,19 @@ const actionKw =
                 "type": "HudPosition",
                 "default": "LEFT",
                 "descriptionLocalized": {
-                    "en-US": "The location on the screen where the text will appear."
+                    "guid": "00000000BD48",
+                    "en-US": "The location on the screen where the text will appear.",
+                    "de-DE": "Die Stelle auf dem Bildschirm an der der Text angezeigt wird.",
+                    "es-ES": "Ubicación en pantalla donde aparecerá el texto.",
+                    "es-MX": "La ubicación en la pantalla donde aparecerá el texto.",
+                    "fr-FR": "L’endroit de l’écran où le texte apparaîtra.",
+                    "it-IT": "La posizione sullo schermo dove apparirà il testo.",
+                    "ja-JP": "テキストが表示される画面位置",
+                    "ko-KR": "텍스트를 표시할 화면 상의 위치입니다.",
+                    "pl-PL": "Miejsce na ekranie w którym pojawi się tekst.",
+                    "pt-BR": "O local na tela onde o texto aparecerá.",
+                    "ru-RU": "Участок экрана где будет отображаться текст.",
+                    "zh-CN": "文本在屏幕上出现的位置。"
                 }
             },
             {
@@ -1223,7 +1870,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order."
+                    "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1232,7 +1880,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the header."
+                    "en-US": "The color of the header.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1241,7 +1890,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the subheader."
+                    "en-US": "The color of the subheader.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1250,7 +1900,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the text."
+                    "en-US": "The color of the text.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1259,7 +1910,8 @@ const actionKw =
                 "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated."
+                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1268,7 +1920,8 @@ const actionKw =
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY",
                 "descriptionLocalized": {
-                    "en-US": "Whether spectators can see the text or not."
+                    "en-US": "Whether spectators can see the text or not.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1310,7 +1963,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will be able to see the icon."
+                    "guid": "00000000BC94",
+                    "en-US": "One or more Players who will be able to see the icon.",
+                    "de-DE": "Ein oder mehrere Spieler die das Icon sehen können.",
+                    "es-ES": "Uno o más jugadores que podrán ver el icono.",
+                    "es-MX": "Uno o más jugadores que podrán ver el ícono.",
+                    "fr-FR": "Un ou plusieurs joueurs qui pourront voir l’icône.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere l'icona.",
+                    "ja-JP": "このアイコンを見ることができる1人または複数のプレイヤー",
+                    "ko-KR": "아이콘을 볼 수 있는 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy będą mogli zobaczyć symbol.",
+                    "pt-BR": "Um ou mais Jogadores que poderão ver o ícone.",
+                    "ru-RU": "Один или несколько игроков которым будет виден значок.",
+                    "zh-CN": "一名或多名玩家将可以看到此图标。"
                 }
             },
             {
@@ -1322,7 +1987,19 @@ const actionKw =
                 ],
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The icon's position. If this value is a player, then the icon will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
+                    "guid": "00000000BC95",
+                    "en-US": "The icon's position. If this Value is a Player then the icon will appear above the Player's head. Otherwise the Value is interpreted as a position in the world.",
+                    "de-DE": "Die Position des Icons. Wenn dieser Wert ein Spieler ist erscheint das Icon über dem Kopf des Spielers. Ansonsten wird der Wert als Position in der Welt interpretiert.",
+                    "es-ES": "Posición del icono. Si el valor es un jugador entonces el icono aparecerá encima de la cabeza del jugador; de lo contrario el valor se interpreta como una posición en el mundo.",
+                    "es-MX": "La posición del ícono. Si el valor es un jugador el ícono aparecerá sobre la cabeza del jugador. Caso contrario el valor se interpretará como una posición en el mundo.",
+                    "fr-FR": "La position de l’icône. Si cette valeur correspond à un joueur l’icône apparaîtra au-dessus de la tête de ce dernier. Sinon la valeur est interprétée en tant que position dans le monde.",
+                    "it-IT": "La posizione dell'icona. Se il Valore rappresenta un Giocatore l'icona apparirà sopra la testa del Giocatore. Altrimenti il Valore viene interpretato come una posizione nel mondo di gioco.",
+                    "ja-JP": "アイコンの位置。値がプレイヤーである場合、アイコンがプレイヤーの頭上に表示される。それ以外の場合、値はワールド内の位置と解釈される",
+                    "ko-KR": "아이콘의 위치입니다. 이 값이 플레이어인 경우 해당 효과는 지정된 플레이어 머리 위에 표시되고 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.",
+                    "pl-PL": "Pozycja symbolu. Jeśli ta wartość jest graczem wtedy symbol pojawi się nad głową gracza. Inaczej wartość jest interpretowana jako pozycja w świecie.",
+                    "pt-BR": "A posição do ícone. Se este Valor for um Jogador então o ícone aparecerá acima da cabeça do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
+                    "ru-RU": "Местоположение значка. Если в качестве значения указан игрок то значок будет отображаться над его головой. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
+                    "zh-CN": "图标所在的位置。如果此值为一名玩家，那么图标将显示在这名玩家的头顶上方。否则，此值将代表地图中的一个位置。"
                 }
             },
             {
@@ -1331,7 +2008,19 @@ const actionKw =
                 "type": "Icon",
                 "default": "ARROW: DOWN",
                 "descriptionLocalized": {
-                    "en-US": "The icon to be created."
+                    "guid": "00000000BC96",
+                    "en-US": "The icon to be created.",
+                    "de-DE": "Das zu erstellende Icon.",
+                    "es-ES": "Icono que se crea.",
+                    "es-MX": "El ícono que se creará.",
+                    "fr-FR": "L’icône à créer.",
+                    "it-IT": "L'icona che verrà creata.",
+                    "ja-JP": "作成されるアイコン",
+                    "ko-KR": "생성할 아이콘입니다.",
+                    "pl-PL": "Symbol który zostanie stworzony.",
+                    "pt-BR": "O ícone a ser criado.",
+                    "ru-RU": "Создаваемый значок.",
+                    "zh-CN": "将要创建的图标。"
                 }
             },
             {
@@ -1340,7 +2029,19 @@ const actionKw =
                 "type": "IconReeval",
                 "default": "VISIBLE TO AND POSITION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The icon will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BC97",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The icon will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Das Icon fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El icono no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El ícono continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. L’icône continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'icona continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アイコンは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 아이콘은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Symbol będzie prosił o i wykorzystywał nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O ícone continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Значок будет запрашивать и использовать новые значения в каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的哪个输入值将持续被重新赋值。此图标会一直要求并采用重新赋值所传入的值。"
                 }
             },
             {
@@ -1349,7 +2050,19 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "guid": "00000000C2F1",
+                    "en-US": "The color of the Icon to be created. If a particular team is chosen the effect will either be red or blue depending on whether the team is hostile to the viewer.",
+                    "de-DE": "Die Farbe des zu erstellenden Icons. Wenn ein bestimmtes Team ausgewählt wird ist der Effekt entweder rot oder blau je nachdem ob es ein feindliches Team des Zuschauers ist.",
+                    "es-ES": "Color del icono que se crea. Si se escoge un equipo concreto el efecto será rojo o azul en función de si el equipo es hostil para el que lo ve.",
+                    "es-MX": "El color del ícono que se creará. Si se selecciona un equipo determinado el efecto será rojo o azul dependiendo de si el equipo es aliado o enemigo para el espectador.",
+                    "fr-FR": "La couleur de l’icône à créer. Si une équipe particulière est choisie l’effet sera rouge ou bleu selon l’hostilité de l’équipe vis-à-vis du spectateur.",
+                    "it-IT": "Il colore dell'Icona da creare. Se viene scelta una squadra specifica l'effetto sarà rosso o blu a seconda che la squadra sia ostile o meno allo spettatore.",
+                    "ja-JP": "作成されるアイコンの色。特定のチームが選ばれた場合、観戦者の敵にあたるかどうかによって、エフェクトは赤か青のいずれかになる",
+                    "ko-KR": "생성될 아이콘의 색상입니다. 특정 팀을 선택한 경우 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다.",
+                    "pl-PL": "Kolor symbolu który zostanie stworzony. Jeśli wybrano konkretną drużynę efekt będzie albo czerwony albo niebieski zależnie od tego czy drużyna była wroga wobec obserwatora.",
+                    "pt-BR": "A cor do ícone a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
+                    "ru-RU": "Цвет создаваемого значка. Если выбрана определенная команда то эффект будет синим или красным в зависимости от того враждебна ли команда по отношению к смотрящему.",
+                    "zh-CN": "所创建图标的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
                 }
             },
             {
@@ -1358,7 +2071,8 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Should this icon appear even when it is behind you?"
+                    "en-US": "Should this icon appear even when it is behind you?",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1385,7 +2099,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the in-world text."
+                    "guid": "00000000BD56",
+                    "en-US": "One or more Players who will see the in-world text.",
+                    "de-DE": "Ein oder mehrere Spieler die den Text in der Welt sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el texto del mundo.",
+                    "es-MX": "Uno o más jugadores que verán el texto dentro del mundo.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le texte en jeu.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere il messaggio nel mondo di gioco.",
+                    "ja-JP": "このワールド内テキストが表示される1人または複数のプレイヤー",
+                    "ko-KR": "월드 내 텍스트를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą tekst w świecie.",
+                    "pt-BR": "Um ou mais Jogadores que verão o texto no mundo.",
+                    "ru-RU": "Один или несколько игроков которые увидят текстовый объект в игровом мире.",
+                    "zh-CN": "下列玩家可以看到本条地图文本。"
                 }
             },
             {
@@ -1395,7 +2121,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "STRING",
                 "descriptionLocalized": {
-                    "en-US": "The text to be displayed."
+                    "guid": "00000000BD55",
+                    "en-US": "The text to be displayed.",
+                    "de-DE": "Der anzuzeigende Text.",
+                    "es-ES": "Texto que se muestra.",
+                    "es-MX": "El texto que se mostrará.",
+                    "fr-FR": "Le texte à afficher.",
+                    "it-IT": "Il testo da visualizzare.",
+                    "ja-JP": "表示されるテキスト",
+                    "ko-KR": "표시할 텍스트입니다.",
+                    "pl-PL": "Tekst do wyświetlenia.",
+                    "pt-BR": "O texto a ser exibido.",
+                    "ru-RU": "Отображаемый текст.",
+                    "zh-CN": "将要显示的文本。"
                 }
             },
             {
@@ -1408,7 +2146,19 @@ const actionKw =
                 "canReplaceNullVectorByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
+                    "guid": "00000000BD54",
+                    "en-US": "The text's position. If this Value is a Player then the text will appear above the Player's head. Otherwise the Value is interpreted as a position in the world.",
+                    "de-DE": "Die Position des Texts. Wenn dieser Wert ein Spieler ist erscheint der Text über dem Kopf des Spielers. Ansonsten wird der Wert als Position in der Welt interpretiert.",
+                    "es-ES": "Posición del texto. Si el valor es un jugador entonces el texto aparecerá encima de la cabeza del jugador; de lo contrario el valor se interpreta como una posición en el mundo.",
+                    "es-MX": "La posición del texto. Si el valor es un jugador el texto aparecerá sobre la cabeza del jugador. Caso contrario el valor se interpretará como una posición en el mundo.",
+                    "fr-FR": "La position du texte. Si cette valeur correspond à un joueur le texte apparaîtra au-dessus de sa tête. Sinon la valeur est interprétée en tant que position dans le monde.",
+                    "it-IT": "La posizione del testo. Se il Valore rappresenta un Giocatore il testo apparirà sopra la testa del Giocatore. Altrimenti il Valore viene interpretato come una posizione nel mondo di gioco.",
+                    "ja-JP": "テキストの位置。値がプレイヤーである場合、テキストはプレイヤーの頭上に表示される。それ以外の場合、値はワールド内の位置と解釈される",
+                    "ko-KR": "텍스트의 위치입니다. 이 값이 플레이어인 경우 해당 텍스트는 지정된 플레이어 머리 위에 표시되고 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.",
+                    "pl-PL": "Pozycja tekstu. Jeśli ta wartość jest graczem wtedy tekst pojawi się nad głową gracza. Inaczej wartość jest interpretowana jako pozycja w świecie.",
+                    "pt-BR": "A posição do texto. Se esse Valor for um Jogador então o texto aparecerá acima da cabeça do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
+                    "ru-RU": "Местоположение текстового объекта. Если в качестве значения указан игрок то текстовый объект будет отображаться над его головой. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
+                    "zh-CN": "文本所在位置。如果此值为一名玩家，那么文本将显示在这名玩家的头顶上方。否则，此值将代表地图中的一个位置。"
                 }
             },
             {
@@ -1419,7 +2169,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The text's scale."
+                    "guid": "00000000BD53",
+                    "en-US": "The text's scale.",
+                    "de-DE": "Die Größe des Texts.",
+                    "es-ES": "Escala del texto.",
+                    "es-MX": "La escala del texto.",
+                    "fr-FR": "L’échelle du texte.",
+                    "it-IT": "La dimensione del testo.",
+                    "ja-JP": "テキストの長さ",
+                    "ko-KR": "텍스트의 배율입니다.",
+                    "pl-PL": "Skala tekstu.",
+                    "pt-BR": "A escala do texto.",
+                    "ru-RU": "Масштаб текста.",
+                    "zh-CN": "文本的大小。"
                 }
             },
             {
@@ -1428,7 +2190,19 @@ const actionKw =
                 "type": "Clip",
                 "default": "CLIP AGAINST SURFACES",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the text can be seen through walls or is instead clipped."
+                    "guid": "00000000BD52",
+                    "en-US": "Specifies whether the text can be seen through walls or is instead clipped.",
+                    "de-DE": "Legt fest ob der Text durch Wände sichtbar ist oder stattdessen abgeschnitten wird.",
+                    "es-ES": "Especifica si el texto se puede ver a través de las paredes o aparece recortado.",
+                    "es-MX": "Especifica si el texto puede verse a través de paredes o si las atraviesa.",
+                    "fr-FR": "Spécifie si le texte est visible à travers les murs ou s’il est coupé.",
+                    "it-IT": "Specifica se il testo può essere visualizzato attraverso i muri o resta nascosto.",
+                    "ja-JP": "壁の向こうのテキストが透けて見えるか、クリッピングされるかを選択する",
+                    "ko-KR": "해당 텍스트가 벽을 뚫고 보일지 아니면 가려질지 지정합니다.",
+                    "pl-PL": "Określa czy tekst można zobaczyć przez ściany czy zamiast tego jest ucinany.",
+                    "pt-BR": "Especifica se o texto pode ser visto através de paredes ou se será cortado.",
+                    "ru-RU": "Определяет виден ли текст сквозь непрозрачные препятствия.",
+                    "zh-CN": "文本可以穿透墙壁或是将被遮挡。"
                 }
             },
             {
@@ -1437,7 +2211,19 @@ const actionKw =
                 "type": "WorldTextReeval",
                 "default": "VISIBLE TO, POSITION, AND STRING",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BD46",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The text will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Der Text fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El texto no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El texto continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. Le texte continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. Il testo continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。テキストは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 텍스트는 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Tekst będzie prosił o i wykorzystywał nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             },
             {
@@ -1446,7 +2232,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies the color of the in-world text to use."
+                    "en-US": "Specifies the color of the in-world text to use.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1455,7 +2242,8 @@ const actionKw =
                 "type": "SpecVisibility",
                 "default": "DEFAULT VISIBILITY",
                 "descriptionLocalized": {
-                    "en-US": "Whether spectators can see the text or not."
+                    "en-US": "Whether spectators can see the text or not.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -1482,7 +2270,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the progress bar HUD text."
+                    "guid": "0000000122E7",
+                    "en-US": "One or more Players who will see the Progress Bar HUD text.",
+                    "de-DE": "Ein oder mehrere Spieler die den HUD-Text der Fortschrittsleiste sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el texto de la barra de progreso del HUD.",
+                    "es-MX": "Uno o más jugadores que verán el texto del HUD en la barra de progreso.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le texte d’interface de barre de progression.",
+                    "it-IT": "Uno o più Giocatori che vedranno il testo della Progress Bar HUD.",
+                    "ja-JP": "進行バーHUDテキストが表示される1人または複数のプレイヤー",
+                    "ko-KR": "해당 진행도 막대 HUD 텍스트를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą tekst w pasku postępu.",
+                    "pt-BR": "Um ou mais Jogadores que verão o texto de HUD da Barra de Progresso.",
+                    "ru-RU": "Игрок или игроки которые увидят текст шкалы прогресса.",
+                    "zh-CN": "下列玩家将会看到这条进度条HUD文本。"
                 }
             },
             {
@@ -1491,7 +2291,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100."
+                    "guid": "0000000122E9",
+                    "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+                    "de-DE": "Der Wert der anzuzeigenden Fortschrittsleiste als Prozentzahl zwischen 0 und 100.",
+                    "es-ES": "El valor de la barra de progreso que se muestra como un porcentaje de 0 a 100.",
+                    "es-MX": "El valor de la barra de progreso aparecerá como porcentaje de 0 a 100.",
+                    "fr-FR": "La valeur de la barre de progression à afficher sous forme de pourcentage allant de 0 à 100.",
+                    "it-IT": "Il valore della Progress Bar da visualizzare come percentuale da 0 a 100.",
+                    "ja-JP": "0から100の間でパーセンテージが表示される進行バーの値",
+                    "ko-KR": "진행도 막대의 값이 0에서 100까지 백분율로 표시됩니다.",
+                    "pl-PL": "Wartość paska postępu który ma być wyświetlany jako odsetek procentowy od 0 do 100.",
+                    "pt-BR": "O valor da barra de progresso a ser exibido como porcentagem de 0 a 100.",
+                    "ru-RU": "Значение шкалы прогресса отображаемое в диапазоне от 0 до 100 процентов.",
+                    "zh-CN": "将要显示的进度条值，为从0到100的百分比。"
                 }
             },
             {
@@ -1500,7 +2312,8 @@ const actionKw =
                 "type": "Object",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The text to be displayed (can be blank)"
+                    "en-US": "The text to be displayed (can be blank)",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1512,7 +2325,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world."
+                    "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1521,7 +2335,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The text's scale."
+                    "guid": "00000000BD53",
+                    "en-US": "The text's scale.",
+                    "de-DE": "Die Größe des Texts.",
+                    "es-ES": "Escala del texto.",
+                    "es-MX": "La escala del texto.",
+                    "fr-FR": "L’échelle du texte.",
+                    "it-IT": "La dimensione del testo.",
+                    "ja-JP": "テキストの長さ",
+                    "ko-KR": "텍스트의 배율입니다.",
+                    "pl-PL": "Skala tekstu.",
+                    "pt-BR": "A escala do texto.",
+                    "ru-RU": "Масштаб текста.",
+                    "zh-CN": "文本的大小。"
                 }
             },
             {
@@ -1530,7 +2356,19 @@ const actionKw =
                 "type": "Clip",
                 "default": "CLIP AGAINST SURFACES",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the text can be seen through walls or is instead clipped."
+                    "guid": "00000000BD52",
+                    "en-US": "Specifies whether the text can be seen through walls or is instead clipped.",
+                    "de-DE": "Legt fest ob der Text durch Wände sichtbar ist oder stattdessen abgeschnitten wird.",
+                    "es-ES": "Especifica si el texto se puede ver a través de las paredes o aparece recortado.",
+                    "es-MX": "Especifica si el texto puede verse a través de paredes o si las atraviesa.",
+                    "fr-FR": "Spécifie si le texte est visible à travers les murs ou s’il est coupé.",
+                    "it-IT": "Specifica se il testo può essere visualizzato attraverso i muri o resta nascosto.",
+                    "ja-JP": "壁の向こうのテキストが透けて見えるか、クリッピングされるかを選択する",
+                    "ko-KR": "해당 텍스트가 벽을 뚫고 보일지 아니면 가려질지 지정합니다.",
+                    "pl-PL": "Określa czy tekst można zobaczyć przez ściany czy zamiast tego jest ucinany.",
+                    "pt-BR": "Especifica se o texto pode ser visto através de paredes ou se será cortado.",
+                    "ru-RU": "Определяет виден ли текст сквозь непрозрачные препятствия.",
+                    "zh-CN": "文本可以穿透墙壁或是将被遮挡。"
                 }
             },
             {
@@ -1539,7 +2377,19 @@ const actionKw =
                 "type": "Color",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "guid": "0000000122EB",
+                    "en-US": "The color of the Progress Bar text to be created. If a particular team is chosen the effect will either be red or blue depending on whether the team is hostile to the viewer.",
+                    "de-DE": "Die Farbe des zu erstellenden Texts der Fortschrittsleiste. Wenn ein bestimmtes Team ausgewählt wird ist der Effekt entweder rot oder blau je nachdem ob es ein feindliches Team des Zuschauers ist.",
+                    "es-ES": "Color del texto de la barra de progreso que se crea. Si se escoge un equipo concreto el efecto será rojo o azul en función de si el equipo es hostil para el que lo ve.",
+                    "es-MX": "El color del texto en la barra de progreso que se creará. Si se selecciona un equipo determinado el efecto será rojo o azul dependiendo de si el equipo es aliado o enemigo para el espectador.",
+                    "fr-FR": "La couleur du texte de barre de progression à créer. Si une équipe particulière est choisie l’effet sera rouge ou bleu selon l’hostilité de l’équipe vis-à-vis du spectateur.",
+                    "it-IT": "Il colore del testo della Progress Bar da creare. Se viene scelta una squadra specifica l'effetto sarà rosso o blu a seconda che la squadra sia ostile o meno allo spettatore.",
+                    "ja-JP": "作成される進行バーのテキストの色。特定のチームが選ばれた場合、そのチームが観戦者の敵側かどうかによって、エフェクトは赤か青のいずれかになる",
+                    "ko-KR": "생성될 진행도 막대 텍스트의 색상입니다. 특정 팀을 선택한 경우 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다.",
+                    "pl-PL": "Kolor tekstu paska postępu który zostanie stworzony. Jeśli wybrano konkretną drużynę efekt będzie czerwony albo niebieski zależnie od tego czy drużyna jest wroga wobec obserwatora.",
+                    "pt-BR": "A cor do texto da Barra de Progresso a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
+                    "ru-RU": "Цвет создаваемого текста шкалы прогресса. Если выбрана конкретная команда цвет будет красным или синим в зависимости от того враждебна ли команда по отношению к смотрящему.",
+                    "zh-CN": "所创建进度条文本的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
                 }
             },
             {
@@ -1548,7 +2398,19 @@ const actionKw =
                 "type": "Color",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "guid": "00000000C2C4",
+                    "en-US": "The color of the text to be created. If a particular team is chosen the effect will either be red or blue depending on whether the team is hostile to the viewer.",
+                    "de-DE": "Die Farbe des zu erstellenden Texts. Wenn ein bestimmtes Team ausgewählt wird ist der Effekt entweder rot oder blau je nachdem ob es ein feindliches Team des Zuschauers ist.",
+                    "es-ES": "Color del texto que se crea. Si se escoge un equipo concreto el efecto será rojo o azul en función de si el equipo es hostil para el que lo ve.",
+                    "es-MX": "El color del texto que se creará. Si se selecciona un equipo determinado el efecto será rojo o azul dependiendo de si el equipo es aliado o enemigo para el espectador.",
+                    "fr-FR": "La couleur du texte à créer. Si une équipe particulière est choisie l’effet sera rouge ou bleu selon l’hostilité de l’équipe vis-à-vis du spectateur.",
+                    "it-IT": "Il colore del testo da creare. Se viene scelta una squadra specifica l'effetto sarà rosso o blu a seconda che la squadra sia ostile o meno allo spettatore.",
+                    "ja-JP": "作成されるテキストの色。特定のチームが選ばれた場合、観戦者の敵にあたるかどうかによって、エフェクトは赤か青のいずれかになる",
+                    "ko-KR": "생성될 텍스트의 색상입니다. 특정 팀을 선택한 경우 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다.",
+                    "pl-PL": "Kolor tekstu który zostanie stworzony. Jeśli wybrano konkretną drużynę efekt będzie albo czerwony albo niebieski zależnie od tego czy drużyna była wroga wobec obserwatora.",
+                    "pt-BR": "A cor do texto a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
+                    "ru-RU": "Цвет создаваемого текста. Если выбрана определенная команда то эффект будет синим или красным в зависимости от того враждебна ли команда по отношению к смотрящему.",
+                    "zh-CN": "所创建文本的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
                 }
             },
             {
@@ -1557,7 +2419,19 @@ const actionKw =
                 "type": "ProgressWorldTextReeval",
                 "default": "Visible To, Values, and Color",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BD46",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The text will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Der Text fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El texto no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El texto continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. Le texte continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. Il testo continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。テキストは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 텍스트는 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Tekst będzie prosił o i wykorzystywał nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             },
             {
@@ -1566,7 +2440,19 @@ const actionKw =
                 "type": "SpecVisibility",
                 "default": "Default Visibility",
                 "descriptionLocalized": {
-                    "en-US": "Whether non-team spectators can see the text or not."
+                    "guid": "00000000CE59",
+                    "en-US": "Whether non-team spectators can see the text or not.",
+                    "de-DE": "Legt fest ob teamlose Zuschauer den Text sehen können oder nicht.",
+                    "es-ES": "Determina si los observadores fuera del equipo pueden ver el texto o no.",
+                    "es-MX": "Verifica si los espectadores que no pertenecen al equipo pueden ver o no el texto.",
+                    "fr-FR": "Indique si les spectateurs neutres peuvent voir le texte.",
+                    "it-IT": "Specifica se gli spettatori esterni possono vedere il testo o meno.",
+                    "ja-JP": "非チーム視点の観戦者がテキストを見られるかどうか",
+                    "ko-KR": "외부 관전자가 텍스트를 볼 수 있을지 여부를 설정합니다.",
+                    "pl-PL": "Czy obserwatorzy spoza drużyny widzą tekst czy nie.",
+                    "pt-BR": "Define se os espectadores fora do time podem ver o texto ou não.",
+                    "ru-RU": "Определяет могут ли внекомандные зрители видеть текст.",
+                    "zh-CN": "无队伍观战者是否可以看到此文本。"
                 }
             }
         ],
@@ -1593,7 +2479,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the Progress Bar HUD text."
+                    "guid": "0000000122E7",
+                    "en-US": "One or more Players who will see the Progress Bar HUD text.",
+                    "de-DE": "Ein oder mehrere Spieler die den HUD-Text der Fortschrittsleiste sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el texto de la barra de progreso del HUD.",
+                    "es-MX": "Uno o más jugadores que verán el texto del HUD en la barra de progreso.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le texte d’interface de barre de progression.",
+                    "it-IT": "Uno o più Giocatori che vedranno il testo della Progress Bar HUD.",
+                    "ja-JP": "進行バーHUDテキストが表示される1人または複数のプレイヤー",
+                    "ko-KR": "해당 진행도 막대 HUD 텍스트를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą tekst w pasku postępu.",
+                    "pt-BR": "Um ou mais Jogadores que verão o texto de HUD da Barra de Progresso.",
+                    "ru-RU": "Игрок или игроки которые увидят текст шкалы прогресса.",
+                    "zh-CN": "下列玩家将会看到这条进度条HUD文本。"
                 }
             },
             {
@@ -1602,7 +2500,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100."
+                    "guid": "0000000122E9",
+                    "en-US": "The value of the progress bar to be displayed as a percentage from 0 to 100.",
+                    "de-DE": "Der Wert der anzuzeigenden Fortschrittsleiste als Prozentzahl zwischen 0 und 100.",
+                    "es-ES": "El valor de la barra de progreso que se muestra como un porcentaje de 0 a 100.",
+                    "es-MX": "El valor de la barra de progreso aparecerá como porcentaje de 0 a 100.",
+                    "fr-FR": "La valeur de la barre de progression à afficher sous forme de pourcentage allant de 0 à 100.",
+                    "it-IT": "Il valore della Progress Bar da visualizzare come percentuale da 0 a 100.",
+                    "ja-JP": "0から100の間でパーセンテージが表示される進行バーの値",
+                    "ko-KR": "진행도 막대의 값이 0에서 100까지 백분율로 표시됩니다.",
+                    "pl-PL": "Wartość paska postępu który ma być wyświetlany jako odsetek procentowy od 0 do 100.",
+                    "pt-BR": "O valor da barra de progresso a ser exibido como porcentagem de 0 a 100.",
+                    "ru-RU": "Значение шкалы прогресса отображаемое в диапазоне от 0 до 100 процентов.",
+                    "zh-CN": "将要显示的进度条值，为从0到100的百分比。"
                 }
             },
             {
@@ -1611,7 +2521,8 @@ const actionKw =
                 "type": "Object",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The text to be displayed (can be blank)"
+                    "en-US": "The text to be displayed (can be blank)",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1620,7 +2531,19 @@ const actionKw =
                 "type": "HudPosition",
                 "default": "Left",
                 "descriptionLocalized": {
-                    "en-US": "The location on the screen where the text will appear."
+                    "guid": "00000000BD48",
+                    "en-US": "The location on the screen where the text will appear.",
+                    "de-DE": "Die Stelle auf dem Bildschirm an der der Text angezeigt wird.",
+                    "es-ES": "Ubicación en pantalla donde aparecerá el texto.",
+                    "es-MX": "La ubicación en la pantalla donde aparecerá el texto.",
+                    "fr-FR": "L’endroit de l’écran où le texte apparaîtra.",
+                    "it-IT": "La posizione sullo schermo dove apparirà il testo.",
+                    "ja-JP": "テキストが表示される画面位置",
+                    "ko-KR": "텍스트를 표시할 화면 상의 위치입니다.",
+                    "pl-PL": "Miejsce na ekranie w którym pojawi się tekst.",
+                    "pt-BR": "O local na tela onde o texto aparecerá.",
+                    "ru-RU": "Участок экрана где будет отображаться текст.",
+                    "zh-CN": "文本在屏幕上出现的位置。"
                 }
             },
             {
@@ -1629,7 +2552,8 @@ const actionKw =
                 "type": "float",
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order."
+                    "en-US": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1638,7 +2562,8 @@ const actionKw =
                 "type": "Color",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "en-US": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1647,7 +2572,8 @@ const actionKw =
                 "type": "Color",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -1656,7 +2582,19 @@ const actionKw =
                 "type": "ProgressHudReeval",
                 "default": "Visible To, Values, and Color",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BD46",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The text will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Der Text fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El texto no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El texto continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. Le texte continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. Il testo continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。テキストは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 텍스트는 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Tekst będzie prosił o i wykorzystywał nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             },
             {
@@ -1665,7 +2603,19 @@ const actionKw =
                 "type": "SpecVisibility",
                 "default": "Default Visibility",
                 "descriptionLocalized": {
-                    "en-US": "Whether non-team spectators can see the text or not."
+                    "guid": "00000000CE59",
+                    "en-US": "Whether non-team spectators can see the text or not.",
+                    "de-DE": "Legt fest ob teamlose Zuschauer den Text sehen können oder nicht.",
+                    "es-ES": "Determina si los observadores fuera del equipo pueden ver el texto o no.",
+                    "es-MX": "Verifica si los espectadores que no pertenecen al equipo pueden ver o no el texto.",
+                    "fr-FR": "Indique si les spectateurs neutres peuvent voir le texte.",
+                    "it-IT": "Specifica se gli spettatori esterni possono vedere il testo o meno.",
+                    "ja-JP": "非チーム視点の観戦者がテキストを見られるかどうか",
+                    "ko-KR": "외부 관전자가 텍스트를 볼 수 있을지 여부를 설정합니다.",
+                    "pl-PL": "Czy obserwatorzy spoza drużyny widzą tekst czy nie.",
+                    "pt-BR": "Define se os espectadores fora do time podem ver o texto ou não.",
+                    "ru-RU": "Определяет могут ли внекомандные зрители видеть текст.",
+                    "zh-CN": "无队伍观战者是否可以看到此文本。"
                 }
             }
         ],
@@ -1693,7 +2643,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will receive damage."
+                    "guid": "00000000BC74",
+                    "en-US": "The Player or Players who will receive damage.",
+                    "de-DE": "Der oder die Spieler die Schaden erhalten.",
+                    "es-ES": "Jugador o jugadores que recibirán daño.",
+                    "es-MX": "El jugador o los jugadores que recibirán daño.",
+                    "fr-FR": "Le ou les joueurs qui subiront des dégâts.",
+                    "it-IT": "Il Giocatore o i Giocatori che subiranno i danni.",
+                    "ja-JP": "ダメージを受けるプレイヤー",
+                    "ko-KR": "피해를 받게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy otrzymają obrażenia.",
+                    "pt-BR": "Os Jogadores que receberáão dano.",
+                    "ru-RU": "Игрок или игроки которым будет нанесен урон.",
+                    "zh-CN": "下列玩家将受到伤害。"
                 }
             },
             {
@@ -1702,7 +2664,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit."
+                    "guid": "00000000BC73",
+                    "en-US": "The Player who will receive credit for the damage. A Damager of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem der Schaden angerechnet wird. Beträgt [Damager] Null dann wird der Schaden keinem Spieler angerechnet.",
+                    "es-ES": "Jugador al que se le atribuirá haber infligido el daño. Si el valor de «Damager» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito por el daño. Un dañador con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur des dégâts. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che sarà specificato come autore dei danni. Un valore Nullo indica che nessun Giocatore sarà definito come autore dei danni.",
+                    "ja-JP": "ダメージを与えたとみなされるプレイヤー。ダメージャーが「NULL」の場合、該当者がいないことを表す",
+                    "ko-KR": "피해를 주는 행동을 한 것으로 집계될 플레이어입니다. Damager가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Gracz któremu zaliczone zostaną zadane obrażenia. „Null” Brak oznacza że nie zostaną zaliczone nikomu.",
+                    "pt-BR": "O Jogador que receberá crédito pelo dano. Um Danificador Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Игрок который получит очки за урон. Пустое значение Null переменной [Damager] означает что очки не будут присуждаться никому.",
+                    "zh-CN": "伤害视为此名玩家造成的。如果“伤害者”设置为“空”则此伤害不会归到任何玩家名下。"
                 }
             },
             {
@@ -1711,7 +2685,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor."
+                    "guid": "00000000BC72",
+                    "en-US": "The amount of damage to apply. This amount may be modified by buffs debuffs or armor.",
+                    "de-DE": "Die anzuwendende Schadenshöhe. Diese Höhe kann durch Stärkungs- und Schwächungseffekte oder Rüstung modifiziert werden.",
+                    "es-ES": "Cantidad de daño que se aplica. Puede verse modificada por beneficios perjuicios o armadura.",
+                    "es-MX": "La cantidad de daño que se aplicará. Esta cantidad puede modificarse con potenciaciones despotenciaciones o armadura.",
+                    "fr-FR": "La quantité de dégâts à appliquer. Ce chiffre peut être modifié par des améliorations des affaiblissements ou de l’armure.",
+                    "it-IT": "La quantità di danni da applicare. Tale quantità può essere modificata da potenziamenti depotenziamenti o armatura.",
+                    "ja-JP": "適用されるダメージの量。バフ、デバフ、アーマーの補正を受ける場合がある",
+                    "ko-KR": "적용할 피해량입니다. 이 피해량은 강화 효과 약화 효과 방어력에 의해 달라질 수 있습니다.",
+                    "pl-PL": "Wartość obrażeń do zastosowania. Wartość tę mogą modyfikować wzmocnienia osłabienia lub pancerz.",
+                    "pt-BR": "A quantidade de dano a ser aplicada. Essa quantidade pode ser modificada por bônus penalidades ou armadura.",
+                    "ru-RU": "Количество наносимого урона. Это значение может быть изменено положительными эффектами отрицательными эффектами или броней.",
+                    "zh-CN": "造成的治疗量。此数值可能会受到增益、减益状态或护甲的影响。"
                 }
             }
         ],
@@ -1774,7 +2760,19 @@ const actionKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The winning player."
+                    "guid": "00000000BC9B",
+                    "en-US": "The winning Player.",
+                    "de-DE": "Der gewinnende Spieler.",
+                    "es-ES": "Jugador ganador.",
+                    "es-MX": "El jugador ganador.",
+                    "fr-FR": "Le joueur victorieux.",
+                    "it-IT": "Il Giocatore vincitore.",
+                    "ja-JP": "勝者となるプレイヤー",
+                    "ko-KR": "이긴 플레이어입니다.",
+                    "pl-PL": "Wygrywający gracz.",
+                    "pt-BR": "O Jogador vencedor.",
+                    "ru-RU": "Игрок-победитель.",
+                    "zh-CN": "获胜的玩家。"
                 }
             }
         ],
@@ -1838,7 +2836,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "Round winning team"
+                    "guid": "00000000BF95",
+                    "en-US": "Round winning team",
+                    "de-DE": "Das Team das die Runde gewonnen hat.",
+                    "es-ES": "Equipo ganador de la ronda.",
+                    "es-MX": "Equipo ganador de la ronda",
+                    "fr-FR": "Équipe vainqueur de la manche",
+                    "it-IT": "Squadra vincitrice del round",
+                    "ja-JP": "ラウンドに勝利したチーム",
+                    "ko-KR": "라운드에서 승리한 팀입니다.",
+                    "pl-PL": "Drużyna wygrywająca rundę",
+                    "pt-BR": "Equipe vencedora da rodada",
+                    "ru-RU": "Команда-победитель раунда.",
+                    "zh-CN": "本回合获胜队伍"
                 }
             }
         ],
@@ -1860,7 +2870,20 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The winning team."
+                    "guid": "00000000F26C",
+                    "en-US": "The winning Team.",
+                    "de-DE": "Das Siegerteam.",
+                    "es-ES": "Equipo ganador.",
+                    "es-MX": "El equipo ganador.",
+                    "fr-FR": "L’équipe victorieuse.",
+                    "it-IT": "La Squadra vincitrice.",
+                    "ja-JP": "勝者となるチーム",
+                    "ko-KR": "이긴 팀입니다.",
+                    "pl-PL": "Wygrywająca drużyna.",
+                    "pt-BR": "A Equipe vencedora.",
+                    "ru-RU": "Команда-победитель.",
+                    "zh-CN": "获胜队伍。",
+                    "zh-TW": "勝利隊伍。"
                 }
             }
         ],
@@ -2041,7 +3064,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
+                    "guid": "00000000CC23",
+                    "en-US": "The team to remove the dummy bot from. The \"All\" option only works in free-for-all game modes while the \"Team\" options only work in team-based game modes.",
+                    "de-DE": "Das Team aus dem der Bot entfernt werden soll. Die Option [All] funktioniert nur in klassischen Deathmatch-Modi die Option [Team] nur in teambasierten Spielmodi.",
+                    "es-ES": "El equipo del que se elimina el robot. La opción «Todos» solo funciona en modos de juego de todos contra todos mientras que las opciones de «Equipo» solo funcionan en modos de juego por equipos.",
+                    "es-MX": "El equipo del cual se elimina al robot de entrenamiento. La opción \"Todos\" solo funciona en los modos de juego todos contra todos mientras que las opciones \"Equipo\" solo funcionan en los modos de juego en equipo.",
+                    "fr-FR": "L’équipe à qui retirer l’I.A. L’option « Toutes » ne fonctionne que dans les modes chacun pour soi tandis que les options « Équipe » ne fonctionnent que dans les modes de jeu où des équipes sont constituées.",
+                    "it-IT": "La squadra dalla quale rimuovere il bot di prova. L'opzione \"All\" funziona solo nelle modalità TCT mentre l'opzione \"Team\" funziona solo in quelle a squadre.",
+                    "ja-JP": "ダミーボットを取り除くチーム。「すべて」オプションはフリー・フォー・オールのゲーム・モードのみ、「チーム」オプションはチーム制ゲーム・モードのみで動作する",
+                    "ko-KR": "더미 봇을 제거할 팀입니다. \"All\" 설정은 개별 전투 게임 모드에서만 \"Team\" 설정은 팀 기반 게임 모드에서만 작동합니다.",
+                    "pl-PL": "Drużyna z której usunięta zostanie atrapa bot. Opcja „All” Wszyscy działa tylko w trybach każdy na każdego a opcja „Team” Drużyna działa tylko w trybach zespołowych.",
+                    "pt-BR": "A equipe da qual o bot será removido. A opção \"Todos\" só funciona no modo todos contra todos. A opção \"Equipe\" só funciona em modos de jogo com equipes.",
+                    "ru-RU": "Команда из которой будет удален ИИ-манекен. Вариант [All] подходит только для режимов где каждый сам за себя а вариант [Team] — только для командных режимов.",
+                    "zh-CN": "移除此队伍中的机器人。“全部”选项只适用于自由混战模式，“队伍”选项只适用于基于队伍的游戏模式。"
                 }
             },
             {
@@ -2052,7 +3087,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The slot to remove the dummy bot from."
+                    "guid": "00000000CC24",
+                    "en-US": "The slot to remove the dummy bot from.",
+                    "de-DE": "Der Slot aus dem der Bot entfernt werden soll.",
+                    "es-ES": "La ranura de la que eliminar al robot.",
+                    "es-MX": "La posición de la cual se elimina al robot de entrenamiento.",
+                    "fr-FR": "L’emplacement d’où l’I.A. sera retirée.",
+                    "it-IT": "Lo slot dal quale rimuovere il bot di prova.",
+                    "ja-JP": "ダミーボットを取り除くスロット",
+                    "ko-KR": "더미 봇을 제거할 슬롯입니다.",
+                    "pl-PL": "Miejsce z którego zostanie usunięta atrapa bota.",
+                    "pt-BR": "O espaço do qual o bot será removido.",
+                    "ru-RU": "Ячейка из которой будет удален манекен героя.",
+                    "zh-CN": "移除此空位的机器人。"
                 }
             }
         ],
@@ -2089,7 +3136,19 @@ const actionKw =
                 "type": "EntityId",
                 "default": "LAST CREATED ENTITY",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored."
+                    "guid": "00000000BCD5",
+                    "en-US": "Specifies which effect entity to destroy. This entity may be Last Created Entity or a Variable into which Last Created Entity was earlier stored.",
+                    "de-DE": "Legt fest welche Effektentität zerstört werden soll. Diese Entität kann [Last Created Entity] oder eine Variable sein in der [Last Created Entity] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué entidad de efecto se destruye. Esta entidad puede ser «Last Created Entity» o una variable en la que se almacenó previamente «Last Created Entity».",
+                    "es-MX": "Especifica la entidad de efecto que se destruirá. Esta entidad puede ser la Última entidad creada o una variable en la que se almacenó previamente la Última entidad creada.",
+                    "fr-FR": "Spécifie quelle entité d’effet Détruire. Cette entité peut correspondre à « Dernière entité créée » ou à une variable ayant auparavant enregistré la dernière entité créée.",
+                    "it-IT": "Specifica l'entità effetto da distruggere. L'entità può essere la Last Created Entity o una Variabile in cui la Last Created Entity era stata precedentemente memorizzata.",
+                    "ja-JP": "どのエフェクト・エンティティを破棄するか指定する。このエンティティは「最新のエンティティ」または以前「最新のエンティティ」に保存されていた変数",
+                    "ko-KR": "제거할 효과 개체를 지정합니다. 여기에 사용되는 개체는 Last Created Entity 또는 예전에 Last Created Entity가 담긴 변수입니다.",
+                    "pl-PL": "Określa którą encję efektu usunąć. Encją może być „Last Created Entity” Ostatnia stworzona encja lub zmienna w której wcześniej zmagazynowano „Last Created Entity” Ostatnia stworzona encja.",
+                    "pt-BR": "Especifica qual entidade de efeito será destruída. Essa entidade pode ser a Entidade Criada por Último ou uma Variável na qual a Entidade Criada por Último tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров эффекта следует уничтожить. Это может быть последний созданный экземпляр или переменная в которую он был записан.",
+                    "zh-CN": "指定要消除的效果实体。可以是“上一个创建的实体”，或一个之前储存“上一个创建的实体”的变量。"
                 }
             }
         ],
@@ -2111,7 +3170,19 @@ const actionKw =
                 "type": "TextId",
                 "default": "LAST TEXT ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored."
+                    "guid": "00000000BD4E",
+                    "en-US": "Specifies which HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+                    "de-DE": "Legt fest welcher HUD-Text zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein in der [Last Text ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué texto de HUD se destruye. Esta ID puede ser «Last Text ID» o una variable en la que se almacenó previamente «Last Text ID».",
+                    "es-MX": "Especifica el texto del HUD que se destruirá. Esta ID puede ser la ID de texto anterior o una variable en la que se almacenó previamente la ID de texto anterior.",
+                    "fr-FR": "Spécifie quel texte d’interface détruire. Cet identifiant peut correspondre à « Dernier identifiant de texte » ou à une variable ayant auparavant enregistré « Dernier identifiant de texte ».",
+                    "it-IT": "Specifica quale testo dell'HUD distruggere. L'ID può essere Last Text ID o una Variabile in cui il Last Text ID era stato memorizzato in precedenza.",
+                    "ja-JP": "破棄したいHUDテキストを選択する。このIDは、「最新のテキストID」または以前「最新のテキストID」に保存されていた変数",
+                    "ko-KR": "제거할 HUD 텍스트를 지정합니다. 여기에 사용되는 ID는 Last Text ID 또는 예전에 Last Text ID가 담긴 변수입니다.",
+                    "pl-PL": "Określa który tekst HUD-u usunąć. Identyfikatorem może być „Last Text ID” Identyfikator ostatniego tekstu lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual texto de HUD será destruído. Esta ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente foi armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из текстовых объектов интерфейса надо уничтожить. Идентификатором может служить ID последнего текстового объекта или переменная в которую был записан такой ID.",
+                    "zh-CN": "指定要消除的HUD文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
                 }
             }
         ],
@@ -2148,7 +3219,19 @@ const actionKw =
                 "type": "EntityId",
                 "default": "LAST CREATED ENTITY",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored."
+                    "guid": "00000000BC9F",
+                    "en-US": "Specifies which icon entity to destroy. This entity may be Last Created Entity or a Variable into which Last Created Entity was earlier stored.",
+                    "de-DE": "Legt fest welche Iconentität zerstört werden soll. Diese Entität kann [Last Created Entity] oder eine Variable sein in der [Last Created Entity] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué entidad de icono se destruye. Esta entidad puede ser «Last Created Entity» o una variable en la que se almacenó previamente «Last Created Entity».",
+                    "es-MX": "Especifica la entidad de ícono que se destruirá. Esta entidad puede ser la Última entidad creada o una variable en la que se almacenó previamente la Última entidad creada.",
+                    "fr-FR": "Spécifie quelle entité d’icône détruire. Cette entité peut correspondre à « Dernière entité créée » ou à une variable ayant auparavant enregistré la dernière entité créée.",
+                    "it-IT": "Specifica l'entità icona da distruggere. L'entità può essere la Last Created Entity o una Variabile in cui la Last Created Entity era stata precedentemente memorizzata.",
+                    "ja-JP": "破棄するアイコン・エンティティを指定する。このエンティティは「最新のエンティティ」または以前「最新のエンティティ」に保存されていた変数",
+                    "ko-KR": "제거할 아이콘 개체를 지정합니다. 여기에 사용되는 개체는 Last Created Entity 또는 예전에 Last Created Entity가 담긴 변수입니다.",
+                    "pl-PL": "Określa którą encję symbolu usunąć. Encją może być „Last Created Entity” Ostatnia stworzona encja lub zmienna w której wcześniej zmagazynowano „Last Created Entity” Ostatnia stworzona encja.",
+                    "pt-BR": "Especifica qual entidade de ícone será destruída. Essa entidade pode ser a Entidade Criada por Último ou uma Variável na qual a Entidade Criada por Último tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров значка следует разрушить. Это может быть последний созданный экземпляр или переменная в которую был записан последний созданный экземпляр.",
+                    "zh-CN": "指定要消除的图标实体。可以是“上一个创建的实体”，或一个之前储存“上一个创建的实体”的变量。"
                 }
             }
         ],
@@ -2185,7 +3268,19 @@ const actionKw =
                 "type": "TextId",
                 "default": "LAST TEXT ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored."
+                    "guid": "00000000BD59",
+                    "en-US": "Specifies which in-world text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+                    "de-DE": "Legt fest welcher Text in der Welt zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein in der [Last Text ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué texto del mundo se destruye. Esta ID puede ser «Last Text ID» o una variable en la que se almacenó previamente «Last Text ID».",
+                    "es-MX": "Especifica cuál será el texto dentro del mundo que se destruirá. Esta ID puede ser la ID de texto anterior o una variable en la que se almacenó previamente la ID de texto anterior.",
+                    "fr-FR": "Spécifie quel texte en jeu supprimer. Cet identifiant peut correspondre à « Dernier identifiant de texte » ou à une variable ayant auparavant enregistré le dernier identifiant de texte.",
+                    "it-IT": "Specifica quale testo del mondo di gioco distruggere. L'ID può essere Last Text ID o una Variabile in cui il Last Text ID era stato memorizzato in precedenza.",
+                    "ja-JP": "破棄するワールド内テキストを選択する。このIDは、「最新のテキストID」または以前「最新のテキストID」に保存されていた変数",
+                    "ko-KR": "제거할 월드 내 텍스트를 지정합니다. 여기에 사용되는 ID는 Last Text ID 또는 예전에 Last Text ID가 담긴 변수입니다.",
+                    "pl-PL": "Określa który tekst w świecie usunąć. Identyfikatorem może być „Last Text ID” Identyfikator ostatniego tekstu lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual texto no mundo será destruído. Essa ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из текстовых объектов в игровом мире надо уничтожить. Идентификатором может служить ID последнего текстового объекта или переменная в которую был записан такой ID.",
+                    "zh-CN": "指定要消除的地图文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
                 }
             }
         ],
@@ -2222,7 +3317,8 @@ const actionKw =
                 "type": "TextId",
                 "default": "Last Text ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored."
+                    "en-US": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -2244,7 +3340,19 @@ const actionKw =
                 "type": "TextId",
                 "default": "Last Text ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored."
+                    "guid": "0000000122E6",
+                    "en-US": "Specifies which Progress Bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
+                    "de-DE": "Legt fest welcher HUD-Text der Fortschrittsleiste zerstört werden soll. Diese ID kann [Last Text ID] oder eine Variable sein in der [Last Text ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué texto de la barra de progreso del HUD se destruye. Esta ID puede ser «Last Text ID» o una variable en la que se almacenó previamente «Last Text ID».",
+                    "es-MX": "Especifica el texto del HUD en la barra de progreso que se destruirá. Esta ID puede ser la ID de texto anterior o una variable en la que se almacenó previamente la ID de texto anterior.",
+                    "fr-FR": "Spécifie quel texte d’interface de barre de progression détruire. Cet identifiant peut correspondre à « Dernier identifiant de texte » ou à une variable ayant auparavant enregistré « Dernier identifiant de texte ».",
+                    "it-IT": "Specifica quale testo della Progress Bar HUD distruggere. L'ID può essere Last Text ID o una Variabile in cui il Last Text ID era stato memorizzato in precedenza.",
+                    "ja-JP": "破棄したい進行バーHUDテキストを選択する。このIDは、「最新のテキストID」または以前「最新のテキストID」に保存されていた変数",
+                    "ko-KR": "제거할 진행도 막대 HUD 텍스트를 지정합니다. 여기에 사용되는 ID는 Last Text ID 또는 예전에 Last Text ID가 담긴 변수입니다.",
+                    "pl-PL": "Określa który tekst w pasku postępu usunąć. Identyfikatorem może być „Last Text ID” Identyfikator ostatniego tekstu lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual texto de HUD da Barra de Progresso será destruído. Essa ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente tenha sido armazenada anteriormente.",
+                    "ru-RU": "Указывает какой текст шкалы прогресса нужно убрать. Этот ID может принадлежать [Last Text ID] или переменной в которую ранее поместили [Last Text ID].",
+                    "zh-CN": "指定要消除的进度条HUD文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
                 }
             }
         ],
@@ -2271,7 +3379,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players that will become detached from their parent."
+                    "guid": "000000010E84",
+                    "en-US": "The Player or Players that will become detached from their Parent.",
+                    "de-DE": "Der oder die Spieler deren Bindung an ihren [Parent] entfernt wird.",
+                    "es-ES": "Jugador o jugadores que se desacoplarán de su elemento primario.",
+                    "es-MX": "El jugador o los jugadores que se separarán de su Padre.",
+                    "fr-FR": "Le ou les joueurs qui seront détachés de leur parent.",
+                    "it-IT": "Il Giocatore o i Giocatori che si separeranno dal proprio Genitore.",
+                    "ja-JP": "親から離れさせられるプレイヤー",
+                    "ko-KR": "부모Parent로부터 분리할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zostaną odłączeni od gracza „Parent” Nadrzędna.",
+                    "pt-BR": "Os Jogadores que seráão separados de seu Pai.",
+                    "ru-RU": "Игрок или игроки которые будут отвязаны от ведущего игрока.",
+                    "zh-CN": "下列玩家将与其父玩家解除绑定。"
                 }
             }
         ],
@@ -2352,7 +3472,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their game mode HUD disabled."
+                    "guid": "0000000110AC",
+                    "en-US": "The Player or Players who will have their Game Mode HUD disabled.",
+                    "de-DE": "Der oder die Spieler deren Spielmodus-HUD deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se deshabilitará el HUD del modo de juego.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitado el HUD del modo de juego.",
+                    "fr-FR": "Le ou les joueurs dont l’interface du mode de jeu sera désactivée.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui HUD sarà disattivato.",
+                    "ja-JP": "ゲーム・モードのHUDを無効にするプレイヤー",
+                    "ko-KR": "게임 모드 HUD를 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których HUD trybu gry zostanie wyłączony.",
+                    "pt-BR": "Os Jogadores que teráão o HUD de Modo de Jogo desabilitado.",
+                    "ru-RU": "Игрок или игроки которым будет отключен интерфейс игрового режима.",
+                    "zh-CN": "下列玩家的游戏模式HUD将被隐藏。"
                 }
             }
         ],
@@ -2394,7 +3526,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their game mode in-world UI disabled."
+                    "guid": "000000011244",
+                    "en-US": "The Player or Players who will have their Game Mode In-World UI disabled.",
+                    "de-DE": "Der oder die Spieler deren Spielmodus-UI deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se deshabilitará la interfaz del mundo del modo de juego.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitada la IU dentro del mundo del modo de juego.",
+                    "fr-FR": "Le ou les joueurs dont l’interface en jeu du mode de jeu sera activée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui Interfaccia Utente del Mondo di Gioco sarà disattivata.",
+                    "ja-JP": "ゲーム・モードのワールド内UIを無効にするプレイヤー",
+                    "ko-KR": "Game Mode In-World UI를 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których interfejs w świecie gry zostanie wyłączony.",
+                    "pt-BR": "Os Jogadores que teráão a IU no Mundo do Modo de Jogo habilitado.",
+                    "ru-RU": "Игрок или игроки которым будет отключен интерфейс игрового режима отображаемый в игре.",
+                    "zh-CN": "下列玩家的游戏模式地图UI将被隐藏。"
                 }
             }
         ],
@@ -2436,7 +3580,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their hero HUD disabled."
+                    "guid": "0000000110A0",
+                    "en-US": "The Player or Players who will have their Hero HUD disabled.",
+                    "de-DE": "Der oder die Spieler deren Helden-HUD deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se deshabilitará el HUD de héroe.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitado el HUD del héroe.",
+                    "fr-FR": "Le ou les joueurs dont l’interface du héros sera désactivée.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui HUD Eroe sarà disattivato.",
+                    "ja-JP": "ヒーローのHUDを無効にするプレイヤー",
+                    "ko-KR": "영웅 HUD를 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których HUD bohatera zostanie wyłączony.",
+                    "pt-BR": "Os Jogadores que teráão o HUD de Herói desabilitado.",
+                    "ru-RU": "Игрок или игроки которым будет отключен интерфейс героя.",
+                    "zh-CN": "下列玩家的英雄HUD将被隐藏。"
                 }
             }
         ],
@@ -2478,7 +3634,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their kill feed disabled."
+                    "guid": "000000011095",
+                    "en-US": "The Player or Players who will have their Kill Feed disabled.",
+                    "de-DE": "Der oder die Spieler deren Killfeed deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyo resumen de muertes se deshabilitará.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitado el historial de eliminaciones.",
+                    "fr-FR": "Le ou les joueurs dont le journal d’action sera désactivé.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui Dettagli Uccisioni saranno disattivati.",
+                    "ja-JP": "キル・フィードを無効にするプレイヤー",
+                    "ko-KR": "실시간 처치 정보를 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których informacje o śmierciach zostaną wyłączone.",
+                    "pt-BR": "Os Jogadores que teráão o Feed de Abates desabilitado.",
+                    "ru-RU": "Игрок или игроки которым будет отключена лента убийств.",
+                    "zh-CN": "下列玩家的消灭提示将被隐藏。"
                 }
             }
         ],
@@ -2520,7 +3688,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their messages disabled."
+                    "guid": "0000000110B2",
+                    "en-US": "The Player or Players who will have their Messages disabled.",
+                    "de-DE": "Der oder die Spieler deren Nachrichten deaktiviert werden.",
+                    "es-ES": "Jugador o jugadores cuyos mensajes se deshabilitarán.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitados los mensajes.",
+                    "fr-FR": "Le ou les joueurs dont les messages seront désactivés.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui Messaggi saranno disattivati.",
+                    "ja-JP": "メッセージを無効にするプレイヤー",
+                    "ko-KR": "메시지를 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których wiadomości zostaną wyłączone.",
+                    "pt-BR": "Os Jogadores que teráão as Mensagens desabilitadas.",
+                    "ru-RU": "Игрок или игроки для которых будут отключены сообщения.",
+                    "zh-CN": "下列玩家的信息将被隐藏。"
                 }
             }
         ],
@@ -2562,7 +3742,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement collision is affected."
+                    "guid": "000000011318",
+                    "en-US": "The Player or Players whose movement collision is affected.",
+                    "de-DE": "Der oder die Spieler deren Bewegungskollision betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento de colisión se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuya colisión de movimiento se encuentra afectada.",
+                    "fr-FR": "Le ou les joueurs dont la collision des mouvements est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.",
+                    "ja-JP": "移動時の衝突判定への影響を受けるプレイヤー",
+                    "ko-KR": "이동 시 충돌에 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kolizje w ruchu są zmodyfikowane.",
+                    "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
+                    "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
+                    "zh-CN": "下列玩家的移动碰撞将受到影响。"
                 }
             },
             {
@@ -2571,7 +3763,8 @@ const actionKw =
                 "type": "bool",
                 "default": "false",
                 "descriptionLocalized": {
-                    "en-US": "If true, collision with the floors is also disabled."
+                    "en-US": "If true, collision with the floors is also disabled.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -2598,7 +3791,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement collision is affected."
+                    "guid": "000000011318",
+                    "en-US": "The Player or Players whose movement collision is affected.",
+                    "de-DE": "Der oder die Spieler deren Bewegungskollision betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento de colisión se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuya colisión de movimiento se encuentra afectada.",
+                    "fr-FR": "Le ou les joueurs dont la collision des mouvements est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.",
+                    "ja-JP": "移動時の衝突判定への影響を受けるプレイヤー",
+                    "ko-KR": "이동 시 충돌에 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kolizje w ruchu są zmodyfikowane.",
+                    "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
+                    "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
+                    "zh-CN": "下列玩家的移动碰撞将受到影响。"
                 }
             }
         ],
@@ -2667,7 +3872,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their nameplates disabled."
+                    "en-US": "The player or players who will have their nameplates disabled.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -2681,7 +3887,19 @@ const actionKw =
                 ],
                 "default": "All Players",
                 "descriptionLocalized": {
-                    "en-US": "The viewing player or players for whom the viewed player's nameplate will be disabled."
+                    "guid": "00000001125F",
+                    "en-US": "The Viewing Player or Players for whom the Viewed Player's Nameplate will be disabled.",
+                    "de-DE": "Der oder die Betrachter für die die Namensplakette des betrachteten Spielers deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores observadores para los que se deshabilitará el nombre de los jugadores observados.",
+                    "es-MX": "El jugador o los jugadores que observan para quienes se deshabilitarán las placas de los nombres de los jugadores observados.",
+                    "fr-FR": "Le ou les joueurs spectateurs pour qui les noms des joueurs observés seront désactivés.",
+                    "it-IT": "Il Giocatore o i Giocatori Osservatori per i quali gli Indicatori Nome dei Giocatori Osservati saranno disattivati.",
+                    "ja-JP": "表示対象プレイヤーのネームプレートを無効にする表示側プレイヤー",
+                    "ko-KR": "피관찰자 플레이어의 이름표를 비활성화할 관찰자 플레이어입니다.",
+                    "pl-PL": "Obserwujący gracz lub gracze dla których pole z nazwą obserwowanego gracza zostanie wyłączone.",
+                    "pt-BR": "Os Jogadores Observadores para quem o Nome do Jogador Observado será desabilitado.",
+                    "ru-RU": "Наблюдающий игрок или игроки для которых будет отключена табличка с именем наблюдаемого игрока.",
+                    "zh-CN": "从此观察玩家的视角看，被观察的玩家的姓名板将被隐藏。"
                 }
             }
         ],
@@ -2723,7 +3941,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose respawning is affected."
+                    "guid": "00000000BCF8",
+                    "en-US": "The Player or Players whose respawning is affected.",
+                    "de-DE": "Der oder die Spieler deren Wiederbelebung betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuya reaparición se ve afectada.",
+                    "es-MX": "El jugador o los jugadores cuya reaparición se verá afectada.",
+                    "fr-FR": "Le ou les joueurs dont la réapparition est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui rigenerazione sarà interessata.",
+                    "ja-JP": "スポーンへの影響を受けるプレイヤー",
+                    "ko-KR": "부활 설정의 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których odrodzenie jest uwzględnione.",
+                    "pt-BR": "Os Jogadores cujo ressurgimento é afetado.",
+                    "ru-RU": "Игрок или игроки у которых будет изменена механика возрождения.",
+                    "zh-CN": "下列玩家的重生将受到影响。"
                 }
             }
         ],
@@ -2765,7 +3995,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their scoreboard disabled."
+                    "guid": "0000000110A4",
+                    "en-US": "The Player or Players who will have their Scoreboard disabled.",
+                    "de-DE": "Der oder die Spieler deren Statistik deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyas puntuaciones se deshabilitarán.",
+                    "es-MX": "El jugador o los jugadores que tendrán deshabilitado el marcador.",
+                    "fr-FR": "Le ou les joueurs dont l’écran des scores sera désactivé.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui Punteggio sarà disattivato.",
+                    "ja-JP": "スコアボードを無効にするプレイヤー",
+                    "ko-KR": "점수판을 비활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których tabela wyników zostanie wyłączona.",
+                    "pt-BR": "Os Jogadores que teráão o Placar desabilitado.",
+                    "ru-RU": "Игрок или игроки которым будет отключена статистика.",
+                    "zh-CN": "下列玩家的计分板将被隐藏。"
                 }
             }
         ],
@@ -2834,7 +4076,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose default death spectate behavior is restored."
+                    "guid": "00000000BCFA",
+                    "en-US": "The Player or Players whose default death spectate behavior is restored.",
+                    "de-DE": "Der oder die Spieler deren Standard-Zuschauerverhalten nach dem Tod wiederhergestellt wird.",
+                    "es-ES": "Jugador o jugadores cuyo comportamiento de observación predeterminado mientras están muertos se restaura.",
+                    "es-MX": "El jugador o los jugadores cuyo comportamiento predeterminado como espectador muerto se restaurará.",
+                    "fr-FR": "Le ou les joueurs dont le comportement par défaut en mode Spectateur est restauré.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui impostazioni predefinite di osservazione da morti saranno ripristinate.",
+                    "ja-JP": "デフォルトの観戦の動作に戻るプレイヤー",
+                    "ko-KR": "사망 후 관전 설정이 기본값으로 복원될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których domyślne zachowanie obserwacji zgonu jest przywrócone.",
+                    "pt-BR": "Os Jogadores cujo comportamento padrão de visualização na morte será restaurado.",
+                    "ru-RU": "Игрок или игроки которым будет восстановлено исходное отображение их собственного интерфейса в режиме наблюдения после смерти.",
+                    "zh-CN": "下列玩家死亡后观战的行为将恢复正常。"
                 }
             }
         ],
@@ -2861,7 +4115,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will revert to seeing their own hud while death spectating."
+                    "guid": "00000000BCFB",
+                    "en-US": "The Player or Players who will revert to seeing their own HUD while death spectating.",
+                    "de-DE": "Der oder die Spieler die im Zuschauermodus nach dem Tod wieder ihr eigenes HUD sehen.",
+                    "es-ES": "Jugador o los jugadores que volverán a ver su propio HUD mientras estén muertos.",
+                    "es-MX": "El jugador o los jugadores que volverán a ver su propio HUD como espectador muerto.",
+                    "fr-FR": "Le ou les joueurs qui reverront leur propre interface lorsqu’ils passent en mode Spectateur après être morts.",
+                    "it-IT": "Il Giocatore o i Giocatori che torneranno a vedere il proprio HUD mentre osservano da morti.",
+                    "ja-JP": "観戦中に自分のHUDを見られる状態に戻るプレイヤー",
+                    "ko-KR": "사망 후 관전 시 자신의 HUD를 다시 보게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zaczną ponownie widzieć własny HUD podczas obserwacji zgonu.",
+                    "pt-BR": "Os Jogadores que voltaráão a ver seu próprio HUD enquanto estiverem mortos.",
+                    "ru-RU": "Игрок или игроки которым будет возвращаться отображение их собственного интерфейса во время наблюдения после смерти.",
+                    "zh-CN": "下列玩家在死亡后观战时将看到他们自己的HUD信息。"
                 }
             }
         ],
@@ -2915,7 +4181,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their text chat disabled."
+                    "en-US": "The player or players who will have their text chat disabled.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -2936,7 +4203,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their text chat disabled."
+                    "en-US": "The player or players who will have their text chat disabled.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -2945,7 +4213,8 @@ const actionKw =
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
-                    "en-US": "Whether or not team voice chat will be disabled."
+                    "en-US": "Whether or not team voice chat will be disabled.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -2954,7 +4223,8 @@ const actionKw =
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
-                    "en-US": "Whether or not match voice chat will be disabled."
+                    "en-US": "Whether or not match voice chat will be disabled.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -2963,7 +4233,8 @@ const actionKw =
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
-                    "en-US": "Whether or not group voice chat will be disabled."
+                    "en-US": "Whether or not group voice chat will be disabled.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -2984,7 +4255,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose button is being disabled."
+                    "guid": "00000000BD21",
+                    "en-US": "The Player or Players whose button is being disabled.",
+                    "de-DE": "Der oder die Spieler deren Taste deaktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyo botón se deshabilita.",
+                    "es-MX": "El jugador o los jugadores cuyo botón está deshabilitado.",
+                    "fr-FR": "Le ou les joueurs dont le bouton est désactivé.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui tasto sarà disabilitato.",
+                    "ja-JP": "ボタンが無効化されたプレイヤー",
+                    "ko-KR": "버튼을 사용 못 하게 할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których przycisk zostaje wyłączony.",
+                    "pt-BR": "Os Jogadores cujo botão está sendo desativado.",
+                    "ru-RU": "Игрок или игроки у которых нужно отключить кнопку.",
+                    "zh-CN": "下列玩家的按钮将被禁用。"
                 }
             },
             {
@@ -2993,7 +4276,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button that is being disabled."
+                    "guid": "00000000BD20",
+                    "en-US": "The logical button that is being disabled.",
+                    "de-DE": "Die logische Taste die deaktiviert wird.",
+                    "es-ES": "Botón lógico que se deshabilita.",
+                    "es-MX": "El botón lógico que se encuentra deshabilitado.",
+                    "fr-FR": "Le bouton logique désactivé.",
+                    "it-IT": "Il tasto logico da disabilitare.",
+                    "ja-JP": "無効化されたロジカル・ボタン",
+                    "ko-KR": "사용할 수 없게 된 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk który zostaje wyłączony.",
+                    "pt-BR": "O botão lógico que está sendo desativado.",
+                    "ru-RU": "Логическая кнопка которую нужно отключить.",
+                    "zh-CN": "禁用的逻辑按钮。"
                 }
             }
         ],
@@ -3055,7 +4350,19 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level."
+                    "guid": "00000000FB3E",
+                    "en-US": "If this evaluates to true execution continues with the next action. Otherwise execution jumps to the next Else If Else or End action at the current level.",
+                    "de-DE": "Wenn diese Bedingung True ist fährt die Ausführung mit der nächsten Aktion fort. Ansonsten springt die Ausführung zur nächsten Aktion [Else If] [Else] oder [End] auf der aktuellen Ebene.",
+                    "es-ES": "Si se evalúa como verdadera la ejecución continúa con la siguiente acción. De lo contrario la ejecución salta a la siguiente acción «Else If» «Else» o «End» del nivel actual.",
+                    "es-MX": "Si resulta verdadero la ejecución continuará con la siguiente acción. Caso contrario se ejecutará la siguiente acción Si no si Si no o Fin del nivel actual.",
+                    "fr-FR": "Si cela est évalué comme vrai l’exécution se poursuivra avec l’action suivante. Dans le cas contraire l’exécution passera à la prochaine action « Sinon Si » « Sinon » ou « Fin » au niveau actuel.",
+                    "it-IT": "Se risulta vera l'esecuzione prosegue con l'azione successiva. Altrimenti l'esecuzione salta all'azione Else If Else o End successiva al livello attuale.",
+                    "ja-JP": "判定結果が「TRUE」の場合、次のアクションが実行される。それ以外の場合は、現在のレベルで次に来る「ELSE IF」または「ELSE」、「END」のいずれかのアクションにジャンプする",
+                    "ko-KR": "이 연산이 참인 경우 다음 액션으로 진행합니다. 이외의 경우 현재 레벨의 다음 Else If Else 또는 End 액션을 실행합니다.",
+                    "pl-PL": "Jeśli to okaże się prawdą uruchomienie będzie kontynuowane przy następnym działaniu. W przeciwnym razie przeskakuje do następnego działania „Else If” Inaczej jeśli „Else” Inaczej lub „End” Koniec na bieżącym poziomie.",
+                    "pt-BR": "Se isso for avaliado como verdadeiro a execução continua com a próxima ação. Caso contrário a execução salta para a próxima ação Else If Else ou ação de Término do nível atual.",
+                    "ru-RU": "Если это условие верно начинается выполнение следующего действия. В противном случае выполняется следующее действие [Else If] [Else] или [End] на текущем уровне.",
+                    "zh-CN": "如果此值为真，则继续执行下一个行动。否则，跳转至当前层级的下一个Else If，Else或End行动并执行。"
                 }
             }
         ],
@@ -3149,7 +4456,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their game mode HUD enabled."
+                    "guid": "0000000110AB",
+                    "en-US": "The Player or Players who will have their Game Mode HUD enabled.",
+                    "de-DE": "Der oder die Spieler deren Spielmodus-HUD aktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se habilitará el HUD del modo de juego.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitado el HUD del modo de juego.",
+                    "fr-FR": "Le ou les joueurs dont l’interface du mode de jeu sera activée.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui HUD sarà attivato.",
+                    "ja-JP": "ゲーム・モードのHUDを有効にするプレイヤー",
+                    "ko-KR": "게임 모드 HUD를 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których HUD trybu gry zostanie włączony.",
+                    "pt-BR": "Os Jogadores que teráão o HUD de Modo de Jogo habilitado.",
+                    "ru-RU": "Игрок или игроки которым будет включен интерфейс игрового режима.",
+                    "zh-CN": "下列玩家的游戏模式HUD将被显示。"
                 }
             }
         ],
@@ -3191,7 +4510,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their game mode in-world UI enabled."
+                    "guid": "000000011241",
+                    "en-US": "The Player or Players who will have their Game Mode In-World UI enabled.",
+                    "de-DE": "Der oder die Spieler deren Spielmodus-UI in der Welt aktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se habilitará la interfaz del mundo del modo de juego.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitada la IU dentro del mundo del modo de juego.",
+                    "fr-FR": "Le ou les joueurs dont l’interface en jeu du mode de jeu sera activée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui Interfaccia Utente del Mondo di Gioco sarà attivata.",
+                    "ja-JP": "ゲーム・モードのワールド内UIを有効化するプレイヤー",
+                    "ko-KR": "Game Mode In-World UI를 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których interfejs w świecie gry zostanie włączony.",
+                    "pt-BR": "Os Jogadores que teráão a IU no Mundo do Modo de Jogo desabilitado.",
+                    "ru-RU": "Игрок или игроки которым будет включен интерфейс игрового режима отображаемый в игре.",
+                    "zh-CN": "下列玩家的游戏模式地图UI将被显示。"
                 }
             }
         ],
@@ -3233,7 +4564,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their hero HUD enabled."
+                    "guid": "00000001109D",
+                    "en-US": "The Player or Players who will have their Hero HUD enabled.",
+                    "de-DE": "Der oder die Spieler deren Helden-HUD aktiviert wird.",
+                    "es-ES": "Jugador o jugadores para los que se habilitará el HUD de héroe.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitado el HUD del héroe.",
+                    "fr-FR": "Le ou les joueurs dont l’interface du héros sera activée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui l'HUD Eroe sarà attivato.",
+                    "ja-JP": "ヒーローのHUDを有効にするプレイヤー",
+                    "ko-KR": "영웅 HUD를 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których HUD bohatera zostanie włączony.",
+                    "pt-BR": "Os Jogadores que teráão o HUD de Herói habilitado.",
+                    "ru-RU": "Игрок или игроки которым будет включен интерфейс героя.",
+                    "zh-CN": "下列玩家的英雄HUD将被显示。"
                 }
             }
         ],
@@ -3275,7 +4618,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their kill feed enabled."
+                    "guid": "000000011094",
+                    "en-US": "The Player or Players who will have their Kill Feed enabled.",
+                    "de-DE": "Der oder die Spieler deren Killfeed aktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyo resumen de muertes se habilitará.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitado el historial de eliminaciones.",
+                    "fr-FR": "Le ou les joueurs dont le journal d’action sera activé.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui Dettagli Uccisioni saranno attivati.",
+                    "ja-JP": "キル・フィードを有効にするプレイヤー",
+                    "ko-KR": "실시간 처치 정보를 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których informacje o śmierciach zostaną włączone.",
+                    "pt-BR": "Os Jogadores que teráão o Feed de Abates habilitado.",
+                    "ru-RU": "Игрок или игроки которым будет включена лента убийств.",
+                    "zh-CN": "下列玩家的消灭提示将被显示。"
                 }
             }
         ],
@@ -3317,7 +4672,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their messages enabled."
+                    "guid": "0000000110B1",
+                    "en-US": "The Player or Players who will have their Messages enabled.",
+                    "de-DE": "Der oder die Spieler deren Nachrichten aktiviert werden.",
+                    "es-ES": "Jugador o jugadores cuyos mensajes se habilitarán.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitados los mensajes.",
+                    "fr-FR": "Le ou les joueurs dont les messages seront activés.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui Messaggi saranno attivati.",
+                    "ja-JP": "メッセージを有効にするプレイヤー",
+                    "ko-KR": "메시지를 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których wiadomości zostaną włączone.",
+                    "pt-BR": "Os Jogadores que teráão as Mensagens habilitadas.",
+                    "ru-RU": "Игрок или игроки для которых будут включены сообщения.",
+                    "zh-CN": "下列玩家的信息将被显示。"
                 }
             }
         ],
@@ -3359,7 +4726,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement collision is affected."
+                    "guid": "000000011318",
+                    "en-US": "The Player or Players whose movement collision is affected.",
+                    "de-DE": "Der oder die Spieler deren Bewegungskollision betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento de colisión se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuya colisión de movimiento se encuentra afectada.",
+                    "fr-FR": "Le ou les joueurs dont la collision des mouvements est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.",
+                    "ja-JP": "移動時の衝突判定への影響を受けるプレイヤー",
+                    "ko-KR": "이동 시 충돌에 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kolizje w ruchu są zmodyfikowane.",
+                    "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
+                    "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
+                    "zh-CN": "下列玩家的移动碰撞将受到影响。"
                 }
             }
         ],
@@ -3386,7 +4765,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement collision is affected."
+                    "guid": "000000011318",
+                    "en-US": "The Player or Players whose movement collision is affected.",
+                    "de-DE": "Der oder die Spieler deren Bewegungskollision betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento de colisión se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuya colisión de movimiento se encuentra afectada.",
+                    "fr-FR": "Le ou les joueurs dont la collision des mouvements est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui collisione del movimento sarà interessata.",
+                    "ja-JP": "移動時の衝突判定への影響を受けるプレイヤー",
+                    "ko-KR": "이동 시 충돌에 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kolizje w ruchu są zmodyfikowane.",
+                    "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
+                    "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
+                    "zh-CN": "下列玩家的移动碰撞将受到影响。"
                 }
             }
         ],
@@ -3455,7 +4846,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their nameplates enabled."
+                    "en-US": "The player or players who will have their nameplates enabled.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -3469,7 +4861,19 @@ const actionKw =
                 ],
                 "default": "All Players",
                 "descriptionLocalized": {
-                    "en-US": "The viewing player or players for whom the viewed player's nameplate will be enabled."
+                    "guid": "0000000112D8",
+                    "en-US": "The Viewing Player or Players for whom the Viewed Player's Nameplate will be enabled.",
+                    "de-DE": "Der oder die Zuschauer für die die Namensplakette des betrachteten Spielers aktiviert wird.",
+                    "es-ES": "Jugador o jugadores observadores para los que se habilitará el nombre de los jugadores observados.",
+                    "es-MX": "El jugador o los jugadores que observan para quienes se habilitarán las placas de los nombres de los jugadores observados.",
+                    "fr-FR": "Le ou les joueurs spectateurs pour qui les noms des joueurs observés seront activés.",
+                    "it-IT": "Il Giocatore o i Giocatori Osservatori per i quali gli Indicatori Nome dei Giocatori Osservati saranno attivati.",
+                    "ja-JP": "表示対象プレイヤーのネームプレートを有効にする表示側プレイヤー",
+                    "ko-KR": "피관찰자 플레이어의 이름표를 활성화할 관찰자 플레이어입니다.",
+                    "pl-PL": "Obserwujący gracz lub gracze dla których pole z nazwą obserwowanego gracza zostanie włączone.",
+                    "pt-BR": "Os Jogadores Observadores para quem o Nome do Jogador Observado será habilitado.",
+                    "ru-RU": "Наблюдающий игрок или игроки для которых будут включены таблички с именами наблюдаемых игроков.",
+                    "zh-CN": "从此观察玩家的视角看，被观察的玩家的姓名板将被显示。"
                 }
             }
         ],
@@ -3511,7 +4915,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose respawning is affected."
+                    "guid": "00000000BCF8",
+                    "en-US": "The Player or Players whose respawning is affected.",
+                    "de-DE": "Der oder die Spieler deren Wiederbelebung betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuya reaparición se ve afectada.",
+                    "es-MX": "El jugador o los jugadores cuya reaparición se verá afectada.",
+                    "fr-FR": "Le ou les joueurs dont la réapparition est affectée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui rigenerazione sarà interessata.",
+                    "ja-JP": "スポーンへの影響を受けるプレイヤー",
+                    "ko-KR": "부활 설정의 영향을 받게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których odrodzenie jest uwzględnione.",
+                    "pt-BR": "Os Jogadores cujo ressurgimento é afetado.",
+                    "ru-RU": "Игрок или игроки у которых будет изменена механика возрождения.",
+                    "zh-CN": "下列玩家的重生将受到影响。"
                 }
             }
         ],
@@ -3553,7 +4969,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their scoreboard enabled."
+                    "guid": "0000000110A3",
+                    "en-US": "The Player or Players who will have their Scoreboard enabled.",
+                    "de-DE": "Der oder die Spieler deren Statistik aktiviert wird.",
+                    "es-ES": "Jugador o jugadores cuyas puntuaciones se habilitarán.",
+                    "es-MX": "El jugador o los jugadores que tendrán habilitado el marcador.",
+                    "fr-FR": "Le ou les joueurs dont l’écran des scores sera activé.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui Punteggio sarà attivato.",
+                    "ja-JP": "スコアボードを有効にするプレイヤー",
+                    "ko-KR": "점수판을 활성화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których tabela wyników zostanie włączona.",
+                    "pt-BR": "Os Jogadores que teráão o Placar habilitado.",
+                    "ru-RU": "Игрок или игроки которым будет включена статистика.",
+                    "zh-CN": "下列玩家的计分板将被显示。"
                 }
             }
         ],
@@ -3622,7 +5050,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will be allowed to spectate all players."
+                    "guid": "00000000BCF3",
+                    "en-US": "The Player or Players who will be allowed to spectate all Players.",
+                    "de-DE": "Der oder die Spieler denen erlaubt wird allen Spielern zuzuschauen.",
+                    "es-ES": "Jugador o jugadores que tendrán permiso para observar a todos los jugadores.",
+                    "es-MX": "El jugador o los jugadores que podrán observar a todos los jugadores.",
+                    "fr-FR": "Le ou les joueurs autorisés à observer tous les joueurs.",
+                    "it-IT": "Il Giocatore o i Giocatori che potranno osservare tutti i Giocatori.",
+                    "ja-JP": "全プレイヤーを観戦できるプレイヤー",
+                    "ko-KR": "모든 플레이어를 관전할 수 있도록 허용된 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy będą mogli obserwować wszystkich graczy.",
+                    "pt-BR": "Os Jogadores que teráão permissão para visualizar todos os Jogadores.",
+                    "ru-RU": "Игрок или игроки которым разрешено наблюдать за всеми игроками.",
+                    "zh-CN": "下列玩家将可以观看所有玩家。"
                 }
             }
         ],
@@ -3664,7 +5104,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will begin seeing their spectate targets hud while death spectating."
+                    "en-US": "The player or players who will begin seeing their spectate targets hud while death spectating.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3733,7 +5174,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player or Players who will have their Text Chat enabled."
+                    "en-US": "The Player or Players who will have their Text Chat enabled.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3754,7 +5196,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player or Players who will have their Voice Chat enabled."
+                    "en-US": "The Player or Players who will have their Voice Chat enabled.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3796,7 +5239,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value."
+                    "guid": "00000000FB43",
+                    "en-US": "The variable being modified in this loop. It is set to the Range Start value when the loop begins and the loop continues until the Control Variable reaches or passes the Range Stop value.",
+                    "de-DE": "Die Variable die in dieser Schleife modifiziert wird. Wenn die Schleife beginnt wird sie auf den Wert [Range Start] gesetzt. Die Schleife wird ausgeführt bis die Kontrollvariable den Wert [Range Stop] erreicht oder überschreitet.",
+                    "es-ES": "La variable que se modifica en este bucle. Recibe el valor de inicio de intervalo cuando comienza el bucle y el bucle continúa hasta que la variable de control alcanza o supera el valor de detención de intervalo.",
+                    "es-MX": "La variable que se modificará en este bucle. Se establece en el valor de Inicio de rango cuando el bucle comienza y el bucle continúa hasta que la Variable de control alcanza o supera el valor de Fin de rango.",
+                    "fr-FR": "La variable est modifiée dans cette boucle. Elle est fixée à la valeur « Début de l’intervalle » lorsque la boucle commence puis la boucle continue jusqu’à ce que la variable de contrôle atteigne ou dépasse la valeur « Fin de l’intervalle ».",
+                    "it-IT": "La variabile in corso di modifica in questo ciclo. È impostata sul valore Avvio Portata all'inizio del ciclo e il ciclo prosegue finché la Variabile di Controllo raggiunge o supera il valore Interruzione Portata.",
+                    "ja-JP": "このループで値が変化させられる変数。ループ開始時に「開始値」に設定（初期化）され、コントロール変数が「終了値」に達するか、超えるまでループし続ける",
+                    "ko-KR": "이 반복에서 변경할 변수입니다. 해당 변수는 반복 작업 시작 시 Range Start 값으로 설정되고 Control Variable이 Range Stop 값에 도달하거나 해당 값을 넘어설 때까지 반복이 계속됩니다.",
+                    "pl-PL": "Zmienna modyfikowana w tej pętli. Jest ona ustawiona na wartość „Range Start” Początek zakresu w momencie rozpoczęcia pętli a pętla jest kontynuowana aż do momentu gdy zmienna sterująca osiągnie lub przekroczy wartość „Range Stop” Koniec zakresu.",
+                    "pt-BR": "A variável modificada neste loop. Ela é definida para o valor do Início do Intervalo quando o loop começa e o loop continua até que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo.",
+                    "ru-RU": "Переменная модифицируемая в этом цикле. В начале цикла ее значение приравнивается к началу диапазона и цикл продолжается до достижения или пересечения управляющей переменной значения конца диапазона.",
+                    "zh-CN": "此变量将在循环（执行）过程中被修改。循环开始时将其设为初始值，直到控制变量达到或超过终止值时循环结束。"
                 }
             },
             {
@@ -3805,7 +5260,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The control variable is set to this value when the loop begins."
+                    "guid": "00000000FB46",
+                    "en-US": "The Control Variable is set to this value when the loop begins.",
+                    "de-DE": "Die Kontrollvariable wird bei Beginn der Schleife auf diesen Wert gesetzt.",
+                    "es-ES": "La variable de control recibe este valor cuando se inicia el bucle.",
+                    "es-MX": "La Variable de control se establece en este valor cuando el bucle comienza.",
+                    "fr-FR": "La variable de contrôle est fixée sur cette valeur lorsque la boucle commence.",
+                    "it-IT": "La Variabile di Controllo è impostata su questo valore all'avvio del ciclo.",
+                    "ja-JP": "ループの開始時にコントロール変数がこの値に設定される",
+                    "ko-KR": "반복 작업 시작 시 Control Variable은 이 값으로 설정됩니다.",
+                    "pl-PL": "„Control Variable” Zmienna kontrolna jest ustawiona na tę wartość kiedy rozpoczyna się pętla.",
+                    "pt-BR": "A Variável de Controle é definida para esse valor quando o loop começa.",
+                    "ru-RU": "Это значение присваивается управляющей переменной в начале цикла.",
+                    "zh-CN": "当循环开始时，将控制变量设为此变量。"
                 }
             },
             {
@@ -3814,7 +5281,19 @@ const actionKw =
                 "type": "float",
                 "default": "COUNT OF",
                 "descriptionLocalized": {
-                    "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits."
+                    "guid": "00000000FB44",
+                    "en-US": "If the Control Variable reaches or passes this value then the loop will exit and execution jumps to the next action after the End action. Whether this value is considered passed or not is based on whether the Step value is negative or positive. If the Control Variable has already reached or passed this value when the loop begins then the loop exits.",
+                    "de-DE": "Wenn die Kontrollvariable diesen Wert erreicht oder überschreitet wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End]. Ob dieser Wert als überschritten gilt hängt davon ab ob der Wert [Step] negativ oder positiv ist. Falls die Kontrollvariable diesen Wert bei Beginn der Schleife bereits erreicht oder überschritten hat wird die Schleife beendet.",
+                    "es-ES": "Si la variable de control alcanza o supera este valor se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End». Que este valor se considere superado o no depende de si el valor del paso es negativo o positivo. Si la variable de control ya ha alcanzado o superado este valor cuando se inicia el bucle se abandona el bucle.",
+                    "es-MX": "Si la Variable de control alcanza o supera este valor el bucle finalizará y se ejecutará la siguiente acción posterior a la acción Fin. Este valor se considera superado o no en función de si el valor de Paso es negativo o positivo. Si la Variable de control ya ha alcanzado o superado este valor cuando el bucle comienza entonces el bucle finaliza.",
+                    "fr-FR": "Si la variable de contrôle atteint ou dépasse cette valeur alors la boucle se fermera et l’exécution passera à l’action suivant l’action « Fin ». Cette valeur sera considérée comme dépassée ou non selon que la valeur « Étape » est négative ou positive. Si la valeur de contrôle a déjà atteint ou dépassé cette valeur lorsque la boucle commence alors la boucle se fermera.",
+                    "it-IT": "Se la Variabile di Controllo raggiunge o supera questo valore il ciclo si chiude e l'esecuzione salta all'azione successiva dopo l'azione End. Questo valore viene considerato superato o meno a seconda che il valore Step sia negativo o positivo. Se la Variabile di Controllo ha già raggiunto o superato questo valore all'inizio del ciclo il ciclo si chiude.",
+                    "ja-JP": "コントロール変数がこの値に等しくなるか、超えた場合にループを抜けて、「END」アクションの後の次のアクションにジャンプする。変数が終了値より大きいかどうかは、ステップ値がプラスかマイナスかで判断される。ループの開始時にコントロール変数が終了値に等しいか、超えている場合は、ループはそのまま終了する",
+                    "ko-KR": "Control Variable이 이 값에 도달하거나 넘어서면 반복을 멈추고 End 액션의 다음 액션을 실행합니다. 이 값을 넘어섰는지 여부는 Step 값이 음인지 양인지에 따라 결정됩니다. 반복 작업 시작 시 Control Variable이 이 값에 이미 도달하거나 넘어선 경우 반복을 멈춥니다.",
+                    "pl-PL": "Jeśli „Control Vairable” Zmienna kontrolna osiągnie lub przekroczy tę wartość to pętla zostanie zakończona a wykonanie skoczy do następnego działania po „End” Koniec. To czy ta wartość jest uważana za przekroczoną czy nie zależy od tego czy wartość kroku jest ujemna czy dodatnia. Jeśli „Control Variable” Zmienna kontrolna już osiągnęła lub przekroczyła tę wartość gdy pętla się zaczyna to pętla się kończy.",
+                    "pt-BR": "Se a Variável de Controle atingir ou ultrapassar este valor o loop se encerrará e a execução saltará para a próxima ação após a ação de Término. O que define se esse valor foi ultrapassado ou não é o fato de o valor da Etapa ser negativo ou positivo. Se a Variável de Controle já tiver atingido ou ultrapassado esse valor quando o loop começar ele se encerrará.",
+                    "ru-RU": "Если управляющая переменная достигает или пересекает это значение цикл прерывается а затем выполняется следующее действие после [End]. То считается ли значение пересеченным зависит от того является ли значение шага отрицательным или положительным. Если управляющая переменная уже достигла или пересекла данное значение в начале цикла цикл прерывается.",
+                    "zh-CN": "如果控制变量的值达到或超过此值，则退出循环，并跳转至End行动后的下一个行动继续执行。考察控制变量是否超过此值时，会根据步长值是正是负进行判断。如果控制变量在循环开始时已经达到或超过此值，则立即退出循环。"
                 }
             },
             {
@@ -3823,7 +5302,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action."
+                    "guid": "00000000FB41",
+                    "en-US": "This value is added to the Control Variable when the End action is reached. If this modification causes the Control Variable to reach or pass the Range Stop value then the loop exits and execution jumps to the next action after the End action. Otherwise the loop continues and execution jumps to the next action after the For action.",
+                    "de-DE": "Dieser Wert wird der Kontrollvariable hinzugefügt wenn die Aktion [End] erreicht wird. Wenn diese Modifikation dazu führt dass die Kontrollvariable den Wert [Range Stop] erreicht oder überschreitet wird die Schleife beendet und die Ausführung springt zur nächsten Aktion nach der Aktion [End]. Ansonsten wird die Schleife weiter ausgeführt und die Ausführung springt zur nächsten Aktion nach der Aktion [For].",
+                    "es-ES": "Este valor se añade a la variable de control cuando se alcanza la acción «End». Si esta modificación hace que la variable de control alcance o supere el valor de detención de intervalo se abandona el bucle y la ejecución salta a la siguiente acción tras la acción «End». De lo contrario el bucle continúa y la ejecución salta a la siguiente acción tras la acción «For».",
+                    "es-MX": "Este valor se agrega a la Variable de control cuando se alcanza la acción Fin. Si esta modificación causa que la Variable de control alcance o supere el valor de Fin de rango el bucle finalizará y se ejecutará la siguiente acción posterior a la acción Fin. Caso contrario el bucle continúa y se ejecuta la siguiente acción posterior a la acción Por.",
+                    "fr-FR": "Cette valeur est ajoutée à la variable de contrôle lorsque l’action « Fin » est atteinte. Si cette modification conduit la variable de contrôle à atteindre ou dépasser la valeur « Fin de l’intervalle » alors la boucle se fermera et l’exécution passera à l’action suivante après l’action « Fin ». Dans le cas contraire la boucle se poursuivra et l’exécution passera à l’action suivante après l’action « Pour ».",
+                    "it-IT": "Questo valore viene aggiunto alla Variabile di Controllo al termine dell'azione. Se questa modifica fa sì che la Variabile di Controllo raggiunga o superi il valore Interruzione Portata il ciclo si chiude e l'esecuzione salta all'azione successiva dopo l'azione End. Altrimenti il ciclo continua e l'esecuzione salta all'azione successiva dopo l'azione For.",
+                    "ja-JP": "「END」アクションに達すると、コントロール変数に加算される値。加算された結果、コントロール変数が「終了値」に等しいか、超えた場合は、ループは終了して、「END」アクションの後の次のアクションにジャンプする。それ以外であれば、「FOR」アクションに続く次のアクションにジャンプする",
+                    "ko-KR": "End 액션에 도달하면 이 값을 Control Variable에 추가합니다. 이 변경 작업으로 Control Variable이 Range Stop 값에 도달하거나 넘어서는 경우 반복을 멈추고 End 액션 다음의 액션을 실행합니다. 이외의 경우 반복 작업을 계속하고 For 액션의 다음 액션을 실행합니다.",
+                    "pl-PL": "Wartość ta jest dodawana do „Control Variable” Zmienna kontrolna po osiągnięciu działania „End” Koniec. Jeżeli ta modyfikacja spowoduje że zmienna kontrolna osiągnie lub przekroczy wartość „Range Stop” Koniec zakresu to pętla zostanie zakończona a wykonanie skoczy do następnej działania po „End” Koniec. W przeciwnym razie pętla będzie kontynuowana a uruchomienie przeskoczy do następnego działania po „For” Dla.",
+                    "pt-BR": "Esse valor é adicionado à Variável de Controle quando a ação Final é atingida. Essa modificação faz com que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo então o loop se encerra e a execução salta para a próxima ação após a ação de Término. Caso contrário o loop continua e a execução salta para a próxima ação após a ação For.",
+                    "ru-RU": "Это значение добавляется к управляющей переменной после перехода к действию [End]. Если модификация приводит к достижению или пересечению управляющей переменной значения конца диапазона цикл завершается и начинается выполнение следующего действия после [End]. В противном случае цикл продолжается и выполняется следующее действие после [For].",
+                    "zh-CN": "当达到End行动时，将此值加到控制变量上。如果此改动使控制变量达到或超过终止值，则退出循环，跳转执行End行动后的下一个行动。否则继续循环，并跳转至For行动后的下一个行动开始执行。"
                 }
             }
         ],
@@ -3860,7 +5351,19 @@ const actionKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used."
+                    "guid": "00000000FFD0",
+                    "en-US": "The player whose variable is being modified in this loop. If multiple players are specified the first player is used.",
+                    "de-DE": "Der Spieler dessen Variable in dieser Schleife modifiziert wird. Wenn mehrere Spieler festgelegt sind wird der erste Spieler verwendet.",
+                    "es-ES": "El jugador cuya variable se modifica en este bucle. Si se especifican varios jugadores se utiliza el primero.",
+                    "es-MX": "El jugador cuya variable se modificará en este bucle. Si se especifica más de un jugador se utilizará al primer jugador.",
+                    "fr-FR": "Le joueur dont la variable est modifiée dans cette boucle. Si plusieurs joueurs sont spécifiés c’est le premier joueur qui sera utilisé.",
+                    "it-IT": "Il giocatore la cui variabile è in corso di modifica in questo ciclo. Se sono specificati più giocatori viene utilizzato il primo giocatore.",
+                    "ja-JP": "このループで変数が変更されるプレイヤー。複数のプレイヤーが指定されている場合は、最初のプレイヤーに適用される",
+                    "ko-KR": "이 반복 작업에서 변수를 변경할 플레이어입니다. 여러 플레이어가 지정된 경우 첫 번째 플레이어를 사용합니다.",
+                    "pl-PL": "Gracz którego zmienna jest modyfikowana w tej pętli. Jeśli podano kilku graczy używany jest pierwszy z nich.",
+                    "pt-BR": "O jogador cuja variável será modificada neste loop. Se vários jogadores forem especificados será usado o primeiro.",
+                    "ru-RU": "Игрок чья переменная модифицируется в данном цикле. Если указано несколько игроков то контрольным считается первый игрок.",
+                    "zh-CN": "在此循环中改变此玩家的变量。如果指定了多个玩家，则使用第一个玩家。"
                 }
             },
             {
@@ -3869,7 +5372,8 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value."
+                    "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -3878,7 +5382,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The control variable is set to this value when the loop begins."
+                    "guid": "00000000FB46",
+                    "en-US": "The Control Variable is set to this value when the loop begins.",
+                    "de-DE": "Die Kontrollvariable wird bei Beginn der Schleife auf diesen Wert gesetzt.",
+                    "es-ES": "La variable de control recibe este valor cuando se inicia el bucle.",
+                    "es-MX": "La Variable de control se establece en este valor cuando el bucle comienza.",
+                    "fr-FR": "La variable de contrôle est fixée sur cette valeur lorsque la boucle commence.",
+                    "it-IT": "La Variabile di Controllo è impostata su questo valore all'avvio del ciclo.",
+                    "ja-JP": "ループの開始時にコントロール変数がこの値に設定される",
+                    "ko-KR": "반복 작업 시작 시 Control Variable은 이 값으로 설정됩니다.",
+                    "pl-PL": "„Control Variable” Zmienna kontrolna jest ustawiona na tę wartość kiedy rozpoczyna się pętla.",
+                    "pt-BR": "A Variável de Controle é definida para esse valor quando o loop começa.",
+                    "ru-RU": "Это значение присваивается управляющей переменной в начале цикла.",
+                    "zh-CN": "当循环开始时，将控制变量设为此变量。"
                 }
             },
             {
@@ -3887,7 +5403,8 @@ const actionKw =
                 "type": "float",
                 "default": "COUNT OF",
                 "descriptionLocalized": {
-                    "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits."
+                    "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -3896,7 +5413,8 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action."
+                    "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -3951,7 +5469,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose health will be restored."
+                    "guid": "00000000BC6E",
+                    "en-US": "The Player or Players whose health will be restored.",
+                    "de-DE": "Der oder die Spieler deren Trefferpunkte wiederhergestellt werden.",
+                    "es-ES": "Jugador o jugadores cuya salud se restaurará.",
+                    "es-MX": "El jugador o los jugadores cuya salud será restaurada.",
+                    "fr-FR": "Le ou les joueurs dont les points de vie seront restaurés.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui salute sarà ripristinata.",
+                    "ja-JP": "ライフが回復するプレイヤー",
+                    "ko-KR": "생명력을 회복할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których zdrowie zostanie przywrócone.",
+                    "pt-BR": "Os Jogadores cuja vida será restaurada.",
+                    "ru-RU": "Игрок или игроки чье здоровье будет восстановлено.",
+                    "zh-CN": "下列玩家将恢复生命值。"
                 }
             },
             {
@@ -3960,7 +5490,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit."
+                    "guid": "00000000BC6F",
+                    "en-US": "The Player who will receive credit for the healing. A Healer of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem die Heilung angerechnet wird. Beträgt [Healer] Null dann wird die Heilung keinem Spieler angerechnet.",
+                    "es-ES": "Jugador al que se le atribuirá la sanación. Si el valor de «Healer» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito por la sanación. Un sanador con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur des soins. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che sarà specificato come autore della cura. Un valore Nullo indica che nessun Giocatore sarà definito come autore della cura.",
+                    "ja-JP": "回復を行ったとみなされるプレイヤー。ヒーラーが「NULL」の場合は、該当者がいないことを表す",
+                    "ko-KR": "치유 행동을 한 것으로 집계될 플레이어입니다. Healer가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Gracz któremu zaliczone zostanie zapewnione leczenie. „Null” Brak oznacza że nie zostanie zaliczone nikomu.",
+                    "pt-BR": "O Jogador que receberá crédito pela cura. Um Curandeiro Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Игрок который получит очки за исцеление. Пустое значение Null переменной [Healer] означает что очки не будут присуждаться никому.",
+                    "zh-CN": "治疗视为此名玩家造成的。如果“治疗者”设置为“空”则此治疗不会归到任何玩家名下。"
                 }
             },
             {
@@ -3969,7 +5511,19 @@ const actionKw =
                 "type": "float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health."
+                    "guid": "00000000BC70",
+                    "en-US": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each Player's max health.",
+                    "de-DE": "Die anzuwendende Heilungshöhe. Diese Höhe kann durch Stärkungs- und Schwächungseffekte modifiziert werden. Heilung ist durch die maximalen Trefferpunkte jedes Spielers begrenzt.",
+                    "es-ES": "Cantidad de sanación que se aplica. Puede verse modificada por beneficios o perjuicios. La sanación tiene como límite la salud máxima de cada jugador.",
+                    "es-MX": "La cantidad de sanación que se aplicará. Esta cantidad puede modificarse con potenciaciones o despotenciaciones. La sanación tiene como límite la salud máxima de cada jugador.",
+                    "fr-FR": "La quantité de soins à appliquer. Ce chiffre peut être modifié par des améliorations ou des affaiblissements. Les soins sont limités par le maximum de points de vie du joueur qui en bénéficie.",
+                    "it-IT": "La quantità di cure da applicare. Tale quantità può essere modificata da potenziamenti o depotenziamenti. La quantità di cure fornita non può superare la salute massima del Giocatore.",
+                    "ja-JP": "適用される回復の量。バフやデバフの補正を受ける場合がある。各プレイヤーの最大ライフを超えて回復することはできない",
+                    "ko-KR": "적용할 치유량입니다. 이 치유량은 강화 효과 약화 효과 등에 의해 달라질 수 있습니다. 치유량 최대치는 각 플레이어의 최대 생명력입니다.",
+                    "pl-PL": "Wartość leczenie do zastosowania. Wartość tę mogą modyfikować wzmocnienia lub osłabienia. Leczenie jest ograniczone przez maksymalne zdrowie każdego gracza.",
+                    "pt-BR": "A quantidade de cura a ser aplicada. Essa quantidade pode ser modificada por bônus ou penalidades. A cura é limitada pela vida máxima de cada Jogador.",
+                    "ru-RU": "Объем применяемого исцеления. Это значение может быть изменено положительными или отрицательными эффектами. Объем получаемого игроком исцеления ограничен максимальным запасом его здоровья.",
+                    "zh-CN": "造成的治疗量。此数值可能会受到增益或减益状态的影响。治疗量不会超过每名玩家的最大生命值。"
                 }
             }
         ],
@@ -4005,7 +5559,8 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level."
+                    "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4046,7 +5601,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will be killed."
+                    "guid": "00000000BC78",
+                    "en-US": "The Player or Players who will be killed.",
+                    "de-DE": "Der oder die Spieler die getötet werden.",
+                    "es-ES": "Jugador o jugadores que morirán.",
+                    "es-MX": "El jugador o los jugadores que serán asesinados.",
+                    "fr-FR": "Le ou les joueurs qui seront tués.",
+                    "it-IT": "Il Giocatore o i Giocatori che saranno uccisi.",
+                    "ja-JP": "倒れるプレイヤー",
+                    "ko-KR": "처치될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zostaną zabici.",
+                    "pt-BR": "Os Jogadores que seráão mortos.",
+                    "ru-RU": "Игрок или игроки которые будут убиты.",
+                    "zh-CN": "下列玩家将被杀死。"
                 }
             },
             {
@@ -4055,7 +5622,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit."
+                    "guid": "00000000BC79",
+                    "en-US": "The Player who will receive credit for the kill. A Killer of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem der Kill angerechnet wird. Beträgt [Killer] Null dann wird der Kill keinem Spieler angerechnet.",
+                    "es-ES": "Jugador al que se le atribuirá el asesinato. Si el valor de «Killer» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito por la eliminación. Un asesino con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur de l’élimination. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che sarà specificato come autore dell'uccisione. Un valore Nullo indica che nessun Giocatore sarà definito come autore dell'uccisione.",
+                    "ja-JP": "キルを取ったとみなされるプレイヤー。キラーが「NULL」の場合は、該当者がいないことを表す",
+                    "ko-KR": "처치를 기록한 것으로 집계될 플레이어입니다. Killer가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Gracz któremu zaliczona zostanie likwidacja. „Null” Brak oznacza że nie zostanie zaliczona nikomu.",
+                    "pt-BR": "O Jogador que receberá crédito pelo abate. Um Matador Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Игрок который получит очки за убийство. Пустое значение Null переменной [Killer] означает что очки не будут присуждаться никому.",
+                    "zh-CN": "击杀视为此名玩家造成的。如果“击杀者”设置为“空”则此击杀不会归到任何玩家名下。"
                 }
             }
         ],
@@ -4091,7 +5670,19 @@ const actionKw =
                 "type": "Object",
                 "default": "CUSTOM STRING",
                 "descriptionLocalized": {
-                    "en-US": "The string to be logged to the workshop inspector."
+                    "guid": "00000001244B",
+                    "en-US": "The String to be logged to the Workshop Inspector.",
+                    "de-DE": "Der String der vom Workshop Inspector als Logeintrag erstellt werden soll.",
+                    "es-ES": "La cadena que registrará el inspector del Taller.",
+                    "es-MX": "La cadena que se registrará en el Inspector de Workshop.",
+                    "fr-FR": "La chaîne qui doit être enregistrée auprès du contrôleur de la Forge.",
+                    "it-IT": "La Stringa da registrare nel Workshop Inspector.",
+                    "ja-JP": "ワークショップ・インスペクターに記録する文字列",
+                    "ko-KR": "워크샵 인스펙터에 기록될 스트링입니다.",
+                    "pl-PL": "Ciąg który ma być zarejestrowany w Inspektorze Warsztatu.",
+                    "pt-BR": "A String precisa ser registrada no Inspetor da Oficina.",
+                    "ru-RU": "Строка которую инспектор «Мастерской» запишет в журнал.",
+                    "zh-CN": "将要记入地图工坊查看器的字符串。"
                 }
             }
         ],
@@ -4143,7 +5734,19 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the loop will occur."
+                    "guid": "00000000BD5C",
+                    "en-US": "Specifies whether the loop will occur.",
+                    "de-DE": "Legt fest ob die Schleife auftritt.",
+                    "es-ES": "Especifica si se produce el bucle.",
+                    "es-MX": "Especifica si se efectúa el bucle.",
+                    "fr-FR": "Spécifie si la boucle a lieu.",
+                    "it-IT": "Specifica se il ciclo si verificherà.",
+                    "ja-JP": "ループが発生するかどうかを指定する",
+                    "ko-KR": "반복 여부를 지정합니다.",
+                    "pl-PL": "Określa czy występuje zapętlenie.",
+                    "pt-BR": "Especifica se o loop ocorrerá ou não.",
+                    "ru-RU": "Определяет возможность цикла.",
+                    "zh-CN": "循环是否发生。"
                 }
             }
         ],
@@ -4189,7 +5792,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The global variable to modify."
+                    "guid": "00000000BC5C",
+                    "en-US": "The Global Variable to modify.",
+                    "de-DE": "Die zu modifizierende globale Variable.",
+                    "es-ES": "Variable global que se modifica.",
+                    "es-MX": "La variable global que se modificará.",
+                    "fr-FR": "La variable globale à modifier.",
+                    "it-IT": "La Variabile Globale da modificare.",
+                    "ja-JP": "変更するグローバル変数",
+                    "ko-KR": "수정할 전역 변수입니다.",
+                    "pl-PL": "Określa którą ze zmiennych „Global Variable” Zmienna globalna zmodyfikować.",
+                    "pt-BR": "A Variável Global a ser modificada.",
+                    "ru-RU": "Изменяемая глобальная переменная.",
+                    "zh-CN": "要修改的全局变量。"
                 }
             },
             {
@@ -4198,7 +5813,19 @@ const actionKw =
                 "type": "__Operation__",
                 "default": "ADD",
                 "descriptionLocalized": {
-                    "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
+                    "guid": "00000000BC5D",
+                    "en-US": "The way in which the Variable's Value will be changed. Options include standard arithmetic operations as well as Array operations for appending and removing Values.",
+                    "de-DE": "Die Art auf die der Wert der Variable geändert wird. Zu den Optionen gehören herkömmliche arithmetische Operationen sowie Array-Operationen zum Anhängen und Entfernen von Werten.",
+                    "es-ES": "Forma en que se cambiará el valor de la variable. Las opciones incluyen operaciones aritméticas estándar y operaciones de matriz para agregar o eliminar valores.",
+                    "es-MX": "La forma en que se modificará el valor de la variable. Entre las opciones se incluyen las operaciones aritméticas comunes así como también las operaciones matriciales para anexar o eliminar valores.",
+                    "fr-FR": "La façon dont la valeur de la variable sera modifiée. Les options comprennent les opérations arithmétiques standard ainsi que les opérations de tableau pour l’ajout et la suppression de valeurs.",
+                    "it-IT": "Il modo in cui il Valore della Variabile sarà cambiato. Le opzioni includono operazioni aritmetiche standard e operazioni di Array per l'aggiunta o la rimozione di Valori.",
+                    "ja-JP": "変数の値が変更される方法を表す。スタンダードな算術演算のほか、値の追加や削除を行う配列演算を選択可能",
+                    "ko-KR": "변수값의 변경 방식입니다. 일반적인 사칙연산 그리고 값의 추가 및 제거를 위한 Array 연산 등의 옵션이 있습니다.",
+                    "pl-PL": "Sposób w jaki zmieni się wartość zmiennej. Do opcji zaliczają się standardowe operacje arytmetyczne oraz operacje tabel dla dodawania i usuwania wartości.",
+                    "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
+                    "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
+                    "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
                 }
             },
             {
@@ -4210,7 +5837,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
+                    "guid": "00000000BC5E",
+                    "en-US": "The Value used for the modification. For arithmetic operations this is the second of the two operands with the other being the Variable's existing Value. For Array operations this is the Value to append or remove.",
+                    "de-DE": "Der für die Modifizierung verwendete Wert. Bei arithmetischen Operationen ist dies der zweite der beiden Operanden. Der andere ist der bestehende Wert der Variable. Bei Array-Operationen ist dies der anzuhängende bzw. zu entfernende Wert.",
+                    "es-ES": "Valor utilizado para la modificación. Para operaciones aritméticas este es el segundo de los dos operandos; el otro es el valor existente de la variable. Para operaciones de matriz este es el valor que se agrega o elimina.",
+                    "es-MX": "El valor utilizado para la modificación. En las operaciones aritméticas este es el segundo de los dos operandos mientras que el otro es el valor existente de la variable. En las operaciones matriciales este es el valor que se anexará o eliminará.",
+                    "fr-FR": "La valeur utilisée pour la modification. Pour les opérations arithmétiques ceci est le second des deux opérandes l’autre étant la valeur existante de la variable. Pour les opérations de tableau voici la valeur à ajouter ou supprimer.",
+                    "it-IT": "Il Valore usato per la modifica. Nelle operazioni aritmetiche è il secondo valore tra i due operandi mentre l'altro è il Valore attuale della Variabile. Per le operazioni di Array è il Valore da aggiungere o rimuovere.",
+                    "ja-JP": "変更に用いられる値を表す。算術演算の場合、この値は2つある被演算子の2番目となり、もう片方が変数の既存の値となる。配列演算の場合は、こちらが追加もしくは削除される値となる",
+                    "ko-KR": "수정에 사용되는 값입니다. 산술연산의 경우 이것은 두 피연산자 중 두 번째로 나머지 하나는 변수의 현재 값으로 사용됩니다. 배열 연산에서는 이 값을 추가 또는 제거합니다.",
+                    "pl-PL": "Wartość służąca do modyfikacji. Dla operacji arytmetycznych jest to drugi z dwóch operandów innym jest istniejąca wartość zmiennej. Dla operacji tabel jest to wartość którą należy dodać lub usunąć.",
+                    "pt-BR": "O Valor usado para modificação. Em operações aritméticas esse é o segundo dos dois operandos enquanto o outro é o Valor existente da Variável. Em operações de Matriz é o Valor a ser juntado ou removido.",
+                    "ru-RU": "Значение используемое для изменения. В арифметических операциях это второй из двух операндов первый из которых – значение переменной в данный момент. Для операций с массивами это значение которое добавляется или убирается.",
+                    "zh-CN": "用于修改的值。若要进行运算操作，则此值为两个运算量中的第二个，第一个运算量为变量当前的值。若要进行数组操作，则此值是用于添加或移除的值。"
                 }
             }
         ],
@@ -4247,7 +5886,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "The global variable to modify."
+                    "guid": "00000000BC5C",
+                    "en-US": "The Global Variable to modify.",
+                    "de-DE": "Die zu modifizierende globale Variable.",
+                    "es-ES": "Variable global que se modifica.",
+                    "es-MX": "La variable global que se modificará.",
+                    "fr-FR": "La variable globale à modifier.",
+                    "it-IT": "La Variabile Globale da modificare.",
+                    "ja-JP": "変更するグローバル変数",
+                    "ko-KR": "수정할 전역 변수입니다.",
+                    "pl-PL": "Określa którą ze zmiennych „Global Variable” Zmienna globalna zmodyfikować.",
+                    "pt-BR": "A Variável Global a ser modificada.",
+                    "ru-RU": "Изменяемая глобальная переменная.",
+                    "zh-CN": "要修改的全局变量。"
                 }
             },
             {
@@ -4256,7 +5907,19 @@ const actionKw =
                 "type": "unsigned int",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
+                    "guid": "00000000BD9B",
+                    "en-US": "The Index of the array to modify. If the Index is beyond the end of the array the array is extended with new elements given a Value of zero.",
+                    "de-DE": "Der Index des zu modifizierenden Arrays. Wenn der Index außerhalb des Endes des Arrays liegt wird das Array mit neuen Elementen mit einem Wert von 0 erweitert.",
+                    "es-ES": "Índice de la matriz que se modifica. Si el índice está más allá del final de la matriz la matriz se amplía con nuevos elementos con valor cero.",
+                    "es-MX": "El índice de la matriz que se modificará. Si el índice está más allá del final de la matriz dicha matriz se extenderá con nuevos elementos que recibirán un valor 0.",
+                    "fr-FR": "L’index du tableau à modifier. Si l’index se trouve après la fin d’un tableau le tableau est étendu par de nouveaux éléments auxquels est attribué une valeur de zéro.",
+                    "it-IT": "L'Indice dell'array da modificare. Se l'Indice supera i limiti dell'array esso verrà esteso con nuovi elementi con Valore pari a zero.",
+                    "ja-JP": "変更する配列のインデックス。インデックスが配列の範囲外である場合、配列は新しい要素で拡張され、その値は0となる",
+                    "ko-KR": "수정할 배열의 인덱스입니다. 인덱스가 배열의 끝을 벗어난 경우 해당 배열이 확장되며 새 요소는 0의 값을 가집니다.",
+                    "pl-PL": "Indeks tabeli do zmodyfikowania. Jeśli indeks jest poza końcem tabeli zostaje ona powiększona o nowe elementy z wartością równą zeru.",
+                    "pt-BR": "O Índice da matriz a ser modificada. Se o Índice estiver além do fim da matriz a matriz será ampliada com novos elementos de Valor zero.",
+                    "ru-RU": "Индекс массива который нужно изменить. Если индекс не входит в диапазон массива то массив расширяется с добавлением новых элементов с нулевым значением.",
+                    "zh-CN": "修改数组的索引。如果索引位置已经超过了数组的末尾，则将数组延伸至索引位置，且新的元素值均为0。"
                 }
             },
             {
@@ -4265,7 +5928,19 @@ const actionKw =
                 "type": "__Operation__",
                 "default": "ADD",
                 "descriptionLocalized": {
-                    "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
+                    "guid": "00000000BC5D",
+                    "en-US": "The way in which the Variable's Value will be changed. Options include standard arithmetic operations as well as Array operations for appending and removing Values.",
+                    "de-DE": "Die Art auf die der Wert der Variable geändert wird. Zu den Optionen gehören herkömmliche arithmetische Operationen sowie Array-Operationen zum Anhängen und Entfernen von Werten.",
+                    "es-ES": "Forma en que se cambiará el valor de la variable. Las opciones incluyen operaciones aritméticas estándar y operaciones de matriz para agregar o eliminar valores.",
+                    "es-MX": "La forma en que se modificará el valor de la variable. Entre las opciones se incluyen las operaciones aritméticas comunes así como también las operaciones matriciales para anexar o eliminar valores.",
+                    "fr-FR": "La façon dont la valeur de la variable sera modifiée. Les options comprennent les opérations arithmétiques standard ainsi que les opérations de tableau pour l’ajout et la suppression de valeurs.",
+                    "it-IT": "Il modo in cui il Valore della Variabile sarà cambiato. Le opzioni includono operazioni aritmetiche standard e operazioni di Array per l'aggiunta o la rimozione di Valori.",
+                    "ja-JP": "変数の値が変更される方法を表す。スタンダードな算術演算のほか、値の追加や削除を行う配列演算を選択可能",
+                    "ko-KR": "변수값의 변경 방식입니다. 일반적인 사칙연산 그리고 값의 추가 및 제거를 위한 Array 연산 등의 옵션이 있습니다.",
+                    "pl-PL": "Sposób w jaki zmieni się wartość zmiennej. Do opcji zaliczają się standardowe operacje arytmetyczne oraz operacje tabel dla dodawania i usuwania wartości.",
+                    "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
+                    "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
+                    "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
                 }
             },
             {
@@ -4277,7 +5952,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
+                    "guid": "00000000BC64",
+                    "en-US": "The Value used for the modification. For arithmetic operations this is the second of the two operands with the other being the Variable's existing Value. For Array operations this is the Value to append or remove.",
+                    "de-DE": "Der für die Modifizierung verwendete Wert. Bei arithmetischen Operationen ist dies der zweite der beiden Operanden. Der andere ist der bestehende Wert der Variable. Bei Array-Operationen ist dies der anzuhängende bzw. zu entfernende Wert.",
+                    "es-ES": "Valor utilizado para la modificación. Para operaciones aritméticas este es el segundo de los dos operandos; el otro es el valor existente de la variable. Para operaciones de matriz este es el valor que se agrega o elimina.",
+                    "es-MX": "El valor utilizado para la modificación. En las operaciones aritméticas este es el segundo de los dos operandos mientras que el otro es el valor existente de la variable. En las operaciones matriciales este es el valor que se anexará o eliminará.",
+                    "fr-FR": "La valeur utilisée pour la modification. Pour les opérations arithmétiques ceci est le second des deux opérandes l’autre étant la valeur existante de la variable. Pour les opérations de tableau voici la valeur à ajouter ou supprimer.",
+                    "it-IT": "Il Valore usato per la modifica. Nelle operazioni aritmetiche è il secondo valore tra i due operandi mentre l'altro è il Valore attuale della Variabile. Per le operazioni di Array è il Valore da aggiungere o rimuovere.",
+                    "ja-JP": "変更に用いられる値を表す。算術演算の場合、この値は2つある被演算子の2番目となり、もう片方が変数の既存の値となる。配列演算の場合は、こちらが追加もしくは削除される値となる",
+                    "ko-KR": "수정에 사용되는 값입니다. 사칙연산의 경우 이것은 두 피연산자 중 두 번째로 나머지 하나는 변수의 현재 값으로 사용됩니다. 배열 연산에서는 이 값을 추가 또는 제거합니다.",
+                    "pl-PL": "Wartość służąca do modyfikacji. Dla operacji arytmetycznych jest to drugi z dwóch operandów innym jest istniejąca wartość zmiennej. Dla operacji na tabelach jest to wartość którą należy dodać lub usunąć.",
+                    "pt-BR": "O Valor usado para modificação. Em operações aritméticas esse é o segundo dos dois operandos enquanto o outro é o Valor existente da Variável. Em operações de Matriz é o Valor a ser juntado ou removido.",
+                    "ru-RU": "Значение используемое для изменения. В арифметических операциях это второй из двух операндов первый из которых – значение переменной в данный момент. Для операций с массивами это значение которое добавляется или убирается.",
+                    "zh-CN": "用于修改的值。若要进行运算操作，则此值为两个运算量中的第二个，第一个运算量为变量当前的值。若要进行数组操作，则此值是用于添加或移除的值。"
                 }
             }
         ],
@@ -4319,7 +6006,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose score will change."
+                    "guid": "00000000BC6A",
+                    "en-US": "The Player or Players whose score will change.",
+                    "de-DE": "Der oder die Spieler deren Punktestand geändert wird.",
+                    "es-ES": "Jugador o jugadores cuya puntuación cambiará.",
+                    "es-MX": "El jugador o los jugadores cuya puntuación se modificará.",
+                    "fr-FR": "Le ou les joueurs dont le score sera modifié.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui punteggio cambierà.",
+                    "ja-JP": "スコアが設定されるプレイヤー",
+                    "ko-KR": "점수를 수정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których wynik się zmieni.",
+                    "pt-BR": "Os Jogadores cuja pontuação mudará.",
+                    "ru-RU": "Игрок или игроки счет которых следует изменить.",
+                    "zh-CN": "下列玩家的分数将被改变。"
                 }
             },
             {
@@ -4330,7 +6029,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease."
+                    "guid": "00000000BC69",
+                    "en-US": "The amount the score will increase or decrease. If positive the score will increase. If negative the score will decrease.",
+                    "de-DE": "Die Menge um die der Punktestand erhöht oder gesenkt wird. Falls positiv wird der Punktestand erhöht. Falls negativ wird der Punktestand gesenkt.",
+                    "es-ES": "Cantidad que subirá o bajará la puntuación. Si es positiva la puntuación subirá; si es negativa bajará.",
+                    "es-MX": "Cuánto aumentará o disminuirá la puntuación. En caso de ser positiva la puntuación aumentará. En caso de ser negativa la puntuación disminuirá.",
+                    "fr-FR": "Le montant dont le score augmentera ou diminuera. Si la valeur est positive le score augmentera. Si elle est négative le score diminuera.",
+                    "it-IT": "La quantità da aggiungere o togliere dal punteggio. Se positiva il punteggio aumenterà. Se negativa il punteggio diminuirà.",
+                    "ja-JP": "スコアが増減する量。正の値ならスコアが増加する。負の値ならスコアが減少する",
+                    "ko-KR": "점수 증감량입니다. 양수인 경우 점수가 오르고 음수인 경우 감소합니다.",
+                    "pl-PL": "Wartość o jaką zwiększy lub zmniejszy się wynik. Jeśli jest dodatnia wynik się zwiększy. Jeśli ujemna – wynik się zmniejszy.",
+                    "pt-BR": "A quantidade de mudança na pontuação. Se for positiva a pontuação aumentará. Se for negativa a pontuação diminuirá.",
+                    "ru-RU": "Количество очков на которое должен уменьшиться или увеличиться счет. Если значение положительное то счет увеличится. Если оно отрицательное то счет уменьшится.",
+                    "zh-CN": "增加或减少的分数。如果为正数则增加分数，为负数则减少分数。"
                 }
             }
         ],
@@ -4372,7 +6083,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
+                    "guid": "00000000BC62",
+                    "en-US": "The Player whose Variable will be modified. If multiple Players are provided each of their Variables will be set.",
+                    "de-DE": "Der Spieler dessen Variable modifiziert wird. Wenn mehrere Spieler angegeben werden werden alle Variablen dieser Spieler festgelegt.",
+                    "es-ES": "Jugador cuya variable se modificará. Si se indican varios jugadores se establecerá cada una de sus variables.",
+                    "es-MX": "El jugador cuya variable se modificará. Si se detecta más de un jugador se establecerán las variables de cada uno.",
+                    "fr-FR": "Le joueur dont la variable sera modifiée. Si plusieurs joueurs sont indiqués chacune de leurs variables sera définie.",
+                    "it-IT": "Il Giocatore a cui appartiene la Variabile da modificare. Se sono specificati più Giocatori saranno impostate le Variabili di ogni Giocatore.",
+                    "ja-JP": "変数が変更されるプレイヤー。複数プレイヤーを指定した場合、いずれの変数も変更される",
+                    "ko-KR": "변수를 수정할 플레이어입니다. 플레이어가 다수인 경우 각각의 변수가 설정됩니다.",
+                    "pl-PL": "Gracz którego zmienna zostanie zmodyfikowana. Jeśli podano wielu graczy każda z ich zmiennych zostanie ustawiona.",
+                    "pt-BR": "O Jogador cuja Variável será modificada. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será definida.",
+                    "ru-RU": "Игрок переменную которого нужно изменить. Если указано несколько игроков то переменная будет изменена у каждого из них.",
+                    "zh-CN": "此玩家的变量将被修改。如果有多个玩家，则每个玩家的变量都将被设置。"
                 }
             },
             {
@@ -4381,7 +6104,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to modify."
+                    "guid": "00000000BC61",
+                    "en-US": "Specifies which of the Player's Variables to modify.",
+                    "de-DE": "Legt fest welche der Variablen des Spielers modifiziert werden soll.",
+                    "es-ES": "Especifica qué variables del jugador deben modificarse.",
+                    "es-MX": "Especifica las variables del jugador que se modificarán.",
+                    "fr-FR": "Spécifie quelle variable du joueur sera modifiée.",
+                    "it-IT": "Specifica le Variabili del Giocatore da modificare.",
+                    "ja-JP": "変更するプレイヤー変数を指定する",
+                    "ko-KR": "수정할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych gracza należy modyfikować.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador será modificada.",
+                    "ru-RU": "Определяет какую из переменных игрока следует изменить.",
+                    "zh-CN": "指定修改此玩家的哪些变量。"
                 }
             },
             {
@@ -4390,7 +6125,19 @@ const actionKw =
                 "type": "__Operation__",
                 "default": "ADD",
                 "descriptionLocalized": {
-                    "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
+                    "guid": "00000000BC5D",
+                    "en-US": "The way in which the Variable's Value will be changed. Options include standard arithmetic operations as well as Array operations for appending and removing Values.",
+                    "de-DE": "Die Art auf die der Wert der Variable geändert wird. Zu den Optionen gehören herkömmliche arithmetische Operationen sowie Array-Operationen zum Anhängen und Entfernen von Werten.",
+                    "es-ES": "Forma en que se cambiará el valor de la variable. Las opciones incluyen operaciones aritméticas estándar y operaciones de matriz para agregar o eliminar valores.",
+                    "es-MX": "La forma en que se modificará el valor de la variable. Entre las opciones se incluyen las operaciones aritméticas comunes así como también las operaciones matriciales para anexar o eliminar valores.",
+                    "fr-FR": "La façon dont la valeur de la variable sera modifiée. Les options comprennent les opérations arithmétiques standard ainsi que les opérations de tableau pour l’ajout et la suppression de valeurs.",
+                    "it-IT": "Il modo in cui il Valore della Variabile sarà cambiato. Le opzioni includono operazioni aritmetiche standard e operazioni di Array per l'aggiunta o la rimozione di Valori.",
+                    "ja-JP": "変数の値が変更される方法を表す。スタンダードな算術演算のほか、値の追加や削除を行う配列演算を選択可能",
+                    "ko-KR": "변수값의 변경 방식입니다. 일반적인 사칙연산 그리고 값의 추가 및 제거를 위한 Array 연산 등의 옵션이 있습니다.",
+                    "pl-PL": "Sposób w jaki zmieni się wartość zmiennej. Do opcji zaliczają się standardowe operacje arytmetyczne oraz operacje tabel dla dodawania i usuwania wartości.",
+                    "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
+                    "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
+                    "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
                 }
             },
             {
@@ -4402,7 +6149,8 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
+                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4444,7 +6192,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
+                    "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4453,7 +6202,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to modify."
+                    "guid": "00000000BC61",
+                    "en-US": "Specifies which of the Player's Variables to modify.",
+                    "de-DE": "Legt fest welche der Variablen des Spielers modifiziert werden soll.",
+                    "es-ES": "Especifica qué variables del jugador deben modificarse.",
+                    "es-MX": "Especifica las variables del jugador que se modificarán.",
+                    "fr-FR": "Spécifie quelle variable du joueur sera modifiée.",
+                    "it-IT": "Specifica le Variabili del Giocatore da modificare.",
+                    "ja-JP": "変更するプレイヤー変数を指定する",
+                    "ko-KR": "수정할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych gracza należy modyfikować.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador será modificada.",
+                    "ru-RU": "Определяет какую из переменных игрока следует изменить.",
+                    "zh-CN": "指定修改此玩家的哪些变量。"
                 }
             },
             {
@@ -4462,7 +6223,19 @@ const actionKw =
                 "type": "unsigned int",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
+                    "guid": "00000000BD9D",
+                    "en-US": "The Index of the array to modify. If the Index is beyond the end of the array the array is extended with new elements given a Value of zero.",
+                    "de-DE": "Der Index des zu modifizierenden Arrays. Wenn der Index außerhalb des Endes des Arrays liegt wird das Array mit neuen Elementen mit einem Wert von 0 erweitert.",
+                    "es-ES": "Índice de la matriz que se modifica. Si el índice está más allá del final de la matriz la matriz se amplía con nuevos elementos con valor cero.",
+                    "es-MX": "El índice de la matriz que se modificará. Si el índice está más allá del final de la matriz dicha matriz se extenderá con nuevos elementos que recibirán un valor 0.",
+                    "fr-FR": "L’index du tableau à modifier. Si l’index se trouve après la fin d’un tableau le tableau est étendu par de nouveaux éléments auxquels est attribué une valeur de zéro.",
+                    "it-IT": "L'Indice dell'array da modificare. Se l'Indice supera i limiti dell'array esso verrà esteso con nuovi elementi con Valore pari a zero.",
+                    "ja-JP": "変更する配列のインデックス。インデックスが配列の範囲外である場合、配列は新しい要素で拡張され、その値は0となる",
+                    "ko-KR": "수정할 배열의 인덱스입니다. 인덱스가 배열의 끝을 벗어난 경우 해당 배열이 확장되며 새 요소는 0의 값을 가집니다.",
+                    "pl-PL": "Indeks tabeli do zmodyfikowania. Jeśli indeks jest poza końcem tabeli zostaje ona powiększona o nowe elementy z wartością równą zeru.",
+                    "pt-BR": "O Índice da matriz a ser modificada. Se o Índice estiver além do fim da matriz a matriz será ampliada com novos elementos de Valor zero.",
+                    "ru-RU": "Индекс массива который нужно изменить. Если индекс не входит в диапазон массива то массив расширяется с добавлением новых элементов с нулевым значением.",
+                    "zh-CN": "修改数组的索引。如果索引位置已经超过了数组的末尾，则将数组延伸至索引位置，且新的元素值均为0。"
                 }
             },
             {
@@ -4471,7 +6244,19 @@ const actionKw =
                 "type": "__Operation__",
                 "default": "ADD",
                 "descriptionLocalized": {
-                    "en-US": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values."
+                    "guid": "00000000BC5D",
+                    "en-US": "The way in which the Variable's Value will be changed. Options include standard arithmetic operations as well as Array operations for appending and removing Values.",
+                    "de-DE": "Die Art auf die der Wert der Variable geändert wird. Zu den Optionen gehören herkömmliche arithmetische Operationen sowie Array-Operationen zum Anhängen und Entfernen von Werten.",
+                    "es-ES": "Forma en que se cambiará el valor de la variable. Las opciones incluyen operaciones aritméticas estándar y operaciones de matriz para agregar o eliminar valores.",
+                    "es-MX": "La forma en que se modificará el valor de la variable. Entre las opciones se incluyen las operaciones aritméticas comunes así como también las operaciones matriciales para anexar o eliminar valores.",
+                    "fr-FR": "La façon dont la valeur de la variable sera modifiée. Les options comprennent les opérations arithmétiques standard ainsi que les opérations de tableau pour l’ajout et la suppression de valeurs.",
+                    "it-IT": "Il modo in cui il Valore della Variabile sarà cambiato. Le opzioni includono operazioni aritmetiche standard e operazioni di Array per l'aggiunta o la rimozione di Valori.",
+                    "ja-JP": "変数の値が変更される方法を表す。スタンダードな算術演算のほか、値の追加や削除を行う配列演算を選択可能",
+                    "ko-KR": "변수값의 변경 방식입니다. 일반적인 사칙연산 그리고 값의 추가 및 제거를 위한 Array 연산 등의 옵션이 있습니다.",
+                    "pl-PL": "Sposób w jaki zmieni się wartość zmiennej. Do opcji zaliczają się standardowe operacje arytmetyczne oraz operacje tabel dla dodawania i usuwania wartości.",
+                    "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
+                    "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
+                    "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
                 }
             },
             {
@@ -4483,7 +6268,8 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove."
+                    "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4520,7 +6306,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams whose score will be changed."
+                    "guid": "00000000BD8C",
+                    "en-US": "The Team or Teams whose score will be changed.",
+                    "de-DE": "Das Team oder die Teams deren Punktestand geändert wird.",
+                    "es-ES": "Equipo o equipos cuya puntuación se cambiará.",
+                    "es-MX": "El equipo o los equipos cuya puntuación será modificada.",
+                    "fr-FR": "L’équipe dont le score sera modifié.",
+                    "it-IT": "La Squadra o le Squadre il cui punteggio sarà modificato.",
+                    "ja-JP": "スコアが変更されるチーム",
+                    "ko-KR": "점수를 변경할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny których wynik się zmieni.",
+                    "pt-BR": "As Equipes cuja pontuação será alterada.",
+                    "ru-RU": "Команда или команды счет которых нужно изменить.",
+                    "zh-CN": "要改变分数的队伍。"
                 }
             },
             {
@@ -4531,7 +6329,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount the score will increase or decrease. If positive, the score will increase. If negative, the score will decrease."
+                    "guid": "00000000BD8B",
+                    "en-US": "The amount the score will increase or decrease. If positive the score will increase. If negative the score will decrease.",
+                    "de-DE": "Die Menge um die der Punktestand erhöht oder gesenkt wird. Falls positiv wird der Punktestand erhöht. Falls negativ wird der Punktestand gesenkt.",
+                    "es-ES": "Cantidad que subirá o bajará la puntuación. Si es positiva la puntuación subirá; si es negativa bajará.",
+                    "es-MX": "Cuánto aumentará o disminuirá la puntuación. En caso de ser positiva la puntuación aumentará. En caso de ser negativa la puntuación disminuirá.",
+                    "fr-FR": "Le montant dont le score augmentera ou diminuera. Si la valeur est positive le score augmentera. Si elle est négative le score diminuera.",
+                    "it-IT": "La quantità da aggiungere o togliere dal punteggio. Se positiva il punteggio aumenterà. Se negativa il punteggio diminuirà.",
+                    "ja-JP": "スコアが増減する量。正の値ならスコアが増加する。負の値ならスコアが減少する",
+                    "ko-KR": "점수 증감량입니다. 양수인 경우 점수가 오르고 음수인 경우 감소합니다.",
+                    "pl-PL": "Wartość o jaką zwiększy lub zmniejszy się wynik. Jeśli jest dodatnia wynik się zwiększy. Jeśli ujemna – wynik się zmniejszy.",
+                    "pt-BR": "A quantidade de mudança na pontuação. Se for positiva a pontuação aumentará. Se for negativa a pontuação diminuirá.",
+                    "ru-RU": "Количество очков на которое должен уменьшиться или увеличиться счет. Если значение положительное то счет увеличится. Если оно отрицательное то счет уменьшится.",
+                    "zh-CN": "增加或减少的分数。如果为正数则增加分数，为负数则减少分数。"
                 }
             }
         ],
@@ -4573,7 +6383,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to move."
+                    "en-US": "The player or players to move.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4582,7 +6393,8 @@ const actionKw =
                 "type": "Team",
                 "default": "All",
                 "descriptionLocalized": {
-                    "en-US": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes."
+                    "en-US": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4591,7 +6403,8 @@ const actionKw =
                 "type": "int",
                 "default": -1,
                 "descriptionLocalized": {
-                    "en-US": "The player slot which will receive the player (-1 for first available slot)."
+                    "en-US": "The player slot which will receive the player (-1 for first available slot).",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4639,7 +6452,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will be able to see the effect."
+                    "guid": "00000000BCCE",
+                    "en-US": "One or more Players who will be able to see the effect.",
+                    "de-DE": "Ein oder mehrere Spieler die den Effekt sehen können.",
+                    "es-ES": "Uno o más jugadores que podrán ver el efecto.",
+                    "es-MX": "Uno o más jugadores que podrán ver el efecto.",
+                    "fr-FR": "Un ou plusieurs joueurs qui pourront voir l’effet.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere l'effetto.",
+                    "ja-JP": "このエフェクトを見ることができる1人または複数のプレイヤー",
+                    "ko-KR": "해당 효과를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy będą mogli zobaczyć efekt.",
+                    "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
+                    "ru-RU": "Один или несколько игроков которым будет виден эффект.",
+                    "zh-CN": "一名或多名将家将可以看到此效果。"
                 }
             },
             {
@@ -4648,7 +6473,19 @@ const actionKw =
                 "type": "DynamicEffect",
                 "default": "GOOD EXPLOSION",
                 "descriptionLocalized": {
-                    "en-US": "The type of effect to be created."
+                    "guid": "00000000BCCF",
+                    "en-US": "The type of effect to be created.",
+                    "de-DE": "Der Typ des zu erstellenden Effekts.",
+                    "es-ES": "Tipo de efecto que se crea.",
+                    "es-MX": "El tipo de efecto que se creará.",
+                    "fr-FR": "Le type d’effet à créer.",
+                    "it-IT": "Il tipo di effetto da creare.",
+                    "ja-JP": "作成されるエフェクトのタイプ",
+                    "ko-KR": "생성할 효과의 형태입니다.",
+                    "pl-PL": "Typ efektu który zostanie stworzony.",
+                    "pt-BR": "O tipo de efeito a ser criado.",
+                    "ru-RU": "Тип создаваемого эффекта.",
+                    "zh-CN": "将要创建的效果类型。"
                 }
             },
             {
@@ -4657,7 +6494,8 @@ const actionKw =
                 "type": "Color",
                 "default": "WHITE",
                 "descriptionLocalized": {
-                    "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer."
+                    "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4666,7 +6504,19 @@ const actionKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world."
+                    "guid": "00000000BD8F",
+                    "en-US": "The effect's position. If this Value is a Player then the effect will play at the Player's position. Otherwise the Value is interpreted as a position in the world.",
+                    "de-DE": "Die Position des Effekts. Wenn dieser Wert ein Spieler ist wird der Effekt an der Position des Spielers wiedergegeben. Ansonsten wird der Wert als Position in der Welt interpretiert.",
+                    "es-ES": "Posición del efecto. Si este valor es un jugador el efecto se reproducirá en la posición del jugador; de lo contrario el valor se interpreta como una posición en el mundo.",
+                    "es-MX": "La posición del efecto. Si el valor es un jugador el efecto se reproducirá en la posición del jugador. Caso contrario el valor se interpretará como una posición en el mundo.",
+                    "fr-FR": "La position de l’effet. Si cette valeur correspond à un joueur l’effet sera déclenché à la position de ce dernier. Sinon la valeur est interprétée en tant que position dans le monde.",
+                    "it-IT": "La posizione dell'effetto. Se il Valore rappresenta un Giocatore l'effetto si verificherà alla posizione del Giocatore. Altrimenti il Valore viene interpretato come una posizione nel mondo di gioco.",
+                    "ja-JP": "エフェクトの位置。値がプレイヤーである場合、プレイヤーの位置で効果が再生される。それ以外の場合、値はワールド内の位置と解釈される",
+                    "ko-KR": "효과의 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어 위치에서 발생하고 그 이외의 경우 이 값은 월드 좌표로서 해석됩니다.",
+                    "pl-PL": "Pozycja efektu. Jeśli ta wartość jest graczem wtedy efekt odtworzy się w pozycji gracza. Inaczej wartość jest interpretowana jako pozycja w świecie.",
+                    "pt-BR": "A posição do efeito. Se este Valor for um Jogador então o efeito será reproduzido na posição do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
+                    "ru-RU": "Местоположение эффекта. Если в качестве значения указан игрок то эффект будет воспроизведен в местоположении игрока. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
+                    "zh-CN": "效果所在位置。如果此值为一名玩家，那么效果将在此玩家所在位置播放。否则，此值将代表地图中的一个位置。"
                 }
             },
             {
@@ -4675,7 +6525,8 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The effect's radius in meters."
+                    "en-US": "The effect's radius in meters.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4717,7 +6568,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will begin preloading a hero or heroes. Only one preload hero action will be active at a time for a given player."
+                    "guid": "00000000BCF6",
+                    "en-US": "The Player or Players who will begin preloading a Hero or Heroes. Only one Preload Hero Action will be active at a time for a given Player.",
+                    "de-DE": "Der oder die Spieler die beginnen einen oder mehrere Helden vorab zu laden. Es ist nur jeweils eine Aktion [Preload Hero] für jeden Spieler aktiv.",
+                    "es-ES": "Jugador o jugadores que empezarán a precargar un héroe o varios. Solo estará activa una acción «Preload Hero» a la vez para un jugador determinado.",
+                    "es-MX": "El jugador o los jugadores que comenzarán a precargar uno o más héroes. Solo podrá haber una acción de Precarga de héroes activa a la vez para un jugador determinado.",
+                    "fr-FR": "Le ou les joueurs qui commenceront à précharger un ou plusieurs héros. Une seule action « Précharger un héros » sera active à la fois pour un joueur donné.",
+                    "it-IT": "Il Giocatore o i Giocatori che inizieranno a caricare preventivamente uno o più Eroi. Può essere attiva solo un'Azione Preload Hero alla volta per uno specifico Giocatore.",
+                    "ja-JP": "ヒーローのプリロードを始めるプレイヤー。「ヒーローをプリロード」アクションは、1プレイヤーにつき1つしか有効化できない",
+                    "ko-KR": "영웅을 미리 불러올 플레이어입니다. 플레이어 당 한 번에 단 한 개의 Preload Hero 액션만 활성화할 수 있습니다.",
+                    "pl-PL": "Gracz lub gracze którzy zaczną wstępnie wczytywać bohatera lub bohaterów. Jednocześnie aktywne będzie tylko jedno działanie „Preload Hero” Wczytaj bohatera dla danego gracza.",
+                    "pt-BR": "Os Jogadores que começaráão a pré-carregar um ou mais Heróis. Somente uma Ação Pré-carregar Herói será ativada por vez para um determinado Jogador.",
+                    "ru-RU": "Игрок или игроки у которых начнется предварительная загрузка героев. Единовременно у одного игрока может быть активно только одно действие предварительной загрузки героя.",
+                    "zh-CN": "下列玩家将开始预载一名或多名英雄。对每名玩家，同一时间只能有一个“预载英雄”动作生效。"
                 }
             },
             {
@@ -4731,7 +6594,19 @@ const actionKw =
                 ],
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero or heroes to begin preloading for the specified player or players. When multiple heroes are specified in an array, the heroes towards the beginning of the array are prioritized."
+                    "guid": "00000000BCF5",
+                    "en-US": "The Hero or Heroes to begin preloading for the specified Player or Players. When multiple Heroes are specified in an array the Heroes towards the beginning of the array are prioritized.",
+                    "de-DE": "Der Held oder die Helden derdie für dendie angegebenen Spieler vorgeladen werden sollen. Wenn mehrere Helden in einem Array angegeben werden haben die Helden am Anfang des Arrays Priorität.",
+                    "es-ES": "Héroe o héroes que se empiezan a precargar para el jugador o los jugadores especificados. Cuando hay varios héroes especificados en una matriz tienen prioridad los que hay al comienzo.",
+                    "es-MX": "El héroe o los héroes que comenzarán a precargarse para el jugador o los jugadores especificados. Cuando más de un héroe se encuentra especificado en una matriz se priorizarán aquellos héroes que se encuentren al comienzo de la matriz.",
+                    "fr-FR": "Le ou les héros qui vont être préchargés pour le ou les joueurs spécifiés. Quand plusieurs héros sont spécifiés dans un tableau les héros placés en début de tableau auront la priorité.",
+                    "it-IT": "L'Eroe o gli Eroi da caricare preventivamente per il Giocatore o i Giocatori specificati. Se più eroi sono specificati in un array gli Eroi presenti all'inizio dell'array avranno la priorità.",
+                    "ja-JP": "指定したプレイヤーのプリロードを開始するヒーロー。配列内で複数のヒーローを指定する場合、配列の先頭のヒーローが優先される",
+                    "ko-KR": "지정된 플레이어가 미리 불러올 영웅입니다. 배열에 여러 영웅을 지정한 경우 배열 초반에 지정된 영웅일수록 우선순위가 가장 높습니다.",
+                    "pl-PL": "Bohater lub bohaterowie którzy zaczną być wstępnie wczytywani dla określonego gracza lub graczy. Kiedy w tabeli określonych jest kilku bohaterów priorytet mają ci znajdujący się bliżej jej początku.",
+                    "pt-BR": "Os Heróis que começaráão a ser pré-carregados para os Jogadores especificados. Quando vários Heróis forem especificados em uma matriz os Heróis no início da matriz terão prioridade.",
+                    "ru-RU": "Герой или герои которых необходимо предварительно загрузить для указанного игрока или игроков. Если в массиве указано несколько игроков то приоритет их загрузки выстраивается в порядке их включения в список.",
+                    "zh-CN": "指定玩家将在此列表中选择英雄。当数组中出现多个英雄时，将会优先选择排在前面的英雄。"
                 }
             }
         ],
@@ -4773,7 +6648,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players for whom the virtual button input will be forced."
+                    "en-US": "The player or players for whom the virtual button input will be forced.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4782,7 +6658,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The button to be pressed."
+                    "guid": "00000000BC87",
+                    "en-US": "The button to be pressed.",
+                    "de-DE": "Die zu drückende Taste.",
+                    "es-ES": "Botón que se pulsa.",
+                    "es-MX": "El botón que se presionará.",
+                    "fr-FR": "Le bouton sur lequel appuyer.",
+                    "it-IT": "Il tasto da premere.",
+                    "ja-JP": "押されるボタン",
+                    "ko-KR": "누를 버튼입니다.",
+                    "pl-PL": "Przycisk do wciśnięcia.",
+                    "pt-BR": "O botão a ser pressionado.",
+                    "ru-RU": "Кнопка которую нужно нажать.",
+                    "zh-CN": "要按下的按键。"
                 }
             }
         ],
@@ -4824,7 +6712,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose added health pools will be removed."
+                    "guid": "000000011435",
+                    "en-US": "The Player or Players whose added health pools will be removed.",
+                    "de-DE": "Der oder die Spieler deren zusätzliche Trefferpunktevorräte entfernt werden.",
+                    "es-ES": "Jugador o jugadores cuyas reservas de salud añadidas se eliminarán.",
+                    "es-MX": "El jugador o los jugadores cuya cantidad de salud añadida se eliminará.",
+                    "fr-FR": "Le ou les joueurs dont les réserves de points de vie seront supprimées.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui riserve di salute aggiunte saranno rimosse.",
+                    "ja-JP": "追加されたライフプールが削除されるプレイヤー",
+                    "ko-KR": "추가된 유효 생명력을 제거할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dodane pule zdrowia zostaną usunięte.",
+                    "pt-BR": "Os Jogadores cujas reservas de vida adicionadas serão removidas.",
+                    "ru-RU": "Игрок или игроки у которых будет удален дополнительный запас здоровья.",
+                    "zh-CN": "下列玩家身上所添加的生命池将移除。"
                 }
             }
         ],
@@ -4861,7 +6761,19 @@ const actionKw =
                 "type": "HealthPoolId",
                 "default": "Last Created Health Pool",
                 "descriptionLocalized": {
-                    "en-US": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)"
+                    "guid": "000000011436",
+                    "en-US": "Specifies a health pool created by the Add Health Pool action. Health pool IDs may be obtained using the Last Created Health Pool value.",
+                    "de-DE": "Legt einen Trefferpunktevorrat fest der durch die Aktion [Add Health Pool] hinzugefügt wurde. IDs für Trefferpunktevorräte können mithilfe des Werts [Last Created Health Pool] abgerufen werden.",
+                    "es-ES": "Especifica la reserva de salud creada por la acción «Add Health Pool» se pueden obtener las ID de reservas de salud mediante el valor «Last Created Health Pool».",
+                    "es-MX": "Especifica una cantidad de salud creada mediante la acción Añadir cantidad de salud. Las ID de la cantidad de salud se pueden obtener con el valor Última cantidad de salud creada.",
+                    "fr-FR": "Spécifie une réserve de points de vie créée par l’action « Ajouter une réserve de points de vie ». Les identifiants de réserves de points de vie peuvent être obtenus en utilisant la valeur « Dernière réserve de points de vie créée ».",
+                    "it-IT": "Specifica la riserva di salute creata dall'azione Add Health Pool. Gli ID della riserva di salute possono essere ottenuti utilizzando il valore Last Created Health Pool.",
+                    "ja-JP": "「ライフプールを追加」アクションで作成したライフプールを指定する（ライフプールIDは「最新のライフプール」の値で取得）",
+                    "ko-KR": "Add Health Pool 액션으로 생성한 유효 생명력을 지정합니다. 유효 생명력 ID는 Last Created 유효 생명력 값을 사용해 얻을 수 있습니다.",
+                    "pl-PL": "Określa pulę zdrowia stworzoną przez działanie „Add Health Pool” Dodaj pulę zdrowia. Identyfikatory pul zdrowia mogą zostać pozyskane poprzez użycie wartości „Last Created Health Pool” Ostatnio stworzona pula zdrowia.",
+                    "pt-BR": "Especifica uma reserva de vida criada pela ação Adicionar Reserva de Vida. IDs de reserva de vida podem ser obtidas por meio do valor Última Reserva de Vida Criada.",
+                    "ru-RU": "Определяет запас здоровья заданный действием [Add Health Pool]. ID запаса здоровья можно получить вызовом значения последнего заданного запаса здоровья [Last Created Health Pool].",
+                    "zh-CN": "指定一个由“添加生命池”动作所创建的生命池。（可以用“上一个创建的生命池”获得生命池ID的值。）"
                 }
             }
         ],
@@ -4903,7 +6815,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to remove."
+                    "en-US": "The player or players to remove.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4924,7 +6837,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The player whose name will be forced."
+                    "en-US": "The player whose name will be forced.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -4933,7 +6847,8 @@ const actionKw =
                 "type": "String",
                 "default": "Custom String",
                 "descriptionLocalized": {
-                    "en-US": "The name to be forced."
+                    "en-US": "The name to be forced.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -4954,7 +6869,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose hero list is being reset."
+                    "guid": "00000000BD3B",
+                    "en-US": "The Player or Players whose hero list is being reset.",
+                    "de-DE": "Der oder die Spieler deren Heldenliste zurückgesetzt wird.",
+                    "es-ES": "Jugador o jugadores cuya lista de héroes se restablece.",
+                    "es-MX": "El jugador o los jugadores cuya lista de héroes se está restableciendo.",
+                    "fr-FR": "Le ou les joueurs dont la liste de héros est réinitialisée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui lista di Eroi sarà ripristinata.",
+                    "ja-JP": "ヒーロー・リストがリセットされるプレイヤー",
+                    "ko-KR": "영웅 목록을 초기화할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których lista bohaterów jest resetowana.",
+                    "pt-BR": "Os Jogadores cuja lista de heróis está sendo redefinida.",
+                    "ru-RU": "Игрок или игроки у которых нужно обнулить список героев.",
+                    "zh-CN": "下列玩家的英雄列表将被重置。"
                 }
             }
         ],
@@ -4996,7 +6923,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to respawn."
+                    "guid": "00000000BC89",
+                    "en-US": "The Player or Players to respawn.",
+                    "de-DE": "Der oder die wiederzubelebenden Spieler.",
+                    "es-ES": "Jugador o jugadores que reaparecen.",
+                    "es-MX": "El jugador o los jugadores que reaparecerán.",
+                    "fr-FR": "Le ou les joueurs à faire réapparaître.",
+                    "it-IT": "Il Giocatore o i Giocatori da rigenerare.",
+                    "ja-JP": "リスポーンさせるプレイヤー",
+                    "ko-KR": "부활시킬 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze do ożywienia.",
+                    "pt-BR": "Os Jogadores que ressurgiráão.",
+                    "ru-RU": "Возрождаемый игрок или игроки.",
+                    "zh-CN": "下列玩家将重生。"
                 }
             }
         ],
@@ -5045,7 +6984,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will be resurrected."
+                    "guid": "00000000BC7B",
+                    "en-US": "The Player or Players who will be resurrected.",
+                    "de-DE": "Der oder die Spieler die wiederbelebt werden.",
+                    "es-ES": "Jugador o jugadores que resucitarán.",
+                    "es-MX": "El jugador o los jugadores que serán resucitados.",
+                    "fr-FR": "Le ou les joueurs qui seront ressuscités.",
+                    "it-IT": "Il Giocatore o i Giocatori che saranno resuscitati.",
+                    "ja-JP": "蘇生されるプレイヤー",
+                    "ko-KR": "부활하게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zostaną ożywieni.",
+                    "pt-BR": "Os Jogadores que seráão ressuscitados.",
+                    "ru-RU": "Игрок или игроки которые будут воскрешены.",
+                    "zh-CN": "下列玩家将被复活。"
                 }
             }
         ],
@@ -5092,7 +7043,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to ability 1 is affected."
+                    "guid": "00000000BD01",
+                    "en-US": "The Player or Players whose access to Ability 1 is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf Fähigkeit 1 betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Ability 1» habilidad 1 se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a la habilidad 1 se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à la capacité 1 est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo dell'Abilità 1.",
+                    "ja-JP": "アビリティ1へのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "기술 1 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do zdolności „Ability 1” Zdolność 1 jest uwzględniony.",
+                    "pt-BR": "Os Jogadores cujo acesso à Habilidade 1 é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к 1-й способности.",
+                    "zh-CN": "下列玩家的技能 1将受到影响。"
                 }
             },
             {
@@ -5101,7 +7064,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare."
+                    "guid": "00000000BD00",
+                    "en-US": "Specifies whether the Player or Players are able to use Ability 1. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler Fähigkeit 1 einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o los jugadores pueden usar «Ability 1» habilidad 1. Requiere un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden usar la habilidad 1. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser la capacité 1. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare l'Abilità 1. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがアビリティ1を使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어가 기술 1을 사용할 수 있는지 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć zdolności „Ability 1” Zdolność 1. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar a Habilidade 1. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования 1-й способности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用技能 1。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -5143,7 +7118,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to ability 2 is affected."
+                    "guid": "00000000BD03",
+                    "en-US": "The Player or Players whose access to Ability 2 is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf Fähigkeit 2 betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Ability 2» habilidad 2 se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a la habilidad 2 se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à la capacité 2 est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo dell'Abilità 2.",
+                    "ja-JP": "アビリティ2へのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "기술 2 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do zdolności „Ability 1” Zdolność 1 jest uwzględniony.",
+                    "pt-BR": "Os Jogadores cujo acesso à Habilidade 2 é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ ко 2-й способности.",
+                    "zh-CN": "下列玩家的技能 2将受到影响。"
                 }
             },
             {
@@ -5152,7 +7139,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare."
+                    "guid": "00000000BD02",
+                    "en-US": "Specifies whether the Player or Players are able to use Ability 2. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler Fähigkeit 2 einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o los jugadores pueden usar «Ability 2» habilidad 2. Requiere un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden usar la habilidad 2. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser la capacité 2. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare l'Abilità 2. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがアビリティ2を使用できるかどうかを指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어가 기술 2를 사용할 수 있는지 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć zdolności „Ability 2” Zdolność 2. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar a Habilidade 2. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования 2-й способности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用技能 2。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -5194,7 +7193,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose ability charge count will be modified."
+                    "guid": "000000011210",
+                    "en-US": "The Player or Players whose ability charge count will be modified.",
+                    "de-DE": "Der oder die Spieler deren Aufladung modifiziert wird.",
+                    "es-ES": "Jugador o jugadores cuyo número de cargas de habilidad se modificará.",
+                    "es-MX": "El jugador o los jugadores cuyo conteo de carga de habilidad será modificado.",
+                    "fr-FR": "Le ou les joueurs dont la charge de la capacité sera modifié.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui conteggio delle risorse delle abilità sarà modificato.",
+                    "ja-JP": "アビリティのチャージ数が変更されるプレイヤー",
+                    "ko-KR": "기술 충전 횟수를 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których liczba ładunków zdolności zostanie zmodyfikowana.",
+                    "pt-BR": "Os Jogadores cujo número de cargas de habilidade será modificado.",
+                    "ru-RU": "Игрок или игроки у которых будет изменено количество зарядов способности.",
+                    "zh-CN": "下列玩家的技能充能次数将被修改。"
                 }
             },
             {
@@ -5203,7 +7214,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button associated with the ability to be modified."
+                    "guid": "0000000109D1",
+                    "en-US": "The logical button associated with the ability to be modified.",
+                    "de-DE": "Die logische Taste die der zu modifizierenden Fähigkeit zugeordnet ist.",
+                    "es-ES": "Botón lógico asociado a la habilidad que se modificará.",
+                    "es-MX": "El botón lógico asociado a la habilidad que será modificada.",
+                    "fr-FR": "Le bouton logique associé à la capacité qui sera modifiée.",
+                    "it-IT": "Il tasto logico associato all'abilità da modificare.",
+                    "ja-JP": "変更されるアビリティに割り当てられたロジカル・ボタン",
+                    "ko-KR": "변경할 기술을 확인할 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk powiązany ze zdolnością która ma zostać zmodyfikowana.",
+                    "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
+                    "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
+                    "zh-CN": "与此技能关联的逻辑按钮将被修改。"
                 }
             },
             {
@@ -5214,7 +7237,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The charge count that will be set."
+                    "guid": "000000011212",
+                    "en-US": "The charge count that will be set.",
+                    "de-DE": "Die Aufladung die festgelegt wird.",
+                    "es-ES": "Número de cargas que se establecerá.",
+                    "es-MX": "El conteo de carga que se establecerá.",
+                    "fr-FR": "Le nombre de charges qui sera défini.",
+                    "it-IT": "Il conteggio della carica che sarà impostato.",
+                    "ja-JP": "設定されるチャージ量",
+                    "ko-KR": "설정할 충전 횟수입니다.",
+                    "pl-PL": "Liczba ładunków która zostanie ustawiona.",
+                    "pt-BR": "O número de cargas que será definido.",
+                    "ru-RU": "Количество зарядов которое будет установлено.",
+                    "zh-CN": "要设置的充能次数。"
                 }
             }
         ],
@@ -5241,7 +7276,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose ability cooldown time will be modified."
+                    "guid": "0000000109D0",
+                    "en-US": "The Player or Players whose ability cooldown time will be modified.",
+                    "de-DE": "Der oder die Spieler deren Abklingzeit modifiziert wird.",
+                    "es-ES": "Jugador o jugadores cuyo tiempo de reutilización de habilidad se modificará.",
+                    "es-MX": "El jugador o los jugadores cuyo tiempo de reutilización de habilidades será modificado.",
+                    "fr-FR": "Le ou les joueurs dont le temps de recharge de la capacité sera modifié.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui tempo di recupero delle abilità sarà modificato.",
+                    "ja-JP": "アビリティのクールダウン時間が変更されるプレイヤー",
+                    "ko-KR": "기술 재사용 대기시간을 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których czas odnowienia zdolności przestanie być modyfikowany.",
+                    "pt-BR": "Os Jogadores cujo tempo de recarga de habilidade será modificado.",
+                    "ru-RU": "Игрок или игроки для которых изменяется время восстановления способности.",
+                    "zh-CN": "下列玩家的技能冷却时间将被修改。"
                 }
             },
             {
@@ -5250,7 +7297,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button associated with the ability to be modified."
+                    "guid": "0000000109D1",
+                    "en-US": "The logical button associated with the ability to be modified.",
+                    "de-DE": "Die logische Taste die der zu modifizierenden Fähigkeit zugeordnet ist.",
+                    "es-ES": "Botón lógico asociado a la habilidad que se modificará.",
+                    "es-MX": "El botón lógico asociado a la habilidad que será modificada.",
+                    "fr-FR": "Le bouton logique associé à la capacité qui sera modifiée.",
+                    "it-IT": "Il tasto logico associato all'abilità da modificare.",
+                    "ja-JP": "変更されるアビリティに割り当てられたロジカル・ボタン",
+                    "ko-KR": "변경할 기술을 확인할 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk powiązany ze zdolnością która ma zostać zmodyfikowana.",
+                    "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
+                    "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
+                    "zh-CN": "与此技能关联的逻辑按钮将被修改。"
                 }
             },
             {
@@ -5261,7 +7320,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The cooldown time that will be set in seconds. Max of 1000."
+                    "en-US": "The cooldown time that will be set in seconds. Max of 1000.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -5288,7 +7348,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose ability resource percentage will be modified."
+                    "guid": "000000011211",
+                    "en-US": "The Player or Players whose ability resource percentage will be modified.",
+                    "de-DE": "Der oder die Spieler deren Ressourcenprozentsatz modifiziert wird.",
+                    "es-ES": "Jugador o jugadores cuyo porcentaje de recursos de habilidad se modificará.",
+                    "es-MX": "El jugador o los jugadores cuyo porcentaje de recurso de habilidad será modificado.",
+                    "fr-FR": "Le ou les joueurs dont le pourcentage de ressource de la capacité sera modifié.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui percentuale di risorse delle abilità sarà modificata.",
+                    "ja-JP": "アビリティのリソースのパーセンテージが変更されるプレイヤー",
+                    "ko-KR": "기술 리소스 비율을 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których procentowy zasób zdolności zostanie zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujo percentual de recurso de habilidade será modificado.",
+                    "ru-RU": "Игрок или игроки у которых будет изменен процент ресурса способности.",
+                    "zh-CN": "下列玩家的技能资源百分比将被修改。"
                 }
             },
             {
@@ -5297,7 +7369,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button associated with the ability to be modified."
+                    "guid": "0000000109D1",
+                    "en-US": "The logical button associated with the ability to be modified.",
+                    "de-DE": "Die logische Taste die der zu modifizierenden Fähigkeit zugeordnet ist.",
+                    "es-ES": "Botón lógico asociado a la habilidad que se modificará.",
+                    "es-MX": "El botón lógico asociado a la habilidad que será modificada.",
+                    "fr-FR": "Le bouton logique associé à la capacité qui sera modifiée.",
+                    "it-IT": "Il tasto logico associato all'abilità da modificare.",
+                    "ja-JP": "変更されるアビリティに割り当てられたロジカル・ボタン",
+                    "ko-KR": "변경할 기술을 확인할 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk powiązany ze zdolnością która ma zostać zmodyfikowana.",
+                    "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
+                    "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
+                    "zh-CN": "与此技能关联的逻辑按钮将被修改。"
                 }
             },
             {
@@ -5308,7 +7392,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The percentage of resource that will be set with respect to each player's ability resource capacity."
+                    "en-US": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -5335,7 +7420,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose aim speed will be set."
+                    "guid": "00000000C366",
+                    "en-US": "The Player or Players whose aim speed will be set.",
+                    "de-DE": "Der oder die Spieler deren Zielgeschwindigkeit festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya velocidad de apuntado se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya velocidad al apuntar se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la vitesse de visée sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui velocità di mira sarà impostata.",
+                    "ja-JP": "照準速度が設定されるプレイヤー",
+                    "ko-KR": "조준 속도를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których szybkość celowania zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja velocidade de mira será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости прицеливания.",
+                    "zh-CN": "设置下列玩家的瞄准速度。"
                 }
             },
             {
@@ -5344,7 +7441,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of normal aim speed to which the player or players will set their aim speed."
+                    "guid": "00000000C368",
+                    "en-US": "The percentage of normal aim speed to which the Player or Players will set their aim speed.",
+                    "de-DE": "Der Prozentsatz der normalen Zielgeschwindigkeit auf den die Zielgeschwindigkeit des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la velocidad de apuntado normal que se establecerá como velocidad de apuntado del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de velocidad normal al apuntar a partir del cual el jugador o los jugadores establecerán su velocidad al apuntar.",
+                    "fr-FR": "Le pourcentage de la vitesse de visée normale à laquelle le ou les joueurs verront leur vitesse de visée fixée.",
+                    "it-IT": "La percentuale di velocità di mira normale che sarà impostata come velocità di mira del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分の照準速度を設定する際の、通常照準速度のパーセンテージ",
+                    "ko-KR": "일반 조준 속도에 비례하도록 설정할 플레이어의 조준 속도입니다.",
+                    "pl-PL": "Procent normalnej szybkości celowania do którego zostanie ustawiona szybkość celowania gracza lub graczy.",
+                    "pt-BR": "A porcentagem da velocidade de mira normal que será usada para definir a velocidade de mira dos Jogadores.",
+                    "ru-RU": "Процентная доля обычной скорости прицеливания к которой будет приравнена новая скорость прицеливания выбранного игрока или игроков.",
+                    "zh-CN": "将玩家的瞄准速度设置为此百分比。"
                 }
             }
         ],
@@ -5386,7 +7495,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose ammo will be set."
+                    "guid": "0000000110F5",
+                    "en-US": "The Player or Players whose ammo will be set.",
+                    "de-DE": "Der oder die Spieler deren Munition festgelegt werden.",
+                    "es-ES": "Jugador o jugadores cuya munición se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya munición se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les munitions seront définies.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui munizioni saranno impostate.",
+                    "ja-JP": "弾薬数が設定されるプレイヤー",
+                    "ko-KR": "탄약 수를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których amunicja zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja munição será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет установлено количество боеприпасов.",
+                    "zh-CN": "设置下列玩家面朝的弹药数量。"
                 }
             },
             {
@@ -5397,7 +7518,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                    "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -5408,7 +7530,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The ammo that will be set."
+                    "guid": "0000000110FA",
+                    "en-US": "The ammo that will be set.",
+                    "de-DE": "Die Munition die festgelegt wird.",
+                    "es-ES": "Munición que se establecerá.",
+                    "es-MX": "La munición que se establecerá.",
+                    "fr-FR": "Les munitions qui seront définies.",
+                    "it-IT": "Le munizioni che saranno impostate.",
+                    "ja-JP": "設定される弾薬数",
+                    "ko-KR": "설정할 탄약 수입니다.",
+                    "pl-PL": "Amunicja która zostanie ustawiona.",
+                    "pt-BR": "A munição que será definida.",
+                    "ru-RU": "Количество боеприпасов которое будет назначено.",
+                    "zh-CN": "要设置的弹药数量。"
                 }
             }
         ],
@@ -5435,7 +7569,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to crouch is affected."
+                    "guid": "0000000105A7",
+                    "en-US": "The Player or Players whose access to Crouch is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf Ducken betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Crouch» agacharse se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a agacharse se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à S’accroupir est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo dell'Accovacciamento.",
+                    "ja-JP": "しゃがみのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "웅크리기 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do kucnięcia jest zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujo acesso a Agachar é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к приседанию.",
+                    "zh-CN": "下列玩家的下蹲动作将受到影响。"
                 }
             },
             {
@@ -5444,7 +7590,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare."
+                    "guid": "0000000105A9",
+                    "en-US": "Specifies whether the Player or Players are able to use Crouch. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler Ducken einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o jugadores pueden usar «Crouch» agacharse. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden agacharse. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser S’accroupir. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare l'Accovacciamento. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがしゃがみを使用できるかどうかを指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 웅크리기 사용 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć kucnięcia. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar Agachar. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования приседания игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用蹲下。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -5486,7 +7644,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose damage dealt will be set."
+                    "guid": "00000000BCE1",
+                    "en-US": "The Player or Players whose damage dealt will be set.",
+                    "de-DE": "Der oder die Spieler deren verursachter Schaden festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuyo daño infligido se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuyo daño infligido se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les dégâts infligés seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui danni inflitti saranno impostati.",
+                    "ja-JP": "与ダメージが設定されるプレイヤー",
+                    "ko-KR": "주는 피해량을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze obrażenia zadane przez których zostaną ustawione.",
+                    "pt-BR": "Os Jogadores cujo dano causado será definido.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается величина наносимого урона.",
+                    "zh-CN": "设置下列玩家造成的伤害。"
                 }
             },
             {
@@ -5498,7 +7668,19 @@ const actionKw =
                 "literalMax": 1000,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw damage dealt to which the player or players will set their damage dealt."
+                    "guid": "00000000BCE0",
+                    "en-US": "The percentage of raw damage dealt to which the Player or Players will set their damage dealt.",
+                    "de-DE": "Der Prozentsatz des absoluten Schadens auf den der verursachte Schaden des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje del daño infligido bruto que se establecerá como daño infligido del jugador o los jugadores.",
+                    "es-MX": "El porcentaje del daño original infligido a partir del cual el jugador o los jugadores establecerán su daño infligido.",
+                    "fr-FR": "Le pourcentage des dégâts infligés bruts auquel le ou les joueurs verront leurs dégâts infligés fixés.",
+                    "it-IT": "La percentuale di danni grezzi inflitti che sarà impostata come danni inflitti dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーが自分の与えるダメージを設定する際の、通常与えるダメージのパーセンテージ",
+                    "ko-KR": "순수 피해량에 비례하도록 설정할 플레이어의 주는 피해량 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonych zadanych obrażeń do którego zostaną ustawione obrażenia zadane przez gracza lub graczy.",
+                    "pt-BR": "A porcentagem do dano bruto causado que será usada para definir o dano causado pelos Jogadores.",
+                    "ru-RU": "Доля исходного наносимого урона к которой будет приравнена новая величина урона наносимого выбранным игроком или игроками.",
+                    "zh-CN": "将玩家所造成的伤害设置为此百分比。"
                 }
             }
         ],
@@ -5541,7 +7723,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose damage received will be set."
+                    "guid": "00000000BCE4",
+                    "en-US": "The Player or Players whose damage received will be set.",
+                    "de-DE": "Der oder die Spieler deren erlittener Schaden festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuyo daño recibido se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuyo daño recibido se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les dégâts subis seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui danni subiti saranno impostati.",
+                    "ja-JP": "受けるダメージが設定されるプレイヤー",
+                    "ko-KR": "받는 피해량을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze otrzymane przez których obrażenia zostaną ustawione.",
+                    "pt-BR": "Os Jogadores cujo dano recebido será definido.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение получаемого урона.",
+                    "zh-CN": "设置下列玩家受到的伤害。"
                 }
             },
             {
@@ -5553,7 +7747,19 @@ const actionKw =
                 "literalMax": 1000,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw damage received to which the player or players will set their damage received."
+                    "guid": "00000000BCE5",
+                    "en-US": "The percentage of raw damage received to which the Player or Players will set their damage received.",
+                    "de-DE": "Der Prozentsatz des absoluten erlittenen Schadens auf den der erlittene Schaden des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje del daño recibido bruto que se establecerá como daño recibido del jugador o los jugadores.",
+                    "es-MX": "El porcentaje del daño original recibido a partir del cual el jugador o los jugadores establecerán su daño recibido.",
+                    "fr-FR": "Le pourcentage des dégâts subis bruts auquel le ou les joueurs verront leurs dégâts subis fixés.",
+                    "it-IT": "La percentuale di danni grezzi subiti che sarà impostata come danni subiti dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーが自分の受けるダメージを設定する際の、通常受けるダメージのパーセンテージ",
+                    "ko-KR": "순수 피해량에 비례하도록 설정할 플레이어의 받는 피해량 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonych otrzymanych obrażeń do którego zostaną ustawione obrażenia otrzymane przez gracza lub graczy.",
+                    "pt-BR": "A porcentagem do dano bruto recebido que será usada para definir o dano recebido pelos Jogadores.",
+                    "ru-RU": "Процентная доля исходного получаемого урона к которой будет приравнена новая величина урона получаемого игроком или игроками.",
+                    "zh-CN": "将玩家所受到的伤害设置为此百分比。"
                 }
             }
         ],
@@ -5596,7 +7802,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The target player or players whose death is being considered."
+                    "guid": "000000011C09",
+                    "en-US": "The target Player or Players whose death is being considered.",
+                    "de-DE": "Der oder die Spieler deren Tod berücksichtigt wird.",
+                    "es-ES": "Jugador o jugadores objetivo cuya muerte se considera.",
+                    "es-MX": "El jugador o los jugadores objetivo cuyo muerte está en consideración.",
+                    "fr-FR": "Le ou les joueurs cibles dont la mort est prise en compte.",
+                    "it-IT": "Il Giocatore o i Giocatori bersaglio la cui morte viene considerata.",
+                    "ja-JP": "デスが評価されるプレイヤー",
+                    "ko-KR": "죽음을 판단 중인 플레이어 대상입니다.",
+                    "pl-PL": "Gracz lub gracze których śmierć zostaje uwzględniona.",
+                    "pt-BR": "Os Jogadores selecionados cuja morte está sendo considerada.",
+                    "ru-RU": "Выбранный игрок или игроки чья смерть может засчитываться.",
+                    "zh-CN": "目标玩家的阵亡将被纳入判断。"
                 }
             },
             {
@@ -5605,7 +7823,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit."
+                    "guid": "000000011C0C",
+                    "en-US": "The Player who will receive credit if the target Player or Players die to the environment before landing on the ground. An Environment Credit Player of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem der Kill angerechnet wird wenn der oder die Zielspieler aufgrund der Umgebung sterben bevor sie auf dem Boden landen. Beträgt [Environment Credit Player] Null wird der Kill keinem Spieler angerechnet.",
+                    "es-ES": "El jugador que recibirá la atribución si el jugador o jugadores objetivo sufren la muerte por el entorno antes de caer al suelo. Si el valor de «Environment Credit Player» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito si el jugador o los jugadores objetivo mueren por causa del entorno antes de aterrizar en el suelo. Un jugador de crédito por entorno con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur de l’élimination si le ou les joueurs cibles meurent à cause de l’environnement avant de toucher le sol. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che riceverà il credito se il Giocatore o i Giocatori bersaglio specificati muoiono a causa dell'ambientazione prima di toccare terra. Un valore Null per Environment Credit Player indica che nessun Giocatore riceverà il credito.",
+                    "ja-JP": "ターゲット・プレイヤーが地面に着地する前に環境によって倒された場合にキルを取ったとみなされるプレイヤー。環境要因プレイヤーが「NULL」の場合、該当者がいないことを表す",
+                    "ko-KR": "대상 플레이어가 지면에 착지하기 전에 환경 요소로 죽을 경우 기록이 집계될 플레이어입니다. Environment Credit Player가 Null이면 아무 플레이어도 집계되지 않습니다.",
+                    "pl-PL": "Gracz któremu przypisana zostanie zasługa jeśli określony docelowy gracz lub gracze zginą zabici elementem otoczenia przed wylądowaniem na ziemi. Jeśli opcja „Environment Credit Player of Null” Element otoczenia - zasługa gracza ma wartość zerową to oznacza że żadnemu graczowi nie zostanie przypisana zasługa.",
+                    "pt-BR": "O jogador que receberá crédito se os Jogadores especificados morrerem para o ambiente antes de tocar o chão. Se Jogador de Crédito de Ambiente for Nulo nenhum Jogador receberá o crédito.",
+                    "ru-RU": "Игрок которому присуждается убийство если выбранный игрок или игроки умрут до приземления от урона нанесенного объектами. Пустое значение Null означает что убийство не будет присуждаться никому.",
+                    "zh-CN": "当目标玩家在降落到地面前死于地形效果时，此消灭视为此名玩家造成的。如果“地形消灭者玩家”设置为“空”则此消灭不会归到任何玩家名下。"
                 }
             }
         ],
@@ -5632,7 +7862,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose facing will be set."
+                    "guid": "00000000BD96",
+                    "en-US": "The Player or Players whose facing will be set.",
+                    "de-DE": "Der oder die Spieler deren Blickrichtung festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya orientación se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya orientación se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont l’orientation sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui rotazione sarà impostata.",
+                    "ja-JP": "方向転換されるプレイヤー",
+                    "ko-KR": "바라보는 방향을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których skierowanie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja direção frontal será definida.",
+                    "ru-RU": "Игрок или игроки направление взгляда которых следует установить.",
+                    "zh-CN": "设置下列玩家面朝的方向。"
                 }
             },
             {
@@ -5641,7 +7883,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The unit direction in which the player or players will face. This value is normalized internally."
+                    "guid": "00000000BD95",
+                    "en-US": "The unit direction in which the Player or Players will face. This Value is normalized internally.",
+                    "de-DE": "Die normierte Richtung in die der oder die Spieler blicken. Dieser Wert wird intern normiert.",
+                    "es-ES": "Dirección a la que estarán orientados el jugador o los jugadores. Este valor se normaliza internamente.",
+                    "es-MX": "La dirección unitaria a la cual el jugador o los jugadores se orientarán. El valor se normaliza internamente.",
+                    "fr-FR": "La direction d’unité dans laquelle le ou les joueurs seront orientés. Cette valeur est normalisée en interne.",
+                    "it-IT": "La direzione unitaria verso cui il Giocatore o i Giocatori si volgeranno. Questo Valore viene normalizzato internamente.",
+                    "ja-JP": "プレイヤーが向く単位方位。この値は内部で正規化される",
+                    "ko-KR": "플레이어가 바라보게 되는 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.",
+                    "pl-PL": "Jednostkowy kierunek w którym zwrócony będzie gracz lub gracze. Wartość ta jest normalizowana wewnętrznie.",
+                    "pt-BR": "A direção unitária para a qual os Jogadores ficaráão virados. Esse Valor é normalizado internamente.",
+                    "ru-RU": "Направление в котором будет смотреть игрок или игроки. Это значение нормализуется игрой.",
+                    "zh-CN": "玩家面朝的单位方向。此值将进行内部归一化。"
                 }
             },
             {
@@ -5650,7 +7904,19 @@ const actionKw =
                 "type": "Relativity",
                 "default": "TO WORLD",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
+                    "guid": "00000000BC80",
+                    "en-US": "Specifies whether Direction is relative to world coordinates or the local coordinates of the Player or Players.",
+                    "de-DE": "Legt fest ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.",
+                    "es-ES": "Especifica si la dirección es relativa a las coordenadas del mundo o a las coordenadas locales del jugador o los jugadores.",
+                    "es-MX": "Especifica si la dirección es relativa a las coordenadas universales o a las coordenadas locales del jugador o los jugadores.",
+                    "fr-FR": "Spécifie si la direction est relative aux coordonnées globales ou aux coordonnées locales du ou des joueurs.",
+                    "it-IT": "Specifica se la Direzione è relativa alle coordinate globali o locali del Giocatore o dei Giocatori.",
+                    "ja-JP": "方向がワールド座標に対して相対的か、プレイヤーのローカル座標に対して相対的かを指定する",
+                    "ko-KR": "방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy kierunek ma odniesienie do współrzędnych świata czy też lokalnych współrzędnych gracza lub graczy.",
+                    "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
+                    "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
+                    "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
                 }
             }
         ],
@@ -5687,7 +7953,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which global variable to store the value into."
+                    "guid": "00000000BC55",
+                    "en-US": "Specifies which Global Variable to store the Value into.",
+                    "de-DE": "Legt fest in welcher globalen Variable der Wert gespeichert wird.",
+                    "es-ES": "Especifica en qué variable global debe almacenarse el valor.",
+                    "es-MX": "Especifica en cuál variable global se almacenará el valor.",
+                    "fr-FR": "Spécifie dans quelle variable globale conserver la valeur.",
+                    "it-IT": "Specifica la Variabile Globale in cui memorizzare il Valore.",
+                    "ja-JP": "値を保存するグローバル変数を指定する",
+                    "ko-KR": "어느 전역 변수에 값을 저장할지 지정합니다.",
+                    "pl-PL": "Określa w której zmiennej „Global Variable” Zmienna globalna zmagazynować wartość.",
+                    "pt-BR": "Especifica qual Variável Global armazenará o Valor.",
+                    "ru-RU": "Определяет в какую из глобальных переменных следует записать значение.",
+                    "zh-CN": "指定将值存储哪个全局变量。"
                 }
             },
             {
@@ -5699,7 +7977,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be stored."
+                    "guid": "00000000BC54",
+                    "en-US": "The Value that will be stored.",
+                    "de-DE": "Der Wert der gespeichert wird.",
+                    "es-ES": "Valor que se almacenará.",
+                    "es-MX": "El valor que se almacenará.",
+                    "fr-FR": "La valeur qui sera conservée.",
+                    "it-IT": "Il Valore che sarà memorizzato.",
+                    "ja-JP": "配列に保存される値",
+                    "ko-KR": "저장할 값입니다.",
+                    "pl-PL": "Wartość która zostanie zmagazynowana.",
+                    "pt-BR": "O Valor que será armazenado.",
+                    "ru-RU": "Значение которое будет записано.",
+                    "zh-CN": "此值将被存储。"
                 }
             }
         ],
@@ -5736,7 +8026,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array."
+                    "guid": "00000000BD99",
+                    "en-US": "Specifies which Global Variable's Value is the array to modify. If the Variable's Value is not an array then its Value becomes an empty array.",
+                    "de-DE": "Legt fest bei welchem Wert der globalen Variable es sich um das zu modifizierende Array handelt. Wenn der Wert der Variable kein Array ist wird ihr Wert zu einem leeren Array.",
+                    "es-ES": "Especifica qué valor de la variable global es la matriz que se modifica. Si el valor de la variable no es una matriz entonces su valor se convierte en una matriz vacía.",
+                    "es-MX": "Especifica qué valor de la variable global es la matriz que se modificará. Si el valor de la variable no es una matriz el valor se convertirá en una matriz vacía.",
+                    "fr-FR": "Spécifie quelle valeur de variable globale constitue le tableau à modifier. Si la valeur de la variable ne constitue pas un tableau alors sa valeur deviendra un tableau vide.",
+                    "it-IT": "Specifica quale Valore della Variabile Globale rappresenta l'array da modificare. Se il Valore della Variabile non è un array il suo Valore diventa un array vuoto.",
+                    "ja-JP": "変更する配列となる、グローバル変数の値を選択する。変数の値が配列になっていない場合、値は空の配列となる",
+                    "ko-KR": "어떤 전역 변수 값이 수정할 배열인지를 지정합니다. 변수값이 배열이 아닌 경우 해당 값은 빈 배열이 됩니다.",
+                    "pl-PL": "Określa którą wartość zmiennej „Global Variable” Zmienna globalna ma zmodyfikować tabela. Jeśli wartość zmiennej nie jest tabelą wtedy wartość staje się pustą tabelą.",
+                    "pt-BR": "Especifica qual Valor de Variável Global é a matriz a ser modificada. Se o Valor da Variável não for uma matriz então seu Valor se tornará uma matriz vazia.",
+                    "ru-RU": "Определяет какое из значений глобальной переменной является массивом который нужно изменить. Если значение переменной массивом не является оно преобразовывается в пустой массив.",
+                    "zh-CN": "指定哪个全局变量的值是要修改的数组。如果变量的值不是一个数组，则使其值变为一个空的数组。"
                 }
             },
             {
@@ -5747,7 +8049,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
+                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -5759,7 +8062,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be stored into the array."
+                    "guid": "00000000BD9A",
+                    "en-US": "The Value that will be stored into the array.",
+                    "de-DE": "Der Wert der im Array gespeichert wird.",
+                    "es-ES": "Valor que se almacenará en la matriz.",
+                    "es-MX": "El valor que se almacenará en la matriz.",
+                    "fr-FR": "La valeur qui sera conservée dans le tableau.",
+                    "it-IT": "Il Valore da memorizzare nell'array.",
+                    "ja-JP": "配列に保存される値",
+                    "ko-KR": "Array에 저장할 값입니다.",
+                    "pl-PL": "Wartość która zostanie zmagazynowana w tabeli.",
+                    "pt-BR": "O Valor que será armazenado na matriz.",
+                    "ru-RU": "Значение которое будет записано в массив.",
+                    "zh-CN": "将此值存储到数组中。"
                 }
             }
         ],
@@ -5801,7 +8116,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement gravity will be set."
+                    "guid": "00000000BCEA",
+                    "en-US": "The Player or Players whose movement gravity will be set.",
+                    "de-DE": "Der oder die Spieler deren Schwerkraft bei Bewegungen festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya gravedad de movimiento se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya gravedad de movimiento se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la gravité des mouvements sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui gravità di movimento sarà impostata.",
+                    "ja-JP": "移動にかかる重力が設定されるプレイヤー",
+                    "ko-KR": "이동 중력을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze grawitacja ruchu których zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja gravidade de movimento será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение влияния гравитации на движение.",
+                    "zh-CN": "设置下列玩家的行动引力。"
                 }
             },
             {
@@ -5812,7 +8139,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of regular movement gravity to which the player or players will set their personal movement gravity."
+                    "guid": "00000000BCEB",
+                    "en-US": "The percentage of regular movement gravity to which the Player or Players will set their personal movement gravity.",
+                    "de-DE": "Der Prozentsatz der normalen Schwerkraft bei Bewegungen auf den die persönliche Schwerkraft bei Bewegungen des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la gravedad de movimiento normal que se establecerá como gravedad de movimiento personal del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de la gravedad de movimiento regular a partir del cual el jugador o los jugadores establecerán su gravedad de movimiento personal.",
+                    "fr-FR": "Le pourcentage de la gravité des mouvements habituelle auquel le ou les joueurs verront leur gravité des mouvements personnelle fixée.",
+                    "it-IT": "La percentuale di gravità di movimento regolare che sarà impostata come gravità di movimento del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分の移動にかかる重力を設定する際の、通常自分にかかる重力のパーセンテージ",
+                    "ko-KR": "일반 이동 중력에 비례하도록 설정할 플레이어의 개인 이동 중력 비율입니다.",
+                    "pl-PL": "Procent normalnej grawitacji ruchu do którego zostanie ustawiona osobista grawitacja ruchu gracza lub graczy.",
+                    "pt-BR": "A porcentagem da gravidade de movimento regular que será usada para definir a gravidade de movimento pessoal dos Jogadores.",
+                    "ru-RU": "Процентная доля обычного влияния гравитации на движение к которой будет приравнено влияние гравитации на движение одного или нескольких игроков.",
+                    "zh-CN": "将玩家个人的行动引力设置为此百分比。"
                 }
             }
         ],
@@ -5839,7 +8178,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose healing dealt will be set."
+                    "guid": "00000000BCDB",
+                    "en-US": "The Player or Players whose healing dealt will be set.",
+                    "de-DE": "Der oder die Spieler deren verursachte Heilung festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya sanación realizada se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya sanación realizada se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les soins prodigués seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui cure fornite saranno impostate.",
+                    "ja-JP": "与える回復量が設定されるプレイヤー",
+                    "ko-KR": "주는 치유량을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze zapewnione przez których leczenie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja cura realizada será definida.",
+                    "ru-RU": "Игрок или игроки для которых задается эффективность исходящего от них исцеления.",
+                    "zh-CN": "设置下列玩家造成的治疗。"
                 }
             },
             {
@@ -5851,6 +8202,7 @@ const actionKw =
                 "literalMax": 1000,
                 "default": "NUMBER",
                 "descriptionLocalized": {
+                    "guid": "000000000F16",
                     "en-US": ""
                 }
             }
@@ -5894,7 +8246,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose healing received will be set."
+                    "guid": "00000000BCDE",
+                    "en-US": "The Player or Players whose healing received will be set.",
+                    "de-DE": "Der oder die Spieler deren erhaltene Heilung festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya sanación recibida se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya sanación recibida se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les soins reçus seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui cure ricevute saranno impostate.",
+                    "ja-JP": "受ける回復量が設定されるプレイヤー",
+                    "ko-KR": "받는 치유량을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze otrzymane przez których leczenie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja cura recebida será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение получаемого исцеления.",
+                    "zh-CN": "设置下列玩家受到的治疗。"
                 }
             },
             {
@@ -5903,7 +8267,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw healing received to which the player or players will set their healing received."
+                    "guid": "00000000BCDF",
+                    "en-US": "The percentage of raw healing received to which the Player or Players will set their healing received.",
+                    "de-DE": "Der Prozentsatz der absoluten erhaltenen Heilung auf die die erhaltene Heilung des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la sanación recibida bruta que se establecerá como sanación recibida por el jugador o los jugadores.",
+                    "es-MX": "El porcentaje de la sanación original recibida a partir del cual el jugador o los jugadores establecerán su sanación recibida.",
+                    "fr-FR": "Le pourcentage des soins reçus bruts auquel le ou les joueurs verront leurs soins reçus fixés.",
+                    "it-IT": "La percentuale di cure grezze ricevute che sarà impostata come cure ricevute dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーが自分の受ける回復量を設定する際の、通常受ける回復量のパーセンテージ",
+                    "ko-KR": "받는 순수 치유량에 비례하도록 설정할 플레이어의 받는 치유량 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonego otrzymanego leczenia do którego zostanie ustawione leczenie otrzymane przez gracza lub graczy.",
+                    "pt-BR": "A porcentagem da cura bruta recebida que será usada para definir a cura recebida pelos Jogadores.",
+                    "ru-RU": "Доля получаемого исцеления к которому будет приравнена новая величина исцеления получаемого выбранным игроком или игроками.",
+                    "zh-CN": "将玩家所受到的治疗设置为此百分比。"
                 }
             }
         ],
@@ -5945,7 +8321,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will become invisible."
+                    "guid": "00000000BD30",
+                    "en-US": "The Player or Players who will become invisible.",
+                    "de-DE": "Der oder die Spieler die unsichtbar werden.",
+                    "es-ES": "Jugador o jugadores que se volverán invisibles.",
+                    "es-MX": "El jugador o los jugadores que se volverán invisibles.",
+                    "fr-FR": "Le ou les joueurs qui deviendront invisibles.",
+                    "it-IT": "Il Giocatore o i Giocatori che diventeranno invisibili.",
+                    "ja-JP": "透明化するプレイヤー",
+                    "ko-KR": "보이지 않게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy staną się niewidzialni.",
+                    "pt-BR": "Os Jogadores que ficaráão invisívelis.",
+                    "ru-RU": "Игрок или игроки которые станут невидимыми.",
+                    "zh-CN": "下列玩家将变得隐形。"
                 }
             },
             {
@@ -5954,7 +8342,19 @@ const actionKw =
                 "type": "Invis",
                 "default": "ALL",
                 "descriptionLocalized": {
-                    "en-US": "Specifies for whom the player or players will be invisible."
+                    "guid": "00000000BD2F",
+                    "en-US": "Specifies for whom the Player or Players will be invisible.",
+                    "de-DE": "Legt fest für wen der oder die Spieler unsichtbar werden.",
+                    "es-ES": "Especifica para quién serán invisibles el jugador o los jugadores.",
+                    "es-MX": "Especifica para quién se volverá invisible el jugador o los jugadores.",
+                    "fr-FR": "Spécifie aux yeux de qui le ou les joueurs deviendront invisibles.",
+                    "it-IT": "Specifica per chi il Giocatore o i Giocatori diventeranno invisibili.",
+                    "ja-JP": "透明化したプレイヤーを見られないプレイヤーを選択する",
+                    "ko-KR": "플레이어가 보이지 않게 할 플레이어를 지정합니다.",
+                    "pl-PL": "Określa dla kogo gracz lub gracze staną się niewidzialni.",
+                    "pt-BR": "Especifica para quem os Jogadores ficaráão invisívelis.",
+                    "ru-RU": "Определяет кто именно не будет видеть игроков.",
+                    "zh-CN": "将要对下列玩家隐形。"
                 }
             }
         ],
@@ -5996,7 +8396,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to jump is affected."
+                    "guid": "0000000105A8",
+                    "en-US": "The Player or Players whose access to Jump is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf Springen betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Jump» salto se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a saltar se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à Sauter est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo del Salto.",
+                    "ja-JP": "ジャンプのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "점프 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do skoku jest zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujo acesso a Pular é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к прыжку.",
+                    "zh-CN": "下列玩家的跳跃动作将受到影响。"
                 }
             },
             {
@@ -6005,7 +8417,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare."
+                    "guid": "0000000105AA",
+                    "en-US": "Specifies whether the Player or Players are able to use Jump. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler Springen einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o los jugadores pueden usar «Jump» salto. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden saltar. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser Sauter. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare il Salto. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがジャンプを使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 점프 사용 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć skoku. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar Pular. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования прыжка игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用跳跃。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -6047,7 +8471,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose jump vertical speed will be set."
+                    "guid": "00000001122F",
+                    "en-US": "The Player or Players whose jump vertical speed will be set.",
+                    "de-DE": "Der oder die Spieler deren vertikale Sprunggeschwindigkeit festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya velocidad de salto vertical se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya velocidad vertical de salto se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la vitesse de saut verticale sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui velocità di salto verticale sarà impostata.",
+                    "ja-JP": "ジャンプ垂直速度が設定されるプレイヤー",
+                    "ko-KR": "점프 수직 속도를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których szybkość wertykalnego skoku zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja velocidade vertical de salto será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается вертикальная скорость прыжка.",
+                    "zh-CN": "设置下列玩家的跳跃垂直速度。"
                 }
             },
             {
@@ -6056,7 +8492,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 100,
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed."
+                    "guid": "000000011231",
+                    "en-US": "The percentage of raw jump vertical speed to which the Player or Players will set their jump vertical speed.",
+                    "de-DE": "Der Prozentsatz der absoluten vertikalen Sprunggeschwindigkeit auf den die vertikale Sprunggeschwindigkeit des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la velocidad de salto vertical bruta que se establecerá como velocidad de salto vertical del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de velocidad vertical de salto original a partir del cual el jugador o los jugadores establecerán su velocidad vertical de salto.",
+                    "fr-FR": "Le pourcentage de la vitesse de saut verticale brute à partir duquel sera définie la vitesse de saut verticale du ou des joueurs.",
+                    "it-IT": "La percentuale di velocità di salto verticale grezza non direzionale che sarà impostata come velocità di salto verticale non direzionale del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分のジャンプ垂直速度を設定する際の、通常ジャンプ垂直速度のパーセンテージ",
+                    "ko-KR": "플레이어가 설정하는 점프 수직 속도에 대한 순수 수직 점프 속도의 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonej szybkości wertykalnego skoku do którego zostanie ustawiona szybkość wertykalnego skoku gracza lub graczy.",
+                    "pt-BR": "O percentual da velocidade de movimento bruta que será usado para definir a velocidade de movimento dos Jogadores.",
+                    "ru-RU": "Процент от обычной вертикальной скорости прыжка который будет установлен в качестве вертикальной скорости прыжка для игрока или игроков.",
+                    "zh-CN": "将玩家的跳跃垂直速度设置为此百分比。"
                 }
             }
         ],
@@ -6098,7 +8546,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose knockback dealt will be set."
+                    "guid": "000000011FAD",
+                    "en-US": "The Player or Players whose knockback dealt will be set.",
+                    "de-DE": "Der oder die Spieler deren verursachter Rückstoß festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya repulsión infligida se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuyos derribos infligidos se establecerán.",
+                    "fr-FR": "Le ou les joueurs dont le recul infligé sera défini.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui respinta subita sarà impostata.",
+                    "ja-JP": "与えるノックバックが設定されるプレイヤー",
+                    "ko-KR": "주는 밀쳐내기를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze spowodowane przez których odrzucenie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja repulsão causada será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет установлена сила производимого отбрасывания.",
+                    "zh-CN": "设置下列玩家造成的击退。"
                 }
             },
             {
@@ -6107,7 +8567,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 100,
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt."
+                    "guid": "000000011FAF",
+                    "en-US": "The percentage of raw knockback dealt to which the Player or Players will set their knockback dealt.",
+                    "de-DE": "Der Prozentsatz des absoluten verursachten Rückstoßes auf den der verursachte Rückstoß des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la repulsión infligida bruta que se establecerá como repulsión infligida por el jugador o los jugadores.",
+                    "es-MX": "El porcentaje de los derribos originales infligidos a partir de los cuales el jugador o los jugadores establecerán sus derribos infligidos.",
+                    "fr-FR": "Le pourcentage de recul infligé brut auquel le ou les joueurs verront leur recul subi fixé.",
+                    "it-IT": "La percentuale di respinta grezza inflitta che sarà impostata come respinta inflitta dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーが自分の与えるノックバックを設定する際の、通常与えるノックバックのパーセンテージ",
+                    "ko-KR": "순수 밀쳐내기량에 비례하도록 설정할 플레이어의 주는 밀쳐내기량 비율입니다.",
+                    "pl-PL": "Procent zadawanej bazowej wartości odrzucenia do którego zostaną zrównane wartości odrzucenia otrzymywanego przez gracza lub graczy.",
+                    "pt-BR": "A porcentagem da repulsão bruta causada que será usada para definir a repulsão causada pelos Jogadores.",
+                    "ru-RU": "Величина отбрасывания которое будут производить указанный игрок или игроки в процентах.",
+                    "zh-CN": "将玩家造成的击退效果设置为其原始造成击退效果的此百分比。"
                 }
             }
         ],
@@ -6149,7 +8621,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose knockback received will be set."
+                    "guid": "000000011FB0",
+                    "en-US": "The Player or Players whose knockback received will be set.",
+                    "de-DE": "Der oder die Spieler deren erlittener Rückstoß festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya repulsión recibida se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuyos derribos recibidos se establecerán.",
+                    "fr-FR": "Le ou les joueurs dont le recul subi sera défini.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui respinta subita sarà impostata.",
+                    "ja-JP": "受けるノックバックが設定されるプレイヤー",
+                    "ko-KR": "받는 밀쳐내기를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze otrzymane przez których odrzucenie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja repulsão recebida será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет установлена сила получаемого отбрасывания.",
+                    "zh-CN": "设置下列玩家受到的击退。"
                 }
             },
             {
@@ -6158,7 +8642,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 100,
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw knockback received to which the player or players will set their knockback received."
+                    "guid": "000000011FB2",
+                    "en-US": "The percentage of raw knockback received to which the Player or Players will set their knockback received.",
+                    "de-DE": "Der Prozentsatz des absoluten erlittenen Rückstoßes auf den der erlittene Rückstoß des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la repulsión recibida bruta que se establecerá como repulsión recibida por el jugador o los jugadores.",
+                    "es-MX": "El porcentaje de los derribos originales recibidos a partir de los cuales el jugador o los jugadores establecerán sus derribos recibidos.",
+                    "fr-FR": "Le pourcentage de recul subi brut auquel le ou les joueurs verront leur recul subi fixé.",
+                    "it-IT": "La percentuale di respinta grezza subita che sarà impostata come respinta subita dal Giocatore o dai Giocatori.",
+                    "ja-JP": "プレイヤーが自分の受けるノックバックを設定する際の、通常受けるノックバックのパーセンテージ",
+                    "ko-KR": "순수 밀쳐내기량에 비례하도록 설정할 플레이어의 받는 밀쳐내기량 비율입니다.",
+                    "pl-PL": "Procent otrzymywanej bazowej wartości odrzucenia do którego zostaną zrównane wartości odrzucenia otrzymywanego przez gracza lub graczy.",
+                    "pt-BR": "A porcentagem da repulsão bruta recebida que será usada para definir a repulsão recebida pelos Jogadores.",
+                    "ru-RU": "Величина отбрасывания которое будут получать указанный игрок или игроки в процентах.",
+                    "zh-CN": "将玩家受到的击退效果设置为其原始受到击退效果的此百分比。"
                 }
             }
         ],
@@ -6197,7 +8693,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The match time in seconds."
+                    "guid": "00000000BC9D",
+                    "en-US": "The match time in seconds.",
+                    "de-DE": "Die Matchzeit in Sekunden.",
+                    "es-ES": "Tiempo de partida en segundos.",
+                    "es-MX": "El tiempo de la partida en segundos.",
+                    "fr-FR": "La durée de la partie en secondes.",
+                    "it-IT": "La durata della partita in secondi.",
+                    "ja-JP": "マッチの時間。単位は秒",
+                    "ko-KR": "경기 시간초입니다.",
+                    "pl-PL": "Czas meczu w sekundach.",
+                    "pt-BR": "O tempo da partida em segundos.",
+                    "ru-RU": "Время матча в секундах.",
+                    "zh-CN": "比赛时间，单位为秒。"
                 }
             }
         ],
@@ -6239,7 +8747,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose max ammo will be set."
+                    "guid": "0000000110F6",
+                    "en-US": "The Player or Players whose max ammo will be set.",
+                    "de-DE": "Der oder die Spieler deren maximale Munition festgelegt werden.",
+                    "es-ES": "Jugador o jugadores cuya munición máxima se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya munición máxima se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les munitions maximum seront définies.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui numero massimo di munizioni sarà impostato.",
+                    "ja-JP": "最大弾薬数が設定されるプレイヤー",
+                    "ko-KR": "최대 탄약 수를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których maksimum amunicji zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja munição máxima será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет установлено максимальное количество боеприпасов.",
+                    "zh-CN": "设置下列玩家面朝的最大弹药数量。"
                 }
             },
             {
@@ -6250,7 +8770,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades)."
+                    "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -6261,7 +8782,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The max ammo that will be set."
+                    "guid": "0000000110FC",
+                    "en-US": "The max ammo that will be set.",
+                    "de-DE": "Die maximale Munition die festgelegt wird.",
+                    "es-ES": "Munición máxima que se establecerá.",
+                    "es-MX": "La munición máxima que se establecerá.",
+                    "fr-FR": "Les munitions maximum qui seront définies.",
+                    "it-IT": "Il numero massimo di munizioni che sarà impostato.",
+                    "ja-JP": "設定される最大弾薬数",
+                    "ko-KR": "설정할 최대 탄약 수입니다.",
+                    "pl-PL": "Maksimum amunicji które zostanie ustawione.",
+                    "pt-BR": "A munição máxima que será definida.",
+                    "ru-RU": "Максимальное количество боеприпасов которое будет установлено.",
+                    "zh-CN": "要设置的最大弹药数量。"
                 }
             }
         ],
@@ -6288,7 +8821,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose max health will be set."
+                    "guid": "00000000BC83",
+                    "en-US": "The Player or Players whose max health will be set.",
+                    "de-DE": "Der oder die Spieler deren maximale Trefferpunkte festgelegt werden.",
+                    "es-ES": "Jugador o jugadores cuya salud máxima se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya salud máxima se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les points de vie maximum seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui salute massima sarà impostata.",
+                    "ja-JP": "最大ライフが設定されるプレイヤー",
+                    "ko-KR": "최대 생명력을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których maksimum zdrowia zostanie przywrócone.",
+                    "pt-BR": "Os Jogadores cuja vida máxima será definida.",
+                    "ru-RU": "Игрок или игроки которым будет установлен новый максимальный запас здоровья.",
+                    "zh-CN": "下列玩家的最大生命值将被设定。"
                 }
             },
             {
@@ -6300,7 +8845,19 @@ const actionKw =
                 "literalMax": 1000,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw max health to which the player or players will set their max health."
+                    "guid": "00000000BC84",
+                    "en-US": "The percentage of raw max health to which the Player or Players will set their max health.",
+                    "de-DE": "Der Prozentsatz der absoluten maximalen Trefferpunkte auf den die maximalen Trefferpunkte des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la salud máxima bruta que se establecerá como salud máxima del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de salud máxima original a partir del cual el jugador o los jugadores establecerán su salud máxima.",
+                    "fr-FR": "Le pourcentage des points de vie maximum bruts auquel le ou les joueurs verront leurs points de vie maximum fixés.",
+                    "it-IT": "La percentuale di salute massima grezza che il Giocatore o i Giocatori imposteranno come propria salute massima.",
+                    "ja-JP": "プレイヤーが自分の最大ライフを設定する際の、通常の最大ライフのパーセンテージ",
+                    "ko-KR": "순수 최대 생명력에 비례하도록 설정할 플레이어의 최대 생명력 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonego maksymalnego zdrowia do którego zostanie ustawione maksimum zdrowia gracza lub graczy.",
+                    "pt-BR": "A porcentagem da vida máxima bruta que será usada para definir a vida máxima dos Jogadores.",
+                    "ru-RU": "Процентная доля исходного максимального запаса здоровья к которой будет приравнен новый максимальный запас здоровья выбранного игрока или игроков.",
+                    "zh-CN": "将这些玩家的最大生命值设为其原始最大生命值的百分比。"
                 }
             }
         ],
@@ -6328,7 +8885,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to melee is affected."
+                    "guid": "000000010598",
+                    "en-US": "The Player or Players whose access to Melee is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf den Nahkampfangriff betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Melee» ataque cuerpo a cuerpo se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a usar ataques melé se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à Mêlée est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificata la Mischia.",
+                    "ja-JP": "近接攻撃へのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "근접 공격 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do ataku wręcz jest dostosowany.",
+                    "pt-BR": "Os Jogadores cujo acesso ao Corpo a Corpo é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к атаке ближнего боя.",
+                    "zh-CN": "下列玩家的近战攻击将受到影响。"
                 }
             },
             {
@@ -6337,7 +8906,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare."
+                    "guid": "000000010599",
+                    "en-US": "Specifies whether the Player or Players are able to use Melee. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler den Nahkampfangriff einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o jugadores pueden usar «Melee» ataque cuerpo a cuerpo. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden usar ataques melé. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser Mêlée. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare la Mischia. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーが近接攻撃を使用できるかどうかを指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 근접 공격 사용 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć ataku wręcz. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar Corpo a Corpo. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования атаки ближнего боя игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用近战攻击。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -6379,7 +8960,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose move speed will be set."
+                    "guid": "00000000BCE8",
+                    "en-US": "The Player or Players whose move speed will be set.",
+                    "de-DE": "Der oder die Spieler deren Bewegungsgeschwindigkeit festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya velocidad de movimiento se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya velocidad de movimiento se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la vitesse de déplacement sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui velocità di movimento non direzionale sarà impostata.",
+                    "ja-JP": "移動速度が設定されるプレイヤー",
+                    "ko-KR": "이동 속도를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których szybkość ruchu zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja velocidade de movimento será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости движения.",
+                    "zh-CN": "设置下列玩家的移动速度。"
                 }
             },
             {
@@ -6390,7 +8983,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of raw move speed to which the player or players will set their move speed."
+                    "guid": "00000000BCE7",
+                    "en-US": "The percentage of raw move speed to which the Player or Players will set their move speed.",
+                    "de-DE": "Der Prozentsatz der absoluten Bewegungsgeschwindigkeit auf den die Bewegungsgeschwindigkeit des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la velocidad de movimiento bruta que se establecerá como velocidad de movimiento del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de velocidad de movimiento original a partir del cual el jugador o los jugadores establecerán su velocidad de movimiento.",
+                    "fr-FR": "Le pourcentage de la vitesse de déplacement brute à laquelle le ou les joueurs verront leur vitesse de déplacement fixée.",
+                    "it-IT": "La percentuale di velocità di movimento grezza non direzionale che sarà impostata come velocità di movimento non direzionale del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分の移動速度を設定する際の、通常移動速度のパーセンテージ",
+                    "ko-KR": "순수 이동 속도에 비례하도록 설정할 플레이어의 이동 속도 비율입니다.",
+                    "pl-PL": "Procent nieprzetworzonej szybkości ruchu do którego zostanie ustawiona szybkość ruchu gracza lub graczy.",
+                    "pt-BR": "A porcentagem da velocidade de movimento bruta que será usada para definir a velocidade de movimento dos Jogadores.",
+                    "ru-RU": "Процентная доля исходной скорости движения к которой будет приравнена новая скорость движения выбранного игрока или игроков.",
+                    "zh-CN": "将玩家的移动速度设置为此百分比。"
                 }
             }
         ],
@@ -6432,7 +9037,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the message."
+                    "guid": "00000000BD3D",
+                    "en-US": "One or more Players who will see the message.",
+                    "de-DE": "Ein oder mehrere Spieler die die Nachricht sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el mensaje.",
+                    "es-MX": "Uno o más jugadores que verán el mensaje.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le message.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere il messaggio.",
+                    "ja-JP": "このメッセージを見ることのできる1人または複数のプレイヤー",
+                    "ko-KR": "해당 메시지를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą wiadomość.",
+                    "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
+                    "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
+                    "zh-CN": "下列玩家将看到此信息。"
                 }
             },
             {
@@ -6442,7 +9059,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "STRING",
                 "descriptionLocalized": {
-                    "en-US": "The message to be displayed."
+                    "guid": "00000000BD3E",
+                    "en-US": "The message to be displayed.",
+                    "de-DE": "Die anzuzeigende Nachricht.",
+                    "es-ES": "Mensaje que se muestra.",
+                    "es-MX": "El mensaje que se mostrará.",
+                    "fr-FR": "Le message à afficher.",
+                    "it-IT": "Il messaggio da visualizzare.",
+                    "ja-JP": "表示されるテキスト",
+                    "ko-KR": "표시할 메시지입니다.",
+                    "pl-PL": "Wiadomość do wyświetlenia.",
+                    "pt-BR": "A mensagem a ser exibida.",
+                    "ru-RU": "Отображаемое сообщение.",
+                    "zh-CN": "将要显示的信息。"
                 }
             },
             {
@@ -6451,7 +9080,19 @@ const actionKw =
                 "type": "HudReeval",
                 "default": "VISIBLE TO AND STRING",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BD45",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. The message will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Die Nachricht fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. El mensaje no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. El mensaje continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelle entrée de cette action sera continuellement réévaluée. Le message continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. Il messaggio continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。メッセージは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 메시지는 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. Wiadomość będzie prosiła o i wykorzystywała nowe wartości z ponownie oszacowanych danych wejściowych.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. A mensagem continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект сообщения будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段信息会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -6493,7 +9134,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose hero list is being set."
+                    "guid": "00000000BD38",
+                    "en-US": "The Player or Players whose hero list is being set.",
+                    "de-DE": "Der oder die Spieler deren Heldenliste festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya lista de héroes se establece.",
+                    "es-MX": "El jugador o los jugadores cuya lista de héroes se está estableciendo.",
+                    "fr-FR": "Le ou les joueurs dont la liste de héros est définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui lista di eroi sarà impostata.",
+                    "ja-JP": "ヒーロー・リストが設定されるプレイヤー",
+                    "ko-KR": "영웅 목록을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których lista bohaterów jest ustawiana.",
+                    "pt-BR": "Os Jogadores cuja lista de heróis está sendo definida.",
+                    "ru-RU": "Игрок или игроки которым нужно задать новый список героев.",
+                    "zh-CN": "设置下列玩家的英雄列表。"
                 }
             },
             {
@@ -6507,7 +9160,19 @@ const actionKw =
                 ],
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero or heroes that will be available. If no heroes are provided, the action has no effect."
+                    "guid": "00000000BD39",
+                    "en-US": "The Hero or Heroes that will be available. If no Heroes are provided the Action has no effect.",
+                    "de-DE": "Der Held oder die Helden die verfügbar sein werden. Wenn keine Helden angegeben werden hat die Aktion keinen Effekt.",
+                    "es-ES": "Héroe o los héroes que estarán disponibles. Si no se indica ningún héroe la acción no surte ningún efecto.",
+                    "es-MX": "El héroe o los héroes que estarán disponibles. Si no se detectan héroes la acción no tendrá efecto.",
+                    "fr-FR": "Le ou les héros qui seront disponibles. Si aucun héros n’est indiqué l’action n’a aucun effet.",
+                    "it-IT": "L'Eroe o gli Eroi che saranno disponibili. Se non è fornito alcun Eroe l'Azione non avrà alcun effetto.",
+                    "ja-JP": "使用できるヒーロー。ヒーローが指定されている場合、アクションは効果を発揮しない",
+                    "ko-KR": "사용할 수 있는 영웅입니다. 제공된 영웅이 없는 경우 이 액션은 아무 효과가 없습니다.",
+                    "pl-PL": "Bohater lub bohaterowie którzy będą dostępni. Jeśli nie podano żadnych bohaterów działanie nie przyniesie efektu.",
+                    "pt-BR": "Os Heróis que ficaráão disponívelis. Se nenhum Herói for fornecido a Ação não terá efeito.",
+                    "ru-RU": "Герой или герои которые будут доступны. Если ни один из героев не указан действие не вызовет никаких изменений.",
+                    "zh-CN": "可供选择的英雄。如果没有提供英雄，此动作无效。"
                 }
             }
         ],
@@ -6549,7 +9214,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose health will be set."
+                    "guid": "000000011442",
+                    "en-US": "The Player or Players whose health will be set.",
+                    "de-DE": "Der oder die Spieler deren Trefferpunkte festgelegt werden.",
+                    "es-ES": "Jugador o jugadores cuya salud se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya salud se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont les points de vie seront définis.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui salute sarà impostata.",
+                    "ja-JP": "ライフが設定されるプレイヤー",
+                    "ko-KR": "생명력을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których zdrowie zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja vida será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет установлен объем запаса здоровья.",
+                    "zh-CN": "将玩家的生命设为此值。"
                 }
             },
             {
@@ -6558,7 +9235,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": 1,
                 "descriptionLocalized": {
-                    "en-US": "How much health the player or players will have."
+                    "guid": "000000011443",
+                    "en-US": "How much health the Player or Players will have.",
+                    "de-DE": "Legt fest wie viele Trefferpunkte der oder die Spieler haben werden.",
+                    "es-ES": "Cantidad de salud que tendrán el jugador o los jugadores.",
+                    "es-MX": "La cantidad de salud que tendrá el jugador o los jugadores.",
+                    "fr-FR": "Le montant de points de vie que le ou les joueurs auront.",
+                    "it-IT": "La quantità di salute a disposizione del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーのライフ量",
+                    "ko-KR": "플레이어가 가질 수 있는 생명력의 최대치입니다.",
+                    "pl-PL": "Określa ile zdrowia będzie mieć gracz lub gracze.",
+                    "pt-BR": "Quanta vida o Jogador ou Jogadores terão.",
+                    "ru-RU": "Объем здоровья который будет задан для игрока или игроков.",
+                    "zh-CN": "玩家所能拥有的最大生命值。"
                 }
             }
         ],
@@ -6600,7 +9289,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose score will be set."
+                    "guid": "00000000BD86",
+                    "en-US": "The Player or Players whose score will be set.",
+                    "de-DE": "Der oder die Spieler deren Punktestand festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya puntuación se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya puntuación se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont le score sera défini.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui punteggio sarà impostato.",
+                    "ja-JP": "スコアが設定されるプレイヤー",
+                    "ko-KR": "점수를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których wynik zostanie ustawiony.",
+                    "pt-BR": "Os Jogadores cuja pontuação será definida.",
+                    "ru-RU": "Игрок или игроки которым будет установлен счет.",
+                    "zh-CN": "设置下列玩家的分数。"
                 }
             },
             {
@@ -6611,7 +9312,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The score that will be set."
+                    "guid": "00000000BD87",
+                    "en-US": "The score that will be set.",
+                    "de-DE": "Der Punktestand der festgelegt wird.",
+                    "es-ES": "Puntuación que se establecerá.",
+                    "es-MX": "La puntuación que se establecerá.",
+                    "fr-FR": "Le score qui sera défini.",
+                    "it-IT": "Il punteggio che sarà impostato.",
+                    "ja-JP": "設定されるスコア",
+                    "ko-KR": "설정할 점수입니다.",
+                    "pl-PL": "Wynik który zostanie ustawiony.",
+                    "pt-BR": "A pontuação que será definida.",
+                    "ru-RU": "Устанавливаемый счет.",
+                    "zh-CN": "要设置的分数。"
                 }
             }
         ],
@@ -6653,7 +9366,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will be set. If multiple players are provided, each of their variables will be set."
+                    "guid": "00000000BC58",
+                    "en-US": "The Player whose Variable will be set. If multiple Players are provided each of their Variables will be set.",
+                    "de-DE": "Der Spieler dessen Variable festgelegt wird. Wenn mehrere Spieler angegeben werden werden alle Variablen dieser Spieler festgelegt.",
+                    "es-ES": "Jugador cuya variable se establecerá. Si se indican varios jugadores se establecerá cada una de sus variables.",
+                    "es-MX": "El jugador cuya variable se establecerá. Si se detecta más de un jugador se establecerán las variables de cada uno.",
+                    "fr-FR": "Le joueur dont la variable sera définie. Si plusieurs joueurs sont indiqués chacune de leurs variables sera définie.",
+                    "it-IT": "Il Giocatore a cui appartiene la Variabile da impostare. Se sono specificati più Giocatori saranno impostate le Variabili di ogni Giocatore.",
+                    "ja-JP": "変数を設定するプレイヤー。複数プレイヤーを指定した場合、いずれの変数も変更される",
+                    "ko-KR": "변수를 설정할 플레이어입니다. 플레이어가 다수인 경우 각각의 변수가 설정됩니다.",
+                    "pl-PL": "Gracz którego zmienna zostanie ustawiona. Jeśli podano wielu graczy każda z ich zmiennych zostanie ustawiona.",
+                    "pt-BR": "O Jogador cuja Variável será definida. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será definida.",
+                    "ru-RU": "Игрок переменную которого нужно задать. Если указано несколько игроков то переменная будет задана у каждого из них.",
+                    "zh-CN": "此玩家的变量将被设置。如果有多个玩家，则每个玩家的变量都将被设置。"
                 }
             },
             {
@@ -6662,7 +9387,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to store the value into."
+                    "guid": "00000000BC59",
+                    "en-US": "Specifies which of the Player's Variables to store the Value into.",
+                    "de-DE": "Legt fest in welcher der Variablen des Spielers der Wert gespeichert wird.",
+                    "es-ES": "Especifica en qué variables del jugador debe almacenarse el valor.",
+                    "es-MX": "Especifica en cuáles variables de jugador se almacenará el valor.",
+                    "fr-FR": "Spécifie dans quelle variable du joueur conserver la valeur.",
+                    "it-IT": "Specifica in quale delle Variabili del Giocatore memorizzare il Valore.",
+                    "ja-JP": "値を保存するプレイヤー変数を指定する",
+                    "ko-KR": "값을 저장할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa w której ze zmiennych gracza zmagazynować wartość.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador armazenará o Valor.",
+                    "ru-RU": "Определяет в какую из переменных игрока следует записать значение.",
+                    "zh-CN": "指定将值存储为玩家的哪些变量。"
                 }
             },
             {
@@ -6674,7 +9411,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be stored."
+                    "guid": "00000000BC54",
+                    "en-US": "The Value that will be stored.",
+                    "de-DE": "Der Wert der gespeichert wird.",
+                    "es-ES": "Valor que se almacenará.",
+                    "es-MX": "El valor que se almacenará.",
+                    "fr-FR": "La valeur qui sera conservée.",
+                    "it-IT": "Il Valore che sarà memorizzato.",
+                    "ja-JP": "配列に保存される値",
+                    "ko-KR": "저장할 값입니다.",
+                    "pl-PL": "Wartość która zostanie zmagazynowana.",
+                    "pt-BR": "O Valor que será armazenado.",
+                    "ru-RU": "Значение которое будет записано.",
+                    "zh-CN": "此值将被存储。"
                 }
             }
         ],
@@ -6716,7 +9465,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set."
+                    "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -6725,7 +9475,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array."
+                    "guid": "00000000BD9E",
+                    "en-US": "Specifies which Player Variable's Value is the array to modify. If the Variable's Value is not an array then its Value becomes an empty array.",
+                    "de-DE": "Legt fest bei welchem Wert der Spielervariable es sich um das zu modifizierende Array handelt. Wenn der Wert der Variable kein Array ist wird ihr Wert zu einem leeren Array.",
+                    "es-ES": "Especifica qué valor de la variable de jugador es la matriz que se modifica. Si el valor de la variable no es una matriz entonces su valor se convierte en una matriz vacía.",
+                    "es-MX": "Especifica qué valor de la variable de jugador es la matriz que se modificará. Si el valor de la variable no es una matriz el valor se convertirá en una matriz vacía.",
+                    "fr-FR": "Spécifie quelle valeur de variable de joueur constitue le tableau à modifier. Si la valeur de la variable ne constitue pas un tableau alors sa valeur deviendra un tableau vide.",
+                    "it-IT": "Specifica quale Valore della Variabile Giocatore rappresenta l'array da modificare. Se il Valore della Variabile non è un array il suo Valore diventa un array vuoto.",
+                    "ja-JP": "変更する配列となる、プレイヤー変数の値を選択する。変数の値が配列になっていない場合、値は空の配列となる",
+                    "ko-KR": "플레이어 변수 값을 수정할 배열에 지정합니다. 변수값이 배열이 아닌 경우 해당 값은 빈 배열이 됩니다.",
+                    "pl-PL": "Określa którą wartość zmiennej „Player Variable” Zmienna gracza ma zmodyfikować tabela. Jeśli wartość zmiennej nie jest tabelą wtedy wartość staje się pustą tabelą.",
+                    "pt-BR": "Especifica qual Valor de Variável de Jogador é a matriz a ser modificada. Se o Valor da Variável não for uma matriz então seu Valor se tornará uma matriz vazia.",
+                    "ru-RU": "Определяет какое из значений переменной игрока является массивом который нужно изменить. Если значение переменной массивом не является оно преобразовывается в пустой массив.",
+                    "zh-CN": "指定哪个玩家变量的值是要修改的数组。如果变量的值不是一个数组，则使其值变为一个空的数组。"
                 }
             },
             {
@@ -6736,7 +9498,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero."
+                    "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -6748,7 +9511,19 @@ const actionKw =
                 ],
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The value that will be stored into the array."
+                    "guid": "00000000BD9A",
+                    "en-US": "The Value that will be stored into the array.",
+                    "de-DE": "Der Wert der im Array gespeichert wird.",
+                    "es-ES": "Valor que se almacenará en la matriz.",
+                    "es-MX": "El valor que se almacenará en la matriz.",
+                    "fr-FR": "La valeur qui sera conservée dans le tableau.",
+                    "it-IT": "Il Valore da memorizzare nell'array.",
+                    "ja-JP": "配列に保存される値",
+                    "ko-KR": "Array에 저장할 값입니다.",
+                    "pl-PL": "Wartość która zostanie zmagazynowana w tabeli.",
+                    "pt-BR": "O Valor que será armazenado na matriz.",
+                    "ru-RU": "Значение которое будет записано в массив.",
+                    "zh-CN": "将此值存储到数组中。"
                 }
             }
         ],
@@ -6790,7 +9565,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to primary fire is affected."
+                    "guid": "00000000C6BE",
+                    "en-US": "The Player or Players whose access to Primary Fire is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf den primären Feuermodus betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Primary Fire» disparo principal se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso al disparo principal se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès au tir principal est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo del Fuoco Primario.",
+                    "ja-JP": "メイン攻撃へのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "기본 발사 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do podstawowego trybu ataku jest uwzględniony.",
+                    "pt-BR": "Os Jogadores cujo acesso ao Disparo Primário é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к основному режиму огня Primary Fire.",
+                    "zh-CN": "下列玩家的主要攻击模式将受到影响。"
                 }
             },
             {
@@ -6799,7 +9586,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare."
+                    "guid": "00000000C6BF",
+                    "en-US": "Specifies whether the Player or Players are able to use Primary Fire. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler den primären Feuermodus einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o jugadores pueden usar  «Primary Fire» su disparo principal. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden utilizar su disparo principal. Espera un valor booleano como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser leur tir principal. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare il Fuoco Primario. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがメイン攻撃を使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 기본 발사 사용 여부입니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć podstawowego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare”.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar o Disparo Primário. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования игроком или игроками основного режима огня Primary Fire. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "指定一名或多名玩家是否能够使用主要攻击模式。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -6841,7 +9640,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose projectile gravity will be set."
+                    "guid": "00000000BCED",
+                    "en-US": "The Player or Players whose projectile gravity will be set.",
+                    "de-DE": "Der oder die Spieler deren Schwerkraft bei Projektilen festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya gravedad de proyectiles se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya gravedad del proyectil se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la gravité des projectiles sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui gravità dei proiettili sarà impostata.",
+                    "ja-JP": "弾にかかる重力が設定されるプレイヤー",
+                    "ko-KR": "투사체 중력을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze grawitacja pocisków których zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja gravidade de projétil será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение влияния гравитации на снаряды.",
+                    "zh-CN": "设置下列玩家的弹道引力。"
                 }
             },
             {
@@ -6852,7 +9663,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of regular projectile gravity to which the player or players will set their personal projectile gravity."
+                    "guid": "00000000BCEC",
+                    "en-US": "The percentage of regular projectile gravity to which the Player or Players will set their personal projectile gravity.",
+                    "de-DE": "Der Prozentsatz der normalen Schwerkraft bei Projektilen auf den die persönliche Schwerkraft bei Projektilen des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la gravedad de proyectiles normal que se establecerá como gravedad de proyectiles personal del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de la gravedad regular del proyectil a partir del cual el jugador o los jugadores establecerán su gravedad del proyectil personal.",
+                    "fr-FR": "Le pourcentage de la gravité des projectiles habituelle auquel le ou les joueurs verront leur gravité des projectiles personnelle fixée.",
+                    "it-IT": "La percentuale di gravità dei proiettili regolare che sarà impostata come gravità dei proiettili del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分の弾にかかる重力を設定する際の、通常弾にかかる重力のパーセンテージ",
+                    "ko-KR": "일반 투사체 중력에 비례하도록 설정할 플레이어의 개인 투사체 중력 비율입니다.",
+                    "pl-PL": "Procent normalnej grawitacji pocisków do którego zostanie ustawiona osobista grawitacja pocisków gracza lub graczy.",
+                    "pt-BR": "A porcentagem da gravidade de projétil regular que será usada para definir a gravidade de projétil pessoal dos Jogadores.",
+                    "ru-RU": "Процентная доля обычного влияния гравитации на снаряды к которой будет приравнено влияние гравитации на снаряды одного или нескольких игроков.",
+                    "zh-CN": "将玩家个人的弹道引力设置为此百分比。"
                 }
             }
         ],
@@ -6894,7 +9717,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose projectile speed will be set."
+                    "guid": "00000000BCF0",
+                    "en-US": "The Player or Players whose projectile speed will be set.",
+                    "de-DE": "Der oder die Spieler deren Projektilgeschwindigkeit festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya velocidad de proyectiles se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya velocidad del proyectil se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la vitesse des projectiles sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui velocità dei proiettili non direzionale sarà impostata.",
+                    "ja-JP": "弾速が設定されるプレイヤー",
+                    "ko-KR": "투사체 속도를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze szybkość pocisków których zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja velocidade de projétil será definida.",
+                    "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости снарядов.",
+                    "zh-CN": "设置下列玩家的弹道速度。"
                 }
             },
             {
@@ -6905,7 +9740,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of regular projectile speed to which the player or players will set their personal projectile speed."
+                    "guid": "00000000BCEF",
+                    "en-US": "The percentage of regular projectile speed to which the Player or Players will set their personal projectile speed.",
+                    "de-DE": "Der Prozentsatz der normalen Projektilgeschwindigkeit auf den die persönliche Projektilgeschwindigkeit des Spielers oder der Spieler festgelegt wird.",
+                    "es-ES": "Porcentaje de la velocidad de proyectiles normal que se establecerá como velocidad de proyectiles personal del jugador o los jugadores.",
+                    "es-MX": "El porcentaje de la velocidad regular del proyectil a partir del cual el jugador o los jugadores establecerán su velocidad del proyectil personal.",
+                    "fr-FR": "Le pourcentage de la vitesse des projectiles habituelle auquel le ou les joueurs verront leur vitesse des projectiles personnelle fixée.",
+                    "it-IT": "La percentuale di velocità dei proiettili regolare non direzionale che sarà impostata come velocità dei proiettili non direzionale del Giocatore o dei Giocatori.",
+                    "ja-JP": "プレイヤーが自分の弾速を設定する際の通常の弾速のパーセンテージ",
+                    "ko-KR": "일반 투사체 속도에 비례하도록 설정할 플레이어의 개인 투사체 속도 비율입니다.",
+                    "pl-PL": "Procent normalnej szybkości pocisków do którego zostanie ustawiona osobista szybkość pocisków gracza lub graczy.",
+                    "pt-BR": "A porcentagem da velocidade de projétil regular que será usada para definir a velocidade de projétil pessoal dos Jogadores.",
+                    "ru-RU": "Процентная доля обычной скорости снарядов к которой будет приравнена скорость снарядов одного или нескольких игроков.",
+                    "zh-CN": "将玩家个人的弹道速度设置为此百分比。"
                 }
             }
         ],
@@ -6932,7 +9779,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to reload is affected."
+                    "guid": "00000001106A",
+                    "en-US": "The Player or Players whose access to Reload is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf Nachladen betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Reload» recarga se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a recargar se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à Recharger est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificata la Ricarica.",
+                    "ja-JP": "リロードの有効化または無効化の影響を受けているプレイヤー",
+                    "ko-KR": "재장전 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do przeładowania jest zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujo acesso a Recarregar é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменится доступ к перезарядке.",
+                    "zh-CN": "下列玩家的装填将受到影响。"
                 }
             },
             {
@@ -6941,7 +9800,19 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare."
+                    "guid": "00000001106B",
+                    "en-US": "Specifies whether the Player or Players are able to use Reload. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler nachladen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o los jugadores pueden usar «Reload» recarga. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden recargar. Espera valores booleanos como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser Recharger. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare la Ricarica. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがリロードを使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 재장전 사용 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć przeładowania. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar Recarregar. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования перезарядки игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用装填。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -6983,7 +9854,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose respawn max time is being defined."
+                    "guid": "00000000BD1E",
+                    "en-US": "The Player or Players whose respawn max time is being defined.",
+                    "de-DE": "Der oder die Spieler deren maximale Wiederbelebungsdauer definiert wird.",
+                    "es-ES": "Jugador o jugadores cuyo tiempo máximo de reaparición se define.",
+                    "es-MX": "El jugador o los jugadores cuyo tiempo máximo de reaparición se está definiendo.",
+                    "fr-FR": "Le ou les joueurs dont le délai maximum de réapparition est défini.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui tempo massimo di rigenerazione sarà definito.",
+                    "ja-JP": "最大リスポーン時間を定義されようとしているプレイヤー",
+                    "ko-KR": "최대 부활 시간을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których maksymalny czas odrodzenia jest określany.",
+                    "pt-BR": "Os Jogadores cujo tempo máximo de ressurgimento está sendo definido.",
+                    "ru-RU": "Игрок или игроки для которых определяется максимальное время ожидания возрождения.",
+                    "zh-CN": "设置下列玩家的最大重生时间。"
                 }
             },
             {
@@ -6994,7 +9877,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The duration between death and respawn in seconds."
+                    "guid": "00000000BD1D",
+                    "en-US": "The duration between death and respawn in seconds.",
+                    "de-DE": "Die Dauer zwischen Tod und Wiederbelebung in Sekunden.",
+                    "es-ES": "Tiempo en segundos entre la muerte y la reaparición.",
+                    "es-MX": "La duración entre la muerte y la reaparición en segundos.",
+                    "fr-FR": "Le délai entre la mort et la réapparition en secondes.",
+                    "it-IT": "La durata dell'attesa tra morte e rigenerazione in secondi.",
+                    "ja-JP": "倒れてからリスポーンするまでの時間（秒）",
+                    "ko-KR": "사망과 부활 사이의 시간초입니다.",
+                    "pl-PL": "Czas w sekundach między śmiercią a odrodzeniem.",
+                    "pt-BR": "O intervalo entre a morte e o ressurgimento em segundos.",
+                    "ru-RU": "Длительность ожидания возрождения в секундах.",
+                    "zh-CN": "死亡与重生之间的持续时间，以秒为单位。"
                 }
             }
         ],
@@ -7036,7 +9931,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to secondary fire is affected."
+                    "guid": "00000000C6C0",
+                    "en-US": "The Player or Players whose access to Secondary Fire is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf den sekundären Feuermodus betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a «Secondary Fire» disparo secundario se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso al disparo secundario se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès au tir secondaire est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo del Fuoco Secondario.",
+                    "ja-JP": "サブ攻撃へのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "보조 발사 사용 여부를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do alternatywnego trybu ataku jest uwzględniony.",
+                    "pt-BR": "Os Jogadores cujo acesso ao Disparo Secundário é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к дополнительному режиму огня Secondary Fire.",
+                    "zh-CN": "下列玩家的辅助攻击模式将受到影响。"
                 }
             },
             {
@@ -7045,7 +9952,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare."
+                    "guid": "00000000C6C1",
+                    "en-US": "Specifies whether the Player or Players are able to use Secondary Fire. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler den sekundären Feuermodus einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o jugadores pueden usar  «Secondary Fire» su disparo secundario. Espera un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden utilizar su disparo secundario. Espera un valor booleano como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser leur tir secondaire. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare il Fuoco Secondario. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがサブ攻撃を使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어의 보조 발사 사용 여부입니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć alternatywnego trybu ataku. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare”.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar o Disparo Secundário. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования игроком или игроками дополнительного режима огня Secondary Fire. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "指定一名或多名玩家是否能够使用辅助攻击模式。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -7082,7 +10001,8 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed."
+                    "en-US": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7124,7 +10044,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to whom the status will be applied."
+                    "guid": "00000000BCA6",
+                    "en-US": "The Player or Players to whom the status will be applied.",
+                    "de-DE": "Der oder die Spieler auf die der Status angewendet wird.",
+                    "es-ES": "Jugador o jugadores a los que se les aplicará el estado.",
+                    "es-MX": "El jugador o los jugadores a quienes se les aplicará el estado.",
+                    "fr-FR": "Le ou les joueurs auxquels le statut sera appliqué.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà applicato lo stato.",
+                    "ja-JP": "ステータスを適用されるプレイヤー",
+                    "ko-KR": "상태를 적용할 대상 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którym przypisany zostanie status.",
+                    "pt-BR": "Os Jogadores a quem o status será aplicado.",
+                    "ru-RU": "Игрок или игроки к которым будет применяться статус.",
+                    "zh-CN": "下列玩家将被施加此状态。"
                 }
             },
             {
@@ -7133,7 +10065,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit."
+                    "guid": "00000000BCA7",
+                    "en-US": "Specifies a Player to be awarded assist credit should the affected Player or Players be killed while the status is in effect. An Assister of Null indicates no Player will receive credit.",
+                    "de-DE": "Legt einen Spieler fest dem ein Assist angerechnet wird falls der betroffene oder die betroffenen Spieler getötet werden während der Status aktiv ist. Beträgt [Assister] Null dann wird der Assist keinem Spieler angerechnet.",
+                    "es-ES": "Especifica un jugador al que se le atribuirá una asistencia en caso de que el jugador o los jugadores afectados mueran mientras el estado esté en vigor. Si el valor de «Assister» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "Especifica a un jugador para otorgarle crédito por asistencia en caso de que el jugador o los jugadores afectados mueran mientras el estado se encuentra en efecto. Un asistente con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Spécifie un joueur qui sera considéré comme soutien au cas où le ou les joueurs affectés seraient tués alors que le statut est actif. Si la valeur de soutien est nulle aucun joueur ne sera considéré comme soutien.",
+                    "it-IT": "Specifica un Giocatore a cui attribuire l'assist se il Giocatore o i Giocatori considerati muoiono mentre lo stato è attivo. Un valore Nullo di Assistente indica che nessun Giocatore sarà definito come autore dell'assist.",
+                    "ja-JP": "ステータスの効果発生中に影響を受けたプレイヤーを倒した場合に、アシストしたとみなされるプレイヤーを指定する。アシスターが「NULL」の場合は、該当者がいないことを表す",
+                    "ko-KR": "이 상태가 적용된 플레이어가 사망하는 경우 도움을 기록한 것으로 집계될 플레이어를 지정합니다. Assister가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Określa któremu graczowi przyznana zostanie asysta jeśli uwzględniony gracz lub gracze zostaną zabici kiedy status miał zastosowanie. Opcja „Null” Brak oznacza że nie zostanie przyznana nikomu.",
+                    "pt-BR": "Especifica um Jogador que receberá crédito por assistência caso os Jogadores afetados sejam mortos enquanto o status estiver em efeito. Um Assistente Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Определяет необходимость присуждения игроку очков содействия в случае убийства затронутого игрока или игроков во время действия статуса. Пустое значение Null переменной [Assister] означает что очки содействия не будут присуждаться никому.",
+                    "zh-CN": "如果在效果持续期间受到影响的玩家被击杀，则视为此名玩家完成的助攻。如果“助攻者”设置为“空”则此助攻不会归到任何玩家名下。"
                 }
             },
             {
@@ -7142,7 +10086,19 @@ const actionKw =
                 "type": "Status",
                 "default": "HACKED",
                 "descriptionLocalized": {
-                    "en-US": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities."
+                    "guid": "00000000BCA8",
+                    "en-US": "The status to be applied to the Player or Players. These behave similarly to statuses applied from hero abilities.",
+                    "de-DE": "Der auf den oder die Spieler anzuwendende Status. Diese verhalten sich ähnlich wie Status die über Heldenfähigkeiten angewendet werden.",
+                    "es-ES": "Estado que debe aplicarse al jugador o los jugadores. Se comporta de manera similar a los estados aplicados por habilidades de héroe.",
+                    "es-MX": "El estado que se aplicará al jugador o los jugadores. Estos se comportan de manera similar a los estados aplicados por habilidades de héroes.",
+                    "fr-FR": "Le statut à appliquer à un ou plusieurs joueurs. Ceux-ci ont un comportement similaire aux statuts appliqués par les capacités des héros.",
+                    "it-IT": "Lo stato da applicare al Giocatore o ai Giocatori. Essi agiscono in modo simile agli effetti applicati dalle abilità dell'Eroe.",
+                    "ja-JP": "プレイヤーに適用されるステータス。ヒーローのアビリティによって適用されるステータスと同様の動作をする",
+                    "ko-KR": "플레이어에게 적용할 상태입니다. 영웅 능력에 의해 적용되는 상태와 유사하게 동작합니다.",
+                    "pl-PL": "Status do zastosowania dla gracza lub graczy. Zachowuje się podobnie do statusów stosowanych do zdolności bohaterów.",
+                    "pt-BR": "O status a ser aplicado aos Jogadores. Esses status têm comportamento semelhante àqueles aplicados por habilidades de herói.",
+                    "ru-RU": "Статус применяемый к игроку или игрокам. Его действие аналогично действию статусов применяемых посредством способностей героев.",
+                    "zh-CN": "对指定玩家施加此状态。此状态与玩家使用英雄技能时施放的状态效果相同。"
                 }
             },
             {
@@ -7153,7 +10109,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999."
+                    "guid": "00000000BCA9",
+                    "en-US": "The duration of the status in seconds. To have a status that lasts until a Clear Status Action is executed provide an arbitrarily long Duration such as 9999.",
+                    "de-DE": "Die Dauer des Status in Sekunden. Für einen Status der bis zur Ausführung einer Aktion [Clear Status] bestehen bleibt muss eine Dauer mit willkürlicher Länge angegeben werden z. B. 9999.",
+                    "es-ES": "Duración del estado en segundos. Para tener un estado que dure hasta que se ejecute una acción «Clear Status» asigna una duración cualquiera que sea muy larga como 9999.",
+                    "es-MX": "La duración del estado en segundos. Para obtener un estado que dure hasta que se ejecute la acción Eliminar estado ingresa una duración arbitrariamente larga como 9999.",
+                    "fr-FR": "La durée du statut en secondes. Pour obtenir un statut qui persiste jusqu’à l’exécution d’une action « Effacer le statut » indiquez une durée de votre choix comme 9999.",
+                    "it-IT": "La durata dello stato in secondi. Per far sì che uno stato duri fino all'esecuzione dell'Azione Clear Status imposta una Durata arbitrariamente lunga come 9999.",
+                    "ja-JP": "ステータスの持続時間（秒）。「ステータスをクリア」アクションが実行されるまで持続するステータスを作成するには、9999のような長い持続時間を設定する",
+                    "ko-KR": "해당 상태의 지속 시간초입니다. 상태가 Clear Status 액션 실행에 의해 중지될 때까지 지속되게 하려면 9999등 매우 긴 시간으로 설정하십시오.",
+                    "pl-PL": "Czas trwania statusu w sekundach. Aby status trwał do uruchomienia działania „Clear Status” Usuń status podaj względnie długi czas trwania – np. 9999.",
+                    "pt-BR": "A duração do status em segundos. Para ter um status que dure até uma Ação Apagar Status ser executada forneça uma Duração arbitrariamente longa como 9999.",
+                    "ru-RU": "Длительность статуса в секундах. Чтобы статус остался до выполнения действия [Clear Status] нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
+                    "zh-CN": "状态持续时间，以秒为单位。如果要让状态持续直到执行“清除状态”动作为止，可以输入较长的持续时间，如9999。"
                 }
             }
         ],
@@ -7190,7 +10158,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team or teams whose score will be set."
+                    "guid": "00000000BD89",
+                    "en-US": "The Team or Teams whose score will be set.",
+                    "de-DE": "Das Team oder die Teams deren Punktestand festgelegt wird.",
+                    "es-ES": "Equipo o equipos cuya puntuación se establecerá.",
+                    "es-MX": "El equipo o los equipos cuya puntuación se establecerá.",
+                    "fr-FR": "L’équipe dont le score sera défini.",
+                    "it-IT": "La Squadra o le Squadre il cui punteggio sarà impostato.",
+                    "ja-JP": "スコアが設定されるチーム",
+                    "ko-KR": "점수를 설정할 팀입니다.",
+                    "pl-PL": "Drużyna lub drużyny których zostanie ustawiony.",
+                    "pt-BR": "As Equipes cuja pontuação será definida.",
+                    "ru-RU": "Команда или команды которым будет установлен счет.",
+                    "zh-CN": "要设置分数的队伍。"
                 }
             },
             {
@@ -7201,7 +10181,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The score that will be set."
+                    "guid": "00000000BD87",
+                    "en-US": "The score that will be set.",
+                    "de-DE": "Der Punktestand der festgelegt wird.",
+                    "es-ES": "Puntuación que se establecerá.",
+                    "es-MX": "La puntuación que se establecerá.",
+                    "fr-FR": "Le score qui sera défini.",
+                    "it-IT": "Il punteggio che sarà impostato.",
+                    "ja-JP": "設定されるスコア",
+                    "ko-KR": "설정할 점수입니다.",
+                    "pl-PL": "Wynik który zostanie ustawiony.",
+                    "pt-BR": "A pontuação que será definida.",
+                    "ru-RU": "Устанавливаемый счет.",
+                    "zh-CN": "要设置的分数。"
                 }
             }
         ],
@@ -7243,7 +10235,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose access to their ultimate ability is affected."
+                    "guid": "00000000BD06",
+                    "en-US": "The Player or Players whose access to their ultimate ability is affected.",
+                    "de-DE": "Der oder die Spieler deren Zugriff auf ihre ultimative Fähigkeit betroffen ist.",
+                    "es-ES": "Jugador o jugadores cuyo acceso a la habilidad definitiva se ve afectado.",
+                    "es-MX": "El jugador o los jugadores cuyo acceso a su habilidad máxima se encuentra afectado.",
+                    "fr-FR": "Le ou les joueurs dont l’accès à la capacité ultime est affecté.",
+                    "it-IT": "Il Giocatore o i Giocatori a cui verrà modificato l'utilizzo dell'Abilità Ultra.",
+                    "ja-JP": "アルティメット・アビリティへのアクセスが影響を受けているプレイヤー",
+                    "ko-KR": "궁극기 사용에 있어 영향을 받는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dostęp do superzdolności jest uwzględniony.",
+                    "pt-BR": "Os Jogadores cujo acesso à habilidade suprema é afetado.",
+                    "ru-RU": "Игрок или игроки у которых изменен доступ к суперспособности.",
+                    "zh-CN": "下列玩家的终极技能将受到影响。"
                 }
             },
             {
@@ -7252,7 +10256,19 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare."
+                    "guid": "00000000BD05",
+                    "en-US": "Specifies whether the Player or Players are able to use their ultimate ability. Expects a Boolean Value such as True False or Compare.",
+                    "de-DE": "Legt fest ob der oder die Spieler ihre ultimative Fähigkeit einsetzen können. Erwartet einen booleschen Wert wie True False oder Compare.",
+                    "es-ES": "Especifica si el jugador o los jugadores pueden usar la habilidad definitiva. Requiere un valor booleano como «True» «False» o «Compare».",
+                    "es-MX": "Especifica si el jugador o los jugadores pueden utilizar su habilidad máxima. Espera un valor booleano como verdadero falso o comparar.",
+                    "fr-FR": "Spécifie si le ou les joueurs sont capables d’utiliser leur capacité ultime. Suppose une valeur booléenne comme « Vrai » « Faux » ou « Comparer ».",
+                    "it-IT": "Specifica se il Giocatore o i Giocatori possono utilizzare l'Abilità Ultra. Necessita un Valore Booleano come True False o Compare.",
+                    "ja-JP": "プレイヤーがアルティメット・アビリティを使用できるかどうか指定する。「TRUE」「FALSE」「COMPARE」などのBoolean値で示す",
+                    "ko-KR": "플레이어가 궁극기를 사용할 수 있는지 여부를 지정합니다. True False 등의 부울 값 또는 Compare를 사용합니다.",
+                    "pl-PL": "Określa czy gracz lub gracze mogą użyć swojej superzdolności. Oczekiwany jest logiczny typ danych taki jak „True” Prawda „False” Fałsz lub „Compare” Porównaj.",
+                    "pt-BR": "Especifica se os Jogadores poderáão usar a habilidade suprema. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
+                    "ru-RU": "Определяет возможность использования суперспособности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
+                    "zh-CN": "玩家是否可以使用终极技能。此处应为一个布尔值，如“真”、“假”或“比较式”。"
                 }
             }
         ],
@@ -7294,7 +10310,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose ultimate charge will be set."
+                    "guid": "00000000BD7B",
+                    "en-US": "The Player or Players whose ultimate charge will be set.",
+                    "de-DE": "Der oder die Spieler deren Aufladung der ultimativen Fähigkeit festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya carga de definitiva se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuya carga de la habilidad máxima se establecerá.",
+                    "fr-FR": "Le ou les joueurs dont la charge ultime sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui carica dell'Ultra sarà impostata.",
+                    "ja-JP": "アルティメット・チャージが設定されるプレイヤー",
+                    "ko-KR": "궁극기 충전량을 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których naładowanie superzdolności zostanie ustawione.",
+                    "pt-BR": "Os Jogadores cuja carga de suprema será definida.",
+                    "ru-RU": "Игрок или игроки которым будет установлен уровень заряда суперспособности.",
+                    "zh-CN": "设置下列玩家的终极技能充能。"
                 }
             },
             {
@@ -7305,7 +10333,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of maximum charge."
+                    "guid": "00000000BD7C",
+                    "en-US": "The percentage of maximum charge.",
+                    "de-DE": "Der Prozentsatz der maximalen Aufladung.",
+                    "es-ES": "Porcentaje de carga máxima.",
+                    "es-MX": "El porcentaje de carga máxima.",
+                    "fr-FR": "Le pourcentage de charge maximum.",
+                    "it-IT": "La percentuale di carica massima.",
+                    "ja-JP": "最大パワーのパーセンテージ",
+                    "ko-KR": "최대 충전량 비율입니다.",
+                    "pl-PL": "Procent maksymalnego naładowania.",
+                    "pt-BR": "A porcentagem da carga máxima.",
+                    "ru-RU": "Процентная доля максимального уровня заряда.",
+                    "zh-CN": "最大的充能百分比。"
                 }
             }
         ],
@@ -7347,7 +10387,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose weapon will be set."
+                    "guid": "00000001105E",
+                    "en-US": "The Player or Players whose weapon will be set.",
+                    "de-DE": "Der oder die Spieler deren Waffe festgelegt wird.",
+                    "es-ES": "Jugador o jugadores cuya arma se establecerá.",
+                    "es-MX": "El jugador o los jugadores cuyas armas se establecerán.",
+                    "fr-FR": "Le ou les joueurs dont l’arme sera définie.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui arma sarà impostata.",
+                    "ja-JP": "武器が設定されるプレイヤー",
+                    "ko-KR": "무기를 설정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których broń zostanie ustawiona.",
+                    "pt-BR": "Os Jogadores cuja arma será definida.",
+                    "ru-RU": "Игрок или игроки для которых будет выбрано оружие.",
+                    "zh-CN": "设置下列玩家的武器。"
                 }
             },
             {
@@ -7358,7 +10410,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 0,
                 "descriptionLocalized": {
-                    "en-US": "The number of the weapon to be equipped. 1 is the first weapon, and 2 is the second. If the specified weapon does not exist, players will use the default weapon."
+                    "guid": "000000011060",
+                    "en-US": "The number of the weapon to be equipped. 1 is the first weapon and 2 is the second. If the specified weapon does not exist Players will use the default weapon.",
+                    "de-DE": "Die Nummer der auszurüstenden Waffe. 1 ist die erste Waffe 2 die zweite. Wenn die festgelegte Waffe nicht existiert verwenden die Spieler die Standardwaffe.",
+                    "es-ES": "Número del arma que se equipa. «1» es la primera y «2» la segunda. Si el arma especificada no existe los jugadores utilizarán el arma por defecto.",
+                    "es-MX": "El número correspondiente al arma que se equipará. 1 es la primera arma y 2 es la segunda. Si el arma especificada no existe los jugadores utilizarán el arma predeterminada.",
+                    "fr-FR": "Le nombre des armes à équiper. 1 correspond à la première arme et 2 à la deuxième. Si l’arme spécifiée n’existe pas les joueurs utiliseront leur arme par défaut.",
+                    "it-IT": "Il numero dell'arma da equipaggiare. 1 rappresenta la prima arma 2 la seconda. Se l'arma specificata non esiste i Giocatori useranno l'arma predefinita.",
+                    "ja-JP": "装備する武器の番号。1はメイン武器、2はサブ武器。指定された武器が存在しない場合、プレイヤーはデフォルトの武器を使う",
+                    "ko-KR": "장착할 무기의 개수입니다. 1은 첫 번째 무기 2는 두 번째 무기입니다. 지정된 무기가 없으면 플레이어는 기본 무기를 사용합니다.",
+                    "pl-PL": "Liczba broni w które zostanie wyposażona postać. 1 to pierwsza broń a 2 to druga. Jeśli określona broń nie istnieje gracze użyją swojej domyślnej.",
+                    "pt-BR": "O número da arma a ser equipada. 1 é a primeira arma e 2 a segunda. Se a arma especificada não existir os Jogadores usarão a arma padrão.",
+                    "ru-RU": "Номер оружия которое нужно взять. 1 – первое оружие 2 – второе. Если указанное оружие не существует игроки будут использовать стандартное.",
+                    "zh-CN": "正在装备的武器号码。1为主武器，2为辅助武器。如果指定的武器不存在，玩家将使用默认武器。"
                 }
             }
         ],
@@ -7398,7 +10462,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The number of actions to skip, not including this action."
+                    "guid": "00000000BD63",
+                    "en-US": "The number of Actions to skip not including this Action.",
+                    "de-DE": "Die Menge der zu überspringenden Aktionen mit Ausnahme dieser Aktion.",
+                    "es-ES": "Número de acciones que se saltan sin incluir esta acción.",
+                    "es-MX": "La cantidad de acciones que se omitirán sin incluir esta acción.",
+                    "fr-FR": "Le nombre d’actions à passer à l’exception de cette action.",
+                    "it-IT": "Il numero di Azioni da saltare esclusa questa Azione.",
+                    "ja-JP": "スキップするアクションの数（現在のアクションは含まれない）",
+                    "ko-KR": "건너뛸 액션의 수입니다. 이 액션은 제외한 개수입니다.",
+                    "pl-PL": "Liczba działań do pominięcia nie wliczając tego działania.",
+                    "pt-BR": "O número de Ações a serem ignoradas sem incluir esta Ação.",
+                    "ru-RU": "Количество пропускаемых действий не включая это действие.",
+                    "zh-CN": "跳过的动作条数，不包括此动作。"
                 }
             }
         ],
@@ -7434,7 +10510,19 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether the skip occurs."
+                    "guid": "00000000BD66",
+                    "en-US": "Specifies whether the skip occurs.",
+                    "de-DE": "Legt fest ob das Überspringen auftritt.",
+                    "es-ES": "Especifica si se produce el salto.",
+                    "es-MX": "Especifica si se efectúa la omisión.",
+                    "fr-FR": "Spécifie si l’action « Passer » a lieu.",
+                    "it-IT": "Specifica se il salto si verificherà.",
+                    "ja-JP": "スキップが発生するかどうかを指定する",
+                    "ko-KR": "건너뛰기가 일어나는지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy występuje pominięcie.",
+                    "pt-BR": "Especifica se Ações serão ignoradas ou não.",
+                    "ru-RU": "Определяет возможность пропуска.",
+                    "zh-CN": "是否跳过行动。"
                 }
             },
             {
@@ -7445,7 +10533,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The number of actions to skip, not including this action."
+                    "guid": "00000000BD65",
+                    "en-US": "The number of Actions to skip not including this Action.",
+                    "de-DE": "Die Menge der zu überspringenden Aktionen mit Ausnahme dieser Aktion.",
+                    "es-ES": "Número de acciones que se saltan sin incluir esta acción.",
+                    "es-MX": "La cantidad de acciones que se omitirán sin incluir esta acción.",
+                    "fr-FR": "Le nombre d’actions à passer à l’exception de cette action.",
+                    "it-IT": "Il numero di Azioni da saltare esclusa questa Azione.",
+                    "ja-JP": "スキップするアクションの数（現在のアクションは含まれない）",
+                    "ko-KR": "건너뛸 액션의 수입니다. 이 액션은 제외한 개수입니다.",
+                    "pl-PL": "Liczba działań do pominięcia nie wliczając tego działania.",
+                    "pt-BR": "O número de Ações a serem ignoradas sem incluir esta Ação.",
+                    "ru-RU": "Количество пропускаемых действий не включая это действие.",
+                    "zh-CN": "跳过的动作条数，不包括此动作。"
                 }
             }
         ],
@@ -7487,7 +10587,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will see the message."
+                    "guid": "00000000BD3D",
+                    "en-US": "One or more Players who will see the message.",
+                    "de-DE": "Ein oder mehrere Spieler die die Nachricht sehen werden.",
+                    "es-ES": "Uno o más jugadores que verán el mensaje.",
+                    "es-MX": "Uno o más jugadores que verán el mensaje.",
+                    "fr-FR": "Un ou plusieurs joueurs qui verront le message.",
+                    "it-IT": "Uno o più Giocatori che potranno vedere il messaggio.",
+                    "ja-JP": "このメッセージを見ることのできる1人または複数のプレイヤー",
+                    "ko-KR": "해당 메시지를 보게 될 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zobaczą wiadomość.",
+                    "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
+                    "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
+                    "zh-CN": "下列玩家将看到此信息。"
                 }
             },
             {
@@ -7497,7 +10609,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "STRING",
                 "descriptionLocalized": {
-                    "en-US": "The message to be displayed."
+                    "guid": "00000000BD3E",
+                    "en-US": "The message to be displayed.",
+                    "de-DE": "Die anzuzeigende Nachricht.",
+                    "es-ES": "Mensaje que se muestra.",
+                    "es-MX": "El mensaje que se mostrará.",
+                    "fr-FR": "Le message à afficher.",
+                    "it-IT": "Il messaggio da visualizzare.",
+                    "ja-JP": "表示されるテキスト",
+                    "ko-KR": "표시할 메시지입니다.",
+                    "pl-PL": "Wiadomość do wyświetlenia.",
+                    "pt-BR": "A mensagem a ser exibida.",
+                    "ru-RU": "Отображаемое сообщение.",
+                    "zh-CN": "将要显示的信息。"
                 }
             }
         ],
@@ -7539,7 +10663,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players that will begin accelerating."
+                    "guid": "00000000BD77",
+                    "en-US": "The Player or Players that will begin accelerating.",
+                    "de-DE": "Der oder die Spieler die beschleunigt werden.",
+                    "es-ES": "Jugador o jugadores que empiezan a acelerarse.",
+                    "es-MX": "El jugador o los jugadores que comenzarán su aceleración.",
+                    "fr-FR": "Le ou les joueurs qui commenceront à accélérer.",
+                    "it-IT": "Il Giocatore o i Giocatori che inizieranno ad accelerare.",
+                    "ja-JP": "加速を開始するプレイヤー",
+                    "ko-KR": "가속하기 시작할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zaczną przyspieszać.",
+                    "pt-BR": "Os Jogadores que começaráão a acelerar.",
+                    "ru-RU": "Игрок или игроки которые начнут ускоряться.",
+                    "zh-CN": "下列玩家将开始加速。"
                 }
             },
             {
@@ -7548,7 +10684,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The unit direction in which the acceleration will be applied. This value is normalized internally."
+                    "guid": "00000000BD76",
+                    "en-US": "The unit direction in which the acceleration will be applied. This Value is normalized internally.",
+                    "de-DE": "Die normierte Richtung in der die Beschleunigung angewendet wird. Dieser Wert wird intern normiert.",
+                    "es-ES": "Dirección en la que se aplicará la aceleración. Este valor se normaliza internamente.",
+                    "es-MX": "La dirección unitaria a la cual se le aplicará la aceleración. El valor se normaliza internamente.",
+                    "fr-FR": "La direction d’unité dans laquelle l’accélération sera appliquée. Cette valeur est normalisée en interne.",
+                    "it-IT": "La direzione unitaria verso cui l'accelerazione sarà applicata. Questo Valore viene normalizzato internamente.",
+                    "ja-JP": "加速が適応される単位方位。この値は内部で正規化される",
+                    "ko-KR": "가속을 적용할 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.",
+                    "pl-PL": "Jednostkowy kierunek w którym zastosowane zostanie przyspieszenie. Wartość jest normalizowana wewnętrznie.",
+                    "pt-BR": "A direção unitária na qual a aceleração será aplicada. Esse Valor é normalizado internamente.",
+                    "ru-RU": "Направление в котором применяется ускорение. Это значение нормализуется игрой.",
+                    "zh-CN": "施加加速度的单位方向。此值将进行内部归一化。"
                 }
             },
             {
@@ -7557,7 +10705,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction."
+                    "guid": "00000000BD75",
+                    "en-US": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity andor surface friction.",
+                    "de-DE": "Die Höhe der Beschleunigung in Metern pro Quadratsekunde. Dieser Wert muss ggf. relativ hoch sein um die Schwerkraft undoder Oberflächenreibung zu überwinden.",
+                    "es-ES": "Aceleración en metros por segundo al cuadrado. Puede que este valor tenga que ser bastante alto para superar la gravedad yo la fricción superficial.",
+                    "es-MX": "La velocidad de aceleración en metros por segundo al cuadrado. Este valor puede que necesite ser bastante alto para superar la gravedad yo la fricción de la superficie.",
+                    "fr-FR": "Le taux d’accélération en mètres par seconde carrée. Cette valeur doit potentiellement être fortement élevée afin de surmonter la gravité etou la friction.",
+                    "it-IT": "La velocità di accelerazione in metri al secondo al quadrato. Potrebbe essere necessario un valore molto alto per ostacolare la gravità eo l'attrito con la superficie.",
+                    "ja-JP": "加速度（メートル毎秒毎秒）。重力または面摩擦もしくはその両方を克服するためにはかなり高い値が必要になる場合がある",
+                    "ko-KR": "가속 비율제곱초당 미터입니다. 중력이나 표면 마찰력을 이겨내려면 이 값이 매우 높아야 할 수 있습니다.",
+                    "pl-PL": "Tempo przyspieszenia w metrach na sekundę do kwadratu. Wartość ta może wymagać dość wysokiego poziomu aby przezwyciężyć grawitację ilub tarcie powierzchniowe.",
+                    "pt-BR": "A taxa de aceleração em metros por segundo ao quadrado. Pode ser necessário que esse valor seja bem alto para superar a gravidade eou a fricção da superfície.",
+                    "ru-RU": "Ускорение в метрах в секунду в квадрате. Это значение должно быть достаточно высоким для преодоления сил тяжести иили поверхностного трения.",
+                    "zh-CN": "加速度，单位为米秒²。需要较大的加速度才能够克服引力和或表面摩擦力。"
                 }
             },
             {
@@ -7566,7 +10726,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction."
+                    "guid": "00000000BD74",
+                    "en-US": "The speed at which acceleration will stop for the Player or Players. It may not be possible to reach this speed due to gravity andor surface friction.",
+                    "de-DE": "Die Geschwindigkeit bei der die Beschleunigung für den oder die Spieler beendet wird. Diese Geschwindigkeit kann ggf. aufgrund von Schwerkraft undoder Oberflächenreibung nicht erreicht werden.",
+                    "es-ES": "Velocidad a la que se detiene la aceleración del jugador o los jugadores. Puede que no sea posible alcanzar esta velocidad debido a la gravedad yo la fricción superficial.",
+                    "es-MX": "La velocidad a la cual la aceleración del jugador o los jugadores se detendrá. Puede que no sea posible alcanzar esta velocidad a causa de la gravedad yo la fricción de la superficie.",
+                    "fr-FR": "La vitesse à laquelle l’accélération cessera pour le ou les joueurs. Il sera peut-être impossible d’atteindre cette vitesse en raison de la gravité etou de la friction.",
+                    "it-IT": "La velocità non direzionale alla quale l'accelerazione si fermerà per il Giocatore o i Giocatori. Potrebbe non essere possibile raggiungere tale velocità a causa della gravità eo l'attrito con la superficie.",
+                    "ja-JP": "プレイヤーの加速が停止する速さ。重力または面摩擦もしくはその両方のため、この速さに到達しない場合がある",
+                    "ko-KR": "플레이어의 가속이 중지되는 속력입니다. 중력 및 표면 마찰력 때문에 이 속도에 도달하기는 불가능할 수 있습니다.",
+                    "pl-PL": "Szybkość przy której zatrzyma się przyspieszanie dla gracza lub graczy. Jej osiągnięcie może okazać się niemożliwe z powodu grawitacji ilub tarcia powierzchniowego.",
+                    "pt-BR": "A velocidade na qual a aceleração parará para os Jogadores. Talvez não seja possível atingir essa velocidade devido à gravidade eou à fricção da superfície.",
+                    "ru-RU": "Скорость при достижении которой ускорение игрока или игроков прекратится. В некоторых случаях конечная скорость недостижима из-за действия сил тяжести иили поверхностного трения.",
+                    "zh-CN": "玩家达到此速度后会停止。由于引力和或表面摩擦力的存在，可能将无法达到此速度。"
                 }
             },
             {
@@ -7575,7 +10747,19 @@ const actionKw =
                 "type": "Relativity",
                 "default": "TO WORLD",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
+                    "guid": "00000000BC80",
+                    "en-US": "Specifies whether Direction is relative to world coordinates or the local coordinates of the Player or Players.",
+                    "de-DE": "Legt fest ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.",
+                    "es-ES": "Especifica si la dirección es relativa a las coordenadas del mundo o a las coordenadas locales del jugador o los jugadores.",
+                    "es-MX": "Especifica si la dirección es relativa a las coordenadas universales o a las coordenadas locales del jugador o los jugadores.",
+                    "fr-FR": "Spécifie si la direction est relative aux coordonnées globales ou aux coordonnées locales du ou des joueurs.",
+                    "it-IT": "Specifica se la Direzione è relativa alle coordinate globali o locali del Giocatore o dei Giocatori.",
+                    "ja-JP": "方向がワールド座標に対して相対的か、プレイヤーのローカル座標に対して相対的かを指定する",
+                    "ko-KR": "방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy kierunek ma odniesienie do współrzędnych świata czy też lokalnych współrzędnych gracza lub graczy.",
+                    "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
+                    "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
+                    "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
                 }
             },
             {
@@ -7584,7 +10768,19 @@ const actionKw =
                 "type": "AccelReeval",
                 "default": "DIRECTION, RATE, AND MAX SPEED",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -7626,7 +10822,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose cameras will be placed at the location."
+                    "guid": "00000000C396",
+                    "en-US": "The Player or Players whose cameras will be placed at the location.",
+                    "de-DE": "Der oder die Spieler deren Kameras an der Position platziert werden.",
+                    "es-ES": "Jugador o jugadores cuyas cámaras se colocarán en la ubicación.",
+                    "es-MX": "El jugador o los jugadores cuyas cámaras se colocarán en la ubicación.",
+                    "fr-FR": "Le ou les joueurs dont les caméras seront placées à l’endroit défini.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui telecamere saranno posizionate nel luogo specificato.",
+                    "ja-JP": "カメラを配置されるプレイヤー",
+                    "ko-KR": "카메라를 해당 위치에 배치할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kamery zostaną umieszczone w lokalizacji.",
+                    "pt-BR": "Os Jogadores cujas câmeras serão posicionadas no local.",
+                    "ru-RU": "Игрок или игроки камеры которых будут расположены в указанном местоположении.",
+                    "zh-CN": "将下列玩家的镜头放置于此。"
                 }
             },
             {
@@ -7635,7 +10843,19 @@ const actionKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position of the camera. Reevaluates continuously."
+                    "guid": "00000000C398",
+                    "en-US": "The position of the camera. Reevaluates continuously.",
+                    "de-DE": "Die Position der Kamera. Wird kontinuierlich neu berechnet.",
+                    "es-ES": "Posición de la cámara. Se revalúa continuamente.",
+                    "es-MX": "La posición de la cámara. Se reevalúa continuamente.",
+                    "fr-FR": "La position de la caméra. Réévaluée en continu.",
+                    "it-IT": "La posizione della telecamera. Viene rivalutata continuamente.",
+                    "ja-JP": "カメラの位置。継続的に再評価する",
+                    "ko-KR": "카메라 위치입니다. 지속적으로 확인됩니다.",
+                    "pl-PL": "Pozycja kamery. Stale szacowana od nowa.",
+                    "pt-BR": "A posição da câmera. É reavaliada continuamente.",
+                    "ru-RU": "Положение камеры. Проверяется постоянно.",
+                    "zh-CN": "镜头的位置。持续重新赋值。"
                 }
             },
             {
@@ -7644,7 +10864,19 @@ const actionKw =
                 "type": "Position",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "Where the camera looks at. Reevaluates continuously."
+                    "guid": "00000000C39A",
+                    "en-US": "Where the camera looks at. Reevaluates continuously.",
+                    "de-DE": "Wohin die Kamera ausgerichtet ist. Wird kontinuierlich neu berechnet.",
+                    "es-ES": "Hacia dónde mira la cámara. Se revalúa continuamente.",
+                    "es-MX": "El lugar hacia donde mira la cámara. Se reevalúa continuamente.",
+                    "fr-FR": "La cible de la caméra. Réévaluée en continu.",
+                    "it-IT": "La direzione di osservazione della telecamera. Viene rivalutata continuamente.",
+                    "ja-JP": "カメラが映す地点。継続的に再評価する",
+                    "ko-KR": "카메라가 바라보는 방향입니다. 지속적으로 확인됩니다.",
+                    "pl-PL": "Gdzie patrzy kamera. Stale szacowana od nowa.",
+                    "pt-BR": "Para onde a câmera olha. É reavaliada continuamente.",
+                    "ru-RU": "Направление камеры. Проверяется постоянно.",
+                    "zh-CN": "镜头望向的位置。持续重新赋值。"
                 }
             },
             {
@@ -7653,7 +10885,8 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly."
+                    "en-US": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7695,7 +10928,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose incoming damage will be modified (when attacked by the damagers)."
+                    "guid": "00000000C640",
+                    "en-US": "The Player or Players whose incoming damage will be modified when attacked by the Damagers.",
+                    "de-DE": "Der oder die Spieler deren erlittener Schaden modifiziert wird wenn sie von den Schadensverursachern angegriffen werden.",
+                    "es-ES": "El jugador o jugadores cuyo daño recibido se modificará al recibir ataques de los dañadores.",
+                    "es-MX": "El jugador o los jugadores cuyo daño entrante será modificado al ser atacados por los infligidores de daño.",
+                    "fr-FR": "Le ou les joueurs dont les dégâts subis seront modifiés quand ils sont attaqués par les émetteurs.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui danni in arrivo saranno modificati quando vengono attaccati dagli Attaccanti.",
+                    "ja-JP": "受けるダメージが変更されるプレイヤー（ダメージャーに攻撃されている場合）",
+                    "ko-KR": "Damager의 공격을 받는 경우 받는 피해를 수정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze obrażenia otrzymywane przez których będą modyfikowane podczas ataku raniących.",
+                    "pt-BR": "Os Jogadores cujo dano recebido será modificado pelo ataque dos Danificadores.",
+                    "ru-RU": "Игрок или игроки у которых будет изменен размер получаемого урона при атаках игроков из списка наносящих урон [Damagers].",
+                    "zh-CN": "修正下列玩家受到的伤害（被“伤害者”攻击时）。"
                 }
             },
             {
@@ -7709,7 +10954,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose outgoing damage will be modified (when attacking the receivers)."
+                    "guid": "00000000C63E",
+                    "en-US": "The Player or Players whose outgoing damage will be modified when attacking the Receivers.",
+                    "de-DE": "Der oder die Spieler deren ausgeteilter Schaden modifiziert werden wird wenn sie Schadenserleider angreifen.",
+                    "es-ES": "El jugador o jugadores cuyo daño infligido se modificará al atacar a los receptores.",
+                    "es-MX": "El jugador o los jugadores cuyo daño saliente será modificado al atacar a los receptores.",
+                    "fr-FR": "Le ou les joueurs dont les dégâts infligés seront modifiés en attaquant les récepteurs de dégâts.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui danni in uscita saranno modificati quando attaccano i Ricevitori.",
+                    "ja-JP": "与えるダメージが変更されるプレイヤー（レシーバーを攻撃している場合）",
+                    "ko-KR": "Receiver를 공격하는 경우 주는 피해를 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których wyjściowe dane obrażeń będą modyfikowane podczas ataku raniących.",
+                    "pt-BR": "Os Jogadores cujo dano causado será modificado ao atacar os Receptores.",
+                    "ru-RU": "Игрок или игроки у которых будет изменен размер наносимого урона при атаках на игроков из списка получающих урон [Receivers].",
+                    "zh-CN": "修正下列玩家造成的伤害（攻击“受伤害者”时）。"
                 }
             },
             {
@@ -7718,7 +10975,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of damage that will apply to receivers when attacked by damagers."
+                    "guid": "00000000C63F",
+                    "en-US": "The percentage of damage that will apply to Receivers when attacked by Damagers.",
+                    "de-DE": "Der Prozentsatz an Schaden der den Schadenserleidern zugefügt wird wenn sie von Schadensverursachern angegriffen werden.",
+                    "es-ES": "El porcentaje de daño que se aplicará a los receptores cuando reciban ataques de los dañadores.",
+                    "es-MX": "El porcentaje de daño que se aplicará a los receptores al ser atacados por los infligidores de daño.",
+                    "fr-FR": "Le pourcentage de dégâts qui s’appliquera aux récepteurs quand ils seront attaqués par les émetteurs.",
+                    "it-IT": "La percentuale di danni che verrà applicata ai Ricevitori quando vengono attaccati dagli Attaccanti.",
+                    "ja-JP": "ダメージャーに攻撃されたレシーバーに適用されるダメージのパーセンテージ",
+                    "ko-KR": "Damager의 공격을 받는 경우 Receiver에게 적용할 피해 비율입니다.",
+                    "pl-PL": "Procent obrażeń zastosowanych na ranionych atakowanych przez raniących.",
+                    "pt-BR": "A porcentagem de dano que será aplicada aos Receptores quando forem atacados pelos Danificadores.",
+                    "ru-RU": "Процентная доля урона которая будет применена к получающим урон при атаках игроков из списка наносящих урон [Damagers].",
+                    "zh-CN": "伤害者对受伤害者造成伤害将调整至百分比。"
                 }
             },
             {
@@ -7727,7 +10996,19 @@ const actionKw =
                 "type": "DamageReeval",
                 "default": "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -7769,7 +11050,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will receive the damage over time."
+                    "guid": "00000000BD0E",
+                    "en-US": "One or more Players who will receive the Damage Over Time.",
+                    "de-DE": "Ein oder mehrere Spieler die den regelmäßigen Schaden erhalten.",
+                    "es-ES": "Uno o más jugadores que recibirán el «Damage Over Time».",
+                    "es-MX": "Uno o más jugadores que recibirán el daño con el tiempo.",
+                    "fr-FR": "Un joueur ou plus qui subiront les dégâts sur la durée.",
+                    "it-IT": "Uno o più Giocatori che subiranno i Danni Periodici.",
+                    "ja-JP": "継続ダメージを受ける1人または複数のプレイヤー",
+                    "ko-KR": "Damage Over Time을 적용할 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy otrzymają obrażenia z upływem czasu „Damage Over Time” Obrażenia z upływem czasu.",
+                    "pt-BR": "Um ou mais Jogadores que receberão o Dano ao Longo do Tempo.",
+                    "ru-RU": "Один или несколько игроков к которым будет применяться эффект периодического урона.",
+                    "zh-CN": "在下列玩家身上施加持续伤害效果。"
                 }
             },
             {
@@ -7778,7 +11071,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit."
+                    "guid": "00000000BC73",
+                    "en-US": "The Player who will receive credit for the damage. A Damager of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem der Schaden angerechnet wird. Beträgt [Damager] Null dann wird der Schaden keinem Spieler angerechnet.",
+                    "es-ES": "Jugador al que se le atribuirá haber infligido el daño. Si el valor de «Damager» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito por el daño. Un dañador con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur des dégâts. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che sarà specificato come autore dei danni. Un valore Nullo indica che nessun Giocatore sarà definito come autore dei danni.",
+                    "ja-JP": "ダメージを与えたとみなされるプレイヤー。ダメージャーが「NULL」の場合、該当者がいないことを表す",
+                    "ko-KR": "피해를 주는 행동을 한 것으로 집계될 플레이어입니다. Damager가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Gracz któremu zaliczone zostaną zadane obrażenia. „Null” Brak oznacza że nie zostaną zaliczone nikomu.",
+                    "pt-BR": "O Jogador que receberá crédito pelo dano. Um Danificador Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Игрок который получит очки за урон. Пустое значение Null переменной [Damager] означает что очки не будут присуждаться никому.",
+                    "zh-CN": "伤害视为此名玩家造成的。如果“伤害者”设置为“空”则此伤害不会归到任何玩家名下。"
                 }
             },
             {
@@ -7787,7 +11092,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999."
+                    "guid": "00000000BD0C",
+                    "en-US": "The duration of the Damage Over Time in seconds. To have a DOT that lasts until stopped by script provide an arbitrarily long Duration such as 9999.",
+                    "de-DE": "Die Dauer des regelmäßigen Schadens in Sekunden. Für regelmäßigen Schaden der anhält bis er durch ein Skript beendet wird muss eine Dauer mit willkürlicher Länge angegeben werden z. B. 9999.",
+                    "es-ES": "Duración de «Damage Over Time» en segundos. Para tener una instancia que dure hasta que la detenga un script asigna una duración cualquiera que sea muy larga como 9999.",
+                    "es-MX": "La duración del daño con el tiempo en segundos. Para obtener un DCT que dure hasta que lo detenga una secuencia ingresa una duración arbitrariamente larga como 9999.",
+                    "fr-FR": "La durée des dégâts sur la durée en secondes. Pour obtenir des dégâts sur la durée qui persistent jusqu’à leur arrêt par un script indiquez une durée de votre choix comme 9999.",
+                    "it-IT": "La durata dei Danni Periodici in secondi. Per far sì che i DP durino fino all'interruzione da parte dello script imposta una Durata arbitrariamente lunga come 9999.",
+                    "ja-JP": "継続ダメージの持続時間（秒）。スクリプトで停止させるまで持続する継続ダメージを作成するには、9999のような長い持続時間を設定する",
+                    "ko-KR": "Damage Over Time의 지속 시간초입니다. Damage Over Time이 스크립트에 의해 중지될 때까지 지속되게 하려면 지속 시간을 매우 길게 설정하십시오. 9999 등",
+                    "pl-PL": "Czas trwania „Damage Over Time” Obrażenia z upływem czasu w sekundach. Aby DOT trwało do zatrzymania przez skrypt podaj względnie długi czas trwania – np. 9999.",
+                    "pt-BR": "A duração do Dano ao Longo do Tempo em segundos. Para ter um DLT que dure até ser interrompido por script forneça uma Duração arbitrariamente longa como 9999.",
+                    "ru-RU": "Длительность эффекта периодического урона в секундах. Чтобы эффект останавливался только посредством скрипта нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
+                    "zh-CN": "持续伤害的持续时间，以秒为单位。如果要让状态持续到被程序终止为止，可以输出较长的持续时间，如9999。"
                 }
             },
             {
@@ -7796,7 +11113,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The damage per second for the damage over time."
+                    "guid": "00000000BD0B",
+                    "en-US": "The damage per second for the Damage Over Time.",
+                    "de-DE": "Der Schaden pro Sekunde für den regelmäßigen Schaden.",
+                    "es-ES": "Daño por segundo de «Damage Over Time».",
+                    "es-MX": "El daño por segundo del daño con el tiempo.",
+                    "fr-FR": "Les dégâts par seconde infligés par l’instance de dégâts sur la durée.",
+                    "it-IT": "I danni al secondo inflitti dai Danni Periodici.",
+                    "ja-JP": "継続ダメージの1秒あたりのダメージ",
+                    "ko-KR": "Damage Over Time의 초당 피해량입니다.",
+                    "pl-PL": "Obrażenia na sekundę dla „Damage Over Time” Obrażenia z upływem czasu.",
+                    "pt-BR": "O dano por segundo do Dano ao Longo do Tempo.",
+                    "ru-RU": "Количество урона в секунду для переменной [Damage Over Time].",
+                    "zh-CN": "持续伤害每秒造成的伤害值。"
                 }
             }
         ],
@@ -7838,7 +11167,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will start turning."
+                    "guid": "00000000BD82",
+                    "en-US": "The Player or Players who will start turning.",
+                    "de-DE": "Der oder die Spieler die gedreht werden.",
+                    "es-ES": "Jugador o jugadores que empezarán a girarse.",
+                    "es-MX": "El jugador o los jugadores que comenzarán a girar.",
+                    "fr-FR": "Le ou les joueurs qui commenceront à pivoter.",
+                    "it-IT": "Il Giocatore o i Giocatori che inizieranno a ruotare.",
+                    "ja-JP": "方向転換を始めるプレイヤー",
+                    "ko-KR": "회전시킬 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy zaczną się obracać.",
+                    "pt-BR": "Os Jogadores que começaráão a girar.",
+                    "ru-RU": "Игрок или игроки которые начнут поворачиваться.",
+                    "zh-CN": "下列玩家将开始转向。"
                 }
             },
             {
@@ -7847,7 +11188,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The unit direction in which the player or players will eventually face. This value is normalized internally."
+                    "guid": "00000000BD80",
+                    "en-US": "The unit direction in which the Player or Players will eventually face. This Value is normalized internally.",
+                    "de-DE": "Die normierte Richtung in die der oder die Spieler letztendlich blicken. Dieser Wert wird intern normiert.",
+                    "es-ES": "Dirección en la que el jugador o los jugadores estarán orientados al final. Este valor se normaliza internamente.",
+                    "es-MX": "La dirección unitaria a la cual el jugador o los jugadores se orientarán finalmente. El valor se normaliza internamente.",
+                    "fr-FR": "La direction vers laquelle le ou les joueurs finiront par être tournés. Cette valeur est normalisée en interne.",
+                    "it-IT": "La direzione unitaria verso cui il Giocatore o i Giocatori si volgeranno alla fine del movimento. Questo Valore viene normalizzato internamente.",
+                    "ja-JP": "プレイヤーが最終的に向く単位方位。この値は内部で正規化される",
+                    "ko-KR": "플레이어가 궁극적으로 바라보게 되는 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.",
+                    "pl-PL": "Jednostkowy kierunek w którym ostatecznie zwrócony będzie gracz lub gracze. Wartość ta jest normalizowana wewnętrznie.",
+                    "pt-BR": "A direção unitária para a qual os Jogadores terminaráão virados. Esse Valor é normalizado internamente.",
+                    "ru-RU": "Направление в котором в итоге должен смотреть игрок или игроки. Значение нормализуется встроенными механизмами игры.",
+                    "zh-CN": "玩家最终将面朝的单位方向。此值将进行内部归一化。"
                 }
             },
             {
@@ -7856,7 +11209,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The turn rate in degrees per second."
+                    "guid": "00000000BD7F",
+                    "en-US": "The turn rate in degrees per second.",
+                    "de-DE": "Die Drehgeschwindigkeit in Grad pro Sekunde.",
+                    "es-ES": "Frecuencia de giro en grados por segundo.",
+                    "es-MX": "La velocidad de giro en grados por segundo.",
+                    "fr-FR": "La vitesse de rotation en degrés par seconde.",
+                    "it-IT": "La frequenza di rotazione in secondi.",
+                    "ja-JP": "方向転換の1秒あたりの角度",
+                    "ko-KR": "초당 회전율도입니다.",
+                    "pl-PL": "Tempo obrotu w stopniach na sekundę.",
+                    "pt-BR": "A taxa de giro em graus por segundo.",
+                    "ru-RU": "Скорость поворота градусы в секунду.",
+                    "zh-CN": "角速率，单位为度秒。"
                 }
             },
             {
@@ -7865,7 +11230,19 @@ const actionKw =
                 "type": "Relativity",
                 "default": "TO WORLD",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
+                    "guid": "00000000BC80",
+                    "en-US": "Specifies whether Direction is relative to world coordinates or the local coordinates of the Player or Players.",
+                    "de-DE": "Legt fest ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.",
+                    "es-ES": "Especifica si la dirección es relativa a las coordenadas del mundo o a las coordenadas locales del jugador o los jugadores.",
+                    "es-MX": "Especifica si la dirección es relativa a las coordenadas universales o a las coordenadas locales del jugador o los jugadores.",
+                    "fr-FR": "Spécifie si la direction est relative aux coordonnées globales ou aux coordonnées locales du ou des joueurs.",
+                    "it-IT": "Specifica se la Direzione è relativa alle coordinate globali o locali del Giocatore o dei Giocatori.",
+                    "ja-JP": "方向がワールド座標に対して相対的か、プレイヤーのローカル座標に対して相対的かを指定する",
+                    "ko-KR": "방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy kierunek ma odniesienie do współrzędnych świata czy też lokalnych współrzędnych gracza lub graczy.",
+                    "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
+                    "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
+                    "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
                 }
             },
             {
@@ -7874,7 +11251,19 @@ const actionKw =
                 "type": "FacingReeval",
                 "default": "DIRECTION AND TURN RATE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -7916,7 +11305,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their outline modified."
+                    "en-US": "The player or players who will have their outline modified.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7930,7 +11320,8 @@ const actionKw =
                 ],
                 "default": "All Players",
                 "descriptionLocalized": {
-                    "en-US": "The viewing player or players for whom the viewed player's outline will be modified."
+                    "en-US": "The viewing player or players for whom the viewed player's outline will be modified.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7939,7 +11330,19 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "Whether or not the specified player outlines should be visible."
+                    "guid": "000000011302",
+                    "en-US": "Whether or not the specified Player Outlines should be visible.",
+                    "de-DE": "Legt fest ob die festgelegten Spielerumrandungen sichtbar sein sollen.",
+                    "es-ES": "Determina si los contornos de jugador especificados son visibles.",
+                    "es-MX": "Verifica si los contornos del jugador especificado deben ser visibles o no.",
+                    "fr-FR": "Si les contours des joueurs spécifiés doivent être visibles ou non.",
+                    "it-IT": "Specifica se i Contorni dei Giocatori specificati sono visibili.",
+                    "ja-JP": "指定されたプレイヤー・アウトラインを表示するかどうか",
+                    "ko-KR": "지정된 플레이어의 외곽선을 표시할지 여부입니다.",
+                    "pl-PL": "Czy określone obrysy graczy powinny być widoczne.",
+                    "pt-BR": "Se os Contornos de Jogador especificados estarão visíveis.",
+                    "ru-RU": "Определяет видимы ли контуры указанных игроков.",
+                    "zh-CN": "指定玩家的轮廓是否可见。"
                 }
             },
             {
@@ -7948,7 +11351,8 @@ const actionKw =
                 "type": "Color",
                 "default": "White",
                 "descriptionLocalized": {
-                    "en-US": "The color of the specified player outlines, if they are visible."
+                    "en-US": "The color of the specified player outlines, if they are visible.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -7957,7 +11361,8 @@ const actionKw =
                 "type": "OutlineVisibility",
                 "default": "DEFAULT",
                 "descriptionLocalized": {
-                    "en-US": "The visibility type of the specified player outlines, if they are visible."
+                    "en-US": "The visibility type of the specified player outlines, if they are visible.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -7979,7 +11384,19 @@ const actionKw =
                 "type": "Player",
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose position will be forced. (The reevaluation option does not apply to this value.)"
+                    "guid": "000000010E8A",
+                    "en-US": "The Player whose position will be forced. The Reevaluation option does not apply to this value.",
+                    "de-DE": "Der Spieler dessen Position erzwungen wird. Die Option [Reevaluation] wird nicht auf diesen Wert angewendet.",
+                    "es-ES": "Jugador cuya posición se forzará. La opción de revaluación no se aplica a este valor.",
+                    "es-MX": "El jugador cuya posición se forzará. La opción de reevaluación no aplica para este valor.",
+                    "fr-FR": "Le joueur dont la position sera forcée. L’option « Réévaluation » ne s’applique pas à cette valeur.",
+                    "it-IT": "Il Giocatore la cui posizione sarà forzata. L'opzione Rivalutazione non si applica a questo valore.",
+                    "ja-JP": "位置が強制されるプレイヤー（再評価オプションはこの値に適用されない）",
+                    "ko-KR": "위치를 강제할 플레이어입니다. Reevaluation 설정은 이 값에 영향을 주지 않습니다.",
+                    "pl-PL": "Gracz którego pozycja zostanie wymuszona opcja „Reevaluation” – Ponowne oszacowanie – nie ma zastosowania dla tej wartości.",
+                    "pt-BR": "O Jogador cuja posição será forçada a opção de Reavaliação não se aplica a este valor.",
+                    "ru-RU": "Игрок позиция которого будет принудительно назначаться. К данному значению циклическая проверка не применяется.",
+                    "zh-CN": "强制设置此玩家的位置。（重新赋值选项不会影响此值。）"
                 }
             },
             {
@@ -7989,7 +11406,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time."
+                    "guid": "000000010E8B",
+                    "en-US": "The position the Player will occupy. If Reevaluation is enabled this value can be used to move the Player around over time.",
+                    "de-DE": "Die Position die der Spieler einnehmen wird. Wenn [Reevaluation] aktiviert ist kann dieser Wert genutzt werden um den Spieler nach und nach fortzubewegen.",
+                    "es-ES": "La posición que ocupará el jugador. Si la revaluación está habilitada este valor se puede usar para mover al jugador con el tiempo.",
+                    "es-MX": "La posición que ocupará el jugador. Si la reevaluación está activada se puede usar este valor para mover al jugador a lo largo del tiempo.",
+                    "fr-FR": "La position qu’occupera le joueur. Si « Réévaluation » est activée cette valeur peut être utilisée pour déplacer le joueur au fil du temps.",
+                    "it-IT": "La posizione che occuperà il Giocatore. Se la Rivalutazione è attivata questo valore può essere usato per spostare il Giocatore nel corso del tempo.",
+                    "ja-JP": "プレイヤーが占有する位置。再評価が有効になっている場合、この値を使うことで時間経過とともにプレイヤーを移動させられる",
+                    "ko-KR": "플레이어가 있을 위치입니다. Reevaluation이 활성화되면 이 값을 사용하여 플레이어를 그동안 움직일 수 있습니다.",
+                    "pl-PL": "Pozycja którą zajmie gracz. Jeśli „Reevaluation” Ponowne oszacowanie jest włączone wartość ta może być użyta do przemieszczania gracza z upływem czasu.",
+                    "pt-BR": "A posição que o Jogador ocupará. Se a Reavaliação for ativada este valor poderá ser usado para mover o Jogador ao longo do tempo.",
+                    "ru-RU": "Определяет позицию которую займет игрок. При включенном пересчете координат это значение можно использовать чтобы с течением времени перемещать игрока.",
+                    "zh-CN": "将指定玩家设置至此位置。如果“重新赋值”选项启动，会使用这个值强制使玩家移动。"
                 }
             },
             {
@@ -7998,7 +11427,8 @@ const actionKw =
                 "type": "bool",
                 "default": "TRUE",
                 "descriptionLocalized": {
-                    "en-US": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins."
+                    "en-US": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8040,7 +11470,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will be forced to be a specific hero."
+                    "guid": "00000000BC8F",
+                    "en-US": "The Player or Players who will be forced to be a specific Hero.",
+                    "de-DE": "Der oder die Spieler die gezwungen werden einen bestimmten Helden zu spielen.",
+                    "es-ES": "Jugador o jugadores que se verán obligados a ser un héroe concreto.",
+                    "es-MX": "El jugador o los jugadores que serán forzados a utilizar un héroe determinado.",
+                    "fr-FR": "Le ou les joueurs qui seront forcés d’incarner un héros spécifique.",
+                    "it-IT": "Il Giocatore o i Giocatori che saranno forzati a usare un Eroe specifico.",
+                    "ja-JP": "特定のヒーローでのプレイを強制されるプレイヤー",
+                    "ko-KR": "지정된 영웅이 강제 선택되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracz u których wymuszony zostanie konkretny bohater.",
+                    "pt-BR": "Os Jogadores que seráão forçados a usar um Herói específico.",
+                    "ru-RU": "Игрок или игроки для которых будет включено принудительное использование указанного героя.",
+                    "zh-CN": "下列玩家将被强制使用指定英雄。"
                 }
             },
             {
@@ -8049,7 +11491,19 @@ const actionKw =
                 "type": "Hero",
                 "default": "HERO",
                 "descriptionLocalized": {
-                    "en-US": "The hero that the player or players will be forced to be."
+                    "guid": "00000000BC90",
+                    "en-US": "The Hero that the Player or Players will be forced to be.",
+                    "de-DE": "Der Held der für den oder die Spieler erzwungen wird.",
+                    "es-ES": "Héroe que el jugador o los jugadores se verán obligados a ser.",
+                    "es-MX": "El héroe que el jugador o los jugadores estarán forzados a utilizar.",
+                    "fr-FR": "Le héros que le ou les joueurs seront forcés d’incarner.",
+                    "it-IT": "L'Eroe che il Giocatore o i Giocatori saranno forzati a usare.",
+                    "ja-JP": "プレイヤーがプレイを強制されるヒーロー",
+                    "ko-KR": "플레이어에게 강제로 설정된 영웅입니다.",
+                    "pl-PL": "Bohater którego użycie zostanie wymuszone dla gracza lub graczy.",
+                    "pt-BR": "O Herói que os Jogadores seráão forçados a usar.",
+                    "ru-RU": "Герой за которого принудительно будет играть один или несколько игроков.",
+                    "zh-CN": "玩家将被强制使用的英雄。"
                 }
             }
         ],
@@ -8086,7 +11540,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team whose spawn room will be forced."
+                    "guid": "00000000BCA1",
+                    "en-US": "The Team whose spawn room will be forced.",
+                    "de-DE": "Das Team dessen Startbereich erzwungen wird.",
+                    "es-ES": "Equipo cuya sala de inicio se forzará.",
+                    "es-MX": "El equipo cuyo cuarto de reaparición se forzará.",
+                    "fr-FR": "L’équipe dont la salle d’apparition sera forcée.",
+                    "it-IT": "La Squadra la cui area di partenza sarà forzata.",
+                    "ja-JP": "リスポーンエリアを強制されるチーム",
+                    "ko-KR": "전투준비실을 강제할 팀입니다.",
+                    "pl-PL": "Drużyna której pomieszczenie startowe zostanie wymuszone.",
+                    "pt-BR": "A Equipe cuja sala de ressurgimento será forçada.",
+                    "ru-RU": "Команда для которой будет включено возрождение только в указанной стартовой комнате.",
+                    "zh-CN": "这支队伍将被强制使用指定重生室。"
                 }
             },
             {
@@ -8096,7 +11562,8 @@ const actionKw =
                 "canReplace0ByFalse": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room."
+                    "en-US": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8138,7 +11605,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement will be forced or limited."
+                    "guid": "00000000BD6D",
+                    "en-US": "The Player or Players whose movement will be forced or limited.",
+                    "de-DE": "Der oder die Spieler deren Bewegung erzwungen oder verhindert wird.",
+                    "es-ES": "Jugador o jugadores cuyo movimiento se forzará o limitará.",
+                    "es-MX": "El jugador o los jugadores cuyo movimiento será forzado o limitado.",
+                    "fr-FR": "Le ou les joueurs dont le mouvement sera forcé ou limité.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui movimento sarà forzato o limitato.",
+                    "ja-JP": "移動を強制または制限されるプレイヤー",
+                    "ko-KR": "강제 이동되거나 이동이 제한될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których ruch zostanie wymuszony lub ograniczony.",
+                    "pt-BR": "Os Jogadores cuja movimentação será forçada ou limitada.",
+                    "ru-RU": "Игрок или игроки передвижение которых будет принудительным или ограниченным.",
+                    "zh-CN": "下列玩家将被强制或限制移动。"
                 }
             },
             {
@@ -8149,7 +11628,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the minimum run forward amount. 0 allows the player or players to stop while 1 forces full forward movement."
+                    "guid": "00000000BD6C",
+                    "en-US": "Sets the minimum run forward amount. 0 allows the Player or Players to stop while 1 forces full forward movement.",
+                    "de-DE": "Legt den Mindestwert der Vorwärtsbewegung fest. Mit 0 können der oder die Spieler anhalten 1 erzwingt volle Bewegung nach vorne.",
+                    "es-ES": "Establece la cantidad mínima de carrera hacia delante. «0» permite que el jugador o los jugadores se detengan mientras que «1» fuerza un movimiento de avance completo.",
+                    "es-MX": "Establece la distancia mínima que se puede correr hacia adelante. 0 permite que el jugador o los jugadores se detengan mientras que 1 fuerza el movimiento hacia adelante.",
+                    "fr-FR": "Définit la valeur minimum de course en avant. 0 permet aux joueurs de s’arrêter tandis que 1 force le mouvement intégral en avant.",
+                    "it-IT": "Imposta la quantità minima di corsa in avanti. Un valore pari a 0 consente al Giocatore o ai Giocatori di fermarsi mentre un valore pari a 1 forza pieno movimento in avanti.",
+                    "ja-JP": "前方に走る最短距離を設定する。0に設定するとプレイヤーは停止し、1に設定すると前方に走れるようになる",
+                    "ko-KR": "전방 달리기의 최소값을 설정합니다. 0이면 플레이어가 정지할 수 있지만 1일 경우 최대 속도로 강제 전방 이동합니다.",
+                    "pl-PL": "Ustawia minimalną wartość biegu naprzód. 0 pozwala graczowi lub graczom zatrzymać się a 1 wymusza pełny ruch naprzód.",
+                    "pt-BR": "Define a quantidade mínima de corrida frontal. 0 permite que os Jogadores parem enquanto 1 força movimento frontal total.",
+                    "ru-RU": "Устанавливает минимальное значение для движения вперед. Значение 0 позволяет игроку или игрокам останавливаться значение 1 принуждает егоих двигаться вперед на полной скорости.",
+                    "zh-CN": "设置向前行进的最小速度。设为0时玩家可以停下，设为1时将强迫玩家全速向前移动。"
                 }
             },
             {
@@ -8160,7 +11651,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the maximum run forward amount. 0 prevents the player or players from moving forward while 1 allows full forward movement."
+                    "guid": "00000000BD6B",
+                    "en-US": "Sets the maximum run forward amount. 0 prevents the Player or Players from moving forward while 1 allows full forward movement.",
+                    "de-DE": "Legt den Höchstwert der Vorwärtsbewegung fest. Mit 0 werden der oder die Spieler daran gehindert sich nach vorne zu bewegen 1 ermöglicht volle Bewegung nach vorne.",
+                    "es-ES": "Establece la cantidad máxima de carrera hacia delante. «0» impide que el jugador o los jugadores avancen mientras que «1» permite un movimiento de avance completo.",
+                    "es-MX": "Establece la distancia máxima que se puede correr hacia adelante. 0 impide que el jugador o los jugadores se muevan hacia adelante mientras que 1 permite el movimiento hacia adelante.",
+                    "fr-FR": "Définit la valeur maximum de course en avant. 0 empêche les joueurs d’avancer tandis que 1 permet le mouvement intégral en avant.",
+                    "it-IT": "Imposta la quantità massima di corsa in avanti. Un valore pari a 0 impedisce al Giocatore o ai Giocatori di muoversi in avanti mentre un valore pari a 1 consente pieno movimento.",
+                    "ja-JP": "前方に走る最長距離を設定する。0に設定するとプレイヤーは前進できなくなり、1に設定すると前進できるようになる",
+                    "ko-KR": "전방 달리기의 최대값을 설정합니다. 0이면 플레이어가 움직일 수 없지만 1일 경우 원하는 대로 전방 이동이 가능합니다.",
+                    "pl-PL": "Ustawia maksymalną wartość biegu naprzód. 0 zatrzymuje ruch gracza lub graczy naprzód a 1 pozwala na pełny ruch naprzód.",
+                    "pt-BR": "Define a quantidade máxima de corrida frontal. 0 impede que os Jogadores andem para a frente enquanto 1 permite movimento frontal total.",
+                    "ru-RU": "Устанавливает максимальное значение для движения вперед. Значение 0 не позволяет игроку или игрокам двигаться вперед значение 1 позволяет емуим двигаться вперед на полной скорости.",
+                    "zh-CN": "设置向前行进的最大速度。设为0时玩家将无法前进，设为1时玩家可以全速向前移动。"
                 }
             },
             {
@@ -8171,7 +11674,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the minimum run backward amount. 0 allows the player or players to stop while 1 forces full backward movement."
+                    "guid": "00000000BD6A",
+                    "en-US": "Sets the minimum run backward amount. 0 allows the Player or Players to stop while 1 forces full backward movement.",
+                    "de-DE": "Legt den Mindestwert der Rückwärtsbewegung fest. Mit 0 können der oder die Spieler anhalten 1 erzwingt volle Bewegung nach hinten.",
+                    "es-ES": "Establece la cantidad mínima de carrera hacia atrás. «0» permite que el jugador o los jugadores se detengan mientras que «1» fuerza un movimiento de retroceso completo.",
+                    "es-MX": "Establece la distancia mínima que se puede correr hacia atrás. 0 permite que el jugador o los jugadores se detengan mientras que 1 fuerza el movimiento hacia atrás.",
+                    "fr-FR": "Définit la valeur minimum de course en arrière. 0 permet aux joueurs de s’arrêter tandis que 1 force le mouvement intégral en arrière.",
+                    "it-IT": "Imposta la quantità minima di corsa all'indietro. Un valore pari a 0 consente al Giocatore o ai Giocatori di fermarsi mentre un valore pari a 1 forza pieno movimento all'indietro.",
+                    "ja-JP": "後方に走る最短距離を設定する。0に設定するとプレイヤーは停止し、1に設定すると後退できるようになる",
+                    "ko-KR": "후방 달리기의 최소값을 설정합니다. 0이면 플레이어가 정지할 수 있지만 1일 경우 최대 속도로 강제 후방 이동합니다.",
+                    "pl-PL": "Ustawia minimalną wartość biegu do tyłu. 0 pozwala graczowi lub graczom zatrzymać się a 1 wymusza pełny ruch do tyłu.",
+                    "pt-BR": "Define a quantidade mínima de corrida para trás. 0 permite que os Jogadores parem enquanto 1 força movimento total para trás.",
+                    "ru-RU": "Устанавливает минимальное значение для движения назад. Значение 0 позволяет игроку или игрокам останавливаться значение 1 принуждает егоих двигаться назад на полной скорости.",
+                    "zh-CN": "设置向后行进的最小速度。设为0时玩家可以停下，设为1时将强迫玩家全速向后移动。"
                 }
             },
             {
@@ -8182,7 +11697,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the maximum run backward amount. 0 prevents the player or players from moving backward while 1 allows full backward movement."
+                    "guid": "00000000BD69",
+                    "en-US": "Sets the maximum run backward amount. 0 prevents the Player or Players from moving backward while 1 allows full backward movement.",
+                    "de-DE": "Legt den Höchstwert der Rückwärtsbewegung fest. Mit 0 werden der oder die Spieler daran gehindert sich nach hinten zu bewegen 1 ermöglicht volle Bewegung nach hinten.",
+                    "es-ES": "Establece la cantidad máxima de carrera hacia atrás. «0» impide que el jugador o los jugadores retrocedan mientras que «1» permite un movimiento de retroceso completo.",
+                    "es-MX": "Establece la distancia máxima que se puede correr hacia atrás. 0 impide que el jugador o los jugadores se muevan hacia atrás mientras que 1 permite el movimiento hacia atrás.",
+                    "fr-FR": "Définit la valeur maximum de course en arrière. 0 empêche les joueurs de reculer tandis que 1 permet le mouvement intégral en arrière.",
+                    "it-IT": "Imposta la quantità massima di corsa all'indietro. Un valore pari a 0 impedisce al Giocatore o ai Giocatori di muoversi all'indietro mentre un valore pari a 1 consente pieno movimento.",
+                    "ja-JP": "後方に走る最長距離を設定する。0に設定するとプレイヤーは後退できなくなり、1に設定すると後退できるようになる",
+                    "ko-KR": "후방 달리기의 최대값을 설정합니다. 0이면 플레이어가 움직일 수 없지만 1일 경우 원하는 대로 후방 이동이 가능합니다.",
+                    "pl-PL": "Ustawia maksymalną wartość biegu do tyłu. 0 zatrzymuje ruch gracza lub graczy do tyłu a 1 pozwala na pełny ruch do tyłu.",
+                    "pt-BR": "Define a quantidade máxima de corrida para trás. 0 impede que os Jogadores andem para trás enquanto 1 permite movimento total para trás.",
+                    "ru-RU": "Устанавливает максимальное значение для движения назад. Значение 0 не позволяет игроку или игрокам двигаться назад значение 1 позволяет емуим двигаться назад на полной скорости.",
+                    "zh-CN": "设置向后行进的最大速度。设为0时玩家将无法后退，设为1时玩家可以全速向后移动。"
                 }
             },
             {
@@ -8193,7 +11720,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement."
+                    "en-US": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8204,7 +11732,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "Sets the maximum run sideways amount. 0 prevents the player or players from moving SIDEWAYS while 1 allows full sideways movement."
+                    "guid": "00000000BD67",
+                    "en-US": "Sets the maximum run sideways amount. 0 prevents the Player or Players from moving sideways while 1 allows full sideways movement.",
+                    "de-DE": "Legt den Höchstwert der Seitwärtsbewegung fest. Mit 0 werden der oder die Spieler daran gehindert sich seitlich zu bewegen 1 ermöglicht volle Bewegung zur Seite.",
+                    "es-ES": "Establece la cantidad máxima de carrera lateral. «0» impide que el jugador o los jugadores se desplacen lateralmente mientras que «1» permite un movimiento lateral completo.",
+                    "es-MX": "Establece la distancia máxima que se puede correr hacia los lados. 0 impide que el jugador o los jugadores se muevan hacia los lados mientras que 1 permite el movimiento hacia los lados.",
+                    "fr-FR": "Définit la valeur maximum de course latérale. 0 empêche les joueurs de bouger de côté tandis que 1 permet le mouvement latéral intégral.",
+                    "it-IT": "Imposta la quantità massima di corsa laterale. Un valore pari a 0 impedisce al Giocatore o ai Giocatori di muoversi lateralmente mentre un valore pari a 1 consente pieno movimento.",
+                    "ja-JP": "横方向に走る最長距離を設定する。0に設定するとプレイヤーは横方向へ走れなくなり、1に設定すると横方向に走れるようになる",
+                    "ko-KR": "측방 달리기의 최대값을 설정합니다. 0이면 플레이어가 움직일 수 없지만 1일 경우 원하는 대로 좌우 측방 이동이 가능합니다.",
+                    "pl-PL": "Ustawia maksymalną wartość biegu w bok. 0 zatrzymuje ruch gracza lub graczy w bok a 1 pozwala na pełny ruch w bok.",
+                    "pt-BR": "Define a quantidade máxima de corrida lateral. 0 impede que os Jogadores andem para o lado enquanto 1 permite movimento lateral total.",
+                    "ru-RU": "Устанавливает максимальное значение для движения вбок. Значение 0 не позволяет игроку или игрокам двигаться вбок значение 1 позволяет емуим двигаться вбок на полной скорости.",
+                    "zh-CN": "设置侧向行进的最大速度。设为0时玩家将无法侧移，设为1时玩家可以全速向侧向移动。"
                 }
             }
         ],
@@ -8246,7 +11786,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The target Player or Players who will receive assist credit."
+                    "en-US": "The target Player or Players who will receive assist credit.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8260,7 +11801,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister, this will be a defensive assist. Otherwise, this will be an offensive assist."
+                    "guid": "000000012205",
+                    "en-US": "The Player or Players whose eliminations will grant assist credit to the Assisters. If the Target or Targets are allied to the Assister this will be a defensive assist. Otherwise this will be an offensive assist.",
+                    "de-DE": "Der oder die Spieler deren Eliminierungen den Assisters als Assists angerechnet werden. Wenn das Ziel oder die Ziele Verbündete des Assisters sind werden defensive Assists angerechnet. Andernfalls werden offensive Assists angerechnet.",
+                    "es-ES": "Jugador o jugadores cuyas eliminaciones atribuirán asistencia a los asistentes. Si el objetivo u objetivos son aliados del asistente contará como asistencia defensiva. En caso contrario contará como asistencia ofensiva.",
+                    "es-MX": "El jugador o los jugadores cuyas eliminaciones otorgarán crédito por asistencia a los asistentes. Si el objetivo o los objetivos son aliados del asistente esta será una asistencia defensiva. De lo contrario será una asistencia ofensiva.",
+                    "fr-FR": "Le ou les joueurs dont les éliminations feront que d’autres joueurs seront considérés comme soutiens. Si la cible ou les cibles sont alliées au soutien il s’agira d’un soutien défensif. Sinon il s’agira d’un soutien offensif.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui eliminazioni forniscono credito per gli assist agli Assistenti. Se il Bersaglio o i Bersagli sono alleati dell'Assistente l'assist sarà di tipo difensivo. Altrimenti l'assist sarà di tipo offensivo.",
+                    "ja-JP": "キルを決めるとアシスターがアシストしたとみなされるプレイヤー。ターゲットがアシスターの味方の場合は防衛アシストになる。そうでない場合は攻撃アシストになる",
+                    "ko-KR": "처치할 때 Assister가 도움 행동을 한 것으로 집계될 플레이어입니다. 대상이 Assister의 아군이면 방어형 도움입니다. 그 외에는 공격형 도움입니다.",
+                    "pl-PL": "Gracz lub Gracze których likwidowanie zapewni asystę. Jeżeli cel lub cele są sprzymierzone z asystującym będzie to asysta defensywna. W przeciwnym razie będzie to asysta ofensywna.",
+                    "pt-BR": "Os Jogadores cujas eliminações darão crédito aos Assistentes. Se o Assistente for Aliado dos Alvos será uma assistência defensiva. Caso contrário será uma assistência ofensiva.",
+                    "ru-RU": "Игрок или игроки за убийства которых будут начислены очки содействующим. Если цель или цели являются союзниками содействующего содействие считается защитным. В противном случае оно будет считаться боевым.",
+                    "zh-CN": "下列玩家被消灭时，会将助攻归于助攻者名下。如果目标和助攻者为盟友，则为协助防守。否则为协助进攻。"
                 }
             },
             {
@@ -8269,7 +11822,8 @@ const actionKw =
                 "type": "AssistReeval",
                 "default": "Assisters and Targets",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs."
+                    "en-US": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8296,7 +11850,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "One or more players who will receive the heal over time."
+                    "guid": "00000000BD1B",
+                    "en-US": "One or more Players who will receive the Heal Over Time.",
+                    "de-DE": "Ein oder mehrere Spieler die die Heilung über Zeit erhalten.",
+                    "es-ES": "Uno o más jugadores que recibirán el «Heal Over Time».",
+                    "es-MX": "Uno o más jugadores que recibirán la sanación con el tiempo.",
+                    "fr-FR": "Un joueur ou plus qui bénéficieront des soins sur la durée.",
+                    "it-IT": "Uno o più Giocatori che riceveranno le Cure Periodiche.",
+                    "ja-JP": "継続回復を受ける1人または複数のプレイヤー",
+                    "ko-KR": "Heal Over Time을 적용할 플레이어입니다.",
+                    "pl-PL": "Jeden lub więcej graczy którzy zostaną wyleczenie z upływem czasu.",
+                    "pt-BR": "Um ou mais Jogadores que receberão a Cura ao Longo do Tempo.",
+                    "ru-RU": "Один или несколько игроков к которым будет применяться эффект периодического исцеления.",
+                    "zh-CN": "下列玩家会受到持续治疗。"
                 }
             },
             {
@@ -8305,7 +11871,19 @@ const actionKw =
                 "type": "Player",
                 "default": "NULL",
                 "descriptionLocalized": {
-                    "en-US": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit."
+                    "guid": "00000000BC6F",
+                    "en-US": "The Player who will receive credit for the healing. A Healer of Null indicates no Player will receive credit.",
+                    "de-DE": "Der Spieler dem die Heilung angerechnet wird. Beträgt [Healer] Null dann wird die Heilung keinem Spieler angerechnet.",
+                    "es-ES": "Jugador al que se le atribuirá la sanación. Si el valor de «Healer» es «Null» no se le atribuirá a ningún jugador.",
+                    "es-MX": "El jugador que recibirá el crédito por la sanación. Un sanador con valor nulo indica que ningún jugador recibirá el crédito.",
+                    "fr-FR": "Le joueur considéré comme l’auteur des soins. Si la valeur est nulle aucun joueur ne sera considéré comme l’auteur.",
+                    "it-IT": "Il Giocatore che sarà specificato come autore della cura. Un valore Nullo indica che nessun Giocatore sarà definito come autore della cura.",
+                    "ja-JP": "回復を行ったとみなされるプレイヤー。ヒーラーが「NULL」の場合は、該当者がいないことを表す",
+                    "ko-KR": "치유 행동을 한 것으로 집계될 플레이어입니다. Healer가 Null이면 집계될 플레이어가 없음을 의미합니다.",
+                    "pl-PL": "Gracz któremu zaliczone zostanie zapewnione leczenie. „Null” Brak oznacza że nie zostanie zaliczone nikomu.",
+                    "pt-BR": "O Jogador que receberá crédito pela cura. Um Curandeiro Nulo indica que nenhum Jogador receberá crédito.",
+                    "ru-RU": "Игрок который получит очки за исцеление. Пустое значение Null переменной [Healer] означает что очки не будут присуждаться никому.",
+                    "zh-CN": "治疗视为此名玩家造成的。如果“治疗者”设置为“空”则此治疗不会归到任何玩家名下。"
                 }
             },
             {
@@ -8314,7 +11892,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999."
+                    "guid": "00000000BD19",
+                    "en-US": "The duration of the Heal Over Time in seconds. To have a HOT that lasts until stopped by script provide an arbitrarily long Duration such as 9999.",
+                    "de-DE": "Die Dauer der Heilung über Zeit in Sekunden. Für Heilung über Zeit die anhält bis sie durch ein Skript beendet wird muss eine Dauer mit willkürlicher Länge angegeben werden z. B. 9999.",
+                    "es-ES": "Duración de «Heal Over Time» en segundos. Para tener una instancia que dure hasta que la detenga un script asigna una duración cualquiera que sea muy larga como 9999.",
+                    "es-MX": "La duración de la sanación con el tiempo en segundos. Para obtener una SCT que dure hasta que lo detenga una secuencia ingresa una duración arbitrariamente larga como 9999.",
+                    "fr-FR": "La durée des soins sur la durée en secondes. Pour obtenir des soins sur la durée qui persistent jusqu’à leur arrêt par un script indiquez une durée de votre choix comme 9999.",
+                    "it-IT": "La durata delle Cure Periodiche in secondi. Per far sì che le CP durino fino all'interruzione da parte dello script imposta una Durata arbitrariamente lunga come 9999.",
+                    "ja-JP": "継続回復の持続時間（秒）スクリプトで停止させるまで持続する継続回復を作成するには、9999のような長い持続時間を設定する",
+                    "ko-KR": "Heal Over Time의 지속 시간초입니다. Heal Over Time이 스크립트에 의해 중지될 때까지 지속되게 하려면 9999등 매우 긴 시간으로 설정하십시오.",
+                    "pl-PL": "Czas trwania „Heal Over Time” Leczenie z upływem czasu w sekundach. Aby HOT trwało do zatrzymania przez skrypt podaj względnie długi czas trwania – np. 9999.",
+                    "pt-BR": "A duração da Cura ao Longo do Tempo em segundos. Para ter uma CLT que dure até ser interrompida por script forneça uma Duração arbitrariamente longa como 9999.",
+                    "ru-RU": "Длительность эффекта периодического исцеления в секундах. Чтобы эффект останавливался только посредством скрипта нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
+                    "zh-CN": "持续治疗的持续时间，以秒为单位。如果要让状态持续到被程序终止为止，可以输出较长的持续时间，如9999。"
                 }
             },
             {
@@ -8323,7 +11913,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The healing per second for the heal over time."
+                    "guid": "00000000BD18",
+                    "en-US": "The healing per second for the Heal Over Time.",
+                    "de-DE": "Der Heilung pro Sekunde für die Heilung über Zeit.",
+                    "es-ES": "Sanación por segundo de «Heal Over Time».",
+                    "es-MX": "La sanación por segundo de la sanación con el tiempo.",
+                    "fr-FR": "Les points de vie par seconde rendus par l’instance de soins sur la durée.",
+                    "it-IT": "Le cure al secondo fornite dalle Cure Periodiche.",
+                    "ja-JP": "継続回復の1秒あたりの回復量",
+                    "ko-KR": "Heal Over Time의 초당 치유량입니다.",
+                    "pl-PL": "Liczba punktów leczenia na sekundę dla „Heal Over Time” Leczenie z upływem czasu.",
+                    "pt-BR": "A cura por segundo da Cura ao Longo do Tempo.",
+                    "ru-RU": "Объем исцеления в секунду для переменной [Heal Over Time].",
+                    "zh-CN": "此持续治疗每秒造成的治疗。"
                 }
             }
         ],
@@ -8365,7 +11967,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose incoming healing will be modified (when healed by the healers)."
+                    "guid": "00000000FD44",
+                    "en-US": "The Player or Players whose incoming healing will be modified when healed by the Healers.",
+                    "de-DE": "Der oder die Spieler deren erhaltene Heilung modifiziert wird wenn sie von den Heilern geheilt werden.",
+                    "es-ES": "El jugador o jugadores cuya sanación recibida se modificará al recibir sanación de los sanadores.",
+                    "es-MX": "El jugador o los jugadores cuya sanación entrante será modificada al ser sanados por los sanadores.",
+                    "fr-FR": "Le ou les joueurs dont les soins reçus seront modifiés quand ils sont soignés par les soigneurs.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui cure in arrivo saranno modificate quando vengono curati dai Guaritori.",
+                    "ja-JP": "受ける回復量が変更されるプレイヤー（ヒーラーによって回復されている場合）",
+                    "ko-KR": "Healer의 치유를 받는 경우 받는 치유를 수정할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których otrzymywane leczenie będzie modyfikowane podczas leczenia przez leczących.",
+                    "pt-BR": "Os Jogadores cuja cura recebida será modificada quando curados pelos Curandeiros.",
+                    "ru-RU": "Игрок или игроки у которых будет модифицироваться значение получаемого исцеления от указанных источников.",
+                    "zh-CN": "修正下列玩家受到的治疗（被“治疗者”治疗时）。"
                 }
             },
             {
@@ -8379,7 +11993,19 @@ const actionKw =
                 ],
                 "default": "ALL PLAYERS",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose outgoing healing will be modified (when healing the receivers)."
+                    "guid": "00000000FD46",
+                    "en-US": "The Player or Players whose outgoing healing will be modified when healing the Receivers.",
+                    "de-DE": "Der oder die Spieler deren verursachte Heilung modifiziert werden wird wenn sie Heilungsempfänger heilen.",
+                    "es-ES": "El jugador o jugadores cuya sanación aplicada se modificará al sanar a los receptores.",
+                    "es-MX": "El jugador o los jugadores cuya sanación saliente será modificada al sanar a los receptores.",
+                    "fr-FR": "Le ou les joueurs dont les soins prodigués seront modifiés en soignant les récepteurs.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui cure in uscita saranno modificate quando curano i Ricevitori.",
+                    "ja-JP": "与える回復量が変更されるプレイヤー（レシーバーを回復している場合）",
+                    "ko-KR": "Receiver를 치유하는 경우 치유를 변경할 치유자 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których wyjściowe dane leczenia będą modyfikowane podczas leczenia odbiorców.",
+                    "pt-BR": "Os Jogadores cuja cura causada será modificada ao curar os Receptores.",
+                    "ru-RU": "Игрок или игроки у которых будет модифицировано исходящее исцеление указанных целей.",
+                    "zh-CN": "修正下列玩家造成的治疗（治疗“受治疗者”时）。"
                 }
             },
             {
@@ -8388,7 +12014,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The percentage of healing that will apply to receivers when healed by healers."
+                    "guid": "00000000FD48",
+                    "en-US": "The percentage of healing that will apply to Receivers when healed by Healers.",
+                    "de-DE": "Der Prozentsatz an Heilung den die Heilungsempfänger erhalten wenn sie von Heilern geheilt werden.",
+                    "es-ES": "El porcentaje de sanación que se aplicará a los receptores cuando reciban sanación de los sanadores.",
+                    "es-MX": "El porcentaje de sanación que se aplicará a los receptores al ser sanados por los sanadores.",
+                    "fr-FR": "Le pourcentage de soins qui s’appliquera aux récepteurs quand ils seront soignés par les soigneurs.",
+                    "it-IT": "La percentuale di cure che verrà applicata ai Ricevitori quando vengono curati dai Guaritori.",
+                    "ja-JP": "ヒーラーによって回復されたレシーバーに適用される回復量のパーセンテージ",
+                    "ko-KR": "Healer의 치유를 받는 경우 Receiver에게 적용할 치유 비율입니다.",
+                    "pl-PL": "Procent leczenia zastosowanego na odbiorców leczonych przez leczących.",
+                    "pt-BR": "A porcentagem de cura que será aplicada aos Receptores quando forem curados pelos Curandeiros.",
+                    "ru-RU": "Процент исцеления которое будет применено к получающим от источников.",
+                    "zh-CN": "治疗者对受治疗者造成的治疗将调整至百分比。"
                 }
             },
             {
@@ -8397,7 +12035,19 @@ const actionKw =
                 "type": "HealingReeval",
                 "default": "RECEIVERS, HEALERS, AND HEALING PERCENT",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs."
+                    "guid": "00000000BCB4",
+                    "en-US": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
+                    "de-DE": "Legt fest welche der Eingaben dieser Aktion kontinuierlich neu bewertet werden. Diese Aktion fragt weiterhin nach neuen Werten aus neu bewerteten Eingaben und verwendet diese.",
+                    "es-ES": "Especifica qué entradas de esta acción se reevaluarán continuamente. Esta acción no parará de solicitar y emplear nuevos valores de las entradas reevaluadas.",
+                    "es-MX": "Especifica las entradas de esta acción que se reevaluarán continuamente. Esta acción continuará consultando y utilizando nuevos valores a partir de entradas reevaluadas.",
+                    "fr-FR": "Spécifie quelles entrées de cette action seront continuellement réévaluées. Cette action continuera à demander et utiliser de nouvelles valeurs à partir des entrées réévaluées.",
+                    "it-IT": "Specifica quali Input di questa Azione saranno continuamente rivalutati. L'Azione continuerà a chiedere e utilizzare nuovi Valori dagli Input rivalutati.",
+                    "ja-JP": "このアクションの入力のうち、どれを持続的に見直すかを指定する。アクションは、見直された入力から取得した値を要求、および使用し続ける",
+                    "ko-KR": "이 액션의 입력 정보 중 어떤 항목을 지속적으로 재확인할 것인지 지정합니다. 해당 액션은 입력 정보의 새로운 값을 계속 묻게 되며 재확인한 값을 사용합니다.",
+                    "pl-PL": "Określa które z danych wejściowych tego działania będą stale poddawane ponownemu szacowaniu. To działanie będzie prosiło o i wykorzystywało nowe wartości z ponownie oszacowanych wartości.",
+                    "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
+                    "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
+                    "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
                 }
             }
         ],
@@ -8439,7 +12089,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who are holding a button virtually."
+                    "guid": "00000000BD2B",
+                    "en-US": "The Player or Players who are holding a button virtually.",
+                    "de-DE": "Der oder die Spieler die eine Taste virtuell halten.",
+                    "es-ES": "Jugador o jugadores que pulsan un botón virtualmente.",
+                    "es-MX": "El jugador o los jugadores que mantienen presionado un botón virtualmente.",
+                    "fr-FR": "Le ou les joueurs qui maintiennent virtuellement un bouton enfoncé.",
+                    "it-IT": "Il Giocatore o i Giocatori che terranno premuto un tasto virtualmente.",
+                    "ja-JP": "仮想的にボタンを長押ししているプレイヤー",
+                    "ko-KR": "가상으로 버튼을 누르게 될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy przytrzymują wirtualnie przycisk.",
+                    "pt-BR": "Os Jogadores que estáão segurando virtualmente um botão.",
+                    "ru-RU": "Игрок или игроки у которых будет виртуально удерживаться кнопка.",
+                    "zh-CN": "下列玩家将持续按下虚拟按钮。"
                 }
             },
             {
@@ -8448,7 +12110,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button that is being held virtually."
+                    "guid": "00000000BD29",
+                    "en-US": "The logical button that is being held virtually.",
+                    "de-DE": "Die logische Taste die virtuell gehalten wird.",
+                    "es-ES": "Botón lógico que se pulsa virtualmente.",
+                    "es-MX": "El botón lógico que se encuentra presionado virtualmente.",
+                    "fr-FR": "Le bouton logique maintenu virtuellement enfoncé.",
+                    "it-IT": "Il tasto logico da tenere premuto virtualmente.",
+                    "ja-JP": "仮想的に長押しされているロジカル・ボタン",
+                    "ko-KR": "가상으로 눌리게 되는 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk który jest przytrzymywany wirtualnie.",
+                    "pt-BR": "O botão lógico que está sendo segurado virtualmente.",
+                    "ru-RU": "Логическая кнопка которую нужно виртуально удерживать.",
+                    "zh-CN": "设置按下的虚拟按钮。"
                 }
             }
         ],
@@ -8496,7 +12170,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose voice line sound will be modified."
+                    "en-US": "The player or players whose voice line sound will be modified.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8506,7 +12181,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "type": "unsigned float",
                 "descriptionLocalized": {
-                    "en-US": "The amount that the pitch of the voice will be raised (up to 1.5) or lowered (down to 0.5)."
+                    "guid": "0000000113C4",
+                    "en-US": "The amount that the pitch of the voice will be raised up to 1.5 or lowered down to 0.5.",
+                    "de-DE": "Der Wert um den die Tonhöhe erhöht bis zu 15 oder verringert bis zu 05 wird.",
+                    "es-ES": "Cantidad que subirá hasta un máximo de 15 o bajará hasta un mínimo de 05 el tono de voz.",
+                    "es-MX": "El valor en que subirá hasta 1.5 o bajará hasta 0.5 el tono de voz.",
+                    "fr-FR": "Le niveau du timbre de la voix qui sera relevé jusqu’à 15 ou abaissé jusqu’à 05.",
+                    "it-IT": "Il rialzo fino a 15 o il ribasso fino a 05 del pitch della voce.",
+                    "ja-JP": "ボイスのピッチが上がる（最大1.5）または下がる（最低0.5）量",
+                    "ko-KR": "음성의 고저 증가량최대 1.5 또는 감소량최소 0.5입니다.",
+                    "pl-PL": "Wartość o jaką podniesiona maks. do 15 lub obniżona min. do 05 zostanie wysokość głosu.",
+                    "pt-BR": "O valor em que o tom da voz será aumentado até 15 ou baixado até 05.",
+                    "ru-RU": "Степень изменения высоты звучания реплик в большую до 15 или меньшую до 05 сторону.",
+                    "zh-CN": "语音的音调提高（最高至1.5）或降低（最低至0.5）的值。"
                 }
             },
             {
@@ -8515,7 +12202,8 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the actions executes."
+                    "en-US": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the actions executes.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8557,7 +12245,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose barriers will have their size modified."
+                    "guid": "000000011314",
+                    "en-US": "The Player or Players whose barriers will have their size modified.",
+                    "de-DE": "Der oder die Spieler deren Barrierengröße modifiziert wird.",
+                    "es-ES": "Jugador o jugadores cuyas barreras verán modificado su tamaño.",
+                    "es-MX": "El jugador o los jugadores cuyas barreras cambiarán de tamaño.",
+                    "fr-FR": "Le ou les joueurs dont la taille des barrières sera modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui barriere cambieranno di dimensione.",
+                    "ja-JP": "バリアのサイズが変更されるプレイヤー",
+                    "ko-KR": "방벽 크기를 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których rozmiar barier zostanie zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujas barreiras terão o tamanho modificado.",
+                    "ru-RU": "Игрок или игроки у которых изменится размер барьеров.",
+                    "zh-CN": "停止强制设置下列玩家的屏障大小。"
                 }
             },
             {
@@ -8568,7 +12268,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 1,
                 "descriptionLocalized": {
-                    "en-US": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.)."
+                    "en-US": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8577,7 +12278,19 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins."
+                    "guid": "00000001130F",
+                    "en-US": "If this value is True then Scale will be reevaluated and applied to the Player or Players every frame. If this value is False then the Scale is only evaluated once when the action begins.",
+                    "de-DE": "Wenn dieser Wert True ist wird die Skalierung in jedem Frame neu bewertet und auf den oder die Spieler angewendet. Wenn der Wert False ist wird die Skalierung nur einmal zu Beginn der Aktion bewertet.",
+                    "es-ES": "Si este valor es «True» la escala se revaluará y se aplicará al jugador o jugadores con cada fotograma. Si este valor es «False» la escala solo se evaluará cuando comience la acción.",
+                    "es-MX": "Si este valor es Verdadero entonces Escalar se reevaluará y aplicará a uno o más jugadores en cada cuadro. Si este valor es Falso Escalar se evaluará una sola vez cuando inicie la acción.",
+                    "fr-FR": "Si cette valeur est vraie alors l’échelle sera réévaluée et appliquée à un ou plusieurs joueurs à chaque image. Si cette valeur est fausse alors l’échelle est évaluée uniquement après que l’action a commencé.",
+                    "it-IT": "Se questo valore è True la Scala sarà rivalutata e applicata al Giocatore o ai Giocatori a ogni frame. Se questo valore è False la Scala sarà valutata solo una volta all'inizio dell'azione.",
+                    "ja-JP": "値が「TRUE」の場合、毎フレーム、スケールが再評価されプレイヤーに適用される。値が「FALSE」の場合、スケールはアクション開始時に1回だけ評価される",
+                    "ko-KR": "값이 참이면 프레임마다 배율을 재평가해 플레이어에 적용합니다. 값이 거짓이면 배율을 액션 시작 시에 한 번만 평가합니다.",
+                    "pl-PL": "Jeśli ta wartość jest równa „True” Prawda wówczas skala zostanie ponownie oszacowana i zastosowana dla każdej klatki gracza lub graczy. Jeżeli ta wartość jest równa „False” Fałsz wówczas skala jest oceniana tylko raz gdy rozpoczyna się działanie.",
+                    "pt-BR": "Se o valor for Verdadeiro a Escala será recalculada e aplicada ao Jogador ou Jogadores a cada quadro. Se o valor for Falso a Escala só será calculada quando a ação começar.",
+                    "ru-RU": "Если данное значение верно True масштаб подвергается циклической проверке и назначается игроку или игрокам раз в один кадр. Если данное значение ложно False масштаб проверяется единожды при запуске действия.",
+                    "zh-CN": "如果此值为真，那么每一帧都会重新计算玩家的大小。如果此值为假，则大小只会在此行动一开始时赋予一个值。"
                 }
             }
         ],
@@ -8604,7 +12317,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose size will be modified."
+                    "guid": "000000011312",
+                    "en-US": "The Player or Players whose size will be modified.",
+                    "de-DE": "Der oder die Spieler deren Größe modifiziert wird.",
+                    "es-ES": "Jugador o jugadores cuyo tamaño se modificará.",
+                    "es-MX": "El jugador o los jugadores cuyo tamaño será modificado.",
+                    "fr-FR": "Le ou les joueurs dont la taille sera modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui dimensione sarà modificata.",
+                    "ja-JP": "サイズが変更されるプレイヤー",
+                    "ko-KR": "크기를 변경할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których rozmiar zostanie zmodyfikowany.",
+                    "pt-BR": "Os Jogadores cujo tamanho será modificado.",
+                    "ru-RU": "Игрок или игроки у которых изменится размер модели.",
+                    "zh-CN": "设置下列玩家的大小。"
                 }
             },
             {
@@ -8615,7 +12340,8 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": 1,
                 "descriptionLocalized": {
-                    "en-US": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.)."
+                    "en-US": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -8624,7 +12350,8 @@ const actionKw =
                 "type": "bool",
                 "default": "true",
                 "descriptionLocalized": {
-                    "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins."
+                    "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8646,7 +12373,19 @@ const actionKw =
                 "type": "Subroutine",
                 "default": "Sub0",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored."
+                    "guid": "000000010024",
+                    "en-US": "Specifies which subroutine to start. If a rule with a Subroutine event type specifies the same subroutine then it will execute. Otherwise this action is ignored.",
+                    "de-DE": "Legt fest welche Subroutine gestartet wird. Wenn eine Regel mit dem Eventtyp [Subroutine] die gleiche Subroutine festlegt wird sie ausgeführt. Ansonsten wird diese Aktion ignoriert.",
+                    "es-ES": "Especifica qué subrutina se inicia. Si una regla con un tipo de evento de subrutina especifica la misma subrutina se ejecuta. De lo contrario esta acción se ignora.",
+                    "es-MX": "Especifica cuál será la subrutina que se iniciará. Si una regla con un tipo de evento de subrutina especifica la misma subrutina entonces se ejecutará. Caso contrario esta acción es ignorada.",
+                    "fr-FR": "Spécifie le sous-programme à lancer. Si une règle dont l’évènement est un sous-programme spécifie le même sous-programme alors il s’exécutera. Dans le cas contraire cette action sera ignorée.",
+                    "it-IT": "Specifica quale subroutine avviare. Se una regola con un tipo di evento Subroutine specifica la stessa subroutine si avvia. Altrimenti questa azione viene ignorata.",
+                    "ja-JP": "開始するサブルーチンを指定する。サブルーチン・イベントタイプを持つルールで同じサブルーチンが指定されていれば、そのサブルーチンが実行される。そうでない場合、このアクションは無視される",
+                    "ko-KR": "어떤 서브루틴을 시작할지 지정합니다. 동일한 서브루틴을 지정한 서브루틴 이벤트 유형이 있는 규칙이 있는 경우 해당 서브루틴을 실행합니다. 이외의 경우 이 액션은 무시합니다.",
+                    "pl-PL": "Określa które podprogramy uruchomić. Jeśli reguła z typem zdarzenia podprogramowego określa tę samą podprogramową procedurę to zostanie ona uruchomiona. W przeciwnym razie działanie to zostanie pominięte.",
+                    "pt-BR": "Especifica qual sub-rotina será iniciada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina então ela será executada. Caso contrário a ação é ignorada.",
+                    "ru-RU": "Указывает какую подпрограмму следует запустить. Если правило с типом события [Subroutine] задает ту же подпрограмму оно выполняется. В противном случае это действие пропускается.",
+                    "zh-CN": "指定要开始的子程序。如果一个事件类型为子程序的规则指定了同一段子程序，那么它将会被执行。否则会忽略此行动。"
                 }
             },
             {
@@ -8655,7 +12394,19 @@ const actionKw =
                 "type": "AsyncBehavior",
                 "default": "RESTART RULE",
                 "descriptionLocalized": {
-                    "en-US": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity."
+                    "guid": "00000001002B",
+                    "en-US": "Determines what should happen if the rule specified by the Subroutine is already executing on the same player or global entity.",
+                    "de-DE": "Bestimmt was passiert wenn die von der Subroutine festgelegte Regel bereits für den gleichen Spieler oder die gleiche globale Entität ausgeführt wird.",
+                    "es-ES": "Determina lo que debe ocurrir si la regla especificada por la subrutina ya se está ejecutando sobre el mismo jugador o entidad global.",
+                    "es-MX": "Determina lo que ocurre si la regla especificada por la subrutina ya se está ejecutando en el mismo jugador o entidad global.",
+                    "fr-FR": "Détermine ce qui doit se passer si la règle spécifiée par le sous-programme est déjà en cours d’exécution sur le même joueur ou sur la même entité globale.",
+                    "it-IT": "Determina cosa dovrebbe succedere se la regola specificata dalla Subroutine è già in esecuzione sullo stesso giocatore o entità globale.",
+                    "ja-JP": "サブルーチンで指定されているルールが、既に同じプレイヤーまたはグローバル・エンティティで実行中の場合のアクションを決める",
+                    "ko-KR": "동일한 플레이어 또는 전역 개체에서 해당 서브루틴으로 지정한 규칙을 이미 실행 중인 경우 어떤 일이 일어날지 결정합니다.",
+                    "pl-PL": "Określa co powinno się stać jeśli reguła określona w podprogramie jest już uruchomiona dla tego samego gracza lub encji globalnej.",
+                    "pt-BR": "Define o que deve acontecer se uma regra especificada pela Sub-rotina já estiver sendo executada no mesmo jogador ou entidade global.",
+                    "ru-RU": "Определяет что должно произойти если указанное в подпрограмме правило уже выполняется для того же игрока или глобально.",
+                    "zh-CN": "决定当子程序中指定的规则已经在同一玩家或环境实体上执行时会发生什么。"
                 }
             }
         ],
@@ -8697,7 +12448,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose throttle will be set or added to."
+                    "guid": "00000000CEA7",
+                    "en-US": "The Player or Players whose throttle will be set or added to.",
+                    "de-DE": "Der oder die Spieler deren Throttle festgelegt oder geändert wird.",
+                    "es-ES": "Jugador o jugadores cuya aceleración se establecerá o complementará.",
+                    "es-MX": "El jugador o los jugadores cuya aceleración se establecerá o agregará.",
+                    "fr-FR": "Le ou les joueurs dont l’accélération sera définie ou modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui accelerazione sarà impostata o aggiunta.",
+                    "ja-JP": "スロットルが適用される（または追加される）プレイヤー",
+                    "ko-KR": "스로틀이 설정되거나 추가될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których pęd zostanie ustawiony lub zwiększony.",
+                    "pt-BR": "Os Jogadores cuja aceleração será definida ou somada.",
+                    "ru-RU": "Игрок или игроки для которых будет задан начальный или корректирующий импульс движения.",
+                    "zh-CN": "设置或添加下列玩家的阈值。"
                 }
             },
             {
@@ -8706,7 +12469,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The unit direction in which the throttle will be set or added to. This value is normalized internally."
+                    "guid": "00000000CEAA",
+                    "en-US": "The unit direction in which the throttle will be set or added to. This Value is normalized internally.",
+                    "de-DE": "Die normierte Richtung in der der Throttle angewendet oder geändert wird. Dieser Wert wird intern normiert.",
+                    "es-ES": "Dirección en la que se establecerá o complementará la aceleración. Este valor se normaliza internamente.",
+                    "es-MX": "La dirección unitaria a la cual se agregará o se establecerá la aceleración. El valor se normaliza internamente.",
+                    "fr-FR": "La direction d’unité dans laquelle l’accélération sera définie ou modifiée. Cette valeur est normalisée en interne.",
+                    "it-IT": "La direzione unitaria verso cui l'accelerazione sarà impostata o aggiunta. Questo Valore viene normalizzato internamente.",
+                    "ja-JP": "スロットルが適用される（または追加される）単位方位。この値は内部で正規化される",
+                    "ko-KR": "스로틀이 설정되거나 추가될 단위 방향입니다. 이 값은 내부적으로 정규화됩니다.",
+                    "pl-PL": "Jednostkowy kierunek w którym ustawiony lub zwiększony zostanie pęd. Wartość jest normalizowana wewnętrznie.",
+                    "pt-BR": "A direção unitária na qual a aceleração será definida ou somada. Esse Valor é normalizado internamente.",
+                    "ru-RU": "Направление начального или корректирующего импульса движения. Это значение нормализуется игрой.",
+                    "zh-CN": "设置或添加阈值的单位方向。此值将进行内部归一化。"
                 }
             },
             {
@@ -8715,7 +12490,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle."
+                    "guid": "00000000CEAD",
+                    "en-US": "The amount of throttle or change to throttle. A Value of 1 denotes full throttle.",
+                    "de-DE": "Der Wert auf den der Throttle festgelegt oder um den er geändert wird. Ein Wert von 1 bedeutet maximalen Throttle.",
+                    "es-ES": "La cantidad de aceleración o el cambio de la aceleración. Un valor de «1» significa aceleración máxima.",
+                    "es-MX": "La cantidad de aceleración o cambio en la aceleración. El valor 1 equivale a una aceleración completa.",
+                    "fr-FR": "La quantité d’accélération ou de changement apporté à l’accélération. Une valeur de 1 indique une accélération maximale.",
+                    "it-IT": "La quantità di accelerazione o il cambio di accelerazione. Un valore di 1 indica un'accelerazione totale.",
+                    "ja-JP": "スロットル量（またはスロットルの変化量）。値を「1」にするとフルスロットルを表す",
+                    "ko-KR": "스로틀의 크기또는 스로틀로 변환할 크기입니다. 값이 1이면 완전한 스로틀을 의미합니다.",
+                    "pl-PL": "Wartość pędu lub zmiana pędu. 1 oznacza pełny pęd.",
+                    "pt-BR": "A quantidade ou mudança de aceleração. O Valor 1 significa aceleração total.",
+                    "ru-RU": "Сила импульса или его коррекции. Значение 1 соответствует максимальному импульсу.",
+                    "zh-CN": "阈值的值（或改变值）。值为1时表示阈值为满。"
                 }
             },
             {
@@ -8724,7 +12511,19 @@ const actionKw =
                 "type": "Relativity",
                 "default": "TO WORLD",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players."
+                    "guid": "00000000BC80",
+                    "en-US": "Specifies whether Direction is relative to world coordinates or the local coordinates of the Player or Players.",
+                    "de-DE": "Legt fest ob [Direction] relativ zu den Weltkoordinaten oder zu den lokalen Koordinaten des Spielers oder der Spieler ist.",
+                    "es-ES": "Especifica si la dirección es relativa a las coordenadas del mundo o a las coordenadas locales del jugador o los jugadores.",
+                    "es-MX": "Especifica si la dirección es relativa a las coordenadas universales o a las coordenadas locales del jugador o los jugadores.",
+                    "fr-FR": "Spécifie si la direction est relative aux coordonnées globales ou aux coordonnées locales du ou des joueurs.",
+                    "it-IT": "Specifica se la Direzione è relativa alle coordinate globali o locali del Giocatore o dei Giocatori.",
+                    "ja-JP": "方向がワールド座標に対して相対的か、プレイヤーのローカル座標に対して相対的かを指定する",
+                    "ko-KR": "방향이 플레이어의 월드 좌표 또는 로컬 좌표 중 어느 쪽에 대해 상대적인지 여부를 지정합니다.",
+                    "pl-PL": "Określa czy kierunek ma odniesienie do współrzędnych świata czy też lokalnych współrzędnych gracza lub graczy.",
+                    "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
+                    "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
+                    "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
                 }
             },
             {
@@ -8733,7 +12532,19 @@ const actionKw =
                 "type": "Throttle",
                 "default": "REPLACE EXISTING THROTTLE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies whether preexisting throttle is replaced or added to."
+                    "guid": "00000000CEB6",
+                    "en-US": "Specifies whether preexisting throttle is replaced or added to.",
+                    "de-DE": "Legt fest ob der bestehende Throttle ersetzt oder verändert wird.",
+                    "es-ES": "Especifica si se sustituye o se complementa la aceleración existente.",
+                    "es-MX": "Especifica si se reemplazará la aceleración preexistente o se agregará una adicional.",
+                    "fr-FR": "Spécifie si l’accélération préexistante est remplacée ou si une nouvelle valeur lui est ajoutée.",
+                    "it-IT": "Specifica se l'accelerazione preesistente viene sostituita o aggiunta.",
+                    "ja-JP": "既存のスロットルが入れ替わるか、追加されるかを指定する",
+                    "ko-KR": "이미 존재하는 스로틀의 교체 여부를 지정합니다.",
+                    "pl-PL": "Określa czy istniejący wstępnie pęd zostanie zastąpiony czy zwiększony.",
+                    "pt-BR": "Especifica se a aceleração já existente será substituída ou somada.",
+                    "ru-RU": "Определяет будет ли новый импульс движения прибавлен к существующему или заменит его.",
+                    "zh-CN": "指定需要替换或添加的已存在的阈值。"
                 }
             },
             {
@@ -8742,7 +12553,8 @@ const actionKw =
                 "type": "ThrottleReeval",
                 "default": "DIRECTION AND MAGNITUDE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs."
+                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -8784,7 +12596,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose throttle will be transformed."
+                    "guid": "00000000CC28",
+                    "en-US": "The Player or Players whose throttle will be transformed.",
+                    "de-DE": "Der oder die Spieler deren Throttle transformiert wird.",
+                    "es-ES": "Jugador o jugadores cuya aceleración se transformará.",
+                    "es-MX": "El jugador o los jugadores cuya aceleración se transformará.",
+                    "fr-FR": "Le ou les joueurs dont l’accélération sera modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui accelerazione sarà trasformata.",
+                    "ja-JP": "スロットルを変形させるプレイヤー",
+                    "ko-KR": "스로틀이 변환될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których pęd przestanie być przekształcany.",
+                    "pt-BR": "Os Jogadores cuja aceleração será transformada.",
+                    "ru-RU": "Один или несколько игроков для которых будет преобразован импульс движения.",
+                    "zh-CN": "转换下列玩家的阈值。"
                 }
             },
             {
@@ -8793,7 +12617,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)."
+                    "guid": "00000000CC2C",
+                    "en-US": "The Player or Players will have their throttle X axis left to right multiplied by this value before the throttle is rotated to its new Relative Direction. This Value is evaluated continuously meaning it updates every frame.",
+                    "de-DE": "Der X-Achsen-Throttle links nach rechts eines oder mehrerer Spieler wird mit diesem Wert multipliziert bevor der Throttle bis zu seiner neuen relativen Richtung gedreht wird. Dieser Wert wird kontinuierlich neu bewertet d. h. mit jedem Frame aktualisiert.",
+                    "es-ES": "Se multiplicará por este valor la aceleración del eje X de izquierda a derecha del jugador o jugadores antes de que la aceleración se rote a su nueva dirección relativa. Este valor se evalúa de forma continua lo que significa que se actualiza con cada fotograma.",
+                    "es-MX": "El jugador o los jugadores tendrán su eje de aceleración X de izquierda a derecha multiplicado por este valor antes de que la aceleración rote hacia su nueva dirección relativa. Este valor se evalúa continuamente significa que se actualiza con cada cuadro.",
+                    "fr-FR": "Le ou les joueurs verront leur accélération dans l’axe des X de gauche à droite multipliée par cette valeur avant que l’accélération soit orientée vers sa nouvelle direction relative. Cette valeur est calculée en permanence à chaque image.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui asse X sinistradestra dell'accelerazione verrà moltiplicato da questo valore prima che l'accelerazione venga ruotata verso la nuova Direzione Relativa. Questo Valore viene valutato continuamente si aggiorna a ogni frame.",
+                    "ja-JP": "スロットルが新しい相対方向に向きを変える前に、プレイヤーのスロットルのX軸（左から右）にこの値が乗算される。この値は継続的に評価される（すなわち、フレームごとにアップデートされる）",
+                    "ko-KR": "플레이어의 스로틀 X축왼쪽에서 오른쪽이 새로운 Relative Direction으로 회전하기 전에 이 값으로 곱해집니다. 이 값은 지속적으로 평가됩니다. 프레임마다 업데이트",
+                    "pl-PL": "Gracz lub gracze których oś X pędu od lewej do prawej zostanie pomnożona przez tę wartość zanim pęd obróci się w nowym kierunku względnym. Wartość ta jest szacowana nieustannie aktualizacja co klatkę.",
+                    "pt-BR": "O eixo X de aceleração da esquerda para a direita dos Jogadores será multiplicado por esse valor antes de a aceleração ser girada para a nova Direção Relativa. Esse Valor é calculada continuamente atualizado a cada quadro.",
+                    "ru-RU": "Импульс движения одного или нескольких игроков по оси X слева направо будет умножен на это значение перед поворотом импульса к новому относительному направлению. Это значение проверяется постоянно то есть раз в кадр.",
+                    "zh-CN": "下列玩家阈值的X轴（左右方向）将会乘以此数值，然后转换到新的相对方向。这个值会不断被重新赋值（每一帧都会更新）。"
                 }
             },
             {
@@ -8802,7 +12638,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame)."
+                    "guid": "00000000CC2F",
+                    "en-US": "The Player or Players will have their throttle Y axis front to back multiplied by this value before the throttle is rotated to its new Relative Direction. This Value is evaluated continuously meaning it updates every frame.",
+                    "de-DE": "Der Y-Achsen-Throttle vorne nach hinten eines oder mehrerer Spieler wird mit diesem Wert multipliziert bevor der Throttle bis zu seiner neuen relativen Richtung gedreht wird. Dieser Wert wird kontinuierlich neu bewertet d. h. mit jedem Frame aktualisiert.",
+                    "es-ES": "Se multiplicará por este valor la aceleración del eje Y de adelante a atrás del jugador o jugadores antes de que la aceleración se rote a su nueva dirección relativa. Este valor se evalúa de forma continua lo que significa que se actualiza con cada fotograma.",
+                    "es-MX": "El jugador o los jugadores tendrán su eje de aceleración Y de adelante hacia atrás multiplicado por este valor antes de que la aceleración rote hacia su nueva dirección relativa. Este valor se evalúa continuamente significa que se actualiza con cada cuadro.",
+                    "fr-FR": "Le ou les joueurs verront leur accélération dans l’axe des Y de l’avant vers l’arrière multipliée par cette valeur avant que l’accélération soit orientée vers sa nouvelle direction relative. Cette valeur est calculée en permanence à chaque image.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui asse Y fronteretro dell'accelerazione verrà moltiplicato da questo valore prima che l'accelerazione venga ruotata verso la nuova Direzione Relativa. Questo Valore viene valutato continuamente si aggiorna a ogni frame.",
+                    "ja-JP": "スロットルが新しい相対方向に向きを変える前に、プレイヤーのスロットルのY軸（前から後ろ）にこの値が乗算される。この値は継続的に評価される（すなわち、フレームごとにアップデートされる）",
+                    "ko-KR": "플레이어의 스로틀 Y축앞에서 뒤이 새로운 Relative Direction으로 회전하기 전에 이 값으로 곱해집니다. 이 값은 지속적으로 평가됩니다. 프레임마다 업데이트",
+                    "pl-PL": "Gracz lub gracze których oś Y pędu od przodu do tyłu zostanie pomnożona przez tę wartość zanim pęd obróci się w nowym kierunku względnym. Wartość ta jest szacowana nieustannie aktualizacja co klatkę.",
+                    "pt-BR": "O eixo Y de aceleração da frente para trás dos Jogadores será multiplicado por esse valor antes de a aceleração ser girada para a nova Direção Relativa. Esse Valor é calculada continuamente atualizado a cada quadro.",
+                    "ru-RU": "Импульс движения одного или нескольких игроков по оси Y спереди назад будет умножен на это значение перед поворотом импульса к новому относительному направлению. Это значение проверяется постоянно то есть раз в кадр.",
+                    "zh-CN": "下列玩家阈值的Y轴（前后方向）将会乘以此数值，然后转换到新的相对方向。这个值会不断被重新赋值（每一帧都会更新）。"
                 }
             },
             {
@@ -8811,7 +12659,19 @@ const actionKw =
                 "type": "Direction",
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally."
+                    "guid": "00000000CC2A",
+                    "en-US": "After the Axis Scalars are applied the Player or Players will have their throttle transformed so that it is relative to this unit direction vector. For example to make the throttle camera relative provide the direction that the camera is facing. This Value is evaluated continuously meaning it updates every frame and normalized internally.",
+                    "de-DE": "Nachdem die Achsenskalare angewendet wurden wird der Throttle eines oder mehrerer Spieler relativ zu diesem normierten Richtungsvektor transformiert. Damit der Throttle beispielsweise relativ zur Kamera ist muss die Blickrichtung der Kamera angegeben werden. Dieser Wert wird kontinuierlich neu bewertet d. h. mit jedem Frame aktualisiert und intern normiert.",
+                    "es-ES": "Después de aplicar las escalas de eje se transformará la aceleración del jugador o jugadores para que sea relativa al vector de dirección de esta unidad. Por ejemplo para hacer la aceleración relativa a la cámara proporciona la dirección hacia la que está enfocada la cámara. Este valor se evalúa de forma continua lo que significa que se actualiza con cada fotograma y se normaliza a nivel interno.",
+                    "es-MX": "Después de que se apliquen las escalas de ejes el jugador o los jugadores verán su aceleración transformada para que sea relativa a este vector direccional unitario. Por ejemplo para hacer que la aceleración de la cámara sea relativa proporciona la dirección de orientación de la cámara. Este valor se evalúa continuamente significa que se actualiza con cada cuadro y se normaliza internamente.",
+                    "fr-FR": "Après que les scalaires axiaux ont été appliqués le ou les joueurs verront leur accélération transformée de telle sorte qu’elle soit relative au vecteur de direction de cette unité. Par exemple pour rendre l’accélération de la caméra relative entrez la direction de l’orientation de la caméra. Cette valeur est évaluée en permanence à chaque image et normalisée de manière interne.",
+                    "it-IT": "Dopo l'applicazione degli Scalari Asse l'accelerazione del Giocatore o dei Giocatori verrà trasformata in modo che sia relativa a questo vettore direzionale di lunghezza unitaria. Per esempio per rendere l'accelerazione relativa alla telecamera bisogna fornire la direzione verso cui è rivolta la telecamera. Questo Valore viene valutato continuamente si aggiorna a ogni frame e normalizzato internamente.",
+                    "ja-JP": "軸スカラーの適用後、プレイヤーのスロットルが変化し、このユニット方向ベクトルと相対関係になる。たとえばスロットルカメラを相対関係にするには、カメラが向いている方向を与える。この値は継続的に評価され（すなわち、フレームごとにアップデートされる）、内部で正規化される",
+                    "ko-KR": "축의 스칼라 값이 적용된 이후 플레이어는 스로틀을 변환시켜 이 단위 방향 벡터에 상대적이게 합니다. 예를 들어 스로틀 카메라를 상대적이게 하려면 카메라가 바라보고 있는 방향을 제공하면 됩니다. 이 값은 지속적으로 평가되며프레임마다 업데이트 내부적으로 정규화됩니다.",
+                    "pl-PL": "Po zastosowaniu skalarów osi pęd gracza lub graczy zostanie przekształcony względem wektora kierunkowego jednostki. na przykład aby uczynić pęd kamery względnym podaj kierunek skierowania kamery. Wartość ta jest szacowana nieustannie aktualizacja co klatkę i normalizowana wewnętrznie.",
+                    "pt-BR": "Ao aplicar as Escalares Axiais a aceleração dos Jogadores será transformada para que fique relativa ao vetor de direção desta unidade. Por exemplo: para tornar relativa a câmera de aceleração forneça a direção para a qual ela está virada. Esse Valor é calculado continuamente atualizado a cada quadro e normalizado internamente.",
+                    "ru-RU": "После применения значений по осям преобразует импульс движения одного или нескольких игроков отноcительно этого единичного вектора. Пример: чтобы преобразовать импульс движения относительно камеры укажите направление в котором она развернута. Это значение проверяется постоянно раз в кадр и нормализуется встроенными механизмами игры.",
+                    "zh-CN": "应用轴向缩放时，玩家的阈值将会被转换为相对此单位方向的矢量。例如，如果阈值转换至相对摄像机视角，则以摄像机的朝向为基准计算方向。这个值会不断被重新赋值（每一帧都会更新）并进行内部归一化。"
                 }
             }
         ],
@@ -8853,7 +12713,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will stop accelerating."
+                    "guid": "00000000BD79",
+                    "en-US": "The Player or Players who will stop accelerating.",
+                    "de-DE": "Der oder die Spieler die nicht mehr beschleunigt werden.",
+                    "es-ES": "Jugador o jugadores que dejan de acelerarse.",
+                    "es-MX": "El jugador o los jugadores que detendrán su aceleración.",
+                    "fr-FR": "Le ou les joueurs qui cesseront d’accélérer.",
+                    "it-IT": "Il Giocatore o i Giocatori che interromperanno l'accelerazione.",
+                    "ja-JP": "加速を停止するプレイヤー",
+                    "ko-KR": "가속을 중지하게 되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy przestaną przyspieszać.",
+                    "pt-BR": "Os Jogadores que pararáão de acelerar.",
+                    "ru-RU": "Игрок или игроки которые перестанут ускоряться.",
+                    "zh-CN": "下列玩家将停止加速。"
                 }
             }
         ],
@@ -8976,7 +12848,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose scripted damage over time will stop."
+                    "guid": "00000000BD12",
+                    "en-US": "The Player or Players whose scripted Damage Over Time will stop.",
+                    "de-DE": "Der oder die Spieler deren geskripteter regelmäßiger Schaden beendet wird.",
+                    "es-ES": "Jugador o jugadores cuyo script de «Damage Over Time» se detendrá.",
+                    "es-MX": "El jugador o los jugadores cuyo daño con el tiempo secuenciado se detendrá.",
+                    "fr-FR": "Le ou les joueurs dont les dégâts sur la durée scriptés cesseront.",
+                    "it-IT": "Il Giocatore o i Giocatori i cui Danni Periodici scriptati saranno interrotti.",
+                    "ja-JP": "スクリプト化された継続ダメージが停止するプレイヤー",
+                    "ko-KR": "스크립트에 의한 Damage Over Time이 중지되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których skrypt „Damage Over Time” Obrażenia z upływem czasu się zatrzyma.",
+                    "pt-BR": "Os Jogadores cujo Dano ao Longo do Tempo roteirizado será interrompido.",
+                    "ru-RU": "Игрок или игроки чей скриптовый эффект периодического урона [Damage Over Time] прекратит свое действие.",
+                    "zh-CN": "停止下列玩家身上程序给予的持续伤害。"
                 }
             }
         ],
@@ -9018,7 +12902,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose scripted heal over time will stop."
+                    "guid": "00000000BD14",
+                    "en-US": "The Player or Players whose scripted Heal Over Time will stop.",
+                    "de-DE": "Der oder die Spieler deren geskriptete Heilung über Zeit beendet wird.",
+                    "es-ES": "Jugador o jugadores cuyo script de «Heal Over Time» se detendrá.",
+                    "es-MX": "El jugador o los jugadores cuya sanación con el tiempo secuenciada se detendrá.",
+                    "fr-FR": "Le ou les joueurs dont les soins sur la durée scriptés cesseront.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui Cure Periodiche scriptate saranno interrotte.",
+                    "ja-JP": "スクリプト化された継続回復が停止するプレイヤー",
+                    "ko-KR": "스크립트에 의한 Heal Over Time이 중지되는 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których skrypt „Heal Over Time” Leczenie z upływem czasu się zatrzyma.",
+                    "pt-BR": "Os Jogadores cuja Cura ao Longo do Tempo roteirizada será interrompida.",
+                    "ru-RU": "Игрок или игроки чьи скриптовые экземпляры периодического исцеления будут остановлены.",
+                    "zh-CN": "停止下列玩家身上程序给予的持续治疗。"
                 }
             }
         ],
@@ -9055,7 +12951,19 @@ const actionKw =
                 "type": "AssistId",
                 "default": "Last Assist ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored."
+                    "guid": "0000000121FF",
+                    "en-US": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
+                    "de-DE": "Legt fest welche Assist-Instanz beendet werden soll. Diese ID kann [Last Assist ID] oder eine Variable sein in der [Last Assist ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué instancia de asistencia detiene. Esta ID puede ser «Last Assist ID» o una variable en la que se almacenó previamente «Last Assist ID».",
+                    "es-MX": "Especifica la instancia de asistencia que se detendrá. Esta ID puede ser la ID de asistencia anterior o una variable en la que se almacenó previamente la ID de asistencia anterior.",
+                    "fr-FR": "Spécifie quelle instance de soutien arrêter. Cet identifiant peut correspondre à « Dernier identifiant de soutien » ou à une variable ayant auparavant enregistré le dernier identifiant de soutien.",
+                    "it-IT": "Specifica quale istanza di assist interrompere. Questo ID può essere Last Assist ID o una Variabile in cui il Last Assist ID era stato memorizzato in precedenza.",
+                    "ja-JP": "停止するアシストのインスタンスを指定する。このIDは、「最新のアシストID」または以前「最新のアシストID」が保存されていた変数",
+                    "ko-KR": "중지할 도움 인스턴스를 지정합니다. 여기에 사용되는 ID는 Last assist ID 또는 예전에 Last assist ID가 담긴 변수입니다.",
+                    "pl-PL": "Określa którą instancję asysty zatrzymać. Identyfikatorem może być „Last Assist ID” identyfikator ostatniej asysty lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual instância de assistência será interrompida. Essa ID pode ser a ID da Última Assistência ou uma Variável na qual a ID da Última Assistência tenha sido armazenada anteriormente.",
+                    "ru-RU": "Указывает какое именно содействие необходимо остановить. Этот ID может принадлежать [Last Assist ID] или переменной в которую ранее поместили [Last Assist ID].",
+                    "zh-CN": "指定要停止的助攻副本。此ID可以是“上一个助攻ID”，或一个之前储存“上一个助攻ID”的变量。"
                 }
             }
         ],
@@ -9097,7 +13005,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose cameras will be put back to the default view."
+                    "guid": "00000000C3B3",
+                    "en-US": "The Player or Players whose cameras will be put back to the default view.",
+                    "de-DE": "Der oder die Spieler deren Kameras auf die Standardsicht zurückgesetzt werden.",
+                    "es-ES": "Jugador o jugadores cuyas cámaras volverán a la vista predeterminada.",
+                    "es-MX": "El jugador o los jugadores cuyas cámaras volverán a la vista predeterminada.",
+                    "fr-FR": "Le ou les joueurs dont les caméras retourneront à la vue par défaut.",
+                    "it-IT": "Il Giocatore o i Giocatori le cui telecamere saranno reimpostate alla posizione predefinita.",
+                    "ja-JP": "カメラがデフォルト視点に戻されるプレイヤー",
+                    "ko-KR": "카메라를 기본 시야로 되돌릴 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których kamery zostaną przywrócone do widoku domyślnego.",
+                    "pt-BR": "Os Jogadores cujas câmeras retornarão para a visão padrão.",
+                    "ru-RU": "Игрок или игроки камеры которых будут ориентированы и возвращены к виду по умолчанию.",
+                    "zh-CN": "将下列玩家的镜头恢复至默认视角。"
                 }
             }
         ],
@@ -9134,7 +13054,19 @@ const actionKw =
                 "type": "GlobalVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which global variable to stop modifying."
+                    "guid": "00000000BCC7",
+                    "en-US": "Specifies which Global Variable to stop modifying.",
+                    "de-DE": "Legt fest welche globale Variable nicht mehr modifiziert werden soll.",
+                    "es-ES": "Especifica qué variable global debe dejar de modificarse.",
+                    "es-MX": "Especifica la variable global que dejará de modificarse.",
+                    "fr-FR": "Spécifie quelle variable globale il faut arrêter de modifier.",
+                    "it-IT": "Specifica la Variabile Globale la cui modifica andrà interrotta.",
+                    "ja-JP": "変更を停止するグローバル変数を指定する",
+                    "ko-KR": "수정을 중지할 전역 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych „Global Variable” Zmienna globalna przestać modyfikować.",
+                    "pt-BR": "Especifica qual Variável Global deixará de ser modificada.",
+                    "ru-RU": "Определяет изменение какой из глобальных переменных следует остановить.",
+                    "zh-CN": "指定要停止修改的全局变量。"
                 }
             }
         ],
@@ -9176,7 +13108,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player whose variable will stop changing. If multiple players are provided, each of their variables will stop changing."
+                    "guid": "00000000BCC9",
+                    "en-US": "The Player whose Variable will stop changing. If multiple Players are provided each of their Variables will stop changing.",
+                    "de-DE": "Der Spieler dessen Variable nicht mehr geändert wird. Wenn mehrere Spieler angegeben werden werden die Variablen dieser Spieler nicht mehr geändert.",
+                    "es-ES": "Jugador cuya variable parará de cambiar. Si se indican varios jugadores cada una de sus variables parará de cambiar.",
+                    "es-MX": "El jugador cuya variable dejará de modificarse. Si se detecta más de un jugador las variables de cada uno dejarán de modificarse.",
+                    "fr-FR": "Le joueur dont la variable arrêtera de changer. Si plusieurs joueurs sont indiqués chacune de leurs variables arrêtera de changer.",
+                    "it-IT": "Il Giocatore a cui appartiene la Variabile le cui modifiche andranno interrotte. Se sono specificati più Giocatori ogni rispettiva Variabile cesserà di modificarsi.",
+                    "ja-JP": "変数の変化が止まるプレイヤー。複数プレイヤーの場合、いずれの変数も変更される",
+                    "ko-KR": "변수 변경을 중지할 플레이어입니다. 플레이어가 다수인 경우 각각의 변수는 변경되지 않습니다.",
+                    "pl-PL": "Gracz którego zmienna przestanie się zmieniać. Jeśli podano wielu graczy każda z ich zmiennych przestanie się zmieniać.",
+                    "pt-BR": "O Jogador cuja Variável deixará de ser alterada. Se vários Jogadores forem fornecidos cada uma de suas Variáveis deixará de ser alterada.",
+                    "ru-RU": "Игрок переменная которого перестанет меняться. Если указано несколько игроков то переменная перестанет меняться у каждого из них.",
+                    "zh-CN": "此玩家的变量将停止改变。如果有多个玩家，则每个玩家的变量都将停止改变。"
                 }
             },
             {
@@ -9185,7 +13129,19 @@ const actionKw =
                 "type": "PlayerVariable",
                 "default": "A",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which of the player's variables to stop modifying."
+                    "guid": "00000000BCCA",
+                    "en-US": "Specifies which of the Player's Variables to stop modifying.",
+                    "de-DE": "Legt fest welche der Variablen des Spielers nicht mehr modifiziert werden soll.",
+                    "es-ES": "Especifica qué variables del jugador deben dejar de modificarse.",
+                    "es-MX": "Especifica las variables del jugador que dejarán de modificarse.",
+                    "fr-FR": "Spécifie quelle variable du joueur il faut arrêter de modifier.",
+                    "it-IT": "Specifica le Variabili del Giocatore le cui modifiche andranno interrotte.",
+                    "ja-JP": "変更を停止するプレイヤーの変数を指定する",
+                    "ko-KR": "수정을 중지할 플레이어의 변수를 지정합니다.",
+                    "pl-PL": "Określa którą ze zmiennych gracza przestać modyfikować.",
+                    "pt-BR": "Especifica qual das Variáveis do Jogador deixará de ser modificada.",
+                    "ru-RU": "Определяет изменение какой из переменных игрока следует остановить.",
+                    "zh-CN": "指定要停止修改的玩家变量。"
                 }
             }
         ],
@@ -9222,7 +13178,19 @@ const actionKw =
                 "type": "DamageModificationId",
                 "default": "LAST DAMAGE MODIFICATION ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored."
+                    "guid": "00000000C64C",
+                    "en-US": "Specifies which damage modification instance to stop. This ID may be Last Damage Modification ID or a Variable into which Last Damage Modification ID was earlier stored.",
+                    "de-DE": "Legt fest welche Instanz der Schadensmodifikation beendet werden soll. Diese ID kann [Last Damage Modification ID] oder eine Variable sein in der [Last Damage Modification ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué instancia de modificación de daño detiene. Esta ID puede ser «Last Damage Modification ID» o una variable en la que se almacenó previamente «Last Damage Modification ID».",
+                    "es-MX": "Especifica la instancia de modificación de daño que se detendrá. Esta ID puede ser la ID de modificación de daño anterior o una variable en la que se almacenó previamente la ID de modificación de daño anterior.",
+                    "fr-FR": "Spécifie quelle instance de modification des dégâts arrêter. Cet identifiant peut correspondre à « Dernier identifiant de modification de dégâts » ou à une variable ayant auparavant enregistré le dernier identifiant de modification de dégâts.",
+                    "it-IT": "Specifica quale istanza di modifica dei danni interrompere. L'ID può essere Last Damage Modification ID o una Variabile in cui il Last Damage Modification ID era stato memorizzato in precedenza.",
+                    "ja-JP": "停止するダメージ変更のインスタンスを指定する。このIDは、「最新のダメージ変更ID」または以前「最新のダメージ変更ID」が保存されていた変数",
+                    "ko-KR": "중지할 Damage Modification 인스턴스를 지정합니다. 이 ID는 Last Damage Modification ID이거나 이전에 Last Damage Modification ID가 저장되었던 변수일 수 있습니다.",
+                    "pl-PL": "Określa którą instancję modyfikacjo obrażeń zatrzymać. Identyfikatorem może być „Last Damage Modification ID” Identyfikator ostatniej modyfikacji obrażeń lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual instância de modificação de dano será interrompida. Essa ID pode ser a ID de Modificação de Dano Mais Recente ou uma Variável na qual a ID de Modificação de Dano Mais Recente tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров изменения урона следует остановить. В качестве идентификатора может выступать [Last Damage Modification ID] или переменная в которую был записан такой ID.",
+                    "zh-CN": "指定要结束的伤害调整副本。此ID可以是”上一个伤害调整ID“，或一个之前储存”上一个伤害调整ID“的变量。"
                 }
             }
         ],
@@ -9259,7 +13227,19 @@ const actionKw =
                 "type": "DotId",
                 "default": "LAST DAMAGE OVER TIME ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored."
+                    "guid": "00000000BD10",
+                    "en-US": "Specifies which Damage Over Time instance to stop. This ID may be Last Damage Over Time ID or a Variable into which Last Damage Over Time ID was earlier stored.",
+                    "de-DE": "Legt fest welche Instanz von regelmäßigem Schaden beendet werden soll. Diese ID kann [Last Damage Over Time ID] oder eine Variable sein in der [Last Damage Over Time ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué instancia de «Damage Over Time» se detiene. Esta ID puede ser «Last Damage Over Time ID» o una variable en la que se almacenó previamente «Last Damage Over Time ID».",
+                    "es-MX": "Especifica la instancia de daño con el tiempo que se detendrá. Esta ID puede ser la ID de daño con el tiempo anterior o una variable en la que se almacenó previamente la ID de daño con el tiempo anterior.",
+                    "fr-FR": "Spécifie quelle instance de dégâts sur la durée arrêter. Cet identifiant peut correspondre à « Dernier identifiant de dégâts sur la durée » ou à une variable ayant auparavant enregistré le dernier identifiant de dégâts sur la durée.",
+                    "it-IT": "Specifica quale istanza di Danni Periodici interrompere. L'ID può essere Last Damage Over Time ID o una Variabile in cui il Last Damage Over Time ID era stato memorizzato in precedenza.",
+                    "ja-JP": "停止する継続ダメージのインスタンスを指定する。このIDは、「最新の継続ダメージID」または以前「最新の継続ダメージID」に保存されていた変数",
+                    "ko-KR": "중지할 Damage Over Time 인스턴스를 지정합니다. 여기에 사용되는 ID는 Last Damage Over Time ID이거나 이전에 Last Damage Over Time ID가 저장된 변수일 수 있습니다.",
+                    "pl-PL": "Określa którą instancję „Damage Over Time” Obrażenia z upływem czasu usunąć. Identyfikatorem może być „Last Damage Over Time ID” Identyfikator ostatnich obrażeń z upływem czasu lub zmienna w której wcześniej zmagazynowano „Last Damage Over Time ID” Identyfikator ostatnich obrażeń z upływem czasu.",
+                    "pt-BR": "Especifica qual instância de Dano ao Longo do Tempo será interrompida. Essa ID pode ser a ID de Dano ao Longo do Tempo Mais Recente ou uma Variável na qual a ID de Dano ao Longo do Tempo Mais Recente tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров периодического урона [Damage Over Time] следует остановить. В качестве идентификатора может выступать [Last Damage Over Time ID] или переменная в которую был записан такой ID.",
+                    "zh-CN": "指定要结束的持续伤害副本。此ID可以是”上一个持续伤害ID“，或一个之前储存”上一个持续伤害ID“的变量。"
                 }
             }
         ],
@@ -9301,7 +13281,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will stop turning."
+                    "guid": "00000000BD84",
+                    "en-US": "The Player or Players who will stop turning.",
+                    "de-DE": "Der oder die Spieler die nicht mehr gedreht werden.",
+                    "es-ES": "Jugador o jugadores que dejan de girar.",
+                    "es-MX": "El jugador o los jugadores que dejarán de girar.",
+                    "fr-FR": "Le ou les joueurs qui cesseront de pivoter.",
+                    "it-IT": "Il Giocatore o i Giocatori che interromperanno la rotazione.",
+                    "ja-JP": "向きの変更を停止するプレイヤー",
+                    "ko-KR": "회전을 멈출 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy przestaną się obracać.",
+                    "pt-BR": "Os Jogadores que pararáão de girar.",
+                    "ru-RU": "Игрок или игроки поворот которых будет прекращен.",
+                    "zh-CN": "下列玩家将停止转向。"
                 }
             }
         ],
@@ -9343,7 +13335,8 @@ const actionKw =
                 ],
                 "default": "Event Player",
                 "descriptionLocalized": {
-                    "en-US": "The Player or Players whose names will stop being forced"
+                    "en-US": "The Player or Players whose names will stop being forced",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -9364,7 +13357,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will have their outlines reset."
+                    "en-US": "The player or players who will have their outlines reset.",
+                    "guid": "<unknown guid>"
                 }
             },
             {
@@ -9378,7 +13372,19 @@ const actionKw =
                 ],
                 "default": "All Players",
                 "descriptionLocalized": {
-                    "en-US": "The viewing player or players for whom the viewed player's outlines will be reset."
+                    "guid": "0000000112F6",
+                    "en-US": "The Viewing Player or Players for whom the Viewed Player's Outlines will be reset.",
+                    "de-DE": "Der oder die Zuschauer für die die Umrandungen betrachteter Spieler zurückgesetzt werden.",
+                    "es-ES": "Jugador o jugadores observadores para los que se restablecerán los contornos de los jugadores observados.",
+                    "es-MX": "El jugador o los jugadores que observan para quienes se restablecerán los contornos de los jugadores observados.",
+                    "fr-FR": "Le ou les joueurs spectateurs pour qui la couleur des contours des joueurs observés sera réinitialisée.",
+                    "it-IT": "Il Giocatore o i Giocatori Osservatori per i quali i Contorni dei Giocatori Osservati saranno reimpostati.",
+                    "ja-JP": "表示対象プレイヤーのアウトラインをリセットする表示側プレイヤー",
+                    "ko-KR": "피관찰자 플레이어의 외곽선을 초기화할 관찰자 플레이어입니다.",
+                    "pl-PL": "Obserwujący gracz lub gracze dla których zresetowane zostaną obrysy obserwowanych graczy.",
+                    "pt-BR": "Os Jogadores Observadores para quem os Contornos de Jogador Observado seráão redefinidos.",
+                    "ru-RU": "Наблюдающий игрок или игроки для которых будут сброшены контуры игроков.",
+                    "zh-CN": "从观察玩家的视角看，被观察的玩家的轮廓将被重新设置。"
                 }
             }
         ],
@@ -9420,7 +13426,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose positions will stop being forced."
+                    "guid": "000000010E90",
+                    "en-US": "The Player or Players whose positions will stop being forced.",
+                    "de-DE": "Der oder die Spieler deren Positionen nicht mehr erzwungen werden.",
+                    "es-ES": "Jugador o jugadores cuyas posiciones dejarán de forzarse.",
+                    "es-MX": "El jugador o jugadores cuyas posiciones dejarán de forzarse.",
+                    "fr-FR": "Le joueur ou les joueurs dont les positions cesseront d’être forcées.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui posizione cesserà di essere forzata.",
+                    "ja-JP": "位置の強制が止まるプレイヤー",
+                    "ko-KR": "위치를 강제하지 않을 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których pozycje przestaną być wymuszane.",
+                    "pt-BR": "Os Jogadores cuja posição deixará de ser forçada.",
+                    "ru-RU": "Игрок или игроки которым больше не будет принудительно назначаться позиция.",
+                    "zh-CN": "停止强制设置下列玩家的位置。"
                 }
             }
         ],
@@ -9447,7 +13465,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who will no longer be forced to be a specific hero."
+                    "guid": "00000000BC92",
+                    "en-US": "The Player or Players who will no longer be forced to be a specific Hero.",
+                    "de-DE": "Der oder die Spieler die nicht mehr gezwungen werden einen bestimmten Helden zu spielen.",
+                    "es-ES": "Jugador o jugadores que ya no se verán obligados a ser un héroe concreto.",
+                    "es-MX": "El jugador o los jugadores que ya no podrán ser forzados a utilizar un héroe determinado.",
+                    "fr-FR": "Le ou les joueurs qui ne seront plus forcés de jouer un héros spécifique.",
+                    "it-IT": "Il Giocatore o i Giocatori non saranno più forzati a usare un Eroe specifico.",
+                    "ja-JP": "特定のヒーローを強制されなくなるプレイヤー",
+                    "ko-KR": "지정된 영웅 강제 선택이 해제될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których nie będzie już wymuszany określony bohater.",
+                    "pt-BR": "Os Jogadores que não seráão mais forçados a usar um Herói específico.",
+                    "ru-RU": "Игрок или игроки для которых будет отключено принудительное использование указанного героя.",
+                    "zh-CN": "下列玩家将不再被强制使用指定英雄。"
                 }
             }
         ],
@@ -9484,7 +13514,19 @@ const actionKw =
                 "type": "Team",
                 "default": "TEAM",
                 "descriptionLocalized": {
-                    "en-US": "The team that will resume using their normal spawn room."
+                    "guid": "00000000BCA4",
+                    "en-US": "The Team that will resume using their normal spawn room.",
+                    "de-DE": "Das Team das ab sofort seinen normalen Startbereich nutzen wird.",
+                    "es-ES": "Equipo que volverá a usar su sala de inicio normal.",
+                    "es-MX": "El equipo que volverá a utilizar su cuarto de reaparición normal.",
+                    "fr-FR": "L’équipe qui retrouvera sa salle d’apparition normale.",
+                    "it-IT": "La Squadra che tornerà a usare l'area di partenza tradizionale.",
+                    "ja-JP": "通常のリスポーンエリアの使用を再開するチーム",
+                    "ko-KR": "일반 전투준비실을 사용해 플레이를 재개하게 될 팀입니다.",
+                    "pl-PL": "Drużyna która wznowi korzystanie ze swojego normalnego pomieszczenia startowego.",
+                    "pt-BR": "A Equipe que voltará a usar sua sala de ressurgimento normal.",
+                    "ru-RU": "Команда которая будет возрождаться в их обычной стартовой комнате.",
+                    "zh-CN": "这支队伍将使用正常状态下的重生室重生。"
                 }
             }
         ],
@@ -9526,7 +13568,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose movement input will be restored."
+                    "guid": "00000000BD70",
+                    "en-US": "The Player or Players whose movement input will be restored.",
+                    "de-DE": "Der oder die Spieler deren Bewegungseingabe wiederhergestellt wird.",
+                    "es-ES": "Jugador o jugadores cuya entrada de movimiento se restaurará.",
+                    "es-MX": "El jugador o los jugadores cuya entrada de movimiento será restaurada.",
+                    "fr-FR": "Le ou les joueurs dont l’entrée de mouvement sera restaurée.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui input di movimento sarà ripristinato.",
+                    "ja-JP": "移動入力が復活するプレイヤー",
+                    "ko-KR": "이동 입력 정보가 복원될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których dane wejściowe ruchu zostaną przywrócone.",
+                    "pt-BR": "Os Jogadores cuja entrada de movimento será restaurada.",
+                    "ru-RU": "Игрок или игроки чей аргумент передвижения будет восстановлен.",
+                    "zh-CN": "下列玩家的移动将恢复正常。"
                 }
             }
         ],
@@ -9563,7 +13617,19 @@ const actionKw =
                 "type": "HotId",
                 "default": "PLAYER VARIABLE",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored."
+                    "guid": "00000000BD16",
+                    "en-US": "Specifies which Heal Over Time instance to stop. This ID may be Last Heal Over Time ID or a Variable into which Last Heal Over Time ID was earlier stored.",
+                    "de-DE": "Legt fest welche Instanz von Heilung über Zeit beendet werden soll. Diese ID kann [Last Heal Over Time ID] oder eine Variable sein in der [Last Heal Over Time ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué instancia de «Heal Over Time» se detiene. Esta ID puede ser «Last Heal Over Time ID» o una variable en la que se almacenó previamente «Last Heal Over Time ID».",
+                    "es-MX": "Especifica la instancia de sanación con el tiempo que se detendrá. Esta ID puede ser la ID de sanación con el tiempo anterior o una variable en la que se almacenó previamente la ID de sanación con el tiempo anterior.",
+                    "fr-FR": "Spécifie quelle instance de soins sur la durée arrêter. Cette ID peut correspondre à « Dernier identifiant de soins sur la durée » ou à une variable ayant auparavant enregistré le dernier identifiant de soins sur la durée.",
+                    "it-IT": "Specifica quale istanza di Cure Periodiche interrompere. L'ID può essere Last Heal Over Time ID o una Variabile in cui il Last Heal Over Time ID era stato precedentemente memorizzato.",
+                    "ja-JP": "停止する継続回復のインスタンスを指定するこのIDは、「最新の継続回復ID」または以前「最新の継続回復のID」に保存されていた変数",
+                    "ko-KR": "중지할 Heal Over Time 인스턴스를 지정합니다. 여기에 사용되는 ID는 Last Heal Over Time ID 또는 예전에 Last Heal Over Time ID가 담긴 변수입니다.",
+                    "pl-PL": "Określa którą instancję „Heal Over Time” Leczenie z upływem czasu usunąć. Identyfikatorem może być „Last Heal Over Time ID” Identyfikator ostatniego leczenia z upływem czasu lub zmienna w której wcześniej zmagazynowano „Last Heal Over Time ID” Identyfikator ostatniego leczenia z upływem czasu.",
+                    "pt-BR": "Especifica qual instância de Cura ao Longo do Tempo será interrompida. Essa ID pode ser a ID de Cura ao Longo do Tempo Mais Recente ou uma Variável na qual a ID de Cura ao Longo do Tempo Mais Recente tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров периодического исцеления [Heal Over Time] следует остановить. В качестве идентификатора может выступать [Last Heal Over Time ID] или переменная в которую был записан такой ID.",
+                    "zh-CN": "指定要结束的持续治疗副本。此ID可以是”上一个持续治疗ID“，或一个之前储存”上一个持续治疗ID“的变量。"
                 }
             }
         ],
@@ -9600,7 +13666,19 @@ const actionKw =
                 "type": "HealingModificationId",
                 "default": "LAST HEALING MODIFICATION ID",
                 "descriptionLocalized": {
-                    "en-US": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored."
+                    "guid": "00000000FD3A",
+                    "en-US": "Specifies which healing modification instance to stop. This ID may be Last Healing Modification ID or a Variable into which Last Healing Modification ID was earlier stored.",
+                    "de-DE": "Legt fest welche Instanz der Heilungsmodifikation beendet werden soll. Diese ID kann [Last Healing Modification ID] oder eine Variable sein in der [Last Healing Modification ID] zuvor gespeichert wurde.",
+                    "es-ES": "Especifica qué instancia de modificación de sanación detiene. Esta ID puede ser «Last Healing Modification ID» o una variable en la que se almacenó previamente «Last Healing Modification ID».",
+                    "es-MX": "Especifica la instancia de modificación de sanación que se detendrá. Esta ID puede ser la ID de modificación de sanación anterior o una variable en la que se almacenó previamente la ID de modificación de sanación anterior.",
+                    "fr-FR": "Spécifie quelle instance de modification des soins arrêter. Cet identifiant peut correspondre à « Dernier identifiant de modification de soins » ou à une variable ayant auparavant enregistré le dernier identifiant de modification de soins.",
+                    "it-IT": "Specifica quale istanza di modifica delle cure interrompere. L'ID può essere Last Healing Modification ID o una Variabile in cui il Last Healing Modification ID era stato memorizzato in precedenza.",
+                    "ja-JP": "停止する回復変更のインスタンスを指定する。このIDは、「最新回復変更ID」または以前の「最新回復変更ID」が保存されていた変数",
+                    "ko-KR": "중지할 Healing Modification 인스턴스를 지정합니다. 이 ID는 Last Healing Modification ID이거나 이전에 Last Healing Modification ID가 저장되었던 변수일 수 있습니다.",
+                    "pl-PL": "Określa którą instancję modyfikacji leczenia zatrzymać. Identyfikatorem może być „Last Healing Modification ID” Identyfikator ostatniej modyfikacji leczenia lub zmienna w której wcześniej zmagazynowano ten identyfikator.",
+                    "pt-BR": "Especifica qual instância de modificação de cura será interrompida. Essa ID pode ser a ID da Última Modificação de Cura ou uma Variável na qual a ID da Última Modificação de Cura tenha sido armazenada anteriormente.",
+                    "ru-RU": "Определяет какой из экземпляров модификации исцеления следует остановить. В качестве идентификатора можно использовать [Last Healing Modification ID] или переменную в которую был записан такой ID.",
+                    "zh-CN": "指定要结束的治疗调整副本。此ID可以是”上一个治疗调整ID“，或一个之前储存”上一个治疗调整ID“的变量。"
                 }
             }
         ],
@@ -9642,7 +13720,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players who are no longer holding a button virtually."
+                    "guid": "00000000BD27",
+                    "en-US": "The Player or Players who are no longer holding a button virtually.",
+                    "de-DE": "Der oder die Spieler die eine Taste nicht mehr virtuell halten.",
+                    "es-ES": "Jugador o jugadores que ya no pulsan un botón virtualmente.",
+                    "es-MX": "El jugador o los jugadores que ya no mantienen presionado un botón virtualmente.",
+                    "fr-FR": "Le ou les joueurs qui ne maintiennent plus virtuellement un bouton enfoncé.",
+                    "it-IT": "Il Giocatore o i Giocatori che non terranno più premuto un tasto virtualmente.",
+                    "ja-JP": "仮想的なボタン長押しを解除したプレイヤー",
+                    "ko-KR": "더 이상 가상으로 버튼을 누르지 않을 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze którzy nie przytrzymują już wirtualnie przycisku.",
+                    "pt-BR": "Os Jogadores que não estáão mais segurando virtualmente um botão.",
+                    "ru-RU": "Игрок или игроки у которых больше не будет виртуально удерживаться кнопка.",
+                    "zh-CN": "下列玩家将不再持续按下虚拟按钮。"
                 }
             },
             {
@@ -9651,7 +13741,19 @@ const actionKw =
                 "type": "Button",
                 "default": "PRIMARY FIRE",
                 "descriptionLocalized": {
-                    "en-US": "The logical button that is no longer being held virtually."
+                    "guid": "00000000BD26",
+                    "en-US": "The logical button that is no longer being held virtually.",
+                    "de-DE": "Die logische Taste die nicht mehr virtuell gehalten wird.",
+                    "es-ES": "Botón lógico que ya no se pulsa virtualmente.",
+                    "es-MX": "El botón lógico que ya no se encuentra presionado virtualmente.",
+                    "fr-FR": "Le bouton logique qui n’est plus maintenu virtuellement enfoncé.",
+                    "it-IT": "Il tasto logico che non sarà più tenuto premuto virtualmente.",
+                    "ja-JP": "仮想的に長押しされていないロジカル・ボタン",
+                    "ko-KR": "더 이상 가상으로 눌리지 않을 논리적 버튼입니다.",
+                    "pl-PL": "Logiczny przycisk który nie jest już przytrzymywany wirtualnie.",
+                    "pt-BR": "O botão lógico que não está mais sendo segurado virtualmente.",
+                    "ru-RU": "Логическая кнопка виртуальное удерживание которой нужно прекратить.",
+                    "zh-CN": "不再持续按下的虚拟按钮。"
                 }
             }
         ],
@@ -9693,7 +13795,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose hero voice line sounds will stop being modified."
+                    "guid": "0000000113C7",
+                    "en-US": "The Player or Players whose hero voice line sounds will stop being modified.",
+                    "de-DE": "Der oder die Spieler deren Heldensprüche nicht mehr modifiziert werden.",
+                    "es-ES": "Jugador o jugadores para los que dejará de modificarse el sonido de las frases de héroe.",
+                    "es-MX": "El jugador o los jugadores cuyo sonido de las líneas de voz de héroe dejará de modificarse.",
+                    "fr-FR": "Le ou les joueurs dont les répliques du héros cesseront d’être modifiées.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui suono delle battute audio degli eroi cesserà di essere modificato.",
+                    "ja-JP": "ヒーローのボイス・ラインの聞こえ方の変更が止まるプレイヤー",
+                    "ko-KR": "영웅 음성 대사 사운드의 변경을 중지할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze dla których przestanie być modyfikowany głos bohatera.",
+                    "pt-BR": "Os Jogadores cujos sons de fala de herói deixarão de ser modificados.",
+                    "ru-RU": "Игрок или игроки у которых больше не будет изменяться звучание реплик персонажей.",
+                    "zh-CN": "下列玩家的英雄语音声音将停止被修改。"
                 }
             }
         ],
@@ -9720,7 +13834,8 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose barriers will stop having their size being overridden."
+                    "en-US": "The player or players whose barriers will stop having their size being overridden.",
+                    "guid": "<unknown guid>"
                 }
             }
         ],
@@ -9747,7 +13862,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose size will stop being overridden."
+                    "guid": "000000011313",
+                    "en-US": "The Player or Players whose size will stop being overridden.",
+                    "de-DE": "Der oder die Spieler deren Größe nicht mehr überschrieben wird.",
+                    "es-ES": "Jugador o jugadores cuyo tamaño dejará de sobrescribirse.",
+                    "es-MX": "El jugador o los jugadores cuyo tamaño dejará de modificarse.",
+                    "fr-FR": "Le ou les joueurs dont la taille cessera d’être modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui dimensione cesserà di essere forzata.",
+                    "ja-JP": "サイズの変更が止まるプレイヤー",
+                    "ko-KR": "크기 오버라이드를 중지할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których rozmiar przestanie być ignorowany.",
+                    "pt-BR": "Os Jogadores cujo tamanho deixará de ser substituído.",
+                    "ru-RU": "Игрок или игроки у которых больше не будет корректироваться размер барьеров.",
+                    "zh-CN": "停止强制设置下列玩家的大小。"
                 }
             }
         ],
@@ -9774,7 +13901,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose default throttle control will be restored."
+                    "guid": "00000000CEB7",
+                    "en-US": "The Player or Players whose default throttle control will be restored.",
+                    "de-DE": "Der oder die Spieler deren Standard-Throttlesteuerung wiederhergestellt wird.",
+                    "es-ES": "Jugador o jugadores cuyo control de aceleración predeterminado se restaurará.",
+                    "es-MX": "El jugador o los jugadores cuyo control de aceleración predeterminado será restaurado.",
+                    "fr-FR": "Le ou les joueurs dont le contrôle de l’accélération par défaut sera restauré.",
+                    "it-IT": "Il Giocatore o i Giocatori il cui controllo dell'accelerazione preimpostata verrà ripristinato.",
+                    "ja-JP": "デフォルトのスロットル操作を取り戻すプレイヤー",
+                    "ko-KR": "스로틀 제어가 기본값으로 복원될 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których domyślne sterowanie pędem zostanie przywrócone.",
+                    "pt-BR": "Os Jogadores cujo controle-padrão de aceleração será restaurado.",
+                    "ru-RU": "Игрок или игроки для которых будут восстановлены обычные параметры импульса движения.",
+                    "zh-CN": "恢复下列玩家的默认阈值控制。"
                 }
             }
         ],
@@ -9816,7 +13955,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players whose throttle will stop being transformed."
+                    "guid": "00000000CC30",
+                    "en-US": "The Player or Players whose throttle will stop being transformed.",
+                    "de-DE": "Der oder die Spieler deren Throttle-Transformation beendet wird.",
+                    "es-ES": "El jugador o jugadores cuya aceleración se parará de transformar.",
+                    "es-MX": "El jugador o los jugadores cuya aceleración dejará de ser transformada.",
+                    "fr-FR": "Le ou les joueurs dont l’accélération cessera d’être modifiée.",
+                    "it-IT": "Il Giocatore o i Giocatori la cui accelerazione cesserà di essere trasformata.",
+                    "ja-JP": "スロットルの変化が止まるプレイヤー",
+                    "ko-KR": "스로틀 변환을 멈출 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze których pęd przestanie być przekształcany.",
+                    "pt-BR": "Os Jogadores cuja aceleração deixará de ser transformada.",
+                    "ru-RU": "Один или несколько игроков для которых будет прекращено преобразование импульса движения.",
+                    "zh-CN": "停止转换下列玩家的阈值。"
                 }
             }
         ],
@@ -9859,7 +14010,19 @@ const actionKw =
                 ],
                 "default": "EVENT PLAYER",
                 "descriptionLocalized": {
-                    "en-US": "The player or players to teleport."
+                    "guid": "00000000BD09",
+                    "en-US": "The Player or Players to teleport.",
+                    "de-DE": "Der oder die zu teleportierenden Spieler.",
+                    "es-ES": "Jugador o jugadores que se teletransportan.",
+                    "es-MX": "El jugador o los jugadores que se transportarán.",
+                    "fr-FR": "Le ou les joueurs à téléporter.",
+                    "it-IT": "Il Giocatore o i Giocatori da teletrasportare.",
+                    "ja-JP": "テレポートするプレイヤー",
+                    "ko-KR": "순간이동할 플레이어입니다.",
+                    "pl-PL": "Gracz lub gracze do teleportowania.",
+                    "pt-BR": "Os Jogadores a serem teletransportados.",
+                    "ru-RU": "Телепортируемый игрок или игроки.",
+                    "zh-CN": "下列玩家将被传送。"
                 }
             },
             {
@@ -9869,7 +14032,19 @@ const actionKw =
                 "canReplace0ByNull": true,
                 "default": "VECTOR",
                 "descriptionLocalized": {
-                    "en-US": "The position to which the player or players will teleport. If a player is provided, the position of the player is used."
+                    "guid": "00000000BD08",
+                    "en-US": "The position to which the Player or Players will teleport. If a Player is provided the position of the Player is used.",
+                    "de-DE": "Die Position an die der oder die Spieler teleportiert werden. Wenn ein Spieler angegeben ist wird die Position des Spielers verwendet.",
+                    "es-ES": "Posición a la que se teletransportarán el jugador o los jugadores. Si se indica un jugador se utiliza la posición del jugador.",
+                    "es-MX": "La posición a la cual se transportará el jugador o los jugadores. Si se detecta un jugador se utilizará la posición del jugador.",
+                    "fr-FR": "La position à laquelle le ou les joueurs seront téléportés. Si un joueur est indiqué la position du joueur servira de référence.",
+                    "it-IT": "La posizione in cui il Giocatore o i Giocatori saranno teletrasportati. Se viene specificato un Giocatore verrà utilizzata la posizione del Giocatore.",
+                    "ja-JP": "プレイヤーのテレポート先。プレイヤーが指定されている場合は、プレイヤーの位置を使用する",
+                    "ko-KR": "플레이어가 순간이동하게 될 위치입니다. 플레이어가 설정되어 있으면 해당 플레이어의 위치가 사용됩니다.",
+                    "pl-PL": "Pozycja do której teleportowany będzie gracz lub gracze. Jeśli podany zostanie gracz użyta będzie jego pozycja.",
+                    "pt-BR": "A posição para a qual os Jogadores seráão teletransportados. Se um Jogador for fornecido a posição do Jogador será usada.",
+                    "ru-RU": "Точка куда будет телепортирован игрок или игроки. Если вместо значения указан игрок то будет использоваться его местоположение.",
+                    "zh-CN": "玩家将被传送到的位置。如果此处填入一名玩家，则使用此玩家所在的位置。"
                 }
             }
         ],
@@ -9935,7 +14110,19 @@ const actionKw =
                 "canReplace1ByTrue": true,
                 "default": "NUMBER",
                 "descriptionLocalized": {
-                    "en-US": "The duration of the pause."
+                    "guid": "00000000BC65",
+                    "en-US": "The duration of the pause.",
+                    "de-DE": "Die Dauer der Pause.",
+                    "es-ES": "Duración de la pausa.",
+                    "es-MX": "La duración de la pausa.",
+                    "fr-FR": "La durée de la pause.",
+                    "it-IT": "La durata della pausa.",
+                    "ja-JP": "ポーズの長さ",
+                    "ko-KR": "일시정지의 지속시간입니다.",
+                    "pl-PL": "Czas trwania pauzy.",
+                    "pt-BR": "A duração da pausa.",
+                    "ru-RU": "Длительность паузы.",
+                    "zh-CN": "暂停的持续时间。"
                 }
             },
             {
@@ -9944,7 +14131,19 @@ const actionKw =
                 "type": "Wait",
                 "default": "IGNORE CONDITION",
                 "descriptionLocalized": {
-                    "en-US": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart."
+                    "guid": "00000000BC67",
+                    "en-US": "Specifies if and how the Wait can be interrupted. If the Condition list is ignored the Wait will not be interrupted. Otherwise the Condition list will determine if and when the Action list will abort or restart.",
+                    "de-DE": "Legt fest ob und wie [Wait] unterbrochen werden kann. Wenn die Bedingungsliste ignoriert wird wird [Wait] nicht unterbrochen. Ansonsten bestimmt die Bedingungsliste ob und wann die Aktionsliste abgebrochen oder neu gestartet wird.",
+                    "es-ES": "Especifica si se puede interrumpir «Wait» y cómo. Si se ignora la lista de condiciones «Wait» no se interrumpirá; de lo contrario la lista de condiciones determinará si se aborta o reinicia la lista de acciones y cuándo.",
+                    "es-MX": "Especifica si se puede interrumpir la espera y cómo hacerlo. Si se ignora la lista de condiciones no se interrumpirá la espera. Caso contrario la lista de condiciones establecerá si se abortará o reiniciará la lista de acciones y cuándo ocurrirá.",
+                    "fr-FR": "Spécifie si et comment le cas échéant l’attente peut être interrompue. Si la liste de conditions est ignorée l’attente ne sera pas interrompue. Sinon la liste de conditions déterminera si et quand le cas échéant la liste d’actions sera interrompue ou redémarrée.",
+                    "it-IT": "Specifica se e come l'Attesa può essere interrotta. Se la lista di Condizioni è ignorata l'Attesa non sarà interrotta. Altrimenti la lista di Condizioni determinerà se e quando la lista di Azioni sarà annullata o riavviata.",
+                    "ja-JP": "待機を中断できるかどうかと、中断方法を指定する。条件リストを無視した場合、待機は中断されない。それ以外の場合、条件リストがアクション・リストの中止・再開の可否やそのタイミングを決定する",
+                    "ko-KR": "Wait이 중지되는 조건 및 방법에 대해 지정합니다. 조건 목록이 무시되면 Wait은 중지되지 않으며 그 외의 경우에는 조건 목록에 의해 액션 목록의 중지 및 재시작이 결정됩니다.",
+                    "pl-PL": "Określa czy i jak można przerwać oczekiwanie. Jeśli lista warunków zostanie zignorowana oczekiwanie nie będzie przerwane. W przeciwnym razie lista warunków określi czy i kiedy lista działań zostanie anulowana lub zrestartowana.",
+                    "pt-BR": "Especifica se e como Esperar pode ser interrompido. Se a lista de Condições for ignorada Esperar não será interrompido. Caso contrário a lista de Condições determinará se e quando a lista de Ações será anulada ou reiniciará.",
+                    "ru-RU": "Определяет необходимость и способ прерывания действия [Wait]. Если список условий игнорируется ожидание не прервется. В противном случае необходимость и способ отмены или перезапуска списка действий определяется списком условий.",
+                    "zh-CN": "指定等待是否可以被中断。如果忽略条件列表，则等待不会被中断。否则则依据条件列表判断是否及何时中止或重新开始动作列表。"
                 }
             }
         ],
@@ -9980,7 +14179,19 @@ const actionKw =
                 "type": "bool",
                 "default": "false",
                 "descriptionLocalized": {
-                    "en-US": "If this value becomes true, the wait concludes, and the next action in the action list begins executing."
+                    "guid": "0000000121C5",
+                    "en-US": "If this value becomes true the wait concludes and the next action in the action list begins executing.",
+                    "de-DE": "Wenn dieser Wert True wird wird die Wartephase beendet und die nächste Aktion in der Aktionsliste ausgeführt.",
+                    "es-ES": "Si este valor se establece como verdadero la espera concluye y comienza a ejecutarse la siguiente acción de la lista de acciones.",
+                    "es-MX": "Si este valor se vuelve verdadero la espera concluye y la siguiente acción en la lista de acciones comienza a ejecutarse.",
+                    "fr-FR": "Si cette valeur devient vraie l’attente se termine et l’action suivante dans la liste d’actions commence à s’exécuter.",
+                    "it-IT": "Se questo valore diventa True l'attesa termina e l'azione successiva nella lista Azioni inizia l'esecuzione.",
+                    "ja-JP": "この値が「TRUE」になると待機が終了し、アクション・リストの次のアクションが実行される",
+                    "ko-KR": "이 값이 참이 되면 대기가 종료되고 액션 목록의 다음 액션이 시행됩니다.",
+                    "pl-PL": "Jeśli ta wartość będzie prawdą oczekiwanie zostanie zakończone i rozpocznie się wykonywanie kolejnego działania z listy.",
+                    "pt-BR": "Se este valor for verdadeiro a espera será concluída e a próxima ação na lista de ações começará a ser executada.",
+                    "ru-RU": "Если данное значение становится истинным true ожидание завершается и начинается выполнение следующего действия в списке.",
+                    "zh-CN": "如果此值变为“真”，则终止等待，并开始执行动作列表中的下一个动作。"
                 }
             },
             {
@@ -9989,7 +14200,19 @@ const actionKw =
                 "type": "unsigned float",
                 "default": "99999",
                 "descriptionLocalized": {
-                    "en-US": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing."
+                    "guid": "0000000121CA",
+                    "en-US": "If this many seconds elapse the wait concludes and the next action in the action list begins executing.",
+                    "de-DE": "Wenn diese Anzahl von Sekunden verstreicht wird die Wartephase beendet und die nächste Aktion in der Aktionsliste ausgeführt.",
+                    "es-ES": "Si transcurren estos segundos la espera concluye y comienza a ejecutarse la siguiente acción de la lista de acciones.",
+                    "es-MX": "Si transcurren todos estos segundos la espera concluye y la siguiente acción en la lista de acciones comienza a ejecutarse.",
+                    "fr-FR": "Si autant de secondes s’écoulent l’attente se termine et l’action suivante dans la liste d’actions commence à s’exécuter.",
+                    "it-IT": "Al passare dei secondi specificati l'attesa termina e l'azione successiva nella lista Azioni inizia l'esecuzione.",
+                    "ja-JP": "この秒数が経過すると待機が終了し、アクション・リストの次のアクションが実行される",
+                    "ko-KR": "수 초가 지나면 대기가 종료되고 액션 목록의 다음 액션이 시행됩니다.",
+                    "pl-PL": "Jeśli upłynie wskazana liczba sekund oczekiwanie zostanie zakończone i rozpocznie się wykonywanie kolejnego działania z listy.",
+                    "pt-BR": "Se passarem esses segundos a espera será concluída e a próxima ação na lista de ações começará a ser executada.",
+                    "ru-RU": "Через указанное количество секунд ожидание завершается и начинается выполнение следующего действия в списке.",
+                    "zh-CN": "如果达到此秒数时限，则终止等待，并开始执行动作列表中的下一个动作。"
                 }
             }
         ],
@@ -10011,7 +14234,19 @@ const actionKw =
                 "type": "bool",
                 "default": "COMPARE",
                 "descriptionLocalized": {
-                    "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level."
+                    "guid": "00000000FB3F",
+                    "en-US": "If this evaluates to true execution continues with the next action. Otherwise execution jumps to the next End action at the current level.",
+                    "de-DE": "Wenn diese Bedingung True ist fährt die Ausführung mit der nächsten Aktion fort. Ansonsten springt die Ausführung zur nächsten Aktion [End] auf der aktuellen Ebene.",
+                    "es-ES": "Si se evalúa como verdadera la ejecución continúa con la siguiente acción. De lo contrario la ejecución salta a la siguiente acción «End» del nivel actual.",
+                    "es-MX": "Si resulta verdadero la ejecución continuará con la siguiente acción. Caso contrario se ejecutará la siguiente acción Fin del nivel actual.",
+                    "fr-FR": "Si cela est évalué comme vrai l’exécution se poursuivra avec l’action suivante. Dans le cas contraire l’exécution passera à la prochaine action « Fin » au niveau actuel.",
+                    "it-IT": "Se risulta vera l'esecuzione prosegue con l'azione successiva. Altrimenti l'esecuzione salta all'azione Fine successiva al livello attuale.",
+                    "ja-JP": "判定結果が「TRUE」の場合、次のアクションが実行される。それ以外の場合は、現在のレベルの次の「END」アクションにジャンプする",
+                    "ko-KR": "이 연산이 참인 경우 다음 액션으로 진행합니다. 이외의 경우 현재 레벨의 다음 End 액션을 실행합니다.",
+                    "pl-PL": "Jeśli to okaże się prawdą uruchomienie będzie kontynuowane przy następnym działaniu. W przeciwnym razie przeskakuje do następnego działania End Koniec na bieżącym poziomie.",
+                    "pt-BR": "Se isso for avaliado como verdadeiro a execução continua com a próxima ação. Caso contrário a execução salta para a próxima ação de Término do nível atual.",
+                    "ru-RU": "Если это условие верно начинается выполнение следующего действия. В противном случае выполнение переходит к следующему действию [End] на текущем уровне.",
+                    "zh-CN": "如果此值为真，则继续执行下一个行动。否则，跳转至当前层级的下一个End行动并执行。"
                 }
             }
         ],
