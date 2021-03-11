@@ -147,7 +147,7 @@ Match Time | getMatchTime()
 Max | max()
 Min | min()
 Modify Team Score | addToTeamScore()
-Move Player To Team | moveToTeam()
+Move Player to Team | moveToTeam()
 Nearest Walkable Position | nearestWalkablePosition()
 Normalize | normalize()
 Null | null

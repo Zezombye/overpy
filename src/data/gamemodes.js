@@ -38,7 +38,7 @@ const gamemodeKw =
     },
     "bountyHunter": {
         "guid": "000000012841",
-        defaultFfaPlayers: 6,
+        "defaultFfaPlayers": 6,
         "en-US": "Bounty Hunter",
         "de-DE": "Kopfgeldjäger",
         "es-ES": "Cazarrecompensas",
@@ -52,6 +52,20 @@ const gamemodeKw =
         "ru-RU": "Охота за головами",
         "zh-CN": "赏金猎手",
         "zh-TW": "賞金獵人"
+    },
+    "control": {
+        "guid": "00000000CD5B",
+        "en-US": "Control",
+        "de-DE": "Kontrolle",
+        "fr-FR": "Contrôle",
+        "it-IT": "Controllo",
+        "ja-JP": "コントロール",
+        "ko-KR": "쟁탈",
+        "pl-PL": "Kontrola",
+        "pt-BR": "Controle",
+        "ru-RU": "Контроль",
+        "zh-CN": "占领要点",
+        "zh-TW": "控制"
     },
     "ctf": {
         "guid": "000000005A56",
@@ -69,38 +83,10 @@ const gamemodeKw =
         "zh-CN": "勇夺锦旗",
         "zh-TW": "搶旗"
     },
-    "control": {
-        "guid": "00000000CD5B",
-        "en-US": "Control",
-        "de-DE": "Kontrolle",
-        "fr-FR": "Contrôle",
-        "it-IT": "Controllo",
-        "ja-JP": "コントロール",
-        "ko-KR": "쟁탈",
-        "pl-PL": "Kontrola",
-        "pt-BR": "Controle",
-        "ru-RU": "Контроль",
-        "zh-CN": "占领要点",
-        "zh-TW": "控制"
-    },
-    "ffa": {
-        "guid": "000000006853",
-        defaultFfaPlayers: 12,
-        "en-US": "Deathmatch",
-        "es-ES": "Combate a muerte",
-        "es-MX": "Combate a muerte",
-        "fr-FR": "Combat à mort",
-        "ja-JP": "デスマッチ",
-        "ko-KR": "데스매치",
-        "pt-BR": "Combate até a Morte",
-        "ru-RU": "Схватка",
-        "zh-CN": "死斗",
-        "zh-TW": "死鬥"
-    },
     "elimination": {
         "guid": "000000005887",
-        defaultTeam1Players: 1,
-        defaultTeam2Players: 1,
+        "defaultTeam1Players": 1,
+        "defaultTeam2Players": 1,
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
         "es-ES": "Eliminación",
@@ -130,6 +116,20 @@ const gamemodeKw =
         "ru-RU": "Сопровождение",
         "zh-CN": "运载目标",
         "zh-TW": "護送"
+    },
+    "ffa": {
+        "guid": "000000006853",
+        "defaultFfaPlayers": 12,
+        "en-US": "Deathmatch",
+        "es-ES": "Combate a muerte",
+        "es-MX": "Combate a muerte",
+        "fr-FR": "Combat à mort",
+        "ja-JP": "デスマッチ",
+        "ko-KR": "데스매치",
+        "pt-BR": "Combate até a Morte",
+        "ru-RU": "Схватка",
+        "zh-CN": "死斗",
+        "zh-TW": "死鬥"
     },
     "freezethawElimination": {
         "guid": "0000000122DF",
@@ -209,7 +209,7 @@ const gamemodeKw =
     },
     "practiceRange": {
         "guid": "0000000040BE",
-        defaultTeam2Players: 0,
+        "defaultTeam2Players": 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",

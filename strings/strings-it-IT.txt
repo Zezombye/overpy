@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1692,7 +1692,7 @@
 0000000017C5.07C: IND: %1$s
 0000000018E5.07C: Danni bloccati
 000000001922.07C: Non sei stato invitato in una partita personalizzata.
-000000001923.07C: Impossibile invitare il giocatore in una partita personalizzata. Potrebbe essere in una partita competitiva.
+000000001923.07C: Impossibile invitare il giocatore in una partita personalizzata. Potrebbe aver disattivato gli inviti o essere in una partita competitiva.
 000000001924.07C:  ti ha invitato in una partita personalizzata!
 000000001949.07C: Migliore corrispondenza
 00000000194A.07C: Monitor %1$s
@@ -20260,7 +20260,7 @@ Deathmatch competitivo 2019
 00000000BCCC.07C: Disattiva la rigenerazione automatica di uno o più Giocatori, permettendone la rigenerazione solo utilizzando comandi di script.
 00000000BCCD.07C: Crea un'entità effetto nel mondo di gioco. Tale entità effetto esisterà finché non verrà distrutta. Per ottenere un riferimento all'entità, usa il Valore Last Created Entity. Questa Azione non andrà a buon fine se troppe entità sono già state create.
 00000000BCCE.07C: Uno o più Giocatori che potranno vedere l'effetto.
-00000000BCCF.07C: Il tipo di effetto da creare.
+00000000BCCF.07C: Il tipo di effetto da creare. È possibile aggiungere nuove opzioni alla lista attivando certe estensioni Workshop.
 00000000BCD0.07C: Il colore dell'effetto da creare. Se viene scelta una squadra specifica, l'effetto sarà rosso o blu, a seconda che la squadra sia ostile o meno allo spettatore. Non si applica agli effetti sonori. Non supporta la personalizzazione dei colori.
 00000000BCD1.07C: La posizione finale dell'effetto. Se il Valore rappresenta un Giocatore, l'effetto seguirà i movimenti del Giocatore. Altrimenti, il Valore viene interpretato come una posizione nel mondo di gioco.
 00000000BCD2.07C: Il raggio dell'effetto in metri. Per gli effetti sonori, viene considerato il volume.
@@ -20452,7 +20452,7 @@ Deathmatch competitivo 2019
 00000000BD8C.07C: La Squadra o le Squadre il cui punteggio sarà modificato.
 00000000BD8D.07C: Modifica il punteggio di una o entrambe le Squadre. Questa Azione non ha effetto nelle modalità Tutti contro tutti senza un punteggio di squadra.
 00000000BD8F.07C: La posizione dell'effetto. Se il Valore rappresenta un Giocatore, l'effetto si verificherà alla posizione del Giocatore. Altrimenti, il Valore viene interpretato come una posizione nel mondo di gioco.
-00000000BD90.07C: Il tipo di effetto da creare.
+00000000BD90.07C: Il tipo di effetto da creare. È possibile aggiungere nuove opzioni alla lista attivando certe estensioni Workshop.
 00000000BD91.07C: Crea un effetto alla posizione del Giocatore. La durata dell'effetto è breve, perciò non è necessario aggiornarlo o distruggerlo.
 00000000BD92.07C: Uno o più Giocatori che potranno vedere l'effetto.
 00000000BD93.07C: Il colore dell'effetto da creare. Se viene scelta una squadra specifica, l'effetto sarà rosso o blu, a seconda che la squadra sia ostile o meno allo spettatore. Non supporta la personalizzazione dei colori.
@@ -22263,7 +22263,7 @@ Deathmatch competitivo 2019
 00000000CA51.07C: Composto
 00000000CA52.07C: Vuoto
 00000000CA6A.07C: Create Dummy Bot
-00000000CA6B.07C: Aggiunge un nuovo bot allo slot specifico alla squadra specifica finché lo slot è disponibile. Questo bot si muoverà, sparerà e userà le abilità solo se segue le azioni del Workshop.
+00000000CA6B.07C: Aggiunge un nuovo bot allo slot specifico alla squadra specifica finché lo slot è disponibile. Questo bot si muoverà, sparerà e userà le abilità solo se segue le azioni del Workshop. È possibile creare bot di prova aggiuntivi se è attiva l'estensione Workshop corrispondente.
 00000000CA6C.07C: Beta Coda Ruoli
 00000000CA75.07C: Eroe
 00000000CA76.07C: L'eroe controllato dal bot. Se viene specificato più di un eroe, verrà scelto casualmente.
@@ -28211,7 +28211,7 @@ Assistenza Blizzard
 0000000111B7.07C: Input Binding String
 0000000111B8.07C: Converte un parametro Tasto in una stringa che viene mostrata in base all'assegnazione dei tasti del Giocatore. Questo Valore non può essere memorizzato nelle Variabili.
 0000000111B9.07C: Il tasto per l'assegnazione tasti che sarà convertito in icona.
-0000000111BC.07C: Errore: i valori Input Binding String non possono essere memorizzati nelle variabili.
+0000000111BC.07C: Errore: è possibile usare i valori locali solo nelle azioni degli effetti visivi o dell'HUD.
 0000000111BD.07C: Errore: il Current Array Index non può essere usato al di fuori di un array.
 0000000111BE.07C: Uccisioni con Schianto Sismico
 0000000111BF.07C: Uccisioni con Carica
@@ -28702,6 +28702,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011967.07C: Per adulti
 000000011968.07C: Senza filtri
 00000001196A.07C: Tiro al Bersaglio
+00000001198A.07C: +20%% PE (bonus happy hour)
 000000011997.07C: Zucca
 000000011998.07C: GIOCATORI: 3
 000000011999.07C: Best Halloween Score
@@ -28972,7 +28973,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011FE1.07C: Fantasma Vendicativo
 000000011FE2.07C: Disponibile nei Forzieri di Halloween
 000000011FE7.07C: Spawn Points
-000000011FE8.07C: Le aree di partenza attive per una Squadra o per la partita, fornite come array di vettori posizionali.
+000000011FE8.07C: Le aree di partenza attive per una Squadra o per la partita, fornite come array di entità.
 00000001205E.07C: La Squadra la cui area di partenza bisogna acquisire.
 000000012070.07C: String Contains
 000000012071.07C: Specifica se la Stringa contiene il Valore specificato.
@@ -29379,9 +29380,14 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127E0.07C: Sbloccato per essere entrato nella Top 500 della Stagione 26
 0000000127E3.07C: Stagione 26
 0000000127E4.07C: Stagione 26
+0000000127E5.07C: Stagione 27
+0000000127E6.07C: Stagione 27
 0000000127EF.07C: Stagione 26
 0000000127F0.07C: Stagione 26
+0000000127F1.07C: Stagione 27
+0000000127F2.07C: Stagione 27
 0000000127FC.07C: Stagione competitiva 26 - Coda aperta
+0000000127FD.07C: Stagione competitiva 27 - Coda aperta
 000000012802.07C: Toro Luminoso
 000000012804.07C: Partite di piazzamento
 000000012805.07C: Elfo Congelato
@@ -29423,7 +29429,25 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000128E3.07C: Attualmente non ci sono ruoli idonei all'uso di un Pass Priorità.
 0000000128E5.07C: Abbiamo rimborsato il tuo Pass Priorità.
 0000000128E6.07C: Mostra tempo di riproduzione separatamente
+0000000128E7.07C: Spawn More Dummy Bots
+0000000128E8.07C: Aumenta di 12 il numero massimo di bot di prova.
+0000000128E9.07C: Play More Effects
+0000000128EA.07C: Raddoppia il numero di effetti riproducibili contemporaneamente.
 000000012965.07C: Il tuo Pass Priorità non sarà utilizzato perché il tuo tempo di coda è stato maggiore del previsto.
+000000012971.07C: estensioni
+000000012990.07C: Errore: richiesta un'estensione dopo '%1$s' nella riga %2$s
+000000012996.07C: Modifica estensioni
+000000012998.07C: Ripristina le impostazioni predefinite
+0000000129FD.07C: Mercy Heal Beam
+0000000129FE.07C: Mercy Boost Beam
+0000000129FF.07C: Beam Effects
+000000012A01.07C: Winston Tesla Cannon Beam
+000000012A02.07C: Buff Status Effects
+000000012A04.07C: Heal Target Active Effect
+000000012A05.07C: Heal Target Effect
+000000012A6A.07C: Punti estensione disponibili
+000000012A6B.07C: Puoi ottenere punti estensione rimuovendo slot giocatore o disattivando le mappe non appartenenti al Workshop
+000000012A81.07C: %1$s
 000000012A82.07C: Anno del Bue 2021
 000000012A83.07C: Viso di Pietra
 000000012A84.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 1
@@ -29431,10 +29455,34 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012A87.07C: Pistola Fumante
 000000012A88.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 2
 000000012A89.07C: Viandante
-000000012A8E.07C: Imperiale
+000000012A8B.07C: Punti estensione spesi
+000000012A8C.07C: %1$s
+000000012A8D.07C: I punti estensione spesi non possono superare quelli disponibili
+000000012A8E.07C: Guardia Imperiale
 000000012A8F.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 3
 000000012A90.07C: Siwang
 000000012A91.07C: Sbloccato per aver partecipato alla sfida dell'Anno del Bue 2021, Settimana 3
+000000012A93.07C: Orisa Amplifier Beam
+000000012A94.07C: Omnic Slicer Beam
+000000012A95.07C: Junkrat Trap Chain Beam
+000000012A99.07C: Echo Focusing Beam
+000000012A9A.07C: Torbjörn Turret Sight Beam
+000000012A9B.07C: Moira Orb Heal Beam
+000000012A9C.07C: Moira Orb Damage Beam
+000000012A9D.07C: Moira Coalescence Beam
+000000012A9E.07C: Moira Grasp Connected Beam
+000000012AA0.07C: Errore: i punti estensione spesi non possono superare quelli disponibili
+000000012AA1.07C: Orisa Halt Tendril Beam
+000000012AA2.07C: Symmetra Turret Beam
+000000012AA3.07C: Symmetra Projector Beam
+000000012AA4.07C: Brigitte Flail Chain Beam
+000000012AA5.07C: Zarya Particle Beam
+000000012AC9.07C: Combinazioni massime di eroi unici e modelli
+000000012ACA.07C: %1$s
+000000012ACB.07C: Non potrai far comparire bot di prova qualora comportasse il superamento di questo limite
+000000012ACC.07C: %1$s
+000000012ACE.07C: Bot di prova massimi non in slot giocatore
+000000012ACF.07C: Non potrai far comparire bot di prova qualora comportasse il superamento di questo limite
 000000012ADC.07C: < 5 |Rpl min.
 000000012ADD.07C: > 10 |Rpl min.
 000000012AED.07C: Incremento della taglia per uccisione come Ricercato
@@ -29460,6 +29508,40 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012B95.07C: Uccisione di un Ricercato
 000000012B96.07C: Uccisione di un giocatore come Ricercato
 000000012B97.07C: Punteggio
+000000012B99.07C: Damage Over Time Count
+000000012B9A.07C: Heal Over Time Count
+000000012B9B.07C: Text Count
+000000012B9C.07C: Damage Modification Count
+000000012B9D.07C: Healing Modification Count
+000000012B9E.07C: Assist Count
+000000012B9F.07C: Entity Count
+000000012BA2.07C: Il numero attuale di istanze di Danni Periodici iniziate dall'Azione Damage Over Time.
+000000012BA3.07C: Il numero attuale di istanze di Cure Periodiche iniziate dall'Azione Heal Over Time.
+000000012BA4.07C: Il numero attuale di istanze di testo iniziate dall'Azione Create HUD Text, Create In-World Text, Create Progress Bar HUD Text o Create Progress Bar In-World Text.
+000000012BA5.07C: Il numero attuale di istanze di modifica dei danni iniziate dall'Azione Start Damage Modification.
+000000012BA6.07C: Il numero attuale di istanze di modifica delle cure iniziate dall'Azione Start Healing Modification.
+000000012BA7.07C: Il numero attuale di istanze di assist iniziate dall'Azione Start Assist.
+000000012BA8.07C: Il numero attuale di entità create dall'Azione Create Effect, Create Beam Effect o Create Icon.
+000000012BB1.07C: Local Player
+000000012BB2.07C: Il Giocatore controllato dal computer dell'utente finale. Il valore è diverso per ogni utente finale ed è dunque accessibile solo dalle Azioni che influenzano gli effetti visivi o l'HUD. Il valore non può essere memorizzato nelle variabili.
+000000012BB3.07C: Enable Text Chat
+000000012BB4.07C: Annulla l'effetto dell'Azione Disable Text Chat per uno o più Giocatori.
+000000012BB5.07C: Il Giocatore o i Giocatori la cui chat testuale sarà attivata.
+000000012BB6.07C: Disable Text Chat
+000000012BB7.07C: Disattiva la chat testuale per uno o più Giocatori fino alla riattivazione.
+000000012BB8.07C: Il Giocatore o i Giocatori la cui chat testuale sarà disattivata.
+000000012BB9.07C: Enable Voice Chat
+000000012BBA.07C: Annulla l'effetto dell'Azione Disable Voice Chat per uno o più Giocatori.
+000000012BBB.07C: Il Giocatore o i Giocatori la cui chat vocale sarà attivata.
+000000012BBC.07C: Disable Voice Chat
+000000012BBD.07C: Disattiva la chat vocale per uno o più Giocatori fino alla riattivazione.
+000000012BBE.07C: Il Giocatore o i Giocatori la cui chat vocale sarà disattivata.
+000000012BBF.07C: Chat Vocale di Squadra
+000000012BC0.07C: Chat Vocale della Partita
+000000012BC1.07C: Specifica se disattivare o meno la chat vocale della partita.
+000000012BC2.07C: Chat Vocale di Formazione
+000000012BC3.07C: Specifica se disattivare o meno la chat vocale della formazione.
+000000012BC4.07C: Specifica se disattivare o meno la chat vocale di squadra.
 000000012BD4.07C: Concorrente CLB (competitiva) 2021
 000000012BD5.07C: Sbloccato per aver completato le partite di piazzamento di Cattura la Bandiera (competitiva) 2021
 000000012BD6.07C: Eroe CLB (competitiva) 2021
@@ -29470,9 +29552,52 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012BDC.07C: Cattura la Bandiera (competitiva)
 000000012BDD.07C: Scala la classifica e affronta i migliori giocatori di Cattura la Bandiera del mondo!
 000000012BDE.07C: CLB (competitiva) - Stagione 4
+000000012BDF.07C: Ana Biotic Grenade Increased Healing Effect
+000000012BE0.07C: Ana Biotic Grenade No Healing Effect
+000000012BE1.07C: Ana Sleeping Effect
+000000012BE2.07C: Ana Nano Boosted Effect
+000000012BE3.07C: Ashe Dynamite Burning Particle Effect
+000000012BE4.07C: Ashe Dynamite Burning Material Effect
+000000012BE6.07C: Baptiste Immortality Field Protected Effect
+000000012BE7.07C: Echo Cloning Effect
+000000012BE8.07C: Lúcio Sound Barrier Protected Effect
+000000012BE9.07C: McCree Flashbang Stunned Effect
+000000012BEA.07C: Mei Frozen Effect
+000000012BEB.07C: Mercy Damage Boosted Effect
+000000012BEE.07C: Reaper Wraith Form Effect
+000000012BEF.07C: Sigma Gravitic Flux Target Effect
+000000012BF0.07C: Soldier: 76 Sprinting Effect
+000000012BF1.07C: Sombra Hacked Starting Effect
+000000012BF2.07C: Sombra Hacked Looping Effect
+000000012BF3.07C: Sombra Translocating Material Effect
+000000012BF4.07C: Torbjörn Overloading Effect
+000000012BF5.07C: Widowmaker Venom Mine Target Effect
+000000012BF6.07C: Winston Tesla Cannon Target Effect
+000000012BF7.07C: Winston Primal Rage Berserk Effect
+000000012BF8.07C: Wrecking Ball Adaptive Shield Target Effect
+000000012BF9.07C: Wrecking Ball Piledriver Fire Effect
+000000012BFA.07C: Zenyatta Orb of Discord Target Effect
+000000012BFB.07C: Debuff Status Effects
+000000012BFC.07C: Aggiunge effetti al menu Tipo dell'Azione Create Beam Effect. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra.
 000000012C16.07C: P
 000000012C17.07C: Compagnia Brillante
-000000012C37.07C: Settimana 1: modello Medico di Terracotta
+000000012C1F.07C: Start Game Mode
+000000012C20.07C: Return to Lobby
+000000012C21.07C: Riporta la modalità di gioco alla lobby della partita personalizzata.
+000000012C22.07C: Restart Match
+000000012C23.07C: Riavvia la partita. Quest'azione ha effetto solo se la partita esiste da almeno 30 secondi.
+000000012C24.07C: Avvia la modalità di gioco. Quest'azione non ha effetto se la partita è già in corso.
+000000012C27.07C: Errore: estensione Workshop non valida.
+000000012C28.07C: Errore: hai speso troppi punti estensione Workshop. Rimuovi una o più estensioni.
+000000012C2B.07C: Remove Player
+000000012C2C.07C: Rimuove uno o più Giocatori dalla partita personalizzata. Quest'azione non funziona sui bot di prova.
+000000012C2D.07C: Il Giocatore o i Giocatori da rimuovere.
+000000012C2E.07C: Move Player to Team
+000000012C2F.07C: Sposta uno o più Giocatori nella squadra o nello slot specificato. Quest'azione può non andare a buon fine se lo slot non è disponibile. Quest'azione non funziona sui bot di prova.
+000000012C30.07C: Il Giocatore o i Giocatori da spostare.
+000000012C32.07C: La squadra in cui spostare il Giocatore. L'opzione "All" funziona solo nelle modalità Tutti contro tutti, mentre l'opzione "Team" funziona solo nelle modalità di gioco a squadre.
+000000012C33.07C: Lo slot giocatore che riceverà il Giocatore (-1 per il primo slot disponibile).
+000000012C37.07C: Sfida Pachimarzo
 000000012C38.07C: Furia del Toro
 000000012C39.07C: Disponibile nei Forzieri Lunari
 000000012C3A.07C: Aglio
@@ -29511,6 +29636,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C68.07C: Concorrente Stagione 27
 000000012C69.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 27
 000000012C6B.07C: Disponibile nei Forzieri Lunari
+000000012C6C.07C: Premi %1$s per le opzioni spettatore
 000000012C6D.07C: Quanto vorrei poter mangiare...
 000000012C6E.07C: Lunga vita e prosperità
 000000012C6F.07C: Disponibile nei Forzieri Lunari
@@ -29554,11 +29680,202 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: Pachimari
+000000012CB4.07C: Cappello Pachimari
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: |Rpl %1$s:Partita giocata:Partite giocate;
+000000012CCF.07C: %1$s |Rpl Partita giocata:Partite giocate;
+000000012CE6.07C: MODALITÀ PREFERITA
 000000012D10.07C: 120 crediti e 60 Forzieri Lunari gratuiti
+000000012D20.07C: %1$s (%2$s, %3$s Hz)
+000000012D22.07C: Kinetic Explosion Effects
+000000012D24.07C: Risoluzione
+000000012D25.07C: Bilanciata
+000000012D26.07C: Framerate
+000000012D27.07C: Ashe Dynamite Explosion Effect
+000000012D28.07C: Ana Biotic Grenade Explosion Effect
+000000012D29.07C: Baptiste Biotic Launcher Explosion Effect
+000000012D2A.07C: Bastion Tank Cannon Explosion Effect
+000000012D2B.07C: Brigitte Repair Pack Impact Effect
+000000012D2C.07C: Brigitte Repair Pack Armor Effect
+000000012D2D.07C: Brigitte Whip Shot Heal Area Effect
+000000012D2E.07C: DVa Micro Missiles Explosion Effect
+000000012D2F.07C: DVa Self Destruct Explosion Effect
+000000012D30.07C: Doomfist Rising Uppercut Leap Effect
+000000012D31.07C: Doomfist Rising Uppercut Impact Effect
+000000012D33.07C: Doomfist Meteor Strike Impact Effect
+000000012D34.07C: Echo Sticky Bomb Explosion Effect
+000000012D36.07C: Disattivata
+000000012D37.07C: Attivata
+000000012D38.07C: Attivata + Boost
+000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
+000000012D3B.07C: Junkrat RIP Tire Explosion Effect
+000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
+000000012D3D.07C: Junkrat Frag Launcher Explosion Effect
+000000012D3E.07C: Lúcio Sound Barrier Cast Effect
+000000012D3F.07C: McCree Flashbang Explosion Effect
+000000012D40.07C: Moira Fade Disappear Effect
+000000012D41.07C: Moira Fade Reappear Effect
+000000012D42.07C: Orisa Halt Implosion Effect
+000000012D43.07C: Pharah Barrage Explosion Effect
+000000012D44.07C: Pharah Concussive Blast Effect
+000000012D45.07C: Pharah Rocket Launcher Explosion Effect
 000000012D46.07C: Anno del Bue
-[Core] Execution finished in 00:00:00.4031296 seconds
+000000012D47.07C: Reinhardt Fire Strike Target Impact Effect
+000000012D48.07C: Sigma Hypersphere Implosion Effect
+000000012D49.07C: Sigma Accretion Impact Effect
+000000012D4A.07C: Sombra Logo Effect
+000000012D4B.07C: Sombra EMP Explosion Effect
+000000012D4C.07C: Sombra Translocator Reappear Effect
+000000012D4D.07C: Sombra Translocator Disappear Effect
+000000012D4E.07C: Symmetra Teleporter Reappear Effect
+000000012D50.07C: Tracer Recall Reappear Effect
+000000012D51.07C: Tracer Recall Disappear Effect
+000000012D52.07C: Widowmaker Venom Mine Explosion Effect
+000000012D53.07C: Winston Jump Pack Landing Effect
+000000012D54.07C: Wrecking Ball Piledriver Impact Effect
+000000012D55.07C: Wrecking Ball Minefield Explosion Effect
+000000012D56.07C: Zarya Particle Cannon Explosion Effect
+000000012D5C.07C: NVIDIA Reflex
+000000012D5E.07C: Char In String
+000000012D5F.07C: Index Of String Char
+000000012D60.07C: String Split
+000000012D61.07C: String Replace
+000000012D62.07C: Il carattere trovato all'indice specificato di una stringa.
+000000012D63.07C: Il valore della stringa di cui ottenere il carattere.
+000000012D64.07C: Indice
+000000012D65.07C: L'indice di un carattere da acquisire (dove 0 indica il primo carattere, 1 il secondo, eccetera).
+000000012D66.07C: L'indice di un carattere all'interno di una stringa o -1 se tale carattere non può essere trovato.
+000000012D67.07C: Il valore della stringa da cui cercare il carattere.
+000000012D68.07C: Carattere
+000000012D69.07C: Il carattere da cercare.
+000000012D6A.07C: Restituisce un Array di valori di stringa. Questi valori di stringa vengono ricavati dal valore di stringa specificato, diviso in base alla stringa Separatore.
+000000012D6B.07C: Restituisce un valore di stringa. Questo valore di stringa viene ricavato dal valore di stringa specificato, in cui tutte le occorrenze della stringa Schema vengono sostituite con il valore della stringa Sostituzione.
+000000012D6C.07C: Il valore della stringa da dividere.
+000000012D6D.07C: Separatore
+000000012D6E.07C: La stringa che funge da separatore con cui dividere il valore della stringa.
+000000012D6F.07C: Il valore della stringa per il quale cercare sostituzioni.
+000000012D70.07C: Schema
+000000012D71.07C: La stringa Schema da sostituire.
+000000012D72.07C: Sostituzione
+000000012D73.07C: Il valore della stringa con cui sostituire la stringa Schema.
+000000012D79.07C: Energy Explosion Effects
+000000012D81.07C: Chiunque
+000000012D82.07C: Amici
+000000012D88.07C: Sbloccato per aver partecipato alla Sfida Pachimarzo
+000000012D91.07C: Ricevi inviti a partite personalizzate da
+000000012D92.07C: Ricevi richieste di invito a partite personalizzate
+000000012D93.07C: Effetti semplici colpo
+000000012D95.07C: Indicatore flash
+000000012D96.07C: Effetti danni
+000000012D97.07C: Il nome contiene caratteri non validi.
+000000012D98.07C: Pachimari
+000000012D9A.07C: A causa di un problema di cui siamo al corrente non è possibile evitare questo giocatore recente. Stiamo indagando per risolvere il problema il prima possibile.
+000000012D9B.07C: Beam Sounds
+000000012D9C.07C: Aggiunge effetti ai menu Tipo delle Azioni Create Effect e Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra. Per gli effetti in prima persona, Posizione necessita un giocatore.
+000000012D9E.07C: Aggiunge effetti al menu Tipo dell'Azione Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra.
+000000012D9F.07C: Aggiunge suoni al menu Tipo dell'Azione Create Effect.
+000000012DA0.07C: Symmetra Projector Sound
+000000012DA1.07C: Winston Tesla Cannon Sound
+000000012DA2.07C: Omnic Slicer Beam Sound
+000000012DA3.07C: Zarya Particle Beam Sound
+000000012DA4.07C: Moira Coalescence Sound
+000000012DA5.07C: Moira Orb Heal Sound
+000000012DA6.07C: Moira Orb Damage Sound
+000000012DA7.07C: Moira Grasp Connected Sound
+000000012DA8.07C: Echo Focusing Beam Sound
+000000012DA9.07C: Junkrat Trap Chain Sound
+000000012DAA.07C: Mercy Heal Beam Sound
+000000012DAB.07C: Mercy Boost Beam Sound
+000000012DAC.07C: Orisa Halt Tendril Sound
+000000012DAD.07C: Orisa Amplifier Sound
+000000012DB0.07C: La selezione attuale di estensioni Workshop necessita di meno giocatori.
+000000012DB1.07C: La selezione attuale di estensioni Workshop proibisce le mappe non appartenenti al Workshop.
+000000012DC0.07C: PREDEFINITA
+000000012DC1.07C: MIN
+000000012E6F.07C: Kanezaka
+000000012E70.07C: Buff and Debuff Sounds
+000000012E71.07C: Aggiunge suoni al menu Tipo delle Azioni Create Effect e Play Effect.
+000000012E72.07C: Wrecking Ball Piledriver Fire Sound
+000000012E73.07C: Wrecking Ball Adaptive Shield Target Sound
+000000012E74.07C: Widowmaker Venom Mine Target Sound
+000000012E75.07C: Soldier: 76 Sprint Start Sound
+000000012E76.07C: Winston Tesla Cannon Target Sound
+000000012E77.07C: Reaper Wraith Form Sound
+000000012E78.07C: Torbjörn Overloading Sound
+000000012E79.07C: Sombra Hacking Sound
+000000012E7A.07C: Sombra Hacked Sound
+000000012E7B.07C: Sombra Translocating Sound
+000000012E7C.07C: Sigma Gravitic Flux Target Sound
+000000012E7D.07C: Baptiste Immortality Field Protected Sound
+000000012E7E.07C: Mei Frozen Sound
+000000012E7F.07C: Echo Cloning Sound
+000000012E80.07C: Lúcio Sound Barrier Protected Sound
+000000012E81.07C: Zenyatta Orb of Discord Target Sound
+000000012E82.07C: Mercy Damage Boosted Sound
+000000012E83.07C: Ana Sleeping Sound
+000000012E84.07C: Ana Biotic Grenade No Healing Sound
+000000012E85.07C: Ana Nano Boosted Sound
+000000012E86.07C: Ana Biotic Grenade Increased Healing Sound
+000000012E87.07C: Winston Primal Rage Sound
+000000012E88.07C: Stop Forcing Dummy Bot Name
+000000012E89.07C: Annulla il comportamento di Start Forcing Dummy Bot Name per il Giocatore o i Giocatori specificati.
+000000012E8A.07C: Il Giocatore o i Giocatori i cui nomi cesseranno di essere forzati.
+000000012E8B.07C: Start Forcing Dummy Bot Name
+000000012E8C.07C: Il Giocatore o i Giocatori il cui nome sarà forzato.
+000000012E8D.07C: Inizia a forzare il nome per il Giocatore o i Giocatori specificati.
+000000012E8E.07C: Il nome da forzare.
+000000012E8F.07C: Nome
+000000012EAA.07C: Junkimari
+000000012EAB.07C: Tranquillimari
+000000012EAC.07C: Pachirilla
+000000012EAD.07C: Doomari
+000000012EAE.07C: Pachimada
+000000012EAF.07C: Hackimari
+000000012EB2.07C: Explosion Sounds
+000000012EB3.07C: Aggiunge suoni al menu Tipo dell'Azione Play Effect.
+000000012EB4.07C: Zarya Particle Cannon Explosion Sound
+000000012EB5.07C: Wrecking Ball Piledriver Impact Sound
+000000012EB6.07C: Wrecking Ball Minefield Explosion Sound
+000000012EB7.07C: Winston Jump Pack Landing Sound
+000000012EB8.07C: Widowmaker Venom Mine Explosion Sound
+000000012EB9.07C: Tracer Recall Reappear Sound
+000000012EBA.07C: Tracer Recall Disappear Sound
+000000012EBB.07C: Symmetra Teleporter Reappear Sound
+000000012EBC.07C: Sombra Translocator Disappear Sound
+000000012EBD.07C: Sombra Translocator Reappear Sound
+000000012EBE.07C: Sombra Logo Sound
+000000012EBF.07C: Sombra EMP Explosion Sound
+000000012EC0.07C: Sigma Accretion Impact Sound
+000000012EC1.07C: Sigma Hypersphere Implosion Sound
+000000012EC2.07C: Reinhardt Fire Strike Target Impact Sound
+000000012EC3.07C: Pharah Barrage Explosion Sound
+000000012EC4.07C: Pharah Rocket Launcher Explosion Sound
+000000012EC5.07C: Pharah Concussive Blast Sound
+000000012EC6.07C: Orisa Halt Implosion Sound
+000000012EC7.07C: Moira Fade Reappear Sound
+000000012EC8.07C: Moira Fade Disappear Sound
+000000012EC9.07C: McCree Flashbang Explosion Sound
+000000012ECA.07C: Lúcio Sound Barrier Cast Sound
+000000012ECB.07C: Hanzo Sonic Arrow Initial Pulse Sound
+000000012ECC.07C: Junkrat Frag Launcher Explosion Sound
+000000012ECD.07C: Junkrat Concussion Mine Explosion Sound
+000000012ECE.07C: Junkrat RIP Tire Explosion Sound
+000000012ECF.07C: Echo Sticky Bomb Explosion Sound
+000000012ED0.07C: Doomfist Rising Uppercut Leap Sound
+000000012ED1.07C: Doomfist Rising Uppercut Impact Sound
+000000012ED2.07C: Doomfist Meteor Strike Impact Sound
+000000012ED3.07C: DVa Self Destruct Explosion Sound
+000000012ED4.07C: DVa Micro Missiles Explosion Sound
+000000012ED5.07C: Brigitte Repair Pack Armor Sound
+000000012ED6.07C: Brigitte Repair Pack Impact Sound
+000000012ED7.07C: Brigitte Whip Shot Heal Area Sound
+000000012ED8.07C: Bastion Tank Cannon Explosion Sound
+000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
+000000012EDA.07C: Ashe Dynamite Explosion Sound
+000000012EDB.07C: Ana Biotic Grenade Explosion Sound
+[Core] Execution finished in 00:00:00.4317062 seconds

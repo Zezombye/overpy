@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1692,7 +1692,7 @@
 0000000017C5.07C: 內插延遲：%1$s毫秒
 0000000018E5.07C: 傷害格擋量
 000000001922.07C: 你並未受邀加入自訂遊戲
-000000001923.07C: 無法邀請至自訂遊戲。對方可能正在進行競技對戰
+000000001923.07C: 無法邀請該玩家加入自訂遊戲。對方可能關閉邀請或正在進行競技對戰
 000000001924.07C: 邀請你加入自訂遊戲！
 000000001949.07C: 最符合
 00000000194A.07C: 顯示器%1$s
@@ -20240,7 +20240,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BCCC.07C: Disables automatic respawning for one or more Players, only allowing respawning by scripting commands.
 00000000BCCD.07C: Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the Last Created Entity Value. This Action will fail if too many entities have been created.
 00000000BCCE.07C: One or more Players who will be able to see the effect.
-00000000BCCF.07C: The type of effect to be created.
+00000000BCCF.07C: The type of effect to be created. New options may be added to this list by enabling certain Workshop Extensions.
 00000000BCD0.07C: The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Does not support Custom Color.
 00000000BCD1.07C: The effect's end position. If this Value is a Player, then the effect will move along with the Player. Otherwise, the Value is interpreted as a position in the world.
 00000000BCD2.07C: The effect's radius in meters. Sound effects have their volume affected instead.
@@ -20432,7 +20432,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BD8C.07C: The Team or Teams whose score will be changed.
 00000000BD8D.07C: Modifies the score of one or both Teams. This Action has no effect in Free-For-All modes or modes without a team score.
 00000000BD8F.07C: The effect's position. If this Value is a Player, then the effect will play at the Player's position. Otherwise, the Value is interpreted as a position in the world.
-00000000BD90.07C: The type of effect to be created.
+00000000BD90.07C: The type of effect to be created. New options may be added to this list by enabling certain Workshop Extensions.
 00000000BD91.07C: Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.
 00000000BD92.07C: One or more Players who will be able to see the effect.
 00000000BD93.07C: The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not support Custom Color.
@@ -22243,7 +22243,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA51.07C: 泰然自若
 00000000CA52.07C: 無
 00000000CA6A.07C: Create Dummy Bot
-00000000CA6B.07C: Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing Workshop actions.
+00000000CA6B.07C: Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing Workshop actions. Extra dummy bots may be created if the corresponding Workshop Extension is enabled.
 00000000CA6C.07C: 角色類型佇列測試版
 00000000CA75.07C: Hero
 00000000CA76.07C: The hero that the bot will be. If more than one hero is provided, one will be chosen at random.
@@ -28184,7 +28184,7 @@ https://account.blizzard.com/connections/nintendo
 0000000111B7.07C: Input Binding String
 0000000111B8.07C: Converts a Button parameter into a string that shows up based on the Player's input bindings. This Value cannot be stored in Variables.
 0000000111B9.07C: The button for the input binding that will be converted to an icon.
-0000000111BC.07C: Error: Input Binding String values are not allowed to be stored in variables.
+0000000111BC.07C: Error: Local values may only be used in visual or HUD actions.
 0000000111BD.07C: Error: Current Array Index cannot be used outside of an array.
 0000000111BE.07C: 地裂擊擊殺數
 0000000111BF.07C: 衝鋒擊殺數
@@ -28669,6 +28669,7 @@ https://account.blizzard.com/connections/nintendo
 000000011967.07C: 成熟
 000000011968.07C: 不過濾
 00000001196A.07C: 打靶
+00000001198A.07C: +20%%經驗值(狂歡時段獎勵)
 000000011997.07C: 南瓜
 000000011998.07C: 玩家數：3人
 000000011999.07C: Best Halloween Score
@@ -28938,7 +28939,7 @@ https://account.blizzard.com/connections/nintendo
 000000011FE1.07C: 復仇之鬼
 000000011FE2.07C: 經由萬聖節戰利品解鎖
 000000011FE7.07C: Spawn Points
-000000011FE8.07C: The active spawn points for a Team or for the match, provided as an array of position vectors.
+000000011FE8.07C: The active spawn points for a Team or for the match, provided as an array of entities.
 00000001205E.07C: The Team whose spawn points to acquire.
 000000012070.07C: String Contains
 000000012071.07C: Whether the specified String contains the specified Value.
@@ -29086,10 +29087,10 @@ https://account.blizzard.com/connections/nintendo
 0000000124A2.07C: String Length
 0000000124A3.07C: Results in the number of characters in the String value (or 0 if the value is not a string).
 0000000124A4.07C: String
-0000000124A5.07C: The string value whose characters to count.
+0000000124A5.07C: The String Value whose characters to count.
 0000000124A6.07C: String Slice
 0000000124A7.07C: Results in the specified substring of the String value.
-0000000124A8.07C: The string value from which to build the substring.
+0000000124A8.07C: The String Value from which to build the substring.
 0000000124A9.07C: Start Character Index
 0000000124AA.07C: Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).
 0000000124AB.07C: Character Count
@@ -29344,9 +29345,14 @@ https://account.blizzard.com/connections/nintendo
 0000000127E0.07C: 在第26賽季進入前500名即可解鎖
 0000000127E3.07C: 第26賽季
 0000000127E4.07C: 第26賽季
+0000000127E5.07C: 第27賽季
+0000000127E6.07C: 第27賽季
 0000000127EF.07C: 第26賽季
 0000000127F0.07C: 第26賽季
+0000000127F1.07C: 第27賽季
+0000000127F2.07C: 第27賽季
 0000000127FC.07C: 競技對戰第26賽季 - 自由佇列
+0000000127FD.07C: 競技對戰第27賽季 - 自由佇列
 000000012802.07C: 公牛之星
 000000012804.07C: 預選賽
 000000012805.07C: 冰凍小妖精
@@ -29371,7 +29377,7 @@ https://account.blizzard.com/connections/nintendo
 00000001286D.07C: 鐵坂
 00000001287A.07C: 無法觀看尚未結束的戰鬥錄影。
 00000001287B.07C: 確認
-00000001287C.07C: <fg%1$s>你得到了賞金</fg>
+00000001287C.07C: <fg%1$s>你被懸賞了</fg>
 0000000128AB.07C: 參與鐵坂大挑戰即可解鎖
 0000000128AF.07C: 參與鐵坂大挑戰即可解鎖
 0000000128B0.07C: 神社區
@@ -29388,7 +29394,25 @@ https://account.blizzard.com/connections/nintendo
 0000000128E3.07C: 目前沒有適用於優先入場劵的角色類型。
 0000000128E5.07C: 已經將優先入場券退還給你。
 0000000128E6.07C: 顯示重播附加時間碼
+0000000128E7.07C: Spawn More Dummy Bots
+0000000128E8.07C: Increases the maximum number of allowed dummy bots by 12.
+0000000128E9.07C: Play More Effects
+0000000128EA.07C: Doubles the number of effects allowed to be played at a time.
 000000012965.07C: 由於你的排隊時間超過預期，因此並未消耗優先入場券。
+000000012971.07C: extensions
+000000012990.07C: Error: Expected an extension after '%1$s' on line %2$s
+000000012996.07C: 編輯擴充功能
+000000012998.07C: 恢復為預設值
+0000000129FD.07C: Mercy Heal Beam
+0000000129FE.07C: Mercy Boost Beam
+0000000129FF.07C: Beam Effects
+000000012A01.07C: Winston Tesla Cannon Beam
+000000012A02.07C: Buff Status Effects
+000000012A04.07C: Heal Target Active Effect
+000000012A05.07C: Heal Target Effect
+000000012A6A.07C: 可用的擴充點數
+000000012A6B.07C: 移除玩家欄位或關閉所有非工作坊地圖可獲得擴充點數
+000000012A81.07C: %1$s
 000000012A82.07C: 2021年牛來運轉
 000000012A83.07C: 石面
 000000012A84.07C: 參與2021年牛來運轉第1週挑戰即可解鎖
@@ -29396,10 +29420,34 @@ https://account.blizzard.com/connections/nintendo
 000000012A87.07C: 硝煙
 000000012A88.07C: 參與2021年牛來運轉第2週挑戰即可解鎖
 000000012A89.07C: 遊俠
-000000012A8E.07C: 帝國
+000000012A8B.07C: 消耗的擴充點數
+000000012A8C.07C: %1$s
+000000012A8D.07C: 消耗的擴充點數不可大於可用的擴充點數
+000000012A8E.07C: 帝國衛士
 000000012A8F.07C: 參與2021年牛來運轉第3週挑戰即可解鎖
 000000012A90.07C: 死亡
 000000012A91.07C: 參與2021年牛來運轉第3週挑戰即可解鎖
+000000012A93.07C: Orisa Amplifier Beam
+000000012A94.07C: Omnic Slicer Beam
+000000012A95.07C: Junkrat Trap Chain Beam
+000000012A99.07C: Echo Focusing Beam
+000000012A9A.07C: Torbjörn Turret Sight Beam
+000000012A9B.07C: Moira Orb Heal Beam
+000000012A9C.07C: Moira Orb Damage Beam
+000000012A9D.07C: Moira Coalescence Beam
+000000012A9E.07C: Moira Grasp Connected Beam
+000000012AA0.07C: 錯誤：消耗的擴充點數不可大於可用的擴充點數
+000000012AA1.07C: Orisa Halt Tendril Beam
+000000012AA2.07C: Symmetra Turret Beam
+000000012AA3.07C: Symmetra Projector Beam
+000000012AA4.07C: Brigitte Flail Chain Beam
+000000012AA5.07C: Zarya Particle Beam
+000000012AC9.07C: 特殊英雄 + 造型組合上限
+000000012ACA.07C: %1$s
+000000012ACB.07C: 產生的假人玩家超過此上限時，你就無法產生假人玩家
+000000012ACC.07C: %1$s
+000000012ACE.07C: 不在玩家欄位裡的假人玩家上限
+000000012ACF.07C: 產生的假人玩家超過此上限時，你就無法產生假人玩家
 000000012ADC.07C: 少於5分鐘
 000000012ADD.07C: 大於10分鐘
 000000012AED.07C: 成為懸賞目標時每次擊殺提高的賞金
@@ -29423,8 +29471,42 @@ https://account.blizzard.com/connections/nintendo
 000000012B92.07C: 壞小子，你想得美
 000000012B93.07C: 在「賞金獵人」中，懸賞目標使用絕招時擊殺該目標
 000000012B95.07C: 擊殺懸賞目標
-000000012B96.07C: 以懸賞目標的身分擊殺玩家
-000000012B97.07C: 得分
+000000012B96.07C: 以懸賞目標的身份擊殺玩家
+000000012B97.07C: 分數
+000000012B99.07C: Damage Over Time Count
+000000012B9A.07C: Heal Over Time Count
+000000012B9B.07C: Text Count
+000000012B9C.07C: Damage Modification Count
+000000012B9D.07C: Healing Modification Count
+000000012B9E.07C: Assist Count
+000000012B9F.07C: Entity Count
+000000012BA2.07C: The current number of Damage Over Time instances started from the Damage Over Time Action.
+000000012BA3.07C: The current number of Heal Over Time instances started from the Heal Over Time Action.
+000000012BA4.07C: The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action.
+000000012BA5.07C: The current number of Damage Modification instances started from the Start Damage Modification Action.
+000000012BA6.07C: The current number of Healing Modification instances started from the Start Healing Modification Action.
+000000012BA7.07C: The current number of Assist instances started from the Start Assist Action.
+000000012BA8.07C: The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.
+000000012BB1.07C: Local Player
+000000012BB2.07C: The Player being controlled on the end user's computer. This Value is different for each end user and thus can only be accessed in Actions which affect visuals or the HUD. This Value cannot be stored in Variables.
+000000012BB3.07C: Enable Text Chat
+000000012BB4.07C: Undoes the effect of the Disable Text Chat Action for one or more Players.
+000000012BB5.07C: The Player or Players who will have their Text Chat enabled.
+000000012BB6.07C: Disable Text Chat
+000000012BB7.07C: Disables Text Chat for one or more Players until reenabled.
+000000012BB8.07C: The Player or Players who will have their Text Chat disabled.
+000000012BB9.07C: Enable Voice Chat
+000000012BBA.07C: Undoes the effect of the Disable Voice Chat Action for one or more Players.
+000000012BBB.07C: The Player or Players who will have their Voice Chat enabled.
+000000012BBC.07C: Disable Voice Chat
+000000012BBD.07C: Disables Voice Chat for one or more Players until reenabled.
+000000012BBE.07C: The Player or Players who will have their Voice Chat disabled.
+000000012BBF.07C: Team Voice Chat
+000000012BC0.07C: Match Voice Chat
+000000012BC1.07C: Whether or not Match Voice Chat will be disabled.
+000000012BC2.07C: Group Voice Chat
+000000012BC3.07C: Whether or not Group Voice Chat will be disabled.
+000000012BC4.07C: Whether or not Team Voice Chat will be disabled.
 000000012BD4.07C: 2021年搶旗競技選手
 000000012BD5.07C: 完成2021年搶旗競技預選賽即可解鎖
 000000012BD6.07C: 2021年搶旗競技精英
@@ -29435,9 +29517,52 @@ https://account.blizzard.com/connections/nintendo
 000000012BDC.07C: 搶旗競技
 000000012BDD.07C: 提高排名，和全世界頂尖的搶旗好手一同競賽吧！
 000000012BDE.07C: 搶旗競技第4賽季
+000000012BDF.07C: Ana Biotic Grenade Increased Healing Effect
+000000012BE0.07C: Ana Biotic Grenade No Healing Effect
+000000012BE1.07C: Ana Sleeping Effect
+000000012BE2.07C: Ana Nano Boosted Effect
+000000012BE3.07C: Ashe Dynamite Burning Particle Effect
+000000012BE4.07C: Ashe Dynamite Burning Material Effect
+000000012BE6.07C: Baptiste Immortality Field Protected Effect
+000000012BE7.07C: Echo Cloning Effect
+000000012BE8.07C: Lúcio Sound Barrier Protected Effect
+000000012BE9.07C: McCree Flashbang Stunned Effect
+000000012BEA.07C: Mei Frozen Effect
+000000012BEB.07C: Mercy Damage Boosted Effect
+000000012BEE.07C: Reaper Wraith Form Effect
+000000012BEF.07C: Sigma Gravitic Flux Target Effect
+000000012BF0.07C: Soldier: 76 Sprinting Effect
+000000012BF1.07C: Sombra Hacked Starting Effect
+000000012BF2.07C: Sombra Hacked Looping Effect
+000000012BF3.07C: Sombra Translocating Material Effect
+000000012BF4.07C: Torbjörn Overloading Effect
+000000012BF5.07C: Widowmaker Venom Mine Target Effect
+000000012BF6.07C: Winston Tesla Cannon Target Effect
+000000012BF7.07C: Winston Primal Rage Effect
+000000012BF8.07C: Wrecking Ball Adaptive Shield Target Effect
+000000012BF9.07C: Wrecking Ball Piledriver Fire Effect
+000000012BFA.07C: Zenyatta Orb of Discord Target Effect
+000000012BFB.07C: Debuff Status Effects
+000000012BFC.07C: Adds effects to the Type menu of the Create Beam Effect action. The Color parameter picks a Team Color if given a non-Team Color.
 000000012C16.07C: S
 000000012C17.07C: 火光相隨
-000000012C37.07C: 第1週：兵馬俑軍醫造型
+000000012C1F.07C: Start Game Mode
+000000012C20.07C: Return to Lobby
+000000012C21.07C: Returns the Game Mode back to the Custom Game Lobby.
+000000012C22.07C: Restart Match
+000000012C23.07C: Restarts the Match. This action only has an effect after the match has existed for 30 seconds.
+000000012C24.07C: Starts the Game Mode. This action doesn't have an effect if the game is already in progress.
+000000012C27.07C: 錯誤：無效的工作坊擴充
+000000012C28.07C: 錯誤：消耗的工作坊擴充點數過多，請移除至少一個擴充
+000000012C2B.07C: Remove Player
+000000012C2C.07C: Removes one or more Players from the Custom Game. This action doesn't work on Dummy Bots.
+000000012C2D.07C: The Player or Players to remove.
+000000012C2E.07C: Move Player to Team
+000000012C2F.07C: Moves one or more Players to the specified Team and Slot. This action can fail if the specified slot is not available. This action doesn't work on Dummy Bots.
+000000012C30.07C: The Player or Players to move.
+000000012C32.07C: The Team on which to move the Player. The "All" option only works in free-for-all game modes, while the "Team" options only work in team-based game modes.
+000000012C33.07C: The player slot which will receive the Player (-1 for first available slot).
+000000012C37.07C: 桃子進擊大挑戰
 000000012C38.07C: 狂牛之怒
 000000012C39.07C: 經由春節戰利品解鎖
 000000012C3A.07C: 大蒜
@@ -29477,6 +29602,7 @@ https://account.blizzard.com/connections/nintendo
 000000012C68.07C: 第27賽季選手
 000000012C69.07C: 完成第27賽季預選賽即可解鎖
 000000012C6B.07C: 經由春節戰利品解鎖
+000000012C6C.07C: 按%1$s設定觀戰者選項
 000000012C6D.07C: 真希望我可以吃東西
 000000012C6E.07C: 恭喜發財
 000000012C6F.07C: 經由春節戰利品解鎖
@@ -29520,11 +29646,202 @@ https://account.blizzard.com/connections/nintendo
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: 桃子章魚
+000000012CB4.07C: 桃子章魚帽
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: 對戰次數
+000000012CCF.07C: 對戰次數%1$s
+000000012CE6.07C: 偏好模式
 000000012D10.07C: 120枚鬥陣幣，以及免費60箱新春戰利品
+000000012D20.07C: %1$s(%2$s, %3$s Hz)
+000000012D22.07C: Kinetic Explosion Effects
+000000012D24.07C: 解析度
+000000012D25.07C: 平衡
+000000012D26.07C: 幀率
+000000012D27.07C: Ashe Dynamite Explosion Effect
+000000012D28.07C: Ana Biotic Grenade Explosion Effect
+000000012D29.07C: Baptiste Biotic Launcher Explosion Effect
+000000012D2A.07C: Bastion Tank Cannon Explosion Effect
+000000012D2B.07C: Brigitte Repair Pack Impact Effect
+000000012D2C.07C: Brigitte Repair Pack Armor Effect
+000000012D2D.07C: Brigitte Whip Shot Heal Area Effect
+000000012D2E.07C: DVa Micro Missiles Explosion Effect
+000000012D2F.07C: DVa Self Destruct Explosion Effect
+000000012D30.07C: Doomfist Rising Uppercut Leap Effect
+000000012D31.07C: Doomfist Rising Uppercut Impact Effect
+000000012D33.07C: Doomfist Meteor Strike Impact Effect
+000000012D34.07C: Echo Sticky Bomb Explosion Effect
+000000012D36.07C: 停用
+000000012D37.07C: 啟用
+000000012D38.07C: 開啟 + Boost
+000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
+000000012D3B.07C: Junkrat RIP Tire Explosion Effect
+000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
+000000012D3D.07C: Junkrat Frag Launcher Explosion Effect
+000000012D3E.07C: Lúcio Sound Barrier Cast Effect
+000000012D3F.07C: McCree Flashbang Explosion Effect
+000000012D40.07C: Moira Fade Disappear Effect
+000000012D41.07C: Moira Fade Reappear Effect
+000000012D42.07C: Orisa Halt Implosion Effect
+000000012D43.07C: Pharah Barrage Explosion Effect
+000000012D44.07C: Pharah Concussive Blast Effect
+000000012D45.07C: Pharah Rocket Launcher Explosion Effect
 000000012D46.07C: 牛來運轉
-[Core] Execution finished in 00:00:00.4889065 seconds
+000000012D47.07C: Reinhardt Fire Strike Target Impact Effect
+000000012D48.07C: Sigma Hypersphere Implosion Effect
+000000012D49.07C: Sigma Accretion Impact Effect
+000000012D4A.07C: Sombra Logo Effect
+000000012D4B.07C: Sombra EMP Explosion Effect
+000000012D4C.07C: Sombra Translocator Reappear Effect
+000000012D4D.07C: Sombra Translocator Disappear Effect
+000000012D4E.07C: Symmetra Teleporter Reappear Effect
+000000012D50.07C: Tracer Recall Reappear Effect
+000000012D51.07C: Tracer Recall Disappear Effect
+000000012D52.07C: Widowmaker Venom Mine Explosion Effect
+000000012D53.07C: Winston Jump Pack Landing Effect
+000000012D54.07C: Wrecking Ball Piledriver Impact Effect
+000000012D55.07C: Wrecking Ball Minefield Explosion Effect
+000000012D56.07C: Zarya Particle Cannon Explosion Effect
+000000012D5C.07C: NVIDIA Reflex
+000000012D5E.07C: Char In String
+000000012D5F.07C: Index Of String Char
+000000012D60.07C: String Split
+000000012D61.07C: String Replace
+000000012D62.07C: The character found at a specified index of a String.
+000000012D63.07C: The String Value whose character to acquire.
+000000012D64.07C: Index
+000000012D65.07C: The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).
+000000012D66.07C: The index of a character within a String or -1 if no such character can be found.
+000000012D67.07C: The String Value from which to search for the character.
+000000012D68.07C: Character
+000000012D69.07C: The character for which to search.
+000000012D6A.07C: Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.
+000000012D6B.07C: Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.
+000000012D6C.07C: The String Value to split.
+000000012D6D.07C: Separator
+000000012D6E.07C: The separator String with which to split the String Value.
+000000012D6F.07C: The String Value with which to search for replacements.
+000000012D70.07C: Pattern
+000000012D71.07C: The String pattern to be replaced.
+000000012D72.07C: Replacement
+000000012D73.07C: The String Value with which to replace the pattern String.
+000000012D79.07C: Energy Explosion Effects
+000000012D81.07C: 任何人
+000000012D82.07C: 好友
+000000012D88.07C: 參與桃子進擊大挑戰即可解鎖
+000000012D91.07C: 接受自訂遊戲邀請
+000000012D92.07C: 允許其他人提出加入自訂遊戲的請求
+000000012D93.07C: 簡化擊中效果
+000000012D95.07C: 閃爍指示器
+000000012D96.07C: 傷害特效
+000000012D97.07C: 名稱包含無效字元
+000000012D98.07C: 桃子章魚
+000000012D9A.07C: 由於已知問題，目前無法避開這名最近遇過的玩家。我們正在釐清情況，並且會盡快修復這個問題
+000000012D9B.07C: Beam Sounds
+000000012D9C.07C: Adds effects to the Type menus of the Create Effect and Play Effect actions. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color. For first-person effects, Position expects a player.
+000000012D9E.07C: Adds effects to the Type menu of the Play Effect action. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color.
+000000012D9F.07C: Adds sounds to the Type menu of the Create Effect action.
+000000012DA0.07C: Symmetra Projector Sound
+000000012DA1.07C: Winston Tesla Cannon Sound
+000000012DA2.07C: Omnic Slicer Beam Sound
+000000012DA3.07C: Zarya Particle Beam Sound
+000000012DA4.07C: Moira Coalescence Sound
+000000012DA5.07C: Moira Orb Heal Sound
+000000012DA6.07C: Moira Orb Damage Sound
+000000012DA7.07C: Moira Grasp Connected Sound
+000000012DA8.07C: Echo Focusing Beam Sound
+000000012DA9.07C: Junkrat Trap Chain Sound
+000000012DAA.07C: Mercy Heal Beam Sound
+000000012DAB.07C: Mercy Boost Beam Sound
+000000012DAC.07C: Orisa Halt Tendril Sound
+000000012DAD.07C: Orisa Amplifier Sound
+000000012DB0.07C: The current set of Workshop Extensions requires fewer players.
+000000012DB1.07C: The current set of Workshop Extensions prohibits non-Workshop maps.
+000000012DC0.07C: 預設
+000000012DC1.07C: 低
+000000012E6F.07C: 鐵坂
+000000012E70.07C: Buff and Debuff Sounds
+000000012E71.07C: Adds sounds to the Type menu of the Create Effect and Play Effect actions.
+000000012E72.07C: Wrecking Ball Piledriver Fire Sound
+000000012E73.07C: Wrecking Ball Adaptive Shield Target Sound
+000000012E74.07C: Widowmaker Venom Mine Target Sound
+000000012E75.07C: Soldier: 76 Sprint Start Sound
+000000012E76.07C: Winston Tesla Cannon Target Sound
+000000012E77.07C: Reaper Wraith Form Sound
+000000012E78.07C: Torbjörn Overloading Sound
+000000012E79.07C: Sombra Hacking Sound
+000000012E7A.07C: Sombra Hacked Sound
+000000012E7B.07C: Sombra Translocating Sound
+000000012E7C.07C: Sigma Gravitic Flux Target Sound
+000000012E7D.07C: Baptiste Immortality Field Protected Sound
+000000012E7E.07C: Mei Frozen Sound
+000000012E7F.07C: Echo Cloning Sound
+000000012E80.07C: Lúcio Sound Barrier Protected Sound
+000000012E81.07C: Zenyatta Orb of Discord Target Sound
+000000012E82.07C: Mercy Damage Boosted Sound
+000000012E83.07C: Ana Sleeping Sound
+000000012E84.07C: Ana Biotic Grenade No Healing Sound
+000000012E85.07C: Ana Nano Boosted Sound
+000000012E86.07C: Ana Biotic Grenade Increased Healing Sound
+000000012E87.07C: Winston Primal Rage Sound
+000000012E88.07C: Stop Forcing Dummy Bot Name
+000000012E89.07C: Cancels the behavior of Start Forcing Dummy Bot Name for the specified Player or Players.
+000000012E8A.07C: The Player or Players whose names will stop being forced.
+000000012E8B.07C: Start Forcing Dummy Bot Name
+000000012E8C.07C: The Player or Players whose name will be forced.
+000000012E8D.07C: Starts forcing the name for the specified Player or Players.
+000000012E8E.07C: The name to be forced.
+000000012E8F.07C: Name
+000000012EAA.07C: 炸彈鼠桃子
+000000012EAB.07C: 祥和桃子
+000000012EAC.07C: 猩猩桃子
+000000012EAD.07C: 毀滅桃子
+000000012EAE.07C: 島田桃子
+000000012EAF.07C: 駭影桃子
+000000012EB2.07C: Explosion Sounds
+000000012EB3.07C: Adds sounds to the Type menu of the Play Effect action.
+000000012EB4.07C: Zarya Particle Cannon Explosion Sound
+000000012EB5.07C: Wrecking Ball Piledriver Impact Sound
+000000012EB6.07C: Wrecking Ball Minefield Explosion Sound
+000000012EB7.07C: Winston Jump Pack Landing Sound
+000000012EB8.07C: Widowmaker Venom Mine Explosion Sound
+000000012EB9.07C: Tracer Recall Reappear Sound
+000000012EBA.07C: Tracer Recall Disappear Sound
+000000012EBB.07C: Symmetra Teleporter Reappear Sound
+000000012EBC.07C: Sombra Translocator Disappear Sound
+000000012EBD.07C: Sombra Translocator Reappear Sound
+000000012EBE.07C: Sombra Logo Sound
+000000012EBF.07C: Sombra EMP Explosion Sound
+000000012EC0.07C: Sigma Accretion Impact Sound
+000000012EC1.07C: Sigma Hypersphere Implosion Sound
+000000012EC2.07C: Reinhardt Fire Strike Target Impact Sound
+000000012EC3.07C: Pharah Barrage Explosion Sound
+000000012EC4.07C: Pharah Rocket Launcher Explosion Sound
+000000012EC5.07C: Pharah Concussive Blast Sound
+000000012EC6.07C: Orisa Halt Implosion Sound
+000000012EC7.07C: Moira Fade Reappear Sound
+000000012EC8.07C: Moira Fade Disappear Sound
+000000012EC9.07C: McCree Flashbang Explosion Sound
+000000012ECA.07C: Lúcio Sound Barrier Cast Sound
+000000012ECB.07C: Hanzo Sonic Arrow Initial Pulse Sound
+000000012ECC.07C: Junkrat Frag Launcher Explosion Sound
+000000012ECD.07C: Junkrat Concussion Mine Explosion Sound
+000000012ECE.07C: Junkrat RIP Tire Explosion Sound
+000000012ECF.07C: Echo Sticky Bomb Explosion Sound
+000000012ED0.07C: Doomfist Rising Uppercut Leap Sound
+000000012ED1.07C: Doomfist Rising Uppercut Impact Sound
+000000012ED2.07C: Doomfist Meteor Strike Impact Sound
+000000012ED3.07C: DVa Self Destruct Explosion Sound
+000000012ED4.07C: DVa Micro Missiles Explosion Sound
+000000012ED5.07C: Brigitte Repair Pack Armor Sound
+000000012ED6.07C: Brigitte Repair Pack Impact Sound
+000000012ED7.07C: Brigitte Whip Shot Heal Area Sound
+000000012ED8.07C: Bastion Tank Cannon Explosion Sound
+000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
+000000012EDA.07C: Ashe Dynamite Explosion Sound
+000000012EDB.07C: Ana Biotic Grenade Explosion Sound
+[Core] Execution finished in 00:00:00.4060038 seconds

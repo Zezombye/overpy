@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: ruRU | Speech Language: ruRU
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1694,7 +1694,7 @@
 0000000017C5.07C: IND: %1$s MS
 0000000018E5.07C: Урона заблокировано
 000000001922.07C: Вы не приглашены в матч в режиме «Своя игра»
-000000001923.07C: Не удается пригласить игрока в «Свою игру». Возможно, он в соревновательном матче.
+000000001923.07C: Не удается пригласить игрока в «Свою игру». Возможно, он отключил приглашения или находится в соревновательном матче.
 000000001924.07C:  приглашает вас в матч в режиме «Своя игра»!
 000000001949.07C: Оптимальный
 00000000194A.07C: Монитор %1$s
@@ -20246,7 +20246,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BCCC.07C: Отключает автоматическое возрождение для одного или нескольких игроков, оставляя возможность возрождать их только посредством скриптовых команд.
 00000000BCCD.07C: Создает экземпляр эффекта в игровом мире, существующий до разрушения. Для получения ссылки на этот экземпляр используйте значение [Last Created Entity]. Если создано слишком много экземпляров, действие завершится неудачей.
 00000000BCCE.07C: Один или несколько игроков, которым будет виден эффект.
-00000000BCCF.07C: Тип создаваемого эффекта.
+00000000BCCF.07C: Тип создаваемого эффекта. Чтобы добавить в этот список дополнительные варианты, необходимо подключить соответствующее расширение «Мастерской».
 00000000BCD0.07C: Цвет создаваемого эффекта. Если выбрана конкретная команда, цвет будет красным или синим в зависимости от того, враждебна ли команда по отношению к смотрящему. Неприменимо к звуковым эффектам. Нельзя установить свой цвет с помощью [Custom Color].
 00000000BCD1.07C: Конечное местоположение эффекта. Если в качестве значения указан игрок, то эффект будет перемещаться вместе с ним. В остальных случаях значение определяет местоположение в системе координат игрового мира.
 00000000BCD2.07C: Радиус эффекта в метрах. В случае звукового эффекта влияет на уровень громкости.
@@ -20438,7 +20438,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BD8C.07C: Команда или команды, счет которых нужно изменить.
 00000000BD8D.07C: Изменяет счет одной или обеих команд. Не действует в режимах FFA и в режимах без командного счета.
 00000000BD8F.07C: Местоположение эффекта. Если в качестве значения указан игрок, то эффект будет воспроизведен в местоположении игрока. В остальных случаях значение определяет местоположение в системе координат игрового мира.
-00000000BD90.07C: Тип создаваемого эффекта.
+00000000BD90.07C: Тип создаваемого эффекта. Чтобы добавить в этот список дополнительные варианты, необходимо подключить соответствующее расширение «Мастерской».
 00000000BD91.07C: Воспроизводит эффект в указанном месте игрового мира. Время существования эффекта небольшое, поэтому его не требуется обновлять или уничтожать.
 00000000BD92.07C: Один или несколько игроков, которым будет виден эффект.
 00000000BD93.07C: Цвет создаваемого эффекта. Если выбрана конкретная команда, цвет будет красным или синим в зависимости от того, враждебна ли команда по отношению к смотрящему. Нельзя установить свой цвет с помощью [Custom Color].
@@ -22249,7 +22249,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA51.07C: Левитация
 00000000CA52.07C: Пусто
 00000000CA6A.07C: Create Dummy Bot
-00000000CA6B.07C: Добавляет новый ИИ в указанную ячейку указанной команды, если эта ячейка свободна. Этот ИИ будет передвигаться, стрелять и применять способности, только выполняя действия, описанные в «Мастерской».
+00000000CA6B.07C: Добавляет новый ИИ в указанную ячейку указанной команды, если эта ячейка свободна. Этот ИИ будет передвигаться, стрелять и применять способности, только выполняя действия, описанные в «Мастерской». Для создания дополнительных манекенов необходимо подключить соответствующее расширение «Мастерской».
 00000000CA6C.07C: Игра по ролям (бета)
 00000000CA75.07C: Герой
 00000000CA76.07C: Герой, которым будет управлять ИИ. Если указано несколько героев, один из них будет выбран случайным образом.
@@ -28190,7 +28190,7 @@ https://account.blizzard.com/connections/nintendo
 0000000111B7.07C: Input Binding String
 0000000111B8.07C: Преобразовывает параметр кнопки в строку, которая соответствует заданным игроком настройкам ввода. Это значение нельзя записывать в переменные.
 0000000111B9.07C: Кнопка, соответствующая заданным игроком настройкам ввода, которая будет преобразована в значок.
-0000000111BC.07C: Ошибка: значения [Input Binding String] нельзя записывать в переменные.
+0000000111BC.07C: Ошибка: локальные значения можно использовать только в действиях, связанных с изображением или интерфейсом.
 0000000111BD.07C: Ошибка: значение [Current Array Index] невозможно использовать вне массива.
 0000000111BE.07C: Убийств «Землетрясением»
 0000000111BF.07C: Убийств «Рывком»
@@ -28675,6 +28675,7 @@ https://account.blizzard.com/connections/nintendo
 000000011967.07C: Слабая фильтрация
 000000011968.07C: Без фильтрации
 00000001196A.07C: В тыковку
+00000001198A.07C: +20%% к опыту (счастливые часы)
 000000011997.07C: С тыквой
 000000011998.07C: 3 ИГРОКА
 000000011999.07C: Best Halloween Score
@@ -28945,7 +28946,7 @@ https://account.blizzard.com/connections/nintendo
 000000011FE1.07C: Мстительный дух
 000000011FE2.07C: Можно получить из контейнера Хеллоуина
 000000011FE7.07C: Spawn Points
-000000011FE8.07C: Активные точки возрождения команды или команд в виде массива векторов местоположения.
+000000011FE8.07C: Активные точки возрождения команды или команд в виде массива экземпляров.
 00000001205E.07C: Команда, точки возрождения которой нужно определить.
 000000012070.07C: String Contains
 000000012071.07C: Показывает, содержит ли выбранная строка указанное значение.
@@ -29093,10 +29094,10 @@ https://account.blizzard.com/connections/nintendo
 0000000124A2.07C: String Length
 0000000124A3.07C: Выводит число символов в строке (или 0, если значение не является строкой).
 0000000124A4.07C: Строка
-0000000124A5.07C: Значение строки, символы которой будут подсчитаны.
+0000000124A5.07C: Строка, символы которой будут подсчитаны.
 0000000124A6.07C: String Slice
-0000000124A7.07C: Выводит указанную подстроку значения строки.
-0000000124A8.07C: Значение строки, из которой будет взята подстрока.
+0000000124A7.07C: Выводит указанную подстроку из строки.
+0000000124A8.07C: Строка, из которой будет взята подстрока.
 0000000124A9.07C: Индекс первого символа
 0000000124AA.07C: Указывает символ, с которого будет начинаться подстрока (первым символом будет 0, вторым – 1, и так далее).
 0000000124AB.07C: Число символов
@@ -29352,9 +29353,14 @@ https://account.blizzard.com/connections/nintendo
 0000000127E0.07C: Награда за вхождение в список 500 лучших игроков 26-го сезона
 0000000127E3.07C: 26-й сезон
 0000000127E4.07C: 26-й сезон
+0000000127E5.07C: 27-й сезон
+0000000127E6.07C: 27-й сезон
 0000000127EF.07C: 26-й сезон
 0000000127F0.07C: 26-й сезон
+0000000127F1.07C: 27-й сезон
+0000000127F2.07C: 27-й сезон
 0000000127FC.07C: 26-й сезон – открытый соревновательный режим
+0000000127FD.07C: 27-й сезон – открытый соревновательный режим
 000000012802.07C: Мерцающий бык
 000000012804.07C: Квалификационные матчи
 000000012805.07C: Замерзший эльф
@@ -29379,7 +29385,7 @@ https://account.blizzard.com/connections/nintendo
 00000001286D.07C: Канедзака
 00000001287A.07C: Просмотр невозможен: исход матча не решен.
 00000001287B.07C: ОК
-00000001287C.07C: <fg%1$s>НА ВАС ИДЕТ ОХОТА</fg>
+00000001287C.07C: <fg%1$s>ЗА ВАШУ ГОЛОВУ НАЗНАЧЕНА НАГРАДА</fg>
 0000000128AB.07C: Награда за участие в испытании «Канедзака»
 0000000128AF.07C: Награда за участие в испытании «Канедзака»
 0000000128B0.07C: Храмовый комплекс
@@ -29396,7 +29402,25 @@ https://account.blizzard.com/connections/nintendo
 0000000128E3.07C: В данный момент приоритетный пропуск не подействует ни для одной роли.
 0000000128E5.07C: Вам вернули приоритетный пропуск.
 0000000128E6.07C: Отдельный индикатор времени в повторах
+0000000128E7.07C: Spawn More Dummy Bots
+0000000128E8.07C: Увеличивает максимальное количество допустимых манекенов на 12.
+0000000128E9.07C: Play More Effects
+0000000128EA.07C: Позволяет одновременно воспроизводить вдвое больше эффектов.
 000000012965.07C: Приоритетный пропуск не будет потрачен: время поиска оказалось дольше ожидаемого.
+000000012971.07C: extensions
+000000012990.07C: Ошибка: в строке %2$s после '%1$s' требуется указать расширение
+000000012996.07C: Расширения
+000000012998.07C: По умолчанию
+0000000129FD.07C: Mercy Heal Beam
+0000000129FE.07C: Mercy Boost Beam
+0000000129FF.07C: Beam Effects
+000000012A01.07C: Winston Tesla Cannon Beam
+000000012A02.07C: Buff Status Effects
+000000012A04.07C: Heal Target Active Effect
+000000012A05.07C: Heal Target Effect
+000000012A6A.07C: Доступные очки расширений
+000000012A6B.07C: Чтобы получить очки расширений, уберите ячейки игроков или оставьте только поля боя из категории «Мастерская».
+000000012A81.07C: %1$s
 000000012A82.07C: Год Быка 2021
 000000012A83.07C: Каменное лицо
 000000012A84.07C: Награда за участие в испытании первой недели года Быка 2021
@@ -29404,10 +29428,34 @@ https://account.blizzard.com/connections/nintendo
 000000012A87.07C: Дым из ствола
 000000012A88.07C: Награда за участие в испытании второй недели года Быка 2021
 000000012A89.07C: Странник
-000000012A8E.07C: Гвардеец
+000000012A8B.07C: Потраченные очки расширений
+000000012A8C.07C: %1$s
+000000012A8D.07C: Количество потраченных очков расширений не должно превышать количество доступных очков.
+000000012A8E.07C: Гвардеец императора
 000000012A8F.07C: Награда за участие в испытании третьей недели года Быка 2021
 000000012A90.07C: Умри! Умри! Умри! Умри!
 000000012A91.07C: Награда за участие в испытании третьей недели года Быка 2021
+000000012A93.07C: Orisa Amplifier Beam
+000000012A94.07C: Omnic Slicer Beam
+000000012A95.07C: Junkrat Trap Chain Beam
+000000012A99.07C: Echo Focusing Beam
+000000012A9A.07C: Torbjörn Turret Sight Beam
+000000012A9B.07C: Moira Orb Heal Beam
+000000012A9C.07C: Moira Orb Damage Beam
+000000012A9D.07C: Moira Coalescence Beam
+000000012A9E.07C: Moira Grasp Connected Beam
+000000012AA0.07C: Ошибка: количество потраченных очков расширений не должно превышать количество доступных очков.
+000000012AA1.07C: Orisa Halt Tendril Beam
+000000012AA2.07C: Symmetra Turret Beam
+000000012AA3.07C: Symmetra Projector Beam
+000000012AA4.07C: Brigitte Flail Chain Beam
+000000012AA5.07C: Zarya Particle Beam
+000000012AC9.07C: Максимум уникальных комбинаций героев и обликов
+000000012ACA.07C: %1$s
+000000012ACB.07C: Вы не сможете создавать манекены, если их новое количество превысит данное значение.
+000000012ACC.07C: %1$s
+000000012ACE.07C: Максимум манекенов, не занимающих ячейку игрока
+000000012ACF.07C: Вы не сможете создавать манекены, если их новое количество превысит данное значение.
 000000012ADC.07C: < 5 мин.
 000000012ADD.07C: > 10 мин.
 000000012AED.07C: Бонус к награде за убийство в роли цели охоты
@@ -29433,6 +29481,40 @@ https://account.blizzard.com/connections/nintendo
 000000012B95.07C: Убийство цели охоты
 000000012B96.07C: Убийство в роли цели охоты
 000000012B97.07C: Счет
+000000012B99.07C: Damage Over Time Count
+000000012B9A.07C: Heal Over Time Count
+000000012B9B.07C: Text Count
+000000012B9C.07C: Damage Modification Count
+000000012B9D.07C: Healing Modification Count
+000000012B9E.07C: Assist Count
+000000012B9F.07C: Entity Count
+000000012BA2.07C: Текущее количество экземпляров периодического урона, запущенных действием [Damage Over Time].
+000000012BA3.07C: Текущее количество экземпляров периодического исцеления, запущенных действием [Heal Over Time].
+000000012BA4.07C: Текущее количество экземпляров текстовых элементов, созданных действиями [Create HUD Text], [Create In-World Text], [Create Progress Bar HUD Text] или [Create Progress Bar In-World Text].
+000000012BA5.07C: Текущее количество экземпляров изменения урона, запущенных действием [Start Damage Modification].
+000000012BA6.07C: Текущее количество экземпляров модификации исцеления, запущенных действием [Start Healing Modification].
+000000012BA7.07C: Текущее количество экземпляров содействия, начатых с помощью действия [Start Assist].
+000000012BA8.07C: Текущее количество экземпляров, созданных действиями [Create Effect], [Create Beam Effect] или [Create Icon Action].
+000000012BB1.07C: Local Player
+000000012BB2.07C: Игрок, управляемый с компьютера пользователя. Данное значение уникально для каждого пользователя и может использоваться только действиями, влияющими на изображение или интерфейс. Это значение нельзя записывать в переменные.
+000000012BB3.07C: Enable Text Chat
+000000012BB4.07C: Отменяет действие [Disable Text Chat] для одного или нескольких игроков.
+000000012BB5.07C: Игрок или игроки, для которых будет включен текстовый чат.
+000000012BB6.07C: Disable Text Chat
+000000012BB7.07C: Отключает текстовый чат для игрока или игроков до включения.
+000000012BB8.07C: Игрок или игроки, для которых будет отключен текстовый чат.
+000000012BB9.07C: Enable Voice Chat
+000000012BBA.07C: Отменяет действие [Disable Voice Chat] для одного или нескольких игроков.
+000000012BBB.07C: Игрок или игроки, для которых будет включен голосовой чат.
+000000012BBC.07C: Disable Voice Chat
+000000012BBD.07C: Отключает голосовой чат для игрока или игроков до включения.
+000000012BBE.07C: Игрок или игроки, для которых будет отключен голосовой чат.
+000000012BBF.07C: Голосовой чат команды
+000000012BC0.07C: Голосовой чат матча
+000000012BC1.07C: Определяет, будет ли отключен голосовой чат матча.
+000000012BC2.07C: Голосовой чат группы
+000000012BC3.07C: Определяет, будет ли отключен голосовой чат группы.
+000000012BC4.07C: Определяет, будет ли отключен голосовой чат команды.
 000000012BD4.07C: Флагоносец-претендент 2021
 000000012BD5.07C: Награда за завершение квалификационных матчей соревновательного захвата флага в 2021 г.
 000000012BD6.07C: Флагоносец-герой 2021
@@ -29443,9 +29525,52 @@ https://account.blizzard.com/connections/nintendo
 000000012BDC.07C: Соревновательный захват флага
 000000012BDD.07C: Поднимайте свой ранг и соревнуйтесь с лучшими захватчиками флагов в мире!
 000000012BDE.07C: 4-й сезон соревновательного захвата флага
-000000012C16.07C: Счет
+000000012BDF.07C: Ana Biotic Grenade Increased Healing Effect
+000000012BE0.07C: Ana Biotic Grenade No Healing Effect
+000000012BE1.07C: Ana Sleeping Effect
+000000012BE2.07C: Ana Nano Boosted Effect
+000000012BE3.07C: Ashe Dynamite Burning Particle Effect
+000000012BE4.07C: Ashe Dynamite Burning Material Effect
+000000012BE6.07C: Baptiste Immortality Field Protected Effect
+000000012BE7.07C: Echo Cloning Effect
+000000012BE8.07C: Lúcio Sound Barrier Protected Effect
+000000012BE9.07C: McCree Flashbang Stunned Effect
+000000012BEA.07C: Mei Frozen Effect
+000000012BEB.07C: Mercy Damage Boosted Effect
+000000012BEE.07C: Reaper Wraith Form Effect
+000000012BEF.07C: Sigma Gravitic Flux Target Effect
+000000012BF0.07C: Soldier: 76 Sprinting Effect
+000000012BF1.07C: Sombra Hacked Starting Effect
+000000012BF2.07C: Sombra Hacked Looping Effect
+000000012BF3.07C: Sombra Translocating Material Effect
+000000012BF4.07C: Torbjörn Overloading Effect
+000000012BF5.07C: Widowmaker Venom Mine Target Effect
+000000012BF6.07C: Winston Tesla Cannon Target Effect
+000000012BF7.07C: Winston Primal Rage Effect
+000000012BF8.07C: Wrecking Ball Adaptive Shield Target Effect
+000000012BF9.07C: Wrecking Ball Piledriver Fire Effect
+000000012BFA.07C: Zenyatta Orb of Discord Target Effect
+000000012BFB.07C: Debuff Status Effects
+000000012BFC.07C: Добавляет эффекты в меню «Тип» действия [Create Beam Effect]. Параметр «Цвет» выбирает цвет команды, если задан вариант, не соответствующий возможным цветам команды.
+000000012C16.07C: С
 000000012C17.07C: Блестящая компания
-000000012C37.07C: 1-я неделя: облик «Терракотовый медик»
+000000012C1F.07C: Start Game Mode
+000000012C20.07C: Return to Lobby
+000000012C21.07C: Возвращает в лобби «Своей игры».
+000000012C22.07C: Restart Match
+000000012C23.07C: Перезапускает матч. Действие срабатывает только в том случае, если игра продолжалась хотя бы 30 секунд.
+000000012C24.07C: Запускает указанный игровой режим. Это действие не срабатывает, если игра уже началась.
+000000012C27.07C: Ошибка: некорректное расширение «Мастерской».
+000000012C28.07C: Ошибка: потрачено слишком много очков расширений «Мастерской». Удалите одно или несколько расширений.
+000000012C2B.07C: Remove Player
+000000012C2C.07C: Исключает одного или нескольких игроков из матча «Своей игры». Это действие нельзя применить к манекенам.
+000000012C2D.07C: Игрок или игроки, которые будут исключены.
+000000012C2E.07C: Move Player to Team
+000000012C2F.07C: Перемещает одного или нескольких игроков в указанную ячейку указанной команды. Действие не будет выполнено, если указанная ячейка занята. Это действие нельзя применить к манекенам.
+000000012C30.07C: Игрок или игроки, которые будут перемещены.
+000000012C32.07C: Команда, в которую будет перемещен игрок. Вариант [All] подходит только для режимов FFA, а параметр [Team] – только для командных режимов.
+000000012C33.07C: Ячейка, которую займет игрок (-1 для первой доступной ячейки).
+000000012C37.07C: Испытание «Пачимарт»
 000000012C38.07C: Ярость быка
 000000012C39.07C: Можно получить из лунного контейнера
 000000012C3A.07C: Чеснок
@@ -29484,6 +29609,7 @@ https://account.blizzard.com/connections/nintendo
 000000012C68.07C: Претендент 27-го сезона
 000000012C69.07C: Награда за завершение квалификационных матчей 27-го сезона
 000000012C6B.07C: Можно получить из лунного контейнера
+000000012C6C.07C: Нажмите %1$s, чтобы открыть настройки для зрителей
 000000012C6D.07C: Жаль, что я не могу есть
 000000012C6E.07C: С Новым годом!
 000000012C6F.07C: Можно получить из лунного контейнера
@@ -29527,11 +29653,202 @@ https://account.blizzard.com/connections/nintendo
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: Пачимари
+000000012CB4.07C: Пачикепка
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: |Rpl %1$s:матч сыгран:матча сыграно:матчей сыграно;
+000000012CCF.07C: %1$s |Rplматч сыгран:матча сыграно:матчей сыграно;
+000000012CE6.07C: ПРЕДПОЧТИТЕЛЬНЫЙ РЕЖИМ
 000000012D10.07C: 120 кредитов + 60 лунных контейнеров в подарок
+000000012D20.07C: %1$s (%2$s, %3$s Гц)
+000000012D22.07C: Kinetic Explosion Effects
+000000012D24.07C: Выше разрешение
+000000012D25.07C: Баланс
+000000012D26.07C: Выше частота кадров
+000000012D27.07C: Ashe Dynamite Explosion Effect
+000000012D28.07C: Ana Biotic Grenade Explosion Effect
+000000012D29.07C: Baptiste Biotic Launcher Explosion Effect
+000000012D2A.07C: Bastion Tank Cannon Explosion Effect
+000000012D2B.07C: Brigitte Repair Pack Impact Effect
+000000012D2C.07C: Brigitte Repair Pack Armor Effect
+000000012D2D.07C: Brigitte Whip Shot Heal Area Effect
+000000012D2E.07C: DVa Micro Missiles Explosion Effect
+000000012D2F.07C: DVa Self Destruct Explosion Effect
+000000012D30.07C: Doomfist Rising Uppercut Leap Effect
+000000012D31.07C: Doomfist Rising Uppercut Impact Effect
+000000012D33.07C: Doomfist Meteor Strike Impact Effect
+000000012D34.07C: Echo Sticky Bomb Explosion Effect
+000000012D36.07C: Откл.
+000000012D37.07C: Вкл.
+000000012D38.07C: Вкл. + Boost
+000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
+000000012D3B.07C: Junkrat RIP Tire Explosion Effect
+000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
+000000012D3D.07C: Junkrat Frag Launcher Explosion Effect
+000000012D3E.07C: Lúcio Sound Barrier Cast Effect
+000000012D3F.07C: McCree Flashbang Explosion Effect
+000000012D40.07C: Moira Fade Disappear Effect
+000000012D41.07C: Moira Fade Reappear Effect
+000000012D42.07C: Orisa Halt Implosion Effect
+000000012D43.07C: Pharah Barrage Explosion Effect
+000000012D44.07C: Pharah Concussive Blast Effect
+000000012D45.07C: Pharah Rocket Launcher Explosion Effect
 000000012D46.07C: Год Быка
-[Core] Execution finished in 00:00:00.4106940 seconds
+000000012D47.07C: Reinhardt Fire Strike Target Impact Effect
+000000012D48.07C: Sigma Hypersphere Implosion Effect
+000000012D49.07C: Sigma Accretion Impact Effect
+000000012D4A.07C: Sombra Logo Effect
+000000012D4B.07C: Sombra EMP Explosion Effect
+000000012D4C.07C: Sombra Translocator Reappear Effect
+000000012D4D.07C: Sombra Translocator Disappear Effect
+000000012D4E.07C: Symmetra Teleporter Reappear Effect
+000000012D50.07C: Tracer Recall Reappear Effect
+000000012D51.07C: Tracer Recall Disappear Effect
+000000012D52.07C: Widowmaker Venom Mine Explosion Effect
+000000012D53.07C: Winston Jump Pack Landing Effect
+000000012D54.07C: Wrecking Ball Piledriver Impact Effect
+000000012D55.07C: Wrecking Ball Minefield Explosion Effect
+000000012D56.07C: Zarya Particle Cannon Explosion Effect
+000000012D5C.07C: NVIDIA Reflex
+000000012D5E.07C: Char In String
+000000012D5F.07C: Index Of String Char
+000000012D60.07C: String Split
+000000012D61.07C: String Replace
+000000012D62.07C: Символ, найденный по указанному индексу строки.
+000000012D63.07C: Строка, из которой нужно получить символ.
+000000012D64.07C: Индекс
+000000012D65.07C: Индекс символа, который нужно получить (первым символом будет 0, вторым – 1, и так далее).
+000000012D66.07C: Индекс символа в строке или -1, если такой символ не найден.
+000000012D67.07C: Строка, в которой будет выполнен поиск символа.
+000000012D68.07C: Символ
+000000012D69.07C: Символ, который нужно найти.
+000000012D6A.07C: Выводит массив подстрок, созданных из указанной строки при помощи строки-разделителя.
+000000012D6B.07C: Выводит из указанной строки новую строку, заменяя в ней все экземпляры строки-шаблона строкой замены.
+000000012D6C.07C: Строка, которая будет разделена.
+000000012D6D.07C: Разделитель
+000000012D6E.07C: Строка-разделитель, с помощью которой строка будет разделена на части.
+000000012D6F.07C: Строка, с помощью которой будет выполнен поиск замены.
+000000012D70.07C: Шаблон
+000000012D71.07C: Строка шаблона, которая будет заменена.
+000000012D72.07C: Замена
+000000012D73.07C: Строка, которая заменит строку-шаблон.
+000000012D79.07C: Energy Explosion Effects
+000000012D81.07C: всех
+000000012D82.07C: друзей
+000000012D88.07C: Награда за участие в испытании «Пачимарт»
+000000012D91.07C: Получать приглашения в «Свою игру» от
+000000012D92.07C: Получать приглашения в «Свою игру»
+000000012D93.07C: Базовые эффекты попаданий
+000000012D95.07C: Индикатор вспышки
+000000012D96.07C: Качество эффектов урона
+000000012D97.07C: Имя содержит некорректные символы.
+000000012D98.07C: Пачимари
+000000012D9A.07C: Этого игрока сейчас невозможно поместить в список нежелательных. Мы знаем об этой неполадке и работаем над ее исправлением.
+000000012D9B.07C: Beam Sounds
+000000012D9C.07C: Добавляет эффекты в меню «Тип» действий [Create Effect] и [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды, если задан вариант, не соответствующий возможным цветам команды. Для эффектов от первого лица параметр «Позиция» требует указание игрока.
+000000012D9E.07C: Добавляет эффекты в меню «Тип» действия [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды, если задан вариант, не соответствующий возможным цветам команды.
+000000012D9F.07C: Добавляет звуки в меню «Тип» действия [Create Effect].
+000000012DA0.07C: Symmetra Projector Sound
+000000012DA1.07C: Winston Tesla Cannon Sound
+000000012DA2.07C: Omnic Slicer Beam Sound
+000000012DA3.07C: Zarya Particle Beam Sound
+000000012DA4.07C: Moira Coalescence Sound
+000000012DA5.07C: Moira Orb Heal Sound
+000000012DA6.07C: Moira Orb Damage Sound
+000000012DA7.07C: Moira Grasp Connected Sound
+000000012DA8.07C: Echo Focusing Beam Sound
+000000012DA9.07C: Junkrat Trap Chain Sound
+000000012DAA.07C: Mercy Heal Beam Sound
+000000012DAB.07C: Mercy Boost Beam Sound
+000000012DAC.07C: Orisa Halt Tendril Sound
+000000012DAD.07C: Orisa Amplifier Sound
+000000012DB0.07C: Для запуска текущей комбинации расширений «Мастерской» требуется меньше игроков.
+000000012DB1.07C: Текущая комбинация расширений позволяет использовать только поля боя из категории «Мастерская».
+000000012DC0.07C: ОБЫЧНОЕ
+000000012DC1.07C: НИЗКОЕ
+000000012E6F.07C: Канедзака
+000000012E70.07C: Buff and Debuff Sounds
+000000012E71.07C: Добавляет звуковые эффекты в меню «Тип» действий [Create Effect] и [Play Effect].
+000000012E72.07C: Wrecking Ball Piledriver Fire Sound
+000000012E73.07C: Wrecking Ball Adaptive Shield Target Sound
+000000012E74.07C: Widowmaker Venom Mine Target Sound
+000000012E75.07C: Soldier: 76 Sprint Start Sound
+000000012E76.07C: Winston Tesla Cannon Target Sound
+000000012E77.07C: Reaper Wraith Form Sound
+000000012E78.07C: Torbjörn Overloading Sound
+000000012E79.07C: Sombra Hacking Sound
+000000012E7A.07C: Sombra Hacked Sound
+000000012E7B.07C: Sombra Translocating Sound
+000000012E7C.07C: Sigma Gravitic Flux Target Sound
+000000012E7D.07C: Baptiste Immortality Field Protected Sound
+000000012E7E.07C: Mei Frozen Sound
+000000012E7F.07C: Echo Cloning Sound
+000000012E80.07C: Lúcio Sound Barrier Protected Sound
+000000012E81.07C: Zenyatta Orb of Discord Target Sound
+000000012E82.07C: Mercy Damage Boosted Sound
+000000012E83.07C: Ana Sleeping Sound
+000000012E84.07C: Ana Biotic Grenade No Healing Sound
+000000012E85.07C: Ana Nano Boosted Sound
+000000012E86.07C: Ana Biotic Grenade Increased Healing Sound
+000000012E87.07C: Winston Primal Rage Sound
+000000012E88.07C: Stop Forcing Dummy Bot Name
+000000012E89.07C: Прерывает поведение, вызванное действием [Start Forcing Dummy Bot Name], для указанного игрока или игроков.
+000000012E8A.07C: Игрок или игроки, для которых больше не будет принудительно задаваться имя.
+000000012E8B.07C: Start Forcing Dummy Bot Name
+000000012E8C.07C: Игрок или игроки, для которых будет принудительно задаваться имя.
+000000012E8D.07C: Начинает принудительно задавать имя указанного игрока или игроков.
+000000012E8E.07C: Имя, которое будет вводиться принудительно.
+000000012E8F.07C: Имя
+000000012EAA.07C: Крысамари
+000000012EAB.07C: Трансценденмари
+000000012EAC.07C: Пачирилла
+000000012EAD.07C: Кулакмари
+000000012EAE.07C: Пачимада
+000000012EAF.07C: Пачихакер
+000000012EB2.07C: Explosion Sounds
+000000012EB3.07C: Добавляет звуковые эффекты в меню «Тип» действия [Play Effect].
+000000012EB4.07C: Zarya Particle Cannon Explosion Sound
+000000012EB5.07C: Wrecking Ball Piledriver Impact Sound
+000000012EB6.07C: Wrecking Ball Minefield Explosion Sound
+000000012EB7.07C: Winston Jump Pack Landing Sound
+000000012EB8.07C: Widowmaker Venom Mine Explosion Sound
+000000012EB9.07C: Tracer Recall Reappear Sound
+000000012EBA.07C: Tracer Recall Disappear Sound
+000000012EBB.07C: Symmetra Teleporter Reappear Sound
+000000012EBC.07C: Sombra Translocator Disappear Sound
+000000012EBD.07C: Sombra Translocator Reappear Sound
+000000012EBE.07C: Sombra Logo Sound
+000000012EBF.07C: Sombra EMP Explosion Sound
+000000012EC0.07C: Sigma Accretion Impact Sound
+000000012EC1.07C: Sigma Hypersphere Implosion Sound
+000000012EC2.07C: Reinhardt Fire Strike Target Impact Sound
+000000012EC3.07C: Pharah Barrage Explosion Sound
+000000012EC4.07C: Pharah Rocket Launcher Explosion Sound
+000000012EC5.07C: Pharah Concussive Blast Sound
+000000012EC6.07C: Orisa Halt Implosion Sound
+000000012EC7.07C: Moira Fade Reappear Sound
+000000012EC8.07C: Moira Fade Disappear Sound
+000000012EC9.07C: McCree Flashbang Explosion Sound
+000000012ECA.07C: Lúcio Sound Barrier Cast Sound
+000000012ECB.07C: Hanzo Sonic Arrow Initial Pulse Sound
+000000012ECC.07C: Junkrat Frag Launcher Explosion Sound
+000000012ECD.07C: Junkrat Concussion Mine Explosion Sound
+000000012ECE.07C: Junkrat RIP Tire Explosion Sound
+000000012ECF.07C: Echo Sticky Bomb Explosion Sound
+000000012ED0.07C: Doomfist Rising Uppercut Leap Sound
+000000012ED1.07C: Doomfist Rising Uppercut Impact Sound
+000000012ED2.07C: Doomfist Meteor Strike Impact Sound
+000000012ED3.07C: DVa Self Destruct Explosion Sound
+000000012ED4.07C: DVa Micro Missiles Explosion Sound
+000000012ED5.07C: Brigitte Repair Pack Armor Sound
+000000012ED6.07C: Brigitte Repair Pack Impact Sound
+000000012ED7.07C: Brigitte Whip Shot Heal Area Sound
+000000012ED8.07C: Bastion Tank Cannon Explosion Sound
+000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
+000000012EDA.07C: Ashe Dynamite Explosion Sound
+000000012EDB.07C: Ana Biotic Grenade Explosion Sound
+[Core] Execution finished in 00:00:00.4423458 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1692,7 +1692,7 @@
 0000000017C5.07C: IND: %1$s ms
 0000000018E5.07C: 막은 피해
 000000001922.07C: 사용자 지정 게임에 초대받지 않았습니다.
-000000001923.07C: 그 플레이어는 사용자 지정 게임에 초대할 수 없습니다. 경쟁전 중일 수 있습니다.
+000000001923.07C: 그 플레이어는 사용자 지정 게임에 초대할 수 없습니다. 초대를 비활성화했거나 경쟁전 중일 수 있습니다.
 000000001924.07C:  님이 사용자 지정 게임으로 초대했습니다!
 000000001949.07C: 최적 모니터
 00000000194A.07C: 모니터 %1$s
@@ -2420,7 +2420,7 @@
 00000000238F.07C: 연습 전투에서는 게임을 찾을 때까지 새로운 영웅을 체험하거나 전장을 둘러볼 수 있습니다.
 000000002390.07C: 연습 전투에서는 임무가 없습니다. 게임을 찾을 때까지 마음껏 전투를 즐기십시오!
 000000002391.07C: 연습 전투 중에도 게임 찾기는 진행됩니다. 마음껏 전투를 즐기세요!
-000000002392.07C: 키를 누른 채로 말하기가 활성화되어 있을 때는 마이크를 음소거 할 수 없습니다.
+000000002392.07C: 키를 누른 채로 말하기가 활성화되어 있을 때는 마이크를 음소거할 수 없습니다.
 000000002395.07C: 연습 전투
 00000000239D.07C:  님이 그룹에 초대되었습니다.
 0000000023A0.07C: 시작
@@ -20239,7 +20239,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BCCC.07C: 플레이어의 자동 부활 기능을 비활성화하고, 스크립트 명령어를 통한 부활만 허용합니다.
 00000000BCCD.07C: 월드 내에 효과 개체를 생성합니다. 이 효과 개체는 제거하기 전까지 지속됩니다. 이 효과를 참조하려면 Last Created Entity 값을 사용하면 됩니다. 개체가 너무 많이 생성될 경우 이 액션이 실패할 수 있습니다.
 00000000BCCE.07C: 해당 효과를 보게 될 플레이어입니다.
-00000000BCCF.07C: 생성할 효과의 형태입니다.
+00000000BCCF.07C: 생성할 효과의 유형입니다. 특정 워크샵 확장을 활성화해 목록에 새로운 항목을 추가할 수 있습니다.
 00000000BCD0.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 효과음에는 적용되지 않습니다. 사용자 지정 색깔을 지원하지 않습니다.
 00000000BCD1.07C: 효과의 종료 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어를 따라다니고, 그 이외의 경우 이 값은 월드 내의 위치로 해석됩니다.
 00000000BCD2.07C: 효과 반경(미터)입니다. 효과음은 음량이 대신 영향을 받습니다.
@@ -20431,7 +20431,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BD8C.07C: 점수를 변경할 팀입니다.
 00000000BD8D.07C: 한 팀 또는 두 팀 모두의 점수를 수정합니다. 이 액션은 개별 전투 모드나 팀 점수가 존재하지 않는 모드에서는 효과가 없습니다.
 00000000BD8F.07C: 효과의 위치입니다. 이 값이 플레이어인 경우 해당 효과는 플레이어 위치에서 발생하고, 그 이외의 경우 이 값은 월드 좌표로서 해석됩니다.
-00000000BD90.07C: 생성할 효과의 유형입니다.
+00000000BD90.07C: 생성할 효과의 유형입니다. 특정 워크샵 확장을 활성화해 목록에 새로운 항목을 추가할 수 있습니다.
 00000000BD91.07C: 월드의 한 위치에 효과를 발생시킵니다. 이 효과는 갱신되거나 제거할 필요 없도록 짧게 유지되었다가 사라집니다.
 00000000BD92.07C: 해당 효과를 보게 될 플레이어입니다.
 00000000BD93.07C: 생성될 효과의 색상입니다. 특정 팀을 선택한 경우, 해당 팀이 보는 사람에게 적인지 여부에 따라 빨강 또는 파랑으로 효과 색상이 설정됩니다. 사용자 지정 색깔을 지원하지 않습니다.
@@ -20498,7 +20498,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BE1D.07C: 우측을 가리키는 방향 벡터(-1, 0, 0)의 약칭입니다.
 00000000BE1E.07C: 위치 값 정보를 가져올 플레이어입니다.
 00000000BE1F.07C: 플레이어의 현재 위치(벡터)입니다.
-00000000BE21.07C: 현재 Workshop inspector를 사용할 수 없습니다.
+00000000BE21.07C: 현재 워크샵 인스펙터를 사용할 수 없습니다.
 00000000BE22.07C: 활성화
 00000000BE25.07C: 고도 정보를 가져올 플레이어입니다.
 00000000BE26.07C: 표면으로부터 측정한 플레이어의 높이(미터)입니다. 플레이어가 표면에 있으면 0입니다.
@@ -21324,7 +21324,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C1F8.07C: 똑같은 영웅들과 개별 전투를 펼칩니다!
 00000000C1FB.07C: 7. 미러전 데스매치
 00000000C1FE.07C: Hero Icon String
-00000000C1FF.07C: 영웅 매개변수를 아이콘으로 표시할 문자열로 변환합니다. (스트링당 최대 4개)
+00000000C1FF.07C: 영웅 매개변수를 아이콘으로 표시할 문자열로 변환합니다. (문자열당 최대 4개)
 00000000C201.07C: 아이콘으로 변환될 영웅입니다.
 00000000C202.07C: Subheader
 00000000C203.07C: 표시할 부제목입니다. (비워두기 가능)
@@ -21992,7 +21992,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C7B8.07C: disabled
 00000000C7B9.07C: 오류: %3$s번째 줄의 '%2$s' 다음에는 '%1$s'이 있어야 합니다.
 00000000C7BA.07C: 오류: %2$s번째 줄의 '%1$s' 다음에는 클립 보드 시작이 나와야 합니다.
-00000000C7BB.07C: 오류: %2$s번째 줄의 '%1$s' 다음에는 따옴표가 붙은 스트링이 있어야 합니다.
+00000000C7BB.07C: 오류: %2$s번째 줄의 '%1$s' 다음에는 따옴표가 붙은 문자열이 있어야 합니다.
 00000000C7C6.07C: 
 00000000C7CA.07C: 접속 중...
 00000000C7CC.07C: 오류: %2$s번째 줄의 '%1$s' 다음에는 팀이 있어야 합니다.
@@ -22243,7 +22243,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA51.07C: 위엄 있게
 00000000CA52.07C: 비어 있음
 00000000CA6A.07C: Create Dummy Bot
-00000000CA6B.07C: 슬롯이 활성화되어 있는 동안 새로운 봇을 특정 팀의 특정 슬롯에 추가합니다. 워크샵 액션을 실행하면 봇은 이동 혹은 발사하기만 하거나 기술만을 사용합니다.
+00000000CA6B.07C: 새로운 봇을 특정 팀의 특정 슬롯에 추가합니다. 사용 가능한 슬롯이 있어야 합니다. 워크샵 액션을 실행할 경우 해당 봇은 이동, 발사, 기술 사용만 가능합니다. 해당하는 워크샵 확장이 활성화된 경우 추가 더미 봇이 생성될 수 있습니다.
 00000000CA6C.07C: 역할 고정 베타
 00000000CA75.07C: Hero
 00000000CA76.07C: 봇으로 지정될 영웅입니다. 만약 하나 이상의 영웅에게 적용되면 무작위로 선택됩니다.
@@ -22498,7 +22498,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CCDA.07C: 경쟁전 포인트
 00000000CCDB.07C: 월드 내 텍스트에 사용할 색상을 지정합니다.
 00000000CCDC.07C: Icon String
-00000000CCDD.07C: 스트링 안에 아이콘을 사용할 수 있습니다. (스트링당 최대 4개)
+00000000CCDD.07C: 문자열 안에 아이콘을 사용할 수 있습니다. (문자열당 최대 4개)
 00000000CCDE.07C: 표시할 아이콘입니다.
 00000000CD3B.07C: - 역할당 배치 경기 5회 
 - 실력 평점 결정 (1~3900)
@@ -27573,7 +27573,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010B3D.07C: 버튼 상수입니다.
 000000010B3E.07C: 오류: %2$s번째 줄의 '%1$s' 다음에는 버튼 이름이 있어야 합니다.
 000000010B52.07C: Ability Icon String
-000000010B53.07C: 영웅과 버튼의 매개변수를 아이콘으로 표시할 문자열로 변환합니다. (스트링당 최대 4개)
+000000010B53.07C: 영웅과 버튼의 매개변수를 아이콘으로 표시할 문자열로 변환합니다. (문자열당 최대 4개)
 000000010B54.07C: 아이콘으로 변환될 기술의 영웅입니다.
 000000010B55.07C: 아이콘으로 변환될 기술의 버튼입니다.
 000000010B57.07C: 근접 공격.
@@ -28181,7 +28181,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000111B7.07C: Input Binding String
 0000000111B8.07C: 버튼 매개변수를 해당 플레이어의 입력을 기반으로 표시되는 문자열로 변환합니다. 이 값은 변수에 저장할 수 없습니다.
 0000000111B9.07C: 아이콘으로 변환될 입력 버튼입니다.
-0000000111BC.07C: 오류: Input Binding 문자열 값을 변수 내에 저장할 수 없습니다.
+0000000111BC.07C: 오류: Local 값은 시각 또는 HUD 액션으로만 사용할 수 있습니다.
 0000000111BD.07C: 오류: 현재의 배열 인덱스는 배열 밖에서 사용할 수 없습니다.
 0000000111BE.07C: 대지분쇄로 처치
 0000000111BF.07C: 돌진으로 처치
@@ -28668,6 +28668,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011967.07C: 낮음
 000000011968.07C: 없음
 00000001196A.07C: 표적 연습
+00000001198A.07C: +20%% Exp (Happy Hour Bonus)
 000000011997.07C: 호박
 000000011998.07C: 플레이어: 3
 000000011999.07C: Best Halloween Score
@@ -28813,7 +28814,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011CBC.07C: Workshop Setting Hero
 000000011CBD.07C: 워크샵 설정 카드에 콤보 박스로 표시할 새로운 영웅 설정값을 제공합니다.
 000000011CC0.07C: Workshop Setting Combo
-000000011CC1.07C: 워크샵 설정 카드에서 콤보 박스로 나타날 새로운 옵션의 값을 사용자 지정 스트링 중에서 제공합니다. 이 값은 선택한 스트링의 인덱스를 되돌립니다.
+000000011CC1.07C: 워크샵 설정 카드에서 콤보 박스로 나타날 새로운 옵션의 값을 사용자 지정 문자열 중에서 제공합니다. 이 값은 선택한 문자열의 인덱스를 되돌립니다.
 000000011CC2.07C: Options
 000000011CC3.07C: 이 설정의 옵션입니다.
 000000011CCB.07C: 다이 텐구
@@ -28940,11 +28941,11 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011FE1.07C: 앙심 품은 유령
 000000011FE2.07C: 할로윈 전리품 상자에서 획득
 000000011FE7.07C: Spawn Points
-000000011FE8.07C: 팀 또는 경기의 활성화된 생성 지점으로, 위치 벡터의 배열로 제공됩니다.
+000000011FE8.07C: 팀 또는 경기의 활성화된 생성 지점으로, 개체 배열로 표시됩니다.
 00000001205E.07C: 생성 지점 정보를 가져올 팀입니다.
 000000012070.07C: String Contains
-000000012071.07C: 지정된 스트링에 지정된 값이 있는지 여부입니다.
-000000012073.07C: 지정된 값을 검색할 스트링입니다.
+000000012071.07C: 지정된 문자열에 지정된 값이 있는지 여부입니다.
+000000012073.07C: 지정된 값을 검색할 문자열입니다.
 0000000121C2.07C: Wait Until
 0000000121C3.07C: Continue Condition이 참이거나 Timeout 기한이 지날 때까지 대기합니다. (대기하는 동안 규칙의 조건은 무시됩니다.)
 0000000121C4.07C: Continue Condition
@@ -29062,7 +29063,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001243A.07C: 포장 풀기
 000000012449.07C: Log To Inspector
 00000001244A.07C: Text
-00000001244B.07C: 워크샵 인스펙터에 기록될 스트링입니다.
+00000001244B.07C: 워크샵 인스펙터에 기록될 문자열입니다.
 00000001244C.07C: 워크샵 인스펙터가 로그 항목을 기록하게 합니다.
 000000012458.07C: 대기열 우선권 %%1개 획득
 000000012469.07C: Log
@@ -29086,16 +29087,16 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001249E.07C: 아군 해동 중...
 0000000124A1.07C: %1$s 버튼을 길게 눌러 아군 해동
 0000000124A2.07C: String Length
-0000000124A3.07C: 스트링 값의 문자 수를 나타냅니다. (값이 스트링이 아니면 0으로 나타납니다.)
+0000000124A3.07C: 문자열 값의 문자 수를 나타냅니다. (값이 문자열이 아니면 0으로 나타납니다.)
 0000000124A4.07C: String
-0000000124A5.07C: 문자 수를 확인할 스트링 값입니다.
+0000000124A5.07C: 문자 수를 확인할 문자열 값입니다.
 0000000124A6.07C: String Slice
-0000000124A7.07C: 스트링 값의 지정된 하위 스트링을 나타냅니다.
-0000000124A8.07C: 하위 스트링을 만들 스트링 값입니다.
+0000000124A7.07C: 문자열 값의 지정된 하위 문자열을 나타냅니다.
+0000000124A8.07C: 하위 문자열을 만들 문자열 값입니다.
 0000000124A9.07C: Start Character Index
-0000000124AA.07C: 하위 스트링을 시작할 문자를 지정합니다. (0이 첫 번째 문자, 1이 두 번째 문자 등)
+0000000124AA.07C: 하위 문자열을 시작할 문자를 지정합니다. (0이 첫 번째 문자, 1이 두 번째 문자 등)
 0000000124AB.07C: Character Count
-0000000124AC.07C: 하위 스트링 내의 문자 수를 지정합니다.
+0000000124AC.07C: 하위 문자열 내의 문자 수를 지정합니다.
 0000000124AD.07C: 2020 똑같은 영웅도 환영 경쟁전 참가자
 0000000124AE.07C: 2020 똑같은 영웅도 환영 경쟁전 배치 경기를 완료하여 획득
 0000000124AF.07C: 2020 똑같은 영웅도 환영 경쟁전 영웅
@@ -29347,9 +29348,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000127E0.07C: 26시즌에서 상위 500위를 달성하여 획득
 0000000127E3.07C: 26시즌
 0000000127E4.07C: 26시즌
+0000000127E5.07C: 27시즌
+0000000127E6.07C: 27시즌
 0000000127EF.07C: 26시즌
 0000000127F0.07C: 26시즌
+0000000127F1.07C: 27시즌
+0000000127F2.07C: 27시즌
 0000000127FC.07C: 경쟁전 26시즌 - 자유
+0000000127FD.07C: 경쟁전 27시즌 - 자유
 000000012802.07C: 빛나는 황소
 000000012804.07C: 배치 경기
 000000012805.07C: 얼어붙은 엘프
@@ -29391,8 +29397,26 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000128E3.07C: 현재 역할들로는 대기열 우선권을 사용할 수 없습니다.
 0000000128E5.07C: 대기열 우선권이 환불되었습니다.
 0000000128E6.07C: 분리된 재생 타임코드 표시
+0000000128E7.07C: Spawn More Dummy Bots
+0000000128E8.07C: 허용된 더미 봇의 최대 개수를 12개로 늘립니다.
+0000000128E9.07C: Play More Effects
+0000000128EA.07C: 동시에 재생될 수 있는 효과의 개수를 두 배로 늘립니다.
 000000012965.07C: 대기 시간이 예상보다 길어져 대기열 우선권이 사용되지 않습니다.
 
+000000012971.07C: extensions
+000000012990.07C: 오류: %2$s 열에서 '%1$s' 뒤에 확장이 필요합니다
+000000012996.07C: 확장 편집
+000000012998.07C: 기본값으로 다시 설정
+0000000129FD.07C: Mercy Heal Beam
+0000000129FE.07C: Mercy Boost Beam
+0000000129FF.07C: Beam Effects
+000000012A01.07C: Winston Tesla Cannon Beam
+000000012A02.07C: Buff Status Effects
+000000012A04.07C: Heal Target Active Effect
+000000012A05.07C: Heal Target Effect
+000000012A6A.07C: 사용 가능한 확장 포인트
+000000012A6B.07C: 확장 포인트는 플레이어 슬롯을 제거하거나 워크샵이 아닌 전장을 모두 비활성화하여 얻을 수 있습니다
+000000012A81.07C: %1$s
 000000012A82.07C: 2021 하얀 소의 해
 000000012A83.07C: 토우병
 000000012A84.07C: 2021 하얀 소의 해 1주 차 챌린지에 참여하여 획득
@@ -29400,10 +29424,34 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012A87.07C: 포연
 000000012A88.07C: 2021 하얀 소의 해 2주 차 챌린지에 참여하여 획득
 000000012A89.07C: 방랑자
-000000012A8E.07C: 황실
+000000012A8B.07C: 사용한 확장 포인트
+000000012A8C.07C: %1$s회
+000000012A8D.07C: 사용한 확장 포인트는 사용 가능한 확장 포인트를 초과할 수 없습니다
+000000012A8E.07C: 황실 근위병
 000000012A8F.07C: 2021 하얀 소의 해 3주 차 챌린지에 참여하여 획득
 000000012A90.07C: 척살
 000000012A91.07C: 2021 하얀 소의 해 3주 차 챌린지에 참여하여 획득
+000000012A93.07C: Orisa Amplifier Beam
+000000012A94.07C: Omnic Slicer Beam
+000000012A95.07C: Junkrat Trap Chain Beam
+000000012A99.07C: Echo Focusing Beam
+000000012A9A.07C: Torbjörn Turret Sight Beam
+000000012A9B.07C: Moira Orb Heal Beam
+000000012A9C.07C: Moira Orb Damage Beam
+000000012A9D.07C: Moira Coalescence Beam
+000000012A9E.07C: Moira Grasp Connected Beam
+000000012AA0.07C: 오류: 사용한 확장 포인트는 사용 가능한 확장 포인트를 초과할 수 없습니다
+000000012AA1.07C: Orisa Halt Tendril Beam
+000000012AA2.07C: Symmetra Turret Beam
+000000012AA3.07C: Symmetra Projector Beam
+000000012AA4.07C: Brigitte Flail Chain Beam
+000000012AA5.07C: Zarya Particle Beam
+000000012AC9.07C: 영웅 및 스킨 조합 최대 한도
+000000012ACA.07C: %1$s회
+000000012ACB.07C: 더미 봇을 생성할 때 이 한도를 넘을 수 없습니다
+000000012ACC.07C: %1$s회
+000000012ACE.07C: 플레이어 슬롯에 있지 않은 더미 봇의 최대 한도
+000000012ACF.07C: 더미 봇을 생성할 때 이 한도를 넘을 수 없습니다
 000000012ADC.07C: < 5분
 000000012ADD.07C: > 10분
 000000012AED.07C: 무법자일 때 적을 처치하면 증가하는 현상금
@@ -29429,6 +29477,40 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012B95.07C: 무법자 처치
 000000012B96.07C: 무법자로 플레이어 처치
 000000012B97.07C: 점수
+000000012B99.07C: Damage Over Time Count
+000000012B9A.07C: Heal Over Time Count
+000000012B9B.07C: Text Count
+000000012B9C.07C: Damage Modification Count
+000000012B9D.07C: Healing Modification Count
+000000012B9E.07C: Assist Count
+000000012B9F.07C: Entity Count
+000000012BA2.07C: Damage Over Time 액션에서 시작된 Damage Over Time 인스턴스의 현재 개수입니다.
+000000012BA3.07C: Heal Over Time 액션에서 시작된 Heal Over Time 인스턴스의 현재 개수입니다.
+000000012BA4.07C: Create HUD Text, Create In-World Text, Create Progress Bar HUD Text 또는 Create Progress Bar In-World Text 액션에서 시작된 텍스트 인스턴스의 현재 개수입니다.
+000000012BA5.07C: Start Damage Modification 액션에서 시작된 Damage Modification 인스턴스의 현재 개수입니다.
+000000012BA6.07C: Start Healing Modification 액션에서 시작된 Healing Modification 인스턴스의 현재 개수입니다.
+000000012BA7.07C: Start Assist 액션에서 시작된 Assist 인스턴스의 현재 개수입니다.
+000000012BA8.07C: Create Effect, Create Beam Effect, Create Icon 액션으로 생성한 개체의 현재 개수입니다.
+000000012BB1.07C: Local Player
+000000012BB2.07C: 최종 사용자의 컴퓨터에서 조작되고 있는 플레이어입니다. 이 값은 최종 사용자마다 다르며, 그렇기 때문에 시각 효과 또는 HUD에 영향을 주는 액션에서만 접근할 수 있습니다. 이 값은 변수에 저장할 수 없습니다.
+000000012BB3.07C: Enable Text Chat
+000000012BB4.07C: 플레이어의 Disable Text Chat 액션 효과를 취소합니다.
+000000012BB5.07C: 텍스트 기반 채팅을 활성화할 플레이어입니다.
+000000012BB6.07C: Disable Text Chat
+000000012BB7.07C: 재활성화할 때까지 플레이어의 텍스트 기반 채팅을 비활성화합니다.
+000000012BB8.07C: 텍스트 기반 채팅을 비활성화할 플레이어입니다.
+000000012BB9.07C: Enable Voice Chat
+000000012BBA.07C: 플레이어의 Disable Voice Chat 액션 효과를 취소합니다.
+000000012BBB.07C: 음성 대화를 활성화할 플레이어입니다.
+000000012BBC.07C: Disable Voice Chat
+000000012BBD.07C: 재활성화할 때까지 플레이어의 음성 대화를 비활성화합니다.
+000000012BBE.07C: 음성 대화를 비활성화할 플레이어입니다.
+000000012BBF.07C: Team Voice Chat
+000000012BC0.07C: Match Voice Chat
+000000012BC1.07C: 경기 음성 대화를 비활성화할지 여부입니다.
+000000012BC2.07C: Group Voice Chat
+000000012BC3.07C: 그룹 음성 대화를 비활성화할지 여부입니다.
+000000012BC4.07C: 팀 음성 대화를 비활성화할지 여부입니다.
 000000012BD4.07C: 2021 깃발 뺏기 경쟁전 참가자
 000000012BD5.07C: 2021 깃발 뺏기 경쟁전 배치 경기를 완료하여 획득
 000000012BD6.07C: 2021 깃발 뺏기 경쟁전 영웅
@@ -29439,9 +29521,52 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012BDC.07C: 깃발 뺏기 경쟁전
 000000012BDD.07C: 전 세계 최고의 깃발 뺏기 플레이어들과 경쟁하고 등급을 올리세요!
 000000012BDE.07C: 깃발 뺏기 경쟁전 4시즌
+000000012BDF.07C: Ana Biotic Grenade Increased Healing Effect
+000000012BE0.07C: Ana Biotic Grenade No Healing Effect
+000000012BE1.07C: Ana Sleeping Effect
+000000012BE2.07C: Ana Nano Boosted Effect
+000000012BE3.07C: Ashe Dynamite Burning Particle Effect
+000000012BE4.07C: Ashe Dynamite Burning Material Effect
+000000012BE6.07C: Baptiste Immortality Field Protected Effect
+000000012BE7.07C: Echo Cloning Effect
+000000012BE8.07C: Lúcio Sound Barrier Protected Effect
+000000012BE9.07C: McCree Flashbang Stunned Effect
+000000012BEA.07C: Mei Frozen Effect
+000000012BEB.07C: Mercy Damage Boosted Effect
+000000012BEE.07C: Reaper Wraith Form Effect
+000000012BEF.07C: Sigma Gravitic Flux Target Effect
+000000012BF0.07C: Soldier: 76 Sprinting Effect
+000000012BF1.07C: Sombra Hacked Starting Effect
+000000012BF2.07C: Sombra Hacked Looping Effect
+000000012BF3.07C: Sombra Translocating Material Effect
+000000012BF4.07C: Torbjörn Overloading Effect
+000000012BF5.07C: Widowmaker Venom Mine Target Effect
+000000012BF6.07C: Winston Tesla Cannon Target Effect
+000000012BF7.07C: Winston Primal Rage Effect
+000000012BF8.07C: Wrecking Ball Adaptive Shield Target Effect
+000000012BF9.07C: Wrecking Ball Piledriver Fire Effect
+000000012BFA.07C: Zenyatta Orb of Discord Target Effect
+000000012BFB.07C: Debuff Status Effects
+000000012BFC.07C: Create Beam Effect 액션의 Type 메뉴에 효과를 추가합니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다.
 000000012C16.07C: S
 000000012C17.07C: 고양이와 폭죽
-000000012C37.07C: 1주 차: 토우 의무병
+000000012C1F.07C: Start Game Mode
+000000012C20.07C: Return to Lobby
+000000012C21.07C: 게임 모드를 사용자 지정 게임 대기실로 되돌립니다.
+000000012C22.07C: Restart Match
+000000012C23.07C: 경기를 재시작합니다. 이 액션은 경기가 30초 이상 지속된 경우에만 작동합니다.
+000000012C24.07C: 게임 모드를 시작합니다. 이 액션은 게임이 이미 진행 중일 경우 작동하지 않습니다.
+000000012C27.07C: 오류: 잘못된 워크샵 확장입니다.
+000000012C28.07C: 경고: 사용한 워크샵 확장 포인트가 너무 많습니다. 하나 이상의 확장을 제거하십시오.
+000000012C2B.07C: Remove Player
+000000012C2C.07C: 사용자 지정 게임에서 플레이어를 제거합니다. 더미 봇을 대상으로는 작동하지 않습니다.
+000000012C2D.07C: 제거할 플레이어입니다.
+000000012C2E.07C: Move Player to Team
+000000012C2F.07C: 플레이어를 지정된 팀 및 슬롯으로 이동합니다. 이 액션은 지정된 슬롯을 사용할 수 없는 경우 실패할 수 있습니다. 더미 봇을 대상으로는 작동하지 않습니다.
+000000012C30.07C: 이동할 플레이어입니다.
+000000012C32.07C: 플레이어를 이동시킬 팀입니다. "All" 옵션은 개인전 모드에서만 작동하며, "Team" 옵션은 팀 기반 모드에서만 작동합니다.
+000000012C33.07C: 플레이어로 채울 플레이어 슬롯입니다(처음 사용 가능한 슬롯: -1).
+000000012C37.07C: 파치마치 챌린지
 000000012C38.07C: 황소의 분노
 000000012C39.07C: 설날 전리품 상자에서 획득
 000000012C3A.07C: 마늘
@@ -29481,6 +29606,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012C68.07C: 27시즌 참가자
 000000012C69.07C: 27시즌 배치 경기를 완료하여 획득
 000000012C6B.07C: 설날 전리품 상자에서 획득
+000000012C6C.07C: %1$s 키를 눌러 관전 설정
 000000012C6D.07C: 저도 뭔가 먹을 수 있었으면
 000000012C6E.07C: 부자 되세요!
 000000012C6F.07C: 설날 전리품 상자에서 획득
@@ -29524,11 +29650,202 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: 파치마리
+000000012CB4.07C: 파치마리 모자
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: 치른 게임
+000000012CCF.07C: 치른 게임 %1$s회
+000000012CE6.07C: 선호 모드
 000000012D10.07C: 120 크레딧, 무료 설날 전리품 상자 60개
+000000012D20.07C: %1$s (%2$s, %3$s Hz)
+000000012D22.07C: Kinetic Explosion Effects
+000000012D24.07C: 해상도
+000000012D25.07C: 균형
+000000012D26.07C: 프레임율
+000000012D27.07C: Ashe Dynamite Explosion Effect
+000000012D28.07C: Ana Biotic Grenade Explosion Effect
+000000012D29.07C: Baptiste Biotic Launcher Explosion Effect
+000000012D2A.07C: Bastion Tank Cannon Explosion Effect
+000000012D2B.07C: Brigitte Repair Pack Impact Effect
+000000012D2C.07C: Brigitte Repair Pack Armor Effect
+000000012D2D.07C: Brigitte Whip Shot Heal Area Effect
+000000012D2E.07C: DVa Micro Missiles Explosion Effect
+000000012D2F.07C: DVa Self Destruct Explosion Effect
+000000012D30.07C: Doomfist Rising Uppercut Leap Effect
+000000012D31.07C: Doomfist Rising Uppercut Impact Effect
+000000012D33.07C: Doomfist Meteor Strike Impact Effect
+000000012D34.07C: Echo Sticky Bomb Explosion Effect
+000000012D36.07C: 비활성화
+000000012D37.07C: 활성화
+000000012D38.07C: 활성화 + 부스트
+000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
+000000012D3B.07C: Junkrat RIP Tire Explosion Effect
+000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
+000000012D3D.07C: Junkrat Frag Launcher Explosion Effect
+000000012D3E.07C: Lúcio Sound Barrier Cast Effect
+000000012D3F.07C: McCree Flashbang Explosion Effect
+000000012D40.07C: Moira Fade Disappear Effect
+000000012D41.07C: Moira Fade Reappear Effect
+000000012D42.07C: Orisa Halt Implosion Effect
+000000012D43.07C: Pharah Barrage Explosion Effect
+000000012D44.07C: Pharah Concussive Blast Effect
+000000012D45.07C: Pharah Rocket Launcher Explosion Effect
 000000012D46.07C: 햐얀 소의 해
-[Core] Execution finished in 00:00:00.4566605 seconds
+000000012D47.07C: Reinhardt Fire Strike Target Impact Effect
+000000012D48.07C: Sigma Hypersphere Implosion Effect
+000000012D49.07C: Sigma Accretion Impact Effect
+000000012D4A.07C: Sombra Logo Effect
+000000012D4B.07C: Sombra EMP Explosion Effect
+000000012D4C.07C: Sombra Translocator Reappear Effect
+000000012D4D.07C: Sombra Translocator Disappear Effect
+000000012D4E.07C: Symmetra Teleporter Reappear Effect
+000000012D50.07C: Tracer Recall Reappear Effect
+000000012D51.07C: Tracer Recall Disappear Effect
+000000012D52.07C: Widowmaker Venom Mine Explosion Effect
+000000012D53.07C: Winston Jump Pack Landing Effect
+000000012D54.07C: Wrecking Ball Piledriver Impact Effect
+000000012D55.07C: Wrecking Ball Minefield Explosion Effect
+000000012D56.07C: Zarya Particle Cannon Explosion Effect
+000000012D5C.07C: NVIDIA 리플렉스
+000000012D5E.07C: Char In String
+000000012D5F.07C: Index Of String Char
+000000012D60.07C: String Split
+000000012D61.07C: String Replace
+000000012D62.07C: 문자열의 지정된 인덱스에서 발견된 문자입니다.
+000000012D63.07C: 가져올 문자의 문자열 값입니다.
+000000012D64.07C: Index
+000000012D65.07C: 가져올 문자의 인덱스입니다(첫 문자는 0, 두 번째 문자는 1 등).
+000000012D66.07C: 문자의 문자열 내 인덱스, 또는 그러한 문자를 찾을 수 없을 경우 -1입니다.
+000000012D67.07C: 문자를 검색할 문자열 값입니다.
+000000012D68.07C: Character
+000000012D69.07C: 검색할 문자입니다.
+000000012D6A.07C: 문자열 값 배열이 도출됩니다. 해당 문자열 값은 지정된 문자열 값을 기반으로 구성되며, 분할 문자열을 기준으로 나뉩니다.
+000000012D6B.07C: 문자열 값이 도출됩니다. 해당 문자열 값은 지정된 문자열 값을 기반으로 구성되며, 패턴 문자열이 발생할 때마다 대체 문자열으로 대체됩니다.
+000000012D6C.07C: 분할할 문자열 값입니다.
+000000012D6D.07C: Separator
+000000012D6E.07C: 문자열 값을 나눌 분할 문자열입니다.
+000000012D6F.07C: 대체 항목을 검색할 문자열 값입니다.
+000000012D70.07C: Pattern
+000000012D71.07C: 교체할 문자열 패턴입니다.
+000000012D72.07C: Replacement
+000000012D73.07C: 패턴 문자열을 대체할 문자열 값입니다.
+000000012D79.07C: Energy Explosion Effects
+000000012D81.07C: 아무나 가능
+000000012D82.07C: 친구만 가능
+000000012D88.07C: 파치마치 챌린지에 참여하여 획득
+000000012D91.07C: 다음 대상이 보내는 사용자 지정 게임 초대 받기
+000000012D92.07C: 사용자 지정 게임 초대 요청 받기
+000000012D93.07C: 단순 타격 효과
+000000012D95.07C: 플래시 표시기
+000000012D96.07C: 피해 FX
+000000012D97.07C: 사용할 수 없는 문자가 포함되어 있습니다.
+000000012D98.07C: 파치마리
+000000012D9A.07C: 최근에 만난 이 플레이어는 팀으로 만나지 않기 기능이 작동하지 않고 있습니다. 이 문제의 원인을 파악 중이며, 최대한 빠르게 해결하겠습니다.
+000000012D9B.07C: Beam Sounds
+000000012D9C.07C: Create Effect 및 Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다. 1인칭 시점 효과의 경우 Position에 플레이어가 필요합니다.
+000000012D9E.07C: Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다.
+000000012D9F.07C: Create Effect 액션의 Type 메뉴에 음향을 추가합니다.
+000000012DA0.07C: Symmetra Projector Sound
+000000012DA1.07C: Winston Tesla Cannon Sound
+000000012DA2.07C: Omnic Slicer Beam Sound
+000000012DA3.07C: Zarya Particle Beam Sound
+000000012DA4.07C: Moira Coalescence Sound
+000000012DA5.07C: Moira Orb Heal Sound
+000000012DA6.07C: Moira Orb Damage Sound
+000000012DA7.07C: Moira Grasp Connected Sound
+000000012DA8.07C: Echo Focusing Beam Sound
+000000012DA9.07C: Junkrat Trap Chain Sound
+000000012DAA.07C: Mercy Heal Beam Sound
+000000012DAB.07C: Mercy Boost Beam Sound
+000000012DAC.07C: Orisa Halt Tendril Sound
+000000012DAD.07C: Orisa Amplifier Sound
+000000012DB0.07C: 현재 워크샵 확장 설정은 플레이어가 더 적어야 사용할 수 있습니다.
+000000012DB1.07C: 현재 워크샵 확장 설정으로 인해 워크샵이 아닌 전장을 사용할 수 없습니다.
+000000012DC0.07C: 기본
+000000012DC1.07C: 낮음
+000000012E6F.07C: 카네자카
+000000012E70.07C: Buff and Debuff Sounds
+000000012E71.07C: Create Effect 및 Play Effect 액션의 Type 메뉴에 음향을 추가합니다.
+000000012E72.07C: Wrecking Ball Piledriver Fire Sound
+000000012E73.07C: Wrecking Ball Adaptive Shield Target Sound
+000000012E74.07C: Widowmaker Venom Mine Target Sound
+000000012E75.07C: Soldier: 76 Sprint Start Sound
+000000012E76.07C: Winston Tesla Cannon Target Sound
+000000012E77.07C: Reaper Wraith Form Sound
+000000012E78.07C: Torbjörn Overloading Sound
+000000012E79.07C: Sombra Hacking Sound
+000000012E7A.07C: Sombra Hacked Sound
+000000012E7B.07C: Sombra Translocating Sound
+000000012E7C.07C: Sigma Gravitic Flux Target Sound
+000000012E7D.07C: Baptiste Immortality Field Protected Sound
+000000012E7E.07C: Mei Frozen Sound
+000000012E7F.07C: Echo Cloning Sound
+000000012E80.07C: Lúcio Sound Barrier Protected Sound
+000000012E81.07C: Zenyatta Orb of Discord Target Sound
+000000012E82.07C: Mercy Damage Boosted Sound
+000000012E83.07C: Ana Sleeping Sound
+000000012E84.07C: Ana Biotic Grenade No Healing Sound
+000000012E85.07C: Ana Nano Boosted Sound
+000000012E86.07C: Ana Biotic Grenade Increased Healing Sound
+000000012E87.07C: Winston Primal Rage Sound
+000000012E88.07C: Stop Forcing Dummy Bot Name
+000000012E89.07C: 지정된 플레이어의 Start Forcing Dummy Bot Name 행동을 취소합니다.
+000000012E8A.07C: 이름 강제를 중지할 플레이어입니다.
+000000012E8B.07C: Start Forcing Dummy Bot Name
+000000012E8C.07C: 이름을 강제할 플레이어입니다.
+000000012E8D.07C: 지정된 플레이어의 이름을 강제합니다.
+000000012E8E.07C: 강제로 부여할 이름입니다.
+000000012E8F.07C: Name
+000000012EAA.07C: 정크마리
+000000012EAB.07C: 초월마리
+000000012EAC.07C: 파치릴라
+000000012EAD.07C: 둠피마리
+000000012EAE.07C: 파치마다
+000000012EAF.07C: 해킹마리
+000000012EB2.07C: Explosion Sounds
+000000012EB3.07C: Play Effect 액션의 Type 메뉴에 음향을 추가합니다.
+000000012EB4.07C: Zarya Particle Cannon Explosion Sound
+000000012EB5.07C: Wrecking Ball Piledriver Impact Sound
+000000012EB6.07C: Wrecking Ball Minefield Explosion Sound
+000000012EB7.07C: Winston Jump Pack Landing Sound
+000000012EB8.07C: Widowmaker Venom Mine Explosion Sound
+000000012EB9.07C: Tracer Recall Reappear Sound
+000000012EBA.07C: Tracer Recall Disappear Sound
+000000012EBB.07C: Symmetra Teleporter Reappear Sound
+000000012EBC.07C: Sombra Translocator Disappear Sound
+000000012EBD.07C: Sombra Translocator Reappear Sound
+000000012EBE.07C: Sombra Logo Sound
+000000012EBF.07C: Sombra EMP Explosion Sound
+000000012EC0.07C: Sigma Accretion Impact Sound
+000000012EC1.07C: Sigma Hypersphere Implosion Sound
+000000012EC2.07C: Reinhardt Fire Strike Target Impact Sound
+000000012EC3.07C: Pharah Barrage Explosion Sound
+000000012EC4.07C: Pharah Rocket Launcher Explosion Sound
+000000012EC5.07C: Pharah Concussive Blast Sound
+000000012EC6.07C: Orisa Halt Implosion Sound
+000000012EC7.07C: Moira Fade Reappear Sound
+000000012EC8.07C: Moira Fade Disappear Sound
+000000012EC9.07C: McCree Flashbang Explosion Sound
+000000012ECA.07C: Lúcio Sound Barrier Cast Sound
+000000012ECB.07C: Hanzo Sonic Arrow Initial Pulse Sound
+000000012ECC.07C: Junkrat Frag Launcher Explosion Sound
+000000012ECD.07C: Junkrat Concussion Mine Explosion Sound
+000000012ECE.07C: Junkrat RIP Tire Explosion Sound
+000000012ECF.07C: Echo Sticky Bomb Explosion Sound
+000000012ED0.07C: Doomfist Rising Uppercut Leap Sound
+000000012ED1.07C: Doomfist Rising Uppercut Impact Sound
+000000012ED2.07C: Doomfist Meteor Strike Impact Sound
+000000012ED3.07C: DVa Self Destruct Explosion Sound
+000000012ED4.07C: DVa Micro Missiles Explosion Sound
+000000012ED5.07C: Brigitte Repair Pack Armor Sound
+000000012ED6.07C: Brigitte Repair Pack Impact Sound
+000000012ED7.07C: Brigitte Whip Shot Heal Area Sound
+000000012ED8.07C: Bastion Tank Cannon Explosion Sound
+000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
+000000012EDA.07C: Ashe Dynamite Explosion Sound
+000000012EDB.07C: Ana Biotic Grenade Explosion Sound
+[Core] Execution finished in 00:00:00.4029254 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1717,7 +1717,7 @@ nunca mueren
 0000000017C5.07C: IND: %1$s MS
 0000000018E5.07C: Daño bloqueado
 000000001922.07C: No te han invitado a ninguna partida personalizada.
-000000001923.07C: No puedes invitar al jugador a una partida personalizada. Puede que esté en una partida competitiva.
+000000001923.07C: No puedes invitar al jugador a una partida personalizada. Puede que haya desactivado las invitaciones o que esté en una partida competitiva.
 000000001924.07C:  te ha invitado a una partida personalizada.
 000000001949.07C: Mejor correspondencia
 00000000194A.07C: Monitor %1$s
@@ -20287,7 +20287,7 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BCCC.07C: Deshabilita la reaparición automática de uno o más jugadores y solo permite la reaparición mediante comandos de script.
 00000000BCCD.07C: Crea una entidad de efecto en el mundo. Esta entidad de efecto persistirá hasta su destrucción. Para obtener una referencia a ella, utiliza el valor de «Last Created Entity». Esta acción fallará si se han creado demasiadas entidades.
 00000000BCCE.07C: Uno o más jugadores que podrán ver el efecto.
-00000000BCCF.07C: Tipo de efecto que se crea.
+00000000BCCF.07C: Tipo de efecto que se crea. Se pueden activar determinadas extensiones del Taller para añadir nuevas opciones a esta lista.
 00000000BCD0.07C: Color del efecto que se crea. Si se escoge un equipo concreto, el efecto será rojo o azul, en función de si el equipo es hostil para el que lo ve. No se aplica a efectos de sonido. No es compatible con «Custom Color».
 00000000BCD1.07C: Posición final del efecto. Si este valor es un jugador, el efecto se desplazará con el jugador; de lo contrario, el valor se interpreta como una posición en el mundo.
 00000000BCD2.07C: Radio del efecto en metros. A los efectos de sonido les afecta en cuanto al volumen.
@@ -20479,7 +20479,7 @@ No dejéis de enviar vuestros comentarios para ayudarnos a mejorar la experienci
 00000000BD8C.07C: Equipo o equipos cuya puntuación se cambiará.
 00000000BD8D.07C: Modifica la puntuación de uno o ambos equipos. Esta acción no surte ningún efecto en modos de todos contra todos o modos sin puntuación de equipo.
 00000000BD8F.07C: Posición del efecto. Si este valor es un jugador, el efecto se reproducirá en la posición del jugador; de lo contrario, el valor se interpreta como una posición en el mundo.
-00000000BD90.07C: Tipo de efecto que se crea.
+00000000BD90.07C: Tipo de efecto que se crea. Se pueden activar determinadas extensiones del Taller para añadir nuevas opciones a esta lista.
 00000000BD91.07C: Reproduce un efecto en una posición en el mundo. La duración de este efecto es corta, así que no es necesario actualizarlo ni destruirlo.
 00000000BD92.07C: Uno o más jugadores que podrán ver el efecto.
 00000000BD93.07C: Color del efecto que se crea. Si se escoge un equipo concreto, el efecto será rojo o azul, en función de si el equipo es hostil para el que lo ve. No es compatible con «Custom Color».
@@ -22292,7 +22292,7 @@ Nota: Las variables y el lenguaje de programación se han mantenido en inglés. 
 00000000CA51.07C: Sereno
 00000000CA52.07C: Vacío
 00000000CA6A.07C: Create Dummy Bot
-00000000CA6B.07C: Añade un nuevo robot a la ranura especificada del equipo especificado siempre que la ranura esté disponible. Este robot solo se moverá, disparará y usará habilidades si ejecuta acciones del Taller.
+00000000CA6B.07C: Añade un nuevo robot a la ranura especificada del equipo especificado siempre que la ranura esté disponible. Este robot solo se moverá, disparará y usará habilidades si ejecuta acciones del Taller. Se pueden crear más robots si está activada la extensión correspondiente del Taller.
 00000000CA6C.07C: Beta de cola por función
 00000000CA75.07C: Héroe
 00000000CA76.07C: El héroe que será el robot. Si se proporciona más de un héroe, se elegirá uno aleatorio.
@@ -28233,7 +28233,7 @@ Asistencia de Blizzard
 0000000111B7.07C: Input Binding String
 0000000111B8.07C: Convierte un parámetro de botón en una cadena que se muestra en función de las entradas asignadas del jugador. Este valor no se puede almacenar en variables.
 0000000111B9.07C: Botón de la entrada asignada que se convertirá en un icono.
-0000000111BC.07C: Error: Los valores de «Input Binding String» no se pueden almacenar en variables.
+0000000111BC.07C: Error: Los valores locales solo se pueden usar en acciones visuales o de HUD.
 0000000111BD.07C: Error: «Current Array Index» no se puede utilizar fuera de una matriz.
 0000000111BE.07C: Asesinatos con Seísmo
 0000000111BF.07C: Asesinatos con Embestida
@@ -28718,6 +28718,7 @@ Asistencia de Blizzard
 000000011967.07C: Maduro
 000000011968.07C: Sin filtrar
 00000001196A.07C: Tiro al blanco
+00000001198A.07C: +20%% PE (bonificación por la hora feliz)
 000000011997.07C: Calabaza
 000000011998.07C: JUGADORES: 3
 000000011999.07C: Best Halloween Score
@@ -28988,7 +28989,7 @@ Asistencia de Blizzard
 000000011FE1.07C: Fantasma vengativo
 000000011FE2.07C: Disponible en las cajas de botín de Halloween
 000000011FE7.07C: Spawn Points
-000000011FE8.07C: Los puntos de aparición activos de un equipo o de una partida proporcionados como una matriz de vectores de posición.
+000000011FE8.07C: Los puntos de aparición activos de un equipo o de una partida proporcionados como una matriz de entidades.
 00000001205E.07C: Equipo cuyos puntos de aparición se adquieren.
 000000012070.07C: String Contains
 000000012071.07C: Si la cadena especificada contiene el valor especificado.
@@ -29395,9 +29396,14 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000127E0.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 26
 0000000127E3.07C: Temporada 26
 0000000127E4.07C: Temporada 26
+0000000127E5.07C: Temporada 27
+0000000127E6.07C: Temporada 27
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
+0000000127F1.07C: Temporada 27
+0000000127F2.07C: Temporada 27
 0000000127FC.07C: Temporada competitiva 26: cola abierta
+0000000127FD.07C: Temporada competitiva 27: cola abierta
 000000012802.07C: Buey resplandeciente
 000000012804.07C: Partidas de posicionamiento
 000000012805.07C: Elfo helado
@@ -29439,7 +29445,25 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000128E3.07C: Ahora mismo no hay funciones que puedan usar un pase de prioridad.
 0000000128E5.07C: Has recuperado el pase de prioridad.
 0000000128E6.07C: Mostrar código de tiempo de reproducción independiente
+0000000128E7.07C: Generar más robots
+0000000128E8.07C: Aumenta en 12 el número máximo de robots permitidos.
+0000000128E9.07C: Reproducir más efectos
+0000000128EA.07C: Duplica el número de efectos que se pueden reproducir al mismo tiempo.
 000000012965.07C: Puedes conservar tu pase de prioridad porque el tiempo de cola ha sido superior al esperado.
+000000012971.07C: extensiones
+000000012990.07C: Error: Se esperaba una extensión tras «%1$s» en la línea %2$s.
+000000012996.07C: Editar extensiones
+000000012998.07C: Restablecer valores por defecto
+0000000129FD.07C: Haz de sanación de Mercy
+0000000129FE.07C: Haz de daño de Mercy
+0000000129FF.07C: Efectos de haz
+000000012A01.07C: Haz de Cañón tesla de Winston
+000000012A02.07C: Efectos de estados de mejoras
+000000012A04.07C: Efecto de activación de objetivo de sanación
+000000012A05.07C: Efecto de objetivo de sanación
+000000012A6A.07C: Puntos de extensión disponibles
+000000012A6B.07C: Puedes conseguir puntos de extensión eliminando ranuras de jugador o desactivando todos los mapas que no son del Taller.
+000000012A81.07C: %1$s
 000000012A82.07C: Año del Buey 2021
 000000012A83.07C: De piedra
 000000012A84.07C: Se desbloquea al participar en el desafío de la semana 1 del Año del Buey de 2021
@@ -29447,10 +29471,34 @@ de regalo, 10 cajas de botín de Inverlandia
 000000012A87.07C: Nube de humo
 000000012A88.07C: Se desbloquea al participar en el desafío de la semana 2 del Año del Buey de 2021
 000000012A89.07C: Viajero
-000000012A8E.07C: Imperial
+000000012A8B.07C: Puntos de extensión empleados
+000000012A8C.07C: %1$s
+000000012A8D.07C: Los puntos de extensión empleados no pueden superar los puntos de extensión disponibles.
+000000012A8E.07C: Guardia imperial
 000000012A8F.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Buey de 2021
 000000012A90.07C: Siwang
 000000012A91.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Buey de 2021
+000000012A93.07C: Haz de Amplificador de Orisa
+000000012A94.07C: Haz de cercenador ómnico
+000000012A95.07C: Haz de cadena de trampa de Junkrat
+000000012A99.07C: Haz enfocado de Echo
+000000012A9A.07C: Haz de visión de torreta de Torbjörn
+000000012A9B.07C: Haz de sanación de orbe de Moira
+000000012A9C.07C: Haz de daño de orbe de Moira
+000000012A9D.07C: Haz de Coalescencia de Moira
+000000012A9E.07C: Haz de conexión de Agarre de Moira
+000000012AA0.07C: Error: Los puntos de extensión empleados no pueden superar los puntos de extensión disponibles.
+000000012AA1.07C: Haz de enganche de ¡Alto! de Orisa
+000000012AA2.07C: Haz de torreta de Symmetra
+000000012AA3.07C: Haz de Proyector de Symmetra
+000000012AA4.07C: Haz de cadena de mangual de Brigitte
+000000012AA5.07C: Haz de partículas de Zarya
+000000012AC9.07C: Número máximo de combinaciones únicas de héroe + aspecto
+000000012ACA.07C: %1$s
+000000012ACB.07C: No podrás poner un número de robots superior a este límite.
+000000012ACC.07C: %1$s
+000000012ACE.07C: Número máximo de robots que no están en una ranura de jugador
+000000012ACF.07C: No podrás poner un número de robots superior a este límite.
 000000012ADC.07C: < 5 min.
 000000012ADD.07C: > 10 min.
 000000012AED.07C: Aumenta la recompensa por cada asesinato siendo objetivo de la recompensa
@@ -29476,6 +29524,40 @@ de regalo, 10 cajas de botín de Inverlandia
 000000012B95.07C: Has asesinado a un objetivo de la recompensa
 000000012B96.07C: Has asesinado a un jugador siendo el objetivo de la recompensa
 000000012B97.07C: Puntuación
+000000012B99.07C: Damage Over Time Count
+000000012B9A.07C: Heal Over Time Count
+000000012B9B.07C: Text Count
+000000012B9C.07C: Damage Modification Count
+000000012B9D.07C: Healing Modification Count
+000000012B9E.07C: Assist Count
+000000012B9F.07C: Entity Count
+000000012BA2.07C: El número actual de instancias de «Damage Over Time» iniciadas por la acción «Damage Over Time».
+000000012BA3.07C: El número actual de instancias de «Heal Over Time» iniciadas por la acción «Heal Over Time».
+000000012BA4.07C: El número actual de instancias de texto iniciadas por las acciones «Create HUD Text», «Create In-World Text», «Create Progress Bar HUD Text» o «Create Progress Bar In-World Text».
+000000012BA5.07C: El número actual de instancias de modificación de daño iniciadas por la acción «Start Damage Modification».
+000000012BA6.07C: El número actual de instancias de modificación de sanación iniciadas por la acción «Start Healing Modification».
+000000012BA7.07C: El número actual de instancias de asistencia iniciadas por la acción «Start Assist».
+000000012BA8.07C: El número actual de entidades creadas por las acciones «Create Effect», «Create Beam Effect» o «Create Icon».
+000000012BB1.07C: Local Player
+000000012BB2.07C: El jugador que se controla en el ordenador del usuario. Este valor es distinto para cada usuario y, por tanto, solo se puede acceder a él en acciones que afectan a los gráficos o al HUD. Este valor no se puede almacenar en variables.
+000000012BB3.07C: Enable Text Chat
+000000012BB4.07C: Deshace el efecto de la acción «Disable Text Chat» para uno o más jugadores.
+000000012BB5.07C: Jugador o jugadores cuyos chats de texto se habilitarán.
+000000012BB6.07C: Disable Text Chat
+000000012BB7.07C: Deshabilita el chat de texto para uno o más jugadores hasta que se vuelva a activar.
+000000012BB8.07C: Jugador o jugadores cuyos chats de texto se deshabilitarán.
+000000012BB9.07C: Enable Voice Chat
+000000012BBA.07C: Deshace el efecto de la acción «Disable Voice Chat» para uno o más jugadores.
+000000012BBB.07C: Jugador o jugadores cuyos chats de voz se habilitarán.
+000000012BBC.07C: Disable Voice Chat
+000000012BBD.07C: Deshabilita el chat de voz para uno o más jugadores hasta que se vuelva a activar.
+000000012BBE.07C: Jugador o jugadores cuyos chats de voz se deshabilitarán.
+000000012BBF.07C: Chat de voz de equipo
+000000012BC0.07C: Chat de voz en partida
+000000012BC1.07C: Si el chat de voz en partida estará desactivado o no.
+000000012BC2.07C: Chat de voz de escuadrón
+000000012BC3.07C: Si el chat de voz de escuadrón estará desactivado o no.
+000000012BC4.07C: Si el chat de voz de equipo estará desactivado o no.
 000000012BD4.07C: Competidor de CLB competitivo 2021
 000000012BD5.07C: Se desbloquea al completar las partidas de posicionamiento de 2021 del modo competitivo de Captura la bandera
 000000012BD6.07C: Héroe de CLB competitivo 2021
@@ -29486,9 +29568,52 @@ de regalo, 10 cajas de botín de Inverlandia
 000000012BDC.07C: CLB competitivo
 000000012BDD.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Captura la bandera del mundo!
 000000012BDE.07C: Temporada 4 de CLB competitivo
+000000012BDF.07C: Efecto de sanación aumentada de Granada biótica de Ana
+000000012BE0.07C: Efecto antisanación de Granada biótica de Ana
+000000012BE1.07C: Efecto durmiente de Ana
+000000012BE2.07C: Efecto de Nanoestimulantes de Ana
+000000012BE3.07C: Efecto de partículas ardiendo de Dinamita de Ashe
+000000012BE4.07C: Efecto material ardiendo de Dinamita de Ashe
+000000012BE6.07C: Efecto de protección de Campo de inmortalidad de Baptiste
+000000012BE7.07C: Efecto de clonación de Echo
+000000012BE8.07C: Efecto de protección de Barrera de sonido de Lúcio
+000000012BE9.07C: Efecto de aturdimiento de Granada cegadora de McCree
+000000012BEA.07C: Efecto de congelación de Mei
+000000012BEB.07C: Efecto de daño aumentado de Mercy
+000000012BEE.07C: Efecto de Forma espectral de Reaper
+000000012BEF.07C: Efecto de objetivo de Flujo gravitacional de Sigma
+000000012BF0.07C: Efecto de esprint de Soldado: 76
+000000012BF1.07C: Efecto inicial hackeado de Sombra
+000000012BF2.07C: Efecto de bucle hackeado de Sombra
+000000012BF3.07C: Efecto material de translocación de Sombra
+000000012BF4.07C: Efecto de sobrecarga de Torbjörn
+000000012BF5.07C: Efecto de objetivo de Mina venenosa de Widowmaker
+000000012BF6.07C: Efecto de objetivo de Cañón tesla de Winston
+000000012BF7.07C: Efecto de Rabia primigenia de Winston
+000000012BF8.07C: Efecto de objetivo de Escudo adaptable de Wrecking Ball
+000000012BF9.07C: Efecto de fuego de Impacto demoledor de Wrecking Ball
+000000012BFA.07C: Efecto de objetivo de Orbe de discordia de Zenyatta
+000000012BFB.07C: Efectos de estados de perjuicios
+000000012BFC.07C: Añade efectos al menú «Tipo» de la acción «Create Beam Effect». El parámetro «Color» escoge un color de equipo si no se le da uno.
 000000012C16.07C: S
 000000012C17.07C: Compañía chispeante
-000000012C37.07C: Semana 1: aspecto médico de terracota
+000000012C1F.07C: Start Game Mode
+000000012C20.07C: Return to Lobby
+000000012C21.07C: Devuelve el modo de juego a la sala de partida personalizada.
+000000012C22.07C: Restart Match
+000000012C23.07C: Reinicia la partida. Esta acción solo tiene efecto cuando la partida lleva más de 30 s en curso.
+000000012C24.07C: Inicia el modo de juego. Esta acción no tiene efecto si la partida ya está en curso.
+000000012C27.07C: Error: Extensión del Taller no válida.
+000000012C28.07C: Error: Se han empleado demasiados puntos de extensión del Taller. Elimina una o más extensiones.
+000000012C2B.07C: Remove Player
+000000012C2C.07C: Elimina a uno o más jugadores de la partida personalizada. Esta acción no funciona con robots.
+000000012C2D.07C: Jugador o jugadores que se eliminan.
+000000012C2E.07C: Move Player to Team
+000000012C2F.07C: Mueve a uno o más jugadores al equipo y ranura especificados. Esta acción puede fallar si la ranura especificada no está disponible. Esta acción no funciona con robots.
+000000012C30.07C: Jugador o jugadores que se mueven.
+000000012C32.07C: El equipo al que se mueve al jugador. La opción «Todos» solo funciona en modos de juego de todos contra todos, mientras que las opciones de «Equipo» solo funcionan en modos de juego por equipos.
+000000012C33.07C: La ranura de jugador que recibirá el jugador (-1 para la primera ranura disponible).
+000000012C37.07C: Desafío PachiMarzi
 000000012C38.07C: Furia del buey
 000000012C39.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 000000012C3A.07C: Ajo
@@ -29528,6 +29653,7 @@ y 10 cajas iguales de regalo
 000000012C68.07C: Competidor de la temporada 27
 000000012C69.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 27
 000000012C6B.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+000000012C6C.07C: Pulsa %1$s para abrir las opciones de observador
 000000012C6D.07C: Ojalá pudiese comer
 000000012C6E.07C: ¡Enhorabuena!
 000000012C6F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
@@ -29571,11 +29697,202 @@ y 10 cajas iguales de regalo
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: Pachimari
+000000012CB4.07C: Gorra de Pachimari
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: |Rpl %1$s:Partida jugada:Partidas jugadas;
+000000012CCF.07C: %1$s |Rplpartida jugada:partidas jugadas;
+000000012CE6.07C: MODO PREFERIDO
 000000012D10.07C: 120 créditos y, de regalo, 60 cajas de botín del Año Nuevo Lunar
+000000012D20.07C: %1$s (%2$s, %3$s Hz)
+000000012D22.07C: Efectos de explosión cinética
+000000012D24.07C: Resolución
+000000012D25.07C: Equilibrado
+000000012D26.07C: Imágenes por segundo
+000000012D27.07C: Efecto de explosión de Dinamita de Ashe
+000000012D28.07C: Efecto de explosión de Granada biótica de Ana
+000000012D29.07C: Efecto de explosión de Lanzagranadas biótico de Baptiste
+000000012D2A.07C: Efecto de explosión de cañón de tanque de Bastion
+000000012D2B.07C: Efecto de impacto de kit de reparación de Brigitte
+000000012D2C.07C: Efecto de armadura de kit de reparación de Brigitte
+000000012D2D.07C: Efecto de área de sanación de Lanzamiento de mangual de Brigitte
+000000012D2E.07C: Efecto de explosión de Micromisiles de D.Va
+000000012D2F.07C: Efecto de explosión de Autodestrucción de D.Va
+000000012D30.07C: Efecto de salto de Uppercut de Doomfist
+000000012D31.07C: Efecto de impacto de Uppercut de Doomfist
+000000012D33.07C: Efecto de impacto de Meteoro de Doomfist
+000000012D34.07C: Efecto de explosión de Bomba lapa de Echo
+000000012D36.07C: No permitir
+000000012D37.07C: Permitir
+000000012D38.07C: Permitir + Aumento
+000000012D3A.07C: Efecto de pulso inicial de Flecha sónica de Hanzo
+000000012D3B.07C: Efecto de explosión de Rueda explosiva de Junkrat
+000000012D3C.07C: Efecto de explosión de Mina de conmoción de Junkrat
+000000012D3D.07C: Efecto de explosión de Lanzagranadas de Junkrat
+000000012D3E.07C: Efecto de lanzamiento de Barrera de sonido de Lúcio
+000000012D3F.07C: Efecto de explosión de Granada cegadora de McCree
+000000012D40.07C: Efecto de desaparición de Evanescencia de Moira
+000000012D41.07C: Efecto de reaparición de Evanescencia de Moira
+000000012D42.07C: Efecto de implosión de ¡Alto! de Orisa
+000000012D43.07C: Efecto de explosión de Bombardeo de Pharah
+000000012D44.07C: Efecto de Disparo de conmoción de Pharah
+000000012D45.07C: Efecto de explosión de Lanzacohetes de Pharah
 000000012D46.07C: Año del Buey
-[Core] Execution finished in 00:00:00.4112046 seconds
+000000012D47.07C: Efecto de impacto en el objetivo de Onda de fuego de Reinhardt
+000000012D48.07C: Efecto de implosión de Hiperesfera de Sigma
+000000012D49.07C: Efecto de impacto de Acreción de Sigma
+000000012D4A.07C: Efecto de logo de Sombra
+000000012D4B.07C: Efecto de explosión de PEM de Sombra
+000000012D4C.07C: Efecto de reaparición de Baliza de translocación de Sombra
+000000012D4D.07C: Efecto de desaparición de Baliza de translocación de Sombra
+000000012D4E.07C: Efecto de reaparición de Teletransportador de Symmetra
+000000012D50.07C: Efecto de reaparición de Regresión de Tracer
+000000012D51.07C: Efecto de desaparición de Regresión de Tracer
+000000012D52.07C: Efecto de explosión de Mina venenosa de Widowmaker
+000000012D53.07C: Efecto de aterrizaje de Salto potenciado de Winston
+000000012D54.07C: Efecto de impacto de Impacto demoledor de Wrecking Ball
+000000012D55.07C: Efecto de explosión de Campo de minas de Wrecking Ball
+000000012D56.07C: Efecto de explosión de Cañón de partículas de Zarya
+000000012D5C.07C: NVIDIA Reflex
+000000012D5E.07C: Char In String
+000000012D5F.07C: Index Of String Char
+000000012D60.07C: String Split
+000000012D61.07C: String Replace
+000000012D62.07C: El carácter encontrado en un índice especificado de una cadena.
+000000012D63.07C: El valor de la cadena cuyo carácter se adquiere.
+000000012D64.07C: Índice
+000000012D65.07C: El índice del carácter que se adquiere (0 es el primer carácter, 1 es el segundo, etc.).
+000000012D66.07C: El índice de un carácter dentro de una cadena o «-1» si no se encuentra ese carácter.
+000000012D67.07C: Valor de la cadena desde la que se buscará el carácter.
+000000012D68.07C: Carácter
+000000012D69.07C: Carácter que se busca.
+000000012D6A.07C: El resultado es una matriz de valores de la cadena. Estos valores de la cadena se crearán a partir del valor de la cadena especificada, dividida por la cadena de separación.
+000000012D6B.07C: El resultado es un valor de la cadena. El valor de esta cadena se creará a partir del valor de la cadena especificada, donde todas las instancias de la cadena patrón son reemplazadas por la cadena de reemplazo.
+000000012D6C.07C: Valor de la cadena que se divide.
+000000012D6D.07C: Separador
+000000012D6E.07C: Cadena de separación con la que se dividirá el valor de la cadena.
+000000012D6F.07C: Valor de la cadena con el que se buscarán reemplazos.
+000000012D70.07C: Patrón
+000000012D71.07C: Patrón de la cadena que se reemplaza.
+000000012D72.07C: Reemplazo
+000000012D73.07C: Valor de la cadena con el que se reemplazará la cadena patrón.
+000000012D79.07C: Efectos de explosión de energía
+000000012D81.07C: Cualquiera
+000000012D82.07C: Amigos
+000000012D88.07C: Se desbloquea al participar en el desafío PachiMarzi.
+000000012D91.07C: Recibir invitaciones a partidas personalizadas de:
+000000012D92.07C: Recibir solicitudes de invitación a partidas personalizadas
+000000012D93.07C: Efectos de impacto simples
+000000012D95.07C: Indicador de destello
+000000012D96.07C: Efectos de daño
+000000012D97.07C: El nombre contiene caracteres no válidos.
+000000012D98.07C: Pachimari
+000000012D9A.07C: Ahora mismo no se puede evitar a este jugador reciente debido a un error conocido. Estamos investigando este asunto y lo solucionaremos cuanto antes.
+000000012D9B.07C: Sonidos de haz
+000000012D9C.07C: Añade efectos a los menús «Tipo» de las acciones «Create Effect» y «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno. Para los efectos en primera persona, «Position» requiere un jugador.
+000000012D9E.07C: Añade efectos al menú «Tipo» de la acción «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno.
+000000012D9F.07C: Añade sonidos al menú «Tipo» de la acción «Create Effect».
+000000012DA0.07C: Sonido de Proyector de Symmetra
+000000012DA1.07C: Sonido de Cañón tesla de Winston
+000000012DA2.07C: Sonido de haz de cercenador ómnico
+000000012DA3.07C: Sonido de haz de partículas de Zarya
+000000012DA4.07C: Sonido de Coalescencia de Moira
+000000012DA5.07C: Sonido de sanación de orbe de Moira
+000000012DA6.07C: Sonido de daño de orbe de Moira
+000000012DA7.07C: Sonido de conexión de Agarre de Moira
+000000012DA8.07C: Sonido de Haz enfocado de Echo
+000000012DA9.07C: Sonido de cadena de trampa de Junkrat
+000000012DAA.07C: Sonido de haz de sanación de Mercy
+000000012DAB.07C: Sonido de haz de aumento de Mercy
+000000012DAC.07C: Sonido de enganche de ¡Alto! de Orisa
+000000012DAD.07C: Sonido de Amplificador de Orisa
+000000012DB0.07C: El conjunto actual de extensiones del Taller requiere menos jugadores.
+000000012DB1.07C: El conjunto actual de extensiones del Taller prohíbe mapas que no son del Taller.
+000000012DC0.07C: POR DEFECTO
+000000012DC1.07C: BAJA
+000000012E6F.07C: Kanezaka
+000000012E70.07C: Sonidos de beneficios y perjuicios
+000000012E71.07C: Añade sonidos al menú «Tipo» de las acciones «Create Effect» y «Play Effect».
+000000012E72.07C: Sonido de fuego de Impacto demoledor de Wrecking Ball
+000000012E73.07C: Sonido de objetivo de Escudo adaptable de Wrecking Ball
+000000012E74.07C: Sonido de objetivo de Mina venenosa de Widowmaker
+000000012E75.07C: Sonido inicial de Sprint de Soldado: 76
+000000012E76.07C: Sonido de objetivo de Cañón tesla de Winston
+000000012E77.07C: Sonido de Forma espectral de Reaper
+000000012E78.07C: Sonido de sobrecarga de Torbjörn
+000000012E79.07C: Sonido de hackeo de Sombra
+000000012E7A.07C: Sonido hackeado de Sombra
+000000012E7B.07C: Sonido de translocación de Sombra
+000000012E7C.07C: Sonido de objetivo de Flujo gravitacional de Sigma
+000000012E7D.07C: Sonido de protección de Campo de inmortalidad de Baptiste
+000000012E7E.07C: Sonido de congelación de Mei
+000000012E7F.07C: Sonido de clonación de Echo
+000000012E80.07C: Sonido de protección de Barrera de sonido de Lúcio
+000000012E81.07C: Sonido de objetivo de Orbe de discordia de Zenyatta
+000000012E82.07C: Sonido de daño aumentado de Mercy
+000000012E83.07C: Sonido durmiente de Ana
+000000012E84.07C: Sonido antisanación de Granada biótica de Ana
+000000012E85.07C: Sonido de Nanoestimulantes de Ana
+000000012E86.07C: Sonido de sanación aumentada de Granada biótica de Ana
+000000012E87.07C: Sonido de Rabia primigenia de Winston
+000000012E88.07C: Stop Forcing Dummy Bot Name
+000000012E89.07C: Cancela el comportamiento de «Start Forcing Dummy Bot Name» para el jugador o los jugadores especificados.
+000000012E8A.07C: Jugador o jugadores cuyos nombres dejarán de forzarse.
+000000012E8B.07C: Start Forcing Dummy Bot Name
+000000012E8C.07C: Jugador o jugadores cuyos nombres se forzarán.
+000000012E8D.07C: Comienza a forzar el nombre para el jugador o los jugadores especificados.
+000000012E8E.07C: Nombre que se fuerza.
+000000012E8F.07C: Nombre
+000000012EAA.07C: Junkimari
+000000012EAB.07C: Tranquilimari
+000000012EAC.07C: Pachirila
+000000012EAD.07C: Doomari
+000000012EAE.07C: Pachimada
+000000012EAF.07C: Hackimari
+000000012EB2.07C: Sonidos de explosiones
+000000012EB3.07C: Añade sonidos al menú «Tipo» de la acción «Play Effect».
+000000012EB4.07C: Sonido de explosión de Cañón de partículas de Zarya
+000000012EB5.07C: Sonido de impacto de Impacto demoledor de Wrecking Ball
+000000012EB6.07C: Sonido de explosión de Campo de minas de Wrecking Ball
+000000012EB7.07C: Sonido de aterrizaje de Salto potenciado de Winston
+000000012EB8.07C: Sonido de explosión de Mina venenosa de Widowmaker
+000000012EB9.07C: Sonido de reaparición de Regresión de Tracer
+000000012EBA.07C: Sonido de desaparición de Regresión de Tracer
+000000012EBB.07C: Sonido de reaparición de Teletransportador de Symmetra
+000000012EBC.07C: Sonido de desaparición de Baliza de translocación de Sombra
+000000012EBD.07C: Sonido de reaparición de Baliza de translocación de Sombra
+000000012EBE.07C: Sonido de logo de Sombra
+000000012EBF.07C: Sonido de explosión de PEM de Sombra
+000000012EC0.07C: Sonido de impacto de Acreción de Sigma
+000000012EC1.07C: Sonido de implosión de Hiperesfera de Sigma
+000000012EC2.07C: Sonido de impacto en el objetivo de Onda de fuego de Reinhardt
+000000012EC3.07C: Sonido de explosión de Bombardeo de Pharah
+000000012EC4.07C: Sonido de explosión de Lanzacohetes de Pharah
+000000012EC5.07C: Sonido de Disparo de conmoción de Pharah
+000000012EC6.07C: Sonido de implosión de ¡Alto! de Orisa
+000000012EC7.07C: Sonido de reaparición de Evanescencia de Moira
+000000012EC8.07C: Sonido de desaparición de Evanescencia de Moira
+000000012EC9.07C: Sonido de explosión de Granada cegadora de McCree
+000000012ECA.07C: Sonido de lanzamiento de Barrera de sonido de Lúcio
+000000012ECB.07C: Sonido de pulso inicial de Flecha sónica de Hanzo
+000000012ECC.07C: Sonido de explosión de Lanzagranadas de Junkrat
+000000012ECD.07C: Sonido de explosión de Mina de conmoción de Junkrat
+000000012ECE.07C: Sonido de explosión de Rueda explosiva de Junkrat
+000000012ECF.07C: Sonido de explosión de Bomba lapa de Echo
+000000012ED0.07C: Sonido de salto de Uppercut de Doomfist
+000000012ED1.07C: Sonido de impacto de Uppercut de Doomfist
+000000012ED2.07C: Sonido de impacto de Meteoro de Doomfist
+000000012ED3.07C: Sonido de explosión de Autodestrucción de D.Va
+000000012ED4.07C: Sonido de explosión de Micromisiles de D.Va
+000000012ED5.07C: Sonido de armadura de kit de reparación de Brigitte
+000000012ED6.07C: Sonido de impacto de kit de reparación de Brigitte
+000000012ED7.07C: Sonido de área de sanación de Lanzamiento de mangual de Brigitte
+000000012ED8.07C: Sonido de explosión de cañón de tanque de Bastion
+000000012ED9.07C: Sonido de explosión de Lanzagranadas biótico de Baptiste
+000000012EDA.07C: Sonido de explosión de Dinamita de Ashe
+000000012EDB.07C: Sonido de explosión de Granada biótica de Ana
+[Core] Execution finished in 00:00:00.4396418 seconds

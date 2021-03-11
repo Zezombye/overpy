@@ -1,13 +1,13 @@
-[Core] DataTool v1.57.0.940-git-84b5688ac154638389b2cfb13fe654883f692cd1
+[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.57.1.0.78777
+[CASC] Overwatch build 1.58.0.0.79605
 [CASC] Initializing...
-[Manifest] Using TRG procedure 78777 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 78777 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1697,7 +1697,7 @@ pour toi
 0000000017C5.07C: INT : %1$s MS
 0000000018E5.07C: Dégâts bloqués
 000000001922.07C: Vous n’êtes pas invité dans une partie personnalisée.
-000000001923.07C: Impossible d’inviter le joueur dans la partie personnalisée. Il est peut-être dans une partie compétitive.
+000000001923.07C: Impossible d’inviter le joueur dans la partie personnalisée. Il est peut-être dans une partie compétitive, ou il a peut-être désactivé les invitations.
 000000001924.07C:  vous invite dans une partie personnalisée !
 000000001949.07C: Choix optimal
 00000000194A.07C: Moniteur %1$s
@@ -20347,7 +20347,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000BCCC.07C: Désactive la réapparition automatique pour un ou plusieurs joueurs, et autorise uniquement la réapparition via des commandes de script.
 00000000BCCD.07C: Crée une entité d’effet dans le monde, qui persiste jusqu’à sa destruction. Pour obtenir une référence vers cette entité, utilisez la valeur « Dernière entité créée ». Cette action échouera si trop d’entités ont été créées.
 00000000BCCE.07C: Un ou plusieurs joueurs qui pourront voir l’effet.
-00000000BCCF.07C: Le type d’effet à créer.
+00000000BCCF.07C: Le type d’effet à créer. De nouvelles options peuvent être ajoutées à cette liste en activant certaines extensions de la Forge.
 00000000BCD0.07C: La couleur de l’effet à créer. Si une équipe particulière est choisie, l’effet sera rouge ou bleu, selon l’hostilité de l’équipe vis-à-vis du spectateur. Ne s’applique pas aux effets sonores. Ne prend pas en charge Couleur personnalisée.
 00000000BCD1.07C: La position de fin de l’effet. Si cette valeur correspond à un joueur, l’effet se déplacera avec ce dernier. Sinon, la valeur est interprétée en tant que position dans le monde.
 00000000BCD2.07C: Le rayon de l’effet en mètres. Affecte le volume des effets sonores.
@@ -20539,7 +20539,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000BD8C.07C: L’équipe dont le score sera modifié.
 00000000BD8D.07C: Modifie le score d’une équipe ou des deux. Cette action n’a aucun effet en mode Chacun pour soi, ou dans les modes dépourvus de score d’équipe.
 00000000BD8F.07C: La position de l’effet. Si cette valeur correspond à un joueur, l’effet sera déclenché à la position de ce dernier. Sinon, la valeur est interprétée en tant que position dans le monde.
-00000000BD90.07C: Le type d’effet à créer.
+00000000BD90.07C: Le type d’effet à créer. De nouvelles options peuvent être ajoutées à cette liste en activant certaines extensions de la Forge.
 00000000BD91.07C: Déclenche un effet à une position du monde. La durée de l’effet est courte, il n’est donc pas nécessaire de le mettre à jour ni de le détruire.
 00000000BD92.07C: Un ou plusieurs joueurs qui pourront voir l’effet.
 00000000BD93.07C: La couleur de l’effet à créer. Si une équipe particulière est choisie, l’effet sera rouge ou bleu, selon l’hostilité de l’équipe vis-à-vis du spectateur. Ne prend pas en charge Couleur personnalisée.
@@ -22357,7 +22357,7 @@ partie rapide ou compétitive !
 00000000CA51.07C: Suspension
 00000000CA52.07C: Vide
 00000000CA6A.07C: Créer une I.A.
-00000000CA6B.07C: Ajoute une nouvelle I.A. à un emplacement spécifique dans l’équipe choisie tant que l’emplacement est libre. Cette I.A. ne pourra se déplacer, tirer, ou utiliser des capacités que si elle exécute des actions de la Forge.
+00000000CA6B.07C: Ajoute une nouvelle I.A. à un emplacement spécifique dans l’équipe choisie tant que l’emplacement est libre. Cette I.A. ne pourra se déplacer, tirer, ou utiliser des capacités que si elle exécute des actions de la Forge. Les I.A. supplémentaires peuvent être créées si l’extension de la Forge correspondante est activée.
 00000000CA6C.07C: File d’attente par rôle (bêta)
 00000000CA75.07C: Héros
 00000000CA76.07C: Le héros que l’I.A. incarnera. S’il y a plus d’un héros disponible, le héros sera choisi aléatoirement.
@@ -28297,7 +28297,7 @@ L’assistance Blizzard
 0000000111B7.07C: Chaîne de liaison d’entrée
 0000000111B8.07C: Convertit le bouton d’un paramètre en une chaîne qui apparaît en fonction des liaisons d’entrées du joueur. Cette valeur ne peut pas être enregistrée dans les variables.
 0000000111B9.07C: Le bouton pour la liaison d’entrée qui sera convertie en icône.
-0000000111BC.07C: Erreur : les valeurs de chaîne de liaison d’entrée ne peuvent pas être enregistrées dans des variables.
+0000000111BC.07C: Erreur : les valeurs locales ne peuvent être utilisées que dans les actions d’interface ou visuelles.
 0000000111BD.07C: Erreur : impossible d’utiliser un index de tableau actuel en dehors d’un tableau.
 0000000111BE.07C: Victimes de Choc sismique
 0000000111BF.07C: Victimes de Charge
@@ -28782,6 +28782,7 @@ L’assistance Blizzard
 000000011967.07C: Adulte
 000000011968.07C: Non filtré
 00000001196A.07C: Tir sur cible
+00000001198A.07C: + 20 %% exp. (bonus d’happy hour)
 000000011997.07C: Citrouille
 000000011998.07C: JOUEURS : 3
 000000011999.07C: Best Halloween Score
@@ -29052,7 +29053,7 @@ L’assistance Blizzard
 000000011FE1.07C: Fantôme vengeur
 000000011FE2.07C: Disponible dans les coffres d’Halloween
 000000011FE7.07C: Points d’apparition
-000000011FE8.07C: Les points d’apparition actifs d’une équipe ou de la partie, présentés sous la forme d’un tableau de vecteurs de position.
+000000011FE8.07C: Les points d’apparition actifs d’une équipe ou de la partie, présentés sous la forme d’un tableau d’entités.
 00000001205E.07C: L’équipe dont il faut acquérir les points d’apparition.
 000000012070.07C: Contenu de la chaîne
 000000012071.07C: Si la chaîne spécifiée contient la valeur spécifiée.
@@ -29459,9 +29460,14 @@ et 10 coffres hivernaux offerts
 0000000127E0.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 26
 0000000127E3.07C: Saison 26
 0000000127E4.07C: Saison 26
+0000000127E5.07C: Saison 27
+0000000127E6.07C: Saison 27
 0000000127EF.07C: Saison 26
 0000000127F0.07C: Saison 26
+0000000127F1.07C: Saison 27
+0000000127F2.07C: Saison 27
 0000000127FC.07C: Saison de compétition 26 - Sélection libre
+0000000127FD.07C: Saison de compétition 27 - Sélection libre
 000000012802.07C: Taureau étincelant
 000000012804.07C: Parties de placement
 000000012805.07C: Lutin gelé
@@ -29503,7 +29509,25 @@ et 10 coffres hivernaux offerts
 0000000128E3.07C: Aucun rôle n’est actuellement éligible à l’utilisation d’un coupe-file.
 0000000128E5.07C: Votre coupe-file a été remboursé.
 0000000128E6.07C: Afficher le timecode de lecture détachée
+0000000128E7.07C: Faire apparaître plus d’I.A.
+0000000128E8.07C: Augmente le nombre maximum d’I.A. autorisées de 12.
+0000000128E9.07C: Jouer plus d’effets
+0000000128EA.07C: Double le nombre d’effets pouvant être joués en même temps.
 000000012965.07C: Votre coupe-file ne sera pas utilisé parce que votre temps d’attente a duré plus longtemps que prévu.
+000000012971.07C: extensions
+000000012990.07C: Erreur : une extension doit normalement suivre « %1$s » sur la ligne %2$s
+000000012996.07C: Éditer les extensions
+000000012998.07C: Paramètres par défaut
+0000000129FD.07C: Rayon de soin d’Ange
+0000000129FE.07C: Rayon d’augmentation des dégâts d’Ange
+0000000129FF.07C: Effets de rayon
+000000012A01.07C: Rayon de Canon Tesla de Winston
+000000012A02.07C: Effets de statut d’amélioration
+000000012A04.07C: Effet actif de cible de soin
+000000012A05.07C: Effet de cible de soin
+000000012A6A.07C: Points d’extension disponibles
+000000012A6B.07C: Vous pouvez gagner des points d’extension en supprimant des emplacements de joueurs ou en désactivant toutes les cartes qui ne proviennent pas de la Forge
+000000012A81.07C: %1$s
 000000012A82.07C: Année du bœuf 2021
 000000012A83.07C: Terre cuite
 000000012A84.07C: Obtenu en participant au défi de la semaine 1 de l’année du bœuf 2021
@@ -29511,10 +29535,34 @@ et 10 coffres hivernaux offerts
 000000012A87.07C: Fumée de tir
 000000012A88.07C: Obtenu en participant au défi de la semaine 2 de l’année du bœuf 2021
 000000012A89.07C: Vagabond
-000000012A8E.07C: Impérial
+000000012A8B.07C: Points d’extension dépensés
+000000012A8C.07C: %1$s
+000000012A8D.07C: Les points d’extension dépensés ne peuvent pas dépasser les points d’extension disponibles
+000000012A8E.07C: Garde impérial
 000000012A8F.07C: Obtenu en participant au défi de la semaine 3 de l’année du bœuf 2021
 000000012A90.07C: Siwang
 000000012A91.07C: Obtenu en participant au défi de la semaine 3 de l’année du bœuf 2021
+000000012A93.07C: Rayon de Surchargeur d’Orisa
+000000012A94.07C: Rayon de Laserateur omniaque
+000000012A95.07C: Rayon de chaîne du Piège de Chacal
+000000012A99.07C: Rayon focalisé d’Écho
+000000012A9A.07C: Rayon de visée de la Tourelle de Torbjörn
+000000012A9B.07C: Rayon de soin d’Orbe de Moira
+000000012A9C.07C: Rayon de dégâts d’Orbe de Moira
+000000012A9D.07C: Rayon de Coalescence de Moira
+000000012A9E.07C: Rayon de connexion d’Emprise de Moira
+000000012AA0.07C: Erreur : les points d’extension dépensés ne peuvent pas dépasser les points d’extension disponibles
+000000012AA1.07C: Rayon d’attraction de Halte d’Orisa
+000000012AA2.07C: Rayon de Tourelle de Symmetra
+000000012AA3.07C: Rayon de Projecteur de Symmetra
+000000012AA4.07C: Rayon de chaîne du Fléau de Brigitte
+000000012AA5.07C: Rayon à particules de Zarya
+000000012AC9.07C: Héros uniques max + combinaisons de modèles
+000000012ACA.07C: %1$s
+000000012ACB.07C: Vous ne pourrez pas faire apparaître d’I.A. si cela entraîne le dépassement de cette limite
+000000012ACC.07C: %1$s
+000000012ACE.07C: Nombre max d’I.A. hors emplacements de joueur
+000000012ACF.07C: Vous ne pourrez pas faire apparaître d’I.A. si cela entraîne le dépassement de cette limite
 000000012ADC.07C: < 5 |Rpl min:min;
 000000012ADD.07C: > 10 |Rpl min:min;
 000000012AED.07C: La prime augmente à chaque élimination effectuée par la cible
@@ -29540,6 +29588,40 @@ et 10 coffres hivernaux offerts
 000000012B95.07C: A éliminé une cible
 000000012B96.07C: A éliminé un joueur en tant que cible
 000000012B97.07C: Score
+000000012B99.07C: Nombre de dégâts sur la durée
+000000012B9A.07C: Nombre de soins sur la durée
+000000012B9B.07C: Nombre de textes
+000000012B9C.07C: Nombre de modifications de dégâts
+000000012B9D.07C: Nombre de modifications de soins
+000000012B9E.07C: Nombre de soutiens
+000000012B9F.07C: Nombre d’entités
+000000012BA2.07C: Le nombre actuel d’instances de dégâts sur la durée commencées à partir de l’action « Dégâts sur la durée ».
+000000012BA3.07C: Le nombre actuel d’instances de soins sur la durée commencées à partir de l’action « Soins sur la durée ».
+000000012BA4.07C: Le nombre actuel d’instances de texte commencées à partir de l’action « Créer du texte d’interface », « Créer du texte en jeu », « Créer du texte d’interface de barre de progression en jeu » ou « Créer du texte de barre de progression en jeu ».
+000000012BA5.07C: Le nombre actuel d’instances de modification des dégâts commencées à partir de l’action « Lancer la modification des dégâts ».
+000000012BA6.07C: Le nombre actuel d’instances de modification des soins commencées à partir de l’action « Lancer la modification des soins ».
+000000012BA7.07C: Le nombre actuel d’instances de soutien commencées à partir de l’action « Lancer le soutien ».
+000000012BA8.07C: Le nombre actuel d’entités créées à partir de l’action « Créer un effet », « Créer un effet de rayon », ou « Créer une icône ».
+000000012BB1.07C: Joueur local
+000000012BB2.07C: Le joueur contrôlé sur l’ordinateur de l’utilisateur final. Cette valeur est différente pour chaque utilisateur final et n’est donc accessible que dans les actions qui affectent les visuels ou l’interface. Cette valeur ne peut pas être enregistrée dans les variables.
+000000012BB3.07C: Activer la discussion écrite
+000000012BB4.07C: Annule l’effet de l’action « Désactiver la discussion écrite » pour un ou plusieurs joueurs.
+000000012BB5.07C: Le ou les joueurs dont la discussion écrite sera activée.
+000000012BB6.07C: Désactiver la discussion écrite
+000000012BB7.07C: Désactive la discussion écrite pour un ou plusieurs joueurs jusqu’à sa réactivation.
+000000012BB8.07C: Le ou les joueurs dont la discussion écrite sera désactivée.
+000000012BB9.07C: Activer la discussion audio
+000000012BBA.07C: Annule l’effet de l’action « Désactiver la discussion audio » pour un ou plusieurs joueurs.
+000000012BBB.07C: Le ou les joueurs dont la discussion audio sera activée.
+000000012BBC.07C: Désactiver la discussion audio
+000000012BBD.07C: Désactive la discussion audio pour un ou plusieurs joueurs jusqu’à sa réactivation.
+000000012BBE.07C: Le ou les joueurs dont la discussion audio sera désactivée.
+000000012BBF.07C: Discussion d’équipe
+000000012BC0.07C: Discussion audio de partie
+000000012BC1.07C: Si la discussion audio de partie sera désactivée ou non.
+000000012BC2.07C: Discussion d’escouade
+000000012BC3.07C: Si la discussion d’escouade sera désactivée ou non.
+000000012BC4.07C: Si la discussion d’équipe sera désactivée ou non.
 000000012BD4.07C: Compétiteur Capture du drapeau 2021
 000000012BD5.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2021
 000000012BD6.07C: Héros Capture du drapeau 2021
@@ -29550,9 +29632,52 @@ et 10 coffres hivernaux offerts
 000000012BDC.07C: Capture du drapeau en compétitif
 000000012BDD.07C: Grimpez les échelons et affrontez les meilleurs joueurs de capture du drapeau au monde !
 000000012BDE.07C: Capture du drapeau en compétitif - Saison 4
+000000012BDF.07C: Effet d’augmentation des soins de Grenade biotique d’Ana
+000000012BE0.07C: Effet d’incapacité de soin de Grenade biotique d’Ana
+000000012BE1.07C: Effet d’Endormissement d’Ana
+000000012BE2.07C: Effet de Nanoboost d’Ana
+000000012BE3.07C: Effet des particules d’Enflammé de Dynamite d’Ashe
+000000012BE4.07C: Effet matériel d’Enflammé de Dynamite d’Ashe
+000000012BE6.07C: Effet de protégé de Champ d’immortalité de Baptiste
+000000012BE7.07C: Effet de Clonage d’Écho
+000000012BE8.07C: Effet de protégé de Mur de son de Lúcio
+000000012BE9.07C: Effet d’Étourdi de Grenade flash de McCree
+000000012BEA.07C: Effet de Gelé de Mei
+000000012BEB.07C: Effet de Dégâts augmentés d’Ange
+000000012BEE.07C: Effet de Forme spectrale de Faucheur
+000000012BEF.07C: Effet de cible de Flux gravitationnel de Sigma
+000000012BF0.07C: Effet de Sprint de Soldat : 76
+000000012BF1.07C: Effet de démarrage de Piraté de Sombra
+000000012BF2.07C: Effet de texte de hacker de Piraté de Sombra
+000000012BF3.07C: Effet matériel de Transduction de Sombra
+000000012BF4.07C: Effet de Surchauffe de Torbjörn
+000000012BF5.07C: Effet de cible de Mine venimeuse de Fatale
+000000012BF6.07C: Effet de cible de Canon Tesla de Winston
+000000012BF7.07C: Effet de Rage primordiale de Winston
+000000012BF8.07C: Effet de cible de Bouclier dynamique de Bouldozer
+000000012BF9.07C: Effet de feu de Pilonnage de Bouldozer
+000000012BFA.07C: Effet de cible d’Orbe de discorde de Zenyatta
+000000012BFB.07C: Effets de statut d’affaiblissement
+000000012BFC.07C: Ajoute des effets au menu de type de l’action « Créer un effet de rayon ». Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe.
 000000012C16.07C: S
 000000012C17.07C: Compagnon étincelant
-000000012C37.07C: Semaine 1 : Secouriste de terre cuite
+000000012C1F.07C: Lancer le mode de jeu
+000000012C20.07C: Retour au salon
+000000012C21.07C: Ramène le mode de jeu au salon de la partie personnalisée.
+000000012C22.07C: Redémarrer la partie
+000000012C23.07C: Redémarre la partie. Cette action n’a d’effet que si la partie existe depuis au moins 30 secondes.
+000000012C24.07C: Commence le mode de jeu. Cette action n’a pas d’effet si la partie est déjà en cours.
+000000012C27.07C: Erreur : extension de la Forge non valide.
+000000012C28.07C: Erreur : trop de points d’extension de la Forge dépensés ; veuillez supprimer une ou plusieurs extensions.
+000000012C2B.07C: Supprimer un joueur
+000000012C2C.07C: Retire un ou plusieurs joueurs de la partie personnalisée. Cette action ne fonctionne pas sur les I.A.
+000000012C2D.07C: Le ou les joueurs à supprimer.
+000000012C2E.07C: Déplacer un joueur vers l’équipe
+000000012C2F.07C: Déplace un ou plusieurs joueurs vers l’équipe et l’emplacement spécifiés. Cette action peut échouer si l’emplacement spécifié n’est pas disponible. Cette action ne fonctionne pas sur les I.A.
+000000012C30.07C: Le ou les joueurs à déplacer.
+000000012C32.07C: L’équipe vers laquelle le joueur sera déplacé. L’option « Toutes » ne fonctionne que dans les modes chacun pour soi, tandis que les options « Équipe » ne fonctionnent que dans les modes de jeu où des équipes sont constituées.
+000000012C33.07C: L’emplacement de joueur recevant le joueur (-1 pour le premier emplacement libre).
+000000012C37.07C: Défi Pachimarsi
 000000012C38.07C: Fureur du taureau
 000000012C39.07C: Disponible dans les coffres lunaires
 000000012C3A.07C: Ail
@@ -29591,6 +29716,7 @@ et 10 coffres hivernaux offerts
 000000012C68.07C: Compétiteur Saison 27
 000000012C69.07C: Obtenu en effectuant toutes les parties de placement de la saison 27
 000000012C6B.07C: Disponible dans les coffres lunaires
+000000012C6C.07C: Appuyez sur %1$s pour les options du spectateur
 000000012C6D.07C: J’aimerais pouvoir manger
 000000012C6E.07C: Année prospère
 000000012C6F.07C: Disponible dans les coffres lunaires
@@ -29634,11 +29760,202 @@ et 10 coffres hivernaux offerts
 000000012CA8.07C: 
 000000012CA9.07C: 
 000000012CAA.07C: 
+000000012CB3.07C: Pachimari
+000000012CB4.07C: Casquette Pachimari
 000000012CB5.07C: |Rfn %1$s:N0;
 000000012CB6.07C: |Rfn %1$s:N0;
 000000012CB7.07C: |Rfn %1$s:N0;
 000000012CB8.07C: |Rfn %1$s:N0;
 000000012CB9.07C: |Rfn %1$s:N0;
+000000012CCE.07C: |Rpl %1$s:Partie jouée:Parties jouées;
+000000012CCF.07C: %1$s |Rpl Partie jouée:Parties jouées;
+000000012CE6.07C: MODE PRÉFÉRÉ
 000000012D10.07C: 120 crédits, plus 60 coffres lunaires offerts
+000000012D20.07C: %1$s (%2$s, %3$s Hz)
+000000012D22.07C: Effets d’explosion cinétique
+000000012D24.07C: Résolution
+000000012D25.07C: Équilibré
+000000012D26.07C: Taux de rafraîchissement
+000000012D27.07C: Effet d’explosion de Dynamite d’Ashe
+000000012D28.07C: Effet d’explosion de Grenade biotique d’Ana
+000000012D29.07C: Effet d’explosion de Bio-lanceur de Baptiste
+000000012D2A.07C: Effet d’explosion du canon de Tank de Bastion
+000000012D2B.07C: Effet d’impact de Module de réparation de Brigitte
+000000012D2C.07C: Effet d’armure de Module de réparation de Brigitte
+000000012D2D.07C: Effet de zone de soin de Fléau cinglant de Brigitte
+000000012D2E.07C: Effet d’explosion de Micro-missiles de D.Va
+000000012D2F.07C: Effet d’explosion d’Autodestruction de D.Va
+000000012D30.07C: Effet de saut d’Uppercut de Doomfist
+000000012D31.07C: Effet d’impact d’Uppercut de Doomfist
+000000012D33.07C: Effet d’impact de Frappe météore de Doomfist
+000000012D34.07C: Effet d’explosion de Bombe collante d’Écho
+000000012D36.07C: Désactivé
+000000012D37.07C: Activé
+000000012D38.07C: Activé + Boost
+000000012D3A.07C: Effet d’impulsion initiale de Flèche sonique de Hanzo
+000000012D3B.07C: Effet d’explosion de Pneumastic de Chacal
+000000012D3C.07C: Effet d’explosion de Mine incapacitante de Chacal
+000000012D3D.07C: Effet d’explosion de Lance-grenades de Chacal
+000000012D3E.07C: Effet de lancement de Mur de son de Lúcio
+000000012D3F.07C: Effet d’explosion de Grenade flash de McCree
+000000012D40.07C: Effet de disparition de Volatilité de Moira
+000000012D41.07C: Effet de réapparition de Volatilité de Moira
+000000012D42.07C: Effet d’implosion de Halte d’Orisa
+000000012D43.07C: Effet d’explosion de Barrage de Pharah
+000000012D44.07C: Effet de Conflagration de Pharah
+000000012D45.07C: Effet d’explosion de Lance-roquettes de Pharah
 000000012D46.07C: Année du bœuf
-[Core] Execution finished in 00:00:00.4190171 seconds
+000000012D47.07C: Effet d’impact de cible de Frappe de feu de Reinhardt
+000000012D48.07C: Effet d’implosion d’Hypersphère de Sigma
+000000012D49.07C: Effet d’impact de Concrétion de Sigma
+000000012D4A.07C: Effet de logo de Sombra
+000000012D4B.07C: Effet d’explosion d’IEM de Sombra
+000000012D4C.07C: Effet de réapparition de Transducteur de Sombra
+000000012D4D.07C: Effet de disparition de Transducteur de Sombra
+000000012D4E.07C: Effet de réapparition de Téléporteur de Symmetra
+000000012D50.07C: Effet de réapparition de Rappel de Tracer
+000000012D51.07C: Effet de disparition de Rappel de Tracer
+000000012D52.07C: Effet d’explosion de Mine venimeuse de Fatale
+000000012D53.07C: Effet d’atterrissage de Propulseurs de Winston
+000000012D54.07C: Effet d’impact de Pilonnage de Bouldozer
+000000012D55.07C: Effet d’explosion de Champ de mines de Bouldozer
+000000012D56.07C: Effet d’explosion de Canon à particules de Zarya
+000000012D5C.07C: NVIDIA Reflex
+000000012D5E.07C: Caractère dans la chaîne
+000000012D5F.07C: Index de la chaîne de caractère
+000000012D60.07C: Division de la chaîne
+000000012D61.07C: Remplacement de la chaîne
+000000012D62.07C: Le caractère trouvé à un index spécifié d’une chaîne.
+000000012D63.07C: La valeur de la chaîne dont il faut acquérir le caractère.
+000000012D64.07C: Index
+000000012D65.07C: L’index du caractère à appeler (avec 0 comme premier caractère, 1 comme second, etc.).
+000000012D66.07C: L’index d’un caractère extrait d’une chaîne, ou -1 si aucun caractère de ce type n’a été trouvé.
+000000012D67.07C: La valeur de la chaîne à partir de laquelle chercher le caractère.
+000000012D68.07C: Caractère
+000000012D69.07C: Le caractère à chercher.
+000000012D6A.07C: Le résultat affichera un tableau de valeurs de chaîne. Ces valeurs de chaîne seront construites à partir de la valeur de la chaîne spécifiée, divisées autour de la chaîne de séparation.
+000000012D6B.07C: Les résultats dans la valeur de la chaîne. Cette valeur de chaîne sera construite à partir de la valeur de la chaîne spécifiée. Toutes les occurrences de la chaîne de motifs seront ainsi remplacées par la chaîne de remplacement.
+000000012D6C.07C: La valeur de la chaîne à diviser.
+000000012D6D.07C: Séparateur
+000000012D6E.07C: La chaîne de séparation avec laquelle diviser la valeur de la chaîne.
+000000012D6F.07C: La valeur de la chaîne avec laquelle chercher des remplacements.
+000000012D70.07C: Motif
+000000012D71.07C: Le motif de chaîne à remplacer.
+000000012D72.07C: Remplacement
+000000012D73.07C: La valeur de la chaîne avec laquelle remplacer la chaîne de motifs.
+000000012D79.07C: Effets d’explosion énergétique
+000000012D81.07C: Tout le monde
+000000012D82.07C: Contacts
+000000012D88.07C: Obtenu en participant au défi PachiMarsi
+000000012D91.07C: Recevoir les invitations de partie personnalisée de
+000000012D92.07C: Recevoir les demandes d’invitation à rejoindre la partie personnalisée
+000000012D93.07C: Effets de tir simple
+000000012D95.07C: Indicateur de flash
+000000012D96.07C: Effets des dégâts
+000000012D97.07C: Le nom contient des caractères non valides.
+000000012D98.07C: Pachimari
+000000012D9A.07C: Ce joueur récent ne peut être évité pour l’instant, en raison d’un problème connu. Nous examinons actuellement l’affaire et la résoudrons dès que possible.
+000000012D9B.07C: Sons de rayon
+000000012D9C.07C: Ajoute des effets aux menus de type des actions « Créer un effet » et « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe. Pour les effets en première personne, la position suppose un joueur.
+000000012D9E.07C: Ajoute des effets au menu de type de l’action « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe.
+000000012D9F.07C: Ajoute des sons au menu de type de l’action « Créer un effet ».
+000000012DA0.07C: Son de Projecteur de Symmetra
+000000012DA1.07C: Son de Canon Tesla de Winston
+000000012DA2.07C: Son du Rayon de Laserateur omniaque
+000000012DA3.07C: Son du Rayon à particules de Zarya
+000000012DA4.07C: Son de Coalescence de Moira
+000000012DA5.07C: Son de soin d’Orbe de Moira
+000000012DA6.07C: Son de dégâts d’Orbe de Moira
+000000012DA7.07C: Son de connexion d’Emprise de Moira
+000000012DA8.07C: Son du Rayon focalisé d’Écho
+000000012DA9.07C: Son de chaîne du Piège de Chacal
+000000012DAA.07C: Son du rayon de soin d’Ange
+000000012DAB.07C: Son du rayon d’augmentation des dégâts d’Ange
+000000012DAC.07C: Son d’attraction de Halte d’Orisa
+000000012DAD.07C: Son de Surchargeur d’Orisa
+000000012DB0.07C: L’ensemble actuel des extensions de la Forge nécessite moins de joueurs.
+000000012DB1.07C: L’ensemble actuel des extensions de la Forge interdit les cartes ne provenant pas de la Forge.
+000000012DC0.07C: PAR DÉFAUT
+000000012DC1.07C: BASSE
+000000012E6F.07C: Kanezaka
+000000012E70.07C: Sons des améliorations et des affaiblissements
+000000012E71.07C: Ajoute des sons au menu de type des actions « Créer un effet » et « Jouer un effet ».
+000000012E72.07C: Son de feu de Pilonnage de Bouldozer
+000000012E73.07C: Son de cible de Bouclier dynamique de Bouldozer
+000000012E74.07C: Son de cible de Mine venimeuse de Fatale
+000000012E75.07C: Son de début de Sprint de Soldat : 76
+000000012E76.07C: Son de cible de Canon Tesla de Winston
+000000012E77.07C: Son de Forme spectrale de Faucheur
+000000012E78.07C: Son de Surchauffe de Torbjörn
+000000012E79.07C: Son de Piratage de Sombra
+000000012E7A.07C: Son de Piraté de Sombra
+000000012E7B.07C: Son de Transduction de Sombra
+000000012E7C.07C: Son de cible de Flux gravitationnel de Sigma
+000000012E7D.07C: Son de protégé de Champ d’immortalité de Baptiste
+000000012E7E.07C: Son de Gelé de Mei
+000000012E7F.07C: Son de Clonage d’Écho
+000000012E80.07C: Son de protégé de Mur de son de Lúcio
+000000012E81.07C: Son de cible d’Orbe de discorde de Zenyatta
+000000012E82.07C: Son de Dégâts augmentés d’Ange
+000000012E83.07C: Son d’Endormissement d’Ana
+000000012E84.07C: Son d’incapacité de soin de Grenade biotique d’Ana
+000000012E85.07C: Son de Nanoboost d’Ana
+000000012E86.07C: Son d’augmentation des soins de Grenade biotique d’Ana
+000000012E87.07C: Son de Rage primordiale de Winston
+000000012E88.07C: Arrêter de forcer le nom de l’I.A.
+000000012E89.07C: Annule le comportement de « Forcer le nom de l’I.A. » pour le ou les joueurs spécifiés.
+000000012E8A.07C: Le joueur ou les joueurs dont les noms cesseront d’être forcés.
+000000012E8B.07C: Forcer le nom de l’I.A.
+000000012E8C.07C: Le joueur ou les joueurs dont les noms seront forcés.
+000000012E8D.07C: Commence à forcer le nom pour le ou les joueurs spécifiés.
+000000012E8E.07C: Le nom à forcer.
+000000012E8F.07C: Nom
+000000012EAA.07C: Chacamari
+000000012EAB.07C: Tranquillimari
+000000012EAC.07C: Gorimari
+000000012EAD.07C: Doomari
+000000012EAE.07C: Pachimada
+000000012EAF.07C: Piramari
+000000012EB2.07C: Sons des explosions
+000000012EB3.07C: Ajoute des sons au menu de type de l’action « Jouer un effet ».
+000000012EB4.07C: Son d’explosion de Canon à particules de Zarya
+000000012EB5.07C: Son d’impact de Pilonnage de Bouldozer
+000000012EB6.07C: Son d’explosion de Champ de mines de Bouldozer
+000000012EB7.07C: Son d’atterrissage de Propulseurs de Winston
+000000012EB8.07C: Son d’explosion de Mine venimeuse de Fatale
+000000012EB9.07C: Son de réapparition de Rappel de Tracer
+000000012EBA.07C: Son de disparition de Rappel de Tracer
+000000012EBB.07C: Son de réapparition de Téléporteur de Symmetra
+000000012EBC.07C: Son de disparition de Transducteur de Sombra
+000000012EBD.07C: Son de réapparition de Transducteur de Sombra
+000000012EBE.07C: Son de logo de Sombra
+000000012EBF.07C: Son d’explosion d’IEM de Sombra
+000000012EC0.07C: Son d’impact de Concrétion de Sigma
+000000012EC1.07C: Son d’implosion d’Hypersphère de Sigma
+000000012EC2.07C: Son d’impact de cible de Frappe de feu de Reinhardt
+000000012EC3.07C: Son d’explosion de Barrage de Pharah
+000000012EC4.07C: Son d’explosion de Lance-roquettes de Pharah
+000000012EC5.07C: Son de Conflagration de Pharah
+000000012EC6.07C: Son d’implosion de Halte d’Orisa
+000000012EC7.07C: Son de réapparition de Volatilité de Moira
+000000012EC8.07C: Son de disparition de Volatilité de Moira
+000000012EC9.07C: Son d’explosion de Grenade flash de McCree
+000000012ECA.07C: Son de lancement de Mur de son de Lúcio
+000000012ECB.07C: Son d’impulsion initiale de Flèche sonique de Hanzo
+000000012ECC.07C: Son d’explosion de Lance-grenades de Chacal
+000000012ECD.07C: Son d’explosion de Mine incapacitante de Chacal
+000000012ECE.07C: Son d’explosion de Pneumastic de Chacal
+000000012ECF.07C: Son d’explosion de Bombe collante d’Écho
+000000012ED0.07C: Son de saut d’Uppercut de Doomfist
+000000012ED1.07C: Son d’impact d’Uppercut de Doomfist
+000000012ED2.07C: Son d’impact de Frappe météore de Doomfist
+000000012ED3.07C: Son d’explosion d’Autodestruction de D.Va
+000000012ED4.07C: Son d’explosion de Micro-missiles de D.Va
+000000012ED5.07C: Son d’armure de Module de réparation de Brigitte
+000000012ED6.07C: Son d’impact de Module de réparation de Brigitte
+000000012ED7.07C: Son de zone de soin de Fléau cinglant de Brigitte
+000000012ED8.07C: Son d’explosion du canon de Tank de Bastion
+000000012ED9.07C: Son d’explosion de Bio-lanceur de Baptiste
+000000012EDA.07C: Son d’explosion de Dynamite d’Ashe
+000000012EDB.07C: Son d’explosion de Grenade biotique d’Ana
+[Core] Execution finished in 00:00:00.4457560 seconds

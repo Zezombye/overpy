@@ -20,6 +20,150 @@
 const customGameSettingsSchema = 
 //begin-json
 {
+    "extensions": {
+        "values": {
+            "beamEffects": {
+                "points": 2,
+                "guid": "0000000129FF",
+                "en-US": "Beam Effects",
+                "de-DE": "Strahleffekte",
+                "es-ES": "Efectos de haz",
+                "es-MX": "Efectos de rayo",
+                "fr-FR": "Effets de rayon",
+                "ja-JP": "ビーム・エフェクト",
+                "pl-PL": "Efekty wiązek",
+                "pt-BR": "Efeitos de Feixe",
+                "zh-CN": "光束效果"
+            },
+            "beamSounds": {
+                "points": 1,
+                "guid": "000000012D9B",
+                "en-US": "Beam Sounds",
+                "de-DE": "Sounds von Strahlen",
+                "es-ES": "Sonidos de haz",
+                "es-MX": "Sonidos de rayo",
+                "fr-FR": "Sons de rayon",
+                "ja-JP": "ビーム音",
+                "pl-PL": "Dźwięki wiązek",
+                "pt-BR": "Sons de Feixes",
+                "zh-CN": "光束声音"
+            },
+            "buffAndDebuffSounds": {
+                "points": 2,
+                "guid": "000000012E70",
+                "en-US": "Buff and Debuff Sounds",
+                "de-DE": "Sounds von Stärkungs- und Schwächungseffekten",
+                "es-ES": "Sonidos de beneficios y perjuicios",
+                "es-MX": "Sonidos de potenciaciones y despotenciaciones",
+                "fr-FR": "Sons des améliorations et des affaiblissements",
+                "ja-JP": "バフおよびデバフの音",
+                "pl-PL": "Dźwięki wzmocnienia i osłabienia",
+                "pt-BR": "Sons de Melhorias e Penalidades",
+                "zh-CN": "增益效果和减益效果声音"
+            },
+            "buffStatusEffects": {
+                "points": 2,
+                "guid": "000000012A02",
+                "en-US": "Buff Status Effects",
+                "de-DE": "Effekte von Stärkungseffekten",
+                "es-ES": "Efectos de estados de mejoras",
+                "es-MX": "Potenciar efectos de estados",
+                "fr-FR": "Effets de statut d’amélioration",
+                "ja-JP": "バフステータスのエフェクト",
+                "pl-PL": "Efekty statusu wzmocnienia",
+                "pt-BR": "Efeitos de Melhoria de Status",
+                "zh-CN": "增益状态效果"
+            },
+            "debuffStatusEffects": {
+                "points": 2,
+                "guid": "000000012BFB",
+                "en-US": "Debuff Status Effects",
+                "de-DE": "Effekte von Schwächungseffekten",
+                "es-ES": "Efectos de estados de perjuicios",
+                "es-MX": "Despotenciar efectos de estados",
+                "fr-FR": "Effets de statut d’affaiblissement",
+                "ja-JP": "デバフステータスのエフェクト",
+                "pl-PL": "Efekty statusu osłabienia",
+                "pt-BR": "Efeitos de Status Negativos",
+                "zh-CN": "减益状态效果"
+            },
+            "energyExplosionEffects": {
+                "points": 4,
+                "guid": "000000012D79",
+                "en-US": "Energy Explosion Effects",
+                "de-DE": "Effekte von Energieexplosionen",
+                "es-ES": "Efectos de explosión de energía",
+                "es-MX": "Efectos de explosión de energía",
+                "fr-FR": "Effets d’explosion énergétique",
+                "ja-JP": "エネルギー爆発エフェクト",
+                "pl-PL": "Efekty eksplozji energetycznych",
+                "pt-BR": "Efeitos de Explosão de Energia",
+                "zh-CN": "能量爆炸效果"
+            },
+            "explosionSounds": {
+                "points": 2,
+                "guid": "000000012EB2",
+                "en-US": "Explosion Sounds",
+                "de-DE": "Sounds von Explosionen",
+                "es-ES": "Sonidos de explosiones",
+                "es-MX": "Sonidos de explosión",
+                "fr-FR": "Sons des explosions",
+                "ja-JP": "爆発音",
+                "pl-PL": "Dźwięki eksplozji",
+                "pt-BR": "Sons de Explosão",
+                "zh-CN": "爆炸声音"
+            },
+            "kineticExplosionEffects": {
+                "points": 4,
+                "guid": "000000012D22",
+                "en-US": "Kinetic Explosion Effects",
+                "de-DE": "Effekte von kinetischen Explosionen",
+                "es-ES": "Efectos de explosión cinética",
+                "es-MX": "Efectos de explosión cinética",
+                "fr-FR": "Effets d’explosion cinétique",
+                "ja-JP": "キネティック爆発エフェクト",
+                "pl-PL": "Efekty eksplozji kinetycznych",
+                "pt-BR": "Efeitos de Explosões Cinéticas",
+                "zh-CN": "运动爆炸效果"
+            },
+            "playMoreEffects": {
+                "points": 1,
+                "guid": "0000000128E9",
+                "en-US": "Play More Effects",
+                "de-DE": "Mehr Effekte abspielen",
+                "es-ES": "Reproducir más efectos",
+                "es-MX": "Reproducir más efectos",
+                "fr-FR": "Jouer plus d’effets",
+                "ja-JP": "エフェクトの再生数を増加",
+                "pl-PL": "Odtwórz więcej efektów",
+                "pt-BR": "Reproduzir Mais Efeitos",
+                "zh-CN": "播放更多效果"
+            },
+            "spawnMoreDummyBots": {
+                "points": 2,
+                "guid": "0000000128E7",
+                "en-US": "Spawn More Dummy Bots",
+                "de-DE": "Mehr Bots erschaffen",
+                "es-ES": "Generar más robots",
+                "es-MX": "Aparecer más robots de entrenamiento",
+                "fr-FR": "Faire apparaître plus d’I.A.",
+                "ja-JP": "ダミーボットの生成数を増加",
+                "pl-PL": "Stwórz więcej atrap botów",
+                "pt-BR": "Gerar Mais Bots",
+                "zh-CN": "生成更多机器人"
+            }
+        },
+        "guid": "000000012971",
+        "en-US": "extensions",
+        "de-DE": "Erweiterungen",
+        "es-ES": "extensiones",
+        "es-MX": "extensiones",
+        "it-IT": "estensioni",
+        "ja-JP": "拡張",
+        "pl-PL": "rozszerzenia",
+        "pt-BR": "extensões",
+        "zh-CN": "扩展"
+    },
     "gamemodes": {
         "values": {
             "general": {
@@ -51,7 +195,7 @@ const customGameSettingsSchema =
                                 "en-US": "All Slots Filled",
                                 "de-DE": "Auf volles Spiel warten",
                                 "es-ES": "Todas las ranuras ocupadas",
-                                "es-MX": "Todas las ranuras están ocupadas",
+                                "es-MX": "Todos los puestos están ocupados",
                                 "fr-FR": "Emplacements complets",
                                 "it-IT": "Tutti gli slot occupati",
                                 "ja-JP": "定員到達",
@@ -371,7 +515,7 @@ const customGameSettingsSchema =
                                 "en-US": "Off",
                                 "de-DE": "Aus",
                                 "es-ES": "Desactivado",
-                                "es-MX": "No",
+                                "es-MX": "Desactivado",
                                 "fr-FR": "Désactivé",
                                 "ja-JP": "OFF",
                                 "ko-KR": "비활성화",
@@ -1010,7 +1154,7 @@ const customGameSettingsSchema =
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
-                                "es-MX": "Todas",
+                                "es-MX": "Todos",
                                 "fr-FR": "Toutes",
                                 "it-IT": "Tutte",
                                 "ja-JP": "制限なし",
@@ -1026,7 +1170,7 @@ const customGameSettingsSchema =
                                 "en-US": "None",
                                 "de-DE": "Keine",
                                 "es-ES": "Ninguna",
-                                "es-MX": "Ninguna",
+                                "es-MX": "Ninguno",
                                 "fr-FR": "Aucune",
                                 "it-IT": "Nessuna",
                                 "ja-JP": "使用不可",
@@ -1342,7 +1486,7 @@ const customGameSettingsSchema =
                                 "en-US": "Off",
                                 "de-DE": "Aus",
                                 "es-ES": "Desactivado",
-                                "es-MX": "Desactivado",
+                                "es-MX": "No",
                                 "fr-FR": "Désactivé",
                                 "ja-JP": "OFF",
                                 "ko-KR": "비활성화",
@@ -1733,7 +1877,7 @@ const customGameSettingsSchema =
                                 "en-US": "Off",
                                 "de-DE": "Aus",
                                 "es-ES": "Desactivado",
-                                "es-MX": "Desactivado",
+                                "es-MX": "No",
                                 "fr-FR": "Désactivé",
                                 "ja-JP": "OFF",
                                 "ko-KR": "비활성화",
@@ -4411,7 +4555,7 @@ const customGameSettingsSchema =
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
-                                "es-MX": "Todas",
+                                "es-MX": "Todos",
                                 "fr-FR": "Toutes",
                                 "it-IT": "Tutte",
                                 "ja-JP": "すべて",
@@ -4804,7 +4948,7 @@ const customGameSettingsSchema =
                                 "en-US": "All",
                                 "de-DE": "Alle",
                                 "es-ES": "Todas",
-                                "es-MX": "Todas",
+                                "es-MX": "Todos",
                                 "fr-FR": "Toutes",
                                 "it-IT": "Tutte",
                                 "ja-JP": "すべて",
@@ -5172,7 +5316,7 @@ const customGameSettingsSchema =
                         "en-US": "Off",
                         "de-DE": "Aus",
                         "es-ES": "Desactivado",
-                        "es-MX": "No",
+                        "es-MX": "Desactivado",
                         "fr-FR": "Désactivé",
                         "ja-JP": "OFF",
                         "ko-KR": "비활성화",
@@ -5976,52 +6120,6 @@ const customGameSettingsSchema =
         "ja-JP": "ワークショップ",
         "pl-PL": "warsztat",
         "zh-CN": "地图工坊"
-    },
-    
-    "extensions": {
-        "en-US": "extensions",
-        "values": {
-            "beamEffects": {
-                "en-US": "Beam Effects",
-                "points": 2
-            },
-            "beamSounds": {
-                "en-US": "Beam Sounds",
-                "points": 1
-            },
-            "buffAndDebuffSounds": {
-                "en-US": "Buff and Debuff Sounds",
-                "points": 2
-            },
-            "buffStatusEffects": {
-                "en-US": "Buff Status Effects",
-                "points": 2
-            },
-            "debuffStatusEffects": {
-                "en-US": "Debuff Status Effects",
-                "points": 2
-            },
-            "energyExplosionEffects": {
-                "en-US": "Energy Explosion Effects",
-                "points": 4
-            },
-            "explosionSounds": {
-                "en-US": "Explosion Sounds",
-                "points": 2
-            },
-            "kineticExplosionEffects": {
-                "en-US": "Kinetic Explosion Effects",
-                "points": 4
-            },
-            "playMoreEffects": {
-                "en-US": "Play More Effects",
-                "points": 1
-            },
-            "spawnMoreDummyBots": {
-                "en-US": "Spawn More Dummy Bots",
-                "points": 2
-            }
-        }
     }
 }
 //end-json
