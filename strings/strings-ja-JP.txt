@@ -1,13 +1,13 @@
-[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
+[Core] DataTool v1.58.0.944-git-510ff4936a6797e5705fc2f8c57dec50a868900f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.58.0.0.79605
+[CASC] Overwatch build 1.58.1.0.80111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 80111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29452,6 +29452,7 @@ Blizzardサポート
 000000012ACF.07C: この限度数を超えてダミーボットを生成することはできなくなる
 000000012ADC.07C: 5 分未満
 000000012ADD.07C: 10 分以上
+000000012AEB.07C: 善と悪
 000000012AED.07C: 賞金首としてのキルごとに増加する懸賞金
 000000012AF0.07C: マッチをポーズする
 000000012AF1.07C: マッチのポーズを解除
@@ -29708,6 +29709,7 @@ Blizzardサポート
 000000012D54.07C: レッキング・ボールの〈パイルドライバー〉の衝突エフェクト
 000000012D55.07C: レッキング・ボールの〈マインフィールド〉の爆発エフェクト
 000000012D56.07C: ザリアの〈パーティクル・キャノン〉の爆発エフェクト
+000000012D5A.07C: ミダス
 000000012D5C.07C: NVIDIA Reflex
 000000012D5E.07C: 配列の文字
 000000012D5F.07C: 文字列の文字のインデックス
@@ -29846,4 +29848,9 @@ Blizzardサポート
 000000012ED9.07C: バティストの〈バイオティック・ランチャー〉の爆発音
 000000012EDA.07C: アッシュの〈ダイナマイト〉の爆発音
 000000012EDB.07C: アナの〈バイオティック・グレネード〉の爆発音
-[Core] Execution finished in 00:00:00.4073028 seconds
+000000012F1C.07C: "Venomous" by Leon
+000000012F1D.07C: 2020 MVP & Grand Finals
+000000012F1E.07C: Championship Skins
+000000012F3D.07C: Enable Reactive HUD Movement
+000000012FF1.07C: DISCORD
+[Core] Execution finished in 00:00:00.4725470 seconds

@@ -19,6 +19,9 @@
 
 astParsingFunctions.createEffect = function(content) {
 
+    if (!(content.args[1].name in constantValues[content.args[1].type])) {
+        error("Unknown effect '"+content.args[1].name+"'");
+    }
     if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
         error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
     }

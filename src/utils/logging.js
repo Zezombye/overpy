@@ -48,11 +48,15 @@ function warn(warnType, message) {
 	
 	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
-		if (fileStack.length !== 0) {
-			fileStack.reverse();
-			for (var file of fileStack) {
-				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+		if (fileStack) {
+			if (fileStack.length !== 0) {
+				fileStack.reverse();
+				for (var file of fileStack) {
+					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				}
 			}
+		} else {
+			error += "\n\t| <no filestack>";
 		}
 		console.warn(warning);
 		//suppressedWarnings.push(warnType);

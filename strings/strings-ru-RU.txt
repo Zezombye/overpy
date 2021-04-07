@@ -1,13 +1,13 @@
-[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
+[Core] DataTool v1.58.0.944-git-510ff4936a6797e5705fc2f8c57dec50a868900f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: ruRU | Speech Language: ruRU
-[CASC] Overwatch build 1.58.0.0.79605
+[CASC] Overwatch build 1.58.1.0.80111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 80111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29458,6 +29458,7 @@ https://account.blizzard.com/connections/nintendo
 000000012ACF.07C: Вы не сможете создавать манекены, если их новое количество превысит данное значение.
 000000012ADC.07C: < 5 мин.
 000000012ADD.07C: > 10 мин.
+000000012AEB.07C: Добро и зло
 000000012AED.07C: Бонус к награде за убийство в роли цели охоты
 000000012AF0.07C: Приостановить матч
 000000012AF1.07C: Возобновить матч
@@ -29713,6 +29714,7 @@ https://account.blizzard.com/connections/nintendo
 000000012D54.07C: Wrecking Ball Piledriver Impact Effect
 000000012D55.07C: Wrecking Ball Minefield Explosion Effect
 000000012D56.07C: Zarya Particle Cannon Explosion Effect
+000000012D5A.07C: Мидас
 000000012D5C.07C: NVIDIA Reflex
 000000012D5E.07C: Char In String
 000000012D5F.07C: Index Of String Char
@@ -29851,4 +29853,9 @@ https://account.blizzard.com/connections/nintendo
 000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
 000000012EDA.07C: Ashe Dynamite Explosion Sound
 000000012EDB.07C: Ana Biotic Grenade Explosion Sound
-[Core] Execution finished in 00:00:00.4423458 seconds
+000000012F1C.07C: Venomous (автор: Leon)
+000000012F1D.07C: 2020 MVP & Grand Finals
+000000012F1E.07C: Championship Skins
+000000012F3D.07C: Enable Reactive HUD Movement
+000000012FF1.07C: DISCORD
+[Core] Execution finished in 00:00:00.4668245 seconds

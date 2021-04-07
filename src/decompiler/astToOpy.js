@@ -380,7 +380,7 @@ function astActionsToOpy(actions) {
 
         if (actions[i].isDisabled) {
             if (decompiledAction.includes("\n")) {
-                decompiledAction = "/*"+decompiledAction+"*/";
+                decompiledAction = "#"+decompiledAction.split("\n").join("\n"+tabLevel(tabLevelForThisAction)+"#");
             } else {
                 decompiledAction = "#"+decompiledAction;
             }

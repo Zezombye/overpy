@@ -1,13 +1,13 @@
-[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
+[Core] DataTool v1.58.0.944-git-510ff4936a6797e5705fc2f8c57dec50a868900f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.58.0.0.79605
+[CASC] Overwatch build 1.58.1.0.80111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 80111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29461,6 +29461,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012ACF.07C: Você não poderá criar bots se exceder este limite.
 000000012ADC.07C: < 5 min
 000000012ADD.07C: > 10 min
+000000012AEB.07C: Bem e Mal
 000000012AED.07C: Aumento da Recompensa por Abate como Alvo
 000000012AF0.07C: Pausar Partida
 000000012AF1.07C: Retomar Partida
@@ -29717,6 +29718,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012D54.07C: Efeito de Impacto do Bate-estaca do Wrecking Ball
 000000012D55.07C: Efeito do Campo Minado do Wrecking Ball
 000000012D56.07C: Efeito de Explosão do Canhão de Partículas da Zarya
+000000012D5A.07C: Midas
 000000012D5C.07C: Reflexo NVIDIA
 000000012D5E.07C: Caractere na String
 000000012D5F.07C: Índice de Caractere de String
@@ -29855,4 +29857,9 @@ e 10 Caixas de Itens Congelados grátis
 000000012ED9.07C: Som de Explosão do Lançador Biótico do Baptiste
 000000012EDA.07C: Som de Explosão da Dinamite da Ashe
 000000012EDB.07C: Som de Explosão da Granada Biótica da Ana
-[Core] Execution finished in 00:00:00.4103148 seconds
+000000012F1C.07C: "Venomous" por Leon
+000000012F1D.07C: 2020 MVP & Grand Finals
+000000012F1E.07C: Championship Skins
+000000012F3D.07C: Enable Reactive HUD Movement
+000000012FF1.07C: DISCORD
+[Core] Execution finished in 00:00:00.4915901 seconds

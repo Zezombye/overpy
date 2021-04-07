@@ -240,23 +240,14 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 //Sub0 to Sub127
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
-//Names that cannot be used for variables.
+//Names that cannot be used for global variables or subroutines.
 const reservedNames = Object.keys(opyKeywords);
+const reservedSubroutineNames = Object.keys(opyKeywords);
 for (var func in funcKw) {
 	if (funcKw[func].args === null) {
 		reservedNames.push(func);
-	}
-}
-
-//Names that cannot be used for subroutines.
-const reservedFuncNames = [];
-for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs), Object.keys(constantValues))) {
-	if (!func.startsWith("_")) {
-		if (func.includes("(")) {
-			reservedFuncNames.push(func.substring(0, func.indexOf("(")));
-		} else {
-			reservedFuncNames.push(func);
-		}
+	} else if (funcKw[func].args.length === 0) {
+		reservedSubroutineNames.push(func);
 	}
 }
 

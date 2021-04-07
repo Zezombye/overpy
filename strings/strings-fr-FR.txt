@@ -1,13 +1,13 @@
-[Core] DataTool v1.58.0.941-git-630a29b04c34cc13e5504fc69dff5274201b3b1f
+[Core] DataTool v1.58.0.944-git-510ff4936a6797e5705fc2f8c57dec50a868900f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(4)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.58.0.0.79605
+[CASC] Overwatch build 1.58.1.0.80111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 79605 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 79605 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 80111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29565,6 +29565,7 @@ et 10 coffres hivernaux offerts
 000000012ACF.07C: Vous ne pourrez pas faire apparaître d’I.A. si cela entraîne le dépassement de cette limite
 000000012ADC.07C: < 5 |Rpl min:min;
 000000012ADD.07C: > 10 |Rpl min:min;
+000000012AEB.07C: Manichéenne
 000000012AED.07C: La prime augmente à chaque élimination effectuée par la cible
 000000012AF0.07C: Mettre en pause la partie
 000000012AF1.07C: Reprendre la partie
@@ -29820,6 +29821,7 @@ et 10 coffres hivernaux offerts
 000000012D54.07C: Effet d’impact de Pilonnage de Bouldozer
 000000012D55.07C: Effet d’explosion de Champ de mines de Bouldozer
 000000012D56.07C: Effet d’explosion de Canon à particules de Zarya
+000000012D5A.07C: Midas
 000000012D5C.07C: NVIDIA Reflex
 000000012D5E.07C: Caractère dans la chaîne
 000000012D5F.07C: Index de la chaîne de caractère
@@ -29958,4 +29960,9 @@ et 10 coffres hivernaux offerts
 000000012ED9.07C: Son d’explosion de Bio-lanceur de Baptiste
 000000012EDA.07C: Son d’explosion de Dynamite d’Ashe
 000000012EDB.07C: Son d’explosion de Grenade biotique d’Ana
-[Core] Execution finished in 00:00:00.4457560 seconds
+000000012F1C.07C: « Venomous » par Leon
+000000012F1D.07C: 2020 MVP & Grand Finals
+000000012F1E.07C: Championship Skins
+000000012F3D.07C: Enable Reactive HUD Movement
+000000012FF1.07C: DISCORD
+[Core] Execution finished in 00:00:00.4732787 seconds

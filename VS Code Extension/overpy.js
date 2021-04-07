@@ -46370,23 +46370,14 @@ const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
 //Sub0 to Sub127
 const defaultSubroutineNames = Array(128).fill().map((e,i)=>i).map(x => "Sub"+x);
 
-//Names that cannot be used for variables.
+//Names that cannot be used for global variables or subroutines.
 const reservedNames = Object.keys(opyKeywords);
+const reservedSubroutineNames = Object.keys(opyKeywords);
 for (var func in funcKw) {
 	if (funcKw[func].args === null) {
 		reservedNames.push(func);
-	}
-}
-
-//Names that cannot be used for subroutines.
-const reservedFuncNames = [];
-for (var func of Object.keys(actionKw).concat(Object.keys(opyFuncs), Object.keys(constantValues))) {
-	if (!func.startsWith("_")) {
-		if (func.includes("(")) {
-			reservedFuncNames.push(func.substring(0, func.indexOf("(")));
-		} else {
-			reservedFuncNames.push(func);
-		}
+	} else if (funcKw[func].args.length === 0) {
+		reservedSubroutineNames.push(func);
 	}
 }
 
@@ -47644,11 +47635,15 @@ function warn(warnType, message) {
 	
 	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
-		if (fileStack.length !== 0) {
-			fileStack.reverse();
-			for (var file of fileStack) {
-				warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+		if (fileStack) {
+			if (fileStack.length !== 0) {
+				fileStack.reverse();
+				for (var file of fileStack) {
+					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				}
 			}
+		} else {
+			error += "\n\t| <no filestack>";
 		}
 		console.warn(warning);
 		//suppressedWarnings.push(warnType);
@@ -48100,18 +48095,9 @@ function tows(keyword, keywordArray, options) {
 
 function translateSubroutineToPy(content) {
 	content = content.trim();
+	content = translateNameToAvoidKeywords(content, "subroutine");
 
 	if (subroutines.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedFuncNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (content.endsWith("__")) {
-			content += "_";
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for subroutine: '"+content+"'");
-		}
 		return content;
 	} else if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
@@ -48154,7 +48140,7 @@ function addSubroutine(content, index) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
-	if (reservedFuncNames.includes(content)) {
+	if (reservedSubroutineNames.includes(content)) {
 		error("Subroutine name '"+content+"' is a built-in function or keyword");
 	}
 	subroutines.push({
@@ -48163,20 +48149,20 @@ function addSubroutine(content, index) {
 	})
 }
 
-function translateVarToAvoidKeywords(content, isGlobalVariable) {
+function translateNameToAvoidKeywords(content, nameType) {
 	//modify the name
-	if (content.endsWith("_") || isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
+	if (content.endsWith("_") || nameType === "globalvar" && reservedNames.includes(content) || nameType === "playervar" && reservedMemberNames.includes(content) || nameType === "subroutine" && reservedSubroutineNames.includes(content)) {
 		content += "_";
 	}
 	if (!/[A-Za-z_]\w*/.test(content)) {
-		error("Unauthorized name for variable: '"+content+"'");
+		error("Unauthorized name for "+nameType+": '"+content+"'");
 	}
 	return content;
 }
 
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
-	content = translateVarToAvoidKeywords(content, isGlobalVariable)
+	content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
 
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	if (varArray.map(x => x.name).includes(content)) {
@@ -48228,7 +48214,7 @@ function addVariable(content, isGlobalVariable, index, initValue=null) {
 	if (typeof index === "string") {
 		index = parseInt(index);
 	}
-	if (reservedNames.includes(content)) {
+	if (isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
 	if (isGlobalVariable) {
@@ -49859,7 +49845,7 @@ function astActionsToOpy(actions) {
 
         if (actions[i].isDisabled) {
             if (decompiledAction.includes("\n")) {
-                decompiledAction = "/*"+decompiledAction+"*/";
+                decompiledAction = "#"+decompiledAction.split("\n").join("\n"+tabLevel(tabLevelForThisAction)+"#");
             } else {
                 decompiledAction = "#"+decompiledAction;
             }
@@ -50384,7 +50370,7 @@ function decompileAllRules(content, language="en-US") {
 		subroutines.sort((a,b) => a.index-b.index);
 		for (var subroutine of subroutines) {
 			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-				subroutineDeclarations += "subroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
+				subroutineDeclarations += "subroutine "+subroutine.name+" "+subroutine.index+"\n";
 			}
 		}
 		if (subroutineDeclarations !== "") {
@@ -50613,7 +50599,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				addVariable(translateVarToAvoidKeywords(elems[0], isInGlobalVars), isInGlobalVars, currentVarIndex);
+				addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
@@ -50629,7 +50615,7 @@ function decompileVarNames(content) {
 				if (!isNaN(content[i])) {
 					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(translateVarToAvoidKeywords(content[i], isInGlobalVars), isInGlobalVars, currentVarIndex);
+					addVariable(translateNameToAvoidKeywords(content[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -50656,7 +50642,7 @@ function decompileSubroutines(content) {
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");
 		}
-		addSubroutine(subName, index);
+		addSubroutine(translateNameToAvoidKeywords(subName, "subroutine"), index);
 	}
 }
 /* 
@@ -54399,6 +54385,9 @@ astParsingFunctions.createBeam = function(content) {
 
 astParsingFunctions.createEffect = function(content) {
 
+    if (!(content.args[1].name in constantValues[content.args[1].type])) {
+        error("Unknown effect '"+content.args[1].name+"'");
+    }
     if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
         error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
     }
@@ -55132,6 +55121,9 @@ astParsingFunctions.normalize = function(content) {
 
 astParsingFunctions.playEffect = function(content) {
 
+    if (!(content.args[1].name in constantValues[content.args[1].type])) {
+        error("Unknown dynamic effect '"+content.args[1].name+"'");
+    }
     if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
         error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
     }

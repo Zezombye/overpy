@@ -113,7 +113,7 @@ function decompileAllRules(content, language="en-US") {
 		subroutines.sort((a,b) => a.index-b.index);
 		for (var subroutine of subroutines) {
 			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-				subroutineDeclarations += "subroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
+				subroutineDeclarations += "subroutine "+subroutine.name+" "+subroutine.index+"\n";
 			}
 		}
 		if (subroutineDeclarations !== "") {
@@ -342,7 +342,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				addVariable(translateVarToAvoidKeywords(elems[0], isInGlobalVars), isInGlobalVars, currentVarIndex);
+				addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
@@ -358,7 +358,7 @@ function decompileVarNames(content) {
 				if (!isNaN(content[i])) {
 					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(translateVarToAvoidKeywords(content[i], isInGlobalVars), isInGlobalVars, currentVarIndex);
+					addVariable(translateNameToAvoidKeywords(content[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -385,6 +385,6 @@ function decompileSubroutines(content) {
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");
 		}
-		addSubroutine(subName, index);
+		addSubroutine(translateNameToAvoidKeywords(subName, "subroutine"), index);
 	}
 }
