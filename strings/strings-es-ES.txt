@@ -1,6 +1,6 @@
-[Core] DataTool v1.58.0.944-git-510ff4936a6797e5705fc2f8c57dec50a868900f
+[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
 [CASC] Overwatch build 1.58.1.0.80111
 [CASC] Initializing...
@@ -29902,4 +29902,4 @@ y 10 cajas iguales de regalo
 000000012F1E.07C: Championship Skins
 000000012F3D.07C: Enable Reactive HUD Movement
 000000012FF1.07C: DISCORD
-[Core] Execution finished in 00:00:00.4630507 seconds
+[Core] Execution finished in 00:00:04.1222730 seconds
