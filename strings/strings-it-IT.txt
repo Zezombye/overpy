@@ -2,12 +2,12 @@
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.58.1.0.80111
+[CASC] Overwatch build 1.59.0.0.80550
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80111 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
-[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 80111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -905,7 +905,7 @@
 000000000D8C.07C: ABBANDONA PARTITA
 000000000D8D.07C: VAI AL DESKTOP
 000000000D8E.07C: Quando sparisci e ricompari dopo aver usato Passo d'Ombra, sei vulnerabile.
-000000000D8F.07C: © 2016 - 2020 Blizzard Entertainment, Inc. Tutti i diritti riservati.
+000000000D8F.07C: © 2016 - 2021 Blizzard Entertainment, Inc. Tutti i diritti riservati.
 000000000D94.07C: Con un cecchino, spostati rapidamente da una copertura all'altra.
 000000000D97.07C: Gli eroi le cui armi non necessitano di una mira precisa, come Winston o Symmetra, possono rappresentare un problema per Tracer.
 000000000D98.07C: OPZIONI
@@ -1044,56 +1044,8 @@
 000000000FA2.07C: TRACER HA UNA MOBILITÀ MOLTO ELEVATA GRAZIE ALLE ABILITÀ TRASLAZIONE E FLASHBACK.
 000000000FB5.07C: GIOCA
 000000000FB6.07C: ALLENAMENTO CONTRO I.A.
-000000000FDD.07C: La Bomba a Impulsi può devastare le difese statiche e i gruppi di nemici troppo vicini.
-000000000FDE.07C: Le pistole a corto raggio e la bassa salute incoraggiano uno stile di gioco "colpisci e scappa".
-000000000FDF.07C: Tracer ha una mobilità molto elevata grazie alle abilità Traslazione e Flashback.
 000000000FF1.07C: CAMPO VISIVO
 000000001005.07C: PARTITA PERSONALIZZATA
-000000001032.07C: Reaper è un potente assassino a corto raggio grazie alle sue Bocche Infernali.
-000000001033.07C: Sfrutta l'invulnerabilità fornita da Forma Spettrale per avvicinarti al bersaglio o per allontanarti dopo lo scontro.
-000000001034.07C: Tendi un'imboscata alla squadra avversaria con Spirale della Morte e ribalta le sorti dello scontro.
-000000001035.07C: Widowmaker usa un fucile di precisione con una portata estremamente lunga.
-000000001036.07C: Usa il Rampino per raggiungere punti da attacco favorevoli o per allontanarti dai pericoli.
-000000001037.07C: Il Visore Termico permette all'intera squadra di vedere i nemici attraverso i muri.
-000000001038.07C: Pharah è un eroe versatile equipaggiato con un potente lanciarazzi.
-000000001039.07C: Domina i cieli sfruttando i Propulsori e gli Aerogetti.
-00000000103A.07C: Pioggia di Fuoco lancia una salva di missili su un gruppo di nemici.
-00000000103B.07C: Reinhardt è un tank estremamente resistente e può usare la sua Barriera per fornire copertura ai compagni di squadra.
-00000000103C.07C: Il Martello a Reazione colpisce tutti i nemici davanti a te.
-00000000103D.07C: Usa Dardo di Fuoco per infliggere danni ai nemici a distanza.
-00000000103E.07C: Mercy è un eroe di supporto che può curare i propri compagni di squadra o potenziarne i danni.
-00000000103F.07C: Usa Angelo Custode per raggiungere rapidamente un compagno nei guai.
-000000001040.07C: Resurrezione riporta in vita i compagni di squadra morti nelle vicinanze.
-000000001041.07C: Hanzo, grazie al suo arco, eccelle nelle uccisioni a distanza.
-000000001042.07C: La Freccia Sonica rivela la posizione di tutti i nemici vicini.
-000000001043.07C: Assalto del Drago è utile per liberare un obiettivo dalla presenza nemica.
-000000001044.07C: Torbjörn può costruire micidiali Torrette per controllare un'area.
-000000001045.07C: Usa i rottami per creare Moduli d'Armatura per i tuoi alleati.
-000000001046.07C: Nucleo Ardente potenzia armatura e capacità di Torbjörn e della sua torretta. Usalo con saggezza.
-000000001047.07C: Winston è un tank estremamente mobile: con i suoi salti riesce facilmente a creare scompiglio.
-000000001048.07C: Il Proiettore Difensivo crea una sfera protettiva che blocca gli attacchi dei nemici.
-000000001049.07C: Rabbia Primordiale ti cura e ti trasforma in un colosso bestiale.
-00000000104A.07C: Zenyatta è un eroe di supporto offensivo, capace di curare gli alleati e debilitare i nemici.
-00000000104B.07C: Un nemico colpito da Globo della Discordia subisce danni aumentati.
-00000000104C.07C: Nonostante la poca salute e la scarsa mobilità, puoi usare Trascendenza per diventare temporaneamente invulnerabile.
-00000000104D.07C: Symmetra fornisce scudi e possiede caratteristiche uniche per supportare la propria squadra.
-00000000104E.07C: Usa l'attacco secondario dell'arma per colpire i bersagli a distanza e quello primario per i nemici vicini.
-00000000104F.07C: Piazza dei Droni Sentinella per proteggere un'area, oppure un Televarco per far avanzare rapidamente la tua squadra.
-000000001050.07C: Bastion può difendere una vasta area riconfigurandosi in una letale torretta statica.
-000000001051.07C: Usa Autoriparazione per mantenere la salute al massimo dopo uno scontro.
-000000001052.07C: L'Assetto Carro Armato fornisce armatura, mobilità e un enorme cannone.
-000000001053.07C: Zarya è un tank pesantemente corazzato che utilizza una barriera per proteggere se stessa e i suoi alleati.
-000000001054.07C: Usa l'attacco primario dell'arma contro i nemici vicini e l'attacco secondario contro gli avversari più lontani.
-000000001055.07C: La Bomba Gravitonica attira i nemici e li danneggia.
-000000001056.07C: Il Soldato-76 è un eroe da attacco adattabile, capace di attraversare rapidamente il campo di battaglia.
-000000001057.07C: Piazza il Rigeneratore Biotico per curare gli alleati all'interno dell'area d'effetto.
-000000001058.07C: Il Visore Tattico permette di mirare automaticamente con il Fucile a Impulsi.
-000000001059.07C: Lúcio è un eroe di supporto dall'alta mobilità, capace di velocizzare o curare la propria squadra.
-00000000105A.07C: Potenzia la musica nei momenti cruciali con Volume al Massimo.
-00000000105B.07C: Proteggi la tua squadra dai danni più ingenti con Barriera Sonora.
-00000000105E.07C: McCree è un eroe versatile con un potente revolver estremamente preciso.
-00000000105F.07C: Usa la Granata Stordente per mettere fuori gioco i nemici davanti a te.
-000000001060.07C: Scarica di Piombo colpisce tutti i nemici in vista con un attacco mortale.
 000000001069.07C: Muori quando si esaurisce.
 00000000106A.07C: Salute aggiuntiva.
 00000000106C.07C: Salute aggiuntiva autorigenerante.
@@ -1670,21 +1622,6 @@
 0000000017A2.07C: Richiama Mech
 0000000017A3.07C: Richiami un nuovo mech.
 0000000017A6.07C: Durata partita:
-0000000017A7.07C: Roadhog è un tank molto robusto che può subire danni ingenti e curarsi.
-0000000017A8.07C: Usa Gancio per attirare a te i nemici vulnerabili, quindi disintegrali con la Rottamatrice.
-0000000017A9.07C: La Porcata è in grado di respingere tutta la squadra avversaria lontano da un obiettivo della mappa, oltre a infliggere danni.
-0000000017AA.07C: Junkrat usa una gran varietà di esplosivi per seminare il caos sul campo di battaglia.
-0000000017AB.07C: Usa l'effetto di respinta della tua Mina Dirompente per riposizionarti velocemente.
-0000000017AC.07C: La Rotobomba può devastare un gruppo di nemici, se non viene distrutta prima.
-0000000017AD.07C: Usa i Retrorazzi per riposizionarti rapidamente, quindi attacca a breve distanza con i Cannoni a Fusione.
-0000000017AE.07C: Dopo l'espulsione, combatti con la Pistola Laser, in modo da poter richiamare un altro mech.
-0000000017AF.07C: D.VA pilota un mech pesantemente corazzato dotato di una Matrice Difensiva che può bloccare i proiettili nemici.
-0000000017B0.07C: Mei rallenta e poi congela i nemici, rendendoli vulnerabili agli attacchi.
-0000000017B1.07C: Usa Muro di Ghiaccio per dividere la squadra nemica o proteggere la tua.
-0000000017B2.07C: Usa Tormenta sugli obiettivi della mappa per congelare i nemici che li difendono.
-0000000017B3.07C: Genji è un agile eroe da attacco che può saltare, arrampicarsi sui muri e scattare rapidamente dentro e fuori dalla battaglia.
-0000000017B4.07C: Usa Deviazione per respingere gli attacchi dei nemici contro loro stessi.
-0000000017B5.07C: Quando Genji sfodera la sua Spada del Drago, i suoi colpi infliggono danni ingenti a distanza ravvicinata.
 0000000017B6.07C: Sei già amico di questo invitato.
 0000000017BD.07C: Indietro
 0000000017C2.07C: PNG: %1$s MS
@@ -7919,7 +7856,6 @@ Andrew Wang
 0000000047CC.07C: Concorrente Stagione 1
 0000000047CD.07C: Questo giocatore può essere invitato in formazione solo dagli amici.
 0000000047CF.07C: In coda: %1$s |Rplgiocatore:giocatori; davanti a te
-0000000047D0.07C: Ricevi richieste di invito in formazione
 0000000047D3.07C: Ecobase: Antartide
 0000000047D4.07C: %1$s/%2$s
 0000000047D5.07C: Partite
@@ -19776,6 +19712,7 @@ Deathmatch competitivo 2019
 00000000B842.07C: Chase Global Variable Over Time
 00000000B843.07C: Durata
 00000000B844.07C: Frequenza
+00000000B851.07C: Cavalleria
 00000000B861.07C: D.VA (Pacific)
 00000000B862.07C: Reinhardt (Atlantic)
 00000000B878.07C: Enable Built-In Game Mode Respawning
@@ -22245,15 +22182,10 @@ Deathmatch competitivo 2019
 00000000CA0C.07C: Devi scegliere un ruolo prima di metterti in coda con la tua formazione. Vuoi farlo ora?
 00000000CA0D.07C: Negozi
 00000000CA0E.07C: Negozio
-00000000CA15.07C: Vinci 9 partite rapide, Arcade o competitive!
-00000000CA16.07C: Vinci 9 partite rapide, Arcade o competitive!
-00000000CA17.07C: Vinci 9 partite rapide, Arcade o competitive!
 00000000CA18.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2019, settimana 1
 00000000CA19.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2019, settimana 2
 00000000CA1A.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2019, settimana 3
 00000000CA1B.07C: Nuova sfida!
-00000000CA1E.07C: Nuova sfida!
-00000000CA1F.07C: Nuova sfida!
 00000000CA43.07C: Osservazioni
 00000000CA44.07C: Beta Coda Ruoli
 00000000CA45.07C: Beta Coda Ruoli
@@ -27103,6 +27035,10 @@ che inizi la tua partita:
 000000010369.07C: Duplicazione richiede conferma bersaglio
 00000001036A.07C: BIOSTIMOLATORE
 00000001036B.07C: ANNULLA
+00000001036D.07C: Missioni Sfida
+00000001036F.07C: Gioca e ottieni Forzieri Archivi in edizione limitata. Nuovi modelli, highlight e altro!
+000000010370.07C: Bottino degli Archivi
+000000010372.07C: Gioca le missioni degli Archivi con modifiche speciali che ne alzano il livello di sfida!
 00000001037A.07C: Biostimolatore richiede conferma bersaglio
 00000001037B.07C: Sensibilità Biostimolatore
 000000010381.07C: %1$s
@@ -28273,6 +28209,7 @@ Assistenza Blizzard
 0000000111FA.07C: Uccisioni con Ipersalto
 0000000111FB.07C: Danni bloccati
 0000000111FC.07C: Precisione Cannone Tesla
+000000011206.07C: Soldato-1776
 000000011208.07C: Eliminazioni per vita
 000000011209.07C: Danni agli eroi inflitti per vita
 00000001120A.07C: Danni totali inflitti per vita
@@ -28561,6 +28498,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001169D.07C: MENU OPZIONI MODALITÀ OSSERVATORE
 00000001169F.07C: Opzioni
 0000000116A0.07C: Opzioni spettatore
+0000000116A2.07C: Bushi
 0000000116A3.07C: Grand Finals 2020
 0000000116A4.07C: Sbloccato per aver partecipato all'evento Overwatch League Grand Finals 2020
 0000000116A5.07C: Blink!
@@ -29068,6 +29006,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000122EF.07C: Visible To and Values
 0000000122F0.07C: Values and Color
 0000000122F1.07C: Values
+0000000122F2.07C: Lucidata
 0000000122F3.07C: Create Progress Bar HUD Text
 0000000122F4.07C: Crea un testo della Progress Bar HUD visibile a specifici Giocatori in una specifica posizione sullo schermo. Tale testo esisterà finché non verrà distrutto. Per ottenere un riferimento al testo, usa il Valore Last Text ID. Questa Azione non andrà a buon fine se sono già stati creati troppi elementi di testo.
 0000000122F8.07C: Gli eroi eliminati vengono congelati e possono essere scongelati dagli alleati. Congelare tutti i nemici per vincere il round. Gli eroi vittoriosi vengono rimossi dai round successivi.
@@ -29090,6 +29029,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001233E.07C: Visible To, Position, and Values
 00000001233F.07C: Position, Values, and Color
 000000012340.07C: Position and Values
+000000012359.07C: Polyanitsa
 00000001235A.07C: Il parametro Predefinito dei valori Eroi delle Impostazioni Workshop devono essere impostati su un Array non vuoto di Eroi.
 000000012439.07C: Errore: troppe Impostazioni Workshop.
 00000001243A.07C: Apertura dei Regali
@@ -29284,6 +29224,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000125E0.07C: Germania 2
 0000000125E1.07C: Finlandia  2
 0000000125E2.07C: Taiwan 2
+000000012616.07C: Mousquetaire
 000000012629.07C: Ricompensa
 00000001262B.07C: OK
 00000001262C.07C: Ottieni Pass Priorità
@@ -29304,6 +29245,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001266F.07C: Usa un Pass Priorità per ridurre il tempo di coda per iniziare una partita con il ruolo selezionato. Saranno disponibili solo i ruoli più richiesti in quel momento.
 000000012670.07C: Se tutti i membri della formazione in coda per ruoli molto richiesti usano un Pass, verrà ridotto il tempo di coda dell'intera formazione. 
 000000012673.07C: Brindisi
+000000012674.07C: Sub
 0000000126E2.07C: CONTINUA
 0000000126E3.07C: Torna Magico Inverno, con oltre 50 nuovi oggetti che si aggiungono ai tuoi preferiti degli scorsi anni!
 0000000126E4.07C: Eliminazione Congelata
@@ -29382,12 +29324,17 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127E4.07C: Stagione 26
 0000000127E5.07C: Stagione 27
 0000000127E6.07C: Stagione 27
+0000000127E7.07C: Stagione 28
+0000000127E8.07C: Stagione 28
 0000000127EF.07C: Stagione 26
 0000000127F0.07C: Stagione 26
 0000000127F1.07C: Stagione 27
 0000000127F2.07C: Stagione 27
+0000000127F3.07C: Stagione 28
+0000000127F4.07C: Stagione 28
 0000000127FC.07C: Stagione competitiva 26 - Coda aperta
 0000000127FD.07C: Stagione competitiva 27 - Coda aperta
+0000000127FE.07C: Stagione competitiva 28 - Coda aperta
 000000012802.07C: Toro Luminoso
 000000012804.07C: Partite di piazzamento
 000000012805.07C: Elfo Congelato
@@ -29407,6 +29354,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012843.07C: Punteggio per uccisione
 000000012846.07C: Punteggio per uccisione come Ricercato
 000000012847.07C: Punteggio base per l'uccisione di un Ricercato
+000000012848.07C: Corredor
 00000001284F.07C: Conteggio Ricercato
 000000012850.07C: Kyōgisha
 00000001286D.07C: Kanezaka
@@ -29492,6 +29440,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012B32.07C: Non disponibile per ragioni sconosciute
 000000012B34.07C: Modalità CLB
 000000012B35.07C: Modalità di gioco CLB
+000000012B41.07C: Mimetica
 000000012B56.07C: Cacciatori di Taglie
 000000012B57.07C: Danza dei Ventagli
 000000012B58.07C: Uccidi il Ricercato per ottenere la sua taglia e diventare il nuovo Ricercato. I Ricercati ottengono punti aggiuntivi per le uccisioni.
@@ -29598,7 +29547,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C30.07C: Il Giocatore o i Giocatori da spostare.
 000000012C32.07C: La squadra in cui spostare il Giocatore. L'opzione "All" funziona solo nelle modalità Tutti contro tutti, mentre l'opzione "Team" funziona solo nelle modalità di gioco a squadre.
 000000012C33.07C: Lo slot giocatore che riceverà il Giocatore (-1 per il primo slot disponibile).
-000000012C37.07C: Sfida Pachimarzo
+000000012C37.07C: Settimana 1: Lúcio Corredor
 000000012C38.07C: Furia del Toro
 000000012C39.07C: Disponibile nei Forzieri Lunari
 000000012C3A.07C: Aglio
@@ -29623,10 +29572,9 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C4D.07C: Disponibile nei Forzieri Lunari
 000000012C4E.07C: Gazza
 000000012C4F.07C: Disponibile nei Forzieri Lunari
-000000012C50.07C: Settimana 2: modello Xiake
+000000012C50.07C: Settimana 2: Zenyatta Sub
 000000012C51.07C: Testa di Drago
 000000012C52.07C: Disponibile nei Forzieri Lunari
-000000012C53.07C: Settimana 3: modello Guardia Imperiale
 000000012C5B.07C: 50 Forzieri Lunari e 10 Forzieri Lunari gratuiti
 000000012C60.07C: Eroe Stagione 27
 000000012C61.07C: Sbloccato per essere entrato nella Top 500 della Stagione 27
@@ -29799,6 +29747,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012DB1.07C: La selezione attuale di estensioni Workshop proibisce le mappe non appartenenti al Workshop.
 000000012DC0.07C: PREDEFINITA
 000000012DC1.07C: MIN
+000000012DC4.07C: Tadaaa!
 000000012E6F.07C: Kanezaka
 000000012E70.07C: Buff and Debuff Sounds
 000000012E71.07C: Aggiunge suoni al menu Tipo delle Azioni Create Effect e Play Effect.
@@ -29832,6 +29781,9 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012E8D.07C: Inizia a forzare il nome per il Giocatore o i Giocatori specificati.
 000000012E8E.07C: Il nome da forzare.
 000000012E8F.07C: Nome
+000000012E92.07C: Eliminazione (competitiva)
+000000012E93.07C: Scala la classifica e affronta i migliori giocatori di Eliminazione del mondo!
+000000012E94.07C: Stagione 4 Eliminazione 6v6 (competitiva)
 000000012EAA.07C: Junkimari
 000000012EAB.07C: Tranquillimari
 000000012EAC.07C: Pachirilla
@@ -29880,9 +29832,171 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012ED9.07C: Baptiste Biotic Launcher Explosion Sound
 000000012EDA.07C: Ashe Dynamite Explosion Sound
 000000012EDB.07C: Ana Biotic Grenade Explosion Sound
+000000012F15.07C: Emote
+000000012F16.07C: %1$s/%2$s
+000000012F19.07C: Ehilà, Cowboy
 000000012F1C.07C: "Venomous" di Leon
-000000012F1D.07C: 2020 MVP & Grand Finals
-000000012F1E.07C: Championship Skins
-000000012F3D.07C: Enable Reactive HUD Movement
-000000012FF1.07C: DISCORD
-[Core] Execution finished in 00:00:03.8867399 seconds
+000000012F21.07C: Estrazione Rapida
+000000012F25.07C: Fucili e Fucili e Fucili
+000000012F26.07C: Disponibile nei Forzieri Archivi
+000000012F29.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 2
+000000012F2A.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 1
+000000012F2D.07C: Concorrente Eliminazione
+6v6 (competitiva) 2021
+000000012F2F.07C: Eroe Eliminazione
+6v6 (competitiva) 2021
+000000012F30.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 6v6 (competitiva) 2021
+000000012F31.07C: Eroe Eliminazione
+6v6 (competitiva) 2021
+000000012F32.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 6v6 (competitiva) 2021
+000000012F33.07C: Concorrente Eliminazione
+6v6 (competitiva) 2021
+000000012F34.07C: Sbloccato per aver completato le partite di piazzamento di Eliminazione 6v6 (competitiva) 2021
+000000012F35.07C: Eroe Stagione 28
+000000012F36.07C: Sbloccato per essere entrato nella Top 500 della Stagione 28
+000000012F38.07C: Sbloccato per essere entrato nella Top 500 della Stagione 28
+000000012F39.07C: Concorrente Stagione 28
+000000012F3A.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 28
+000000012F3D.07C: Attiva movimento reattivo dell'HUD
+000000012F3E.07C: Tasto di spegnimento
+000000012F3F.07C: Disponibile nei Forzieri Archivi
+000000012F40.07C: Registrare questa conversazione
+000000012F41.07C: Disponibile nei Forzieri Archivi
+000000012F42.07C: Opinione da esperta
+000000012F43.07C: Disponibile nei Forzieri Archivi
+000000012F44.07C: La morte cala dall'alto
+000000012F45.07C: Disponibile nei Forzieri Archivi
+000000012F46.07C: Il cane rosicchia l'osso
+000000012F47.07C: Disponibile nei Forzieri Archivi
+000000012F48.07C: Accetta un consiglio
+000000012F49.07C: Disponibile nei Forzieri Archivi
+000000012F4A.07C: Calcoli scorretti
+000000012F4B.07C: Disponibile nei Forzieri Archivi
+000000012F4C.07C: Raccoglierò la tua deposizione
+000000012F4D.07C: Disponibile nei Forzieri Archivi
+000000012F4E.07C: Scudi alzati!
+000000012F4F.07C: Disponibile nei Forzieri Archivi
+000000012F50.07C: La notte riserva sorprese
+000000012F51.07C: Disponibile nei Forzieri Archivi
+000000012F52.07C: Sono una professionista
+000000012F53.07C: Disponibile nei Forzieri Archivi
+000000012F54.07C: Ti ricordi di me?
+000000012F55.07C: Disponibile nei Forzieri Archivi
+000000012F56.07C: Stanco delle vostre regole!
+000000012F57.07C: Disponibile nei Forzieri Archivi
+000000012F63.07C: Uccellino
+000000012F64.07C: Permetti ai giocatori di unirsi al gruppo
+000000012F65.07C: Disponibile nei Forzieri Archivi
+000000012F67.07C: Affaticato
+000000012F69.07C: Non Era Questo il Piano
+000000012F6B.07C: Bersaglio Grosso
+000000012F6D.07C: Stelle Archivi
+000000012F6E.07C: %1$s Stelle Archivi
+000000012F6F.07C: Stelle Archivi
+000000012F70.07C: %1$s Stelle Archivi
+000000012F71.07C: 
+000000012F72.07C: 
+000000012F73.07C: 
+000000012F75.07C: Rivolta impenetrabile
+000000012F76.07C: Ritorsione sostenuta
+000000012F77.07C: Tempesta Imminente ad area
+000000012F78.07C: Miglior punteggio Barriere
+000000012F79.07C: %1$s Miglior punteggio Barriere
+000000012F7A.07C: Miglior punteggio Barriere
+000000012F7B.07C: %1$s Miglior punteggio Barriere
+000000012F7C.07C: Miglior punteggio Sostegno
+000000012F7D.07C: %1$s Miglior punteggio Sostegno
+000000012F7E.07C: Miglior punteggio Sostegno
+000000012F7F.07C: %1$s Miglior punteggio Sostegno
+000000012F80.07C: Miglior punteggio AdE
+000000012F81.07C: %1$s Miglior punteggio AdE
+000000012F82.07C: Miglior punteggio AdE
+000000012F83.07C: %1$s Miglior punteggio AdE
+000000012F84.07C: Barriere impenetrabili
+000000012F85.07C: Rivolta. Le barriere nemiche sono invulnerabili.
+000000012F86.07C: Le barriere nemiche sono invulnerabili.
+000000012F87.07C: Sostegno reciproco
+000000012F88.07C: Ritorsione. Danneggiare un nemico cura gli altri nemici.
+000000012F89.07C: Danneggiare un nemico cura gli altri nemici.
+000000012F8A.07C: Tempesta di danni
+000000012F8B.07C: Tempesta Imminente. I nemici danneggiano i giocatori vicini.
+000000012F8C.07C: I nemici danneggiano i giocatori vicini.
+000000012F8D.07C: Disponibile nei Forzieri Archivi
+000000012FF1.07C: DISCORDIA
+000000013063.07C: Tempesta di danni
+000000013064.07C: Completa la missione sfida degli Archivi Tempesta di danni.
+000000013065.07C: Barriere impenetrabili
+000000013066.07C: Completa la missione sfida degli Archivi Barriere impenetrabili.
+000000013067.07C: Sostegno reciproco
+000000013068.07C: Completa la missione sfida degli Archivi Sostegno reciproco.
+00000001307C.07C: Settimana 3: Mercy Mimetica
+00000001307D.07C: Ottieni 10/20/30 stelle nelle missioni Archivi. Ne ottieni il doppio in Rivolta!
+000000013096.07C: Stelle Rivolta
+000000013097.07C: %1$s Stelle Rivolta
+000000013098.07C: Stelle Ritorsione
+000000013099.07C: %1$s Stelle Ritorsione
+00000001309A.07C: Stelle Tempesta Imminente
+00000001309B.07C: %1$s Stelle Tempesta Imminente
+00000001309C.07C: Stelle Archivi e Stelle Rivolta
+00000001309D.07C: %1$s Stelle Archivi e Stelle Rivolta
+00000001309E.07C: Stelle Rivolta
+00000001309F.07C: %1$s Stelle Rivolta
+0000000130A0.07C: Stelle Ritorsione
+0000000130A1.07C: %1$s Stelle Ritorsione
+0000000130A2.07C: Stelle Tempesta Imminente
+0000000130A3.07C: %1$s Stelle Tempesta Imminente
+0000000130A4.07C: Stelle Archivi e Stelle Ritorsione
+0000000130A5.07C: %1$s Stelle Archivi e Stelle Ritorsione
+0000000130A6.07C: Stelle Archivi e Stelle Tempesta Imminente
+0000000130A7.07C: %1$s Stelle Archivi e Stelle Tempesta Imminente
+0000000130A8.07C: Ottieni 10/20/30 stelle nelle missioni Archivi. Ne ottieni il doppio in Ritorsione!
+0000000130A9.07C: Ottieni 10/20/30 stelle nelle missioni Archivi. Ne ottieni il doppio in Tempesta Imminente!
+000000013138.07C: Disponibile nei Forzieri Archivi
+00000001313A.07C: Archivi 2021
+00000001313E.07C: Disponibile nei Forzieri Archivi
+00000001313F.07C: Polyanitsa
+000000013141.07C: Disponibile nei Forzieri Archivi
+000000013142.07C: Mousquetaire
+000000013144.07C: Disponibile nei Forzieri Archivi
+000000013145.07C: Bushi
+00000001314B.07C: Disponibile nei Forzieri Archivi
+00000001314C.07C: Cavalleria
+00000001314E.07C: Disponibile nei Forzieri Archivi
+00000001314F.07C: Promessa
+000000013151.07C: Disponibile nei Forzieri Archivi
+000000013152.07C: Donna Guerriera
+000000013154.07C: Disponibile nei Forzieri Archivi
+000000013155.07C: Mousquetaire
+000000013157.07C: Disponibile nei Forzieri Archivi
+000000013158.07C: Bushi
+00000001315A.07C: Disponibile nei Forzieri Archivi
+00000001315B.07C: Cavalleria
+00000001315D.07C: Disponibile nei Forzieri Archivi
+00000001315E.07C: Soldato-1776
+000000013160.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 1
+000000013162.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 2
+000000013163.07C: Atmosfera Rovente
+000000013164.07C: Pensieri Profondi
+000000013166.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 3
+000000013167.07C: Missione Notturna
+000000013169.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 1
+00000001316A.07C: Corredor
+00000001316C.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 2
+00000001316D.07C: Sub
+00000001316F.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 3
+000000013170.07C: Mimetica
+000000013172.07C: Disponibile nei Forzieri Archivi
+000000013173.07C: Soldato-1776
+000000013176.07C: CONTINUA
+00000001317A.07C: Halloween 2020
+00000001317B.07C: L'evento termina il 27 aprile
+00000001317C.07C: Sblocca nuovi modelli
+00000001317D.07C: Sfide Settimanali
+00000001317E.07C: Settimana 1
+00000001317F.07C: Settimana 2
+000000013180.07C: Settimana 3
+000000013182.07C: Scatenate l'inverno
+000000013183.07C: Eliminazione Congelata 4v4
+000000013195.07C: Avvio tra:
+000000013291.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 3
+[Core] Execution finished in 00:00:04.6937681 seconds

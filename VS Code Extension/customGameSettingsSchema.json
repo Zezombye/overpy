@@ -1577,7 +1577,7 @@
                         "scoreToWin": {
                             "type": "integer",
                             "minimum": 1,
-                            "maximum": 50
+                            "maximum": 5000
                         },
                         "enableSelfInitiatedRespawn": {
                             "type": "boolean"

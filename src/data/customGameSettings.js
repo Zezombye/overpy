@@ -1400,7 +1400,7 @@ const customGameSettingsSchema =
                         "guid": "00000000632A",
                         "values": "__int__",
                         "min": 1,
-                        "max": 50,
+                        "max": 5000,
                         "default": 20,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",

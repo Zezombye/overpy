@@ -866,7 +866,7 @@ function parseMember(object, member) {
                 } else if (name === "E") {
                     return getAstForE();
                 } else if (name === "INFINITY") {
-                    return getAstForNumber(9999999999999999999);
+                    return getAstForNumber(999999999999999);
                 } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
                     return getAstForNumber(0.984724);
                 } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {

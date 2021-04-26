@@ -21,6 +21,8 @@ const gamemodeKw =
 //begin-json
 {
     "assault": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -54,6 +56,8 @@ const gamemodeKw =
         "zh-TW": "賞金獵人"
     },
     "control": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5B",
         "en-US": "Control",
         "de-DE": "Kontrolle",
@@ -68,6 +72,8 @@ const gamemodeKw =
         "zh-TW": "控制"
     },
     "ctf": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -102,6 +108,8 @@ const gamemodeKw =
         "zh-TW": "鬥陣對決"
     },
     "escort": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -132,6 +140,8 @@ const gamemodeKw =
         "zh-TW": "死鬥"
     },
     "freezethawElimination": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "0000000122DF",
         "en-US": "Freezethaw Elimination",
         "de-DE": "Frosttau-Eliminierung",
@@ -148,6 +158,8 @@ const gamemodeKw =
         "zh-TW": "凍凍大作戰"
     },
     "hybrid": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -163,6 +175,8 @@ const gamemodeKw =
         "zh-TW": "混合"
     },
     "junkenstein": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 0,
         "guid": "000000004AF4",
         "en-US": "Junkenstein's Revenge",
         "de-DE": "Junkensteins Rache",
@@ -179,6 +193,8 @@ const gamemodeKw =
         "zh-TW": "鼠肯斯坦復仇記"
     },
     "lucioball": {
+        "defaultTeam1Players": 3,
+        "defaultTeam2Players": 3,
         "guid": "000000004989",
         "en-US": "Lúcioball",
         "es-ES": "Lúciobol",
@@ -192,6 +208,8 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
         "de-DE": "Meis Schneeballschlacht",
@@ -209,6 +227,7 @@ const gamemodeKw =
     },
     "practiceRange": {
         "guid": "0000000040BE",
+        "defaultTeam1Players": 6,
         "defaultTeam2Players": 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
@@ -225,6 +244,8 @@ const gamemodeKw =
         "zh-TW": "訓練中心"
     },
     "skirmish": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -241,6 +262,7 @@ const gamemodeKw =
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
+        "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
         "de-DE": "Schneeball-Deathmatch",
@@ -257,6 +279,8 @@ const gamemodeKw =
         "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",
@@ -273,6 +297,8 @@ const gamemodeKw =
         "zh-TW": "團隊死鬥"
     },
     "yetiHunter": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 1,
         "guid": "000000006DF1",
         "en-US": "Yeti Hunter",
         "de-DE": "Yetijagd",

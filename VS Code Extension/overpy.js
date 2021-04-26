@@ -33586,6 +33586,8 @@ const gamemodeKw =
 //begin-json
 {
     "assault": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -33619,6 +33621,8 @@ const gamemodeKw =
         "zh-TW": "賞金獵人"
     },
     "control": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5B",
         "en-US": "Control",
         "de-DE": "Kontrolle",
@@ -33633,6 +33637,8 @@ const gamemodeKw =
         "zh-TW": "控制"
     },
     "ctf": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -33667,6 +33673,8 @@ const gamemodeKw =
         "zh-TW": "鬥陣對決"
     },
     "escort": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -33697,6 +33705,8 @@ const gamemodeKw =
         "zh-TW": "死鬥"
     },
     "freezethawElimination": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "0000000122DF",
         "en-US": "Freezethaw Elimination",
         "de-DE": "Frosttau-Eliminierung",
@@ -33713,6 +33723,8 @@ const gamemodeKw =
         "zh-TW": "凍凍大作戰"
     },
     "hybrid": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -33728,6 +33740,8 @@ const gamemodeKw =
         "zh-TW": "混合"
     },
     "junkenstein": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 0,
         "guid": "000000004AF4",
         "en-US": "Junkenstein's Revenge",
         "de-DE": "Junkensteins Rache",
@@ -33744,6 +33758,8 @@ const gamemodeKw =
         "zh-TW": "鼠肯斯坦復仇記"
     },
     "lucioball": {
+        "defaultTeam1Players": 3,
+        "defaultTeam2Players": 3,
         "guid": "000000004989",
         "en-US": "Lúcioball",
         "es-ES": "Lúciobol",
@@ -33757,6 +33773,8 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
         "de-DE": "Meis Schneeballschlacht",
@@ -33774,6 +33792,7 @@ const gamemodeKw =
     },
     "practiceRange": {
         "guid": "0000000040BE",
+        "defaultTeam1Players": 6,
         "defaultTeam2Players": 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
@@ -33790,6 +33809,8 @@ const gamemodeKw =
         "zh-TW": "訓練中心"
     },
     "skirmish": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -33806,6 +33827,7 @@ const gamemodeKw =
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
+        "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
         "de-DE": "Schneeball-Deathmatch",
@@ -33822,6 +33844,8 @@ const gamemodeKw =
         "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",
@@ -33838,6 +33862,8 @@ const gamemodeKw =
         "zh-TW": "團隊死鬥"
     },
     "yetiHunter": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 1,
         "guid": "000000006DF1",
         "en-US": "Yeti Hunter",
         "de-DE": "Yetijagd",
@@ -41092,7 +41118,7 @@ const customGameSettingsSchema =
                         "guid": "00000000632A",
                         "values": "__int__",
                         "min": 1,
-                        "max": 50,
+                        "max": 5000,
                         "default": 20,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
@@ -46580,6 +46606,193 @@ var astParsingFunctions = {};
 
 "use strict";
 
+//Logging stuff
+function error(str, token) {
+	
+	if (token !== undefined && token.fileStack !== undefined) {
+		fileStack = token.fileStack;
+	}
+	
+	//var error = "ERROR: ";
+	var error = "";
+	error += str;
+	if (token !== undefined) {
+		error += "'"+dispTokens(token)+"'";
+	}
+	if (fileStack) {
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+			}
+		}
+	} else {
+		error += "\n\t| <no filestack>";
+	}
+	
+	throw new Error(error);
+}
+
+function warn(warnType, message) {
+	
+	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
+		var warning = message+" ("+warnType+")";
+		if (fileStack) {
+			if (fileStack.length !== 0) {
+				fileStack.reverse();
+				for (var file of fileStack) {
+					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				}
+			}
+		} else {
+			error += "\n\t| <no filestack>";
+		}
+		console.warn(warning);
+		//suppressedWarnings.push(warnType);
+		encounteredWarnings.push(warning);
+	}
+}
+
+if (DEBUG_MODE) {
+	var debug = function(str) {
+		console.debug("DEBUG: "+str);
+	}
+} else {
+	var debug = function(str) {}
+}
+
+function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
+
+	var funcDisplayName = functionNameToString(content);
+	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
+
+	var receivedFuncName = functionNameToString(received);
+
+	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type)}'`;
+}
+
+function functionNameToString(content) {
+
+	if (typeof content === "string") {
+		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
+	}
+
+	var funcToOperatorMapping = {
+		"__add__": "'+' or '+='",
+		"__assignTo__": "'='",
+		"__divide__": "'/' or '/='",
+		"__equals__": "'=='",
+		"__inequals__": "'!='",
+		"__greaterThan__": "'>'",
+		"__greaterThanOrEquals__": "'>='",
+		"__lessThan__": "'<'",
+		"__lessThanOrEquals__": "'<='",
+		"__modulo__": "'%' or '%='",
+		"__multiply__": "'*' or '*='",
+		"__raiseToPower__": "'**' or '**='",
+		"__subtract__": "'-' or '-='",
+		//todo
+	}
+
+	var funcToDisplayMapping = {
+		"__chaseAtRate__": "chase",
+		"__chaseOverTime__": "chase",
+		"__raycast__": "raycast",
+		//todo
+	}
+
+	var funcDisplayName = null;
+
+	if (content.name in funcToOperatorMapping) {
+		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
+	} else if (content.name in funcToDisplayMapping) {
+		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
+	} else if (isTypeSuitable("StringLiteral", content.type)) {
+		funcDisplayName = "string "+escapeString(content.name, false);
+	} else if (content.name === "__number__") {
+		funcDisplayName = "number '"+content.args[0].numValue+"'";
+	} else {
+		funcDisplayName = "function '"+content.name+"'";
+	}
+
+	return funcDisplayName;
+}
+
+function typeToString(type) {
+	if (typeof type === "string") {
+		return type;
+	} else if (type instanceof Array) {
+		return type.map(x => typeToString(x)).join(" | ");
+	} else if (typeof type === "object") {
+		if ("Array" in type) {
+			return typeToString(type["Array"])+"[]";
+
+		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
+			return Object.keys(type)[0]+"["+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+"]";
+
+		} else {
+			error("Could not display type '"+JSON.stringify(type)+"'");
+		}
+	} else {
+		error("Could not display type '"+type+"'");
+	}
+}
+
+function nthOfNumber(nb) {
+	if (nb === 1) {
+		return "1st";
+	} else if (nb === 2) {
+		return "2nd";
+	} else if (nb === 3) {
+		return "3rd";
+	} else {
+		return nb+"th";
+	}
+}
+
+
+function astToString(ast, nbTabs=0) {
+	var result = "";
+	if (ast === undefined) {
+		return "__undefined__";
+	}
+	result += ast.name;
+	if (ast.args === undefined) {
+		result += "(__undefined__)";
+
+	} else if (ast.args.length > 0) {
+		result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
+	}
+	if (ast.children === undefined) {
+		result += ":__undefined__";
+
+	} else if (ast.children.length > 0) {
+        result += ":\n";
+        for (var child of ast.children) {
+            result += tabLevel(nbTabs+1) + astToString(child, nbTabs+1)+"\n";
+        }
+    }
+    return result;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 class Ast {
 
     constructor(name, args, children, type) {
@@ -47584,193 +47797,6 @@ function getFileContent(path) {
 	} catch (e) {
 		error(e);
 	}
-}
-/* 
- * This file is part of OverPy (https://github.com/Zezombye/overpy).
- * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
- * the Free Software Foundation, version 3.
- *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License 
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
-"use strict";
-
-//Logging stuff
-function error(str, token) {
-	
-	if (token !== undefined && token.fileStack !== undefined) {
-		fileStack = token.fileStack;
-	}
-	
-	//var error = "ERROR: ";
-	var error = "";
-	error += str;
-	if (token !== undefined) {
-		error += "'"+dispTokens(token)+"'";
-	}
-	if (fileStack) {
-		if (fileStack.length !== 0) {
-			fileStack.reverse();
-			for (var file of fileStack) {
-				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
-			}
-		}
-	} else {
-		error += "\n\t| <no filestack>";
-	}
-	
-	throw new Error(error);
-}
-
-function warn(warnType, message) {
-	
-	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
-		var warning = message+" ("+warnType+")";
-		if (fileStack) {
-			if (fileStack.length !== 0) {
-				fileStack.reverse();
-				for (var file of fileStack) {
-					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
-				}
-			}
-		} else {
-			error += "\n\t| <no filestack>";
-		}
-		console.warn(warning);
-		//suppressedWarnings.push(warnType);
-		encounteredWarnings.push(warning);
-	}
-}
-
-if (DEBUG_MODE) {
-	var debug = function(str) {
-		console.debug("DEBUG: "+str);
-	}
-} else {
-	var debug = function(str) {}
-}
-
-function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
-
-	var funcDisplayName = functionNameToString(content);
-	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
-
-	var receivedFuncName = functionNameToString(received);
-
-	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type)}'`;
-}
-
-function functionNameToString(content) {
-
-	if (typeof content === "string") {
-		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
-	}
-
-	var funcToOperatorMapping = {
-		"__add__": "'+' or '+='",
-		"__assignTo__": "'='",
-		"__divide__": "'/' or '/='",
-		"__equals__": "'=='",
-		"__inequals__": "'!='",
-		"__greaterThan__": "'>'",
-		"__greaterThanOrEquals__": "'>='",
-		"__lessThan__": "'<'",
-		"__lessThanOrEquals__": "'<='",
-		"__modulo__": "'%' or '%='",
-		"__multiply__": "'*' or '*='",
-		"__raiseToPower__": "'**' or '**='",
-		"__subtract__": "'-' or '-='",
-		//todo
-	}
-
-	var funcToDisplayMapping = {
-		"__chaseAtRate__": "chase",
-		"__chaseOverTime__": "chase",
-		"__raycast__": "raycast",
-		//todo
-	}
-
-	var funcDisplayName = null;
-
-	if (content.name in funcToOperatorMapping) {
-		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
-	} else if (content.name in funcToDisplayMapping) {
-		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
-	} else if (isTypeSuitable("StringLiteral", content.type)) {
-		funcDisplayName = "string "+escapeString(content.name, false);
-	} else if (content.name === "__number__") {
-		funcDisplayName = "number '"+content.args[0].numValue+"'";
-	} else {
-		funcDisplayName = "function '"+content.name+"'";
-	}
-
-	return funcDisplayName;
-}
-
-function typeToString(type) {
-	if (typeof type === "string") {
-		return type;
-	} else if (type instanceof Array) {
-		return type.map(x => typeToString(x)).join(" | ");
-	} else if (typeof type === "object") {
-		if ("Array" in type) {
-			return typeToString(type["Array"])+"[]";
-
-		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			return Object.keys(type)[0]+"["+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+"]";
-
-		} else {
-			error("Could not display type '"+JSON.stringify(type)+"'");
-		}
-	} else {
-		error("Could not display type '"+type+"'");
-	}
-}
-
-function nthOfNumber(nb) {
-	if (nb === 1) {
-		return "1st";
-	} else if (nb === 2) {
-		return "2nd";
-	} else if (nb === 3) {
-		return "3rd";
-	} else {
-		return nb+"th";
-	}
-}
-
-
-function astToString(ast, nbTabs=0) {
-	var result = "";
-	if (ast === undefined) {
-		return "__undefined__";
-	}
-	result += ast.name;
-	if (ast.args === undefined) {
-		result += "(__undefined__)";
-
-	} else if (ast.args.length > 0) {
-		result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
-	}
-	if (ast.children === undefined) {
-		result += ":__undefined__";
-
-	} else if (ast.children.length > 0) {
-        result += ":\n";
-        for (var child of ast.children) {
-            result += tabLevel(nbTabs+1) + astToString(child, nbTabs+1)+"\n";
-        }
-    }
-    return result;
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -57936,7 +57962,7 @@ function parseMember(object, member) {
                 } else if (name === "E") {
                     return getAstForE();
                 } else if (name === "INFINITY") {
-                    return getAstForNumber(9999999999999999999);
+                    return getAstForNumber(999999999999999);
                 } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
                     return getAstForNumber(0.984724);
                 } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
@@ -58486,8 +58512,6 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 						if ("defaultTeam1Slots" in gamemodeKw[gamemode]) {
 							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeKw[gamemode].defaultTeam1Slots)
-						} else {
-							maxTeam1Slots = Math.max(maxTeam1Slots, 6)
 						}
 					}
 				}
@@ -58501,8 +58525,6 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 						if ("defaultTeam2Slots" in gamemodeKw[gamemode]) {
 							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeKw[gamemode].defaultTeam2Slots)
-						} else {
-							maxTeam2Slots = Math.max(maxTeam2Slots, 6)
 						}
 					}
 				}

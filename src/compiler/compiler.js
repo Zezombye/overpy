@@ -316,8 +316,6 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 						if ("defaultTeam1Slots" in gamemodeKw[gamemode]) {
 							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeKw[gamemode].defaultTeam1Slots)
-						} else {
-							maxTeam1Slots = Math.max(maxTeam1Slots, 6)
 						}
 					}
 				}
@@ -331,8 +329,6 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 						if ("defaultTeam2Slots" in gamemodeKw[gamemode]) {
 							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeKw[gamemode].defaultTeam2Slots)
-						} else {
-							maxTeam2Slots = Math.max(maxTeam2Slots, 6)
 						}
 					}
 				}
