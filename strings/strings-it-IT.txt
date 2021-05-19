@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29301,6 +29301,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001279F.07C: /%1$s
 0000000127A4.07C: Multiruolo
 0000000127A5.07C: Hongbao
+0000000127A6.07C: MM-Mei
 0000000127C0.07C: Vischio
 0000000127C2.07C: Abilita file di registro del Workshop Inspector
 0000000127C5.07C: 1,75x
@@ -29836,6 +29837,8 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: Ehilà, Cowboy
 000000012F1C.07C: "Venomous" di Leon
+000000012F1D.07C: Modello Torneo May Melee
+000000012F1E.07C: MM-Mei
 000000012F21.07C: Estrazione Rapida
 000000012F25.07C: Fucili e Fucili e Fucili
 000000012F26.07C: Disponibile nei Forzieri Archivi
@@ -29951,6 +29954,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000130A7.07C: %1$s Stelle Archivi e Stelle Tempesta Imminente
 0000000130A8.07C: Ottieni 10/20/30 stelle nelle missioni Archivi. Ne ottieni il doppio in Ritorsione!
 0000000130A9.07C: Ottieni 10/20/30 stelle nelle missioni Archivi. Ne ottieni il doppio in Tempesta Imminente!
+000000013134.07C: Super Fan
 000000013138.07C: Disponibile nei Forzieri Archivi
 00000001313A.07C: Archivi 2021
 00000001313E.07C: Disponibile nei Forzieri Archivi
@@ -29999,4 +30003,5 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000013183.07C: Eliminazione Congelata 4v4
 000000013195.07C: Avvio tra:
 000000013291.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 3
-[Core] Execution finished in 00:00:04.6937681 seconds
+0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+[Core] Execution finished in 00:00:00.4367768 seconds

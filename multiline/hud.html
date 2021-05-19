@@ -40,7 +40,8 @@ a {
 #background-img {
     width: 1920px;
     height: 1080px;
-    background-image: url("img/background.png");
+    /*background-image: url("img/background.png");*/
+    background-image: url("https://i.imgur.com/oklw5Ul.jpeg");
     position: relative;
     display: flex;
     justify-content: center;
@@ -254,6 +255,9 @@ a {
             </div>
         </div>
 
+        <!--<div class="in-world-text" style="font-size: 54px; color: yellow;">
+            <span>■■■■■■■■■■<br>■■■■■■■■■■<br>■■■■■■■■■■<br>■■■■■■■■■■</span>
+        </div>-->
         <div class="in-world-text" contenteditable="true" v-for="(iwt, idx) in inWorldTexts" v-on:focus="lastClickedText = hudText; lastClickedTextType = 'in-world-text'" :style="getInWorldTextCssVars(iwt, idx)">
             <span>{{ iwt.content }}</span>
         </div>
@@ -291,17 +295,17 @@ a {
             ],
             inWorldTexts: [
                 {
-                    content: "world text 1",
-                    size: 1.9,
+                    content: "ｉ ｒｅｃｅｉｖｅ:",
+                    size: 4,
                 },
                 {
-                    content: "world text 2\n",
-                    size: 1.9,
+                    content: "ｉ ｒｅｃｅｉｖｅ:",
+                    size: 4,
                 },
-                {
-                    content: "world text 3\n\n",
-                    size: 1.9,
-                },
+                /*{
+                    content: "■■■■■■■■■■\n■■■■■■■■■■\n■■■■■■■■■■\n■■■■■■■■■■\n\n",
+                    size: 4,
+                },*/
             ],
             icons: [
                 "arrow_down.png",
@@ -361,6 +365,7 @@ a {
                 }
             },
             getInWorldTextFont: function(iwt) {
+                //16.5 for progress bars
                 return 13.5*iwt.size;
             },
             getInWorldTextPadding: function(iwt) {

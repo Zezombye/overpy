@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29279,6 +29279,7 @@ y 10 cajas de botín de invierno gratis
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flexible
 0000000127A5.07C: Hongbao
+0000000127A6.07C: MM-Mei
 0000000127C0.07C: Muérdago
 0000000127C2.07C: Habilitar archivo de registro de Inspector de Workshop
 0000000127C5.07C: 1.75x
@@ -29814,6 +29815,8 @@ y 10 cajas de botín de invierno gratis
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: Hola, vaquero
 000000012F1C.07C: "Venomous" por Leon
+000000012F1D.07C: Diseño del torneo May Melee
+000000012F1E.07C: MM-Mei
 000000012F21.07C: Desenfunde rápido
 000000012F25.07C: Evaluando opciones
 000000012F26.07C: Disponible en cajas de botín de Archivos
@@ -29925,6 +29928,7 @@ y 10 cajas de botín de invierno gratis
 0000000130A7.07C: %1$s Estrellas de Archivos más estrellas de Tormenta inminente
 0000000130A8.07C: Obtén 10/20/30 estrellas en misiones de Archivos. ¡Consigue el doble de créditos en Venganza!
 0000000130A9.07C: Obtén 10/20/30 estrellas en misiones de Archivos. ¡Consigue el doble de créditos en Tormenta inminente!
+000000013134.07C: Superfanáticos
 000000013138.07C: Disponible en cajas de botín de Archivos
 00000001313A.07C: Archivos 2021
 00000001313E.07C: Disponible en cajas de botín de Archivos
@@ -29973,4 +29977,5 @@ y 10 cajas de botín de invierno gratis
 000000013183.07C: Congelados 4 vs. 4
 000000013195.07C: Comienza en:
 000000013291.07C: Se desbloquea al participar en el desafío de la semana 3 de Archivos 2021
-[Core] Execution finished in 00:00:04.6487849 seconds
+0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+[Core] Execution finished in 00:00:00.4593449 seconds

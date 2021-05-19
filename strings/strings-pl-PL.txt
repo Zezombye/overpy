@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29579,6 +29579,7 @@ Likwiduj wrogów, aby ich zamrażać. Rozmrażaj sojuszników, aby pozostali w g
 00000001279F.07C: /%1$s
 0000000127A4.07C: Flex
 0000000127A5.07C: Hongbao
+0000000127A6.07C: MM-Mei
 0000000127C0.07C: Jemioła
 0000000127C2.07C: Włącz plik dziennika Inspektora Warsztatu
 0000000127C5.07C: 1,75x
@@ -30128,6 +30129,8 @@ w wyzwaniu PachiMarzec
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: Cześć, kowboju
 000000012F1C.07C: "Venomous" by Leon
+000000012F1D.07C: Skórka turniejowa May Melee
+000000012F1E.07C: MM-Mei
 000000012F21.07C: Szybkie dobycie
 000000012F25.07C: Rozważanie opcji
 000000012F26.07C: Zawartość archiwalnych skrzynek
@@ -30243,6 +30246,7 @@ w sezonie 28.
 0000000130A7.07C: Gwiazdki za Archiwa oraz Czarne Chmury: %1$s
 0000000130A8.07C: Zdobądź 10/20/30 gwiazdek w misjach Archiwów. Zdobądź podwójne punkty za Odwet!
 0000000130A9.07C: Zdobądź 10/20/30 gwiazdek w misjach Archiwów. Zdobądź podwójne punkty za Czarne Chmury!
+000000013134.07C: Super fani
 000000013138.07C: Zawartość archiwalnych skrzynek
 00000001313A.07C: Archiwa 2021
 00000001313E.07C: Zawartość archiwalnych skrzynek
@@ -30291,4 +30295,5 @@ w sezonie 28.
 000000013183.07C: Lodowy Berek 4 na 4
 000000013195.07C: Początek za:
 000000013291.07C: Nagroda za udział w wyzwaniu 3. tygodnia Archiwów 2021
-[Core] Execution finished in 00:00:03.9519822 seconds
+0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+[Core] Execution finished in 00:00:00.6333504 seconds

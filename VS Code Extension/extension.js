@@ -398,6 +398,7 @@ function activate(context) {
                     } else {
                         var word = document.getText(range);
                         if (word in constValues) {
+                            console.log(constValues[word]);
                             return constValues[word];
 
                         //do not return completion suggestions for number decimals

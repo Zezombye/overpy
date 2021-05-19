@@ -42,7 +42,7 @@ function astRulesToOpy(rules) {
             if (rule.ruleAttributes.eventTeam) {
                 decompiledRuleAttributes += tabLevel(nbTabs)+"@Team "+rule.ruleAttributes.eventTeam+"\n";
             }
-            if (rule.ruleAttributes.eventPlayer) {
+            if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
                 if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
                     decompiledRuleAttributes += tabLevel(nbTabs)+"@Slot "+rule.ruleAttributes.eventPlayer+"\n";
                 } else {

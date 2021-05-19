@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26989,7 +26989,7 @@ https://account.blizzard.com/connections/nintendo
 00000001021A.07C: 将死亡回放调至击杀者视角
 00000001021C.07C: 超能聚变
 00000001022E.07C: 难度：专家
-000000010237.07C: 根据相关法律法规对未成年人游戏时间的要求，您目前无法登陆游戏。请合理安排游戏时间，劳逸结合。详细规则可参见官方公告。
+000000010237.07C: 根据相关法律法规对未成年人游戏时间的要求，您目前无法登录游戏。请合理安排游戏时间，劳逸结合。了解详情(https://www.battlenet.com.cn/support/zh/article/210633)
 000000010239.07C: 试验模式
 00000001023B.07C: 此录像不在你最近的游戏列表中。如果取消标记，将会丢失此录像。要继续吗？
 00000001023D.07C: 音乐家
@@ -28625,7 +28625,7 @@ https://account.blizzard.com/connections/nintendo
 0000000116AA.07C: 哐当！
 0000000116AB.07C: 哔又哔又！
 0000000116AC.07C: 参加“猎空的漫画大挑战”活动可解锁
-0000000116D7.07C: 由于防沉迷系统的设置，您的连接已断开。
+0000000116D7.07C: 根据相关法律法规对未成年人游戏时间的要求，您目前无法登录游戏。请合理安排游戏时间，劳逸结合。了解详情(https://www.battlenet.com.cn/support/zh/article/210633)
 0000000116D8.07C: 状态信息
 0000000116D9.07C: 游戏模式HUD
 0000000116DA.07C: 消灭提示
@@ -29419,6 +29419,7 @@ https://account.blizzard.com/connections/nintendo
 00000001279F.07C: /%1$s
 0000000127A4.07C: 灵活
 0000000127A5.07C: 发红包
+0000000127A6.07C: 武跃之美
 0000000127C0.07C: 槲寄生
 0000000127C2.07C: 启用地图工坊查看器日志文件
 0000000127C5.07C: 1.75x
@@ -29958,6 +29959,8 @@ https://account.blizzard.com/connections/nintendo
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: 你好啊，牛仔
 000000012F1C.07C: 《Venomous》，Leon绘
+000000012F1D.07C: 五月锦标赛皮肤
+000000012F1E.07C: 武跃之美
 000000012F21.07C: 快枪上膛
 000000012F25.07C: 舍小取大
 000000012F26.07C: 可在行动补给中开出
@@ -30073,6 +30076,7 @@ https://account.blizzard.com/connections/nintendo
 0000000130A7.07C: 行动档案星级加哈瓦那行动星级 %1$s
 0000000130A8.07C: 在行动档案任务中获得10/20/30星。在威尼斯行动中可获得双倍星级！
 0000000130A9.07C: 在行动档案任务中获得10/20/30星。在哈瓦那行动中可获得双倍星级！
+000000013134.07C: 超级粉丝
 000000013138.07C: 可在行动补给中开出
 00000001313A.07C: 2021行动档案
 00000001313E.07C: 可在行动补给中开出
@@ -30121,4 +30125,5 @@ https://account.blizzard.com/connections/nintendo
 000000013183.07C: 融冰决斗4v4
 000000013195.07C: 即将开始：
 000000013291.07C: 参与2021年行动档案第3周的挑战可以解锁
-[Core] Execution finished in 00:00:04.4299521 seconds
+0000000133A6.07C: 您的实名登记信息未能通过验证，目前未实名账号无法使用战网服务，请重新登记实名信息。了解更多 (URL: https://www.battlenet.com.cn/support/zh/article/210633)
+[Core] Execution finished in 00:00:00.4349594 seconds

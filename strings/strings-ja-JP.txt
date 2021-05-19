@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29268,6 +29268,7 @@ Blizzardサポート
 00000001279F.07C: /%1$s
 0000000127A4.07C: フレックス
 0000000127A5.07C: 紅包
+0000000127A6.07C: MM-メイ
 0000000127C0.07C: ヤドリギ
 0000000127C2.07C: ワークショップ・インスペクターのログファイルを有効化
 0000000127C5.07C: 1.75x
@@ -29804,6 +29805,8 @@ Blizzardサポート
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: こんにちは、カウボーイ
 000000012F1C.07C: "Venomous" by Leon
+000000012F1D.07C: May Melee トーナメント・スキン
+000000012F1E.07C: MM-メイ
 000000012F21.07C: 早撃ち
 000000012F25.07C: 選り好み
 000000012F26.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
@@ -29915,6 +29918,7 @@ Blizzardサポート
 0000000130A7.07C: %1$sアーカイブ・スター + ストーム・ライジング・スター
 0000000130A8.07C: アーカイブ任務で10/20/30個のスターを得よう。レトリビューションで得られるヒーロー・ダストが2倍に！
 0000000130A9.07C: アーカイブ任務で10/20/30個のスターを得よう。ストーム・ライジングで得られるヒーロー・ダストが2倍に！
+000000013134.07C: スーパーファン
 000000013138.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
 00000001313A.07C: アーカイブ 2021
 00000001313E.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
@@ -29963,4 +29967,5 @@ Blizzardサポート
 000000013183.07C: 4VS4 フリーズ・タグ
 000000013195.07C: 開始まで:
 000000013291.07C: アーカイブ 2021 <br>第3週の<br>チャレンジに<br>参加して<br>アンロック
-[Core] Execution finished in 00:00:04.0522296 seconds
+0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+[Core] Execution finished in 00:00:00.4666007 seconds

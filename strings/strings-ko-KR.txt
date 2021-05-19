@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.948-git-6837dbddad685867fa6afd6a9a54d9f915733d1c
+[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(1)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.59.0.0.80550
+[CASC] Overwatch build 1.59.1.0.81410
 [CASC] Initializing...
-[Manifest] Using TRG procedure 80550 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 80550 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29269,6 +29269,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001279F.07C: /%1$s
 0000000127A4.07C: 역할 자동 배정
 0000000127A5.07C: 붉은 봉투
+0000000127A6.07C: 격투가 메이
 0000000127C0.07C: 겨우살이
 0000000127C2.07C: 워크샵 인스펙터 로그 파일 활성화
 0000000127C5.07C: 1.75x
@@ -29806,6 +29807,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012F16.07C: %1$s/%2$s
 000000012F19.07C: 안녕, 카우보이
 000000012F1C.07C: 레온의 "Venomous"
+000000012F1D.07C: 격투가 토너먼트 스킨
+000000012F1E.07C: 격투가 메이
 000000012F21.07C: 반응 속도
 000000012F25.07C: 검수
 000000012F26.07C: 지난 기록의 전리품 상자에서 획득
@@ -29917,6 +29920,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000130A7.07C: 기록 보관소 별 %1$s개 및 폭풍의 서막 별
 0000000130A8.07C: 기록 보관소 임무에서 별 10/20/30개를 획득하세요. 지금 응징의 날 임무에서 점수를 두 배로 획득할 수 있습니다!
 0000000130A9.07C: 기록 보관소 임무에서 별 10/20/30개를 획득하세요. 지금 폭풍의 서막 임무에서 점수를 두 배로 획득할 수 있습니다!
+000000013134.07C: 열성팬
 000000013138.07C: 지난 기록의 전리품 상자에서 획득
 00000001313A.07C: 2021 기록 보관소
 00000001313E.07C: 지난 기록의 전리품 상자에서 획득
@@ -29965,4 +29969,5 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000013183.07C: 4대4 얼음땡
 000000013195.07C: 남은 시간:
 000000013291.07C: 2021 기록 보관소 3주 차 챌린지에 참여하여 획득
-[Core] Execution finished in 00:00:03.9184708 seconds
+0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+[Core] Execution finished in 00:00:00.4570632 seconds
