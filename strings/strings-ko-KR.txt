@@ -1,13 +1,13 @@
-[Core] DataTool v1.59.0.949-git-e36f9ab896791c131678c510a74d06d61031798c
+[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(2)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.59.1.0.81410
+[CASC] Overwatch build 1.60.0.0.82693
 [CASC] Initializing...
-[Manifest] Using TRG procedure 81410 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 81410 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -18180,8 +18180,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A84F.07C: 
 00000000A856.07C: 목표 완료
 00000000A857.07C: 목표 완료
-00000000A85A.07C: 오버워치 리그 프로모션 스킨 어웨이
-00000000A85B.07C: 오버워치 리그 프로모션 스킨
+00000000A85A.07C: 오버워치 리그 회색
+00000000A85B.07C: 오버워치 리그 흰색
 00000000A866.07C: 불빛
 00000000A905.07C: 데이터 큐브
 00000000A90F.07C: 감시
@@ -25798,6 +25798,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D216.07C: 할로윈 전리품 상자에서 획득
 00000000D217.07C: 섬뜩해!
 00000000D218.07C: 할로윈 전리품 상자에서 획득
+00000000D21A.07C: 검은 고양이
 00000000D21B.07C: 날 두고 죽을 생각 마라
 00000000D21C.07C: 할로윈 전리품 상자에서 획득
 00000000D21F.07C: Español (Latinoamérica)
@@ -26862,7 +26863,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001021A.07C: 죽은 후 나를 처치한 플레이어에게로 카메라 즉시 이동
 00000001021C.07C: 인력
 00000001022E.07C: 난이도: 초고수
-000000010237.07C: CAIS 시간 제한에 도달하여 접속 해제됨
+000000010237.07C: Disconnected due to CAIS time limit reached
 000000010239.07C: 체험
 00000001023B.07C: 이 리플레이는 최근에 재생된 리플레이 목록에 없습니다. 고정을 해제하면 리플레이를 잃게 됩니다. 계속하시겠습니까?
 00000001023D.07C: 지휘
@@ -27357,6 +27358,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010A49.07C: 점착 폭탄 명중
 000000010A4A.07C: 점착 폭탄 명중 %1$s회
 000000010A4C.07C: 어슬렁
+000000010A50.07C: 검투사
 000000010A51.07C: 비행이 재사용 대기 중일 때는 활공으로 공중에서 이동할 수 있습니다.
 000000010A59.07C: 점착 폭탄 사용
 000000010A5A.07C: 점착 폭탄 사용 %1$s회
@@ -27738,6 +27740,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010EF9.07C: 공포의 할로윈
 000000010EFD.07C: 옴닉의 반란
 000000010EFE.07C: 환상의 겨울나라
+000000010F00.07C: 펑키
 000000010F14.07C: 획득
 000000010F4E.07C: 생명력
 000000010F57.07C: 모든 영웅
@@ -28473,7 +28476,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000116AA.07C: 따악!
 0000000116AB.07C: 뿅뿅!
 0000000116AC.07C: 트레이서의 만화 챌린지 중 이벤트 스트림을 시청하여 획득
-0000000116D7.07C: CAIS 제한으로 인해 접속 해제됨
+0000000116D7.07C: Disconnected due to CAIS curfew
 0000000116D8.07C: 상태 메시지
 0000000116D9.07C: 게임 모드 HUD
 0000000116DA.07C: 실시간 처치 정보
@@ -28755,6 +28758,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011CC1.07C: 워크샵 설정 카드에서 콤보 박스로 나타날 새로운 옵션의 값을 사용자 지정 문자열 중에서 제공합니다. 이 값은 선택한 문자열의 인덱스를 되돌립니다.
 000000011CC2.07C: Options
 000000011CC3.07C: 이 설정의 옵션입니다.
+000000011CC4.07C: 포켓볼
 000000011CCB.07C: 다이 텐구
 000000011D3F.07C: Workshop Setting Combo 값의 옵션 매개변수는 사용자 지정 스트링의 비지 않은 배열에 배정되어야 합니다.
 000000011D40.07C: 각 워크샵 설정 옵션은 설정 당 한 번만 참조할 수 있고 고유한 이름이 필요합니다. (대소문자 및 띄어쓰기 무시)
@@ -29192,7 +29196,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000125E0.07C: 독일 2
 0000000125E1.07C: 핀란드 2
 0000000125E2.07C: 대만 2
+0000000125FD.07C: 정크푸드
 000000012616.07C: 총사
+000000012617.07C: 극락조
 000000012629.07C: 보상
 00000001262B.07C: 확인
 00000001262C.07C: 대기열 우선권 획득
@@ -29214,6 +29220,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012670.07C: 대기 시간이 긴 역할을 선택한 그룹원 전원이 대기열 우선권을 사용하면, 그룹의 대기 시간이 감소합니다.
 000000012673.07C: 건배
 000000012674.07C: 잠수
+0000000126E0.07C: 사이버 의무관
 0000000126E2.07C: 확인
 0000000126E3.07C: 환상의 겨울나라가 돌아왔습니다! 작년의 아이템과 더불어 새롭게 추가된 50개 이상의 아이템을 확인하세요!
 0000000126E4.07C: 얼음땡 섬멸전
@@ -29517,7 +29524,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012C30.07C: 이동할 플레이어입니다.
 000000012C32.07C: 플레이어를 이동시킬 팀입니다. "All" 옵션은 개인전 모드에서만 작동하며, "Team" 옵션은 팀 기반 모드에서만 작동합니다.
 000000012C33.07C: 플레이어로 채울 플레이어 슬롯입니다(처음 사용 가능한 슬롯: -1).
-000000012C37.07C: 1주 차: 폭주 루시우
+000000012C37.07C: 1주 차: 사이버 의무관 아나
 000000012C38.07C: 황소의 분노
 000000012C39.07C: 설날 전리품 상자에서 획득
 000000012C3A.07C: 마늘
@@ -29542,7 +29549,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012C4D.07C: 설날 전리품 상자에서 획득
 000000012C4E.07C: 까치
 000000012C4F.07C: 설날 전리품 상자에서 획득
-000000012C50.07C: 2주 차: 잠수 젠야타
+000000012C50.07C: 2주 차: 극락조 에코
 000000012C51.07C: 용의 머리
 000000012C52.07C: 설날 전리품 상자에서 획득
 000000012C5B.07C: 설날 전리품 상자 50개 
@@ -29610,6 +29617,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012CCE.07C: 치른 게임
 000000012CCF.07C: 치른 게임 %1$s회
 000000012CE6.07C: 선호 모드
+000000012D0D.07C: 파리지옥
 000000012D10.07C: 120 크레딧, 무료 설날 전리품 상자 60개
 000000012D20.07C: %1$s (%2$s, %3$s Hz)
 000000012D22.07C: Kinetic Explosion Effects
@@ -29804,11 +29812,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012EDA.07C: Ashe Dynamite Explosion Sound
 000000012EDB.07C: Ana Biotic Grenade Explosion Sound
 000000012F15.07C: 감정 표현
-000000012F16.07C: %1$s/%2$s
+000000012F16.07C: |Rfn %1$s:F0;/%2$s
 000000012F19.07C: 안녕, 카우보이
 000000012F1C.07C: 레온의 "Venomous"
-000000012F1D.07C: 격투가 토너먼트 스킨
-000000012F1E.07C: 격투가 메이
 000000012F21.07C: 반응 속도
 000000012F25.07C: 검수
 000000012F26.07C: 지난 기록의 전리품 상자에서 획득
@@ -29859,28 +29865,28 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012F67.07C: 과로
 000000012F69.07C: 이 계획이 아니잖아요
 000000012F6B.07C: 고가치 표적
-000000012F6D.07C: 기록 보관소 별
-000000012F6E.07C: 기록 보관소 별 %1$s개
-000000012F6F.07C: 기록 보관소 별
-000000012F70.07C: 기록 보관소 별 %1$s개
+000000012F6D.07C: Archives Stars
+000000012F6E.07C: %1$s Archives Stars
+000000012F6F.07C: Archives Stars
+000000012F70.07C: %1$s Archives Stars
 000000012F71.07C: 
 000000012F72.07C: 
 000000012F73.07C: 
 000000012F75.07C: 옴닉의 반란 방벽
 000000012F76.07C: 응징의 날 역공감성
 000000012F77.07C: 폭풍의 서막 광역 피해
-000000012F78.07C: 최고의 방벽 점수
-000000012F79.07C: 최고의 방벽 점수 %1$s점
-000000012F7A.07C: 최고의 방벽 점수
-000000012F7B.07C: 최고의 방벽 점수 %1$s점
-000000012F7C.07C: 최고의 역공감성 점수
-000000012F7D.07C: 최고의 역공감성 점수 %1$s점
-000000012F7E.07C: 최고의 역공감성 점수
-000000012F7F.07C: 최고의 역공감성 점수 %1$s점
-000000012F80.07C: 최고의 광역 피해 점수
-000000012F81.07C: 최고의 광역 피해 점수 %1$s점
-000000012F82.07C: 최고의 광역 피해 점수
-000000012F83.07C: 최고의 광역 피해 점수 %1$s점
+000000012F78.07C: Best Bulletproof Barriers Score
+000000012F79.07C: %1$s Best Bulletproof Barriers Score
+000000012F7A.07C: Best Bulletproof Barriers Score
+000000012F7B.07C: %1$s Best Bulletproof Barriers Score
+000000012F7C.07C: Best Sympathy Gains Score
+000000012F7D.07C: %1$s Best Sympathy Gains Score
+000000012F7E.07C: Best Sympathy Gains Score
+000000012F7F.07C: %1$s Best Sympathy Gains Score
+000000012F80.07C: Best Thunderstorm Score
+000000012F81.07C: %1$s Best Thunderstorm Score
+000000012F82.07C: Best Thunderstorm Score
+000000012F83.07C: %1$s Best Thunderstorm Score
 000000012F84.07C: 방탄 방벽
 000000012F85.07C: 옴닉의 반란. 적 방벽을 파괴할 수 없습니다.
 000000012F86.07C: 적 방벽을 파괴할 수 없습니다.
@@ -29898,28 +29904,31 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000013066.07C: 방탄 방벽 기록 보관소 도전 임무 완료
 000000013067.07C: 역공감성 이득
 000000013068.07C: 역공감성 이득 기록 보관소 도전 임무 완료
-00000001307C.07C: 3주 차: 위장 메르시
-00000001307D.07C: 기록 보관소 임무에서 별 10/20/30개를 획득하세요. 지금 옴닉의 반란 임무에서 점수를 두 배로 획득할 수 있습니다!
-000000013096.07C: 옴닉의 반란 별
-000000013097.07C: 옴닉의 반란 별 %1$s개
-000000013098.07C: 응징의 날 별
-000000013099.07C: 응징의 날 별 %1$s개
-00000001309A.07C: 폭풍의 서막 별
-00000001309B.07C: 폭풍의 서막 별 %1$s개
-00000001309C.07C: 기록 보관소 별 및 옴닉의 반란 별
-00000001309D.07C: 기록 보관소 별 %1$s개 및 옴닉의 반란 별
-00000001309E.07C: 옴닉의 반란 별
-00000001309F.07C: 옴닉의 반란 별 %1$s개
-0000000130A0.07C: 응징의 날 별
-0000000130A1.07C: 응징의 날 별 %1$s개
-0000000130A2.07C: 폭풍의 서막 별
-0000000130A3.07C: 폭풍의 서막 별 %1$s개
-0000000130A4.07C: 기록 보관소 별 및 응징의 날 별
-0000000130A5.07C: 기록 보관소 별 %1$s개 및 응징의 날 별
-0000000130A6.07C: 기록 보관소 별 및 폭풍의 서막 별
-0000000130A7.07C: 기록 보관소 별 %1$s개 및 폭풍의 서막 별
-0000000130A8.07C: 기록 보관소 임무에서 별 10/20/30개를 획득하세요. 지금 응징의 날 임무에서 점수를 두 배로 획득할 수 있습니다!
-0000000130A9.07C: 기록 보관소 임무에서 별 10/20/30개를 획득하세요. 지금 폭풍의 서막 임무에서 점수를 두 배로 획득할 수 있습니다!
+00000001307C.07C: 3주 차: 포켓볼 레킹볼
+000000013096.07C: Uprising Stars
+000000013097.07C: %1$s Uprising Stars
+000000013098.07C: Retribution Stars
+000000013099.07C: %1$s Retribution Stars
+00000001309A.07C: Storm Rising Stars
+00000001309B.07C: %1$s Storm Rising Stars
+00000001309C.07C: Archives Stars Plus Uprising Stars
+00000001309D.07C: %1$s Archives Stars Plus Uprising Stars
+00000001309E.07C: Uprising Stars
+00000001309F.07C: %1$s Uprising Stars
+0000000130A0.07C: Retribution Stars
+0000000130A1.07C: %1$s Retribution Stars
+0000000130A2.07C: Storm Rising Stars
+0000000130A3.07C: %1$s Storm Rising Stars
+0000000130A4.07C: Archives Stars Plus Retribution Stars
+0000000130A5.07C: %1$s Archives Stars Plus Retribution Stars
+0000000130A6.07C: Archives Stars Plus Storm Rising Stars
+0000000130A7.07C: %1$s Archives Stars Plus Storm Rising Stars
+0000000130B9.07C: 사용자 인터페이스
+0000000130BA.07C: 대전 상대 찾기
+0000000130BC.07C: 네트워크
+0000000130BD.07C: 관전
+0000000130BE.07C: 기타
+0000000130CD.07C: %1$s 후 종료됩니다!
 000000013134.07C: 열성팬
 000000013138.07C: 지난 기록의 전리품 상자에서 획득
 00000001313A.07C: 2021 기록 보관소
@@ -29969,5 +29978,2884 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000013183.07C: 4대4 얼음땡
 000000013195.07C: 남은 시간:
 000000013291.07C: 2021 기록 보관소 3주 차 챌린지에 참여하여 획득
+0000000132DF.07C: 기대어 쉬기
+0000000132E6.07C: 음성 대화 이름표 아이콘
+0000000132F5.07C: 힘차게
+00000001334D.07C: 2021 감사제 2주 차 챌린지에 참여하여 획득
+00000001334E.07C: 파닥임
+000000013350.07C: 2021 감사제 2주 차 챌린지에 참여하여 획득
+000000013351.07C: 극락조
+000000013353.07C: 2021 감사제 3주 차 챌린지에 참여하여 획득
+000000013354.07C: 포켓볼
+000000013357.07C: 코너 포켓
+000000013359.07C: 2021 감사제 1주 차 챌린지에 참여하여 획득
+00000001335A.07C: 파수꾼
+00000001335D.07C: 사이버 의무관
+00000001335F.07C: 감사제 전리품 상자에서 획득
+000000013360.07C: 돼지는 아니니까
+000000013361.07C: 쥐새끼는 아니니까
+000000013362.07C: 감사제 전리품 상자에서 획득
+000000013363.07C: 기쁨
+000000013364.07C: 감사제 전리품 상자에서 획득
+000000013365.07C: 웃어
+000000013366.07C: 감사제 전리품 상자에서 획득
+000000013367.07C: 내 검은 무뎌지지 않는다
+000000013368.07C: 감사제 전리품 상자에서 획득
+000000013369.07C: 진정해라
+00000001336A.07C: 감사제 전리품 상자에서 획득
+00000001336B.07C: 내게 포기란 없어
+00000001336C.07C: 감사제 전리품 상자에서 획득
+00000001336D.07C: 눈을 못 떼겠네
+00000001336E.07C: 감사제 전리품 상자에서 획득
+00000001336F.07C: 정말 좋은 팀이네
+000000013370.07C: 감사제 전리품 상자에서 획득
+000000013371.07C: 네 판단에는 결함이 있어
+000000013372.07C: 감사제 전리품 상자에서 획득
+000000013374.07C: <fg%1$s>%2$s</fg>에게 친구 요청 보냄
+000000013375.07C: 2021 감사제
+000000013376.07C: 감사제 전리품 상자에서 획득
+000000013386.07C: 소몰이
+00000001338D.07C: 킥
+00000001338F.07C: 감사제 전리품 상자에서 획득
+000000013390.07C: 먹잇감 찾기
+000000013391.07C: 즐기며 살아
+000000013392.07C: 감사제 전리품 상자에서 획득
+000000013393.07C: 눈깔사탕
+000000013394.07C: 감사제 전리품 상자에서 획득
+000000013395.07C: 가시 조심
+000000013396.07C: 감사제 전리품 상자에서 획득
+000000013397.07C: 엄지 아래로
+000000013398.07C: 감사제 전리품 상자에서 획득
+000000013399.07C: 검은 고양이
+00000001339A.07C: 감사제 전리품 상자에서 획득
+00000001339B.07C: 펑키
+00000001339C.07C: 감사제 전리품 상자에서 획득
+00000001339D.07C: 정크푸드
+00000001339E.07C: 감사제 전리품 상자에서 획득
+00000001339F.07C: 개화
+0000000133A0.07C: 감사제 전리품 상자에서 획득
+0000000133A1.07C: 검투사
+0000000133A2.07C: 감사제 전리품 상자에서 획득
 0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
-[Core] Execution finished in 00:00:00.4570632 seconds
+0000000133AB.07C: 편히 쉬어
+0000000133AC.07C: 데스매치 경쟁전
+0000000133AD.07C: 전 세계 최고의 데스매치 플레이어들과 경쟁하고 등급을 올리세요!
+00000001352C.07C: Mike Morhaime
+Chris Metzen
+Rob Pardo
+Bob &amp; Jan Davidson
+Dennis Durkin
+Coddy Johnson
+Brian Kelly
+Bobby Kotick
+00000001352D.07C: Travis Abeyti, Andre Abrahamian, Gareth Ackerman, Angelica Adams, Don Adams, Steve Aguilar, Mark A. Agustin, Raphael Ahad, Jestry Ahlswede, Carlos Ahumada, Aaron Aikman, Jordan Albert, Bryan Alcarde, Michael Alcorn, Josh Allen, Chris Allsopp, Romel Alonzo, Carol Alvarado, Craig Amai, Chris Amaral, Aisyah Ambok, James Ams, Drew Andersen, David Anderson, Josh C. Anderson, Kyle Anderson, Ryan Anderson, James Anhalt III, Matthew Armstrong, Andrew Arnett, Kyle Conlan Aronson, Caleb Arseneaux, Hasiba Arshad, Sara Asmussen, Griffin Aswegan, Josh Augustine, Jon Avila, Jay Axer, Dean Ayala, Jaquelyn Bacal, Chris Bachelor, Moon Bae, Ciji Bambrick, Jon Bankard, Katherine Bankson, Dary Barbosa, Dylan Barker, Luis Barriga, Marlon Barroquillo, Michael Bartnett, Adam Batters, Zachary Bauer, Daniel Baumann, Adam F. Baxter, Ates Bayraktaroglu, Kevin Beato, Dan Beaulieu, Bryan Bedford, Josh Beedle, Bijan Beglari, Kevin Bellardi, Alain Bellehumeur, Andrew Bellinger, Justice Bentzel, Dave Berard, Graham Berger, Matthew Berger, Dave Berggren, Russell Bernau, Matt Bessey, Will Bidermann, Dylan Binder, Brian Birmingham, Dustin Biser, Brandon Blackwell, Matthew Boehm, Waleed Boghosian, Calvin Boice, Larry Boles, Sam Bolton, Nathan Bonfiglio, Brenden Booth, Aaron Bossert, Dustin Bosteder, Brian Paul Boswell, Laurent Bourcier, Mary Bourrie, Jason Boyle, Eric Braddock, Shane Bradley, Stephanie Bravo, Liv Breeden, Michael Brewer, Robert Bridenbecker, Daniel Briggs, Jay Briggs, Josh Brinson, Karl Briones, Maeve Broadbin, Andy Brock, Devin Brom, Renee Brousseau, Eric Browning, Matt Browning, Marcus Bruzzese, Leigh Bryant, John Buckley, Andrew Buczacki, Tatiana Bulavina, Nick Bumgardner, Patrick Burke, Steve Burke, Olivia Burkhart, Will Burton, John Butkus, Michael Bybee, Adam K. Byrd, Kuko Cai, Evan Calder, Kayleigh Calder, David Calderon, Kevin Calderone, Kenneth Camaro, Dominic Camuglia, Ely Cannon, Stephen Cano, Stuart Capewell, Brian Carl, David Carlock, Colton Carmine, Rebecca Carmine, Sarah Carmody, Scott Carnahan, Kellan Carr, Kevin B. Carter, Jen Casey, Joey Cash, John Cash, Johnny Cash, Alan Castle, Jose Castorena, Errol Catimbang, Erin Catto, Chris Cavalieri, Patrick Cavender, Matthew Cederquist, Ed Cerrato, James Chadwick, Michael Chae, Michael Chambers, Christopher Chang, Glen Chang, Jamie Chang, Jeff Chang, Stephen Chang, Joshua Chapman, Aaron Chard, Adam Chard, Matthew Charles, Dawnson Chen, Evan T. Chen, Sarah Chen, Albee Cheng, Helen Cheng, Wyatt Cheng, Yung-Ju Cheng, Carman Cheung, Tai Ching Cheung, Nick Chilano, Cody Childers, Tom Chilton, Tiffany Chiu, Sungjae Cho, Clayton Chod, Shelly Choi, Sukjoo Choi, Victor Chong, Davis Christiansen, Janice Chu, Jenny Chu, Valerie Chu, Jeffrey Chuang, Olina Chuh, Kelly Chun, Liew Chun, Paul Chung, Andy Churchill, Bryce Clark, Cody Clark, Jessica Clarke, Bryan Cleveland, David Clyde, Emmett Coakley, Jackson Coakley, Joseph Cochran, Bret Cocking, Chris Cole, Juan Cole, Jared Coliadis, Bridget Collins, Jeremy Collins, Ian Combs, Toni Conner, Sarah Conway, Rob Cooch, Linny Cooke Saverline, Christopher Beau Cooper, Ryan L. Cooper, Samuel Cooper, Doug Cope, Melissa Corning, Omar Cornut, Danielle Corporon, Alex Cortes, Victor Cortis, Sarah Cotner, Jared Coulston, Lauren Countess, Eric Covington, Dan Cox, Jordan Cox, Aaron Craft, Edward Crane, Jeremy Cranford, Brett Crawford, Alexander Creamer, Ryan Creasey, Paden Cross, Steve Crow, Michael Cuevas, Chase Culver, Spaulding Cummings, Hunter Curren, Steve Danuser, Daniel Dao, Utsab Das, Kyle Dates, Paul Christer David, Grant Davies, Chris Davila, Anthony Davis, Elhora Davis, Alec Dawson, Jon Dawson, Patrick Dawson, Shem Dawson, Morgan Day, Albert De Nova, Andrew De Sousa, Joel Deaguero, Paul DeBerry, Matt Deegler, Jason DeFord, Jim DeGruttola, Angela Del Priore, Eric Del Priore, Dan Delapena, Alex Delesky, Samuel Delmont, Yi Deng, Eric Dennis, Alex deNoyelles, Steven DeRose, Darryl Despie, Alex Devine, William Dewey, Li Di, Carlos Diaz, Samwise Didier, Ken Dilks, Allen Dilling, Mike Dinger, Jessica Dinh, Manuel A Dischinger Moura, Dustin Distefano, Brett Dixon, Isabella Djurovic, Alexei Dmitriev, Patrick Doane, Eric Dobbs, Landon Doi, Rylan Dolan, Mike Donais, Chris Donelson, Zack Donovan, Steven Dowling Jr, Brian Dowling, Brian Doyle, Jiajun Du, Ling Zhi Du, Ed Duer, Daniel Duffin, Amy Dunham, Thomas DuPont, Derek Dupras, Miguel Duran, Chadwick Dusenbery, Jeffrey Duval, Tyler Dvorak, Steven Dwyer, Justin Dye, Michael Eads, Cole Eastburn, Michael Ebert, Jonathan Ebling, David M. Edwards, Evan Edwards, Shani Edwards, Mike Eheler, Rachael Eibert, Anders Ekermo, Patrick Elia, Evgeny Eliseev, Mike Elliott, Tom Ellis, Garrett Elmendorf, Danielle Engels, Chad Engler, Benjamin Erdt, Tim Erskine, Dustin Escoffery, Victor Esquivias, Mustazar Essa, Ofer Estline, Manu Evans, Matthew Everett, Paul Ewing, Michael Fabay, Ariel Fain, Mathieu Fallows, Brian Farr, Heath Farrow, Jeremy Feasel, Aleksandr Fedotovskikh, Austin Feeney, Matt Ferguson, Rod Fergusson, Christopher Ferraro, Walter Ferrell, Doug Fessler, Anna Ficek-Madej, Matt Fieler, Brandon Figueroa, Colin Finer, Gavin Finley, Carlos Fins, Bob Fitch, Brian Fleck, Brian Fletcher, Jonathan Fletcher, Cody Flick, Linus Flink, Maybri Flores Garcia, Alex Flores, Jay Fong, Rob Foote, Fernando Forero Pinilla, Russell Foushee, Jay Frank, Doug Frazer, Jerry Frazier, Andrew Freeman, David Fries, Zachary Frye, Chris Fugate, Timothy Fujieda-Feldman, Wesley Fujiyama, Kevin Fulkerson, Sam Fung, Erin Fusco, Sharif Gaines, Sam Gao, Taylor Garcia, Lily Gardner, Ankit Garg, Luis Garza, Charles Gast, Carrie Ge, Chris Gearhart, Wanmin Gee, Caitlin Geels, Alvin Geno, Chris Genova, Matthew Genovese, Arin George, Cora Georgiou, Ian Gerdes, Paul Gheorghe, Kris Giampa, Sean "Dawnbreaker" Gibson, Jay Gill, Keaton Gill, Jared Gillis, Alice Gionchetta, Carl Glave, Brittany Gleiter, Gavin Glenn-McDowell, Hans Godard, Matt Gollob, Rose Gomez, Tzaddi Gomez, Gabriel Gonzalez, Omar Gonzalez, Scott Gordon, Matt Gotcher, David Gower, Jolene Goya, Jon Graves, Josh Greenfield, Kelli Greenfield, Evan Greenstone, Matt Grenewetzki, Matthew Grubb, Kevin Gu, John Ha, Daniel Haddad, Hanno Hagedorn, Yurik Haines, N. Hajj, Katherine Haldane, Chris Hale, Robyn Haley, Justine Hamer, Jeff Hamilton, Maria Hamilton, Ryan Hamilton, Nam Han, Herbert Haneke, Taylor Hankins, Ed Hanley, Ryan Hanlon, Greg Hansen, Neal Hanson, Cody Harder, Leea Harlan, Zaven Haroutunian, David Harrington, John Harris, Ryan Hart, Scott Hartin, Kyle Hartline, Kevin Hassett, Jennifer Hauer, Jared Hays, Ion Hazzikostas, Chaz Head, Aubrie Healy, Kory Heinichen, Brad Heinze, John-Mark Hemphill, Byron Henze, Eric Henze, Mike Hershberg, John Heuerman, Kevin Hewitt, Matthew Heyman, Travis Hickman, Jeff Hicks, Paige Hicks, Mike Higgins, John Hight, Kenneth Hile, Amber Hill, Michael Hill, Trevor Hilseth, Brandon Hitchcock, Peter Hodge, Ron Hodge, Sean Hogan, Damarcus Holbrook, Brian Holinka, Steve Holmes, Andrew Holscher, Martin Holtkamp, Eric Hom, Beomki Hong, Michael Hong, Kelli Hoover, Thomas Horwath, Shaobo Hou, Emma Howard, Jake Howard, Clay Howell, Joseph Hsu, Peter Hsu, Ken Huang, Tanya Huang, Jason Hughes, Tim Hume, Carin Huurnink, Trevor Huwe, Guilain Huyghues-Despointes, Jay Hwang, Travis Inman, Jessica Irwin, Tanvir Islam, Timothy Ismay, Alexander Iveroth, Adam Z. Jackson, Kali Jacobs, Trevor Jacobs, Chris Jacobson, Chris Jacobson, Dusan Jan, Bidam Jang, Steven Jaquith, Chad Jarrett, John Jarynowski, Kyle Jensen, Xing Jin, Marius Jivan, Jason Johannes, Dan Johnson, Dan Johnson, Michael Johnson, Zach Johnson, Jayne Johnston, Scott Johnston, Tim Jones, Josiah Jordan, Randy Jordan, Kay Ju, Ng Juan, Chris Judkins, Fan Junying, Jason Jurecka, Matthew Kaczynski, Jason Kanagaratnam, Kirsten Kane, Louise Kasemeier, Shawn Kassian, Richard Katz, Michael Kautzman, Cort Keefer, Paul Keet, Mark Kelada, Joe Keller, Garth Kelly, Michael Kemski, Josh "Kerp" Kierpiec, Eric Kilbride, Nathan Kilker, Joseph Killion, Lily Kim, Mina Kim, Minshik Kim, Steven Kim, Taeyeon David Kim, Andrew Kinabrew, Careena Kingdom, Ryan Kinports, Jayson Kirby, Morgan Kirkpatrick, Zoid Kirsch, Jennifer Klasing, Alex Klontzas, Liam Knapp, Christopher Knorr, Sven Knutson, Noah Koecher, Marco Koegler, Josh Kofalt, Amber Koh, Petrina Koh, Dorottya Kollo, Walter Kong, Thomas Koos, Drew Korfe, Dave Kosak, Kirk Kosinski, Arnaud Kotelnikoff, Conor Kou, Alex Koufakis, Frank Kowalkowski, Chris Kowalski, Dan Kramer, Steph Krepcio, Monte Krol, Paul Kubit, Alex Kudebeh, Adam Kugler, Juno Kwak, Bonnie Kwon, Jason K Kwon, Jeffery Kwon, Jeff Kyllo, Guillermo la O', Brent LaDue, Kevin Lai Han Wen, Ken Lamb, Eduard Lamuge, Crystel Land, Owen Landgren, Justin Lane, Ian Lang, Eric Lanham, Nathan LaPre, Elsbeth Larkin, Eric Larson, Erik Larson, Steven Lashower, Diandra Lasrado, Jonas Laster, Alynn Lau, Bree Lawlor, David Lawrence, Januarius Laygo, Marie Lazar, Charlène Le Scanff, Ronald Leask, Jonathan LeCraft, Frankie Lee Jr., Benjamin Lee, Evan Lee, Frederick Dayhee Lee, Hyun Lee, Hyungjic Lee, Jin Lee, Kevin Ken Lee, Paul Lee, Peter K. Lee, Seungbok Lee, Victor Lee, Youngsik Lee, Mathieu Leenhardt, Anne-Sophie Lefebvre, Michael Leger, Christopher Leighton, Chris Lena, Bryan Lentenbrink, Dor Levgoren, Ian Levin, Adam Levy, Joe Lewis, Marlowe Lexvold, Josh Leyshock, Angela Li, Ezerina Li, Lim Lian, Chris Liao, Esther Liao, Tingwen (Tina) Liao, Dylan Lifa, Andy Lim, Parker Lim, Jessica Lin, Rebecca S. Lin, Richard Lin, Danforth Lincoln, Evan Lind, Timothy Linn, Neil Lintag, Brian Linton, Carey Littlefield, Amy Liu, Cherie Liu, Guanglei Liu, Jeff Liu, Alexander Livencev, Jimmy Lo, Matt London, Holly Longdale, Nicholas Louie, Julian Love, Cynthia Loyd-Peterson, Linda Lozano-Wade, Lan Lu, Oliver Lübeck, Cathy Lucas, Dennis Lukowski, Nathan Lyons-Smith, John Lytle, Fabio M. Silva, Max Ma, Max Ma, Jason MacAllister, Christopher MacDonald, Sergio Macias Jr., Pat MacKellar, Marcus Maczynski, Patrick Magruder, Jay Maguire, Josh Mahan, Vivian Mai, Katie Malin, Jennifer Mallett, Eric Maloof, Luke Mancini, Alexander Mangold, Ambu Mani, Max Mann, Jeff Manners, Joshua Manning, Hai Mao, Justin Marcus, Richie Marella, Bryan Marony, Michael Marra, Stephanie Marroquin, Kevin Martens, Jade Martin, Jim Martin, Steve Martinez, Jonathan Mason, Luke Mason, Ryan Masterson, Ryan Matsuba, Andrew Matthews, Kevin Matthews, Shelby Maxwell, Rainer Mayer, Kristy Mayo, Kenny McBride, Hunter McCall, Sean McCann, Kurtis McCathern, Jon McConnell, Ian McCown, Corin McCrate, Jesse McCree, Matt McDaid, Ian McEwan, Trapper McFerron, Mike McGehee, John McIntyre, Kate McKee, Matthew McKeown, Abby McLallin, Denise McMurry, Brian McNamee, Rob McNaughton, Eric McNine, Alexis Meade, Jeff Mears, Brandon Meesak, Nicholas Merritt, Ryan Metcalf, Andrew Meyer, Joseph Micelli, Sean Middleditch, Bjorn Mikkelson, John Mikros, Byron Miller, Jake Miller, Jay Miller, Josh Miller, Shane Miller, Ryan Mills, Lorenzo A. Minaca, Joshua Minette, Joey Molinari, Kyle Monroe, Robert Moodey, Ryan Moore, Leo Morelli, Kristy Moret, Brielle Morgan, Cat Morgan, Dan Morgan, Serge Morozov, Kate Morris, Matthew Morris, Craig Morrison, Aaron R. W. Morse, Jeremy Morton, Jonathan Mosoff, Ryan Mourey, Andy Muchmore, John Mueller, Major Mummert, Daniel Munoz, Nick Murano, Collin Murray, Tim Murray, Mats Myrvold, Pat Nagle, Jay Nam, Christian Nava, Josh Navarro, Eric "E.J." Nelson, Steven M. Nelson, Chadd Nervig, Tomas Neumann, Antonio Neves, Stephanie Newland, Rob Newns, Jonathan Newsham, Sam Ngo, Dan V. Nguyen, Jimmy Nguyen, Paul Nguyen, Thach Nguyen, Thomas Nguyen, Vinson Nguyen, Peter Nichols, Natacha Nielsen, Dmitry Nikiforov, Vladimir Nikityuk, Elena Nikora, Michael Niles, Dusty Nolting, Peter Nott, Michael Nuthals, Chris Nuzzo, Jonathan Oberto, Kevin O'Brien, Ray Ocampo, Matt O'Connor, Juyoung Oh, Jun Ong, Serban Oprescu, CJ Ordog, Monique Ory, Zachariah Owens, Jennifer E Owings, Eddie Pacheco, Alfredo Padron, Trevor Page, Daniel Pageau, Mark Pajarillo, Lucas Panian, David Paolone-Webb, Abhishek Pareek, Stephen Parente, Veronica Parente, Ted Park, Matt Parker, Jeff Parrott, Jay Patel, Mackenzie Kade Patrick, Carrie Patterson, Chris Paulson, Corey Peagler, Jonathan Pearl, Wilson Pedro, Carlos Penate, David Pendergrast, Charles Peng, David Perez, Steve Perkins, Art Peshkov, Marie Peters, Max Peters, Russ Petersen, James Peterson, Justin Peterson, Tim Petre, Mark Petro, Jimmy Phan, Sean Phelps, Mason Phillips, Aimee Pi, Elliot Picarello, Joseph Piepiora, Thomas Pieracci, Michelle Pina, Dan Pingston, Harrison Pink, Ed Piper, Roy L. Pitts, Gary Platner, Sebastien Poirier, Evan Polekoff, Andy Porter, Jordan Powers, Genesis Prado, Rafal Praszczalek, Dan Priestly, Steven Provost, Justin Prymowicz, Laura Puerto, James Pugh, Cameron Purchase, Kristian Puskas, Jeffrey Pyacek, Christopher Pyle, David Quick, Alexandra Quinby, Josh Quinnett, Steven Quintero, Max Rahm, Paige Rahm, Aramis Ramirez, Matthew Ramos, Bill Randolph, Zues Rawji, Crash Reed, Dave Reed, Kimberly Reed, Korey Regan, Jason Regier, Linden Reid, Nicholas Reid, Weston Reid, Jonathan Reinhold, Esmee Renfro, Steve Rentas, Bryan Richardson, Tommy Rihn, Sean Riley, Cody Rinehart, Alex Ringe, Gregory Risselada, Jared Ritter, Nick Rivera, Ricardo Robaina, Morgan Roberts, Chris Robinson, Kester Robison, Matt Rodriguez, Jeremy Rodriquez, Evan Rogers, Denis Rogic, Anna Rosenberg, Caleb Rosenquist, Trevor Rothman, Matthieu Roussotte, David Rovin, Kevin Rucker, Jonathon Ruland, Taylor Russ, Jaime Ryan, Matthew Ryan, Chris Ryder, Song Ryoo, Grzegorz Sadzinski, John Salera, Matthew Salow, Ylan Salsbury, Marcos Salvatierra Gallardo, Orlando Salvatore, Charles Salzman, Ryan Samia, Jason Samoy, Jairo Sanchez, Brandon Sanders, Matt Sanders, Taylor Sanders, Camille Sanford, Alexander Sanoja, Vik Saraf, Laura Sardinha Kidde, Vinay Sarpeshkar, Michael Sassone, Ken Sato, Jason Savopolos, Corey Scanlan, Christian Scharling, John Scharmen, Ragnar Scheuermann, Calia Schie, Gustav Schmidt, Ryan Schwind, Dakota Scibilia, David Scott, Jason Scott, Jacob Segal, Almir Sehic, Gabe Selinger, Elizabeth Seminario, Pedro Seminario, Hyoung-Joong Seo, Kurt Servito, Matt Severin, Robert Sevilla, Nate Shapiro, Justin Shapp, Leticia Shapp, Jason Shattuck, Jonathan Moon Shaw, Josh Shelnutt, Joe Shely, Owen Shen, Dorothy Sheng, Matt Sherman, Scott Shicoff, Xander Shiells, Steve Shimizu, John Shin, Michael Shin, Matt Shipley, Mason Showalter, Ryan Shwayder, Jeffrey Shyy, Igor Sidorenko, Luke Sigmund, Milan Singh, Keith Sizemore, Michael Skacal, Johan Skoeld, Kai Skye, David Sladek, Justin Sloate, Ben Slupik, Shaun C Smiley, Michael Smith, Scott Smith, Taylor Smith, Travis Smith, Chao Song, James Minyong Song, Meng Song, Mongsub Song, Jessi Sosnovskaya, Marcos Souza, Kurt Sparkuhl, Erik Speeckaert, Nolan Speed, Francesco Spezzotti, Eric Spitler, Scott Stadick, Nicholas Stallings, Scott Stanfield, Peter Stapleton, Kevin M. Starr, Robb Steel, Craig Steele, Kim Acuff Steiner, Sebastian Stepien, Genevieve St-Michel, Cory Stockton, Will Stone, Daniel Story, Bethany Stout, Hannah Straw, Daniel Strum, Brandon Su, John Su, Shawn Su, Caroline Sugianto, Kyle Sullivan, Paul Sullivan, Deuta Sulprizio, Tiba Sumabon, Kari Sutherland, Mollie Swenson, Norbert Szabo, Adam Szpakowski, Brandon Tabone, Lianna Tai, Crystal Tam, Kelvin Tan, Yili Tan, Francesco Tarallo, Christopher Taylor, Richard Taylor, Anton Te, Martin Teichmann, Mike Teixeira, Adrian TerBorg, Thomas Teshima, Joseph Than, Non Thareechit, Justin Thavirat, Daniel Thomacos, Gavyn Thompson, Max Thomson, Rhett Torgoley, Anthony Trejo, Julien Tremblay, Dustin Trimble, Yanni Tripolitis, Anthony Trujillo, Scott Trujillo, Joe M. Truong, Alex Tsang, Perry Tsui, Galina Tucker, Geoff Tucker, Sarah Tudor, Pavlo Turchyn, Valna Tyng, Neil Stephen Valdez, Michael Valentine, Adam Van Dyke, Allen Vandegrift, Danielle Vanderlip, Tim Vasconcellos, Andrew Vassallo, Konstantin Vavilov, George Velev, Sarah Boulian Verrall, Michael Vicente, Kevin Vigue, Flavio Villalva, Lewis Villamar, Matt Villers, Geoff Virtue, Maxine Virtue, Ty Viveiros, Colin Volrath, Raymond Voo, Rachel Vought, Tylor Voydat, Brandon Vu, Don Vu, Meng Vue, Chris Wade, Daniel Waechter, Melissa Wakefield, Steven Walker Jr., Isaiah Walker, Tai Walker, Clint Walls, Carlin Walsh, Paul Walters, JP Walton, Mingxian Wang, Qiwei Wang, Tina A. Wang, Ashleigh Warner, David P Warner, Jacquelyn Washington, Tiffany K. Wat, Paul Watkins, Shane Webster, Paul Weiler, Jaeson Welch, Dan Wellman, Terri Wellman, Matthew Wenham, Michael Weschler, Peter Whalen, Chad Wheeldon, Gavian Whishaw, Sean C. White, R. Blaine Whittle, Eric Wiley, Jackie Wiley, Darren Williams, David Williams, Kenneth Williams, Phillip Williams, Robert Wolpov, Stephen Wong, Sara Wons, He-Rim Woo, Brett Wood, Timothy Woody, Elizabeth Work, Vance Wu, Frank Xu, Jimmy Xu, Mike Yaklin, Frank Yan, Matt Yan, Zhuangling Yan, Chujiang Yang, John Yang, Landon Yang, Serena Yang, Eric Yasukochi, James Yen, Zhao Yi, Christopher Yim, Thomas Yip, Justin Yong, Kea Yonni, Gayeong Yoo, John Yoo, Seyil Yoon, Brian Youn, Kevin Young, Justin Youngsaye, Andrew Yount, Andrea Yu, Fiona Jiayue Yu, Evgeniy Yukish, Erin Zaneski, Jason Zelechoski, Xifang Zhang, Kevin Zhao, Junze Zhou, Kris Zierhut, Ethan Zink, Jason Zirpolo, Jared Zondler, Nik Zufall
+00000001352E.07C: Jesse Davis
+Stephen Eusebio
+Brad Faucheux
+Markus Hammarstedt
+Craig Harris
+Kyongho Hong
+Joon Hyung Kim
+Daniel James Klug
+Matthew Lawrence
+Casey McDermott
+Brandon Nason
+Nikita Taranduke
+00000001352F.07C: Tamara Bakhlycheva
+Loren Broach
+Nathan Brock
+Niles Doubleday
+Hong Chan Lim
+Ying Liu
+Kyle Rau
+Matt R. Taylor
+Paul Warzecha
+000000013530.07C: Al Crutchley
+Qiu Fang
+Tim Guo
+Nesskain Hong
+David Kang
+Peter C Lee
+Andrew Menjivar
+Morten Skaalvik
+Daryl Tan
+Kejun Wang
+Llia Yu
+000000013531.07C: Lucas Annunziata
+Travis Castillo
+Fabien Christin
+Thiago Klafke
+Philip Klevestav
+Helder Pinto
+Steven Rich
+Phil Wang
+000000013532.07C: Jonathen Collins
+John Gotch
+000000013533.07C: Bo Hsuan Chang
+Jeffrey Engel
+Kacey Helms
+Lindsay Johnson
+Donald Phan
+000000013534.07C: Lan-Fang Chang
+Dylan Jones
+000000013535.07C: Stephen Coan
+Ben Gerowe
+Marcus Krautwurst
+Hak Lee
+Marcy Lee
+Taylor Pate
+Jennifer Szmurlo
+Tre Vital
+000000013536.07C: Alim Chaarani
+Greg Knowlton
+Christopher Shepherd
+Nate Swinney
+Chris Wilson
+000000013537.07C: Design Manager
+000000013538.07C: Adrien Banet-Rivet
+000000013539.07C: Geoff Goodman
+Matt Goss
+Michael Heiberg
+Junho Kim
+00000001353A.07C: Brandon Brennan
+Morten Hedegren
+Michael Liaw
+Scott Mercer
+Thomas Mountfort
+Joshua Noh
+Adam Puhl
+Jon Sova
+Trey Spisak
+Richard Washburn
+Brian Yu
+00000001353B.07C: UI/UX Designers
+00000001353C.07C: Roph Loch
+Celeste Pang
+Elaine Yang
+00000001353D.07C: Narrative Designers
+00000001353E.07C: Justin Groot
+Gavin Jurgens-Fyhrie
+Miranda Moyer
+00000001353F.07C: Lead AI & Animation Engineer
+000000013540.07C: AI Engineers
+000000013541.07C: David Venturini
+Andrew D. Wang
+Kanon Wood
+000000013542.07C: Animation Engineers
+000000013543.07C: Stephen Penson
+Toby Vockrodt
+000000013544.07C: J. Brad Byrd
+David Givone
+Myron Liu
+Otmar Schlunk
+James Touton
+Howie Yoo
+000000013545.07C: Michael Goodman
+Zach Metcalf
+Derek Mulder
+Dan Reed
+000000013546.07C: Chris Chen
+Adam Schmidt
+Alex Serio
+Jessie Yang
+000000013547.07C: Marco Alamia
+Parker Greene
+Will Pearce
+Will Reynard
+Bruce Wilkie
+000000013548.07C: Lead Live Ops Engineer
+000000013549.07C: Jeffrey Brill
+00000001354A.07C: Live Ops Engineers
+00000001354B.07C: Derrick Dymock
+Kimberly Li
+Chris Peters
+00000001354C.07C: Mike Aversa
+Jude Cross
+Edwin Ho
+Thomas Teixeira
+Travis Thornton
+00000001354D.07C: Scott Egashira
+Joshua Landman
+Morgan Maddren
+James Mansfield
+Robbie McMahon
+Alex O'Konski
+Philip Orwig
+David Yu
+00000001354E.07C: Julie Anne Brame
+Even Braudaway
+James Farris
+Luke Mordarski
+Madilyn Simons
+Tom Watson
+00000001354F.07C: Andrew V. Boyd
+Adam Gershowitz
+000000013550.07C: Christian Avina
+Maddiy Cook
+Whitney D. Day
+Romain Dijoux
+Gary L Fonville Jr
+Nicole Gillett
+Natalia Goncharova
+Kim K Horn
+Tracy Kennedy
+Samuel Park
+Matthew Whited
+Wesley Yanagi
+000000013551.07C: Chris De La Pena
+Justin DeCloedt
+Geoffrey Garnett
+Shawn Minoux
+Jacob Rhein
+000000013552.07C: COMMERCIAL
+000000013553.07C: Business Operations
+000000013554.07C: Henry Jun
+Michael "Skip" See
+Austin G. Taylor
+000000013555.07C: Consumer Marketing
+000000013556.07C: Joshua Engen
+Lynette Greathouse
+Todd Harvey
+Matt Small
+000000013557.07C: Creative Services
+000000013558.07C: Hector Bolanos
+Mark Bryner
+Jorge Calleja
+Beau Hudak
+Brian H. Kim
+Margaret Lee
+Ricardo Mireles
+Ken Murayama
+Joshua Pletzke
+Benjamin Scanlon
+Jens Sjöbergh
+000000013559.07C: Facilities
+00000001355A.07C: Jonathan Chiu
+Justin Nakamura
+00000001355B.07C: Global Insights
+00000001355C.07C: Stephen Kraman
+Aleksandar Mirkovic
+Kevin Wang
+00000001355D.07C: Gabe Chua
+Molly Fender
+Joshua Nash
+Chris Sico
+00000001355E.07C: Public Relations
+00000001355F.07C: Steven Khoo
+000000013560.07C: Karolina Bryner
+Danielle Garland
+000000013561.07C: Katiya Goodman
+000000013562.07C: Andy Houghtelin
+000000013563.07C: Shawn Benson
+Dennis Castello
+Kenny Hudson
+Lance Powell
+000000013564.07C: Jessica Castillo
+James Chapman
+Ron Clonts
+Chris Cossey
+Adam Cruz
+Jennifer de los Reyes-Powell
+Cecilia Deyne
+Foster M. Elmendorf
+Ryan J. Felton
+Josh Fuesting
+Denis Genest
+Zachary Hart
+Daniel Helwig
+Kieran Teak Holley
+Alex Kwok
+Mike Laursen
+Cat Lee
+Tri-Vien Nguyen
+Dana Pull
+Jacob T. Rodriguez
+Charles Sites
+Andrew St. Pierre
+Brian Urbina
+Mike Westergaard
+Michelle Wong
+Matt Worcester
+000000013565.07C: Quality Engineer
+000000013566.07C: Iron Galaxy
+000000013567.07C: Daniel Byrd
+Chris Keyser
+Mark Reeves
+Drew Turk
+000000013568.07C: Executive Vice President & General Manager, Platform & Technology
+000000013569.07C: Mike Ybarra
+00000001356A.07C: Executive Vice President & Head of Ecommerce
+00000001356B.07C: Senior Vice President, Head of Planning & Strategy
+00000001356C.07C: Head of Applications
+00000001356D.07C: Head of Platform
+00000001356E.07C: Senior Director & Editor in Chief
+00000001356F.07C: Senior Director, Mobile Strategy
+000000013570.07C: Dean Grandquist
+000000013571.07C: Director, Design
+000000013572.07C: Christy Schaefer
+000000013573.07C: Director, Security Software Development
+000000013574.07C: Product Planning Directors
+000000013575.07C: Sabrina Meditz
+Melissa Meyer
+000000013576.07C: Brian Baum
+Warren Colbert
+David Eckel
+Sean Flinn
+David Howe
+James Hugard
+Will Jang
+Robert LaCruise
+Jonathan Manger
+Mike Metcalf
+Damon Osgood
+Rance Piatt
+Havi Sullivan
+Martin Tegner
+Ali Vatani
+Mike Wallis
+John Yaney
+000000013577.07C: Steven Alfisi
+Jeff Allison
+Jay Bacuetes
+Morgan Bellouguet
+Edward Beranek
+Chris Bernert
+James Cabel-Neil
+Jason Campbell
+Alex Cardenas
+Shane Cargilo
+Sean Catchpole
+Qi Ming Chen
+Karen Conley
+Guillaume Cournoyer
+Sarah Doebler
+Peter R Elespuru
+Jason Fillo
+Bryan Frederick
+Karisa Goodell
+Chad Hansell
+Hoa Ho
+Adam Holisky
+Tim Hong
+Gary James
+Amy Jantzer
+Alex Jarzebinski
+Scott Lantz
+Jenny Liu
+Shuai Liu
+Annie Lu
+Michael C. Maggio
+Austyn Mahoney
+Julia Marsh
+John Matzen
+Tripper McCarthy
+Brian Miyamoto
+Christopher Morley
+Andrew Murphy
+Christi Nishiyama
+Eli Ofenstein
+Soheil Oliaei
+Dahmian Owen
+Michael Paglione
+Matthew Reddick
+Kyle Riccio
+David Schless
+Vlad Semenov
+Tushar Shah
+PJ Singh
+Ed Tischofer
+Ryan Vance
+Jialin Wang
+John Ward
+Keith Weston
+Luke Wilson
+Leo Wu
+000000013578.07C: Design
+000000013579.07C: Christina Brooks
+Rachael Callahan
+Felix Jung Hwan Choi
+Aaron Crapo
+Krystina Yitong Diao
+Thomas Heger
+Stacey Jae Hee Jang
+Katherine Joplin
+Seonghak Jung
+Dohyeong Kim
+Justin Lancaster
+Tiffany Le
+Eddie Lee
+Rob McCoy
+Alix Nguyen
+Daniel Peterson
+Zac Pfaff
+Keith Rhee
+Melody Yi Yang Seng
+Hansa Wahla
+Dana Wood
+Sandy Yang
+Kevin Yeung
+00000001357A.07C: Editorial
+00000001357B.07C: João S. de Araujo Neto
+Dylan Bates
+Geoff Fraizer
+Martin Frost
+Michael Palumbo
+Ryan Quinn
+Cat Smedley
+00000001357C.07C: Ali Abouzahr
+Siddharth Reddy Aerva
+Lance Ahmu
+Tae Hyoung Ahn
+Hanna Alam
+Tony Allain
+Anubhav Arya
+Michael Atchison
+Alex Bagg
+Nathaniel Ballinger
+Cord Bartlett
+Thomas Becker
+Daniel Berman
+Chris Bisbee
+Dustin Boersma
+Armel Bourgon
+Benjamin Brown
+Nathan Brown
+Joe Broxterman
+James Burroughs
+Joao Calhandro
+Adam Capone
+Taz Carper
+Megan Chang
+Stephanie Chang
+Peter Chanthamynavong
+Jesse Chisholm
+Mikyoung Choi
+Seungki Choi
+Phil Clay
+William Cobb
+Steve Cochrane
+Kyle Copeland
+Aaron Cripps
+Austin Davis
+Brett Davis
+Roz de la Cruz-Ramos
+Tianyi Deng
+Quentin Devauchelle
+Dara Diba
+Aaron Doukas
+Randal Droher
+Joe Fessler
+Chris Fields
+Matthew Follett
+Michael Fox
+Brit Gardner
+Jed Gentry
+Russell Glasser
+Mingbo Gong
+Jason Goodrich
+Stephen Gordon
+Adam Greenfield
+Tyler Gregory
+Greg Haase
+Tyler Hartzheim
+Jasmine Hurst
+Pat Jacobs
+Chris Jafarinejad
+Daniel Jankowiak
+Gareth Jensen
+Wonhee Jung
+Shahar Katz
+Alexander Kayuda
+Brian C. Kim
+Dennis Kim
+Shannon Kliffmueller
+Julie Ko
+Megan Koh
+Matthias Kohler
+Allen Byungsoo Koo
+Brian Koo
+David Koontz
+Donald Lawrenz III
+Daesup Lee
+Eunyang Lee
+Ockkyoung Leem (Lina)
+Aaron Lemmon
+Spenser Li
+Wei Li
+Ben Lilley
+Jeff Lio
+Lulu Liu
+Mitchell Loftus
+Kenneth Logan
+Zachary Lumpkins
+Theresa Luu
+Pascha Maisenovich
+Christopher Matsumoto
+John McCormick
+Nick McKinnon
+Mike McWilliams
+Walt Mitchell
+Michael Morrell
+Vickeylynne Morrow
+Chris Moy
+Chris Myles
+Vinit Nair
+Alex Nakorn
+Joel Nelson
+Michael Nguyen
+Andrew Nolan
+Darren Norton
+Slava Oleinik
+Sunanda Omkaram
+Sangyong Park
+Nicholas Pennock
+Ted Percival
+Cody Phillips
+Mike Powell
+Carson Powers
+Michael Pratt
+Jerrod Putman
+Faiz Rahman
+Alex Ramos
+Stephen Raub
+Meriel Regodon
+Oscar Reyes de la Cruz
+Blake Robbins
+Harry Robbins
+Brandon Rotkel
+Jeff Rupert
+Brooke Ryan
+Joshua R. Sanders
+Chris Santiago
+Stephen Santoro
+Neil Shapiro
+Michael Shen
+Daniel Sherman
+Tricia Shi
+Hwachul Shin
+Stephanie Shu
+Cole Smith
+Nicholas Soltau
+Shashank Soni
+Jeff Steele
+Taylor Sturtz
+Justin Su
+Fanny Suh
+Dung Ta
+Jeremy Tebangin
+Sean Teramae
+Bhumika Thakker
+Ronald Tice
+Masako Toda
+Becky Tomlinson
+Luke Tomlinson
+Tosho Toshev
+Brandon Treadway
+Eric Turley
+David Valentine
+Nora Valletta
+Kevin Viglucci
+Victor Villa
+Jared Wasserman
+Devin M Webster
+Daniel Weiner
+Daniel A. Weltz
+Scott White Jr
+Taylor White
+Stephen Whiting
+Corey Wilson
+Drew Wilson
+Kelly Wilson
+Michael Wolfe
+Eric Wu
+Melissa Xiong
+Andrew Yang
+Casey Yelland
+Serena Young
+Jack Zhang
+Andrew Zhao
+00000001357D.07C: Product Management
+00000001357E.07C: Alyssa Brizzi
+John Carpenter
+Krystel Cooper
+Blake Driesler
+Madison Fichtner
+Jesse Gill
+Frank Gilson
+Raechele Greenwald
+Everett Gresham
+Ben Grodsky
+Chiemi Ishikawa
+Amir Jahanshahi
+Raj Jenveja
+Ty Julian
+Lance Kimberlin
+Neal Kochhar
+Ken Landen
+Naveen Lather
+Monika Lee
+Julie Mahoney
+Jennifer Nguyen
+Cynthia Northrup
+Andrea Opimitti
+Russell Pippin
+Shah Rahman
+Roneil Reddy
+Christian Reynolds
+Rody Rodriguez
+Thomas Rodriguez
+Jens Salvesen
+Sasha Shams
+Ian Shepherd
+Hayden Smith
+Brian Starkey
+Carolyn Stocki
+Laura Tran
+Nam Tran
+Stephanie Valle
+Heidi Wagstaff
+Nick Weatherlow
+Josh Wing
+Joe Zhou
+00000001357F.07C: Planning & Strategy
+000000013580.07C: Katie Do
+Kevin Joh
+Eddie Kang
+Michael Kremer
+David Liu
+Adam Massey
+Stephanie Paddock
+Courtney Parker
+Chase Preston
+Tami Sigmund
+Ryan Thompson
+Matthew Williams
+Jeffrey Wong
+000000013581.07C: Platform Security
+000000013582.07C: Matthew Adams
+Andrew Artz
+Sela Asore
+Tyler Baetz
+Mark Barrios
+Zak Bennett
+Eric Camadine
+Michael Caron
+James Chao
+Waldemar Fritz
+Norm Harms
+Susan Helton-Rahman
+Manuel Hofer
+Michael Hoffmann
+Dongwook Kim
+Skye Knighton
+Ludivine Le Rouge
+Thomas Lenglet
+Farzon Lotfi
+Sirius Lu
+Eric Luxa
+Stephanie Lyon
+Konstantinos Markogiannakis
+Brad Moshenko
+Clint Rice
+Matthew Rice
+Tommy Sabri
+Chris Savolskis
+Matt Spence
+Lucia Suarez Porta
+J.R. Swendseid
+Kevin Szkudlapski
+Timothy Tash
+John Tkach
+Peter Ty
+Sebastiaan Van Doornspeek
+Ismael Villeger
+Joe Weekley
+Emerson Wiley
+Micah L Wilson
+Zhuangyou Xu
+Jack Yang
+Mathew Young
+000000013583.07C: Greg Bae
+Dave Geffon
+Josh Lu
+Greg Wilson
+000000013584.07C: Gabe Chua
+Brendan Docherty
+Derek Heck
+Andrew Kauz
+Josh Kerwin
+Amy Lee
+Jeffrey Shen
+David Wang
+000000013585.07C: Rich Bantegui
+Molly Fender
+Adam Fletcher
+CW Jung
+Joshua Nash
+Kurt Ocher
+Tom Powers
+Chris Sierra
+000000013586.07C: Vic Bekarian
+Adrian Chen
+Matilde Controzorzi
+David Cramer
+Henry Jun
+Jaclyn Lo
+Jonathan Mann
+Patrick Mehta
+David H. Park
+Michael "Skip" See
+Chris Sico
+Kate Simpson
+Rachel Siteman
+Yu Sian Tan
+Austin G. Taylor
+Lisa Twu
+Dylan Walker
+000000013587.07C: Commercial Organization Executive Support
+000000013588.07C: Lyndsi Achucarro
+Missy Hall
+000000013589.07C: Senior Director, Corporate Communications
+00000001358A.07C: Senior Director, Global Editorial
+00000001358B.07C: Christy Mina Um
+00000001358C.07C: David Gredell
+Steven Khoo
+Fabio Lo Zito
+Miguel Lopez
+Sean Molloy
+Cynthia Park
+Cassandra Reynoso
+Amelia Savery
+Brittany Tompkins
+Gerald Villoria
+00000001358D.07C: GLOBAL CORPORATE ALLIANCES
+00000001358E.07C: Vice President, Global Corporate Alliances
+00000001358F.07C: Paul Dowling
+Steven Price
+000000013590.07C: Ron Covert
+Veronica Justice
+Angie Lee
+Albert Ostiz
+Ryan T. Ward
+000000013591.07C: DEVELOPMENT SERVICES
+000000013592.07C: Vice President, Development Services
+000000013593.07C: Wyatt Cole, Rory Devitt, Wonjae Jeong (Paul), Patrik Knoll, Pete Mai, Johnny J. Perez, Bruce Prescott, Nicholas Ray, Fabien Tumminello
+000000013594.07C: Shayra Adebor, Daniel Ahern, Johnny Ahlgren, Luca Alesini, Yuber Alter, Mateusz Ezra Altman, Hyojin An, Neil Anderson, Oksana Andoka, Ludovic Andrianoff, David Angus, Pawel Antonik, Ricardo Aranguren, Guillaume Arp, Roland Ayliffe, André B. Ferreira, Jonathan Bach, Anda Badmaev, Francisco Baez, Elif Bagci, Dimitrios Bampanaras, Robert Band, Jesse Barajas, Simon Bargain, David Barlow, David Barrick, Donovan Bautista, Edwin Bautista, Andreas Beier, Stefan Belchev, Richard Bennett, Victoria Bennett-Keenan, Mario Berndt, Mateusz Bilski, Howard Bishop, Nick Blokker, Keith Boardman, Christian Bock, Patrick Bohrer, Lorenzo Borgini, Yann Bovi, Alexey Bozhor, Brian Brennan, Lucien Bui, Heather Burdett-Holloway, Peter Burghardt, Crystal Burne, Scott Busbea, Matthias Butter, Carlos Caballero, Felipe Cabral, Gauthier Cahen, Rafael Calvo, Zack Cameron, Allan Campbell, Matthew Campbell, Angelo Cani, Daniela Canoy, Elena Chan, David Chang, Noi Chang, Chara Chen, James Chen, Roy Chen, Kyle Chenoweth, Arnold Chiang, Sammy Chiang, Jungwon Cho (Ruda), Chimin Choi, Steven Chu, John Chuang, Elaine Chueh, Rita Cocozza, Justine Colson, Alisdair Comb, Arnold Comeau, Carlo Comessatti, Dean Constable, Jason A Copeland, Matteo Core, Andrew Cox, Steven Cross, JC Crump, Cody Cubbage, Martin Dammers, Jason Davenport, Stuart Davis, Jonathan R Day, Miguel De Luna, Ermanno Debenedetti, Steven Dickson, Anton Diedul, Andre Domigall, Gareth Donaghey, Maria Duarte, Jens Duever, Joshua Eberhart, Jan Ebermann, Patrick Ehlen, Sherief Elmalayaty, Daniel Errington, Alana Estrada Cruz, Matthieu Faucillion, Pedro Fazenda, Welington Fernandes, Eddie Fiege, Cristina Figallo, Wolf-Philipp Fischer, Doug Fitchett, Michael Flanigen, Elias Flores, Mauricio Fuentes, Cody Gale, Raul Gameros, Lennon Garcia Cisneros, Miguel García Gómez, Grégory Garcia, Jason Garcia, Marshall Garcia, Melanie Gauderon, Göran Gauruder, Silvio Geisenhainer, Kasper Giehm, Allison Glass, Marcela Gleixner, Levi Godwin, Lucas Goes, Alex Golds, Manuel Gonzalez Santome, Hernán González, Sébastien Gouaux, Markus Graffe, Brian Greska, James Griggs, Bryan Grimes, Todd Gropp, Déarbhla Guinan, Christian Gülle, Jonathan Hall, Aaron Hamilos, Victoria Hamilos, David Hammer, Janggun Han (Leny), Jason Harriett, Amanda Kate Harris, Michael Hart, Sandra Heide, Caleb Henderson, Joanna Henson, Mark Hernandez, Thomas Hilgers, Amanda Hoffman, Mark A Hoffman, Lacey Hohisel, Anna Marie Holland, Jinpyo Hong (Rudy), Seungguk Hong, Guus Hoogendoorn, Evan Hsieh, Josh Hu, Gary Huang, Scott Hudson, Jack Hufstedler, Iqbal Hussain, Bomi Hwang (Bom), Yongcheol Hwang, Nash Irvin, Maria Ison, Aleksandr Ivanov, Nataliya James, Mario Janus, Guillaume Jégu, Lefay Jen, Jaeyoung Jeon, Seunghyun Jeong, Pascaline Jibert, Jeremiah Johnson, Diana Jojic, Aled Jones, Dean Jones, Emma Jones, Jacob T Joyce, Luis Juarez Sanchez, Stefan Kaczmarek, Natalia Kalienko, Azad Kdro, Dylon Kempkes, Frank Kendziora, Susanne Kendziora, Damien Kenney, Jon Kenny, Phillip Kerins, Gunars Kessels, Kirill Khranilov, Matthias Kiesel, Yongjoon Kim (Joon), Seolah Kim (Kathy), Katie Kim, Mangi Kim, Minwoo Kim, Seulki Kim, Mike Kipnis, Justin Kiser, B Kitchens, Yevgen Kondratenko, Christian Königstein, Leokadiya Konstantinova, Andreas Kordes, Alex Koreneff, Olga Kosenko, Chris Kouvopoulos, Susanne Kovac, Dominik Kreyssing, Patrick Krüger, Eric Kuan, Aleksei Kulaev, Jonathan Kulcsar, Myrna Sayuri Kusano, Vadimas Kvetkauskas, Logan La Coss, Francesco La Tegola, Matthias Labitzke, Aaron Langan, Roy Latorre, Janina Laure, Tiffany Layton, Cheongha Lee (Annie), Jua Lee (Gylfi), Sungwon Lee (Iris), Sangjin Lee (Mel), Gwanyeol Lee, Joonbin Lee, Kyetaek Lee, Youngki Lee, Julia Leitner, François Lenglet, Andrew Lewis, Gabriel Li, Roger Lin, Teddy Lin, Erik Lindberg, Aaron Link, André Linnemann, Pululu Liu, Adrián Llamas Estévez, Johnny Lo, Joshua Long, Umberto Lopes, Oliver Lötscher, Iwona Łucek, Jake Luna, Louis Lux, Christopher Luzynski, Sylvan Lynn, Michael Ma, Gianluca Magnanimi, Sebastian Magnus, Darren Lee Mangan, Jamie Manzanalez, Diana Marques, Joseph Mars, Jason Massalve, Guillaume Maze, John McBurney, Thomas McCandless, Aaron McCorcle, Steve McNamara, François Medaerts, Bo Mejdahl, Adrián Meléndez Serrano, Martin Melendez, Dmitry Melnikov, Oscar Michel, Douglas Midgley, Anton Mikhaylov, Björn Miller, Jenny Miller, Robert Möckel, Iñigo Moleres, Christophe Monteiro, Daniel Mooney, J.J. Morales, Jonathan Morrissey, Sean Motto, Sebastian Mottschall, Robert Mueller, Barry Murphy, Lais Mussarra, Bianca Mustelier, Eduard Narbut, Alexander Ion Naya Sánchez, Paige Nieto, Dmitrii Nikitenko, Richard Noriega, Evan Normand, Markus Nowak, Sean Nowlin, Juan Alberto Núñez Lauff, Jessica L. Nunn, Brian O'Connor, Olli Oja, Aaron Olson, Paul O'Neill, Miguel Angel Ortega Ortiz, Kyle J Otsu, Marco Otto, Anna Ozolina, Lorenzo Pagliacci, Cristina Park Tran, Charles Parmelee, Francine Parmelee, Matt Pashia, Gerardo Patino, Nolan Patterson, Callie Pelham, Nancy Perez, Tim Peters, Michail Petriv, Jean-Louis Phan Tran, Helder Pires, Isaías Pires, Josfred Poinsot, Dmitrii Popov, Jennifer Posey, Carlos Pozo Montero, Austin Purcell, Christopher Purvis, Sébastien Pusset, Bérenger Queune, Frank Quick, David R. Holt IV, Kannan Raju, Brandon Ramsey, Cristian Raschioni, Steffen Reinke, Hugh Rennard, Bruno Ribeiro, David Ribeiro, Filipe Ribeiro, Vinicius Ribeiro, Eduard Riekstins, Stefan Rieß, Mark Riosasso, Radoslaw Robaczynski, Richard Roberts, Julie Rochette, Dustin Rockers, JD Rodriguez, Michael Rodriguez, Ramon D Rodriguez, Refugio Rodriguez, Justus Rönnau, Henning Røst, Julie Røst, Micaël Roumeas, Iain Rowland, Karine Rubenyan, Don Rudy, Fernando Ruiz, Monica Ruiz, Josh Ruland, Jekaterina Rusinova, Christian Rusinque, Nate Ruttinger, Ruslan Saborgalijev, Valeria Sadilova, Emma Sadler, Timo Sagewitz, Marco Salemi, David Sánchez Millán, Oscar Sandstrom, Miren Sarasola Laspiur, Iga Sasiela, Andreas Saß, Kisten Sauceda, Simon Schertz, Andre Schickhoff, Christian Schilling, Jeremy Schindler, Sascha Schneider, Nico Schroeter, Stephen Sebring, Victor Sefastsson, Ashley Seigler, Nicholas Seigler, Olexiy Senichek, Fernando Serina, Zachary Settle-Craig, Katie Shadonix, Crystal Shelton, Jack Shi, Steven Shoesmith, Craig Shrewsbury, Miroslaw Siemens, Juris Silovs, Mike Simpson-Kerouredan, Sean Sintef, Micheala Sipult, Anastasia Sitnik, Anton Sitnik, Missy Smith, Ryin Smith, Sarah Em Smith, Becca Smucker, Marcus Sobral, Jihyen Soh (Natalie), Anna Sokolova, Jon Sommer, Sejin Son, Minsung Song (Aven), Mijung Song (Darin), Harley Srebnik, Michaël Stahmer, Paul Stapley, Tricia Steensma, Alexander Steuckmann, Alexander Stippekohl, Jessica Stone, Valentina Strahova, Arthur Su, Jadis Sun, Vitalijus Surovas, Radoslaw Szefler, Laura Talavera Guadarrama, Alexander Talbott, Christopher Talbott, Aj Taliaferro, Christopher Tarbill, Doris Tatzgern, Mathias Tatzgern, Alexis Terrasse, Sarah Thomas, Tyler Timmins, Jenny Tomalik, Patrick Töwe, Renaud Toyer, Christian Traute, Ryan Triner, Kristin Tsang, Salisa Tseng, Hunter Tumey, Mihhail Tun, Maria Vakulenko, Tyler Van Natter, Ivan Vasilyev, Jose Vega, Arturas Velutis, Guillaume Verna, Peter Vernon, Luis Vieira, William Vieira, Bruce Wafful, Terry Wang, Arcy Ward, Elias Warren, Robert Webb, Mario Weissenborn, Zach Weng, Thomas Wertnig, Sarah Westerhoff, Renate Weygold, Harald Willems, Cole Williams, Keith P. M. Willingham, Brandon Wilson, Rebecca Wilson, Keegan Windrich, Andrea Wolf, Roland Wolf, Jamie Wolfe, Dennis Wollmann, Christopher Woodcock, Caroline Wu, Sammi Wu, Yi-Fang Wu, Stark Yang, Soheon Yeo (Cary), Jihyun Yoon, Terry Youngkin, Miseon Yu (Fany), Marisa Yu, Yury Zabarovskiy, Vincent Zacchéo, Sebastian Zaebe, Varvara Zakharova, Cori Zamora, Adam Zheng, Dio Zheng
+000000013595.07C: Tom Edwards, Daniel Healy, Shonda Kenter, Daejong Ki (Chris), Adrienne Maines, Jasmine Monteith, Deirdre Perrott, Ryan Wick
+000000013596.07C: Associate Director, Regional Planning and Support Services
+000000013597.07C: Maged Fares
+000000013598.07C: Associate Director EMEA, Regional Planning and Support Services
+000000013599.07C: Serge Pinçon
+00000001359A.07C: Associate Director Live Operations, Regional Planning and Support Services
+00000001359B.07C: Andy Maindelle
+00000001359C.07C: Robert Busch, James Drosche, Olga Duval, Sylvain Enjalbert, Blair Kuschel, Jinsu Lee, Connie Liao, Louis Lu, Jennifer Ni, Serge Olivier, Sarah Thomas Hamm
+00000001359D.07C: Jaehyun Ahn (Jason), Dinara Bagirova, David Barney, Alexander Bradburn, Ulises Brage, Sabrina Brogan, Helen Browne, John Buik, Daniel Carpenter, Chris Chang, Roxin Chang, Preston Cheeks, Issac Chen, Seongyoon Cho, Myeonghun Choi (Jake), Byungkwan Chung (BK), Eric De Freslon, John Harry De Lara, Juan De Luna, Rafael Del Rio Ravassa, Lena Drevermann, Sungho Eom (Daniel), Maider Ferradas, Stefan Frei, Eliana Gori, Kyle Hawkins, Heidi Høibråten, Dirk Hollis, Wade Hou, Mark Hsu, Jami Hurst, Pat Jennings, Ben Johnson, Ryan Johnston, Hyewon Kim (Carotin), Jaeyeon Kim, Neal Kingston, Brian Lanahan, John A Lanier, Kyueun Lee (Rain), John Lee, Junhee Lee, Lyn Li, Simon Linford, Vicky Martín Briasco, Belinda McGhee, Chris Müller, Sébastien Musquin, Frederick Nassar, André Nunes, Celso O'Donnell, Stephen O'Donnell, Andrew Parrott, Cristiano Pereira, Robert Read, Evan Repschleger, Martin Riha, Ryan Rodenbaugh, Pierre Rosenthal, Andy Salwey, Phill Schroeder, Melody Shih, Matteo Spataro, Joseph Tarman, Vinh Tran, Mike Tucker, Ryan Vowler, Patrick Wu, Hosang Yu (Gil), Kenny Yu, Judith Zachariae
+00000001359E.07C: Alan Marti
+00000001359F.07C: Charlie Areson, Aleksej Avdejev, Christopher Bailey, Angelo Concepcion, Paul Cox, Katie Kendall, Cinthia Kush, James Logan, Blade Marcantel, Andrew Pace, Megan Reynolds, Casey Shipp, Adam Wozniak
+0000000135A0.07C: Tammy Hawkins
+0000000135A1.07C: Brian Anger, Ryan Karg, Casey Rising, Greg Taylor, Andreas Unger
+0000000135A2.07C: Brian Abenes, Karim Adala, Marcos Araujo, Sandra Barajas-Norris, Michael Billman, Kiryl Bobin, Keaton Bracy, Jim Butcher, Jeff Carlo, Rachel Chan, Cedric Coret, Austin Cornell, Tony Duson, Joshua Ehlers, Keith Floresca, Andy Goolsby, David Gray, Josh Gunder, Jordan Gundlach, Richard Hardy, Chris Havranek, Cameron Hirbodi, Rolando Hurtado, Jacob Kennedy, Brian Libby, Natasha Miller, Steven Mitcham, Chris Nunn, Teddy Pao, Sergey Paykov, Michael Pereira, Steven Pereyda, Dylan Phelps, Michael Quintana, Chad Racine, Donald Rawlings, Jessica Rizzo, Brian Rose, Gilbert Samuelian, Brian Smith, Dorothy Stanford, Michael Stokely, Kenneth Tan, Steven Thacker, Thomas Yee, Norman Ying, Alison Zhang
+0000000135A3.07C: Kelly Ortega
+Kristen Petrongelli
+0000000135A4.07C: Shannon Armstrong, Samantha Bebee, Meg Kelly, Natalie 'Nanis' Ramos
+0000000135A5.07C: Joontae Hwang
+Jessie Lin
+Yvonne Shi
+0000000135A6.07C: Almudena Alia
+Ryan Cai
+John Chen
+Mike Hedley
+Akira Kato
+Kyoungho Ko
+Denisse Kreeger
+Jaeyang Kwak
+Byungwoo Kwon
+Luc Lacheny
+Yian Lee
+Emil Lu
+Maxim Mizin
+Catherin Newmann Halebian
+Benedikt Oehmen
+Nicolas Parenti
+Berta Pérez García
+Wolfram Sack
+0000000135A7.07C: Localization Audio
+0000000135A8.07C: Ekaterina Bendrysheva
+Dominick Biava
+Monbaza Chang
+Jorge Corte de Paz
+Sarah Lu
+Kai Moosmann
+Daniel Radschun
+Eunho Shon
+Frédéric Vasseur
+Yu-Hsien Wei
+Zac Zheng
+0000000135A9.07C: Svyatoslav Merlin
+0000000135AA.07C: Julian Liu
+Igor Sobolevsky
+0000000135AB.07C: Localization Program Management
+0000000135AC.07C: Steven Garrad
+Alexander Ipfelkofer
+Alexander Lyubov
+0000000135AD.07C: Pierre-Marc Arnaud
+Claire Bajard
+Nicolas Borel
+Giovanni Bresciani
+Arthur Chang
+Dale Chou
+Paula Del Valle Sánchez
+Iakov Dyskin
+David Flórez Herrero
+Carlos Garcia Renta
+Aldéric Gianoly
+Martín Goñi Torres
+Aurelio González Riesco
+Raphaël Honoré
+Dominik Hothow
+Vladimir Kolenkov
+Sangwoo Lee
+Angela Liu
+Rubén López González
+Sílvia Mapelli
+Jaewoo Mo
+Stefan Mohr
+Ricardo Mora Expósito
+Eric Nagase
+Nozomi Oshima
+Patricia Pérez Vera
+Lara Quero Pérez
+Hadrien Rudich
+Dagny Schaedler
+Yannie Zhang
+0000000135AE.07C: Localization Quality Assurance
+0000000135AF.07C: Jiro Cai
+Thomas Chabrier
+Jenneth Chaovisutikul
+Menghan Chen
+Martin Chung
+Juan José de la Torre García
+Michal Glebicki
+Rich Greene
+Jack Guo
+Daniel Huang
+Dorothy Kang
+Dmitrii Karpov
+Dokyu Kim
+Hsing H. Lee
+Hyunjin Lee
+Kyungjoon Lee
+Zhiqiang Li
+Renzo Lobo
+Giada Longato
+Michael Ma
+Paula Martinez
+Lily Niu
+Heeyoung Park
+Emily Qiao
+Alexander Redeker
+Fabián Salas Casillas
+Myroslav Savanzha
+Vincent Tsai
+Wendell Tsai
+Marc Wehbe
+Gemma Yang
+Michael Yeh
+Bumsuk Youn
+Leo Yu
+0000000135B0.07C: Localization Language Specialists
+0000000135B1.07C: Christelle Bravin
+Luca Canu
+Krystyna Cesarz
+Nanthawan Chalitapanukul
+Calvin Chu
+Anne-Sophie Denglos
+Florian Descher
+Ricardo Duran
+Fred Fleury
+Sergii Gorbunov
+Ting Hao
+Hank Hsu
+Horus Huang
+DongHo Jeong
+June Kim
+Hui Kyung
+Ross Lai
+Bo Li
+Victor Hugo Miranda Jr.
+Mohan Niu
+Paula Osorio Pomares
+Cathy Park
+Seoyeon Park
+María de los Ángeles Rodríguez Marrero
+Sherry Shen
+Janet Tsai
+Kenneth Tung
+Yuriy Vasilyev
+Gewei Wang
+Wango Wang
+Robert R. Wilson
+Tianqi Yang
+Eric Zhang
+Jimmy Zhang
+0000000135B2.07C: Diego Díaz
+Thomas Flöter
+Nephenee Forero
+Felice Huang
+Se-Yoon Hwang
+Jung Hwan Kim
+Haneul Lee
+Federico Libralato
+Alexey Pyatikhatka
+Michael Radnitz
+0000000135B3.07C: Localization Administrative Support
+0000000135B4.07C: Shannon R. Cooper
+0000000135B5.07C: Andrew Anat
+Tori Andreas
+Larry Bolden
+Julian Bongat
+Anton Hsin
+Christopher J. Mountain
+Danny H. Nguyen
+Matthew Novy
+Rob Rivera
+Leonard Rodriguez
+Anthony Roybal
+Heiden Salguero
+Chad Shoemaker
+Kevin Silverberg
+Brennen Snow
+Matthew Sparks
+Penelope J. Stansifer
+Andrew Thacker
+Lauren Welch
+Jose Zamora
+0000000135B6.07C: Ryan Antonelli
+Todd Attaway
+Allen Ben-Harush
+Sam Casper
+Garret Craig
+Tiffany Gibson
+Mark Heller
+Ed Hocking
+Shabana Hussain
+Ben LeBar
+Travis Shute
+Anthony Sierra
+James Sutton
+John Thomas
+Aaron Yasukochi
+0000000135B7.07C: Allen Alvarado, Mahyar Babaie, Ryan Bebee, Louis Bejot, Mark Bergman, Nelson Bermudez, Timothy Biley, Aaron Blean, Kelly Bollinger, Jerome Bonoan, Ryan Bowdre, Austin Bressie, Brent Brewington, Thomas Brooks, Nicholas Buczynski, Ivan Burgos, Halley Capo, Enrique Castro, Bryan Chice, Ben Choi, Donnie Cornwell, Vincent Correa, Alex Crast, Alex Dangler, Christian Decomain, John Ehresmann, Timothy Evans, Panyia Fang, Robbie Fenoglio, Cory Finnegan, Westley Freeman, Rodolfo Garcia, Jessica Gonzalez, Lucas Goodman, Kevin Ha, Chase Hall, Douglas Hill, Ting Huang, David Keh, Bjorn Kohlberger, Dan Lee, Connor Leger, Joshua R. Lewis, Asher Litwin, Gary Machlis, Marc Magruder, Lakshmi Mahareddy, Keith McAvoy, Zachary McCann, Tony Misgen, Nathan Mitson, Cameron Mohr, Meko Morgan, Chelsey Moyer, James S. Nelson, Katia Oliveira, Kurtis Paddock, Steve Peñate, Allie Petrequin, Long Pham, Long Phan, Phillip Platt, Albert Portillo, Timothy Reed, Shaunna Roche, Scott Rofe, Brallan Saucedo, Christine Schaper, Yoseph Solomon, Rick Spears, Karl Standish, Jessica Tobin, Lyvon Tran, Von Trinks, Ryan Van Natter, Shayna Warr, Jason Whitney, Devin Wilson, Tyler Wissler, Steven Worcester, Xinyi Xu, Saar Yaffe
+0000000135B8.07C: Technical Director, Quality Assurance
+0000000135B9.07C: Stanislav Spivakov
+0000000135BA.07C: Charlie Benvenuti
+Nick Bryson
+Damien Chow
+Diana Huang
+Jensen Rivera
+Jeff Shotwell
+Alex Sparks
+0000000135BB.07C: Games User Research Management
+0000000135BC.07C: Ian Livingston
+0000000135BD.07C: Games User Research Team
+0000000135BE.07C: Megan Brodsky
+Audrey Cheng
+Nikki Crenshaw
+Dan Jenrette
+David Kingsbury
+Adam Lobel
+Zeke Turner
+Vivie Voykinska
+0000000135BF.07C: Benoit Dufour
+Tosif Khatri
+Colin Roussil
+Rajneesh Sain
+0000000135C0.07C: Jonathan Chiu
+Sean Culmer
+Connie Holguin
+Razak Kessas
+Jin W. Kim
+Jay McDowall
+Oscar Montero
+Adam Plushner
+Kristine Pompeo
+Albert Tcheng
+Duke Wong
+Vince Xiao
+0000000135C1.07C: Rajib Banerjee
+Taylor Barrington
+Carmen Belman
+Tony Butcher
+Jean Pascal Campus
+Jasmine Cao
+David Cherrier
+Claire Chiang
+Hyejin Cho
+Woohyuk Choi
+Monika Christian
+Danny Chung
+Jiyoung Chung
+Paola Croize
+Jamie Crooks
+Derek Davis
+Sharrieff Dixon
+Ruddy Foucan
+Sarah Gozun
+Michelle He
+Annie Huang
+Janny Huang
+Minhye Huh
+Josie Jin
+Linda Kebaili
+Minkyeong Kim
+Seungjae Kim
+Alex Leb
+Matt Lee
+Christopher Lewis
+Marie Lin
+Christine Ma
+Romain Mammola
+Sheri Meinburg
+Justin Nakamura
+Eric O Hernandez
+Misato Oshima
+Jinwoo Park
+Dane Pedersen
+Kasia Polok
+Qi Qiu
+Kelly Rah
+Jessica Ramirez
+Richard Requena Delon
+Stacye Rodwell
+Paul Rubin
+Suleyma Salceda Sanchez
+Lindsay Sherwin
+Zachary Shryock
+Wendy Sun
+Alexandra Takei
+Eric Tamanaha
+Christopher Turner
+Suzy Yan
+Jason Yang
+0000000135C2.07C: Global Growth Marketing Leadership
+0000000135C3.07C: Blair Brzeski
+Annie Kang
+Hamid Qaasim
+0000000135C4.07C: Tyler Andreala
+Andrew Bellew
+Danya Bicer
+Chrystal Blackwell
+Miles Bretall
+Alex Bujold
+Parker Butynski
+Diego Chacon
+David Chang
+Jason Cox
+Jenny Dang
+Chris De La Fuente
+Koosha Diba
+Evan Do
+Suzette Harman
+Andy Hierl
+Mai Hoang
+Kristyn Kazanjian
+Patrick Kim
+Raymond J. Kim
+Suzy Kim
+June Leung
+Kristin Louie
+Marianne Ng
+Shana Solaimani
+Mike Stanley
+Anthony Suh
+Philip Vanichviroon
+Blake Ward
+0000000135C5.07C: Global Growth Marketing Executive Support
+0000000135C6.07C: Lauryn Elfend
+0000000135C7.07C: Fatima Akouegnon
+William Carroll
+Kristin Finnsson
+Kim K. Nguyen
+Scott Strackbine
+Tom Twedell
+0000000135C8.07C: Eunice An (Eunyoung)
+Nuria Andres
+Jean-Marie Carrere
+Joe Caslin
+J. Chapman
+Allix Chin
+Chloe Choi (Koeun)
+Daniel Choi
+Laurent Cuvier
+Christophe Delange
+Sheen Farnoudi
+Dina Folkman
+Nilla Gelius
+Miranda Groomes
+Rosie Hitzeman Aronson
+Anita Huang
+Jeffrey Hunter
+Anthony Ko
+Anders Larsen
+Katie Liu
+Laetitia Marny
+Shirelle McFadden
+Chenda Oh
+Gillian O'Shea
+Claire Pak
+Sheily Panchal
+Vesna Penava
+Lisa Rhee
+Winnie Stefani
+Kelly Stevens
+Wenfei Sun
+Lesley Turner
+Meg Vollmer
+Astrid Wang
+Mariele Weber
+0000000135C9.07C: Erin Burke
+Molly Camello
+Rose Clarke
+Sherlene Gabriel
+Joshua Kim
+Lucy Nheta
+Jennifer Pryor
+Rosa Sanson
+Emma Somers
+Timothy Wing
+0000000135CA.07C: Mark Anderson
+Ashley Arnott
+Lauren Bacuetes
+Sandy Beardsley
+Samantha Brown
+Scott Campbell
+Darren de Claro
+Engie DeVora
+Elaine Dineen
+Jessica Estipona
+Danny Flannagan
+Shane Gates
+Phil Han
+Jessica Himmler
+Michelle Ko
+Michael Kulak
+Lester Lai
+Cindy Lee
+Heidi Lese
+Amy Madden
+Dina Medeiros
+Mike Nassar
+Maegan Nielsen
+Erika Nunez
+Jill Perez
+Jenna Poffenroth
+Rocky Polito
+Jeff Poss
+David Prickett
+Jo-Jo Rane
+Michelle Rosell
+Hector Tang
+Janine Tedford
+Adam Van den Boom
+Michael Vergara
+Jessica Vicente
+Jane Wang
+Jessy Wang
+Dave Wilson
+0000000135CB.07C: Lowell Doringo
+Scott Emerson
+Caroline Kehoe
+YunAe Kim
+Rex Luther
+Raina Nech
+Jessica Ponte Thomas
+David Tiscareno
+0000000135CC.07C: Chief Information Officer, Activision Blizzard
+0000000135CD.07C: Jacques Erasmus
+0000000135CE.07C: Executive Assistant, IT
+0000000135CF.07C: Vice President, Global PMO and Procurement
+0000000135D0.07C: Eduardo Martin
+0000000135D1.07C: Director, Technology Sourcing & Procurement
+0000000135D2.07C: Dorian Williams
+0000000135D3.07C: David Amargo
+Mike Anderson
+Alycia Castillo
+Kevin Duda
+Jihene Khessouma
+Nick Null
+David Preston
+John Readick
+Arin Vartanian
+0000000135D4.07C: Junmin Miao
+James Ridgers
+Bass Shibl
+0000000135D5.07C: John Alexander
+Marios Aziz
+David Brown
+Nicolas Charlet
+David Dubenko
+Aaron Evans
+Edgar Flores
+Katiya Goodman
+Michael Kim
+Violet Klorer
+Vince Kudirka
+Christopher Lee
+Amy Liew
+Adam Lorenz
+Suzan Mahboob
+Carrie Ni
+Sonal Patel
+Spencer Pelton
+Bethany Protzmann
+Carrie Ren
+Andy Russell
+Paulo Santos
+Dan Scauzillo
+Brandon Shephard
+Andrew Sherburne
+0000000135D6.07C: Vice President, Global Production IT
+0000000135D7.07C: Director, Cloud Engineering
+0000000135D8.07C: Matt Eagleson
+0000000135D9.07C: Erik Olof Gunnar Andersson
+Abdel Kamel
+Lynn Li
+Andre Olivo
+0000000135DA.07C: Cloud Engineering
+0000000135DB.07C: Tom Anderson
+Scott Chaney
+Jason Crawford
+Nick Downs
+Grayson Head
+Lucas Marzocco
+Drew Michaud
+Kevin Musser
+Tim Olow
+Matthew K Rader
+Tyler Reymer
+Joshua Slater
+Kevin Stewart
+Christopher Stone
+Duc Truong
+Daniel Xu
+Tony Yu
+0000000135DC.07C: Director, Infrastructure & Database Engineering
+0000000135DD.07C: Database Engineering Management
+0000000135DE.07C: Armando Abanilla
+Jean Nicolas Cadet de Fontenay
+Michael Chizewski
+Will Gunty
+Ryan Helring
+Pazel Huang
+Rafael Kansy
+Kristine Kirchhoff
+Mike Murphy
+Rick Wells
+Brian Wong
+Jaime Wood
+Raymond Yu
+0000000135DF.07C: Josh Caskey
+Robert Esser
+Chandler Sun
+James Zhu
+0000000135E0.07C: Alex Carder
+Michael Carlton
+Alex Conrey
+Alexander Eagleson
+Dwight Harvey
+Sean Kim
+Sunny Sunghyun Kim
+Dale Lewis
+Mark Licata
+Feng Lyu
+Xander Niega
+Zachary Peschke
+Alex Tan
+David Zhao
+0000000135E1.07C: Director, IT Events
+0000000135E2.07C: Lauren Fine
+0000000135E3.07C: IT Events Management
+0000000135E4.07C: David Chen
+Stanley Fu
+Albert Koh
+Aaron So
+Haiyong Zhou
+0000000135E5.07C: Greg Chamberlain
+Weonseok Choi
+Matt Huff
+Konrad Kirchgaessner
+Kevin Lipe
+Alex Liu
+Connor McGrann
+Leroy Merino
+Jason Pate
+Frank Reyes
+David Thompson
+Paul Wang
+James Wong
+Jun Wu
+0000000135E6.07C: Brian Baker
+Chris Delaney
+Andrew Entzminger
+Dat Ho
+Téa Manning
+Pablo Noguera
+0000000135E7.07C: Jeremy Chasey
+Stephanie Collins
+Lydia Cota
+Yifeng Jin
+Johnny King Jr
+Shannon McCartney
+Marc O'Riley
+Mike Petzold
+Amadeus Phan-Thanh
+0000000135E8.07C: Director, Network & Datacenter Engineering
+0000000135E9.07C: Hung Nguyen
+0000000135EA.07C: Ezio Ballarin
+I-Ming Chen
+Andy Chou
+Sylvain Delvaux
+Andy Hendrawan
+Gordon Lathan
+Seunghwan Lee
+Alex Loh
+Carlie Matel
+Sean O'Haver
+Jeronimo Perez Papadopoulos
+Christopher Towne
+David Wareham
+Wenjun Zhu
+0000000135EB.07C: Manish Arora
+Olivier Rolin
+Florian Wang
+0000000135EC.07C: Yunhwan Ahn
+Alexandre De La Seigliere
+Edison Fan
+Alan Gonzalez
+Brian Hill
+Daniel Jeongwan Kim
+EJ Eunjoong Kim
+Justin Jiyoung Kim
+Chengjie Liu
+Ba Mai
+Malachi Middlebrook
+Sean Milligan
+Baptiste Moisson
+David Rutledge
+Yann Schoenstein
+Mathew Smiley
+Ryan Sun
+Patrick Topping
+Loop Zheng
+0000000135ED.07C: Senior Director, Global Corporate IT
+0000000135EE.07C: Director, Corporate IT Infrastructure
+0000000135EF.07C: Mike Pearce
+0000000135F0.07C: Gandalf Brahm
+Christos Cristallides
+Lars Kühne
+Mike Moneymaker
+Thi K Nguyen
+François Noël
+Taran Sprake
+Josh Tang
+Mike Troutman
+0000000135F1.07C: Information Systems
+0000000135F2.07C: Mehdi Ait Taichat
+Chris Anderson
+Jared Annes
+Samuel Barker
+Byron Black
+Adam Borchert
+Adam Brown
+Robert Bustamante
+Antoine Callewaert
+Derek Carpenter
+Hannah Chao
+Justin Chen
+Pete Chung
+Andrew Clisson
+Eoghan Corr
+Victor Cruz
+Martin Dao
+Jamal Davis
+Brian Dees
+Eric Dougherty
+Aurelio Espinoza
+Evelyn Flores
+Gilbert Fontaine
+Cecil Ford
+Aaron Clay Gayet
+Kat Gomez
+Jason Hinh
+Logan Holliday
+Alex Hunter
+Michael Hutchen
+Albert Hwang
+Stephen Jallins
+Yan Kahlé
+Kirk Kenton
+Kevin Kuchar
+Jason Kwan
+Mario La Porte
+Dominic Langmesser
+Ronan Le Prev
+Adam Lee
+Daeho Lee
+Evan Lightcap
+David Lyle
+Jake Millette
+Daniel Morris
+Brandon Pearce
+Elliot Pham
+Fabien Poussin
+Dan Puckett
+Gary Reeb
+Shaun Rutherford
+Nick Schober
+Ryan Schouten
+Spencer Seebald
+Devin Slayton
+Cody Smith
+Jose Tadeo
+My-Van Tran
+Jimmy Truong
+Bill Tubbs
+Aaron Uesugi
+Julien Valé
+Andrew West
+Alan Wickersham
+Matthew Yang
+Ryan Yee
+0000000135F3.07C: Associate Director, Corporate Applications
+0000000135F4.07C: Braulio Estrada
+0000000135F5.07C: Quentin Giraud
+Nicole Hayashida
+Matt Karam
+0000000135F6.07C: Ken Adams
+Jerry Blanco
+Chris Bosman
+Victoria Anne Carlisle
+Phil Cleveland
+Chad Daley
+Cat Fox
+Jonathan Hankey
+Dylan Hasselquist
+Michael Hayes
+Joel Hays
+Kevin Klein
+Rebecca Maessen
+Mike O'Connor
+Robert Pearce
+John Pombo
+Michael Prigmore
+Jensen Robinson
+Jay Uttanoor
+Christopher Wedge
+Ben Yessayian
+0000000135F7.07C: Chad Camara
+Katie Harrison
+Paige Kwon
+Zhiyu Xue
+0000000135F8.07C: Joe Aybar
+Jay Cisneros
+Raphael Hernandez
+Rachael Morris
+Amber Robertson
+TJ Sandor
+Calen Stivers
+Scott Trumble
+0000000135F9.07C: Director, Global IT Operations Engineering
+0000000135FA.07C: Clint Schrader
+Justin Talbott
+0000000135FB.07C: Site Reliability Engineering Leadership
+0000000135FC.07C: Alexander Amerine
+Tom Butkiewicz
+Rob Cherry
+Christopher Dickey
+Ryan Kohler
+Zackery Nunez
+Benjamin Williams
+0000000135FD.07C: Ryan Atkins
+Doug Baggett
+Matt Boveri
+Drew Hearin
+Andy Knight
+Isaac Llamas Torralba
+Angel Moctezuma
+Ann Moon
+Ann Jiyoung Moon
+Mike Mulen
+Travis Nasser
+Alec Nunn
+Kevan Peters
+Kyle Sabine
+Mason Sedlik
+Scott Shamansky
+Leah Smith
+Sean Tan
+Jim Tario
+0000000135FE.07C: Associate Director, GNOC Operations
+0000000135FF.07C: Matthew McEligot
+000000013600.07C: Bianca Cojocaru
+Marcin Karpik
+Chip Pascoe
+000000013601.07C: Timothy Hanson
+Gregory Herbster
+Arman Kapbasov
+Nicholas Tolppi
+000000013602.07C: William Cooper
+Jeremiah Jackson
+Cameron Pierce
+Jessica Rose
+000000013603.07C: Thomas Bisgaard
+Matt Bobke
+Anna K Brewer
+Matthew Carcel II
+Tom Corcoran
+Stefan Gale
+Andres Ideus
+Jeremy Jackson
+Dan Jeffers
+Sid Joshi
+Nathaniel Kelley
+Clay Kloppenborg
+Vladislav Kollerov
+Jon Larraburu
+John K. Lin
+Carles Mateo Oliver
+Matthew McCormack
+Gareth Morgan
+Miranda Ortiz
+Dion Rizzo
+Jonathan Stracker
+Mason Tavenner
+Michela Tigli
+Steven Tran
+Gunnar Voss
+Zhenyue Zhu
+000000013604.07C: Service Intelligence Engineering
+000000013605.07C: Benjamin Yamada
+000000013606.07C: Kangho Lee
+James Long
+Julien Mariani
+000000013607.07C: Senior Director, Global Insights
+000000013608.07C: Jon Gleicher
+000000013609.07C: Global Insights Analytics
+00000001360A.07C: Matthew Andersen
+Zach Boyer
+Chris Cantrell
+Benjamin Chew
+Chris Densmore
+Sibyl Dong
+Harrison Froeschke
+Stephen Kraman
+Min-Hua Kuo
+Melissa Lee
+Mabel Lin
+Wenwen Liu
+Alex Makximenko
+Aleksandar Mirkovic
+Ryan Richmond
+Joshua Taber
+Ben Trautman
+Cong Wang
+Kevin Wang
+David Xu
+00000001360B.07C: Global Insights Engineering
+00000001360C.07C: Don Conley
+Matthew Davis
+Jens Fischer
+Michael Handria
+Brian Leung
+Evan Murray
+Dennis Nguyen
+Sean Pfeifer
+Joseph Priest
+Joshua Proffitt
+Taichi Sano
+Alberto Sarubbi
+Sam Segan
+Suzanne Su
+Quji Xu
+00000001360D.07C: Global Insights Machine Learning & AI
+00000001360E.07C: Shuo Chen
+Tian Ding
+Chet Gray
+James Supancic
+Catherine Varner
+Ruidong Wang
+Wayne Yang
+Zhen Zhai
+00000001360F.07C: Global Insights Program Management
+000000013610.07C: Ken Pfeifer
+Austin Taylor
+000000013611.07C: Director, Research & Consumer Insights
+000000013612.07C: Mike Swiontkowski
+000000013613.07C: Research & Consumer Insights Team
+000000013614.07C: Elwyn Buan
+Minh Luu
+Ming Xia
+000000013615.07C: Vice President, AB France
+000000013616.07C: Philippe Sauze
+000000013617.07C: Paul Chen
+Peter Dongjin Chun
+Teh Hong Sing
+Steven Huot
+000000013618.07C: Vice President, Strategy & Product International West
+000000013619.07C: Eric Chauveau
+Andrew Chen
+Guy Cunis
+Andre de Abreu
+Nacho de Andres
+Frédéric Dumas
+George Georgiou
+Ivan Kako
+Delphine LeCorre
+Lin Leng
+Chi Liu
+Emmanuel Obert
+Eric Oh
+Alexey Pastushenko
+Sebastien Petit
+Marc Regeur
+Simon Slee
+Rafael Tello-Fournier
+Benjamin Villhauer
+Amanda Wang
+Dahai Wang
+Michael Yang
+Polly Yu
+00000001361A.07C: Guido Alves
+Thibaud Bertin
+Howard Chang
+Paul Huang
+Vincent Kaufmann
+Jungeun Lee
+Stephanie Lien
+Mathieu Lopato
+David Mashashvili
+Wataru Ninomiya
+Mark Penney
+Sophie Poncet
+Johanna Rowe Calvi
+Steven Shen
+Jiyong Sim
+Yonghun Song
+Lance Teo
+Wilfrid Vinmer
+Ben Wang
+Jake Ye
+Adam Yeh
+00000001361B.07C: Dan Chiappini
+Nazih Fares
+Alexandre Lennuyeux
+Kyounghwa Park
+Stevenson Xiang
+00000001361C.07C: Sam Bandah
+Maarten Blonk
+Kathryn Boccuzzi
+Jordan Cameron
+Claudia Camp
+Debore J.C. Chang
+Sara Fernández
+Thomas Gasdon
+Laura KJ Huang
+Daniel Kawano
+Beomhee Lee
+Samuel Lim
+Martin Metzler
+Alexey Molotkov
+Jieun Ryu
+Maxim Samoylenko
+Devon Stanton
+Mika Sun
+Ugur Ulger
+Queena Ting Chih Yen
+Daekeun Youn
+00000001361D.07C: Jongwon Lee
+00000001361E.07C: Marianna Bagirova
+Lorena Boyer
+Marie Cabot
+Alex M. Chiu
+Alex TH Chiu
+Christopher Honour
+Hao Jin
+Chantal Kim
+Mina Kim
+Minjung Kim
+Sunna Kim
+Junku Lee
+Seho Lim (Panda)
+Kai Lou
+Jiin Park
+Nicolas Passemard
+Roberto Rios
+Daniel Smith
+Bill Vaughan
+00000001361F.07C: Marc Abril Bueno
+Phil Chen
+Trevor Chen
+Roberto Crispo
+Akira Gu
+Sebastien Hoareau
+Dean Kuo
+Siyi Xia
+000000013620.07C: Ines Agbanchenou
+Sarai Aguirre Jaén
+Katy Andrews
+Yannick Braat
+Georgina Browning
+Sebastian Campbell
+Margaux Cauvin
+Rio Chen
+Yunkwan Cho
+Christel Company
+Dries Curinckx
+Patrick Deschamps
+Omar Eissa
+Ali Esen
+Dan Fassi
+Olga Fiadotava
+Vaclav Filip
+Emmanuel Foissy
+Théo Garcia
+David Garrett
+Jeremy Goldstein
+Svetlana Gorobets
+Oliver Green
+Nicolas Guion
+Frederic Guy
+Antony Han (Jonghoon)
+Eason Huang
+Seoin Hwang
+Jessica Jazic
+Karim Kabbani
+Luke Karam
+Donna Kim (Dongwhi)
+Hyungoo Kim (Michael)
+Gilbert Kim
+Deniz Kirca
+Albert Konrad
+Jaemyung Lee
+Yunbok Lee
+Lucie Linant De Bellefonds
+Russel Liu
+Makoto Masutani
+Raphael Mena
+Max Morais
+Markus Neumann
+Daniel Paez
+Clémence Pagnucco
+Marcos Pereira
+Jesse Perez
+Christophe Poupon
+Maja Savic
+Tòfol Seguí Pons
+Fabien Serot
+Olivier Spaargaren
+Jonas Stålros
+Numb Saovaluck Surainak
+Jon Tae (Hyunjun)
+Chase Thomas
+Joseph Toaff
+Audrey Vicenzi
+Lukas Wozniak
+Eric Wu
+Kyle Yang
+Terry Yang
+000000013621.07C: Mili Chang
+Sann-Remy Chea
+Lily Choi (Soomin)
+Lansing Deng
+Diane Herbays
+Henning Kaiser
+Sunghwan Kang
+Byungchan Kim
+Jieun Kim
+Sangwook Kim
+Insik Lee
+Louis-Jérôme Léger
+Cindy Lemasle
+Ashleigh Lillechurch
+Aling Lin
+Sudeera Mahapatunage Don
+Prune-Sabrina Moldawan
+Alexandru Oprea
+Lamine Outeldait
+Marta Pérez García
+Ahyoung Song
+Pablo Toledo Baeza
+One Yoon
+000000013622.07C: Mira Bae
+Jane He
+Lara Machado
+000000013623.07C: Regional Events Team
+000000013624.07C: Pauline Hammelet
+Aliocha Segard
+000000013625.07C: Regional Facilities Team
+000000013626.07C: Ilaria Bassi
+Jean-Paul Bruyelle
+000000013627.07C: Vice President, International Legal Affairs
+000000013628.07C: Ronald Jentges
+000000013629.07C: Divya Gupta
+Anne-Sophie Jammes
+Vincent Law
+James Riordan
+Seong Hee Yoon
+00000001362A.07C: Jack Anderson
+Ryan Barrett
+Diane Chung
+Vanessa Cordova
+Kevin Crook
+Lynda Do
+Mavis Feasel
+Diona Fu
+Agnes Hsiao
+Jihyun Kim
+Woojeong Kim
+Daniel Kohler
+RyangOk Ku
+Denis Kurlyukov
+Juhui Lee
+Steven Liang
+Jeonghwan Shim
+Shonine Wijayanayake
+Cheyne Yu
+Vivian Zhang
+Clio Zhao
+00000001362B.07C: GLOBAL MARKETING
+00000001362C.07C: Antonio Achúcarro
+Jon Bailey
+Nancy Chou
+Setareh Derakhshandeh
+Stella Kim
+David Ortiz
+Daniel Sagun
+Saul Sarango
+Ania Wieteski
+00000001362D.07C: Vice President, Global Consumer Marketing
+00000001362E.07C: Global Director, Consumer Marketing, Mobile
+00000001362F.07C: Cristiano Alburitel
+000000013630.07C: Director, Digital Marketing
+000000013631.07C: Drew Elliott
+000000013632.07C: Global Consumer Marketing Team
+000000013633.07C: Joshua Engen
+Ariel Hernandez
+Alex Hunter
+Farah Memon
+Aileen Yoon
+Marcella Ziccarelli
+000000013634.07C: Senior Creative Director, Global Marketing
+000000013635.07C: Hector Bolanos
+Mark Bryner
+Mike Carrillo
+Ross Donaldson
+Andrew English
+Paul Finochio
+Beau Hudak
+Dolee Jung
+Brian H. Kim
+Julie Kimura
+Emily Knief
+Margaret Lee
+Emily Miller
+Ken Murayama
+Martin Hoai Nguyen
+Joshua Pletzke
+Benjamin Scanlon
+Ty Stevens
+Chhun Tang
+Jillian Tipping
+Caroline Wu Bonti
+Jaclyn Yuan
+000000013636.07C: Global Events Directors
+000000013637.07C: Seth Pyrzynski
+Brandy Stratton
+000000013638.07C: Bria Beduya
+Mimi Chan
+Kiersten Crissman
+Jessica Cross
+Elodie Dupuis
+Beni Elgueta
+Dan Joyce
+Christopher Meditz
+Casey Pitta
+Megan Shields
+Kate Somers
+Tom Tryon
+Jena Volrath
+000000013639.07C: Global Marketing Executive Support
+00000001363A.07C: PLATFORM PARTNERSHIPS
+00000001363B.07C: Platform Partnerships
+00000001363C.07C: Stephanie Johnson
+Patrick McNair
+00000001363D.07C: Senior Director, Global Data Protection
+00000001363E.07C: Director, Global Data Privacy & Compliance
+00000001363F.07C: Bill Preston
+000000013640.07C: Data Protection
+000000013641.07C: Sidikat Buari
+Marianna Deyneko
+Sonal Manjrekar
+Kristen Suk
+000000013642.07C: Rachel Perey Ward
+Tim Vo
+Matt Woodcock
+Randy Zhu
+000000013643.07C: Security Risk Governance
+000000013644.07C: Eric Thedaker
+Chris Voss
+000000013645.07C: Senior Director, Information Security
+000000013646.07C: Security Architecture Management
+000000013647.07C: Michael Freeman
+000000013648.07C: Security Architecture
+000000013649.07C: Robbie Fouquet-Ketron
+00000001364A.07C: Justin Condon
+00000001364B.07C: Chad Bartusick
+Tommy Do
+Michael Hocke
+Alina Iacovici
+R. Chase Lincoln
+Shawn Routhier
+Jeremy Scarbro
+Casey Suyeto
+00000001364C.07C: Allen L. Cox
+Hyunjung Hong
+Jeff Nation
+00000001364D.07C: Gracie Chi
+Bradley Fong
+Brent Gensemer
+Alex Seunghyun Kim
+Michelle Li
+Ryan Monaghan
+Rick C. Reischman
+00000001364E.07C: Senior Director, Global Vulnerability Research
+00000001364F.07C: Brett Buerhaus
+Jarrod Coulter
+Thomas Gadola
+Michael Lim
+Nicolas Melendez
+Walter Pearce
+Geoff Scott
+000000013650.07C: Joseph Angulo
+Brianna Johnson
+Emmanuel Pedro
+Danielle Zaim
+000000013651.07C: Melissa Roellich
+000000013652.07C: Global Security Administrative Support
+000000013653.07C: Adam Burgess
+Derek Duke
+Leo Kaliski
+Jake Lefkowitz
+Glenn Stafford
+Cali Wang
+000000013654.07C: Ashley Collins
+Dennis Crabtree
+Caroline Hernández
+Mike Hoffman
+Monica Loose
+Charlotte Moore
+Michael Roache
+Alec Santos
+Jorge Velasco
+Ariel Wang
+000000013655.07C: Christopher Battaglia
+Brian Johnson
+Erik Magnus
+Nicholas Papaleo
+Lawrence Peacock
+Shane Stever
+John Thomas
+000000013656.07C: Archival and Curation
+000000013657.07C: Dana Bishop
+Nat Cooper
+Paul Poduska
+Jessica Taylor
+Melissa Ward
+000000013658.07C: Ricardo Biriba
+Tok Braun
+Shimon Cohen
+Anthony Eftekhari
+Chris Evans
+Edwin Fabros
+Jason Fleming
+Joe Frayne
+Ashraf Ghoniem
+Hunter Grant
+Steeg Haskell
+Jim Jiang
+Sheng Jin
+Mike Kelleher
+Jared Keller
+Matthew Mead
+Andrew Paules
+Corey Pelton
+Matthew M. Robinson
+Michael Sandrik
+David Satchwell
+David J. Stephens
+Jon Teer
+Shannon Thomas
+Seth Thompson
+Taka Yasuda
+Fabio Zungrone
+000000013659.07C: Daniel Lorenzo Alvarez
+Michael Arrevalo
+Jongha Baik
+Becca Baldwin
+Emily Berger
+Jamir Blanco
+Nicholas Bolden
+Chris Bostjanick
+Nathan Boyd
+Toni Bratincevic
+Erich Burchfield
+Evan Butler
+Daniel Ceballos
+Jorge A. Cereijo-Perez
+Aaron Chan
+Alan Chan
+Charles Chi
+Raymond Chih
+Christine Cho
+Eric Chou
+Craig Christian
+Craig Chun
+Ly Ha Chung
+Benjamin Conner
+Matt Cordner
+James Crowson
+Ben Cunningham
+Graham Cunningham
+Robin Dao
+Sarah J. Delahanty
+Luciano Di Fede
+Cynthia Dickson
+Drew Dobernecker
+Mike Duffy
+Thomas Duong
+Christopher Erickson
+Bruce Evans
+Steve Fahey
+Ken Faiman
+Cat Florez
+Derrick Forkel
+Shuntaro Furukawa
+Robin George
+Taso Gionis
+Chris Goodrich
+Eric Grimenstein
+Steven Guevara
+Jason Michael Hall
+Aaron Hamman
+David Han
+Mike Hardison
+Toby Haruno
+Justin Haupt
+Tyler Helton
+Meg Higginbotham
+Cole Higgins
+Allen Holbrook
+Shih Chiang Kenny Huang
+Shih-Hao Jason Huang
+Willy Hwang
+Atsushi Ikarashi
+Joe Jackman
+Shawn Janik
+Chris Jennings
+Jessica Dru Johnson
+Jason Johnston
+Chung Kan
+Rakan Khamash
+Robin Khamsi
+Eddie Yonghyun Kim
+Ronny Kim
+Raji Kodja
+Yohei Koike
+Piotrek Krawczyk
+Daniel Kruse
+Christi Kugler
+Alexandre Kümpel
+Bill La Barge
+Mark Lai
+Scott Lange
+Robert Lazzarini
+Hung Le
+Moonsung Lee
+Yeon-Ho Lee
+Shawn Liang
+Bryan Locantore
+David Luong
+James Ma
+MaryAnn Malcomb
+Heather Mann
+Brandon McCaulley
+Chris McCormick
+James McCoy
+Pete Megow
+Meg Morris
+Max Moseley
+Enrique Munoz
+Sada Namiki
+Eric Neill
+Jeremy Nelligan
+Maia Neubig
+Nigel Nikitovich
+Josh Ochoa
+Sherman Ohms
+Matthew Onheiber
+Ellery Ortiz
+Christopher Robert Perez
+Jamie Pilgrim
+Dixie Pizani
+Renae Radford
+Glenn Ramos
+Justin Rasch
+Gregory Reynolds
+Sam Rickles
+Sebastian Rivas
+Daniel Rodriguez
+Stephanie Russell
+Davy Sabbe
+Nema Safvati
+Rosendo Salazar
+Kaz Shimada
+Lulu Simon
+Karen Soh
+Joon Soo Song
+Fabio Stabel
+Angelo Stanco
+Peter Starostin
+Jonathan Styles
+Don Ta
+Michael Taranto
+Scott Trosclair
+Erich Turner
+Miurika Valery
+Amy Vatanakul
+Gregory Verreault
+Aaron Villarreal
+Nelson Wang
+Wey Wong
+James Wright
+Chris Yang
+Kenson Yu
+Anthony Zalinka
+Daniel Zamora
+00000001365A.07C: Wendy Berry Campbell
+Angelique Cecere
+Jake Fenske
+Shu Fujita
+Katrina Garsten
+Eileen Hsu
+Emily Shinyi Hsu
+Wayne Kennedy
+Julia Kernan
+Krissie King
+Jared Mayberry
+Garrick McLaughlin
+Kristy Robinson
+Nathalia Ruiz Murray
+Bobbak Sabet
+Michelle Sampior
+Brandy Stiles
+Barry Strum
+Kat VanderJagt
+Kevin VanderJagt
+Gurpreet Singh Wahla
+Dan Wallace
+Sarah White
+Melvin Young Jr.
+00000001365B.07C: Johann Helgi Agnarsson
+Chris Allen
+Lisa Anderson
+Michael Beal
+Cathy E. Blanco
+Jud Bumpas
+Ted Burge
+Lih Chang
+Tom Craigen Jr.
+Ben Deda
+Frank Du
+Michael Eizenberg
+Christopher Garcia
+Brandon Harris
+Parag Havaldar
+Ryan Heniser
+Wilbert Ho
+Sabina Horigan
+Paul Kilgo
+Bryson Lee
+Jami Levesque
+Chris Luce
+Vinod Melapudi
+Travis Miller
+Joshua Nadel
+Huong Thuy Nguyen
+Jeremy Oborn
+Chris Rock
+Sebastian Seibert von Fock
+Peter Shinners
+FunShing Sin
+Allen Stetson
+Thomas V. Thompson II
+Joey Tobiska
+Rob Tomson
+Tao Ye
+00000001365C.07C: Senior Director, Creative Development
+00000001365D.07C: Venecia Duran
+00000001365E.07C: Dennis Bredow
+Neil Carter
+Ben Dai
+Doug A. Gregory
+Terran Gregory
+Jason J. Hill
+Brian Horn
+Jeramiah Johnson
+George Krstic
+Marc Messenger
+Anna Morgan
+00000001365F.07C: Laurel Austin
+Adam Baines
+Stephan Belin
+Ehren Ralph Bienert
+Ted Boonthanakit
+Jeremy Cook
+Mio Del Rosario
+Brian Fay
+Jerry Gaylord
+Roman Kenney
+Mike Koizumi
+Jungah Lee
+Micah Lewis
+Justin McMillan
+Will Murai
+Yewon Park
+Betsy Peterschmidt
+Laurent Pierlot
+Josh Tallman
+Chris Thunig
+Chap Yaep
+Ae Ri Yoon
+000000013660.07C: Chloe Fraboni
+Allison Irons
+000000013661.07C: Connor Brannigan
+Judy Fernando
+Claver Knovick
+Brianne Messina
+Jacob Rivera
+000000013662.07C: Robert Brooks
+Matt Burns
+Christie Golden
+Andrew R. Robinson
+Ralph Sanchez
+000000013663.07C: Ricky Antonelli
+Jennifer Michelle Conn
+Jill Modyman
+Melissa Morris
+Sunny Ye
+000000013664.07C: Bucky Fisk
+Aileen Sévin
+Jonny Throop
+000000013665.07C: Ivan Anic
+Benjamin Dunn
+Paul Gee
+René Koiter
+Lucas Merino
+Christian Prieto
+Mark Staubach
+Nathan Willis
+000000013666.07C: Michael Bancroft
+Hannah Dalrymple
+Ed Decker
+Shannon Emigh
+Eric Finke
+Adam Fiorenza
+Joanna Griebel
+Lars Jensvold
+Rebecca Lilienfeld
+Ryan Nuber
+Ryan Pate
+Jake Patton
+Adam Rickabus
+Mike Schaffnit
+Mark Vulcano
+Aaron Woitas
+000000013667.07C: Xiaohu Alcocer
+J. Parker Anderson
+Adam Armstrong
+Monika Armstrong
+Kori Davis
+Tina Fu
+Mike Furrh
+Levi Garrett
+William Kime-Hunt
+Sergio Klementich
+Kathryn Rieser
+Richard Sandoval
+000000013668.07C: Avril Ilejay
+Paul Ingegneri
+Logan Laflotte
+Forrest McClain
+Patrick Roche-Sowa
+Holly Stanton
+000000013669.07C: Christine Gravesen
+Zach Katz
+JJ Rivera
+00000001366A.07C: Suzanne Navarro
+Susann O'Bryan
+Joe Ramos
+Amber Zielinski
+00000001366B.07C: Bear Berezoski
+Peter Fivelstad
+Timothy Hardy
+Jacob Hofeldt
+Ivan Hurtado
+William Peace
+Jeff Roberts
+Samuel Schrimsher
+Steve Stafford
+Henry Szekely
+Alex Torres
+Wayne Willoughby
+Matt Winter
+00000001366C.07C: Executive Vice President & Chief Revenue Officer
+00000001366D.07C: Hilary Perchard
+000000013670.07C: Executive Vice President, Story & Franchise Development
+000000013671.07C: Deputy Chief Financial Officer
+000000013672.07C: Marcus Sanford
+000000013673.07C: Chief of Staff to J. Allen Brack
+000000013674.07C: Andrea Rachelle
+Marie Roys
+Kristina Rush
+000000013675.07C: ACTIVISION BLIZZARD CONSUMER PRODUCTS
+000000013676.07C: President, Activision Blizzard Consumer Products
+000000013677.07C: Steve Young
+000000013678.07C: Consumer Products Executive Leadership Team
+000000013679.07C: Matt Beecher
+Philippe Bost
+Jennifer Mirabelli
+Daniel Siegel
+Ashlee Vaughn
+00000001367A.07C: Consumer Products Leadership
+00000001367B.07C: Pat Au
+Michael Hummel
+Lindsay Murphy
+Byron Parnell
+Derek Romano
+Fung Thai-Chu
+Anna Wan
+Sally Xia
+00000001367C.07C: Wilson Chang
+Amanda Chen
+Jay Chen
+Loki Chen
+Yiming Chen
+Madison Clark
+Gleb Croitor
+Tiffany DeCaro
+Jaslyn He
+Yolanda Jiang
+Hanna Jun
+Daniel Jung
+David Lomeli
+Marc Mejia
+Michele Mejia
+Brian Mulcahy
+Dylan Quintero
+Derek Rosenberg
+K.C. Schmit
+Marco Sipriaso
+Elena Sokol
+Ryan Wood
+00000001367D.07C: Activision Blizzard Consumer Products Executive Support
+00000001367E.07C: Hanan Ansri
+Sylvia Lopez
+00000001367F.07C: ACTIVISION BLIZZARD ESPORTS
+000000013680.07C: Head of Leagues
+000000013681.07C: Johanna Faries
+000000013682.07C: Pete Emminger
+000000013683.07C: Susan Adams
+Trenddi Alexis
+Scott Allen
+Alex Barhorst
+Peter Bean
+Otis Blum
+Aaron Blumberg
+Adam Bowers
+Becky Brewer
+Dillon Chance
+Ryan Cole
+Lucian Charles Collier
+Jun David
+Joseph Dewitt
+Kelsey Dimka
+Alex Duckworth
+John Farrand
+Justin Fiksel
+TL Frasqueri-Molina
+Craig Frieman
+Jason Fugh
+Joe Garcia
+Marcus Garrett
+Aaron Grant
+Ross Groves
+Ryan Harpole
+Kristoffer Harrington
+Ashley Hartford
+Ryan Heckel
+Ryan Hensley
+Josh Hernandez
+Anthony Huang
+Scottie Johnson
+Allison Jurkowski
+Christopher Keath
+Paul Kuhlman
+Andy Lehman
+David Light
+Forest Lin
+Eric Lindvall
+Nick Losq
+Matt MacNeil
+Matt Malabonga
+Michael Mancini
+Michael Masterson
+Kevin McCabe
+Ryan Meekins
+John Meigs
+Gemma Barreda Mirkovic
+Jeff Morreale
+Joseph Nargi
+Mike Norys
+Daniele Perazzo
+Juan Perdomo
+Rob Poquez
+Jeffrey Reynolds
+André Rievers
+Eli Rodriguez
+Troy Roe
+Michael Sadorf
+Chris Scoggins
+Colten Seamans
+Corey Smith
+Stephanie Snowden
+Jamie Stone
+Jorge Suarez
+Mitchell Talana
+Amy Tekell
+Ryan Thiel
+Zach Thomas
+Will Torbett
+Houweida Tounsi
+Christopher Washburn
+Ben Young
+000000013684.07C: Activision Blizzard Esports Vice Presidents
+000000013685.07C: Jason Hahn
+Jack Harari
+Matthew Kliszewski
+Brandon Snow
+000000013686.07C: Activision Blizzard Esports Directors
+000000013687.07C: Ross Atherton
+Oliver Boden
+Sam Braithwaite
+Steve Brauntuch
+Richard Choi
+William Gahagan
+Emma Hu
+Christopher Kirk
+Ernie Kwan
+Kristen Lange
+Dan Mazei
+Eric Nelson
+Stephen Rossi
+Anthony Theoharis
+Lianne Virginio
+Paul White
+000000013688.07C: Activision Blizzard Esports Team
+000000013689.07C: Jason Agajanian
+Angel Ampas
+Kali Anderson
+Adrian Archer-Lock
+Gina Armendariz
+Kristin Ashouri
+Jake Astin
+Chiara Bianchini
+Erin Bice
+Zachary Burr
+Artem Bykov
+Brittany Casanova
+Adrian Castanon
+Brenda Chen
+Stewart Chen
+Yamane Cheng
+Craig Cheon
+Jacob Clements
+Scott Conway
+Jimi Croker
+Sai Dandamudi
+Melanie de Arakal
+Bri Delgado
+Erin Eberhardt
+Eric Elliott
+Fernando Escamilla Valdez
+Matt Evans
+Marcin Filipowicz
+Joseph Fitzpatrick
+Kayla Glover
+Stephanie Han
+Drew Higbee
+Amy Ho
+Morgan Ho
+David Hollings
+Yuki Huang
+Jamie Kang
+Ning Kang
+Ellie Keeton
+Bryan Kelly
+Amy Jooyeong Kim
+Jennifer Kim
+Tom Koontz
+Alan Lan
+Kyle Lanphere
+Jacklyn LeBlanc
+Aaron Liu
+Jonathan Lo
+Jill Macfarland
+Derek Massaro
+Jason McDevitt
+Cody Neal
+Johnny Ngo
+Erik Nguyen
+Michal Ovečka
+Joshua Owyang
+Olesia Pototska
+Brandon Ramsey
+Marcus Rodrigues
+AJ Rogers
+PJ Russell
+TJ Sanders
+Brendon Schulze
+Donovan Sepulveda
+James Shilkret
+Sami Solkinen
+Youngjin Song
+Paul Street
+Grace Te
+Stephen Tu
+Esteban Villaseca
+Anthony Vitale
+Alex Volk
+Derek Wons
+Jiwoon Yang
+Beta Yen
+He Zhang
+Sara Zheng
+Shao Min Zhu Xi
+00000001368A.07C: Activision Blizzard Esports Executive Support
+00000001368B.07C: Barbara Domanick
+Lauren Ingel
+Michaela Patrick
+Kim Pisarcik
+00000001368C.07C: OVERWATCH LEAGUE
+00000001368D.07C: Eugene Ahn
+Kameron Backstrom
+Behrod Baghai
+Patrick Benassi
+Andrew Bishop
+Maikol Brito
+Pat Coyle
+Ryan Davidson
+Aimee Dennett
+Derek DePontbriand
+Nick Edmonds
+Lynn Fang
+Michele Ferro
+Eric Fischman
+Willow Forde
+Eleanor Fortier
+Tracy Franco
+Emerald Gao
+Sig Greenebaum
+Soe Gschwind
+Jeremy Hammer
+Jesse Hong
+Dennis Horn
+Trevor Housten
+Jabari Howard
+Zen Huan
+Sarah Huchmala
+Christopher Jansen
+Pu Jiang
+Robert Kirkbride
+Jonathan Larsson
+Frank LaSpina
+Mindy Lee
+Wonseop Lee
+Luke LeSourd
+Danny Lim
+Kristopher Lyman
+Holland Mattila
+Daniel McHugh
+Jay Mei
+Ashley Middlebrook
+Adam Mierzejewski
+Sean Miller
+Dylan Milner
+Antoine Nadal
+Andy Novak
+Andy Ochiltree
+Anna Pototska
+Dylan Rode
+Aditya Rudra
+Kelsy Salazar
+Kevin Scarpati
+Noah Schmitt
+Nathan Shanks
+Jake Skrok
+Jon Spector
+Alvina Tan
+Esteban Villaseca
+Nik Visger
+Jessica Wang
+Jim Wang
+Craig Whitfield
+Josh Wilkinson
+00000001368E.07C: Danny Abarca
+Robert Aeschbacher
+Andrew Amadi
+Erika Anderholm
+Russell Bakewell
+Anthony Barnes
+Daria Bazzi
+Adrienne Behunin
+Michael Berger
+Benjamin Boyle
+Ivan Bozic
+Jack Castillo
+Vincent Celesti
+Mac Chalak
+Ben Chaney
+Sarah Ciancarelli
+Jessica Downey
+Luka Drezga
+Michael Ganzorig
+George Green
+Joshua Guilliams
+John Hartwig
+Savannah Ho
+Jesse Hong
+Bryn Hubbard
+Jade Hutchinson
+Meith Jhaveri
+Shaun Keating
+Ji Young Kim
+Claudia Lari
+Jeff Lee
+Mindy Lee
+Ryan Lee
+Yeojin Lee
+Kelly Luu
+Kevin Luu
+Lo-Axel Martin-Fenouillet
+Abraham Matias
+Benjamin McAdoo
+Tonya McCahon
+Adam McDonald
+Damian McKeown
+Josh Miller
+Ryan Mozek
+Albert Ji Sung Pak
+Keyur Patel
+Coyde Gray Wolf Perry
+Mark Reyes
+Matt Rohrs
+Noah Sanchez
+Jacob Saxon
+Hunter Schulz
+Jarick Simbol
+Eric Sitko
+Rudy Solidarios
+JC Standring
+Anne Stickney
+Spencer Tucker
+Eric Vincent
+Courtney Vogel
+Shania Williams
+Gustavo Wolosker
+Helen Yang
+Tiffany Yu
+Rafael Zanchetin
+Nathan Zerafa
+00000001368F.07C: OWL
+000000013691.07C: Eugene Ahn
+Kameron Backstrom
+Behrod Baghai
+Patrick Benassi
+Andrew Bishop
+Maikol Brito
+Jeff Clarke
+Kristin Connelly
+Alicia Cornelia
+Pat Coyle
+Ryan Davidson
+Chelsea Delbridge
+Aimee Dennett
+Derek DePontbriand
+Jessica DiPaola
+Lucy Dodson
+Nick Edmonds
+Lynn Fang
+Michele Ferro
+Eric Fischman
+Willow Forde
+Eleanor Fortier
+Tracy Franco
+Emerald Gao
+Sig Greenebaum
+Soe Gschwind
+Jeremy Hammer
+Dennis Horn
+Trevor Housten
+Jabari Howard
+Jamie Howren
+Zen Huan
+Sarah Huchmala
+Stephen Huynh
+Albert Iskander
+Christopher Jansen
+Pu Jiang
+Isaac Jimenez
+Derek Johnson
+Seth King
+Wojtek Kuklinski
+Jonathan Larsson
+Frank LaSpina
+Wonseop Lee
+Mitch Leslie
+Luke LeSourd
+Adam Levine
+Kristopher Lyman
+Jacob Lyon
+Mark Mastio
+Holland Mattila
+Hannah McCormick
+Sam McCoy
+Daniel McHugh
+Jay Mei
+Matthew Mersel
+Ashley Middlebrook
+Adam Mierzejewski
+Sean Miller
+Dylan Milner
+Matt Morello
+Ken Morris
+Antoine Nadal
+Andy Novak
+Andy Ochiltree
+Johnson Peng
+Anna Pototska
+Dylan Rode
+Aditya Rudra
+Andrew Rush
+Kelsy Salazar
+Kevin Scarpati
+Wolf Schroeder
+Nathan Shanks
+Jon Spector
+Ohm Srukhosit
+Alvina Tan
+Nik Visger
+Jessica Wang
+Jim Wang
+Bradley Wells
+Craig Whitfield
+Josh Wilkinson
+Jack Wright
+000000013692.07C: Keywords Studios
+International Sound Studio
+000000013693.07C: Roboto Sound
+Start International Polska
+000000013694.07C: Voice Over Recording - Simplified Chinese
+000000013695.07C: Spring Media Studio
+Triones Penguin Studio
+000000013696.07C: Adna Cruz, Angela Bonatti, Arthur Machado, Carol Crespo, Christiane Louise, Christiano Torreão, Daniel Muller, Daniela Campos, Duda Ribeiro, Eduardo Borgerth, Érika Menezes, Fabio Azevedo, Fernanda Mammana, Flávia Saddy, Flora Paulita, Guilene Conte, Guilherme Lopes, Gutemberg Barros, Heitor Assali, Isis Koschdoski, Jorge Vasconcellos, José Augusto Sendim, Juliana "Jullie" Vasconcelos, Larissa de Lara, Léo Rabelo, Luisa Palomanes, Luiz Carlos Persy, Mabel Cezar, Marcela Duarte, Marcelo Pissardini, Márcio Dondi, Márcio Simões, Marcus Jardym, Mariana Dondi, Marisa Leal, Maurício Berger, Paulo Vignolo, Philippe Maia, Pierre Bittencourt, Reginaldo Primo, Ricardo Juarez, Samuel Fernandes, Sheila Dorfman, Vany Américo, Wellington Lima
+000000013697.07C: Adeline Chetail, Alexia Lunel, Alice Orsat, Alice Taurand, Anatole De Bodinat, Anatole Yun, Annie Milon, Armelle Gallaud, Barbara Kelsch, Barbara Tissier, Benjamin Pascal, Benoit Allemane, Benoit Du Pac, Bernard Bollet, Bernard Gabay, Boris Rehlinger, Caroline Mozzone, Chloé Hollings, Constantin Pappas, Corinne Wellong, Daniel Beretta, Daniel Lobé, Déborah Perret, Diouc Koma, Donald Reignoux, Dorothée Pousséo, Doudou Masta, Emmanuel Garijo, Emmanuel Gradi, Emmanuel Jacomy, Emmanuelle Rivière, Ethel Houbiers, Fabien Briche, Fanny Bloc, François Berland, Françoise Cadol, Frantz Confiac, Frédéric Cerdal, Frédéric Souterelle, Gabriel Bismuth, Geneviève Doang, Guillaume Lebon, Ingrid Donnadieu, Irina Ninova, Isabelle Leprince, Jean-Baptiste Anoumon, Jean-Rémi Tichit, Jérémie Covillault, Jérémy Prévost, Jessica Barrier, José Luccioni, Julien Meunier, Kaycie Chase, Laura Préjean, Laurence Dourlens, Lionel Tua, Loïc Houdré, Lucille Boudonnat, Marc Bretonnière, Marc Perez, Marie Vincent, Martin Faliu, Olivia Nicosia, Olivier Chauvel, Olivier Peissel, Omar Yami, Pascal Casanova, Patrice Melennec, Patrick Borg, Patrick Osmond, Paul Borne, Philippe Roullier, Ricardo Lopes Rodrigues, Serge Faliu, Stéphane Fourreau, Stéphane Ronchewski, Sybille Tureau, Tatiana Matre, Thierry Wermuth, Thomas Roditi, Tulika Strivastava, Véronique Desmadryl, Xavier Fagnon, Yann Guillemot, Yann Tual
+000000013698.07C: Alexandra Lange, Alex Wohnhaas, Andreas Wittmann, Bernd Vollbrecht, Bianca Krahl, Cosmo Götze-Claren, Daniel Schlauch, Dela Dabulamanzi, Dieter Memel, Dietmar Wunder, Farina Brock, Frank Schaff, Gabriele Pietermann, Gerhard Jilka, Gudo Högel, Julia Meynen, Julian Manuel, Karin Tietze, Karoline Bäre, Katharina Spiering, Klaus-Dieter Klebsch, Lara Trautmann, Leonhard Hohm, Leonhard Mahlich, Luisa Wietzorek, Lutz Mackensy, Melanie Manstein, Manuel Straube, Maresa Sedlmeir, Maria Koschny, Max Felder, Martin Keßler, Martin Keßler, Martina Treger, Matti Klemm, Meshachin Epah-Elad, Michael Christian, Michael Pan, Milton Welsh, Milton Welsh, Nana Spier, Regina Beckhaus, Richard Gonlag, Ranja Bonalana, Rubina Kuraoka, Sanam Afrashteh, Sandrine Mittelstädt, Santiago Ziesmer, Sascha Rotermund, Schandra Schadt, Silvia Missbach, Stefan Gossler, Stefan Lehnen, Stefan Müller-Ruppert, Stefanie Dischinger, Sven Dahlem, Thomas Rauscher, Thorsten Michaelis, Tobias Baum, Tobias Meister, Tommi Piper, Tommy Krappweiß, Torben Liebrecht, Ute Noack, Uwe Thomsen, Vera Teltz, Yusuke Yamasaki
+000000013699.07C: 강구한, 강시현, 고구인, 곽윤상, 권혁수, 김대중, 김동현, 김새해, 김승준, 김승준, 김연우, 김영찬, 김은아, 김현심, 김현지, 김혜성, 문유정, 박신희, 박지윤, 사문영, 소정환, 손수호, 신용우, 안소연, 안장혁, 안효민, 양유진, 엄상현, 이규창, 이미나, 이봉준, 이소영, 이영리, 이재범, 이재용, 이지현, 이현진, 이호산, 임윤선, 임채헌, 장민혁, 전숙경, 전태열, 전해리, 정소림, 정승욱, 조현정, 진정일, 최승훈, 하미경, 한복현, 한복현, 한신
+00000001369A.07C: Ale Delint, Alfonso Obregón, Analíz Sánchez, Andrea Coto, Annie Rojas, Arturo Mercado Chacón, Arturo Mercado Jr., Carla Castañeda, Carlos Segundo, Circe Luna, Dan Osorio, Erica Edwards, Gabriel Basurto, Humberto Solórzano, Irina Índigo, Jessica Ángeles, Joanna Ruvalcaba, Jorge Lapuente, José Arenas, José Luis Orozco, Juan Carlos Tinoco, Lalo Garza, Laura Torres, Lou Arruti, Meli G, Miguel Ángel Ghigliazza, Óscar Flores, Raúl Anaya, Santos Alberto, Sarah Souza, Vanessa Acosta, Abdeel Silva, Alfonso Ramírez, Andrés García, Angélica Villa, Beto Castillo, Betzabé Jara, Blas García, Bruno Coronel, Carlo Vázquez, Cony Madera, Dafnis Fernández, Dan Frausto, Daniel Abundis, Elena Ramírez, Emmanuel Bernal, Enrique Cervantes, Enzo Fortuni, Esteban Desco, Gabriel Ortiz, Gerardo Reyero, Héctor Miranda, Humberto Vélez, Irwin Daayán, Jeannie Hernández, Jessie Conde, José Luis Rivera, Liliana Barba, Manuel Campuzano, Mariela Álvarez, Memo Aponte, Miguel Ángel Ruiz, Nacho Rodríguez, Nicole Florencia, Oliver Díaz, Osvaldo Trejo, Rafael Pacheco, Rebeca Gómez, Ricardo Mendoza, Roberto Mendiola
+Rolando de Castro, Rommy Mendoza, Sebastián Llapur, Sebastián Rojas, Sergio Morel, Sonia Casillas, Susana Moreno.
+00000001369B.07C: Adam Krylik, Agnieszka Failhauer, Agnieszka Kunikowska, Agnieszka Matysiak, Aleksander Sosiński, Andrzej Chudy, Andrzej Gawroński, Anna Cieślak, Anna Gajewska, Anna Sroka, Anna Wodzyńska, Artur Dziurman, Barbara Kałużna, Bartosz Wesołowski, Beata Kowalska, Dominika Sell, Edward Durda, Ewa Prus, Gabriela Całun, Grzegorz Kwiecień, Iwona Millerska, Jacek Bończyk, Jacek Król, Jacek Mikołajczak, Jakub Kamieński, Jakub Rezmer, Jan Aleksandrowicz-Kraśko, Janusz German, Janusz Kruciński, Jonasz Tołopiło, Kamil Pruban, Karolina Kalina, Krzysztof Cybiński, Krzysztof Dracz, Krzysztof Plewako-Szczerbiński, Łukasz Talik, Magdalena Cielecka, Magdalena Wasylik, Malwina Jachowicz, Marek Barbasiewicz, Marta Dobecka, Marta Markowicz-Dziarkowska, Miłogost Reczek, Miriam Aleksandrowicz, Olga Omeljaniec, Otar Saralidze, Paulina Holtz, Piotr Grabowski, Przemysław Bluszcz, Robert Jarociński, Ryszard Olesiński, Sonia Bohosiewicz, Sylwia Nowiczewska, Tomasz Grochoczyński, Tomasz Smokowski, Tomasz Zimoch, Weronika Łukaszewska, Wojciech Kalarus, Zbigniew Suszyński, Zuzanna Galia
+00000001369C.07C: 丘梅君,于正昇,佟紹宗,傅其慧,劉伯利,劉小芸,吳文民,周寧,夏治世,孫中台,崔幗夫,康殿宏,張乃文,
+張至超, 張立昂, 徐偉翔,易先生,曾儀欣,李勇,李直平,李英立,杜素真,林筱玲,林美秀,林芳雪,林谷珍,
+梁興昌,楊少文,汪世瑋,王希華,王辰驊,田志傑,穆宣名,符爽,紐凱暘,胡鎮璽,葉于嘉,蔣鐵城,許雲雲,
+謝佼娟,賈文安,邱展文,郭馨雅,錢欣郁,陳宗岳,陳幼文,陳彥鈞,陳旭昇,陳貞伃,陳煌典,陶敏嫻,馬伯強,馮友薇,魏晶琦,黃天佑,龍顯蕙,啾啾麥,石采薇
+00000001369D.07C: Voice Actors - Simplified Chinese
+00000001369E.07C: 刘以嘉,刘北辰,刘垚,刘琮,叶知秋,吴磊,图特哈蒙,孙晔,孟祥龙,常蓉珊,张昱,张欣,张琦,彭博,李世荣,李元韬,杨梦露,武向彤,汪滢滢,洪海天,祝俊,翁媛,蒋丽,袁国庆,贾邱,陈超群,陶典,韩娇娇,马洋
+00000001369F.07C: Albion Localisations - Polish
+0000000136A0.07C: jemalloc is released under the terms of the following BSD-derived license:
+Copyright (C) 2002-present Jason Evans (jasone@canonware.com>. All rights reserved.
+Copyright (C) 2007-2012 Mozilla Foundation.  All rights reserved.
+Copyright (C) 2009-present Facebook, Inc.  All rights reserved. 
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
+1. Redistributions of source code must retain the above copyright notice(s), this list of conditions and the following disclaimer. 
+2. Redistributions in binary form must reproduce the above copyright notice(s), this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) ``AS IS'' AND ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+EVENT SHALL THE COPYRIGHT HOLDER(S) BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+0000000136A1.07C: "© 2019 The LEGO GROUP
+LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
+Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
+0000000136A5.07C: Blizzard Entertainment
+0000000136A6.07C: Character Art Director
+0000000136A7.07C: Audio Director
+0000000136A8.07C: Technical Art Director
+0000000136A9.07C: Torbjörn Malmer
+0000000136AA.07C: Associate Game Director
+0000000136AB.07C: Associate Art Director
+0000000136AC.07C: Associate Tech Director
+0000000136AD.07C: Commercial Leader
+0000000136AE.07C: Greg Wilson
+0000000136AF.07C: 2020
+0000000136D1.07C: 브이
+0000000136D4.07C: PC
+0000000136D6.07C: 콘솔
+0000000136D7.07C: Playstation
+0000000136D8.07C: Xbox
+0000000136D9.07C: Switch
+0000000138E9.07C: 2021 데스매치 경쟁전 참가자
+0000000138EA.07C: 2021 데스매치 경쟁전 배치 경기를 완료하여 획득
+0000000138EB.07C: 2021 데스매치 경쟁전 영웅
+0000000138EC.07C: 2021 데스매치 경쟁전에서 상위 500위를 달성하여 획득
+0000000138ED.07C: 2021 데스매치 경쟁전 참가자
+0000000138EE.07C: 2021 데스매치 경쟁전 배치 경기를 완료하여 획득
+0000000138EF.07C: 2021 데스매치 경쟁전 영웅
+0000000138F0.07C: 2021 데스매치 경쟁전에서 상위 500위를 달성하여 획득
+0000000138F2.07C: 
+000000013911.07C: 이벤트 종료
+000000013912.07C: 6월 8일
+000000013913.07C: 기존 감사제 아이템 및 게임 모드와 함께 새로운 아이템도 준비되어 있습니다!
+000000013914.07C: 신규 모드: 영웅 건틀릿 그리고 미러전 데스매치!
+000000013915.07C: 감사제가 돌아왔습니다!
+000000013916.07C: 워크샵
+000000013917.07C: 워크샵에서 게임을 입맛대로 창조하세요!
+00000001391A.07C: 플레이 및 승리한 게임
+00000001391B.07C: 플레이 및 승리한 게임 %1$s회
+00000001391C.07C: 플레이 및 승리한 게임
+00000001391D.07C: 플레이 및 승리한 게임 %1$s회
+00000001391E.07C: 빠른 대전, 아케이드, 경쟁전에서 게임을 9/18/27회 플레이하세요. 승리하면 2회 플레이로 간주됩니다.
+000000013942.07C: 데스매치 경쟁전 4시즌
+000000013979.07C: 2등을 기록한 게임
+00000001397A.07C: 2등을 기록한 게임 %1$s회
+00000001397B.07C: 승리한 게임
+00000001397C.07C: 승리한 게임 %1$s회
+00000001398A.07C: 중도 합류한 게임 (패배 또는 무승부)
+00000001398B.07C: 중도 합류한 게임 (패배 또는 무승부) %1$s회
+000000013994.07C: 치른 게임
+000000013995.07C: 치른 게임 %1$s회
+[Core] Execution finished in 00:00:00.4366237 seconds
