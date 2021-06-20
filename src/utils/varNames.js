@@ -60,7 +60,7 @@ function translateSubroutineToWs(content) {
 	error("Undeclared subroutine '"+content+"'");
 }
 
-function addSubroutine(content, index) {
+function addSubroutine(content, index, isFromDefStatement) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
@@ -70,6 +70,7 @@ function addSubroutine(content, index) {
 	subroutines.push({
 		"name": content,
 		"index": index,
+		"isFromDefStatement": isFromDefStatement,
 	})
 }
 

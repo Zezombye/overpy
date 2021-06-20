@@ -85,15 +85,15 @@ rule ("optimizations with literals") {
         "3.1415"
         Modify Global Variable(A, Append To Array, 3.141592653589793);
         "113.633"
-        Modify Global Variable(A, Append To Array, 113.57817847820183);
+        Modify Global Variable(A, Append To Array, 0.034597891672104);
         "-0.302"
         Modify Global Variable(A, Append To Array, -0.304692654015397);
         "36.865"
-        Modify Global Variable(A, Append To Array, 36.86989764584402);
+        Modify Global Variable(A, Append To Array, 0.011231213088677);
         "1.584"
         Modify Global Variable(A, Append To Array, 1.583839065425504);
         "140.057"
-        Modify Global Variable(A, Append To Array, 140.05724853255916);
+        Modify Global Variable(A, Append To Array, 0.042663877670413);
         "0.996"
         Modify Global Variable(A, Append To Array, 0.996090498505521);
         "-0.934"

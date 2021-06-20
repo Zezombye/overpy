@@ -21,7 +21,7 @@ astParsingFunctions.atan2Deg = function(content) {
 
     if (enableOptimization) {
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue)*(180/Math.PI));
+            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue)*(Math.PI/180));
         }
     }
     

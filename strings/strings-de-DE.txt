@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30198,6 +30198,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012F8B.07C: Sturmzeichen. Gegner fügen Spielern in der Nähe Schaden zu.
 000000012F8C.07C: Gegner fügen Spielern in der Nähe Schaden zu.
 000000012F8D.07C: In Archiv-Lootboxen erhältlich
+000000012FCE.07C: Ange de la mort
 000000012FF1.07C: ZWIETRACHT
 000000013063.07C: Gewitter
 000000013064.07C: Schließ während des Archiv-Events die Herausforderungsmission Gewitter ab.
@@ -30282,6 +30283,10 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000132DF.07C: Kurze Pause
 0000000132E6.07C: Voicechat Namensplaketten-Icon
 0000000132F5.07C: Powerflegel
+000000013333.07C: OK
+000000013344.07C: Bald verfügbar
+000000013345.07C: JETZT VERBINDEN, UM ZUSAMMEN ZU SPIELEN
+000000013347.07C: Erstell einen Battle.net-Account und verbinde ihn, um plattform<hy>übergreifend mit Freunden zusammen zu spielen.
 00000001334D.07C: Freigeschaltet durch die Teilnahme an der Jubiläums-Herausforderung 2021, Woche 2
 00000001334E.07C: Flattern
 000000013350.07C: Freigeschaltet durch die Teilnahme an der Jubiläums-Herausforderung 2021, Woche 2
@@ -33150,6 +33155,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: |Rpl %1$s:Match:Matches; gespielt und gewonnen
 00000001391D.07C: Matches gespielt und gewonnen: %1$s
 00000001391E.07C: Spiele 9/18/27 Spiele in den Modi Schnellsuche, Arcade oder Rangliste. Siege werden als zwei Spiele gewertet.
+000000013932.07C: Turnierskin zum June Joust 2021
 000000013942.07C: Kompetitives Deathmatch: Saison 4
 000000013979.07C: |Rpl %1$s:Match:Matches; als Zweitplatzierter beendet
 00000001397A.07C: Matches als Zweitplatzierter beendet: %1$s
@@ -33159,4 +33165,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: Matches als Ersatzspieler (verloren oder unentschieden): %1$s
 000000013994.07C: |Rpl %1$s:Match:Matches; gespielt
 000000013995.07C: Matches gespielt: %1$s
-[Core] Execution finished in 00:00:00.4340102 seconds
+0000000139FB.07C: Regenbogen
+000000013A47.07C: Mehr Infos
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: VERBINDE DEINEN ACCOUNT UND SPIEL MIT FREUNDEN!
+000000013A51.07C: Jetzt besuchen:
+[Core] Execution finished in 00:00:00.4400381 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30223,6 +30223,7 @@ w sezonie 28.
 000000012F8B.07C: Czarne Chmury. Wrogowie zadają obrażenia pobliskim graczom.
 000000012F8C.07C: Wrogowie zadają obrażenia pobliskim graczom.
 000000012F8D.07C: Zawartość archiwalnych skrzynek
+000000012FCE.07C: Ange de la mort
 000000012FF1.07C: ROZDARCIE
 000000013063.07C: Burza z Piorunami
 000000013064.07C: Ukończ archiwalną misję-wyzwanie Burza z Piorunami.
@@ -30307,6 +30308,10 @@ w sezonie 28.
 0000000132DF.07C: Fajrant
 0000000132E6.07C: Ikonka w polu z nazwą gracza na czacie głosowym
 0000000132F5.07C: Trzask parkietu
+000000013333.07C: OK
+000000013344.07C: Już wkrótce
+000000013345.07C: POŁĄCZ SIĘ, ABY ZEBRAĆ DRUŻYNĘ
+000000013347.07C: Stwórz i połącz swoje konto Battle.net a następnie przygotuj się, aby zebrać drużynę ze znajomymi na wszystkich platformach.
 00000001334D.07C: Nagroda za udział w wyzwaniu 2. tygodnia Rocznicy 2021
 00000001334E.07C: Trzepot skrzydeł
 000000013350.07C: Nagroda za udział w wyzwaniu 2. tygodnia Rocznicy 2021
@@ -33182,6 +33187,7 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001391C.07C: |Rpl %1$s:Rozegrane plus wygrane mecze:Rozegrane plus wygrane mecze:Rozegrane plus wygrane mecze;
 00000001391D.07C: %1$s |Rpl rozegrany plus wygrany mecz:rozegrane plus wygrane mecze:rozegranych plus wygranych meczów;
 00000001391E.07C: Rozegraj 9/18/27 meczów w Szybkiej grze, Salonie gier lub Rywalizacji. Wygrane liczą się podwójnie.
+000000013932.07C: Skórka turnieju June Joust
 000000013942.07C: Deathmatch w trybie Rywalizacji – sezon 4
 000000013979.07C: |Rpl %1$s:Drugie miejsca:Drugie miejsce:Drugie miejsca
 00000001397A.07C: %1$s |Rpl drugie miejsce:drugie miejsca:drugich miejsc;
@@ -33191,4 +33197,9 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001398B.07C: %1$s |Rpl mecz po uzupełnieniu składu (przegrany lub zremisowany):mecze po uzupełnieniu składu (przegrane lub zremisowane):meczów po uzupełnieniu składu (przegranych lub zremisowanych);
 000000013994.07C: |Rpl %1$s:rozegrane mecze:rozegrane mecze:rozegrane mecze;
 000000013995.07C: %1$s |Rpl rozegrany mecz:rozegrane mecze:rozegranych meczów;
-[Core] Execution finished in 00:00:00.4577500 seconds
+0000000139FB.07C: Tęcza
+000000013A47.07C: Więcej informacji
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: POŁĄCZ SWOJE KONTO I ZBIERZ DRUŻYNĘ!
+000000013A51.07C: Odwiedź
+[Core] Execution finished in 00:00:00.4403599 seconds

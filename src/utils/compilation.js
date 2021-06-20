@@ -68,14 +68,15 @@ function compileCustomGameSettingsDict(dict, refDict) {
 
 //As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
 function trimNb(x) {
-	var result = ""+x;
+	x = ""+x
+	var result = x;
 	if (result.indexOf('.') >= 0) {
 		result = result.substring(0,result.indexOf('.')+16);
 	}
+	//To not trim 1.2246467991473532e-16 into 1.2246467991473532.
+	//Thanks MagicMan for reporting this.
+	if (x.indexOf("e") >= 0 && result.indexOf("e") == -1) {
+		result += x.substring(x.indexOf("e"));
+	}
 	return result;
 }
-
-
-
-
-

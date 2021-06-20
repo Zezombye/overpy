@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -29895,6 +29895,7 @@ and 10 Free Winter Loot Boxes
 000000012F8B.07C: Storm Rising. Enemies damage nearby players.
 000000012F8C.07C: Enemies damage nearby players.
 000000012F8D.07C: Available in Archives Loot Boxes
+000000012FCE.07C: Ange de la mort
 000000012FF1.07C: DISCORD
 000000013063.07C: Thunderstorm
 000000013064.07C: Complete the Thunderstorm Archives challenge mission.
@@ -29979,6 +29980,10 @@ and 10 Free Winter Loot Boxes
 0000000132DF.07C: Taking A Break
 0000000132E6.07C: Voice Chat Nameplate Icon
 0000000132F5.07C: Power Flail
+000000013333.07C: OK
+000000013344.07C: Coming Soon
+000000013345.07C: GET CONNECTED TO GROUP UP
+000000013347.07C: Create and link your Battle.net account and get ready to team up with friends across all platforms
 00000001334D.07C: Unlocked by participating in the Anniversary 2021 week 2 challenge
 00000001334E.07C: Flutter
 000000013350.07C: Unlocked by participating in the Anniversary 2021 week 2 challenge
@@ -32847,6 +32852,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: |Rpl %1$s:Game:Games; Played Plus Won
 00000001391D.07C: %1$s |Rpl Game:Games; Played Plus Won
 00000001391E.07C: Play 9/18/27 Games in Quick Play, Arcade, or Competitive Play.  Wins count as two games.
+000000013932.07C: June Joust Tournament Skin
 000000013942.07C: Competitive Deathmatch Season 4
 000000013979.07C: |Rpl %1$s:Runner-up Finish:Runner-up Finishes;
 00000001397A.07C: %1$s |Rpl Runner-up Finish:Runner-up Finishes;
@@ -32856,4 +32862,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl Game:Games; Backfilled (Lost or Tied)
 000000013994.07C: |Rpl %1$s:Game:Games; Played
 000000013995.07C: %1$s |Rpl Game:Games; Played
-[Core] Execution finished in 00:00:00.4372115 seconds
+0000000139FB.07C: Rainbow
+000000013A47.07C: More Info
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: LINK YOUR ACCOUNT AND GROUP UP!
+000000013A51.07C: Visit
+[Core] Execution finished in 00:00:00.4385714 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29897,6 +29897,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012F8B.07C: 폭풍의 서막. 적들이 주위 플레이어에게 피해를 줍니다.
 000000012F8C.07C: 적들이 주위 플레이어에게 피해를 줍니다.
 000000012F8D.07C: 지난 기록의 전리품 상자에서 획득
+000000012FCE.07C: 앙주 드 라 모흐
 000000012FF1.07C: DISCORD
 000000013063.07C: 천둥폭풍
 000000013064.07C: 천둥폭풍 기록 보관소 도전 임무 완료
@@ -29981,6 +29982,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000132DF.07C: 기대어 쉬기
 0000000132E6.07C: 음성 대화 이름표 아이콘
 0000000132F5.07C: 힘차게
+000000013333.07C: 확인
+000000013344.07C: 곧 공개됩니다
+000000013345.07C: 연결하고 뭉치세요
+000000013347.07C: Battle.net 계정을 생성하고 연결하여 모든 플랫폼의 친구들과 뭉쳐 보세요
 00000001334D.07C: 2021 감사제 2주 차 챌린지에 참여하여 획득
 00000001334E.07C: 파닥임
 000000013350.07C: 2021 감사제 2주 차 챌린지에 참여하여 획득
@@ -32849,6 +32854,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: 플레이 및 승리한 게임
 00000001391D.07C: 플레이 및 승리한 게임 %1$s회
 00000001391E.07C: 빠른 대전, 아케이드, 경쟁전에서 게임을 9/18/27회 플레이하세요. 승리하면 2회 플레이로 간주됩니다.
+000000013932.07C: 2021년 6월 토너먼트 스킨
 000000013942.07C: 데스매치 경쟁전 4시즌
 000000013979.07C: 2등을 기록한 게임
 00000001397A.07C: 2등을 기록한 게임 %1$s회
@@ -32858,4 +32864,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: 중도 합류한 게임 (패배 또는 무승부) %1$s회
 000000013994.07C: 치른 게임
 000000013995.07C: 치른 게임 %1$s회
-[Core] Execution finished in 00:00:00.4366237 seconds
+0000000139FB.07C: 무지개
+000000013A47.07C: 자세히 보기
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: 계정을 연결하고 뭉치세요!
+000000013A51.07C: 클릭해서 연결
+[Core] Execution finished in 00:00:00.4451195 seconds

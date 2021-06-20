@@ -75,7 +75,7 @@ function parseLines(lines) {
 			} else if (lines[i].tokens[0].text === "playervar") {
 				addVariable(lines[i].tokens[1].text, false, index, initDirective);
 			} else {
-				addSubroutine(lines[i].tokens[1].text, index);
+				addSubroutine(lines[i].tokens[1].text, index, false);
             }
             
         } else if (lines[i].tokens[0].text === "settings") {
@@ -155,6 +155,20 @@ function parseLines(lines) {
                 }
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
+                if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
+                    console.log(subroutines)
+                    for (var subroutine of subroutines) {
+                        if (subroutine.name === instructionRuleAttributes.subroutineName) {
+                            if (subroutine.isFromDefStatement) {
+                                error("Duplicate definition of subroutine '"+instructionRuleAttributes.subroutineName+"'");
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    addSubroutine(instructionRuleAttributes.subroutineName, null, true);
+                }
             }
 
             if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {

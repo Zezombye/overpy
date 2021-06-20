@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29931,6 +29931,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012F8B.07C: Tempesta Imminente. I nemici danneggiano i giocatori vicini.
 000000012F8C.07C: I nemici danneggiano i giocatori vicini.
 000000012F8D.07C: Disponibile nei Forzieri Archivi
+000000012FCE.07C: Ange de la Mort
 000000012FF1.07C: DISCORDIA
 000000013063.07C: Tempesta di danni
 000000013064.07C: Completa la missione sfida degli Archivi Tempesta di danni.
@@ -30015,6 +30016,10 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000132DF.07C: In Pausa
 0000000132E6.07C: Icona chat vocale su indicatore nome
 0000000132F5.07C: Danzafrusto
+000000013333.07C: OK
+000000013344.07C: Prossimamente
+000000013345.07C: CONNETTITI E RADUNA GLI AMICI
+000000013347.07C: Crea e collega il tuo account Battle.net per poter giocare con amici da tutte le piattaforme
 00000001334D.07C: Sbloccato per aver partecipato alla sfida dell'Anniversario 2021, settimana 2
 00000001334E.07C: Battito d'ali
 000000013350.07C: Sbloccato per aver partecipato alla sfida dell'Anniversario 2021, settimana 2
@@ -32884,6 +32889,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391D.07C: %1$s |Rpl Partita giocata e vinta:Partite giocate e vinte;
 00000001391E.07C: Vinci 9/18/27 partite rapide, Arcade o competitive.
 Le vittorie contano come due partite.
+000000013932.07C: Modello Torneo June Joust 2021
 000000013942.07C: Deathmatch competitivo - Stagione 4
 000000013979.07C: |Rpl %1$s:Secondo posto:Secondi posti;
 00000001397A.07C: %1$s |Rpl Secondo posto:Secondi posti;
@@ -32893,4 +32899,9 @@ Le vittorie contano come due partite.
 00000001398B.07C: %1$s |Rpl Partita con sostituzione (persa o pareggiata):Partite con sostituzione (perse o pareggiate);
 000000013994.07C: |Rpl %1$s:Partita giocata:Partite giocate;
 000000013995.07C: %1$s |Rpl Partita giocata:Partite giocate;
-[Core] Execution finished in 00:00:00.4344198 seconds
+0000000139FB.07C: Arcobaleno
+000000013A47.07C: Scopri di più
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: COLLEGA IL TUO ACCOUNT E RADUNA GLI AMICI!
+000000013A51.07C: Visita
+[Core] Execution finished in 00:00:00.4332735 seconds

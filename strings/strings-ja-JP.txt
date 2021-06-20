@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29895,6 +29895,7 @@ Blizzardサポート
 000000012F8B.07C: ストーム・ライジング。敵が付近のプレイヤーにダメージを与える
 000000012F8C.07C: 敵が付近のプレイヤーにダメージを与える
 000000012F8D.07C: アーカイブ <br>トレジャー・<br>ボックスで<br>入手<br>可能
+000000012FCE.07C: 死の天使
 000000012FF1.07C: DISCORD
 000000013063.07C: サンダーストーム
 000000013064.07C: アーカイブのチャレンジ任務「サンダーストーム」をクリアする
@@ -29979,6 +29980,10 @@ Blizzardサポート
 0000000132DF.07C: 一休み
 0000000132E6.07C: ボイスチャットのネームプレート・アイコン
 0000000132F5.07C: パワーフレイル
+000000013333.07C: OK
+000000013344.07C: Coming Soon
+000000013345.07C: つながって、集まろう
+000000013347.07C: Battle.netアカウントを作成＆連携して、全プラットフォームのフレンドとのクロスプレイに備えよう！
 00000001334D.07C: アニバーサリー 2021 第2週のチャレンジに参加してアンロック
 00000001334E.07C: 羽ばたき
 000000013350.07C: アニバーサリー 2021 第2週のチャレンジに参加してアンロック
@@ -32847,6 +32852,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: ゲーム・プレイ回数＋勝利
 00000001391D.07C: %1$s ゲーム・プレイ回数＋勝利
 00000001391E.07C: アーケード、クイックまたはライバル・プレイで、9/18/27マッチに参加しよう。勝利すれば2マッチとしてカウントされる
+000000013932.07C: June Joust トーナメント・スキン
 000000013942.07C: ライバル・デスマッチ シーズン4
 000000013979.07C: 2位
 00000001397A.07C: %1$s 2位
@@ -32856,4 +32862,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s途中参加した回数（敗北または引き分け）
 000000013994.07C: ゲーム・プレイ回数
 000000013995.07C: %1$s ゲーム・プレイ回数
-[Core] Execution finished in 00:00:00.4347354 seconds
+0000000139FB.07C: レインボー
+000000013A47.07C: 詳細
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: アカウントを連携して集まろう！
+000000013A51.07C: 移動
+[Core] Execution finished in 00:00:00.4410840 seconds

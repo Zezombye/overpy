@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LesES_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -29944,6 +29944,7 @@ y 10 cajas iguales de regalo
 000000012F8B.07C: Tormenta inminente. Los enemigos infligen daño a los jugadores cercanos.
 000000012F8C.07C: Los enemigos infligen daño a los jugadores cercanos.
 000000012F8D.07C: Disponible en las cajas de botín de los Archivos
+000000012FCE.07C: Ange de la mort
 000000012FF1.07C: DISCORDIA
 000000013063.07C: Tormenta eléctrica
 000000013064.07C: Completa la misión de desafío de los Archivos Tormenta eléctrica.
@@ -30027,14 +30028,18 @@ y 10 cajas iguales de regalo
 000000013291.07C: Se desbloquea al participar en el desafío de la semana 3 de los Archivos de 2021
 0000000132DF.07C: Descansando
 0000000132E6.07C: Icono de nombre de chat de voz
-0000000132F5.07C: Mangual recio
+0000000132F5.07C: A la tronera
+000000013333.07C: Aceptar
+000000013344.07C: Próximamente
+000000013345.07C: CONECTAOS PARA FORMAR EQUIPO
+000000013347.07C: Crea una cuenta de Battle.net, vincúlala y prepárate para formar equipo con tus amigos en todas las plataformas.
 00000001334D.07C: Se desbloquea al participar en el desafío de la semana 2 del Aniversario 2021
 00000001334E.07C: Revoloteo
 000000013350.07C: Se desbloquea al participar en el desafío de la semana 2 del Aniversario 2021
 000000013351.07C: Ave del paraíso
 000000013353.07C: Se desbloquea al participar en el desafío de la semana 3 del Aniversario 2021
 000000013354.07C: Bola 8
-000000013357.07C: Tronera de la esquina
+000000013357.07C: Zarandeo
 000000013359.07C: Se desbloquea al participar en el desafío de la semana 1 del Aniversario 2021
 00000001335A.07C: Centinela
 00000001335D.07C: Cibermédica
@@ -30062,10 +30067,10 @@ y 10 cajas iguales de regalo
 000000013375.07C: Aniversario 2021
 000000013376.07C: Disponible en las cajas de botín del aniversario
 000000013386.07C: Rodeadlos
-00000001338D.07C: Vaquera
+00000001338D.07C: Pies ágiles
 00000001338F.07C: Disponible en las cajas de botín del aniversario
 000000013390.07C: Al acecho
-000000013391.07C: Aún con vida
+000000013391.07C: Discotequero
 000000013392.07C: Disponible en las cajas de botín del aniversario
 000000013393.07C: Rompemandíbulas
 000000013394.07C: Disponible en las cajas de botín del aniversario
@@ -32896,6 +32901,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: |Rpl %1$s:Partida jugada más ganada:Partidas jugadas más ganadas;
 00000001391D.07C: %1$s |Rpl partida jugada más ganada:partidas jugadas más ganadas;
 00000001391E.07C: Juega 9/18/27 partidas rápidas, de Arcade o competitivas. Las victorias cuentan como dos partidas.
+000000013932.07C: Aspecto Torneo de justas de junio de 2021
 000000013942.07C: Temporada 4 de Combate a muerte competitivo
 000000013979.07C: |Rpl %1$s:Segundo puesto:Segundos puestos;
 00000001397A.07C: %1$s |Rpl segundo puesto:segundos puestos;
@@ -32905,4 +32911,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl partida:partidas; de reemplazo (derrotas o empates)
 000000013994.07C: |Rpl %1$s:Partida jugada:Partidas jugadas;
 000000013995.07C: %1$s |Rpl partida jugada:partidas jugadas;
-[Core] Execution finished in 00:00:00.4486352 seconds
+0000000139FB.07C: Arcoíris
+000000013A47.07C: Más información
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: ¡VINCULAD VUESTRAS CUENTAS PARA FORMAR EQUIPO!
+000000013A51.07C: Entra en
+[Core] Execution finished in 00:00:00.4297293 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.952-git-c56cfcdadc8606133964ae9bf3740dae73c97749
+[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(3)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.60.0.0.82693
+[CASC] Overwatch build 1.60.1.0.83050
 [CASC] Initializing...
-[Manifest] Using TRG procedure 82693 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 82693 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30004,6 +30004,7 @@ et 10 coffres hivernaux offerts
 000000012F8B.07C: Avis de tempête. Les ennemis infligent des dégâts aux joueurs proches.
 000000012F8C.07C: Les ennemis infligent des dégâts aux joueurs proches.
 000000012F8D.07C: Disponible dans les coffres des archives
+000000012FCE.07C: Ange de la mort
 000000012FF1.07C: DISCORDE
 000000013063.07C: Orage
 000000013064.07C: Réussir la mission défi des archives Orage.
@@ -30086,8 +30087,12 @@ et 10 coffres hivernaux offerts
 000000013195.07C: Commence dans :
 000000013291.07C: Obtenu en participant au défi de la semaine 3 des archives 2021
 0000000132DF.07C: Pause bien méritée
-0000000132E6.07C: Icône de nom dans la discussion audio
+0000000132E6.07C: Icône de discussion audio à côté du nom
 0000000132F5.07C: Fléau de puissance
+000000013333.07C: OK
+000000013344.07C: Très prochainement
+000000013345.07C: CONNECTEZ-VOUS ET FORMEZ VOTRE ESCOUADE
+000000013347.07C: Créez et liez votre compte Battle.net et formez une escouade avec vos contacts quelque soit leur plateforme
 00000001334D.07C: Obtenu en participant au défi de la semaine 2 de l’anniversaire 2021
 00000001334E.07C: Battement d’ailes
 000000013350.07C: Obtenu en participant au défi de la semaine 2 de l’anniversaire 2021
@@ -32956,6 +32961,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: |Rpl %1$s:Partie jouée et gagnée:Parties jouées et gagnées;
 00000001391D.07C: %1$s |Rpl Partie jouée et gagnée:Parties jouées et gagnées;
 00000001391E.07C: Jouez 9, 18 ou 27 parties en arcade, partie rapide ou compétitive. Les victoires comptent comme deux parties.
+000000013932.07C: Modèle de tournoi June Joust 2021
 000000013942.07C: Combat à mort saison 4
 000000013979.07C: |Rpl %1$s:Arrivée en deuxième position:Arrivées en deuxième position;
 00000001397A.07C: %1$s |Rpl Arrivée en deuxième position:Arrivées en deuxième position;
@@ -32965,4 +32971,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl Partie rejointe en cours de route (Perdue ou Égalité):Parties rejointes en cours de route (Perdues ou Égalité);
 000000013994.07C: |Rpl %1$s:Partie jouée:Parties jouées;
 000000013995.07C: %1$s |Rpl Partie jouée:Parties jouées;
-[Core] Execution finished in 00:00:00.4431843 seconds
+0000000139FB.07C: Arc-en-ciel
+000000013A47.07C: Plus d’infos
+000000013A4B.07C: blizz.ly/OWCrossPlay
+000000013A4C.07C: LIEZ VOTRE COMPTE ET FORMEZ VOTRE ESCOUADE !
+000000013A51.07C: Visitez
+[Core] Execution finished in 00:00:00.4393061 seconds

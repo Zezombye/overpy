@@ -47376,17 +47376,18 @@ function compileCustomGameSettingsDict(dict, refDict) {
 
 //As the workshop does not accept numbers that are too long (such as 0.22585181552505867), trim all numbers to 15 decimal places.
 function trimNb(x) {
-	var result = ""+x;
+	x = ""+x
+	var result = x;
 	if (result.indexOf('.') >= 0) {
 		result = result.substring(0,result.indexOf('.')+16);
 	}
+	//To not trim 1.2246467991473532e-16 into 1.2246467991473532.
+	//Thanks MagicMan for reporting this.
+	if (x.indexOf("e") >= 0 && result.indexOf("e") == -1) {
+		result += x.substring(x.indexOf("e"));
+	}
 	return result;
 }
-
-
-
-
-
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -49533,7 +49534,7 @@ function astRulesToOpy(rules) {
             if (rule.ruleAttributes.eventTeam) {
                 decompiledRuleAttributes += tabLevel(nbTabs)+"@Team "+rule.ruleAttributes.eventTeam+"\n";
             }
-            if (rule.ruleAttributes.eventPlayer) {
+            if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
                 if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
                     decompiledRuleAttributes += tabLevel(nbTabs)+"@Slot "+rule.ruleAttributes.eventPlayer+"\n";
                 } else {
@@ -53976,7 +53977,7 @@ astParsingFunctions.acosDeg = function(content) {
 
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(Math.PI/180));
         }
     }
     
@@ -54117,7 +54118,7 @@ astParsingFunctions.asinDeg = function(content) {
 
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(Math.PI/180));
         }
     }
     
@@ -54175,7 +54176,7 @@ astParsingFunctions.atan2Deg = function(content) {
 
     if (enableOptimization) {
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue)*(180/Math.PI));
+            return getAstForNumber(Math.atan2(content.args[0].args[0].numValue, content.args[1].args[0].numValue)*(Math.PI/180));
         }
     }
     

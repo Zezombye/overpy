@@ -19,6 +19,7 @@
 
 astParsingFunctions.__for__ = function(content) {
 
+    
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
     

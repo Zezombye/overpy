@@ -21,7 +21,7 @@ astParsingFunctions.asinDeg = function(content) {
 
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(180/Math.PI));
+            return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(Math.PI/180));
         }
     }
     
