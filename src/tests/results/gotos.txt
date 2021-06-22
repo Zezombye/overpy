@@ -19,7 +19,7 @@ rule ("gotos") {
         Skip(Global.A);
         "skip 3"
         Skip(3);
-        "pass"
+        "pa﻿ss"
         disabled Abort;
         //lbl_3:
         If(False);

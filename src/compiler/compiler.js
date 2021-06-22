@@ -198,7 +198,7 @@ function generateVariablesField() {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					varTypeResult += tabLevel(2)+i+": "+outputVariables[i]+"\n";
+					varTypeResult += tabLevel(2)+i+": "+removeBadWordsInVarName(outputVariables[i])+"\n";
 				}
 			}
 		}
@@ -269,7 +269,7 @@ function generateSubroutinesField() {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {
-				result += tabLevel(1)+i+": "+outputSubroutines[i]+"\n";
+				result += tabLevel(1)+i+": "+removeBadWordsInVarName(outputSubroutines[i])+"\n";
 			}
 		}
 	}

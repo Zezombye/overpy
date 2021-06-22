@@ -156,7 +156,7 @@ function parseLines(lines) {
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
                 if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
-                    console.log(subroutines)
+                    //console.log(subroutines)
                     for (var subroutine of subroutines) {
                         if (subroutine.name === instructionRuleAttributes.subroutineName) {
                             if (subroutine.isFromDefStatement) {
@@ -621,7 +621,7 @@ function parse(content, kwargs={}) {
 				}
 			}
         }
-        
+        string = escapeBadWords(string);
         return new Ast(string, [], [], stringType);
 	}
 	

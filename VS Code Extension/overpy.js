@@ -47337,7 +47337,7 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
 				error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
 			}
-			result[wsKey] = escapeString(dict[key], true);
+			result[wsKey] = escapeBadWords(escapeString(dict[key], true));
 
 		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
 			if (dict[key] > refDict[key].max) {
@@ -47872,6 +47872,17 @@ function isWs0(x) {
 
 "use strict";
 
+function escapeBadWords(content) {
+	//contains zero width spaces
+	content = content.replace(/(a)(ss)/ig, "$1﻿$2");
+	content = content.replace(/(ni)(g)/ig, "$1﻿$2");
+	content = content.replace(/(me)(th)/ig, "$1﻿$2");
+	content = content.replace(/(bla)(d)/ig, "$1﻿$2");
+	content = content.replace(/(cu)(m)/ig, "$1﻿$2");
+	content = content.replace(/(put)(a)/ig, "$1﻿$2");
+	return content;
+}
+
 function unescapeString(content, tows) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
@@ -48120,6 +48131,16 @@ function tows(keyword, keywordArray, options) {
 
 "use strict";
 
+function removeBadWordsInVarName(content) {
+	content = content.replace(/(a)(ss)/ig, "4$2");
+	content = content.replace(/(n)(i)(g)/ig, "$11$3");
+	content = content.replace(/(m)(e)(th)/ig, "$13$3");
+	content = content.replace(/(bl)(a)(d)/ig, "$14$3");
+	content = content.replace(/(c)(u)(m)/ig, "$1v$3");
+	content = content.replace(/(put)(a)/ig, "$14");
+	return content;
+}
+
 function translateSubroutineToPy(content) {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, "subroutine");
@@ -48141,7 +48162,7 @@ function translateSubroutineToWs(content) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i];
 			} else {
-				return content;
+				return removeBadWordsInVarName(content);
 			}
 		}
 	}
@@ -48163,7 +48184,7 @@ function translateSubroutineToWs(content) {
 	error("Undeclared subroutine '"+content+"'");
 }
 
-function addSubroutine(content, index) {
+function addSubroutine(content, index, isFromDefStatement) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
@@ -48173,6 +48194,7 @@ function addSubroutine(content, index) {
 	subroutines.push({
 		"name": content,
 		"index": index,
+		"isFromDefStatement": isFromDefStatement,
 	})
 }
 
@@ -48212,7 +48234,7 @@ function translateVarToWs(content, isGlobalVariable) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i]
 			} else {
-				return content;
+				return removeBadWordsInVarName(content);
 			}
 		}
 	}
@@ -51821,6 +51843,7 @@ astParsingFunctions.__equals__ = function(content) {
 
 astParsingFunctions.__for__ = function(content) {
 
+    
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
     
@@ -56586,7 +56609,7 @@ function astRulesToWs(rules) {
         if (obfuscationSettings.obfuscateNames) {
             result += '""';
         } else {
-            result += escapeString(rule.ruleAttributes.name, true);
+            result += escapeBadWords(escapeString(rule.ruleAttributes.name, true));
         }
         result += ") {\n";
 
@@ -56644,7 +56667,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscationSettings.obfuscateNames && condition.comment) {
-        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
+        result += tabLevel(2)+escapeBadWords(escapeString(condition.comment.trim(), true))+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -56715,7 +56738,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscationSettings.obfuscateNames && action.comment) {
-        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
+        result += tabLevel(nbTabs)+escapeBadWords(escapeString(action.comment.trim(), true))+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
@@ -57172,7 +57195,7 @@ function parseLines(lines) {
 			} else if (lines[i].tokens[0].text === "playervar") {
 				addVariable(lines[i].tokens[1].text, false, index, initDirective);
 			} else {
-				addSubroutine(lines[i].tokens[1].text, index);
+				addSubroutine(lines[i].tokens[1].text, index, false);
             }
             
         } else if (lines[i].tokens[0].text === "settings") {
@@ -57252,6 +57275,20 @@ function parseLines(lines) {
                 }
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
+                if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
+                    //console.log(subroutines)
+                    for (var subroutine of subroutines) {
+                        if (subroutine.name === instructionRuleAttributes.subroutineName) {
+                            if (subroutine.isFromDefStatement) {
+                                error("Duplicate definition of subroutine '"+instructionRuleAttributes.subroutineName+"'");
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    addSubroutine(instructionRuleAttributes.subroutineName, null, true);
+                }
             }
 
             if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {
@@ -57704,7 +57741,7 @@ function parse(content, kwargs={}) {
 				}
 			}
         }
-        
+        string = escapeBadWords(string);
         return new Ast(string, [], [], stringType);
 	}
 	
@@ -58395,7 +58432,7 @@ function generateVariablesField() {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					varTypeResult += tabLevel(2)+i+": "+outputVariables[i]+"\n";
+					varTypeResult += tabLevel(2)+i+": "+removeBadWordsInVarName(outputVariables[i])+"\n";
 				}
 			}
 		}
@@ -58466,7 +58503,7 @@ function generateSubroutinesField() {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {
-				result += tabLevel(1)+i+": "+outputSubroutines[i]+"\n";
+				result += tabLevel(1)+i+": "+removeBadWordsInVarName(outputSubroutines[i])+"\n";
 			}
 		}
 	}

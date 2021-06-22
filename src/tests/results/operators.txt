@@ -211,7 +211,7 @@ rule ("power") {
     }
 }
 
-rule ("assignment") {
+rule ("a﻿ssignment") {
     event {
         Ongoing - Each Player;
         All;

@@ -17,6 +17,19 @@
 
 "use strict";
 
+function escapeBadWords(content) {
+	//contains zero width spaces
+	content = content.replace(/(a)(ss)/ig, "$1﻿$2");
+	content = content.replace(/(ni)(g)/ig, "$1﻿$2");
+	content = content.replace(/(me)(th)/ig, "$1﻿$2");
+	content = content.replace(/(bla)(d)/ig, "$1﻿$2");
+	content = content.replace(/(cu)(m)/ig, "$1﻿$2");
+	content = content.replace(/(put)(a)/ig, "$1﻿$2");
+	content = content.replace(/(rap)(e)/ig, "$1﻿$2");
+	content = content.replace(/(va)(g)/ig, "$1﻿$2");
+	return content;
+}
+
 function unescapeString(content, tows) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
