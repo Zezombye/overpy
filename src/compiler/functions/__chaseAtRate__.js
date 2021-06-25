@@ -17,7 +17,9 @@
 
 "use strict";
 
-astParsingFunctions.__for__ = function(content) {
+astParsingFunctions.__chaseAtRate__ = function(content) {
+    //Warning: this function is duplicated with __chaseOverTime__.
+
 
     if (content.args[0].name === "__playerVar__") {
         var isGlobalVariable = false;
@@ -26,16 +28,16 @@ astParsingFunctions.__for__ = function(content) {
         var isGlobalVariable = true;
         var varName = content.args[0].args[0].name;
     } else {
-        error("Expected variable for 1st argument of function 'for', but got "+functionNameToString(content.args[0]));
+        error("Expected variable for 1st argument of function 'chase', but got "+functionNameToString(content.args[0]));
     }
 
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
     var isFound = false;
 	for (var variable of varArray) {
 		if (variable.name === varName) {
-            variable["isUsedInForLoop"] = true;
-            if (variable["isChased"]) {
-                warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is used in a for loop, but also chased, making the for loop not run.");
+            variable["isChased"] = true;
+            if (variable["isUsedInForLoop"]) {
+                warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
             }
             isFound = true;
             break;
@@ -51,15 +53,12 @@ astParsingFunctions.__for__ = function(content) {
         }
         for (var variable of varArray) {
             if (variable.name === varName) {
-                variable["isUsedInForLoop"] = true;
+                variable["isChased"] = true;
                 break;
             }
         }
     }
-    
-    //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-    
+
     return content;
 
 }

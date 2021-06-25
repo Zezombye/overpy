@@ -220,7 +220,6 @@ function parseLines(lines) {
                 }
             }
 
-            i += j-i-1;
             if (funcName === "__enum__") {
                 //Implement our own mini-parser to not get "function does not exist" errors.
                 enumMembers[args[0].name] = {};
@@ -271,6 +270,10 @@ function parseLines(lines) {
                 children = parseLines(childrenLines);
             }
 
+            
+            //console.log("i = "+i+", j = "+j);
+            //console.log("lines = \n"+lines.join("\n"));
+            fileStack = lines[i].tokens[0].fileStack;
             var instruction = new Ast(funcName, args, children);
             if (currentComments !== []) {
                 instruction.comment = commentArrayToString(currentComments);
@@ -280,6 +283,7 @@ function parseLines(lines) {
             }
             
             result.push(instruction);
+            i += j-i-1;
     
         } else {
             var currentLineAst = parse(lines[i].tokens);
@@ -621,7 +625,6 @@ function parse(content, kwargs={}) {
 				}
 			}
         }
-        string = escapeBadWords(string);
         return new Ast(string, [], [], stringType);
 	}
 	

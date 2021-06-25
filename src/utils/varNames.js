@@ -17,18 +17,6 @@
 
 "use strict";
 
-function removeBadWordsInVarName(content) {
-	content = content.replace(/(a)(ss)/ig, "4$2");
-	content = content.replace(/(n)(i)(g)/ig, "$11$3");
-	content = content.replace(/(m)(e)(th)/ig, "$13$3");
-	content = content.replace(/(bl)(a)(d)/ig, "$14$3");
-	content = content.replace(/(c)(u)(m)/ig, "$1v$3");
-	content = content.replace(/(put)(a)/ig, "$14");
-	content = content.replace(/(r)(a)(pe)/ig, "$14$3");
-	content = content.replace(/(v)(a)(g)/ig, "$14$3");
-	return content;
-}
-
 function translateSubroutineToPy(content) {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, "subroutine");
@@ -50,7 +38,7 @@ function translateSubroutineToWs(content) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i];
 			} else {
-				return removeBadWordsInVarName(content);
+				return content;
 			}
 		}
 	}
@@ -122,7 +110,7 @@ function translateVarToWs(content, isGlobalVariable) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i]
 			} else {
-				return removeBadWordsInVarName(content);
+				return content;
 			}
 		}
 	}

@@ -18,15 +18,74 @@
 "use strict";
 
 function escapeBadWords(content) {
-	//contains zero width spaces
-	content = content.replace(/(a)(ss)/ig, "$1﻿$2");
-	content = content.replace(/(ni)(g)/ig, "$1﻿$2");
-	content = content.replace(/(me)(th)/ig, "$1﻿$2");
-	content = content.replace(/(bla)(d)/ig, "$1﻿$2");
-	content = content.replace(/(cu)(m)/ig, "$1﻿$2");
-	content = content.replace(/(put)(a)/ig, "$1﻿$2");
-	content = content.replace(/(rap)(e)/ig, "$1﻿$2");
-	content = content.replace(/(va)(g)/ig, "$1﻿$2");
+
+	//000000000057.07F
+	//000000000058.07F
+	//00000000005A.07F
+	//Naturally, only words that aren't actually bad are here.
+	//Insert a zero-width space inside the word.
+
+	content = content.replace(/(a)(ccount)/ig, "$1﻿$2");
+	content = content.replace(/(a)(dmin)/ig, "$1﻿$2");
+	content = content.replace(/(a)(nonymous)/ig, "$1﻿$2");
+	content = content.replace(/(a)(sia)/ig, "$1﻿$2");
+	content = content.replace(/(b)(ackdoor)/ig, "$1﻿$2");
+	content = content.replace(/(b)(attlenet)/ig, "$1﻿$2");
+	content = content.replace(/(b)(eer)/ig, "$1﻿$2");
+	content = content.replace(/(b)(liz)/ig, "$1﻿$2");
+	content = content.replace(/(b)(lizzaard)/ig, "$1﻿$2");
+	content = content.replace(/(b)(lizzard)/ig, "$1﻿$2");
+	content = content.replace(/(b)(low)/ig, "$1﻿$2");
+	content = content.replace(/(bn)(et)/ig, "$1﻿$2");
+	content = content.replace(/(b)(razil)/ig, "$1﻿$2");
+	content = content.replace(/(c)(anada)/ig, "$1﻿$2");
+	content = content.replace(/(c)(hina)/ig, "$1﻿$2");
+	content = content.replace(/(c)(hinese)/ig, "$1﻿$2");
+	content = content.replace(/(d)(amn)/ig, "$1﻿$2");
+	content = content.replace(/(d)(amned)/ig, "$1﻿$2");
+	content = content.replace(/(d)(enmark)/ig, "$1﻿$2");
+	content = content.replace(/(d)(iablo)/ig, "$1﻿$2");
+	content = content.replace(/(e)(ngland)/ig, "$1﻿$2");
+	content = content.replace(/(f)(inland)/ig, "$1﻿$2");
+	content = content.replace(/(f)(rench)/ig, "$1﻿$2");
+	content = content.replace(/(g)(erman)/ig, "$1﻿$2");
+	content = content.replace(/(g)(ermany)/ig, "$1﻿$2");
+	content = content.replace(/(g)(m)/ig, "$1﻿$2");
+	content = content.replace(/(g)(od)/ig, "$1﻿$2");
+	content = content.replace(/(g)(oddamn)/ig, "$1﻿$2");
+	content = content.replace(/(h)(ash)/ig, "$1﻿$2");
+	content = content.replace(/(i)(reland)/ig, "$1﻿$2");
+	content = content.replace(/(i)(taly)/ig, "$1﻿$2");
+	content = content.replace(/(k)(orea)/ig, "$1﻿$2");
+	content = content.replace(/(l)(adder)/ig, "$1﻿$2");
+	content = content.replace(/(l)(eah)/ig, "$1﻿$2");
+	content = content.replace(/(l)(ilith)/ig, "$1﻿$2");
+	content = content.replace(/(l)(oad)/ig, "$1﻿$2");
+	content = content.replace(/(l)(ord)/ig, "$1﻿$2");
+	content = content.replace(/(m)(exican)/ig, "$1﻿$2");
+	content = content.replace(/(m)(exico)/ig, "$1﻿$2");
+	content = content.replace(/(m)(onitor)/ig, "$1﻿$2");
+	content = content.replace(/(n)(etherlands)/ig, "$1﻿$2");
+	content = content.replace(/(n)(orway)/ig, "$1﻿$2");
+	content = content.replace(/(n)(uts)/ig, "$1﻿$2");
+	content = content.replace(/(o)(wn)/ig, "$1﻿$2");
+	content = content.replace(/(p)(ass)/ig, "$1﻿$2");
+	content = content.replace(/(p)(atch)/ig, "$1﻿$2");
+	content = content.replace(/(p)(oland)/ig, "$1﻿$2");
+	content = content.replace(/(p)(olish)/ig, "$1﻿$2");
+	content = content.replace(/(p)(ortugal)/ig, "$1﻿$2");
+	content = content.replace(/(r)(anking)/ig, "$1﻿$2");
+	content = content.replace(/(r)(estore)/ig, "$1﻿$2");
+	content = content.replace(/(r)(ollback)/ig, "$1﻿$2");
+	content = content.replace(/(r)(ussia)/ig, "$1﻿$2");
+	content = content.replace(/(s)(anctuary)/ig, "$1﻿$2");
+	content = content.replace(/(s)(atan)/ig, "$1﻿$2");
+	content = content.replace(/(s)(ingapore)/ig, "$1﻿$2");
+	content = content.replace(/(s)(weden)/ig, "$1﻿$2");
+	content = content.replace(/(s)(witzerland)/ig, "$1﻿$2");
+	content = content.replace(/(s)(ystem)/ig, "$1﻿$2");
+	content = content.replace(/(w)(ow)/ig, "$1﻿$2");
+
 	return content;
 }
 

@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
+[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.60.1.0.83050
+[CASC] Overwatch build 1.61.0.0.83584
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -333,7 +333,7 @@
 000000000301.07C: <tx0C000000000044AF>
 000000000302.07C: <tx0C000000000044B1>
 000000000303.07C: <tx0C000000000044B0>
-00000000030E.07C: The whisper recipient is not on your Blizzard friends list.
+00000000030E.07C: The whisper recipient is not on your Battle.net friends list.
 00000000030F.07C: The whisper recipient is not online.
 000000000310.07C: The whisper could not be delivered due to an internal problem (%1$s).
 000000000311.07C: To 
@@ -359,7 +359,7 @@
 000000000359.07C: Forward Barrier
 00000000035C.07C: BACK
 00000000035D.07C: SEND REQUEST
-00000000035E.07C: ADD A FRIEND
+00000000035E.07C: Add a Friend to your Battle.Net Account
 000000000360.07C: The name of the invitee was not valid.  Use either a realID (e-mail) or a full battle-tag.
 000000000361.07C: The name of the invitee was not a valid RealID (e-mail).
 000000000362.07C: The name of the invitee was not a valid full battle tag.
@@ -673,13 +673,13 @@
 0000000009F6.07C: Use Tracer's mobility to quickly reach health packs located across the map.
 0000000009F8.07C: Tracer excels at skirmishing. Avoid fights where the odds are not in your favor.
 0000000009F9.07C: Let your teammates create a distraction before you enter combat.
-0000000009FA.07C: Symmetra's shields and Torbjörn's armor packs can make up for Tracer's low maximum health.
+0000000009FA.07C: Speed is the key to your survival, so beware of heroes with crowd control like McCree, Brigitte, Mei, and Sombra.
 000000000A16.07C: Save your last Blink to escape your enemy.
 000000000A40.07C: If you Recall immediately after taking damage, you will regain your lost health (if you're not dead).
 000000000A41.07C: Recall teleports Tracer to her location from three seconds ago. Try to predict where she will reappear.
 000000000A42.07C: Try to keep track of Tracer's location at all times.
 000000000A43.07C: Stay near your teammates to avoid being singled out by Tracer.
-000000000A44.07C: Tracer's low health makes her vulnerable to snipers such as Widowmaker.
+000000000A44.07C: Crowd control abilities like McCree’s Flashbang and Brigitte’s Shield Bash are very effective against Tracer.
 000000000A4E.07C: Use Shadow Step to attack the enemy from unexpected directions.
 000000000A4F.07C: When approaching an unaware enemy, don't open fire too soon.
 000000000A50.07C: Reaper's Hellfire shotguns are most effective at extremely close range.
@@ -688,7 +688,7 @@
 000000000A53.07C: Use Wraith Form to cross well-guarded choke points or to reach cover.
 000000000A54.07C: Reaper can still pick up health packs while in Wraith Form.
 000000000A55.07C: Surprise and flank enemies so you get in close.
-000000000A56.07C: Death Blossom can devastate a group of enemies but, unless you catch them unaware, they can quickly focus and kill you.
+000000000A56.07C: Use Death Blossom when your enemies are distracted by other members of your team to maximize its impact.
 000000000A65.07C: Be careful when using Wraith Form, as you could find yourself in a situation with no way out.
 000000000A6B.07C: Reaper is most effective at very close range. Keep him at a distance.
 000000000A6C.07C: The best counters to a Reaper's Death Blossom are to stun or kill him.
@@ -714,12 +714,12 @@
 000000000A83.07C: Although Zenyatta is invulnerable and cannot be stunned while using Transcendence, he can still be knocked away from his team.
 000000000A84.07C: Orb of Discord cannot be placed on heroes located behind barriers.
 000000000A85.07C: Concentrated fire will quickly eliminate Winston's Barrier Projector.
-000000000A86.07C: You can avoid damage from Winston's Tesla cannon by moving through Winston and forcing him to turn rapidly to face you.
+000000000A86.07C: Winston’s Tesla Cannon has a very short range but it’s easy to aim. Stay back and force him to jump to you.
 000000000A87.07C: Be aware of your surroundings when fighting Winston while his Primal Rage is active to avoid being punched off of the map to your death.
 000000000A88.07C: Don't let Winston distract you from more threatening enemies.
 000000000A89.07C: Turrets have a range of 40 meters, so long range attacks (like Pharah's rocket launcher) can destroy them from safety.
 000000000A8A.07C: Turrets can be stunned by abilities such as Reinhardt's Charge or McCree's Flashbang.
-000000000A8B.07C: If Torbjörn's turret is blocking your path to the objective, look for another route.
+000000000A8B.07C: Torbjörn's turret is extremely accurate. Destroy or avoid it.
 000000000A8C.07C: Barriers can protect teammates from a turret's damage for a short time.
 000000000A8D.07C: When Hanzo uses Dragonstrike, he yells out to the entire map. Listen for him to have a better chance of dodging it.
 000000000A8F.07C: Avoid open spaces and areas with long sight lines as you approach your objective.
@@ -727,7 +727,7 @@
 000000000A91.07C: Target Mercy first. It keeps her from using Resurrect, and she's often more vulnerable than the rest of her team.
 000000000A92.07C: Be careful when taking on Mercy while you have low health. Her Caduceus Blaster can do a surprising amount of damage.
 000000000A93.07C: Long fights favor Mercy and her healing ability. Be aggressive and try to finish off enemies quickly.
-000000000A94.07C: Reinhardt's size makes him easier to hit.
+000000000A94.07C: Target Reinhardt when he charges away from his team.
 000000000A95.07C: If your team attacks Reinhardt from two directions, he can only partially defend himself with his Barrier Field.
 000000000A96.07C: Coordinate your team's attacks to quickly destroy Reinhardt's Barrier Field.
 000000000A97.07C: Earthshatter, Charge, and Fire Strike all have significant cooldowns. Bait Reinhardt into using them, then move in for the kill.
@@ -761,14 +761,14 @@
 000000000B0A.07C: Use Fire Strike against immobile targets, such as Bastion in sentry configuration or Torbjörn's turret, as they can't dodge.
 000000000B0B.07C: Charge stuns Torbjörn's turret for a short time. Follow up with your rocket hammer.
 000000000B0C.07C: Charge is a devastating follow-up to stunning an enemy with Earthshatter.
-000000000B0D.07C: You can use Earthshatter while in midair. The hammer swing completes when you land.
+000000000B0D.07C: Use Earthshatter when your enemy least expects it to give them little chance to interrupt you.
 000000000B0E.07C: You can adjust the direction of your Charge as you rocket forward.
 000000000B0F.07C: Your Barrier Field's health begins to regenerate a few seconds after deactivating it.
 000000000B23.07C: You can see the location and current health status of your teammates at all times, even through walls and terrain.
 000000000B25.07C: Stay behind cover while attached to a teammate who is in combat.
 000000000B26.07C: Mercy's health begins to regenerate a few seconds after taking damage.
 000000000B27.07C: Escape danger by using Guardian Angel to fly to a distant teammate.
-000000000B28.07C: After using Guardian Angel to reach an airborne Pharah, gliding can keep you away from ground-based threats.
+000000000B28.07C: After using Guardian Angel to reach an airborne Pharah or Echo, gliding can keep you away from ground-based threats.
 000000000B29.07C: Don't forget about your Caduceus Blaster. It is accurate and useful for finishing off enemies with low health.
 000000000B2A.07C: You are vulnerable while alone. Fall back and group up with your teammates as they respawn.
 000000000B2B.07C: Resurrect is best used on teammates who were contesting a map objective.
@@ -814,7 +814,7 @@
 000000000BDC.07C: Try to avoid having to reload during combat while in sentry configuration.
 000000000BDD.07C: Use sentry configuration at locations that have a view of your objective.
 000000000BDE.07C: If engaging an enemy while in recon configuration, it's usually better to fight than to switch into sentry configuration.
-000000000BDF.07C: Use tank configuration when you need to take the fight to the enemy. Don't just wait for them to come to you.
+000000000BDF.07C: Use Configuration: Tank to survive concerted attacks by removing your critical hit locations and gaining Ironclad.
 000000000BE1.07C: McCree's Peacekeeper is extremely accurate and has a very long range. If you can see it, you can shoot it.
 000000000BE2.07C: Peacekeeper's alternate fire quickly shoots the remaining rounds in the weapon, so try to stay fully loaded.
 000000000BE3.07C: Although the Peacekeeper's alternate fire shoots wildly, it can still be effective at close range or against large targets, such as Reinhardt.
@@ -827,7 +827,7 @@
 000000000BEA.07C: Enemy barriers can block the shots from Deadeye.
 000000000BEB.07C: The particle cannon's primary fire is Zarya's highest damage attack, but its range is short and requires direct aim.
 000000000BEC.07C: Use the particle cannon's secondary fire to engage enemies at longer distances, or at enemies standing close to each other.
-000000000BED.07C: The barriers you create can temporarily prevent effects such as McCree's Flashbang and Zenyatta's Orb of Discord.
+000000000BED.07C: Your barriers prevent and remove most negative effects such as McCree's Flashbang and Zenyatta's Orb of Discord.
 000000000BEE.07C: An easy way to build energy is to activate Particle Barrier before moving in front of an enemy turret.
 000000000BEF.07C: Use Projected Barrier on a teammate whenever you spot them actively engaged in combat.
 000000000BF0.07C: Whenever your shields are depleted, consider retreating momentarily from combat to let them fully regenerate.
@@ -867,7 +867,7 @@
 000000000CC5.07C: Use Tactical Visor when your enemies are unaware of your location. They'll have less time to seek cover or use defensive abilities.
 000000000CC6.07C: Be careful when using Tactical Visor at low health. It won't help you if you're dead.
 000000000CC7.07C: Soldier: 76 prefers to keep his enemies at medium range to allow him to retreat, use cover, and heal with Biotic Field.
-000000000CC8.07C: Because Helix Rockets have a long cooldown, you can be more aggressive after Soldier: 76 has used them.
+000000000CC8.07C: Avoid fighting Soldier 76’s when he’s standing in his Biotic Field.
 000000000CC9.07C: When Soldier: 76 activates Tactical Visor, immediately seek cover. If you're caught out in the open, try to kill him before he kills you.
 000000000CF9.07C: Sonic Amplifier
 000000000CFA.07C: Sonic projectile launcher.
@@ -906,7 +906,7 @@
 000000000D8E.07C: You are vulnerable as you fade away and reappear with Shadowstep.
 000000000D8F.07C: © 2016 - 2021 Blizzard Entertainment, Inc. All rights reserved.
 000000000D94.07C: Move in and out of cover to protect yourself while sniping.
-000000000D97.07C: Heroes with weapons that do not rely on accuracy, such as Winston or Symmetra, can be problematic for Tracer.
+000000000D97.07C: Heroes with weapons that do not rely on accuracy, such as Winston, Symmetra, or Torbjörn can be problematic for Tracer. 
 000000000D98.07C: OPTIONS
 000000000D99.07C: EXIT TO DESKTOP
 000000000D9D.07C: CRITICAL
@@ -981,7 +981,7 @@
 000000000E77.07C: Passive
 000000000EC5.07C: %%
 000000000F16.07C: 
-000000000F17.07C: Enter a BattleTag#0000 or email address
+000000000F17.07C: Enter an email address or BattleTag
 000000000F18.07C: SENTRY
 000000000F1A.07C: /
 000000000F1B.07C: X
@@ -1760,7 +1760,7 @@ Experience new ways to play with a changing selection of game modes that include
 0000000019F9.07C: When you see or hear Genji using Deflect, don't attack him or you will risk dying to your own attacks.
 0000000019FA.07C: Attack Mei from farther away, where her Endothermic Blaster cannot reach.
 0000000019FB.07C: Try to single out Mei, so that if she freezes you, her teammates cannot take advantage.
-0000000019FD.07C: Fight Mei with your teamates nearby. She can't easily freeze more than one hero with her primary weapon.
+0000000019FD.07C: Avoid taking on Mei alone. She can easily freeze and defeat solo enemies.
 0000000019FE.07C: Use Frag Launcher's high arc and bouncy grenades to attack enemies from behind cover.
 0000000019FF.07C: The Frag Launcher excels at destroying immobile targets, such as Torbjörn's turret, Bastion, or enemies caught in a Steel Trap.
 000000001A00.07C: Attack enemies in enclosed areas to increase the chance that your missed shots still do damage.
@@ -1787,10 +1787,10 @@ Experience new ways to play with a changing selection of game modes that include
 000000001A21.07C: D.Va cannot follow targets very well while firing her fusion cannons. Try to get as close as possible before firing.
 000000001A22.07C: The fusion cannons fire rapidly in a shotgun-like spread. They're very effective against larger heroes, such as Winston or Reinhardt.
 000000001A23.07C: Use D.Va's Boosters to fly around tanks and other obstacles, then attack more vulnerable targets.
-000000001A24.07C: Flying through enemies with Boosters will knock them back and also deal enough damage to finish off low health targets.
+000000001A24.07C: Use Boosters to knock enemies off cliffs or away from your vulnerable allies.
 000000001A25.07C: D.Va can protect herself and her allies from enemies in front of her using Defense Matrix.
 000000001A26.07C: After your mech is destroyed, fight aggressively with your Light Gun to charge your ultimate and get a new mech.
-000000001A27.07C: The Self-Destruct ultimate turns your mech into a walking bomb but, after ejecting, you can immediately summon a new one.
+000000001A27.07C: Try to get in an enclosed space before using Call Mech. It can crush most enemies!
 000000001A28.07C: Use Self-Destruct to clear enemies away from a map objective. Even if it doesn't kill, it forces them to move away.
 000000001A29.07C: If you use Self-Destruct after activating Boosters, D.Va will eject but her mech will continue to move forward before detonating.
 000000001A2A.07C: Fix It Up
@@ -1903,7 +1903,7 @@ Experience new ways to play with a changing selection of game modes that include
 000000001BA9.07C: Unlocks
 000000001BB1.07C: Unable to authenticate.
 000000001BB2.07C: Specific error:
-000000001BB3.07C: Time out communicating with Blizzard services.
+000000001BB3.07C: Time out communicating with Battle.net services.
 000000001BB4.07C: Invalid state for response.
 000000001BB5.07C: An internal error occurred.
 000000001BB6.07C: Disconnected
@@ -2063,8 +2063,8 @@ Experience new ways to play with a changing selection of game modes that include
 000000001D23.07C: Self-|Rpl %1$s:Destruct:Destructs;
 000000001D24.07C: VOICE CHAT MODE
 000000001D25.07C: Unable to invite player to your group while they are in a custom game.
-000000001D26.07C: Joined %1$s voice chat - open mic. %3$s |Rplplayer:players; Press %2$s to access channels.
-000000001D27.07C: Joined %1$s voice chat - Push %2$s to talk. %4$s |Rplplayer:players; in channel. Press %3$s to access channels.
+000000001D26.07C: Joined %1$s voice chat - open mic. %3$s |Rplplayer:players; Press %2$s to access channels. %4$s
+000000001D27.07C: Joined %1$s voice chat - Push %2$s to talk. %4$s |Rplplayer:players; in channel. Press %3$s to access channels. %5$s
 000000001D2B.07C: PRESS ENTER TO CHAT
 000000001D2C.07C: PRESS TAB TO CYCLE CHANNELS
 000000001D2D.07C: TIME:
@@ -3551,7 +3551,7 @@ Experience new ways to play with a changing selection of game modes that include
 000000002B11.07C: EQUIP
 000000002B1F.07C: Huntress
 000000002B21.07C: PREVIEW
-000000002B41.07C: Blizzard Balance (%1$s)
+000000002B41.07C: Battle.net Balance (%1$s)
 000000002B46.07C: ENTERING TUTORIAL
 000000002B47.07C: ENTERING PRACTICE RANGE
 000000002B49.07C: %1$s Edit
@@ -7069,8 +7069,8 @@ Andrew Wang
 000000004234.07C: There is a new version of Overwatch available. Please exit and restart the game to update.
 000000004235.07C: Achievement Unlocked! %1$s
 000000004236.07C: PROMOTED!
-000000004237.07C: Add Friend
-00000000423E.07C: You haven't attached a valid payment method yet. Please set one up on the Blizzard.com website and try again.
+000000004237.07C: Add Battle.Net Friend
+00000000423E.07C: You haven't attached a valid payment method yet. Please set one up on the Battle.net Account Management website and try again.
 00000000423F.07C: Your purchase was denied due to the security information provided being incorrect.
 000000004240.07C: The shop is currently unavailable.  Please try again later.
 000000004242.07C: Your credit card is invalid.
@@ -7082,7 +7082,7 @@ Andrew Wang
 000000004248.07C: The shop cannot process your request right now.  Please try again later.
 000000004249.07C: Your credit card is blocked.
 00000000424A.07C: There was an error authorizing the payment.
-00000000424B.07C: You don't have enough Blizzard balance for this purchase.
+00000000424B.07C: You don't have enough Battle.net Balance for this purchase.
 00000000424C.07C: The payment provider denied the purchase.
 00000000424E.07C: You were removed from the match due to inactivity.
 00000000424F.07C: Are you sure you want to reset all video settings?
@@ -7542,7 +7542,7 @@ Andrew Wang
 0000000044F3.07C: The Scrap Gun's alternate fire does not deal much damage on a hit until the scrap ball explodes at its fixed distance.
 0000000044F4.07C: The Scrap Gun does not hold much ammunition, so try to keep it fully loaded with well timed reloading.
 0000000044F5.07C: Ambush players from behind cover or from a flanking position so that they're less likely to notice you and dodge your Chain Hook.
-0000000044F6.07C: When choosing targets for your Chain Hook, try to grab a less mobile Support or Defense Hero. They're easier to kill with your Scrap Gun.
+0000000044F6.07C: When choosing targets for your Chain Hook, try to grab a less mobile hero. They're easier to kill with your Scrap Gun.
 0000000044F7.07C: Always look for opportunities to briefly duck behind cover and use Take a Breather to recover any missing health.
 0000000044F9.07C: Whole Hog can quickly push enemy players away from an objective, giving your team an opportunity to claim it uncontested.
 0000000044FA.07C: There is a short delay before you begin spewing scrap after activating Whole Hog, so try to use it aggressively instead of waiting until you're low on health.
@@ -7616,7 +7616,7 @@ Andrew Wang
 0000000045AC.07C: Lost connection to game server
 0000000045AD.07C: Account missing Overwatch license
 0000000045AE.07C: Account has been banned.
-0000000045AF.07C: Disconnected by Blizzard services
+0000000045AF.07C: Disconnected by Battle.net services
 0000000045B0.07C: Disconnected due to inactivity
 0000000045B3.07C: HOLD TO CROSSFADE
 0000000045B6.07C: 
@@ -7669,7 +7669,7 @@ Andrew Wang
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
 000000004625.07C: An error occurred while accepting the invite
-000000004626.07C: Linking a Blizzard account will disconnect you. Are you sure you want to proceed?
+000000004626.07C: Linking a Battle.net Account will disconnect you. Are you sure you want to proceed?
 000000004627.07C: Unblock
 000000004629.07C: Estádio das Rãs
 00000000462A.07C: GENJI ULT
@@ -8040,7 +8040,7 @@ Matches
 000000004909.07C: Meditate
 00000000490A.07C: Icon
 00000000490F.07C: Ana has no escape or movement abilities, so heroes that can rapidly close distance will cause problems for her.
-000000004910.07C: You can use Ana's own teammates as cover to prevent her from shooting you with her Biotic Rifle.
+000000004910.07C: Retreat or take cover when Ana hits you with a Biotic Grenade. It prevents your allies from healing you!
 000000004911.07C: Avoid open spaces and areas that have long sight lines as you approach your objective.
 000000004912.07C: Your vision is highly restricted while sniping, but you can still listen for incoming threats.
 000000004913.07C: Stay unpredictable, and never remain in one sniping position for too long. 
@@ -8338,7 +8338,7 @@ Matches
 000000004BE8.07C: /|Rfn %1$s:N0;
 000000004BEA.07C: Wujing
 000000004BED.07C: Competitive play is unavailable for Free Trial group members.
-000000004BEF.07C: Your Blizzard account has been banned. Please consult your registered email for details.
+000000004BEF.07C: Your Battle.net Account has been banned. Please consult your registered email for details.
 000000004BF0.07C: Your Overwatch account has been suspended. Please consult your registered email for details.
 000000004BF1.07C: Final Score
 000000004BF2.07C: VPP Green Room
@@ -8700,7 +8700,7 @@ Matches
 00000000503F.07C: Opportunist
 000000005040.07C: You detect critically injured enemies through walls.
 000000005041.07C: Damage Sombra while she's hacking you or a teammate to interrupt the hack.
-000000005042.07C: Stay together as a team. Sombra preys on isolated enemies.
+000000005042.07C: Abilities like Widowmaker’s Infra-Sight and Hanzo’s Sonic Arrow reveal Sombra.
 000000005043.07C: When you see Sombra's location, make sure to communicate it to the rest of your team.
 000000005044.07C: Enemies will be able to see you if you move too close to them.
 000000005045.07C: Taking damage removes your invisibility, so look for cover after activating your camo.
@@ -9114,11 +9114,11 @@ THIS SOFTWARE.
 00000000543D.07C: Look for snow piles on the ground to reload your Snowball Blaster.
 00000000543E.07C: Use Ice Wall and Cryo-Freeze to block incoming snowballs!
 00000000544A.07C: Endothermic blaster isn't just for dealing damage. Its freeze can also limit your enemy's ability to attack you.
-00000000544B.07C: Your primary weapon is best used against highly mobile heroes. When slowed, they are more easily taken out.
+00000000544B.07C: Your primary weapon is deadly to highly mobile heroes. When slowed, they are more easily taken out.
 00000000544C.07C: Use Endothermic blaster's secondary fire to finish off frozen targets.
 00000000544D.07C: Endothermic blaster's secondary fire is accurate at long range.
 00000000544E.07C: Cancel Cryo-Freeze early to surprise enemies and disrupt the timing of their attacks.
-00000000544F.07C: In addition to making yourself invulnerable, you can use Cryo-Freeze to heal yourself in a pinch.
+00000000544F.07C: In addition to making yourself invulnerable, you can use Cryo-Freeze to heal yourself and reload in a pinch.
 000000005450.07C: Use Ice Wall defensively to provide you and your team cover from enemy attacks.
 000000005451.07C: Ice Wall can be used to separate your enemies, giving you and your own team a huge advantage.
 000000005452.07C: Placing an Ice Wall under you or your teammate will move them to the top of the wall, giving them access to higher areas.
@@ -10567,7 +10567,6 @@ A player name or BattleTag using a language different than your own.
 000000006147.07C: Team Size +1
 000000006148.07C: Team Size +2
 000000006149.07C: Team Size +3
-00000000615A.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Lunar New Year item among those items. Loot Boxes can be earned through in-game systems.
 00000000615B.07C: Reveal Heroes After Match Time Elapsed
 00000000615C.07C: Draw After Match Time Elapsed With No Tiebreaker
 00000000615D.07C: Tiebreaker After Match Time Elapsed
@@ -13518,7 +13517,7 @@ Brian Urbina
 0000000066B0.07C: Doomfist's Hand Cannon slowly reloads each round automatically.
 0000000066B1.07C: Create deadly combinations using Doomfist's abilities.
 0000000066B2.07C: After going airborne with Rising Uppercut, use Seismic Slam to drop down on nearby enemies.
-0000000066B3.07C: Seismic Slam does more damage the higher you activate it.
+0000000066B3.07C: Seismic Slam does more damage the longer you are in the air.
 0000000066B4.07C: Rocket Punch enemies into a wall or other obstruction to do massive damage.
 0000000066B5.07C: Using all your abilities at once restricts your mobility and makes you vulnerable to counterattacks.
 0000000066B6.07C: Your abilities' movement makes you more difficult to hit.
@@ -15876,7 +15875,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000080C5.07C: Keeping Brigitte away from melee range limits her ability to heal with Inspire.
 0000000080C6.07C: Brigitte can knockback your teammates into dangeous situations with both Whip Shot and Shield Bash.
 0000000080C7.07C: Concentrate fire from your team on Brigitte's Barrier Shield to quickly bring it down.
-0000000080C8.07C: Repair Pack is most effective on low health allies, but placing armor on an ally with full health can also be valuable.
+0000000080C8.07C: Protect your fellow support! Enemy flankers will have a hard time if you can keep them alive.
 0000000080C9.07C: To activate Inspire's area of effect healing, attack enemies with your Rocket Flail.
 0000000080CA.07C: Before your Barrier Shield breaks, use Shield Bash to quickly escape.
 0000000080CB.07C: Your Barrier Shield's damage absorption begins to regenerate a few seconds after putting it away.
@@ -16019,7 +16018,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000082BB.07C: Mechanic
 0000000082C2.07C: Objective Bonus
 0000000082C5.07C: - Top 500 players in every Battle.net region
-- Requires Blizzard SMS Protect enabled on your account
+- Requires Battle.net SMS Protect enabled on your account
 - Complete 25 matches in a region for eligibility
 - Only eligible in the region with most matches played
 0000000082C6.07C: LEADERBOARDS
@@ -17712,7 +17711,7 @@ and 10 Free Halloween Loot Boxes
 000000009E9E.07C: Sigma
 000000009E9F.07C: Heroic
 000000009EB1.07C: Holding Jump when using the Flight ability launches you up into the air.
-000000009EB2.07C: Duplicate completely heals you when activated, allowing you to save yourself at low health.
+000000009EB2.07C: Duplicate makes Echo briefly invulnerable and heals her at low health, protecting her from death.
 000000009EB3.07C: Focusing beam deals low damage to enemies above half health, but very high damage to enemies below half health.
 000000009EB4.07C: Use Focusing Beam to finish off any enemies brought below half health by your teammates.
 000000009EB5.07C: Use Sticky Bombs immediately followed up with Focusing Beam to deal a large burst of damage quickly.
@@ -17928,7 +17927,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000A32D.07C: Your turret automatically attacks targets you hit with your Rivet Gun’s primary fire.
 00000000A32E.07C: Use Overload proactively to take full advantage of its additional offensive firepower.
 00000000A32F.07C: Use Molten Core at key choke points and map objectives to maximize its impact.
-00000000A330.07C: Molten Core can create one large damaging area, or several smaller areas at multiple locations.
+00000000A330.07C: Stacking lava at a location does not increase Molten Core’s damage, so spread the lava around.
 00000000A331.07C: When using Molten Core, targeting enemy heroes that have limited mobility can be particularly effective.
 00000000A333.07C: Live
 00000000A341.07C: These changes will take effect in the next game.
@@ -19644,6 +19643,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000B753.07C: Competitive Deathmatch
 00000000B754.07C: Rise up the ranks and compete with the best Deathmatch players in the world!
 00000000B765.07C: An elite combat medic and ex-Talon operative, Baptiste now uses his skills to help those whose lives have been impacted by war.
+00000000B774.07C: Route 66
 00000000B775.07C: Rialto
 00000000B776.07C: Blizzard World
 00000000B777.07C: Paris
@@ -27020,8 +27020,6 @@ https://account.blizzard.com/connections/nintendo
 000000010385.07C: Unpin
 000000010389.07C: Unable to view replay due to account restrictions.
 00000001038C.07C: Unable to share replay due to account restrictions.
-00000001038E.07C: Cannot download replays from that platform.
-00000001038F.07C: The replay is not supported by your platform.
 0000000103A8.07C: PATCH NOTES
 0000000103BF.07C: Load Failed: Incompatible version.
 0000000103C0.07C: Feskarn
@@ -29302,15 +29300,20 @@ and 10 Free Winter Loot Boxes
 0000000127E6.07C: Season 27
 0000000127E7.07C: Season 28
 0000000127E8.07C: Season 28
+0000000127E9.07C: Season 29
+0000000127EA.07C: Season 29
 0000000127EF.07C: Season 26
 0000000127F0.07C: Season 26
 0000000127F1.07C: Season 27
 0000000127F2.07C: Season 27
 0000000127F3.07C: Season 28
 0000000127F4.07C: Season 28
+0000000127F5.07C: Season 29
+0000000127F6.07C: Season 29
 0000000127FC.07C: Competitive Season 26 - Open Queue
 0000000127FD.07C: Competitive Season 27 - Open Queue
 0000000127FE.07C: Competitive Season 28 - Open Queue
+0000000127FF.07C: Competitive Season 29 - Open Queue
 000000012802.07C: Shining Bull
 000000012804.07C: Placement Matches
 000000012805.07C: Frozen Elf
@@ -29523,7 +29526,6 @@ and 10 Free Winter Loot Boxes
 000000012C30.07C: The Player or Players to move.
 000000012C32.07C: The Team on which to move the Player. The "All" option only works in free-for-all game modes, while the "Team" options only work in team-based game modes.
 000000012C33.07C: The player slot which will receive the Player (-1 for first available slot).
-000000012C37.07C: Week 1: Cybermedic Ana
 000000012C38.07C: Bull's Fury
 000000012C39.07C: Available in Lunar Loot Boxes
 000000012C3A.07C: Garlic
@@ -29897,12 +29899,14 @@ and 10 Free Winter Loot Boxes
 000000012F8D.07C: Available in Archives Loot Boxes
 000000012FCE.07C: Ange de la mort
 000000012FF1.07C: DISCORD
+000000013000.07C: Deadlock
 000000013063.07C: Thunderstorm
 000000013064.07C: Complete the Thunderstorm Archives challenge mission.
 000000013065.07C: Bulletproof Barriers
 000000013066.07C: Complete the Bulletproof Barriers Archives challenge mission.
 000000013067.07C: Sympathy Gains
 000000013068.07C: Complete the Sympathy Gains Archives challenge mission.
+000000013076.07C: Cross-Platform Play
 00000001307C.07C: Week 3: 8 Ball Wrecking Ball
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
@@ -29924,19 +29928,27 @@ and 10 Free Winter Loot Boxes
 0000000130A7.07C: %1$s Archives Stars Plus Storm Rising Stars
 0000000130B9.07C: User Interface
 0000000130BA.07C: Matchmaking
+0000000130BB.07C: Cross-Platform Play
 0000000130BC.07C: Network
 0000000130BD.07C: Spectate
 0000000130BE.07C: Miscellaneous
-0000000130CD.07C: Ends In %1$s!
+000000013131.07C: Are you sure you want to disable cross-platform play?
+000000013132.07C: Disabling this feature may result in lower quality matches and longer queue times.
+You will also be placed in the opt-out pool for this competitive season.
 000000013134.07C: Super Fans
+000000013135.07C: OK
+000000013136.07C: Cancel
 000000013138.07C: Available in Archives Loot Boxes
 00000001313A.07C: Archives 2021
+00000001313C.07C: Please refer to XBox System Settings
 00000001313E.07C: Available in Archives Loot Boxes
 00000001313F.07C: Polyanitsa
 000000013141.07C: Available in Archives Loot Boxes
 000000013142.07C: Mousquetaire
 000000013144.07C: Available in Archives Loot Boxes
 000000013145.07C: Bushi
+000000013146.07C: Allow
+000000013147.07C: Block
 00000001314B.07C: Available in Archives Loot Boxes
 00000001314C.07C: Cavalry
 00000001314E.07C: Available in Archives Loot Boxes
@@ -29976,14 +29988,16 @@ and 10 Free Winter Loot Boxes
 000000013182.07C: The Wait is Snow-ver
 000000013183.07C: 4v4 Freeze Tag
 000000013195.07C: Starting In:
+00000001319E.07C: Cross-Platform Communication
 000000013291.07C: Unlocked by participating in the Archives 2021 week 3 challenge
 0000000132DF.07C: Taking A Break
 0000000132E6.07C: Voice Chat Nameplate Icon
 0000000132F5.07C: Power Flail
+000000013326.07C: You have disabled Cross-Play
 000000013333.07C: OK
-000000013344.07C: Coming Soon
-000000013345.07C: GET CONNECTED TO GROUP UP
-000000013347.07C: Create and link your Battle.net account and get ready to team up with friends across all platforms
+000000013344.07C: Now Live
+000000013345.07C: Group Up with Friends
+000000013347.07C: Team up with friends across all platforms! Party up and push the payload together with cross-play beta now live! 
 00000001334D.07C: Unlocked by participating in the Anniversary 2021 week 2 challenge
 00000001334E.07C: Flutter
 000000013350.07C: Unlocked by participating in the Anniversary 2021 week 2 challenge
@@ -30018,6 +30032,11 @@ and 10 Free Winter Loot Boxes
 000000013375.07C: Anniversary 2021
 000000013376.07C: Available in Anniversary Loot Boxes
 000000013386.07C: Round 'Em Up
+000000013388.07C: Scan the QR code using a mobile app:
+000000013389.07C: This code will expire in %1$s
+00000001338A.07C: Use this code to log in:
+00000001338B.07C: On another device, visit:
+00000001338C.07C: Or
 00000001338D.07C: Kickin'
 00000001338F.07C: Available in Anniversary Loot Boxes
 000000013390.07C: On The Prowl
@@ -30043,6 +30062,8 @@ and 10 Free Winter Loot Boxes
 0000000133AB.07C: At Ease
 0000000133AC.07C: Competitive Deathmatch
 0000000133AD.07C: Rise up the ranks and compete with the best Deathmatch players in the world!
+0000000133B0.07C: Show PC Groups Only
+0000000133B1.07C: Show Console Groups Only
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -32814,6 +32835,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 0000000136A1.07C: "© 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
 Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
+0000000136A3.07C: Console Players Only
+0000000136A4.07C: PC Players Only
 0000000136A5.07C: Blizzard Entertainment
 0000000136A6.07C: Character Art Director
 0000000136A7.07C: Audio Director
@@ -32825,12 +32848,15 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136AD.07C: Commercial Leader
 0000000136AE.07C: Greg Wilson
 0000000136AF.07C: 2020
+0000000136C1.07C: Connect using my controller instead
 0000000136D1.07C: Peace
-0000000136D4.07C: 
-0000000136D6.07C: 
-0000000136D7.07C: 
-0000000136D8.07C: 
-0000000136D9.07C: 
+0000000136D4.07C: PC
+0000000136D6.07C: Console
+0000000136D7.07C: PlayStation
+0000000136D8.07C: Xbox
+0000000136D9.07C: Switch
+0000000136DF.07C: Pool
+000000013737.07C: %1$s Pool
 0000000138E9.07C: Competitive Deathmatch Competitor 2021
 0000000138EA.07C: Unlocked by completing Competitive Deathmatch 2021 placement matches
 0000000138EB.07C: Competitive Deathmatch Hero 2021
@@ -32839,7 +32865,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000138EE.07C: Unlocked by completing Competitive Deathmatch 2021 placement matches
 0000000138EF.07C: Competitive Deathmatch Hero 2021
 0000000138F0.07C: Unlocked by achieving top 500 ranking at the end of Competitive Deathmatch 2021
-0000000138F2.07C: 
+0000000138F2.07C: You and all members of your party must be in the same competitive pool
+0000000138FB.07C: No
+0000000138FC.07C: Yes
 000000013911.07C: Event Ends
 000000013912.07C: June 8
 000000013913.07C: New anniversary unlocks available alongside past items and game modes!
@@ -32852,8 +32880,17 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391C.07C: |Rpl %1$s:Game:Games; Played Plus Won
 00000001391D.07C: %1$s |Rpl Game:Games; Played Plus Won
 00000001391E.07C: Play 9/18/27 Games in Quick Play, Arcade, or Competitive Play.  Wins count as two games.
+00000001391F.07C: PC Players Only
+000000013920.07C: Console Players Only
+000000013923.07C: PC Games Only
+000000013924.07C: Console Games Only
+000000013927.07C: Chat
 000000013932.07C: June Joust Tournament Skin
 000000013942.07C: Competitive Deathmatch Season 4
+000000013943.07C: Text Chat
+000000013944.07C: Write Message
+000000013945.07C: Channels
+000000013946.07C: Close
 000000013979.07C: |Rpl %1$s:Runner-up Finish:Runner-up Finishes;
 00000001397A.07C: %1$s |Rpl Runner-up Finish:Runner-up Finishes;
 00000001397B.07C: |Rpl %1$s:Game:Games; Won
@@ -32862,9 +32899,72 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl Game:Games; Backfilled (Lost or Tied)
 000000013994.07C: |Rpl %1$s:Game:Games; Played
 000000013995.07C: %1$s |Rpl Game:Games; Played
+0000000139A2.07C: Do you want to accept %1$s's Battle.Net friend request?
+0000000139A3.07C: Accept
+0000000139A4.07C: Decline
+0000000139C6.07C: Unable to join the match due to its platform access settings.
+0000000139CF.07C: You were removed because your platform is no longer allowed in the custom game.
+0000000139DA.07C: Unable to join group due to incompatible Cross-Play settings.
+0000000139E2.07C: Unlocked by participating in Ashe's Deadlock Challenge
+0000000139E7.07C: Outlaws
+0000000139E8.07C: Deadlock Ashe
+0000000139EC.07C: Waffles
+0000000139ED.07C: Graduation
+0000000139EE.07C: Unlocked by participating in Ashe's Deadlock Challenge
+0000000139EF.07C: Young Jesse
+0000000139F0.07C: Unlocked by participating in Ashe's Deadlock Challenge
+0000000139F1.07C: Pondering
+0000000139F2.07C: Unlocked by participating in Ashe's Deadlock Challenge
+0000000139F3.07C: Troublemakers
+0000000139F4.07C: Unlocked by participating in Ashe's Deadlock Challenge
+0000000139F5.07C: Hat Trick
+0000000139F6.07C: Unlocked by participating in Ashe's Deadlock Challenge
 0000000139FB.07C: Rainbow
+000000013A26.07C: Golden Loot Box
+000000013A27.07C: Celebrate the launch of Cross-Play Beta with a Golden Loot Box on us!
 000000013A47.07C: More Info
 000000013A4B.07C: blizz.ly/OWCrossPlay
-000000013A4C.07C: LINK YOUR ACCOUNT AND GROUP UP!
+000000013A4C.07C: Learn more and Group Up!
+000000013A4F.07C: PlayStation
+000000013A50.07C: Other Platforms
 000000013A51.07C: Visit
-[Core] Execution finished in 00:00:00.4385714 seconds
+000000013A58.07C: You have been removed from your group due to your updated Cross-Play settings.
+000000013A59.07C: Your updated Cross-Play settings will take effect after this match.
+000000013A5A.07C: Your updated Cross-Play settings will take effect after this queue.
+000000013A5B.07C: Your group has been removed from the queue due to your group’s updated Cross-Play settings.
+000000013A66.07C: Unable to invite player due to incompatible Cross-Play settings.
+000000013AA5.07C: New Original Novel
+000000013AA6.07C: Ashe's Deadlock Challenge
+000000013AB6.07C: Using Dragonblade resets the cooldown of Swift Strike.
+000000013AC9.07C: Season 29 Hero
+000000013ACA.07C: Unlocked by achieving top 500 ranking at the end of Season 29
+000000013ACB.07C: Season 29 Competitor
+000000013ACC.07C: Unlocked by completing Season 29 placement matches
+000000013ACD.07C: Season 29 Hero
+000000013ACE.07C: Unlocked by achieving top 500 ranking at the end of Season 29
+000000013ACF.07C: Season 29 Competitor
+000000013AD0.07C: Unlocked by completing Season 29 placement matches
+000000013AD2.07C: Experimental Barrier can be moved long distances to protect your teammates.
+000000013AD3.07C: Recall the Experimental Barrier to recharge it.
+000000013AD4.07C: Sigma's weapon attacks implode after a short time, dealing damage in an area. Find the right distance to deal damage over obstacles such as enemy barriers.
+000000013AD5.07C: Accretion will only knock down enemies with a direct hit.
+000000013AD6.07C: Kinetic Grasp has a long cooldown. Use it to protect yourself while Experimental Barrier is recharging.
+000000013AD7.07C: Use Gravitic Flux to lift enemies into the air, away from their team or the objective.
+000000013ADE.07C: Dealing damage to Sombra reveals her. Fire at where you think she might be spying on you from to check for her.
+000000013ADF.07C: A young Elizabeth Ashe co-founded the infamous Deadlock Gang alongside B.O.B. and Jesse McCree.
+000000013AE6.07C: A Battle.net account is required to play overwatch
+000000013AF4.07C: Use Infra-Sight as the enemy begins an attack, so your teammates can move into better defensive positions.
+000000013B76.07C: Cross-Play enabled. You may encounter cross-network players.
+000000013C49.07C: Some players may not be able to see your messages due to your Cross-Play communication settings.
+000000013C7C.07C: Your group has been removed from the queue as your group is no longer eligible.
+000000013C84.07C: Disconnected because the Battle.net account was logged in somewhere else
+000000013C8E.07C: Unable to invite player due to the custom game's Cross-Play settings.
+000000013C8F.07C: Your message cannot be viewed by some members of your group due to your Cross-Play communication settings.
+000000013C98.07C: Your message cannot be viewed due to your Cross-Play communication settings.
+000000013D12.07C: Some members of your channel may not hear you due to your Cross-play communication settings.
+000000013D2B.07C: Deadlock Rebels
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D43.07C: Your message cannot be viewed by some members of your team due to your Cross-Play communication settings.
+000000013D44.07C: Your message cannot be viewed by some members of your match due to your Cross-Play communication settings.
+[Core] Execution finished in 00:00:00.4544774 seconds

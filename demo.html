@@ -129,6 +129,8 @@ a {
 <script src="src/compiler/functions/__arraySlice__.js"></script>
 <script src="src/compiler/functions/__assignTo__.js"></script>
 <script src="src/compiler/functions/__button__.js"></script>
+<script src="src/compiler/functions/__chaseAtRate__.js"></script>
+<script src="src/compiler/functions/__chaseOverTime__.js"></script>
 <script src="src/compiler/functions/__color__.js"></script>
 <script src="src/compiler/functions/__del__.js"></script>
 <script src="src/compiler/functions/__dict__.js"></script>
@@ -233,17 +235,6 @@ a {
 
 <script>
 
-for (var func in actionKw) {
-	if (actionKw[func]["args"]) {
-		for (var arg of actionKw[func]["args"]) {
-			arg["descriptionLocalized"] = {"en-US": arg["description"]};
-		}
-	}
-	//valueFuncKw[func]["descriptionLocalized"] = {};
-	//valueFuncKw[func]["descriptionLocalized"]["en-US"] = valueFuncKw[func]["description"];
-}
-
-console.log(JSON.stringify(actionKw, null, 4));
 
 </script>
 

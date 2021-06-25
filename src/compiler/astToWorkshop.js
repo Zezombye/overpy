@@ -345,11 +345,14 @@ function astToWs(content) {
 
     } else if (content.name === "__chaseAtRate__" || content.name === "__chaseOverTime__") {
         var newName = content.name === "__chaseAtRate__" ? "AtRate__" : "OverTime__";
+
         if (content.args[0].name === "__globalVar__") {
+
             newName = "GlobalVariable"+newName;
             content.args = [content.args[0].args[0]].concat(content.args.slice(1));
 
         } else if (content.args[0].name === "__playerVar__") {
+
             newName = "PlayerVariable"+newName;
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 

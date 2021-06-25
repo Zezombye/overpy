@@ -58,6 +58,7 @@ class Ast {
             }
             child.parent = this;
         }
+        //console.log("Creating AST for '"+name+"', filestack = "+JSON.stringify(fileStack))
         this.fileStack = fileStack;
         this.argIndex = 0;
         this.childIndex = 0;

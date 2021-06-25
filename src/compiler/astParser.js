@@ -384,6 +384,8 @@ function parseAst(content) {
         }
     }
 
+    fileStack = content.fileStack;
+
     //Optimize, and re-optimize if the function name changed
     var oldContentName = content.name;
     while (!content.doNotOptimize && content.name in astParsingFunctions) {

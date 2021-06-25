@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.954-git-91b352e6036663fdd6f2b1b71945cf5626dad144
+[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(5)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.60.1.0.83050
+[CASC] Overwatch build 1.61.0.0.83584
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83050 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83050 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -334,7 +334,7 @@
 000000000301.07C: <tx0C000000000044AF>
 000000000302.07C: <tx0C000000000044B1>
 000000000303.07C: <tx0C000000000044B0>
-00000000030E.07C: Odbiorcy wiadomości prywatnej nie ma na twojej liście znajomych.
+00000000030E.07C: Odbiorcy wiadomości prywatnej nie ma na twojej liście znajomych z Battle.netu.
 00000000030F.07C: Odbiorca wiadomości prywatnej jest niedostępny.
 000000000310.07C: Nie udało się dostarczyć wiadomości prywatnej z powodu błędu wewnętrznego (%1$s).
 000000000311.07C: Do 
@@ -360,7 +360,7 @@
 000000000359.07C: Przednia Bariera
 00000000035C.07C: WSTECZ
 00000000035D.07C: WYŚLIJ PROŚBĘ
-00000000035E.07C: DODAJ ZNAJOMEGO
+00000000035E.07C: Dodaj znajomego do konta Battle.net
 000000000360.07C: Nieprawidłowa nazwa zaproszonego użytkownika. Użyj Rzeczywistego ID (adresu e-mail) lub pełnego BattleTagu.
 000000000361.07C: Nazwa zaproszonego użytkownika nie jest prawidłowym Rzeczywistym ID (adresem e-mail).
 000000000362.07C: Nazwa zaproszonego użytkownika nie jest prawidłowym pełnym BattleTagiem.
@@ -692,13 +692,13 @@ się poruszasz, po czym przeładowujesz broń.
 0000000009F6.07C: Szybkość Smugi umożliwia jej szybkie dotarcie do apteczek w odległych częściach mapy.
 0000000009F8.07C: Smuga jest mistrzynią wojny podjazdowej. Staraj się nie wdawać z nią w walkę, jeśli okoliczności nie działają na twoją korzyść.
 0000000009F9.07C: Zanim dołączysz do walki, pozwól członkom swojej drużyny odwrócić uwagę przeciwnika.
-0000000009FA.07C: Osłony Symmetry i Wykucie Pancerza Torbjörna pomagają Smudze przeżyć mimo niskiego maksymalnego zdrowia.
+0000000009FA.07C: Szybkość jest kluczem do przetrwania, więc uważaj na bohaterów ze zdolnościami ograniczającymi kontrolę, takich jak McCree, Brigitte, Mei i Sombra.
 000000000A16.07C: Zostaw sobie ostatnie Mignięcie na ucieczkę przed wrogiem.
 000000000A40.07C: Jeśli użyjesz Powrotu od razu po otrzymaniu obrażeń, odzyskasz stracone punkty zdrowia (o ile jeszcze żyjesz).
 000000000A41.07C: Powrót teleportuje Smugę w miejsce, gdzie przebywała trzy sekundy wcześniej. Staraj się przewidzieć, gdzie pojawi się ponownie.
 000000000A42.07C: Staraj się cały czas śledzić ruchy Smugi.
 000000000A43.07C: Trzymaj się blisko innych członków drużyny, aby uniknąć spotkania sam na sam ze Smugą.
-000000000A44.07C: Niewielka pula zdrowia Smugi sprawia, że jest ona podatna na ataki snajperów takich jak Trupia Wdowa.
+000000000A44.07C: Zdolności ograniczające kontrolę, takie jak Granat Błyskowy McCree i Rąbnięcie Tarczą Brigitte, są bardzo skuteczne przeciwko Smudze.
 000000000A4E.07C: Używaj Kroku w Cień, aby atakować wrogów z kierunków, z których się ciebie nie spodziewają.
 000000000A4F.07C: Kiedy zbliżasz się do przeciwnika nieświadomego zagrożenia, nie otwieraj ognia zbyt wcześnie.
 000000000A50.07C: Piekielne Strzelby Żniwiarza są najskuteczniejsze na bardzo krótki dystans.
@@ -707,7 +707,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000A53.07C: Użyj Postaci Upiora, aby przedostać się przez dobrze bronione wąskie przejścia lub ukryć się za przeszkodą.
 000000000A54.07C: Żniwiarz może zbierać apteczki także pod Postacią Upiora.
 000000000A55.07C: Aby zbliżyć się do wrogów, zachodź ich z flanki i wykorzystuj element zaskoczenia.
-000000000A56.07C: Wirująca Śmierć może zadać poważne obrażenia skupionym wrogom, ale jeśli nie zaatakujesz ich z zaskoczenia, szybko skupią na tobie ogień i polegniesz.
+000000000A56.07C: Użyj Wirującej Śmierci, gdy pozostali członkowie twojej drużyny rozpraszają wrogów, aby zmaksymalizować efekt działania zdolności.
 000000000A65.07C: Uważaj, kiedy używasz Postaci Upiora, bo możesz znaleźć się w sytuacji bez szans na ucieczkę.
 000000000A6B.07C: Żniwiarz jest najskuteczniejszy w walce na bardzo krótki dystans. Staraj się nie dopuszczać go zbyt blisko.
 000000000A6C.07C: Najlepszy sposób, aby powstrzymać Żniwiarza używającego zdolności Wirująca Śmierć, to zabić go lub ogłuszyć.
@@ -733,12 +733,12 @@ się poruszasz, po czym przeładowujesz broń.
 000000000A83.07C: Choć Zenyatta w czasie używania Transendencji jest nietykalny i nie da się go ogłuszyć, można go odrzucić i w ten sposób oddzielić od reszty drużyny.
 000000000A84.07C: Kuli Rozdarcia nie da się rzucić na bohaterów schowanych za barierami.
 000000000A85.07C: Skupiony ogień szybko zniszczy pole siłowe generowane przez Emiter Osłony Winstona.
-000000000A86.07C: Aby uniknąć obrażeń zadawanych przez Działo Tesli Winstona obejdź go, zmuszając do szybkiego odwrócenia się w twoją stronę.
+000000000A86.07C: Działo Tesla Winstona ma bardzo mały zasięg, ale łatwo nim celować. Trzymaj się z dala i zmuś go, żeby doskoczył w twoją stronę.
 000000000A87.07C: Uważnie obserwuj otoczenie podczas walki z Winstonem, który używa Pierwotnego Szału, aby uniknąć odrzucenia w przepaść na krawędzi mapy.
 000000000A88.07C: Nie pozwól, by Winston odciągnął twoją uwagę od innych, groźniejszych wrogów.
 000000000A89.07C: Wieżyczki mają zasięg 40 metrów, więc łatwo je zniszczyć z bezpiecznej odległości atakami długodystansowymi (na przykład z Wyrzutni Rakiet Fary).
 000000000A8A.07C: Wieżyczki można ogłuszać za pomocą takich zdolności jak Szarża Reinhardta czy Granat Błyskowy McCree.
-000000000A8B.07C: Jeśli wieżyczka Torbjörna uniemożliwia ci dotarcie do celu jedną drogą, poszukaj innej.
+000000000A8B.07C: Wieżyczka Torbjörna jest niezwykle celna. Zniszcz ją lub jej unikaj.
 000000000A8C.07C: Bariery mogą na jakiś czas osłonić innych członków drużyny przed ogniem wieżyczki.
 000000000A8D.07C: Kiedy Hanzo używa Smoczego Strzału, wydaje z siebie okrzyk, który słychać na całej mapie. Nasłuchuj go, aby zwiększyć swoje szanse na unik.
 000000000A8F.07C: Podczas zbliżania się do celu, unikaj otwartych przestrzeni i obszarów, które można obserwować z daleka.
@@ -746,7 +746,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000A91.07C: Na początku zawsze atakuj Łaskę. Uniemożliwi jej to używanie Wskrzeszenia, a zwykle jest bardziej podatna na ataki niż reszta jej drużyny.
 000000000A92.07C: Uważaj, jeśli atakujesz Łaskę, kiedy masz mało zdrowia. Jej Blaster potrafi zadać zaskakująco dużo obrażeń.
 000000000A93.07C: Długie starcia działają na korzyść Łaski, która dysponuje zdolnością leczącą. Działaj agresywnie i staraj się szybko likwidować wrogów.
-000000000A94.07C: Rozmiary Reinhardta sprawiają, że łatwiej go trafić.
+000000000A94.07C: Obierz Reinhardta za cel, gdy będzie szarżował z dala od swojej drużyny.
 000000000A95.07C: Jeśli twoja drużyna atakuje Reinhardta z dwóch kierunków, Pole Osłonowe zapewnia mu ochronę tylko z jednej strony.
 000000000A96.07C: Aby szybko zniszczyć Pole Osłonowe Reinhardta, przeprowadź skoordynowany atak ze swoją drużyną.
 000000000A97.07C: Zdruzgotanie, Szarża i Ogniste Uderzenie mają długie czasy odnowienia. Zmuś Reinhardta, aby ich użył, a potem się z nim rozpraw.
@@ -780,14 +780,14 @@ się poruszasz, po czym przeładowujesz broń.
 000000000B0A.07C: Używaj Ognistego Uderzenia przeciwko nieruchomym celom, takim jak Bastion w konfiguracji wartowniczej czy wieżyczka Torbjörna, ponieważ nie mogą robić uników.
 000000000B0B.07C: Szarża na pewien czas unieszkodliwia wieżyczkę Torbjörna, dzięki czemu możesz ją dalej atakować Młotem Rakietowym.
 000000000B0C.07C: Szarża jest niezwykle skuteczna przeciwko wrogom ogłuszonym wcześniej Zdruzgotaniem.
-000000000B0D.07C: Zdruzgotania można użyć w czasie wyskoku. Zamach młotem jest wówczas wykonywany po wylądowaniu.
+000000000B0D.07C: Użyj Zdruzgotania, kiedy przeciwnik najmniej się tego spodziewa, aby dać mu małą szansę na przerwanie zdolności.
 000000000B0E.07C: W czasie Szarży możesz zmieniać kierunek ruchu.
 000000000B0F.07C: Pole Osłonowe zaczyna regenerować swoje punkty wytrzymałości w kilka sekund po jego wyłączeniu.
 000000000B23.07C: Cały czas możesz obserwować pozycje i stan zdrowia członków swojej drużyny – nawet wtedy, gdy są za ścianą lub inną przeszkodą.
 000000000B25.07C: Nie wychodź z ukrycia w czasie połączenia z innym członkiem drużyny, który uczestniczy w walce.
 000000000B26.07C: Łaska zaczyna regenerować zdrowie po kilku sekundach od otrzymania obrażeń.
 000000000B27.07C: Możesz unikać zagrożeń, używając Anioła Stróża, aby przemieścić się do oddalonego sojusznika.
-000000000B28.07C: Jeśli użyjesz Anioła Stróża, aby przemieścić się do lecącej Fary, szybowanie przy niej uchroni cię przed większością ataków z ziemi.
+000000000B28.07C: Jeśli użyjesz Anioła Stróża, aby zbliżyć się do lecącej Fary lub Echo, szybowanie uchroni cię przed większością ataków z ziemi.
 000000000B29.07C: Pamiętaj, że masz Blaster Energetyczny. To celna broń umożliwiająca likwidowanie przeciwników, którzy mają mało zdrowia.
 000000000B2A.07C: Kiedy w pobliżu nie ma sojuszników, grozi ci niebezpieczeństwo. Jeśli zginą i odrodzą się, postaraj się do nich wrócić.
 000000000B2B.07C: Wskrzeszenia najlepiej używać na poległych członkach drużyny, którzy przejmowali cel na mapie.
@@ -833,7 +833,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000BDC.07C: Staraj się nie przeładowywać broni podczas walki w Konfiguracji: Wartownik.
 000000000BDD.07C: Pamiętaj, aby rozstawiać się w Konfiguracji: Wartownik w miejscach, z których widzisz swój cel strategiczny.
 000000000BDE.07C: Jeśli dojdzie do starcia z wrogiem, kiedy jesteś w Konfiguracji: Zwiadowca, bardziej opłaca się walczyć niż przełączać do Konfiguracji: Wartownik.
-000000000BDF.07C: Kiedy musisz zaatakować wroga na jego terytorium, użyj Konfiguracji: Czołg, zamiast czekać, aż przeciwnicy do ciebie przyjdą.
+000000000BDF.07C: Użyj Konfiguracji: Czołg, aby przetrwać skoordynowane ataki, usuwając miejsca trafień krytycznych na swojej postaci i zyskując opancerzenie.
 000000000BE1.07C: Rozjemca McCree ma niesamowitą celność nawet na bardzo duży dystans. Jeśli coś widzisz, strzelaj śmiało.
 000000000BE2.07C: Alternatywny tryb prowadzenia ognia Rozjemcy umożliwia szybkie wystrzelenie reszty amunicji, więc staraj się utrzymać pełny magazynek.
 000000000BE3.07C: Chociaż w trybie alternatywnym Rozjemca ma duży rozrzut, jest skuteczny na krótki dystans lub przeciwko dużym celom takim jak Reinhardt.
@@ -846,7 +846,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000BEA.07C: Bariery wroga mogą zablokować strzały z Przycelowania.
 000000000BEB.07C: Najpotężniejszy atak Zarii to podstawowy atak Działa Cząsteczkowego, jednak ma krótki zasięg i wymaga bezpośredniego trafienia w cel.
 000000000BEC.07C: Używaj strzału dodatkowego z Działa Cząsteczkowego, aby atakować bardziej oddalonych wrogów lub przeciwników stojących blisko siebie.
-000000000BED.07C: Bariery, które tworzysz, mogą chwilowo zapobiegać efektom takich zdolności jak Granat Błyskowy McCree czy Kula Rozdarcia Zenyatty.
+000000000BED.07C: Bariery, które tworzysz, mogą zapobiegać i cofać negatywne efekty takich zdolności jak Granat Błyskowy McCree czy Kula Rozdarcia Zenyatty.
 000000000BEE.07C: Aby łatwo zgromadzić energię, włącz Barierę Cząsteczkową i ustaw się przed wieżyczką wroga.
 000000000BEF.07C: Kiedy zauważysz, że ktoś z twojej drużyny wdał się w wymianę ognia z wrogami, użyj na nim Bariery Projekcyjnej.
 000000000BF0.07C: Kiedy tylko wyczerpią się twoje osłony, wycofaj się na chwilę z walki, żeby dać im się zregenerować.
@@ -886,7 +886,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000CC5.07C: Używaj Wizjera Taktycznego, kiedy wrogowie nie znają twojego położenia. Będą mieć mniej czasu na ukrycie się lub użycie zdolności obronnych.
 000000000CC6.07C: Zachowaj ostrożność podczas używania Wizjera Taktycznego, kiedy masz mało zdrowia. Jeśli zginiesz, na nic ci się nie przyda.
 000000000CC7.07C: Żołnierz-76 najlepiej sprawdza się na średnim dystansie, który umożliwia mu ucieczkę, chowanie się za przeszkodami i leczenie się za pomocą Pola Biotycznego.
-000000000CC8.07C: Rakiety Helix mają długi czas odnowienia, więc kiedy Żołnierz-76 ich użyje, możesz zacząć grać bardziej ofensywnie.
+000000000CC8.07C: Unikaj walki z Żołnierzem-76, gdy stoi on w swoim Polu Biotycznym.
 000000000CC9.07C: Kiedy Żołnierz-76 włączy swój Wizjer Taktyczny, natychmiast się ukryj. Jeśli przyłapie cię na otwartej przestrzeni, spróbuj go zabić, zanim padniesz jego ofiarą.
 000000000CF9.07C: Wzmacniacz
 000000000CFA.07C: Broń dźwiękowa.
@@ -926,7 +926,7 @@ by po niej jechać.
 000000000D8E.07C: Ponowne pojawienie się po użyciu Kroku w Cień naraża cię na atak ze strony wroga.
 000000000D8F.07C: © 2016–2021 Blizzard Entertainment, Inc. Wszystkie prawa zastrzeżone.
 000000000D94.07C: Aby nie dać się zabić snajperowi, chowaj się co chwilę za przeszkodami.
-000000000D97.07C: Bohaterowie, których broń nie wymaga dużej celności, tacy jak Winston czy Symmetra, mogą być groźni dla Smugi.
+000000000D97.07C: Bohaterowie z bronią, która nie wymaga celności, tacy jak Winston, Symmetra czy Torbjörn, mogą być problematyczni dla Smugi.
 000000000D98.07C: OPCJE
 000000000D99.07C: WYJDŹ DO PULPITU
 000000000D9D.07C: BLISKO ŚMIERCI
@@ -1001,7 +1001,7 @@ by po niej jechać.
 000000000E77.07C: Zdolność pasywna
 000000000EC5.07C: %%
 000000000F16.07C: 
-000000000F17.07C: Podaj BattleTag#0000 lub adres e-mail
+000000000F17.07C: Podaj adres e-mail lub battletag
 000000000F18.07C: WIEŻYCZKA
 000000000F1A.07C: /
 000000000F1B.07C: X
@@ -1783,7 +1783,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 0000000019F9.07C: Kiedy widzisz lub słyszysz Genjiego, który używa Odbicia, nie atakuj go, bo możesz zginąć od własnych ataków.
 0000000019FA.07C: Atakuj Mei spoza zasięgu jej Miotacza Endotermicznego.
 0000000019FB.07C: Staraj się atakować Mei, kiedy jest sama, żeby inni członkowie jej drużyny nie wykorzystali przewagi, kiedy cię zamrozi.
-0000000019FD.07C: Staraj się walczyć z Mei, kiedy w pobliżu są inni członkowie twojej drużyny. Jej główna broń może łatwo zamrozić więcej niż jednego bohatera.
+0000000019FD.07C: Unikaj samotnej walki z Mei. Potrafi ona łatwo zamrozić i pokonać pojedynczych przeciwników.
 0000000019FE.07C: Strzelaj z Granatnika lobem i wykorzystuj fakt, że granaty się odbijają, aby atakować wrogów zza przeszkód.
 0000000019FF.07C: Granatnik świetnie nadaje się do likwidacji nieruchomych celów, na przykład Wieżyczki Torbjörna, Bastiona lub wrogów unieruchomionych w Potrzasku.
 000000001A00.07C: Atakowanie wrogów w zamkniętych przestrzeniach zwiększy twoją szansę na zadanie obrażeń nietrafionymi strzałami.
@@ -1810,10 +1810,10 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001A21.07C: D.Va nie radzi sobie zbyt dobrze z utrzymywaniem wrogów na celowniku podczas ostrzału Działkami Fuzyjnymi. Przed otwarciem ognia podejdź jak najbliżej do przeciwników.
 000000001A22.07C: Działka Fuzyjne są szybkostrzelne i mają rozrzut podobny do strzelby. Są bardzo skuteczne przeciwko większym bohaterom takim jak Winston czy Reinhardt.
 000000001A23.07C: D.Va może używać Dopalaczy, aby wymijać tanki i przeszkody, po czym atakować mniej odpornych przeciwników.
-000000001A24.07C: Przelot przez szeregi wrogów z włączonymi Dopalaczami spowoduje ich odrzucenie oraz zadanie wystarczająco dużych obrażeń, aby wykończyć poważnie rannych przeciwników.
+000000001A24.07C: Używaj Dopalaczy, aby strącać wrogów z klifów lub odpychać ich z dala od twoich wystawionych na atak sojuszników.
 000000001A25.07C: D.Va może używać Matrycy Obronnej, aby chronić samą siebie i sojuszników przed atakami wrogów z przodu.
 000000001A26.07C: Kiedy twój mech ulegnie zniszczeniu, kontynuuj walkę swoim Pistoletem Świetlnym, aby naładować superzdolność i wezwać nowego.
-000000001A27.07C: Superzdolność Samozniszczenie zamienia twojego mecha w chodzącą bombę, jednak po ewakuowaniu się możesz natychmiast wezwać nowego.
+000000001A27.07C: Spróbuj dostać się do zamkniętej przestrzeni, zanim użyjesz Wezwania Mecha. Może on zmiażdżyć większość wrogów!
 000000001A28.07C: Samozniszczenie umożliwia odpędzenie wrogów od celu na mapie. Nawet jeśli ich nie zabije, to zmusi do ucieczki.
 000000001A29.07C: Jeśli użyjesz Samozniszczenia po włączeniu Dopalaczy, D.Va katapultuje się z mecha, który jednak będzie się poruszał dalej, dopóki nie wybuchnie.
 000000001A2A.07C: Napraw To
@@ -1926,7 +1926,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001BA9.07C: Łupy
 000000001BB1.07C: Uwierzytelnianie nie powiodło się.
 000000001BB2.07C: Określony błąd:
-000000001BB3.07C: Przekroczono czas oczekiwania podczas komunikacji z usługami Blizzarda.
+000000001BB3.07C: Przekroczono czas oczekiwania podczas komunikacji z usługami Battle.netu.
 000000001BB4.07C: Nieprawidłowy stan dla odpowiedzi.
 000000001BB5.07C: Wystąpił błąd wewnętrzny.
 000000001BB6.07C: Rozłączono
@@ -2086,8 +2086,8 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001D23.07C: |Rpl %1$s:samozniszczenia:samozniszczenia:samozniszczenia;
 000000001D24.07C: AKTYWACJA CZATU GŁOSOWEGO
 000000001D25.07C: Nie można zaprosić gracza do ekipy, kiedy bierze udział w grze dowolnej.
-000000001D26.07C: Dołączasz do czatu głosowego: %1$s. Transmisja ciągła. Liczba graczy: %3$s. Wciśnij %2$s, aby wyświetlić kanały.
-000000001D27.07C: Dołączasz do czatu głosowego: %1$s. Wciśnij „%2$s” i mów. Liczba graczy na kanale: %4$s. Wciśnij „%3$s”, aby wyświetlić kanały.
+000000001D26.07C: Dołączasz do czatu głosowego: %1$s. Transmisja ciągła. Liczba graczy: %3$s. Wciśnij %2$s, aby wyświetlić kanały. %4$s
+000000001D27.07C: Dołączasz do czatu głosowego: %1$s. Wciśnij „%2$s” i mów. Liczba graczy na kanale: %4$s. Wciśnij „%3$s”, aby wyświetlić kanały. %5$s
 000000001D2B.07C: CZAT (ENTER)
 000000001D2C.07C: ZMIANA KANAŁU: TAB
 000000001D2D.07C: CZAS:
@@ -3574,7 +3574,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002B11.07C: UŻYWAJ
 000000002B1F.07C: Łowczyni
 000000002B21.07C: PODGLĄD
-000000002B41.07C: Saldo Blizzard (%1$s)
+000000002B41.07C: Saldo Battle.net (%1$s)
 000000002B46.07C: WCZYTYWANIE SAMOUCZKA
 000000002B47.07C: WCZYTYWANIE OBSZARU TRENINGOWEGO
 000000002B49.07C:  Edytuj (%1$s)
@@ -7092,8 +7092,8 @@ Andrew Wang
 000000004234.07C: Dostępna jest nowa wersja gry Overwatch. Aby dokonać aktualizacji, zamknij grę i uruchom ją ponownie.
 000000004235.07C: Zdobywasz osiągnięcie! %1$s
 000000004236.07C: AWANS!
-000000004237.07C: Dodaj znajomego
-00000000423E.07C: Nie przypisano jeszcze metody płatności. Ustaw ją na stronie konta Blizzard.com i spróbuj ponownie.
+000000004237.07C: Dodaj znajomego z Battle.Net
+00000000423E.07C: Nie przypisano jeszcze metody płatności. Ustaw ją na stronie zarządzania kontem Battle.net i spróbuj ponownie.
 00000000423F.07C: Transakcja zakupu została odrzucona. Podano niepoprawne dane zabezpieczające.
 000000004240.07C: Sklep jest obecnie niedostępny. Spróbuj później.
 000000004242.07C: Twoja karta kredytowa jest nieprawidłowa.
@@ -7105,7 +7105,7 @@ Andrew Wang
 000000004248.07C: Obecnie sklep nie może przetworzyć twojego żądania. Spróbuj później.
 000000004249.07C: Twoja karta kredytowa jest zablokowana.
 00000000424A.07C: Wystąpił błąd podczas autoryzacji płatności.
-00000000424B.07C: Masz za niski stan salda Blizzard, aby dokonać tego zakupu.
+00000000424B.07C: Masz za niski stan Salda Battle.net, aby dokonać tego zakupu.
 00000000424C.07C: Operator płatności odrzucił transakcję zakupu.
 00000000424E.07C: Wyrzucono cię z meczu za bezczynność.
 00000000424F.07C: Czy chcesz zresetować wszystkie ustawienia grafiki?
@@ -7565,7 +7565,7 @@ Andrew Wang
 0000000044F3.07C: Atak alternatywny Szmelcownicy nie zadaje dużych obrażeń przy trafieniu, dopóki kula złomu nie eksploduje po dotarciu na określoną odległość.
 0000000044F4.07C: Szmelcownica ma niewielki zapas amunicji, więc staraj się przeładowywać ją zawczasu i jak najczęściej mieć w pełni naładowaną.
 0000000044F5.07C: Atakuj wrogów z zaskoczenia zza przeszkód lub z flanki. Wówczas będą mieli mniejszą szansę, żeby cię zauważyć i uniknąć twojego Haka na Łańcuchu.
-0000000044F6.07C: Staraj się przyciągać Hakiem na Łańcuchu mniej mobilnych bohaterów wsparcia lub obrony. Łatwiej ich zabić Szmelcownicą.
+0000000044F6.07C: Staraj się przyciągać Hakiem na Łańcuchu mniej mobilnych bohaterów. Łatwiej ich zabić Szmelcownicą.
 0000000044F7.07C: Zawsze korzystaj z okazji, aby przykucnąć za jakąś przeszkodą i użyć Sztachnięcia, żeby odzyskać brakujące punkty zdrowia.
 0000000044F9.07C: Wieprznięcie pomaga szybko odepchnąć wrogów od celu, dzięki czemu twoja drużyna może go zająć bez walki.
 0000000044FA.07C: Po aktywowaniu Wieprznięcia następuje krótki odstęp czasu, zanim zaczniesz pruć złomem. Zamiast czekać, aż będziesz mieć mało zdrowia, wykorzystaj ten czas na działania zaczepne.
@@ -7639,7 +7639,7 @@ Andrew Wang
 0000000045AC.07C: Utracono połączenie z serwerem gry
 0000000045AD.07C: To konto nie posiada licencji Overwatch
 0000000045AE.07C: To konto zostało zablokowane.
-0000000045AF.07C: Rozłączono z usługami Blizzarda
+0000000045AF.07C: Nastąpiło rozłączenie z usługami Battle.netu
 0000000045B0.07C: Rozłączono z powodu bezczynności
 0000000045B3.07C: PRZEJŚCIE – AKTYWACJA PRZYTRZYMANIEM
 0000000045B6.07C: 
@@ -7692,7 +7692,7 @@ Andrew Wang
 00000000461C.07C: www.buyoverwatch.com
 00000000461D.07C: #%1$s
 000000004625.07C: Wystąpił błąd przy przyjmowaniu zaproszenia
-000000004626.07C: Proces łączenia konta Blizzard spowoduje rozłączenie z siecią. Czy na pewno chcesz kontynuować?
+000000004626.07C: Proces łączenia konta Battle.net spowoduje rozłączenie z siecią. Czy na pewno chcesz kontynuować?
 000000004627.07C: Odblokuj
 000000004629.07C: Estádio das Rãs
 00000000462A.07C: GENJI ULT
@@ -8065,7 +8065,7 @@ z letnich igrzysk
 000000004909.07C: Medytacja
 00000000490A.07C: Symbol
 00000000490F.07C: Ana nie ma zdolności zwiększających szybkość ruchu i ułatwiających ucieczkę, więc bohaterowie potrafiący szybko skracać dystans stanowią dla niej poważne zagrożenie.
-000000004910.07C: Możesz ustawiać się tak, aby sojusznicy Any zasłaniali jej linię strzału, jeśli chcesz jej utrudnić trafienie cię z Karabinu Biotycznego.
+000000004910.07C: Wycofaj się lub schowaj, gdy Ana trafi cię Granatem Biotycznym. Uniemożliwia on twoim sojusznikom wyleczenie cię!
 000000004911.07C: Podczas zbliżania się do celu unikaj otwartych przestrzeni i obszarów, które można obserwować z daleka.
 000000004912.07C: Używanie celownika optycznego znacznie ogranicza twoje pole widzenia, ale wciąż możesz nasłuchiwać zbliżających się przeciwników.
 000000004913.07C: Zachowuj się w sposób nieprzewidywalny i nigdy nie zostawaj zbyt długo w jednym miejscu.
@@ -8364,7 +8364,7 @@ w 2. sezonie
 000000004BE8.07C: /|Rfn %1$s:N0;
 000000004BEA.07C: Wujing
 000000004BED.07C: Tryb Rywalizacji jest niedostępny dla członków ekipy grających w darmową wersję próbną.
-000000004BEF.07C: Twoje konto Blizzard zostało zablokowane. Szczegółowe informacje znajdziesz w wiadomości wysłanej na adres e-mail przypisany do konta.
+000000004BEF.07C: Twoje konto Battle.net zostało zablokowane. Szczegółowe informacje znajdziesz w wiadomości wysłanej na adres e-mail przypisany do konta.
 000000004BF0.07C: Twoje konto Overwatch zostało zawieszone. Szczegółowe informacje znajdziesz w wiadomości wysłanej na adres e-mail przypisany do konta.
 000000004BF1.07C: Wynik końcowy
 000000004BF2.07C: VPP Green Room
@@ -8728,7 +8728,7 @@ w 4. sezonie
 00000000503F.07C: Zmysł Łowcy
 000000005040.07C: Wykrywasz krytycznie rannych wrogów przez ściany.
 000000005041.07C: Aby powstrzymać Sombrę przed hakowaniem ciebie lub sojusznika, zadaj jej obrażenia.
-000000005042.07C: Wasza drużyna powinna trzymać się razem. Sombra poluje na samotnych wrogów.
+000000005042.07C: Umiejętności takie jak Infrawizja Trupiej Wdowy Strzała Soniczna Hanzo ujawniają Sombrę.
 000000005043.07C: Kiedy zauważysz Sombrę, koniecznie przekaż informacje o jej lokalizacji reszcie drużyny.
 000000005044.07C: Jeśli za bardzo zbliżysz się do wrogów, będą mogli cię dostrzec.
 000000005045.07C: Otrzymanie obrażeń pozbawi cię niewidzialności, dlatego po aktywowaniu kamuflażu staraj się kryć za zasłonami.
@@ -9142,11 +9142,11 @@ THIS SOFTWARE.
 00000000543D.07C: Wypatruj na ziemi górek śniegu, które umożliwią ci przeładowanie Śnieżkowego Blastera.
 00000000543E.07C: Używaj Ściany Lodu i Kriostazy, aby blokować nadlatujące śnieżki!
 00000000544A.07C: Oprócz zadawania obrażeń Miotacz Endotermiczny zamraża wrogów, ograniczając ich zdolność do atakowania cię.
-00000000544B.07C: Twoja główna broń jest najbardziej przydatna przeciwko ruchliwym przeciwnikom. Kiedy ich spowolnisz, łatwiej będzie ci ich zabić.
+00000000544B.07C: Twoja główna broń jest śmiertelnie skuteczna przeciwko ruchliwym wrogom. Kiedy ich spowolnisz, łatwiej będzie ci ich zabić.
 00000000544C.07C: Używaj strzału dodatkowego z Miotacza Endotermicznego, aby dobijać zamrożonych wrogów.
 00000000544D.07C: Atak alternatywny Miotacza Endotermicznego jest celny na dużą odległość.
 00000000544E.07C: Możesz wyłączyć Kriostazę nieco wcześniej, aby zaskoczyć wrogów i zakłócić rytm ich ataków.
-00000000544F.07C: Kriostaza nie tylko zapewnia ci nietykalność, lecz także przywraca nieco punktów zdrowia.
+00000000544F.07C: Kriostaza nie tylko zapewnia ci nietykalność, lecz także szybko przywraca punkty zdrowia i przeładowuje broń.
 000000005450.07C: Możesz używać Ściany Lodu defensywnie, żeby zapewnić sobie i swojej drużynie osłonę przed atakami wrogów.
 000000005451.07C: Ściana Lodu umożliwia rozdzielanie wrogów, zapewniając ogromną przewagę tobie i twojej drużynie.
 000000005452.07C: Jeśli umieścisz Ścianę Lodu pod sobą lub kimś z twojej drużyny, bohater zostanie wyniesiony na jej szczyt, dzięki czemu uzyska dostęp do wyżej położonych obszarów.
@@ -10598,7 +10598,6 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000006147.07C: Wielkość drużyn: +1
 000000006148.07C: Wielkość drużyn: +2
 000000006149.07C: Wielkość drużyn: +3
-00000000615A.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z księżycowej noworocznej kolekcji. Skrzynki z łupami można zdobywać dzięki systemom w grze.
 00000000615B.07C: Ujawnienie bohaterów po upływie czasu gry
 00000000615C.07C: Remis po upływie czasu gry bez rozstrzygnięcia
 00000000615D.07C: Rozstrzygnięcie po upływie czasu gry
@@ -13554,7 +13553,7 @@ po nowej aktualizacji
 0000000066B0.07C: Działo Ręczne Pięści Zagłady powoli przeładowuje się automatycznie.
 0000000066B1.07C: Twórz zabójcze kombinacje z użyciem zdolności Pięści Zagłady.
 0000000066B2.07C: Kiedy wzbijesz się w powietrze po użyciu Podbródkowego, użyj Fali Sejsmicznej, aby spaść na pobliskich wrogów.
-0000000066B3.07C: Fala Sejsmiczna zadaje tym więcej obrażeń, z im większej wysokości ją aktywujesz.
+0000000066B3.07C: Fala Sejsmiczna zadaje tym więcej obrażeń, im dłużej znajdujesz się w powietrzu.
 0000000066B4.07C: Wykorzystuj Rakietowy Ciosem, aby rzucać wrogów na ściany i inne przeszkody, i zadawać poważne obrażenia.
 0000000066B5.07C: Używanie wszystkich zdolności na raz ogranicza twoją mobilność i zwiększa podatność na kontrataki.
 0000000066B6.07C: Poruszanie się w trakcie korzystania ze zdolności utrudnia trafienie cię.
@@ -15964,7 +15963,7 @@ w Zdobywanie flagi 2018
 0000000080C5.07C: Trzymanie Brigitte dalej niż zasięg walki wręcz ogranicza jej zdolność leczenia Wsparciem.
 0000000080C6.07C: Brigitte może odrzucać twoich sojuszników w groźne miejsca z użyciem Trzaśnięcia i Rąbnięcia Tarczą.
 0000000080C7.07C: Skoncentruj ogień drużyny na Tarczy Osłonowej Brigitte, aby szybko pozbawić ją ochrony.
-0000000080C8.07C: Pakiet Regeneracyjny działa najskuteczniej na sojuszników z małą ilością zdrowia, ale zapewnienie pancerza sojusznikowi z pełną ilością zdrowia również zapewnia korzyści.
+0000000080C8.07C: Chroń swoje postacie wsparcia! Jeśli zdołasz utrzymać je przy życiu, flankujący wrogowie będą mieli utrudnione zadanie
 0000000080C9.07C: Aby aktywować obszarowe leczenie Wsparciem, atakuj wrogów Rakietowym Korbaczem.
 0000000080CA.07C: Użyj Rąbnięcia Tarczą, aby szybko się wycofać, zanim twoja Tarcza Osłonowa pęknie.
 0000000080CB.07C: Tarcza Osłonowa zaczyna regenerować swoje punkty wytrzymałości w kilka sekund po jej odwieszeniu.
@@ -16115,7 +16114,7 @@ w trybie Eliminacji 6 na 6 w 2018
 0000000082BB.07C: Mechanik
 0000000082C2.07C: Premia za cel
 0000000082C5.07C: – Top 500 graczy w każdym regionie Battle.net.
-– Wymaga włączenia alertów komórkowych na koncie.
+– Wymaga włączenia alertów komórkowych Battle.net na koncie.
 – Ukończ 25 meczów w regionie, aby się kwalifikować.
 – Dostęp tylko w regionie z największą liczbą rozegranych meczów.
 0000000082C6.07C: TABELE WYNIKÓW
@@ -17878,7 +17877,7 @@ i dodatkowo 10 darmowych
 000000009E9E.07C: Sigma
 000000009E9F.07C: Podstawowa
 000000009EB1.07C: Przytrzymanie skoku podczas korzystania z umiejętności Lot powoduje podniesienie pułapu.
-000000009EB2.07C: Aktywacja Duplikacji leczy cię całkowicie i pozwala ci przeżyć, kiedy masz mało zdrowia.
+000000009EB2.07C: Duplikacja sprawia, że Echo na krótko staje się nietykalna i leczy ją, gdy ma mało zdrowia, chroniąc przed śmiercią.
 000000009EB3.07C: Skupiona Wiązka zadaje niewielkie obrażenia przeciwnikom mającym powyżej połowy zdrowia, ale bardzo duże przeciwnikom mającym poniżej połowy.
 000000009EB4.07C: Używaj Skupionej Wiązki, aby wykańczać przeciwników, których twoi sojusznicy osłabili do połowy punktów zdrowia.
 000000009EB5.07C: Aby szybko zadać duże obrażenia, zastosuj Bomby Przyczepne, a następnie od razu użyj Skupionej Wiązki.
@@ -18094,7 +18093,7 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A32D.07C: Twoja wieżyczka automatycznie atakuje cele, które trafiasz podstawowym atakiem z Nitownicy.
 00000000A32E.07C: Używaj Dopancerzenia w sposób proaktywny, aby w pełni wykorzystać jego dodatkowe możliwości ofensywne.
 00000000A32F.07C: Używaj Przegrzania w przewężeniach i przy celach na mapie, aby zmaksymalizować jego skuteczność.
-00000000A330.07C: Przegrzanie pozwala tworzyć jeden, duży obszar, na którym zadawane są obrażenia lub mniejsze obszary w kilku różnych miejscach.
+00000000A330.07C: Kumulowanie lawy w jednym miejscu nie zwiększa obrażeń od Przegrzania, więc rozrzucaj ją dookoła.
 00000000A331.07C: Kiedy korzystasz z Przegrzania, najefektywniej jest obierać za cel wrogich bohaterów, którzy mają ograniczoną mobilność.
 00000000A333.07C: Na żywo
 00000000A341.07C: Zmiany zostaną zastosowane w kolejnej grze.
@@ -19833,6 +19832,7 @@ w trybie Deathmatch 2019
 00000000B753.07C: Deathmatch w trybie Rywalizacji
 00000000B754.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
 00000000B765.07C: Baptiste to elitarny sanitariusz i dawny agent Szponu. Wykorzystuje swoje umiejętności, aby pomagać tym, których życie naznaczyła wojna.
+00000000B774.07C: Droga 66
 00000000B775.07C: Rialto
 00000000B776.07C: Blizzard World
 00000000B777.07C: Paryż
@@ -27099,7 +27099,7 @@ w sezonie 21.
 00000001021A.07C: Przypnij kamerę do zabójcy w powtórkach
 00000001021C.07C: Przyciąganie
 00000001022E.07C: Poziom trudności: Ekspercki
-000000010237.07C: Disconnected due to CAIS time limit reached
+000000010237.07C: Rozłączono z powodu osiągnięcia limitu czasu gry (system CAIS).
 000000010239.07C: Eksperymenty
 00000001023B.07C: Ta powtórka nie znajduje się na twojej liście ostatnio rozegranych meczów. Odpięcie jej spowoduje jej utratę. Kontynuować?
 00000001023D.07C: Maestro
@@ -27258,8 +27258,6 @@ przez ograniczony czas archiwalne skrzynki z łupami, nowe skórki, prezentacje 
 000000010385.07C: Odepnij
 000000010389.07C: Nie można obejrzeć powtórki z powodu ograniczeń konta.
 00000001038C.07C: Nie można udostępnić powtórki z powodu ograniczeń konta.
-00000001038E.07C: Nie można pobierać powtórek z tej platformy.
-00000001038F.07C: Ta powtórka nie jest obsługiwana przez twoją platformę.
 0000000103A8.07C: INFORMACJE O AKTUALIZACJI
 0000000103BF.07C: Wczytywanie nieudane: niekompatybilna wersja.
 0000000103C0.07C: Feskarn
@@ -28776,7 +28774,7 @@ Overwatch League 2020.
 0000000116AA.07C: Bach!
 0000000116AB.07C: Pif! Paf!
 0000000116AC.07C: Nagroda za oglądanie transmisji biorących udział w promocji podczas wyzwania Smugi: Komiks
-0000000116D7.07C: Disconnected due to CAIS curfew
+0000000116D7.07C: Rozłączono z powodu limitu czasu gry (system CAIS).
 0000000116D8.07C: Wiadomości o stanie
 0000000116D9.07C: HUD trybu gry
 0000000116DA.07C: Informacje o śmierci
@@ -29614,15 +29612,20 @@ w sezonie 26.
 0000000127E6.07C: Sezon 27
 0000000127E7.07C: Sezon 28
 0000000127E8.07C: Sezon 28
+0000000127E9.07C: Sezon 29
+0000000127EA.07C: Sezon 29
 0000000127EF.07C: Sezon 26
 0000000127F0.07C: Sezon 26
 0000000127F1.07C: Sezon 27
 0000000127F2.07C: Sezon 27
 0000000127F3.07C: Sezon 28
 0000000127F4.07C: Sezon 28
+0000000127F5.07C: Sezon 29
+0000000127F6.07C: Sezon 29
 0000000127FC.07C: 26. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FD.07C: 27. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FE.07C: 28. sezon Rywalizacji – Otwarta Rywalizacja
+0000000127FF.07C: 29. sezon Rywalizacji – Otwarta Rywalizacja
 000000012802.07C: Lśniący byk
 000000012804.07C: Mecze klasyfikacyjne
 000000012805.07C: Zamrożony elf
@@ -29844,7 +29847,6 @@ flagi 2021
 000000012C30.07C: Gracz lub gracze do przeniesienia
 000000012C32.07C: Drużyna, w której przeniesie się gracz. Opcja „All” (Wszystkie) działa tylko w trybach każdy na każdego, a opcja „Team” (Drużyna) działa tylko w trybach zespołowych.
 000000012C33.07C: Miejsce gracza, które zajmie gracz (-1 dla pierwszego dostępnego miejsca).
-000000012C37.07C: Tydzień 1: Cybersanitariuszka (Ana)
 000000012C38.07C: Bycza Furia
 000000012C39.07C: Zawartość księżycowych skrzynek
 000000012C3A.07C: Czosnek
@@ -30225,12 +30227,14 @@ w sezonie 28.
 000000012F8D.07C: Zawartość archiwalnych skrzynek
 000000012FCE.07C: Ange de la mort
 000000012FF1.07C: ROZDARCIE
+000000013000.07C: Zadymiara
 000000013063.07C: Burza z Piorunami
 000000013064.07C: Ukończ archiwalną misję-wyzwanie Burza z Piorunami.
 000000013065.07C: Kuloodporne Bariery
 000000013066.07C: Ukończ archiwalną misję-wyzwanie Kuloodporne Bariery.
 000000013067.07C: Leczące Współczucie
 000000013068.07C: Ukończ archiwalną misję-wyzwanie Leczące Współczucie.
+000000013076.07C: Gra międzyplatformowa
 00000001307C.07C: Tydzień 3: Bilardzista (Burzyciel)
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
@@ -30252,19 +30256,27 @@ w sezonie 28.
 0000000130A7.07C: %1$s Archives Stars Plus Storm Rising Stars
 0000000130B9.07C: Interfejs
 0000000130BA.07C: Mecze
+0000000130BB.07C: Gra międzyplatformowa
 0000000130BC.07C: Sieć
 0000000130BD.07C: Obserwacja
 0000000130BE.07C: Różne
-0000000130CD.07C: Koniec za %1$s!
+000000013131.07C: Czy chcesz wyłączyć grę międzyplatformową?
+000000013132.07C: Wyłączenie tej funkcji może skutkować gorszą jakością meczów i dłuższym czasem oczekiwania w kolejce.
+Umieścimy cię również w puli opt-out dla tego sezonu Rywalizacji.
 000000013134.07C: Super fani
+000000013135.07C: OK
+000000013136.07C: Anuluj
 000000013138.07C: Zawartość archiwalnych skrzynek
 00000001313A.07C: Archiwa 2021
+00000001313C.07C: Sprawdź ustawienia systemowe XBoxa
 00000001313E.07C: Zawartość archiwalnych skrzynek
 00000001313F.07C: Polanica
 000000013141.07C: Zawartość archiwalnych skrzynek
 000000013142.07C: Muszkieterka
 000000013144.07C: Zawartość archiwalnych skrzynek
 000000013145.07C: Bushi
+000000013146.07C: Zezwól
+000000013147.07C: Zablokuj
 00000001314B.07C: Zawartość archiwalnych skrzynek
 00000001314C.07C: Kawaleria
 00000001314E.07C: Zawartość archiwalnych skrzynek
@@ -30304,14 +30316,16 @@ w sezonie 28.
 000000013182.07C: Czas wyjść z zamrożenia
 000000013183.07C: Lodowy Berek 4 na 4
 000000013195.07C: Początek za:
+00000001319E.07C: Komunikacja międzyplatformowa
 000000013291.07C: Nagroda za udział w wyzwaniu 3. tygodnia Archiwów 2021
 0000000132DF.07C: Fajrant
 0000000132E6.07C: Ikonka w polu z nazwą gracza na czacie głosowym
 0000000132F5.07C: Trzask parkietu
+000000013326.07C: Wyłączono grę międzyplatformową
 000000013333.07C: OK
-000000013344.07C: Już wkrótce
-000000013345.07C: POŁĄCZ SIĘ, ABY ZEBRAĆ DRUŻYNĘ
-000000013347.07C: Stwórz i połącz swoje konto Battle.net a następnie przygotuj się, aby zebrać drużynę ze znajomymi na wszystkich platformach.
+000000013344.07C: Już dostępna
+000000013345.07C: Zbierz znajomych
+000000013347.07C: Zbierz znajomych ze wszystkich platform i jako drużyna wspólnie przepychajcie ładunek w becie rozgrywki międzyplatformowej!
 00000001334D.07C: Nagroda za udział w wyzwaniu 2. tygodnia Rocznicy 2021
 00000001334E.07C: Trzepot skrzydeł
 000000013350.07C: Nagroda za udział w wyzwaniu 2. tygodnia Rocznicy 2021
@@ -30346,6 +30360,11 @@ w sezonie 28.
 000000013375.07C: Rocznica 2021
 000000013376.07C: Zawartość rocznicowych skrzynek
 000000013386.07C: Do tańca
+000000013388.07C: Zeskanuj kod QR za pomocą aplikacji mobilnej:
+000000013389.07C: Ten kod straci ważność za %1$s
+00000001338A.07C: Aby się zalogować, użyj kodu:
+00000001338B.07C: Na innym urządzeniu. Odwiedź:
+00000001338C.07C: Lub
 00000001338D.07C: Pląsy
 00000001338F.07C: Zawartość rocznicowych skrzynek
 000000013390.07C: Na czatach
@@ -30367,10 +30386,12 @@ w sezonie 28.
 0000000133A0.07C: Zawartość rocznicowych skrzynek
 0000000133A1.07C: Gladiator
 0000000133A2.07C: Zawartość rocznicowych skrzynek
-0000000133A6.07C: Sorry, you can’t proceed until you pass the real-name verification. Please refer to the CS article for more details.
+0000000133A6.07C: Niestety, nie możesz kontynuować, dopóki nie przejdziesz weryfikacji prawdziwym imieniem i nazwiskiem. Więcej szczegółów znajdziesz w artykule na stronie pomocy.
 0000000133AB.07C: Odpoczynek
 0000000133AC.07C: Deathmatch w trybie Rywalizacji
 0000000133AD.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
+0000000133B0.07C: Pokazuj tylko ekipy pecetowe
+0000000133B1.07C: Pokazuj tylko ekipy konsolowe
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33142,6 +33163,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 0000000136A1.07C: "© 2019 The LEGO GROUP
 LEGO, the LEGO logo, and the MiniFigure figurine are trademarks of the LEGO GROUP. All Rights Reserved.
 Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
+0000000136A3.07C: Tylko gracze konsolowi
+0000000136A4.07C: Tylko gracze pecetowi
 0000000136A5.07C: Blizzard Entertainment
 0000000136A6.07C: Dyrektor artystyczny ds. postaci
 0000000136A7.07C: Dyrektor ds. audio
@@ -33153,12 +33176,15 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136AD.07C: Lider działu komercyjnego
 0000000136AE.07C: Greg Wilson
 0000000136AF.07C: 2020
+0000000136C1.07C: Zamiast tego połącz się za pomocą mojego kontrolera
 0000000136D1.07C: Pokój
-0000000136D4.07C: 
-0000000136D6.07C: 
-0000000136D7.07C: 
-0000000136D8.07C: 
-0000000136D9.07C: 
+0000000136D4.07C: PC
+0000000136D6.07C: Konsole
+0000000136D7.07C: PlayStation
+0000000136D8.07C: Xbox
+0000000136D9.07C: Switch
+0000000136DF.07C: Pula
+000000013737.07C: Pula: %1$s
 0000000138E9.07C: Uczestnik Rywalizacji w trybie Deathmatch 2021
 0000000138EA.07C: Nagroda
 za mecze klasyfikacyjne
@@ -33173,7 +33199,9 @@ w Rywalizacji
 w trybie Deathmatch 2021
 0000000138EF.07C: Bohater Rywalizacji w trybie Deathmatch 2021
 0000000138F0.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie Deathmatch 2021
-0000000138F2.07C: 
+0000000138F2.07C: Ty i członkowie twojej drużyny musicie mieć znajdować się w tej samej puli Rywalizacji.
+0000000138FB.07C: Nie
+0000000138FC.07C: Tak
 000000013911.07C: Koniec
 000000013912.07C: 8 czerwca
 000000013913.07C: Nowe elementy rocznicowe
@@ -33187,8 +33215,17 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001391C.07C: |Rpl %1$s:Rozegrane plus wygrane mecze:Rozegrane plus wygrane mecze:Rozegrane plus wygrane mecze;
 00000001391D.07C: %1$s |Rpl rozegrany plus wygrany mecz:rozegrane plus wygrane mecze:rozegranych plus wygranych meczów;
 00000001391E.07C: Rozegraj 9/18/27 meczów w Szybkiej grze, Salonie gier lub Rywalizacji. Wygrane liczą się podwójnie.
+00000001391F.07C: Tylko gracze pecetowi
+000000013920.07C: Tylko gracze konsolowi
+000000013923.07C: Tylko mecze pecetowe
+000000013924.07C: Tylko mecze konsolowe
+000000013927.07C: Czat
 000000013932.07C: Skórka turnieju June Joust
 000000013942.07C: Deathmatch w trybie Rywalizacji – sezon 4
+000000013943.07C: Czat tekstowy
+000000013944.07C: Napisz wiadomość
+000000013945.07C: Kanały
+000000013946.07C: Zamknij
 000000013979.07C: |Rpl %1$s:Drugie miejsca:Drugie miejsce:Drugie miejsca
 00000001397A.07C: %1$s |Rpl drugie miejsce:drugie miejsca:drugich miejsc;
 00000001397B.07C: |Rpl %1$s:Wygrane mecze:Wygrane mecze:Wygrane mecze;
@@ -33197,9 +33234,74 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001398B.07C: %1$s |Rpl mecz po uzupełnieniu składu (przegrany lub zremisowany):mecze po uzupełnieniu składu (przegrane lub zremisowane):meczów po uzupełnieniu składu (przegranych lub zremisowanych);
 000000013994.07C: |Rpl %1$s:rozegrane mecze:rozegrane mecze:rozegrane mecze;
 000000013995.07C: %1$s |Rpl rozegrany mecz:rozegrane mecze:rozegranych meczów;
+0000000139A2.07C: Chcesz przyjąć zaproszenie do znajomych z Battle.netu od użytkownika %1$s?
+0000000139A3.07C: Akceptuj
+0000000139A4.07C: Odrzuć
+0000000139C6.07C: Nie można dołączyć do meczu z powodu ustawień platformy dostępu.
+0000000139CF.07C: Wyrzucono cię, ponieważ twoja platforma nie jest już dozwolona w grze dowolnej.
+0000000139DA.07C: Nie można dołączyć do ekipy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
+0000000139E2.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
+0000000139E7.07C: Poza prawem
+0000000139E8.07C: Zadymiara Ashe
+0000000139EC.07C: Gofry
+0000000139ED.07C: Koniec szkoły
+0000000139EE.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
+0000000139EF.07C: Młody Jesse
+0000000139F0.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
+0000000139F1.07C: Rozkmina
+0000000139F2.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
+0000000139F3.07C: Awanturnicy
+0000000139F4.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
+0000000139F5.07C: Hat trick
+0000000139F6.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
 0000000139FB.07C: Tęcza
+000000013A26.07C: Złota skrzynka z łupami
+000000013A27.07C: Świętuj udostępnienie rozgrywki międzyplatformowej, odbierając prezent od nas – złotą skrzynkę z łupami!
 000000013A47.07C: Więcej informacji
 000000013A4B.07C: blizz.ly/OWCrossPlay
-000000013A4C.07C: POŁĄCZ SWOJE KONTO I ZBIERZ DRUŻYNĘ!
+000000013A4C.07C: Dowiedz się więcej i zbierz drużynę!
+000000013A4F.07C: PlayStation
+000000013A50.07C: Inne platformy
 000000013A51.07C: Odwiedź
-[Core] Execution finished in 00:00:00.4403599 seconds
+000000013A58.07C: Usunięto cię z twojej ekipy w związku z aktualizacją ustawień gry międzyplatformowej.
+000000013A59.07C: Twoje zaktualizowane ustawienia gry międzyplatformowej wejdą w życie po tym meczu.
+000000013A5A.07C: Twoje zaktualizowane ustawienia gry międzyplatformowej wejdą w życie po tej kolejce.
+000000013A5B.07C: Twoją grupę usunięto z kolejki w związku ze zmianą ustawień gry międzyplatformowej.
+000000013A66.07C: Nie można zapraszać graczy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
+000000013AA5.07C: Nowa powieść
+000000013AA6.07C: Wyzwanie Ashe: Zadymiara
+000000013AB6.07C: Użycie Smoczego Miecza resetuje czas odnowienia Szybkiego Cięcia.
+000000013AC9.07C: Bohater 29. sezonu
+000000013ACA.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 29.
+000000013ACB.07C: Uczestnik 29. sezonu
+000000013ACC.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 29.
+000000013ACD.07C: Bohater 29. sezonu
+000000013ACE.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 29.
+000000013ACF.07C: Uczestnik 29. sezonu
+000000013AD0.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 29.
+000000013AD2.07C: Eksperymentalna Bariera może przemieszczać się na duże odległości i chronić twoich sojuszników.
+000000013AD3.07C: Wezwij z powrotem Eksperymentalną Barierę, aby ją doładować.
+000000013AD4.07C: Ataki z broni Sigmy implodują po krótkim czasie, zadając obrażenia na obszarze. Wymierz właściwą odległość i zadawaj obrażenia nad przeszkodami takimi jak bariery wroga.
+000000013AD5.07C: Akrecja powala tylko tych wrogów, których trafi bezpośrednio.
+000000013AD6.07C: Chwyt Kinetyczny ma długi czas odnowienia. Wykorzystuj tę zdolność, aby się chronić, kiedy Eksperymentalna Bariera się ładuje.
+000000013AD7.07C: Używaj Strumienia Grawitacyjnego, aby podnosić wrogów w powietrze, z dala od ich drużyny lub celu.
+000000013ADE.07C: Zadawanie obrażeń Sombrze ujawnia ją. Strzel w miejsce, z którego myślisz, że może cię szpiegować, aby sprawdzić, czy nie ma jej w pobliżu.
+000000013ADF.07C: Młoda Elizabeth Ashe, B.O.B. oraz Jesse McCree wspólnie założyli niesławny Gang Zadymiarzy.
+000000013AE6.07C: Do gry w Overwatch wymagane jest konto Battle.net.
+000000013AF4.07C: Użyj Infrawizji, gdy wróg rozpocznie atak, aby twoi sojusznicy mogli zająć lepsze pozycje obronne.
+000000013B76.07C: Gra międzyplatformowa włączona. Możesz napotkać graczy z innych platform.
+000000013C49.07C: Niektórzy gracze mogą nie widzieć twoich wiadomości z powodu ustawień komunikacji międzyplatformowej.
+000000013C7C.07C: Twoja grupa została usunięta z kolejki, ponieważ nie kwalifikuje się już do udziału.
+000000013C84.07C: Rozłączono cię, ponieważ konto Battle.net było zalogowane na innym urządzeniu.
+000000013C8E.07C: Nie można zapraszać graczy z powodu ustawień rozgrywki międzyplatformowej gry dowolnej.
+000000013C8F.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej ekipy z powodu ustawień komunikacji międzyplatformowej.
+000000013C98.07C: Twoja wiadomość jest niewidoczna z powodu ustawień komunikacji międzyplatformowej.
+000000013D12.07C: Niektórzy uczestnicy na twoim kanale mogą cię nie słyszeć z powodu ustawień komunikacji międzyplatformowej.
+000000013D2B.07C: Gang Rebeliantów
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D43.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej drużyny z powodu ustawień komunikacji międzyplatformowej.
+000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
+[Core] Execution finished in 00:00:00.4629517 seconds

@@ -74,6 +74,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
 
+	fileStack = null;
 	if (nbElements > ELEMENT_LIMIT) {
 		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
 	}
@@ -198,7 +199,7 @@ function generateVariablesField() {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					varTypeResult += tabLevel(2)+i+": "+removeBadWordsInVarName(outputVariables[i])+"\n";
+					varTypeResult += tabLevel(2)+i+": "+outputVariables[i]+"\n";
 				}
 			}
 		}
@@ -269,7 +270,7 @@ function generateSubroutinesField() {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {
-				result += tabLevel(1)+i+": "+removeBadWordsInVarName(outputSubroutines[i])+"\n";
+				result += tabLevel(1)+i+": "+outputSubroutines[i]+"\n";
 			}
 		}
 	}

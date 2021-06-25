@@ -47880,6 +47880,11 @@ function escapeBadWords(content) {
 	content = content.replace(/(bla)(d)/ig, "$1﻿$2");
 	content = content.replace(/(cu)(m)/ig, "$1﻿$2");
 	content = content.replace(/(put)(a)/ig, "$1﻿$2");
+	content = content.replace(/(rap)(e)/ig, "$1﻿$2");
+	content = content.replace(/(va)(g)/ig, "$1﻿$2");
+	content = content.replace(/(mo)(ng)/ig, "$10$3");
+	content = content.replace(/(ng)(gr)/ig, "$19$3");
+	content = content.replace(/(se)(men)/ig, "$13$3");
 	return content;
 }
 
@@ -48138,6 +48143,11 @@ function removeBadWordsInVarName(content) {
 	content = content.replace(/(bl)(a)(d)/ig, "$14$3");
 	content = content.replace(/(c)(u)(m)/ig, "$1v$3");
 	content = content.replace(/(put)(a)/ig, "$14");
+	content = content.replace(/(r)(a)(pe)/ig, "$14$3");
+	content = content.replace(/(v)(a)(g)/ig, "$14$3");
+	content = content.replace(/(m)(o)(ng)/ig, "$10$3");
+	content = content.replace(/(n)(g)(gr)/ig, "$19$3");
+	content = content.replace(/(s)(e)(men)/ig, "$13$3");
 	return content;
 }
 
