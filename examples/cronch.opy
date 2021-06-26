@@ -1,4 +1,10 @@
 
+/*
+A gamemode I made for the Elo Hell jam.
+Theme was "crunch time"
+Time was 2h so the code is horrendous, lul
+*/
+
 globalvar timer
 globalvar challenge
 globalvar nbPlayersKilled
