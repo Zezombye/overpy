@@ -18,9 +18,6 @@ settings {
     }
 }
 
-#!define strCompression() __script__("generatePathmap.js")
-strCompression()
-
 #!define NB_NODES 16
 
 globalvar charTest = []
@@ -36,7 +33,6 @@ rule "":
     print("load: {}".format(getServerLoad()))
     print("avg: {}".format(getAverageServerLoad()))
     print("max: {}".format(getPeakServerLoad()))
-    print(SpectatorButton.Q)
 
 rule "Extract pathmap":
     @Condition hostPlayer.isHoldingButton(Button.INTERACT)
