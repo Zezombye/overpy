@@ -13,8 +13,9 @@ settings {
     "gamemodes": {
         "ffa": {
             "enabledMaps": [
-                "necropolis",
-                "lijiangGarden",
+                #"necropolis",
+                #"lijiangGarden",
+                "ecopointAntarctica",
             ]
         },
         "general": {
@@ -37,8 +38,10 @@ settings {
 
 #!define NB_NODES len(nodePositions)
 
+#!include "pathfinding/compressedPathmaps/ecopoint_antarctica_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/lijiang_garden.opy"
+#!include "pathfinding/pathmaps/ecopoint_antarctica_no_spawns.opy"
 #!include "pathfinding/pathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/pathmaps/lijiang_garden.opy"
 
@@ -103,6 +106,10 @@ def loadNecropolis():
     compressedData = DATA_NECROPOLIS
     nodePositions = POSITIONS_NECROPOLIS
 
+def loadEcopointAntarctica():
+    alphabet = ALPHABET_ECOPOINT_ANTARCTICA
+    compressedData = DATA_ECOPOINT_ANTARCTICA
+    nodePositions = POSITIONS_ECOPOINT_ANTARCTICA
 
 rule "Initialize gamemode and decompress pathmap":
     print("load: {} | avg: {} | max: {}".format(getServerLoad(), getAverageServerLoad(), getPeakServerLoad()))
@@ -113,6 +120,8 @@ rule "Initialize gamemode and decompress pathmap":
         loadNecropolis()
     elif getCurrentMap() == Map.LIJIANG_GARDEN:
         loadLijiangGarden()
+    elif getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER:
+        loadEcopointAntarctica()
     else:
         message = Message.NO_PATHMAP
         return
@@ -126,7 +135,7 @@ rule "Initialize gamemode and decompress pathmap":
     currentNodeArray[NB_NODES-1] = 0
 
     currentCharIdx = 0
-    for i in range(len(compressedData)):
+    for i in range(min(len(compressedData), 200)):
         for j in range(0, strLen(compressedData[i]), 2):
 
             #We iterate backwards to not recalculate the length at each iteration.
@@ -135,6 +144,8 @@ rule "Initialize gamemode and decompress pathmap":
                 currentNodeArray[currentCharIdx % NB_NODES] = alphabet.strIndex(compressedData[i].charAt(j+1))-1
                 currentCharIdx++
                 if currentCharIdx % NB_NODES == 0:
+                    if currentCharIdx > NB_NODES * NB_NODES:
+                        break
                     uncompressedData[floor((currentCharIdx-1)/NB_NODES)] = currentNodeArray
         
         wait()
@@ -246,10 +257,15 @@ rule "Enemy is in range - set mode to fighting":
     @Condition isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS)
     do:
         eventPlayer.walkBehavior = BotWalkBehavior.FIGHTING
-        eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.targetPlayer.getPosition()), 1, Relativity.TO_WORLD, Throttle.REPLACE_EXISTING, ThrottleReeval.DIRECTION_AND_MAGNITUDE)
-        eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
         wait()
     while RULE_CONDITION
+
+rule "Bot is fighting - set throttle towards enemy and start swinging":
+    @Event eachPlayer
+    @Condition eventPlayer.isDummy()
+    @Condition eventPlayer.walkBehavior == BotWalkBehavior.FIGHTING
+    eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.targetPlayer.getPosition()), 1, Relativity.TO_WORLD, Throttle.REPLACE_EXISTING, ThrottleReeval.DIRECTION_AND_MAGNITUDE)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
 
 rule "Enemy is no longer in range - set mode back to idling":
     @Event eachPlayer
@@ -315,6 +331,8 @@ rule "Target node was reached":
             eventPlayer.walkBehavior = BotWalkBehavior.IDLING
             eventPlayer.stopThrottleInDirection()
             return
+        if eventPlayer.targetNode == eventPlayer.destNode:
+            eventPlayer.walkBehavior = BotWalkBehavior.FIGHTING
         #Put wiggle room by setting it to 2x the distance, in case the bot is slowed down by a boop, slight wall, or similar.
         eventPlayer.timeRemainingToNode = distance(nodePositions[eventPlayer.targetNode], eventPlayer.getPosition())*2/BOT_SPEED + 0.5
         wait()
