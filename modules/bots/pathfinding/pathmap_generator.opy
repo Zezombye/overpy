@@ -18,12 +18,17 @@ settings {
     "gamemodes": {
         "ffa": {
             "enabledMaps": [
-                "necropolis"
+                #"necropolis"
             ]
         },
         "skirmish": {
             "enabledMaps": [
                 #"workshopIsland",
+            ]
+        },
+        "elimination": {
+            "enabledMaps": [
+                "lijiangGarden",
             ]
         },
         "general": {
@@ -61,10 +66,11 @@ globalvar nodeConnections = []
 
 globalvar nodeEffects = []
 globalvar nodeTexts = []
-globalvar spherePosIdx
+globalvar iwtPosIdx
 globalvar nodeRemoveIdx
 globalvar nodeIdx
 globalvar neighborNodeIdx
+globalvar spherePosIdx
 globalvar raycastTestIdx
 globalvar i
 globalvar isGenerating = false
@@ -79,6 +85,7 @@ globalvar beamIdx
 
 
 rule "paste your save here (nodePositions + nodeConnections)":
+    @Delimiter
     /*
     #necropolis
     nodePositions = [vect(26.784, 1, 3.753), vect(26.896, 1, -3.445), vect(18.764, 1, -8.856), vect(18.792, -2, -0.038), vect(19.073, 1, 8.691), vect(12.551, 1.001, -4.252), vect(12.624, 1.004, 3.835), vect(12.923, -3.891, -0.063), vect(3.674, -6, -0.065), vect(12.685, 1.003, -11.521), vect(5.273, 1.007, -11.493), vect(5.356, 1.003, -4.035), vect(5.32, 1.004, 4.264), vect(5.196, 1.007, 11.865), vect(12.686, 1.003, 12.028), vect(17.426, 1, 13.574), vect(21.459, 1, 12.36), vect(29.822, 5.012, 21.441), vect(23.989, 5.012, 27.429), vect(17.285, 1, -13.813), vect(-4.868, 1.005, 4.852), vect(-4.676, 1.006, 12.001), vect(-11.891, 1.002, 12.442), vect(-12.012, 1.002, 4.843), vect(-12.276, 1.004, -5.083), vect(-4.984, 1.007, -5.206), vect(-4.935, 1.006, -11.808), vect(-11.931, 1.002, -11.828), vect(-16.753, 2.064, -0.189), vect(-22.771, 3, 0.009), vect(-23.288, 3, -5.707), vect(-23.272, 3, 5.719), vect(-32.086, 2, 6.225), vect(-31.92, 1.998, -5.993), vect(-31.816, 3, -13.929), vect(-37.703, 3, 0.139), vect(-47.975, 5, 0.11), vect(-47.636, 6, -5.146), vect(-47.404, 6, 5.096), vect(-39.345, 9, 5.897), vect(-34.947, 9, 5.957), vect(-34.897, 9, -6.09), vect(-39.295, 9, -5.982), vect(-35.119, 9, 0.043), vect(-28.769, 9, -0.008), vect(-28.783, 9, 5.632), vect(-28.721, 9, -5.706), vect(-20.466, 10.978, -7.424), vect(-20.307, 10.978, 7.699), vect(-32.051, 3, 13.156), vect(-25.255, 4.643, 27.042), vect(-12.301, 3.01, 23.05), vect(-24.34, 1.562, 14.563), vect(-12.818, 1, 15.27), vect(-16.479, 3.018, 22.829), vect(-25.779, 3.608, 23.021), vect(-17.504, 7.287, 26.544), vect(-12.966, 7.287, 26.442), vect(-9.579, 8.326, 26.39), vect(0.943, 10.02, 26.109), vect(-5.539, 8.336, 16.335), vect(16.055, 8.297, 21.721), vect(13.771, 8.299, 15.282), vect(9.799, 10.021, 25.25), vect(7.708, 10.029, 21.063), vect(6.068, 10.604, 15.443), vect(0.737, 11.516, 15.585), vect(10.282, 3.001, 20.943), vect(-7.561, 3.002, 22.989), vect(0.996, 3.003, 22.301), vect(22.355, 1.001, -12.59), vect(29.012, 5.012, -22.207), vect(24.027, 5.012, -27.688), vect(15.849, 8.296, -21.149), vect(13.939, 8.298, -15.263), vect(10.078, 10.021, -24.604), vect(7.369, 10.032, -21.054), vect(5.598, 10.604, -15.32), vect(1.389, 10.021, -26.009), vect(-12.238, 3.009, -22.92), vect(-25.729, 4.817, -27.695), vect(-24.449, 1.564, -14.44), vect(-24.582, 3.525, -23.054), vect(-16.702, 3.02, -23.118), vect(-13.324, 1, -15.874), vect(-17.012, 7.287, -26.972), vect(-9.313, 8.326, -26.972), vect(-5.306, 8.337, -16.431), vect(-4.847, 8.286, -25.847), vect(-0.514, 10.604, -15.604), vect(-9.424, 10.611, -16.506), vect(-9.042, 10.611, 16.156), vect(-12.815, 7.287, -27.191), vect(-32.036, 9.471, -11.162), vect(-25.648, 9.515, -11.561), vect(-25.533, 9.516, 11.526), vect(-32.118, 9.509, 11.669), vect(-33.003, 2, 0.177), vect(-16.356, -4.002, -0.133), vect(-3.758, -6, -0.026), vect(-16.532, 1, 13.111), vect(-16.514, 1, -13.054)]
@@ -91,23 +98,22 @@ rule "paste your save here (nodePositions + nodeConnections)":
     nodeConnections = [[1, 2], [0, 2, 3], [0, 1, 3], [1, 2]]
     */
 
+    #lijiang garden
+    nodePositions = [vect(-81.978,96,128.382), vect(-91.553,94,127.851), vect(-103.348,94,128.192), vect(-106.137,94,134.083), vect(-76.918,96,143.979), vect(-80.902,96,154.222), vect(-80.382,96,136.763), vect(-89.731,97.007,137.049), vect(-83.81,96,148.365), vect(-88.892,97.007,153.785), vect(-89.927,97.007,144.794), vect(-91.71,97,161.379), vect(-103.598,94,161.708), vect(-105.205,94.029,154.601), vect(-121.93,94,143.679), vect(-113.901,94,139.743), vect(-113.965,94,146.152), vect(-104.714,94.029,143.031), vect(-96.437,95,142.538), vect(-79.976,98,161.058), vect(-75.012,98,161.973), vect(-63.348,98,161.847), vect(-57.557,98,161.834), vect(-58.406,94,168.055), vect(-47.904,98,167.447), vect(-47.917,98,163.81), vect(-69.74,94.5,151.048), vect(-55.979,93.992,155.767), vect(-55.993,94,160.272), vect(-43.345,94.219,159.8), vect(-37.389,95,150.096), vect(-40.011,98,163.982), vect(-38.185,94.88,159.283), vect(-39.11,94.9,139.487), vect(-68.375,93.994,144.012), vect(-57.764,93.99,139.519), vect(-50.499,94.398,146.529), vect(-51.394,94.021,151.041), vect(-52.597,95,138.734), vect(-61.356,93.999,151.872), vect(-58.047,93.991,145.139), vect(-44.562,95,153.198), vect(-33.785,98,164.394), vect(-26.179,98,180.2), vect(-20.093,97.9,180.264), vect(-7.041,98,183.335), vect(-6.944,97.998,173.706), vect(-33.24,98,179.664), vect(-26.934,98,166.91), vect(-33.767,94.05,168.754), vect(-30.015,94.001,159.532), vect(-11.807,94,177.979), vect(-26.131,94.05,171.437), vect(-17.685,94,174.614), vect(-2.4,94,178.043), vect(-31.223,93.998,149.974), vect(-26.86,93.998,142.284), vect(-20.769,96,134.484), vect(-13.197,95,127.522), vect(-12.17,95.192,116.311), vect(-7.922,96,116.182), vect(-8.23,94.05,135.148), vect(-12.436,94.05,139.981), vect(-12.651,94.147,154.225), vect(-4.735,94.147,161.784), vect(-6.467,94,149.958), vect(-2.75,94,156.145), vect(-2.604,94,143.834), vect(-7.393,94.147,143.06), vect(-4.736,95,126.828), vect(81.978,96,128.382), vect(91.553,94,127.851), vect(103.348,94,128.192), vect(106.137,94,134.083), vect(76.918,96,143.979), vect(80.902,96,154.222), vect(80.382,96,136.763), vect(89.731,97.007,137.049), vect(83.81,96,148.365), vect(88.892,97.007,153.785), vect(89.927,97.007,144.794), vect(91.71,97,161.379), vect(103.598,94,161.708), vect(105.205,94.029,154.601), vect(121.93,94,143.679), vect(113.901,94,139.743), vect(113.965,94,146.152), vect(104.714,94.029,143.031), vect(96.437,95,142.538), vect(79.976,98,161.058), vect(75.012,98,161.973), vect(63.348,98,161.847), vect(57.557,98,161.834), vect(58.406,94,168.055), vect(47.904,98,167.447), vect(47.917,98,163.81), vect(69.74,94.5,151.048), vect(55.979,93.992,155.767), vect(55.993,94,160.272), vect(43.345,94.219,159.8), vect(37.389,95,150.096), vect(40.011,98,163.982), vect(38.185,94.88,159.283), vect(39.11,94.9,139.487), vect(68.375,93.994,144.012), vect(57.764,93.99,139.519), vect(50.499,94.398,146.529), vect(51.394,94.021,151.041), vect(52.597,95,138.734), vect(61.356,93.999,151.872), vect(58.047,93.991,145.139), vect(44.562,95,153.198), vect(33.785,98,164.394), vect(26.179,98,180.2), vect(20.093,97.9,180.264), vect(7.041,98,183.335), vect(6.944,97.998,173.706), vect(33.24,98,179.664), vect(26.934,98,166.91), vect(33.767,94.05,168.754), vect(30.015,94.001,159.532), vect(11.807,94,177.979), vect(26.131,94.05,171.437), vect(17.685,94,174.614), vect(2.4,94,178.043), vect(31.223,93.998,149.974), vect(26.86,93.998,142.284), vect(20.769,96,134.484), vect(13.197,95,127.522), vect(12.17,95.192,116.311), vect(7.922,96,116.182), vect(8.23,94.05,135.148), vect(12.436,94.05,139.981), vect(12.651,94.147,154.225), vect(4.735,94.147,161.784), vect(6.467,94,149.958), vect(2.75,94,156.145), vect(2.604,94,143.834), vect(7.393,94.147,143.06), vect(4.736,95,126.828)]
+    nodeConnections = [[1, 6], [0, 2], [1, 3, 17], [2, 15, 17], [5, 6, 7, 8, 10, 26, 34], [4, 8, 10, 19, 26], [0, 4, 7, 8, 10], [4, 6, 8, 10], [4, 5, 6, 7, 9, 10, 19, 26], [8, 10, 11], [7, 9, 4, 5, 6, 8], [9, 12], [11, 13], [12, 16, 17], [15, 16], [3, 14, 16, 17], [13, 14, 15, 17], [2, 3, 13, 15, 16, 18], [17], [5, 8, 20], [19, 5, 21], [20, 22, 26, 39], [21, 23, 24, 25], [24, 27, 28], [22, 23, 25, 29], [22, 24, 23, 31, 32, 42], [4, 5, 8, 27, 34, 39, 40], [23, 26, 28, 36, 37, 39, 40, 41], [23, 27, 29, 36, 37], [28, 30, 32, 41, 50], [29, 32, 33, 36, 37, 41, 55, 56], [25, 29, 30, 32, 41, 42, 48], [29, 30, 41, 50], [30, 41], [26, 4, 35, 39, 40], [34, 37, 38, 40], [30, 27, 28, 37, 38, 39, 40, 41], [27, 28, 30, 35, 36, 38, 39, 40, 41], [36, 35, 37], [27, 34, 37, 26, 36, 40], [27, 34, 35, 36, 37, 39, 26], [30, 33, 36, 37, 27, 29, 32, 55], [25, 31, 29, 48, 49], [44, 47, 48, 49], [43, 45, 47, 51, 53], [44, 46, 51, 53], [45, 51, 53], [43, 44, 49], [31, 42, 43, 49], [47, 50, 52], [29, 49, 32, 52, 55], [53, 54], [49, 50, 53], [51, 52], [51], [41, 50, 30, 56], [55, 30, 57], [56, 58], [57, 59, 61, 62, 69], [58, 60], [59], [58, 62, 65, 68, 69], [61, 58, 63, 67, 68], [62, 64], [63], [61, 66, 67, 68], [65, 68], [62, 65, 68], [61, 62, 65, 66, 67], [58, 61]]
 
-def updateEffects():
 
-    for spherePosIdx in range(len(nodePositions)):
-        if distance(hostPlayer, nodePositions[spherePosIdx]) > RENDER_DISTANCE:
-            if entityExists(nodeEffects[spherePosIdx]):
-                destroyEffect(nodeEffects[spherePosIdx])
-            if nodeTexts[spherePosIdx] != null:
-                destroyInWorldText(nodeTexts[spherePosIdx])
-                nodeTexts[spherePosIdx] = null
+def updateIwts():
+
+    for iwtPosIdx in range(len(nodePositions)):
+        if distance(hostPlayer, nodePositions[iwtPosIdx]) > RENDER_DISTANCE:
+            if nodeTexts[iwtPosIdx] != null:
+                destroyInWorldText(nodeTexts[iwtPosIdx])
+                nodeTexts[iwtPosIdx] = null
         else:
-            if not entityExists(nodeEffects[spherePosIdx]):
-                createEffect(hostPlayer, Effect.SPHERE, Color.BLUE, nodePositions[spherePosIdx], NODE_RADIUS, EffectReeval.VISIBILITY)
-                nodeEffects[spherePosIdx] = getLastCreatedEntity()
-            if nodeTexts[spherePosIdx] == null:
-                createInWorldText(hostPlayer, spherePosIdx, nodePositions[spherePosIdx], 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY, Color.BLUE, SpecVisibility.DEFAULT)
-                nodeTexts[spherePosIdx] = getLastCreatedText()
+            if nodeTexts[iwtPosIdx] == null:
+                createInWorldText(hostPlayer, iwtPosIdx, nodePositions[iwtPosIdx], 1.5, Clip.SURFACES, WorldTextReeval.VISIBILITY, Color.BLUE, SpecVisibility.DEFAULT)
+                nodeTexts[iwtPosIdx] = getLastCreatedText()
         
 
 rule "init":
@@ -123,7 +129,7 @@ rule "init":
 
     progressBarHud(hostPlayer if isGenerating else [], nodeIdx/len(nodePositions)*100, "{} / {} nodes processed".format(nodeIdx, len(nodePositions)), HudPosition.TOP, 1, Color.BLUE, Color.BLUE, ProgressHudReeval.VISIBILITY_AND_VALUES, SpecVisibility.DEFAULT)
 
-    updateEffects()
+    updateIwts()
 
     lastTestedNode = len(nodeConnections) - 1
     for i in range(len(nodeConnections), len(nodePositions)):
@@ -135,6 +141,12 @@ rule "init":
     createEffect(hostPlayer if nodeToShowBeams >= 0 else [], Effect.SPHERE, Color.AQUA, nodePositions[nodeToShowBeams]+vect(0,1,0), 0.1, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
 
     hudHeader(hostPlayer if nodeToShowBeams >= 0 and len(nodeConnections[nodeToShowBeams]) > NB_BEAM_RENDER else [], "showing {}/{} beams".format(NB_BEAM_RENDER, len(nodeConnections[nodeToShowBeams])), HudPosition.TOP, 3, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)
+
+    #create effects from save
+    for spherePosIdx in range(len(nodePositions)):
+        createEffect(hostPlayer, Effect.SPHERE, Color.BLUE, evalOnce(nodePositions[spherePosIdx]), NODE_RADIUS, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+        nodeEffects[iwtPosIdx] = getLastCreatedEntity()
+        wait()
         
 rule "dummy init":
     @Event eachPlayer
@@ -238,7 +250,9 @@ rule "place node":
     @Condition not isGenerating
     nodePositions.append(eventPlayer.getPosition())
     nodeConnections[len(nodePositions)-1] = []
-    updateEffects()
+    createEffect(hostPlayer, Effect.SPHERE, Color.BLUE, evalOnce(nodePositions.last()), NODE_RADIUS, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    nodeEffects[len(nodePositions)-1] = getLastCreatedEntity()
+    updateIwts()
 
 rule "delete node":
     @Event eachPlayer
@@ -261,12 +275,13 @@ rule "delete node":
 
 rule "update spheres periodically":
     while true:
-        updateEffects()
+        updateIwts()
         wait(1)
 
 rule "generate connections":
     @Condition hostPlayer.isHoldingButton(Button.INTERACT)
     @Condition hostPlayer.isHoldingButton(Button.CROUCH)
+    moveToTeam(testDummy, hostPlayer.getTeam(), -1)
     isGenerating = true
     lastTestedNode min= len(nodePositions)-1
     for nodeIdx in range(0, len(nodePositions)):

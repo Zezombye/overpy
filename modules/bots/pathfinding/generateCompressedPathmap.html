@@ -197,7 +197,7 @@ a {
             }
 
             var alphabet = [];
-            for (var i = 0; alphabet.length < nodePositions.length; i++) {
+            for (var i = 0; alphabet.length < nodePositions.length+1; i++) {
                 if (i === 0) {
                     continue;
                 }
@@ -205,6 +205,10 @@ a {
                     continue;
                 }
                 if (String.fromCharCode(i) == "\r") {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "\u00A0") {
+                    //firefox replaces the zero width space by a normal space when copying
                     continue;
                 }
                 //Skip the alphabet to avoid potential censors.
@@ -235,20 +239,28 @@ a {
             for (var i = 0; i < nodePositions.length; i++) {
                 nodeData = []
                 for (var j = 0; j < nodePositions.length; j++) {
-                    var nodeToTake = parseInt(graph.findShortestPath(i, j)[1]);
-                    if (isNaN(nodeToTake)) {
-                        nodeToTake = i;
+                    var nodeToTake = graph.findShortestPath(i, j);
+                    if (nodeToTake === null) {
+                        nodeToTake = -1;
+                    } else {
+                        //console.log(nodeToTake);
+                        nodeToTake = nodeToTake[1];
+                        if (isNaN(nodeToTake)) {
+                            nodeToTake = i;
+                        }
                     }
-                    nodeData.push(nodeToTake);
+                    nodeData.push(parseInt(nodeToTake));
                 }
                 data.push(nodeData);
             }
+
+            console.log(data);
 
             var strData = [];
             var currentStr = "";
             for (var i = 0; i < nodePositions.length; i++) {
                 for (var j = 0; j < nodePositions.length; j++) {
-                    currentStr += alphabet[data[i][j]];
+                    currentStr += alphabet[data[i][j]+1];
                     if (currentStr.length >= 128) {
                         strData.push(currentStr);
                         currentStr = "";
