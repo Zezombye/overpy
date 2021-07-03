@@ -14,7 +14,7 @@ settings {
         "ffa": {
             "enabledMaps": [
                 "necropolis",
-                #"lijiangGarden",
+                "lijiangGarden",
             ]
         },
         "general": {
@@ -68,6 +68,7 @@ globalvar uncompressedData = []
 globalvar timer
 globalvar currentNodeArray
 globalvar currentCharIdx
+globalvar runLengthEncodingIdx
 globalvar message
 
 playervar targetNode = -1 #-1 means there is no target node, so one must be found.
@@ -93,9 +94,9 @@ globalvar nodePositions
 
 #Put each map in its own rule, else we hit the rule size limit.
 def loadLijiangGarden():
-    /*alphabet = ALPHABET_LIJIANG_GARDEN
+    alphabet = ALPHABET_LIJIANG_GARDEN
     compressedData = DATA_LIJIANG_GARDEN
-    nodePositions = POSITIONS_LIJIANG_GARDEN*/
+    nodePositions = POSITIONS_LIJIANG_GARDEN
 
 def loadNecropolis():
     alphabet = ALPHABET_NECROPOLIS
@@ -126,36 +127,39 @@ rule "Initialize gamemode and decompress pathmap":
 
     currentCharIdx = 0
     for i in range(len(compressedData)):
-        for j in range(strLen(compressedData[i])):
-            #Here we subtract 1 because we must take "-1" into account, so the alphabet starts at -1.
-            currentNodeArray[currentCharIdx % NB_NODES] = alphabet.index(compressedData[i].substring(j, 1))-1
-            currentCharIdx++
-            if currentCharIdx % NB_NODES == 0:
-                uncompressedData[floor((currentCharIdx-1)/NB_NODES)] = currentNodeArray
+        for j in range(0, strLen(compressedData[i]), 2):
+
+            #We iterate backwards to not recalculate the length at each iteration.
+            for runLengthEncodingIdx in range(alphabet.strIndex(compressedData[i].charAt(j)), 0, -1):
+                #Here we subtract 1 because we must take "-1" into account, so the alphabet starts at -1.
+                currentNodeArray[currentCharIdx % NB_NODES] = alphabet.strIndex(compressedData[i].charAt(j+1))-1
+                currentCharIdx++
+                if currentCharIdx % NB_NODES == 0:
+                    uncompressedData[floor((currentCharIdx-1)/NB_NODES)] = currentNodeArray
         
         wait()
 
-    #Remove compressed strings to make the server less laggy.
+    #Remove compressed data and calculation variables to make the server less laggy.
     alphabet = null
     compressedData = null
+    currentNodeArray = null
     
     stopChasingVariable(timer)
     enableInspector()
     message = Message.FINISHED_DECOMPRESSION
 
     #Now that we have finished decompressing, spawn the bots.
+    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, 1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
     createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-
 
 rule "Initialize dummy":
     @Event eachPlayer
@@ -181,6 +185,7 @@ rule "Bot is idling - stop throttle and pressing buttons":
     eventPlayer.stopThrottleInDirection()
     eventPlayer.stopFacing()
     eventPlayer.targetNode = -1
+    eventPlayer.timeRemainingToNode = 0
 
 rule "Find a suitable enemy":
     @Event eachPlayer
@@ -239,18 +244,21 @@ rule "Enemy is in range - set mode to fighting":
     @Condition abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) < 1.2
     @Condition distance(eventPlayer, eventPlayer.targetPlayer) < 7
     @Condition isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS)
-    eventPlayer.walkBehavior = BotWalkBehavior.FIGHTING
-    eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.targetPlayer.getPosition()), 1, Relativity.TO_WORLD, Throttle.REPLACE_EXISTING, ThrottleReeval.DIRECTION_AND_MAGNITUDE)
-    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    do:
+        eventPlayer.walkBehavior = BotWalkBehavior.FIGHTING
+        eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.targetPlayer.getPosition()), 1, Relativity.TO_WORLD, Throttle.REPLACE_EXISTING, ThrottleReeval.DIRECTION_AND_MAGNITUDE)
+        eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+        wait()
+    while RULE_CONDITION
 
-rule "Enemy is no longer in range - set mode back to walking":
+rule "Enemy is no longer in range - set mode back to idling":
     @Event eachPlayer
     @Condition eventPlayer.isDummy()
     @Condition eventPlayer.walkBehavior == BotWalkBehavior.FIGHTING
     @Condition abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) >= 1.2 or distance(eventPlayer, eventPlayer.targetPlayer) >= 7 or not isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS)
     do:
         wait(5, Wait.ABORT_WHEN_FALSE)
-        eventPlayer.walkBehavior = BotWalkBehavior.WALKING
+        eventPlayer.walkBehavior = BotWalkBehavior.IDLING
     while RULE_CONDITION
 
 rule "Fire firecharges on enemy when in walking mode":
