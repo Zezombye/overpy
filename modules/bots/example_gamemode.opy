@@ -15,7 +15,8 @@ settings {
             "enabledMaps": [
                 #"necropolis",
                 #"lijiangGarden",
-                "ecopointAntarctica",
+                #"ecopointAntarctica",
+                "blackForest",
             ]
         },
         "general": {
@@ -41,9 +42,11 @@ settings {
 #!include "pathfinding/compressedPathmaps/ecopoint_antarctica_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/lijiang_garden.opy"
+#!include "pathfinding/compressedPathmaps/black_forest_no_spawns.opy"
 #!include "pathfinding/pathmaps/ecopoint_antarctica_no_spawns.opy"
 #!include "pathfinding/pathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/pathmaps/lijiang_garden.opy"
+#!include "pathfinding/pathmaps/black_forest_no_spawns.opy"
 
 
 /*
@@ -111,6 +114,11 @@ def loadEcopointAntarctica():
     compressedData = DATA_ECOPOINT_ANTARCTICA
     nodePositions = POSITIONS_ECOPOINT_ANTARCTICA
 
+def loadBlackForest():
+    alphabet = ALPHABET_BLACK_FOREST
+    compressedData = DATA_BLACK_FOREST
+    nodePositions = POSITIONS_BLACK_FOREST
+
 rule "Initialize gamemode and decompress pathmap":
     print("load: {} | avg: {} | max: {}".format(getServerLoad(), getAverageServerLoad(), getPeakServerLoad()))
     print("No pathmap for map {}".format(getCurrentMap()) if message == Message.NO_PATHMAP else "Node graph out of date. Rebuilding... {}s elapsed".format(timer) if message == Message.DECOMPRESSING else "Finished loading pathmap in {}s".format(timer))
@@ -118,10 +126,12 @@ rule "Initialize gamemode and decompress pathmap":
     #Load the pathmap based on the map
     if getCurrentMap() == Map.NECROPOLIS:
         loadNecropolis()
-    elif getCurrentMap() == Map.LIJIANG_GARDEN:
+    elif getCurrentMap() == Map.LIJIANG_GARDEN or getCurrentMap() == Map.LIJIANG_GARDEN_LNY:
         loadLijiangGarden()
     elif getCurrentMap() == Map.ECOPOINT_ANTARCTICA or getCurrentMap() == Map.ECOPOINT_ANTARCTICA_WINTER:
         loadEcopointAntarctica()
+    elif getCurrentMap() == Map.BLACK_FOREST or getCurrentMap() == Map.BLACK_FOREST_WINTER:
+        loadBlackForest()
     else:
         message = Message.NO_PATHMAP
         return
