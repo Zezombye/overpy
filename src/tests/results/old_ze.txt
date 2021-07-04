@@ -133,7 +133,7 @@ rule ("kings row") {
     }
 }
 
-rule ("blizz world") {
+rule ("b﻿lizz world") {
     event {
         Ongoing - Global;
     }
@@ -547,7 +547,7 @@ rule ("walls visual effect") {
         Modify Global Variable(I, Add, True);
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
-        "pa﻿ss"
+        "p﻿ass"
         disabled Abort;
         //lbl_0:
     }

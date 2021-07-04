@@ -40,15 +40,15 @@ settings {
 
 #!define NB_NODES len(nodePositions)
 
-#!include "pathfinding/compressedPathmaps/ecopoint_antarctica_no_spawns.opy"
+#!include "pathfinding/compressedPathmaps/ecopoint_antarctica.opy"
 #!include "pathfinding/compressedPathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/lijiang_garden.opy"
-#!include "pathfinding/compressedPathmaps/black_forest_no_spawns.opy"
+#!include "pathfinding/compressedPathmaps/black_forest.opy"
 #!include "pathfinding/compressedPathmaps/nepal_shrine.opy"
-#!include "pathfinding/pathmaps/ecopoint_antarctica_no_spawns.opy"
+#!include "pathfinding/pathmaps/ecopoint_antarctica.opy"
 #!include "pathfinding/pathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/pathmaps/lijiang_garden.opy"
-#!include "pathfinding/pathmaps/black_forest_no_spawns.opy"
+#!include "pathfinding/pathmaps/black_forest.opy"
 #!include "pathfinding/pathmaps/nepal_shrine.opy"
 
 

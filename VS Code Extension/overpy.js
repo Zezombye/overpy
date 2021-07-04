@@ -46834,6 +46834,7 @@ class Ast {
             }
             child.parent = this;
         }
+        //console.log("Creating AST for '"+name+"', filestack = "+JSON.stringify(fileStack))
         this.fileStack = fileStack;
         this.argIndex = 0;
         this.childIndex = 0;
@@ -47873,18 +47874,74 @@ function isWs0(x) {
 "use strict";
 
 function escapeBadWords(content) {
-	//contains zero width spaces
-	content = content.replace(/(a)(ss)/ig, "$1﻿$2");
-	content = content.replace(/(ni)(g)/ig, "$1﻿$2");
-	content = content.replace(/(me)(th)/ig, "$1﻿$2");
-	content = content.replace(/(bla)(d)/ig, "$1﻿$2");
-	content = content.replace(/(cu)(m)/ig, "$1﻿$2");
-	content = content.replace(/(put)(a)/ig, "$1﻿$2");
-	content = content.replace(/(rap)(e)/ig, "$1﻿$2");
-	content = content.replace(/(va)(g)/ig, "$1﻿$2");
-	content = content.replace(/(mo)(ng)/ig, "$10$3");
-	content = content.replace(/(ng)(gr)/ig, "$19$3");
-	content = content.replace(/(se)(men)/ig, "$13$3");
+
+	//000000000057.07F
+	//000000000058.07F
+	//00000000005A.07F
+	//Naturally, only words that aren't actually bad are here.
+	//Insert a zero-width space inside the word.
+
+	content = content.replace(/(a)(ccount)/ig, "$1﻿$2");
+	content = content.replace(/(a)(dmin)/ig, "$1﻿$2");
+	content = content.replace(/(a)(nonymous)/ig, "$1﻿$2");
+	content = content.replace(/(a)(sia)/ig, "$1﻿$2");
+	content = content.replace(/(b)(ackdoor)/ig, "$1﻿$2");
+	content = content.replace(/(b)(attlenet)/ig, "$1﻿$2");
+	content = content.replace(/(b)(eer)/ig, "$1﻿$2");
+	content = content.replace(/(b)(liz)/ig, "$1﻿$2");
+	content = content.replace(/(b)(lizzaard)/ig, "$1﻿$2");
+	content = content.replace(/(b)(lizzard)/ig, "$1﻿$2");
+	content = content.replace(/(b)(low)/ig, "$1﻿$2");
+	content = content.replace(/(bn)(et)/ig, "$1﻿$2");
+	content = content.replace(/(b)(razil)/ig, "$1﻿$2");
+	content = content.replace(/(c)(anada)/ig, "$1﻿$2");
+	content = content.replace(/(c)(hina)/ig, "$1﻿$2");
+	content = content.replace(/(c)(hinese)/ig, "$1﻿$2");
+	content = content.replace(/(d)(amn)/ig, "$1﻿$2");
+	content = content.replace(/(d)(amned)/ig, "$1﻿$2");
+	content = content.replace(/(d)(enmark)/ig, "$1﻿$2");
+	content = content.replace(/(d)(iablo)/ig, "$1﻿$2");
+	content = content.replace(/(e)(ngland)/ig, "$1﻿$2");
+	content = content.replace(/(f)(inland)/ig, "$1﻿$2");
+	content = content.replace(/(f)(rench)/ig, "$1﻿$2");
+	content = content.replace(/(g)(erman)/ig, "$1﻿$2");
+	content = content.replace(/(g)(ermany)/ig, "$1﻿$2");
+	content = content.replace(/(g)(m)/ig, "$1﻿$2");
+	content = content.replace(/(g)(od)/ig, "$1﻿$2");
+	content = content.replace(/(g)(oddamn)/ig, "$1﻿$2");
+	content = content.replace(/(h)(ash)/ig, "$1﻿$2");
+	content = content.replace(/(i)(reland)/ig, "$1﻿$2");
+	content = content.replace(/(i)(taly)/ig, "$1﻿$2");
+	content = content.replace(/(k)(orea)/ig, "$1﻿$2");
+	content = content.replace(/(l)(adder)/ig, "$1﻿$2");
+	content = content.replace(/(l)(eah)/ig, "$1﻿$2");
+	content = content.replace(/(l)(ilith)/ig, "$1﻿$2");
+	content = content.replace(/(l)(oad)/ig, "$1﻿$2");
+	content = content.replace(/(l)(ord)/ig, "$1﻿$2");
+	content = content.replace(/(m)(exican)/ig, "$1﻿$2");
+	content = content.replace(/(m)(exico)/ig, "$1﻿$2");
+	content = content.replace(/(m)(onitor)/ig, "$1﻿$2");
+	content = content.replace(/(n)(etherlands)/ig, "$1﻿$2");
+	content = content.replace(/(n)(orway)/ig, "$1﻿$2");
+	content = content.replace(/(n)(uts)/ig, "$1﻿$2");
+	content = content.replace(/(o)(wn)/ig, "$1﻿$2");
+	content = content.replace(/(p)(ass)/ig, "$1﻿$2");
+	content = content.replace(/(p)(atch)/ig, "$1﻿$2");
+	content = content.replace(/(p)(oland)/ig, "$1﻿$2");
+	content = content.replace(/(p)(olish)/ig, "$1﻿$2");
+	content = content.replace(/(p)(ortugal)/ig, "$1﻿$2");
+	content = content.replace(/(r)(anking)/ig, "$1﻿$2");
+	content = content.replace(/(r)(estore)/ig, "$1﻿$2");
+	content = content.replace(/(r)(ollback)/ig, "$1﻿$2");
+	content = content.replace(/(r)(ussia)/ig, "$1﻿$2");
+	content = content.replace(/(s)(anctuary)/ig, "$1﻿$2");
+	content = content.replace(/(s)(atan)/ig, "$1﻿$2");
+	content = content.replace(/(s)(ingapore)/ig, "$1﻿$2");
+	content = content.replace(/(s)(weden)/ig, "$1﻿$2");
+	content = content.replace(/(s)(witzerland)/ig, "$1﻿$2");
+	content = content.replace(/(s)(ystem)/ig, "$1﻿$2");
+	content = content.replace(/(w)(ow)/ig, "$1﻿$2");
+
 	return content;
 }
 
@@ -48136,21 +48193,6 @@ function tows(keyword, keywordArray, options) {
 
 "use strict";
 
-function removeBadWordsInVarName(content) {
-	content = content.replace(/(a)(ss)/ig, "4$2");
-	content = content.replace(/(n)(i)(g)/ig, "$11$3");
-	content = content.replace(/(m)(e)(th)/ig, "$13$3");
-	content = content.replace(/(bl)(a)(d)/ig, "$14$3");
-	content = content.replace(/(c)(u)(m)/ig, "$1v$3");
-	content = content.replace(/(put)(a)/ig, "$14");
-	content = content.replace(/(r)(a)(pe)/ig, "$14$3");
-	content = content.replace(/(v)(a)(g)/ig, "$14$3");
-	content = content.replace(/(m)(o)(ng)/ig, "$10$3");
-	content = content.replace(/(n)(g)(gr)/ig, "$19$3");
-	content = content.replace(/(s)(e)(men)/ig, "$13$3");
-	return content;
-}
-
 function translateSubroutineToPy(content) {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, "subroutine");
@@ -48172,7 +48214,7 @@ function translateSubroutineToWs(content) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i];
 			} else {
-				return removeBadWordsInVarName(content);
+				return content;
 			}
 		}
 	}
@@ -48244,7 +48286,7 @@ function translateVarToWs(content, isGlobalVariable) {
 			if (obfuscationSettings.obfuscateNames) {
 				return obfuscatedVarNames[i]
 			} else {
-				return removeBadWordsInVarName(content);
+				return content;
 			}
 		}
 	}
@@ -49209,7 +49251,7 @@ function decompile(content) {
 		error("Content is undefined");
 	}
     content = content.trim();
-    content = content.replace(/[\t\n]/g, " ");
+    content = content.replace(/\n\t*/g, " ");
 	debug("Decompiling '"+content+"'");
 
 	//Workshop operators, from lowest to highest precedence.
@@ -51853,6 +51895,43 @@ astParsingFunctions.__equals__ = function(content) {
 
 astParsingFunctions.__for__ = function(content) {
 
+    if (content.args[0].name === "__playerVar__") {
+        var isGlobalVariable = false;
+        var varName = content.args[0].args[1].name;
+    } else if (content.args[0].name === "__globalVar__") {
+        var isGlobalVariable = true;
+        var varName = content.args[0].args[0].name;
+    } else {
+        error("Expected variable for 1st argument of function 'for', but got "+functionNameToString(content.args[0]));
+    }
+
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+    var isFound = false;
+	for (var variable of varArray) {
+		if (variable.name === varName) {
+            variable["isUsedInForLoop"] = true;
+            if (variable["isChased"]) {
+                warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is used in a for loop, but also chased, making the for loop not run.");
+            }
+            isFound = true;
+            break;
+        }
+    }
+    if (!isFound) {
+        if (defaultVarNames.includes(varName)) {
+            //Add the variable as it doesn't already exist (else it would've been caught by the for)
+            //However, only do this if it is a default variable name
+            addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
+        } else {
+            error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+varName+"'");
+        }
+        for (var variable of varArray) {
+            if (variable.name === varName) {
+                variable["isUsedInForLoop"] = true;
+                break;
+            }
+        }
+    }
     
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
@@ -54253,7 +54332,7 @@ astParsingFunctions.break = function(content) {
         label.parent = innermostStructure.parent;
         innermostStructure.parent.children.splice(innermostStructure.parent.childIndex+1, 0, label);
 
-        //Convert the switch to a goto
+        //Convert the break to a goto
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else if (innermostStructure.name === "__switch__") {
@@ -54318,7 +54397,7 @@ astParsingFunctions.ceil = function(content) {
 
 astParsingFunctions.continue = function(content) {
 
-    //Determine the innermost loop or switch
+    //Determine the innermost loop
     var innermostStructure = content.parent;
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__doWhile__"].includes(innermostStructure.name)) {
@@ -54333,7 +54412,18 @@ astParsingFunctions.continue = function(content) {
         return new Ast("__loop__");
 
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
-        return content;
+        //Do not use the "continue" action because of a workshop bug where it will abort the rule if an "if" is above it.
+        //return content;
+
+        //Place a label at the end
+        var labelName = "__label_continue_"+getUniqueNumber()+"__";
+        var label = new Ast(labelName, [], [], "Label");
+        label.parent = innermostStructure;
+        console.log(innermostStructure);
+        innermostStructure.children.splice(innermostStructure.children.length, 0, label);
+
+        //Convert the continue to a goto
+        return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else {
         error("Found 'continue' instruction, but not within a loop");
@@ -56226,7 +56316,13 @@ function parseAstRules(rules) {
                     "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
                 };
 
+                if (rule.children[i].args.length === 3 && (rule.children[i].args[0].name === "Team" || rule.children[i].args[0].name === "Hero") && rule.children[i].args[1].name === ".") {
+                    rule.children[i].args = [rule.children[i].args[2]];
+                    rule.children[i].args[0].name = rule.children[i].args[0].name.toLowerCase();
+                }
+
                 if (rule.children[i].args.length !== 1) {
+                    console.log(rule.children[i].args);
                     error("Annotation '"+rule.children[i].name+"' takes 1 argument, received "+rule.children[i].args.length);
                 }
                 if (annotationToPropMap[rule.children[i].name].prop in rule.ruleAttributes) {
@@ -56567,6 +56663,8 @@ function parseAst(content) {
             content.children[i].comment = childComment;
         }
     }
+
+    fileStack = content.fileStack;
 
     //Optimize, and re-optimize if the function name changed
     var oldContentName = content.name;
@@ -56928,11 +57026,14 @@ function astToWs(content) {
 
     } else if (content.name === "__chaseAtRate__" || content.name === "__chaseOverTime__") {
         var newName = content.name === "__chaseAtRate__" ? "AtRate__" : "OverTime__";
+
         if (content.args[0].name === "__globalVar__") {
+
             newName = "GlobalVariable"+newName;
             content.args = [content.args[0].args[0]].concat(content.args.slice(1));
 
         } else if (content.args[0].name === "__playerVar__") {
+
             newName = "PlayerVariable"+newName;
             content.args = [content.args[0].args[0], content.args[0].args[1]].concat(content.args.slice(1));
 
@@ -57350,7 +57451,6 @@ function parseLines(lines) {
                 }
             }
 
-            i += j-i-1;
             if (funcName === "__enum__") {
                 //Implement our own mini-parser to not get "function does not exist" errors.
                 enumMembers[args[0].name] = {};
@@ -57358,6 +57458,14 @@ function parseLines(lines) {
                 for (var k = 0; k < childrenLines.length; k++) {
                     fileStack = childrenLines[k].tokens[0].fileStack;
                     //console.log(childrenLines[k]);
+                    //Skip comments
+                    if (childrenLines[k].tokens[0].text[0] === "#") {
+                        continue;
+                    }
+                    //Remove comments at end of lines
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text[0] === "#") {
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                    }
                     if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text !== ",") {
                         if (k < childrenLines.length-1) {
                             error("Expected ',' at the end of the line");
@@ -57396,11 +57504,16 @@ function parseLines(lines) {
                     }
                 }
                 //We do not care about enums in the AST
+                i += j-i-1;
                 continue;
             } else {
                 children = parseLines(childrenLines);
             }
 
+            
+            //console.log("i = "+i+", j = "+j);
+            //console.log("lines = \n"+lines.join("\n"));
+            fileStack = lines[i].tokens[0].fileStack;
             var instruction = new Ast(funcName, args, children);
             if (currentComments !== []) {
                 instruction.comment = commentArrayToString(currentComments);
@@ -57410,6 +57523,7 @@ function parseLines(lines) {
             }
             
             result.push(instruction);
+            i += j-i-1;
     
         } else {
             var currentLineAst = parse(lines[i].tokens);
@@ -57751,7 +57865,6 @@ function parse(content, kwargs={}) {
 				}
 			}
         }
-        string = escapeBadWords(string);
         return new Ast(string, [], [], stringType);
 	}
 	
@@ -58318,6 +58431,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var result = compiledCustomGameSettings+generateVariablesField()+generateSubroutinesField()+compiledRules;
 
+	fileStack = null;
 	if (nbElements > ELEMENT_LIMIT) {
 		warn("w_element_limit", "The gamemode is over the element limit ("+nbElements+" > "+ELEMENT_LIMIT+" elements)");
 	}
@@ -58442,7 +58556,7 @@ function generateVariablesField() {
 				varTypeResult += tabLevel(2)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 			} else {
 				if (outputVariables[i] !== undefined) {
-					varTypeResult += tabLevel(2)+i+": "+removeBadWordsInVarName(outputVariables[i])+"\n";
+					varTypeResult += tabLevel(2)+i+": "+outputVariables[i]+"\n";
 				}
 			}
 		}
@@ -58513,7 +58627,7 @@ function generateSubroutinesField() {
 			result += tabLevel(1)+obfuscatedVarNumbers[i]+": "+obfuscatedVarNames[i]+"\n"
 		} else {
 			if (outputSubroutines[i] !== undefined) {
-				result += tabLevel(1)+i+": "+removeBadWordsInVarName(outputSubroutines[i])+"\n";
+				result += tabLevel(1)+i+": "+outputSubroutines[i]+"\n";
 			}
 		}
 	}
