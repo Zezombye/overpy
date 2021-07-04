@@ -42,7 +42,13 @@ function parseAstRules(rules) {
                     "@Hero": {prop: "eventPlayer", display: "event player (@Hero/@Slot)"},
                 };
 
+                if (rule.children[i].args.length === 3 && (rule.children[i].args[0].name === "Team" || rule.children[i].args[0].name === "Hero") && rule.children[i].args[1].name === ".") {
+                    rule.children[i].args = [rule.children[i].args[2]];
+                    rule.children[i].args[0].name = rule.children[i].args[0].name.toLowerCase();
+                }
+
                 if (rule.children[i].args.length !== 1) {
+                    console.log(rule.children[i].args);
                     error("Annotation '"+rule.children[i].name+"' takes 1 argument, received "+rule.children[i].args.length);
                 }
                 if (annotationToPropMap[rule.children[i].name].prop in rule.ruleAttributes) {

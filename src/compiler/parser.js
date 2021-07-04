@@ -227,6 +227,14 @@ function parseLines(lines) {
                 for (var k = 0; k < childrenLines.length; k++) {
                     fileStack = childrenLines[k].tokens[0].fileStack;
                     //console.log(childrenLines[k]);
+                    //Skip comments
+                    if (childrenLines[k].tokens[0].text[0] === "#") {
+                        continue;
+                    }
+                    //Remove comments at end of lines
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text[0] === "#") {
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                    }
                     if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text !== ",") {
                         if (k < childrenLines.length-1) {
                             error("Expected ',' at the end of the line");
@@ -265,6 +273,7 @@ function parseLines(lines) {
                     }
                 }
                 //We do not care about enums in the AST
+                i += j-i-1;
                 continue;
             } else {
                 children = parseLines(childrenLines);

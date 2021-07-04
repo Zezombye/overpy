@@ -284,8 +284,8 @@ a {
             }
 
             result = `
-alphabet = ${JSON.stringify(alphabet.join(""))}
-data = ${JSON.stringify(strData)}
+alphabet = p${JSON.stringify(alphabet.join(""))}
+data = [${strData.map(x => "p"+JSON.stringify(x)).join(",")}]
 `
 
             document.getElementById("output").value = result;

@@ -36,7 +36,7 @@ astParsingFunctions.break = function(content) {
         label.parent = innermostStructure.parent;
         innermostStructure.parent.children.splice(innermostStructure.parent.childIndex+1, 0, label);
 
-        //Convert the switch to a goto
+        //Convert the break to a goto
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else if (innermostStructure.name === "__switch__") {

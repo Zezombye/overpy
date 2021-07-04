@@ -193,7 +193,7 @@ function decompile(content) {
 		error("Content is undefined");
 	}
     content = content.trim();
-    content = content.replace(/[\t\n]/g, " ");
+    content = content.replace(/\n\t*/g, " ");
 	debug("Decompiling '"+content+"'");
 
 	//Workshop operators, from lowest to highest precedence.
