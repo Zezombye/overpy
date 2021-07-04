@@ -8,7 +8,7 @@ Make sure to save often and to report any buggy behavior by the bot.
 
 settings {
     "main": {
-        "description": "Zez's Pathmap Editor | v1.1.1 | FNTOS | For use with OverPy:\nhttps://github.com/Zezombye/OverPy"
+        "description": "Zez's Pathmap Editor | v1.1.2 | FNTOS | For use with OverPy:\nhttps://github.com/Zezombye/OverPy"
     },
     "lobby": {
         "ffaSlots": 1,
@@ -139,10 +139,6 @@ rule "dummy walk":
     @Event eachPlayer
     @Condition eventPlayer.isDummy()
     @Condition makeBotWalk
-    eventPlayer.teleport(nodePositions[nodeIdx])
-    eventPlayer.startForcingPosition(nodePositions[nodeIdx], false)
-    wait()
-    eventPlayer.stopForcingPosition()
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), nodePositions[neighborNodeIdx]), 1, Relativity.TO_WORLD, Throttle.REPLACE_EXISTING, ThrottleReeval.DIRECTION_AND_MAGNITUDE)
 
 rule "dummy detect off ground":
@@ -300,6 +296,10 @@ rule "generate connections":
                 botCheck:
                 #Make a reinhardt walk for a more precise check
                 smallMessage(hostPlayer, "bot check for node {} and neighbor {}".format(nodeIdx, neighborNodeIdx))
+                testDummy.teleport(nodePositions[nodeIdx])
+                testDummy.startForcingPosition(nodePositions[nodeIdx], false)
+                wait()
+                testDummy.stopForcingPosition()
                 makeBotWalk = true
                 wasOffGround = false
                 connectionTestStatus = ConnectionTest.IN_PROGRESS

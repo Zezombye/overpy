@@ -16,7 +16,8 @@ settings {
                 #"necropolis",
                 #"lijiangGarden",
                 #"ecopointAntarctica",
-                "blackForest",
+                #"blackForest",
+                "nepalShrine",
             ]
         },
         "general": {
@@ -43,10 +44,12 @@ settings {
 #!include "pathfinding/compressedPathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/lijiang_garden.opy"
 #!include "pathfinding/compressedPathmaps/black_forest_no_spawns.opy"
+#!include "pathfinding/compressedPathmaps/nepal_shrine.opy"
 #!include "pathfinding/pathmaps/ecopoint_antarctica_no_spawns.opy"
 #!include "pathfinding/pathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/pathmaps/lijiang_garden.opy"
 #!include "pathfinding/pathmaps/black_forest_no_spawns.opy"
+#!include "pathfinding/pathmaps/nepal_shrine.opy"
 
 
 /*
@@ -119,6 +122,11 @@ def loadBlackForest():
     compressedData = DATA_BLACK_FOREST
     nodePositions = POSITIONS_BLACK_FOREST
 
+def loadNepalShrine():
+    alphabet = ALPHABET_NEPAL_SHRINE
+    compressedData = DATA_NEPAL_SHRINE
+    nodePositions = POSITIONS_NEPAL_SHRINE
+
 rule "Initialize gamemode and decompress pathmap":
     print("load: {} | avg: {} | max: {}".format(getServerLoad(), getAverageServerLoad(), getPeakServerLoad()))
     print("No pathmap for map {}".format(getCurrentMap()) if message == Message.NO_PATHMAP else "Node graph out of date. Rebuilding... {}s elapsed".format(timer) if message == Message.DECOMPRESSING else "Finished loading pathmap in {}s".format(timer))
@@ -132,6 +140,8 @@ rule "Initialize gamemode and decompress pathmap":
         loadEcopointAntarctica()
     elif getCurrentMap() == Map.BLACK_FOREST or getCurrentMap() == Map.BLACK_FOREST_WINTER:
         loadBlackForest()
+    elif getCurrentMap() == Map.NEPAL_SHRINE:
+        loadNepalShrine()
     else:
         message = Message.NO_PATHMAP
         return
