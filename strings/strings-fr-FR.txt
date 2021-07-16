@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -33042,6 +33042,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Vos nouveaux paramètres Cross-Play prendront effet après cette file d’attente.
 000000013A5B.07C: Votre groupe a été exclu de la liste d’attente en raison de ses nouveaux paramètres Cross-Play.
 000000013A66.07C: Impossible d’inviter le joueur en raison de paramètres Cross-Play incompatibles.
+000000013A9D.07C: Haroëris
 000000013AA5.07C: Nouveau roman original
 000000013AA6.07C: Défi Deadlock d’Ashe
 000000013AB6.07C: Utiliser Lame du dragon réinitialise le temps de recharge de Frappe du vent.
@@ -33072,8 +33073,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C98.07C: Votre message ne peut pas être lu en raison de vos paramètres de communication Cross-Play.
 000000013D12.07C: Il est possible que certains membres de votre canal de discussion ne puissent pas vous entendre en raison de vos paramètres de communication Cross-Play.
 000000013D2B.07C: Rebelles Deadlock
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
 000000013D43.07C: Certains membres de votre équipe ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
 000000013D44.07C: Certains membres de votre partie ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
-[Core] Execution finished in 00:00:00.5008796 seconds
+[Core] Execution finished in 00:00:00.5718544 seconds

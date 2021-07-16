@@ -360,6 +360,8 @@ function activate(context) {
             rootPath = rootPath.substring(0, rootPath.lastIndexOf('/')+1);
 
             var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
+            //console.log("encountered warnings:");
+            //console.log(compiledText.encounteredWarnings);
             for (var warning of compiledText.encounteredWarnings) {
                 vscode.window.showWarningMessage("Warning: "+warning);
             }

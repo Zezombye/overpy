@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -32931,6 +32931,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: 更新後的跨平台連線設定會在這次佇列結束後生效。
 000000013A5B.07C: 由於你團隊更新後的跨平台連線設定，已將你的團隊從佇列中移除。
 000000013A66.07C: 由於跨平台連線設定不相容，無法邀請玩家
+000000013A9D.07C: 荷魯斯神鷹
 000000013AA5.07C: 全新原創小說
 000000013AA6.07C: 艾西的亡鎖幫大挑戰
 000000013AB6.07C: 使出龍一文字會重置迅影襲的冷卻時間。
@@ -32961,8 +32962,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C98.07C: 由於你的跨平台連線通訊設定，其他人無法看見你的訊息。
 000000013D12.07C: 由於你的跨平台連線通訊設定，頻道中某些成員無法聽見你的聲音。
 000000013D2B.07C: 亡鎖幫武裝集團
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
 000000013D43.07C: 由於你的跨平台連線通訊設定，隊伍中某些成員無法看見你的訊息。
 000000013D44.07C: 由於你的跨平台連線通訊設定，對戰中某些成員無法看見你的訊息。
-[Core] Execution finished in 00:00:00.4572934 seconds
+[Core] Execution finished in 00:00:00.4938031 seconds

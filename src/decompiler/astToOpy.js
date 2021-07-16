@@ -329,8 +329,8 @@ function astActionsToOpy(actions) {
                 decompiledAction += "goto loc+"+astToOpy(actions[i].args[0]);
             }
         } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
             if (actions[i].args[1].name === "__number__") {
+                decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
                 var labelName = "lbl_"+decompilationLabelNumber;
                 decompilationLabelNumber++;
                 decompiledAction += "goto "+labelName;
@@ -340,7 +340,7 @@ function astActionsToOpy(actions) {
                 });
             } else {
                 currentRuleHasVariableGoto = true;
-                decompiledAction += "goto loc+"+astToOpy(actions[i].args[1]);
+                decompiledAction += "__skipIf__("+astToOpy(actions[i].args[0])+", "+astToOpy(actions[i].args[1])+")";
             }
 
         } else if (actions[i].name === "__wait__") {

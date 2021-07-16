@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -22117,12 +22117,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C828.07C: 完成2019动感斗球杯定级赛后解锁
 00000000C838.07C: 花式马术
 00000000C83C.07C: 波比运动
-00000000C847.07C: 奖牌
+00000000C847.07C: 获奖
 00000000C84D.07C: 射击
 00000000C84E.07C: 撑杆跳高
-00000000C854.07C: 奖牌
+00000000C854.07C: 获奖
 00000000C855.07C: 电子邮箱或手机号
-00000000C856.07C: 奖牌
+00000000C856.07C: 获奖
 00000000C859.07C: 职责选择
 00000000C85E.07C: 小队中有成员被禁赛时无法加入
 00000000C860.07C: 超能之球伤害
@@ -33092,6 +33092,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: 更新后的跨平台游戏设置将在本次匹配结束后生效。
 000000013A5B.07C: 由于你的小队更新了跨平台游戏设置，你的小队已被移出匹配队列。
 000000013A66.07C: 由于跨平台游戏设置不一致，无法邀请该玩家。
+000000013A9D.07C: 锐眼鹰神
 000000013AA5.07C: 全新原创小说
 000000013AA6.07C: 艾什的死局帮大挑战
 000000013AB6.07C: “斩”可以重置“影”的冷却时间。
@@ -33122,8 +33123,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C98.07C: 由于你的跨平台游戏交流设置，他人无法看到你的信息。
 000000013D12.07C: 由于你的跨平台游戏交流设置，你所在频道中的部分玩家可能无法听到你的声音。
 000000013D2B.07C: 死局反叛者
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
 000000013D43.07C: 由于你的跨平台游戏交流设置，你所在队伍中的部分玩家可能无法看到你的信息。
 000000013D44.07C: 由于你的跨平台游戏交流设置，你所在比赛中的部分玩家可能无法看到你的信息。
-[Core] Execution finished in 00:00:00.4318376 seconds
+[Core] Execution finished in 00:00:00.4849792 seconds

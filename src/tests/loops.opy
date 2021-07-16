@@ -11,6 +11,8 @@ rule "while loop":
 
 rule "while to the end":
     while A == B:
+        if C:
+            continue
         A++
 
 

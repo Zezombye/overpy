@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -2064,8 +2064,8 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001D23.07C: |Rpl %1$s:Autodestruição:Autodestruições;
 000000001D24.07C: MODO DE VOZ DO BATE-PAPO
 000000001D25.07C: Não é possível convidar o jogador para o seu grupo enquanto ele estiver em uma partida personalizada.
-000000001D26.07C: Entrou no bate-papo de voz de %1$s - microfone aberto. %3$s |Rpljogador:jogadores no canal. Aperte %2$s para acessar os canais. %4$s
-000000001D27.07C: Entrou no bate-papo de voz de %1$s - Aperte %2$s para falar. %4$s |Rpljogador:jogadores no canal. Aperte %3$s para acessar os canais. %5$s
+000000001D26.07C: Entrou no bate-papo de voz de %1$s - microfone aberto. %3$s |Rpljogador:jogadores; no canal. Aperte %2$s para acessar os canais. %4$s
+000000001D27.07C: Entrou no bate-papo de voz de %1$s - Aperte %2$s para falar. %4$s |Rpljogador:jogadores; no canal. Aperte %3$s para acessar os canais. %5$s
 000000001D2B.07C: APERTE ENTER PARA USAR O BATE-PAPO
 000000001D2C.07C: APERTE TAB PARA ALTERNAR ENTRE OS CANAIS
 000000001D2D.07C: TEMPO:
@@ -32942,6 +32942,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Suas configurações de Cross-Play entrarão em vigor depois desta fila.
 000000013A5B.07C: Seu grupo foi removido da fila devido às configurações atualizadas de Cross-Play.
 000000013A66.07C: Não foi possível convidar o jogador devido a incompatibilidade nas configurações de Cross-Play.
+000000013A9D.07C: Haroeris
 000000013AA5.07C: Novo romance
 000000013AA6.07C: Desafio Deadlock da Ashe
 000000013AB6.07C: A Lâmina do Dragão encerra o tempo de recarga do Golpe Veloz.
@@ -32972,8 +32973,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C98.07C: Sua mensagem não pode ser vista devido às suas configurações de comunicação Cross-Play.
 000000013D12.07C: Alguns membros do seu canal não podem ouvir você devido às suas configurações de comunicação Cross-Play.
 000000013D2B.07C: Rebeldes da Deadlock
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
 000000013D43.07C: Sua mensagem não pode ser vista por alguns participantes da partida devido às suas configurações de comunicação Cross-Play.
 000000013D44.07C: Sua mensagem não pode ser vista por alguns participantes da partida devido às suas configurações de comunicação Cross-Play.
-[Core] Execution finished in 00:00:00.4985960 seconds
+[Core] Execution finished in 00:00:00.5238239 seconds

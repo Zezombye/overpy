@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: ruRU | Speech Language: ruRU
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -32938,6 +32938,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Обновление настроек кроссплатформенной игры вступит в силу после окончания пребывания очереди.
 000000013A5B.07C: Ваша группа была исключена из очереди из-за изменения настроек кроссплатформенной игры.
 000000013A66.07C: Нельзя пригласить игрока из-за несовместимых настроек кроссплатформенной игры.
+000000013A9D.07C: Харвер
 000000013AA5.07C: Новый роман
 000000013AA6.07C: Испытание «Банда Мертвецов» от Эш
 000000013AB6.07C: «Клинок дракона» завершает время восстановления «Молниеносного удара».
@@ -32962,14 +32963,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013B76.07C: Включена функция кроссплатформенной игры. Вам могут встретиться игроки, пользующиеся другими платформами.
 000000013C49.07C: Некоторые игроки не смогут увидеть ваши сообщения в силу ваших текущих настроек общения при кроссплатформенной игре.
 000000013C7C.07C: Ваша группа была исключена из очереди, поскольку больше не соответствует условиям.
-000000013C84.07C: Соединение прервано по причине авторизации в учетной записи Battle.net на другом устройстве.
+000000013C84.07C: Соединение прервано из-за авторизации в учетной записи Battle.net на другом устройстве.
 000000013C8E.07C: Нельзя пригласить игрока в силу текущих настроек кроссплатформенной игры в матче «Своей игры».
-000000013C8F.07C: Некоторые члены вашей группы не могут увидеть ваше сообщение в силу ваших текущих настроек общения при кроссплатформенной игре.
-000000013C98.07C: Ваше сообщение нельзя увидеть в силу ваших текущих настроек общения при кроссплатформенной игре.
-000000013D12.07C: Некоторые игроки в канале не могут вас слышать в силу ваших текущих настроек общения при кроссплатформенной игре.
+000000013C8F.07C: Некоторые участники группы не увидят ваше сообщение из-за настроек общения при кроссплатформенной игре.
+000000013C98.07C: Ваше сообщение нельзя увидеть из-за выбранных настроек общения при кроссплатформенной игре.
+000000013D12.07C: Некоторые игроки в канале не могут вас слышать из-за выбранных настроек общения при кроссплатформенной игре.
 000000013D2B.07C: Банда Мертвецов
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
-000000013D43.07C: Некоторые члены вашей команды не могут увидеть ваше сообщение в силу ваших текущих настроек общения при кроссплатформенной игре.
-000000013D44.07C: Некоторые участники матча не могут увидеть ваше сообщение в силу ваших текущих настроек общения при кроссплатформенной игре.
-[Core] Execution finished in 00:00:00.4496661 seconds
+000000013D43.07C: Некоторые участники команды не увидят ваше сообщение из-за выбранных настроек общения при кроссплатформенной игре.
+000000013D44.07C: Некоторые участники матча не увидят ваше сообщение из-за выбранных настроек общения при кроссплатформенной игре.
+[Core] Execution finished in 00:00:00.5185576 seconds

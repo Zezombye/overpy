@@ -547,7 +547,7 @@ rule ("walls visual effect") {
         Modify Global Variable(I, Add, True);
         Wait(0.05, Ignore Condition);
         Loop If(Compare(Global.I, <, Count Of(Global.A)));
-        "p﻿ass"
+        "pass"
         disabled Abort;
         //lbl_0:
     }

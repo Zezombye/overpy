@@ -47925,7 +47925,7 @@ function escapeBadWords(content) {
 	content = content.replace(/(n)(orway)/ig, "$1﻿$2");
 	content = content.replace(/(n)(uts)/ig, "$1﻿$2");
 	content = content.replace(/(o)(wn)/ig, "$1﻿$2");
-	content = content.replace(/(p)(ass)/ig, "$1﻿$2");
+	content = content.replace(/(pa)(ss)/ig, "$1﻿$2");
 	content = content.replace(/(p)(atch)/ig, "$1﻿$2");
 	content = content.replace(/(p)(oland)/ig, "$1﻿$2");
 	content = content.replace(/(p)(olish)/ig, "$1﻿$2");
@@ -49895,8 +49895,8 @@ function astActionsToOpy(actions) {
                 decompiledAction += "goto loc+"+astToOpy(actions[i].args[0]);
             }
         } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
             if (actions[i].args[1].name === "__number__") {
+                decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
                 var labelName = "lbl_"+decompilationLabelNumber;
                 decompilationLabelNumber++;
                 decompiledAction += "goto "+labelName;
@@ -49906,7 +49906,7 @@ function astActionsToOpy(actions) {
                 });
             } else {
                 currentRuleHasVariableGoto = true;
-                decompiledAction += "goto loc+"+astToOpy(actions[i].args[1]);
+                decompiledAction += "__skipIf__("+astToOpy(actions[i].args[0])+", "+astToOpy(actions[i].args[1])+")";
             }
 
         } else if (actions[i].name === "__wait__") {
@@ -51460,6 +51460,90 @@ astParsingFunctions.__button__ = function(content) {
         return content;
     }
 }
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__chaseAtRate__ = function(content) {
+    //Warning: this function is duplicated with __chaseOverTime__.
+
+
+    if (content.args[0].name === "__playerVar__") {
+        var isGlobalVariable = false;
+        var varName = content.args[0].args[1].name;
+    } else if (content.args[0].name === "__globalVar__") {
+        var isGlobalVariable = true;
+        var varName = content.args[0].args[0].name;
+    } else {
+        error("Expected variable for 1st argument of function 'chase', but got "+functionNameToString(content.args[0]));
+    }
+
+	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+    var isFound = false;
+	for (var variable of varArray) {
+		if (variable.name === varName) {
+            variable["isChased"] = true;
+            if (variable["isUsedInForLoop"]) {
+                warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
+            }
+            isFound = true;
+            break;
+        }
+    }
+    if (!isFound) {
+        if (defaultVarNames.includes(varName)) {
+            //Add the variable as it doesn't already exist (else it would've been caught by the for)
+            //However, only do this if it is a default variable name
+            addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
+        } else {
+            error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+varName+"'");
+        }
+        for (var variable of varArray) {
+            if (variable.name === varName) {
+                variable["isChased"] = true;
+                break;
+            }
+        }
+    }
+
+    return content;
+
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__chaseOverTime__ = astParsingFunctions.__chaseAtRate__;
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -56775,7 +56859,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscationSettings.obfuscateNames && condition.comment) {
-        result += tabLevel(2)+escapeBadWords(escapeString(condition.comment.trim(), true))+"\n";
+        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -56846,7 +56930,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscationSettings.obfuscateNames && action.comment) {
-        result += tabLevel(nbTabs)+escapeBadWords(escapeString(action.comment.trim(), true))+"\n";
+        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {

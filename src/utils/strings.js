@@ -69,7 +69,7 @@ function escapeBadWords(content) {
 	content = content.replace(/(n)(orway)/ig, "$1﻿$2");
 	content = content.replace(/(n)(uts)/ig, "$1﻿$2");
 	content = content.replace(/(o)(wn)/ig, "$1﻿$2");
-	content = content.replace(/(p)(ass)/ig, "$1﻿$2");
+	content = content.replace(/(pa)(ss)/ig, "$1﻿$2");
 	content = content.replace(/(p)(atch)/ig, "$1﻿$2");
 	content = content.replace(/(p)(oland)/ig, "$1﻿$2");
 	content = content.replace(/(p)(olish)/ig, "$1﻿$2");

@@ -31,7 +31,9 @@ rule ("while to the end") {
     }
     actions {
         While(Compare(Global.A, ==, Global.B));
+            Skip If(Global.C, True);
             Modify Global Variable(A, Add, True);
+            //__label_continue_2__:
         End;
     }
 }
@@ -88,7 +90,7 @@ rule ("do/while") {
         Modify Global Variable(A, Add, True);
         Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
-        //__label_break_2__:
+        //__label_break_3__:
         Modify Global Variable(B, Add, True);
     }
 }
@@ -101,10 +103,10 @@ rule ("nested do/while") {
         Modify Global Variable(A, Add, True);
         Skip(True);
         Loop;
-        //__label_break_3__:
+        //__label_break_4__:
         Skip(True);
         Loop If(Compare(Global.A, ==, Global.B));
-        //__label_break_4__:
+        //__label_break_5__:
         Modify Global Variable(B, Add, True);
     }
 }

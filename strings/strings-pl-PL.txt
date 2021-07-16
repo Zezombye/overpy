@@ -1,13 +1,13 @@
-[Core] DataTool v1.60.0.955-git-4f09bdd2e94313a3ab84e820aa597b515921c389
+[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(6)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.61.0.0.83584
+[CASC] Overwatch build 1.61.1.0.84186
 [CASC] Initializing...
-[Manifest] Using TRG procedure 83584 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 83584 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -33268,6 +33268,7 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A5A.07C: Twoje zaktualizowane ustawienia gry międzyplatformowej wejdą w życie po tej kolejce.
 000000013A5B.07C: Twoją grupę usunięto z kolejki w związku ze zmianą ustawień gry międzyplatformowej.
 000000013A66.07C: Nie można zapraszać graczy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
+000000013A9D.07C: Haroeris
 000000013AA5.07C: Nowa powieść
 000000013AA6.07C: Wyzwanie Ashe: Zadymiara
 000000013AB6.07C: Użycie Smoczego Miecza resetuje czas odnowienia Szybkiego Cięcia.
@@ -33300,8 +33301,8 @@ w sezonie 29.
 000000013C98.07C: Twoja wiadomość jest niewidoczna z powodu ustawień komunikacji międzyplatformowej.
 000000013D12.07C: Niektórzy uczestnicy na twoim kanale mogą cię nie słyszeć z powodu ustawień komunikacji międzyplatformowej.
 000000013D2B.07C: Gang Rebeliantów
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1
+000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
 000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
 000000013D43.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej drużyny z powodu ustawień komunikacji międzyplatformowej.
 000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
-[Core] Execution finished in 00:00:00.4629517 seconds
+[Core] Execution finished in 00:00:00.5444001 seconds

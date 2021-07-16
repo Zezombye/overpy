@@ -94,7 +94,7 @@ function astRuleConditionToWs(condition) {
     }
     var result = "";
     if (!obfuscationSettings.obfuscateNames && condition.comment) {
-        result += tabLevel(2)+escapeBadWords(escapeString(condition.comment.trim(), true))+"\n";
+        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
     if (condition.name in funcToOpMapping) {
@@ -165,7 +165,7 @@ function astActionToWs(action, nbTabs) {
         action.comment = "pass";
     }
     if (!obfuscationSettings.obfuscateNames && action.comment) {
-        result += tabLevel(nbTabs)+escapeBadWords(escapeString(action.comment.trim(), true))+"\n";
+        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {
