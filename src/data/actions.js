@@ -1275,7 +1275,7 @@ const actionKw =
         "fr-FR": "Désactiver la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを無効化",
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设重生模式"
+        "zh-CN": "关闭游戏预设复生模式"
     },
     "_&disableScoreboard": {
         "description": "Disables the scoreboard for one or more players until reenabled.",
@@ -2073,7 +2073,7 @@ const actionKw =
         "fr-FR": "Activer la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを有効化",
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "开启游戏预设重生模式"
+        "zh-CN": "开启游戏预设复生模式"
     },
     "_&enableScoreboard": {
         "description": "Undoes the effect of the Disable Scoreboard Action for one or more players.",
@@ -2489,7 +2489,7 @@ const actionKw =
         "fr-FR": "Réapparaître",
         "ja-JP": "リスポーン",
         "pt-BR": "Ressurgir",
-        "zh-CN": "重生"
+        "zh-CN": "复生"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -2543,7 +2543,7 @@ const actionKw =
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
-        "zh-CN": "重生"
+        "zh-CN": "复活"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -4849,7 +4849,7 @@ const actionKw =
         "fr-FR": "Définir la durée maximum avant réapparition",
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
-        "zh-CN": "设置最大重生时间"
+        "zh-CN": "设置最大复生时间"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",

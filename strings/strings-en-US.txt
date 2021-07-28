@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -10567,6 +10567,7 @@ A player name or BattleTag using a language different than your own.
 000000006147.07C: Team Size +1
 000000006148.07C: Team Size +2
 000000006149.07C: Team Size +3
+00000000615A.07C: Each loot box contains a combination of up to 4 cosmetic items and/or in-game credits, including a minimum of one Summer item among those items. Loot Boxes can be earned through in-game systems.
 00000000615B.07C: Reveal Heroes After Match Time Elapsed
 00000000615C.07C: Draw After Match Time Elapsed With No Tiebreaker
 00000000615D.07C: Tiebreaker After Match Time Elapsed
@@ -13494,7 +13495,6 @@ Brian Urbina
 00000000668E.07C: Player is saving a highlight
 000000006693.07C: |Rfd %1$s: MMMM dd, yyyy;
 000000006694.07C: Highlights unavailable.
-000000006697.07C: In-game credits can be used to unlock many cosmetic items. Each Summer Games loot box contains a combination of up to 4 cosmetic items and/or in-game credits. Summer Games Loot Boxes can be earned through in-game systems.
 000000006698.07C: 5 credits, and a free gift of 2 Summer Games Loot Boxes
 000000006699.07C: 15 credits, and a free gift of 5 Summer Games Loot Boxes
 00000000669A.07C: 30 credits, and a free gift of 11 Summer Games Loot Boxes
@@ -17298,6 +17298,9 @@ Do you want to cancel?
 000000009209.07C: Available in Summer Games Loot Boxes
 00000000920A.07C: Better living through science
 00000000920B.07C: Available in Summer Games Loot Boxes
+00000000920C.07C: Busan
+00000000920D.07C: Play Lúcioball
+00000000920E.07C: Play Lúcioball
 000000009215.07C: Achievements
 000000009235.07C: No hard feelings
 000000009236.07C: Frustration detected
@@ -26205,7 +26208,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: Ancient Bronze
 00000000F1C0.07C: LEAVING GAME AND QUEUE. ARE YOU SURE?
 00000000F1C5.07C: <fg%1$s>CAUGHT</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Available in Winter Loot Boxes
 00000000F1C8.07C: Auto Join While You Wait
 00000000F212.07C: Breached
@@ -27838,7 +27841,7 @@ Blizzard Support
 000000010FF2.07C: Ice Cream
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Unlocked by participating in the Summer Games 2020 week 1 challenge
-000000010FF5.07C: Unlocked by participating in the Summer Games 2020 week 2 challenge
+000000010FF5.07C: Unlocked by participating in the Summer Games 2021 week 2 challenge
 000000010FF6.07C: Unlocked by participating in the Summer Games 2020 week 3 challenge
 000000010FF7.07C: Medal
 000000010FF8.07C: Combined
@@ -27960,6 +27963,8 @@ Blizzard Support
 0000000110B8.07C: Game Browser
 0000000110BF.07C: Happy Midsummer!
 0000000110C0.07C: Available in Summer Games Loot Boxes
+0000000110C1.07C: Time to cool off
+0000000110C2.07C: Available in Summer Games Loot Boxes
 0000000110C3.07C: Fore!
 0000000110C4.07C: Available in Summer Games Loot Boxes
 0000000110C5.07C: Serious?
@@ -28100,6 +28105,7 @@ Blizzard Support
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Summer Games 2020
 00000001119C.07C: Available in Summer Games Loot Boxes
+00000001119D.07C: Sprinkles
 00000001119E.07C: Time Played
 0000000111A5.07C: Blizzard Kills
 0000000111A6.07C: Damage Blocked
@@ -29003,6 +29009,7 @@ Blizzard Support
 00000001235A.07C: The Default parameter of Workshop Setting Heroes value must be set to a non-empty Array of Heroes.
 000000012439.07C: Error: Too many Workshop Setting Options.
 00000001243A.07C: Unwrap
+00000001243E.07C: Mermaid
 000000012449.07C: Log To Inspector
 00000001244A.07C: Text
 00000001244B.07C: The String to be logged to the Workshop Inspector.
@@ -29133,6 +29140,7 @@ Blizzard Support
 000000012538.07C: Thaw a player who previously thawed you in a round of Freezethaw Elimination.
 000000012539.07C: Finale
 00000001253A.07C: MIN LAT: %1$s MS
+00000001253D.07C: Poolside
 00000001253E.07C: Competitive
 00000001253F.07C: EARN THESE REWARDS BY PARTICIPATING
 000000012540.07C: No Limits
@@ -29325,6 +29333,7 @@ and 10 Free Winter Loot Boxes
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Ocean King
 00000001283A.07C: Unlocked by purchasing the Celebration Collection
 00000001283B.07C: Unlocked by purchasing the Celebration Collection
 00000001283D.07C: Unlocked by purchasing the Celebration Collection
@@ -29550,7 +29559,7 @@ and 10 Free Winter Loot Boxes
 000000012C4D.07C: Available in Lunar Loot Boxes
 000000012C4E.07C: Magpie
 000000012C4F.07C: Available in Lunar Loot Boxes
-000000012C50.07C: Week 2: Bird of Paradise Echo
+000000012C50.07C: Week 2: Sunset Pharah
 000000012C51.07C: Dragonhead
 000000012C52.07C: Available in Lunar Loot Boxes
 000000012C5B.07C: 50 Lunar Loot Boxes and 10 Free Lunar Loot Boxes
@@ -29640,6 +29649,7 @@ and 10 Free Winter Loot Boxes
 000000012D36.07C: Disabled
 000000012D37.07C: Enabled
 000000012D38.07C: Enabled + Boost
+000000012D39.07C: Scuba
 000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
 000000012D3B.07C: Junkrat RIP Tire Explosion Effect
 000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
@@ -29696,6 +29706,7 @@ and 10 Free Winter Loot Boxes
 000000012D81.07C: Anyone
 000000012D82.07C: Friends
 000000012D88.07C: Unlocked by participating in the PachiMarchi Challenge
+000000012D90.07C: Tropical PH
 000000012D91.07C: Receive Custom Game Invites From
 000000012D92.07C: Receive Custom Game Invite Requests
 000000012D93.07C: Simple Hit Effects
@@ -29724,6 +29735,7 @@ and 10 Free Winter Loot Boxes
 000000012DAD.07C: Orisa Amplifier Sound
 000000012DB0.07C: The current set of Workshop Extensions requires fewer players.
 000000012DB1.07C: The current set of Workshop Extensions prohibits non-Workshop maps.
+000000012DB5.07C: Referee
 000000012DC0.07C: DEFAULT
 000000012DC1.07C: LOW
 000000012DC4.07C: Ta-da!
@@ -29907,7 +29919,7 @@ and 10 Free Winter Loot Boxes
 000000013067.07C: Sympathy Gains
 000000013068.07C: Complete the Sympathy Gains Archives challenge mission.
 000000013076.07C: Cross-Platform Play
-00000001307C.07C: Week 3: 8 Ball Wrecking Ball
+00000001307C.07C: Week 3: Nihon Hanzo
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -32902,8 +32914,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: Do you want to accept %1$s's Battle.Net friend request?
 0000000139A3.07C: Accept
 0000000139A4.07C: Decline
+0000000139AA.07C: Medal
 0000000139C6.07C: Unable to join the match due to its platform access settings.
 0000000139CF.07C: You were removed because your platform is no longer allowed in the custom game.
+0000000139D0.07C: Medal
 0000000139DA.07C: Unable to join group due to incompatible Cross-Play settings.
 0000000139E2.07C: Unlocked by participating in Ashe's Deadlock Challenge
 0000000139E7.07C: Outlaws
@@ -32922,6 +32936,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: Rainbow
 000000013A26.07C: Golden Loot Box
 000000013A27.07C: Celebrate the launch of Cross-Play Beta with a Golden Loot Box on us!
+000000013A2B.07C: Medal
 000000013A47.07C: More Info
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Learn more and Group Up!
@@ -32934,8 +32949,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Your group has been removed from the queue due to your group’s updated Cross-Play settings.
 000000013A66.07C: Unable to invite player due to incompatible Cross-Play settings.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: New Original Novel
-000000013AA6.07C: Ashe's Deadlock Challenge
+000000013AA6.07C: Week 1: Ocean King Winston
+000000013AAC.07C: Copa Lúcioball 2021
+000000013AAD.07C: Copa Lúcioball
+000000013AAE.07C: Rise up the ranks and compete with the best Lúcioballers in the world!
 000000013AB6.07C: Using Dragonblade resets the cooldown of Swift Strike.
 000000013AC9.07C: Season 29 Hero
 000000013ACA.07C: Unlocked by achieving top 500 ranking at the end of Season 29
@@ -32956,6 +32973,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: A Battle.net account is required to play overwatch
 000000013AF4.07C: Use Infra-Sight as the enemy begins an attack, so your teammates can move into better defensive positions.
 000000013B76.07C: Cross-Play enabled. You may encounter cross-network players.
+000000013B7F.07C: Some of your hero customization is unavailable in this instance.
 000000013C49.07C: Some players may not be able to see your messages due to your Cross-Play communication settings.
 000000013C7C.07C: Your group has been removed from the queue as your group is no longer eligible.
 000000013C84.07C: Disconnected because the Battle.net account was logged in somewhere else
@@ -32963,9 +32981,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Your message cannot be viewed by some members of your group due to your Cross-Play communication settings.
 000000013C98.07C: Your message cannot be viewed due to your Cross-Play communication settings.
 000000013D12.07C: Some members of your channel may not hear you due to your Cross-play communication settings.
-000000013D2B.07C: Deadlock Rebels
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Beach Mode
 000000013D43.07C: Your message cannot be viewed by some members of your team due to your Cross-Play communication settings.
 000000013D44.07C: Your message cannot be viewed by some members of your match due to your Cross-Play communication settings.
-[Core] Execution finished in 00:00:00.5248303 seconds
+000000013DAB.07C: Unlocked by participating in the Summer Games 2021 week 1 challenge
+000000013DAF.07C: Available in Summer Games Loot Boxes
+000000013DB2.07C: Sunset Soar
+000000013DB3.07C: Ocean King
+000000013DB6.07C: Nihon
+000000013DB7.07C: Ocean King
+000000013DBB.07C: Unlocked by participating in the Summer Games 2021 week 3 challenge
+000000013DBC.07C: Nihon
+000000013DBD.07C: Sunset
+000000013DBE.07C: Scuba
+000000013DC3.07C: Sunset
+000000013DC8.07C: Nihon
+000000013E2F.07C: Marshmallows
+000000013E3F.07C: Summer Games 2021
+000000013E40.07C: Available in Summer Games Loot Boxes
+000000013E6D.07C: Available in Summer Games Loot Boxes
+000000013E6E.07C: Watch the footy
+000000013E70.07C: Available in Summer Games Loot Boxes
+000000013E71.07C: I'm on vacation
+000000013E73.07C: Available in Summer Games Loot Boxes
+000000013E74.07C: Why is it so warm?
+000000013E76.07C: Available in Summer Games Loot Boxes
+000000013E77.07C: Put me in, coach!
+000000013E79.07C: Available in Summer Games Loot Boxes
+000000013E7A.07C: Got some sun once
+000000013E7C.07C: Available in Summer Games Loot Boxes
+000000013E7D.07C: No sweat
+000000013E7F.07C: Available in Summer Games Loot Boxes
+000000013E80.07C: See you at the finish line
+000000013E82.07C: Available in Summer Games Loot Boxes
+000000013E83.07C: See my muscles?
+000000013E85.07C: Available in Summer Games Loot Boxes
+000000013E86.07C: Pool party?
+000000013E88.07C: Available in Summer Games Loot Boxes
+000000013E89.07C: I'll get in the pool...
+000000013EA2.07C: Beach Fuel
+000000013EB9.07C: Copa Lúcioball Hero 2021
+000000013EBA.07C: Unlocked by achieving top 500 ranking at the end of Copa Lúcioball 2021
+000000013EBB.07C: Copa Lúcioball Competitor 2021
+000000013EBC.07C: Unlocked by completing Copa Lúcioball 2021 placement matches
+000000013EBD.07C: Copa Lúcioball Hero 2021
+000000013EBE.07C: Unlocked by achieving top 500 ranking at the end of Copa Lúcioball 2021
+000000013EBF.07C: Copa Lúcioball Competitor 2021
+000000013EC0.07C: Unlocked by completing Copa Lúcioball 2021 placement matches
+000000013EC2.07C: Poolside
+000000013EC3.07C: Available in Summer Games Loot Boxes
+000000013EC4.07C: Mermaid
+000000013EC5.07C: Available in Summer Games Loot Boxes
+000000013EC6.07C: Referee
+000000013EC7.07C: Available in Summer Games Loot Boxes
+000000013EC8.07C: Sprinkles
+000000013EC9.07C: Available in Summer Games Loot Boxes
+000000013ECD.07C: Scuba
+000000013ECE.07C: Available in Summer Games Loot Boxes
+000000013ECF.07C: Poolside
+000000013ED0.07C: Available in Summer Games Loot Boxes
+000000013ED1.07C: Mermaid
+000000013ED2.07C: Available in Summer Games Loot Boxes
+000000013ED3.07C: Referee
+000000013ED4.07C: Available in Summer Games Loot Boxes
+000000013ED5.07C: Sprinkles
+000000013ED6.07C: Available in Summer Games Loot Boxes
+000000013EDB.07C: Flamingo Floatie
+000000013EDC.07C: Available in Summer Games Loot Boxes
+000000013EDD.07C: Grillmaster
+000000013F50.07C: CONTINUE
+000000013F51.07C: The Summer Games return! Your favorites from previous years are back alongside new items!
+000000013F53.07C: Copa Lúcioball is back for another tournament!
+000000013F54.07C: Event Ends Aug 10
+000000013F55.07C: Weekly Challenges
+000000013F56.07C: Week 1
+000000013F57.07C: Week 2
+000000013F58.07C: Week 3
+000000013F59.07C: Summer Games 2021
+000000013F5C.07C: Unlock epic skins
+[Core] Execution finished in 00:00:00.4513624 seconds

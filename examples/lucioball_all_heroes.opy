@@ -13,17 +13,19 @@ settings {
     },
     "gamemodes": {
         "lucioball": {
-            "disabledMaps": [
-                "sydneyHarbourArena"
+            "enabledMaps": [
+                "busanStadiumClassic",
+                "estadioDasRas",
             ],
             "gameLengthInSec": 360,
             "scoreToWin": 9,
-            "resetPlayersAfterGoalScored": false,
+            "resetPlayersAfterGoalScored": true,
             "scoreLeadToWin": 5
         },
         "general": {
             "heroLimit": "off",
-            "respawnTime%": 30
+            "respawnTime%": 30,
+            "gamemodeStartTrigger": "immediately",
         }
     },
     "heroes": {
@@ -52,9 +54,6 @@ globalvar hasBallMoved
 #!define GAME_NOT_STARTED 0
 #!define GAME_IN_SETUP 1
 #!define GAME_STARTED 2
-
-#!obfuscate
-
 
 rule "heroes":
     availableHeroes = getAllHeroes().exclude([Hero.PHARAH, Hero.WINSTON, Hero.JUNKRAT, Hero.SIGMA, Hero.BRIGITTE])
@@ -165,7 +164,7 @@ rule "goal scored":
     @Event global
     @Condition gameStatus == GAME_STARTED and hasBallMoved
     @Condition (
-        abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z --17.01) < 0.02
+        abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - -17.01) < 0.02
         or abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - 18.99) < 0.02
         or abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - 0.99) < 0.02
     )
@@ -174,11 +173,19 @@ rule "goal scored":
 rule "ball moved":
     @Condition gameStatus == GAME_STARTED
     @Condition not (
-        abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z --17.01) < 0.02
+        abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - -17.01) < 0.02
         or abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - 18.99) < 0.02
         or abs(raycast(vect(0, 1, 23), vect(0, 1, -23), null, null, false).getHitPosition().z - 0.99) < 0.02
     )
     hasBallMoved = true
+
+rule "no melee":
+    @Event eachPlayer
+    @Condition eventPlayer.getCurrentHero() != Hero.REINHARDT
+    @Condition eventPlayer.getCurrentHero() != Hero.BRIGITTE
+    @Condition eventPlayer.isMeleeing()
+    wait(0.016)
+    eventPlayer.cancelPrimaryAction()
 
 /*
 Reaper - good

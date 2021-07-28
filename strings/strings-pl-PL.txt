@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10598,6 +10598,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000006147.07C: Wielkość drużyn: +1
 000000006148.07C: Wielkość drużyn: +2
 000000006149.07C: Wielkość drużyn: +3
+00000000615A.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji letniej. Skrzynki z łupami można zdobywać dzięki systemom w grze.
 00000000615B.07C: Ujawnienie bohaterów po upływie czasu gry
 00000000615C.07C: Remis po upływie czasu gry bez rozstrzygnięcia
 00000000615D.07C: Rozstrzygnięcie po upływie czasu gry
@@ -13528,7 +13529,6 @@ w 7. sezonie
 00000000668E.07C: Gracz zapisuje najciekawszy moment
 000000006693.07C: |Rfd %1$s: dd MMMM yyyy;
 000000006694.07C: Nagrania niedostępne.
-000000006697.07C: Kredyty wewnątrz gry mogą zostać wykorzystane do odblokowania wielu elementów ozdobnych. Każda skrzynka z letnich igrzysk zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze. Skrzynki z letnich igrzysk można zdobywać dzięki systemom w grze.
 000000006698.07C: 5 kredytów i 2 darmowe skrzynki z letnich igrzysk
 000000006699.07C: 15 kredytów i 5 darmowych skrzynek z letnich igrzysk
 00000000669A.07C: 30 kredytów i 11 darmowych skrzynek z letnich igrzysk
@@ -17445,6 +17445,9 @@ z letnich igrzysk
 00000000920A.07C: Nauka zapewnia lepszą jakość życia
 00000000920B.07C: Zawartość skrzynek
 z letnich igrzysk
+00000000920C.07C: Pusan
+00000000920D.07C: Graj w Futbolúcio
+00000000920E.07C: Graj w Futbolúcio
 000000009215.07C: Osiągnięcia
 000000009235.07C: Nic osobistego
 000000009236.07C: Wykrywam rozdrażnienie
@@ -26430,7 +26433,7 @@ w Drużynowym Deathmatchu 2019
 00000000F1B6.07C: Starożytny brąz
 00000000F1C0.07C: OPUSZCZASZ MECZ I KOLEJKĘ. POTWIERDZASZ DECYZJĘ?
 00000000F1C5.07C: <fg%1$s>ZŁAPANO</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Zawartość zimowych skrzynek
 00000000F1C8.07C: Dołącz automatycznie będąc w poczekalni
 00000000F212.07C: Wyłom
@@ -28104,7 +28107,7 @@ w wyzwaniu pierwszego tygodnia
 letnich igrzysk 2020
 000000010FF5.07C: Nagroda za udział
 w wyzwaniu drugiego tygodnia
-letnich igrzysk 2020
+letnich igrzysk 2021
 000000010FF6.07C: Nagroda za udział
 w wyzwaniu trzeciego tygodnia
 letnich igrzysk 2020
@@ -28234,6 +28237,9 @@ w Copa Futbolúcio 2020.
 0000000110B8.07C: Wyszukiwarka gier
 0000000110BF.07C: Szczęśliwej Nocy Kupały!
 0000000110C0.07C: Zawartość skrzynek
+z letnich igrzysk
+0000000110C1.07C: Czas się schłodzić
+0000000110C2.07C: Zawartość skrzynek
 z letnich igrzysk
 0000000110C3.07C: Poszło!
 0000000110C4.07C: Zawartość skrzynek
@@ -28381,6 +28387,7 @@ z letnich igrzysk
 00000001119B.07C: Letnie igrzyska 2020
 00000001119C.07C: Zawartość skrzynek
 z letnich igrzysk
+00000001119D.07C: Posypka
 00000001119E.07C: Czas rozgrywki
 0000000111A5.07C: Zabici Zamiecią
 0000000111A6.07C: Zablokowane obrażenia
@@ -29306,6 +29313,7 @@ w Drużynowym Deathmatchu 2020
 00000001235A.07C: Domyślny parametr wartości ustawień bohaterów w Warsztacie musi być ustawiony na niepustą tabelę niestandardowych ciągów.
 000000012439.07C: Błąd: zbyt wiele opcji ustawień Warsztatu.
 00000001243A.07C: Rozpakowanie
+00000001243E.07C: Syrena
 000000012449.07C: Log To Inspector
 00000001244A.07C: Tekst
 00000001244B.07C: Ciąg, który ma być zarejestrowany w Inspektorze Warsztatu.
@@ -29442,6 +29450,7 @@ bez ograniczeń 2020
 000000012538.07C: Rozmroź gracza, który wcześniej odmroził ciebie w rundzie Mroźnej Eliminacji.
 000000012539.07C: Wielki finał
 00000001253A.07C: MIN OPÓŹ: %1$s MS
+00000001253D.07C: Basenowiczka
 00000001253E.07C: Rywalizacja
 00000001253F.07C: ZDOBĘDZIESZ NASTĘPUJĄCE NAGRODY ZA UDZIAŁ:
 000000012540.07C: Bez ograniczeń
@@ -29637,6 +29646,7 @@ w sezonie 26.
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Król Oceanów
 00000001283A.07C: Nagroda za zakup Kolekcji Jubileuszowej.
 00000001283B.07C: Nagroda za zakup Kolekcji Jubileuszowej.
 00000001283D.07C: Nagroda za zakup Kolekcji Jubileuszowej.
@@ -29871,7 +29881,7 @@ flagi 2021
 000000012C4D.07C: Zawartość księżycowych skrzynek
 000000012C4E.07C: Sroka
 000000012C4F.07C: Zawartość księżycowych skrzynek
-000000012C50.07C: Tydzień 2: Rajski Ptak (Echo)
+000000012C50.07C: Tydzień 2: Słońce Egiptu (Fara)
 000000012C51.07C: Smoczy Łeb
 000000012C52.07C: Zawartość księżycowych skrzynek
 000000012C5B.07C: 50 księżycowych skrzynek z łupami i 10 darmowych skrzynek księżycowych
@@ -29963,6 +29973,7 @@ w sezonie 27.
 000000012D36.07C: Wyłączono
 000000012D37.07C: Włączono
 000000012D38.07C: Włączono + tryb Boost
+000000012D39.07C: Nurek
 000000012D3A.07C: Hanzo – Strzała Soniczna – Efekt wstępnego impulsu
 000000012D3B.07C: Złomiarz – MordOpona – Efekt eksplozji
 000000012D3C.07C: Złomiarz – Mina Ogłuszająca – Efekt eksplozji
@@ -30020,6 +30031,7 @@ w sezonie 27.
 000000012D82.07C: Znajomi
 000000012D88.07C: Nagroda za udział
 w wyzwaniu PachiMarzec
+000000012D90.07C: Tropical PH
 000000012D91.07C: Odbieraj niestandardowe zaproszenia do gry od
 000000012D92.07C: Odbieraj niestandardowe zaproszenia do gry
 000000012D93.07C: Proste efekty trafień
@@ -30048,6 +30060,7 @@ w wyzwaniu PachiMarzec
 000000012DAD.07C: Orisa – Dźwięk Wzmocnienia
 000000012DB0.07C: Bieżący zestaw Rozszerzeń Warsztatowych wymaga mniejszej liczby graczy.
 000000012DB1.07C: Bieżący zestaw Rozszerzeń Warsztatowych zabrania tworzenia map innych niż warsztatowe.
+000000012DB5.07C: Sędzia
 000000012DC0.07C: DOMYŚLNA
 000000012DC1.07C: NISKA
 000000012DC4.07C: Ta-da!
@@ -30235,7 +30248,7 @@ w sezonie 28.
 000000013067.07C: Leczące Współczucie
 000000013068.07C: Ukończ archiwalną misję-wyzwanie Leczące Współczucie.
 000000013076.07C: Gra międzyplatformowa
-00000001307C.07C: Tydzień 3: Bilardzista (Burzyciel)
+00000001307C.07C: Tydzień 3: Nihon (Hanzo)
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -33237,8 +33250,10 @@ oraz powrót poprzednich elementów i trybów gry!
 0000000139A2.07C: Chcesz przyjąć zaproszenie do znajomych z Battle.netu od użytkownika %1$s?
 0000000139A3.07C: Akceptuj
 0000000139A4.07C: Odrzuć
+0000000139AA.07C: Medalista
 0000000139C6.07C: Nie można dołączyć do meczu z powodu ustawień platformy dostępu.
 0000000139CF.07C: Wyrzucono cię, ponieważ twoja platforma nie jest już dozwolona w grze dowolnej.
+0000000139D0.07C: Medalista
 0000000139DA.07C: Nie można dołączyć do ekipy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
 0000000139E2.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
 0000000139E7.07C: Poza prawem
@@ -33257,6 +33272,7 @@ oraz powrót poprzednich elementów i trybów gry!
 0000000139FB.07C: Tęcza
 000000013A26.07C: Złota skrzynka z łupami
 000000013A27.07C: Świętuj udostępnienie rozgrywki międzyplatformowej, odbierając prezent od nas – złotą skrzynkę z łupami!
+000000013A2B.07C: Medalistka
 000000013A47.07C: Więcej informacji
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Dowiedz się więcej i zbierz drużynę!
@@ -33269,8 +33285,10 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A5B.07C: Twoją grupę usunięto z kolejki w związku ze zmianą ustawień gry międzyplatformowej.
 000000013A66.07C: Nie można zapraszać graczy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: Nowa powieść
-000000013AA6.07C: Wyzwanie Ashe: Zadymiara
+000000013AA6.07C: Tydzień 1: Król Oceanów (Winston)
+000000013AAC.07C: Copa Futbolúcio 2021
+000000013AAD.07C: Copa Futbolúcio
+000000013AAE.07C: Rywalizuj z najlepszymi graczami w Futbolúcio na świecie i pnij się w tabeli wyników!
 000000013AB6.07C: Użycie Smoczego Miecza resetuje czas odnowienia Szybkiego Cięcia.
 000000013AC9.07C: Bohater 29. sezonu
 000000013ACA.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 29.
@@ -33293,6 +33311,7 @@ w sezonie 29.
 000000013AE6.07C: Do gry w Overwatch wymagane jest konto Battle.net.
 000000013AF4.07C: Użyj Infrawizji, gdy wróg rozpocznie atak, aby twoi sojusznicy mogli zająć lepsze pozycje obronne.
 000000013B76.07C: Gra międzyplatformowa włączona. Możesz napotkać graczy z innych platform.
+000000013B7F.07C: W tym momencie część opcji personalizacji postaci jest niedostępna.
 000000013C49.07C: Niektórzy gracze mogą nie widzieć twoich wiadomości z powodu ustawień komunikacji międzyplatformowej.
 000000013C7C.07C: Twoja grupa została usunięta z kolejki, ponieważ nie kwalifikuje się już do udziału.
 000000013C84.07C: Rozłączono cię, ponieważ konto Battle.net było zalogowane na innym urządzeniu.
@@ -33300,9 +33319,110 @@ w sezonie 29.
 000000013C8F.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej ekipy z powodu ustawień komunikacji międzyplatformowej.
 000000013C98.07C: Twoja wiadomość jest niewidoczna z powodu ustawień komunikacji międzyplatformowej.
 000000013D12.07C: Niektórzy uczestnicy na twoim kanale mogą cię nie słyszeć z powodu ustawień komunikacji międzyplatformowej.
-000000013D2B.07C: Gang Rebeliantów
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Tryb plażowy
 000000013D43.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej drużyny z powodu ustawień komunikacji międzyplatformowej.
 000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
-[Core] Execution finished in 00:00:00.5444001 seconds
+000000013DAB.07C: Nagroda za udział
+w wyzwaniu pierwszego tygodnia
+letnich igrzysk 2021
+000000013DAF.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013DB2.07C: Słoneczny Patrol
+000000013DB3.07C: Król Oceanów
+000000013DB6.07C: Nihon
+000000013DB7.07C: Król Oceanów
+000000013DBB.07C: Nagroda za udział
+w wyzwaniu pierwszego tygodnia
+letnich igrzysk 2021
+000000013DBC.07C: Nihon
+000000013DBD.07C: Słońce Egiptu
+000000013DBE.07C: Nurek
+000000013DC3.07C: Słońce Egiptu
+000000013DC8.07C: Nihon
+000000013E2F.07C: Pianki
+000000013E3F.07C: Letnie igrzyska 2021
+000000013E40.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E6D.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E6E.07C: Znowu ominąłem ekstraklasę
+000000013E70.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E71.07C: Mam wakacje
+000000013E73.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E74.07C: Dlaczego jest tak ciepło?
+000000013E76.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E77.07C: Trenerze, wpuść mnie, co?!
+000000013E79.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E7A.07C: Gdyby monitory opalały
+000000013E7C.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E7D.07C: Łatwizna
+000000013E7F.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E80.07C: Do zobaczenia na mecie
+000000013E82.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E83.07C: Chcesz zobaczyć moje mięśnie?
+000000013E85.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E86.07C: Podczas kąpieli
+000000013E88.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013E89.07C: Wejdę do basenu
+000000013EA2.07C: Paliwo plażowe
+000000013EB9.07C: Bohater Copa Futbolúcio 2021
+000000013EBA.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Copa Futbolúcio 2021.
+000000013EBB.07C: Uczestnik Copa Futbolúcio 2021
+000000013EBC.07C: Nagroda za mecze klasyfikacyjne
+w Copa Futbolúcio 2021.
+000000013EBD.07C: Bohater Copa Futbolúcio 2021
+000000013EBE.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Copa Futbolúcio 2021.
+000000013EBF.07C: Uczestnik Copa Futbolúcio 2021
+000000013EC0.07C: Nagroda za mecze klasyfikacyjne
+w Copa Futbolúcio 2021.
+000000013EC2.07C: Basenowiczka
+000000013EC3.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013EC4.07C: Syrena
+000000013EC5.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013EC6.07C: Sędzia
+000000013EC7.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013EC8.07C: Posypka
+000000013EC9.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013ECD.07C: Nurek
+000000013ECE.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013ECF.07C: Basenowiczka
+000000013ED0.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013ED1.07C: Syrena
+000000013ED2.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013ED3.07C: Sędzia
+000000013ED4.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013ED5.07C: Posypka
+000000013ED6.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013EDB.07C: Dmuchany flaming
+000000013EDC.07C: Zawartość skrzynek
+z letnich igrzysk
+000000013EDD.07C: Grillmistrz-76
+000000013F50.07C: KONTYNUUJ
+000000013F51.07C: Letnie igrzyska powracają wraz z waszymi ulubionymi elementami z zeszłego roku i wieloma nowymi!
+000000013F53.07C: Turniej Copa Futbolúcio wraca w kolejnej edycji!
+000000013F54.07C: Koniec wydarzenia 10 sierpnia
+000000013F55.07C: Cotygodniowe wyzwania
+000000013F56.07C: Tydzień 1
+000000013F57.07C: Tydzień 2
+000000013F58.07C: Tydzień 3
+000000013F59.07C: Letnie igrzyska 2021
+000000013F5C.07C: Odblokuj epickie skórki
+[Core] Execution finished in 00:00:00.5047497 seconds

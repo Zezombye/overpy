@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10568,6 +10568,7 @@ un nome di giocatore o BattleTag in una lingua diversa dalla tua.
 000000006147.07C: Dimensioni squadra: +1
 000000006148.07C: Dimensioni squadra: +2
 000000006149.07C: Dimensioni squadra: +3
+00000000615A.07C: Ogni Forziere contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco, tra cui almeno un oggetto Estivo. I Forzieri si ottengono attraverso i sistemi di gioco.
 00000000615B.07C: Rivelazione eroi dopo lo scadere del tempo
 00000000615C.07C: Pareggio dopo lo scadere del tempo (senza spareggio)
 00000000615D.07C: Spareggio dopo lo scadere del tempo
@@ -13495,7 +13496,6 @@ Brian Urbina
 00000000668E.07C: Il giocatore sta salvando un highlight
 000000006693.07C: |Rfd %1$s: dd MMM yyyy;
 000000006694.07C: Highlight non disponibili.
-000000006697.07C: I crediti di gioco possono essere usati per sbloccare oggetti cosmetici. Ogni Forziere dei Giochi Estivi contiene una combinazione di 4 oggetti cosmetici e/o crediti di gioco. I Forzieri dei Giochi Estivi si ottengono attraverso i sistemi di gioco.
 000000006698.07C: 5 crediti e 2 Forzieri dei Giochi Estivi gratuiti
 000000006699.07C: 15 crediti e 5 Forzieri dei Giochi Estivi gratuiti
 00000000669A.07C: 30 crediti e 11 Forzieri dei Giochi Estivi gratuiti
@@ -17309,6 +17309,9 @@ Vuoi annullare?
 000000009209.07C: Disponibile nei Forzieri dei Giochi Estivi
 00000000920A.07C: Grazie alla scienza si vive meglio
 00000000920B.07C: Disponibile nei Forzieri dei Giochi Estivi
+00000000920C.07C: Busan
+00000000920D.07C: Gioca a Lúcioball
+00000000920E.07C: Gioca a Lúcioball
 000000009215.07C: Imprese
 000000009235.07C: Senza rancore
 000000009236.07C: Frustrazione rilevata
@@ -26229,7 +26232,7 @@ che inizi la tua partita:
 00000000F1B6.07C: Bronzo Antico
 00000000F1C0.07C: VUOI DAVVERO ABBANDONARE LA PARTITA E LA CODA?
 00000000F1C5.07C: <fg%1$s>INTERCETTATA</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Disponibile nei Forzieri Invernali
 00000000F1C8.07C: Coda automatica nell'attesa
 00000000F212.07C: Sfondamento
@@ -27864,7 +27867,7 @@ Assistenza Blizzard
 000000010FF2.07C: Gelato
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 1
-000000010FF5.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 2
+000000010FF5.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2021, settimana 2
 000000010FF6.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 3
 000000010FF7.07C: Medaglia
 000000010FF8.07C: Combinati
@@ -27986,6 +27989,8 @@ Assistenza Blizzard
 0000000110B8.07C: Partite personalizzate
 0000000110BF.07C: Felice Mezza Estate!
 0000000110C0.07C: Disponibile nei Forzieri dei Giochi Estivi
+0000000110C1.07C: Raffreddiamo i bollenti spiriti
+0000000110C2.07C: Disponibile nei Forzieri dei Giochi Estivi
 0000000110C3.07C: Occhio!
 0000000110C4.07C: Disponibile nei Forzieri dei Giochi Estivi
 0000000110C5.07C: Starai scherzando!
@@ -28126,6 +28131,7 @@ Assistenza Blizzard
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Giochi Estivi 2020
 00000001119C.07C: Disponibile nei Forzieri dei Giochi Estivi
+00000001119D.07C: Codette
 00000001119E.07C: Tempo di gioco
 0000000111A5.07C: Uccisioni con Tormenta
 0000000111A6.07C: Danni bloccati
@@ -29035,6 +29041,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001235A.07C: Il parametro Predefinito dei valori Eroi delle Impostazioni Workshop devono essere impostati su un Array non vuoto di Eroi.
 000000012439.07C: Errore: troppe Impostazioni Workshop.
 00000001243A.07C: Apertura dei Regali
+00000001243E.07C: Sirena
 000000012449.07C: Log to Inspector
 00000001244A.07C: Testo
 00000001244B.07C: La Stringa da registrare nel Workshop Inspector.
@@ -29165,6 +29172,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012538.07C: Scongela un eroe che ti aveva scongelato in precedenza in un round di Eliminazione Congelata.
 000000012539.07C: Gran Finale
 00000001253A.07C: LAT MIN: %1$s MS
+00000001253D.07C: Piscina
 00000001253E.07C: Competitiva
 00000001253F.07C: PARTECIPANDO, OTTIENI QUESTE RICOMPENSE
 000000012540.07C: Nessun limite
@@ -29357,6 +29365,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Re dell'Oceano
 00000001283A.07C: Sbloccato acquistando la Celebration Collection
 00000001283B.07C: Sbloccato acquistando la Celebration Collection
 00000001283D.07C: Sbloccato acquistando la Celebration Collection
@@ -29582,7 +29591,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C4D.07C: Disponibile nei Forzieri Lunari
 000000012C4E.07C: Gazza
 000000012C4F.07C: Disponibile nei Forzieri Lunari
-000000012C50.07C: Settimana 2: Echo Uccello del Paradiso
+000000012C50.07C: Settimana 2: Pharah Tramonto
 000000012C51.07C: Testa di Drago
 000000012C52.07C: Disponibile nei Forzieri Lunari
 000000012C5B.07C: 50 Forzieri Lunari e 10 Forzieri Lunari gratuiti
@@ -29672,6 +29681,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012D36.07C: Disattivata
 000000012D37.07C: Attivata
 000000012D38.07C: Attivata + Boost
+000000012D39.07C: Immersione
 000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
 000000012D3B.07C: Junkrat RIP Tire Explosion Effect
 000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
@@ -29728,6 +29738,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012D81.07C: Chiunque
 000000012D82.07C: Amici
 000000012D88.07C: Sbloccato per aver partecipato alla Sfida Pachimarzo
+000000012D90.07C: Tropical PH
 000000012D91.07C: Ricevi inviti a partite personalizzate da
 000000012D92.07C: Ricevi richieste di invito a partite personalizzate
 000000012D93.07C: Effetti semplici colpo
@@ -29756,6 +29767,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012DAD.07C: Orisa Amplifier Sound
 000000012DB0.07C: La selezione attuale di estensioni Workshop necessita di meno giocatori.
 000000012DB1.07C: La selezione attuale di estensioni Workshop proibisce le mappe non appartenenti al Workshop.
+000000012DB5.07C: Arbitro
 000000012DC0.07C: PREDEFINITA
 000000012DC1.07C: MIN
 000000012DC4.07C: Tadaaa!
@@ -29943,7 +29955,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000013067.07C: Sostegno reciproco
 000000013068.07C: Completa la missione sfida degli Archivi Sostegno reciproco.
 000000013076.07C: Gioco multi-piattaforma
-00000001307C.07C: Settimana 3: Wrecking Ball Palla 8
+00000001307C.07C: Settimana 3: Hanzo Nihon
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -32939,8 +32951,10 @@ Le vittorie contano come due partite.
 0000000139A2.07C: Vuoi accettare la richiesta di amicizia Battle.net di %1$s?
 0000000139A3.07C: Accetta
 0000000139A4.07C: Rifiuta
+0000000139AA.07C: Medaglia
 0000000139C6.07C: Impossibile unirsi alla partita a causa delle impostazioni d'accesso della piattaforma.
 0000000139CF.07C: Sei stato rimosso perché la tua piattaforma non è più permessa nella partita personalizzata.
+0000000139D0.07C: Medaglia
 0000000139DA.07C: Impossibile unirsi alla formazione a causa di impostazioni di Cross-Play incompatibili.
 0000000139E2.07C: Sbloccato per aver partecipato alla Sfida Deadlock di Ashe
 0000000139E7.07C: Fuorilegge
@@ -32959,6 +32973,7 @@ Le vittorie contano come due partite.
 0000000139FB.07C: Arcobaleno
 000000013A26.07C: Forziere Dorato
 000000013A27.07C: Festeggia il lancio di Cross-Play Beta con un Forziere Dorato, offriamo noi!
+000000013A2B.07C: Medaglia
 000000013A47.07C: Scopri di più
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Scopri di più e raduna gli amici!
@@ -32971,8 +32986,10 @@ Le vittorie contano come due partite.
 000000013A5B.07C: La tua formazione è stata rimossa dalla coda a causa delle impostazioni di Cross-Play aggiornate della tua formazione.
 000000013A66.07C: Impossibile invitare il giocatore a causa di impostazioni di Cross-Play incompatibili.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: Nuovo romanzo inedito
-000000013AA6.07C: Sfida Deadlock di Ashe
+000000013AA6.07C: Settimana 1: Winston Re dell'Oceano
+000000013AAC.07C: Coppa Lúcioball 2021
+000000013AAD.07C: Coppa Lúcioball
+000000013AAE.07C: Scala la classifica e affronta i migliori giocatori di Lúcioball del mondo!
 000000013AB6.07C: Usare la Spada del Drago azzera il tempo di recupero di Assalto Rapido.
 000000013AC9.07C: Eroe Stagione 29
 000000013ACA.07C: Sbloccato per essere entrato nella Top 500 della Stagione 29
@@ -32993,6 +33010,7 @@ Le vittorie contano come due partite.
 000000013AE6.07C: Per giocare a Overwatch è necessario un account Battle.net
 000000013AF4.07C: Usa il Visore Termico quando il nemico inizia un attacco per permettere ai tuoi alleati di spostarsi in posizioni difensive migliori.
 000000013B76.07C: Cross-Play abilitato. Potresti imbatterti in giocatori di altre reti.
+000000013B7F.07C: Alcune personalizzazioni degli eroi non sono disponibili in questa istanza.
 000000013C49.07C: Alcuni giocatori potrebbero non vedere i tuoi messaggi a causa delle impostazioni di comunicazione di Cross-Play.
 000000013C7C.07C: La tua formazione è stata rimossa dalla coda perché la tua formazione non è più idonea.
 000000013C84.07C: Si è verificata una disconnessione perché si è effettuato l'accesso altrove con l'account Battle.net
@@ -33000,9 +33018,82 @@ Le vittorie contano come due partite.
 000000013C8F.07C: Alcuni membri della tua formazione non possono vedere il tuo messaggio a causa delle impostazioni di comunicazione di Cross-Play.
 000000013C98.07C: Non è possibile vedere il tuo messaggio a causa delle impostazioni di comunicazione di Cross-Play.
 000000013D12.07C: Alcuni membri del tuo canale potrebbero non sentire la tua voce a causa delle impostazioni di comunicazione di Cross-Play.
-000000013D2B.07C: Deadlock Rebels
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Assetto da Spiaggia
 000000013D43.07C: Alcuni membri della tua squadra non possono vedere il tuo messaggio a causa delle impostazioni di comunicazione di Cross-Play.
 000000013D44.07C: Alcuni membri della tua partita non possono vedere il tuo messaggio a causa delle impostazioni di comunicazione di Cross-Play.
-[Core] Execution finished in 00:00:00.5428170 seconds
+000000013DAB.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2021, settimana 1
+000000013DAF.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013DB2.07C: Volo del Tramonto
+000000013DB3.07C: Re dell'Oceano
+000000013DB6.07C: Nihon
+000000013DB7.07C: Re dell'Oceano
+000000013DBB.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2021, settimana 3
+000000013DBC.07C: Nihon
+000000013DBD.07C: Tramonto
+000000013DBE.07C: Immersione
+000000013DC3.07C: Tramonto
+000000013DC8.07C: Nihon
+000000013E2F.07C: Marshmallow
+000000013E3F.07C: Giochi Estivi 2021
+000000013E40.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E6D.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E6E.07C: Ma volevo guardare la partita
+000000013E70.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E71.07C: Sono in ferie
+000000013E73.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E74.07C: Perché fa così caldo?
+000000013E76.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E77.07C: Fammi entrare, coach
+000000013E79.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E7A.07C: Ho preso il sole, una volta
+000000013E7C.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E7D.07C: A-A-Brigittissima
+000000013E7F.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E80.07C: Ci vediamo al traguardo
+000000013E82.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E83.07C: Vuoi vedere i miei muscoli?
+000000013E85.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E86.07C: Festa in piscina?
+000000013E88.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013E89.07C: Mi butterò in piscina...
+000000013EA2.07C: Fuel in Spiaggia
+000000013EB9.07C: Eroe Coppa Lúcioball 2021
+000000013EBA.07C: Sbloccato per essere entrato nella Top 500 della Coppa Lúcioball 2021
+000000013EBB.07C: Concorrente Coppa Lúcioball 2021
+000000013EBC.07C: Sbloccato per aver completato le partite di piazzamento della Coppa Lúcioball 2021
+000000013EBD.07C: Eroe Coppa Lúcioball 2021
+000000013EBE.07C: Sbloccato per essere entrato nella Top 500 della Coppa Lúcioball 2021
+000000013EBF.07C: Concorrente Coppa Lúcioball 2021
+000000013EC0.07C: Sbloccato per aver completato le partite di piazzamento della Coppa Lúcioball 2021
+000000013EC2.07C: Piscina
+000000013EC3.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013EC4.07C: Sirena
+000000013EC5.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013EC6.07C: Arbitro
+000000013EC7.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013EC8.07C: Codette
+000000013EC9.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013ECD.07C: Immersione
+000000013ECE.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013ECF.07C: Piscina
+000000013ED0.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013ED1.07C: Sirena
+000000013ED2.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013ED3.07C: Arbitro
+000000013ED4.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013ED5.07C: Codette
+000000013ED6.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013EDB.07C: Fenicottero Gonfiabile
+000000013EDC.07C: Disponibile nei Forzieri dei Giochi Estivi
+000000013EDD.07C: Grigliata
+000000013F50.07C: CONTINUA
+000000013F51.07C: Tornano i Giochi Estivi! Nuovi oggetti si aggiungono ai tuoi preferiti degli scorsi anni!
+000000013F53.07C: La Coppa Lúcioball torna con un nuovo torneo!
+000000013F54.07C: L'evento termina il 10 agosto
+000000013F55.07C: Sfide Settimanali
+000000013F56.07C: Settimana 1
+000000013F57.07C: Settimana 2
+000000013F58.07C: Settimana 3
+000000013F59.07C: Giochi Estivi 2021
+000000013F5C.07C: Sblocca modelli epici
+[Core] Execution finished in 00:00:00.4590020 seconds

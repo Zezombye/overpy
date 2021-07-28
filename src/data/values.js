@@ -5418,7 +5418,7 @@ var valueFuncKw =
         "zh-CN": "字符串"
     },
     "__map__": {
-        "guid": "00000000D411",
+        "guid": "00000000D415",
         "description": "A map constant.",
         "args": [
             {

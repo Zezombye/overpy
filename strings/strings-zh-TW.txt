@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10569,6 +10569,7 @@ THIS SOFTWARE.
 000000006147.07C: 隊伍人數+1
 000000006148.07C: 隊伍人數+2
 000000006149.07C: 隊伍人數+3
+00000000615A.07C: 每箱戰利品內含最多4個外觀物品或鬥陣幣，其中至少有一個夏季運動會物品。也可以透過遊戲機制獲得戰利品。
 00000000615B.07C: 經過多久之後顯示英雄位置
 00000000615C.07C: 平手倒數計時（未搶下佔領區）
 00000000615D.07C: 啟動佔領區的時間
@@ -13496,7 +13497,6 @@ Brian Urbina
 00000000668E.07C: 玩家正在儲存精彩回顧
 000000006693.07C: |Rfd %1$s:yyyy年MMMMdd日;
 000000006694.07C: 無法使用精彩回顧。
-000000006697.07C: 鬥陣幣可以用來解鎖許多外觀物品，每箱夏季運動會戰利品內含最多4個外觀物品或鬥陣幣。在遊戲內升級時也可獲得夏季運動會戰利品。
 000000006698.07C: 5枚鬥陣幣，以及免費2箱夏季運動會戰利品
 000000006699.07C: 15枚鬥陣幣，以及免費5箱夏季運動會戰利品
 00000000669A.07C: 30枚鬥陣幣，以及免費11箱夏季運動會戰利品
@@ -17298,6 +17298,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000009209.07C: 經由夏季運動會戰利品解鎖
 00000000920A.07C: 開創更好的生活
 00000000920B.07C: 經由夏季運動會戰利品解鎖
+00000000920C.07C: 釜山
+00000000920D.07C: 來場路西歐競球
+00000000920E.07C: 來場路西歐競球
 000000009215.07C: 成就
 000000009235.07C: 不要在意
 000000009236.07C: 偵測到失望反應
@@ -26205,7 +26208,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: 青銅
 00000000F1C0.07C: 正在離開遊戲和佇列，確定要離開嗎？
 00000000F1C5.07C: <fg%1$s>接住雪球</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: 經由冬境戰利品解鎖
 00000000F1C8.07C: 在等待時自動加入
 00000000F212.07C: 強行破壞
@@ -27837,7 +27840,7 @@ https://account.blizzard.com/connections/nintendo
 000000010FF2.07C: 冰淇淋
 000000010FF3.07C: 英國國旗
 000000010FF4.07C: 參與2020年夏季運動會第1週挑戰即可解鎖
-000000010FF5.07C: 參與2020年夏季運動會第2週挑戰即可解鎖
+000000010FF5.07C: 參與2021年夏季運動會第2週挑戰即可解鎖
 000000010FF6.07C: 參與2020年夏季運動會第3週挑戰即可解鎖
 000000010FF7.07C: 奪牌
 000000010FF8.07C: 全部
@@ -27959,6 +27962,8 @@ https://account.blizzard.com/connections/nintendo
 0000000110B8.07C: 自訂與搜尋遊戲
 0000000110BF.07C: 仲夏節快樂！
 0000000110C0.07C: 經由夏季運動會戰利品解鎖
+0000000110C1.07C: 可以冷靜一下了
+0000000110C2.07C: 經由夏季運動會戰利品解鎖
 0000000110C3.07C: 當心！
 0000000110C4.07C: 經由夏季運動會戰利品解鎖
 0000000110C5.07C: 你在開玩笑吧
@@ -28099,6 +28104,7 @@ https://account.blizzard.com/connections/nintendo
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: 2020年夏季運動會
 00000001119C.07C: 經由夏季運動會戰利品解鎖
+00000001119D.07C: 凍淇淋
 00000001119E.07C: 遊戲總時間
 0000000111A5.07C: 暴風雪擊殺數
 0000000111A6.07C: 傷害格擋量
@@ -29001,6 +29007,7 @@ https://account.blizzard.com/connections/nintendo
 00000001235A.07C: 工作坊設定英雄數值的預設參數必須設置為非空白的自訂英雄組合。
 000000012439.07C: 錯誤：工作坊設定選項過多。
 00000001243A.07C: 拆禮物
+00000001243E.07C: 美人魚
 000000012449.07C: Log To Inspector
 00000001244A.07C: Text
 00000001244B.07C: The String to be logged to the Workshop Inspector.
@@ -29131,6 +29138,7 @@ https://account.blizzard.com/connections/nintendo
 000000012538.07C: 在凍凍大作戰同一回合中，解凍一名解凍過你的隊友。
 000000012539.07C: 終場
 00000001253A.07C: 最低延遲：%1$s毫秒
+00000001253D.07C: 泳池風情
 00000001253E.07C: 競技對戰
 00000001253F.07C: 加入對戰，贏得獎勵！
 000000012540.07C: 無限制
@@ -29322,6 +29330,7 @@ https://account.blizzard.com/connections/nintendo
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: 海洋之王
 00000001283A.07C: 購買慶祝好禮即可解鎖
 00000001283B.07C: 購買慶祝好禮即可解鎖
 00000001283D.07C: 購買慶祝好禮即可解鎖
@@ -29547,7 +29556,7 @@ https://account.blizzard.com/connections/nintendo
 000000012C4D.07C: 經由春節戰利品解鎖
 000000012C4E.07C: 喜鵲
 000000012C4F.07C: 經由春節戰利品解鎖
-000000012C50.07C: 第2週：極樂鳥迴音
+000000012C50.07C: 第2週：日暮橘法拉
 000000012C51.07C: 龍頭
 000000012C52.07C: 經由春節戰利品解鎖
 000000012C5B.07C: 50箱春節戰利品
@@ -29638,6 +29647,7 @@ https://account.blizzard.com/connections/nintendo
 000000012D36.07C: 停用
 000000012D37.07C: 啟用
 000000012D38.07C: 開啟 + Boost
+000000012D39.07C: 潛水員
 000000012D3A.07C: Hanzo Sonic Arrow Initial Pulse Effect
 000000012D3B.07C: Junkrat RIP Tire Explosion Effect
 000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
@@ -29694,6 +29704,7 @@ https://account.blizzard.com/connections/nintendo
 000000012D81.07C: 任何人
 000000012D82.07C: 好友
 000000012D88.07C: 參與桃子進擊大挑戰即可解鎖
+000000012D90.07C: Tropical PH
 000000012D91.07C: 接受自訂遊戲邀請
 000000012D92.07C: 允許其他人提出加入自訂遊戲的請求
 000000012D93.07C: 簡化擊中效果
@@ -29722,6 +29733,7 @@ https://account.blizzard.com/connections/nintendo
 000000012DAD.07C: Orisa Amplifier Sound
 000000012DB0.07C: The current set of Workshop Extensions requires fewer players.
 000000012DB1.07C: The current set of Workshop Extensions prohibits non-Workshop maps.
+000000012DB5.07C: 裁判
 000000012DC0.07C: 預設
 000000012DC1.07C: 低
 000000012DC4.07C: 登愣！
@@ -29905,7 +29917,7 @@ https://account.blizzard.com/connections/nintendo
 000000013067.07C: 同情得利
 000000013068.07C: 完成捍衛密令大挑戰的同情得利任務
 000000013076.07C: 跨平台連線
-00000001307C.07C: 第3週：8號火爆鋼球
+00000001307C.07C: 第3週：日本選手半藏
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -32900,8 +32912,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: 是否接受%1$s的Battle.Net好友邀請？
 0000000139A3.07C: 接受
 0000000139A4.07C: 拒絕
+0000000139AA.07C: 奪牌
 0000000139C6.07C: 由於該遊戲的平台存取設定，因此無法加入
 0000000139CF.07C: 由於該自訂遊戲不再接受來自你所屬平台的連線，因此將你移除
+0000000139D0.07C: 奪牌
 0000000139DA.07C: 由於跨平台連線設定不相容，無法加入團隊
 0000000139E2.07C: 參與艾西的亡鎖幫大挑戰即可解鎖
 0000000139E7.07C: 惡徒
@@ -32920,6 +32934,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: 彩虹
 000000013A26.07C: 黃金戰利品
 000000013A27.07C: 用黃金戰利品和我們一起慶祝跨平台連線Beta版本登場！
+000000013A2B.07C: 奪牌
 000000013A47.07C: 詳細資訊
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: 了解詳情、組隊不受限！
@@ -32932,8 +32947,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: 由於你團隊更新後的跨平台連線設定，已將你的團隊從佇列中移除。
 000000013A66.07C: 由於跨平台連線設定不相容，無法邀請玩家
 000000013A9D.07C: 荷魯斯神鷹
-000000013AA5.07C: 全新原創小說
-000000013AA6.07C: 艾西的亡鎖幫大挑戰
+000000013AA6.07C: 第1週：海洋之王溫斯頓
+000000013AAC.07C: 2021年路西歐競球盃
+000000013AAD.07C: 路西歐競球盃
+000000013AAE.07C: 和全世界頂尖的路西歐競球好手一同競賽，提高你的排名！
 000000013AB6.07C: 使出龍一文字會重置迅影襲的冷卻時間。
 000000013AC9.07C: 第29賽季精英
 000000013ACA.07C: 在第29賽季進入前500名即可解鎖
@@ -32954,6 +32971,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: 需具備Battle.net帳號才能遊玩《鬥陣特攻》
 000000013AF4.07C: 敵方發動攻擊時，使用紅外線視野來幫助隊友找到適合防禦的地點。
 000000013B76.07C: 開啟跨平台連線。可以遇到不同平台的玩家。
+000000013B7F.07C: 你的某些英雄自訂項目在此副本中不可用。
 000000013C49.07C: 由於你的跨平台連線通訊設定，某些玩家可能看不到你的訊息。
 000000013C7C.07C: 由於你的團隊已失效，已將你的團隊從佇列中移除。
 000000013C84.07C: 由於其他地方也登入此Battle.net帳號，導致連線中斷。
@@ -32961,9 +32979,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: 由於你的跨平台連線通訊設定，團隊中某些成員無法看見你的訊息。
 000000013C98.07C: 由於你的跨平台連線通訊設定，其他人無法看見你的訊息。
 000000013D12.07C: 由於你的跨平台連線通訊設定，頻道中某些成員無法聽見你的聲音。
-000000013D2B.07C: 亡鎖幫武裝集團
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: 海灘模式
 000000013D43.07C: 由於你的跨平台連線通訊設定，隊伍中某些成員無法看見你的訊息。
 000000013D44.07C: 由於你的跨平台連線通訊設定，對戰中某些成員無法看見你的訊息。
-[Core] Execution finished in 00:00:00.4938031 seconds
+000000013DAB.07C: 參與2021年夏季運動會第1週挑戰即可解鎖
+000000013DAF.07C: 經由夏季運動會戰利品解鎖
+000000013DB2.07C: 日暮翱翔
+000000013DB3.07C: 海洋之王
+000000013DB6.07C: 日本選手
+000000013DB7.07C: 海洋之王
+000000013DBB.07C: 參與2021年夏季運動會第3週挑戰即可解鎖
+000000013DBC.07C: 日本選手
+000000013DBD.07C: 日暮
+000000013DBE.07C: 潛水員
+000000013DC3.07C: 日暮橘
+000000013DC8.07C: 日本選手
+000000013E2F.07C: 棉花糖
+000000013E3F.07C: 2021年夏季運動會
+000000013E40.07C: 經由夏季運動會戰利品解鎖
+000000013E6D.07C: 經由夏季運動會戰利品解鎖
+000000013E6E.07C: 看足球賽
+000000013E70.07C: 經由夏季運動會戰利品解鎖
+000000013E71.07C: 我在渡假
+000000013E73.07C: 經由夏季運動會戰利品解鎖
+000000013E74.07C: 為什麼會這麼暖和？
+000000013E76.07C: 經由夏季運動會戰利品解鎖
+000000013E77.07C: 教練，我想上場！
+000000013E79.07C: 經由夏季運動會戰利品解鎖
+000000013E7A.07C: 我被曬傷過
+000000013E7C.07C: 經由夏季運動會戰利品解鎖
+000000013E7D.07C: 沒問題
+000000013E7F.07C: 經由夏季運動會戰利品解鎖
+000000013E80.07C: 我們在終點見
+000000013E82.07C: 經由夏季運動會戰利品解鎖
+000000013E83.07C: 想看看我的肌肉嗎？
+000000013E85.07C: 經由夏季運動會戰利品解鎖
+000000013E86.07C: 泳池派對？
+000000013E88.07C: 經由夏季運動會戰利品解鎖
+000000013E89.07C: 我會下水..
+000000013EA2.07C: 海灘燃料
+000000013EB9.07C: 2021年路西歐競球盃精英
+000000013EBA.07C: 在2021年路西歐競球盃進入前500名即可解鎖
+000000013EBB.07C: 2021年路西歐競球盃選手
+000000013EBC.07C: 完成2021年路西歐競球盃預選賽即可解鎖
+000000013EBD.07C: 2021年路西歐競球盃精英
+000000013EBE.07C: 在2021年路西歐競球盃進入前500名即可解鎖
+000000013EBF.07C: 2021年路西歐競球盃選手
+000000013EC0.07C: 完成2021年路西歐競球盃預選賽即可解鎖
+000000013EC2.07C: 泳池風情
+000000013EC3.07C: 經由夏季運動會戰利品解鎖
+000000013EC4.07C: 美人魚
+000000013EC5.07C: 經由夏季運動會戰利品解鎖
+000000013EC6.07C: 裁判
+000000013EC7.07C: 經由夏季運動會戰利品解鎖
+000000013EC8.07C: 凍淇淋
+000000013EC9.07C: 經由夏季運動會戰利品解鎖
+000000013ECD.07C: 潛水員
+000000013ECE.07C: 經由夏季運動會戰利品解鎖
+000000013ECF.07C: 泳池風情
+000000013ED0.07C: 經由夏季運動會戰利品解鎖
+000000013ED1.07C: 美人魚
+000000013ED2.07C: 經由夏季運動會戰利品解鎖
+000000013ED3.07C: 裁判
+000000013ED4.07C: 經由夏季運動會戰利品解鎖
+000000013ED5.07C: 凍淇淋
+000000013ED6.07C: 經由夏季運動會戰利品解鎖
+000000013EDB.07C: 水上紅鶴
+000000013EDC.07C: 經由夏季運動會戰利品解鎖
+000000013EDD.07C: 燒烤專家
+000000013F50.07C: 繼續
+000000013F51.07C: 夏季運動會回來了！去年深受大家歡迎的內容重新開放，此外還有全新物品！
+000000013F53.07C: 路西歐競球盃錦標賽又回來了！
+000000013F54.07C: 活動於8月11日結束
+000000013F55.07C: 每週挑戰
+000000013F56.07C: 第1週
+000000013F57.07C: 第2週
+000000013F58.07C: 第3週
+000000013F59.07C: 2021年夏季運動會
+000000013F5C.07C: 解鎖史詩造型
+[Core] Execution finished in 00:00:00.4611150 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10601,6 +10601,7 @@ Un nombre de jugador o BattleTag que esté en un idioma distinto.
 000000006147.07C: Tamaño de equipo +1
 000000006148.07C: Tamaño de equipo +2
 000000006149.07C: Tamaño de equipo +3
+00000000615A.07C: Cada caja de botín contiene una combinación de hasta 4 objetos cosméticos, entre los que se incluye al menos uno del verano o créditos para el juego. Las cajas de botín se pueden obtener jugando.
 00000000615B.07C: Revelar a héroes una vez transcurrido el tiempo de la partida
 00000000615C.07C: Empate una vez transcurrido el tiempo de la partida sin desempate
 00000000615D.07C: Desempate una vez transcurrido el tiempo de la partida
@@ -13530,7 +13531,6 @@ Brian Urbina
 00000000668E.07C: El jugador está guardando un momento destacado
 000000006693.07C: |Rfd %1$s: dd de MMMM de yyyy;
 000000006694.07C: Los mejores momentos no están disponibles.
-000000006697.07C: Los créditos del juego se pueden usar para desbloquear muchos objetos cosméticos. Cada caja de botín de los Juegos de Verano contiene una combinación de hasta 4 objetos cosméticos o créditos del juego. Las cajas de botín de los Juegos de Verano se pueden obtener jugando.
 000000006698.07C: 5 créditos y, de regalo, 2 cajas de botín de los Juegos de Verano
 000000006699.07C: 15 créditos y, de regalo, 5 cajas de botín de los Juegos de Verano
 00000000669A.07C: 30 créditos y, de regalo, 11 cajas de botín de los Juegos de Verano
@@ -17343,6 +17343,9 @@ de la temporada 13
 000000009209.07C: Disponible en las cajas de botín de los Juegos de Verano
 00000000920A.07C: Una vida mejor a través de la ciencia
 00000000920B.07C: Disponible en las cajas de botín de los Juegos de Verano
+00000000920C.07C: Busan
+00000000920D.07C: Jugar a Lúciobol
+00000000920E.07C: Jugar a Lúciobol
 000000009215.07C: Logros
 000000009235.07C: Sin rencores
 000000009236.07C: Frustración detectada
@@ -26253,7 +26256,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: Bronce antiguo
 00000000F1C0.07C: ¿SEGURO QUE QUIERES ABANDONAR LA PARTIDA Y LA COLA?
 00000000F1C5.07C: <fg%1$s>ATRAPADA</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Disponible en las cajas de botín de Inverlandia
 00000000F1C8.07C: Unirse automáticamente mientras esperas
 00000000F212.07C: Brecha
@@ -27886,7 +27889,7 @@ Asistencia de Blizzard
 000000010FF2.07C: Helado
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Se desbloquea al participar en el desafío de la semana 1 de los Juegos de Verano de 2020
-000000010FF5.07C: Se desbloquea al participar en el desafío de la semana 2 de los Juegos de Verano de 2020
+000000010FF5.07C: Se desbloquea al participar en el desafío de la semana 2 de los Juegos de Verano de 2021
 000000010FF6.07C: Se desbloquea al participar en el desafío de la semana 3 de los Juegos de Verano de 2020
 000000010FF7.07C: Medalla
 000000010FF8.07C: Combinación
@@ -28008,6 +28011,8 @@ Asistencia de Blizzard
 0000000110B8.07C: Explorador de partidas
 0000000110BF.07C: ¡Feliz solsticio de verano!
 0000000110C0.07C: Disponible en las cajas de botín de los Juegos de Verano
+0000000110C1.07C: Hora de refrescarse
+0000000110C2.07C: Disponible en las cajas de botín de los Juegos de Verano
 0000000110C3.07C: ¡Adelante!
 0000000110C4.07C: Disponible en las cajas de botín de los Juegos de Verano
 0000000110C5.07C: ¿En serio?
@@ -28148,6 +28153,7 @@ Asistencia de Blizzard
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Juegos de Verano 2020
 00000001119C.07C: Disponible en las cajas de botín de los Juegos de Verano
+00000001119D.07C: Virutas
 00000001119E.07C: Tiempo jugado
 0000000111A5.07C: Asesinatos con Ventisca
 0000000111A6.07C: Daño bloqueado
@@ -29051,6 +29057,7 @@ Asistencia de Blizzard
 00000001235A.07C: El parámetro por defecto del ajuste del Taller «Heroes Value» debe fijarse a una matriz de héroes que no esté vacía.
 000000012439.07C: Error: Demasiadas opciones de ajustes del Taller.
 00000001243A.07C: Regalos
+00000001243E.07C: Sirena
 000000012449.07C: Log To Inspector
 00000001244A.07C: Texto
 00000001244B.07C: La cadena que registrará el inspector del Taller.
@@ -29181,6 +29188,7 @@ Asistencia de Blizzard
 000000012538.07C: Derrite a un jugador que te haya derretido a ti en una ronda de Congelación fatal.
 000000012539.07C: Gran final
 00000001253A.07C: LAT. MÍN.: %1$s MS
+00000001253D.07C: Chiringuito
 00000001253E.07C: Competitiva
 00000001253F.07C: PARTICIPA PARA OBTENER ESTAS RECOMPENSAS
 000000012540.07C: Sin limitaciones
@@ -29373,6 +29381,7 @@ de regalo, 10 cajas de botín de Inverlandia
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Rey del océano
 00000001283A.07C: Se desbloquea con la compra de la Colección de Celebración
 00000001283B.07C: Se desbloquea con la compra de la Colección de Celebración
 00000001283D.07C: Se desbloquea con la compra de la Colección de Celebración
@@ -29598,7 +29607,7 @@ de regalo, 10 cajas de botín de Inverlandia
 000000012C4D.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 000000012C4E.07C: Urraca
 000000012C4F.07C: Disponible en las cajas de botín del Año Nuevo Lunar
-000000012C50.07C: Semana 2: Echo ave del paraíso
+000000012C50.07C: Semana 2: Pharah puesta de sol
 000000012C51.07C: Cabeza de dragón
 000000012C52.07C: Disponible en las cajas de botín del Año Nuevo Lunar
 000000012C5B.07C: 50 cajas de botín del Año Nuevo Lunar
@@ -29689,6 +29698,7 @@ y 10 cajas iguales de regalo
 000000012D36.07C: No permitir
 000000012D37.07C: Permitir
 000000012D38.07C: Permitir + Aumento
+000000012D39.07C: Buceo
 000000012D3A.07C: Efecto de pulso inicial de Flecha sónica de Hanzo
 000000012D3B.07C: Efecto de explosión de Rueda explosiva de Junkrat
 000000012D3C.07C: Efecto de explosión de Mina de conmoción de Junkrat
@@ -29745,6 +29755,7 @@ y 10 cajas iguales de regalo
 000000012D81.07C: Cualquiera
 000000012D82.07C: Amigos
 000000012D88.07C: Se desbloquea al participar en el desafío PachiMarzi.
+000000012D90.07C: Tropical PH
 000000012D91.07C: Recibir invitaciones a partidas personalizadas de:
 000000012D92.07C: Recibir solicitudes de invitación a partidas personalizadas
 000000012D93.07C: Efectos de impacto simples
@@ -29773,6 +29784,7 @@ y 10 cajas iguales de regalo
 000000012DAD.07C: Sonido de Amplificador de Orisa
 000000012DB0.07C: El conjunto actual de extensiones del Taller requiere menos jugadores.
 000000012DB1.07C: El conjunto actual de extensiones del Taller prohíbe mapas que no son del Taller.
+000000012DB5.07C: Árbitra
 000000012DC0.07C: POR DEFECTO
 000000012DC1.07C: BAJA
 000000012DC4.07C: ¡Ta-da!
@@ -29956,7 +29968,7 @@ y 10 cajas iguales de regalo
 000000013067.07C: Efecto compasivo
 000000013068.07C: Completa la misión de desafío de los Archivos Efecto compasivo.
 000000013076.07C: Juego multiplataforma
-00000001307C.07C: Semana 3: Wrecking Ball bola 8
+00000001307C.07C: Semana 3: Hanzo de Nihon
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -32951,8 +32963,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: ¿Quieres aceptar la solicitud de amistad en Battle.net de %1$s?
 0000000139A3.07C: Aceptar
 0000000139A4.07C: Rechazar
+0000000139AA.07C: Medalla
 0000000139C6.07C: No te has podido unir a la partida por sus ajustes de acceso de plataformas.
 0000000139CF.07C: Se te ha eliminado porque tu plataforma ya no está permitida en la partida personalizada.
+0000000139D0.07C: Medalla
 0000000139DA.07C: No te has podido unir al grupo por ajustes incompatibles del juego multiplataforma.
 0000000139E2.07C: Se desbloquea al participar en el desafío Deadlock de Ashe
 0000000139E7.07C: Forajidos
@@ -32971,6 +32985,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: Arcoíris
 000000013A26.07C: Caja de botín dorada
 000000013A27.07C: ¡Celebra el lanzamiento de la beta del juego multiplataforma con una caja de botín dorada!
+000000013A2B.07C: Medalla
 000000013A47.07C: Más información
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: ¡Obtén más información y forma un equipo!
@@ -32983,8 +32998,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Tu grupo se ha retirado de la cola por vuestros ajustes actualizados del juego multiplataforma.
 000000013A66.07C: No se ha podido invitar al jugador por ajustes incompatibles del juego multiplataforma.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: Nueva novela original
-000000013AA6.07C: Desafío Deadlock de Ashe
+000000013AA6.07C: Semana 1: Winston rey del océano
+000000013AAC.07C: Copa de Lúciobol 2021
+000000013AAD.07C: Copa de Lúciobol
+000000013AAE.07C: ¡Salta al terreno de juego y compite con los mejores jugadores de Lúciobol del mundo!
 000000013AB6.07C: Usar Hoja del dragón reinicia el tiempo de reutilización de Corte veloz.
 000000013AC9.07C: Héroe de la temporada 29
 000000013ACA.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 29
@@ -33005,6 +33022,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: Se necesita una cuenta de Battle.net para jugar a Overwatch.
 000000013AF4.07C: Usa Infravisión cuando el enemigo inicie un ataque para que tus compañeros de equipo puedan situarse en mejores posiciones defensivas.
 000000013B76.07C: Juego multiplataforma habilitado. Puedes encontrarte con jugadores de otras plataformas.
+000000013B7F.07C: Algunas de tus opciones de personalización de héroe no están disponibles en esta instancia.
 000000013C49.07C: Es posible que algunos jugadores no puedan ver tus mensajes por tus ajustes de comunicación del juego multiplataforma.
 000000013C7C.07C: Tu grupo se ha retirado de la cola porque su composición ha cambiado.
 000000013C84.07C: Se te ha desconectado porque tu cuenta de Battle.net inició sesión en otra parte.
@@ -33012,9 +33030,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Algunos miembros de tu grupo no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013C98.07C: No se puede ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013D12.07C: Puede que algunos miembros de tu canal no te oigan por tus ajustes de comunicación del juego multiplataforma.
-000000013D2B.07C: Deadlock Rebels
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Modo playa
 000000013D43.07C: Algunos miembros de tu equipo no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013D44.07C: Algunos miembros de la partida no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
-[Core] Execution finished in 00:00:00.5180661 seconds
+000000013DAB.07C: Se desbloquea al participar en el desafío de la semana 1 de los Juegos de Verano de 2021
+000000013DAF.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013DB2.07C: Vuelo al atardecer
+000000013DB3.07C: Rey del océano
+000000013DB6.07C: Nihon
+000000013DB7.07C: Rey del océano
+000000013DBB.07C: Se desbloquea al participar en el desafío de la semana 3 de los Juegos de Verano de 2021
+000000013DBC.07C: Nihon
+000000013DBD.07C: Puesta de sol
+000000013DBE.07C: Buceo
+000000013DC3.07C: Puesta de sol
+000000013DC8.07C: Nihon
+000000013E2F.07C: Nubes de azúcar
+000000013E3F.07C: Juegos de Verano 2021
+000000013E40.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E6D.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E6E.07C: ¡Quería ver el fútbol!
+000000013E70.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E71.07C: Estoy de vacaciones
+000000013E73.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E74.07C: ¿Por qué hace tanto calor?
+000000013E76.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E77.07C: ¡Sácame, entrenador!
+000000013E79.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E7A.07C: Una vez tomé el sol
+000000013E7C.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E7D.07C: Sin esfuerzo
+000000013E7F.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E80.07C: Nos vemos en la meta
+000000013E82.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E83.07C: ¿Queréis ver mis músculos?
+000000013E85.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E86.07C: ¿Fiesta en la piscina?
+000000013E88.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E89.07C: Me meteré en la piscina...
+000000013EA2.07C: Playa Fuel
+000000013EB9.07C: Héroe de la Copa de Lúciobol 2021
+000000013EBA.07C: Se desbloquea al estar entre los 500 mejores al final de la Copa de Lúciobol 2021
+000000013EBB.07C: Competidor de la Copa de Lúciobol 2021
+000000013EBC.07C: Se desbloquea al completar las partidas de posicionamiento de la Copa de Lúciobol 2021
+000000013EBD.07C: Héroe de la Copa de Lúciobol 2021
+000000013EBE.07C: Se desbloquea al estar entre los 500 mejores al final de la Copa de Lúciobol 2021
+000000013EBF.07C: Competidor de la Copa de Lúciobol 2021
+000000013EC0.07C: Se desbloquea al completar las partidas de posicionamiento de la Copa de Lúciobol 2021
+000000013EC2.07C: Chiringuito
+000000013EC3.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013EC4.07C: Sirena
+000000013EC5.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013EC6.07C: Árbitra
+000000013EC7.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013EC8.07C: Virutas
+000000013EC9.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013ECD.07C: Buceo
+000000013ECE.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013ECF.07C: Chiringuito
+000000013ED0.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013ED1.07C: Sirena
+000000013ED2.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013ED3.07C: Árbitra
+000000013ED4.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013ED5.07C: Virutas
+000000013ED6.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013EDB.07C: Flamenco hinchable
+000000013EDC.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013EDD.07C: Parrillero
+000000013F50.07C: CONTINUAR
+000000013F51.07C: ¡Vuelven los Juegos de Verano! ¡Recompensas nuevas se suman a tus favoritas de los años anteriores!
+000000013F53.07C: ¡La Copa de Lúciobol vuelve para otro torneo!
+000000013F54.07C: El evento termina el 10 de agosto
+000000013F55.07C: Desafíos semanales
+000000013F56.07C: Semana 1
+000000013F57.07C: Semana 2
+000000013F58.07C: Semana 3
+000000013F59.07C: Juegos de Verano 2021
+000000013F5C.07C: Desbloquea aspectos épicos
+[Core] Execution finished in 00:00:00.4588885 seconds

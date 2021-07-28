@@ -539,6 +539,10 @@ function parse(content, kwargs={}) {
             
             if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
                 //unary plus/minus
+                if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "**") {
+                    //In case of things like "A ** -B", go to the next operator (which will be **)
+                    continue;
+                }
                 if (operator === "+") {
                     return parse(operands[1]);
                 } else {

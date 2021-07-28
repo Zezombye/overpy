@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10630,6 +10630,7 @@ portable
 000000006147.07C: Taille de l’équipe +1
 000000006148.07C: Taille de l’équipe +2
 000000006149.07C: Taille de l’équipe +3
+00000000615A.07C: Chaque coffre contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu, dont au moins un objet d’été. Les coffres peuvent être obtenus en jeu.
 00000000615B.07C: Durée avant la détection des héros
 00000000615C.07C: Durée avant match nul sans capture de l’objectif décisif
 00000000615D.07C: Durée avant activation de l’objectif décisif
@@ -13564,7 +13565,6 @@ Saison 7
 00000000668E.07C: Le joueur sauvegarde un temps fort.
 000000006693.07C: |Rfd %1$s: dd MMMM yyyy;
 000000006694.07C: Temps forts non disponibles.
-000000006697.07C: Les crédits en jeu peuvent être utilisés pour débloquer de nombreux objets ornementaux. Chaque coffre des jeux d’été contient une combinaison de 4 récompenses au maximum composée d’objets ornementaux et/ou de crédits en jeu. Les coffres des jeux d’été peuvent être obtenus en jeu.
 000000006698.07C: 5 crédits, plus 2 coffres des jeux d’été offerts
 000000006699.07C: 15 crédits, plus 5 coffres des jeux d’été offerts
 00000000669A.07C: 30 crédits, plus 11 coffres des jeux d’été offerts
@@ -17404,6 +17404,9 @@ Lúcioball 2018
 000000009209.07C: Disponible dans les coffres des jeux d’été
 00000000920A.07C: Améliorer la vie
 00000000920B.07C: Disponible dans les coffres des jeux d’été
+00000000920C.07C: Busan
+00000000920D.07C: Jouer au Lúcioball
+00000000920E.07C: Jouer au Lúcioball
 000000009215.07C: Hauts faits
 000000009235.07C: Sans rancune
 000000009236.07C: Frustration détectée
@@ -26314,7 +26317,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F1B6.07C: Bronze antique
 00000000F1C0.07C: VOULEZ-VOUS VRAIMENT QUITTER LA PARTIE ET LA FILE D’ATTENTE ?
 00000000F1C5.07C: <fg%1$s>ATTRAPÉE</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Disponible dans les coffres hivernaux
 00000000F1C8.07C: Rejoindre automatiquement pendant l’attente
 00000000F212.07C: Brèche
@@ -27947,7 +27950,7 @@ L’assistance Blizzard
 000000010FF2.07C: Crème glacée
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Obtenu en participant au défi de la semaine 1 des jeux d’été 2020
-000000010FF5.07C: Obtenu en participant au défi de la semaine 2 des jeux d’été 2020
+000000010FF5.07C: Obtenu en participant au défi de la semaine 2 des jeux d’été 2021
 000000010FF6.07C: Obtenu en participant au défi de la semaine 3 des jeux d’été 2020
 000000010FF7.07C: Médaille
 000000010FF8.07C: Tous rôles
@@ -28069,6 +28072,8 @@ L’assistance Blizzard
 0000000110B8.07C: Parties personnalisées
 0000000110BF.07C: Joyeux solstice d’été
 0000000110C0.07C: Disponible dans les coffres des jeux d’été
+0000000110C1.07C: Il est temps de se rafraîchir
+0000000110C2.07C: Disponible dans les coffres des jeux d’été
 0000000110C3.07C: Chaud
 0000000110C4.07C: Disponible dans les coffres des jeux d’été
 0000000110C5.07C: Sérieux
@@ -28209,6 +28214,7 @@ L’assistance Blizzard
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Jeux d’été 2020
 00000001119C.07C: Disponible dans les coffres des jeux d’été
+00000001119D.07C: Crème glacée
 00000001119E.07C: Temps de jeu
 0000000111A5.07C: Victimes de Blizzard
 0000000111A6.07C: Dégâts bloqués
@@ -29112,6 +29118,7 @@ L’assistance Blizzard
 00000001235A.07C: Le paramètre par défaut de la valeur Paramètre héros de la Forge doit être réglé sur un tableau de Héros non vide.
 000000012439.07C: Erreur : trop d’options de paramétrage de la Forge.
 00000001243A.07C: Déballage
+00000001243E.07C: Sirène
 000000012449.07C: Enregistrer une entrée avec le contrôleur
 00000001244A.07C: Texte
 00000001244B.07C: La chaîne qui doit être enregistrée auprès du contrôleur de la Forge.
@@ -29242,6 +29249,7 @@ L’assistance Blizzard
 000000012538.07C: Dégelez un joueur qui vous a précédemment dégelé dans une manche de Congélimination.
 000000012539.07C: Bouquet final
 00000001253A.07C: LATENCE MIN : %1$s MS
+00000001253D.07C: Piscine
 00000001253E.07C: Partie compétitive
 00000001253F.07C: GAGNEZ CES RÉCOMPENSES EN PARTICIPANT
 000000012540.07C: Sans limites
@@ -29434,6 +29442,7 @@ et 10 coffres hivernaux offerts
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Roi des océans
 00000001283A.07C: Obtenu en achetant la collection Célébration
 00000001283B.07C: Obtenu en achetant la collection Célébration
 00000001283D.07C: Obtenu en achetant la collection Célébration
@@ -29659,7 +29668,7 @@ et 10 coffres hivernaux offerts
 000000012C4D.07C: Disponible dans les coffres lunaires
 000000012C4E.07C: Pie
 000000012C4F.07C: Disponible dans les coffres lunaires
-000000012C50.07C: Semaine 2 : Écho oiseau de paradis
+000000012C50.07C: Semaine 2 : Pharah coucher de soleil
 000000012C51.07C: Tête de dragon
 000000012C52.07C: Disponible dans les coffres lunaires
 000000012C5B.07C: 50 coffres lunaires et 10 coffres lunaires offerts
@@ -29749,6 +29758,7 @@ et 10 coffres hivernaux offerts
 000000012D36.07C: Désactivé
 000000012D37.07C: Activé
 000000012D38.07C: Activé + Boost
+000000012D39.07C: Plongeur
 000000012D3A.07C: Effet d’impulsion initiale de Flèche sonique de Hanzo
 000000012D3B.07C: Effet d’explosion de Pneumastic de Chacal
 000000012D3C.07C: Effet d’explosion de Mine incapacitante de Chacal
@@ -29805,6 +29815,7 @@ et 10 coffres hivernaux offerts
 000000012D81.07C: Tout le monde
 000000012D82.07C: Contacts
 000000012D88.07C: Obtenu en participant au défi PachiMarsi
+000000012D90.07C: Tropical PH
 000000012D91.07C: Recevoir les invitations de partie personnalisée de
 000000012D92.07C: Recevoir les invitations à rejoindre une partie personnalisée
 000000012D93.07C: Effets de tir simple
@@ -29833,6 +29844,7 @@ et 10 coffres hivernaux offerts
 000000012DAD.07C: Son de Surchargeur d’Orisa
 000000012DB0.07C: L’ensemble actuel des extensions de la Forge nécessite moins de joueurs.
 000000012DB1.07C: L’ensemble actuel des extensions de la Forge interdit les cartes ne provenant pas de la Forge.
+000000012DB5.07C: Arbitre
 000000012DC0.07C: PAR DÉFAUT
 000000012DC1.07C: BASSE
 000000012DC4.07C: Ta-da
@@ -30016,7 +30028,7 @@ et 10 coffres hivernaux offerts
 000000013067.07C: Gages d’amitié
 000000013068.07C: Réussir la mission défi des archives Gages d’amitié.
 000000013076.07C: Jeu multiplateforme
-00000001307C.07C: Semaine 3 : Bouldozer boule 8
+00000001307C.07C: Semaine 3 : Hanzo Nihon
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -33011,8 +33023,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: Acceptez-vous la demande de contact Battle.net de %1$s ?
 0000000139A3.07C: Accepter
 0000000139A4.07C: Refuser
+0000000139AA.07C: Médaille
 0000000139C6.07C: Impossible de rejoindre la partie en raison des paramètres d’accès de la plateforme.
 0000000139CF.07C: Vous avez été exclu car votre plateforme n’est plus autorisée dans la partie personnalisée.
+0000000139D0.07C: Médaille
 0000000139DA.07C: Impossible de rejoindre l’escouade en raison de paramètres Cross-Play incompatibles.
 0000000139E2.07C: Obtenu en participant au défi Deadlock d’Ashe
 0000000139E7.07C: Rebelles
@@ -33031,6 +33045,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: Arc-en-ciel
 000000013A26.07C: Coffre doré
 000000013A27.07C: Célébrez le lancement de la version bêta du Cross-Play avec un coffre doré gratuit !
+000000013A2B.07C: Médaille
 000000013A47.07C: Plus d’infos
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Apprenez-en plus et formez votre escouade !
@@ -33043,8 +33058,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Votre groupe a été exclu de la liste d’attente en raison de ses nouveaux paramètres Cross-Play.
 000000013A66.07C: Impossible d’inviter le joueur en raison de paramètres Cross-Play incompatibles.
 000000013A9D.07C: Haroëris
-000000013AA5.07C: Nouveau roman original
-000000013AA6.07C: Défi Deadlock d’Ashe
+000000013AA6.07C: Semaine 1 : Winston roi des océans
+000000013AAC.07C: Copa Lúcioball 2021
+000000013AAD.07C: Copa Lúcioball
+000000013AAE.07C: Grimpez les échelons et affrontez les meilleurs Lúcioballeurs au monde !
 000000013AB6.07C: Utiliser Lame du dragon réinitialise le temps de recharge de Frappe du vent.
 000000013AC9.07C: Héros Saison 29
 000000013ACA.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 29
@@ -33065,6 +33082,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: Un compte Battle.net est nécessaire pour jouer à Overwatch
 000000013AF4.07C: Utilisez Infravision lorsque l’ennemi commence une attaque pour que vos équipiers puissent rejoindre une meilleure position défensive.
 000000013B76.07C: Cross-Play activé. Vous pouvez rencontrer des joueurs venant d’autres plateformes.
+000000013B7F.07C: Certaines des personnalisations de votre héros sont indisponibles dans cette instance.
 000000013C49.07C: Certains joueurs ne pourront peut-être pas lire vos messages en raison de vos paramètres de communication Cross-Play.
 000000013C7C.07C: Votre groupe a été exclu de la liste d’attente car il n’est plus éligible.
 000000013C84.07C: Déconnexion en raison d’une connexion au compte Battle.net depuis une autre plateforme
@@ -33072,9 +33090,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Certains membres de votre escouade ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
 000000013C98.07C: Votre message ne peut pas être lu en raison de vos paramètres de communication Cross-Play.
 000000013D12.07C: Il est possible que certains membres de votre canal de discussion ne puissent pas vous entendre en raison de vos paramètres de communication Cross-Play.
-000000013D2B.07C: Rebelles Deadlock
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Mode plage
 000000013D43.07C: Certains membres de votre équipe ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
 000000013D44.07C: Certains membres de votre partie ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
-[Core] Execution finished in 00:00:00.5718544 seconds
+000000013DAB.07C: Obtenu en participant au défi de la semaine 1 des jeux d’été 2021
+000000013DAF.07C: Disponible dans les coffres des jeux d’été
+000000013DB2.07C: Envol au coucher de soleil
+000000013DB3.07C: Roi des océans
+000000013DB6.07C: Nihon
+000000013DB7.07C: Roi des océans
+000000013DBB.07C: Obtenu en participant au défi de la semaine 3 des jeux d’été 2021
+000000013DBC.07C: Nihon
+000000013DBD.07C: Coucher de soleil
+000000013DBE.07C: Plongeur
+000000013DC3.07C: Coucher de soleil
+000000013DC8.07C: Nihon
+000000013E2F.07C: Guimauves
+000000013E3F.07C: Jeux d’été 2021
+000000013E40.07C: Disponible dans les coffres des jeux d’été
+000000013E6D.07C: Disponible dans les coffres des jeux d’été
+000000013E6E.07C: Regarder le foot
+000000013E70.07C: Disponible dans les coffres des jeux d’été
+000000013E71.07C: En vacances
+000000013E73.07C: Disponible dans les coffres des jeux d’été
+000000013E74.07C: Si chaud
+000000013E76.07C: Disponible dans les coffres des jeux d’été
+000000013E77.07C: Compte sur moi
+000000013E79.07C: Disponible dans les coffres des jeux d’été
+000000013E7A.07C: Coups de soleil
+000000013E7C.07C: Disponible dans les coffres des jeux d’été
+000000013E7D.07C: Les doigts dans le nez
+000000013E7F.07C: Disponible dans les coffres des jeux d’été
+000000013E80.07C: À l’arrivée
+000000013E82.07C: Disponible dans les coffres des jeux d’été
+000000013E83.07C: Mes muscles
+000000013E85.07C: Disponible dans les coffres des jeux d’été
+000000013E86.07C: Soirée piscine
+000000013E88.07C: Disponible dans les coffres des jeux d’été
+000000013E89.07C: J’irai dans la piscine
+000000013EA2.07C: Fuel estival
+000000013EB9.07C: Héros Copa Lúcioball 2021
+000000013EBA.07C: Obtenu en se classant parmi les 500 meilleurs joueurs à la fin de la Copa Lúcioball 2021
+000000013EBB.07C: Compétiteur Copa Lúcioball 2021
+000000013EBC.07C: Obtenu en effectuant toutes les parties de placement de la Copa Lúcioball 2021
+000000013EBD.07C: Héros Copa Lúcioball 2021
+000000013EBE.07C: Obtenu en se classant parmi les 500 meilleurs joueurs à la fin de la Copa Lúcioball 2021
+000000013EBF.07C: Compétiteur Copa Lúcioball 2021
+000000013EC0.07C: Obtenu en effectuant toutes les parties de placement de la Copa Lúcioball 2021
+000000013EC2.07C: Piscine
+000000013EC3.07C: Disponible dans les coffres des jeux d’été
+000000013EC4.07C: Sirène
+000000013EC5.07C: Disponible dans les coffres des jeux d’été
+000000013EC6.07C: Arbitre
+000000013EC7.07C: Disponible dans les coffres des jeux d’été
+000000013EC8.07C: Crème glacée
+000000013EC9.07C: Disponible dans les coffres des jeux d’été
+000000013ECD.07C: Plongeur
+000000013ECE.07C: Disponible dans les coffres des jeux d’été
+000000013ECF.07C: Piscine
+000000013ED0.07C: Disponible dans les coffres des jeux d’été
+000000013ED1.07C: Sirène
+000000013ED2.07C: Disponible dans les coffres des jeux d’été
+000000013ED3.07C: Arbitre
+000000013ED4.07C: Disponible dans les coffres des jeux d’été
+000000013ED5.07C: Crème glacée
+000000013ED6.07C: Disponible dans les coffres des jeux d’été
+000000013EDB.07C: Flamant rose gonflable
+000000013EDC.07C: Disponible dans les coffres des jeux d’été
+000000013EDD.07C: Roi du barbecue
+000000013F50.07C: CONTINUER
+000000013F51.07C: Les jeux d’été sont de retour ! Vos coups de cœur des années précédentes sont accompagnés d’une foule de nouveautés !
+000000013F53.07C: La Copa Lúcioball est de retour pour un autre tournoi !
+000000013F54.07C: Fin de l’évènement le 10 août
+000000013F55.07C: Défis hebdomadaires
+000000013F56.07C: Semaine 1
+000000013F57.07C: Semaine 2
+000000013F58.07C: Semaine 3
+000000013F59.07C: Jeux d’été 2021
+000000013F5C.07C: Obtenez des modèles épiques
+[Core] Execution finished in 00:00:00.4960437 seconds

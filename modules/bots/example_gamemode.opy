@@ -40,6 +40,8 @@ settings {
 
 #!define NB_NODES len(nodePositions)
 
+#!extension spawnMoreDummyBots
+
 #!include "pathfinding/compressedPathmaps/ecopoint_antarctica.opy"
 #!include "pathfinding/compressedPathmaps/necropolis_no_spawns.opy"
 #!include "pathfinding/compressedPathmaps/lijiang_garden.opy"
@@ -313,6 +315,16 @@ rule "Enemy is no longer in range - set mode back to idling":
     @Condition eventPlayer.walkBehavior == BotWalkBehavior.FIGHTING
     @Condition abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) >= 1.2 or distance(eventPlayer, eventPlayer.targetPlayer) >= 7 or not isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS)
     do:
+        /*#Do not use a rule condition but instead a normal loop, to deliberately reduce the reevaluation rate (and reduce lag).
+        #Additionally, do not use "or" because it will evaluate the whole value, even if the behavior is technically short circuiting.
+        if abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) >= 1.2:
+            goto wait
+        if distance(eventPlayer, eventPlayer.targetPlayer) >= 7:
+            goto wait
+        if not isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS):
+            goto wait
+        
+        wait:*/
         wait(5, Wait.ABORT_WHEN_FALSE)
         eventPlayer.walkBehavior = BotWalkBehavior.IDLING
     while RULE_CONDITION

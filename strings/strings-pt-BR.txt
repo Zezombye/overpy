@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10567,6 +10567,7 @@ Um nome de jogador ou BattleTag que usa um idioma diferente do seu.
 000000006147.07C: Tamanho da equipe +1
 000000006148.07C: Tamanho da equipe +2
 000000006149.07C: Tamanho da equipe +3
+00000000615A.07C: Cada Caixa de Itens contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo, incluindo no mínimo um item de Verão. Caixas de Itens podem ser conquistadas no jogo.
 00000000615B.07C: Revelar heróis após o tempo decorrido da partida
 00000000615C.07C: Empate após o tempo decorrido da partida, sem desempate
 00000000615D.07C: Desempate após o tempo decorrido da partida
@@ -13495,7 +13496,6 @@ Brian Urbina
 00000000668E.07C: O jogador está salvando um destaque
 000000006693.07C: |Rfd %1$s: dd de MMMM de yyyy;
 000000006694.07C: Destaques da partida indisponíveis.
-000000006697.07C: Créditos de jogo podem ser usados para desbloquear vários itens cosméticos. Cada Caixa de Itens dos Jogos de Verão contém uma combinação de até 4 itens cosméticos e/ou créditos de jogo. As Caixas de Itens dos Jogos de Verão podem ser conquistadas no jogo.
 000000006698.07C: 5 créditos e um presente gratuito de 2 Caixas de Itens dos Jogos de Verão
 000000006699.07C: 15 créditos e um presente gratuito de 5 Caixas de Itens dos Jogos de Verão
 00000000669A.07C: 30 créditos e um presente gratuito de 11 Caixas de Itens dos Jogos de Verão
@@ -17302,6 +17302,9 @@ Competitiva 2018
 000000009209.07C: Disponível nas Caixas de Itens dos Jogos de Verão
 00000000920A.07C: A ciência leva a uma vida melhor
 00000000920B.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+00000000920C.07C: Busan
+00000000920D.07C: Jogar Lúciobol
+00000000920E.07C: Jogar Lúciobol
 000000009215.07C: Conquistas
 000000009235.07C: Sem ressentimentos
 000000009236.07C: Frustração detectada
@@ -26209,7 +26212,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: Bronze Ancestral
 00000000F1C0.07C: SAIR DO JOGO E DA FILA. TEM CERTEZA?
 00000000F1C5.07C: <fg%1$s>PEGOU</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Disponível em Caixas de Itens Congelados
 00000000F1C8.07C: Entrada automática enquanto espera
 00000000F212.07C: Invasão
@@ -26245,7 +26248,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F25D.07C: CONTINUAR
 00000000F25E.07C: Paraíso Congelado
 00000000F25F.07C: De volta à neve
-00000000F260.07C: O Paraíso Congelado voltou! Seu itens favoritos dos anos anteriores estão de volta, junto com itens novos!
+00000000F260.07C: O Paraíso Congelado voltou! Seus itens favoritos dos anos anteriores estão de volta, junto com itens novos!
 00000000F261.07C: Combate até a Morte de Bola de Neve
 00000000F262.07C: Começa um novo torneio!
 00000000F263.07C: ENCARE UMA GUERRA DE BOLA DE NEVE TODOS CONTRA TODOS!
@@ -27842,7 +27845,7 @@ Suporte da Blizzard
 000000010FF2.07C: Sorvete
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Desbloqueado ao participar do desafio da 1ª semana dos Jogos de Verão 2020
-000000010FF5.07C: Desbloqueado ao participar do desafio da 2ª semana dos Jogos de Verão 2020
+000000010FF5.07C: Desbloqueado ao participar do desafio da 2ª semana dos Jogos de Verão 2021
 000000010FF6.07C: Desbloqueado ao participar do desafio da 3ª semana dos Jogos de Verão 2020
 000000010FF7.07C: Medalha
 000000010FF8.07C: Combinada
@@ -27964,6 +27967,8 @@ Suporte da Blizzard
 0000000110B8.07C: Navegador de Jogos
 0000000110BF.07C: Feliz Solstício de Verão!
 0000000110C0.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+0000000110C1.07C: Hora de esfriar a cabeça
+0000000110C2.07C: Disponível nas Caixas de Itens dos Jogos de Verão
 0000000110C3.07C: Bola!
 0000000110C4.07C: Disponível nas Caixas de Itens dos Jogos de Verão
 0000000110C5.07C: Sério?
@@ -28104,6 +28109,7 @@ Suporte da Blizzard
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Jogos de Verão 2020
 00000001119C.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+00000001119D.07C: Confeitos
 00000001119E.07C: Tempo de jogo
 0000000111A5.07C: Abates por Nevasca
 0000000111A6.07C: Dano bloqueado
@@ -28260,7 +28266,7 @@ Suporte da Blizzard
 0000000112AE.07C: CONTINUAR
 0000000112AF.07C: Jogos de Verão
 0000000112B0.07C: De volta à praia
-0000000112B1.07C: Os Jogos de Verão voltaram! Seu itens favoritos dos anos anteriores estão de volta, junto com itens novos!
+0000000112B1.07C: Os Jogos de Verão voltaram! Seus itens favoritos dos anos anteriores estão de volta, junto com itens novos!
 0000000112B2.07C: Lúciobol Remix
 0000000112B3.07C: Novo modo do Lúciobol!
 0000000112B4.07C: O LÚCIOBOL ESTÁ DE VOLTA COM UM NOVO MODO DE JOGO, ATUALIZAÇÕES NA ARENA E OUTRO TORNEIO COPA LÚCIOBOL!
@@ -29011,6 +29017,7 @@ Competitiva 2020
 00000001235A.07C: O parâmetro Padrão do valor de Heróis de Configuração do Workshop deve ser uma matriz não vazia de Heróis.
 000000012439.07C: Erro: Excesso de opções de configuração do Workshop.
 00000001243A.07C: Presente aberto
+00000001243E.07C: Sereia
 000000012449.07C: Registrar no Inspetor
 00000001244A.07C: Texto
 00000001244B.07C: A String precisa ser registrada no Inspetor da Oficina.
@@ -29141,6 +29148,7 @@ Competitiva 2020
 000000012538.07C: Descongele um aliado que descongelou você em uma rodada de Eliminação Descongelante.
 000000012539.07C: Gran Finale
 00000001253A.07C: LAT. MÍN.: %1$s MS
+00000001253D.07C: Beira da piscina
 00000001253E.07C: Competitivo
 00000001253F.07C: PARTICIPE PARA GANHAR ESTES PRÊMIOS
 000000012540.07C: Sem Limites
@@ -29333,6 +29341,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Rei do Oceano
 00000001283A.07C: Desbloqueado na compra da Coleção Comemorativa.
 00000001283B.07C: Desbloqueado na compra da Coleção Comemorativa.
 00000001283D.07C: Desbloqueado na compra da Coleção Comemorativa.
@@ -29558,7 +29567,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012C4D.07C: Disponível em Caixas de Itens Lunares
 000000012C4E.07C: Gralha
 000000012C4F.07C: Disponível em Caixas de Itens Lunares
-000000012C50.07C: 2ª Semana: Echo Ave do Paraíso
+000000012C50.07C: 2ª Semana: Pharah Pôr do Sol
 000000012C51.07C: Cabeça de Dragão
 000000012C52.07C: Disponível em Caixas de Itens Lunares
 000000012C5B.07C: 50 Caixas de Itens Lunares e
@@ -29649,6 +29658,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012D36.07C: Desativado
 000000012D37.07C: Ativado
 000000012D38.07C: Ativado + Melhoria
+000000012D39.07C: Mergulhador
 000000012D3A.07C: Efeito do Pulso Inicial da Flecha Sônica do Hanzo
 000000012D3B.07C: Efeito de Explosão do Pneu da Morte do Junkrat
 000000012D3C.07C: Efeito de Explosão da Mina de Concussão do Junkrat
@@ -29705,6 +29715,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012D81.07C: Qualquer pessoa
 000000012D82.07C: Amigos
 000000012D88.07C: Desbloqueado no Desafio PachiMarço
+000000012D90.07C: Tropical PH
 000000012D91.07C: Receber Convites para Jogos Personalizados de
 000000012D92.07C: Receber Convites para Jogos Personalizados
 000000012D93.07C: Efeitos de Acerto Simples
@@ -29733,6 +29744,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012DAD.07C: Som do Amplificador da Orisa
 000000012DB0.07C: O conjunto atual de Extensões do Workshop exige menos jogadores.
 000000012DB1.07C: O conjunto atual de Extensões do Workshop proíbe mapas que não sejam do Workshop.
+000000012DB5.07C: Árbitro
 000000012DC0.07C: PADRÃO
 000000012DC1.07C: BAIXO
 000000012DC4.07C: Tcha-rã!
@@ -29916,7 +29928,7 @@ e 10 Caixas de Itens Congelados grátis
 000000013067.07C: Condolência
 000000013068.07C: Conclua a missão de desafio dos Arquivos Condolência.
 000000013076.07C: Partidas Multiplataforma
-00000001307C.07C: 3ª Semana: Wrecking Ball Bola 8
+00000001307C.07C: 3ª Semana: Hanzo Nihon
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -32911,8 +32923,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: Deseja aceitar o pedido de amizade de %1$s no Battle.net?
 0000000139A3.07C: Aceitar
 0000000139A4.07C: Recusar
+0000000139AA.07C: Medalha
 0000000139C6.07C: Não foi possível entrar na partida devido às configurações de acesso de plataforma dela.
 0000000139CF.07C: Você foi removido porque sua plataforma não está mais disponível no jogo personalizado.
+0000000139D0.07C: Medalha
 0000000139DA.07C: Não foi possível entrar no grupo devido a incompatibilidade nas configurações de Cross-Play.
 0000000139E2.07C: Desbloqueado ao participar do Desafio Deadlock da Ashe
 0000000139E7.07C: Fora da Lei
@@ -32931,6 +32945,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: Arco-íris
 000000013A26.07C: Caixa de Itens Dourada
 000000013A27.07C: Comemore o lançamento do Cross-Play Beta com uma Caixa de Itens Dourada gratuita!
+000000013A2B.07C: Medalha
 000000013A47.07C: Mais informações
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Saiba mais e agrupe-se!
@@ -32943,8 +32958,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Seu grupo foi removido da fila devido às configurações atualizadas de Cross-Play.
 000000013A66.07C: Não foi possível convidar o jogador devido a incompatibilidade nas configurações de Cross-Play.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: Novo romance
-000000013AA6.07C: Desafio Deadlock da Ashe
+000000013AA6.07C: 1ª Semana: Winston Rei do Mar
+000000013AAC.07C: Copa Lúciobol 2021
+000000013AAD.07C: Copa Lúciobol
+000000013AAE.07C: Suba na tabela e enfrente os melhores jogadores de Lúciobol do mundo!
 000000013AB6.07C: A Lâmina do Dragão encerra o tempo de recarga do Golpe Veloz.
 000000013AC9.07C: Herói da Temporada 29
 000000013ACA.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 29
@@ -32965,6 +32982,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: Para jogar Overwatch, é necessário ter uma Conta Battle.net
 000000013AF4.07C: Use a Visão Infravermelha quando os inimigos começarem um ataque para que seus aliados possam ir para pontos mais seguros.
 000000013B76.07C: Cross-Play habilitado. Você poderá encontrar jogadores de diferentes plataformas.
+000000013B7F.07C: Algumas personalizações de heróis estão indisponíveis nesta instância.
 000000013C49.07C: Alguns jogadores podem não ver suas mensagens devido às suas configurações de comunicação Cross-Play.
 000000013C7C.07C: Seu grupo foi removido da fila pois não atende mais aos critérios.
 000000013C84.07C: Conexão interrompida porque a conta Battle.net foi acessada em outro lugar
@@ -32972,9 +32990,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Sua mensagem não pode ser vista por alguns membros do seu grupo devido às suas configurações de comunicação Cross-Play.
 000000013C98.07C: Sua mensagem não pode ser vista devido às suas configurações de comunicação Cross-Play.
 000000013D12.07C: Alguns membros do seu canal não podem ouvir você devido às suas configurações de comunicação Cross-Play.
-000000013D2B.07C: Rebeldes da Deadlock
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Modo Praieiro
 000000013D43.07C: Sua mensagem não pode ser vista por alguns participantes da partida devido às suas configurações de comunicação Cross-Play.
 000000013D44.07C: Sua mensagem não pode ser vista por alguns participantes da partida devido às suas configurações de comunicação Cross-Play.
-[Core] Execution finished in 00:00:00.5238239 seconds
+000000013DAB.07C: Desbloqueado ao participar do desafio da 1ª semana dos Jogos de Verão 2021
+000000013DAF.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013DB2.07C: Voo ao Pôr do Sol
+000000013DB3.07C: Rei do Mar
+000000013DB6.07C: Nihon
+000000013DB7.07C: Rei do Mar
+000000013DBB.07C: Desbloqueado ao participar do desafio da 3ª semana dos Jogos de Verão 2021
+000000013DBC.07C: Nihon
+000000013DBD.07C: Pôr do Sol
+000000013DBE.07C: Mergulhador
+000000013DC3.07C: Pôr do sol
+000000013DC8.07C: Nihon
+000000013E2F.07C: Marshmallow
+000000013E3F.07C: Jogos de Verão 2021
+000000013E40.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E6D.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E6E.07C: Queria ver o jogo
+000000013E70.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E71.07C: Tô de folga
+000000013E73.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E74.07C: O motivo do calor?
+000000013E76.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E77.07C: Me deixa jogar, professor!
+000000013E79.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E7A.07C: Já peguei sol
+000000013E7C.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E7D.07C: Moleza
+000000013E7F.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E80.07C: Te vejo na linha de chegada
+000000013E82.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E83.07C: Meus músculos
+000000013E85.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E86.07C: Festa na piscina?
+000000013E88.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013E89.07C: Eu vou entrar na piscina...
+000000013EA2.07C: Combustível Praiano
+000000013EB9.07C: Herói da Copa Lúciobol 2021
+000000013EBA.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Copa Lúciobol 2021
+000000013EBB.07C: Competidor da Copa Lúciobol 2021
+000000013EBC.07C: Desbloqueado ao concluir as partidas de posicionamento da Copa Lúciobol 2021
+000000013EBD.07C: Herói da Copa Lúciobol 2021
+000000013EBE.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Copa Lúciobol 2021
+000000013EBF.07C: Competidor da Copa Lúciobol 2021
+000000013EC0.07C: Desbloqueado ao concluir as partidas de posicionamento da Copa Lúciobol 2021
+000000013EC2.07C: Piscina
+000000013EC3.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013EC4.07C: Sereia
+000000013EC5.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013EC6.07C: Árbitro
+000000013EC7.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013EC8.07C: Confeitos
+000000013EC9.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013ECD.07C: Mergulhador
+000000013ECE.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013ECF.07C: Piscina
+000000013ED0.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013ED1.07C: Sereia
+000000013ED2.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013ED3.07C: Árbitro
+000000013ED4.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013ED5.07C: Confeitos
+000000013ED6.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013EDB.07C: Boia de Flamingo
+000000013EDC.07C: Disponível nas Caixas de Itens dos Jogos de Verão
+000000013EDD.07C: Churrasqueiro
+000000013F50.07C: CONTINUAR
+000000013F51.07C: Os Jogos de Verão voltaram! Seus itens favoritos dos anos anteriores estão de volta, junto com itens novos!
+000000013F53.07C: A Copa Lúciobol está de volta para mais um torneio!
+000000013F54.07C: O evento termina em 10 de agosto
+000000013F55.07C: Desafios Semanais
+000000013F56.07C: 1ª Semana
+000000013F57.07C: 2ª Semana
+000000013F58.07C: 3ª Semana
+000000013F59.07C: Jogos de Verão 2021
+000000013F5C.07C: Desbloqueie visuais épicos
+[Core] Execution finished in 00:00:00.4772374 seconds

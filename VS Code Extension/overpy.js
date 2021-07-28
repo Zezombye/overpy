@@ -3474,7 +3474,7 @@ const actionKw =
         "fr-FR": "Désactiver la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを無効化",
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "关闭游戏预设重生模式"
+        "zh-CN": "关闭游戏预设复生模式"
     },
     "_&disableScoreboard": {
         "description": "Disables the scoreboard for one or more players until reenabled.",
@@ -4272,7 +4272,7 @@ const actionKw =
         "fr-FR": "Activer la réapparition prédéfinie par le mode de jeu",
         "ja-JP": "ゲーム・モードの標準リスポーンを有効化",
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
-        "zh-CN": "开启游戏预设重生模式"
+        "zh-CN": "开启游戏预设复生模式"
     },
     "_&enableScoreboard": {
         "description": "Undoes the effect of the Disable Scoreboard Action for one or more players.",
@@ -4688,7 +4688,7 @@ const actionKw =
         "fr-FR": "Réapparaître",
         "ja-JP": "リスポーン",
         "pt-BR": "Ressurgir",
-        "zh-CN": "重生"
+        "zh-CN": "复生"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -4742,7 +4742,7 @@ const actionKw =
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
         "pt-BR": "Ressuscitar",
-        "zh-CN": "重生"
+        "zh-CN": "复活"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -7048,7 +7048,7 @@ const actionKw =
         "fr-FR": "Définir la durée maximum avant réapparition",
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
-        "zh-CN": "设置最大重生时间"
+        "zh-CN": "设置最大复生时间"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -21967,7 +21967,7 @@ var valueFuncKw =
         "zh-CN": "字符串"
     },
     "__map__": {
-        "guid": "00000000D411",
+        "guid": "00000000D415",
         "description": "A map constant.",
         "args": [
             {
@@ -34430,7 +34430,7 @@ const constantValues =
             "fr-FR": "Violet",
             "ja-JP": "紫",
             "pt-BR": "Roxo",
-            "zh-CN": "紫色"
+            "zh-CN": "亮紫色"
         },
         "RED": {
             "guid": "00000000B938",
@@ -34816,7 +34816,7 @@ const constantValues =
             "fr-FR": "Je te suis",
             "ja-JP": "ついていく",
             "pt-BR": "Com Você",
-            "zh-CN": "你先上"
+            "zh-CN": "我跟着你"
         },
         "YES": {
             "guid": "000000010BE4",
@@ -37596,7 +37596,6 @@ const constantValues =
             "en-US": "Visible To Sort Order and String",
             "es-MX": "Visible para clasificar orden y cadena",
             "fr-FR": "Visible pour Tri et Chaîne de texte",
-            "it-IT": "Sort Order and String",
             "ja-JP": "表示される相手、ソート順、文字列",
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
@@ -37687,7 +37686,7 @@ const constantValues =
             "guid": "00000000C2CF",
             "en-US": "Checkmark",
             "es-MX": "Marca de control",
-            "fr-FR": "Point d’exclamation",
+            "fr-FR": "Coche",
             "ja-JP": "チェックマーク",
             "pt-BR": "Marca de Verificação",
             "zh-CN": "对号"
@@ -38294,7 +38293,7 @@ const constantValues =
             "fr-FR": "Position et Valeurs",
             "ja-JP": "位置、値",
             "pt-BR": "Posição e Valores",
-            "zh-CN": "位置和颜色"
+            "zh-CN": "位置和值"
         },
         "POSITION_VALUES_AND_COLOR": {
             "guid": "00000001233F",
@@ -39611,7 +39610,7 @@ const eventTeamKw =
 //begin-json
 {
     "1": {
-        "guid": "000000004672",
+        "guid": "00000000B472",
         "en-US": "Team 1",
         "es-ES": "Equipo 1",
         "es-MX": "Equipo 1",
@@ -39626,7 +39625,7 @@ const eventTeamKw =
         "zh-TW": "隊伍1"
     },
     "2": {
-        "guid": "000000004673",
+        "guid": "00000000B471",
         "en-US": "Team 2",
         "es-ES": "Equipo 2",
         "es-MX": "Equipo 2",
@@ -40290,7 +40289,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Odradzanie jako losowy bohater",
                         "pt-BR": "Ressurgir como herói aleatório",
                         "ru-RU": "Случайный герой при возрождении",
-                        "zh-CN": "随机英雄重生",
+                        "zh-CN": "随机英雄复生",
                         "zh-TW": "重生時隨機更換英雄"
                     },
                     "respawnTime%": {
@@ -40310,7 +40309,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Współczynnik skalowania czasu oczekiwania na odrodzenie",
                         "pt-BR": "Tempo escalar de ressurgimento",
                         "ru-RU": "Время возрождения",
-                        "zh-CN": "复活时间",
+                        "zh-CN": "复生时间",
                         "zh-TW": "重生時間"
                     },
                     "disabledMaps": {
@@ -40822,7 +40821,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }
@@ -41009,7 +41008,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas odnowienia flagi po zdobyciu",
                         "pt-BR": "Tempo de ressurgimento de pontuação de bandeira",
                         "ru-RU": "Появление флага после захвата",
-                        "zh-CN": "得分后旗帜重生时间",
+                        "zh-CN": "得分后旗帜刷新时间",
                         "zh-TW": "旗幟重生時間"
                     },
                     "gameLengthInMn": {
@@ -41049,7 +41048,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas działania skrócenia szybkości odradzania",
                         "pt-BR": "Duração do Bônus de Velocidade de Ressurgimento",
                         "ru-RU": "Длительность бонуса к скорости после возрождения",
-                        "zh-CN": "重生加速增益时间",
+                        "zh-CN": "复生加速增益时间",
                         "zh-TW": "重生速度加成持續時間"
                     },
                     "scoreToWin": {
@@ -41149,7 +41148,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }
@@ -41973,7 +41972,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Wskrzeszenie przez Łaskę anuluje eliminacje",
                         "pt-BR": "A ressurreição da Mercy reverte os abates",
                         "ru-RU": "«Воскрешение» Ангела отменяет убийства",
-                        "zh-CN": "“天使”复活抵消消灭次数",
+                        "zh-CN": "“天使”重生抵消消灭次数",
                         "zh-TW": "慈悲復活會取消擊殺數"
                     },
                     "scoreToWin": {
@@ -42011,7 +42010,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     },
                     "needsImbalancedTeamScoreToWin": {
@@ -42694,7 +42693,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }
@@ -57854,6 +57853,10 @@ function parse(content, kwargs={}) {
             
             if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
                 //unary plus/minus
+                if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "**") {
+                    //In case of things like "A ** -B", go to the next operator (which will be **)
+                    continue;
+                }
                 if (operator === "+") {
                     return parse(operands[1]);
                 } else {
@@ -65845,7 +65848,7 @@ var normalStrKw =
         "pl-PL": "Fioletowy",
         "pt-BR": "Roxo",
         "ru-RU": "Лиловый",
-        "zh-CN": "紫色",
+        "zh-CN": "亮紫色",
         "zh-TW": "紫"
     },
     "Raise": {
@@ -66276,7 +66279,7 @@ var normalStrKw =
         "pl-PL": "Wskrześ",
         "pt-BR": "Ressuscitar",
         "ru-RU": "Воскресить",
-        "zh-CN": "重生",
+        "zh-CN": "复活",
         "zh-TW": "復活"
     },
     "Resurrected": {
@@ -66291,7 +66294,7 @@ var normalStrKw =
         "pl-PL": "Wskrzeszono",
         "pt-BR": "Ressuscitado",
         "ru-RU": "Воскресил",
-        "zh-CN": "已重生",
+        "zh-CN": "已复活",
         "zh-TW": "獲得復活"
     },
     "Resurrecting": {
@@ -66306,7 +66309,7 @@ var normalStrKw =
         "pl-PL": "Wskrzeszanie",
         "pt-BR": "Ressuscitando",
         "ru-RU": "Воскрешает",
-        "zh-CN": "正在重生",
+        "zh-CN": "正在复活",
         "zh-TW": "正在復活"
     },
     "Reveal": {

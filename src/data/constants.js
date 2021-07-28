@@ -547,7 +547,7 @@ const constantValues =
             "fr-FR": "Violet",
             "ja-JP": "紫",
             "pt-BR": "Roxo",
-            "zh-CN": "紫色"
+            "zh-CN": "亮紫色"
         },
         "RED": {
             "guid": "00000000B938",
@@ -933,7 +933,7 @@ const constantValues =
             "fr-FR": "Je te suis",
             "ja-JP": "ついていく",
             "pt-BR": "Com Você",
-            "zh-CN": "你先上"
+            "zh-CN": "我跟着你"
         },
         "YES": {
             "guid": "000000010BE4",
@@ -3713,7 +3713,6 @@ const constantValues =
             "en-US": "Visible To Sort Order and String",
             "es-MX": "Visible para clasificar orden y cadena",
             "fr-FR": "Visible pour Tri et Chaîne de texte",
-            "it-IT": "Sort Order and String",
             "ja-JP": "表示される相手、ソート順、文字列",
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
@@ -3804,7 +3803,7 @@ const constantValues =
             "guid": "00000000C2CF",
             "en-US": "Checkmark",
             "es-MX": "Marca de control",
-            "fr-FR": "Point d’exclamation",
+            "fr-FR": "Coche",
             "ja-JP": "チェックマーク",
             "pt-BR": "Marca de Verificação",
             "zh-CN": "对号"
@@ -4411,7 +4410,7 @@ const constantValues =
             "fr-FR": "Position et Valeurs",
             "ja-JP": "位置、値",
             "pt-BR": "Posição e Valores",
-            "zh-CN": "位置和颜色"
+            "zh-CN": "位置和值"
         },
         "POSITION_VALUES_AND_COLOR": {
             "guid": "00000001233F",

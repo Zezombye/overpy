@@ -572,7 +572,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Odradzanie jako losowy bohater",
                         "pt-BR": "Ressurgir como herói aleatório",
                         "ru-RU": "Случайный герой при возрождении",
-                        "zh-CN": "随机英雄重生",
+                        "zh-CN": "随机英雄复生",
                         "zh-TW": "重生時隨機更換英雄"
                     },
                     "respawnTime%": {
@@ -592,7 +592,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Współczynnik skalowania czasu oczekiwania na odrodzenie",
                         "pt-BR": "Tempo escalar de ressurgimento",
                         "ru-RU": "Время возрождения",
-                        "zh-CN": "复活时间",
+                        "zh-CN": "复生时间",
                         "zh-TW": "重生時間"
                     },
                     "disabledMaps": {
@@ -1104,7 +1104,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }
@@ -1291,7 +1291,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas odnowienia flagi po zdobyciu",
                         "pt-BR": "Tempo de ressurgimento de pontuação de bandeira",
                         "ru-RU": "Появление флага после захвата",
-                        "zh-CN": "得分后旗帜重生时间",
+                        "zh-CN": "得分后旗帜刷新时间",
                         "zh-TW": "旗幟重生時間"
                     },
                     "gameLengthInMn": {
@@ -1331,7 +1331,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas działania skrócenia szybkości odradzania",
                         "pt-BR": "Duração do Bônus de Velocidade de Ressurgimento",
                         "ru-RU": "Длительность бонуса к скорости после возрождения",
-                        "zh-CN": "重生加速增益时间",
+                        "zh-CN": "复生加速增益时间",
                         "zh-TW": "重生速度加成持續時間"
                     },
                     "scoreToWin": {
@@ -1431,7 +1431,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }
@@ -2255,7 +2255,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Wskrzeszenie przez Łaskę anuluje eliminacje",
                         "pt-BR": "A ressurreição da Mercy reverte os abates",
                         "ru-RU": "«Воскрешение» Ангела отменяет убийства",
-                        "zh-CN": "“天使”复活抵消消灭次数",
+                        "zh-CN": "“天使”重生抵消消灭次数",
                         "zh-TW": "慈悲復活會取消擊殺數"
                     },
                     "scoreToWin": {
@@ -2293,7 +2293,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     },
                     "needsImbalancedTeamScoreToWin": {
@@ -2976,7 +2976,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动重生",
+                        "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
                 }

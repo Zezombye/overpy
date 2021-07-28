@@ -1,13 +1,13 @@
-[Core] DataTool v1.61.0.957-git-7406afd1acbd6a49c71a521727f5249b8fe2aa5d
+[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(7)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.61.1.0.84186
+[CASC] Overwatch build 1.62.0.0.84997
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84186 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84186 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10600,6 +10600,7 @@ Ordnung
 000000006147.07C: Teamgröße +1
 000000006148.07C: Teamgröße +2
 000000006149.07C: Teamgröße +3
+00000000615A.07C: Jede Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel, darunter mindestens ein Sommer-Extra. Lootboxen können im Spiel auf verschiedene Arten verdient werden.
 00000000615B.07C: Spielzeit, bis Helden aufgedeckt werden
 00000000615C.07C: Zeit bis zum Unentschieden ohne zusätzlichen Zielpunkt
 00000000615D.07C: Zeit, bis zusätzlicher Zielpunkt aktiviert wird
@@ -13619,7 +13620,6 @@ von Saison 7
 00000000668E.07C: Spieler speichert ein Highlight.
 000000006693.07C: |Rfd %1$s:dd. MMM. yyyy;
 000000006694.07C: Highlights nicht verfügbar.
-000000006697.07C: Spielcredits können verwendet werden, um viele kosmetische Extras freizuschalten. Jede Sommerspiele-Lootbox enthält bis zu 4 kosmetische Extras und/oder Credits im Spiel. Sommerspiele-Lootboxen können im Spiel auf verschiedene Arten verdient werden.
 000000006698.07C: 5 Credits und dazu 2 Sommerspiele-Lootboxen geschenkt
 000000006699.07C: 15 Credits und dazu 5 Sommerspiele-Lootboxen geschenkt
 00000000669A.07C: 30 Credits und dazu 11 Sommerspiele-Lootboxen geschenkt
@@ -17464,6 +17464,9 @@ Möchtest du abbrechen?
 000000009209.07C: In Sommerspiele-Lootboxen erhältlich
 00000000920A.07C: Besseres Leben
 00000000920B.07C: In Sommerspiele-Lootboxen erhältlich
+00000000920C.07C: Busan
+00000000920D.07C: Lúcioball spielen
+00000000920E.07C: Lúcioball spielen
 000000009215.07C: Erfolge
 000000009235.07C: Nichts für ungut
 000000009236.07C: Frustration registriert
@@ -26477,7 +26480,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: Antike Bronze
 00000000F1C0.07C: BIST DU SICHER, DASS DU DAS MATCH UND DIE SPIELSUCHE VERLASSEN MÖCHTEST?
 00000000F1C5.07C: <fg%1$s>GEFANGEN</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: In Winter-Lootboxen erhältlich
 00000000F1C8.07C: Während der Warteschlange automatisch beitreten
 00000000F212.07C: Eisbrecher
@@ -28114,7 +28117,7 @@ Der Blizzard-Kundendienst
 000000010FF2.07C: Eiscreme
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 1
-000000010FF5.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 2
+000000010FF5.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2021, Woche 2
 000000010FF6.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 3
 000000010FF7.07C: Medaille
 000000010FF8.07C: Alle
@@ -28236,6 +28239,8 @@ Der Blizzard-Kundendienst
 0000000110B8.07C: Spielbrowser
 0000000110BF.07C: Glad midsommar!
 0000000110C0.07C: In Sommerspiele-Lootboxen erhältlich
+0000000110C1.07C: Zeit für eine Abkühlung
+0000000110C2.07C: In Sommerspiele-Lootboxen erhältlich
 0000000110C3.07C: Achtung!
 0000000110C4.07C: In Sommerspiele-Lootboxen erhältlich
 0000000110C5.07C: Das meinst du nicht ernst
@@ -28376,6 +28381,7 @@ Der Blizzard-Kundendienst
 00000001119A.07C: |Rfn %1$s:P0;
 00000001119B.07C: Sommerspiele 2020
 00000001119C.07C: In Sommerspiele-Lootboxen erhältlich
+00000001119D.07C: Streusel
 00000001119E.07C: Gespielte Zeit
 0000000111A5.07C: Kills mit Blizzard
 0000000111A6.07C: Geblockter Schaden
@@ -29305,6 +29311,7 @@ Lootboxen erhältlich
 00000001235A.07C: Der Standardparameter des Wertes von [Workshop Setting Hero] muss auf ein Array von benutzerdefinierten Helden gesetzt werden, das nicht leer ist.
 000000012439.07C: Fehler: Zu viele Workshop-Einstellungsoptionen.
 00000001243A.07C: Auspacken
+00000001243E.07C: Meerjungfrau
 000000012449.07C: Log to Inspector
 00000001244A.07C: Text
 00000001244B.07C: Der String, der vom Workshop Inspector als Logeintrag erstellt werden soll.
@@ -29435,6 +29442,7 @@ Lootboxen erhältlich
 000000012538.07C: Tau einen Spieler in einer Runde Frosttau-Eliminierung auf, der dich vorher aufgetaut hat.
 000000012539.07C: Finale
 00000001253A.07C: MIN LAT: %1$s MS
+00000001253D.07C: Poolgirl
 00000001253E.07C: Rangliste
 00000001253F.07C: MACH MIT, UM DIR BELOHNUNGEN ZU VERDIENEN:
 000000012540.07C: Keine Beschränkungen
@@ -29627,6 +29635,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
+000000012837.07C: Meereskönig
 00000001283A.07C: Freigeschaltet durch den Erwerb der Celebration Collection
 00000001283B.07C: Freigeschaltet durch den Erwerb der Celebration Collection
 00000001283D.07C: Freigeschaltet durch den Erwerb der Celebration Collection
@@ -29852,7 +29861,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012C4D.07C: In Neujahr-Lootboxen erhältlich
 000000012C4E.07C: Elster
 000000012C4F.07C: In Neujahr-Lootboxen erhältlich
-000000012C50.07C: Woche 2: Echo-Skin Paradiesvogelblume
+000000012C50.07C: Woche 2: Pharah-Skin Abendsonne
 000000012C51.07C: Drachenkopf
 000000012C52.07C: In Neujahr-Lootboxen erhältlich
 000000012C5B.07C: 50 Neujahr-Lootboxen und dazu
@@ -29943,6 +29952,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012D36.07C: Deaktiviert
 000000012D37.07C: Aktiviert
 000000012D38.07C: Aktiviert + Boost
+000000012D39.07C: Scuba
 000000012D3A.07C: Effekt – Einschlagimpuls von Hanzos Sonarpfeil
 000000012D3B.07C: Effekt – Explosion von Junkrats Kamikazereifen
 000000012D3C.07C: Effekt – Explosion von Junkrats Ferngezündeter Mine
@@ -29999,6 +30009,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012D81.07C: Jedem
 000000012D82.07C: Freunden
 000000012D88.07C: Freigeschaltet durch die Teilnahme an der PachiMärzi-Herausforderung
+000000012D90.07C: Tropical PH
 000000012D91.07C: Einladungsanfragen für benutzerdefinierte Spiele erlauben von
 000000012D92.07C: Einladungsanfragen für benutzerdefinierte Spiele erlauben
 000000012D93.07C: Einfache Treffereffekte
@@ -30027,6 +30038,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012DAD.07C: Sound – Orisas Superbooster
 000000012DB0.07C: Für die aktiven Workshop-Erweiterungen muss die Spieleranzahl verringert werden.
 000000012DB1.07C: Die aktiven Workshop-Erweiterungen lassen nur Karten zu, die aus dem Workshop stammen.
+000000012DB5.07C: Schiedsrichterin
 000000012DC0.07C: STANDARD
 000000012DC1.07C: NIEDRIG
 000000012DC4.07C: Ta-da!
@@ -30210,7 +30222,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000013067.07C: Mitleidsbonus
 000000013068.07C: Schließ während des Archiv-Events die Herausforderungsmission Mitleidsbonus ab.
 000000013076.07C: Plattform<hy>übergreifendes Cross-Play
-00000001307C.07C: Woche 3: Wrecking Ball-Skin 8-Ball
+00000001307C.07C: Woche 3: Hanzo-Skin Nihon
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -33205,8 +33217,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139A2.07C: Möchtest du die Battle.net-Freundschaftsanfrage von %1$s annehmen?
 0000000139A3.07C: Annehmen
 0000000139A4.07C: Ablehnen
+0000000139AA.07C: Medaille
 0000000139C6.07C: Matchbeitritt fehlgeschlagen. Deine Plattform ist nicht erlaubt.
 0000000139CF.07C: Du wurdest entfernt, weil deine Plattform in diesem benutzerdefinierten Spiel nicht mehr erlaubt ist.
+0000000139D0.07C: Medaille
 0000000139DA.07C: Gruppenbeitritt fehlgeschlagen. Cross-Play-Einstellungen sind nicht kompatibel.
 0000000139E2.07C: Freigeschaltet durch die Teilnahme an Ashes Deadlock-Herausforderung
 0000000139E7.07C: Outlaws
@@ -33225,6 +33239,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139FB.07C: Regenbogen
 000000013A26.07C: Goldene Lootbox
 000000013A27.07C: Zur Feier der Veröffentlichung von Cross-Play Beta schenken wir dir eine goldene Lootbox!
+000000013A2B.07C: Medaille
 000000013A47.07C: Mehr Infos
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Erfahr mehr und versammle dein Team!
@@ -33237,8 +33252,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Deine Gruppe wurde aus der Warteschlange entfernt, weil eure Cross-Play-Einstellungen geändert wurden.
 000000013A66.07C: Einladen des Spielers nicht möglich. Die Cross-Play-Einstellungen sind nicht kompatibel.
 000000013A9D.07C: Haroeris
-000000013AA5.07C: Neuer Roman
-000000013AA6.07C: Ashes Deadlock-Herausforderung
+000000013AA6.07C: Woche 1: Winston-Skin Meereskönig
+000000013AAC.07C: Copa Lúcioball 2021
+000000013AAD.07C: Copa Lúcioball
+000000013AAE.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Lúcioballer der Welt an!
 000000013AB6.07C: Der Einsatz der Drachenklinge schließt die Abklingzeit von Sturmschlag ab.
 000000013AC9.07C: Held von Saison 29
 000000013ACA.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 29
@@ -33259,6 +33276,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AE6.07C: Zum Spielen von Overwatch ist ein Battle.net-Account erforderlich.
 000000013AF4.07C: Setz Infrasicht ein, wenn der Gegner zum Angriff übergeht. So kann dein Team bessere Verteidigungspositionen einnehmen.
 000000013B76.07C: Cross-Play aktiviert. Du könntest Spielern anderer Plattformen begegnen.
+000000013B7F.07C: Einige deiner Heldenanpassungen sind in dieser Instanz nicht verfügbar.
 000000013C49.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern möglicherweise, dass einige Spieler deine Nachrichten sehen können.
 000000013C7C.07C: Deine Gruppe wurde aus der Warteschlange entfernt, weil sich die Zusammensetzung der Gruppe geändert hat.
 000000013C84.07C: Die Verbindung wurde getrennt, weil sich jemand von woanders in diesen Battle.net-Account eingeloggt hat.
@@ -33266,9 +33284,82 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern, dass einige Spieler deiner Gruppe deine Nachricht sehen können.
 000000013C98.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern, dass deine Nachricht gesehen werden kann.
 000000013D12.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern möglicherweise, dass dich einige Spieler in diesem Channel hören.
-000000013D2B.07C: Deadlock Rebels
-000000013D2C.07C: https://playoverwatch.com/media/stories/deadlock-rebels-chapter-1?utm_campaign=deadlock_rebels
-000000013D2D.07C: https://ow.blizzard.cn/article/news/1786#novel
+000000013D41.07C: Strandmodus
 000000013D43.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern, dass einige Spieler deines Teams deine Nachricht sehen können.
 000000013D44.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern, dass einige Spieler in diesem Match deine Nachricht sehen können.
-[Core] Execution finished in 00:00:00.5329012 seconds
+000000013DAB.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2021, Woche 1
+000000013DAF.07C: In Sommerspiele-Lootboxen erhältlich
+000000013DB2.07C: Flug der Abendsonne
+000000013DB3.07C: Meereskönig
+000000013DB6.07C: Nihon
+000000013DB7.07C: Meereskönig
+000000013DBB.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2021, Woche 3
+000000013DBC.07C: Nihon
+000000013DBD.07C: Abendsonne
+000000013DBE.07C: Scuba
+000000013DC3.07C: Abendsonne
+000000013DC8.07C: Nihon
+000000013E2F.07C: Marshmallows
+000000013E3F.07C: Sommerspiele 2021
+000000013E40.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E6D.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E6E.07C: Ich wollte Fußball gucken
+000000013E70.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E71.07C: Ich hab Urlaub
+000000013E73.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E74.07C: Warum es so warm ist?
+000000013E76.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E77.07C: Wechsel mich ein, Coach!
+000000013E79.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E7A.07C: Hab mal Sonne getankt
+000000013E7C.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E7D.07C: Nicht Schwitzen
+000000013E7F.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E80.07C: Sehen uns an der Ziellinie
+000000013E82.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E83.07C: Willst du Muckis sehen?
+000000013E85.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E86.07C: Poolparty?
+000000013E88.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E89.07C: Ich komm in den Pool
+000000013EA2.07C: Strand-Fuel
+000000013EB9.07C: Held der Copa Lúcioball 2021
+000000013EBA.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der Copa Lúcioball 2021
+000000013EBB.07C: Teilnehmer der Copa Lúcioball 2021
+000000013EBC.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches bei der Copa Lúcioball 2021
+000000013EBD.07C: Held der Copa Lúcioball 2021
+000000013EBE.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der Copa Lúcioball 2021
+000000013EBF.07C: Teilnehmer der Copa Lúcioball 2021
+000000013EC0.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches bei der Copa Lúcioball 2021
+000000013EC2.07C: Poolgirl
+000000013EC3.07C: In Sommerspiele-Lootboxen erhältlich
+000000013EC4.07C: Meerjungfrau
+000000013EC5.07C: In Sommerspiele-Lootboxen erhältlich
+000000013EC6.07C: Schiedsrichterin
+000000013EC7.07C: In Sommerspiele-Lootboxen erhältlich
+000000013EC8.07C: Streusel
+000000013EC9.07C: In Sommerspiele-Lootboxen erhältlich
+000000013ECD.07C: Scuba
+000000013ECE.07C: In Sommerspiele-Lootboxen erhältlich
+000000013ECF.07C: Poolgirl
+000000013ED0.07C: In Sommerspiele-Lootboxen erhältlich
+000000013ED1.07C: Meerjungfrau
+000000013ED2.07C: In Sommerspiele-Lootboxen erhältlich
+000000013ED3.07C: Schiedsrichterin
+000000013ED4.07C: In Sommerspiele-Lootboxen erhältlich
+000000013ED5.07C: Streusel
+000000013ED6.07C: In Sommerspiele-Lootboxen erhältlich
+000000013EDB.07C: Flamingo
+000000013EDC.07C: In Sommerspiele-Lootboxen erhältlich
+000000013EDD.07C: Grillmeister
+000000013F50.07C: WEITER
+000000013F51.07C: Die Sommerspiele sind zurück! Deine Lieblingsextras der letzten Jahre sind wieder da und dazu jede Menge neue!
+000000013F53.07C: Die Copa Lúcioball kehrt mit einem weiteren Turnier zurück!
+000000013F54.07C: Event endet am 10.08.
+000000013F55.07C: Wöchentliche Herausforderungen
+000000013F56.07C: Woche 1
+000000013F57.07C: Woche 2
+000000013F58.07C: Woche 3
+000000013F59.07C: Sommerspiele 2021
+000000013F5C.07C: Schalte epische Skins frei
+[Core] Execution finished in 00:00:00.4932256 seconds

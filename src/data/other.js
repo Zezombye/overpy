@@ -419,7 +419,7 @@ const eventTeamKw =
 //begin-json
 {
     "1": {
-        "guid": "000000004672",
+        "guid": "00000000B472",
         "en-US": "Team 1",
         "es-ES": "Equipo 1",
         "es-MX": "Equipo 1",
@@ -434,7 +434,7 @@ const eventTeamKw =
         "zh-TW": "隊伍1"
     },
     "2": {
-        "guid": "000000004673",
+        "guid": "00000000B471",
         "en-US": "Team 2",
         "es-ES": "Equipo 2",
         "es-MX": "Equipo 2",

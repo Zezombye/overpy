@@ -6906,7 +6906,7 @@ var normalStrKw =
         "pl-PL": "Fioletowy",
         "pt-BR": "Roxo",
         "ru-RU": "Лиловый",
-        "zh-CN": "紫色",
+        "zh-CN": "亮紫色",
         "zh-TW": "紫"
     },
     "Raise": {
@@ -7337,7 +7337,7 @@ var normalStrKw =
         "pl-PL": "Wskrześ",
         "pt-BR": "Ressuscitar",
         "ru-RU": "Воскресить",
-        "zh-CN": "重生",
+        "zh-CN": "复活",
         "zh-TW": "復活"
     },
     "Resurrected": {
@@ -7352,7 +7352,7 @@ var normalStrKw =
         "pl-PL": "Wskrzeszono",
         "pt-BR": "Ressuscitado",
         "ru-RU": "Воскресил",
-        "zh-CN": "已重生",
+        "zh-CN": "已复活",
         "zh-TW": "獲得復活"
     },
     "Resurrecting": {
@@ -7367,7 +7367,7 @@ var normalStrKw =
         "pl-PL": "Wskrzeszanie",
         "pt-BR": "Ressuscitando",
         "ru-RU": "Воскрешает",
-        "zh-CN": "正在重生",
+        "zh-CN": "正在复活",
         "zh-TW": "正在復活"
     },
     "Reveal": {
