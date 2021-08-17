@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -28438,7 +28438,6 @@ Blizzard Support
 00000001144E.07C: The type of max health to acquire.
 00000001144F.07C: 120 credits, and a free gift of 60 Summer Games Loot Boxes
 00000001146F.07C: 50 + 10 Summer Games Loot Boxes
-0000000114DC.07C: Watch Now
 0000000114DF.07C: Watch Overwatch League
 0000000114E4.07C: Gingerbread
 00000001152E.07C: Lumberjack
@@ -29310,6 +29309,8 @@ and 10 Free Winter Loot Boxes
 0000000127E8.07C: Season 28
 0000000127E9.07C: Season 29
 0000000127EA.07C: Season 29
+0000000127EB.07C: Season 30
+0000000127EC.07C: Season 30
 0000000127EF.07C: Season 26
 0000000127F0.07C: Season 26
 0000000127F1.07C: Season 27
@@ -29318,10 +29319,13 @@ and 10 Free Winter Loot Boxes
 0000000127F4.07C: Season 28
 0000000127F5.07C: Season 29
 0000000127F6.07C: Season 29
+0000000127F7.07C: Season 30
+0000000127F8.07C: Season 30
 0000000127FC.07C: Competitive Season 26 - Open Queue
 0000000127FD.07C: Competitive Season 27 - Open Queue
 0000000127FE.07C: Competitive Season 28 - Open Queue
 0000000127FF.07C: Competitive Season 29 - Open Queue
+000000012800.07C: Competitive Season 30 - Open Queue
 000000012802.07C: Shining Bull
 000000012804.07C: Placement Matches
 000000012805.07C: Frozen Elf
@@ -29944,6 +29948,7 @@ and 10 Free Winter Loot Boxes
 0000000130BC.07C: Network
 0000000130BD.07C: Spectate
 0000000130BE.07C: Miscellaneous
+0000000130CD.07C: Ends In %1$s!
 000000013131.07C: Are you sure you want to disable cross-platform play?
 000000013132.07C: Disabling this feature may result in lower quality matches and longer queue times.
 You will also be placed in the opt-out pool for this competitive season.
@@ -32897,7 +32902,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: PC Games Only
 000000013924.07C: Console Games Only
 000000013927.07C: Chat
-000000013932.07C: June Joust Tournament Skin
 000000013942.07C: Competitive Deathmatch Season 4
 000000013943.07C: Text Chat
 000000013944.07C: Write Message
@@ -33020,6 +33024,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: Available in Summer Games Loot Boxes
 000000013E89.07C: I'll get in the pool...
 000000013EA2.07C: Beach Fuel
+000000013EAC.07C: Season 30 Hero
+000000013EAD.07C: Unlocked by achieving top 500 ranking at the end of Season 30
+000000013EAE.07C: Season 30 Competitor
+000000013EAF.07C: Unlocked by completing Season 30 placement matches
+000000013EB0.07C: Season 30 Competitor
+000000013EB1.07C: Unlocked by completing Season 30 placement matches
+000000013EB2.07C: Season 30 Hero
+000000013EB3.07C: Unlocked by achieving top 500 ranking at the end of Season 30
 000000013EB9.07C: Copa Lúcioball Hero 2021
 000000013EBA.07C: Unlocked by achieving top 500 ranking at the end of Copa Lúcioball 2021
 000000013EBB.07C: Copa Lúcioball Competitor 2021
@@ -33059,4 +33071,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Week 3
 000000013F59.07C: Summer Games 2021
 000000013F5C.07C: Unlock epic skins
-[Core] Execution finished in 00:00:00.4513624 seconds
+000000013FC5.07C: Pirate Ship
+000000014001.07C: Voice Chat
+00000001400D.07C: Group Text Chat
+00000001400E.07C: Team Text Chat
+00000001400F.07C: Match Text Chat
+000000014010.07C: General Text Chat
+000000014011.07C: Text Chat
+000000014022.07C: Region Settings
+000000014026.07C: Are you sure you want to reset all region settings?
+000000014027.07C: UK Age Appropriate Design Code
+000000014028.07C: Sound - Voice Chat
+000000014029.07C: Social - Text Chat
+00000001402A.07C: Regulations apply to your account which have disabled Specific Settings by default. You can adjust these settings with the controls below.
+
+Click “Learn More” for more information.
+00000001402B.07C: Regulations no longer apply to your account which Affect the settings below. You can manually re-enable these settings with the CONTROLS shown here.
+
+If you enable all features, The UK Age Appropriate Design Code Settings below will be removed from this tab.
+
+Click “Learn More” for more information.
+00000001402C.07C: Learn More
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: There are regional regulations that affect your account. Several settings have been disabled by default.
+
+You can view and adjust the affected settings by going to the “Region Settings” tab in Options.
+
+Click “Learn More” for more information.
+00000001405E.07C: Close
+000000014061.07C: Certain regulations no longer apply to this account.
+
+If you would like to re-enable affected settings, please go to the “Region Settings” tab in Options.
+000000014062.07C: Go to Options
+000000014063.07C: Ok
+00000001407C.07C: This chat channel is disabled. To view or adjust this setting, go to the "Social" tab in Options.
+00000001409A.07C: Overwatch League Skin Vault
+00000001409B.07C: 
+00000001409C.07C: Pirate Ship
+00000001409D.07C: Countdown Cup Tournament Skin
+000000014216.07C: TBD
+000000014217.07C: To Be Determined
+[Core] Execution finished in 00:00:00.4545311 seconds

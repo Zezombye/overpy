@@ -630,6 +630,8 @@ function parse(content, kwargs={}) {
 						stringType = "FullwidthStringLiteral";
 					} else if (content[0].text === "p") {
 						stringType = "PlaintextStringLiteral";
+					} else if (content[0].text === "c") {
+						stringType = "CaseSensitiveStringLiteral";
 					} else {
 						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
 					}

@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -17849,7 +17849,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A267.07C: 다이너마이트는 총으로 쏴서 즉시 폭파시킬 수 있습니다.
 00000000A268.07C: 다이너마이트는 자리야의 중력자탄이나 라인하르트의 대지분쇄 같은 기술과 연계하면 매우 효과적입니다.
 00000000A269.07C: 밥은 적 팀을 뚫고 돌진한 다음 뒤에서 발사할 때 가장 귀찮은 존재가 될 수 있습니다.
-00000000A26A.07C: 밥은 방해물이나 적에게 부딫치기 전까지 계속해서 전방으로 돌진하므로 밥을 절벽을 향해 호출하지 마세요.
+00000000A26A.07C: 밥은 방해물이나 적에게 부딪치기 전까지 계속해서 전방으로 돌진하므로 밥을 절벽을 향해 호출하지 마세요.
 00000000A26B.07C: 밥을 호출하기 전에 애쉬의 충격 샷건을 사용해 밥의 돌진 경로에 적을 몰아넣으세요.
 00000000A26C.07C: 밥은 거점을 점령하거나 화물을 밀 수 있습니다.
 00000000A2AD.07C: 자동 사격 불가
@@ -26206,7 +26206,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F1B6.07C: 고대 동상
 00000000F1C0.07C: 정말로 게임과 대기열에서 나가시겠습니까?
 00000000F1C5.07C: <fg%1$s>잡음</fg>
-00000000F1C6.07C: 2021
+00000000F1C6.07C: 2020
 00000000F1C7.07C: 겨울나라 전리품 상자에서 획득
 00000000F1C8.07C: 기다리는 동안 자동 참여
 00000000F212.07C: 돌파
@@ -28435,7 +28435,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000001144E.07C: 가져올 최대 생명력의 유형입니다.
 00000001144F.07C: 120 크레딧, 무료 하계 스포츠 대회 전리품 상자 60개
 00000001146F.07C: 하계 스포츠 대회 전리품 상자 50개 + 10개 (소모성 아이템)
-0000000114DC.07C: 지금 시청
 0000000114DF.07C: 오버워치 리그 시청
 0000000114E4.07C: 생강 쿠키
 00000001152E.07C: 벌목꾼
@@ -29310,6 +29309,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000127E8.07C: 28시즌
 0000000127E9.07C: 29시즌
 0000000127EA.07C: 29시즌
+0000000127EB.07C: 30시즌
+0000000127EC.07C: 30시즌
 0000000127EF.07C: 26시즌
 0000000127F0.07C: 26시즌
 0000000127F1.07C: 27시즌
@@ -29318,10 +29319,13 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000127F4.07C: 28시즌
 0000000127F5.07C: 29시즌
 0000000127F6.07C: 29시즌
+0000000127F7.07C: 30시즌
+0000000127F8.07C: 30시즌
 0000000127FC.07C: 경쟁전 26시즌 - 자유
 0000000127FD.07C: 경쟁전 27시즌 - 자유
 0000000127FE.07C: 경쟁전 28시즌 - 자유
 0000000127FF.07C: 경쟁전 29시즌 - 자유
+000000012800.07C: 경쟁전 30시즌 - 자유
 000000012802.07C: 빛나는 황소
 000000012804.07C: 배치 경기
 000000012805.07C: 얼어붙은 엘프
@@ -29946,6 +29950,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000130BC.07C: 네트워크
 0000000130BD.07C: 관전
 0000000130BE.07C: 기타
+0000000130CD.07C: %1$s 후 종료됩니다!
 000000013131.07C: 정말 플랫폼 간 연동을 비활성화하시겠습니까?
 000000013132.07C: 이 기능을 비활성화하면 적절하지 않은 상대와 경기를 할 수 있게 되며, 경기 검색 시간이 길어질 수 있습니다. 또한, 이번 경쟁전 시즌에 비 연동 플레이어 풀에 배치됩니다.
 000000013134.07C: 열성팬
@@ -32898,9 +32903,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: PC 게임만
 000000013924.07C: 콘솔 게임만
 000000013927.07C: 대화창
-000000013932.07C: 6월 토너먼트 스킨
 000000013942.07C: 데스매치 경쟁전 4시즌
-000000013943.07C: 대화 입력
+000000013943.07C: 텍스트 기반 채팅
 000000013944.07C: 메시지 작성
 000000013945.07C: 채널
 000000013946.07C: 닫기
@@ -33021,6 +33025,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: 하계 스포츠 대회 전리품 상자에서 획득
 000000013E89.07C: 때가 되면 알아서
 000000013EA2.07C: 비치 퓨얼
+000000013EAC.07C: 30시즌 영웅
+000000013EAD.07C: 30시즌에서 상위 500위를 달성하여 획득
+000000013EAE.07C: 30시즌 참가자
+000000013EAF.07C: 30시즌 배치 경기를 완료하여 획득
+000000013EB0.07C: 30시즌 참가자
+000000013EB1.07C: 30시즌 배치 경기를 완료하여 획득
+000000013EB2.07C: 30시즌 영웅
+000000013EB3.07C: 30시즌에서 상위 500위를 달성하여 획득
 000000013EB9.07C: 2021 코파 루시우볼 영웅
 000000013EBA.07C: 2021 코파 루시우볼에서 상위 500위를 달성하여 획득
 000000013EBB.07C: 2021 코파 루시우볼 참가자
@@ -33061,4 +33073,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: 3주 차
 000000013F59.07C: 2021 하계 스포츠 대회
 000000013F5C.07C: 영웅급 스킨을 획득하세요
-[Core] Execution finished in 00:00:00.4938555 seconds
+000000013FC5.07C: 해적선
+000000014001.07C: 음성 대화
+00000001400D.07C: 그룹 텍스트 채팅
+00000001400E.07C: 팀 텍스트 채팅
+00000001400F.07C: 경기 텍스트 채팅
+000000014010.07C: 일반 텍스트 채팅
+000000014011.07C: 텍스트 채팅
+000000014022.07C: 지역 설정
+000000014026.07C: 정말로 모든 지역 설정을 초기화하시겠습니까?
+000000014027.07C: UK 연령대 디자인 코드
+000000014028.07C: 오디오 - 음성 대화
+000000014029.07C: 소셜 - 텍스트 채팅
+00000001402A.07C: 귀하의 계정에 규정이 적용되어 특정 설정이 비활성화되었습니다. 이 설정은 아래 조작법에서 조정할 수 있습니다.
+
+자세한 내용을 보려면 "자세히 보기"를 클릭하세요.
+00000001402B.07C: 귀하의 계정에 더는 규정이 적용되지 않으며, 아래 설정에도 더 이상 영향을 주지 않습니다. 조작법에서 직접 해당 설정을 다시 활성화할 수 있습니다.
+
+모든 기능을 활성화하면 아래의 UK 연령대 디자인 코드 설정이 이 탭에서 제거됩니다.
+
+자세한 내용을 보려면 "자세히 보기"를 클릭하세요.
+00000001402C.07C: 자세히 보기
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: 귀하의 계정에 영향을 주는 지역 규정이 있어, 일부 설정이 비활성화되었습니다.
+
+영향을 받은 설정을 확인하거나 조정하려면 설정의 "지역 설정" 탭을 확인하십시오.
+
+자세한 내용을 보려면 "자세히 보기"를 클릭하세요.
+00000001405E.07C: 닫기
+000000014061.07C: 이 계정에 더는 특정 규정이 적용되지 않습니다.
+
+영향을 받은 설정을 재활성화하려면 설정의 "지역 설정" 탭을 확인하십시오.
+000000014062.07C: 설정으로 가기
+000000014063.07C: 확인
+00000001407C.07C: 이 채팅 채널은 비활성화되었습니다. 해당 설정을 보거나 조정하시려면 설정의 "소셜" 탭을 확인하십시오.
+00000001409A.07C: 오버워치 리그 스킨 보관소
+00000001409B.07C: 
+00000001409C.07C: 해적선
+00000001409D.07C: 카운트다운 컵 토너먼트 스킨
+000000014216.07C: 미정
+000000014217.07C: 미정
+[Core] Execution finished in 00:00:00.4434698 seconds

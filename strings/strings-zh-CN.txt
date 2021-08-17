@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -8368,8 +8368,8 @@ Andrew Wang
 000000004BE8.07C: /|Rfn %1$s:N0;
 000000004BEA.07C: 悟净
 000000004BED.07C: 队伍中有“免费试玩”玩家，无法加入竞技比赛
-000000004BEF.07C: 您的战网通行证已被封停。详情请浏览您注册邮箱中的邮件。
-000000004BF0.07C: 您的《守望先锋》账号已被冻结。详情请浏览您注册邮箱中的邮件。
+000000004BEF.07C: 您的战网通行证已被冻结，请前往https://security.blizzard.cn/usercenter了解详情。
+000000004BF0.07C: 您的《守望先锋》账号已被冻结，请前往https://security.blizzard.cn/usercenter了解详情。
 000000004BF1.07C: 最终得分
 000000004BF2.07C: VPP Green Room
 000000004BF7.07C: 未赢得的比赛
@@ -26326,7 +26326,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: 青铜巨猿
 00000000F1C0.07C: 即将离开比赛和队列，是否确认？
 00000000F1C5.07C: <fg%1$s>接住</fg>
-00000000F1C6.07C: 2021
+00000000F1C6.07C: 2020
 00000000F1C7.07C: 可在圣诞补给中开出
 00000000F1C8.07C: 热身阶段自动加入
 00000000F212.07C: 破墙而入
@@ -28587,7 +28587,6 @@ https://account.blizzard.com/connections/nintendo
 00000001144F.07C: 120游戏货币
 （赠送60份夏季运动会补给）
 00000001146F.07C: 50份夏季运动会补给（附送10份）
-0000000114DC.07C: 立即观看
 0000000114DF.07C: 观看守望先锋联赛
 0000000114E4.07C: 美味姜饼
 00000001152E.07C: 伐木老手
@@ -28602,7 +28601,7 @@ https://account.blizzard.com/connections/nintendo
 00000001165E.07C: 更多信息
 000000011672.07C: 铁坂死斗
 000000011673.07C: 在排行榜上不断攀升，最强大的英雄才能获得胜利。
-000000011674.07C: 地图：铁坂
+000000011674.07C: 地图限制：铁坂
 000000011676.07C: 所有成就均已解锁
 000000011677.07C: 暴击命中率
 000000011679.07C: 您的《守望先锋》账号已被锁定。
@@ -29461,6 +29460,8 @@ https://account.blizzard.com/connections/nintendo
 0000000127E8.07C: 第28赛季
 0000000127E9.07C: 第29赛季
 0000000127EA.07C: 第29赛季
+0000000127EB.07C: 第30赛季
+0000000127EC.07C: 第30赛季
 0000000127EF.07C: 第26赛季
 0000000127F0.07C: 第26赛季
 0000000127F1.07C: 第27赛季
@@ -29469,10 +29470,13 @@ https://account.blizzard.com/connections/nintendo
 0000000127F4.07C: 第28赛季
 0000000127F5.07C: 第29赛季
 0000000127F6.07C: 第29赛季
+0000000127F7.07C: 第30赛季
+0000000127F8.07C: 第30赛季
 0000000127FC.07C: 第26赛季竞技比赛 - 开放排位
 0000000127FD.07C: 第27赛季竞技比赛 - 开放排位
 0000000127FE.07C: 第28赛季竞技比赛 - 开放排位
 0000000127FF.07C: 第29赛季竞技比赛 - 开放排位
+000000012800.07C: 第30赛季竞技比赛 - 开放排位
 000000012802.07C: 璀璨光牛
 000000012804.07C: 定级赛
 000000012805.07C: 冰封精灵
@@ -30102,6 +30106,7 @@ https://account.blizzard.com/connections/nintendo
 0000000130BC.07C: 网络
 0000000130BD.07C: 观战
 0000000130BE.07C: 其他
+0000000130CD.07C: 活动将在%1$s后结束！
 000000013131.07C: 是否确认禁用跨平台游戏？
 000000013132.07C: 禁用此功能可能导致匹配质量下降、排队时间延长。
 在本赛季中，你也将被列入非跨平台匹配池中。
@@ -33056,7 +33061,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: 仅限PC游戏
 000000013924.07C: 仅限主机游戏
 000000013927.07C: 聊天
-000000013932.07C: 六月争霸赛皮肤
 000000013942.07C: 竞技死斗第4赛季
 000000013943.07C: 文字聊天
 000000013944.07C: 输入信息
@@ -33180,6 +33184,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: 可在夏季运动会补给中开出
 000000013E89.07C: 我会去游泳的……
 000000013EA2.07C: 蓝焰燃沙滩
+000000013EAC.07C: 第30赛季英雄
+000000013EAD.07C: 在第30赛季达到天梯前500名后解锁
+000000013EAE.07C: 第30赛季选手
+000000013EAF.07C: 完成第30赛季定级赛后解锁
+000000013EB0.07C: 第30赛季选手
+000000013EB1.07C: 完成第30赛季定级赛后解锁
+000000013EB2.07C: 第30赛季英雄
+000000013EB3.07C: 在第30赛季达到天梯前500名后解锁
 000000013EB9.07C: 2021动感斗球英雄
 000000013EBA.07C: 在2021动感斗球杯达到前500名后解锁
 000000013EBB.07C: 2021动感斗球选手
@@ -33219,4 +33231,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: 第3周
 000000013F59.07C: 2021年夏季运动会
 000000013F5C.07C: 解锁史诗皮肤
-[Core] Execution finished in 00:00:00.4464408 seconds
+000000013FC5.07C: 海盗战船
+000000014001.07C: 语音聊天
+00000001400D.07C: 小队文字聊天
+00000001400E.07C: 团队文字聊天
+00000001400F.07C: 比赛文字聊天
+000000014010.07C: 公共文字聊天
+000000014011.07C: 文字聊天
+000000014022.07C: 地区设置
+000000014026.07C: 是否确认要重置所有地区设置？
+000000014027.07C: 英国适龄设计规范
+000000014028.07C: 声音 - 语音聊天
+000000014029.07C: 社交 - 文字聊天
+00000001402A.07C: 此法规适用于你的账号，特定设置已被默认为禁用。可通过下列控制选项调整这些设置。
+
+点击“了解详情”即可查看更多信息。
+00000001402B.07C: 此法规已不再适用于你的账号，下列设置会受到影响。可通过下列控制选项手动重新启用这些设置。
+
+如启用所有功能，下列英国适龄设计规范设置将从此标签页中移除。
+
+点击“了解详情”即可查看更多信息。
+00000001402C.07C: 了解详情
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: 你的账号受到地区性法规影响。部分设置已被默认禁用。
+
+可在选项设置的“地区设置”标签页中查看并修改这些受影响的设置。
+
+点击“了解详情”即可查看更多信息。
+00000001405E.07C: 关闭
+000000014061.07C: 特定法规已不再适用于此账号。
+
+如需重新启用受影响的设置，请前往选项设置中的“地区设置”标签页。
+000000014062.07C: 前往选项设置
+000000014063.07C: 确定
+00000001407C.07C: 此聊天频道已禁用。如需查看或调整该设置，请前往选项设置中的“社交”标签页。
+00000001409A.07C: 守望先锋联赛皮肤返场
+00000001409B.07C: 
+00000001409C.07C: 海盗战船
+00000001409D.07C: 倒计时杯皮肤
+000000014216.07C: 待定
+000000014217.07C: 待定
+[Core] Execution finished in 00:00:00.4386997 seconds

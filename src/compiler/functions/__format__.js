@@ -65,6 +65,39 @@ astParsingFunctions.__format__ = function(content) {
 
 }
 
+
+var caseSensitiveReplacements = {
+	"æ": "ӕ",
+	"nj": "ǌ",
+	" a ": " ａ ",
+	"a": "ạ",
+	"b": "ḅ",
+	"c": "ƈ",
+	"d": "ḍ",
+	"e": "ẹ",
+	"f": "ƒ",
+	"g": "ǵ",
+	"h": "һ",
+	"i": "і",
+	"j": "ј",
+	"k": "ḳ",
+	"l": "I",
+	"m": "ṃ",
+	"n": "ṇ",
+	"o": "ο",
+	"p": "ṗ",
+	"q": "ǫ",
+	"r": "ṛ",
+	"s": "ѕ",
+	"t": "ṭ",
+	"u": "υ",
+	"v": "ν",
+	"w": "ẉ",
+	"x": "ҳ",
+	"y": "ỵ",
+	"z": "ẓ",
+}
+
 //Parses a custom string.
 function parseCustomString(str, formatArgs) {
 
@@ -75,6 +108,7 @@ function parseCustomString(str, formatArgs) {
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
     var isPlaintext = (str.type === "PlaintextStringLiteral");
+	var isCaseSensitive = (str.type === "CaseSensitiveStringLiteral");
 
 	var content = str.name;
 	//console.log(content);
@@ -114,6 +148,12 @@ function parseCustomString(str, formatArgs) {
 	
 			content = tmpStr;
 			
+		} else if (isCaseSensitive) {
+			content = content.replaceAll(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+			content = content.replaceAll(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			for (var key of Object.keys(caseSensitiveReplacements)) {
+				content = content.replaceAll(key, caseSensitiveReplacements[key])
+			}
 		}
 	
 		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {

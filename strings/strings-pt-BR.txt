@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28442,7 +28442,6 @@ Suporte da Blizzard
 00000001144E.07C: O tipo de vida máxima que será adquirido.
 00000001144F.07C: 120 créditos e um presente gratuito de 60 Caixas de Itens dos Jogos de Verão
 00000001146F.07C: 50 +10 Caixas de Itens dos Jogos de Verão
-0000000114DC.07C: Assista agora
 0000000114DF.07C: Assista à Liga Overwatch
 0000000114E4.07C: Biscoito de gengibre
 00000001152E.07C: Lenhador
@@ -29148,7 +29147,7 @@ Competitiva 2020
 000000012538.07C: Descongele um aliado que descongelou você em uma rodada de Eliminação Descongelante.
 000000012539.07C: Gran Finale
 00000001253A.07C: LAT. MÍN.: %1$s MS
-00000001253D.07C: Beira da piscina
+00000001253D.07C: Piscina
 00000001253E.07C: Competitivo
 00000001253F.07C: PARTICIPE PARA GANHAR ESTES PRÊMIOS
 000000012540.07C: Sem Limites
@@ -29318,6 +29317,8 @@ e 10 Caixas de Itens Congelados grátis
 0000000127E8.07C: Temporada 28
 0000000127E9.07C: Temporada 29
 0000000127EA.07C: Temporada 29
+0000000127EB.07C: Temporada 30
+0000000127EC.07C: Temporada 30
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127F1.07C: Temporada 27
@@ -29326,10 +29327,13 @@ e 10 Caixas de Itens Congelados grátis
 0000000127F4.07C: Temporada 28
 0000000127F5.07C: Temporada 29
 0000000127F6.07C: Temporada 29
+0000000127F7.07C: Temporada 30
+0000000127F8.07C: Temporada 30
 0000000127FC.07C: Temporada 26 do Competitivo - Fila Aberta
 0000000127FD.07C: Temporada 27 do Competitivo - Fila Aberta
 0000000127FE.07C: Temporada 28 do Competitivo - Fila Aberta
 0000000127FF.07C: Temporada 29 do Competitivo - Fila Aberta
+000000012800.07C: Temporada 30 do Competitivo - Fila Aberta
 000000012802.07C: Touro Brilhante
 000000012804.07C: Partidas de posicionamento
 000000012805.07C: Duende congelado
@@ -29341,7 +29345,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012832.07C: 
 000000012833.07C: 
 000000012834.07C: 
-000000012837.07C: Rei do Oceano
+000000012837.07C: Rei do Mar
 00000001283A.07C: Desbloqueado na compra da Coleção Comemorativa.
 00000001283B.07C: Desbloqueado na compra da Coleção Comemorativa.
 00000001283D.07C: Desbloqueado na compra da Coleção Comemorativa.
@@ -29953,6 +29957,7 @@ e 10 Caixas de Itens Congelados grátis
 0000000130BC.07C: Rede
 0000000130BD.07C: Assistir
 0000000130BE.07C: Outros
+0000000130CD.07C: Acaba em %1$s!
 000000013131.07C: Tem certeza de que deseja desativar partidas multiplataforma?
 000000013132.07C: Desativar esse recurso pode reduzir a qualidade das partidas e aumentar os tempos de espera.
 Você também será colocado no conjunto de fora desta temporada competitiva.
@@ -32906,7 +32911,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: Apenas partidas de PC
 000000013924.07C: Apenas partidas de console
 000000013927.07C: Bate-papo
-000000013932.07C: Visual do torneio June Joust
 000000013942.07C: 4ª Temporada do Combate até a Morte Competitivo
 000000013943.07C: Bate-papo de texto
 000000013944.07C: Escrever mensagem
@@ -33003,7 +33007,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013DBC.07C: Nihon
 000000013DBD.07C: Pôr do Sol
 000000013DBE.07C: Mergulhador
-000000013DC3.07C: Pôr do sol
+000000013DC3.07C: Pôr do Sol
 000000013DC8.07C: Nihon
 000000013E2F.07C: Marshmallow
 000000013E3F.07C: Jogos de Verão 2021
@@ -33029,6 +33033,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: Disponível nas Caixas de Itens dos Jogos de Verão
 000000013E89.07C: Eu vou entrar na piscina...
 000000013EA2.07C: Combustível Praiano
+000000013EAC.07C: Herói da Temporada 30
+000000013EAD.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 30
+000000013EAE.07C: Competidor da Temporada 30
+000000013EAF.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 30
+000000013EB0.07C: Competidor da Temporada 30
+000000013EB1.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 30
+000000013EB2.07C: Herói da Temporada 30
+000000013EB3.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 30
 000000013EB9.07C: Herói da Copa Lúciobol 2021
 000000013EBA.07C: Desbloqueado ao ficar entre os 500 melhores no fim da Copa Lúciobol 2021
 000000013EBB.07C: Competidor da Copa Lúciobol 2021
@@ -33068,4 +33080,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: 3ª Semana
 000000013F59.07C: Jogos de Verão 2021
 000000013F5C.07C: Desbloqueie visuais épicos
-[Core] Execution finished in 00:00:00.4772374 seconds
+000000013FC5.07C: Navio Pirata
+000000014001.07C: Bate-papo por voz
+00000001400D.07C: Bate-papo de texto do grupo
+00000001400E.07C: Bate-papo de texto da equipe
+00000001400F.07C: Bate-papo de texto da partida
+000000014010.07C: Bate-papo de texto geral
+000000014011.07C: Bate-papo de texto
+000000014022.07C: Configurações de Região
+000000014026.07C: Tem certeza de que deseja redefinir todas as configurações de região?
+000000014027.07C: Código de design adequado à idade do Reino Unido
+000000014028.07C: Som - Bate-papo por voz
+000000014029.07C: Social - Bate-papo de texto
+00000001402A.07C: Sua conta está sujeita a regulamentos que desativaram Configurações Específicas por padrão. Você pode ajustá-las com os controles abaixo.
+
+Clique em "Saiba mais" para obter mais informações.
+00000001402B.07C: Sua conta não está mais sujeita a regulamentos que afetam as configurações abaixo. Você pode reativá-las manualmente com os CONTROLES exibidos aqui.
+
+Se você ativar todas as funções, a configuração do código de design adequado à idade do Reino Unido será removida desta aba.
+
+Clique em "Saiba mais" para obter mais informações.
+00000001402C.07C: Saiba mais
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: Sua conta está sujeita a regras regionais. Várias configurações foram desabilitadas por padrão.
+
+Você pode ver e ajustar as configurações afetadas acessando a aba "Configurações de Região" em Opções.
+
+Clique em "Saiba mais" para obter mais informações.
+00000001405E.07C: Fechar
+000000014061.07C: Algumas regras não se aplicam mais a esta conta.
+
+Se desejar reativar as configurações afetadas, acesse a aba "Configurações de Região" em Opções.
+000000014062.07C: Ir para Opções
+000000014063.07C: Ok
+00000001407C.07C: Este canal de bate-papo está desabilitado. Para ver ou ajustar esta configuração, acesse a aba "Social" em Opções.
+00000001409A.07C: Cofre de Visuais da Liga Overwatch
+00000001409B.07C: 
+00000001409C.07C: Navio Pirata
+00000001409D.07C: Visual do torneio Countdown Cup
+000000014216.07C: A definir
+000000014217.07C: A definir
+[Core] Execution finished in 00:00:00.4587476 seconds

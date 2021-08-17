@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28547,7 +28547,6 @@ L’assistance Blizzard
 00000001144E.07C: Le type de points de vie maximum à acquérir.
 00000001144F.07C: 120 crédits, plus 60 coffres des jeux d’été offerts
 00000001146F.07C: 50 + 10 coffres des jeux d’été
-0000000114DC.07C: Regarder maintenant
 0000000114DF.07C: Regarder l’Overwatch League
 0000000114E4.07C: Pain d’épice
 00000001152E.07C: Bûcheron
@@ -29419,6 +29418,8 @@ et 10 coffres hivernaux offerts
 0000000127E8.07C: Saison 28
 0000000127E9.07C: Saison 29
 0000000127EA.07C: Saison 29
+0000000127EB.07C: Saison 30
+0000000127EC.07C: Saison 30
 0000000127EF.07C: Saison 26
 0000000127F0.07C: Saison 26
 0000000127F1.07C: Saison 27
@@ -29427,10 +29428,13 @@ et 10 coffres hivernaux offerts
 0000000127F4.07C: Saison 28
 0000000127F5.07C: Saison 29
 0000000127F6.07C: Saison 29
+0000000127F7.07C: Saison 30
+0000000127F8.07C: Saison 30
 0000000127FC.07C: Saison de compétition 26 - Sélection libre
 0000000127FD.07C: Saison de compétition 27 - Sélection libre
 0000000127FE.07C: Saison de compétition 28 - Sélection libre
 0000000127FF.07C: Saison de compétition 29 - Sélection libre
+000000012800.07C: Saison de compétition 30 - Sélection libre
 000000012802.07C: Taureau étincelant
 000000012804.07C: Parties de placement
 000000012805.07C: Lutin gelé
@@ -30053,6 +30057,7 @@ et 10 coffres hivernaux offerts
 0000000130BC.07C: Réseau
 0000000130BD.07C: Regarder
 0000000130BE.07C: Divers
+0000000130CD.07C: Fin dans %1$s !
 000000013131.07C: Voulez-vous vraiment désactiver le jeu multiplateforme ?
 000000013132.07C: Désactiver cette fonctionnalité peut entraîner une baisse de la qualité des parties et un temps d’attente plus élevé.
 Vous vous retrouverez également dans la liste de non-participation pour cette saison de compétition.
@@ -33006,7 +33011,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: Parties PC uniquement
 000000013924.07C: Parties console uniquement
 000000013927.07C: Discussion
-000000013932.07C: Modèle de tournoi June Joust
 000000013942.07C: Combat à mort saison 4
 000000013943.07C: Discussion écrite
 000000013944.07C: Écrire un message
@@ -33129,6 +33133,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: Disponible dans les coffres des jeux d’été
 000000013E89.07C: J’irai dans la piscine
 000000013EA2.07C: Fuel estival
+000000013EAC.07C: Héros Saison 30
+000000013EAD.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 30
+000000013EAE.07C: Compétiteur Saison 30
+000000013EAF.07C: Obtenu en effectuant toutes les parties de placement de la saison 30
+000000013EB0.07C: Compétiteur Saison 30
+000000013EB1.07C: Obtenu en effectuant toutes les parties de placement de la saison 30
+000000013EB2.07C: Héros Saison 30
+000000013EB3.07C: Obtenu en se classant parmi les 500 meilleurs joueurs lors de la saison 30
 000000013EB9.07C: Héros Copa Lúcioball 2021
 000000013EBA.07C: Obtenu en se classant parmi les 500 meilleurs joueurs à la fin de la Copa Lúcioball 2021
 000000013EBB.07C: Compétiteur Copa Lúcioball 2021
@@ -33168,4 +33180,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Semaine 3
 000000013F59.07C: Jeux d’été 2021
 000000013F5C.07C: Obtenez des modèles épiques
-[Core] Execution finished in 00:00:00.4960437 seconds
+000000013FC5.07C: Bateau pirate
+000000014001.07C: Discussion vocale
+00000001400D.07C: Discussion écrite d’escouade
+00000001400E.07C: Discussion écrite d’équipe
+00000001400F.07C: Discussion écrite de partie
+000000014010.07C: Discussion écrite générale
+000000014011.07C: Discussion écrite
+000000014022.07C: Paramètres de région
+000000014026.07C: Voulez-vous vraiment réinitialiser les paramètres de région ?
+000000014027.07C: Code d’évaluation du contenu pour le Royaume-Uni
+000000014028.07C: Social - Discussion vocale
+000000014029.07C: Social - Discussion écrite
+00000001402A.07C: Des règlementations s’appliquent à votre compte et ont désactivé des paramètres spécifiques par défaut. Vous pouvez les modifier à l’aide des commandes ci-dessous.
+
+Cliquez sur « En savoir plus » pour plus d’informations.
+00000001402B.07C: Les règlementations ne s’appliquent plus à votre compte, ce qui affecte les paramètres ci-dessous. Vous pouvez les réactiver manuellement à l’aide des COMMANDES affichées ici.
+
+Si vous activez toutes les fonctionnalités, les paramètres du Code d’évaluation du contenu pour le Royaume-Uni seront supprimés de cet onglet.
+
+Cliquez sur « En savoir plus » pour plus d’informations.
+00000001402C.07C: En savoir plus
+000000014057.07C: https://www.url.com
+000000014059.07C: Certaines règlementations régionales affectent votre compte. Plusieurs paramètres ont été désactivés par défaut.
+
+Vous pouvez afficher et modifier les paramètres concernés en vous rendant dans l’onglet « Paramètres de région » du menu Options.
+
+Cliquez sur « En savoir plus » pour plus d’informations.
+00000001405E.07C: Fermer
+000000014061.07C: Certaines règlementations ne s’appliquent plus à ce compte.
+
+Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre dans l’onglet « Paramètres de région » du menu Options.
+000000014062.07C: Se rendre dans Options
+000000014063.07C: OK
+00000001407C.07C: Ce canal de discussion est désactivé. Pour afficher ou ajuster ce paramètre, rendez-vous sur l’onglet « Social » du menu Options.
+00000001409A.07C: Coffre de modèle Overwatch League
+00000001409B.07C: 
+00000001409C.07C: Bateau pirate
+00000001409D.07C: Modèle de tournoi Countdown Cup
+000000014216.07C: À dét.
+000000014217.07C: À déterminer
+[Core] Execution finished in 00:00:00.4683308 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26433,7 +26433,7 @@ w Drużynowym Deathmatchu 2019
 00000000F1B6.07C: Starożytny brąz
 00000000F1C0.07C: OPUSZCZASZ MECZ I KOLEJKĘ. POTWIERDZASZ DECYZJĘ?
 00000000F1C5.07C: <fg%1$s>ZŁAPANO</fg>
-00000000F1C6.07C: 2021
+00000000F1C6.07C: 2020
 00000000F1C7.07C: Zawartość zimowych skrzynek
 00000000F1C8.07C: Dołącz automatycznie będąc w poczekalni
 00000000F212.07C: Wyłom
@@ -28106,7 +28106,7 @@ z letnich igrzysk
 w wyzwaniu pierwszego tygodnia
 letnich igrzysk 2020
 000000010FF5.07C: Nagroda za udział
-w wyzwaniu drugiego tygodnia
+w wyzwaniu 2. tygodnia
 letnich igrzysk 2021
 000000010FF6.07C: Nagroda za udział
 w wyzwaniu trzeciego tygodnia
@@ -28728,7 +28728,6 @@ z letnich igrzysk
 00000001144E.07C: Typ maksimum zdrowia do pozyskania.
 00000001144F.07C: 120 kredytów i 60 darmowych skrzynek z letnich igrzysk
 00000001146F.07C: 50 +10 skrzynek z letnich igrzysk
-0000000114DC.07C: Oglądaj teraz
 0000000114DF.07C: Oglądaj Overwatch League
 0000000114E4.07C: Piernikarka
 00000001152E.07C: Drwal
@@ -29623,6 +29622,8 @@ w sezonie 26.
 0000000127E8.07C: Sezon 28
 0000000127E9.07C: Sezon 29
 0000000127EA.07C: Sezon 29
+0000000127EB.07C: Sezon 30
+0000000127EC.07C: Sezon 30
 0000000127EF.07C: Sezon 26
 0000000127F0.07C: Sezon 26
 0000000127F1.07C: Sezon 27
@@ -29631,10 +29632,13 @@ w sezonie 26.
 0000000127F4.07C: Sezon 28
 0000000127F5.07C: Sezon 29
 0000000127F6.07C: Sezon 29
+0000000127F7.07C: Sezon 30
+0000000127F8.07C: Sezon 30
 0000000127FC.07C: 26. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FD.07C: 27. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FE.07C: 28. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FF.07C: 29. sezon Rywalizacji – Otwarta Rywalizacja
+000000012800.07C: 30. sezon Rywalizacji – Otwarta Rywalizacja
 000000012802.07C: Lśniący byk
 000000012804.07C: Mecze klasyfikacyjne
 000000012805.07C: Zamrożony elf
@@ -30273,6 +30277,7 @@ w sezonie 28.
 0000000130BC.07C: Sieć
 0000000130BD.07C: Obserwacja
 0000000130BE.07C: Różne
+0000000130CD.07C: Koniec za %1$s!
 000000013131.07C: Czy chcesz wyłączyć grę międzyplatformową?
 000000013132.07C: Wyłączenie tej funkcji może skutkować gorszą jakością meczów i dłuższym czasem oczekiwania w kolejce.
 Umieścimy cię również w puli opt-out dla tego sezonu Rywalizacji.
@@ -33233,7 +33238,6 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013923.07C: Tylko mecze pecetowe
 000000013924.07C: Tylko mecze konsolowe
 000000013927.07C: Czat
-000000013932.07C: Skórka turnieju June Joust
 000000013942.07C: Deathmatch w trybie Rywalizacji – sezon 4
 000000013943.07C: Czat tekstowy
 000000013944.07C: Napisz wiadomość
@@ -33323,7 +33327,7 @@ w sezonie 29.
 000000013D43.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej drużyny z powodu ustawień komunikacji międzyplatformowej.
 000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
 000000013DAB.07C: Nagroda za udział
-w wyzwaniu pierwszego tygodnia
+w wyzwaniu 1. tygodnia
 letnich igrzysk 2021
 000000013DAF.07C: Zawartość skrzynek
 z letnich igrzysk
@@ -33332,7 +33336,7 @@ z letnich igrzysk
 000000013DB6.07C: Nihon
 000000013DB7.07C: Król Oceanów
 000000013DBB.07C: Nagroda za udział
-w wyzwaniu pierwszego tygodnia
+w wyzwaniu 3. tygodnia
 letnich igrzysk 2021
 000000013DBC.07C: Nihon
 000000013DBD.07C: Słońce Egiptu
@@ -33366,14 +33370,24 @@ z letnich igrzysk
 000000013E80.07C: Do zobaczenia na mecie
 000000013E82.07C: Zawartość skrzynek
 z letnich igrzysk
-000000013E83.07C: Chcesz zobaczyć moje mięśnie?
+000000013E83.07C: Nie napnę, bo pęknie
 000000013E85.07C: Zawartość skrzynek
 z letnich igrzysk
-000000013E86.07C: Podczas kąpieli
+000000013E86.07C: Rozmyślanie w kąpieli
 000000013E88.07C: Zawartość skrzynek
 z letnich igrzysk
 000000013E89.07C: Wejdę do basenu
 000000013EA2.07C: Paliwo plażowe
+000000013EAC.07C: Bohater 30. sezonu
+000000013EAD.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 30.
+000000013EAE.07C: Uczestnik 30. sezonu
+000000013EAF.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 30.
+000000013EB0.07C: Uczestnik 30. sezonu
+000000013EB1.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 30.
+000000013EB2.07C: Bohater 30. sezonu
+000000013EB3.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 30.
 000000013EB9.07C: Bohater Copa Futbolúcio 2021
 000000013EBA.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Copa Futbolúcio 2021.
 000000013EBB.07C: Uczestnik Copa Futbolúcio 2021
@@ -33417,7 +33431,7 @@ z letnich igrzysk
 000000013EDD.07C: Grillmistrz-76
 000000013F50.07C: KONTYNUUJ
 000000013F51.07C: Letnie igrzyska powracają wraz z waszymi ulubionymi elementami z zeszłego roku i wieloma nowymi!
-000000013F53.07C: Turniej Copa Futbolúcio wraca w kolejnej edycji!
+000000013F53.07C: Turniej Copa Futbolúcio wraca z kolejną edycją!
 000000013F54.07C: Koniec wydarzenia 10 sierpnia
 000000013F55.07C: Cotygodniowe wyzwania
 000000013F56.07C: Tydzień 1
@@ -33425,4 +33439,44 @@ z letnich igrzysk
 000000013F58.07C: Tydzień 3
 000000013F59.07C: Letnie igrzyska 2021
 000000013F5C.07C: Odblokuj epickie skórki
-[Core] Execution finished in 00:00:00.5047497 seconds
+000000013FC5.07C: Statek Piracki
+000000014001.07C: Czat głosowy
+00000001400D.07C: Czat tekstowy z ekipą
+00000001400E.07C: Drużynowy czat tekstowy
+00000001400F.07C: Meczowy czat tekstowy
+000000014010.07C: Czat ogólny
+000000014011.07C: Czat tekstowy
+000000014022.07C: Ustawienia regionu
+000000014026.07C: Czy chcesz zresetować wszystkie ustawienia regionu?
+000000014027.07C: Brytyjskie regulacje ograniczeń wiekowych
+000000014028.07C: Dźwięk - czat głosowy
+000000014029.07C: Społeczność - czat tekstowy
+00000001402A.07C: Na to konto mają wpływ określone ograniczenia, które automatycznie wyłączają pewne opcje. Możesz zmieniać ustawienia poniżej.
+
+Naciśnij „Więcej informacji”, jeżeli chcesz poznać szczegóły.
+00000001402B.07C: Na to konto ani opcje poniżej nie mają już wpływu ograniczenia. Można je aktywować ręcznie z tego miejsca.
+
+Jeżeli włączysz wszystkie z opcji, ustawienia obejmujące regulacje ograniczeń wiekowych zostaną usunięte z tej zakładki.
+
+Naciśnij „Więcej informacji”, jeżeli chcesz poznać szczegóły.
+00000001402C.07C: Więcej informacji
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: Istnieją regionalne ograniczenia mające wpływ na twoje konto. Niektóre ustawienia zostały wyłączone automatycznie.
+
+Możesz wyświetlać i modyfikować te opcje w zakładce „Ustawienia regionu” w Opcjach.
+
+Naciśnij „Więcej informacji”, jeżeli chcesz wiedzieć więcej.
+00000001405E.07C: Zamknij
+000000014061.07C: Pewne ograniczenia zostały usunięte z tego konta.
+
+Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regionu” w Opcjach.
+000000014062.07C: Otwórz opcje
+000000014063.07C: OK
+00000001407C.07C: Ten kanał czatu został wyłączony. Aby to zmienić, przejdź do zakładki „Społeczność” w Opcjach.
+00000001409A.07C: Archiwum skórek Overwatch League
+00000001409B.07C: 
+00000001409C.07C: Statek Piracki
+00000001409D.07C: Skórka turnieju Countdown Cup
+000000014216.07C: Do ust.
+000000014217.07C: Do ustalenia
+[Core] Execution finished in 00:00:00.4621289 seconds

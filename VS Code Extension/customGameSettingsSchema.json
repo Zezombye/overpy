@@ -3679,6 +3679,10 @@
                 "description": {
                     "type": "string",
                     "maxLength": 512
+                },
+                "modeName": {
+                    "type": "string",
+                    "maxLength": 32
                 }
             }
         },

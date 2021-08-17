@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28486,7 +28486,6 @@ Asistencia de Blizzard
 00000001144E.07C: Tipo de salud máxima que se adquiere.
 00000001144F.07C: 120 créditos y, de regalo, 60 cajas de botín de los Juegos de Verano
 00000001146F.07C: 50 +10 cajas de botín de los Juegos de Verano
-0000000114DC.07C: Ver ahora
 0000000114DF.07C: Disfruta de la Overwatch League
 0000000114E4.07C: Jengibre
 00000001152E.07C: Leñador
@@ -29358,6 +29357,8 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000127E8.07C: Temporada 28
 0000000127E9.07C: Temporada 29
 0000000127EA.07C: Temporada 29
+0000000127EB.07C: Temporada 30
+0000000127EC.07C: Temporada 30
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127F1.07C: Temporada 27
@@ -29366,10 +29367,13 @@ de regalo, 10 cajas de botín de Inverlandia
 0000000127F4.07C: Temporada 28
 0000000127F5.07C: Temporada 29
 0000000127F6.07C: Temporada 29
+0000000127F7.07C: Temporada 30
+0000000127F8.07C: Temporada 30
 0000000127FC.07C: Temporada competitiva 26: cola abierta
 0000000127FD.07C: Temporada competitiva 27: cola abierta
 0000000127FE.07C: Temporada competitiva 28: cola abierta
 0000000127FF.07C: Temporada competitiva 29: cola abierta
+000000012800.07C: Temporada competitiva 30: cola abierta
 000000012802.07C: Buey resplandeciente
 000000012804.07C: Partidas de posicionamiento
 000000012805.07C: Elfo helado
@@ -29993,6 +29997,7 @@ y 10 cajas iguales de regalo
 0000000130BC.07C: Red
 0000000130BD.07C: Observar
 0000000130BE.07C: Miscelánea
+0000000130CD.07C: ¡Acaba en %1$s!
 000000013131.07C: ¿Seguro que quieres desactivar el juego multiplataforma?
 000000013132.07C: Desactivar esta característica puede desembocar en partidas de peor calidad y tiempos de espera más largos.
 Además, durante esta temporada competitiva, solo podrás jugar con jugadores de tu plataforma.
@@ -32946,7 +32951,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: Solo partida de PC
 000000013924.07C: Solo partidas de consola
 000000013927.07C: Chat
-000000013932.07C: Aspecto Torneo de justas de junio
 000000013942.07C: Temporada 4 de Combate a muerte competitivo
 000000013943.07C: Chat de texto
 000000013944.07C: Escribe un mensaje
@@ -33069,6 +33073,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000013E89.07C: Me meteré en la piscina...
 000000013EA2.07C: Playa Fuel
+000000013EAC.07C: Héroe de la temporada 30
+000000013EAD.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 30
+000000013EAE.07C: Competidor de la temporada 30
+000000013EAF.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 30
+000000013EB0.07C: Competidor de la temporada 30
+000000013EB1.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 30
+000000013EB2.07C: Héroe de la temporada 30
+000000013EB3.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 30
 000000013EB9.07C: Héroe de la Copa de Lúciobol 2021
 000000013EBA.07C: Se desbloquea al estar entre los 500 mejores al final de la Copa de Lúciobol 2021
 000000013EBB.07C: Competidor de la Copa de Lúciobol 2021
@@ -33108,4 +33120,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Semana 3
 000000013F59.07C: Juegos de Verano 2021
 000000013F5C.07C: Desbloquea aspectos épicos
-[Core] Execution finished in 00:00:00.4588885 seconds
+000000013FC5.07C: Barco pirata
+000000014001.07C: Chat de voz
+00000001400D.07C: Chat de texto de grupo
+00000001400E.07C: Chat de texto de equipo
+00000001400F.07C: Chat de texto de partida
+000000014010.07C: Chat de texto general
+000000014011.07C: Chat de texto
+000000014022.07C: Ajustes regionales
+000000014026.07C: ¿Seguro que quieres restablecer todos los ajustes regionales?
+000000014027.07C: Código de diseño para todas las edades del Reino Unido
+000000014028.07C: Sonido - Chat de voz
+000000014029.07C: Social - Chat de texto
+00000001402A.07C: Las normas que se aplican en tu cuenta han desactivado ciertos ajustes de forma predeterminada. Puedes modificarlos con los siguientes controles.
+
+Haz clic en «Más información» para ver más detalles.
+00000001402B.07C: Ya no se aplican normas en tu cuenta, lo que afecta a los siguientes ajustes. Puedes reactivarlos manualmente con estos CONTROLES.
+
+Si reactivas todas las características, los ajustes del código de diseño para todas las edades del Reino Unido se eliminarán de esta pestaña.
+
+Haz clic en «Más información» para ver más detalles.
+00000001402C.07C: Más información
+000000014057.07C: https://www.url.com
+000000014059.07C: Hay normas regionales que afectan a tu cuenta. Se han desactivado varios ajustes de forma predeterminada.
+
+Puedes ver y modificar los ajustes afectados en la pestaña «Ajustes regionales» de Opciones.
+
+Haz clic en «Más información» para ver más detalles.
+00000001405E.07C: Cerrar
+000000014061.07C: Algunas normas ya no se aplican en esta cuenta.
+
+Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionales» de Opciones.
+000000014062.07C: Ir a Opciones
+000000014063.07C: Aceptar
+00000001407C.07C: Este canal de chat está desactivado. Para ver o modificar este ajuste, ve a la pestaña «Social» de Opciones.
+00000001409A.07C: Archivo de aspectos de la Overwatch League
+00000001409B.07C: 
+00000001409C.07C: Barco pirata
+00000001409D.07C: Aspecto Torneo de Countdown Cup
+000000014216.07C: Por determinar
+000000014217.07C: Por determinar
+[Core] Execution finished in 00:00:00.4431132 seconds

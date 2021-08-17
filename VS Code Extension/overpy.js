@@ -45814,6 +45814,11 @@ const customGameSettingsSchema =
                 "ru-RU": "Описание",
                 "zh-CN": "描述",
                 "zh-TW": "敘述"
+            },
+            "modeName": {
+                "values": "__string__",
+                "maxChars": 32,
+                "en-US": "Mode Name",
             }
         },
         "guid": "00000001006E",
@@ -46546,6 +46551,7 @@ const typeTree = [
 			"FullwidthStringLiteral",
 			"BigLettersStringLiteral",
 			"PlaintextStringLiteral",
+			"CaseSensitiveStringLiteral",
 		]}
 	]},
 
@@ -52089,6 +52095,39 @@ astParsingFunctions.__format__ = function(content) {
 
 }
 
+
+var caseSensitiveReplacements = {
+	"æ": "ӕ",
+	"nj": "ǌ",
+	" a ": " ａ ",
+	"a": "ạ",
+	"b": "ḅ",
+	"c": "ƈ",
+	"d": "ḍ",
+	"e": "ẹ",
+	"f": "ƒ",
+	"g": "ǵ",
+	"h": "һ",
+	"i": "і",
+	"j": "ј",
+	"k": "ḳ",
+	"l": "I",
+	"m": "ṃ",
+	"n": "ṇ",
+	"o": "ο",
+	"p": "ṗ",
+	"q": "ǫ",
+	"r": "ṛ",
+	"s": "ѕ",
+	"t": "ṭ",
+	"u": "υ",
+	"v": "ν",
+	"w": "ẉ",
+	"x": "ҳ",
+	"y": "ỵ",
+	"z": "ẓ",
+}
+
 //Parses a custom string.
 function parseCustomString(str, formatArgs) {
 
@@ -52099,6 +52138,7 @@ function parseCustomString(str, formatArgs) {
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
     var isPlaintext = (str.type === "PlaintextStringLiteral");
+	var isCaseSensitive = (str.type === "CaseSensitiveStringLiteral");
 
 	var content = str.name;
 	//console.log(content);
@@ -52138,6 +52178,12 @@ function parseCustomString(str, formatArgs) {
 	
 			content = tmpStr;
 			
+		} else if (isCaseSensitive) {
+			content = content.replaceAll(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+			content = content.replaceAll(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			for (var key of Object.keys(caseSensitiveReplacements)) {
+				content = content.replaceAll(key, caseSensitiveReplacements[key])
+			}
 		}
 	
 		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {
@@ -56555,7 +56601,7 @@ function parseAst(content) {
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
     //Do not use isTypeSuitable as that can return true for "value".
-    if (["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral"].includes(content.type)) {
+    if (["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
         if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
@@ -57944,6 +57990,8 @@ function parse(content, kwargs={}) {
 						stringType = "FullwidthStringLiteral";
 					} else if (content[0].text === "p") {
 						stringType = "PlaintextStringLiteral";
+					} else if (content[0].text === "c") {
+						stringType = "CaseSensitiveStringLiteral";
 					} else {
 						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
 					}

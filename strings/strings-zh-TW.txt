@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28437,7 +28437,6 @@ https://account.blizzard.com/connections/nintendo
 00000001144E.07C: The type of max health to acquire.
 00000001144F.07C: 120枚鬥陣幣，以及免費60箱夏季運動會戰利品
 00000001146F.07C: 50箱與額外10箱夏季運動會戰利品
-0000000114DC.07C: 立即觀賞
 0000000114DF.07C: 觀賞《鬥陣特攻》職業電競聯賽
 0000000114E4.07C: 薑餅人
 00000001152E.07C: 伐木工
@@ -28574,7 +28573,7 @@ https://account.blizzard.com/connections/nintendo
 000000011889.07C: 小小蜘蛛
 00000001188A.07C: 小妖精
 0000000118B9.07C: 冰后
-000000011938.07C: 一般聊天頻道
+000000011938.07C: 綜合頻道
 000000011939.07C: 對戰聊天頻道
 00000001193A.07C: 對戰團隊聊天
 00000001193B.07C: 隊伍聊天
@@ -29307,6 +29306,8 @@ https://account.blizzard.com/connections/nintendo
 0000000127E8.07C: 第28賽季
 0000000127E9.07C: 第29賽季
 0000000127EA.07C: 第29賽季
+0000000127EB.07C: 第30賽季
+0000000127EC.07C: 第30賽季
 0000000127EF.07C: 第26賽季
 0000000127F0.07C: 第26賽季
 0000000127F1.07C: 第27賽季
@@ -29315,10 +29316,13 @@ https://account.blizzard.com/connections/nintendo
 0000000127F4.07C: 第28賽季
 0000000127F5.07C: 第29賽季
 0000000127F6.07C: 第29賽季
+0000000127F7.07C: 第30賽季
+0000000127F8.07C: 第30賽季
 0000000127FC.07C: 競技對戰第26賽季 - 自由佇列
 0000000127FD.07C: 競技對戰第27賽季 - 自由佇列
 0000000127FE.07C: 競技對戰第28賽季 - 自由佇列
 0000000127FF.07C: 競技對戰第29賽季 - 自由佇列
+000000012800.07C: 競技對戰第30賽季 - 自由佇列
 000000012802.07C: 公牛之星
 000000012804.07C: 預選賽
 000000012805.07C: 冰凍小妖精
@@ -29942,6 +29946,7 @@ https://account.blizzard.com/connections/nintendo
 0000000130BC.07C: 網路
 0000000130BD.07C: 觀戰
 0000000130BE.07C: 其他
+0000000130CD.07C: 還剩下%1$s！
 000000013131.07C: 確定要關閉跨平台連線功能嗎？
 000000013132.07C: 關閉這個功能，配對品質可能會下降，排隊時間也可能更久。
 你同時會退出這個競技對戰賽季。
@@ -32895,7 +32900,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: 僅限PC遊戲
 000000013924.07C: 僅限遊戲主機遊戲
 000000013927.07C: 聊天
-000000013932.07C: 6月Joust聯賽造型
 000000013942.07C: 死鬥競技模式第4賽季
 000000013943.07C: 文字聊天
 000000013944.07C: 在此輸入訊息
@@ -33018,6 +33022,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: 經由夏季運動會戰利品解鎖
 000000013E89.07C: 我會下水..
 000000013EA2.07C: 海灘燃料
+000000013EAC.07C: 第30賽季精英
+000000013EAD.07C: 在第30賽季進入前500名即可解鎖
+000000013EAE.07C: 第30賽季選手
+000000013EAF.07C: 完成第30賽季預選賽即可解鎖
+000000013EB0.07C: 第30賽季選手
+000000013EB1.07C: 完成第30賽季預選賽即可解鎖
+000000013EB2.07C: 第30賽季精英
+000000013EB3.07C: 在第30賽季進入前500名即可解鎖
 000000013EB9.07C: 2021年路西歐競球盃精英
 000000013EBA.07C: 在2021年路西歐競球盃進入前500名即可解鎖
 000000013EBB.07C: 2021年路西歐競球盃選手
@@ -33057,4 +33069,44 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: 第3週
 000000013F59.07C: 2021年夏季運動會
 000000013F5C.07C: 解鎖史詩造型
-[Core] Execution finished in 00:00:00.4611150 seconds
+000000013FC5.07C: 海盜船
+000000014001.07C: 語音聊天
+00000001400D.07C: 團隊文字聊天
+00000001400E.07C: 隊伍文字聊天
+00000001400F.07C: 對戰文字聊天
+000000014010.07C: 綜合頻道
+000000014011.07C: 文字聊天
+000000014022.07C: 地區設定
+000000014026.07C: 你確定要重置所有地區設定嗎？
+000000014027.07C: 英國適齡設計準則
+000000014028.07C: 聲音 - 語音聊天
+000000014029.07C: 社交 - 文字聊天
+00000001402A.07C: 適用於你帳號的法規預設會停用某些特定設定。你可以透過下方的控制項來調整這些設定。
+
+點擊「了解詳情」以取得更多資訊。
+00000001402B.07C: 影響下方設定的法規不再適用於你的帳號。你可以透過此處的控制項手動重新啟用這些設定。
+
+如果你啟用了所有功能，下方的英國適齡設計準則設定會從此頁面移除。
+
+點擊「了解詳情」以取得更多資訊。
+00000001402C.07C: 了解詳情
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: 你的帳號受到地區法規影響。有數項設定已預設為停用。
+
+你可以前往選項中的「地區設定」頁面檢視並調整受影響的設定。
+
+點擊「了解詳情」以取得更多資訊。
+00000001405E.07C: 關閉
+000000014061.07C: 此帳號不再適用於特定法規。
+
+如果你要重新啟用受影響的設定，請前往選項中的「地區設定」頁面。
+000000014062.07C: 前往選項
+000000014063.07C: 確認
+00000001407C.07C: 此聊天頻道已停用。若要檢視或調整設定，請前往選項中的「社交」頁面。
+00000001409A.07C: 《鬥陣特攻》職業電競聯賽造型庫
+00000001409B.07C: 
+00000001409C.07C: 海盜船
+00000001409D.07C: 倒數盃聯賽造型
+000000014216.07C: 未定
+000000014217.07C: 尚未決定
+[Core] Execution finished in 00:00:00.4614720 seconds

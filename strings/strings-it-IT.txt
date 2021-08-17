@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -6825,7 +6825,7 @@ Humam Sakhnini
 000000004069.07C: La partita inizierà fra |Rfn %1$s:F0;
 000000004070.07C:  vuole unirsi alla formazione!
 000000004072.07C: I membri della formazione possono invitare
-000000004073.07C: Apri la formazione
+000000004073.07C: Apri la formazione a
 000000004074.07C: SOLO SU INVITO
 000000004075.07C: SOLO AMICI
 000000004076.07C: TUTTI
@@ -8250,7 +8250,7 @@ di piazzamento
 000000004AB7.07C: GIOCATORE TELETRASPORTATO
 000000004AB8.07C: Ottima partita, bravi tutti!
 000000004ABA.07C: I membri della partita personalizzata possono invitare
-000000004ABC.07C: Apri la partita personalizzata
+000000004ABC.07C: Apri la partita personalizzata a
 000000004ABD.07C: ASSIST
 000000004ABE.07C: <tx%1$s> Invita
 000000004ABF.07C: Divertente
@@ -14047,8 +14047,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E06.07C: In attesa di giocatori
 000000006E07.07C: Conto alla rovescia
 000000006E0E.07C: CACCIA ALLO YETI
-000000006E12.07C: Scala la classifica: l'eroe più letale vince
-000000006E14.07C: Scala la classifica: la squadra più letale vince
+000000006E12.07C: Scala la classifica: l'eroe più letale vince.
+000000006E14.07C: Scala la classifica: la squadra più letale vince.
 000000006E1F.07C: Nepal - Villaggio (Inverno)
 000000006E20.07C: SOPRAVVIVI
 000000006E21.07C: ATTACCA
@@ -16613,7 +16613,7 @@ Puoi ancora accedere alle altre modalità di Overwatch, incluse le partite rapid
 00000000880D.07C: Cerca compagni di squadra in base alle preferenze prima di metterti in coda
 00000000880E.07C: Trova formazione
 00000000880F.07C: Deathmatch Petra
-000000008810.07C: Scala la classifica: l'eroe più letale vince
+000000008810.07C: Scala la classifica: l'eroe più letale vince.
 000000008811.07C: MAPPA: Petra
 000000008832.07C: %1$s |Rpl FORZIERE CELEBRATIVO LEGGENDARIO:FORZIERI CELEBRATIVI LEGGENDARI;
 000000008833.07C: 2 Forzieri Celebrativi
@@ -17506,7 +17506,7 @@ Infligge danni aggiuntivi all'armatura.
 0000000093E1.07C: Deathmatch a squadre (competitivo) - Stagione 1
 0000000093E2.07C: Deathmatch a squadre
 0000000093E3.07C: Deathmatch a squadre (competitivo)
-0000000093E4.07C: Scala la classifica: la squadra più letale vince
+0000000093E4.07C: Scala la classifica: la squadra più letale vince.
 0000000093F6.07C: Competitiva
 000000009411.07C: Baptiste
 000000009413.07C: All-Star
@@ -25917,7 +25917,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ""AS IS"" AN
 00000000D366.07C: Disponibile nei Forzieri di Halloween
 00000000D367.07C: Halloween da Brividi 2020
 00000000D369.07C: Deathmatch a squadre (competitivo)
-00000000D36A.07C: Scala la classifica: la squadra più letale vince
+00000000D36A.07C: Scala la classifica: la squadra più letale vince.
 00000000D36B.07C: Deathmatch a squadre (competitivo) - Stagione 2
 00000000D387.07C: Concorrente Eliminazione
 3v3 (competitiva) 2019
@@ -28466,7 +28466,6 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001144E.07C: Il tipo di salute massima che sarà acquisita.
 00000001144F.07C: 120 crediti e 60 Forzieri dei Giochi Estivi gratuiti
 00000001146F.07C: 50 + 10 Forzieri dei Giochi Estivi
-0000000114DC.07C: Guarda
 0000000114DF.07C: Guarda l'Overwatch League
 0000000114E4.07C: Pan di Zenzero
 00000001152E.07C: Taglialegna
@@ -28480,7 +28479,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000011656.07C: https://security.blizzard.cn/services/security/login?reurl=/services/security/usercenter/
 00000001165E.07C: Maggiori informazioni
 000000011672.07C: Deathmatch Kanezaka
-000000011673.07C: Scala la classifica: l'eroe più letale vince
+000000011673.07C: Scala la classifica: l'eroe più letale vince.
 000000011674.07C: MAPPA: Kanezaka
 000000011676.07C: Tutte le imprese sbloccate
 000000011677.07C: Precisione colpo critico
@@ -28603,7 +28602,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001187C.07C: Eroe Stagione 25
 000000011886.07C: Deathmatch a squadre (competitivo) - Stagione 3
 000000011887.07C: Deathmatch a squadre (competitivo)
-000000011888.07C: Scala la classifica: la squadra più letale vince
+000000011888.07C: Scala la classifica: la squadra più letale vince.
 000000011889.07C: Piccolo Ragnetto
 00000001188A.07C: Elfo
 0000000118B9.07C: Imperatrice del Gelo
@@ -29342,6 +29341,8 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127E8.07C: Stagione 28
 0000000127E9.07C: Stagione 29
 0000000127EA.07C: Stagione 29
+0000000127EB.07C: Stagione 30
+0000000127EC.07C: Stagione 30
 0000000127EF.07C: Stagione 26
 0000000127F0.07C: Stagione 26
 0000000127F1.07C: Stagione 27
@@ -29350,10 +29351,13 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127F4.07C: Stagione 28
 0000000127F5.07C: Stagione 29
 0000000127F6.07C: Stagione 29
+0000000127F7.07C: Stagione 30
+0000000127F8.07C: Stagione 30
 0000000127FC.07C: Stagione competitiva 26 - Coda aperta
 0000000127FD.07C: Stagione competitiva 27 - Coda aperta
 0000000127FE.07C: Stagione competitiva 28 - Coda aperta
 0000000127FF.07C: Stagione competitiva 29 - Coda aperta
+000000012800.07C: Stagione competitiva 30 - Coda aperta
 000000012802.07C: Toro Luminoso
 000000012804.07C: Partite di piazzamento
 000000012805.07C: Elfo Congelato
@@ -29908,7 +29912,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012F56.07C: Stanco delle vostre regole!
 000000012F57.07C: Disponibile nei Forzieri Archivi
 000000012F63.07C: Uccellino
-000000012F64.07C: Permetti ai giocatori di unirsi al gruppo
+000000012F64.07C: Permetti ai giocatori di unirsi alla formazione
 000000012F65.07C: Disponibile nei Forzieri Archivi
 000000012F67.07C: Affaticato
 000000012F69.07C: Non Era Questo il Piano
@@ -29980,6 +29984,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000130BC.07C: Rete
 0000000130BD.07C: Spettatore
 0000000130BE.07C: Varie
+0000000130CD.07C: Termina tra %1$s!
 000000013131.07C: Vuoi davvero disattivare il gioco multi-piattaforma?
 000000013132.07C: Disattivare questa funzione potrebbe risultare in partite di qualità più bassa e tempi di coda più lunghi.
 Inoltre, entrerai a far parte della selezione degli esclusi per questa stagione competitiva.
@@ -32934,7 +32939,6 @@ Le vittorie contano come due partite.
 000000013923.07C: Solo partite PC
 000000013924.07C: Solo partite console
 000000013927.07C: Chat
-000000013932.07C: Modello Torneo June Joust
 000000013942.07C: Deathmatch competitivo - Stagione 4
 000000013943.07C: Chat testuale
 000000013944.07C: Scrivi messaggio
@@ -33057,6 +33061,14 @@ Le vittorie contano come due partite.
 000000013E88.07C: Disponibile nei Forzieri dei Giochi Estivi
 000000013E89.07C: Mi butterò in piscina...
 000000013EA2.07C: Fuel in Spiaggia
+000000013EAC.07C: Eroe Stagione 30
+000000013EAD.07C: Sbloccato per essere entrato nella Top 500 della Stagione 30
+000000013EAE.07C: Concorrente Stagione 30
+000000013EAF.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 30
+000000013EB0.07C: Concorrente Stagione 30
+000000013EB1.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 30
+000000013EB2.07C: Eroe Stagione 30
+000000013EB3.07C: Sbloccato per essere entrato nella Top 500 della Stagione 30
 000000013EB9.07C: Eroe Coppa Lúcioball 2021
 000000013EBA.07C: Sbloccato per essere entrato nella Top 500 della Coppa Lúcioball 2021
 000000013EBB.07C: Concorrente Coppa Lúcioball 2021
@@ -33096,4 +33108,44 @@ Le vittorie contano come due partite.
 000000013F58.07C: Settimana 3
 000000013F59.07C: Giochi Estivi 2021
 000000013F5C.07C: Sblocca modelli epici
-[Core] Execution finished in 00:00:00.4590020 seconds
+000000013FC5.07C: Nave Pirata
+000000014001.07C: Chat vocale
+00000001400D.07C: Chat testuale di formazione
+00000001400E.07C: Chat testuale di squadra
+00000001400F.07C: Chat testuale della partita
+000000014010.07C: Chat testuale generale
+000000014011.07C: Chat testuale
+000000014022.07C: Impostazioni regione
+000000014026.07C: Vuoi davvero azzerare le impostazioni regione?
+000000014027.07C: UK Age Appropriate Design Code
+000000014028.07C: Sound - Chat vocale
+000000014029.07C: Social - Chat testuale
+00000001402A.07C: Alcune regole che hanno disattivato impostazioni specifiche di default stanno influenzando il tuo account. Puoi modificare queste impostazioni con i comandi qui sotto.
+
+Clicca su "Maggiori informazioni" per saperne di più.
+00000001402B.07C: Alcune regole che influenzano le impostazioni qui sotto non si applicano più al tuo account. Puoi riattivare queste impostazioni manualmente con i COMANDI mostrati qui.
+
+Se attivi tutte le funzioni, le impostazioni dello UK Age Appropriate Design Code qui sotto verranno rimosse da questa scheda.
+
+Clicca su "Maggiori informazioni" per saperne di più.
+00000001402C.07C: Maggiori informazioni
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: Alcune regole regionali stanno influenzando il tuo account. Molte impostazioni sono state disattivate di default.
+
+Puoi visualizzare e modificare le impostazioni influenzate andando alla scheda "Impostazioni regione" delle opzioni.
+
+Clicca su "Maggiori informazioni" per saperne di più.
+00000001405E.07C: Chiudi
+000000014061.07C: Alcune regole non si applicano più a questo account.
+
+Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni regione" delle opzioni.
+000000014062.07C: Vai alle opzioni
+000000014063.07C: OK
+00000001407C.07C: Questo canale di chat è disattivato. Per visualizzare o modificare questa impostazione, vai alla scheda "Social" delle opzioni.
+00000001409A.07C: Archivio Modelli Overwatch League
+00000001409B.07C: 
+00000001409C.07C: Nave Pirata
+00000001409D.07C: Modello Torneo Countdown Cup
+000000014216.07C: N/D
+000000014217.07C: Non disponibile
+[Core] Execution finished in 00:00:00.4389472 seconds

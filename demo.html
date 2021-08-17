@@ -232,8 +232,86 @@ a {
 <script src="src/compiler/compiler.js"></script>
 <script src="src/data/localizedStrings.js"></script>
 
-
 <script>
+
+	var text = "You have 3.51e15 money and deal 6.13e31 dmg"
+
+	var replacements = {
+		"æ": "ӕ",
+		"nj": "ǌ",
+		"d": "ḍ",
+		"e": "ẹ",
+		"f": "ƒ",
+		"g": "ǵ",
+		"h": "һ",
+		"i": "і",
+		"j": "ј",
+		"k": "ḳ",
+		"l": "I",
+		"m": "ṃ",
+		"n": "ṇ",
+		"o": "ο",
+		"p": "ṗ",
+		"q": "ǫ",
+		"r": "ṛ",
+		"s": "ѕ",
+		"t": "ṭ",
+		"v": "ν",
+		"y": "ỵ",
+		"z": "ẓ",
+
+
+		" a ": " ａ ",
+		"a": "ạ",
+		"b": "ḅ",
+		"c": "ƈ",
+		"u": "υ",
+		"w": "ẉ",
+		"x": "ҳ",
+
+	}
+/*
+	var replacements1 = {
+		" a ": " ａ ",
+		"b": "ƅ",
+		"c": "ƈ",
+		"u": "ư",
+		"w": "ẇ",
+		"x": "ҳ",
+	}
+
+	var replacements2 = {
+		"b": "ƅ",
+		"c": "ƈ",
+		"w": "ѡ",
+		"x": "ҳ",
+	}
+
+	var replacements3 = {
+		"c": "ҫ",
+		"u": "ụ",
+		"x": "ҳ",
+	}
+	
+	var replacements4 = {
+		" a ": "ａ",
+		"b": "ḅ",
+		"c": "ϲ",
+		"u": "ṵ",
+		"v": "ν",
+		"w": "ẉ",
+		"x": "ϰ",
+	}*/
+
+	var result = "";
+	var txt = text;
+	txt = txt.replaceAll(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+	txt = txt.replaceAll(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+	for (var key of Object.keys(replacements)) {
+		txt = txt.replaceAll(key, replacements[key])
+	}
+	result += "    print(\""+txt+"\")\n"
+	console.log(result)
 
 
 </script>

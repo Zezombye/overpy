@@ -1,13 +1,13 @@
-[Core] DataTool v1.62.0.958-git-b03551c05091cfb0a9310df44030182e71848c7e
+[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(8)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 1.62.0.0.84997
+[CASC] Overwatch build 1.63.0.0.85660
 [CASC] Initializing...
-[Manifest] Using TRG procedure 84997 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 84997 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -26218,7 +26218,7 @@ https://account.blizzard.com/connections/nintendo
 00000000F1B6.07C: Bronce antiguo
 00000000F1C0.07C: ABANDONANDO JUEGO Y COLA. ¿ESTÁS SEGURO?
 00000000F1C5.07C: <fg%1$s>ATRAPADO</fg>
-00000000F1C6.07C: 2021
+00000000F1C6.07C: 2020
 00000000F1C7.07C: Disponible en cajas de botín de invierno
 00000000F1C8.07C: Unirse automáticamente a Mientras esperas
 00000000F212.07C: Atravesado
@@ -28448,7 +28448,6 @@ El equipo de soporte de Blizzard
 00000001144E.07C: El tipo de salud máxima que se adquirirá.
 00000001144F.07C: 120 créditos y un regalo de 60 cajas de botín de los Juegos de Verano
 00000001146F.07C: 50 + 10 cajas de botín de los Juegos de Verano
-0000000114DC.07C: Ver ahora
 0000000114DF.07C: Mira la Liga Overwatch
 0000000114E4.07C: Pan de jengibre
 00000001152E.07C: Leñador
@@ -29320,6 +29319,8 @@ y 10 cajas de botín de invierno gratis
 0000000127E8.07C: Temporada 28
 0000000127E9.07C: Temporada 29
 0000000127EA.07C: Temporada 29
+0000000127EB.07C: Temporada 30
+0000000127EC.07C: Temporada 30
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127F1.07C: Temporada 27
@@ -29328,10 +29329,13 @@ y 10 cajas de botín de invierno gratis
 0000000127F4.07C: Temporada 28
 0000000127F5.07C: Temporada 29
 0000000127F6.07C: Temporada 29
+0000000127F7.07C: Temporada 30
+0000000127F8.07C: Temporada 30
 0000000127FC.07C: Temporada competitiva 26 - Cola abierta
 0000000127FD.07C: Temporada competitiva 27 - Cola abierta
 0000000127FE.07C: Temporada competitiva 28 - Cola abierta
 0000000127FF.07C: Temporada competitiva 29 - Cola abierta
+000000012800.07C: Temporada competitiva 30 - Cola abierta
 000000012802.07C: Toro luminoso
 000000012804.07C: Partidas de colocación
 000000012805.07C: Elfo congelado
@@ -29745,7 +29749,7 @@ y 10 cajas de botín de invierno gratis
 000000012DAD.07C: Sonido amplificador de Orisa
 000000012DB0.07C: La configuración actual de extensiones del Workshop requiere de algunos jugadores.
 000000012DB1.07C: La configuración actual de extensiones del Workshop prohíbe mapas que no sean del Workshop.
-000000012DB5.07C: Árbitra
+000000012DB5.07C: Árbitro
 000000012DC0.07C: PREDETERMINADO
 000000012DC1.07C: BAJA
 000000012DC4.07C: ¡Tarán!
@@ -29954,6 +29958,7 @@ y 10 cajas de botín de invierno gratis
 0000000130BC.07C: Red
 0000000130BD.07C: Observar
 0000000130BE.07C: Varios
+0000000130CD.07C: ¡Termina en %1$s!
 000000013131.07C: ¿Quieres desactivar el juego entre plataformas?
 000000013132.07C: Desactivar esta función puede dar lugar a partidas de menor calidad y tiempos de espera más largos.
 También te colocarás en el grupo de exclusión voluntaria en esta temporada competitiva.
@@ -32907,7 +32912,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013923.07C: Solo partidas de PC
 000000013924.07C: Solo partidas de consola
 000000013927.07C: Chat
-000000013932.07C: Diseño del torneo June Joust
 000000013942.07C: Temporada 4 de Combate a muerte competitivo
 000000013943.07C: Chat de texto
 000000013944.07C: Escribir mensaje
@@ -33030,6 +33034,14 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E88.07C: Disponible en cajas de botín de los Juegos de Verano
 000000013E89.07C: Iré a la piscina...
 000000013EA2.07C: Fuel de playa
+000000013EAC.07C: Héroe de la temporada 30
+000000013EAD.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 30
+000000013EAE.07C: Competidor de la temporada 30
+000000013EAF.07C: Se desbloquea al completar las partidas de colocación de la temporada 30
+000000013EB0.07C: Competidor de la temporada 30
+000000013EB1.07C: Se desbloquea al completar las partidas de colocación de la temporada 30
+000000013EB2.07C: Héroe de la temporada 30
+000000013EB3.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 30
 000000013EB9.07C: Héroe de la Copa Lúciobol 2021
 000000013EBA.07C: Se desbloquea al estar entre los 500 mejores al final de la Copa Lúciobol 2021
 000000013EBB.07C: Competidor de la Copa Lúciobol 2021
@@ -33069,4 +33081,38 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Semana 3
 000000013F59.07C: Juegos de Verano 2021
 000000013F5C.07C: Desbloquea diseños épicos
-[Core] Execution finished in 00:00:00.4689179 seconds
+000000013FC5.07C: Barco pirata
+000000014001.07C: Chat de voz
+00000001400D.07C: Chat de texto de grupo
+00000001400E.07C: Chat de texto del equipo
+00000001400F.07C: Chat de texto de la partida
+000000014010.07C: Chat de texto general
+000000014011.07C: Chat de texto
+000000014022.07C: Configuración de región
+000000014026.07C: ¿Realmente quieres restaurar la configuración de todas las regiones?
+000000014027.07C: Código de diseño apropiado a la edad de R.U.
+000000014028.07C: Sonido - Chat de voz
+000000014029.07C: Social - Chat de texto
+00000001402A.07C: Las regulaciones aplican a tu cuenta, por lo que se deshabilitaron varios ajustes específicos por defecto. Puedes ajustar estas configuraciones con los controles que aparecen a continuación.
+^Haz clic en "Más información" para saber más.
+00000001402B.07C: Las regulaciones ya no aplican a tu cuenta. Esto afecta a los ajustes que aparecen a continuación. Puedes volver a activar estas configuraciones de forma manual con los CONTROLES que aparecen aquí.
+^Si activas todas las funciones, la configuración del Código de diseño apropiado a la edad de R.U se eliminará de esta pestaña.
+^Haz clic en "Más información" para saber más.
+00000001402C.07C: Más información
+000000014057.07C: https://www.battle.net/support/article/aadc
+000000014059.07C: Hay algunas regulaciones regionales que afectan a tu cuenta. Se deshabilitaron varios ajustes por defecto.
+^Puedes ver y ajustar las configuraciones afectadas en la pestaña "Configuración de región" en Opciones.
+^Haz clic en "Más información" para saber más.
+00000001405E.07C: Cerrar
+000000014061.07C: Algunas regulaciones ya no aplican para esta cuenta.
+^Si deseas volver a activar los ajustes afectados, ve a la pestaña "Configuración de región" en Opciones.
+000000014062.07C: Ir a Opciones
+000000014063.07C: Aceptar
+00000001407C.07C: Este canal de chat está deshabilitado. Para ver o ajustar esta configuración, ve a la pestaña "Social" en Opciones.
+00000001409A.07C: Bóveda de diseños de la Liga Overwatch
+00000001409B.07C: 
+00000001409C.07C: Barco pirata
+00000001409D.07C: Diseño del torneo Countdown Cup
+000000014216.07C: Por confirmar
+000000014217.07C: Por determinar
+[Core] Execution finished in 00:00:00.4471624 seconds

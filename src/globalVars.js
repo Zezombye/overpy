@@ -391,6 +391,7 @@ const typeTree = [
 			"FullwidthStringLiteral",
 			"BigLettersStringLiteral",
 			"PlaintextStringLiteral",
+			"CaseSensitiveStringLiteral",
 		]}
 	]},
 
