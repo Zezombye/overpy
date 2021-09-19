@@ -1,13 +1,13 @@
-[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
+[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.63.0.0.85660
+[CASC] Overwatch build 1.64.0.0.86739
 [CASC] Initializing...
-[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -1227,7 +1227,7 @@ by po niej jechać.
 00000000148C.07C: Odbicie
 00000000148D.07C: Ślizg
 000000001495.07C: Mina Ogłuszająca
-000000001496.07C: Rzucasz zdalnie detonowaną minę odrzucającą przeciwników (%1$s), i detonujesz ją %2$s.
+000000001496.07C: Rzucasz zdalnie detonowaną minę odrzucającą przeciwników (%1$s), i detonujesz ją (%2$s).
 000000001497.07C: Totalna Masakra
 000000001498.07C: Twoje ładunki wybuchowe nie zadają ci obrażeń. Kiedy giniesz, upuszczasz bomby.
 000000001499.07C: Mord-Opona
@@ -8596,7 +8596,7 @@ w 4. sezonie
 000000004ED3.07C: Umocnienie
 000000004ED4.07C: Zmniejsza otrzymywane obrażenia i sprawia, że nie można cię zatrzymać.
 000000004ED5.07C: Stać!
-000000004ED6.07C: Wystrzeliwujesz ładunek grawitacyjny za pomocą %1$s, a następnie możesz go zdetonować %2$s. Kula spowalnia wrogów i przyciąga ich do siebie.
+000000004ED6.07C: Wystrzeliwujesz ładunek grawitacyjny za pomocą %1$s, a następnie możesz go zdetonować (%2$s). Kula spowalnia wrogów i przyciąga ich do siebie.
 000000004ED7.07C: Bariera Ochronna
 000000004ED8.07C: Rzucasz urządzenie, które tworzy barierę.
 000000004EDB.07C: Turbodoładowanie
@@ -9425,16 +9425,12 @@ premiery Diablo.
 0000000056ED.07C: Drużyny
 0000000056EE.07C: Aktualna mapa
 000000005704.07C: /%1$s
-000000005707.07C: Poczekalnie gier
-000000005708.07C: Znajdź mecz
-000000005709.07C: Dołącz
 00000000570B.07C: %1$s/%2$s <fg#FFEAA239>(%3$s)</fg>
 00000000570C.07C: %1$s/%2$s
 00000000570D.07C: Pełna
 00000000570E.07C: |Rpl %1$s:Zwrócone flagi:Zwrócone flagi:Zwrócone flagi;
 00000000570F.07C: %1$s |Rpl Zwrócona flaga:Zwrócone flagi:Zwróconych flag;
 000000005712.07C: ZMIANA PERSPEKTYWY
-00000000571D.07C: Filtruj
 00000000571F.07C: Pokazuj paski zdrowia
 000000005722.07C: Po zadaniu obrażeń zdolnościami tworzysz tymczasowe osłony.
 000000005723.07C: Najlepsza Obrona
@@ -9889,7 +9885,6 @@ premiery Diablo.
 000000005A9B.07C: WSTECZ
 000000005A9C.07C: Zdolności
 000000005A9D.07C: Modyfikatory walki
-000000005A9E.07C: Szukaj
 000000005A9F.07C: Filtruj
 000000005AA0.07C: Odśwież
 000000005AA1.07C: HAKUJ
@@ -26433,7 +26428,7 @@ w Drużynowym Deathmatchu 2019
 00000000F1B6.07C: Starożytny brąz
 00000000F1C0.07C: OPUSZCZASZ MECZ I KOLEJKĘ. POTWIERDZASZ DECYZJĘ?
 00000000F1C5.07C: <fg%1$s>ZŁAPANO</fg>
-00000000F1C6.07C: 2020
+00000000F1C6.07C: 2021
 00000000F1C7.07C: Zawartość zimowych skrzynek
 00000000F1C8.07C: Dołącz automatycznie będąc w poczekalni
 00000000F212.07C: Wyłom
@@ -26454,7 +26449,6 @@ w Drużynowym Deathmatchu 2019
 00000000F22A.07C: 
 00000000F22B.07C: 
 00000000F239.07C: Echo została zaprojektowana przez doktor Minę Liao z Overwatch. Jest robotem z błyskawicznie adaptującą się sztuczną inteligencją.
-00000000F23D.07C: Pokazuje jedynie gry, które pozwalają na dołączenie graczom z kolejki.
 00000000F23E.07C: Uwaga! Może to wpłynąć na wydajność twojego systemu!
 00000000F241.07C: +100 dodatkowych żetonów
 00000000F242.07C: +500 dodatkowych żetonów
@@ -28728,6 +28722,7 @@ z letnich igrzysk
 00000001144E.07C: Typ maksimum zdrowia do pozyskania.
 00000001144F.07C: 120 kredytów i 60 darmowych skrzynek z letnich igrzysk
 00000001146F.07C: 50 +10 skrzynek z letnich igrzysk
+0000000114DC.07C: Oglądaj teraz
 0000000114DF.07C: Oglądaj Overwatch League
 0000000114E4.07C: Piernikarka
 00000001152E.07C: Drwal
@@ -33323,9 +33318,22 @@ w sezonie 29.
 000000013C8F.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej ekipy z powodu ustawień komunikacji międzyplatformowej.
 000000013C98.07C: Twoja wiadomość jest niewidoczna z powodu ustawień komunikacji międzyplatformowej.
 000000013D12.07C: Niektórzy uczestnicy na twoim kanale mogą cię nie słyszeć z powodu ustawień komunikacji międzyplatformowej.
+000000013D30.07C: Wyszukaj
+000000013D31.07C: Poczekalnie gier
+000000013D32.07C: Dołącz
+000000013D33.07C: Filtry
+000000013D34.07C: Stwórz
+000000013D35.07C: Pokazuje jedynie gry, które pozwalają na dołączenie graczom z kolejki.
+000000013D37.07C: Autor
+000000013D38.07C: Poczekalnie: #
+000000013D39.07C: Ostatnio grane
+000000013D3D.07C: Ostatnie
+000000013D3E.07C: Ulubione
+000000013D40.07C: Wszystkie gry
 000000013D41.07C: Tryb plażowy
 000000013D43.07C: Twoja wiadomość jest niewidoczna dla niektórych członków twojej drużyny z powodu ustawień komunikacji międzyplatformowej.
 000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
+000000013D66.07C: Wstecz
 000000013DAB.07C: Nagroda za udział
 w wyzwaniu 1. tygodnia
 letnich igrzysk 2021
@@ -33342,8 +33350,12 @@ letnich igrzysk 2021
 000000013DBD.07C: Słońce Egiptu
 000000013DBE.07C: Nurek
 000000013DC3.07C: Słońce Egiptu
+000000013DC5.07C: Kod gry
 000000013DC8.07C: Nihon
 000000013E2F.07C: Pianki
+000000013E36.07C: Nazwa trybu
+000000013E37.07C: Nieprawidłowa nazwa trybu dla tych ustawień.
+000000013E3E.07C: Opis
 000000013E3F.07C: Letnie igrzyska 2021
 000000013E40.07C: Zawartość skrzynek
 z letnich igrzysk
@@ -33439,13 +33451,24 @@ z letnich igrzysk
 000000013F58.07C: Tydzień 3
 000000013F59.07C: Letnie igrzyska 2021
 000000013F5C.07C: Odblokuj epickie skórki
+000000013F76.07C: Kopiuj kod
+000000013F77.07C: Stwórz nową poczekalnię
+000000013F78.07C: Zapisz jako ustawienie
+000000013F79.07C: Zgłoś kod
+000000013F7A.07C: Przełącz ulubione
+000000013F81.07C: Powód zgłoszenia:
+000000013F82.07C: Wyślij zgłoszenie
+000000013F83.07C: Anuluj
 000000013FC5.07C: Statek Piracki
+000000013FF3.07C: Popularne
 000000014001.07C: Czat głosowy
 00000001400D.07C: Czat tekstowy z ekipą
 00000001400E.07C: Drużynowy czat tekstowy
 00000001400F.07C: Meczowy czat tekstowy
 000000014010.07C: Czat ogólny
 000000014011.07C: Czat tekstowy
+000000014013.07C: <Unknown>
+000000014019.07C: <Unknown>
 000000014022.07C: Ustawienia regionu
 000000014026.07C: Czy chcesz zresetować wszystkie ustawienia regionu?
 000000014027.07C: Brytyjskie regulacje ograniczeń wiekowych
@@ -33460,6 +33483,10 @@ Jeżeli włączysz wszystkie z opcji, ustawienia obejmujące regulacje ogranicze
 
 Naciśnij „Więcej informacji”, jeżeli chcesz poznać szczegóły.
 00000001402C.07C: Więcej informacji
+000000014037.07C: Powód zgłoszenia:
+000000014038.07C: Wyślij zgłoszenie
+000000014039.07C: Anuluj
+000000014046.07C: OK
 000000014057.07C: https://www.battle.net/support/article/aadc
 000000014059.07C: Istnieją regionalne ograniczenia mające wpływ na twoje konto. Niektóre ustawienia zostały wyłączone automatycznie.
 
@@ -33472,11 +33499,59 @@ Naciśnij „Więcej informacji”, jeżeli chcesz wiedzieć więcej.
 Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regionu” w Opcjach.
 000000014062.07C: Otwórz opcje
 000000014063.07C: OK
+000000014069.07C: Opcje trybu gry
+00000001406B.07C: Wyszukaj
+00000001406E.07C: Opcje trybu gry
 00000001407C.07C: Ten kanał czatu został wyłączony. Aby to zmienić, przejdź do zakładki „Społeczność” w Opcjach.
+00000001407E.07C: Filtr wyszukiwania
 00000001409A.07C: Archiwum skórek Overwatch League
 00000001409B.07C: 
-00000001409C.07C: Statek Piracki
-00000001409D.07C: Skórka turnieju Countdown Cup
+0000000140A6.07C: Przełącz ulubione
+0000000140C2.07C: Trwa zapełnianie, sprawdź później!
+0000000140C3.07C: Kod gry
+0000000140C4.07C: Twórca poczekalni
+0000000140CA.07C: Dołącz automatycznie
+0000000140CD.07C: Próba automatycznego dołączenia
+000000014207.07C: Tworzenie gry z kodu
+000000014208.07C: Nie udało się zaimportować kodu
+000000014209.07C: OK
+00000001420A.07C: Nie można zaimportować kodu
+00000001420B.07C: OK
+00000001420C.07C: Tworzenie gry z kodu
 000000014216.07C: Do ust.
 000000014217.07C: Do ustalenia
-[Core] Execution finished in 00:00:00.4621289 seconds
+00000001422A.07C: Osiągnięto maksymalną liczbę ulubionych. Proszę usunąć kilka pozycji, aby skorzystać z tej funkcji.
+00000001422C.07C: Nie można zaktualizować statusu ulubionych
+000000014245.07C: Rywalizacja w trybie Eliminacji
+000000014246.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Eliminacji i pnij się w tabeli wyników!
+000000014247.07C: Rywalizacja w trybie Eliminacji 3 na 3 – Sezon 4
+000000014263.07C: Oglądasz %1$s z %2$s poczekalni z powodu ustawień filtra.
+000000014273.07C: Obserwuj
+000000014274.07C: Stwórz nową poczekalnię
+000000014275.07C: Zgłoś grę
+000000014297.07C: GORĄCE
+000000014298.07C: NA CZASIE
+000000014299.07C: POPULARNE
+00000001429A.07C: POLECANE
+000000014323.07C: Nie wybrano trybu
+00000001432A.07C: Oglądasz %1$s |Rpl poczekalnię:poczekalnie:poczekalni;
+00000001432B.07C: Nie można znaleźć prawidłowej gry, do której można dołączyć.
+00000001433C.07C: Smoczy skarb
+00000001433D.07C: Nagroda z oglądanie transmisji na żywo z turnieju OWL June Joust 2021
+0000000143FC.07C: Powtórki są niedostępne w trakcie rozgrywki, lub w poczekalni gry dowolnej.
+000000014412.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2021
+000000014413.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w trybie Eliminacji 3 na 3 w 2021
+000000014414.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2021
+000000014415.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2021
+000000014416.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2021
+000000014417.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w trybie Eliminacji 3 na 3 w 2021
+000000014418.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2021
+000000014419.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2021
+000000014560.07C: 2020
+[Core] Execution finished in 00:00:00.4481179 seconds

@@ -48,6 +48,8 @@ astParsingFunctions.continue = function(content) {
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else {
-        error("Found 'continue' instruction, but not within a loop");
+        warn("w_continue_outside_loop", "Found 'continue' instruction, but not within a loop");
+        //continues outside loops act like aborts
+        return new Ast("return");
     }
 }

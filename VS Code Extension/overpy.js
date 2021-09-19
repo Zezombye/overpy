@@ -30843,6 +30843,14 @@ const mapKw =
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）"
     },
+    "malevento": {
+        "gamemodes": [
+            "ffa",
+            "bountyHunter",
+            "tdm"
+        ],
+        "en-US": "Malevento",
+    },
     "necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [
@@ -40664,6 +40672,68 @@ const customGameSettingsSchema =
                     }
                 }
             },
+            "snowballFfa": {
+                "values": {
+                    "gameLengthInMn": {
+                        "guid": "00000000632C",
+                        "values": "__int__",
+                        "min": 5,
+                        "max": 15,
+                        "default": 10,
+                        "en-US": "Game Length In Minutes",
+                        "de-DE": "Spiellänge in Minuten",
+                        "es-ES": "Duración de la partida en minutos",
+                        "es-MX": "Duración de la partida en minutos",
+                        "fr-FR": "Durée de la partie en minutes",
+                        "it-IT": "Durata della partita in minuti",
+                        "ja-JP": "マッチ時間（分）",
+                        "ko-KR": "게임 진행 시간분",
+                        "pl-PL": "Długość meczu w minutach",
+                        "pt-BR": "Duração do jogo em minutos",
+                        "ru-RU": "Время матча в минутах",
+                        "zh-CN": "比赛时长（分钟）",
+                        "zh-TW": "遊戲時間（分鐘）"
+                    },
+                    "scoreToWin": {
+                        "guid": "00000000632A",
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 50,
+                        "default": 20,
+                        "en-US": "Score To Win",
+                        "de-DE": "Siegpunktzahl",
+                        "es-ES": "Puntuación para ganar",
+                        "es-MX": "Puntos para ganar",
+                        "fr-FR": "Score à atteindre pour gagner",
+                        "it-IT": "Punti necessari per vincere",
+                        "ja-JP": "勝利スコア",
+                        "ko-KR": "승점",
+                        "pl-PL": "Eliminacje potrzebne do wygranej",
+                        "pt-BR": "Pontuação para vencer",
+                        "ru-RU": "Очков для победы",
+                        "zh-CN": "获胜得分",
+                        "zh-TW": "獲勝分數"
+                    },
+                    "enableSelfInitiatedRespawn": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000006884",
+                        "en-US": "Self Initiated Respawn",
+                        "de-DE": "Selbst ausgelöste Wiederbelebung",
+                        "es-ES": "Reaparición iniciada por el jugador",
+                        "es-MX": "Reaparición autoiniciada",
+                        "fr-FR": "Réapparition active",
+                        "it-IT": "Resurrezione a comando veloce",
+                        "ja-JP": "自主的リスポーン",
+                        "ko-KR": "직접 부활",
+                        "pl-PL": "Samoczynne odrodzenie",
+                        "pt-BR": "Ressurgimento auto iniciado",
+                        "ru-RU": "Возрождение вручную",
+                        "zh-CN": "主动复生",
+                        "zh-TW": "按重生鍵復活"
+                    }
+                }
+            },
             "bountyHunter": {
                 "values": {
                     "baseScoreForKillingBountyTarget": {
@@ -41088,68 +41158,6 @@ const customGameSettingsSchema =
                         "ru-RU": "Для сдачи нужен свой флаг",
                         "zh-CN": "得分需我方旗帜在基地中",
                         "zh-TW": "我方旗幟必須留在我方基地才能得分"
-                    }
-                }
-            },
-            "ffa": {
-                "values": {
-                    "gameLengthInMn": {
-                        "guid": "00000000632C",
-                        "values": "__int__",
-                        "min": 5,
-                        "max": 15,
-                        "default": 10,
-                        "en-US": "Game Length In Minutes",
-                        "de-DE": "Spiellänge in Minuten",
-                        "es-ES": "Duración de la partida en minutos",
-                        "es-MX": "Duración de la partida en minutos",
-                        "fr-FR": "Durée de la partie en minutes",
-                        "it-IT": "Durata della partita in minuti",
-                        "ja-JP": "マッチ時間（分）",
-                        "ko-KR": "게임 진행 시간분",
-                        "pl-PL": "Długość meczu w minutach",
-                        "pt-BR": "Duração do jogo em minutos",
-                        "ru-RU": "Время матча в минутах",
-                        "zh-CN": "比赛时长（分钟）",
-                        "zh-TW": "遊戲時間（分鐘）"
-                    },
-                    "scoreToWin": {
-                        "guid": "00000000632A",
-                        "values": "__int__",
-                        "min": 1,
-                        "max": 5000,
-                        "default": 20,
-                        "en-US": "Score To Win",
-                        "de-DE": "Siegpunktzahl",
-                        "es-ES": "Puntuación para ganar",
-                        "es-MX": "Puntos para ganar",
-                        "fr-FR": "Score à atteindre pour gagner",
-                        "it-IT": "Punti necessari per vincere",
-                        "ja-JP": "勝利スコア",
-                        "ko-KR": "승점",
-                        "pl-PL": "Eliminacje potrzebne do wygranej",
-                        "pt-BR": "Pontuação para vencer",
-                        "ru-RU": "Очков для победы",
-                        "zh-CN": "获胜得分",
-                        "zh-TW": "獲勝分數"
-                    },
-                    "enableSelfInitiatedRespawn": {
-                        "values": "__boolOnOff__",
-                        "default": "on",
-                        "guid": "000000006884",
-                        "en-US": "Self Initiated Respawn",
-                        "de-DE": "Selbst ausgelöste Wiederbelebung",
-                        "es-ES": "Reaparición iniciada por el jugador",
-                        "es-MX": "Reaparición autoiniciada",
-                        "fr-FR": "Réapparition active",
-                        "it-IT": "Resurrezione a comando veloce",
-                        "ja-JP": "自主的リスポーン",
-                        "ko-KR": "직접 부활",
-                        "pl-PL": "Samoczynne odrodzenie",
-                        "pt-BR": "Ressurgimento auto iniciado",
-                        "ru-RU": "Возрождение вручную",
-                        "zh-CN": "主动复生",
-                        "zh-TW": "按重生鍵復活"
                     }
                 }
             },
@@ -42636,7 +42644,8 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            "snowballFfa": {
+            
+            "ffa": {
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000632C",
@@ -42662,7 +42671,7 @@ const customGameSettingsSchema =
                         "guid": "00000000632A",
                         "values": "__int__",
                         "min": 1,
-                        "max": 50,
+                        "max": 5000,
                         "default": 20,
                         "en-US": "Score To Win",
                         "de-DE": "Siegpunktzahl",
@@ -42697,7 +42706,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     }
                 }
-            }
+            },
         },
         "guid": "000000010044",
         "en-US": "modes",

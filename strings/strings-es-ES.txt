@@ -1,13 +1,13 @@
-[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
+[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.63.0.0.85660
+[CASC] Overwatch build 1.64.0.0.86739
 [CASC] Initializing...
-[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9429,16 +9429,12 @@ THIS SOFTWARE.
 0000000056ED.07C: Equipos
 0000000056EE.07C: Mapa actual
 000000005704.07C: /%1$s
-000000005707.07C: Salas de partida
-000000005708.07C: Buscar partida
-000000005709.07C: Unirse
 00000000570B.07C: %1$s/%2$s <fg#FFEAA239>(%3$s)</fg>
 00000000570C.07C: %1$s/%2$s
 00000000570D.07C: Completa
 00000000570E.07C: |Rpl %1$s:Devolución:Devoluciones; de bandera
 00000000570F.07C: %1$s |Rpl devolución:devoluciones; de bandera
 000000005712.07C: MODIFICAR CAMPO DE VISIÓN
-00000000571D.07C: Filtrar
 00000000571F.07C: Mostrar barras de salud
 000000005722.07C: Infligir daño con habilidades crea un escudo personal temporal.
 000000005723.07C: La mejor defensa...
@@ -9893,7 +9889,6 @@ THIS SOFTWARE.
 000000005A9B.07C: ATRÁS
 000000005A9C.07C: Habilidades
 000000005A9D.07C: Modificadores de combate
-000000005A9E.07C: Buscar
 000000005A9F.07C: Filtrar
 000000005AA0.07C: Actualizar
 000000005AA1.07C: HACKEAR
@@ -26277,7 +26272,6 @@ https://account.blizzard.com/connections/nintendo
 00000000F22A.07C: 
 00000000F22B.07C: 
 00000000F239.07C: Echo es una robot programada y diseñada por la Dra. Mina Liao de Overwatch. Está dotada de una inteligencia artificial que se adapta a gran velocidad.
-00000000F23D.07C: Solo se muestran las partidas que admiten a jugadores en cola.
 00000000F23E.07C: ¡Alerta! ¡Esto podría afectar al rendimiento del sistema!
 00000000F241.07C: + 100 fichas de bonificación
 00000000F242.07C: + 500 fichas de bonificación
@@ -28486,6 +28480,7 @@ Asistencia de Blizzard
 00000001144E.07C: Tipo de salud máxima que se adquiere.
 00000001144F.07C: 120 créditos y, de regalo, 60 cajas de botín de los Juegos de Verano
 00000001146F.07C: 50 +10 cajas de botín de los Juegos de Verano
+0000000114DC.07C: Ver ahora
 0000000114DF.07C: Disfruta de la Overwatch League
 0000000114E4.07C: Jengibre
 00000001152E.07C: Leñador
@@ -33034,9 +33029,22 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Algunos miembros de tu grupo no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013C98.07C: No se puede ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013D12.07C: Puede que algunos miembros de tu canal no te oigan por tus ajustes de comunicación del juego multiplataforma.
+000000013D30.07C: Examinar
+000000013D31.07C: Salas de partida
+000000013D32.07C: Unirse
+000000013D33.07C: Filtrar
+000000013D34.07C: Crear
+000000013D35.07C: Solo se muestran las partidas que admiten a jugadores en cola.
+000000013D37.07C: Autor
+000000013D38.07C: # Salas
+000000013D39.07C: Jugada por última vez
+000000013D3D.07C: Reciente
+000000013D3E.07C: Favoritos
+000000013D40.07C: Todas las partidas
 000000013D41.07C: Modo playa
 000000013D43.07C: Algunos miembros de tu equipo no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
 000000013D44.07C: Algunos miembros de la partida no pueden ver tu mensaje por tus ajustes de comunicación del juego multiplataforma.
+000000013D66.07C: Atrás
 000000013DAB.07C: Se desbloquea al participar en el desafío de la semana 1 de los Juegos de Verano de 2021
 000000013DAF.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000013DB2.07C: Vuelo al atardecer
@@ -33048,8 +33056,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013DBD.07C: Puesta de sol
 000000013DBE.07C: Buceo
 000000013DC3.07C: Puesta de sol
+000000013DC5.07C: Código del juego
 000000013DC8.07C: Nihon
 000000013E2F.07C: Nubes de azúcar
+000000013E36.07C: Nombre del modo
+000000013E37.07C: Nombre de modo no válido para los ajustes de partida.
+000000013E3E.07C: Descripción
 000000013E3F.07C: Juegos de Verano 2021
 000000013E40.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000013E6D.07C: Disponible en las cajas de botín de los Juegos de Verano
@@ -33120,13 +33132,24 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Semana 3
 000000013F59.07C: Juegos de Verano 2021
 000000013F5C.07C: Desbloquea aspectos épicos
+000000013F76.07C: Copiar código
+000000013F77.07C: Crear sala nueva
+000000013F78.07C: Guardar como predefinidos
+000000013F79.07C: Informar sobre código
+000000013F7A.07C: Marcar como favorito
+000000013F81.07C: Motivo de informe:
+000000013F82.07C: Enviar informe
+000000013F83.07C: Cancelar
 000000013FC5.07C: Barco pirata
+000000013FF3.07C: Popular
 000000014001.07C: Chat de voz
 00000001400D.07C: Chat de texto de grupo
 00000001400E.07C: Chat de texto de equipo
 00000001400F.07C: Chat de texto de partida
 000000014010.07C: Chat de texto general
 000000014011.07C: Chat de texto
+000000014013.07C: <Desconocido>
+000000014019.07C: <Desconocido>
 000000014022.07C: Ajustes regionales
 000000014026.07C: ¿Seguro que quieres restablecer todos los ajustes regionales?
 000000014027.07C: Código de diseño para todas las edades del Reino Unido
@@ -33141,6 +33164,10 @@ Si reactivas todas las características, los ajustes del código de diseño para
 
 Haz clic en «Más información» para ver más detalles.
 00000001402C.07C: Más información
+000000014037.07C: Motivo de informe:
+000000014038.07C: Enviar informe
+000000014039.07C: Cancelar
+000000014046.07C: Aceptar
 000000014057.07C: https://www.url.com
 000000014059.07C: Hay normas regionales que afectan a tu cuenta. Se han desactivado varios ajustes de forma predeterminada.
 
@@ -33153,11 +33180,53 @@ Haz clic en «Más información» para ver más detalles.
 Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionales» de Opciones.
 000000014062.07C: Ir a Opciones
 000000014063.07C: Aceptar
+000000014069.07C: Opciones del modo de juego
+00000001406B.07C: Examinar
+00000001406E.07C: Opciones del modo de juego
 00000001407C.07C: Este canal de chat está desactivado. Para ver o modificar este ajuste, ve a la pestaña «Social» de Opciones.
+00000001407E.07C: Filtro de búsqueda
 00000001409A.07C: Archivo de aspectos de la Overwatch League
 00000001409B.07C: 
-00000001409C.07C: Barco pirata
-00000001409D.07C: Aspecto Torneo de Countdown Cup
+0000000140A6.07C: Marcar como favorito
+0000000140C2.07C: Se está llenando, ¡vuelve más tarde!
+0000000140C3.07C: Código del juego
+0000000140C4.07C: Creador de sala
+0000000140CA.07C: Unirse automáticamente
+0000000140CD.07C: Intentando unirse automáticamente
+000000014207.07C: Creando partida con código
+000000014208.07C: Error al importar código
+000000014209.07C: Aceptar
+00000001420A.07C: Error al importar código
+00000001420B.07C: Aceptar
+00000001420C.07C: Creando partida con código
 000000014216.07C: Por determinar
 000000014217.07C: Por determinar
-[Core] Execution finished in 00:00:00.4431132 seconds
+00000001422A.07C: Has llegado al límite de favoritos. Elimina algunos para usar esta característica.
+00000001422C.07C: No se puede actualizar el estado favorito
+000000014245.07C: Modo competitivo de Eliminación
+000000014246.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Eliminación del mundo!
+000000014247.07C: Temporada 4 del modo competitivo de Eliminación 3c3
+000000014263.07C: Viendo %1$s de %2$s salas debido a los filtros de los ajustes
+000000014273.07C: Observar
+000000014274.07C: Crear sala nueva
+000000014275.07C: Informar sobre partida
+000000014297.07C: EN ALZA
+000000014298.07C: TENDENCIA
+000000014299.07C: POPULAR
+00000001429A.07C: DESTACADOS
+000000014323.07C: No hay un modo seleccionado
+00000001432A.07C: Viendo %1$s |Rpl sala:salas;
+00000001432B.07C: No se ha encontrado una partida válida a la que unirse.
+00000001433C.07C: Tesoro del dragón
+00000001433D.07C: Se desbloquea al ver la retransmisión en directo del Torneo de justas de la OWL de junio de 2021
+0000000143FC.07C: Las repeticiones no se pueden ver durante la partida ni en una sala de partida personalizada.
+000000014412.07C: Competidor de Eliminación 3c3 competitivo de 2021
+000000014413.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Eliminación 3c3 de 2021
+000000014414.07C: Héroe competitivo de Eliminación 3c3 de 2021
+000000014415.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Eliminación 3c3 de 2021
+000000014416.07C: Competidor de Eliminación 3c3 competitivo de 2021
+000000014417.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Eliminación 3c3 de 2021
+000000014418.07C: Héroe competitivo de Eliminación 3c3 de 2021
+000000014419.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Eliminación 3c3 de 2021
+000000014560.07C: 2020
+[Core] Execution finished in 00:00:00.6065137 seconds

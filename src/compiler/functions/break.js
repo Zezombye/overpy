@@ -48,6 +48,8 @@ astParsingFunctions.break = function(content) {
         return content;
 
     } else {
-        error("Found 'break' instruction, but not within a loop");
+        warn("w_break_outside_loop", "Found 'break' instruction, but not within a loop");
+        //breaks outside loops act like aborts
+        return new Ast("return");
     }
 }

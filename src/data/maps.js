@@ -913,6 +913,14 @@ const mapKw =
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）"
     },
+    "malevento": {
+        "gamemodes": [
+            "ffa",
+            "bountyHunter",
+            "tdm"
+        ],
+        "en-US": "Malevento",
+    },
     "necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [

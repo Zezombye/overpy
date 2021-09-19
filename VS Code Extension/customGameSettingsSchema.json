@@ -145,6 +145,7 @@
                                     "lijiangNightMarketLny",
                                     "lijiangTower",
                                     "lijiangTowerLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepal",
                                     "nepalSanctum",
@@ -222,6 +223,7 @@
                                     "lijiangNightMarketLny",
                                     "lijiangTower",
                                     "lijiangTowerLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepal",
                                     "nepalSanctum",
@@ -280,7 +282,7 @@
                         "scoreToWin": {
                             "type": "integer",
                             "minimum": 1,
-                            "maximum": 50
+                            "maximum": 5000
                         },
                         "scoringSpeed%": {
                             "type": "number",
@@ -291,6 +293,14 @@
                             "type": "number",
                             "minimum": 10,
                             "maximum": 500
+                        },
+                        "gameLengthInMn": {
+                            "type": "integer",
+                            "minimum": 5,
+                            "maximum": 15
+                        },
+                        "enableSelfInitiatedRespawn": {
+                            "type": "boolean"
                         },
                         "baseScoreForKillingBountyTarget": {
                             "type": "integer",
@@ -316,14 +326,6 @@
                             "type": "integer",
                             "minimum": 0,
                             "maximum": 1000
-                        },
-                        "gameLengthInMn": {
-                            "type": "integer",
-                            "minimum": 5,
-                            "maximum": 15
-                        },
-                        "enableSelfInitiatedRespawn": {
-                            "type": "boolean"
                         },
                         "enableBlitzFlagLocations": {
                             "type": "boolean"
@@ -1121,6 +1123,132 @@
                         }
                     }
                 },
+                "snowballFfa": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "gameLengthInMn": {
+                            "type": "integer",
+                            "minimum": 5,
+                            "maximum": 15
+                        },
+                        "scoreToWin": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 50
+                        },
+                        "enableSelfInitiatedRespawn": {
+                            "type": "boolean"
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        }
+                    }
+                },
                 "bountyHunter": {
                     "type": "object",
                     "additionalProperties": false,
@@ -1285,6 +1413,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
@@ -1340,6 +1469,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
@@ -1560,222 +1690,6 @@
                                     "oasisCityCenter",
                                     "oasisGardens",
                                     "oasisUniversity"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "ffa": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "gameLengthInMn": {
-                            "type": "integer",
-                            "minimum": 5,
-                            "maximum": 15
-                        },
-                        "scoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 5000
-                        },
-                        "enableSelfInitiatedRespawn": {
-                            "type": "boolean"
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blackForest",
-                                    "blackForestWinter",
-                                    "blizzWorld",
-                                    "blizzWorldWinter",
-                                    "castillo",
-                                    "chateauGuillard",
-                                    "chateauGuillardHalloween",
-                                    "dorado",
-                                    "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
-                                    "eichenwalde",
-                                    "eichenwaldeHalloween",
-                                    "hanamura",
-                                    "hanamuraWinter",
-                                    "havana",
-                                    "hollywood",
-                                    "hollywoodHalloween",
-                                    "horizonLunarColony",
-                                    "iliosLighthouse",
-                                    "iliosRuins",
-                                    "iliosWell",
-                                    "kanezaka",
-                                    "kingsRow",
-                                    "kingsRowWinter",
-                                    "lijiangControlCenter",
-                                    "lijiangControlCenterLny",
-                                    "lijiangGarden",
-                                    "lijiangGardenLny",
-                                    "lijiangNightMarket",
-                                    "lijiangNightMarketLny",
-                                    "necropolis",
-                                    "nepalSanctum",
-                                    "nepalShrine",
-                                    "nepalVillage",
-                                    "oasisCityCenter",
-                                    "oasisGardens",
-                                    "oasisUniversity",
-                                    "paris",
-                                    "petra",
-                                    "templeOfAnubis",
-                                    "volskaya",
-                                    "workshopChamber",
-                                    "workshopExpanse",
-                                    "workshopExpanseNight",
-                                    "workshopGreenScreen",
-                                    "workshopIsland",
-                                    "workshopIslandNight"
-                                ]
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blackForest",
-                                    "blackForestWinter",
-                                    "blizzWorld",
-                                    "blizzWorldWinter",
-                                    "castillo",
-                                    "chateauGuillard",
-                                    "chateauGuillardHalloween",
-                                    "dorado",
-                                    "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
-                                    "eichenwalde",
-                                    "eichenwaldeHalloween",
-                                    "hanamura",
-                                    "hanamuraWinter",
-                                    "havana",
-                                    "hollywood",
-                                    "hollywoodHalloween",
-                                    "horizonLunarColony",
-                                    "iliosLighthouse",
-                                    "iliosRuins",
-                                    "iliosWell",
-                                    "kanezaka",
-                                    "kingsRow",
-                                    "kingsRowWinter",
-                                    "lijiangControlCenter",
-                                    "lijiangControlCenterLny",
-                                    "lijiangGarden",
-                                    "lijiangGardenLny",
-                                    "lijiangNightMarket",
-                                    "lijiangNightMarketLny",
-                                    "necropolis",
-                                    "nepalSanctum",
-                                    "nepalShrine",
-                                    "nepalVillage",
-                                    "oasisCityCenter",
-                                    "oasisGardens",
-                                    "oasisUniversity",
-                                    "paris",
-                                    "petra",
-                                    "templeOfAnubis",
-                                    "volskaya",
-                                    "workshopChamber",
-                                    "workshopExpanse",
-                                    "workshopExpanseNight",
-                                    "workshopGreenScreen",
-                                    "workshopIsland",
-                                    "workshopIslandNight"
                                 ]
                             }
                         }
@@ -2392,6 +2306,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
@@ -2447,6 +2362,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "malevento",
                                     "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
@@ -3220,7 +3136,7 @@
                         }
                     }
                 },
-                "snowballFfa": {
+                "ffa": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -3232,7 +3148,7 @@
                         "scoreToWin": {
                             "type": "integer",
                             "minimum": 1,
-                            "maximum": 50
+                            "maximum": 5000
                         },
                         "enableSelfInitiatedRespawn": {
                             "type": "boolean"
@@ -3329,8 +3245,54 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "blackForest",
                                     "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "blizzWorld",
+                                    "blizzWorldWinter",
+                                    "castillo",
+                                    "chateauGuillard",
+                                    "chateauGuillardHalloween",
+                                    "dorado",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "eichenwalde",
+                                    "eichenwaldeHalloween",
+                                    "hanamura",
+                                    "hanamuraWinter",
+                                    "havana",
+                                    "hollywood",
+                                    "hollywoodHalloween",
+                                    "horizonLunarColony",
+                                    "iliosLighthouse",
+                                    "iliosRuins",
+                                    "iliosWell",
+                                    "kanezaka",
+                                    "kingsRow",
+                                    "kingsRowWinter",
+                                    "lijiangControlCenter",
+                                    "lijiangControlCenterLny",
+                                    "lijiangGarden",
+                                    "lijiangGardenLny",
+                                    "lijiangNightMarket",
+                                    "lijiangNightMarketLny",
+                                    "malevento",
+                                    "necropolis",
+                                    "nepalSanctum",
+                                    "nepalShrine",
+                                    "nepalVillage",
+                                    "oasisCityCenter",
+                                    "oasisGardens",
+                                    "oasisUniversity",
+                                    "paris",
+                                    "petra",
+                                    "templeOfAnubis",
+                                    "volskaya",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
                                 ]
                             }
                         },
@@ -3339,8 +3301,54 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "blackForest",
                                     "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "blizzWorld",
+                                    "blizzWorldWinter",
+                                    "castillo",
+                                    "chateauGuillard",
+                                    "chateauGuillardHalloween",
+                                    "dorado",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "eichenwalde",
+                                    "eichenwaldeHalloween",
+                                    "hanamura",
+                                    "hanamuraWinter",
+                                    "havana",
+                                    "hollywood",
+                                    "hollywoodHalloween",
+                                    "horizonLunarColony",
+                                    "iliosLighthouse",
+                                    "iliosRuins",
+                                    "iliosWell",
+                                    "kanezaka",
+                                    "kingsRow",
+                                    "kingsRowWinter",
+                                    "lijiangControlCenter",
+                                    "lijiangControlCenterLny",
+                                    "lijiangGarden",
+                                    "lijiangGardenLny",
+                                    "lijiangNightMarket",
+                                    "lijiangNightMarketLny",
+                                    "malevento",
+                                    "necropolis",
+                                    "nepalSanctum",
+                                    "nepalShrine",
+                                    "nepalVillage",
+                                    "oasisCityCenter",
+                                    "oasisGardens",
+                                    "oasisUniversity",
+                                    "paris",
+                                    "petra",
+                                    "templeOfAnubis",
+                                    "volskaya",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
                                 ]
                             }
                         }

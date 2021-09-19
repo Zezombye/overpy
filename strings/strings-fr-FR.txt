@@ -1,13 +1,13 @@
-[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
+[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.63.0.0.85660
+[CASC] Overwatch build 1.64.0.0.86739
 [CASC] Initializing...
-[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -9455,16 +9455,12 @@ avec exclusion
 0000000056ED.07C: Équipes
 0000000056EE.07C: Carte actuelle
 000000005704.07C: /%1$s
-000000005707.07C: Salons
-000000005708.07C: Trouver une partie
-000000005709.07C: Rejoindre
 00000000570B.07C: %1$s/%2$s <fg#FFEAA239>(%3$s)</fg>
 00000000570C.07C: %1$s/%2$s
 00000000570D.07C: Complet
 00000000570E.07C: |Rpl %1$s:Drapeau rapporté:Drapeaux rapportés;
 00000000570F.07C: %1$s |Rpl Drapeau rapporté:Drapeaux rapportés;
 000000005712.07C: MODIFIER LE CHAMP DE VISION
-00000000571D.07C: Filtrer
 00000000571F.07C: Afficher les barres de vie
 000000005722.07C: Infliger des dégâts avec vos capacités génère un bouclier personnel temporaire.
 000000005723.07C: La meilleure défense...
@@ -9919,7 +9915,6 @@ avec exclusion
 000000005A9B.07C: RETOUR
 000000005A9C.07C: Capacités
 000000005A9D.07C: Modificateurs de combat
-000000005A9E.07C: Rechercher
 000000005A9F.07C: Filtrer
 000000005AA0.07C: Actualiser
 000000005AA1.07C: PIRATER
@@ -26338,7 +26333,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 00000000F22A.07C: 
 00000000F22B.07C: 
 00000000F239.07C: Programmée et conçue à Overwatch par le docteur Mina Liao, Écho est un robot doté d’une intelligence artificielle s’adaptant très rapidement.
-00000000F23D.07C: Seules les parties qui peuvent être rejointes par les joueurs en file d’attente sont affichées.
 00000000F23E.07C: Avertissement : vos performances système pourraient en être affectées !
 00000000F241.07C: + 100 jetons en bonus
 00000000F242.07C: + 500 jetons en bonus
@@ -28547,6 +28541,7 @@ L’assistance Blizzard
 00000001144E.07C: Le type de points de vie maximum à acquérir.
 00000001144F.07C: 120 crédits, plus 60 coffres des jeux d’été offerts
 00000001146F.07C: 50 + 10 coffres des jeux d’été
+0000000114DC.07C: Regarder maintenant
 0000000114DF.07C: Regarder l’Overwatch League
 0000000114E4.07C: Pain d’épice
 00000001152E.07C: Bûcheron
@@ -33062,7 +33057,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Votre groupe a été exclu de la liste d’attente en raison de ses nouveaux paramètres Cross-Play.
 000000013A66.07C: Impossible d’inviter le joueur en raison de paramètres Cross-Play incompatibles.
 000000013A9D.07C: Haroëris
-000000013AA6.07C: Semaine 1 : Winston roi des océans
+000000013AA6.07C: Semaine 1 : Roi des océans de Winston
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
 000000013AAE.07C: Grimpez les échelons et affrontez les meilleurs Lúcioballeurs au monde !
@@ -33094,9 +33089,22 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Certains membres de votre escouade ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
 000000013C98.07C: Votre message ne peut pas être lu en raison de vos paramètres de communication Cross-Play.
 000000013D12.07C: Il est possible que certains membres de votre canal de discussion ne puissent pas vous entendre en raison de vos paramètres de communication Cross-Play.
+000000013D30.07C: Parcourir
+000000013D31.07C: Salons
+000000013D32.07C: Rejoindre
+000000013D33.07C: Filtrer
+000000013D34.07C: Créer
+000000013D35.07C: Seules les parties qui peuvent être rejointes par les joueurs en file d’attente sont affichées.
+000000013D37.07C: Auteur
+000000013D38.07C: # Salons
+000000013D39.07C: Joué dernièrement
+000000013D3D.07C: Récent
+000000013D3E.07C: Contacts préférés
+000000013D40.07C: Toutes les parties
 000000013D41.07C: Mode plage
 000000013D43.07C: Certains membres de votre équipe ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
 000000013D44.07C: Certains membres de votre partie ne peuvent pas lire votre message en raison de vos paramètres de communication Cross-Play.
+000000013D66.07C: Retour
 000000013DAB.07C: Obtenu en participant au défi de la semaine 1 des jeux d’été 2021
 000000013DAF.07C: Disponible dans les coffres des jeux d’été
 000000013DB2.07C: Envol au coucher de soleil
@@ -33108,8 +33116,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013DBD.07C: Coucher de soleil
 000000013DBE.07C: Plongeur
 000000013DC3.07C: Coucher de soleil
+000000013DC5.07C: Code de la partie
 000000013DC8.07C: Nihon
 000000013E2F.07C: Guimauves
+000000013E36.07C: Nom du mode
+000000013E37.07C: Nom de mode des paramètres de jeu non valide.
+000000013E3E.07C: Description
 000000013E3F.07C: Jeux d’été 2021
 000000013E40.07C: Disponible dans les coffres des jeux d’été
 000000013E6D.07C: Disponible dans les coffres des jeux d’été
@@ -33180,13 +33192,24 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Semaine 3
 000000013F59.07C: Jeux d’été 2021
 000000013F5C.07C: Obtenez des modèles épiques
+000000013F76.07C: Copier le code
+000000013F77.07C: Créer un nouveau salon
+000000013F78.07C: Sauvegarder comme paramètres prédéfinis
+000000013F79.07C: Signaler un code
+000000013F7A.07C: Activer/désactiver les favoris
+000000013F81.07C: Raison du signalement :
+000000013F82.07C: Signaler
+000000013F83.07C: Annuler
 000000013FC5.07C: Bateau pirate
+000000013FF3.07C: Populaire
 000000014001.07C: Discussion vocale
 00000001400D.07C: Discussion écrite d’escouade
 00000001400E.07C: Discussion écrite d’équipe
 00000001400F.07C: Discussion écrite de partie
 000000014010.07C: Discussion écrite générale
 000000014011.07C: Discussion écrite
+000000014013.07C: <Unknown>
+000000014019.07C: <Unknown>
 000000014022.07C: Paramètres de région
 000000014026.07C: Voulez-vous vraiment réinitialiser les paramètres de région ?
 000000014027.07C: Code d’évaluation du contenu pour le Royaume-Uni
@@ -33201,6 +33224,10 @@ Si vous activez toutes les fonctionnalités, les paramètres du Code d’évalua
 
 Cliquez sur « En savoir plus » pour plus d’informations.
 00000001402C.07C: En savoir plus
+000000014037.07C: Raison du signalement :
+000000014038.07C: Signaler
+000000014039.07C: Annuler
+000000014046.07C: OK
 000000014057.07C: https://www.url.com
 000000014059.07C: Certaines règlementations régionales affectent votre compte. Plusieurs paramètres ont été désactivés par défaut.
 
@@ -33213,11 +33240,53 @@ Cliquez sur « En savoir plus » pour plus d’informations.
 Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre dans l’onglet « Paramètres de région » du menu Options.
 000000014062.07C: Se rendre dans Options
 000000014063.07C: OK
+000000014069.07C: Options de mode de jeu
+00000001406B.07C: Parcourir
+00000001406E.07C: Options de mode de jeu
 00000001407C.07C: Ce canal de discussion est désactivé. Pour afficher ou ajuster ce paramètre, rendez-vous sur l’onglet « Social » du menu Options.
+00000001407E.07C: Filtre de recherche
 00000001409A.07C: Coffre de modèle Overwatch League
 00000001409B.07C: 
-00000001409C.07C: Bateau pirate
-00000001409D.07C: Modèle de tournoi Countdown Cup
+0000000140A6.07C: Activer/désactiver les favoris
+0000000140C2.07C: Actuellement en cours de remplissage, veuillez revenir plus tard !
+0000000140C3.07C: Code de la partie
+0000000140C4.07C: Créateur de salon
+0000000140CA.07C: Connexion auto
+0000000140CD.07C: Tentative de connexion auto
+000000014207.07C: Créer une partie avec un code
+000000014208.07C: Échec de l’importation du code
+000000014209.07C: OK
+00000001420A.07C: Échec de l’importation du code
+00000001420B.07C: OK
+00000001420C.07C: Créer une partie avec un code
 000000014216.07C: À dét.
 000000014217.07C: À déterminer
-[Core] Execution finished in 00:00:00.4683308 seconds
+00000001422A.07C: Le nombre maximum de favoris a été atteint. Veuillez supprimer des favoris afin d’utiliser cette fonction.
+00000001422C.07C: Impossible de mettre à jour vos statuts favoris.
+000000014245.07C: Élimination en mode compétitif
+000000014246.07C: Gravissez les échelons et affrontez les meilleurs joueurs d’élimination au monde !
+000000014247.07C: Élimination en 3c3 en compétitif - Saison 4
+000000014263.07C: Affichage de %1$s des %2$s salons en raison des paramètres de filtre actuels
+000000014273.07C: Regarder
+000000014274.07C: Créer un nouveau salon
+000000014275.07C: Signaler une partie
+000000014297.07C: AU TOP
+000000014298.07C: TENDANCE
+000000014299.07C: POPULAIRE
+00000001429A.07C: EN VEDETTE
+000000014323.07C: Aucun mode sélectionné
+00000001432A.07C: Affichage de %1$s |Rplsalon:salons;
+00000001432B.07C: Impossible de trouver une partie valide à rejoindre.
+00000001433C.07C: Trésor du dragon
+00000001433D.07C: Obtenu en regardant la diffusion en direct du tournoi June Joust de l’OWL 2021
+0000000143FC.07C: Impossible de regarder les enregistrements lors d’une partie ou dans le salon d’une partie personnalisée.
+000000014412.07C: Compétiteur Élimination 3c3 2021
+000000014413.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 3c3 en 2021
+000000014414.07C: Héros Élimination 3c3 2021
+000000014415.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 3c3 en 2021
+000000014416.07C: Compétiteur Élimination 3c3 2021
+000000014417.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 3c3 en 2021
+000000014418.07C: Héros Élimination 3c3 2021
+000000014419.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 3c3 en 2021
+000000014560.07C: 2020
+[Core] Execution finished in 00:00:00.4746433 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.63.0.959-git-17b17237e6615978f0370bfb56ad8bbe2a809403
+[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(9)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.63.0.0.85660
+[CASC] Overwatch build 1.64.0.0.86739
 [CASC] Initializing...
-[Manifest] Using TRG procedure 85660 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 85660 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -9395,16 +9395,12 @@ THIS SOFTWARE.
 0000000056ED.07C: Teams
 0000000056EE.07C: Current Map
 000000005704.07C: /%1$s
-000000005707.07C: Game Lobbies
-000000005708.07C: Find Game
-000000005709.07C: Join
 00000000570B.07C: %1$s/%2$s <fg#FFEAA239>(%3$s)</fg>
 00000000570C.07C: %1$s/%2$s
 00000000570D.07C: Full
 00000000570E.07C: Flag |Rpl %1$s:Return:Returns;
 00000000570F.07C: %1$s Flag |Rpl Return:Returns;
 000000005712.07C: MODIFY FOV
-00000000571D.07C: Filter
 00000000571F.07C: Show Health Bars
 000000005722.07C: Dealing damage with abilities creates temporary personal shields.
 000000005723.07C: The Best Defense...
@@ -9859,7 +9855,6 @@ THIS SOFTWARE.
 000000005A9B.07C: BACK
 000000005A9C.07C: Abilities
 000000005A9D.07C: Combat Modifiers
-000000005A9E.07C: Search
 000000005A9F.07C: Filter
 000000005AA0.07C: Refresh
 000000005AA1.07C: HACK
@@ -26229,7 +26224,6 @@ https://account.blizzard.com/connections/nintendo
 00000000F22A.07C: 
 00000000F22B.07C: 
 00000000F239.07C: Programmed and designed by Overwatch's Dr. Mina Liao, Echo is a robot with a rapidly adapting artificial intelligence.
-00000000F23D.07C: Only showing games that allow players who are in queue.
 00000000F23E.07C: Warning! This may impact your system performance!
 00000000F241.07C: + 100 Bonus Tokens
 00000000F242.07C: + 500 Bonus Tokens
@@ -28438,6 +28432,7 @@ Blizzard Support
 00000001144E.07C: The type of max health to acquire.
 00000001144F.07C: 120 credits, and a free gift of 60 Summer Games Loot Boxes
 00000001146F.07C: 50 + 10 Summer Games Loot Boxes
+0000000114DC.07C: Watch Now
 0000000114DF.07C: Watch Overwatch League
 0000000114E4.07C: Gingerbread
 00000001152E.07C: Lumberjack
@@ -32985,9 +32980,22 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013C8F.07C: Your message cannot be viewed by some members of your group due to your Cross-Play communication settings.
 000000013C98.07C: Your message cannot be viewed due to your Cross-Play communication settings.
 000000013D12.07C: Some members of your channel may not hear you due to your Cross-play communication settings.
+000000013D30.07C: Browse
+000000013D31.07C: Game Lobbies
+000000013D32.07C: Join
+000000013D33.07C: Filter
+000000013D34.07C: Create
+000000013D35.07C: Only showing games that allow players who are in queue.
+000000013D37.07C: Author
+000000013D38.07C: # Lobbies
+000000013D39.07C: Last Played
+000000013D3D.07C: Recent
+000000013D3E.07C: Favorites
+000000013D40.07C: All Games
 000000013D41.07C: Beach Mode
 000000013D43.07C: Your message cannot be viewed by some members of your team due to your Cross-Play communication settings.
 000000013D44.07C: Your message cannot be viewed by some members of your match due to your Cross-Play communication settings.
+000000013D66.07C: Back
 000000013DAB.07C: Unlocked by participating in the Summer Games 2021 week 1 challenge
 000000013DAF.07C: Available in Summer Games Loot Boxes
 000000013DB2.07C: Sunset Soar
@@ -32999,8 +33007,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013DBD.07C: Sunset
 000000013DBE.07C: Scuba
 000000013DC3.07C: Sunset
+000000013DC5.07C: Game Code
 000000013DC8.07C: Nihon
 000000013E2F.07C: Marshmallows
+000000013E36.07C: Mode Name
+000000013E37.07C: Invalid mode name for game settings.
+000000013E3E.07C: Description
 000000013E3F.07C: Summer Games 2021
 000000013E40.07C: Available in Summer Games Loot Boxes
 000000013E6D.07C: Available in Summer Games Loot Boxes
@@ -33071,13 +33083,24 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F58.07C: Week 3
 000000013F59.07C: Summer Games 2021
 000000013F5C.07C: Unlock epic skins
+000000013F76.07C: Copy Code
+000000013F77.07C: Create New Lobby
+000000013F78.07C: Save As Preset
+000000013F79.07C: Report Code
+000000013F7A.07C: Toggle Favorite
+000000013F81.07C: Reason for report:
+000000013F82.07C: Send Report
+000000013F83.07C: Cancel
 000000013FC5.07C: Pirate Ship
+000000013FF3.07C: Popular
 000000014001.07C: Voice Chat
 00000001400D.07C: Group Text Chat
 00000001400E.07C: Team Text Chat
 00000001400F.07C: Match Text Chat
 000000014010.07C: General Text Chat
 000000014011.07C: Text Chat
+000000014013.07C: <Unknown>
+000000014019.07C: <Unknown>
 000000014022.07C: Region Settings
 000000014026.07C: Are you sure you want to reset all region settings?
 000000014027.07C: UK Age Appropriate Design Code
@@ -33092,6 +33115,10 @@ If you enable all features, The UK Age Appropriate Design Code Settings below wi
 
 Click “Learn More” for more information.
 00000001402C.07C: Learn More
+000000014037.07C: Reason for report:
+000000014038.07C: Send Report
+000000014039.07C: Cancel
+000000014046.07C: OK
 000000014057.07C: https://www.battle.net/support/article/aadc
 000000014059.07C: There are regional regulations that affect your account. Several settings have been disabled by default.
 
@@ -33104,11 +33131,53 @@ Click “Learn More” for more information.
 If you would like to re-enable affected settings, please go to the “Region Settings” tab in Options.
 000000014062.07C: Go to Options
 000000014063.07C: Ok
+000000014069.07C: Game Mode Options
+00000001406B.07C: Browse
+00000001406E.07C: Game Mode Options
 00000001407C.07C: This chat channel is disabled. To view or adjust this setting, go to the "Social" tab in Options.
+00000001407E.07C: Search Filter
 00000001409A.07C: Overwatch League Skin Vault
 00000001409B.07C: 
-00000001409C.07C: Pirate Ship
-00000001409D.07C: Countdown Cup Tournament Skin
+0000000140A6.07C: Toggle Favorite
+0000000140C2.07C: Currently populating, please check back later!
+0000000140C3.07C: Game Code
+0000000140C4.07C: Lobby Creator
+0000000140CA.07C: Auto Join
+0000000140CD.07C: Attempting Auto Join
+000000014207.07C: Creating Game With Code
+000000014208.07C: Failed To Import Code
+000000014209.07C: OK
+00000001420A.07C: Failed To Import Code
+00000001420B.07C: OK
+00000001420C.07C: Creating Game With Code
 000000014216.07C: TBD
 000000014217.07C: To Be Determined
-[Core] Execution finished in 00:00:00.4545311 seconds
+00000001422A.07C: Maximum favorites reached. Please remove some favorites to use this feature.
+00000001422C.07C: Unable to update favorite status
+000000014245.07C: Competitive Elimination
+000000014246.07C: Rise up the ranks and compete with the best Elimination players in the world!
+000000014247.07C: Competitive 3v3 Elimination Season 4
+000000014263.07C: Viewing %1$s of %2$s lobbies due to current filter settings
+000000014273.07C: Spectate
+000000014274.07C: Create New Lobby
+000000014275.07C: Report Game
+000000014297.07C: HOT
+000000014298.07C: TRENDING
+000000014299.07C: POPULAR
+00000001429A.07C: FEATURED
+000000014323.07C: No Mode Selected
+00000001432A.07C: Viewing %1$s |Rpl Lobby:Lobbies;
+00000001432B.07C: Unable to find a valid game to join.
+00000001433C.07C: Dragons' Treasure
+00000001433D.07C: Unlocked by watching the 2021 OWL June Joust Tournament live broadcast
+0000000143FC.07C: Replays are not viewable while in game or in a custom game lobby.
+000000014412.07C: Competitive 3v3 Elimination Competitor 2021
+000000014413.07C: Unlocked by completing Competitive 3v3 Elimination 2021 placement matches
+000000014414.07C: Competitive 3v3 Elimination Hero 2021
+000000014415.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2021
+000000014416.07C: Competitive 3v3 Elimination Competitor 2021
+000000014417.07C: Unlocked by completing Competitive 3v3 Elimination 2021 placement matches
+000000014418.07C: Competitive 3v3 Elimination Hero 2021
+000000014419.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2021
+000000014560.07C: 2020
+[Core] Execution finished in 00:00:00.4785919 seconds
