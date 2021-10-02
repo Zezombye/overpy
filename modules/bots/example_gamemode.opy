@@ -5,7 +5,7 @@ This is an example gamemode for the OverPy pathfinding, that features a rudiment
 
 settings {
     "main": {
-        "description": "https://github.com/Zezombye/OverPy | Example gamemode for the bots module"
+        "description": "https://github.com/Zezombye/OverPy\n\nExample gamemode for the bots module\n\nCode: QD5XA"
     },
     "lobby": {
         "ffaSlots": 1
@@ -13,10 +13,10 @@ settings {
     "gamemodes": {
         "ffa": {
             "enabledMaps": [
-                #"necropolis",
-                #"lijiangGarden",
-                #"ecopointAntarctica",
-                #"blackForest",
+                "necropolis",
+                "lijiangGarden",
+                "ecopointAntarctica",
+                "blackForest",
                 "nepalShrine",
             ]
         },
@@ -182,37 +182,8 @@ rule "Initialize gamemode and decompress pathmap":
     message = Message.FINISHED_DECOMPRESSION
 
     #Now that we have finished decompressing, spawn the bots.
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, 1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.2 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
-    createDummy(Hero.REINHARDT, Team.1 if getCurrentGamemode() != Gamemode.FFA else Team.ALL, -1, vect(0, -1000, 0), null)
+    for i in range(24):
+        createDummy(Hero.REINHARDT, (Team.2 if i % 2 == 0 else Team.1) if getCurrentGamemode() != Gamemode.FFA else Team.ALL, i, vect(0, -1000, 0), null)
 
 rule "Initialize dummy":
     @Event eachPlayer
@@ -315,16 +286,6 @@ rule "Enemy is no longer in range - set mode back to idling":
     @Condition eventPlayer.walkBehavior == BotWalkBehavior.FIGHTING
     @Condition abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) >= 1.2 or distance(eventPlayer, eventPlayer.targetPlayer) >= 7 or not isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS)
     do:
-        /*#Do not use a rule condition but instead a normal loop, to deliberately reduce the reevaluation rate (and reduce lag).
-        #Additionally, do not use "or" because it will evaluate the whole value, even if the behavior is technically short circuiting.
-        if abs(eventPlayer.getPosition().y - eventPlayer.targetPlayer.getPosition().y) >= 1.2:
-            goto wait
-        if distance(eventPlayer, eventPlayer.targetPlayer) >= 7:
-            goto wait
-        if not isInLoS(eventPlayer.getEyePosition(), eventPlayer.targetPlayer.getEyePosition(), BarrierLos.PASS_THROUGH_BARRIERS):
-            goto wait
-        
-        wait:*/
         wait(5, Wait.ABORT_WHEN_FALSE)
         eventPlayer.walkBehavior = BotWalkBehavior.IDLING
     while RULE_CONDITION

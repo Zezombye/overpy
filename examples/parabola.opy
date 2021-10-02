@@ -19,14 +19,15 @@ settings {
 }
 
 #!define GRAVITY 30
-#!define MAX_TEXTS 30
+#!define MAX_TEXTS 25
 
 playervar dmgDealt = []
 playervar textPos = []
 playervar velocity = []
 playervar angle = []
-playervar direction = []
+playervar xMultiplier = []
 playervar timeOffsets = []
+playervar colors = []
 playervar textIndex = 0
 playervar time
 
@@ -42,13 +43,13 @@ rule "text":
     chase(hostPlayer.time, 9999, rate=1, ChaseReeval.NONE)
 
     for I in range(MAX_TEXTS):
-        createInWorldText(localPlayer if hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)] >= 0 and hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)] <= 2 else null, hostPlayer.dmgDealt[evalOnce(I)], hostPlayer.textPos[evalOnce(I)] + vect(
+        createInWorldText(localPlayer if localPlayer.time - localPlayer.timeOffsets[evalOnce(I)] >= 0 and localPlayer.time - localPlayer.timeOffsets[evalOnce(I)] <= 0.7 else null, b" {} ".format(localPlayer.dmgDealt[evalOnce(I)]), updateEveryTick(localPlayer.textPos[evalOnce(I)] + vect(
             0,
-            hostPlayer.velocity[evalOnce(I)] * (hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)]) * sinDeg(hostPlayer.angle[evalOnce(I)]) - 0.5 * GRAVITY * (hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)]) * (hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)]),
+            (localPlayer.velocity[evalOnce(I)] * (localPlayer.time - localPlayer.timeOffsets[evalOnce(I)]) * sinDeg(localPlayer.angle[evalOnce(I)]) - 0.5 * GRAVITY * (localPlayer.time - localPlayer.timeOffsets[evalOnce(I)]) * (localPlayer.time - localPlayer.timeOffsets[evalOnce(I)])) * distance(localPlayer.getEyePosition(), localPlayer.textPos[evalOnce(I)])/10,
             0
         ) + (
-            hostPlayer.direction[evalOnce(I)] * hostPlayer.velocity[evalOnce(I)] * (hostPlayer.time - hostPlayer.timeOffsets[evalOnce(I)]) * cosDeg(hostPlayer.angle[evalOnce(I)])
-        ), 3, Clip.SURFACES, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, Color.WHITE, SpecVisibility.ALWAYS)
+            worldVector(Vector.LEFT, localPlayer, Transform.ROTATION) * localPlayer.xMultiplier[evalOnce(I)] * localPlayer.velocity[evalOnce(I)] * (localPlayer.time - localPlayer.timeOffsets[evalOnce(I)]) * cosDeg(localPlayer.angle[evalOnce(I)]) * distance(localPlayer.getEyePosition(), localPlayer.textPos[evalOnce(I)])/10
+        )), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_STRING_AND_COLOR, localPlayer.colors[evalOnce(I)], SpecVisibility.ALWAYS)
 
 rule "hp":
     @Event eachPlayer
@@ -58,12 +59,13 @@ rule "hp":
 rule "dmg":
     @Event playerDealtDamage
     @Team 1
-    hostPlayer.dmgDealt[hostPlayer.textIndex] = eventDamage
-
-    hostPlayer.textPos[hostPlayer.textIndex] = victim.getEyePosition()
-    hostPlayer.velocity[hostPlayer.textIndex] = random.uniform(9, 12)
-    hostPlayer.angle[hostPlayer.textIndex] = random.uniform(50, 70)
-    hostPlayer.direction[hostPlayer.textIndex] = angleToDirection(random.uniform(0, 360), 0)
-    hostPlayer.timeOffsets[hostPlayer.textIndex] = hostPlayer.time
-    hostPlayer.textIndex++
-    hostPlayer.textIndex %= MAX_TEXTS
+    attacker.dmgDealt[attacker.textIndex] = eventDamage
+    attacker.colors[attacker.textIndex] = rgb(255, max(255 - (256*2)*(eventDamage/victim.getMaxHealth()), 21), abs(255 - (256*4)*(eventDamage/victim.getMaxHealth())))
+    attacker.textPos[attacker.textIndex] = victim.getEyePosition()
+    attacker.velocity[attacker.textIndex] = random.uniform(9, 12)
+    attacker.angle[attacker.textIndex] = random.uniform(50, 70)
+    #attacker.direction[attacker.textIndex] = angleToDirection(random.uniform(0, 360), 0)
+    attacker.xMultiplier[attacker.textIndex] = random.uniform(1, 0.5) * (-1 if random.randint(0,1) else 1)
+    attacker.timeOffsets[attacker.textIndex] = attacker.time
+    attacker.textIndex++
+    attacker.textIndex %= MAX_TEXTS
