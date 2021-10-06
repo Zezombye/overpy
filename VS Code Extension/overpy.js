@@ -15964,7 +15964,7 @@ const actionKw =
         "fr-FR": "Lancer le mode de jeu",
         "ja-JP": "ゲーム・モード開始",
         "pt-BR": "Iniciar Modo de Jogo",
-        "zh-CN": "开始比赛模式"
+        "zh-CN": "开始游戏模式"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
@@ -21522,7 +21522,7 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu",
         "ja-JP": "ゲーム・モード",
         "pt-BR": "Modo de jogo",
-        "zh-CN": "比赛模式"
+        "zh-CN": "游戏模式"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -22011,16 +22011,11 @@ var valueFuncKw =
             "zh-CN": "一个地图常量"
         },
         "en-US": "Map",
-        "es-ES": "Mapa",
         "es-MX": "Mapa",
         "fr-FR": "Carte",
-        "it-IT": "Mappa",
         "ja-JP": "マップ",
-        "pl-PL": "Mapa",
         "pt-BR": "Mapa",
-        "ru-RU": "Поле боя",
-        "zh-CN": "地图",
-        "zh-TW": "地圖"
+        "zh-CN": "地图"
     },
     "__mappedArray__": {
         "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
@@ -25819,7 +25814,7 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu actuel",
         "ja-JP": "現在のゲーム・モード",
         "pt-BR": "Modo de jogo atual",
-        "zh-CN": "当前比赛模式"
+        "zh-CN": "当前游戏模式"
     },
     "getCurrentMap": {
         "guid": "00000000D418",
@@ -30849,7 +30844,13 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        "guid": "000000014366",
         "en-US": "Malevento",
+        "ja-JP": "MALEVENTO",
+        "ko-KR": "말레벤토",
+        "ru-RU": "Малевенто",
+        "zh-CN": "马莱温多",
+        "zh-TW": "馬勒馮托"
     },
     "necropolis": {
         "guid": "0000000053FB",
@@ -39620,32 +39621,20 @@ const eventTeamKw =
     "1": {
         "guid": "00000000B472",
         "en-US": "Team 1",
-        "es-ES": "Equipo 1",
         "es-MX": "Equipo 1",
         "fr-FR": "Équipe 1",
-        "it-IT": "Squadra 1",
         "ja-JP": "チーム1",
-        "ko-KR": "1팀",
-        "pl-PL": "Drużyna 1",
         "pt-BR": "Equipe 1",
-        "ru-RU": "Команда 1",
-        "zh-CN": "队伍1",
-        "zh-TW": "隊伍1"
+        "zh-CN": "队伍1"
     },
     "2": {
         "guid": "00000000B471",
         "en-US": "Team 2",
-        "es-ES": "Equipo 2",
         "es-MX": "Equipo 2",
         "fr-FR": "Équipe 2",
-        "it-IT": "Squadra 2",
         "ja-JP": "チーム2",
-        "ko-KR": "2팀",
-        "pl-PL": "Drużyna 2",
         "pt-BR": "Equipe 2",
-        "ru-RU": "Команда 2",
-        "zh-CN": "队伍2",
-        "zh-TW": "隊伍2"
+        "zh-CN": "队伍2"
     },
     "all": {
         "guid": "000000007804",
@@ -39973,7 +39962,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Rozpoczęcie gry",
                         "pt-BR": "Iniciar modo de jogo",
                         "ru-RU": "Начало матча в режиме",
-                        "zh-CN": "比赛模式开始",
+                        "zh-CN": "游戏模式开始",
                         "zh-TW": "開始遊戲模式"
                     },
                     "healthPackRespawnTime%": {
@@ -42644,7 +42633,6 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            
             "ffa": {
                 "values": {
                     "gameLengthInMn": {
@@ -42706,7 +42694,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     }
                 }
-            },
+            }
         },
         "guid": "000000010044",
         "en-US": "modes",
@@ -45787,7 +45775,7 @@ const customGameSettingsSchema =
                 "fr-FR": "Latence minimum millisecondes",
                 "it-IT": "Latenza minima millisecondi",
                 "ja-JP": "最小遅延（ミリ秒）",
-                "ko-KR": "최소 지연 시간 milliseconds",
+                "ko-KR": "최소 지연 시간 밀리초",
                 "pl-PL": "Minimalne opóźnienie millisekundy",
                 "pt-BR": "Latência mínima ms",
                 "ru-RU": "Минимальная задержка в миллисекундах",
@@ -45827,7 +45815,20 @@ const customGameSettingsSchema =
             "modeName": {
                 "values": "__string__",
                 "maxChars": 32,
+                "guid": "000000013E36",
                 "en-US": "Mode Name",
+                "de-DE": "Modusname",
+                "es-ES": "Nombre del modo",
+                "es-MX": "Nombre del modo",
+                "fr-FR": "Nom du mode",
+                "it-IT": "Nome modalità",
+                "ja-JP": "モード名",
+                "ko-KR": "모드 이름",
+                "pl-PL": "Nazwa trybu",
+                "pt-BR": "Nome do modo",
+                "ru-RU": "Название режима",
+                "zh-CN": "模式名称",
+                "zh-TW": "模式名稱"
             }
         },
         "guid": "00000001006E",
@@ -52264,7 +52265,8 @@ function parseCustomString(str, formatArgs) {
 		if (formatArgs[key]) {
 			args[numberMapping[key]] = formatArgs[key];
 		} else {
-			error("Too few arguments in format() function: expected "+(numberMapping[key]+1)+" but found "+formatArgs.length);
+			console.log(numberMapping);
+			error("Too few arguments in format() function: expected "+(+key+1)+" but found "+formatArgs.length);
 		}
 	}
 	//console.log("args = ");
@@ -54482,7 +54484,9 @@ astParsingFunctions.break = function(content) {
         return content;
 
     } else {
-        error("Found 'break' instruction, but not within a loop");
+        warn("w_break_outside_loop", "Found 'break' instruction, but not within a loop");
+        //breaks outside loops act like aborts
+        return new Ast("return");
     }
 }
 /* 
@@ -54564,7 +54568,9 @@ astParsingFunctions.continue = function(content) {
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else {
-        error("Found 'continue' instruction, but not within a loop");
+        warn("w_continue_outside_loop", "Found 'continue' instruction, but not within a loop");
+        //continues outside loops act like aborts
+        return new Ast("return");
     }
 }
 /* 
@@ -62645,7 +62651,7 @@ var normalStrKw =
         "pl-PL": "Gra",
         "pt-BR": "Jogo",
         "ru-RU": "Матч",
-        "zh-CN": "比赛",
+        "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
     "Games": {
@@ -62660,7 +62666,7 @@ var normalStrKw =
         "pl-PL": "Gry",
         "pt-BR": "Jogos",
         "ru-RU": "Матчи",
-        "zh-CN": "比赛",
+        "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
     "Games Lost": {

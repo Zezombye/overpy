@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27850,6 +27850,7 @@ https://account.blizzard.com/connections/nintendo
 000000010DF5.07C: 巴萨诺瓦
 000000010DF7.07C: 古筝
 000000010DF9.07C: 和平鼓
+000000010DFE.07C: 马莱温多
 000000010E25.07C: 热身运动
 000000010E2A.07C: 开放排位竞技比赛第2赛季
 000000010E2B.07C: 开放排位竞技比赛
@@ -33250,6 +33251,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3F.07C: 2021年
 夏季运动会
 000000013E40.07C: 可在夏季运动会补给中开出
+000000013E68.07C: 地图限制：马莱温多
+000000013E69.07C: 马莱温多死斗
+000000013E6A.07C: 在排行榜上不断攀升，最强大的英雄才能获得胜利。
 000000013E6D.07C: 可在夏季运动会补给中开出
 000000013E6E.07C: 想看球赛
 000000013E70.07C: 可在夏季运动会补给中开出
@@ -33312,16 +33316,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: 火烈鸟泳圈
 000000013EDC.07C: 可在夏季运动会补给中开出
 000000013EDD.07C: 烧烤老板
-000000013F50.07C: 继续
-000000013F51.07C: 夏季运动会激情回归！除了去年你最喜爱的物品外，还有多种全新物品！
-000000013F53.07C: 动感斗球杯火热回归！
-000000013F54.07C: 活动将于8月11日结束
-000000013F55.07C: 每周挑战
-000000013F56.07C: 第1周
-000000013F57.07C: 第2周
-000000013F58.07C: 第3周
-000000013F59.07C: 2021年夏季运动会
-000000013F5C.07C: 解锁史诗皮肤
 000000013F76.07C: 复制代码
 000000013F77.07C: 创建新的大厅
 000000013F78.07C: 存为预设
@@ -33332,6 +33326,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: 取消
 000000013FC5.07C: 海盗战船
 000000013FF3.07C: 人气游戏
+000000013FF4.07C: 马莱温多团队死斗
+000000013FF5.07C: 在排行榜上不断攀升，最强大的团队才能获得胜利。
 000000014001.07C: 语音聊天
 00000001400D.07C: 小队文字聊天
 00000001400E.07C: 团队文字聊天
@@ -33409,6 +33405,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: 无法找到可以加入的有效比赛。
 00000001433C.07C: 苍龙踞宝藏
 00000001433D.07C: 观看《守望先锋联赛》2021赛季六月争霸赛赛事直播可解锁
+000000014366.07C: 马莱温多
+0000000143F8.07C: 继续
+0000000143F9.07C: 全新自由混战地图
+0000000143FA.07C: 马莱温多
 0000000143FC.07C: 在游戏中或在自定游戏大厅中无法观看录像。
 000000014412.07C: 2021决斗先锋3v3
 竞技选手
@@ -33425,4 +33425,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 竞技英雄
 000000014419.07C: 在2021决斗先锋3v3竞技比赛中达到前500名后解锁
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5337203 seconds
+[Core] Execution finished in 00:00:00.5140735 seconds

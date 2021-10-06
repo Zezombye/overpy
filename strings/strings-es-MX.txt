@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27666,6 +27666,7 @@ El equipo de soporte de Blizzard
 000000010DF5.07C: Bossa nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Yembé
+000000010DFE.07C: Malevento
 000000010E25.07C: Calentamiento
 000000010E2A.07C: Cola competitiva abierta Temporada 2
 000000010E2B.07C: Cola competitiva abierta
@@ -29358,7 +29359,7 @@ y 10 cajas de botín de invierno gratis
 00000001287A.07C: No se puede ver la repetición de una partida sin terminar.
 00000001287B.07C: Aceptar
 00000001287C.07C: <fg%1$s>TIENES UNA RECOMPENSA</fg>
-0000000128AB.07C: Se desbloquea al participar en el nuevo desafío Sangre Nueva de McCree.
+0000000128AB.07C: Se desbloquea al participar en el Desafío Kanezaka
 0000000128AF.07C: Se desbloquea al participar en el Desafío Kanezaka
 0000000128B0.07C: Santuario
 0000000128B1.07C: Cerámica
@@ -33025,6 +33026,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Descripción
 000000013E3F.07C: Juegos de Verano 2021
 000000013E40.07C: Disponible en cajas de botín de los Juegos de Verano
+000000013E68.07C: MAPA: Malevento
+000000013E69.07C: Combate a muerte en Malevento
+000000013E6A.07C: Sube hasta lo más alto del marcador. El héroe más letal gana.
 000000013E6D.07C: Disponible en cajas de botín de los Juegos de Verano
 000000013E6E.07C: Ver el fútbol
 000000013E70.07C: Disponible en cajas de botín de los Juegos de Verano
@@ -33083,16 +33087,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Flotador de flamenco
 000000013EDC.07C: Disponible en cajas de botín de los Juegos de Verano
 000000013EDD.07C: Maestro de la parrilla
-000000013F50.07C: CONTINUAR
-000000013F51.07C: ¡Los Juegos de Verano están de vuelta! ¡Tus favoritos de años anteriores regresan junto con objetos nuevos!
-000000013F53.07C: ¡La Copa Lúciobol regresó con otro torneo!
-000000013F54.07C: El evento finaliza el 10 de agosto
-000000013F55.07C: Desafíos semanales
-000000013F56.07C: Semana 1
-000000013F57.07C: Semana 2
-000000013F58.07C: Semana 3
-000000013F59.07C: Juegos de Verano 2021
-000000013F5C.07C: Desbloquea diseños épicos
 000000013F76.07C: Copiar código
 000000013F77.07C: Crear nueva sala de espera
 000000013F78.07C: Guardar como predeterminado
@@ -33103,6 +33097,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Cancelar
 000000013FC5.07C: Barco pirata
 000000013FF3.07C: Populares
+000000013FF4.07C: CME Malevento
+000000013FF5.07C: Sube hasta lo más alto del marcador. El equipo más letal gana.
 000000014001.07C: Chat de voz
 00000001400D.07C: Chat de texto de grupo
 00000001400E.07C: Chat de texto del equipo
@@ -33174,6 +33170,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: No es posible encontrar una partida válida para unirse.
 00000001433C.07C: Tesoro del dragón
 00000001433D.07C: Se desbloquea al ver la transmisión en vivo del torneo June Joust 2021 de la Liga Overwatch
+000000014366.07C: Malevento
+0000000143F8.07C: CONTINUAR
+0000000143F9.07C: Nuevo mapa TCT
+0000000143FA.07C: Malevento
 0000000143FC.07C: Las repeticiones no se pueden ver mientras estás en una partida o en la sala de partida personalizada.
 000000014412.07C: Competidor de Eliminación 3 vs. 3 competitiva 2021
 000000014413.07C: Se desbloquea al completar las partidas de colocación de Eliminación 3 vs. 3 competitiva 2021
@@ -33184,4 +33184,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014418.07C: Héroe de Eliminación 3 vs. 3 competitiva 2021
 000000014419.07C: Se desbloquea al estar entre los 500 mejores al final de Eliminación 3 vs. 3 competitiva 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4800468 seconds
+[Core] Execution finished in 00:00:00.5202761 seconds

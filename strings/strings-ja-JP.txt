@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27654,6 +27654,7 @@ Blizzardサポート
 000000010DF5.07C: ボサノヴァ
 000000010DF7.07C: グーチェン
 000000010DF9.07C: ジェンベ
+000000010DFE.07C: MALEVENTO
 000000010E25.07C: ウォームアップ
 000000010E2A.07C: ライバル・プレイ オープンキュー シーズン2
 000000010E2B.07C: ライバル・プレイ オープンキュー
@@ -33015,6 +33016,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: 説明
 000000013E3F.07C: サマー・ゲーム 2021
 000000013E40.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
+000000013E68.07C: マップ: MALEVENTO
+000000013E69.07C: MALEVENTO デスマッチ
+000000013E6A.07C: トップを目指せ！一番強いやつが勝つ！
 000000013E6D.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
 000000013E6E.07C: サッカー観たかったのに
 000000013E70.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
@@ -33073,16 +33077,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: フラミンゴフロート
 000000013EDC.07C: サマー・<br>ゲーム <br>トレジャー・<br>ボックスで<br>入手可能
 000000013EDD.07C: グリルマスター
-000000013F50.07C: 続行
-000000013F51.07C: サマー・ゲームが帰ってきた！新アイテムに加え、過去の人気アイテムも復活！
-000000013F53.07C: コパ・ルシオボールが今年も登場！
-000000013F54.07C: 8月10日にイベント終了
-000000013F55.07C: ウィークリー・チャレンジ
-000000013F56.07C: 第1週
-000000013F57.07C: 第2週
-000000013F58.07C: 第3週
-000000013F59.07C: サマー・ゲーム 2021
-000000013F5C.07C: エピック・スキンをアンロック
 000000013F76.07C: コードをコピーする
 000000013F77.07C: 新しいロビーを作成
 000000013F78.07C: 既定の設定として保存
@@ -33093,6 +33087,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: キャンセル
 000000013FC5.07C: 海賊船
 000000013FF3.07C: 人気
+000000013FF4.07C: MALEVENTO チーム・デスマッチ
+000000013FF5.07C: トップを目指せ！チームを勝利へと導こう！
 000000014001.07C: ボイスチャット
 00000001400D.07C: グループ・テキストチャット
 00000001400E.07C: チーム・テキストチャット
@@ -33170,6 +33166,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: 参加可能なゲームが見つかりませんでした。
 00000001433C.07C: ドラゴンの秘宝
 00000001433D.07C: 2021 OWL June Joust トーナメントを視聴してアンロック
+000000014366.07C: MALEVENTO
+0000000143F8.07C: 続行
+0000000143F9.07C: 新FFAマップ
+0000000143FA.07C: MALEVENTO
 0000000143FC.07C: マッチ中やカスタム・ゲーム・ロビーにいる間はリプレイは利用できません
 000000014412.07C: ライバル 3VS3 エリミネーション 2021 コンペティター
 000000014413.07C: ライバル 3VS3 エリミネーション 2021<br>の<br>スキル<br>認定<br>マッチ<br>完了で<br>アンロック
@@ -33180,4 +33180,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014418.07C: ライバル 3VS3 エリミネーション 2021 ヒーロー
 000000014419.07C: ライバル 3VS3 エリミネーション 2021<br>終了時に<br>トップ<br>500に<br>ランク<br>イン<br>して<br>アン<br>ロック
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5047908 seconds
+[Core] Execution finished in 00:00:00.5658541 seconds

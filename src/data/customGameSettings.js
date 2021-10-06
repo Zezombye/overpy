@@ -248,7 +248,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Rozpoczęcie gry",
                         "pt-BR": "Iniciar modo de jogo",
                         "ru-RU": "Начало матча в режиме",
-                        "zh-CN": "比赛模式开始",
+                        "zh-CN": "游戏模式开始",
                         "zh-TW": "開始遊戲模式"
                     },
                     "healthPackRespawnTime%": {
@@ -2919,7 +2919,6 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            
             "ffa": {
                 "values": {
                     "gameLengthInMn": {
@@ -2981,7 +2980,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     }
                 }
-            },
+            }
         },
         "guid": "000000010044",
         "en-US": "modes",
@@ -6062,7 +6061,7 @@ const customGameSettingsSchema =
                 "fr-FR": "Latence minimum millisecondes",
                 "it-IT": "Latenza minima millisecondi",
                 "ja-JP": "最小遅延（ミリ秒）",
-                "ko-KR": "최소 지연 시간 milliseconds",
+                "ko-KR": "최소 지연 시간 밀리초",
                 "pl-PL": "Minimalne opóźnienie millisekundy",
                 "pt-BR": "Latência mínima ms",
                 "ru-RU": "Минимальная задержка в миллисекундах",
@@ -6102,7 +6101,20 @@ const customGameSettingsSchema =
             "modeName": {
                 "values": "__string__",
                 "maxChars": 32,
+                "guid": "000000013E36",
                 "en-US": "Mode Name",
+                "de-DE": "Modusname",
+                "es-ES": "Nombre del modo",
+                "es-MX": "Nombre del modo",
+                "fr-FR": "Nom du mode",
+                "it-IT": "Nome modalità",
+                "ja-JP": "モード名",
+                "ko-KR": "모드 이름",
+                "pl-PL": "Nazwa trybu",
+                "pt-BR": "Nome do modo",
+                "ru-RU": "Название режима",
+                "zh-CN": "模式名称",
+                "zh-TW": "模式名稱"
             }
         },
         "guid": "00000001006E",

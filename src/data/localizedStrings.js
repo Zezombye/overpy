@@ -3646,7 +3646,7 @@ var normalStrKw =
         "pl-PL": "Gra",
         "pt-BR": "Jogo",
         "ru-RU": "Матч",
-        "zh-CN": "比赛",
+        "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
     "Games": {
@@ -3661,7 +3661,7 @@ var normalStrKw =
         "pl-PL": "Gry",
         "pt-BR": "Jogos",
         "ru-RU": "Матчи",
-        "zh-CN": "比赛",
+        "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
     "Games Lost": {

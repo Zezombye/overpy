@@ -4973,7 +4973,7 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu",
         "ja-JP": "ゲーム・モード",
         "pt-BR": "Modo de jogo",
-        "zh-CN": "比赛模式"
+        "zh-CN": "游戏模式"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -5462,16 +5462,11 @@ var valueFuncKw =
             "zh-CN": "一个地图常量"
         },
         "en-US": "Map",
-        "es-ES": "Mapa",
         "es-MX": "Mapa",
         "fr-FR": "Carte",
-        "it-IT": "Mappa",
         "ja-JP": "マップ",
-        "pl-PL": "Mapa",
         "pt-BR": "Mapa",
-        "ru-RU": "Поле боя",
-        "zh-CN": "地图",
-        "zh-TW": "地圖"
+        "zh-CN": "地图"
     },
     "__mappedArray__": {
         "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
@@ -9270,7 +9265,7 @@ var valueFuncKw =
         "fr-FR": "Mode de jeu actuel",
         "ja-JP": "現在のゲーム・モード",
         "pt-BR": "Modo de jogo atual",
-        "zh-CN": "当前比赛模式"
+        "zh-CN": "当前游戏模式"
     },
     "getCurrentMap": {
         "guid": "00000000D418",

@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27932,6 +27932,7 @@ Der Blizzard-Kundendienst
 000000010DF5.07C: Bossa Nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Djembe
+000000010DFE.07C: Malevento
 000000010E25.07C: Aufwärmen
 000000010E2A.07C: Kompetitiv – Freie Rollenwahl – Saison 2
 000000010E2B.07C: Kompetitiv – Freie Rollenwahl
@@ -33318,6 +33319,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Beschreibung
 000000013E3F.07C: Sommerspiele 2021
 000000013E40.07C: In Sommerspiele-Lootboxen erhältlich
+000000013E68.07C: KARTE: Malevento
+000000013E69.07C: Deathmatch: Malevento
+000000013E6A.07C: Kämpf dich in der Bestenliste hoch. Möge der tödlichste Held gewinnen.
 000000013E6D.07C: In Sommerspiele-Lootboxen erhältlich
 000000013E6E.07C: Ich wollte Fußball gucken
 000000013E70.07C: In Sommerspiele-Lootboxen erhältlich
@@ -33376,16 +33380,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Flamingo
 000000013EDC.07C: In Sommerspiele-Lootboxen erhältlich
 000000013EDD.07C: Grillmeister
-000000013F50.07C: WEITER
-000000013F51.07C: Die Sommerspiele sind zurück! Deine Lieblingsextras der letzten Jahre sind wieder da und dazu jede Menge neue!
-000000013F53.07C: Die Copa Lúcioball kehrt mit einem weiteren Turnier zurück!
-000000013F54.07C: Event endet am 10.08.
-000000013F55.07C: Wöchentliche Herausforderungen
-000000013F56.07C: Woche 1
-000000013F57.07C: Woche 2
-000000013F58.07C: Woche 3
-000000013F59.07C: Sommerspiele 2021
-000000013F5C.07C: Schalte epische Skins frei
 000000013F76.07C: Code kopieren
 000000013F77.07C: Neue Lobby erstellen
 000000013F78.07C: Als Vorlage speichern
@@ -33396,6 +33390,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Abbrechen
 000000013FC5.07C: Piratenschiff
 000000013FF3.07C: Beliebt
+000000013FF4.07C: Team-Deathmatch: Malevento
+000000013FF5.07C: Kämpf dich mit deinem Team an die Spitze. Möge das tödlichste Team gewinnen.
 000000014001.07C: Voicechat
 00000001400D.07C: Gruppentextchat
 00000001400E.07C: Teamtextchat
@@ -33473,6 +33469,10 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001432B.07C: Kein gültiges Spiel zum Beitreten gefunden.
 00000001433C.07C: Drachenschatz
 00000001433D.07C: Freigeschaltet durch das Ansehen der Live-Übertragung zum OWL June Joust 2021
+000000014366.07C: Malevento
+0000000143F8.07C: WEITER
+0000000143F9.07C: Neue FFA-Karte
+0000000143FA.07C: Malevento
 0000000143FC.07C: Replays können innerhalb eines Spiels oder einer benutzerdefinierten Spiellobby nicht angesehen werden.
 000000014412.07C: Teilnehmer der 3v3-Eliminierung 2021
 000000014413.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Eliminierung 2021 (3v3)
@@ -33483,4 +33483,4 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 000000014418.07C: Held der 3v3-Eliminierung 2021
 000000014419.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2021 (3v3)
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5884965 seconds
+[Core] Execution finished in 00:00:00.5263376 seconds

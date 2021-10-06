@@ -919,7 +919,13 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        "guid": "000000014366",
         "en-US": "Malevento",
+        "ja-JP": "MALEVENTO",
+        "ko-KR": "말레벤토",
+        "ru-RU": "Малевенто",
+        "zh-CN": "马莱温多",
+        "zh-TW": "馬勒馮托"
     },
     "necropolis": {
         "guid": "0000000053FB",

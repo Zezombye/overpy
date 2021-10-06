@@ -225,7 +225,8 @@ function parseCustomString(str, formatArgs) {
 		if (formatArgs[key]) {
 			args[numberMapping[key]] = formatArgs[key];
 		} else {
-			error("Too few arguments in format() function: expected "+(numberMapping[key]+1)+" but found "+formatArgs.length);
+			console.log(numberMapping);
+			error("Too few arguments in format() function: expected "+(+key+1)+" but found "+formatArgs.length);
 		}
 	}
 	//console.log("args = ");

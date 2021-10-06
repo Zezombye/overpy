@@ -13765,7 +13765,7 @@ const actionKw =
         "fr-FR": "Lancer le mode de jeu",
         "ja-JP": "ゲーム・モード開始",
         "pt-BR": "Iniciar Modo de Jogo",
-        "zh-CN": "开始比赛模式"
+        "zh-CN": "开始游戏模式"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",

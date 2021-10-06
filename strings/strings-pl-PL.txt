@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27905,6 +27905,7 @@ w sezonie 23.
 000000010DF5.07C: Bossa Nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Djembe
+000000010DFE.07C: Malevento
 000000010E25.07C: Rozgrzewka
 000000010E2A.07C: Otwarta Rywalizacja – sezon 2.
 000000010E2B.07C: Otwarta Rywalizacja
@@ -33359,6 +33360,9 @@ letnich igrzysk 2021
 000000013E3F.07C: Letnie igrzyska 2021
 000000013E40.07C: Zawartość skrzynek
 z letnich igrzysk
+000000013E68.07C: MAPA: Malevento
+000000013E69.07C: Deathmatch w Malevento
+000000013E6A.07C: Wywalcz miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójczy bohater.
 000000013E6D.07C: Zawartość skrzynek
 z letnich igrzysk
 000000013E6E.07C: Znowu ominąłem ekstraklasę
@@ -33441,16 +33445,6 @@ z letnich igrzysk
 000000013EDC.07C: Zawartość skrzynek
 z letnich igrzysk
 000000013EDD.07C: Grillmistrz-76
-000000013F50.07C: KONTYNUUJ
-000000013F51.07C: Letnie igrzyska powracają wraz z waszymi ulubionymi elementami z zeszłego roku i wieloma nowymi!
-000000013F53.07C: Turniej Copa Futbolúcio wraca z kolejną edycją!
-000000013F54.07C: Koniec wydarzenia 10 sierpnia
-000000013F55.07C: Cotygodniowe wyzwania
-000000013F56.07C: Tydzień 1
-000000013F57.07C: Tydzień 2
-000000013F58.07C: Tydzień 3
-000000013F59.07C: Letnie igrzyska 2021
-000000013F5C.07C: Odblokuj epickie skórki
 000000013F76.07C: Kopiuj kod
 000000013F77.07C: Stwórz nową poczekalnię
 000000013F78.07C: Zapisz jako ustawienie
@@ -33461,6 +33455,8 @@ z letnich igrzysk
 000000013F83.07C: Anuluj
 000000013FC5.07C: Statek Piracki
 000000013FF3.07C: Popularne
+000000013FF4.07C: Malevento DMD
+000000013FF5.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
 000000014001.07C: Czat głosowy
 00000001400D.07C: Czat tekstowy z ekipą
 00000001400E.07C: Drużynowy czat tekstowy
@@ -33538,6 +33534,10 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 00000001432B.07C: Nie można znaleźć prawidłowej gry, do której można dołączyć.
 00000001433C.07C: Smoczy skarb
 00000001433D.07C: Nagroda z oglądanie transmisji na żywo z turnieju OWL June Joust 2021
+000000014366.07C: Malevento
+0000000143F8.07C: DALEJ
+0000000143F9.07C: Nowa mapa FFA
+0000000143FA.07C: Malevento
 0000000143FC.07C: Powtórki są niedostępne w trakcie rozgrywki, lub w poczekalni gry dowolnej.
 000000014412.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014413.07C: Nagroda
@@ -33554,4 +33554,4 @@ w trybie Eliminacji 3 na 3 w 2021
 000000014418.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014419.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4481179 seconds
+[Core] Execution finished in 00:00:00.4973282 seconds

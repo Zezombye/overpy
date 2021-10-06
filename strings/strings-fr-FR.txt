@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27765,6 +27765,7 @@ L’assistance Blizzard
 000000010DF5.07C: Bossa nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Djembé
+000000010DFE.07C: Malevento
 000000010E25.07C: Échauffement
 000000010E2A.07C: Compétitif en sélection libre - Saison 2
 000000010E2B.07C: Compétitif en sélection libre
@@ -33124,6 +33125,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Description
 000000013E3F.07C: Jeux d’été 2021
 000000013E40.07C: Disponible dans les coffres des jeux d’été
+000000013E68.07C: CARTE : Malevento
+000000013E69.07C: Combat à mort à Malevento
+000000013E6A.07C: Atteignez le sommet du tableau des scores. Le héros le plus meurtrier sortira vainqueur.
 000000013E6D.07C: Disponible dans les coffres des jeux d’été
 000000013E6E.07C: Regarder le foot
 000000013E70.07C: Disponible dans les coffres des jeux d’été
@@ -33182,16 +33186,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Flamant rose gonflable
 000000013EDC.07C: Disponible dans les coffres des jeux d’été
 000000013EDD.07C: Roi du barbecue
-000000013F50.07C: CONTINUER
-000000013F51.07C: Les jeux d’été sont de retour ! Vos coups de cœur des années précédentes sont accompagnés d’une foule de nouveautés !
-000000013F53.07C: La Copa Lúcioball est de retour pour un autre tournoi !
-000000013F54.07C: Fin de l’évènement le 10 août
-000000013F55.07C: Défis hebdomadaires
-000000013F56.07C: Semaine 1
-000000013F57.07C: Semaine 2
-000000013F58.07C: Semaine 3
-000000013F59.07C: Jeux d’été 2021
-000000013F5C.07C: Obtenez des modèles épiques
 000000013F76.07C: Copier le code
 000000013F77.07C: Créer un nouveau salon
 000000013F78.07C: Sauvegarder comme paramètres prédéfinis
@@ -33202,6 +33196,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Annuler
 000000013FC5.07C: Bateau pirate
 000000013FF3.07C: Populaire
+000000013FF4.07C: CME Malevento
+000000013FF5.07C: Atteignez le sommet du tableau des scores. L’équipe la plus meurtrière remportera la victoire.
 000000014001.07C: Discussion vocale
 00000001400D.07C: Discussion écrite d’escouade
 00000001400E.07C: Discussion écrite d’équipe
@@ -33279,6 +33275,10 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 00000001432B.07C: Impossible de trouver une partie valide à rejoindre.
 00000001433C.07C: Trésor du dragon
 00000001433D.07C: Obtenu en regardant la diffusion en direct du tournoi June Joust de l’OWL 2021
+000000014366.07C: Malevento
+0000000143F8.07C: CONTINUER
+0000000143F9.07C: Nouvelle carte Chacun pour soi
+0000000143FA.07C: Malevento
 0000000143FC.07C: Impossible de regarder les enregistrements lors d’une partie ou dans le salon d’une partie personnalisée.
 000000014412.07C: Compétiteur Élimination 3c3 2021
 000000014413.07C: Obtenu en effectuant toutes les parties de placement du mode Élimination en 3c3 en 2021
@@ -33289,4 +33289,4 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000014418.07C: Héros Élimination 3c3 2021
 000000014419.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Élimination en 3c3 en 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4746433 seconds
+[Core] Execution finished in 00:00:00.5363508 seconds

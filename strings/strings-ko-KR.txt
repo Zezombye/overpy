@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27652,6 +27652,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000010DF5.07C: 보사노바
 000000010DF7.07C: 고쟁
 000000010DF9.07C: 젬베
+000000010DFE.07C: 말레벤토
 000000010E25.07C: 준비 운동
 000000010E2A.07C: 자유 경쟁전 2시즌
 000000010E2B.07C: 자유 경쟁전
@@ -33016,6 +33017,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: 설명
 000000013E3F.07C: 2021 하계 스포츠 대회
 000000013E40.07C: 하계 스포츠 대회 전리품 상자에서 획득
+000000013E68.07C: 전장: 말레벤토
+000000013E69.07C: 말레벤토 데스매치
+000000013E6A.07C: 점수판의 정상을 노리십시오. 가장 노련한 영웅이 승리합니다.
 000000013E6D.07C: 하계 스포츠 대회 전리품 상자에서 획득
 000000013E6E.07C: 축구 보고 싶었는데
 000000013E70.07C: 하계 스포츠 대회 전리품 상자에서 획득
@@ -33074,17 +33078,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: 플라밍고 튜브
 000000013EDC.07C: 하계 스포츠 대회 전리품 상자에서 획득
 000000013EDD.07C: 바베큐 달인
-000000013F50.07C: 확인
-000000013F51.07C: 하계 스포츠 대회가 돌아왔습니다!
-작년의 아이템과 더불어 새롭게 추가된 아이템을 확인하세요!
-000000013F53.07C: 코파 루시우볼이 새로운 토너먼트로 돌아왔습니다!
-000000013F54.07C: 이벤트 종료: 8월 10일
-000000013F55.07C: 주간 챌린지
-000000013F56.07C: 1주 차
-000000013F57.07C: 2주 차
-000000013F58.07C: 3주 차
-000000013F59.07C: 2021 하계 스포츠 대회
-000000013F5C.07C: 영웅급 스킨을 획득하세요
 000000013F76.07C: 코드 복사
 000000013F77.07C: 새 대기실 만들기
 000000013F78.07C: 간편 설정으로 저장
@@ -33095,6 +33088,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: 취소
 000000013FC5.07C: 해적선
 000000013FF3.07C: 인기 게임
+000000013FF4.07C: 말레벤토 팀 데스매치
+000000013FF5.07C: 점수판의 정상을 노리십시오. 가장 노련한 팀이 승리합니다.
 000000014001.07C: 음성 대화
 00000001400D.07C: 그룹 텍스트 채팅
 00000001400E.07C: 팀 텍스트 채팅
@@ -33172,6 +33167,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: 참가할 수 있는 게임을 찾을 수 없습니다.
 00000001433C.07C: 용의 보물
 00000001433D.07C: 2021 OWL 6월 토너먼트 라이브 방송을 시청하여 획득
+000000014366.07C: 말레벤토
+0000000143F8.07C: 확인
+0000000143F9.07C: 신규 개별 전투 전장
+0000000143FA.07C: 말레벤토
 0000000143FC.07C: 게임 중이거나 사용자 지정 게임 대기실에 있는 동안에는 리플레이를 볼 수 없습니다.
 000000014412.07C: 2021 3대3 섬멸전 경쟁전 참가자
 000000014413.07C: 2021 3대3 섬멸전 경쟁전 배치 경기를 완료하여 획득
@@ -33182,4 +33181,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014418.07C: 2021 3대3 섬멸전 경쟁전 영웅
 000000014419.07C: 2021 3대3 섬멸전 경쟁전에서 상위 500위를 달성하여 획득
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4717995 seconds
+[Core] Execution finished in 00:00:00.5439846 seconds

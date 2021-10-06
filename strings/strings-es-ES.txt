@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27704,6 +27704,7 @@ Asistencia de Blizzard
 000000010DF5.07C: Bossa nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Yembé
+000000010DFE.07C: Malevento
 000000010E25.07C: Calentamiento
 000000010E2A.07C: Temporada 2 de la cola abierta competitiva
 000000010E2B.07C: Cola abierta competitiva
@@ -33064,6 +33065,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Descripción
 000000013E3F.07C: Juegos de Verano 2021
 000000013E40.07C: Disponible en las cajas de botín de los Juegos de Verano
+000000013E68.07C: MAPA: Malevento
+000000013E69.07C: Combate a muerte en Malevento
+000000013E6A.07C: Consigue la puntuación más alta. El héroe más letal gana.
 000000013E6D.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000013E6E.07C: ¡Quería ver el fútbol!
 000000013E70.07C: Disponible en las cajas de botín de los Juegos de Verano
@@ -33122,16 +33126,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Flamenco hinchable
 000000013EDC.07C: Disponible en las cajas de botín de los Juegos de Verano
 000000013EDD.07C: Parrillero
-000000013F50.07C: CONTINUAR
-000000013F51.07C: ¡Vuelven los Juegos de Verano! ¡Recompensas nuevas se suman a tus favoritas de los años anteriores!
-000000013F53.07C: ¡La Copa de Lúciobol vuelve para otro torneo!
-000000013F54.07C: El evento termina el 10 de agosto
-000000013F55.07C: Desafíos semanales
-000000013F56.07C: Semana 1
-000000013F57.07C: Semana 2
-000000013F58.07C: Semana 3
-000000013F59.07C: Juegos de Verano 2021
-000000013F5C.07C: Desbloquea aspectos épicos
 000000013F76.07C: Copiar código
 000000013F77.07C: Crear sala nueva
 000000013F78.07C: Guardar como predefinidos
@@ -33142,6 +33136,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Cancelar
 000000013FC5.07C: Barco pirata
 000000013FF3.07C: Popular
+000000013FF4.07C: Malevento por equipos
+000000013FF5.07C: Conseguid la puntuación más alta. El equipo más letal ganará.
 000000014001.07C: Chat de voz
 00000001400D.07C: Chat de texto de grupo
 00000001400E.07C: Chat de texto de equipo
@@ -33219,6 +33215,10 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001432B.07C: No se ha encontrado una partida válida a la que unirse.
 00000001433C.07C: Tesoro del dragón
 00000001433D.07C: Se desbloquea al ver la retransmisión en directo del Torneo de justas de la OWL de junio de 2021
+000000014366.07C: Malevento
+0000000143F8.07C: CONTINUAR
+0000000143F9.07C: Nuevo mapa TcT
+0000000143FA.07C: Malevento
 0000000143FC.07C: Las repeticiones no se pueden ver durante la partida ni en una sala de partida personalizada.
 000000014412.07C: Competidor de Eliminación 3c3 competitivo de 2021
 000000014413.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Eliminación 3c3 de 2021
@@ -33229,4 +33229,4 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000014418.07C: Héroe competitivo de Eliminación 3c3 de 2021
 000000014419.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Eliminación 3c3 de 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.6065137 seconds
+[Core] Execution finished in 00:00:00.4819325 seconds

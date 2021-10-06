@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27655,6 +27655,7 @@ https://account.blizzard.com/connections/nintendo
 000000010DF5.07C: 巴薩諾瓦
 000000010DF7.07C: 古箏
 000000010DF9.07C: 金杯鼓
+000000010DFE.07C: 馬勒馮托
 000000010E25.07C: 暖身
 000000010E2A.07C: 自由佇列競技對戰第2賽季
 000000010E2B.07C: 自由佇列競技對戰
@@ -33013,6 +33014,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: 描述
 000000013E3F.07C: 2021年夏季運動會
 000000013E40.07C: 經由夏季運動會戰利品解鎖
+000000013E68.07C: 地圖：馬勒馮托
+000000013E69.07C: 馬勒馮托死鬥
+000000013E6A.07C: 在排行榜一路晉升，只有又強又猛又殺的人能成為贏家。
 000000013E6D.07C: 經由夏季運動會戰利品解鎖
 000000013E6E.07C: 看足球賽
 000000013E70.07C: 經由夏季運動會戰利品解鎖
@@ -33071,16 +33075,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: 水上紅鶴
 000000013EDC.07C: 經由夏季運動會戰利品解鎖
 000000013EDD.07C: 燒烤專家
-000000013F50.07C: 繼續
-000000013F51.07C: 夏季運動會回來了！去年深受大家歡迎的內容重新開放，此外還有全新物品！
-000000013F53.07C: 路西歐競球盃錦標賽又回來了！
-000000013F54.07C: 活動於8月11日結束
-000000013F55.07C: 每週挑戰
-000000013F56.07C: 第1週
-000000013F57.07C: 第2週
-000000013F58.07C: 第3週
-000000013F59.07C: 2021年夏季運動會
-000000013F5C.07C: 解鎖史詩造型
 000000013F76.07C: 複製代碼
 000000013F77.07C: 建立新大廳
 000000013F78.07C: 儲存為預載規則
@@ -33091,6 +33085,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: 取消
 000000013FC5.07C: 海盜船
 000000013FF3.07C: 高人氣
+000000013FF4.07C: 馬勒馮托團隊死鬥
+000000013FF5.07C: 在排行榜一路晉升，只有又強又猛又殺的那方能成為贏家。
 000000014001.07C: 語音聊天
 00000001400D.07C: 團隊文字聊天
 00000001400E.07C: 隊伍文字聊天
@@ -33168,6 +33164,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: 找不到有效的遊戲可加入。
 00000001433C.07C: 龍之財寶
 00000001433D.07C: 觀看2021年《鬥陣特攻》職業電競聯賽六月爭霸賽實況直播即可解鎖
+000000014366.07C: 馬勒馮托
+0000000143F8.07C: 繼續
+0000000143F9.07C: 全新自由混戰地圖
+0000000143FA.07C: 馬勒馮托
 0000000143FC.07C: 在對戰時或是在自訂遊戲大廳時無法觀看重播
 000000014412.07C: 2021年3v3鎖定對決競技模式選手
 000000014413.07C: 完成2021年3v3鎖定對決競技模式預選賽即可解鎖
@@ -33178,4 +33178,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014418.07C: 2021年3v3鎖定對決競技模式精英
 000000014419.07C: 在2021年3v3鎖定對決競技模式進入前500名即可解鎖
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4460166 seconds
+[Core] Execution finished in 00:00:00.5216681 seconds

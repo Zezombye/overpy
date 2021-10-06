@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -27656,6 +27656,7 @@ Blizzard Support
 000000010DF5.07C: Bossa Nova
 000000010DF7.07C: Guzheng
 000000010DF9.07C: Djembe
+000000010DFE.07C: Malevento
 000000010E25.07C: Warm up
 000000010E2A.07C: Competitive Open Queue Season 2
 000000010E2B.07C: Competitive Open Queue
@@ -33015,6 +33016,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Description
 000000013E3F.07C: Summer Games 2021
 000000013E40.07C: Available in Summer Games Loot Boxes
+000000013E68.07C: MAP: Malevento
+000000013E69.07C: Malevento Deathmatch
+000000013E6A.07C: Climb to the top of the scoreboard. The deadliest hero wins.
 000000013E6D.07C: Available in Summer Games Loot Boxes
 000000013E6E.07C: Watch the footy
 000000013E70.07C: Available in Summer Games Loot Boxes
@@ -33073,16 +33077,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Flamingo Floatie
 000000013EDC.07C: Available in Summer Games Loot Boxes
 000000013EDD.07C: Grillmaster
-000000013F50.07C: CONTINUE
-000000013F51.07C: The Summer Games return! Your favorites from previous years are back alongside new items!
-000000013F53.07C: Copa Lúcioball is back for another tournament!
-000000013F54.07C: Event Ends Aug 10
-000000013F55.07C: Weekly Challenges
-000000013F56.07C: Week 1
-000000013F57.07C: Week 2
-000000013F58.07C: Week 3
-000000013F59.07C: Summer Games 2021
-000000013F5C.07C: Unlock epic skins
 000000013F76.07C: Copy Code
 000000013F77.07C: Create New Lobby
 000000013F78.07C: Save As Preset
@@ -33093,6 +33087,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Cancel
 000000013FC5.07C: Pirate Ship
 000000013FF3.07C: Popular
+000000013FF4.07C: Malevento TDM
+000000013FF5.07C: Climb to the top of the scoreboard. The deadliest team wins.
 000000014001.07C: Voice Chat
 00000001400D.07C: Group Text Chat
 00000001400E.07C: Team Text Chat
@@ -33170,6 +33166,10 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001432B.07C: Unable to find a valid game to join.
 00000001433C.07C: Dragons' Treasure
 00000001433D.07C: Unlocked by watching the 2021 OWL June Joust Tournament live broadcast
+000000014366.07C: Malevento
+0000000143F8.07C: CONTINUE
+0000000143F9.07C: New FFA Map
+0000000143FA.07C: Malevento
 0000000143FC.07C: Replays are not viewable while in game or in a custom game lobby.
 000000014412.07C: Competitive 3v3 Elimination Competitor 2021
 000000014413.07C: Unlocked by completing Competitive 3v3 Elimination 2021 placement matches
@@ -33180,4 +33180,4 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014418.07C: Competitive 3v3 Elimination Hero 2021
 000000014419.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4785919 seconds
+[Core] Execution finished in 00:00:00.5156452 seconds

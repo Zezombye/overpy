@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.961-git-c9ada52412128f973725cb7afa7c9a3c96b7539e
+[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ruRU", "-T=ruRU"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(10)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
 [CASC] Text Language: ruRU | Speech Language: ruRU
-[CASC] Overwatch build 1.64.0.0.86739
+[CASC] Overwatch build 1.64.1.0.87506
 [CASC] Initializing...
-[Manifest] Using TRG procedure 86739 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
-[Manifest] Using CMF procedure 86739 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LruRU_speech_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LruRU_text_EExt.cmf
+[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27661,6 +27661,7 @@ https://account.blizzard.com/connections/nintendo
 000000010DF5.07C: Босанова
 000000010DF7.07C: Гучжэн
 000000010DF9.07C: Джембе
+000000010DFE.07C: Малевенто
 000000010E25.07C: Разминка
 000000010E2A.07C: 2-й сезон открытого соревновательного режима
 000000010E2B.07C: Открытый соревновательный режим
@@ -33020,6 +33021,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013E3E.07C: Описание
 000000013E3F.07C: Летние игры 2021
 000000013E40.07C: Можно получить из контейнера Летних игр
+000000013E68.07C: Поле боя: Малевенто
+000000013E69.07C: Схватка в Малевенто
+000000013E6A.07C: Поднимитесь на вершину рейтинговой таблицы! Победит самый смертоносный герой.
 000000013E6D.07C: Можно получить из контейнера Летних игр
 000000013E6E.07C: А футбик посмотреть?!
 000000013E70.07C: Можно получить из контейнера Летних игр
@@ -33078,16 +33082,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013EDB.07C: Плавательный фламинго
 000000013EDC.07C: Можно получить из контейнера Летних игр
 000000013EDD.07C: Барбекю
-000000013F50.07C: ПРОДОЛЖИТЬ
-000000013F51.07C: Летние игры возвращаются! Вас ждут полюбившиеся трофеи прошлых лет и яркие новинки!
-000000013F53.07C: Кубок Лусио возвращается!
-000000013F54.07C: Участвуйте до 10 августа
-000000013F55.07C: Еженедельные испытания
-000000013F56.07C: 1-я неделя
-000000013F57.07C: 2-я неделя
-000000013F58.07C: 3-я неделя
-000000013F59.07C: Летние игры 2021
-000000013F5C.07C: Эпические облики
 000000013F76.07C: Копировать код
 000000013F77.07C: Создать лобби
 000000013F78.07C: Сохранить в шаблон
@@ -33098,6 +33092,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F83.07C: Отмена
 000000013FC5.07C: Пиратский корабль
 000000013FF3.07C: Популярное
+000000013FF4.07C: Командная схватка в Малевенто
+000000013FF5.07C: Поднимитесь на вершину рейтинговой таблицы! Победит самая смертоносная команда.
 000000014001.07C: Голосовой чат
 00000001400D.07C: Текстовый чат группы
 00000001400E.07C: Текстовый чат команды
@@ -33175,6 +33171,10 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001432B.07C: Не удалось найти подходящую игру.
 00000001433C.07C: Сокровище дракона
 00000001433D.07C: Награда за просмотр прямой трансляции турнира OWL June Joust 2021 г.
+000000014366.07C: Малевенто
+0000000143F8.07C: ПРОДОЛЖИТЬ
+0000000143F9.07C: Новое поле боя для режима FFA
+0000000143FA.07C: Малевенто
 0000000143FC.07C: В лобби «Своей игры» и время игры просматривать повторы нельзя.
 000000014412.07C: Претендент соревновательной ликвидации 3х3 в 2021 г.
 000000014413.07C: Награда за завершение квалификационных матчей соревновательной ликвидации 3х3 в 2021 г.
@@ -33185,4 +33185,4 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014418.07C: Герой соревновательной ликвидации 3х3 в 2021 г.
 000000014419.07C: Награда за вхождение в список 500 лучших игроков соревновательной ликвидации 3х3 в 2021 г.
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4767706 seconds
+[Core] Execution finished in 00:00:00.5395963 seconds
