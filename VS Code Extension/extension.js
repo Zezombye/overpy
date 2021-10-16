@@ -26,7 +26,6 @@ try{
 const vscode = require('vscode');
 const path = require("path");
 const overpy = require("./overpy.js");
-const clipboard = require("copy-paste");
 const overpyExtension = vscode.extensions.getExtension("zezombye.overpy");
 const overpyExtensionPath = encodeURI(overpyExtension.extensionPath.replace(/\\/g, "/"));
 
@@ -365,7 +364,7 @@ function activate(context) {
             for (var warning of compiledText.encounteredWarnings) {
                 vscode.window.showWarningMessage("Warning: "+warning);
             }
-            clipboard.copy(compiledText.result);
+            vscode.env.clipboard.writeText(compiledText.result);
             vscode.window.showInformationMessage("Successfully compiled! (copied into clipboard" + (vscode.workspace.getConfiguration("overpy").showElementCountOnCompile ? "; "+compiledText.nbElements+" elements" : "")+")");
             fillAutocompletionMacros(compiledText.macros);
             fillAutocompletionVariables(compiledText.globalVariables, compiledText.playerVariables);
