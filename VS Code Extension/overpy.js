@@ -51839,9 +51839,9 @@ astParsingFunctions.__elif__ = function(content) {
 
     //Add the "end" function.
     if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
-        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
 
             var root = content;
             includeEnd = false;
@@ -51896,9 +51896,9 @@ astParsingFunctions.__else__ = function(content) {
 
     //Add the "end" function.
     if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
-        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
 
             var root = content;
             includeEnd = false;
@@ -52692,9 +52692,9 @@ astParsingFunctions.__if__ = function(content) {
 
     //Add the "end" function.
     if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
-        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
 
             var root = content;
             includeEnd = false;
