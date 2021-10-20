@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
+[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.64.1.0.87506
+[CASC] Overwatch build 1.65.0.0.88423
 [CASC] Initializing...
-[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27840,7 +27840,7 @@ Suporte da Blizzard
 000000010FF2.07C: Sorvete
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Desbloqueado ao participar do desafio da 1ª semana dos Jogos de Verão 2020
-000000010FF5.07C: Desbloqueado ao participar do desafio da 2ª semana dos Jogos de Verão 2021
+000000010FF5.07C: Desbloqueado ao participar do desafio da 2ª semana dos Jogos de Verão 2020
 000000010FF6.07C: Desbloqueado ao participar do desafio da 3ª semana dos Jogos de Verão 2020
 000000010FF7.07C: Medalha
 000000010FF8.07C: Combinada
@@ -29315,6 +29315,8 @@ e 10 Caixas de Itens Congelados grátis
 0000000127EA.07C: Temporada 29
 0000000127EB.07C: Temporada 30
 0000000127EC.07C: Temporada 30
+0000000127ED.07C: Temporada 31
+0000000127EE.07C: Temporada 31
 0000000127EF.07C: Temporada 26
 0000000127F0.07C: Temporada 26
 0000000127F1.07C: Temporada 27
@@ -29325,11 +29327,14 @@ e 10 Caixas de Itens Congelados grátis
 0000000127F6.07C: Temporada 29
 0000000127F7.07C: Temporada 30
 0000000127F8.07C: Temporada 30
+0000000127F9.07C: Temporada 31
+0000000127FA.07C: Temporada 31
 0000000127FC.07C: Temporada 26 do Competitivo - Fila Aberta
 0000000127FD.07C: Temporada 27 do Competitivo - Fila Aberta
 0000000127FE.07C: Temporada 28 do Competitivo - Fila Aberta
 0000000127FF.07C: Temporada 29 do Competitivo - Fila Aberta
 000000012800.07C: Temporada 30 do Competitivo - Fila Aberta
+000000012801.07C: Temporada 31 do Competitivo - Fila Aberta
 000000012802.07C: Touro Brilhante
 000000012804.07C: Partidas de posicionamento
 000000012805.07C: Duende congelado
@@ -29567,7 +29572,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012C4D.07C: Disponível em Caixas de Itens Lunares
 000000012C4E.07C: Gralha
 000000012C4F.07C: Disponível em Caixas de Itens Lunares
-000000012C50.07C: 2ª Semana: Pharah Pôr do Sol
+000000012C50.07C: 2ª Semana: Zarya Einherjar
 000000012C51.07C: Cabeça de Dragão
 000000012C52.07C: Disponível em Caixas de Itens Lunares
 000000012C5B.07C: 50 Caixas de Itens Lunares e
@@ -29928,7 +29933,7 @@ e 10 Caixas de Itens Congelados grátis
 000000013067.07C: Condolência
 000000013068.07C: Conclua a missão de desafio dos Arquivos Condolência.
 000000013076.07C: Partidas Multiplataforma
-00000001307C.07C: 3ª Semana: Hanzo Nihon
+00000001307C.07C: 3ª Semana: Roadhog Palhaço
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30011,6 +30016,8 @@ Você também será colocado no conjunto de fora desta temporada competitiva.
 000000013183.07C: Pique-Gelo 4v4
 000000013195.07C: Começa em:
 00000001319E.07C: Comunicação Multiplataforma
+000000013262.07C: Sátiro
+00000001328D.07C: Caixão
 000000013291.07C: Desbloqueado ao participar do desafio da 3ª semana do Arquivos 2021
 0000000132DF.07C: Descansando
 0000000132E6.07C: Ícone de Nome do Chat de Voz
@@ -32876,7 +32883,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Grupo
 000000013737.07C: Grupo: %1$s
 0000000138E9.07C: Competidor do Combate até a Morte Competitivo de 2021
@@ -32920,10 +32927,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl Jogo preenchido:Jogos preenchidos; (empates e derrotas)
 000000013994.07C: |Rpl %1$s:Jogo realizado:Jogos realizados;
 000000013995.07C: %1$s |Rpl Jogo realizado:Jogos realizados;
+00000001399D.07C: Draugr
 0000000139A2.07C: Deseja aceitar o pedido de amizade de %1$s no Battle.net?
 0000000139A3.07C: Aceitar
 0000000139A4.07C: Recusar
 0000000139AA.07C: Medalha
+0000000139BC.07C: Buu
 0000000139C6.07C: Não foi possível entrar na partida devido às configurações de acesso de plataforma dela.
 0000000139CF.07C: Você foi removido porque sua plataforma não está mais disponível no jogo personalizado.
 0000000139D0.07C: Medalha
@@ -32947,6 +32956,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A27.07C: Comemore o lançamento do Cross-Play Beta com uma Caixa de Itens Dourada gratuita!
 000000013A2B.07C: Medalha
 000000013A47.07C: Mais informações
+000000013A4A.07C: Caçadora de Vampiros
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Saiba mais e agrupe-se!
 000000013A4F.07C: PlayStation
@@ -32958,7 +32968,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Seu grupo foi removido da fila devido às configurações atualizadas de Cross-Play.
 000000013A66.07C: Não foi possível convidar o jogador devido a incompatibilidade nas configurações de Cross-Play.
 000000013A9D.07C: Haroeris
-000000013AA6.07C: 1ª Semana: Winston Rei do Mar
 000000013AAC.07C: Copa Lúciobol 2021
 000000013AAD.07C: Copa Lúciobol
 000000013AAE.07C: Suba na tabela e enfrente os melhores jogadores de Lúciobol do mundo!
@@ -33141,8 +33150,6 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 00000001406E.07C: Opções de modo de jogo
 00000001407C.07C: Este canal de bate-papo está desabilitado. Para ver ou ajustar esta configuração, acesse a aba "Social" em Opções.
 00000001407E.07C: Filtro de busca
-00000001409A.07C: Cofre de Visuais da Liga Overwatch
-00000001409B.07C: 
 0000000140A6.07C: Habilitar Favorito
 0000000140C2.07C: Em preenchimento, volte mais tarde!
 0000000140C3.07C: Código do jogo
@@ -33176,9 +33183,7 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 00000001433C.07C: Tesouro dos Dragões
 00000001433D.07C: Desbloqueado ao assistir ao Torneio Joust June da OWL 2021 ao vivo
 000000014366.07C: Malevento
-0000000143F8.07C: CONTINUAR
-0000000143F9.07C: Novo mapa de TCT
-0000000143FA.07C: Malevento
+000000014369.07C: Abóbora
 0000000143FC.07C: Não é possível ver replays enquanto estiver em uma partida ou lobby de jogo personalizado.
 000000014412.07C: Competidor da Eliminação 3v3 Competitiva 2021
 000000014413.07C: Desbloqueado ao concluir as partidas de posicionamento da Eliminação 3v3 Competitiva em 2021
@@ -33189,4 +33194,102 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 000000014418.07C: Herói da Eliminação 3v3 Competitiva 2021
 000000014419.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Eliminação 3v3 Competitiva em 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5244642 seconds
+000000014599.07C: Marcha do Zumbi
+000000014611.07C: Combate até a Morte em Equipe Competitivo
+000000014612.07C: Chegue ao topo do placar. Vence a equipe mais mortal.
+000000014613.07C: Temporada 4 do Combate até a Morte em Equipe Competitivo
+000000014614.07C: Herói do Combate até a Morte em Equipe Competitivo de 2021
+000000014615.07C: Desbloqueado ao ficar entre os 500 melhores no fim do Combate até a Morte em Equipe Competitivo de 2021
+000000014616.07C: Competidor do Combate até a Morte em Equipe Competitivo de 2021
+000000014617.07C: Desbloqueado ao concluir as partidas de posicionamento do Combate até a Morte em Equipe Competitivo de 2021
+000000014618.07C: Herói do Combate até a Morte em Equipe Competitivo de 2021
+000000014619.07C: Desbloqueado ao ficar entre os 500 melhores no fim do Combate até a Morte em Equipe Competitivo de 2021
+00000001461A.07C: Competidor do Combate até a Morte em Equipe Competitivo de 2021
+00000001461B.07C: Desbloqueado ao concluir as partidas de posicionamento do Combate até a Morte em Equipe Competitivo de 2021
+000000014648.07C: Palhaço
+000000014649.07C: Desbloqueado ao participar do desafio da 3ª semana do Terror de Halloween 2021
+00000001464A.07C: Esqueleto
+00000001464B.07C: Desbloqueado ao participar do desafio da 2ª semana do Terror de Halloween 2021
+00000001464C.07C: Einherjar
+00000001464D.07C: Desbloqueado ao participar do desafio da 1ª semana do Terror de Halloween 2021
+000000014657.07C: Only Prefer When No Target
+000000014689.07C: Prioridade de Alvo do Anjo da Guarda
+00000001468A.07C: Apenas Alvo na Frente
+00000001468B.07C: Priorizar Alvo do Raio
+00000001468C.07C: Priorizar Alvo na Frente
+00000001471A.07C: Fogos de Artifício dos Dragões
+00000001471B.07C: Desbloqueado ao assistir ao Torneio Showdown de Verão da Liga Overwatch 2021
+000000014738.07C: CONTINUAR
+000000014739.07C: Seus itens favoritos de Halloween dos anos anteriores estão de volta, junto com alguns itens e visuais novos!
+00000001473A.07C: Junkenstein está de volta!
+00000001473B.07C: Enfrente o Dr. Junkenstein e seus aliados em missões de desafio e modos infinitos!
+00000001473C.07C: Halloween 2021
+00000001473D.07C: O evento termina em 2 de novembro
+00000001473E.07C: Desbloqueie visuais épicos
+00000001473F.07C: Desafios Semanais
+000000014740.07C: 1ª Semana
+000000014741.07C: 2ª Semana
+000000014742.07C: 3ª Semana
+000000014776.07C: Herói da Temporada 31
+000000014777.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 31
+000000014778.07C: Competidor da Temporada 31
+000000014779.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 31
+00000001477A.07C: Herói da Temporada 31
+00000001477B.07C: Desbloqueado ao alcançar uma posição entre os 500 melhores no fim da Temporada 31
+00000001477C.07C: Competidor da Temporada 31
+00000001477D.07C: Desbloqueado ao concluir as partidas de posicionamento na Temporada 31
+000000014798.07C: Campeãozinho
+000000014799.07C: Desbloqueado ao assistir à Grande Final da Liga Overwatch 2021
+0000000147A2.07C: Terror de Halloween 2021
+0000000147A4.07C: Disponível em Caixas de Itens de Halloween
+0000000147A6.07C: Disponível em Caixas de Itens de Halloween
+0000000147A7.07C: Caçadora de Vampiros
+0000000147A9.07C: Disponível em Caixas de Itens de Halloween
+0000000147AA.07C: Morcego-vampiro
+0000000147AC.07C: Disponível em Caixas de Itens de Halloween
+0000000147AE.07C: Disponível em Caixas de Itens de Halloween
+0000000147B2.07C: Disponível em Caixas de Itens de Halloween
+0000000147B4.07C: Disponível em Caixas de Itens de Halloween
+0000000147B6.07C: Disponível em Caixas de Itens de Halloween
+0000000147B8.07C: Disponível em Caixas de Itens de Halloween
+0000000147BA.07C: Disponível em Caixas de Itens de Halloween
+0000000147BB.07C: Cadê os meus doces?
+0000000147BC.07C: Disponível em Caixas de Itens de Halloween
+0000000147BE.07C: Disponível em Caixas de Itens de Halloween
+0000000147BF.07C: Não é uma fantasia
+0000000147C1.07C: Disponível em Caixas de Itens de Halloween
+0000000147C2.07C: Você não me assusta
+0000000147C4.07C: Disponível em Caixas de Itens de Halloween
+0000000147C5.07C: Debaixo da cama
+0000000147C7.07C: Disponível em Caixas de Itens de Halloween
+0000000147C8.07C: Toc-toc.
+0000000147CA.07C: Disponível em Caixas de Itens de Halloween
+0000000147CB.07C: Todos têm seus fantasmas
+0000000147CD.07C: Disponível em Caixas de Itens de Halloween
+0000000147CE.07C: Lua cheia?
+0000000147D0.07C: Disponível em Caixas de Itens de Halloween
+0000000147D1.07C: Isso é fantasia?
+0000000147D3.07C: Disponível em Caixas de Itens de Halloween
+0000000147D4.07C: Você não está sozinho
+0000000147D6.07C: Disponível em Caixas de Itens de Halloween
+0000000147D7.07C: O arqueiro sumiu... 
+0000000147D8.07C: Abóboras Mágicas
+000000014804.07C: Esqueleto
+000000014805.07C: Palhaço
+000000014806.07C: Einherjar
+000000014807.07C: Esqueleto
+000000014808.07C: Palhaço
+000000014809.07C: Einherjar
+00000001480A.07C: Caçadora de Vampiros
+00000001480B.07C: Draugr
+00000001480C.07C: Caixão
+00000001480D.07C: Morcego-vampiro
+00000001480E.07C: Sátiro
+00000001480F.07C: Draugr
+000000014810.07C: Caixão
+000000014811.07C: Morcego-vampiro
+000000014812.07C: Sátiro
+000000014813.07C: Abóbora
+000000014814.07C: Abóbora
+000000014A2D.07C: 1ª Semana: Genji Esqueleto
+[Core] Execution finished in 00:00:00.4447979 seconds

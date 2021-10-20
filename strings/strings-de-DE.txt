@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
+[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.64.1.0.87506
+[CASC] Overwatch build 1.65.0.0.88423
 [CASC] Initializing...
-[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28112,7 +28112,7 @@ Der Blizzard-Kundendienst
 000000010FF2.07C: Eiscreme
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 1
-000000010FF5.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2021, Woche 2
+000000010FF5.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 2
 000000010FF6.07C: Freigeschaltet durch die Teilnahme an der Sommerspiele-Herausforderung 2020, Woche 3
 000000010FF7.07C: Medaille
 000000010FF8.07C: Alle
@@ -29609,6 +29609,8 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000127EA.07C: Saison 29
 0000000127EB.07C: Saison 30
 0000000127EC.07C: Saison 30
+0000000127ED.07C: Saison 31
+0000000127EE.07C: Saison 31
 0000000127EF.07C: Saison 26
 0000000127F0.07C: Saison 26
 0000000127F1.07C: Saison 27
@@ -29619,11 +29621,14 @@ und dazu 10 Winter-Lootboxen geschenkt
 0000000127F6.07C: Saison 29
 0000000127F7.07C: Saison 30
 0000000127F8.07C: Saison 30
+0000000127F9.07C: Saison 31
+0000000127FA.07C: Saison 31
 0000000127FC.07C: Ranglistensaison 26 – Freie Rollenwahl
 0000000127FD.07C: Ranglistensaison 27 – Freie Rollenwahl
 0000000127FE.07C: Ranglistensaison 28 – Freie Rollenwahl
 0000000127FF.07C: Ranglistensaison 29 – Freie Rollenwahl
 000000012800.07C: Ranglistensaison 30 – Freie Rollenwahl
+000000012801.07C: Ranglistensaison 31 – Freie Rollenwahl
 000000012802.07C: Strahlender Stier
 000000012804.07C: Platzierungsmatches
 000000012805.07C: Frostiger Elf
@@ -29861,7 +29866,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012C4D.07C: In Neujahr-Lootboxen erhältlich
 000000012C4E.07C: Elster
 000000012C4F.07C: In Neujahr-Lootboxen erhältlich
-000000012C50.07C: Woche 2: Pharah-Skin Abendsonne
+000000012C50.07C: Woche 2: Einherjar für Zarya
 000000012C51.07C: Drachenkopf
 000000012C52.07C: In Neujahr-Lootboxen erhältlich
 000000012C5B.07C: 50 Neujahr-Lootboxen und dazu
@@ -30222,7 +30227,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000013067.07C: Mitleidsbonus
 000000013068.07C: Schließ während des Archiv-Events die Herausforderungsmission Mitleidsbonus ab.
 000000013076.07C: Plattform<hy>übergreifendes Cross-Play
-00000001307C.07C: Woche 3: Hanzo-Skin Nihon
+00000001307C.07C: Woche 3: Clown für Roadhog
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30305,6 +30310,8 @@ Für diese Ranglistensaison wirst du außerdem nur Spielern zugewiesen, die dies
 000000013183.07C: Einfrierjagd (4v4)
 000000013195.07C: Beginnt in:
 00000001319E.07C: Plattform<hy>übergreifende Kommunikation
+000000013262.07C: Satyr
+00000001328D.07C: Sarg
 000000013291.07C: Freigeschaltet durch die Teilnahme an der Archiv-Herausforderung 2021, Woche 3
 0000000132DF.07C: Kurze Pause
 0000000132E6.07C: Voicechat Namensplaketten-Icon
@@ -33214,10 +33221,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: Matches als Ersatzspieler (verloren oder unentschieden): %1$s
 000000013994.07C: |Rpl %1$s:Match:Matches; gespielt
 000000013995.07C: Matches gespielt: %1$s
+00000001399D.07C: Draugr
 0000000139A2.07C: Möchtest du die Battle.net-Freundschaftsanfrage von %1$s annehmen?
 0000000139A3.07C: Annehmen
 0000000139A4.07C: Ablehnen
 0000000139AA.07C: Medaille
+0000000139BC.07C: Buh
 0000000139C6.07C: Matchbeitritt fehlgeschlagen. Deine Plattform ist nicht erlaubt.
 0000000139CF.07C: Du wurdest entfernt, weil deine Plattform in diesem benutzerdefinierten Spiel nicht mehr erlaubt ist.
 0000000139D0.07C: Medaille
@@ -33241,6 +33250,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A27.07C: Zur Feier der Veröffentlichung von Cross-Play Beta schenken wir dir eine goldene Lootbox!
 000000013A2B.07C: Medaille
 000000013A47.07C: Mehr Infos
+000000013A4A.07C: Vampirjägerin
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Erfahr mehr und versammle dein Team!
 000000013A4F.07C: PlayStation
@@ -33252,7 +33262,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Deine Gruppe wurde aus der Warteschlange entfernt, weil eure Cross-Play-Einstellungen geändert wurden.
 000000013A66.07C: Einladen des Spielers nicht möglich. Die Cross-Play-Einstellungen sind nicht kompatibel.
 000000013A9D.07C: Haroeris
-000000013AA6.07C: Woche 1: Winston-Skin Meereskönig
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
 000000013AAE.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Lúcioballer der Welt an!
@@ -33435,8 +33444,6 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001406E.07C: Spielmodus-Optionen
 00000001407C.07C: Dieser Chatchannel ist deaktiviert. Du kannst diese Einstellung im Menü Freunde & Gruppen einsehen und anpassen.
 00000001407E.07C: Suchfilter
-00000001409A.07C: Skin-Tresor der Overwatch League
-00000001409B.07C: 
 0000000140A6.07C: Favoriten ein/aus
 0000000140C2.07C: Wird momentan zusammengestellt, bitte später erneut versuchen!
 0000000140C3.07C: Spielcode
@@ -33470,9 +33477,7 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001433C.07C: Drachenschatz
 00000001433D.07C: Freigeschaltet durch das Ansehen der Live-Übertragung zum OWL June Joust 2021
 000000014366.07C: Malevento
-0000000143F8.07C: WEITER
-0000000143F9.07C: Neue FFA-Karte
-0000000143FA.07C: Malevento
+000000014369.07C: Kürbis
 0000000143FC.07C: Replays können innerhalb eines Spiels oder einer benutzerdefinierten Spiellobby nicht angesehen werden.
 000000014412.07C: Teilnehmer der 3v3-Eliminierung 2021
 000000014413.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Eliminierung 2021 (3v3)
@@ -33483,4 +33488,122 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 000000014418.07C: Held der 3v3-Eliminierung 2021
 000000014419.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2021 (3v3)
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5263376 seconds
+000000014599.07C: Zombieschlurfen
+000000014611.07C: Kompetitives Team-Deathmatch
+000000014612.07C: Kämpf dich mit deinem Team an die Spitze. Möge das tödlichste Team gewinnen.
+000000014613.07C: Kompetitives Team-Deathmatch: Saison 4
+000000014614.07C: Team-Deathmatch-Held 2021
+000000014615.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompe<hy>titiven Team-Deathmatches 2021
+000000014616.07C: Team-Deathmatch-Teilnehmer 2021
+000000014617.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches im kompe<hy>titiven Team-Deathmatch 2021
+000000014618.07C: Team-Deathmatch-Held 2021
+000000014619.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompe<hy>titiven Team-Deathmatches 2021
+00000001461A.07C: Team-Deathmatch-Teilnehmer 2021
+00000001461B.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches im kompe<hy>titiven Team-Deathmatch 2021
+000000014648.07C: Clown
+000000014649.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Halloween-Horror 2021, Woche 3
+00000001464A.07C: Skelett
+00000001464B.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Halloween-Horror 2021, Woche 2
+00000001464C.07C: Einherjar
+00000001464D.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Halloween-Horror 2021, Woche 1
+000000014657.07C: Only Prefer When No Target
+000000014689.07C: Zielpriorität von Schutzengel
+00000001468A.07C: Nur anvisiertes Ziel
+00000001468B.07C: Strahlenziel bevorzugen
+00000001468C.07C: Anvisiertes Ziel bevorzugen
+00000001471A.07C: Drachenfeuerwerk
+00000001471B.07C: Freigeschaltet durch das Ansehen des Overwatch League Summer Showdown.
+000000014738.07C: WEITER
+000000014739.07C: Die beliebtesten Halloween-Extras aus dem letzten Jahr sind zurück, zusammen mit brandneuen Skins und Extras!
+00000001473A.07C: Junkenstein kehrt zurück!
+00000001473B.07C: Stell dich Dr. Junkenstein und seine Verbündeten im Endlosmodus und bei Herausforderungsmissionen!
+00000001473C.07C: Halloween 2021
+00000001473D.07C: Event endet am 02.11.
+00000001473E.07C: Schalte epische Skins frei
+00000001473F.07C: Wöchentliche Herausforderungen
+000000014740.07C: Woche 1
+000000014741.07C: Woche 2
+000000014742.07C: Woche 3
+000000014776.07C: Held von Saison 31
+000000014777.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 31
+000000014778.07C: Teilnehmer von Saison 31
+000000014779.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 31
+00000001477A.07C: Held von Saison 31
+00000001477B.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 31
+00000001477C.07C: Teilnehmer von Saison 31
+00000001477D.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 31
+000000014798.07C: Winziger Meister
+000000014799.07C: Freigeschaltet durch das Ansehen des Overwatch League-Finales 2021
+0000000147A2.07C: Halloween-Horror 2021
+0000000147A4.07C: In Halloween-
+Lootboxen erhältlich
+0000000147A6.07C: In Halloween-
+Lootboxen erhältlich
+0000000147A7.07C: Vampirjägerin
+0000000147A9.07C: In Halloween-
+Lootboxen erhältlich
+0000000147AA.07C: Vampirfledermaus
+0000000147AC.07C: In Halloween-
+Lootboxen erhältlich
+0000000147AE.07C: In Halloween-
+Lootboxen erhältlich
+0000000147B2.07C: In Halloween-
+Lootboxen erhältlich
+0000000147B4.07C: In Halloween-
+Lootboxen erhältlich
+0000000147B6.07C: In Halloween-
+Lootboxen erhältlich
+0000000147B8.07C: In Halloween-
+Lootboxen erhältlich
+0000000147BA.07C: In Halloween-
+Lootboxen erhältlich
+0000000147BB.07C: Wo sind meine Süßigkeiten?
+0000000147BC.07C: In Halloween-
+Lootboxen erhältlich
+0000000147BE.07C: In Halloween-
+Lootboxen erhältlich
+0000000147BF.07C: Kein Kostüm
+0000000147C1.07C: In Halloween-
+Lootboxen erhältlich
+0000000147C2.07C: Nicht schreckhaft
+0000000147C4.07C: In Halloween-
+Lootboxen erhältlich
+0000000147C5.07C: Unterm Bett
+0000000147C7.07C: In Halloween-
+Lootboxen erhältlich
+0000000147C8.07C: Klopf, klopf
+0000000147CA.07C: In Halloween-
+Lootboxen erhältlich
+0000000147CB.07C: Jeder hat seine Dämonen
+0000000147CD.07C: In Halloween-
+Lootboxen erhältlich
+0000000147CE.07C: Ein Vollmond?
+0000000147D0.07C: In Halloween-
+Lootboxen erhältlich
+0000000147D1.07C: Ist das ein Kostüm?
+0000000147D3.07C: In Halloween-
+Lootboxen erhältlich
+0000000147D4.07C: Ihr seid hier nicht allein
+0000000147D6.07C: In Halloween-
+Lootboxen erhältlich
+0000000147D7.07C: Der Bogenschütze verschwand 
+0000000147D8.07C: Magische Kürbisse
+000000014804.07C: Skelett
+000000014805.07C: Clown
+000000014806.07C: Einherjar
+000000014807.07C: Skelett
+000000014808.07C: Clown
+000000014809.07C: Einherjar
+00000001480A.07C: Vampirjägerin
+00000001480B.07C: Draugr
+00000001480C.07C: Sarg
+00000001480D.07C: Vampirfledermaus
+00000001480E.07C: Satyr
+00000001480F.07C: Draugr
+000000014810.07C: Sarg
+000000014811.07C: Vampirfledermaus
+000000014812.07C: Satyr
+000000014813.07C: Kürbis
+000000014814.07C: Kürbis
+000000014A2D.07C: Woche 1: Genji-Skin Skelett
+[Core] Execution finished in 00:00:00.4572360 seconds

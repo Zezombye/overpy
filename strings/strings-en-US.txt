@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
+[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.64.1.0.87506
+[CASC] Overwatch build 1.65.0.0.88423
 [CASC] Initializing...
-[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -27836,7 +27836,7 @@ Blizzard Support
 000000010FF2.07C: Ice Cream
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Unlocked by participating in the Summer Games 2020 week 1 challenge
-000000010FF5.07C: Unlocked by participating in the Summer Games 2021 week 2 challenge
+000000010FF5.07C: Unlocked by participating in the Summer Games 2020 week 2 challenge
 000000010FF6.07C: Unlocked by participating in the Summer Games 2020 week 3 challenge
 000000010FF7.07C: Medal
 000000010FF8.07C: Combined
@@ -29307,6 +29307,8 @@ and 10 Free Winter Loot Boxes
 0000000127EA.07C: Season 29
 0000000127EB.07C: Season 30
 0000000127EC.07C: Season 30
+0000000127ED.07C: Season 31
+0000000127EE.07C: Season 31
 0000000127EF.07C: Season 26
 0000000127F0.07C: Season 26
 0000000127F1.07C: Season 27
@@ -29317,11 +29319,14 @@ and 10 Free Winter Loot Boxes
 0000000127F6.07C: Season 29
 0000000127F7.07C: Season 30
 0000000127F8.07C: Season 30
+0000000127F9.07C: Season 31
+0000000127FA.07C: Season 31
 0000000127FC.07C: Competitive Season 26 - Open Queue
 0000000127FD.07C: Competitive Season 27 - Open Queue
 0000000127FE.07C: Competitive Season 28 - Open Queue
 0000000127FF.07C: Competitive Season 29 - Open Queue
 000000012800.07C: Competitive Season 30 - Open Queue
+000000012801.07C: Competitive Season 31 - Open Queue
 000000012802.07C: Shining Bull
 000000012804.07C: Placement Matches
 000000012805.07C: Frozen Elf
@@ -29559,7 +29564,7 @@ and 10 Free Winter Loot Boxes
 000000012C4D.07C: Available in Lunar Loot Boxes
 000000012C4E.07C: Magpie
 000000012C4F.07C: Available in Lunar Loot Boxes
-000000012C50.07C: Week 2: Sunset Pharah
+000000012C50.07C: Week 2: Einherjar Zarya
 000000012C51.07C: Dragonhead
 000000012C52.07C: Available in Lunar Loot Boxes
 000000012C5B.07C: 50 Lunar Loot Boxes and 10 Free Lunar Loot Boxes
@@ -29919,7 +29924,7 @@ and 10 Free Winter Loot Boxes
 000000013067.07C: Sympathy Gains
 000000013068.07C: Complete the Sympathy Gains Archives challenge mission.
 000000013076.07C: Cross-Platform Play
-00000001307C.07C: Week 3: Nihon Hanzo
+00000001307C.07C: Week 3: Clown Roadhog
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30002,6 +30007,8 @@ You will also be placed in the opt-out pool for this competitive season.
 000000013183.07C: 4v4 Freeze Tag
 000000013195.07C: Starting In:
 00000001319E.07C: Cross-Platform Communication
+000000013262.07C: Satyr
+00000001328D.07C: Coffin
 000000013291.07C: Unlocked by participating in the Archives 2021 week 3 challenge
 0000000132DF.07C: Taking A Break
 0000000132E6.07C: Voice Chat Nameplate Icon
@@ -32867,7 +32874,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Pool
 000000013737.07C: %1$s Pool
 0000000138E9.07C: Competitive Deathmatch Competitor 2021
@@ -32911,10 +32918,12 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001398B.07C: %1$s |Rpl Game:Games; Backfilled (Lost or Tied)
 000000013994.07C: |Rpl %1$s:Game:Games; Played
 000000013995.07C: %1$s |Rpl Game:Games; Played
+00000001399D.07C: Draugr
 0000000139A2.07C: Do you want to accept %1$s's Battle.Net friend request?
 0000000139A3.07C: Accept
 0000000139A4.07C: Decline
 0000000139AA.07C: Medal
+0000000139BC.07C: Boo
 0000000139C6.07C: Unable to join the match due to its platform access settings.
 0000000139CF.07C: You were removed because your platform is no longer allowed in the custom game.
 0000000139D0.07C: Medal
@@ -32938,6 +32947,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A27.07C: Celebrate the launch of Cross-Play Beta with a Golden Loot Box on us!
 000000013A2B.07C: Medal
 000000013A47.07C: More Info
+000000013A4A.07C: Vampire Hunter
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Learn more and Group Up!
 000000013A4F.07C: PlayStation
@@ -32949,7 +32959,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5B.07C: Your group has been removed from the queue due to your group’s updated Cross-Play settings.
 000000013A66.07C: Unable to invite player due to incompatible Cross-Play settings.
 000000013A9D.07C: Haroeris
-000000013AA6.07C: Week 1: Ocean King Winston
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
 000000013AAE.07C: Rise up the ranks and compete with the best Lúcioballers in the world!
@@ -33132,8 +33141,6 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001406E.07C: Game Mode Options
 00000001407C.07C: This chat channel is disabled. To view or adjust this setting, go to the "Social" tab in Options.
 00000001407E.07C: Search Filter
-00000001409A.07C: Overwatch League Skin Vault
-00000001409B.07C: 
 0000000140A6.07C: Toggle Favorite
 0000000140C2.07C: Currently populating, please check back later!
 0000000140C3.07C: Game Code
@@ -33167,9 +33174,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001433C.07C: Dragons' Treasure
 00000001433D.07C: Unlocked by watching the 2021 OWL June Joust Tournament live broadcast
 000000014366.07C: Malevento
-0000000143F8.07C: CONTINUE
-0000000143F9.07C: New FFA Map
-0000000143FA.07C: Malevento
+000000014369.07C: Pumpkin
 0000000143FC.07C: Replays are not viewable while in game or in a custom game lobby.
 000000014412.07C: Competitive 3v3 Elimination Competitor 2021
 000000014413.07C: Unlocked by completing Competitive 3v3 Elimination 2021 placement matches
@@ -33180,4 +33185,102 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014418.07C: Competitive 3v3 Elimination Hero 2021
 000000014419.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5156452 seconds
+000000014599.07C: Zombie Walk
+000000014611.07C: Competitive Team Deathmatch
+000000014612.07C: Climb to the top of the scoreboard. The deadliest team wins.
+000000014613.07C: Competitive Team Deathmatch Season 4
+000000014614.07C: Competitive Team Deathmatch Hero 2021
+000000014615.07C: Unlocked by achieving top 500 ranking at the end of Competitive Team Deathmatch 2021
+000000014616.07C: Competitive Team Deathmatch Competitor 2021
+000000014617.07C: Unlocked by completing Competitive Team Deathmatch 2021 placement matches
+000000014618.07C: Competitive Team Deathmatch Hero 2021
+000000014619.07C: Unlocked by achieving top 500 ranking at the end of Competitive Team Deathmatch 2021
+00000001461A.07C: Competitive Team Deathmatch Competitor 2021
+00000001461B.07C: Unlocked by completing Competitive Team Deathmatch 2021 placement matches
+000000014648.07C: Clown
+000000014649.07C: Unlocked by participating in the Halloween Terror 2021 week 3 challenge
+00000001464A.07C: Skeleton
+00000001464B.07C: Unlocked by participating in the Halloween Terror 2021 week 2 challenge
+00000001464C.07C: Einherjar
+00000001464D.07C: Unlocked by participating in the Halloween Terror 2021 week 1 challenge
+000000014657.07C: Only Prefer When No Target
+000000014689.07C: Guardian Angel Target Priority
+00000001468A.07C: Facing Target Only
+00000001468B.07C: Prefer Beam Target
+00000001468C.07C: Prefer Facing Target
+00000001471A.07C: Dragons' Fireworks
+00000001471B.07C: Unlocked by watching the 2021 Overwatch League Summer Showdown Tournament
+000000014738.07C: CONTINUE
+000000014739.07C: Halloween favorites from previous years are back alongside some new skins and items!
+00000001473A.07C: Junkenstein Returns!
+00000001473B.07C: Face Dr. Junkenstein and his allies in endless modes and challenge missions!
+00000001473C.07C: Halloween 2021
+00000001473D.07C: Event Ends Nov 2
+00000001473E.07C: Unlock Epic Skins
+00000001473F.07C: Weekly Challenges
+000000014740.07C: Week 1
+000000014741.07C: Week 2
+000000014742.07C: Week 3
+000000014776.07C: Season 31 Hero
+000000014777.07C: Unlocked by achieving top 500 ranking at the end of Season 31
+000000014778.07C: Season 31 Competitor
+000000014779.07C: Unlocked by completing Season 31 placement matches
+00000001477A.07C: Season 31 Hero
+00000001477B.07C: Unlocked by achieving top 500 ranking at the end of Season 31
+00000001477C.07C: Season 31 Competitor
+00000001477D.07C: Unlocked by completing Season 31 placement matches
+000000014798.07C: Tiny Champion
+000000014799.07C: Unlocked by watching the 2021 Overwatch League Grand Finals
+0000000147A2.07C: Halloween Terror 2021
+0000000147A4.07C: Available in Halloween Loot Boxes
+0000000147A6.07C: Available in Halloween Loot Boxes
+0000000147A7.07C: Vampire Hunter
+0000000147A9.07C: Available in Halloween Loot Boxes
+0000000147AA.07C: Vampire Bat
+0000000147AC.07C: Available in Halloween Loot Boxes
+0000000147AE.07C: Available in Halloween Loot Boxes
+0000000147B2.07C: Available in Halloween Loot Boxes
+0000000147B4.07C: Available in Halloween Loot Boxes
+0000000147B6.07C: Available in Halloween Loot Boxes
+0000000147B8.07C: Available in Halloween Loot Boxes
+0000000147BA.07C: Available in Halloween Loot Boxes
+0000000147BB.07C: Where's my candy?
+0000000147BC.07C: Available in Halloween Loot Boxes
+0000000147BE.07C: Available in Halloween Loot Boxes
+0000000147BF.07C: Not a costume
+0000000147C1.07C: Available in Halloween Loot Boxes
+0000000147C2.07C: Can't scare me
+0000000147C4.07C: Available in Halloween Loot Boxes
+0000000147C5.07C: Beneath your bed
+0000000147C7.07C: Available in Halloween Loot Boxes
+0000000147C8.07C: Knock knock
+0000000147CA.07C: Available in Halloween Loot Boxes
+0000000147CB.07C: Everyone has ghosts
+0000000147CD.07C: Available in Halloween Loot Boxes
+0000000147CE.07C: A full moon?
+0000000147D0.07C: Available in Halloween Loot Boxes
+0000000147D1.07C: Is that a costume?
+0000000147D3.07C: Available in Halloween Loot Boxes
+0000000147D4.07C: You're not alone in here
+0000000147D6.07C: Available in Halloween Loot Boxes
+0000000147D7.07C: The archer vanished... 
+0000000147D8.07C: Magic Pumpkins
+000000014804.07C: Skeleton
+000000014805.07C: Clown
+000000014806.07C: Einherjar
+000000014807.07C: Skeleton
+000000014808.07C: Clown
+000000014809.07C: Einherjar
+00000001480A.07C: Vampire Hunter
+00000001480B.07C: Draugr
+00000001480C.07C: Coffin
+00000001480D.07C: Vampire Bat
+00000001480E.07C: Satyr
+00000001480F.07C: Draugr
+000000014810.07C: Coffin
+000000014811.07C: Vampire Bat
+000000014812.07C: Satyr
+000000014813.07C: Pumpkin
+000000014814.07C: Pumpkin
+000000014A2D.07C: Week 1: Skeleton Genji
+[Core] Execution finished in 00:00:00.4931354 seconds

@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
+[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.64.1.0.87506
+[CASC] Overwatch build 1.65.0.0.88423
 [CASC] Initializing...
-[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28102,7 +28102,7 @@ w wyzwaniu pierwszego tygodnia
 letnich igrzysk 2020
 000000010FF5.07C: Nagroda za udział
 w wyzwaniu 2. tygodnia
-letnich igrzysk 2021
+letnich igrzysk 2020
 000000010FF6.07C: Nagroda za udział
 w wyzwaniu trzeciego tygodnia
 letnich igrzysk 2020
@@ -29620,6 +29620,8 @@ w sezonie 26.
 0000000127EA.07C: Sezon 29
 0000000127EB.07C: Sezon 30
 0000000127EC.07C: Sezon 30
+0000000127ED.07C: Sezon 31
+0000000127EE.07C: Sezon 31
 0000000127EF.07C: Sezon 26
 0000000127F0.07C: Sezon 26
 0000000127F1.07C: Sezon 27
@@ -29630,11 +29632,14 @@ w sezonie 26.
 0000000127F6.07C: Sezon 29
 0000000127F7.07C: Sezon 30
 0000000127F8.07C: Sezon 30
+0000000127F9.07C: Sezon 31
+0000000127FA.07C: Sezon 31
 0000000127FC.07C: 26. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FD.07C: 27. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FE.07C: 28. sezon Rywalizacji – Otwarta Rywalizacja
 0000000127FF.07C: 29. sezon Rywalizacji – Otwarta Rywalizacja
 000000012800.07C: 30. sezon Rywalizacji – Otwarta Rywalizacja
+000000012801.07C: 31. sezon Rywalizacji – Otwarta Rywalizacja
 000000012802.07C: Lśniący byk
 000000012804.07C: Mecze klasyfikacyjne
 000000012805.07C: Zamrożony elf
@@ -29881,7 +29886,7 @@ flagi 2021
 000000012C4D.07C: Zawartość księżycowych skrzynek
 000000012C4E.07C: Sroka
 000000012C4F.07C: Zawartość księżycowych skrzynek
-000000012C50.07C: Tydzień 2: Słońce Egiptu (Fara)
+000000012C50.07C: Tydzień 2: Einherjeria (Zaria)
 000000012C51.07C: Smoczy Łeb
 000000012C52.07C: Zawartość księżycowych skrzynek
 000000012C5B.07C: 50 księżycowych skrzynek z łupami i 10 darmowych skrzynek księżycowych
@@ -30248,7 +30253,7 @@ w sezonie 28.
 000000013067.07C: Leczące Współczucie
 000000013068.07C: Ukończ archiwalną misję-wyzwanie Leczące Współczucie.
 000000013076.07C: Gra międzyplatformowa
-00000001307C.07C: Tydzień 3: Nihon (Hanzo)
+00000001307C.07C: Tydzień 3: Klaun (Wieprzu)
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30331,6 +30336,8 @@ Umieścimy cię również w puli opt-out dla tego sezonu Rywalizacji.
 000000013183.07C: Lodowy Berek 4 na 4
 000000013195.07C: Początek za:
 00000001319E.07C: Komunikacja międzyplatformowa
+000000013262.07C: Satyr
+00000001328D.07C: Trumnobot
 000000013291.07C: Nagroda za udział w wyzwaniu 3. tygodnia Archiwów 2021
 0000000132DF.07C: Fajrant
 0000000132E6.07C: Ikonka w polu z nazwą gracza na czacie głosowym
@@ -33196,7 +33203,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Konsole
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Pula
 000000013737.07C: Pula: %1$s
 0000000138E9.07C: Uczestnik Rywalizacji w trybie Deathmatch 2021
@@ -33247,10 +33254,12 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001398B.07C: %1$s |Rpl mecz po uzupełnieniu składu (przegrany lub zremisowany):mecze po uzupełnieniu składu (przegrane lub zremisowane):meczów po uzupełnieniu składu (przegranych lub zremisowanych);
 000000013994.07C: |Rpl %1$s:rozegrane mecze:rozegrane mecze:rozegrane mecze;
 000000013995.07C: %1$s |Rpl rozegrany mecz:rozegrane mecze:rozegranych meczów;
+00000001399D.07C: Draug
 0000000139A2.07C: Chcesz przyjąć zaproszenie do znajomych z Battle.netu od użytkownika %1$s?
 0000000139A3.07C: Akceptuj
 0000000139A4.07C: Odrzuć
 0000000139AA.07C: Medalista
+0000000139BC.07C: Buu!
 0000000139C6.07C: Nie można dołączyć do meczu z powodu ustawień platformy dostępu.
 0000000139CF.07C: Wyrzucono cię, ponieważ twoja platforma nie jest już dozwolona w grze dowolnej.
 0000000139D0.07C: Medalista
@@ -33274,6 +33283,7 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A27.07C: Świętuj udostępnienie rozgrywki międzyplatformowej, odbierając prezent od nas – złotą skrzynkę z łupami!
 000000013A2B.07C: Medalistka
 000000013A47.07C: Więcej informacji
+000000013A4A.07C: Łowczyni wampirów
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Dowiedz się więcej i zbierz drużynę!
 000000013A4F.07C: PlayStation
@@ -33285,7 +33295,6 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A5B.07C: Twoją grupę usunięto z kolejki w związku ze zmianą ustawień gry międzyplatformowej.
 000000013A66.07C: Nie można zapraszać graczy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
 000000013A9D.07C: Haroeris
-000000013AA6.07C: Tydzień 1: Król Oceanów (Winston)
 000000013AAC.07C: Copa Futbolúcio 2021
 000000013AAD.07C: Copa Futbolúcio
 000000013AAE.07C: Rywalizuj z najlepszymi graczami w Futbolúcio na świecie i pnij się w tabeli wyników!
@@ -33500,8 +33509,6 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 00000001406E.07C: Opcje trybu gry
 00000001407C.07C: Ten kanał czatu został wyłączony. Aby to zmienić, przejdź do zakładki „Społeczność” w Opcjach.
 00000001407E.07C: Filtr wyszukiwania
-00000001409A.07C: Archiwum skórek Overwatch League
-00000001409B.07C: 
 0000000140A6.07C: Przełącz ulubione
 0000000140C2.07C: Trwa zapełnianie, sprawdź później!
 0000000140C3.07C: Kod gry
@@ -33535,9 +33542,7 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 00000001433C.07C: Smoczy skarb
 00000001433D.07C: Nagroda z oglądanie transmisji na żywo z turnieju OWL June Joust 2021
 000000014366.07C: Malevento
-0000000143F8.07C: DALEJ
-0000000143F9.07C: Nowa mapa FFA
-0000000143FA.07C: Malevento
+000000014369.07C: Dynia
 0000000143FC.07C: Powtórki są niedostępne w trakcie rozgrywki, lub w poczekalni gry dowolnej.
 000000014412.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014413.07C: Nagroda
@@ -33554,4 +33559,110 @@ w trybie Eliminacji 3 na 3 w 2021
 000000014418.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014419.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.4973282 seconds
+000000014599.07C: Spacer zombiaka
+000000014611.07C: Rywalizacja w Drużynowym Deathmatchu
+000000014612.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
+000000014613.07C: Rywalizacja w Drużynowym Deathmatchu – Sezon 4
+000000014614.07C: Bohater Rywalizacji w Drużynowym Deathmatchu 2021
+000000014615.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w Drużynowym Deathmatchu 2021.
+000000014616.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2021
+000000014617.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Drużynowym Deathmatchu 2021
+000000014618.07C: Bohater Rywalizacji w Drużynowym Deathmatchu 2021
+000000014619.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w Drużynowym Deathmatchu 2021.
+00000001461A.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2021
+00000001461B.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Drużynowym Deathmatchu 2021
+000000014648.07C: Klaun
+000000014649.07C: Nagroda za udział w wyzwaniu 3. tygodnia Halloweenowej Grozy 2021
+00000001464A.07C: Szkielet
+00000001464B.07C: Nagroda za udział w wyzwaniu 2. tygodnia Halloweenowej Grozy 2021
+00000001464C.07C: Einherjeria
+00000001464D.07C: Nagroda za udział w wyzwaniu 1. tygodnia Halloweenowej Grozy 2021
+000000014657.07C: Only Prefer When No Target
+000000014689.07C: Priorytetowy cel Anioła Stróża
+00000001468A.07C: Wyłącznie cel przed postacią
+00000001468B.07C: Preferuj cel wiązki
+00000001468C.07C: Preferuj cel przed postacią
+00000001471A.07C: Smocze fajerwerki
+00000001471B.07C: Nagroda z oglądanie turnieju Overwatch League Summer Showdown 2021
+000000014738.07C: DALEJ
+000000014739.07C: Oprócz powracających, ulubionych atrakcji halloweenowych z zeszłego roku możesz zdobyć też zupełnie nowe skórki i inne elementy!
+00000001473A.07C: Złomenstein powraca!
+00000001473B.07C: Zmierz się z doktorem Złomensteinem i jego poplecznikami w niekończących się trybach i misjach pełnych wyzwań!
+00000001473C.07C: Halloween 2021
+00000001473D.07C: Koniec wydarzenia 2 listopada
+00000001473E.07C: Odblokuj epickie skórki
+00000001473F.07C: Cotygodniowe wyzwania
+000000014740.07C: Tydzień 1
+000000014741.07C: Tydzień 2
+000000014742.07C: Tydzień 3
+000000014776.07C: Bohater 31. sezonu
+000000014777.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 31.
+000000014778.07C: Uczestnik 31. sezonu
+000000014779.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 31.
+00000001477A.07C: Bohater 31. sezonu
+00000001477B.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 31.
+00000001477C.07C: Uczestnik 31. sezonu
+00000001477D.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 31.
+000000014798.07C: Tyci mistrz
+000000014799.07C: Nagroda z oglądanie Wielkich Finałów Overwatch League 2021
+0000000147A2.07C: Halloweenowa Groza 2021
+0000000147A4.07C: Zawartość skrzynek halloweenowych
+0000000147A6.07C: Zawartość skrzynek halloweenowych
+0000000147A7.07C: Łowczyni wampirów
+0000000147A9.07C: Zawartość skrzynek halloweenowych
+0000000147AA.07C: Ekimma
+0000000147AC.07C: Zawartość skrzynek halloweenowych
+0000000147AE.07C: Zawartość skrzynek halloweenowych
+0000000147B2.07C: Zawartość skrzynek halloweenowych
+0000000147B4.07C: Zawartość skrzynek halloweenowych
+0000000147B6.07C: Zawartość skrzynek halloweenowych
+0000000147B8.07C: Zawartość skrzynek halloweenowych
+0000000147BA.07C: Zawartość skrzynek halloweenowych
+0000000147BB.07C: A mój cukierek to gdzie?
+0000000147BC.07C: Zawartość skrzynek halloweenowych
+0000000147BE.07C: Zawartość skrzynek halloweenowych
+0000000147BF.07C: To nie jest przebranie
+0000000147C1.07C: Zawartość skrzynek halloweenowych
+0000000147C2.07C: Nie przestraszysz mnie
+0000000147C4.07C: Zawartość skrzynek halloweenowych
+0000000147C5.07C: Potwór pod łóżkiem
+0000000147C7.07C: Zawartość skrzynek halloweenowych
+0000000147C8.07C: Puk, puk
+0000000147CA.07C: Zawartość skrzynek halloweenowych
+0000000147CB.07C: Każdego dręczą duchy
+0000000147CD.07C: Zawartość skrzynek halloweenowych
+0000000147CE.07C: Księżyc w pełni!
+0000000147D0.07C: Zawartość skrzynek halloweenowych
+0000000147D1.07C: Czy to kostium?
+0000000147D3.07C: Zawartość skrzynek halloweenowych
+0000000147D4.07C: Nie jesteście sami
+0000000147D6.07C: Zawartość skrzynek halloweenowych
+0000000147D7.07C: Łucznik zniknął...
+0000000147D8.07C: Magiczne dynie
+000000014804.07C: Szkielet
+000000014805.07C: Klaun
+000000014806.07C: Einherjeria
+000000014807.07C: Szkielet
+000000014808.07C: Klaun
+000000014809.07C: Einherjeria
+00000001480A.07C: Łowczyni wampirów
+00000001480B.07C: Draug
+00000001480C.07C: Trumnobot
+00000001480D.07C: Ekimma
+00000001480E.07C: Satyr
+00000001480F.07C: Draug
+000000014810.07C: Trumnobot
+000000014811.07C: Ekimma
+000000014812.07C: Satyr
+000000014813.07C: Dynia
+000000014814.07C: Dynia
+000000014A2D.07C: Tydzień 1: Szkielet (Genji)
+[Core] Execution finished in 00:00:00.4789629 seconds

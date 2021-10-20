@@ -1,13 +1,13 @@
-[Core] DataTool v1.64.0.962-git-9c5ed919a7662249a9ca308a6ccdb8b818777c20
+[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(11)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.64.1.0.87506
+[CASC] Overwatch build 1.65.0.0.88423
 [CASC] Initializing...
-[Manifest] Using TRG procedure 87506 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 87506 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27862,7 +27862,7 @@ Assistenza Blizzard
 000000010FF2.07C: Gelato
 000000010FF3.07C: Union Jack
 000000010FF4.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 1
-000000010FF5.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2021, settimana 2
+000000010FF5.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 2
 000000010FF6.07C: Sbloccato per aver partecipato alla sfida dei Giochi Estivi 2020, settimana 3
 000000010FF7.07C: Medaglia
 000000010FF8.07C: Combinati
@@ -29339,6 +29339,8 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127EA.07C: Stagione 29
 0000000127EB.07C: Stagione 30
 0000000127EC.07C: Stagione 30
+0000000127ED.07C: Stagione 31
+0000000127EE.07C: Stagione 31
 0000000127EF.07C: Stagione 26
 0000000127F0.07C: Stagione 26
 0000000127F1.07C: Stagione 27
@@ -29349,11 +29351,14 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 0000000127F6.07C: Stagione 29
 0000000127F7.07C: Stagione 30
 0000000127F8.07C: Stagione 30
+0000000127F9.07C: Stagione 31
+0000000127FA.07C: Stagione 31
 0000000127FC.07C: Stagione competitiva 26 - Coda aperta
 0000000127FD.07C: Stagione competitiva 27 - Coda aperta
 0000000127FE.07C: Stagione competitiva 28 - Coda aperta
 0000000127FF.07C: Stagione competitiva 29 - Coda aperta
 000000012800.07C: Stagione competitiva 30 - Coda aperta
+000000012801.07C: Stagione competitiva 31 - Coda aperta
 000000012802.07C: Toro Luminoso
 000000012804.07C: Partite di piazzamento
 000000012805.07C: Elfo Congelato
@@ -29591,7 +29596,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C4D.07C: Disponibile nei Forzieri Lunari
 000000012C4E.07C: Gazza
 000000012C4F.07C: Disponibile nei Forzieri Lunari
-000000012C50.07C: Settimana 2: Pharah Tramonto
+000000012C50.07C: Settimana 2: Zarya Einherjar
 000000012C51.07C: Testa di Drago
 000000012C52.07C: Disponibile nei Forzieri Lunari
 000000012C5B.07C: 50 Forzieri Lunari e 10 Forzieri Lunari gratuiti
@@ -29955,7 +29960,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000013067.07C: Sostegno reciproco
 000000013068.07C: Completa la missione sfida degli Archivi Sostegno reciproco.
 000000013076.07C: Gioco multi-piattaforma
-00000001307C.07C: Settimana 3: Hanzo Nihon
+00000001307C.07C: Settimana 3: Roadhog Clown
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30038,6 +30043,8 @@ Inoltre, entrerai a far parte della selezione degli esclusi per questa stagione 
 000000013183.07C: Eliminazione Congelata 4v4
 000000013195.07C: Avvio tra:
 00000001319E.07C: Comunicazione multi-piattaforma
+000000013262.07C: Satiro
+00000001328D.07C: Bara
 000000013291.07C: Sbloccato per aver partecipato alla sfida degli Archivi 2021, settimana 3
 0000000132DF.07C: In Pausa
 0000000132E6.07C: Icona chat vocale su indicatore nome
@@ -32903,7 +32910,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Pool
 000000013737.07C: Pool %1$s
 0000000138E9.07C: Concorrente Deathmatch competitivo 2021
@@ -32948,10 +32955,12 @@ Le vittorie contano come due partite.
 00000001398B.07C: %1$s |Rpl Partita con sostituzione (persa o pareggiata):Partite con sostituzione (perse o pareggiate);
 000000013994.07C: |Rpl %1$s:Partita giocata:Partite giocate;
 000000013995.07C: %1$s |Rpl Partita giocata:Partite giocate;
+00000001399D.07C: Draugr
 0000000139A2.07C: Vuoi accettare la richiesta di amicizia Battle.net di %1$s?
 0000000139A3.07C: Accetta
 0000000139A4.07C: Rifiuta
 0000000139AA.07C: Medaglia
+0000000139BC.07C: Bu!
 0000000139C6.07C: Impossibile unirsi alla partita a causa delle impostazioni d'accesso della piattaforma.
 0000000139CF.07C: Sei stato rimosso perché la tua piattaforma non è più permessa nella partita personalizzata.
 0000000139D0.07C: Medaglia
@@ -32975,6 +32984,7 @@ Le vittorie contano come due partite.
 000000013A27.07C: Festeggia il lancio di Cross-Play Beta con un Forziere Dorato, offriamo noi!
 000000013A2B.07C: Medaglia
 000000013A47.07C: Scopri di più
+000000013A4A.07C: Cacciatrice di Vampiri
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Scopri di più e raduna gli amici!
 000000013A4F.07C: PlayStation
@@ -32986,7 +32996,6 @@ Le vittorie contano come due partite.
 000000013A5B.07C: La tua formazione è stata rimossa dalla coda a causa delle impostazioni di Cross-Play aggiornate della tua formazione.
 000000013A66.07C: Impossibile invitare il giocatore a causa di impostazioni di Cross-Play incompatibili.
 000000013A9D.07C: Haroeris
-000000013AA6.07C: Settimana 1: Winston Re dell'Oceano
 000000013AAC.07C: Coppa Lúcioball 2021
 000000013AAD.07C: Coppa Lúcioball
 000000013AAE.07C: Scala la classifica e affronta i migliori giocatori di Lúcioball del mondo!
@@ -33169,8 +33178,6 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 00000001406E.07C: Opzioni modalità di gioco
 00000001407C.07C: Questo canale di chat è disattivato. Per visualizzare o modificare questa impostazione, vai alla scheda "Social" delle opzioni.
 00000001407E.07C: Filtro di ricerca
-00000001409A.07C: Archivio Modelli Overwatch League
-00000001409B.07C: 
 0000000140A6.07C: Attiva/Disattiva preferito
 0000000140C2.07C: Popolamento in corso, torna più tardi!
 0000000140C3.07C: Codice partita
@@ -33204,9 +33211,7 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 00000001433C.07C: Tesoro dei Dragons
 00000001433D.07C: Sbloccato per aver guardato la diretta del Torneo OWL June Joust 2021
 000000014366.07C: Malevento
-0000000143F8.07C: CONTINUA
-0000000143F9.07C: Nuova mappa TCT
-0000000143FA.07C: Malevento
+000000014369.07C: Zucca
 0000000143FC.07C: Non è possibile guardare i replay durante una partita o nella lobby delle partite personalizzate.
 000000014412.07C: Concorrente Eliminazione
 3v3 (competitiva) 2021
@@ -33221,4 +33226,102 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 3v3 (competitiva) 2021
 000000014419.07C: Sbloccato per essere entrato nella Top 500 di Eliminazione 3v3 (competitiva) 2021
 000000014560.07C: 2020
-[Core] Execution finished in 00:00:00.5139577 seconds
+000000014599.07C: Camminata Zombi
+000000014611.07C: Deathmatch a squadre (competitivo)
+000000014612.07C: Scala la classifica: la squadra più letale vince.
+000000014613.07C: Deathmatch a squadre (competitivo) - Stagione 4
+000000014614.07C: Eroe Deathmatch a squadre (competitivo) 2021
+000000014615.07C: Sbloccato per essere entrato nella Top 500 del Deathmatch a squadre (competitivo) 2021
+000000014616.07C: Concorrente Deathmatch a squadre (competitivo) 2021
+000000014617.07C: Sbloccato per aver completato le partite di piazzamento di Deathmatch a squadre (competitivo) 2021
+000000014618.07C: Eroe Deathmatch a squadre (competitivo) 2021
+000000014619.07C: Sbloccato per essere entrato nella Top 500 del Deathmatch a squadre (competitivo) 2021
+00000001461A.07C: Concorrente Deathmatch a squadre (competitivo) 2021
+00000001461B.07C: Sbloccato per aver completato le partite di piazzamento di Deathmatch a squadre (competitivo) 2021
+000000014648.07C: Clown
+000000014649.07C: Sbloccato per aver partecipato alla sfida di Halloween da Brividi 2021, settimana 3
+00000001464A.07C: Scheletro
+00000001464B.07C: Sbloccato per aver partecipato alla sfida di Halloween da Brividi 2021, settimana 2
+00000001464C.07C: Einherjar
+00000001464D.07C: Sbloccato per aver partecipato alla sfida di Halloween da Brividi 2021, settimana 1
+000000014657.07C: Only Prefer When No Target
+000000014689.07C: Priorità Bersaglio Angelo Custode
+00000001468A.07C: Solo Bersaglio Frontale
+00000001468B.07C: Preferisci Bersaglio del Raggio
+00000001468C.07C: Preferisci Bersaglio Frontale
+00000001471A.07C: Fuochi dei Dragons
+00000001471B.07C: Sbloccato per aver guardato il torneo Overwatch League Summer Showdown 2021
+000000014738.07C: CONTINUA
+000000014739.07C: Nuovi modelli e oggetti di Halloween si aggiungono ai tuoi preferiti dello scorso anno!
+00000001473A.07C: Junkenstein è tornato!
+00000001473B.07C: Affronta il Dott. Junkenstein e i suoi alleati in modalità infinite e missioni Sfida!
+00000001473C.07C: Halloween 2021
+00000001473D.07C: L'evento termina il 2 novembre
+00000001473E.07C: Sblocca modelli epici
+00000001473F.07C: Sfide Settimanali
+000000014740.07C: Settimana 1
+000000014741.07C: Settimana 2
+000000014742.07C: Settimana 3
+000000014776.07C: Eroe Stagione 31
+000000014777.07C: Sbloccato per essere entrato nella Top 500 della Stagione 31
+000000014778.07C: Concorrente Stagione 31
+000000014779.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 31
+00000001477A.07C: Eroe Stagione 31
+00000001477B.07C: Sbloccato per essere entrato nella Top 500 della Stagione 31
+00000001477C.07C: Concorrente Stagione 31
+00000001477D.07C: Sbloccato per aver completato le partite di piazzamento della Stagione 31
+000000014798.07C: Piccolo Campione
+000000014799.07C: Sbloccato per aver guardato le Grand Finals dell'Overwatch League 2021
+0000000147A2.07C: Halloween da Brividi 2021
+0000000147A4.07C: Disponibile nei Forzieri di Halloween
+0000000147A6.07C: Disponibile nei Forzieri di Halloween
+0000000147A7.07C: Cacciatrice di Vampiri
+0000000147A9.07C: Disponibile nei Forzieri di Halloween
+0000000147AA.07C: Pipistrello Vampiro
+0000000147AC.07C: Disponibile nei Forzieri di Halloween
+0000000147AE.07C: Disponibile nei Forzieri di Halloween
+0000000147B2.07C: Disponibile nei Forzieri di Halloween
+0000000147B4.07C: Disponibile nei Forzieri di Halloween
+0000000147B6.07C: Disponibile nei Forzieri di Halloween
+0000000147B8.07C: Disponibile nei Forzieri di Halloween
+0000000147BA.07C: Disponibile nei Forzieri di Halloween
+0000000147BB.07C: Dove sono le mie caramelle?
+0000000147BC.07C: Disponibile nei Forzieri di Halloween
+0000000147BE.07C: Disponibile nei Forzieri di Halloween
+0000000147BF.07C: Non è un costume!
+0000000147C1.07C: Disponibile nei Forzieri di Halloween
+0000000147C2.07C: Non riuscirai a spaventarmi
+0000000147C4.07C: Disponibile nei Forzieri di Halloween
+0000000147C5.07C: Hai controllato sotto il letto?
+0000000147C7.07C: Disponibile nei Forzieri di Halloween
+0000000147C8.07C: Toc toc
+0000000147CA.07C: Disponibile nei Forzieri di Halloween
+0000000147CB.07C: Tutti hanno i propri fantasmi
+0000000147CD.07C: Disponibile nei Forzieri di Halloween
+0000000147CE.07C: Luna piena?
+0000000147D0.07C: Disponibile nei Forzieri di Halloween
+0000000147D1.07C: È un costume quello?
+0000000147D3.07C: Disponibile nei Forzieri di Halloween
+0000000147D4.07C: Nessuno è mai solo, qui
+0000000147D6.07C: Disponibile nei Forzieri di Halloween
+0000000147D7.07C: L'arciere svanì 
+0000000147D8.07C: Zucche Magiche
+000000014804.07C: Scheletro
+000000014805.07C: Clown
+000000014806.07C: Einherjar
+000000014807.07C: Scheletro
+000000014808.07C: Clown
+000000014809.07C: Einherjar
+00000001480A.07C: Cacciatrice di Vampiri
+00000001480B.07C: Draugr
+00000001480C.07C: Bara
+00000001480D.07C: Pipistrello Vampiro
+00000001480E.07C: Satiro
+00000001480F.07C: Draugr
+000000014810.07C: Bara
+000000014811.07C: Pipistrello Vampiro
+000000014812.07C: Satiro
+000000014813.07C: Zucca
+000000014814.07C: Zucca
+000000014A2D.07C: Settimana 1: Genji Scheletro
+[Core] Execution finished in 00:00:00.4386759 seconds
