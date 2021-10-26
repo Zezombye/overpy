@@ -964,7 +964,7 @@ const heroKw =
             "zh-CN": "神射手",
             "zh-TW": "彈無虛發"
         },
-        "en-US": "McCree",
+        "en-US": "Cassidy",
         "ja-JP": "マクリー",
         "ko-KR": "맥크리",
         "ru-RU": "Маккри",

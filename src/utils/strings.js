@@ -25,6 +25,7 @@ function escapeBadWords(content) {
 	//Naturally, only words that aren't actually bad are here.
 	//Insert a zero-width space inside the word.
 
+	content = content.replace(/(1)(488)/ig, "$1﻿$2");
 	content = content.replace(/(a)(ccount)/ig, "$1﻿$2");
 	content = content.replace(/(a)(dmin)/ig, "$1﻿$2");
 	content = content.replace(/(a)(nonymous)/ig, "$1﻿$2");

@@ -208,7 +208,11 @@ a {
                     continue;
                 }
                 if (String.fromCharCode(i) == "\u00A0") {
-                    //firefox replaces the zero width space by a normal space when copying
+                    //firefox replaces the non-breaking space by a normal space when copying
+                    continue;
+                }
+                //Skip "8" because 1488 is a swear word...
+                if (String.fromCharCode(i) == "8") {
                     continue;
                 }
                 //Skip the alphabet to avoid potential censors.

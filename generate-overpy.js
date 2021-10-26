@@ -145,6 +145,7 @@ overpyFiles = [
 "compiler/functions/tanDeg.js",
 "compiler/functions/vect.js",
 "compiler/functions/vectorTowards.js",
+"compiler/functions/waitUntil.js",
 "compiler/tokenizer.js",
 "compiler/astParser.js",
 "compiler/astToWorkshop.js",

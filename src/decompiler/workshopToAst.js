@@ -19,8 +19,6 @@
 
 function decompileRuleToAst(content) {
 	
-	//error("The decompiler currently cannot decompile rules.");
-
 	//Reset rule-specific global variables
 	decompilerGotos = [];
 	nbTabs = 0;
@@ -349,6 +347,11 @@ function decompile(content) {
     } catch (e) {
         //Is it a constant instead of a function?
         name = topy(name.toLowerCase().replace(/\s/g, ""), constantKw);
+		if (name === "ColorLiteral.TEAM_1") {
+			name = "TeamLiteral.1"
+		} else if (name === "ColorLiteral.TEAM_2") {
+			name = "TeamLiteral.2"
+		}
         var type = name.substring(0, name.indexOf("."));
         var elem = name.substring(name.indexOf(".")+1);
         return new Ast(elem, [], [], type);
@@ -486,6 +489,7 @@ function decompile(content) {
 			//console.log(wsFuncKw[name].args[i].type);
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
+				console.log(args[i])
 				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));

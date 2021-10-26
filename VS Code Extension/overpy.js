@@ -32428,7 +32428,7 @@ const heroKw =
             "zh-CN": "神射手",
             "zh-TW": "彈無虛發"
         },
-        "en-US": "McCree",
+        "en-US": "Cassidy",
         "ja-JP": "マクリー",
         "ko-KR": "맥크리",
         "ru-RU": "Маккри",
@@ -47896,6 +47896,7 @@ function escapeBadWords(content) {
 	//Naturally, only words that aren't actually bad are here.
 	//Insert a zero-width space inside the word.
 
+	content = content.replace(/(1)(488)/ig, "$1﻿$2");
 	content = content.replace(/(a)(ccount)/ig, "$1﻿$2");
 	content = content.replace(/(a)(dmin)/ig, "$1﻿$2");
 	content = content.replace(/(a)(nonymous)/ig, "$1﻿$2");
@@ -48119,6 +48120,9 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		keyword = keyword.toLowerCase();
 		if (keywordObj !== stringKw) {
 			keyword = keyword.replace(/\s/g, "");
+		}
+		if (keyword === "mccree") {
+			keyword = "cassidy";
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
@@ -49092,8 +49096,6 @@ rule("lost")
 
 function decompileRuleToAst(content) {
 	
-	//error("The decompiler currently cannot decompile rules.");
-
 	//Reset rule-specific global variables
 	decompilerGotos = [];
 	nbTabs = 0;
@@ -49422,6 +49424,11 @@ function decompile(content) {
     } catch (e) {
         //Is it a constant instead of a function?
         name = topy(name.toLowerCase().replace(/\s/g, ""), constantKw);
+		if (name === "ColorLiteral.TEAM_1") {
+			name = "TeamLiteral.1"
+		} else if (name === "ColorLiteral.TEAM_2") {
+			name = "TeamLiteral.2"
+		}
         var type = name.substring(0, name.indexOf("."));
         var elem = name.substring(name.indexOf(".")+1);
         return new Ast(elem, [], [], type);
@@ -49559,6 +49566,7 @@ function decompile(content) {
 			//console.log(wsFuncKw[name].args[i].type);
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
+				console.log(args[i])
 				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
@@ -55770,6 +55778,35 @@ astParsingFunctions.vectorTowards = function(content) {
                 getAstForNumber(content.args[1].args[2].args[0].numValue - content.args[0].args[2].args[0].numValue),
             ])
         }
+    }
+    
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.waitUntil = function(content) {
+
+    if (!isTypeSuitable("bool", content.args[0].type, false)) {
+        warn("w_wait_until", "Wait Until does not consider non-zero numbers as true, which might cause unwanted behavior. It is recommended to explicitly compare to true.")
+        //Add a "== true" because nonzero numbers are not considered true
+        //content.args[0] = new Ast("__equals__", [content.args[0], getAstForTrue()]);
     }
     
     return content;

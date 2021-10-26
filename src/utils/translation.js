@@ -25,6 +25,9 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		if (keywordObj !== stringKw) {
 			keyword = keyword.replace(/\s/g, "");
 		}
+		if (keyword === "mccree") {
+			keyword = "cassidy";
+		}
 	}
 	debug("Translating keyword '"+keyword+"'");
 	
