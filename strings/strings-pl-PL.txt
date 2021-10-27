@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
+[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.65.0.0.88423
+[CASC] Overwatch build 1.65.1.0.88742
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27,7 +27,7 @@
 00000000002B.07C: Smuga
 00000000002C.07C: Trupia Wdowa
 000000000054.07C: Wieprzu
-00000000005C.07C: McCree
+00000000005C.07C: Cassidy
 00000000005F.07C: Nazwa nie może zawierać słów niestosownych
 000000000060.07C: Nazwa gracza może zawierać jedynie litery od A do Z
 000000000081.07C: Identyfikator kapsuły musi być liczbą od 1 do 100.
@@ -692,13 +692,13 @@ się poruszasz, po czym przeładowujesz broń.
 0000000009F6.07C: Szybkość Smugi umożliwia jej szybkie dotarcie do apteczek w odległych częściach mapy.
 0000000009F8.07C: Smuga jest mistrzynią wojny podjazdowej. Staraj się nie wdawać z nią w walkę, jeśli okoliczności nie działają na twoją korzyść.
 0000000009F9.07C: Zanim dołączysz do walki, pozwól członkom swojej drużyny odwrócić uwagę przeciwnika.
-0000000009FA.07C: Szybkość jest kluczem do przetrwania, więc uważaj na bohaterów ze zdolnościami ograniczającymi kontrolę, takich jak McCree, Brigitte, Mei i Sombra.
+0000000009FA.07C: Szybkość jest kluczem do przetrwania, więc uważaj na bohaterów ze zdolnościami ograniczającymi kontrolę, takich jak Cassidy, Brigitte, Mei i Sombra.
 000000000A16.07C: Zostaw sobie ostatnie Mignięcie na ucieczkę przed wrogiem.
 000000000A40.07C: Jeśli użyjesz Powrotu od razu po otrzymaniu obrażeń, odzyskasz stracone punkty zdrowia (o ile jeszcze żyjesz).
 000000000A41.07C: Powrót teleportuje Smugę w miejsce, gdzie przebywała trzy sekundy wcześniej. Staraj się przewidzieć, gdzie pojawi się ponownie.
 000000000A42.07C: Staraj się cały czas śledzić ruchy Smugi.
 000000000A43.07C: Trzymaj się blisko innych członków drużyny, aby uniknąć spotkania sam na sam ze Smugą.
-000000000A44.07C: Zdolności ograniczające kontrolę, takie jak Granat Błyskowy McCree i Rąbnięcie Tarczą Brigitte, są bardzo skuteczne przeciwko Smudze.
+000000000A44.07C: Zdolności ograniczające kontrolę, takie jak Granat Błyskowy Cassidy'ego  i Rąbnięcie Tarczą Brigitte, są bardzo skuteczne przeciwko Smudze.
 000000000A4E.07C: Używaj Kroku w Cień, aby atakować wrogów z kierunków, z których się ciebie nie spodziewają.
 000000000A4F.07C: Kiedy zbliżasz się do przeciwnika nieświadomego zagrożenia, nie otwieraj ognia zbyt wcześnie.
 000000000A50.07C: Piekielne Strzelby Żniwiarza są najskuteczniejsze na bardzo krótki dystans.
@@ -719,10 +719,10 @@ się poruszasz, po czym przeładowujesz broń.
 000000000A73.07C: Staraj się nie uszkadzać barier Zarii, chyba że masz szansę dobić wroga, który ma mało zdrowia.
 000000000A75.07C: Nie pozwól Zarii wycofać się z walki, kiedy ma mało zdrowia, bo odzyska swoje osłony.
 000000000A76.07C: Jeśli broń Zarii naładuje się, osiągając wysoki poziom energii, warto wycofać się na chwilę, dopóki energia nie ulegnie rozproszeniu.
-000000000A77.07C: Uważaj podczas zbliżania się do McCree, kiedy dysponuje Granatem Błyskowym.
-000000000A78.07C: Kiedy McCree używa Przycelowania, poszukaj schronienia za jakąś przeszkodą. Szczególnie, jeśli nie znasz jego położenia.
-000000000A79.07C: Kiedy McCree jest w pobliżu, cały czas pozostawaj w ruchu, inaczej staniesz się łatwym celem dla jego Rozjemcy.
-000000000A7A.07C: Chociaż McCree potrafi atakować cele na dużą odległość, nie ma wielkich szans w walce z prawdziwym snajperem.
+000000000A77.07C: Uważaj podczas zbliżania się do Cassidy'ego, kiedy dysponuje Granatem Błyskowym.
+000000000A78.07C: Kiedy Cassidy używa Przycelowania, poszukaj schronienia za jakąś przeszkodą. Szczególnie, jeśli nie znasz położenia kowboja.
+000000000A79.07C: Kiedy Cassidy jest w pobliżu, cały czas pozostawaj w ruchu, inaczej staniesz się łatwym celem dla jego Rozjemcy.
+000000000A7A.07C: Chociaż Cassidy potrafi atakować cele na dużą odległość, nie ma wielkich szans w walce z prawdziwym snajperem.
 000000000A7B.07C: Bastion w konfiguracji wartowniczej posiada na plecach dodatkowy punkt umożliwiający trafienie krytyczne.
 000000000A7C.07C: Najważniejszym krokiem do zwycięstwa nad Bastionem jest odkrycie miejsca, w którym się rozstawił.
 000000000A7E.07C: Staraj się poszukać kilku różnych dróg do celu, aby nie wejść w pole rażenia potężnej broni Bastiona.
@@ -737,7 +737,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000A87.07C: Uważnie obserwuj otoczenie podczas walki z Winstonem, który używa Pierwotnego Szału, aby uniknąć odrzucenia w przepaść na krawędzi mapy.
 000000000A88.07C: Nie pozwól, by Winston odciągnął twoją uwagę od innych, groźniejszych wrogów.
 000000000A89.07C: Wieżyczki mają zasięg 40 metrów, więc łatwo je zniszczyć z bezpiecznej odległości atakami długodystansowymi (na przykład z Wyrzutni Rakiet Fary).
-000000000A8A.07C: Wieżyczki można ogłuszać za pomocą takich zdolności jak Szarża Reinhardta czy Granat Błyskowy McCree.
+000000000A8A.07C: Wieżyczki można ogłuszać za pomocą takich zdolności jak Szarża Reinhardta czy Granat Błyskowy Cassidy'ego.
 000000000A8B.07C: Wieżyczka Torbjörna jest niezwykle celna. Zniszcz ją lub jej unikaj.
 000000000A8C.07C: Bariery mogą na jakiś czas osłonić innych członków drużyny przed ogniem wieżyczki.
 000000000A8D.07C: Kiedy Hanzo używa Smoczego Strzału, wydaje z siebie okrzyk, który słychać na całej mapie. Nasłuchuj go, aby zwiększyć swoje szanse na unik.
@@ -834,7 +834,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000BDD.07C: Pamiętaj, aby rozstawiać się w Konfiguracji: Wartownik w miejscach, z których widzisz swój cel strategiczny.
 000000000BDE.07C: Jeśli dojdzie do starcia z wrogiem, kiedy jesteś w Konfiguracji: Zwiadowca, bardziej opłaca się walczyć niż przełączać do Konfiguracji: Wartownik.
 000000000BDF.07C: Użyj Konfiguracji: Czołg, aby przetrwać skoordynowane ataki, usuwając miejsca trafień krytycznych na swojej postaci i zyskując opancerzenie.
-000000000BE1.07C: Rozjemca McCree ma niesamowitą celność nawet na bardzo duży dystans. Jeśli coś widzisz, strzelaj śmiało.
+000000000BE1.07C: Rozjemca Cassidy'ego ma niesamowitą celność nawet na bardzo duży dystans. Jeśli cel jest w zasięgu wzroku, strzelaj śmiało.
 000000000BE2.07C: Alternatywny tryb prowadzenia ognia Rozjemcy umożliwia szybkie wystrzelenie reszty amunicji, więc staraj się utrzymać pełny magazynek.
 000000000BE3.07C: Chociaż w trybie alternatywnym Rozjemca ma duży rozrzut, jest skuteczny na krótki dystans lub przeciwko dużym celom takim jak Reinhardt.
 000000000BE4.07C: Przewrót Bojowy powoduje dodatkowo przeładowanie Rozjemcy.
@@ -846,7 +846,7 @@ się poruszasz, po czym przeładowujesz broń.
 000000000BEA.07C: Bariery wroga mogą zablokować strzały z Przycelowania.
 000000000BEB.07C: Najpotężniejszy atak Zarii to podstawowy atak Działa Cząsteczkowego, jednak ma krótki zasięg i wymaga bezpośredniego trafienia w cel.
 000000000BEC.07C: Używaj strzału dodatkowego z Działa Cząsteczkowego, aby atakować bardziej oddalonych wrogów lub przeciwników stojących blisko siebie.
-000000000BED.07C: Bariery, które tworzysz, mogą zapobiegać i cofać negatywne efekty takich zdolności jak Granat Błyskowy McCree czy Kula Rozdarcia Zenyatty.
+000000000BED.07C: Bariery, które tworzysz, mogą zapobiegać i cofać negatywne efekty takich zdolności jak Granat Błyskowy Cassidy'ego czy Kula Rozdarcia Zenyatty.
 000000000BEE.07C: Aby łatwo zgromadzić energię, włącz Barierę Cząsteczkową i ustaw się przed wieżyczką wroga.
 000000000BEF.07C: Kiedy zauważysz, że ktoś z twojej drużyny wdał się w wymianę ognia z wrogami, użyj na nim Bariery Projekcyjnej.
 000000000BF0.07C: Kiedy tylko wyczerpią się twoje osłony, wycofaj się na chwilę z walki, żeby dać im się zregenerować.
@@ -1201,7 +1201,7 @@ by po niej jechać.
 00000000146F.07C: Grad Kul
 000000001470.07C: Wkroczenie do akcji
 000000001472.07C: Pojedynek
-000000001473.07C: Mówcie mi McCree
+000000001473.07C: Mówcie mi Cassidy
 000000001474.07C: Siła nigdy nie szkodzi
 000000001475.07C: MARTWY CIĄG
 000000001476.07C: Pełne naładowanie
@@ -1952,7 +1952,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001BE8.07C: %1$s (%2$s): Potrzebuję leczenia! %3$s
 000000001BEB.07C: EMOTKA (STRZAŁKA W GÓRĘ)
 000000001BED.07C: Otwiera okno czatu z ukośnikiem
-000000001BEE.07C: McCree
+000000001BEE.07C: Cassidy
 000000001BEF.07C: Łaska
 000000001BF0.07C: Smuga
 000000001BF1.07C: Żniwiarz
@@ -2761,7 +2761,7 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 0000000025CF.07C: Mówcie mi
 0000000025D0.07C: Pif paf
 0000000025D1.07C: Na luzie
-0000000025D2.07C: Jesse
+0000000025D2.07C: Cole
 0000000025D3.07C: Kowboj
 0000000025D8.07C: List gończy
 0000000025DD.07C: Czy ja już cię nie zabiłem
@@ -3433,9 +3433,9 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002A4A.07C: Nie marnuj amunicji
 000000002A4B.07C: Zabij samodzielnie 3 wrogów z jednego magazynka strzelb Żniwiarza w Szybkiej grze/Rywalizacji.
 000000002A4D.07C: Orientuj się!
-000000002A4E.07C: Przerwij superzdolność wroga Granatem Błyskowym McCree w Szybkiej grze/Rywalizacji.
+000000002A4E.07C: Przerwij superzdolność wroga Granatem Błyskowym Cassidy'ego w Szybkiej grze/Rywalizacji.
 000000002A4F.07C: W samo południe
-000000002A50.07C: Zadaj 4 śmiertelne ciosy pojedynczym użyciem Przycelowania McCree w Szybkiej grze/Rywalizacji.
+000000002A50.07C: Zadaj 4 śmiertelne ciosy pojedynczym użyciem Przycelowania Cassidy'ego w Szybkiej grze/Rywalizacji.
 000000002A51.07C: Śmierć z powietrza
 000000002A52.07C: Podczas lotu zabij Farą 4 wrogów nie dotykając ziemi, w Szybkiej grze/Rywalizacji.
 000000002A53.07C: Opuścić teren!
@@ -7696,7 +7696,7 @@ Andrew Wang
 000000004627.07C: Odblokuj
 000000004629.07C: Estádio das Rãs
 00000000462A.07C: GENJI ULT
-00000000462D.07C: MCCREE ULT
+00000000462D.07C: CASSIDY ULT
 000000004637.07C: W ekipie
 000000004641.07C: Twojemu urządzeniu renderującemu właśnie zabrakło pamięci. Spróbuj zamknąć jakieś aplikacje lub uruchomić ponownie komputer.
 000000004643.07C: Rubaszny śmiech
@@ -9052,7 +9052,7 @@ THIS SOFTWARE.
 00000000537F.07C: Zimiarz
 000000005381.07C: Śniuga
 000000005383.07C: Śniegolog
-000000005385.07C: ŚniegCree
+000000005385.07C: Śnieżny Cassidy
 000000005388.07C: Mam nad tobą pieczę
 00000000538B.07C: Jestem twoim aniołem stróżem
 00000000538D.07C: To dla ciebie
@@ -10191,7 +10191,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000005D79.07C: Zaria jest jedną z najsilniejszych kobiet na świecie. Ta niegdyś słynna sportsmenka poświęciła karierę i życie w świetle reflektorów, aby w obliczu wojny chronić to, co dla niej najcenniejsze: rodzinę, przyjaciół i ojczyznę.
 000000005D7A.07C: Zenyatta to omnicki mnich, który przemierza świat w poszukiwaniu duchowego oświecenia. Powiadają, że spotkanie z nim odmienić może każdego.
 000000005D7B.07C: Junkertown
-000000005D7C.07C: Jesse McCree – banita uzbrojony w rewolwer zwany Rozjemcą – wymierza sprawiedliwość na własnych warunkach.
+000000005D7C.07C: Cole Cassidy – banita uzbrojony w rewolwer zwany Rozjemcą – wymierza sprawiedliwość na własnych warunkach.
 000000005D7D.07C: „Horus” był sygnałem wywoławczym Any w egipskich siłach zbrojnych podczas kryzysu omnicznego.
 000000005D7E.07C: Obecnie Ana działa pod pseudonimem „Dzierzba” i jest poszukiwana za szpiegostwo, zbrojną napaść i kradzież w Egipcie.
 000000005D7F.07C: Podczas kryzysu omnicznego bastiony brały udział w bitwach przeciwko ludziom na całym świecie.
@@ -10232,7 +10232,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000005DC5.07C: Wczytywanie zapisanych ustawień...
 000000005DC6.07C: Zniszczenie omnium w Australii i powstanie Junkertown sprawiło, że Pustkowia stały się jeszcze groźniejszym miejscem.
 000000005DC7.07C: W młodości Lúcio, poza swoją pierwszą miłością, hokejem, pasjonował się również piłką nożną i grał z innymi dziećmi z Rio de Janeiro.
-000000005DC8.07C: Młody Jesse McCree został zwerbowany do Blackwatch, kiedy Gabriel Reyes dostrzegł w nim potencjał i dał mu wybór: więzienie albo służba.
+000000005DC8.07C: Młody Cole Cassidy został zwerbowany do Blackwatch, kiedy Gabriel Reyes dostrzegł w kobwoju potencjał i dał mu wybór: więzienie albo służba.
 000000005DC9.07C: Łaska przywdziewała na misje Overwatch swój kombinezon szybkiego reagowania Walkiria.
 000000005DCA.07C: Wiedźma z Dziczy to tajemnicza postać, która pojawia się między innymi w opowieści o doktorze Złomensteinie i ofiarowuje ludziom to, czego pragną... za odpowiednią cenę.
 000000005DCB.07C: Orisę zbudowano z części robotów obronnych OR15 z Numbani. Pomimo faktu, że wciąż musi się wiele nauczyć to ona teraz stoi na straży miasta.
@@ -10505,7 +10505,7 @@ Nazwa gracza lub BattleTag w języku innym niż twój.
 000000006039.07C: Złota Orisa
 00000000603B.07C: Złota Łaska
 00000000603D.07C: Złoty Hanzo
-00000000603F.07C: Złoty McCree
+00000000603F.07C: Złoty Cassidy
 000000006041.07C: Złoty Zenyatta
 000000006043.07C: Złoty Złomiarz
 000000006045.07C: Złoty Lúcio
@@ -14277,8 +14277,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000700C.07C: %1$s |Rpl aktywowane leczenie od Wzmaczniacza:aktywowane leczenia od Wzmaczniacza:aktywowanych leczeń od Wzmaczniacza;
 00000000700D.07C: |Rpl %1$s:aktywowane przyspieszenia od Wzmaczniacza:aktywowane przyspieszenia od Wzmaczniacza:aktywowane przyspieszenia od Wzmaczniacza;
 00000000700E.07C: %1$s |Rpl aktywowane przyspieszenie od Wzmaczniacza:aktywowane przyspieszenia od Wzmaczniacza:aktywowanych przyspieszeń od Wzmaczniacza;
-000000007012.07C: BOHATEROWIE: Ana, Brigitte, Genji, Hanzo, McCree, Smuga, Torbjörn, Trupia Wdowa, Zenyatta, Żołnierz-76
-000000007013.07C: BOHATEROWIE: Ana, Brigitte, Genji, Hanzo, McCree, Smuga, Torbjörn, Trupia Wdowa, Zenyatta, Żołnierz-76
+000000007012.07C: BOHATEROWIE: Ana, Brigitte, Genji, Hanzo, Cassidy, Smuga, Torbjörn, Trupia Wdowa, Zenyatta, Żołnierz-76
+000000007013.07C: BOHATEROWIE: Ana, Brigitte, Genji, Hanzo, Cassidy, Smuga, Torbjörn, Trupia Wdowa, Zenyatta, Żołnierz-76
 000000007014.07C: MAPA: Eichenwalde
 000000007016.07C: ZWYCIĘSTWO: Pokonaj Złomensteina i jego popleczników
 00000000701A.07C: Dodatkowa fala %1$s
@@ -14827,7 +14827,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074D4.07C: Transmisja, Margines – Dolny
 0000000074DD.07C: Overwatch League
 0000000074E4.07C: Odwet
-0000000074E7.07C: BOHATEROWIE: Genji, McCree, Moira, Żniwiarz
+0000000074E7.07C: BOHATEROWIE: Genji, Cassidy, Moira, Żniwiarz
 0000000074E8.07C: MAPA: Rialto
 0000000074E9.07C: Odwet (fabuła)
 0000000074EA.07C: NORMALNY
@@ -15189,7 +15189,7 @@ o dużym zasięgu.
 0000000079A7.07C: Słodka Orisa
 0000000079A8.07C: Słodka Łaska
 0000000079A9.07C: Słodki Hanzo
-0000000079AA.07C: Słodki McCree
+0000000079AA.07C: Cassidy Słodziak
 0000000079AB.07C: Słodki Zenyatta
 0000000079AC.07C: Słodki Złomiarz
 0000000079AD.07C: Słodki Lúcio
@@ -20081,11 +20081,11 @@ w trybie Deathmatch 2019
 00000000BA93.07C: Zawartość archiwalnych skrzynek
 00000000BA94.07C: Coinín
 00000000BA95.07C: Zawartość archiwalnych skrzynek
-00000000BA96.07C: McCree Zadymiarz
+00000000BA96.07C: Cassidy Zadymiarz
 00000000BA97.07C: Zawartość archiwalnych skrzynek
 00000000BA98.07C: Lokaj
 00000000BA99.07C: Zawartość archiwalnych skrzynek
-00000000BAAF.07C: Jesse McCree i Elizabeth „Calamity” Ashe założyli Gang Zadymiarzy, kiedy byli jeszcze bardzo młodzi.
+00000000BAAF.07C: Cole Cassidy i Elizabeth „Calamity” Ashe założyli Gang Zadymiarzy, kiedy byli jeszcze bardzo młodzi.
 00000000BAB0.07C: Jako córka magnatów Ashe czuje się równie dobrze na balach dobroczynnych co na motocyklu.
 00000000BAB1.07C: Włącz Inspektor Warsztatu
 00000000BAB5.07C: Po zakończeniu służby w Koalicji Karaibskiej Baptiste miał trudności ze znalezieniem zajęcia wymagającego jego wyjątkowych umiejętności. Szpon jednak z radością wcielił go w swoje szeregi.
@@ -21832,7 +21832,7 @@ w trybie Deathmatch 2019
 00000000C46A.07C: Gracz nie otrzymuje obrażeń.
 00000000C46B.07C: Zdrowie gracza nie spadnie poniżej 1.
 00000000C46C.07C: Gracz nie może się poruszać, chyba że zostanie poruszony przez innego gracza lub obiekt. Celowanie pozostaje bez zmian.
-00000000C46D.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Granat Błyskowy McCree.
+00000000C46D.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Granat Błyskowy Cassidy'ego.
 00000000C46E.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Miotacz Endotermiczny Mei.
 00000000C46F.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Strzałka Usypiająca Any.
 00000000C470.07C: Gracz nie może się poruszać, celować ani korzystać z broni i zdolności. Status ten wywołuje na przykład Zdruzgotanie Reinhardta.
@@ -29525,7 +29525,7 @@ bez ograniczeń 2020
 000000012651.07C: Przełącz użycie przepustek priorytetowych
 000000012659.07C: SOJUSZNIK JEST JUŻ ROZMRAŻANY
 00000001265A.07C: SOJUSZNIK JEST JUŻ ROZMRAŻANY
-00000001266A.07C: Terrakotowy medyk
+00000001266A.07C: Terakotowy medyk
 00000001266E.07C: Stawaj w kolejce do roli Flex w Dobieraniu ról, aby zdobywać przepustki priorytetowe – wygrane zapewniają ich więcej niż przegrane.
 00000001266F.07C: Użyj przepustki priorytetowej, aby skrócić czasu oczekiwania w kolejce do nadchodzącej gry z wybraną rolą. Tylko często wybierane role będą się kwalifikowały.
 000000012670.07C: Jeśli wszyscy członkowie grupy oczekujący w kolejce do roli o dużej popularności skorzystają z przepustki, czas kolejki dla grupy zostanie skrócony.
@@ -29707,7 +29707,7 @@ w wyzwaniu Kanezaka
 000000012A82.07C: Rok Bawołu 2021
 000000012A83.07C: Kamienna twarz
 000000012A84.07C: Nagroda za udział w wyzwaniu 1. tygodnia Roku Szczura 2021
-000000012A85.07C: Terrakotowy oddział
+000000012A85.07C: Terakotowy oddział
 000000012A87.07C: Dym z lufy
 000000012A88.07C: Nagroda za udział w wyzwaniu 2. tygodnia Roku Szczura 2021
 000000012A89.07C: Obieżyświat
@@ -29826,7 +29826,7 @@ flagi 2021
 000000012BE6.07C: Baptiste – Efekt ochrony przez Pole Nieśmiertelności
 000000012BE7.07C: Echo – Efekt klonowania
 000000012BE8.07C: Lúcio – Efekt ochrony przez Barierę Dźwiękową
-000000012BE9.07C: McCree – Efekt ogłuszenia Granatem Błyskowym
+000000012BE9.07C: Cassidy – Efekt ogłuszenia Granatem Błyskowym
 000000012BEA.07C: Mei – Efekt zamrożenia
 000000012BEB.07C: Łaska – Efekt zwiększania obrażeń
 000000012BEE.07C: Żniwiarz – Efekt Postaci Upiora
@@ -29984,7 +29984,7 @@ w sezonie 27.
 000000012D3C.07C: Złomiarz – Mina Ogłuszająca – Efekt eksplozji
 000000012D3D.07C: Złomiarz – Granatnik – Efekt eksplozji
 000000012D3E.07C: Lúcio – Bariera Dźwiękowa – Efekt użycia
-000000012D3F.07C: McCree – Granat Błyskowy – Efekt eksplozji
+000000012D3F.07C: Cassidy – Granat Błyskowy – Efekt eksplozji
 000000012D40.07C: Moira – Zniknięcie – Efekt zniknięcia
 000000012D41.07C: Moira – Zniknięcie – Efekt ponownego pojawienia się
 000000012D42.07C: Orisa – Stać! – Efekt implozji
@@ -30134,7 +30134,7 @@ w wyzwaniu PachiMarzec
 000000012EC6.07C: Orisa – Stać! – Dźwięk implozji
 000000012EC7.07C: Moira – Zniknięcie – Dźwięk pojawienia się
 000000012EC8.07C: Moira – Zniknięcie – Dźwięk zniknięcia
-000000012EC9.07C: McCree – Granat Błyskowy – Dźwięk eksplozji
+000000012EC9.07C: Cassidy – Granat Błyskowy – Dźwięk eksplozji
 000000012ECA.07C: Lúcio – Bariera Dźwiękowa – Dźwięk użycia
 000000012ECB.07C: Hanzo – Strzała Soniczna – Dźwięk wstępnego impulsu
 000000012ECC.07C: Złomiarz – Granatnik – Dźwięk eksplozji
@@ -33203,7 +33203,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Konsole
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Nintendo Switch
+0000000136D9.07C: Switch
 0000000136DF.07C: Pula
 000000013737.07C: Pula: %1$s
 0000000138E9.07C: Uczestnik Rywalizacji w trybie Deathmatch 2021
@@ -33270,7 +33270,7 @@ oraz powrót poprzednich elementów i trybów gry!
 0000000139EC.07C: Gofry
 0000000139ED.07C: Koniec szkoły
 0000000139EE.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
-0000000139EF.07C: Młody Jesse
+0000000139EF.07C: Młody Cassidy
 0000000139F0.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
 0000000139F1.07C: Rozkmina
 0000000139F2.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
@@ -33316,7 +33316,7 @@ w sezonie 29.
 000000013AD6.07C: Chwyt Kinetyczny ma długi czas odnowienia. Wykorzystuj tę zdolność, aby się chronić, kiedy Eksperymentalna Bariera się ładuje.
 000000013AD7.07C: Używaj Strumienia Grawitacyjnego, aby podnosić wrogów w powietrze, z dala od ich drużyny lub celu.
 000000013ADE.07C: Zadawanie obrażeń Sombrze ujawnia ją. Strzel w miejsce, z którego myślisz, że może cię szpiegować, aby sprawdzić, czy nie ma jej w pobliżu.
-000000013ADF.07C: Młoda Elizabeth Ashe, B.O.B. oraz Jesse McCree wspólnie założyli niesławny Gang Zadymiarzy.
+000000013ADF.07C: Młoda Elizabeth Ashe, B.O.B. oraz Cole Cassidy wspólnie założyli niesławny Gang Zadymiarzy.
 000000013AE6.07C: Do gry w Overwatch wymagane jest konto Battle.net.
 000000013AF4.07C: Użyj Infrawizji, gdy wróg rozpocznie atak, aby twoi sojusznicy mogli zająć lepsze pozycje obronne.
 000000013B76.07C: Gra międzyplatformowa włączona. Możesz napotkać graczy z innych platform.
@@ -33665,4 +33665,4 @@ w sezonie 31.
 000000014813.07C: Dynia
 000000014814.07C: Dynia
 000000014A2D.07C: Tydzień 1: Szkielet (Genji)
-[Core] Execution finished in 00:00:00.4789629 seconds
+[Core] Execution finished in 00:00:00.4432545 seconds

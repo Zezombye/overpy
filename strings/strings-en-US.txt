@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
+[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.65.0.0.88423
+[CASC] Overwatch build 1.65.1.0.88742
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -26,7 +26,7 @@
 00000000002B.07C: Tracer
 00000000002C.07C: Widowmaker
 000000000054.07C: Roadhog
-00000000005C.07C: McCree
+00000000005C.07C: Cassidy
 00000000005F.07C: Name cannot contain profanity
 000000000060.07C: Player names can only contain the characters A-Z
 000000000081.07C: Pod ID must by a number between 1 and 100
@@ -673,13 +673,13 @@
 0000000009F6.07C: Use Tracer's mobility to quickly reach health packs located across the map.
 0000000009F8.07C: Tracer excels at skirmishing. Avoid fights where the odds are not in your favor.
 0000000009F9.07C: Let your teammates create a distraction before you enter combat.
-0000000009FA.07C: Speed is the key to your survival, so beware of heroes with crowd control like McCree, Brigitte, Mei, and Sombra.
+0000000009FA.07C: Speed is the key to your survival, so beware of heroes with crowd control like Cassidy, Brigitte, Mei, and Sombra.
 000000000A16.07C: Save your last Blink to escape your enemy.
 000000000A40.07C: If you Recall immediately after taking damage, you will regain your lost health (if you're not dead).
 000000000A41.07C: Recall teleports Tracer to her location from three seconds ago. Try to predict where she will reappear.
 000000000A42.07C: Try to keep track of Tracer's location at all times.
 000000000A43.07C: Stay near your teammates to avoid being singled out by Tracer.
-000000000A44.07C: Crowd control abilities like McCree’s Flashbang and Brigitte’s Shield Bash are very effective against Tracer.
+000000000A44.07C: Crowd control abilities like Cassidy's Flashbang and Brigitte’s Shield Bash are very effective against Tracer.
 000000000A4E.07C: Use Shadow Step to attack the enemy from unexpected directions.
 000000000A4F.07C: When approaching an unaware enemy, don't open fire too soon.
 000000000A50.07C: Reaper's Hellfire shotguns are most effective at extremely close range.
@@ -700,10 +700,10 @@
 000000000A73.07C: Try to avoid damaging Zarya's barriers, but don't let them stop you from finishing off a low health target.
 000000000A75.07C: Don't let Zarya disengage from combat when she's low health, or you will give her time to recover her shields.
 000000000A76.07C: If Zarya's weapon becomes charged with high amounts of energy, consider disengaging for a short time to let it dissipate.
-000000000A77.07C: Be wary of moving close to McCree while his Flashbang is available.
-000000000A78.07C: Head for cover when McCree begins using Deadeye, especially if you don't know where he is.
-000000000A79.07C: Keep moving while McCree's around, or you'll be an easy target for his Peacekeeper.
-000000000A7A.07C: While McCree can shoot at long range targets, he is still at a disadvantage against a dedicated sniper.
+000000000A77.07C: Be wary of moving close to Cassidy while his Flashbang is available.
+000000000A78.07C: Head for cover when Cassidy begins using Deadeye, especially if you don't know where he is.
+000000000A79.07C: Keep moving while Cassidy's around, or you'll be an easy target for his Peacekeeper.
+000000000A7A.07C: While Cassidy can shoot at long range targets, he is still at a disadvantage against a dedicated sniper.
 000000000A7B.07C: While in sentry configuration, Bastion has an additional critical hit location on its back.
 000000000A7C.07C: The first step to defeating Bastion is figuring out where it's deployed.
 000000000A7E.07C: Look for alternate paths to your objective that avoid Bastion's devastating line of fire.
@@ -718,7 +718,7 @@
 000000000A87.07C: Be aware of your surroundings when fighting Winston while his Primal Rage is active to avoid being punched off of the map to your death.
 000000000A88.07C: Don't let Winston distract you from more threatening enemies.
 000000000A89.07C: Turrets have a range of 40 meters, so long range attacks (like Pharah's rocket launcher) can destroy them from safety.
-000000000A8A.07C: Turrets can be stunned by abilities such as Reinhardt's Charge or McCree's Flashbang.
+000000000A8A.07C: Turrets can be stunned by abilities such as Reinhardt's Charge or Cassidy's Flashbang.
 000000000A8B.07C: Torbjörn's turret is extremely accurate. Destroy or avoid it.
 000000000A8C.07C: Barriers can protect teammates from a turret's damage for a short time.
 000000000A8D.07C: When Hanzo uses Dragonstrike, he yells out to the entire map. Listen for him to have a better chance of dodging it.
@@ -815,7 +815,7 @@
 000000000BDD.07C: Use sentry configuration at locations that have a view of your objective.
 000000000BDE.07C: If engaging an enemy while in recon configuration, it's usually better to fight than to switch into sentry configuration.
 000000000BDF.07C: Use Configuration: Tank to survive concerted attacks by removing your critical hit locations and gaining Ironclad.
-000000000BE1.07C: McCree's Peacekeeper is extremely accurate and has a very long range. If you can see it, you can shoot it.
+000000000BE1.07C: Cassidy's Peacekeeper is extremely accurate and has a very long range. If you can see it, you can shoot it.
 000000000BE2.07C: Peacekeeper's alternate fire quickly shoots the remaining rounds in the weapon, so try to stay fully loaded.
 000000000BE3.07C: Although the Peacekeeper's alternate fire shoots wildly, it can still be effective at close range or against large targets, such as Reinhardt.
 000000000BE4.07C: Performing a Combat Roll also reloads the Peacekeeper.
@@ -827,7 +827,7 @@
 000000000BEA.07C: Enemy barriers can block the shots from Deadeye.
 000000000BEB.07C: The particle cannon's primary fire is Zarya's highest damage attack, but its range is short and requires direct aim.
 000000000BEC.07C: Use the particle cannon's secondary fire to engage enemies at longer distances, or at enemies standing close to each other.
-000000000BED.07C: Your barriers prevent and remove most negative effects such as McCree's Flashbang and Zenyatta's Orb of Discord.
+000000000BED.07C: Your barriers prevent and remove most negative effects such as Cassidy's Flashbang and Zenyatta's Orb of Discord.
 000000000BEE.07C: An easy way to build energy is to activate Particle Barrier before moving in front of an enemy turret.
 000000000BEF.07C: Use Projected Barrier on a teammate whenever you spot them actively engaged in combat.
 000000000BF0.07C: Whenever your shields are depleted, consider retreating momentarily from combat to let them fully regenerate.
@@ -1181,7 +1181,7 @@
 00000000146F.07C: Bullet Rain
 000000001470.07C: Rolling into Action
 000000001472.07C: The Duel
-000000001473.07C: The name's McCree
+000000001473.07C: The name's Cassidy
 000000001474.07C: This Is Strength
 000000001475.07C: DEADLIFT
 000000001476.07C: Maximum Charge
@@ -1929,7 +1929,7 @@ Experience new ways to play with a changing selection of game modes that include
 000000001BE8.07C: %1$s (%2$s): I need healing! %3$s
 000000001BEB.07C: EMOTE (UP)
 000000001BED.07C: Opens chat with slash
-000000001BEE.07C: McCree
+000000001BEE.07C: Cassidy
 000000001BEF.07C: Mercy
 000000001BF0.07C: Tracer
 000000001BF1.07C: Reaper
@@ -2738,7 +2738,7 @@ Experience new ways to play with a changing selection of game modes that include
 0000000025CF.07C: The Name's
 0000000025D0.07C: Draw
 0000000025D1.07C: Take It Easy
-0000000025D2.07C: Jesse
+0000000025D2.07C: Cole
 0000000025D3.07C: Outlaw
 0000000025D8.07C: Your Face Here
 0000000025DD.07C: Ain't I killed you before
@@ -3410,9 +3410,9 @@ Experience new ways to play with a changing selection of game modes that include
 000000002A4A.07C: Waste Not, Want Not
 000000002A4B.07C: Get 3 solo kills with a single clip of Reaper's shotguns in Quick or Competitive Play.
 000000002A4D.07C: Whoa There!
-000000002A4E.07C: Interrupt an enemy ultimate ability with McCree's Flashbang in Quick or Competitive Play.
+000000002A4E.07C: Interrupt an enemy ultimate ability with Cassidy's Flashbang in Quick or Competitive Play.
 000000002A4F.07C: It's High Noon
-000000002A50.07C: Get 4 killing blows with a single use of McCree's Deadeye in Quick or Competitive Play.
+000000002A50.07C: Get 4 killing blows with a single use of Cassidy's Deadeye in Quick or Competitive Play.
 000000002A51.07C: Death From Above
 000000002A52.07C: Kill 4 enemies in a row without touching the ground as Pharah in Quick or Competitive Play.
 000000002A53.07C: Clearing the Area
@@ -7673,7 +7673,7 @@ Andrew Wang
 000000004627.07C: Unblock
 000000004629.07C: Estádio das Rãs
 00000000462A.07C: GENJI ULT
-00000000462D.07C: MCCREE ULT
+00000000462D.07C: CASSIDY ULT
 000000004637.07C: In Group
 000000004641.07C: Your rendering device has run out of memory.  Please try closing some applications or restarting your computer.
 000000004643.07C: Belly Laugh
@@ -9024,7 +9024,7 @@ THIS SOFTWARE.
 00000000537F.07C: Snowreaper
 000000005381.07C: Snowcer
 000000005383.07C: Snowscientist
-000000005385.07C: Snowcree
+000000005385.07C: Snowcole
 000000005388.07C: I'm watching out for you
 00000000538B.07C: Your guardian angel
 00000000538D.07C: A gift for you
@@ -10160,7 +10160,7 @@ A player name or BattleTag using a language different than your own.
 000000005D79.07C: Zarya is one of the world's strongest women, a celebrated athlete who sacrificed personal glory to protect her family, friends, and country in a time of war.
 000000005D7A.07C: Zenyatta is an omnic monk who wanders the world in search of spiritual enlightenment. It is said that those who cross his path are never the same again.
 000000005D7B.07C: Junkertown
-000000005D7C.07C: Armed with his Peacekeeper revolver, the outlaw Jesse McCree doles out justice on his own terms.
+000000005D7C.07C: Armed with his Peacekeeper revolver, the outlaw Cole Cassidy doles out justice on his own terms.
 000000005D7D.07C: Ana's call sign was "Horus" when she served in the Egyptian military during the Omnic Crisis.
 000000005D7E.07C: Recently, Ana has operated under the alias of "Shrike" and is wanted for espionage, assault, and theft in Egypt.
 000000005D7F.07C: During the Omnic Crisis, Bastion units fought against humans in battles around the world.
@@ -10201,7 +10201,7 @@ A player name or BattleTag using a language different than your own.
 000000005DC5.07C: Loading saved presets...
 000000005DC6.07C: The destruction of the omnium in Australia and the formation of Junkertown made the Outback an even more dangerous place to live.
 000000005DC7.07C: When Lúcio was younger, in addition to his first love, hockey, he also found the time to play football with the other kids in Rio de Janeiro.
-000000005DC8.07C: A young Jesse McCree was recruited into Blackwatch after Gabriel Reyes saw his potential and gave him a choice: join Blackwatch or rot in prison.
+000000005DC8.07C: A young Cole Cassidy was recruited into Blackwatch after Gabriel Reyes saw his potential and gave him a choice: join Blackwatch or rot in prison.
 000000005DC9.07C: When called upon, Mercy would don her Valkyrie swift-response suit to participate in Overwatch missions.
 000000005DCA.07C: The Witch of the Wilds is a mysterious figure who appears in the tale of Dr. Junkenstein and others, offering people the object of their desire, for a price.
 000000005DCB.07C: Built from parts of one of Numbani's short-lived OR15 defense robots, Orisa is the city's newest protector, though she still has much to learn.
@@ -14204,8 +14204,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000700C.07C: %1$s Amped Heal |Rpl Activation:Activations;
 00000000700D.07C: Amped Speed |Rpl %1$s:Activation:Activations;
 00000000700E.07C: %1$s Amped Speed |Rpl Activation:Activations;
-000000007012.07C: HEROES: Ana, Brigitte, Genji, Hanzo, McCree, Soldier: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
-000000007013.07C: HEROES: Ana, Brigitte, Genji, Hanzo, McCree, Soldier: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
+000000007012.07C: HEROES: Ana, Brigitte, Genji, Hanzo, Cassidy, Soldier: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
+000000007013.07C: HEROES: Ana, Brigitte, Genji, Hanzo, Cassidy, Soldier: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
 000000007014.07C: MAP: Eichenwalde
 000000007016.07C: VICTORY: Defeat Junkenstein and his allies
 00000000701A.07C: Bonus Wave %1$s
@@ -14754,7 +14754,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074D4.07C: Broadcast Margin - Bottom
 0000000074DD.07C: Overwatch League
 0000000074E4.07C: Retribution
-0000000074E7.07C: HEROES: Genji, McCree, Moira, Reaper
+0000000074E7.07C: HEROES: Genji, Cassidy, Moira, Reaper
 0000000074E8.07C: MAP: Rialto
 0000000074E9.07C: Retribution (Story)
 0000000074EA.07C: NORMAL
@@ -15113,7 +15113,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000079A7.07C: Cute Orisa
 0000000079A8.07C: Cute Mercy
 0000000079A9.07C: Cute Hanzo
-0000000079AA.07C: Cute McCree
+0000000079AA.07C: Cute Cassidy
 0000000079AB.07C: Cute Zenyatta
 0000000079AC.07C: Cute Junkrat
 0000000079AD.07C: Cute Lúcio
@@ -19892,11 +19892,11 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000BA93.07C: Available in Archives Loot Boxes
 00000000BA94.07C: Coinín
 00000000BA95.07C: Available in Archives Loot Boxes
-00000000BA96.07C: Deadlock McCree
+00000000BA96.07C: Deadlock Cassidy
 00000000BA97.07C: Available in Archives Loot Boxes
 00000000BA98.07C: Butler
 00000000BA99.07C: Available in Archives Loot Boxes
-00000000BAAF.07C: In their younger days, Jesse McCree and Elizabeth "Calamity" Ashe co-founded the Deadlock Gang.
+00000000BAAF.07C: In their younger days, Cole Cassidy and Elizabeth "Calamity" Ashe co-founded the Deadlock Gang.
 00000000BAB0.07C: As the daughter of socialites, Ashe feels just as comfortable at charity balls as she does on a motorcycle.
 00000000BAB1.07C: Enable Workshop Inspector
 00000000BAB5.07C: After his service in the Caribbean Coalition was complete, Baptiste struggled to find a demand for his unique skills. Talon was more than happy to help. 
@@ -21643,7 +21643,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000C46A.07C: The Player does not take damage.
 00000000C46B.07C: The Player's health will not drop below 1.
 00000000C46C.07C: The Player cannot move unless moved by another Player or object. Aiming is unaffected.
-00000000C46D.07C: The Player cannot move, aim, or use weapons or abilities. For example, McCree's Flashbang causes this status.
+00000000C46D.07C: The Player cannot move, aim, or use weapons or abilities. For example, Cassidy's Flashbang causes this status.
 00000000C46E.07C: The Player cannot move, aim, or use weapons or abilities. For example, Mei's Endothermic Blaster causes this status.
 00000000C46F.07C: The Player cannot move, aim, or use weapons or abilities. For example, Ana's Sleep Dart causes this status.
 00000000C470.07C: The Player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.
@@ -29504,7 +29504,7 @@ and 10 Free Winter Loot Boxes
 000000012BE6.07C: Baptiste Immortality Field Protected Effect
 000000012BE7.07C: Echo Cloning Effect
 000000012BE8.07C: Lúcio Sound Barrier Protected Effect
-000000012BE9.07C: McCree Flashbang Stunned Effect
+000000012BE9.07C: Cassidy Flashbang Stunned Effect
 000000012BEA.07C: Mei Frozen Effect
 000000012BEB.07C: Mercy Damage Boosted Effect
 000000012BEE.07C: Reaper Wraith Form Effect
@@ -29660,7 +29660,7 @@ and 10 Free Winter Loot Boxes
 000000012D3C.07C: Junkrat Concussion Mine Explosion Effect
 000000012D3D.07C: Junkrat Frag Launcher Explosion Effect
 000000012D3E.07C: Lúcio Sound Barrier Cast Effect
-000000012D3F.07C: McCree Flashbang Explosion Effect
+000000012D3F.07C: Cassidy Flashbang Explosion Effect
 000000012D40.07C: Moira Fade Disappear Effect
 000000012D41.07C: Moira Fade Reappear Effect
 000000012D42.07C: Orisa Halt Implosion Effect
@@ -29809,7 +29809,7 @@ and 10 Free Winter Loot Boxes
 000000012EC6.07C: Orisa Halt Implosion Sound
 000000012EC7.07C: Moira Fade Reappear Sound
 000000012EC8.07C: Moira Fade Disappear Sound
-000000012EC9.07C: McCree Flashbang Explosion Sound
+000000012EC9.07C: Cassidy Flashbang Explosion Sound
 000000012ECA.07C: Lúcio Sound Barrier Cast Sound
 000000012ECB.07C: Hanzo Sonic Arrow Initial Pulse Sound
 000000012ECC.07C: Junkrat Frag Launcher Explosion Sound
@@ -32934,7 +32934,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139EC.07C: Waffles
 0000000139ED.07C: Graduation
 0000000139EE.07C: Unlocked by participating in Ashe's Deadlock Challenge
-0000000139EF.07C: Young Jesse
+0000000139EF.07C: Young Cole
 0000000139F0.07C: Unlocked by participating in Ashe's Deadlock Challenge
 0000000139F1.07C: Pondering
 0000000139F2.07C: Unlocked by participating in Ashe's Deadlock Challenge
@@ -32978,7 +32978,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AD6.07C: Kinetic Grasp has a long cooldown. Use it to protect yourself while Experimental Barrier is recharging.
 000000013AD7.07C: Use Gravitic Flux to lift enemies into the air, away from their team or the objective.
 000000013ADE.07C: Dealing damage to Sombra reveals her. Fire at where you think she might be spying on you from to check for her.
-000000013ADF.07C: A young Elizabeth Ashe co-founded the infamous Deadlock Gang alongside B.O.B. and Jesse McCree.
+000000013ADF.07C: A young Elizabeth Ashe co-founded the infamous Deadlock Gang alongside B.O.B. and Cole Cassidy.
 000000013AE6.07C: A Battle.net account is required to play overwatch
 000000013AF4.07C: Use Infra-Sight as the enemy begins an attack, so your teammates can move into better defensive positions.
 000000013B76.07C: Cross-Play enabled. You may encounter cross-network players.
@@ -33283,4 +33283,4 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014813.07C: Pumpkin
 000000014814.07C: Pumpkin
 000000014A2D.07C: Week 1: Skeleton Genji
-[Core] Execution finished in 00:00:00.4931354 seconds
+[Core] Execution finished in 00:00:00.4354130 seconds

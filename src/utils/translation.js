@@ -27,6 +27,12 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		}
 		if (keyword === "mccree") {
 			keyword = "cassidy";
+		} else if (keyword === "mccreeflashbangstunnedeffect") {
+			keyword = "cassidyflashbangstunnedeffect";
+		} else if (keyword === "mccreeflashbangexplosionsound") {
+			keyword = "cassidyflashbangexplosionsound";
+		} else if (keyword === "mccreeflashbangexplosioneffect") {
+			keyword = "cassidyflashbangexplosioneffect";
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");

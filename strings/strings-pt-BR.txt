@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.963-git-f30dc6461fbe5085e3d2a274dfe659b4fc22bda7
+[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(12)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.65.0.0.88423
+[CASC] Overwatch build 1.65.1.0.88742
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88423 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88423 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -27,7 +27,7 @@
 00000000002B.07C: Tracer
 00000000002C.07C: Widowmaker
 000000000054.07C: Roadhog
-00000000005C.07C: McCree
+00000000005C.07C: Cassidy
 00000000005F.07C: O nome não pode conter palavras ou expressões abusivas
 000000000060.07C: Nomes de jogadores só podem conter os caracteres A-Z
 000000000081.07C: O ID do Pod deve ser um número entre 1 e 100
@@ -674,13 +674,13 @@
 0000000009F6.07C: Use a mobilidade da Tracer para alcançar rapidamente os kits médicos localizados pelo mapa.
 0000000009F8.07C: O forte da Tracer é o combate evasivo. Evite lutas que não estejam a seu favor.
 0000000009F9.07C: Deixe seus aliados criarem uma distração antes de você entrar em combate.
-0000000009FA.07C: A velocidade é fundamental para sua sobrevivência, então tome cuidado com heróis com controle coletivo, como McCree, Brigitte, Mei e Sombra.
+0000000009FA.07C: A velocidade é fundamental para sua sobrevivência, então tome cuidado com heróis com controle coletivo, como Cassidy, Brigitte, Mei e Sombra.
 000000000A16.07C: Guarde seu último Teleporte para fugir de seu inimigo.
 000000000A40.07C: Se você utilizar a Recordação logo após receber dano, você recuperará sua vida perdida (a não ser que esteja morto).
 000000000A41.07C: Recordação teletransporta Tracer para sua localização de três segundos no passado. Tente prever onde ela vai reaparecer.
 000000000A42.07C: Tente acompanhar a localização da Tracer a todo momento.
 000000000A43.07C: Fique perto de seus companheiros de equipe para evitar ser abordado individualmente pela Tracer.
-000000000A44.07C: Habilidades de controle coletivo, como o Clarão de McCree e o Golpe de Escudo de Brigitte, são ótimas contra Tracer.
+000000000A44.07C: Habilidades de controle coletivo, como o Clarão de Cassidy e o Golpe de Escudo de Brigitte, são ótimas contra Tracer.
 000000000A4E.07C: Use os Passos das Sombras para atacar um inimigo de direções inesperadas.
 000000000A4F.07C: Ao se aproximar de um inimigo desprevenido, não dispare muito cedo.
 000000000A50.07C: As Espingardas Infernais do Reaper são mais eficientes à curta distância.
@@ -701,10 +701,10 @@
 000000000A73.07C: Tente evitar atacar as barreiras da Zarya, mas não deixe que elas o impeçam de matar um alvo com a vida baixa.
 000000000A75.07C: Não deixe que Zarya saia do combate quando sua vida estiver baixa, senão ela terá tempo para recuperar seus escudos.
 000000000A76.07C: Se a arma da Zarya ficar carregada com muita energia, considere evitar o combate por um tempo para que ela se dissipe.
-000000000A77.07C: Tenha cuidado ao se aproximar do McCree enquanto seu Clarão está disponível.
-000000000A78.07C: Procure abrigo enquanto McCree estiver usando seu Tiro Certeiro, principalmente se você não sabe onde ele está.
-000000000A79.07C: Continue se movendo enquanto McCree estiver na área, senão você será alvo fácil de seu Pacificador.
-000000000A7A.07C: Apesar de McCree poder atirar a longo alcance, ele ainda está em desvantagem contra um franco-atirador dedicado.
+000000000A77.07C: Tenha cuidado ao se aproximar do Cassidy enquanto seu Clarão está disponível.
+000000000A78.07C: Procure abrigo enquanto Cassidy estiver usando seu Tiro Certeiro, principalmente se você não sabe onde ele está.
+000000000A79.07C: Continue se movendo enquanto Cassidy estiver na área, senão você será alvo fácil de seu Pacificador.
+000000000A7A.07C: Apesar de Cassidy poder atirar a longo alcance, ele ainda está em desvantagem contra um franco-atirador dedicado.
 000000000A7B.07C: Enquanto estiver na Configuração de Sentinela, Bastion tem um local extra de golpe crítico em suas costas.
 000000000A7C.07C: O primeiro passo para derrotar Bastion é descobrir onde ele está implantado.
 000000000A7E.07C: Procure por rotas alternativas para seu objetivo para evitar a devastadora linha de fogo do Bastion.
@@ -719,7 +719,7 @@
 000000000A87.07C: Esteja atento aos seus arredores quando estiver lutando contra Winston durante sua Fúria Primata para evitar ser atirado para fora do mapa e morrer.
 000000000A88.07C: Não deixe que Winston o distraia de inimigos mais ameaçadores.
 000000000A89.07C: Torres têm um alcance de 40 metros, portanto ataques de longa distância (como o Lançador de Foguetes da Pharah) podem destruí-las de uma distância segura.
-000000000A8A.07C: Torres podem ser atordoadas por habilidades como a Investida do Reinhardt ou o Clarão do McCree.
+000000000A8A.07C: Torres podem ser atordoadas por habilidades como a Investida do Reinhardt ou o Clarão do Cassidy.
 000000000A8B.07C: A torre de Torbjörn tem muita precisão. Destrua-a ou fuja.
 000000000A8C.07C: Barreiras podem proteger aliados do dano de uma torre por um curto período de tempo.
 000000000A8D.07C: Quando Hanzo usa o Golpe do Dragão, ele grita para todo o mapa ouvir. Escute bem para ter uma melhor chance de esquivar.
@@ -816,7 +816,7 @@
 000000000BDD.07C: Use a configuração de sentinela em locais que tenham uma vista do seu objetivo.
 000000000BDE.07C: Se atacar um inimigo em configuração de reconhecimento, normalmente é melhor lutar do que trocar para configuração de sentinela.
 000000000BDF.07C: Use a Configuração: Tanque para ganhar Couraça, remover seus pontos fracos e sobreviver a ataques organizados.
-000000000BE1.07C: O Pacificador do McCree é extremamente preciso e tem um longo alcance. Se você consegue enxergar, consegue acertar.
+000000000BE1.07C: O Pacificador do Cassidy é extremamente preciso e tem um longo alcance. Se você consegue enxergar, consegue acertar.
 000000000BE2.07C: O disparo alternativo do Pacificador atira rapidamente as balas restantes da arma, então tente estar sempre munido.
 000000000BE3.07C: Apesar do disparo alternativo do Pacificador ser errático, ele pode ser efetivo a curta distância ou contra alvos grandes, como Reinhardt.
 000000000BE4.07C: Realizar um Rolamento também recarrega o Pacificador.
@@ -828,7 +828,7 @@
 000000000BEA.07C: Barreiras inimigas podem bloquear os tiros do Tiro Certeiro.
 000000000BEB.07C: O disparo primário do Canhão de Partículas é o ataque de maior dano da Zarya, mas seu alcance é curto e requer mira direta.
 000000000BEC.07C: Use o disparo secundário do Canhão de Partículas para atacar inimigos a distâncias maiores ou inimigos próximos uns dos outros.
-000000000BED.07C: Suas barreiras podem prevenir ou remover vários efeitos negativos, como o Clarão de McCree e o Orbe da Discórdia de Zenyatta.
+000000000BED.07C: Suas barreiras podem prevenir ou remover vários efeitos negativos, como o Clarão de Cassidy e o Orbe da Discórdia de Zenyatta.
 000000000BEE.07C: Uma maneira fácil de acumular energia é ativando a Barreira de Partículas antes de ir para a frente de uma torre inimiga.
 000000000BEF.07C: Use a Barreira Projetada em um aliado sempre que o vir entrando em combate.
 000000000BF0.07C: Quando seus escudos estiverem desgastados, considere recuar do combate momentaneamente para que eles regenerem.
@@ -1182,7 +1182,7 @@
 00000000146F.07C: Chuva de balas
 000000001470.07C: Mergulhando na ação
 000000001472.07C: O duelo
-000000001473.07C: O nome é McCree
+000000001473.07C: O nome é Cassidy
 000000001474.07C: Isso é que é força
 000000001475.07C: LEVANTAMENTO
 000000001476.07C: Carga total
@@ -1930,7 +1930,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000001BE8.07C: %1$s (%2$s): Eu preciso de cura! %3$s
 000000001BEB.07C: EMOTE (ACIMA)
 000000001BED.07C: Abre o bate-papo com barra
-000000001BEE.07C: McCree
+000000001BEE.07C: Cassidy
 000000001BEF.07C: Mercy
 000000001BF0.07C: Tracer
 000000001BF1.07C: Reaper
@@ -2739,7 +2739,7 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 0000000025CF.07C: O nome é
 0000000025D0.07C: Sacar
 0000000025D1.07C: Vai com calma
-0000000025D2.07C: Jesse
+0000000025D2.07C: Cole
 0000000025D3.07C: Fora da Lei
 0000000025D8.07C: Seu rosto aqui
 0000000025DD.07C: Eu já não matei você?
@@ -3411,9 +3411,9 @@ Experimente novas maneiras de jogar com uma variada seleção de modos de jogo q
 000000002A4A.07C: Quem guarda, sempre tem
 000000002A4B.07C: Consiga 3 abates individuais com um único cartucho do Reaper no Jogo Rápido ou Competitivo.
 000000002A4D.07C: Calma aí!
-000000002A4E.07C: Interrompa a habilidade suprema de um inimigo com o Clarão do McCree em Jogo Rápido ou Competitivo.
+000000002A4E.07C: Interrompa a habilidade suprema de um inimigo com o Clarão do Cassidy em Jogo Rápido ou Competitivo.
 000000002A4F.07C: Hora do acerto de contas
-000000002A50.07C: Consiga 4 golpes finais usando um único Tiro Certeiro do McCree em Jogo Rápido ou Competitivo.
+000000002A50.07C: Consiga 4 golpes finais usando um único Tiro Certeiro do Cassidy em Jogo Rápido ou Competitivo.
 000000002A51.07C: A morte vem de cima
 000000002A52.07C: Mate 4 inimigos seguidos com a Pharah sem tocar o chão em Jogo Rápido ou Competitivo.
 000000002A53.07C: Limpando a área
@@ -7675,7 +7675,7 @@ Andrew Wang
 000000004627.07C: Desbloquear
 000000004629.07C: Estádio das Rãs
 00000000462A.07C: GENJI ULT
-00000000462D.07C: MCCREE ULT
+00000000462D.07C: CASSIDY ULT
 000000004637.07C: Em grupo
 000000004641.07C: Seu dispositivo de renderização está sem memória. Por favor, tente fechar alguns aplicativos ou reiniciar o computador.
 000000004643.07C: Risada com a barriga
@@ -9025,7 +9025,7 @@ THIS SOFTWARE.
 00000000537F.07C: Reaper de Neve
 000000005381.07C: Tracer de Neve
 000000005383.07C: Cientista de Neve
-000000005385.07C: McCree de Neve
+000000005385.07C: PiCole
 000000005388.07C: Eu te protejo
 00000000538B.07C: Seu anjo da guarda
 00000000538D.07C: Um presente para você
@@ -10160,7 +10160,7 @@ Um nome de jogador ou BattleTag que usa um idioma diferente do seu.
 000000005D79.07C: Zarya é uma das mulheres mais fortes do mundo, uma atleta aclamada que sacrificou o triunfo pessoal para proteger sua família, amigos e país em tempos de guerra.
 000000005D7A.07C: Zenyatta é um monge ômnico que vagueia pelo mundo em busca de iluminação espiritual. Dizem que aqueles que cruzam seu caminho nunca serão os mesmos.
 000000005D7B.07C: Junkertown
-000000005D7C.07C: Armado com seu revólver Pacificador, o fora da lei Jesse McCree faz justiça com seus próprios termos.
+000000005D7C.07C: Armado com seu revólver Pacificador, o fora da lei Cole Cassidy faz justiça com seus próprios termos.
 000000005D7D.07C: O codinome de Ana era “Hórus” quando ela servia no exército egípcio durante a Crise Ômnica.
 000000005D7E.07C: Recentemente, Ana tem agido sob o codinome “Áquila”, sendo procurada por espionagem, agressão e roubo no Egito.
 000000005D7F.07C: Durante a Crise Ômnica, unidades Bastion lutaram contra humanos em batalhas ao redor do mundo.
@@ -10201,7 +10201,7 @@ Um nome de jogador ou BattleTag que usa um idioma diferente do seu.
 000000005DC5.07C: Carregando predefinições salvas...
 000000005DC6.07C: A destruição do omnium na Austrália e a formação de Junkertown fizeram com que o deserto australiano se tornasse ainda mais perigoso.
 000000005DC7.07C: Quando Lúcio era mais jovem, além de seu primeiro amor, o hockey, ele também tinha tempo para jogar futebol com as outras crianças no Rio de Janeiro.
-000000005DC8.07C: Jesse McCree foi recrutado para a Blackwatch quando jovem depois de Gabriel Reyes notar seu potencial e dar a ele uma escolha: entrar para a Blackwatch ou ir para a prisão.
+000000005DC8.07C: Cole Cassidy foi recrutado para a Blackwatch quando jovem depois de Gabriel Reyes notar seu potencial e dar a ele uma escolha: entrar para a Blackwatch ou ir para a prisão.
 000000005DC9.07C: Quando necessário, Mercy usava sua armadura de resposta rápida “Valquíria” para participar de missões da Overwatch.
 000000005DCA.07C: A Bruxa da Floresta é uma figura misteriosa que aparece no conto do Dr. Junkenstein e em vários outros, oferecendo às pessoas seus desejos por um preço.
 000000005DCB.07C: Construída a partir das peças de um OR15, os robôs de defesa de curta duração de Numbani, Orisa é a mais nova protetora da cidade, mas ela ainda tem muito o que aprender.
@@ -14205,8 +14205,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000700C.07C: %1$s |Rpl Ativação:Ativações; de Cura Amplificada
 00000000700D.07C: |Rpl %1$s:Ativação:Ativações; de Velocidade Amplificada
 00000000700E.07C: %1$s |Rpl Ativação:Ativações; de Velocidade Amplificada
-000000007012.07C: HERÓIS: Ana, Brigitte, Genji, Hanzo, McCree, Soldado: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
-000000007013.07C: HERÓIS: Ana, Brigitte, Genji, Hanzo, McCree, Soldado: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
+000000007012.07C: HERÓIS: Ana, Brigitte, Genji, Hanzo, Cassidy, Soldado: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
+000000007013.07C: HERÓIS: Ana, Brigitte, Genji, Hanzo, Cassidy, Soldado: 76, Torbjörn, Tracer, Widowmaker, Zenyatta
 000000007014.07C: Mapa: Eichenwalde
 000000007016.07C: VITÓRIA: Derrote Junkenstein e seus aliados
 00000000701A.07C: Onda adicional %1$s
@@ -14755,7 +14755,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000074D4.07C: Margem de transmissão - Parte inferior
 0000000074DD.07C: Liga Overwatch
 0000000074E4.07C: Retaliação
-0000000074E7.07C: HERÓIS: Genji, McCree, Moira, Reaper
+0000000074E7.07C: HERÓIS: Genji, Cassidy, Moira, Reaper
 0000000074E8.07C: MAPA: Rialto
 0000000074E9.07C: Retaliação (História)
 0000000074EA.07C: NORMAL
@@ -15114,7 +15114,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 0000000079A7.07C: Orisa Fofinha
 0000000079A8.07C: Mercy Fofinha
 0000000079A9.07C: Hanzo Fofinho
-0000000079AA.07C: McCree Fofinho
+0000000079AA.07C: Cassidy Fofinho
 0000000079AB.07C: Zenyatta Fofinho
 0000000079AC.07C: Junkrat Fofinho
 0000000079AD.07C: Lúcio Fofinho
@@ -19896,11 +19896,11 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000BA93.07C: Disponível em Caixas de Itens de Arquivos
 00000000BA94.07C: Coinín
 00000000BA95.07C: Disponível em Caixas de Itens de Arquivos
-00000000BA96.07C: McCree Deadlock
+00000000BA96.07C: Cassidy Deadlock
 00000000BA97.07C: Disponível em Caixas de Itens de Arquivos
 00000000BA98.07C: Mordomo
 00000000BA99.07C: Disponível em Caixas de Itens de Arquivos
-00000000BAAF.07C: Quando eram mais novos, Jesse McCree e Elizabeth "Calamity" Ashe fundaram a gangue Deadlock.
+00000000BAAF.07C: Quando eram mais novos, Cole Cassidy e Elizabeth "Calamity" Ashe fundaram a gangue Deadlock.
 00000000BAB0.07C: Filha de socialites, Ashe se sente tão à vontade em bailes de caridade quanto em cima de uma moto.
 00000000BAB1.07C: Habilitar Inspetor de Workshop
 00000000BAB5.07C: Após se desligar da Coalizão Caribenha, foi difícil para Baptiste encontrar demanda para suas habilidades únicas. A Talon estava mais do que disposta a ajudar. 
@@ -21647,7 +21647,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000C46A.07C: O Jogador não recebe dano.
 00000000C46B.07C: A vida do Jogador não ficará abaixo de 1.
 00000000C46C.07C: O Jogador não se move, a não ser que seja movido por outro Jogador ou um objeto. A mira não é afetada.
-00000000C46D.07C: O Jogador não pode se mover, mirar nem usar armas ou habilidades. Por exemplo, o Clarão do McCree causa este status.
+00000000C46D.07C: O Jogador não pode se mover, mirar nem usar armas ou habilidades. Por exemplo, o Clarão do Cassidy causa este status.
 00000000C46E.07C: O Jogador não pode se mover, mirar nem usar armas ou habilidades. Por exemplo, o Aniquilador Endotérmico da Mei causa este status.
 00000000C46F.07C: O Jogador não pode se mover, mirar nem usar armas ou habilidades. Por exemplo, o Dardo Sonífero da Ana causa este status.
 00000000C470.07C: O Jogador não pode se mover, mirar nem usar armas ou habilidades. Por exemplo, o Abalo Terrestre do Reinhardt causa este status.
@@ -29512,7 +29512,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012BE6.07C: Efeito Proteção do Campo de Imortalidade do Baptiste
 000000012BE7.07C: Efeito Clonagem da Echo
 000000012BE8.07C: Efeito Proteção da Barreira de Som do Lúcio
-000000012BE9.07C: Efeito Atordoamento do Clarão do McCree
+000000012BE9.07C: Efeito Atordoamento do Clarão do Cassidy
 000000012BEA.07C: Efeito Congelado da Mei
 000000012BEB.07C: Efeito Dano Aumentado da Mercy
 000000012BEE.07C: Efeito Forma Fantasma do Reaper
@@ -29669,7 +29669,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012D3C.07C: Efeito de Explosão da Mina de Concussão do Junkrat
 000000012D3D.07C: Efeito de Explosão do Lançador de Granadas do Junkrat
 000000012D3E.07C: Efeito de Lançamento da Barreira de Som do Lúcio
-000000012D3F.07C: Efeito de Explosão do Clarão do McCree
+000000012D3F.07C: Efeito de Explosão do Clarão do Cassidy
 000000012D40.07C: Efeito de Desaparição de Desvanecer da Moira
 000000012D41.07C: Efeito de Reaparição de Desvanecer da Moira
 000000012D42.07C: Efeito de Implosão de Parados da Orisa
@@ -29818,7 +29818,7 @@ e 10 Caixas de Itens Congelados grátis
 000000012EC6.07C: Som de Implosão de Parados da Orisa
 000000012EC7.07C: Som de Reaparição do Desvanecer da Moira
 000000012EC8.07C: Som de Desaparição do Desvanecer da Moira
-000000012EC9.07C: Som de Explosão do Clarão do McCree
+000000012EC9.07C: Som de Explosão do Clarão do Cassidy
 000000012ECA.07C: Som de Ativação Barreira de Som do Lúcio
 000000012ECB.07C: Som do Pulso Inicial da Flecha Sônica do Hanzo
 000000012ECC.07C: Som de Explosão do Lançador de Granadas do Junkrat
@@ -32883,7 +32883,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Nintendo Switch
+0000000136D9.07C: Switch
 0000000136DF.07C: Grupo
 000000013737.07C: Grupo: %1$s
 0000000138E9.07C: Competidor do Combate até a Morte Competitivo de 2021
@@ -32943,7 +32943,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139EC.07C: Waffles
 0000000139ED.07C: Formatura
 0000000139EE.07C: Desbloqueado ao participar do Desafio Deadlock da Ashe
-0000000139EF.07C: Jessezinho
+0000000139EF.07C: Jovem Cole
 0000000139F0.07C: Desbloqueado ao participar do Desafio Deadlock da Ashe
 0000000139F1.07C: Refletindo
 0000000139F2.07C: Desbloqueado ao participar do Desafio Deadlock da Ashe
@@ -32987,7 +32987,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013AD6.07C: O Punho Cinético demora a recarregar. Use-o para se proteger enquanto a Barreira Experimental estiver recarregando.
 000000013AD7.07C: Use o Fluxo Gravitacional para jogar os inimigos para longe da equipe deles ou do objetivo.
 000000013ADE.07C: Sombra aparece quando sofre dano. Atire onde acha que ela pode estar para procurá-la.
-000000013ADF.07C: A jovem Elizabeth Ashe fundou a infame Gangue Deadlock ao lado de B.O.B. e Jesse McCree.
+000000013ADF.07C: A jovem Elizabeth Ashe fundou a infame Gangue Deadlock ao lado de B.O.B. e Cole Cassidy.
 000000013AE6.07C: Para jogar Overwatch, é necessário ter uma Conta Battle.net
 000000013AF4.07C: Use a Visão Infravermelha quando os inimigos começarem um ataque para que seus aliados possam ir para pontos mais seguros.
 000000013B76.07C: Cross-Play habilitado. Você poderá encontrar jogadores de diferentes plataformas.
@@ -33292,4 +33292,4 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 000000014813.07C: Abóbora
 000000014814.07C: Abóbora
 000000014A2D.07C: 1ª Semana: Genji Esqueleto
-[Core] Execution finished in 00:00:00.4447979 seconds
+[Core] Execution finished in 00:00:00.4397003 seconds

@@ -32429,11 +32429,11 @@ const heroKw =
             "zh-TW": "彈無虛發"
         },
         "en-US": "Cassidy",
-        "ja-JP": "マクリー",
-        "ko-KR": "맥크리",
-        "ru-RU": "Маккри",
-        "zh-CN": "麦克雷",
-        "zh-TW": "麥卡利"
+        "ja-JP": "キャスディ",
+        "ko-KR": "캐서디",
+        "ru-RU": "Кэссиди",
+        "zh-CN": "卡西迪",
+        "zh-TW": "卡西迪"
     },
     "mei": {
         "guid": "00000000083A",
@@ -35073,15 +35073,15 @@ const constantValues =
         "MCCREE_FLASHBANG_STUNNED": {
             "extension": "debuffStatusEffects",
             "guid": "000000012BE9",
-            "en-US": "McCree Flashbang Stunned Effect",
-            "de-DE": "Effekt – betäubt durch McCrees Blendgranate",
-            "es-ES": "Efecto de aturdimiento de Granada cegadora de McCree",
-            "es-MX": "Efecto de aturdido con Granada aturdidora de McCree",
-            "fr-FR": "Effet d’Étourdi de Grenade flash de McCree",
-            "ja-JP": "マクリーの〈フラッシュバン〉のスタン・エフェクト",
-            "pl-PL": "McCree – Efekt ogłuszenia Granatem Błyskowym",
-            "pt-BR": "Efeito Atordoamento do Clarão do McCree",
-            "zh-CN": "麦克雷闪光弹击晕效果"
+            "en-US": "Cassidy Flashbang Stunned Effect",
+            "de-DE": "Effekt – betäubt durch Cassidys Blendgranate",
+            "es-ES": "Efecto de aturdimiento de Granada cegadora de Cassidy",
+            "es-MX": "Efecto de aturdimiento con Granada aturdidora de Cassidy",
+            "fr-FR": "Effet d’Étourdi de Grenade flash de Cassidy",
+            "ja-JP": "キャスディの〈フラッシュバン〉のスタン・エフェクト",
+            "pl-PL": "Cassidy – Efekt ogłuszenia Granatem Błyskowym",
+            "pt-BR": "Efeito Atordoamento do Clarão do Cassidy",
+            "zh-CN": "卡西迪闪光弹击晕效果"
         },
         "SOMBRA_HACKED_STARTING": {
             "extension": "debuffStatusEffects",
@@ -35593,15 +35593,15 @@ const constantValues =
         "MCCREE_FLASHBANG_EXPLOSION_SOUND": {
             "extension": "explosionSounds",
             "guid": "000000012EC9",
-            "en-US": "McCree Flashbang Explosion Sound",
-            "de-DE": "Sound – Explosion von McCrees Blendgranate",
-            "es-ES": "Sonido de explosión de Granada cegadora de McCree",
-            "es-MX": "Sonido de explosión con Granada aturdidora de McCree",
-            "fr-FR": "Son d’explosion de Grenade flash de McCree",
-            "ja-JP": "マクリーの〈フラッシュバン〉の爆発音",
-            "pl-PL": "McCree – Granat Błyskowy – Dźwięk eksplozji",
-            "pt-BR": "Som de Explosão do Clarão do McCree",
-            "zh-CN": "麦克雷闪光弹爆炸声音"
+            "en-US": "Cassidy Flashbang Explosion Sound",
+            "de-DE": "Sound – Explosion von Cassidys Blendgranate",
+            "es-ES": "Sonido de explosión de Granada cegadora de Cassidy",
+            "es-MX": "Sonido de explosión con Granada aturdidora de Cassidy",
+            "fr-FR": "Son d’explosion de Grenade flash de Cassidy",
+            "ja-JP": "キャスディの〈フラッシュバン〉の爆発音",
+            "pl-PL": "Cassidy – Granat Błyskowy – Dźwięk eksplozji",
+            "pt-BR": "Som de Explosão do Clarão do Cassidy",
+            "zh-CN": "卡西迪闪光弹爆炸声音"
         },
         "MOIRA_FADE_DISAPPEAR_SOUND": {
             "extension": "explosionSounds",
@@ -36009,15 +36009,15 @@ const constantValues =
         "MCCREE_FLASHBANG_EXPLOSION": {
             "extension": "kineticExplosionEffects",
             "guid": "000000012D3F",
-            "en-US": "McCree Flashbang Explosion Effect",
-            "de-DE": "Effekt – Explosion von McCrees Blendgranate",
-            "es-ES": "Efecto de explosión de Granada cegadora de McCree",
-            "es-MX": "Efecto de explosión con Granada aturdidora de McCree",
-            "fr-FR": "Effet d’explosion de Grenade flash de McCree",
-            "ja-JP": "マクリーの〈フラッシュバン〉の爆発エフェクト",
-            "pl-PL": "McCree – Granat Błyskowy – Efekt eksplozji",
-            "pt-BR": "Efeito de Explosão do Clarão do McCree",
-            "zh-CN": "麦克雷闪光弹爆炸效果"
+            "en-US": "Cassidy Flashbang Explosion Effect",
+            "de-DE": "Effekt – Explosion von Cassidys Blendgranate",
+            "es-ES": "Efecto de explosión de Granada cegadora de Cassidy",
+            "es-MX": "Efecto de explosión con Granada aturdidora de Cassidy",
+            "fr-FR": "Effet d’explosion de Grenade flash de Cassidy",
+            "ja-JP": "キャスディの〈フラッシュバン〉の爆発エフェクト",
+            "pl-PL": "Cassidy – Granat Błyskowy – Efekt eksplozji",
+            "pt-BR": "Efeito de Explosão do Clarão do Cassidy",
+            "zh-CN": "卡西迪闪光弹爆炸效果"
         },
         "PHARAH_ROCKET_LAUNCHER_EXPLOSION": {
             "extension": "kineticExplosionEffects",
@@ -36910,15 +36910,15 @@ const constantValues =
         "MCCREE_FLASHBANG_STUNNED": {
             "extension": "debuffStatusEffects",
             "guid": "000000012BE9",
-            "en-US": "McCree Flashbang Stunned Effect",
-            "de-DE": "Effekt – betäubt durch McCrees Blendgranate",
-            "es-ES": "Efecto de aturdimiento de Granada cegadora de McCree",
-            "es-MX": "Efecto de aturdido con Granada aturdidora de McCree",
-            "fr-FR": "Effet d’Étourdi de Grenade flash de McCree",
-            "ja-JP": "マクリーの〈フラッシュバン〉のスタン・エフェクト",
-            "pl-PL": "McCree – Efekt ogłuszenia Granatem Błyskowym",
-            "pt-BR": "Efeito Atordoamento do Clarão do McCree",
-            "zh-CN": "麦克雷闪光弹击晕效果"
+            "en-US": "Cassidy Flashbang Stunned Effect",
+            "de-DE": "Effekt – betäubt durch Cassidys Blendgranate",
+            "es-ES": "Efecto de aturdimiento de Granada cegadora de Cassidy",
+            "es-MX": "Efecto de aturdimiento con Granada aturdidora de Cassidy",
+            "fr-FR": "Effet d’Étourdi de Grenade flash de Cassidy",
+            "ja-JP": "キャスディの〈フラッシュバン〉のスタン・エフェクト",
+            "pl-PL": "Cassidy – Efekt ogłuszenia Granatem Błyskowym",
+            "pt-BR": "Efeito Atordoamento do Clarão do Cassidy",
+            "zh-CN": "卡西迪闪光弹击晕效果"
         },
         "MEI_FROZEN": {
             "extension": "debuffStatusEffects",
@@ -48123,6 +48123,12 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		}
 		if (keyword === "mccree") {
 			keyword = "cassidy";
+		} else if (keyword === "mccreeflashbangstunnedeffect") {
+			keyword = "cassidyflashbangstunnedeffect";
+		} else if (keyword === "mccreeflashbangexplosionsound") {
+			keyword = "cassidyflashbangexplosionsound";
+		} else if (keyword === "mccreeflashbangexplosioneffect") {
+			keyword = "cassidyflashbangexplosioneffect";
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
