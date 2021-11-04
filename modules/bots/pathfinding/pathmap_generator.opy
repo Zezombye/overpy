@@ -8,7 +8,7 @@ Make sure to save often and to report any buggy behavior by the bot.
 
 settings {
     "main": {
-        "description": "Zez's Pathmap Editor | v1.1.2 | FNTOS | For use with OverPy:\nhttps://github.com/Zezombye/OverPy"
+        "description": "Zez's Pathmap Editor\n\nv1.1.2 | FNTOS\n\nFor use with OverPy:\nhttps://github.com/Zezombye/OverPy"
     },
     "lobby": {
         "ffaSlots": 1,
@@ -56,7 +56,7 @@ globalvar nodeConnections = []
 globalvar nodeEffects = []
 globalvar nodeTexts = []
 globalvar iwtPosIdx
-globalvar nodeRemoveIdx
+globalvar nodeRemoveIdx = 0
 globalvar nodeIdx
 globalvar neighborNodeIdx
 globalvar spherePosIdx

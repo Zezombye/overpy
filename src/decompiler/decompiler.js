@@ -22,6 +22,7 @@
 function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables(language);
+	//return tokenizeWs(content).join("\n");
 	var result = "";
 	content = content.trim();
 	

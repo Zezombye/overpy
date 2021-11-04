@@ -1,4 +1,4 @@
-# OverPy v6.0
+# OverPy v6
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
 Join the discord for help & feedback: https://discord.gg/EEMjjFB

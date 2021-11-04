@@ -50409,6 +50409,7 @@ function astToOpy(content) {
 function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables(language);
+	//return tokenizeWs(content).join("\n");
 	var result = "";
 	content = content.trim();
 	
@@ -69317,33 +69318,35 @@ for (var key of Object.keys(heroKw)) {
 //Sort reverse alphabetical order for greediness
 strTokens = strTokens.sort().reverse();
 
-module.exports = {
-	decompileAllRules: decompileAllRules,
-	decompileActions: decompileActions,
-	decompileConditions: decompileConditions,
-	compile: compile,
-	actionKw: actionKw,
-	valueFuncKw: valueFuncKw,
-	constantValues: constantValues,
-	annotations: opyAnnotations,
-	eventKw: eventKw,
-	eventTeamKw: eventTeamKw,
-	eventSlotKw: eventSlotKw,
-	eventPlayerKw: eventPlayerKw,
-	ruleKw: ruleKw,
-	stringKw: stringKw,
-	heroKw: heroKw,
-	mapKw: mapKw,
-	opyFuncs: opyFuncs,
-	opyMemberFuncs: opyMemberFuncs,
-	opyKeywords: opyKeywords,
-	opyConstants: opyConstants,
-	opyModules: opyModules,
-	currentLanguage: currentLanguage,
-	macros: macros,
-	resetGlobalVariables: resetGlobalVariables,
-	preprocessingDirectives: preprocessingDirectives,
-	typeToString: typeToString,
-	opyStringEntities: opyStringEntities,
-	customGameSettingsSchema: customGameSettingsSchema,
-};
+if (typeof module !== "undefined") {
+	module.exports = {
+		decompileAllRules: decompileAllRules,
+		decompileActions: decompileActions,
+		decompileConditions: decompileConditions,
+		compile: compile,
+		actionKw: actionKw,
+		valueFuncKw: valueFuncKw,
+		constantValues: constantValues,
+		annotations: opyAnnotations,
+		eventKw: eventKw,
+		eventTeamKw: eventTeamKw,
+		eventSlotKw: eventSlotKw,
+		eventPlayerKw: eventPlayerKw,
+		ruleKw: ruleKw,
+		stringKw: stringKw,
+		heroKw: heroKw,
+		mapKw: mapKw,
+		opyFuncs: opyFuncs,
+		opyMemberFuncs: opyMemberFuncs,
+		opyKeywords: opyKeywords,
+		opyConstants: opyConstants,
+		opyModules: opyModules,
+		currentLanguage: currentLanguage,
+		macros: macros,
+		resetGlobalVariables: resetGlobalVariables,
+		preprocessingDirectives: preprocessingDirectives,
+		typeToString: typeToString,
+		opyStringEntities: opyStringEntities,
+		customGameSettingsSchema: customGameSettingsSchema,
+	};
+}

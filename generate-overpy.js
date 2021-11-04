@@ -162,36 +162,38 @@ for (file of overpyFiles) {
 }
 
 overpyCode += `
-module.exports = {
-	decompileAllRules: decompileAllRules,
-	decompileActions: decompileActions,
-	decompileConditions: decompileConditions,
-	compile: compile,
-	actionKw: actionKw,
-	valueFuncKw: valueFuncKw,
-	constantValues: constantValues,
-	annotations: opyAnnotations,
-	eventKw: eventKw,
-	eventTeamKw: eventTeamKw,
-	eventSlotKw: eventSlotKw,
-	eventPlayerKw: eventPlayerKw,
-	ruleKw: ruleKw,
-	stringKw: stringKw,
-	heroKw: heroKw,
-	mapKw: mapKw,
-	opyFuncs: opyFuncs,
-	opyMemberFuncs: opyMemberFuncs,
-	opyKeywords: opyKeywords,
-	opyConstants: opyConstants,
-	opyModules: opyModules,
-	currentLanguage: currentLanguage,
-	macros: macros,
-	resetGlobalVariables: resetGlobalVariables,
-	preprocessingDirectives: preprocessingDirectives,
-	typeToString: typeToString,
-	opyStringEntities: opyStringEntities,
-	customGameSettingsSchema: customGameSettingsSchema,
-};
+if (typeof module !== "undefined") {
+	module.exports = {
+		decompileAllRules: decompileAllRules,
+		decompileActions: decompileActions,
+		decompileConditions: decompileConditions,
+		compile: compile,
+		actionKw: actionKw,
+		valueFuncKw: valueFuncKw,
+		constantValues: constantValues,
+		annotations: opyAnnotations,
+		eventKw: eventKw,
+		eventTeamKw: eventTeamKw,
+		eventSlotKw: eventSlotKw,
+		eventPlayerKw: eventPlayerKw,
+		ruleKw: ruleKw,
+		stringKw: stringKw,
+		heroKw: heroKw,
+		mapKw: mapKw,
+		opyFuncs: opyFuncs,
+		opyMemberFuncs: opyMemberFuncs,
+		opyKeywords: opyKeywords,
+		opyConstants: opyConstants,
+		opyModules: opyModules,
+		currentLanguage: currentLanguage,
+		macros: macros,
+		resetGlobalVariables: resetGlobalVariables,
+		preprocessingDirectives: preprocessingDirectives,
+		typeToString: typeToString,
+		opyStringEntities: opyStringEntities,
+		customGameSettingsSchema: customGameSettingsSchema,
+	};
+}
 `
 
 fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
