@@ -304,8 +304,7 @@
             var generateWholeGamemode = document.getElementById("generateWholeGamemode").checked;
             
             if (generateWholeGamemode) {
-                var template = fetch("../example_gamemode.opy");
-                //var template = await fetch("https://raw.githubusercontent.com/Zezombye/overpy/master/modules/bots/example_gamemode.opy");
+                var template = await fetch("https://raw.githubusercontent.com/Zezombye/overpy/master/modules/bots/example_gamemode.opy");
                 template = await template.text();
 
                 template = template.replace(/#!include .*?\n/g, "");
@@ -344,7 +343,7 @@
 
 </script>
 
-<h1>Zez's Compressed Pathmap generator</h1>
+<h1><a href="https://github.com/Zezombye/overpy/wiki/Dummy-bot-pathfinding" target="_blank">Zez's Compressed Pathmap generator</a></h1>
 <br>
 
 Language: <select id="languageInput">
