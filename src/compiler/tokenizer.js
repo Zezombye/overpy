@@ -99,12 +99,6 @@ function tokenize(content) {
 	var bracketsLevel = 0;
 	var currentLine = {};
     
-    fileStack = [{
-        "name": "<main>",
-        "currentLineNb": 1,
-        "currentColNb": 1,
-        "remainingChars": content.length+1, //does not matter
-	}];
 	
 	var i = 0;
 	
@@ -345,13 +339,20 @@ function tokenize(content) {
 				if (preprocessingDirectiveContent.startsWith("#!include ")) {
 					
 					var space = preprocessingDirectiveContent.indexOf(" ");
-					var path = getFilePath(preprocessingDirectiveContent.substring(space));
-					var importedFileContent = getFileContent(path);
-					
-					content = content.substring(0, i) + importedFileContent + content.substring(i+preprocessingDirectiveContent.length);
-					addFile(importedFileContent.length, preprocessingDirectiveContent.length-i, preprocessingDirectiveContent.length-i, 0, getFilenameFromPath(path), 0, 1);
-					i--;
-					fileStack[fileStack.length-1].remainingChars++;
+					var paths = getFilePaths(preprocessingDirectiveContent.substring(space));
+
+					for (var path of paths) {
+						fileStack.push({
+							"name": getFilenameFromPath(path),
+							"currentLineNb": 1,
+							"currentColNb": 1,
+							"remainingChars": 99999999999, //does not matter
+						})
+						var importedFileContent = getFileContent(path);
+						result.push(...tokenize(importedFileContent));
+						fileStack.pop();
+						moveCursor(j-i-1);
+					}
 				} else {
 					parsePreprocessingDirective(preprocessingDirectiveContent);
 					moveCursor(j-i-1);

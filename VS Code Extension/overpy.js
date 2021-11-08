@@ -47760,7 +47760,13 @@ function getFilenameFromPath(path) {
 	return path.split('\\').pop().split('/').pop();
 }
 
-function getFilePath(pathStr) {
+function getFilePaths(pathStr) {
+	var fs;
+	try {
+		fs = require("fs");
+	} catch (e) {
+		error("Cannot import files in browsers (fs not found)");
+	}
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
 	pathStr = unescapeString(pathStr, false);
@@ -47769,14 +47775,22 @@ function getFilePath(pathStr) {
 	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");
 
-	//Determine if the path is absolute or relative
-	if (pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr)) {
-		//absolute path
-		return pathStr;
-	} else {
+	//Determine if the path is relative
+	if (!(pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr))) {
 		//relative path
-		return rootPath+pathStr;
+		pathStr = rootPath+pathStr;
 	}
+
+	if (fs.lstatSync(pathStr).isDirectory()) {
+		var matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
+		matchingFiles = matchingFiles.filter(f => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
+		if (matchingFiles.length === 0) {
+			error("The directory '"+pathStr+"' does not have any .opy files.");
+		}
+	} else {
+		var matchingFiles = [pathStr];
+	}
+	return matchingFiles;
 }
 
 function getFileContent(path) {
@@ -47784,29 +47798,14 @@ function getFileContent(path) {
 	var fs;
 	try {
 		fs = require("fs");
-		//glob = require("glob");
 	} catch (e) {
-		error("Cannot import files in browsers");
+		error("Cannot import files in browsers (fs not found)");
 	}
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
 		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");
 		return "";
 	}
 	try {
-		/*var matchingFiles = glob.sync(path);
-		if (matchingFiles.length === 0) {
-			error("The path '"+path+"' did not match any file.");
-		}
-		var result = "";
-		for (matchingFile in matchingFiles) {
-			importedFiles.push(matchingFile);
-			fileContent = ""+fs.readFileSync(matchingFile);
-			if (!fileContent.endsWith("\n")) {
-				fileContent += "\n";
-			}
-			result += fileContent;
-		}
-		return result;*/
 		importedFiles.push(path);
 		return ""+fs.readFileSync(path)+"\n";
 
@@ -52204,10 +52203,10 @@ function parseCustomString(str, formatArgs) {
 			content = tmpStr;
 			
 		} else if (isCaseSensitive) {
-			content = content.replaceAll(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
-			content = content.replaceAll(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
 			for (var key of Object.keys(caseSensitiveReplacements)) {
-				content = content.replaceAll(key, caseSensitiveReplacements[key])
+				content = content.replace(key, caseSensitiveReplacements[key])
 			}
 		}
 	
@@ -55919,12 +55918,6 @@ function tokenize(content) {
 	var bracketsLevel = 0;
 	var currentLine = {};
     
-    fileStack = [{
-        "name": "<main>",
-        "currentLineNb": 1,
-        "currentColNb": 1,
-        "remainingChars": content.length+1, //does not matter
-	}];
 	
 	var i = 0;
 	
@@ -56165,13 +56158,20 @@ function tokenize(content) {
 				if (preprocessingDirectiveContent.startsWith("#!include ")) {
 					
 					var space = preprocessingDirectiveContent.indexOf(" ");
-					var path = getFilePath(preprocessingDirectiveContent.substring(space));
-					var importedFileContent = getFileContent(path);
-					
-					content = content.substring(0, i) + importedFileContent + content.substring(i+preprocessingDirectiveContent.length);
-					addFile(importedFileContent.length, preprocessingDirectiveContent.length-i, preprocessingDirectiveContent.length-i, 0, getFilenameFromPath(path), 0, 1);
-					i--;
-					fileStack[fileStack.length-1].remainingChars++;
+					var paths = getFilePaths(preprocessingDirectiveContent.substring(space));
+
+					for (var path of paths) {
+						fileStack.push({
+							"name": getFilenameFromPath(path),
+							"currentLineNb": 1,
+							"currentColNb": 1,
+							"remainingChars": 99999999999, //does not matter
+						})
+						var importedFileContent = getFileContent(path);
+						result.push(...tokenize(importedFileContent));
+						fileStack.pop();
+						moveCursor(j-i-1);
+					}
 				} else {
 					parsePreprocessingDirective(preprocessingDirectiveContent);
 					moveCursor(j-i-1);
@@ -58589,6 +58589,14 @@ function compile(content, language="en-US", _rootPath="") {
 	} else {
 		importedFiles.push(rootPath);
 	}
+
+	
+    fileStack = [{
+        "name": "<main>",
+        "currentLineNb": 1,
+        "currentColNb": 1,
+        "remainingChars": 99999999999, //does not matter
+	}];
 
 	var lines = tokenize(content);
 
@@ -69323,6 +69331,7 @@ if (typeof module !== "undefined") {
 		decompileAllRules: decompileAllRules,
 		decompileActions: decompileActions,
 		decompileConditions: decompileConditions,
+		astToOpy: astToOpy,
 		compile: compile,
 		actionKw: actionKw,
 		valueFuncKw: valueFuncKw,

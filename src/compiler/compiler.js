@@ -39,6 +39,14 @@ function compile(content, language="en-US", _rootPath="") {
 		importedFiles.push(rootPath);
 	}
 
+	
+    fileStack = [{
+        "name": "<main>",
+        "currentLineNb": 1,
+        "currentColNb": 1,
+        "remainingChars": 99999999999, //does not matter
+	}];
+
 	var lines = tokenize(content);
 
 	if (obfuscationSettings.obfuscateConstants) {

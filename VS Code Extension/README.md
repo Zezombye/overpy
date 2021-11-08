@@ -13,11 +13,9 @@ To compile, click on the icon that appears in the menu bar (top right).
 - Syntax highlighting
 - Autocompletion
 - Documentation of all workshop functions
-
-## Extension Settings
-
-None (yet)
-
-## Known Issues
-
-Quite a lot for my liking ngl
+- Multiple files
+- Enums
+- Macros
+- Switches
+- Dictionaries
+- Various quality of life things

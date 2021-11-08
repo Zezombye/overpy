@@ -149,10 +149,10 @@ function parseCustomString(str, formatArgs) {
 			content = tmpStr;
 			
 		} else if (isCaseSensitive) {
-			content = content.replaceAll(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
-			content = content.replaceAll(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
 			for (var key of Object.keys(caseSensitiveReplacements)) {
-				content = content.replaceAll(key, caseSensitiveReplacements[key])
+				content = content.replace(key, caseSensitiveReplacements[key])
 			}
 		}
 	

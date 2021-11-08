@@ -167,6 +167,7 @@ if (typeof module !== "undefined") {
 		decompileAllRules: decompileAllRules,
 		decompileActions: decompileActions,
 		decompileConditions: decompileConditions,
+		astToOpy: astToOpy,
 		compile: compile,
 		actionKw: actionKw,
 		valueFuncKw: valueFuncKw,
@@ -245,7 +246,9 @@ for (var func of playerFunctions) {
 fs.writeFileSync("./FUNCTIONS.md", functionsMd);
 
 //Run the unit tests
+var oldcwd = process.cwd();
 var testsDir = process.cwd()+"/src/tests/";
+process.chdir(testsDir);
 var unitTestFiles = fs.readdirSync(testsDir);
 
 for (var unitTestFile of unitTestFiles) {
@@ -283,6 +286,8 @@ for (var unitTestFile of unitTestFiles) {
         fs.writeFileSync(outputFile, output);
     }
 }
+
+process.chdir(oldcwd);
 
 
 //Generate json schema

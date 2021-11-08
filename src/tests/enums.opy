@@ -4,7 +4,9 @@ enum GameStatus:
     AA = 1,
     BB,
     CC = 6,
-    DD
+    DD,
+    EE = "psqdoj\"fidqs",
+    FF = A,
 
 enum Team:
     HUMANS,
