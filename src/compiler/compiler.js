@@ -28,7 +28,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	//Handle #!mainfile directive
 	if (content.startsWith("#!mainFile ")) {
-		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
+		var mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
 		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
 		content = getFileContent(mainFilePath);
 		if (DEBUG_MODE) {

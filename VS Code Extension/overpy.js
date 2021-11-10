@@ -56445,7 +56445,7 @@ function parseMacro(macro) {
         //Test for script macro
         if (macro.replacement.startsWith("__script__(")) {
             macro.isScript = true;
-            macro.scriptPath = getFilePath(macro.replacement.substring("__script__(".length, macro.replacement.length-1));
+            macro.scriptPath = getFilePaths(macro.replacement.substring("__script__(".length, macro.replacement.length-1))[0];
         } else {
             macro.isScript = false;
         }
@@ -58579,7 +58579,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	//Handle #!mainfile directive
 	if (content.startsWith("#!mainFile ")) {
-		var mainFilePath = getFilePath(content.substring("#!mainFile ".length, content.indexOf("\n")));
+		var mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
 		rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/")+1);
 		content = getFileContent(mainFilePath);
 		if (DEBUG_MODE) {
