@@ -82,7 +82,7 @@ function parseLines(lines) {
 
             try {
                 if (lines[i].tokens.length === 2) {
-                    var path = getFilePath(lines[i].tokens[1].text);
+                    var path = getFilePaths(lines[i].tokens[1].text)[0];
                     var customGameSettings = eval("("+getFileContent(path)+")");
                 } else {
                     var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
