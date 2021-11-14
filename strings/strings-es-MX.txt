@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -19445,6 +19445,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000B52C.07C: Matriz
 00000000B52D.07C: El jugador infligió daño
 00000000B530.07C: Ver
+00000000B531.07C: Sojourn
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Modo: %1$s
 00000000B534.07C: Todos los modos
@@ -28512,6 +28513,7 @@ El equipo de soporte de Blizzard
 00000001171D.07C: A uno o más miembros del grupo les queda poco tiempo de juego.
 000000011744.07C: 1 legendaria + 5 cajas de botín clásicas
 000000011745.07C: 15 créditos y un regalo de 1 caja legendaria y 5 cajas de botín
+000000011747.07C: Leer ahora
 00000001174A.07C: Temporada %1$s
 000000011754.07C: Cómic
 000000011755.07C: Se desbloquea al participar en el Desafío Cómic de Tracer
@@ -29574,7 +29576,6 @@ y 10 cajas de botín de invierno gratis
 000000012C4D.07C: Disponible en las cajas de botín de evento lunar
 000000012C4E.07C: Urraca
 000000012C4F.07C: Disponible en las cajas de botín de evento lunar
-000000012C50.07C: Semana 2: Zarya Einherjar
 000000012C51.07C: Cabeza de dragón
 000000012C52.07C: Disponible en las cajas de botín de evento lunar
 000000012C5B.07C: 50 cajas de botín de evento lunar y 10 cajas de botín de evento lunar gratis
@@ -29934,7 +29935,6 @@ y 10 cajas de botín de invierno gratis
 000000013067.07C: Beneficio solidario
 000000013068.07C: Completa la misión de desafío de Archivos Beneficio solidario.
 000000013076.07C: Juego entre plataformas
-00000001307C.07C: Semana 3: Roadhog Payaso
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30023,6 +30023,7 @@ También te colocarás en el grupo de exclusión voluntaria en esta temporada co
 0000000132DF.07C: Descansando
 0000000132E6.07C: Ícono de nombre en chat de voz
 0000000132F5.07C: Mangual de poder
+00000001330F.07C: Tormenta de arena
 000000013326.07C: Desactivaste el juego entre plataformas
 000000013333.07C: Aceptar
 000000013344.07C: Ya disponible
@@ -32884,7 +32885,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Consola
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Conjunto
 000000013737.07C: %1$s Conjunto
 0000000138E9.07C: Competidor de Combate a muerte competitivo 2021
@@ -33172,11 +33173,20 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014298.07C: TENDENCIAS
 000000014299.07C: POPULARES
 00000001429A.07C: DESTACADOS
+0000000142F2.07C: Se desbloquea al participar en el desafío Sangre Nueva de Cassidy.
+0000000142F3.07C: Tormenta de arena
+0000000142F4.07C: Viejos amigos
 000000014323.07C: No se seleccionó ningún modo
 00000001432A.07C: Visualizando %1$s |Rpl sala de espera:salas de espera;
 00000001432B.07C: No es posible encontrar una partida válida para unirse.
 00000001433C.07C: Tesoro del dragón
 00000001433D.07C: Se desbloquea al ver la transmisión en vivo del torneo June Joust 2021 de la Liga Overwatch
+000000014342.07C: Talon detectado
+000000014344.07C: Espalda contra espalda
+000000014345.07C: Moto linda
+000000014347.07C: Determinado
+000000014349.07C: Mis respetos
+00000001434B.07C: Hora del té
 000000014366.07C: Malevento
 000000014369.07C: Calabaza
 0000000143FC.07C: Las repeticiones no se pueden ver mientras estás en una partida o en la sala de partida personalizada.
@@ -33286,5 +33296,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014812.07C: Sátiro
 000000014813.07C: Calabaza
 000000014814.07C: Calabaza
-000000014A2D.07C: Semana 1: Genji Esqueleto
-[Core] Execution finished in 00:00:00.4418785 seconds
+000000014E77.07C: Desafío Sangre Nueva de Cassidy
+000000015084.07C: https://playoverwatch.com/es-mx/media/stories/new-blood-1
+000000015085.07C: Cassidy - Sangre Nueva
+000000015086.07C: Cómic nuevo
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:05.0311942 seconds

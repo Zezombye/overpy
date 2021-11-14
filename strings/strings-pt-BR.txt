@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -19439,6 +19439,7 @@ Diga o que achou nos comentários e nos ajude a melhorá-lo.
 00000000B52C.07C: Matriz
 00000000B52D.07C: Jogador Causou Dano
 00000000B530.07C: Ver
+00000000B531.07C: Sojourn
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Modo: %1$s
 00000000B534.07C: Todos os modos
@@ -28510,6 +28511,7 @@ Competitiva 2020
 00000001171D.07C: O tempo de jogo de um ou mais membros da equipe está prestes a acabar
 000000011744.07C: 1 Caixa Lendária e 5 Caixas de Itens
 000000011745.07C: 15 créditos e um brinde de 1 Caixa Lendária e 5 Caixas de Itens
+000000011747.07C: Ler agora
 00000001174A.07C: Temporada %1$s
 000000011754.07C: Quadrinho
 000000011755.07C: Desbloqueado ao participar do Desafio Quadrinho da Tracer
@@ -29572,7 +29574,6 @@ e 10 Caixas de Itens Congelados grátis
 000000012C4D.07C: Disponível em Caixas de Itens Lunares
 000000012C4E.07C: Gralha
 000000012C4F.07C: Disponível em Caixas de Itens Lunares
-000000012C50.07C: 2ª Semana: Zarya Einherjar
 000000012C51.07C: Cabeça de Dragão
 000000012C52.07C: Disponível em Caixas de Itens Lunares
 000000012C5B.07C: 50 Caixas de Itens Lunares e
@@ -29933,7 +29934,6 @@ e 10 Caixas de Itens Congelados grátis
 000000013067.07C: Condolência
 000000013068.07C: Conclua a missão de desafio dos Arquivos Condolência.
 000000013076.07C: Partidas Multiplataforma
-00000001307C.07C: 3ª Semana: Roadhog Palhaço
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30022,6 +30022,7 @@ Você também será colocado no conjunto de fora desta temporada competitiva.
 0000000132DF.07C: Descansando
 0000000132E6.07C: Ícone de Nome do Chat de Voz
 0000000132F5.07C: Mangual poderoso
+00000001330F.07C: Tempestade de Areia
 000000013326.07C: Você desabilitou o Cross-Play
 000000013333.07C: OK
 000000013344.07C: Já disponível
@@ -32883,7 +32884,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Grupo
 000000013737.07C: Grupo: %1$s
 0000000138E9.07C: Competidor do Combate até a Morte Competitivo de 2021
@@ -33177,11 +33178,20 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 000000014298.07C: EM ALTA
 000000014299.07C: POPULAR
 00000001429A.07C: DESTAQUE
+0000000142F2.07C: Desbloqueado ao participar do Desafio Sangue Novo do Cassidy
+0000000142F3.07C: Tempestade de Areia
+0000000142F4.07C: Velhos Amigos
 000000014323.07C: Nenhum modo selecionado
 00000001432A.07C: Exibindo %1$s |Rpl Lobby:Lobbies;
 00000001432B.07C: Não encontramos um jogo válido.
 00000001433C.07C: Tesouro dos Dragões
 00000001433D.07C: Desbloqueado ao assistir ao Torneio Joust June da OWL 2021 ao vivo
+000000014342.07C: Talon Avistada
+000000014344.07C: Consecutivas!
+000000014345.07C: Fofura sobre Rodas
+000000014347.07C: Determinado
+000000014349.07C: Aba do Chapéu
+00000001434B.07C: Pausa para o Chá
 000000014366.07C: Malevento
 000000014369.07C: Abóbora
 0000000143FC.07C: Não é possível ver replays enquanto estiver em uma partida ou lobby de jogo personalizado.
@@ -33291,5 +33301,9 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 000000014812.07C: Sátiro
 000000014813.07C: Abóbora
 000000014814.07C: Abóbora
-000000014A2D.07C: 1ª Semana: Genji Esqueleto
-[Core] Execution finished in 00:00:00.4397003 seconds
+000000014E77.07C: Desafio Sangue Novo do Cassidy
+000000015084.07C: https://playoverwatch.com/pt-br/media/stories/new-blood-1
+000000015085.07C: Cassidy - Sangue Novo
+000000015086.07C: Quadrinho Novo
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:05.1205991 seconds

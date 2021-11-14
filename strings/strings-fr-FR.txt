@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -19541,6 +19541,7 @@ N’hésitez pas à nous faire part de vos commentaires pour nous aider à amél
 00000000B52C.07C: Tableau
 00000000B52D.07C: Un joueur inflige des dégâts
 00000000B530.07C: Voir
+00000000B531.07C: Sojourn
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Mode : %1$s
 00000000B534.07C: Tous les modes
@@ -28611,6 +28612,7 @@ L’assistance Blizzard
 00000001171D.07C: Un ou plusieurs membres du groupe vont bientôt être à court de temps de jeu
 000000011744.07C: 1 coffre légendaire et 5 coffres classiques
 000000011745.07C: 15 crédits, plus 1 coffre légendaire et 5 coffres classiques offerts
+000000011747.07C: Lire
 00000001174A.07C: Saison %1$s
 000000011754.07C: Bande dessinée
 000000011755.07C: Obtenu en participant au défi Bande dessinée de Tracer
@@ -29673,7 +29675,6 @@ et 10 coffres hivernaux offerts
 000000012C4D.07C: Disponible dans les coffres lunaires
 000000012C4E.07C: Pie
 000000012C4F.07C: Disponible dans les coffres lunaires
-000000012C50.07C: Semaine 2 : Zarya einherjar
 000000012C51.07C: Tête de dragon
 000000012C52.07C: Disponible dans les coffres lunaires
 000000012C5B.07C: 50 coffres lunaires et 10 coffres lunaires offerts
@@ -30033,7 +30034,6 @@ et 10 coffres hivernaux offerts
 000000013067.07C: Gages d’amitié
 000000013068.07C: Réussir la mission défi des archives Gages d’amitié.
 000000013076.07C: Jeu multiplateforme
-00000001307C.07C: Semaine 3 : Chopper clown
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30122,6 +30122,7 @@ Vous vous retrouverez également dans la liste de non-participation pour cette s
 0000000132DF.07C: Pause bien méritée
 0000000132E6.07C: Icône de discussion audio à côté du nom
 0000000132F5.07C: Fléau de puissance
+00000001330F.07C: Tempête de sable
 000000013326.07C: Vous avez désactivé la fonctionnalité Cross-Play
 000000013333.07C: OK
 000000013344.07C: Désormais disponible
@@ -32983,7 +32984,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Groupement
 000000013737.07C: Groupement %1$s
 0000000138E9.07C: Compétiteur Combat à mort 2021
@@ -33277,11 +33278,20 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000014298.07C: TENDANCE
 000000014299.07C: POPULAIRE
 00000001429A.07C: EN VEDETTE
+0000000142F2.07C: Obtenu en participant au défi Sang neuf de Cassidy
+0000000142F3.07C: Tempête de sable
+0000000142F4.07C: Vieux amis
 000000014323.07C: Aucun mode sélectionné
 00000001432A.07C: Affichage de %1$s |Rplsalon:salons;
 00000001432B.07C: Impossible de trouver une partie valide à rejoindre.
 00000001433C.07C: Trésor du dragon
 00000001433D.07C: Obtenu en regardant la diffusion en direct du tournoi June Joust de l’OWL 2021
+000000014342.07C: La Griffe repérée
+000000014344.07C: Dos à dos
+000000014345.07C: Jolie moto
+000000014347.07C: Déterminé
+000000014349.07C: Je te tire mon chapeau
+00000001434B.07C: Pause thé
 000000014366.07C: Malevento
 000000014369.07C: Citrouille
 0000000143FC.07C: Impossible de regarder les enregistrements lors d’une partie ou dans le salon d’une partie personnalisée.
@@ -33391,5 +33401,9 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000014812.07C: Satyre
 000000014813.07C: Citrouille
 000000014814.07C: Citrouille
-000000014A2D.07C: Semaine 1 : Genji squelette
-[Core] Execution finished in 00:00:00.4383200 seconds
+000000014E77.07C: Défi Sang neuf de Cassidy
+000000015084.07C: https://playoverwatch.com/fr-fr/media/stories/new-blood-1
+000000015085.07C: Cassidy - Sang neuf
+000000015086.07C: Nouvelle bande dessinée
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:05.9074236 seconds

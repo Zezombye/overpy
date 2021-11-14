@@ -93,7 +93,6 @@ function tokenize(content) {
 	
 	
 	var result = [];
-	macros = [];
 	
 	//var isInString = false;
 	var bracketsLevel = 0;

@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=jaJP", "-T=jaJP"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: jaJP | Speech Language: jaJP
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LjaJP_text_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LjaJP_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -19433,6 +19433,7 @@ Blizzard Support
 00000000B52C.07C: 配列
 00000000B52D.07C: プレイヤーがダメージを与えた
 00000000B530.07C: リプレイを再生
+00000000B531.07C: ソジョーン
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: モード: %1$s
 00000000B534.07C: 全モード
@@ -28501,6 +28502,7 @@ Blizzardサポート
 000000011744.07C: レジェンダリー トレジャー・ボックス1個
 + 通常トレジャー・ボックス5個
 000000011745.07C: 15 ヒーロー・ダスト + レジェンダリー トレジャー・ボックス1個（ボーナス）+ 通常トレジャー・ボックス5個
+000000011747.07C: 今すぐ読む
 00000001174A.07C: シーズン%1$s
 000000011754.07C: コミック
 000000011755.07C: トレーサーの<br>コミック・チャレンジ<br>に<br>参加して<br>アンロック
@@ -29563,7 +29565,6 @@ Blizzardサポート
 000000012C4D.07C: 旧正月 トレジャー・<br>ボックスで<br>入手<br>可能
 000000012C4E.07C: カササギ
 000000012C4F.07C: 旧正月 トレジャー・<br>ボックスで<br>入手<br>可能
-000000012C50.07C: 第2週: ザリア「エインヘリャル」
 000000012C51.07C: 龍頭
 000000012C52.07C: 旧正月 トレジャー・<br>ボックスで<br>入手<br>可能
 000000012C5B.07C: 旧正月 トレジャー・ボックス×50と
@@ -29924,7 +29925,6 @@ Blizzardサポート
 000000013067.07C: シンパシー・ゲイン
 000000013068.07C: アーカイブのチャレンジ任務「シンパシー・ゲイン」をクリアする
 000000013076.07C: クロス・プレイ
-00000001307C.07C: 第3週: ロードホッグ「ピエロ」
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30013,6 +30013,7 @@ Blizzardサポート
 0000000132DF.07C: 一休み
 0000000132E6.07C: ボイスチャットのネームプレート・アイコン
 0000000132F5.07C: パワーフレイル
+00000001330F.07C: 砂嵐
 000000013326.07C: クロスプレイを無効化しました
 000000013333.07C: OK
 000000013344.07C: 配信中
@@ -33168,11 +33169,20 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014298.07C: トレンド
 000000014299.07C: 人気
 00000001429A.07C: 特集
+0000000142F2.07C: キャスディの“新しい風”チャレンジに参加してアンロック
+0000000142F3.07C: 砂嵐
+0000000142F4.07C: 旧友
 000000014323.07C: モードが選択されていません
 00000001432A.07C: %1$sロビーを表示中
 00000001432B.07C: 参加可能なゲームが見つかりませんでした。
 00000001433C.07C: ドラゴンの秘宝
 00000001433D.07C: 2021 OWL June Joust トーナメントを視聴してアンロック
+000000014342.07C: タロン発見
+000000014344.07C: 背中合わせ
+000000014345.07C: キュート バイク
+000000014347.07C: 決意
+000000014349.07C: どうも
+00000001434B.07C: ティーブレイク
 000000014366.07C: MALEVENTO
 000000014369.07C: パンプキン
 0000000143FC.07C: マッチ中やカスタム・ゲーム・ロビーにいる間はリプレイは利用できません
@@ -33282,5 +33292,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014812.07C: サテュロス
 000000014813.07C: パンプキン
 000000014814.07C: パンプキン
-000000014A2D.07C: 第1週: ゲンジ「スケルトン」
-[Core] Execution finished in 00:00:00.4369391 seconds
+000000014E77.07C: キャスディの“新しい風”チャレンジ
+000000015084.07C: https://playoverwatch.com/ja-jp/media/stories/new-blood-1
+000000015085.07C: キャスディ - 「新しい風」
+000000015086.07C: 新作コミック
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:06.2646712 seconds

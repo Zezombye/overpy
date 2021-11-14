@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -19561,6 +19561,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B52C.07C: 数组
 00000000B52D.07C: 玩家造成伤害
 00000000B530.07C: 观看
+00000000B531.07C: 索杰恩
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: 模式：%1$s
 00000000B534.07C: 所有模式
@@ -28714,6 +28715,7 @@ https://account.blizzard.com/connections/nintendo
 000000011744.07C: 1份传奇补给和5份补给
 000000011745.07C: 15游戏货币
 （赠送1份传奇补给和5份补给）
+000000011747.07C: 立即查看
 00000001174A.07C: 第%1$s赛季
 000000011754.07C: 漫画主角
 000000011755.07C: 参加“猎空的漫画大挑战”活动可解锁
@@ -29788,7 +29790,6 @@ https://account.blizzard.com/connections/nintendo
 000000012C4D.07C: 可在春节补给中开出
 000000012C4E.07C: 喜鹊
 000000012C4F.07C: 可在春节补给中开出
-000000012C50.07C: 第二周：查莉娅，英灵战士
 000000012C51.07C: 龙头
 000000012C52.07C: 可在春节补给中开出
 000000012C5B.07C: 50份春节补给
@@ -30155,7 +30156,6 @@ https://account.blizzard.com/connections/nintendo
 000000013067.07C: 化伤为疗
 000000013068.07C: 完成“化伤为疗”行动档案挑战任务
 000000013076.07C: 跨平台游戏
-00000001307C.07C: 第三周：“路霸”，惊魂小丑
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30244,6 +30244,7 @@ https://account.blizzard.com/connections/nintendo
 0000000132DF.07C: 歇息
 0000000132E6.07C: 语音聊天姓名板图标
 0000000132F5.07C: 摇摆劲舞
+00000001330F.07C: 沙尘暴
 000000013326.07C: 你已禁用跨平台游戏
 000000013333.07C: 确定
 000000013344.07C: 现已推出
@@ -33407,11 +33408,20 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014298.07C: 飙升
 000000014299.07C: 人气
 00000001429A.07C: 精选
+0000000142F2.07C: 参加“卡西迪的新鲜血液大挑战”活动可解锁
+0000000142F3.07C: 沙尘暴
+0000000142F4.07C: 老朋友
 000000014323.07C: 没有选择模式
 00000001432A.07C: 显示%1$s个大厅
 00000001432B.07C: 无法找到可以加入的有效比赛。
 00000001433C.07C: 苍龙踞宝藏
 00000001433D.07C: 观看《守望先锋联赛》2021赛季六月争霸赛赛事直播可解锁
+000000014342.07C: 发现黑爪
+000000014344.07C: 背靠背
+000000014345.07C: Q版摩托
+000000014347.07C: 信念坚定
+000000014349.07C: 轻触帽檐
+00000001434B.07C: 饮茶先啦
 000000014366.07C: 马莱温多
 000000014369.07C: 南瓜
 0000000143FC.07C: 在游戏中或在自定游戏大厅中无法观看录像。
@@ -33535,5 +33545,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014812.07C: 邪魅萨特
 000000014813.07C: 南瓜
 000000014814.07C: 南瓜
-000000014A2D.07C: 第一周：源氏，亡灵遗骨
-[Core] Execution finished in 00:00:00.4529737 seconds
+000000014E77.07C: 卡西迪的新鲜血液大挑战
+000000015084.07C: https://ow.blizzard.cn/media/stories
+000000015085.07C: 卡西迪——新鲜血液
+000000015086.07C: 全新漫画故事
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:04.7702787 seconds

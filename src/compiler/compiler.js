@@ -46,6 +46,7 @@ function compile(content, language="en-US", _rootPath="") {
         "currentColNb": 1,
         "remainingChars": 99999999999, //does not matter
 	}];
+	macros = [];
 
 	var lines = tokenize(content);
 

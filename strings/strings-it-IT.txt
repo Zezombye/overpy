@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -10246,7 +10246,7 @@ un nome di giocatore o BattleTag in una lingua diversa dalla tua.
 000000005E02.07C: Lacroix
 000000005E04.07C: Blackwatch
 000000005E06.07C: 
-000000005E0B.07C: McMitch
+000000005E0B.07C: Mitch Cassidy
 000000005E0D.07C: Maledizione!
 000000005E1C.07C: Lo spettro osserva
 000000005E35.07C: Attivazione obiettivo...
@@ -19448,6 +19448,7 @@ Inviaci feedback e commenti per aiutarci a migliorarla.
 00000000B52C.07C: Array
 00000000B52D.07C: Player Dealt Damage
 00000000B530.07C: Visualizza
+00000000B531.07C: Sojourn
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: Modalità: %1$s
 00000000B534.07C: Tutte le modalità
@@ -28534,6 +28535,7 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 00000001171D.07C: Uno o più membri della formazione stanno per esaurire il tempo di gioco a disposizione
 000000011744.07C: 1 Forziere Leggendario e 5 Forzieri
 000000011745.07C: 15 crediti più 1 Forziere Leggendario e 5 Forzieri gratuiti
+000000011747.07C: Leggi
 00000001174A.07C: Stagione %1$s
 000000011754.07C: Fumetto
 000000011755.07C: Sbloccato per aver partecipato alla Sfida Fumetto di Tracer
@@ -29596,7 +29598,6 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000012C4D.07C: Disponibile nei Forzieri Lunari
 000000012C4E.07C: Gazza
 000000012C4F.07C: Disponibile nei Forzieri Lunari
-000000012C50.07C: Settimana 2: Zarya Einherjar
 000000012C51.07C: Testa di Drago
 000000012C52.07C: Disponibile nei Forzieri Lunari
 000000012C5B.07C: 50 Forzieri Lunari e 10 Forzieri Lunari gratuiti
@@ -29960,7 +29961,6 @@ E UN NUOVO TORNEO COPPA LÚCIOBALL!
 000000013067.07C: Sostegno reciproco
 000000013068.07C: Completa la missione sfida degli Archivi Sostegno reciproco.
 000000013076.07C: Gioco multi-piattaforma
-00000001307C.07C: Settimana 3: Roadhog Clown
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30049,6 +30049,7 @@ Inoltre, entrerai a far parte della selezione degli esclusi per questa stagione 
 0000000132DF.07C: In Pausa
 0000000132E6.07C: Icona chat vocale su indicatore nome
 0000000132F5.07C: Danzafrusto
+00000001330F.07C: Tempesta di Sabbia
 000000013326.07C: Hai disattivato la funzione Cross-Play
 000000013333.07C: OK
 000000013344.07C: Disponibile ora
@@ -32910,7 +32911,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: Console
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: Pool
 000000013737.07C: Pool %1$s
 0000000138E9.07C: Concorrente Deathmatch competitivo 2021
@@ -33205,11 +33206,20 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 000000014298.07C: DI TENDENZA
 000000014299.07C: POPOLARI
 00000001429A.07C: IN EVIDENZA
+0000000142F2.07C: Sbloccato per aver partecipato alla Sfida Nuove Reclute di Cassidy
+0000000142F3.07C: Tempesta di Sabbia
+0000000142F4.07C: Vecchi Amici
 000000014323.07C: Nessuna modalità selezionata
 00000001432A.07C: Sono visualizzate %1$s lobby
 00000001432B.07C: Impossibile trovare una partita a cui unirsi.
 00000001433C.07C: Tesoro dei Dragons
 00000001433D.07C: Sbloccato per aver guardato la diretta del Torneo OWL June Joust 2021
+000000014342.07C: Talon Individuata
+000000014344.07C: Schiena Contro Schiena
+000000014345.07C: Bella Moto
+000000014347.07C: Determinato
+000000014349.07C: Tanto di Cappello
+00000001434B.07C: Pausa Tè
 000000014366.07C: Malevento
 000000014369.07C: Zucca
 0000000143FC.07C: Non è possibile guardare i replay durante una partita o nella lobby delle partite personalizzate.
@@ -33302,7 +33312,7 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 0000000147D0.07C: Disponibile nei Forzieri di Halloween
 0000000147D1.07C: È un costume quello?
 0000000147D3.07C: Disponibile nei Forzieri di Halloween
-0000000147D4.07C: Nessuno è mai solo, qui
+0000000147D4.07C: Non si è mai da soli qui
 0000000147D6.07C: Disponibile nei Forzieri di Halloween
 0000000147D7.07C: L'arciere svanì 
 0000000147D8.07C: Zucche Magiche
@@ -33323,5 +33333,9 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 000000014812.07C: Satiro
 000000014813.07C: Zucca
 000000014814.07C: Zucca
-000000014A2D.07C: Settimana 1: Genji Scheletro
-[Core] Execution finished in 00:00:00.4462425 seconds
+000000014E77.07C: Sfida Nuove Reclute di Cassidy
+000000015084.07C: https://playoverwatch.com/it-it/media/stories/new-blood-1
+000000015085.07C: Cassidy - Nuove reclute
+000000015086.07C: Nuovo fumetto
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:04.6375779 seconds

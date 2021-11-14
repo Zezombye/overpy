@@ -1,13 +1,13 @@
-[Core] DataTool v1.65.0.964-git-ac244604bc894ccd54661d1f79a2bbfb5102c581
+[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=koKR", "-T=koKR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(13)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
 [CASC] Text Language: koKR | Speech Language: koKR
-[CASC] Overwatch build 1.65.1.0.88742
+[CASC] Overwatch build 1.66.0.0.89353
 [CASC] Initializing...
-[Manifest] Using TRG procedure 88742 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
-[Manifest] Using CMF procedure 88742 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LkoKR_speech_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LkoKR_text_EExt.cmf
+[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -674,7 +674,7 @@
 0000000009F6.07C: 트레이서의 기동성을 활용하여 전장 곳곳의 생명력 팩을 빠르게 획득하세요.
 0000000009F8.07C: 트레이서는 소규모 접전에서 매우 강력합니다. 불리할 때는 빠르게 전투에서 벗어나세요.
 0000000009F9.07C: 팀원들이 적의 주의를 분산시키면 그때 전투에 돌입하세요.
-0000000009FA.07C: 신속함은 생존의 핵심입니다. 그러니 캐서디, 브리기테, 메이, 솜브라 같은 군중 제어 기술을 가진 영웅을 조심하십시오.
+0000000009FA.07C: 신속함은 생존의 핵심입니다. 그러니 브리기테, 메이, 솜브라, 캐서디 같은 군중 제어 기술을 가진 영웅을 조심하십시오.
 000000000A16.07C: 마지막 점멸은 도망칠 때를 위해 아껴두세요.
 000000000A40.07C: 피해를 받자마자 시간 역행을 사용하면 잃어버린 생명력을 되찾습니다. 단, 죽지 않았어야 합니다.
 000000000A41.07C: 트레이서가 시간 역행을 사용하면 3초 전의 위치로 되돌아갑니다. 어디로 돌아갈지 예상하며 싸우세요.
@@ -19433,6 +19433,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B52C.07C: Array
 00000000B52D.07C: Player Dealt Damage
 00000000B530.07C: 보기
+00000000B531.07C: 소전
 00000000B532.07C: %1$s - %2$s
 00000000B533.07C: 모드: %1$s
 00000000B534.07C: 모든 모드
@@ -28500,6 +28501,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000011744.07C: 전설 전리품 상자 1개와 
 전리품 상자 5개 (소모성 아이템)
 000000011745.07C: 15 크레딧, 무료 전설 전리품 상자 1개와 전리품 상자 5개
+000000011747.07C: 지금 읽어보기
 00000001174A.07C: %1$s시즌
 000000011754.07C: 만화책
 000000011755.07C: 트레이서의 만화 챌린지에 참여하여 획득
@@ -29565,7 +29567,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000012C4D.07C: 설날 전리품 상자에서 획득
 000000012C4E.07C: 까치
 000000012C4F.07C: 설날 전리품 상자에서 획득
-000000012C50.07C: 2주 차: 에인헤랴르 자리야
 000000012C51.07C: 용의 머리
 000000012C52.07C: 설날 전리품 상자에서 획득
 000000012C5B.07C: 설날 전리품 상자 50개 
@@ -29926,7 +29927,6 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 000000013067.07C: 역공감성 이득
 000000013068.07C: 역공감성 이득 기록 보관소 도전 임무 완료
 000000013076.07C: 크로스 플랫폼 플레이
-00000001307C.07C: 3주 차: 광대 로드호그
 000000013096.07C: Uprising Stars
 000000013097.07C: %1$s Uprising Stars
 000000013098.07C: Retribution Stars
@@ -30014,6 +30014,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP.
 0000000132DF.07C: 기대어 쉬기
 0000000132E6.07C: 음성 대화 이름표 아이콘
 0000000132F5.07C: 힘차게
+00000001330F.07C: 모래폭풍
 000000013326.07C: 크로스 플레이를 비활성화했습니다.
 000000013333.07C: 확인
 000000013344.07C: 지금 만나보세요
@@ -32875,7 +32876,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000136D6.07C: 콘솔
 0000000136D7.07C: PlayStation
 0000000136D8.07C: Xbox
-0000000136D9.07C: Switch
+0000000136D9.07C: Nintendo Switch
 0000000136DF.07C: 풀
 000000013737.07C: %1$s 풀
 0000000138E9.07C: 2021 데스매치 경쟁전 참가자
@@ -33169,11 +33170,20 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014298.07C: 인기 급상승 게임
 000000014299.07C: 인기 게임
 00000001429A.07C: 추천 게임
+0000000142F2.07C: 캐서디의 새로운 피 챌린지에 참여하여 획득
+0000000142F3.07C: 모래폭풍
+0000000142F4.07C: 옛 친구
 000000014323.07C: 모드를 선택하지 않았습니다
 00000001432A.07C: 대기실 %1$s개 보는 중
 00000001432B.07C: 참가할 수 있는 게임을 찾을 수 없습니다.
 00000001433C.07C: 용의 보물
 00000001433D.07C: 2021 OWL 6월 토너먼트 라이브 방송을 시청하여 획득
+000000014342.07C: 탈론 발견
+000000014344.07C: 등을 맞대고
+000000014345.07C: 귀요미 바이크
+000000014347.07C: 결의
+000000014349.07C: 모자 인사
+00000001434B.07C: 차 한 잔의 여유
 000000014366.07C: 말레벤토
 000000014369.07C: 호박
 0000000143FC.07C: 게임 중이거나 사용자 지정 게임 대기실에 있는 동안에는 리플레이를 볼 수 없습니다.
@@ -33283,5 +33293,9 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000014812.07C: 사티로스
 000000014813.07C: 호박
 000000014814.07C: 호박
-000000014A2D.07C: 1주 차: 해골 겐지
-[Core] Execution finished in 00:00:00.4274311 seconds
+000000014E77.07C: 캐서디의 새로운 피 챌린지
+000000015084.07C: https://playoverwatch.com/ko-kr/media/stories/new-blood-1
+000000015085.07C: 캐서디 - 새로운 피
+000000015086.07C: 새로운 만화
+00000001508A.07C: https://ow.blizzard.cn/media/stories
+[Core] Execution finished in 00:00:05.4070763 seconds

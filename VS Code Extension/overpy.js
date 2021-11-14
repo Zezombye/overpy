@@ -55912,7 +55912,6 @@ function tokenize(content) {
 	
 	
 	var result = [];
-	macros = [];
 	
 	//var isInString = false;
 	var bracketsLevel = 0;
@@ -58597,6 +58596,7 @@ function compile(content, language="en-US", _rootPath="") {
         "currentColNb": 1,
         "remainingChars": 99999999999, //does not matter
 	}];
+	macros = [];
 
 	var lines = tokenize(content);
 
