@@ -1,13 +1,13 @@
-[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
+[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.66.0.0.89353
+[CASC] Overwatch build 1.67.0.0.90774
 [CASC] Initializing...
-[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -28503,7 +28503,6 @@ Blizzard Support
 00000001171D.07C: One or more party members is about to run out of game time
 000000011744.07C: 1 Legendary and 5 Loot Boxes
 000000011745.07C: 15 credits and a free gift of 1 Legendary and 5 Loot Boxes
-000000011747.07C: Read Now
 00000001174A.07C: Season %1$s
 000000011754.07C: Comic Book
 000000011755.07C: Unlocked by participating in Tracer's Comic Challenge
@@ -29632,6 +29631,7 @@ and 10 Free Winter Loot Boxes
 000000012CCE.07C: |Rpl %1$s:Game:Games; Played
 000000012CCF.07C: %1$s |Rpl Game:Games; Played
 000000012CE6.07C: PREFERRED MODE
+000000012D0C.07C: Peppermint Bark
 000000012D0D.07C: Venus
 000000012D10.07C: 120 credits, and a free gift of 60 Lunar Loot Boxes
 000000012D20.07C: %1$s (%2$s, %3$s Hz)
@@ -29708,11 +29708,11 @@ and 10 Free Winter Loot Boxes
 000000012D71.07C: The String pattern to be replaced.
 000000012D72.07C: Replacement
 000000012D73.07C: The String Value with which to replace the pattern String.
+000000012D74.07C: Mistletoe
 000000012D79.07C: Energy Explosion Effects
 000000012D81.07C: Anyone
 000000012D82.07C: Friends
 000000012D88.07C: Unlocked by participating in the PachiMarchi Challenge
-000000012D90.07C: Tropical PH
 000000012D91.07C: Receive Custom Game Invites From
 000000012D92.07C: Receive Custom Game Invite Requests
 000000012D93.07C: Simple Hit Effects
@@ -32903,6 +32903,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391E.07C: Play 9/18/27 Games in Quick Play, Arcade, or Competitive Play.  Wins count as two games.
 00000001391F.07C: PC Players Only
 000000013920.07C: Console Players Only
+000000013922.07C: Wooltide
 000000013923.07C: PC Games Only
 000000013924.07C: Console Games Only
 000000013927.07C: Chat
@@ -32929,6 +32930,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139CF.07C: You were removed because your platform is no longer allowed in the custom game.
 0000000139D0.07C: Medal
 0000000139DA.07C: Unable to join group due to incompatible Cross-Play settings.
+0000000139DC.07C: Toast
+0000000139DF.07C: Toast
 0000000139E2.07C: Unlocked by participating in Ashe's Deadlock Challenge
 0000000139E7.07C: Outlaws
 0000000139E8.07C: Deadlock Ashe
@@ -32951,6 +32954,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A4A.07C: Vampire Hunter
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Learn more and Group Up!
+000000013A4E.07C: Reindeer
 000000013A4F.07C: PlayStation
 000000013A50.07C: Other Platforms
 000000013A51.07C: Visit
@@ -33142,6 +33146,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001406E.07C: Game Mode Options
 00000001407C.07C: This chat channel is disabled. To view or adjust this setting, go to the "Social" tab in Options.
 00000001407E.07C: Search Filter
+000000014081.07C: Snowboarder
 0000000140A6.07C: Toggle Favorite
 0000000140C2.07C: Currently populating, please check back later!
 0000000140C3.07C: Game Code
@@ -33185,6 +33190,8 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001434B.07C: Tea Break
 000000014366.07C: Malevento
 000000014369.07C: Pumpkin
+000000014381.07C: Sleighing
+000000014386.07C: Lava Angel
 0000000143FC.07C: Replays are not viewable while in game or in a custom game lobby.
 000000014412.07C: Competitive 3v3 Elimination Competitor 2021
 000000014413.07C: Unlocked by completing Competitive 3v3 Elimination 2021 placement matches
@@ -33195,6 +33202,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014418.07C: Competitive 3v3 Elimination Hero 2021
 000000014419.07C: Unlocked by achieving top 500 ranking at the end of Competitive 3v3 Elimination 2021
 000000014560.07C: 2020
+000000014585.07C: Snowman
 000000014599.07C: Zombie Walk
 000000014611.07C: Competitive Team Deathmatch
 000000014612.07C: Climb to the top of the scoreboard. The deadliest team wins.
@@ -33218,19 +33226,9 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001468A.07C: Facing Target Only
 00000001468B.07C: Prefer Beam Target
 00000001468C.07C: Prefer Facing Target
+0000000146DE.07C: Ice Wraith
 00000001471A.07C: Dragons' Fireworks
 00000001471B.07C: Unlocked by watching the 2021 Overwatch League Summer Showdown Tournament
-000000014738.07C: CONTINUE
-000000014739.07C: Halloween favorites from previous years are back alongside some new skins and items!
-00000001473A.07C: Junkenstein Returns!
-00000001473B.07C: Face Dr. Junkenstein and his allies in endless modes and challenge missions!
-00000001473C.07C: Halloween 2021
-00000001473D.07C: Event Ends Nov 2
-00000001473E.07C: Unlock Epic Skins
-00000001473F.07C: Weekly Challenges
-000000014740.07C: Week 1
-000000014741.07C: Week 2
-000000014742.07C: Week 3
 000000014776.07C: Season 31 Hero
 000000014777.07C: Unlocked by achieving top 500 ranking at the end of Season 31
 000000014778.07C: Season 31 Competitor
@@ -33239,6 +33237,10 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001477B.07C: Unlocked by achieving top 500 ranking at the end of Season 31
 00000001477C.07C: Season 31 Competitor
 00000001477D.07C: Unlocked by completing Season 31 placement matches
+00000001477E.07C: Season 32
+00000001477F.07C: Season 32
+000000014780.07C: Season 32
+000000014781.07C: Season 32
 000000014798.07C: Tiny Champion
 000000014799.07C: Unlocked by watching the 2021 Overwatch League Grand Finals
 0000000147A2.07C: Halloween Terror 2021
@@ -33292,9 +33294,112 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014812.07C: Satyr
 000000014813.07C: Pumpkin
 000000014814.07C: Pumpkin
-000000014E77.07C: Cassidy's New Blood Challenge
-000000015084.07C: https://playoverwatch.com/media/stories/new-blood-1
-000000015085.07C: Cassidy - New Blood
-000000015086.07C: New Comic
-00000001508A.07C: https://ow.blizzard.cn/media/stories
-[Core] Execution finished in 00:00:04.4653598 seconds
+000000014AAE.07C: Toast
+00000001500A.07C: Unlocked by watching the 2021 Overwatch League Countdown Cup Tournament
+00000001500C.07C: Gladiators Unleashed
+000000015063.07C: Engage in combat outside a spawn room.
+000000015093.07C: A Suave Gift
+00000001509C.07C: Snowfall
+0000000151AF.07C: Wooltide
+0000000151B0.07C: Unlocked by participating in the Winter Wonderland 2021 week 1 challenge
+0000000151B1.07C: Mistletoe
+0000000151B3.07C: Unlocked by participating in the Winter Wonderland 2021 week 2 challenge
+0000000151B4.07C: Peppermint Bark
+0000000151B5.07C: Unlocked by participating in the Winter Wonderland 2021 week 3 challenge
+0000000151B6.07C: Wooltide
+0000000151B7.07C: Unlocked by participating in the Winter Wonderland 2021 week 1 challenge
+0000000151B8.07C: Mistletoe
+0000000151B9.07C: Unlocked by participating in the Winter Wonderland 2021 week 2 challenge
+0000000151BA.07C: Peppermint Bark
+0000000151BB.07C: Unlocked by participating in the Winter Wonderland 2021 week 3 challenge
+0000000151BC.07C: Available in Winter Loot Boxes
+0000000151BD.07C: Available in Winter Loot Boxes
+0000000151BE.07C: Available in Winter Loot Boxes
+0000000151BF.07C: Available in Winter Loot Boxes
+0000000151C0.07C: Available in Winter Loot Boxes
+0000000151C1.07C: Available in Winter Loot Boxes
+0000000151C2.07C: Available in Winter Loot Boxes
+0000000151C3.07C: Available in Winter Loot Boxes
+0000000151C4.07C: Available in Winter Loot Boxes
+0000000151C5.07C: Available in Winter Loot Boxes
+0000000151C6.07C: Available in Winter Loot Boxes
+0000000151C7.07C: Unlocked by participating in the Winter Wonderland 2021 week 3 challenge
+0000000151C8.07C: Unlocked by participating in the Winter Wonderland 2021 week 1 challenge
+0000000151C9.07C: Unlocked by participating in the Winter Wonderland 2021 week 2 challenge
+0000000151D1.07C: Competitive No Limits
+0000000151D2.07C: Rise up the ranks and compete with the best players in the world with no limits on hero selection.
+0000000151D3.07C: Competitive No Limits Season 2
+0000000151DD.07C: Competitive No Limits Competitor 2021
+0000000151DE.07C: Unlocked by completing Competitive No Limits 2021 placement matches
+0000000151DF.07C: Competitive No Limits Hero 2021
+0000000151E0.07C: Unlocked by achieving top 500 ranking at the end of Competitive No Limits 2021
+0000000151E1.07C: Competitive No Limits Competitor 2021
+0000000151E2.07C: Unlocked by completing Competitive No Limits 2021 placement matches
+0000000151E3.07C: Competitive No Limits Hero 2021
+0000000151E4.07C: Unlocked by achieving top 500 ranking at the end of Competitive No Limits 2021
+0000000151E6.07C: Snowman
+0000000151E7.07C: Available in Winter Loot Boxes
+0000000151E8.07C: Ice Wraith
+0000000151E9.07C: Available in Winter Loot Boxes
+0000000151EA.07C: Bag of Gifts
+0000000151EB.07C: Available in Winter Loot Boxes
+0000000151F6.07C: Snowboarder
+0000000151F7.07C: Available in Winter Loot Boxes
+0000000151F8.07C: Reindeer
+0000000151F9.07C: Available in Winter Loot Boxes
+0000000151FA.07C: Happy Holidays
+0000000151FB.07C: Available in Winter Loot Boxes
+0000000151FE.07C: Let's Go Sledding!
+0000000151FF.07C: Available in Winter Loot Boxes
+000000015200.07C: Present for You
+000000015201.07C: Available in Winter Loot Boxes
+000000015202.07C: Hot Cocoa
+000000015203.07C: Available in Winter Loot Boxes
+000000015204.07C: It's Snowing!
+000000015205.07C: Available in Winter Loot Boxes
+000000015206.07C: Avalanche!
+000000015207.07C: Available in Winter Loot Boxes
+000000015208.07C: Cold Never Bothered Me
+000000015209.07C: Available in Winter Loot Boxes
+00000001520A.07C: Coal for You
+00000001520B.07C: Available in Winter Loot Boxes
+00000001520C.07C: Call this Cold?
+00000001520D.07C: Available in Winter Loot Boxes
+00000001520E.07C: Merry Christmas!
+00000001520F.07C: Available in Winter Loot Boxes
+000000015210.07C: Cookies
+000000015211.07C: Available in Winter Loot Boxes
+000000015232.07C: Ice Wraith
+000000015233.07C: Available in Winter Loot Boxes
+000000015234.07C: Santa Claws
+000000015235.07C: Available in Winter Loot Boxes
+000000015236.07C: Snow Pals
+000000015237.07C: Available in Winter Loot Boxes
+000000015238.07C: Snowboarder
+000000015239.07C: Available in Winter Loot Boxes
+00000001523A.07C: Reindeer
+00000001523B.07C: Available in Winter Loot Boxes
+00000001523F.07C: Season 32 Competitor
+000000015240.07C: Unlocked by completing Season 32 placement matches
+000000015241.07C: Season 32 Hero
+000000015242.07C: Unlocked by achieving top 500 ranking at the end of Season 32
+000000015243.07C: Season 32 Competitor
+000000015244.07C: Unlocked by completing Season 32 placement matches
+000000015245.07C: Season 32 Hero
+000000015246.07C: Unlocked by achieving top 500 ranking at the end of Season 32
+000000015274.07C: Winter Wonderland 2021
+000000015275.07C: 2022
+000000015276.07C: Available in Winter Loot Boxes
+000000015284.07C: Week 1: Wooltide Tracer Challenge
+000000015286.07C: Week 2: Mistletoe Symmetra Challenge
+000000015287.07C: Week 3: Peppermint Bark Brigitte Challenge
+000000015331.07C: CONTINUE
+000000015336.07C: Event Ends Jan 6
+000000015337.07C: Unlock New Skins
+000000015338.07C: Weekly Challenges
+000000015339.07C: Week 1
+00000001533A.07C: Week 2
+00000001533B.07C: Week 3
+000000015340.07C: Frolic in the snow with our winter brawls!
+000000015341.07C: The Winter Wonderland event returns, with favorites from previous years back alongside new items!
+[Core] Execution finished in 00:00:00.4708785 seconds

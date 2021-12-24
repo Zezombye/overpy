@@ -1,13 +1,13 @@
-[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
+[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.66.0.0.89353
+[CASC] Overwatch build 1.67.0.0.90774
 [CASC] Initializing...
-[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28801,7 +28801,6 @@ Overwatch League 2020.
 00000001171D.07C: Jednemu lub kilku członkom ekipy kończy się czas gry
 000000011744.07C: 1 legendarna i 5 zwykłych skrzynek z łupami
 000000011745.07C: 15 kredytów oraz darmowa 1 legendarna i 5 zwykłych skrzynek z łupami
-000000011747.07C: Zapraszamy do lektury
 00000001174A.07C: Sezon %1$s
 000000011754.07C: Komiks
 000000011755.07C: Nagroda za udział w wyzwaniu Smugi: Komiks
@@ -29956,6 +29955,7 @@ w sezonie 27.
 000000012CCE.07C: |Rpl %1$s:rozegrane mecze:rozegrane mecze:rozegrane mecze;
 000000012CCF.07C: %1$s |Rpl rozegrany mecz:rozegrane mecze:rozegranych meczów;
 000000012CE6.07C: PREFEROWANY TRYB
+000000012D0C.07C: Świąteczna słodycz
 000000012D0D.07C: Wenus
 000000012D10.07C: 120 kredytów i 60 darmowych, księżycowych skrzynek z łupami
 000000012D20.07C: %1$s (%2$s, %3$s Hz)
@@ -30032,12 +30032,12 @@ w sezonie 27.
 000000012D71.07C: Wartość ciągu, który zostanie zastąpiony.
 000000012D72.07C: Zamiennik
 000000012D73.07C: Wartość ciągu, którym można zastąpić ciąg wzorca.
+000000012D74.07C: Jemioła
 000000012D79.07C: Efekty eksplozji energetycznych
 000000012D81.07C: Wszyscy
 000000012D82.07C: Znajomi
 000000012D88.07C: Nagroda za udział
 w wyzwaniu PachiMarzec
-000000012D90.07C: Tropical PH
 000000012D91.07C: Odbieraj niestandardowe zaproszenia do gry od
 000000012D92.07C: Odbieraj niestandardowe zaproszenia do gry
 000000012D93.07C: Proste efekty trafień
@@ -33239,6 +33239,7 @@ oraz powrót poprzednich elementów i trybów gry!
 00000001391E.07C: Rozegraj 9/18/27 meczów w Szybkiej grze, Salonie gier lub Rywalizacji. Wygrane liczą się podwójnie.
 00000001391F.07C: Tylko gracze pecetowi
 000000013920.07C: Tylko gracze konsolowi
+000000013922.07C: Wełniara
 000000013923.07C: Tylko mecze pecetowe
 000000013924.07C: Tylko mecze konsolowe
 000000013927.07C: Czat
@@ -33265,6 +33266,8 @@ oraz powrót poprzednich elementów i trybów gry!
 0000000139CF.07C: Wyrzucono cię, ponieważ twoja platforma nie jest już dozwolona w grze dowolnej.
 0000000139D0.07C: Medalista
 0000000139DA.07C: Nie można dołączyć do ekipy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
+0000000139DC.07C: Toast
+0000000139DF.07C: Toast
 0000000139E2.07C: Nagroda za udział w wyzwaniu Ashe: Zadymiara.
 0000000139E7.07C: Poza prawem
 0000000139E8.07C: Zadymiara Ashe
@@ -33287,6 +33290,7 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A4A.07C: Łowczyni wampirów
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Dowiedz się więcej i zbierz drużynę!
+000000013A4E.07C: Renifer
 000000013A4F.07C: PlayStation
 000000013A50.07C: Inne platformy
 000000013A51.07C: Odwiedź
@@ -33510,6 +33514,7 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 00000001406E.07C: Opcje trybu gry
 00000001407C.07C: Ten kanał czatu został wyłączony. Aby to zmienić, przejdź do zakładki „Społeczność” w Opcjach.
 00000001407E.07C: Filtr wyszukiwania
+000000014081.07C: Snowboardzista
 0000000140A6.07C: Przełącz ulubione
 0000000140C2.07C: Trwa zapełnianie, sprawdź później!
 0000000140C3.07C: Kod gry
@@ -33553,6 +33558,8 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 00000001434B.07C: Przerwa na herbatkę
 000000014366.07C: Malevento
 000000014369.07C: Dynia
+000000014381.07C: Q.Lig
+000000014386.07C: Aniołek na lawie
 0000000143FC.07C: Powtórki są niedostępne w trakcie rozgrywki, lub w poczekalni gry dowolnej.
 000000014412.07C: Uczestnik Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014413.07C: Nagroda
@@ -33569,6 +33576,7 @@ w trybie Eliminacji 3 na 3 w 2021
 000000014418.07C: Bohater Rywalizacji w trybie Eliminacji 3 na 3 w 2021
 000000014419.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w trybie eliminacji 3 na 3 w 2021
 000000014560.07C: 2020
+000000014585.07C: Bałwamech
 000000014599.07C: Spacer zombiaka
 000000014611.07C: Rywalizacja w Drużynowym Deathmatchu
 000000014612.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
@@ -33598,19 +33606,9 @@ w Drużynowym Deathmatchu 2021
 00000001468A.07C: Wyłącznie cel przed postacią
 00000001468B.07C: Preferuj cel wiązki
 00000001468C.07C: Preferuj cel przed postacią
+0000000146DE.07C: Lodowy upiór
 00000001471A.07C: Smocze fajerwerki
 00000001471B.07C: Nagroda z oglądanie turnieju Overwatch League Summer Showdown 2021
-000000014738.07C: DALEJ
-000000014739.07C: Oprócz powracających, ulubionych atrakcji halloweenowych z zeszłego roku możesz zdobyć też zupełnie nowe skórki i inne elementy!
-00000001473A.07C: Złomenstein powraca!
-00000001473B.07C: Zmierz się z doktorem Złomensteinem i jego poplecznikami w niekończących się trybach i misjach pełnych wyzwań!
-00000001473C.07C: Halloween 2021
-00000001473D.07C: Koniec wydarzenia 2 listopada
-00000001473E.07C: Odblokuj epickie skórki
-00000001473F.07C: Cotygodniowe wyzwania
-000000014740.07C: Tydzień 1
-000000014741.07C: Tydzień 2
-000000014742.07C: Tydzień 3
 000000014776.07C: Bohater 31. sezonu
 000000014777.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 31.
 000000014778.07C: Uczestnik 31. sezonu
@@ -33621,6 +33619,10 @@ w sezonie 31.
 00000001477C.07C: Uczestnik 31. sezonu
 00000001477D.07C: Nagroda za mecze klasyfikacyjne
 w sezonie 31.
+00000001477E.07C: Sezon 32
+00000001477F.07C: Sezon 32
+000000014780.07C: Sezon 32
+000000014781.07C: Sezon 32
 000000014798.07C: Tyci mistrz
 000000014799.07C: Nagroda z oglądanie Wielkich Finałów Overwatch League 2021
 0000000147A2.07C: Halloweenowa Groza 2021
@@ -33674,9 +33676,121 @@ w sezonie 31.
 000000014812.07C: Satyr
 000000014813.07C: Dynia
 000000014814.07C: Dynia
-000000014E77.07C: Wyzwanie Cassidy'ego: Świeża krew
-000000015084.07C: https://playoverwatch.com/pl-pl/media/stories/new-blood-1
-000000015085.07C: Cassidy – Świeża krew
-000000015086.07C: Nowy komiks
-00000001508A.07C: https://ow.blizzard.cn/media/stories
-[Core] Execution finished in 00:00:04.9957454 seconds
+000000014AAE.07C: Toast
+00000001500A.07C: Nagroda za oglądanie turnieju Overwatch League Countdown Cup 2021
+00000001500C.07C: Nieustraszeni gladiatorzy
+000000015063.07C: Weź udział w walce poza pomieszczeniem startowym.
+000000015093.07C: Elegancki prezent
+00000001509C.07C: Śnieżyca
+0000000151AF.07C: Wełniara
+0000000151B0.07C: Nagroda za udział w wyzwaniu 1. tygodnia Zimowej Krainy Czarów 2021
+0000000151B1.07C: Jemioła
+0000000151B3.07C: Nagroda za udział w wyzwaniu 2. tygodnia Zimowej Krainy Czarów 2021
+0000000151B4.07C: Świąteczna słodycz
+0000000151B5.07C: Nagroda za udział w wyzwaniu 3. tygodnia Zimowej Krainy Czarów 2021
+0000000151B6.07C: Wełniara
+0000000151B7.07C: Nagroda za udział w wyzwaniu 1. tygodnia Zimowej Krainy Czarów 2021
+0000000151B8.07C: Jemioła
+0000000151B9.07C: Nagroda za udział w wyzwaniu 2. tygodnia Zimowej Krainy Czarów 2021
+0000000151BA.07C: Świąteczna słodycz
+0000000151BB.07C: Nagroda za udział w wyzwaniu 3. tygodnia Zimowej Krainy Czarów 2021
+0000000151BC.07C: Zawartość zimowych skrzynek
+0000000151BD.07C: Zawartość zimowych skrzynek
+0000000151BE.07C: Zawartość zimowych skrzynek
+0000000151BF.07C: Zawartość zimowych skrzynek
+0000000151C0.07C: Zawartość zimowych skrzynek
+0000000151C1.07C: Zawartość zimowych skrzynek
+0000000151C2.07C: Zawartość zimowych skrzynek
+0000000151C3.07C: Zawartość zimowych skrzynek
+0000000151C4.07C: Zawartość zimowych skrzynek
+0000000151C5.07C: Zawartość zimowych skrzynek
+0000000151C6.07C: Zawartość zimowych skrzynek
+0000000151C7.07C: Nagroda za udział w wyzwaniu 3. tygodnia Zimowej Krainy Czarów 2021
+0000000151C8.07C: Nagroda za udział w wyzwaniu 1. tygodnia Zimowej Krainy Czarów 2021
+0000000151C9.07C: Nagroda za udział w wyzwaniu 2. tygodnia Zimowej Krainy Czarów 2021
+0000000151D1.07C: Rywalizacja bez ograniczeń
+0000000151D2.07C: Rywalizuj z najlepszymi graczami na świecie i pnij się w tabeli wyników bez ograniczeń przy wyborze bohaterów.
+0000000151D3.07C: Rywalizacja bez ograniczeń – sezon 2
+0000000151DD.07C: Uczestnik Rywalizacji bez ograniczeń 2021
+0000000151DE.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+bez ograniczeń 2021
+0000000151DF.07C: Bohater Rywalizacji bez ograniczeń 2021
+0000000151E0.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji bez ograniczeń 2021.
+0000000151E1.07C: Uczestnik Rywalizacji bez ograniczeń 2021
+0000000151E2.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+bez ograniczeń 2021
+0000000151E3.07C: Bohater Rywalizacji bez ograniczeń 2021
+0000000151E4.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji bez ograniczeń 2021.
+0000000151E6.07C: Bałwamech
+0000000151E7.07C: Zawartość zimowych skrzynek
+0000000151E8.07C: Lodowy upiór
+0000000151E9.07C: Zawartość zimowych skrzynek
+0000000151EA.07C: Wór prezentów
+0000000151EB.07C: Zawartość zimowych skrzynek
+0000000151F6.07C: Snowboardzista
+0000000151F7.07C: Zawartość zimowych skrzynek
+0000000151F8.07C: Renifer
+0000000151F9.07C: Zawartość zimowych skrzynek
+0000000151FA.07C: Wesołych Świąt
+0000000151FB.07C: Zawartość zimowych skrzynek
+0000000151FE.07C: Chodźmy na sanki!
+0000000151FF.07C: Zawartość zimowych skrzynek
+000000015200.07C: Prezent dla ciebie
+000000015201.07C: Zawartość zimowych skrzynek
+000000015202.07C: Gorące kakao
+000000015203.07C: Zawartość zimowych skrzynek
+000000015204.07C: Pada śnieg!
+000000015205.07C: Zawartość zimowych skrzynek
+000000015206.07C: Lawina!
+000000015207.07C: Zawartość zimowych skrzynek
+000000015208.07C: Zimno nie przeszkadza
+000000015209.07C: Zawartość zimowych skrzynek
+00000001520A.07C: Rózga
+00000001520B.07C: Zawartość zimowych skrzynek
+00000001520C.07C: To ma być zimno?
+00000001520D.07C: Zawartość zimowych skrzynek
+00000001520E.07C: Wesołych Świąt!
+00000001520F.07C: Zawartość zimowych skrzynek
+000000015210.07C: Ciasteczka
+000000015211.07C: Zawartość zimowych skrzynek
+000000015232.07C: Lodowy upiór
+000000015233.07C: Zawartość zimowych skrzynek
+000000015234.07C: Chomikołaj
+000000015235.07C: Zawartość zimowych skrzynek
+000000015236.07C: Śnieżni przyjaciele
+000000015237.07C: Zawartość zimowych skrzynek
+000000015238.07C: Snowboardzista
+000000015239.07C: Zawartość zimowych skrzynek
+00000001523A.07C: Renifer
+00000001523B.07C: Zawartość zimowych skrzynek
+00000001523F.07C: Uczestnik 32. sezonu
+000000015240.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 32.
+000000015241.07C: Bohater 32. sezonu
+000000015242.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 32.
+000000015243.07C: Uczestnik 32. sezonu
+000000015244.07C: Nagroda za mecze klasyfikacyjne
+w sezonie 32.
+000000015245.07C: Bohater 32. sezonu
+000000015246.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 32.
+000000015274.07C: Zimowa Kraina Czarów 2021
+000000015275.07C: 2022
+000000015276.07C: Zawartość zimowych skrzynek
+000000015284.07C: Tydzień 1: Wyzwanie Smugi: Wełniara
+000000015286.07C: Tydzień 2: Wyzwanie Symmetry: Jemioła
+000000015287.07C: Tydzień 3: Wyzwanie Brigitte: Świąteczna słodycz
+000000015331.07C: KONTYNUUJ
+000000015336.07C: Koniec wydarzenia 6 stycznia
+000000015337.07C: Odblokuj nowe skórki
+000000015338.07C: Cotygodniowe wyzwania
+000000015339.07C: Tydzień 1
+00000001533A.07C: Tydzień 2
+00000001533B.07C: Tydzień 3
+000000015340.07C: Baw się na śniegu w naszych zimowych rozróbach!
+000000015341.07C: Zimowa Kraina Czarów powraca wraz z twoimi ulubionymi elementami z zeszłego roku
+oraz zupełnie nowymi!
+[Core] Execution finished in 00:00:00.4825855 seconds

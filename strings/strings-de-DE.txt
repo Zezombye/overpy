@@ -1,13 +1,13 @@
-[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
+[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.66.0.0.89353
+[CASC] Overwatch build 1.67.0.0.90774
 [CASC] Initializing...
-[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28779,7 +28779,6 @@ Der Blizzard-Kundendienst
 00000001171D.07C: Ein oder mehrere Gruppenmitglieder haben bald keine Spielzeit mehr.
 000000011744.07C: 1 legendäres Extra und 5 Lootboxen
 000000011745.07C: 15 Credits und dazu 1 legendäres Extra sowie 5 Lootboxen geschenkt
-000000011747.07C: Jetzt lesen
 00000001174A.07C: Saison %1$s
 000000011754.07C: Comicbuch
 000000011755.07C: Freigeschaltet durch die Teilnahme an Tracers Comic-Herausforderung
@@ -29935,6 +29934,7 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012CCE.07C: |Rpl %1$s:Match:Matches; gespielt
 000000012CCF.07C: Matches gespielt: %1$s
 000000012CE6.07C: BEVORZUGTER MODUS
+000000012D0C.07C: Pfefferminzschokolade
 000000012D0D.07C: Venus
 000000012D10.07C: 120 Credits und dazu 60 Neujahr-Lootboxen geschenkt
 000000012D20.07C: %1$s (%2$s, %3$s Hz)
@@ -30011,11 +30011,11 @@ und dazu 10 Winter-Lootboxen geschenkt
 000000012D71.07C: Der Musterstring, der ersetzt werden soll.
 000000012D72.07C: Replacement
 000000012D73.07C: Der Stringwert, durch den der Musterstring ersetzt werden soll.
+000000012D74.07C: Mistelzweig
 000000012D79.07C: Effekte von Energieexplosionen
 000000012D81.07C: Jedem
 000000012D82.07C: Freunden
 000000012D88.07C: Freigeschaltet durch die Teilnahme an der PachiMärzi-Herausforderung
-000000012D90.07C: Tropical PH
 000000012D91.07C: Einladungsanfragen für benutzerdefinierte Spiele erlauben von
 000000012D92.07C: Einladungsanfragen für benutzerdefinierte Spiele erlauben
 000000012D93.07C: Einfache Treffereffekte
@@ -33206,6 +33206,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391E.07C: Spiele 9/18/27 Spiele in den Modi Schnellsuche, Arcade oder Rangliste. Siege werden als zwei Spiele gewertet.
 00000001391F.07C: Nur für PC-Spieler
 000000013920.07C: Nur für Konsolenspieler
+000000013922.07C: Winterwolle
 000000013923.07C: Nur Spiele für PC
 000000013924.07C: Nur Spiele für Konsolen
 000000013927.07C: Chat
@@ -33232,6 +33233,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139CF.07C: Du wurdest entfernt, weil deine Plattform in diesem benutzerdefinierten Spiel nicht mehr erlaubt ist.
 0000000139D0.07C: Medaille
 0000000139DA.07C: Gruppenbeitritt fehlgeschlagen. Cross-Play-Einstellungen sind nicht kompatibel.
+0000000139DC.07C: Kanpai
+0000000139DF.07C: Prost
 0000000139E2.07C: Freigeschaltet durch die Teilnahme an Ashes Deadlock-Herausforderung
 0000000139E7.07C: Outlaws
 0000000139E8.07C: Deadlock-Ashe
@@ -33254,6 +33257,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A4A.07C: Vampirjägerin
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: Erfahr mehr und versammle dein Team!
+000000013A4E.07C: Rentier
 000000013A4F.07C: PlayStation
 000000013A50.07C: Andere Plattformen
 000000013A51.07C: Jetzt besuchen:
@@ -33445,6 +33449,7 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001406E.07C: Spielmodus-Optionen
 00000001407C.07C: Dieser Chatchannel ist deaktiviert. Du kannst diese Einstellung im Menü Freunde & Gruppen einsehen und anpassen.
 00000001407E.07C: Suchfilter
+000000014081.07C: Snowboarder
 0000000140A6.07C: Favoriten ein/aus
 0000000140C2.07C: Wird momentan zusammengestellt, bitte später erneut versuchen!
 0000000140C3.07C: Spielcode
@@ -33488,6 +33493,8 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001434B.07C: Kaffeepause
 000000014366.07C: Malevento
 000000014369.07C: Kürbis
+000000014381.07C: Schlitten
+000000014386.07C: Lavaengel
 0000000143FC.07C: Replays können innerhalb eines Spiels oder einer benutzerdefinierten Spiellobby nicht angesehen werden.
 000000014412.07C: Teilnehmer der 3v3-Eliminierung 2021
 000000014413.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Eliminierung 2021 (3v3)
@@ -33498,6 +33505,7 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 000000014418.07C: Held der 3v3-Eliminierung 2021
 000000014419.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Eliminierung 2021 (3v3)
 000000014560.07C: 2020
+000000014585.07C: Schneemann
 000000014599.07C: Zombieschlurfen
 000000014611.07C: Kompetitives Team-Deathmatch
 000000014612.07C: Kämpf dich mit deinem Team an die Spitze. Möge das tödlichste Team gewinnen.
@@ -33521,19 +33529,9 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001468A.07C: Nur anvisiertes Ziel
 00000001468B.07C: Strahlenziel bevorzugen
 00000001468C.07C: Anvisiertes Ziel bevorzugen
+0000000146DE.07C: Frostgeist
 00000001471A.07C: Drachenfeuerwerk
 00000001471B.07C: Freigeschaltet durch das Ansehen des Overwatch League Summer Showdown.
-000000014738.07C: WEITER
-000000014739.07C: Die beliebtesten Halloween-Extras aus dem letzten Jahr sind zurück, zusammen mit brandneuen Skins und Extras!
-00000001473A.07C: Junkenstein kehrt zurück!
-00000001473B.07C: Stell dich Dr. Junkenstein und seine Verbündeten im Endlosmodus und bei Herausforderungsmissionen!
-00000001473C.07C: Halloween 2021
-00000001473D.07C: Event endet am 02.11.
-00000001473E.07C: Schalte epische Skins frei
-00000001473F.07C: Wöchentliche Herausforderungen
-000000014740.07C: Woche 1
-000000014741.07C: Woche 2
-000000014742.07C: Woche 3
 000000014776.07C: Held von Saison 31
 000000014777.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 31
 000000014778.07C: Teilnehmer von Saison 31
@@ -33542,6 +33540,10 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001477B.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 31
 00000001477C.07C: Teilnehmer von Saison 31
 00000001477D.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 31
+00000001477E.07C: Saison 32
+00000001477F.07C: Saison 32
+000000014780.07C: Saison 32
+000000014781.07C: Saison 32
 000000014798.07C: Winziger Meister
 000000014799.07C: Freigeschaltet durch das Ansehen des Overwatch League-Finales 2021
 0000000147A2.07C: Halloween-Horror 2021
@@ -33615,9 +33617,112 @@ Lootboxen erhältlich
 000000014812.07C: Satyr
 000000014813.07C: Kürbis
 000000014814.07C: Kürbis
-000000014E77.07C: Cassidys Frisches Blut-Herausforderung
-000000015084.07C: https://playoverwatch.com/de-de/media/stories/new-blood-1/
-000000015085.07C: Cassidy – Frisches Blut
-000000015086.07C: Neuer Comic
-00000001508A.07C: https://ow.blizzard.cn/media/stories
-[Core] Execution finished in 00:00:04.4097314 seconds
+000000014AAE.07C: Prost
+00000001500A.07C: Freigeschaltet durch das Ansehen des Overwatch League Countdown Cup Tournaments
+00000001500C.07C: Entfesselte Gladiators
+000000015063.07C: Beteilige dich außerhalb des Startbereichs an einem Kampf.
+000000015093.07C: Ein charmantes Geschenk
+00000001509C.07C: Schneefall
+0000000151AF.07C: Winterwolle
+0000000151B0.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 1
+0000000151B1.07C: Mistelzweig
+0000000151B3.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 2
+0000000151B4.07C: Pfefferminzschokolade
+0000000151B5.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 3
+0000000151B6.07C: Winterwolle
+0000000151B7.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 1
+0000000151B8.07C: Mistelzweig
+0000000151B9.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 2
+0000000151BA.07C: Pfefferminzschokolade
+0000000151BB.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 3
+0000000151BC.07C: In Winter-Lootboxen erhältlich
+0000000151BD.07C: In Winter-Lootboxen erhältlich
+0000000151BE.07C: In Winter-Lootboxen erhältlich
+0000000151BF.07C: In Winter-Lootboxen erhältlich
+0000000151C0.07C: In Winter-Lootboxen erhältlich
+0000000151C1.07C: In Winter-Lootboxen erhältlich
+0000000151C2.07C: In Winter-Lootboxen erhältlich
+0000000151C3.07C: In Winter-Lootboxen erhältlich
+0000000151C4.07C: In Winter-Lootboxen erhältlich
+0000000151C5.07C: In Winter-Lootboxen erhältlich
+0000000151C6.07C: In Winter-Lootboxen erhältlich
+0000000151C7.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 3
+0000000151C8.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 1
+0000000151C9.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Winterwunderland 2021, Woche 2
+0000000151D1.07C: Kompetitiv – Keine Beschränkungen
+0000000151D2.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Spieler der Welt an! Bei der Heldenauswahl bestehen keine Einschränkungen.
+0000000151D3.07C: Kompetitiv – Keine Beschränkungen: Saison 2
+0000000151DD.07C: Teilnehmer von Keine Beschränkungen 2021
+0000000151DE.07C: Freigeschaltet durch das Abschließen der Platzierungsmatches im kompetitiven Keine Beschränkungen 2021
+0000000151DF.07C: Held von Keine Beschränkungen 2021
+0000000151E0.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompetitiven Keine Beschränkungen 2021
+0000000151E1.07C: Teilnehmer von Keine Beschränkungen 2021
+0000000151E2.07C: Freigeschaltet durch das Abschließen der Platzierungsmatches im kompetitiven Keine Beschränkungen 2021
+0000000151E3.07C: Held von Keine Beschränkungen 2021
+0000000151E4.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende des kompetitiven Keine Beschränkungen 2021
+0000000151E6.07C: Schneemann
+0000000151E7.07C: In Winter-Lootboxen erhältlich
+0000000151E8.07C: Frostgeist
+0000000151E9.07C: In Winter-Lootboxen erhältlich
+0000000151EA.07C: Geschenkesack
+0000000151EB.07C: In Winter-Lootboxen erhältlich
+0000000151F6.07C: Snowboarder
+0000000151F7.07C: In Winter-Lootboxen erhältlich
+0000000151F8.07C: Rentier
+0000000151F9.07C: In Winter-Lootboxen erhältlich
+0000000151FA.07C: Frohe Festtage.
+0000000151FB.07C: In Winter-Lootboxen erhältlich
+0000000151FE.07C: Lasst uns Schlitten fahren!
+0000000151FF.07C: In Winter-Lootboxen erhältlich
+000000015200.07C: Geschenk für dich
+000000015201.07C: In Winter-Lootboxen erhältlich
+000000015202.07C: Heiße Schokolade
+000000015203.07C: In Winter-Lootboxen erhältlich
+000000015204.07C: Es schneit!
+000000015205.07C: In Winter-Lootboxen erhältlich
+000000015206.07C: Lawine!
+000000015207.07C: In Winter-Lootboxen erhältlich
+000000015208.07C: Kälte ist ein Teil von mir.
+000000015209.07C: In Winter-Lootboxen erhältlich
+00000001520A.07C: Für dich Kohle
+00000001520B.07C: In Winter-Lootboxen erhältlich
+00000001520C.07C: Das soll kalt sein?
+00000001520D.07C: In Winter-Lootboxen erhältlich
+00000001520E.07C: Frohes Fest!
+00000001520F.07C: In Winter-Lootboxen erhältlich
+000000015210.07C: Kekse
+000000015211.07C: In Winter-Lootboxen erhältlich
+000000015232.07C: Frostgeist
+000000015233.07C: In Winter-Lootboxen erhältlich
+000000015234.07C: Santa Klaue
+000000015235.07C: In Winter-Lootboxen erhältlich
+000000015236.07C: Schneefreunde
+000000015237.07C: In Winter-Lootboxen erhältlich
+000000015238.07C: Snowboarder
+000000015239.07C: In Winter-Lootboxen erhältlich
+00000001523A.07C: Rentier
+00000001523B.07C: In Winter-Lootboxen erhältlich
+00000001523F.07C: Teilnehmer von Saison 32
+000000015240.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 32
+000000015241.07C: Held von Saison 32
+000000015242.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 32
+000000015243.07C: Teilnehmer von Saison 32
+000000015244.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches in Saison 32
+000000015245.07C: Held von Saison 32
+000000015246.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende von Saison 32
+000000015274.07C: Winter<hy>wunderland 2021
+000000015275.07C: 2022
+000000015276.07C: In Winter-Lootboxen erhältlich
+000000015284.07C: Woche 1: Winterwolle für Tracer
+000000015286.07C: Woche 2: Mistelzweig für Symmetra
+000000015287.07C: Woche 3: Pfefferminzschokolade für Brigitte
+000000015331.07C: WEITER
+000000015336.07C: Event endet am 06.01.
+000000015337.07C: Schalte neue Skins frei
+000000015338.07C: Wöchentliche Herausforderungen
+000000015339.07C: Woche 1
+00000001533A.07C: Woche 2
+00000001533B.07C: Woche 3
+000000015340.07C: Tob dich im Schnee aus mit unseren Winterbrawls!
+000000015341.07C: Das Winterwunderland ist wieder da! Die beliebtesten Winterwunderland-Extras aus den letzten Jahren sind zurück, zusammen mit neuen Extras!
+[Core] Execution finished in 00:00:00.4714306 seconds

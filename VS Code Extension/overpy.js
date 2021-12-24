@@ -42725,22 +42725,34 @@ const customGameSettingsSchema =
                 "zh-TW": "一般"
             },
             "team1": {
-                "guid": "00000000B472",
+                "guid": "000000002D71",
                 "en-US": "Team 1",
+                "es-ES": "Equipo 1",
                 "es-MX": "Equipo 1",
-                "fr-FR": "Équipe 1",
+                "fr-FR": "Équipe 1",
+                "it-IT": "Squadra 1",
                 "ja-JP": "チーム1",
+                "ko-KR": "1팀",
+                "pl-PL": "Drużyna 1",
                 "pt-BR": "Equipe 1",
-                "zh-CN": "队伍1"
+                "ru-RU": "Команда 1",
+                "zh-CN": "队伍1",
+                "zh-TW": "隊伍1"
             },
             "team2": {
-                "guid": "00000000B471",
+                "guid": "000000002D72",
                 "en-US": "Team 2",
+                "es-ES": "Equipo 2",
                 "es-MX": "Equipo 2",
-                "fr-FR": "Équipe 2",
+                "fr-FR": "Équipe 2",
+                "it-IT": "Squadra 2",
                 "ja-JP": "チーム2",
+                "ko-KR": "2팀",
+                "pl-PL": "Drużyna 2",
                 "pt-BR": "Equipe 2",
-                "zh-CN": "队伍2"
+                "ru-RU": "Команда 2",
+                "zh-CN": "队伍2",
+                "zh-TW": "隊伍2"
             },
             "ffa": {
                 "guid": "000000010051",

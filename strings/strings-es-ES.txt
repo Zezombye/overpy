@@ -1,13 +1,13 @@
-[Core] DataTool v1.66.0.965-git-242b9ad068275269a3d7aeb1eb8ac53885b0d742
+[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(14)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.66.0.0.89353
+[CASC] Overwatch build 1.67.0.0.90774
 [CASC] Initializing...
-[Manifest] Using TRG procedure 89353 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 89353 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -28551,7 +28551,6 @@ Asistencia de Blizzard
 00000001171D.07C: Uno o más miembros del grupo están a punto de quedarse sin tiempo de juego
 000000011744.07C: 1 caja de botín legendaria y 5 cajas de botín clásicas
 000000011745.07C: 15 créditos y, de regalo, 1 caja legendaria y 5 cajas de botín
-000000011747.07C: Leer
 00000001174A.07C: Temporada %1$s
 000000011754.07C: Cómic
 000000011755.07C: Se desbloquea al participar en el desafío Cómic de Tracer
@@ -29681,6 +29680,7 @@ y 10 cajas iguales de regalo
 000000012CCE.07C: |Rpl %1$s:Partida jugada:Partidas jugadas;
 000000012CCF.07C: %1$s |Rplpartida jugada:partidas jugadas;
 000000012CE6.07C: MODO PREFERIDO
+000000012D0C.07C: Reflejo de dulce de menta
 000000012D0D.07C: Atrapamoscas
 000000012D10.07C: 120 créditos y, de regalo, 60 cajas de botín del Año Nuevo Lunar
 000000012D20.07C: %1$s (%2$s, %3$s Hz)
@@ -29757,11 +29757,11 @@ y 10 cajas iguales de regalo
 000000012D71.07C: Patrón de la cadena que se reemplaza.
 000000012D72.07C: Reemplazo
 000000012D73.07C: Valor de la cadena con el que se reemplazará la cadena patrón.
+000000012D74.07C: Muérdago
 000000012D79.07C: Efectos de explosión de energía
 000000012D81.07C: Cualquiera
 000000012D82.07C: Amigos
 000000012D88.07C: Se desbloquea al participar en el desafío PachiMarzi.
-000000012D90.07C: Tropical PH
 000000012D91.07C: Recibir invitaciones a partidas personalizadas de:
 000000012D92.07C: Recibir solicitudes de invitación a partidas personalizadas
 000000012D93.07C: Efectos de impacto simples
@@ -32952,6 +32952,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 00000001391E.07C: Juega 9/18/27 partidas rápidas, de Arcade o competitivas. Las victorias cuentan como dos partidas.
 00000001391F.07C: Solo jugadores de PC
 000000013920.07C: Solo jugadores de consola
+000000013922.07C: Lanita
 000000013923.07C: Solo partida de PC
 000000013924.07C: Solo partidas de consola
 000000013927.07C: Chat
@@ -32978,6 +32979,8 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 0000000139CF.07C: Se te ha eliminado porque tu plataforma ya no está permitida en la partida personalizada.
 0000000139D0.07C: Medalla
 0000000139DA.07C: No te has podido unir al grupo por ajustes incompatibles del juego multiplataforma.
+0000000139DC.07C: Brindis
+0000000139DF.07C: Brindis
 0000000139E2.07C: Se desbloquea al participar en el desafío Deadlock de Ashe
 0000000139E7.07C: Forajidos
 0000000139E8.07C: Ashe de Deadlock
@@ -33000,6 +33003,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A4A.07C: Cazavampiros
 000000013A4B.07C: blizz.ly/OWCrossPlay
 000000013A4C.07C: ¡Obtén más información y forma un equipo!
+000000013A4E.07C: Rena
 000000013A4F.07C: PlayStation
 000000013A50.07C: Otras plataformas
 000000013A51.07C: Entra en
@@ -33191,6 +33195,7 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001406E.07C: Opciones del modo de juego
 00000001407C.07C: Este canal de chat está desactivado. Para ver o modificar este ajuste, ve a la pestaña «Social» de Opciones.
 00000001407E.07C: Filtro de búsqueda
+000000014081.07C: Esquiador
 0000000140A6.07C: Marcar como favorito
 0000000140C2.07C: Se está llenando, ¡vuelve más tarde!
 0000000140C3.07C: Código del juego
@@ -33234,6 +33239,8 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001434B.07C: Pausa para el té
 000000014366.07C: Malevento
 000000014369.07C: Calabaza
+000000014381.07C: Piloto de trineos
+000000014386.07C: Ángel de lava
 0000000143FC.07C: Las repeticiones no se pueden ver durante la partida ni en una sala de partida personalizada.
 000000014412.07C: Competidor de Eliminación 3c3 competitivo de 2021
 000000014413.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo de Eliminación 3c3 de 2021
@@ -33244,6 +33251,7 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000014418.07C: Héroe competitivo de Eliminación 3c3 de 2021
 000000014419.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Eliminación 3c3 de 2021
 000000014560.07C: 2020
+000000014585.07C: Muñeco de nieve
 000000014599.07C: Paso zombi
 000000014611.07C: Combate a muerte por equipos competitivo
 000000014612.07C: Conseguid la puntuación más alta. El equipo más letal gana.
@@ -33267,19 +33275,9 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001468A.07C: Solo mirando al objetivo
 00000001468B.07C: Prefiero objetivo del haz
 00000001468C.07C: Prefiero mirando al objetivo
+0000000146DE.07C: Espectro helado
 00000001471A.07C: Fuegos artificiales de dragón
 00000001471B.07C: Se desbloquea al ver el torneo Summer Showdown de la Overwatch League 2021
-000000014738.07C: CONTINUAR
-000000014739.07C: ¡Vuelven las recompensas favoritas de Halloween de años anteriores junto con aspectos y objetos nuevos!
-00000001473A.07C: ¡El retorno de Junkenstein!
-00000001473B.07C: ¡Enfréntate al Dr. Junkenstein y a sus aliados en modos sin fin y complicadas misiones!
-00000001473C.07C: Halloween 2021
-00000001473D.07C: El evento termina el 2 de noviembre
-00000001473E.07C: Desbloquea aspectos épicos
-00000001473F.07C: Desafíos semanales
-000000014740.07C: Semana 1
-000000014741.07C: Semana 2
-000000014742.07C: Semana 3
 000000014776.07C: Héroe de la temporada 31
 000000014777.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 31
 000000014778.07C: Competidor de la temporada 31
@@ -33288,6 +33286,10 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001477B.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 31
 00000001477C.07C: Competidor de la temporada 31
 00000001477D.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 31
+00000001477E.07C: Temporada 32
+00000001477F.07C: Temporada 32
+000000014780.07C: Temporada 32
+000000014781.07C: Temporada 32
 000000014798.07C: Minicampeón
 000000014799.07C: Se desbloquea al ver la gran final de la Overwatch League 2021
 0000000147A2.07C: Halloween terrorífico 2021
@@ -33341,9 +33343,112 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000014812.07C: Sátiro
 000000014813.07C: Calabaza
 000000014814.07C: Calabaza
-000000014E77.07C: Desafío Sangre Nueva de Cassidy
-000000015084.07C: https://playoverwatch.com/es-es/media/stories/new-blood-1
-000000015085.07C: Cassidy - Sangre nueva
-000000015086.07C: Nuevo cómic
-00000001508A.07C: https://ow.blizzard.cn/media/stories
-[Core] Execution finished in 00:00:04.2742968 seconds
+000000014AAE.07C: Brindis
+00000001500A.07C: Se desbloquea al ver el Torneo de Countdown Cup de la Overwatch League 2021
+00000001500C.07C: Dominio de Gladiators
+000000015063.07C: Entra en combate fuera de una sala de inicio.
+000000015093.07C: Un regalo agradable
+00000001509C.07C: Nevada
+0000000151AF.07C: Lanita
+0000000151B0.07C: Se desbloquea al participar en el desafío de la semana 1 de Inverlandia de 2021
+0000000151B1.07C: Muérdago
+0000000151B3.07C: Se desbloquea al participar en el desafío de la semana 2 de Inverlandia de 2021
+0000000151B4.07C: Reflejo de dulce de menta
+0000000151B5.07C: Se desbloquea al participar en el desafío de la semana 3 de Inverlandia de 2021
+0000000151B6.07C: Lanita
+0000000151B7.07C: Se desbloquea al participar en el desafío de la semana 1 de Inverlandia de 2021
+0000000151B8.07C: Muérdago
+0000000151B9.07C: Se desbloquea al participar en el desafío de la semana 2 de Inverlandia de 2021
+0000000151BA.07C: Reflejo de dulce de menta
+0000000151BB.07C: Se desbloquea al participar en el desafío de la semana 3 de Inverlandia de 2021
+0000000151BC.07C: Disponible en las cajas de botín de Inverlandia
+0000000151BD.07C: Disponible en las cajas de botín de Inverlandia
+0000000151BE.07C: Disponible en las cajas de botín de Inverlandia
+0000000151BF.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C0.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C1.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C2.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C3.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C4.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C5.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C6.07C: Disponible en las cajas de botín de Inverlandia
+0000000151C7.07C: Se desbloquea al participar en el desafío de la semana 3 de Inverlandia de 2021
+0000000151C8.07C: Se desbloquea al participar en el desafío de la semana 1 de Inverlandia de 2021
+0000000151C9.07C: Se desbloquea al participar en el desafío de la semana 2 de Inverlandia de 2021
+0000000151D1.07C: Modo competitivo Sin limitaciones
+0000000151D2.07C: Salta al campo de batalla y compite con los mejores jugadores del mundo sin limitaciones en la selección de héroes.
+0000000151D3.07C: Temporada 2 del modo competitivo Sin limitaciones
+0000000151DD.07C: Competidor del modo competitivo Sin limitaciones de 2021
+0000000151DE.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo Sin limitaciones de 2021
+0000000151DF.07C: Héroe del modo competitivo Sin limitaciones de 2021
+0000000151E0.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo Sin limitaciones de 2021
+0000000151E1.07C: Competidor del modo competitivo Sin limitaciones de 2021
+0000000151E2.07C: Se desbloquea al completar las partidas de posicionamiento del modo competitivo Sin limitaciones de 2021
+0000000151E3.07C: Héroe del modo competitivo Sin limitaciones de 2021
+0000000151E4.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo Sin limitaciones de 2021
+0000000151E6.07C: Muñeco de nieve
+0000000151E7.07C: Disponible en las cajas de botín de Inverlandia
+0000000151E8.07C: Espectro helado
+0000000151E9.07C: Disponible en las cajas de botín de Inverlandia
+0000000151EA.07C: Bolsa de regalos
+0000000151EB.07C: Disponible en las cajas de botín de Inverlandia
+0000000151F6.07C: Esquiador
+0000000151F7.07C: Disponible en las cajas de botín de Inverlandia
+0000000151F8.07C: Rena
+0000000151F9.07C: Disponible en las cajas de botín de Inverlandia
+0000000151FA.07C: Felices fiestas
+0000000151FB.07C: Disponible en las cajas de botín de Inverlandia
+0000000151FE.07C: ¡Vamos con el trineo!
+0000000151FF.07C: Disponible en las cajas de botín de Inverlandia
+000000015200.07C: Un regalo para ti
+000000015201.07C: Disponible en las cajas de botín de Inverlandia
+000000015202.07C: Chocolate a la taza
+000000015203.07C: Disponible en las cajas de botín de Inverlandia
+000000015204.07C: ¡Está nevando!
+000000015205.07C: Disponible en las cajas de botín de Inverlandia
+000000015206.07C: ¡Avalancha!
+000000015207.07C: Disponible en las cajas de botín de Inverlandia
+000000015208.07C: El frío a mí nunca me molestó
+000000015209.07C: Disponible en las cajas de botín de Inverlandia
+00000001520A.07C: Para ti, carbón
+00000001520B.07C: Disponible en las cajas de botín de Inverlandia
+00000001520C.07C: ¿Esto os parece frío?
+00000001520D.07C: Disponible en las cajas de botín de Inverlandia
+00000001520E.07C: ¡Feliz Navidad!
+00000001520F.07C: Disponible en las cajas de botín de Inverlandia
+000000015210.07C: Galletas
+000000015211.07C: Disponible en las cajas de botín de Inverlandia
+000000015232.07C: Espectro helado
+000000015233.07C: Disponible en las cajas de botín de Inverlandia
+000000015234.07C: Hammond Noel
+000000015235.07C: Disponible en las cajas de botín de Inverlandia
+000000015236.07C: Frescolegas
+000000015237.07C: Disponible en las cajas de botín de Inverlandia
+000000015238.07C: Esquiador
+000000015239.07C: Disponible en las cajas de botín de Inverlandia
+00000001523A.07C: Rena
+00000001523B.07C: Disponible en las cajas de botín de Inverlandia
+00000001523F.07C: Competidor de la temporada 32
+000000015240.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 32
+000000015241.07C: Héroe de la temporada 32
+000000015242.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 32
+000000015243.07C: Competidor de la temporada 32
+000000015244.07C: Se desbloquea al completar las partidas de posicionamiento de la temporada 32
+000000015245.07C: Héroe de la temporada 32
+000000015246.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 32
+000000015274.07C: Inverlandia 2021
+000000015275.07C: 2022
+000000015276.07C: Disponible en las cajas de botín de Inverlandia
+000000015284.07C: Semana 1: desafío de Tracer lanita
+000000015286.07C: Semana 2: desafío de Symmetra muérdago
+000000015287.07C: Semana 3: desafío de Brigitte reflejo de dulce de menta
+000000015331.07C: CONTINUAR
+000000015336.07C: El evento termina el 6 de enero
+000000015337.07C: Desbloquea nuevos aspectos
+000000015338.07C: Desafíos semanales
+000000015339.07C: Semana 1
+00000001533A.07C: Semana 2
+00000001533B.07C: Semana 3
+000000015340.07C: ¡Pásatelo genial en la nieve con las trifulcas de invierno!
+000000015341.07C: ¡Vuelve el evento Inverlandia con recompensas nuevas que se suman a las favoritas de años anteriores!
+[Core] Execution finished in 00:00:00.4850510 seconds
