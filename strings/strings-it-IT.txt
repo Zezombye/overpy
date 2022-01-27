@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=itIT", "-T=itIT"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: itIT | Speech Language: itIT
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LitIT_speech_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LitIT_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30121,6 +30121,8 @@ Inoltre, entrerai a far parte della selezione degli esclusi per questa stagione 
 0000000133AD.07C: Scala la classifica e affronta i migliori giocatori di Deathmatch del mondo!
 0000000133B0.07C: Mostra solo formazioni PC
 0000000133B1.07C: Mostra solo formazioni console
+0000000133B2.07C: Risse Lunari
+0000000133B3.07C: Modalità di gioco CLB
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33000,6 +33002,7 @@ Le vittorie contano come due partite.
 000000013A5A.07C: Le tue impostazioni di Cross-Play aggiornate avranno effetto dopo questa coda.
 000000013A5B.07C: La tua formazione è stata rimossa dalla coda a causa delle impostazioni di Cross-Play aggiornate della tua formazione.
 000000013A66.07C: Impossibile invitare il giocatore a causa di impostazioni di Cross-Play incompatibili.
+000000013A8F.07C: Auspicio
 000000013A9D.07C: Haroeris
 000000013AAC.07C: Coppa Lúcioball 2021
 000000013AAD.07C: Coppa Lúcioball
@@ -33026,6 +33029,7 @@ Le vittorie contano come due partite.
 000000013B76.07C: Cross-Play abilitato. Potresti imbatterti in giocatori di altre reti.
 000000013B7F.07C: Alcune personalizzazioni degli eroi non sono disponibili in questa istanza.
 000000013C49.07C: Alcuni giocatori potrebbero non vedere i tuoi messaggi a causa delle impostazioni di comunicazione di Cross-Play.
+000000013C6A.07C: Prosperità
 000000013C7C.07C: La tua formazione è stata rimossa dalla coda perché la tua formazione non è più idonea.
 000000013C84.07C: Si è verificata una disconnessione perché si è effettuato l'accesso altrove con l'account Battle.net
 000000013C8E.07C: Impossibile invitare il giocatore a causa delle impostazioni di Cross-Play della partita personalizzata.
@@ -33137,6 +33141,7 @@ Le vittorie contano come due partite.
 000000013F82.07C: Invia segnalazione
 000000013F83.07C: Annulla
 000000013FC5.07C: Nave Pirata
+000000013FCB.07C: Porcellana
 000000013FF3.07C: Popolari
 000000013FF4.07C: DAS Malevento
 000000013FF5.07C: Scala la classifica: la squadra più letale vince.
@@ -33211,6 +33216,7 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 000000014298.07C: DI TENDENZA
 000000014299.07C: POPOLARI
 00000001429A.07C: IN EVIDENZA
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Sbloccato per aver partecipato alla Sfida Nuove Reclute di Cassidy
 0000000142F3.07C: Tempesta di Sabbia
 0000000142F4.07C: Vecchi Amici
@@ -33267,6 +33273,7 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 00000001468A.07C: Solo Bersaglio Frontale
 00000001468B.07C: Preferisci Bersaglio del Raggio
 00000001468C.07C: Preferisci Bersaglio Frontale
+0000000146BF.07C: Nezha
 0000000146DE.07C: Spettro di Ghiaccio
 00000001471A.07C: Fuochi dei Dragons
 00000001471B.07C: Sbloccato per aver guardato il torneo Overwatch League Summer Showdown 2021
@@ -33336,6 +33343,9 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 000000014813.07C: Zucca
 000000014814.07C: Zucca
 000000014AAE.07C: Brindisi
+000000014FFA.07C: Ventaglio
+000000014FFB.07C: Lanterna
+000000014FFD.07C: Stelline Scintillanti
 00000001500A.07C: Sbloccato per aver guardato il Countdown Cup Tournament dell'Overwatch League 2021
 00000001500C.07C: Gladiators Scatenati
 000000015063.07C: Entra in combattimento fuori dall'area di partenza.
@@ -33431,16 +33441,94 @@ Se vuoi riattivare le impostazioni influenzate, vai alla scheda "Impostazioni re
 000000015274.07C: Magico Inverno 2021
 000000015275.07C: 2022
 000000015276.07C: Disponibile nei Forzieri Invernali
-000000015284.07C: Settimana 1: Sfida Maglione di Lana di Tracer
-000000015286.07C: Settimana 2: Sfida Vischio di Symmetra
-000000015287.07C: Settimana 3: Sfida Cioccolatino alla Menta di Brigitte
-000000015331.07C: CONTINUA
-000000015336.07C: L'evento termina il 6 gennaio
-000000015337.07C: Sblocca nuovi modelli
-000000015338.07C: Sfide Settimanali
-000000015339.07C: Settimana 1
-00000001533A.07C: Settimana 2
-00000001533B.07C: Settimana 3
-000000015340.07C: Divertiti sulla neve con le nostre risse invernali!
-000000015341.07C: Torna Magico Inverno, con nuovi oggetti che si aggiungono ai tuoi preferiti degli scorsi anni!
-[Core] Execution finished in 00:00:00.5541872 seconds
+000000015284.07C: Settimana 1: Sfida Prosperità di Ashe
+000000015286.07C: Settimana 2: Sfida Auspicio di Soldato-76
+000000015287.07C: Settimana 3: Sfida Porcellana di Wrecking Ball
+000000015443.07C: Lanterna Volante
+00000001544E.07C: Ventaglio Danzante
+000000015452.07C: Corea del Sud 3
+000000015453.07C: USA - Est 2
+000000015479.07C: Che bel gattone...
+00000001547A.07C: Disponibile nei Forzieri Lunari
+0000000154A0.07C: Proprio come il tappeto di casa mia
+0000000154A1.07C: Disponibile nei Forzieri Lunari
+0000000154A2.07C: Nessuna pietà per le tigri
+0000000154A3.07C: Disponibile nei Forzieri Lunari
+0000000154A4.07C: Quando il dito indica la luna
+0000000154A5.07C: Disponibile nei Forzieri Lunari
+0000000154A6.07C: Mangerò più ravioli di tutti voi
+0000000154A7.07C: Disponibile nei Forzieri Lunari
+0000000154A8.07C: Di un anno più vecchia
+0000000154A9.07C: Disponibile nei Forzieri Lunari
+0000000154AA.07C: Buon Anno della Tigre
+0000000154AB.07C: Disponibile nei Forzieri Lunari
+0000000154AC.07C: Sempre meglio che starci davanti
+0000000154AD.07C: Disponibile nei Forzieri Lunari
+0000000154AE.07C: Ti prenderò, e quando succederà...
+0000000154AF.07C: Disponibile nei Forzieri Lunari
+0000000154B0.07C: Ma che artigli grandi che hai
+0000000154B1.07C: Disponibile nei Forzieri Lunari
+0000000154B2.07C: Che splendido raduno
+0000000154B3.07C: Disponibile nei Forzieri Lunari
+0000000154B4.07C: Il nero è il mio colore fortunato
+0000000154B5.07C: Disponibile nei Forzieri Lunari
+0000000154BA.07C: (non assegnato)
+0000000154C3.07C: Zuccotto
+0000000154C4.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 1
+0000000154C5.07C: Seolbim
+0000000154C6.07C: Disponibile nei Forzieri Lunari
+0000000154C7.07C: Distici Primaverili
+0000000154C8.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 1
+0000000154C9.07C: Auspicio
+0000000154CA.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 2
+0000000154CB.07C: Pratica delle Forme
+0000000154CC.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 2
+0000000154CD.07C: Porcellana
+0000000154CE.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 3
+0000000154CF.07C: Tè
+0000000154D0.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 3
+0000000154D1.07C: Dispetto di Nezha
+0000000154D2.07C: Disponibile nei Forzieri Lunari
+0000000154D3.07C: Nezha
+0000000154D4.07C: Disponibile nei Forzieri Lunari
+0000000154D5.07C: Seolbim
+0000000154D6.07C: Disponibile nei Forzieri Lunari
+0000000154D7.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 1
+0000000154D8.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 2
+0000000154D9.07C: Sbloccato per aver partecipato alla sfida dell'Anno della Tigre 2022, Settimana 3
+0000000154DD.07C: Disponibile nei Forzieri Lunari
+0000000154DE.07C: Disponibile nei Forzieri Lunari
+0000000154DF.07C: Disponibile nei Forzieri Lunari
+0000000154E0.07C: Disponibile nei Forzieri Lunari
+0000000154E1.07C: Disponibile nei Forzieri Lunari
+0000000154E2.07C: Liberazione
+0000000154E3.07C: Disponibile nei Forzieri Lunari
+0000000154E4.07C: Anno della Tigre 2022
+00000001550A.07C: CONTINUA
+00000001550B.07C: Festeggia l'Anno della Tigre con Forzieri Lunari! Ottieni nuovi modelli, emote e molto altro!
+00000001550C.07C: Cattura la Bandiera (competitiva)
+00000001550D.07C: Cattura la bandiera e Cacciatori di Taglie fanno ritorno!
+00000001550E.07C: L'evento termina il 15 febbraio
+00000001550F.07C: Sfide Settimanali
+000000015510.07C: Settimana 1
+000000015511.07C: Settimana 2
+000000015512.07C: Settimana 3
+000000015513.07C: Celebrazione della Luna
+000000015514.07C: Anno della Tigre
+000000015515.07C: Stagione 5 disponibile ora
+000000015516.07C: Sblocca nuovi modelli
+00000001551A.07C: Eroe CLB (competitiva) 2022
+00000001551B.07C: Sbloccato per essere entrato nella Top 500 di Cattura la Bandiera (competitiva) 2022
+00000001551C.07C: Eroe CLB (competitiva) 2022
+00000001551D.07C: Sbloccato per essere entrato nella Top 500 di Cattura la Bandiera (competitiva) 2022
+00000001551E.07C: Concorrente CLB (competitiva) 2022
+00000001551F.07C: Sbloccato per aver completato le partite di piazzamento di Cattura la Bandiera (competitiva) 2022
+000000015520.07C: Concorrente CLB (competitiva) 2022
+000000015521.07C: Sbloccato per aver completato le partite di piazzamento di Cattura la Bandiera (competitiva) 2022
+00000001552A.07C: Cattura la Bandiera (competitiva)
+00000001552B.07C: Scala la classifica e affronta i migliori giocatori di Cattura la Bandiera del mondo!
+00000001552C.07C: Anno della Tigre
+00000001552D.07C: Disponibile nei Forzieri Lunari
+00000001552E.07C: CLB (competitiva) - Stagione 5
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4771876 seconds

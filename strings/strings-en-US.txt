@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [Core] Tooling...
@@ -30085,6 +30085,8 @@ You will also be placed in the opt-out pool for this competitive season.
 0000000133AD.07C: Rise up the ranks and compete with the best Deathmatch players in the world!
 0000000133B0.07C: Show PC Groups Only
 0000000133B1.07C: Show Console Groups Only
+0000000133B2.07C: Lunar Brawls
+0000000133B3.07C: CTF Game Modes
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -32963,6 +32965,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Your updated Cross-Play settings will take effect after this queue.
 000000013A5B.07C: Your group has been removed from the queue due to your group’s updated Cross-Play settings.
 000000013A66.07C: Unable to invite player due to incompatible Cross-Play settings.
+000000013A8F.07C: Auspicious
 000000013A9D.07C: Haroeris
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
@@ -32989,6 +32992,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013B76.07C: Cross-Play enabled. You may encounter cross-network players.
 000000013B7F.07C: Some of your hero customization is unavailable in this instance.
 000000013C49.07C: Some players may not be able to see your messages due to your Cross-Play communication settings.
+000000013C6A.07C: Prosperity
 000000013C7C.07C: Your group has been removed from the queue as your group is no longer eligible.
 000000013C84.07C: Disconnected because the Battle.net account was logged in somewhere else
 000000013C8E.07C: Unable to invite player due to the custom game's Cross-Play settings.
@@ -33100,6 +33104,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F82.07C: Send Report
 000000013F83.07C: Cancel
 000000013FC5.07C: Pirate Ship
+000000013FCB.07C: Porcelain
 000000013FF3.07C: Popular
 000000013FF4.07C: Malevento TDM
 000000013FF5.07C: Climb to the top of the scoreboard. The deadliest team wins.
@@ -33174,6 +33179,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014298.07C: TRENDING
 000000014299.07C: POPULAR
 00000001429A.07C: FEATURED
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Unlocked by participating in Cassidy's New Blood Challenge
 0000000142F3.07C: Sandstorm
 0000000142F4.07C: Old Friends
@@ -33226,6 +33232,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001468A.07C: Facing Target Only
 00000001468B.07C: Prefer Beam Target
 00000001468C.07C: Prefer Facing Target
+0000000146BF.07C: Nezha
 0000000146DE.07C: Ice Wraith
 00000001471A.07C: Dragons' Fireworks
 00000001471B.07C: Unlocked by watching the 2021 Overwatch League Summer Showdown Tournament
@@ -33295,6 +33302,9 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014813.07C: Pumpkin
 000000014814.07C: Pumpkin
 000000014AAE.07C: Toast
+000000014FFA.07C: Fan
+000000014FFB.07C: Lantern
+000000014FFD.07C: Sparklers
 00000001500A.07C: Unlocked by watching the 2021 Overwatch League Countdown Cup Tournament
 00000001500C.07C: Gladiators Unleashed
 000000015063.07C: Engage in combat outside a spawn room.
@@ -33390,16 +33400,94 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000015274.07C: Winter Wonderland 2021
 000000015275.07C: 2022
 000000015276.07C: Available in Winter Loot Boxes
-000000015284.07C: Week 1: Wooltide Tracer Challenge
-000000015286.07C: Week 2: Mistletoe Symmetra Challenge
-000000015287.07C: Week 3: Peppermint Bark Brigitte Challenge
-000000015331.07C: CONTINUE
-000000015336.07C: Event Ends Jan 6
-000000015337.07C: Unlock New Skins
-000000015338.07C: Weekly Challenges
-000000015339.07C: Week 1
-00000001533A.07C: Week 2
-00000001533B.07C: Week 3
-000000015340.07C: Frolic in the snow with our winter brawls!
-000000015341.07C: The Winter Wonderland event returns, with favorites from previous years back alongside new items!
-[Core] Execution finished in 00:00:00.4708785 seconds
+000000015284.07C: Week 1: Prosperity Ashe Challenge
+000000015286.07C: Week 2: Auspicious Soldier: 76 Challenge
+000000015287.07C: Week 3: Porcelain Wrecking Ball Challenge
+000000015443.07C: Sky Lantern
+00000001544E.07C: Fan Tricks
+000000015452.07C: South Korea 3
+000000015453.07C: USA - East 2
+000000015479.07C: Good Kitty
+00000001547A.07C: Available in Lunar Loot Boxes
+0000000154A0.07C: Earned My Stripes
+0000000154A1.07C: Available in Lunar Loot Boxes
+0000000154A2.07C: No Mercy for the Tiger
+0000000154A3.07C: Available in Lunar Loot Boxes
+0000000154A4.07C: One Moon
+0000000154A5.07C: Available in Lunar Loot Boxes
+0000000154A6.07C: More Dumplings
+0000000154A7.07C: Available in Lunar Loot Boxes
+0000000154A8.07C: One Year Older
+0000000154A9.07C: Available in Lunar Loot Boxes
+0000000154AA.07C: Happy Year of the Tiger
+0000000154AB.07C: Available in Lunar Loot Boxes
+0000000154AC.07C: Tiger by the Tail
+0000000154AD.07C: Available in Lunar Loot Boxes
+0000000154AE.07C: I'll Catch You
+0000000154AF.07C: Available in Lunar Loot Boxes
+0000000154B0.07C: This One Has Teeth
+0000000154B1.07C: Available in Lunar Loot Boxes
+0000000154B2.07C: Delightful Get-Together
+0000000154B3.07C: Available in Lunar Loot Boxes
+0000000154B4.07C: Lucky Color
+0000000154B5.07C: Available in Lunar Loot Boxes
+0000000154BA.07C: (Unbound)
+0000000154C3.07C: Skullcap
+0000000154C4.07C: Unlocked by participating in the Year of the Tiger 2022 Week 1 challenge
+0000000154C5.07C: Seolbim
+0000000154C6.07C: Available in Lunar Loot Boxes
+0000000154C7.07C: Spring Couplets
+0000000154C8.07C: Unlocked by participating in the Year of the Tiger 2022 Week 1 challenge
+0000000154C9.07C: Auspicious
+0000000154CA.07C: Unlocked by participating in the Year of the Tiger 2022 Week 2 challenge
+0000000154CB.07C: Practicing Forms
+0000000154CC.07C: Unlocked by participating in the Year of the Tiger 2022 Week 2 challenge
+0000000154CD.07C: Porcelain
+0000000154CE.07C: Unlocked by participating in the Year of the Tiger 2022 Week 3 challenge
+0000000154CF.07C: Tea
+0000000154D0.07C: Unlocked by participating in the Year of the Tiger 2022 Week 3 challenge
+0000000154D1.07C: Nezha's Mischief
+0000000154D2.07C: Available in Lunar Loot Boxes
+0000000154D3.07C: Nezha
+0000000154D4.07C: Available in Lunar Loot Boxes
+0000000154D5.07C: Seolbim
+0000000154D6.07C: Available in Lunar Loot Boxes
+0000000154D7.07C: Unlocked by participating in the Year of the Tiger 2022 Week 1 challenge
+0000000154D8.07C: Unlocked by participating in the Year of the Tiger 2022 Week 2 challenge
+0000000154D9.07C: Unlocked by participating in the Year of the Tiger 2022 Week 3 challenge
+0000000154DD.07C: Available in Lunar Loot Boxes
+0000000154DE.07C: Available in Lunar Loot Boxes
+0000000154DF.07C: Available in Lunar Loot Boxes
+0000000154E0.07C: Available in Lunar Loot Boxes
+0000000154E1.07C: Available in Lunar Loot Boxes
+0000000154E2.07C: Release
+0000000154E3.07C: Available in Lunar Loot Boxes
+0000000154E4.07C: Year of the Tiger 2022
+00000001550A.07C: CONTINUE
+00000001550B.07C: Celebrate the Year of the Tiger with Lunar Loot Boxes! Earn new skins, emotes, and more!
+00000001550C.07C: Competitive CTF
+00000001550D.07C: Capture the Flag and Bounty Hunter return!
+00000001550E.07C: Event Ends Feb 15
+00000001550F.07C: Weekly Challenges
+000000015510.07C: Week 1
+000000015511.07C: Week 2
+000000015512.07C: Week 3
+000000015513.07C: Lunar Festival
+000000015514.07C: Year of the Tiger
+000000015515.07C: Season 5 Now Live
+000000015516.07C: Unlock new skins
+00000001551A.07C: Competitive CTF Hero 2022
+00000001551B.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2022
+00000001551C.07C: Competitive CTF Hero 2022
+00000001551D.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2022
+00000001551E.07C: Competitive CTF Competitor 2022
+00000001551F.07C: Unlocked by completing Competitive Capture the Flag 2022 placement matches
+000000015520.07C: Competitive CTF Competitor 2022
+000000015521.07C: Unlocked by completing Competitive Capture the Flag 2022 placement matches
+00000001552A.07C: Competitive CTF
+00000001552B.07C: Rise up the ranks and compete with the best Capture The Flag players in the world!
+00000001552C.07C: Year of the Tiger
+00000001552D.07C: Available in Lunar Loot Boxes
+00000001552E.07C: Competitive CTF Season 5
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4541201 seconds

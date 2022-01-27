@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30414,6 +30414,8 @@ Umieścimy cię również w puli opt-out dla tego sezonu Rywalizacji.
 0000000133AD.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
 0000000133B0.07C: Pokazuj tylko ekipy pecetowe
 0000000133B1.07C: Pokazuj tylko ekipy konsolowe
+0000000133B2.07C: Księżycowe Rozróby
+0000000133B3.07C: Tryby gry – Zdobywanie flagi
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33299,6 +33301,7 @@ oraz powrót poprzednich elementów i trybów gry!
 000000013A5A.07C: Twoje zaktualizowane ustawienia gry międzyplatformowej wejdą w życie po tej kolejce.
 000000013A5B.07C: Twoją grupę usunięto z kolejki w związku ze zmianą ustawień gry międzyplatformowej.
 000000013A66.07C: Nie można zapraszać graczy z powodu niekompatybilnych ustawień rozgrywki międzyplatformowej.
+000000013A8F.07C: Pomyślność
 000000013A9D.07C: Haroeris
 000000013AAC.07C: Copa Futbolúcio 2021
 000000013AAD.07C: Copa Futbolúcio
@@ -33327,6 +33330,7 @@ w sezonie 29.
 000000013B76.07C: Gra międzyplatformowa włączona. Możesz napotkać graczy z innych platform.
 000000013B7F.07C: W tym momencie część opcji personalizacji postaci jest niedostępna.
 000000013C49.07C: Niektórzy gracze mogą nie widzieć twoich wiadomości z powodu ustawień komunikacji międzyplatformowej.
+000000013C6A.07C: Dobrobyt
 000000013C7C.07C: Twoja grupa została usunięta z kolejki, ponieważ nie kwalifikuje się już do udziału.
 000000013C84.07C: Rozłączono cię, ponieważ konto Battle.net było zalogowane na innym urządzeniu.
 000000013C8E.07C: Nie można zapraszać graczy z powodu ustawień rozgrywki międzyplatformowej gry dowolnej.
@@ -33468,6 +33472,7 @@ z letnich igrzysk
 000000013F82.07C: Wyślij zgłoszenie
 000000013F83.07C: Anuluj
 000000013FC5.07C: Statek Piracki
+000000013FCB.07C: Porcelana
 000000013FF3.07C: Popularne
 000000013FF4.07C: Malevento DMD
 000000013FF5.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
@@ -33542,6 +33547,7 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 000000014298.07C: NA CZASIE
 000000014299.07C: POPULARNE
 00000001429A.07C: POLECANE
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Nagroda za udział w wyzwaniu Cassidy'ego: Świeża krew.
 0000000142F3.07C: Burza piaskowa
 0000000142F4.07C: Starzy znajomi
@@ -33606,6 +33612,7 @@ w Drużynowym Deathmatchu 2021
 00000001468A.07C: Wyłącznie cel przed postacią
 00000001468B.07C: Preferuj cel wiązki
 00000001468C.07C: Preferuj cel przed postacią
+0000000146BF.07C: Nezha
 0000000146DE.07C: Lodowy upiór
 00000001471A.07C: Smocze fajerwerki
 00000001471B.07C: Nagroda z oglądanie turnieju Overwatch League Summer Showdown 2021
@@ -33677,6 +33684,9 @@ w sezonie 31.
 000000014813.07C: Dynia
 000000014814.07C: Dynia
 000000014AAE.07C: Toast
+000000014FFA.07C: Wachlarz
+000000014FFB.07C: Lampion
+000000014FFD.07C: Zimne ognie
 00000001500A.07C: Nagroda za oglądanie turnieju Overwatch League Countdown Cup 2021
 00000001500C.07C: Nieustraszeni gladiatorzy
 000000015063.07C: Weź udział w walce poza pomieszczeniem startowym.
@@ -33780,17 +33790,104 @@ w sezonie 32.
 000000015274.07C: Zimowa Kraina Czarów 2021
 000000015275.07C: 2022
 000000015276.07C: Zawartość zimowych skrzynek
-000000015284.07C: Tydzień 1: Wyzwanie Smugi: Wełniara
-000000015286.07C: Tydzień 2: Wyzwanie Symmetry: Jemioła
-000000015287.07C: Tydzień 3: Wyzwanie Brigitte: Świąteczna słodycz
-000000015331.07C: KONTYNUUJ
-000000015336.07C: Koniec wydarzenia 6 stycznia
-000000015337.07C: Odblokuj nowe skórki
-000000015338.07C: Cotygodniowe wyzwania
-000000015339.07C: Tydzień 1
-00000001533A.07C: Tydzień 2
-00000001533B.07C: Tydzień 3
-000000015340.07C: Baw się na śniegu w naszych zimowych rozróbach!
-000000015341.07C: Zimowa Kraina Czarów powraca wraz z twoimi ulubionymi elementami z zeszłego roku
-oraz zupełnie nowymi!
-[Core] Execution finished in 00:00:00.4825855 seconds
+000000015284.07C: Tydzień 1: Wyzwanie Ashe: Dobrobyt
+000000015286.07C: Tydzień 2: Wyzwanie Żołnierza-76: Pomyślność
+000000015287.07C: Tydzień 3: wyzwanie Burzyciela: Porcelana
+000000015443.07C: Lampion
+00000001544E.07C: Sztuczki z wachlarzem
+000000015452.07C: Korea Południowa 3
+000000015453.07C: Stany Zjednoczone – Wschód 2
+000000015479.07C: Dobry kotek
+00000001547A.07C: Zawartość księżycowych skrzynek
+0000000154A0.07C: Nie myl łowcy ze zwierzyną
+0000000154A1.07C: Zawartość księżycowych skrzynek
+0000000154A2.07C: Nie ma łaski dla tygrysa
+0000000154A3.07C: Zawartość księżycowych skrzynek
+0000000154A4.07C: Jeden księżyc
+0000000154A5.07C: Zawartość księżycowych skrzynek
+0000000154A6.07C: Więcej pierożków
+0000000154A7.07C: Zawartość księżycowych skrzynek
+0000000154A8.07C: Rok starsza
+0000000154A9.07C: Zawartość księżycowych skrzynek
+0000000154AA.07C: Wesołego Roku Tygrysa!
+0000000154AB.07C: Zawartość księżycowych skrzynek
+0000000154AC.07C: Tygrys złapany za ogon
+0000000154AD.07C: Zawartość księżycowych skrzynek
+0000000154AE.07C: Dopadnę cię
+0000000154AF.07C: Zawartość księżycowych skrzynek
+0000000154B0.07C: Oho, pokazuje pazurki
+0000000154B1.07C: Zawartość księżycowych skrzynek
+0000000154B2.07C: Cóż za cudowne spotkanie
+0000000154B3.07C: Zawartość księżycowych skrzynek
+0000000154B4.07C: Szczęśliwy kolor
+0000000154B5.07C: Zawartość księżycowych skrzynek
+0000000154BA.07C: (Nieprzypisany)
+0000000154C3.07C: Czapeczka
+0000000154C4.07C: Nagroda za udział w wyzwaniu 1. tygodnia Roku Tygrysa 2022
+0000000154C5.07C: Seolbim
+0000000154C6.07C: Zawartość księżycowych skrzynek
+0000000154C7.07C: Noworoczne duiliany
+0000000154C8.07C: Nagroda za udział w wyzwaniu 1. tygodnia Roku Tygrysa 2022
+0000000154C9.07C: Pomyślność
+0000000154CA.07C: Nagroda za udział w wyzwaniu 2. tygodnia Roku Tygrysa 2022
+0000000154CB.07C: Ćwiczenie form
+0000000154CC.07C: Nagroda za udział w wyzwaniu 2. tygodnia Roku Tygrysa 2022
+0000000154CD.07C: Porcelana
+0000000154CE.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Tygrysa 2022
+0000000154CF.07C: Herbata
+0000000154D0.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Tygrysa 2022
+0000000154D1.07C: Psoty Nezhy
+0000000154D2.07C: Zawartość księżycowych skrzynek
+0000000154D3.07C: Nezha
+0000000154D4.07C: Zawartość księżycowych skrzynek
+0000000154D5.07C: Seolbim
+0000000154D6.07C: Zawartość księżycowych skrzynek
+0000000154D7.07C: Nagroda za udział w wyzwaniu 1. tygodnia Roku Tygrysa 2022
+0000000154D8.07C: Nagroda za udział w wyzwaniu 2. tygodnia Roku Tygrysa 2022
+0000000154D9.07C: Nagroda za udział w wyzwaniu 3. tygodnia Roku Tygrysa 2022
+0000000154DD.07C: Zawartość księżycowych skrzynek
+0000000154DE.07C: Zawartość księżycowych skrzynek
+0000000154DF.07C: Zawartość księżycowych skrzynek
+0000000154E0.07C: Zawartość księżycowych skrzynek
+0000000154E1.07C: Zawartość księżycowych skrzynek
+0000000154E2.07C: Wypuszczenie
+0000000154E3.07C: Zawartość księżycowych skrzynek
+0000000154E4.07C: Rok Tygrysa 2022
+00000001550A.07C: KONTYNUUJ
+00000001550B.07C: Świętuj Rok Tygrysa dzięki księżycowym skrzynkom z łupami! Zdobądź nowe skórki, emotki i inne nowości!
+00000001550C.07C: Rywalizacja w Zdobywanie flagi
+00000001550D.07C: Powrót trybów Zdobywanie flagi i Łowca nagród!
+00000001550E.07C: Koniec wydarzenia 15 lutego
+00000001550F.07C: Cotygodniowe wyzwania
+000000015510.07C: Tydzień 1
+000000015511.07C: Tydzień 2
+000000015512.07C: Tydzień 3
+000000015513.07C: Festiwal Księżycowy
+000000015514.07C: Rok Tygrysa
+000000015515.07C: Sezon 5 już trwa
+000000015516.07C: Odblokuj nowe skórki
+00000001551A.07C: Bohater Rywalizacji w Zdobywanie flagi 2022
+00000001551B.07C: Nagroda za miejsce wśród
+500 najlepszych pod koniec Rywalizacji w Zdobywanie
+flagi 2022
+00000001551C.07C: Bohater Rywalizacji w Zdobywanie flagi 2022
+00000001551D.07C: Nagroda za miejsce wśród
+500 najlepszych pod koniec Rywalizacji w Zdobywanie
+flagi 2022
+00000001551E.07C: Uczestnik Rywalizacji w Zdobywanie flagi 2022
+00000001551F.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Zdobywanie flagi 2022
+000000015520.07C: Uczestnik Rywalizacji w Zdobywanie flagi 2022
+000000015521.07C: Nagroda
+za mecze klasyfikacyjne
+w Rywalizacji
+w Zdobywanie flagi 2022
+00000001552A.07C: Rywalizacja w Zdobywanie flagi
+00000001552B.07C: Rywalizuj z najlepszymi graczami w Zdobywanie flagi na świecie i pnij się w tabeli wyników!
+00000001552C.07C: Rok Tygrysa
+00000001552D.07C: Zawartość księżycowych skrzynek
+00000001552E.07C: Rywalizacja w Zdobywanie flagi – Sezon 5
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4611011 seconds

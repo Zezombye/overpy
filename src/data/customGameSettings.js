@@ -5922,6 +5922,22 @@ const customGameSettingsSchema =
                         "zh-CN": "韩国 2",
                         "zh-TW": "韓國2"
                     },
+                    "southKorea3": {
+                        "guid": "000000015452",
+                        "en-US": "South Korea 3",
+                        "de-DE": "Südkorea 3",
+                        "es-ES": "Corea del Sur 3",
+                        "es-MX": "Corea del Sur 3",
+                        "fr-FR": "Corée du Sud 3",
+                        "it-IT": "Corea del Sud 3",
+                        "ja-JP": "韓国3",
+                        "ko-KR": "대한민국 3",
+                        "pl-PL": "Korea Południowa 3",
+                        "pt-BR": "Coreia do Sul 3",
+                        "ru-RU": "Южная Корея 3",
+                        "zh-CN": "韩国 3",
+                        "zh-TW": "韓國3"
+                    },
                     "taiwan": {
                         "guid": "00000000AA66",
                         "en-US": "Taiwan",
@@ -5979,6 +5995,22 @@ const customGameSettingsSchema =
                         "ru-RU": "США – Восток",
                         "zh-CN": "美国东部",
                         "zh-TW": "美國東部"
+                    },
+                    "usEast2": {
+                        "guid": "000000015453",
+                        "en-US": "USA - East 2",
+                        "de-DE": "USA – Osten 2",
+                        "es-ES": "EE. UU. - Este 2",
+                        "es-MX": "Estados Unidos - Este 2",
+                        "fr-FR": "États-Unis - Est 2",
+                        "it-IT": "USA - Est 2",
+                        "ja-JP": "アメリカ合衆国 - 東2",
+                        "ko-KR": "미국 - 동부 2",
+                        "pl-PL": "Stany Zjednoczone – Wschód 2",
+                        "pt-BR": "EUA - Leste 2",
+                        "ru-RU": "Восток США 2",
+                        "zh-CN": "美国东部 2",
+                        "zh-TW": "美國東部2"
                     },
                     "usNorthwest": {
                         "guid": "00000000AA6F",

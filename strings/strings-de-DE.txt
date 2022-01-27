@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=deDE", "-T=deDE"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: deDE | Speech Language: deDE
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LdeDE_text_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LdeDE_speech_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30388,6 +30388,8 @@ Für diese Ranglistensaison wirst du außerdem nur Spielern zugewiesen, die dies
 0000000133AD.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Deathmatch-Spieler der Welt an!
 0000000133B0.07C: Nur PC-Gruppen anzeigen
 0000000133B1.07C: Nur Konsolengruppen anzeigen
+0000000133B2.07C: Neujahrsbrawls
+0000000133B3.07C: Flaggen<hy>eroberungs<hy>spielmodi
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33266,6 +33268,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Deine neuen Cross-Play-Einstellungen werden nach dieser Warteschlange aktiv.
 000000013A5B.07C: Deine Gruppe wurde aus der Warteschlange entfernt, weil eure Cross-Play-Einstellungen geändert wurden.
 000000013A66.07C: Einladen des Spielers nicht möglich. Die Cross-Play-Einstellungen sind nicht kompatibel.
+000000013A8F.07C: Verheißungsvoll
 000000013A9D.07C: Haroeris
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
@@ -33292,6 +33295,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013B76.07C: Cross-Play aktiviert. Du könntest Spielern anderer Plattformen begegnen.
 000000013B7F.07C: Einige deiner Heldenanpassungen sind in dieser Instanz nicht verfügbar.
 000000013C49.07C: Deine Cross-Play-Kommunikationseinstellungen verhindern möglicherweise, dass einige Spieler deine Nachrichten sehen können.
+000000013C6A.07C: Wohlstand
 000000013C7C.07C: Deine Gruppe wurde aus der Warteschlange entfernt, weil sich die Zusammensetzung der Gruppe geändert hat.
 000000013C84.07C: Die Verbindung wurde getrennt, weil sich jemand von woanders in diesen Battle.net-Account eingeloggt hat.
 000000013C8E.07C: Einladen des Spielers aufgrund der Cross-Play-Einstellungen des benutzerdefinierten Spiels nicht möglich.
@@ -33403,6 +33407,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F82.07C: Senden
 000000013F83.07C: Abbrechen
 000000013FC5.07C: Piratenschiff
+000000013FCB.07C: Porzellan
 000000013FF3.07C: Beliebt
 000000013FF4.07C: Team-Deathmatch: Malevento
 000000013FF5.07C: Kämpf dich mit deinem Team an die Spitze. Möge das tödlichste Team gewinnen.
@@ -33477,6 +33482,7 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 000000014298.07C: AKTUELL
 000000014299.07C: BELIEBT
 00000001429A.07C: EMPFOHLEN
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Freigeschaltet durch die Teilnahme an Cassidys Frisches Blut-Herausforderung
 0000000142F3.07C: Sandsturm
 0000000142F4.07C: Alte Freunde
@@ -33529,6 +33535,7 @@ Wenn du die betroffenen Einstellungen wieder aktivieren möchtest, kannst du das
 00000001468A.07C: Nur anvisiertes Ziel
 00000001468B.07C: Strahlenziel bevorzugen
 00000001468C.07C: Anvisiertes Ziel bevorzugen
+0000000146BF.07C: Nezha
 0000000146DE.07C: Frostgeist
 00000001471A.07C: Drachenfeuerwerk
 00000001471B.07C: Freigeschaltet durch das Ansehen des Overwatch League Summer Showdown.
@@ -33618,6 +33625,9 @@ Lootboxen erhältlich
 000000014813.07C: Kürbis
 000000014814.07C: Kürbis
 000000014AAE.07C: Prost
+000000014FFA.07C: Fächer
+000000014FFB.07C: Laterne
+000000014FFD.07C: Wunderkerzen
 00000001500A.07C: Freigeschaltet durch das Ansehen des Overwatch League Countdown Cup Tournaments
 00000001500C.07C: Entfesselte Gladiators
 000000015063.07C: Beteilige dich außerhalb des Startbereichs an einem Kampf.
@@ -33713,16 +33723,94 @@ Lootboxen erhältlich
 000000015274.07C: Winter<hy>wunderland 2021
 000000015275.07C: 2022
 000000015276.07C: In Winter-Lootboxen erhältlich
-000000015284.07C: Woche 1: Winterwolle für Tracer
-000000015286.07C: Woche 2: Mistelzweig für Symmetra
-000000015287.07C: Woche 3: Pfefferminzschokolade für Brigitte
-000000015331.07C: WEITER
-000000015336.07C: Event endet am 06.01.
-000000015337.07C: Schalte neue Skins frei
-000000015338.07C: Wöchentliche Herausforderungen
-000000015339.07C: Woche 1
-00000001533A.07C: Woche 2
-00000001533B.07C: Woche 3
-000000015340.07C: Tob dich im Schnee aus mit unseren Winterbrawls!
-000000015341.07C: Das Winterwunderland ist wieder da! Die beliebtesten Winterwunderland-Extras aus den letzten Jahren sind zurück, zusammen mit neuen Extras!
-[Core] Execution finished in 00:00:00.4714306 seconds
+000000015284.07C: Woche 1: Wohlstand für Ashe
+000000015286.07C: Woche 2: Verheißungsvoll für Soldier: 76
+000000015287.07C: Woche 3: Porzellan für Wrecking Ball
+000000015443.07C: Himmelslaterne
+00000001544E.07C: Fächertricks
+000000015452.07C: Südkorea 3
+000000015453.07C: USA – Osten 2
+000000015479.07C: Braves Kätzchen
+00000001547A.07C: In Neujahr-Lootboxen erhältlich
+0000000154A0.07C: Sporen verdient
+0000000154A1.07C: In Neujahr-Lootboxen erhältlich
+0000000154A2.07C: Keine Gnade für den Tiger
+0000000154A3.07C: In Neujahr-Lootboxen erhältlich
+0000000154A4.07C: Ein Mond
+0000000154A5.07C: In Neujahr-Lootboxen erhältlich
+0000000154A6.07C: Mehr Klöße
+0000000154A7.07C: In Neujahr-Lootboxen erhältlich
+0000000154A8.07C: Ein Jahr älter
+0000000154A9.07C: In Neujahr-Lootboxen erhältlich
+0000000154AA.07C: Frohes Jahr des Tigers
+0000000154AB.07C: In Neujahr-Lootboxen erhältlich
+0000000154AC.07C: Tiger beim Schwanz
+0000000154AD.07C: In Neujahr-Lootboxen erhältlich
+0000000154AE.07C: Ich krieg dich
+0000000154AF.07C: In Neujahr-Lootboxen erhältlich
+0000000154B0.07C: Da zeigt jemand Zähne
+0000000154B1.07C: In Neujahr-Lootboxen erhältlich
+0000000154B2.07C: Nette Zusammenkunft
+0000000154B3.07C: In Neujahr-Lootboxen erhältlich
+0000000154B4.07C: Glücksfarbe
+0000000154B5.07C: In Neujahr-Lootboxen erhältlich
+0000000154BA.07C: (nicht gesetzt)
+0000000154C3.07C: Schädelkappe
+0000000154C4.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 1
+0000000154C5.07C: Seolbim
+0000000154C6.07C: In Neujahr-Lootboxen erhältlich
+0000000154C7.07C: Frühlingssprüche
+0000000154C8.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 1
+0000000154C9.07C: Verheißungsvoll
+0000000154CA.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 2
+0000000154CB.07C: Formübung
+0000000154CC.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 2
+0000000154CD.07C: Porzellan
+0000000154CE.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 3
+0000000154CF.07C: Tee
+0000000154D0.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 3
+0000000154D1.07C: Nezhas Späße
+0000000154D2.07C: In Neujahr-Lootboxen erhältlich
+0000000154D3.07C: Nezha
+0000000154D4.07C: In Neujahr-Lootboxen erhältlich
+0000000154D5.07C: Seolbim
+0000000154D6.07C: In Neujahr-Lootboxen erhältlich
+0000000154D7.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 1
+0000000154D8.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 2
+0000000154D9.07C: Freigeschaltet durch die Teilnahme an der Herausforderung zum Jahr des Tigers 2022, Woche 3
+0000000154DD.07C: In Neujahr-Lootboxen erhältlich
+0000000154DE.07C: In Neujahr-Lootboxen erhältlich
+0000000154DF.07C: In Neujahr-Lootboxen erhältlich
+0000000154E0.07C: In Neujahr-Lootboxen erhältlich
+0000000154E1.07C: In Neujahr-Lootboxen erhältlich
+0000000154E2.07C: Befreiung
+0000000154E3.07C: In Neujahr-Lootboxen erhältlich
+0000000154E4.07C: 2022 – Jahr des Tigers
+00000001550A.07C: WEITER
+00000001550B.07C: Feier das Jahr des Tigers mit Neujahr-Lootboxen und sicher dir neue Skins, Emotes und mehr!
+00000001550C.07C: Kompetitive Flaggeneroberung
+00000001550D.07C: Flaggeneroberung und Kopfgeldjäger kehren zurück!
+00000001550E.07C: Event endet am 15.02.
+00000001550F.07C: Wöchentliche Herausforderungen
+000000015510.07C: Woche 1
+000000015511.07C: Woche 2
+000000015512.07C: Woche 3
+000000015513.07C: Mondneujahr
+000000015514.07C: Jahr des Tigers
+000000015515.07C: Saison 5 ist jetzt live
+000000015516.07C: Schalte neue Skins frei
+00000001551A.07C: Held der Flaggeneroberung 2022
+00000001551B.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Flaggen<hy>eroberung 2022
+00000001551C.07C: Held der Flaggeneroberung 2022
+00000001551D.07C: Freigeschaltet durch das Erreichen der Top 500 am Ende der kompe<hy>titiven Flaggen<hy>eroberung 2022
+00000001551E.07C: Teilnehmer der Flaggeneroberung 2022
+00000001551F.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Flaggen<hy>eroberung 2022
+000000015520.07C: Teilnehmer der Flaggeneroberung 2022
+000000015521.07C: Freigeschaltet durch das Abschließen der Platzierungs<hy>matches der kompe<hy>titiven Flaggen<hy>eroberung 2022
+00000001552A.07C: Kompetitive Flaggeneroberung
+00000001552B.07C: Spiel dich in der Rangliste hoch und tritt gegen die besten Flaggeneroberer der Welt an!
+00000001552C.07C: Jahr des Tigers
+00000001552D.07C: In Neujahr-Lootboxen erhältlich
+00000001552E.07C: Kompetitive Flaggeneroberung: Saison 5
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4659967 seconds

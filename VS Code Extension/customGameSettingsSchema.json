@@ -3648,6 +3648,9 @@
                             "const": "southKorea2"
                         },
                         {
+                            "const": "southKorea3"
+                        },
+                        {
                             "const": "taiwan"
                         },
                         {
@@ -3658,6 +3661,9 @@
                         },
                         {
                             "const": "usEast"
+                        },
+                        {
+                            "const": "usEast2"
                         },
                         {
                             "const": "usNorthwest"

@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esES", "-T=esES"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: esES | Speech Language: esES
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LesES_text_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LesES_speech_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LesES_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30134,6 +30134,8 @@ Además, durante esta temporada competitiva, solo podrás jugar con jugadores de
 0000000133AD.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Combate a muerte del mundo!
 0000000133B0.07C: Mostrar solo grupos de PC
 0000000133B1.07C: Mostrar solo grupos de consola
+0000000133B2.07C: Trifulcas lunares
+0000000133B3.07C: Modos de juego de CLB
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33012,6 +33014,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Tus ajustes actualizados del juego multiplataforma se aplicarán después de esta cola.
 000000013A5B.07C: Tu grupo se ha retirado de la cola por vuestros ajustes actualizados del juego multiplataforma.
 000000013A66.07C: No se ha podido invitar al jugador por ajustes incompatibles del juego multiplataforma.
+000000013A8F.07C: Propicio
 000000013A9D.07C: Haroeris
 000000013AAC.07C: Copa de Lúciobol 2021
 000000013AAD.07C: Copa de Lúciobol
@@ -33038,6 +33041,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013B76.07C: Juego multiplataforma habilitado. Puedes encontrarte con jugadores de otras plataformas.
 000000013B7F.07C: Algunas de tus opciones de personalización de héroe no están disponibles en esta instancia.
 000000013C49.07C: Es posible que algunos jugadores no puedan ver tus mensajes por tus ajustes de comunicación del juego multiplataforma.
+000000013C6A.07C: Próspera
 000000013C7C.07C: Tu grupo se ha retirado de la cola porque su composición ha cambiado.
 000000013C84.07C: Se te ha desconectado porque tu cuenta de Battle.net inició sesión en otra parte.
 000000013C8E.07C: No se ha podido invitar al jugador por los ajustes del juego multiplataforma de la partida personalizada.
@@ -33149,6 +33153,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F82.07C: Enviar informe
 000000013F83.07C: Cancelar
 000000013FC5.07C: Barco pirata
+000000013FCB.07C: Porcelana
 000000013FF3.07C: Popular
 000000013FF4.07C: Malevento por equipos
 000000013FF5.07C: Conseguid la puntuación más alta. El equipo más letal ganará.
@@ -33223,6 +33228,7 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000014298.07C: TENDENCIA
 000000014299.07C: POPULAR
 00000001429A.07C: DESTACADOS
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Se desbloquea al participar en el desafío Sangre nueva de Cassidy
 0000000142F3.07C: Tormenta de arena
 0000000142F4.07C: Viejos amigos
@@ -33275,6 +33281,7 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 00000001468A.07C: Solo mirando al objetivo
 00000001468B.07C: Prefiero objetivo del haz
 00000001468C.07C: Prefiero mirando al objetivo
+0000000146BF.07C: Nezha
 0000000146DE.07C: Espectro helado
 00000001471A.07C: Fuegos artificiales de dragón
 00000001471B.07C: Se desbloquea al ver el torneo Summer Showdown de la Overwatch League 2021
@@ -33344,6 +33351,9 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000014813.07C: Calabaza
 000000014814.07C: Calabaza
 000000014AAE.07C: Brindis
+000000014FFA.07C: Abanico
+000000014FFB.07C: Farol
+000000014FFD.07C: Bengalas
 00000001500A.07C: Se desbloquea al ver el Torneo de Countdown Cup de la Overwatch League 2021
 00000001500C.07C: Dominio de Gladiators
 000000015063.07C: Entra en combate fuera de una sala de inicio.
@@ -33439,16 +33449,94 @@ Si quieres reactivar los ajustes afectados, ve a la pestaña «Ajustes regionale
 000000015274.07C: Inverlandia 2021
 000000015275.07C: 2022
 000000015276.07C: Disponible en las cajas de botín de Inverlandia
-000000015284.07C: Semana 1: desafío de Tracer lanita
-000000015286.07C: Semana 2: desafío de Symmetra muérdago
-000000015287.07C: Semana 3: desafío de Brigitte reflejo de dulce de menta
-000000015331.07C: CONTINUAR
-000000015336.07C: El evento termina el 6 de enero
-000000015337.07C: Desbloquea nuevos aspectos
-000000015338.07C: Desafíos semanales
-000000015339.07C: Semana 1
-00000001533A.07C: Semana 2
-00000001533B.07C: Semana 3
-000000015340.07C: ¡Pásatelo genial en la nieve con las trifulcas de invierno!
-000000015341.07C: ¡Vuelve el evento Inverlandia con recompensas nuevas que se suman a las favoritas de años anteriores!
-[Core] Execution finished in 00:00:00.4850510 seconds
+000000015284.07C: Semana 1: desafío de Ashe próspera
+000000015286.07C: Semana 2: desafío de Soldado: 76 propicio
+000000015287.07C: Semana 3: desafío de Wrecking Ball porcelana
+000000015443.07C: Farol al aire
+00000001544E.07C: Movimientos de abanico
+000000015452.07C: Corea del Sur 3
+000000015453.07C: EE. UU. - Este 2
+000000015479.07C: Gatito bueno
+00000001547A.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154A0.07C: Galones
+0000000154A1.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154A2.07C: Sin piedad para el tigre
+0000000154A3.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154A4.07C: Una luna
+0000000154A5.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154A6.07C: Más empanadillas
+0000000154A7.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154A8.07C: Un año mayor
+0000000154A9.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154AA.07C: Feliz Año del Tigre
+0000000154AB.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154AC.07C: Molestias animales
+0000000154AD.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154AE.07C: Pillada
+0000000154AF.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154B0.07C: Agallas
+0000000154B1.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154B2.07C: Reunión entrañable
+0000000154B3.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154B4.07C: Color de la suerte
+0000000154B5.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154BA.07C: (Sin asignar)
+0000000154C3.07C: Solideo
+0000000154C4.07C: Se desbloquea al participar en el desafío de la semana 1 del Año del Tigre de 2022
+0000000154C5.07C: Seolbim
+0000000154C6.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154C7.07C: Versos festivos
+0000000154C8.07C: Se desbloquea al participar en el desafío de la semana 1 del Año del Tigre de 2022
+0000000154C9.07C: Propicio
+0000000154CA.07C: Se desbloquea al participar en el desafío de la semana 2 del Año del Tigre de 2022
+0000000154CB.07C: Forma de entrenamiento
+0000000154CC.07C: Se desbloquea al participar en el desafío de la semana 2 del Año del Tigre de 2022
+0000000154CD.07C: Porcelana
+0000000154CE.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Tigre de 2022
+0000000154CF.07C: Té
+0000000154D0.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Tigre de 2022
+0000000154D1.07C: Travesura de Nezha
+0000000154D2.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154D3.07C: Nezha
+0000000154D4.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154D5.07C: Seolbim
+0000000154D6.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154D7.07C: Se desbloquea al participar en el desafío de la semana 1 del Año del Tigre de 2022
+0000000154D8.07C: Se desbloquea al participar en el desafío de la semana 2 del Año del Tigre de 2022
+0000000154D9.07C: Se desbloquea al participar en el desafío de la semana 3 del Año del Tigre de 2022
+0000000154DD.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154DE.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154DF.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154E0.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154E1.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154E2.07C: Liberación
+0000000154E3.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+0000000154E4.07C: Año del Tigre 2022
+00000001550A.07C: CONTINUAR
+00000001550B.07C: ¡Celebra el Año del Tigre con cajas de botín del Año Nuevo Lunar! ¡Consigue nuevos aspectos, gestos y mucho más!
+00000001550C.07C: CLB competitivo
+00000001550D.07C: ¡Vuelven Captura la bandera y Cazarrecompensas!
+00000001550E.07C: El evento termina el 15 de febrero
+00000001550F.07C: Desafíos semanales
+000000015510.07C: Semana 1
+000000015511.07C: Semana 2
+000000015512.07C: Semana 3
+000000015513.07C: Festival Lunar
+000000015514.07C: Año del Tigre
+000000015515.07C: Temporada 5 ya disponible
+000000015516.07C: Desbloquea nuevos aspectos
+00000001551A.07C: Héroe de CLB competitivo 2022
+00000001551B.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Captura la bandera de 2022
+00000001551C.07C: Héroe de CLB competitivo 2022
+00000001551D.07C: Se desbloquea al estar entre los 500 mejores al final del modo competitivo de Captura la bandera de 2022
+00000001551E.07C: Competidor de CLB competitivo 2022
+00000001551F.07C: Se desbloquea al completar las partidas de posicionamiento de 2022 del modo competitivo de Captura la bandera
+000000015520.07C: Competidor de CLB competitivo 2022
+000000015521.07C: Se desbloquea al completar las partidas de posicionamiento de 2022 del modo competitivo de Captura la bandera
+00000001552A.07C: CLB competitivo
+00000001552B.07C: ¡Salta al campo de batalla y compite con los mejores jugadores de Captura la bandera del mundo!
+00000001552C.07C: Año del Tigre
+00000001552D.07C: Disponible en las cajas de botín del Año Nuevo Lunar
+00000001552E.07C: Temporada 5 de CLB competitivo
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4912992 seconds

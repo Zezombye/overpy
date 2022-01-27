@@ -1,13 +1,13 @@
-[Core] DataTool v1.67.0.967-git-ae354ca7e140ab89f20c7d455d4b85fad2b85cec
+[Core] DataTool v1.68.0.969-git-2a595015ce44a9145b8b66f1b47dd45dd16ac602
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=frFR", "-T=frFR"]
-[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(15)\DataTool.args
+[Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release(16)\DataTool.args
 [CASC] Text Language: frFR | Speech Language: frFR
-[CASC] Overwatch build 1.67.0.0.90774
+[CASC] Overwatch build 1.68.0.0.92111
 [CASC] Initializing...
-[Manifest] Using TRG procedure 90774 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 90774 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
+[Manifest] Using TRG procedure 92111 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LfrFR_speech_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 92111 for Win_SPWin_RDEV_LfrFR_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
@@ -30194,6 +30194,8 @@ Vous vous retrouverez également dans la liste de non-participation pour cette s
 0000000133AD.07C: Gravissez les échelons et affrontez les meilleurs joueurs de combat à mort au monde !
 0000000133B0.07C: Afficher uniquement les escouades PC
 0000000133B1.07C: Afficher uniquement les escouades console
+0000000133B2.07C: Chocs lunaires
+0000000133B3.07C: Modes de jeu capture du drapeau
 00000001352C.07C: Mike Morhaime
 Chris Metzen
 Rob Pardo
@@ -33072,6 +33074,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013A5A.07C: Vos nouveaux paramètres Cross-Play prendront effet après cette file d’attente.
 000000013A5B.07C: Votre groupe a été exclu de la liste d’attente en raison de ses nouveaux paramètres Cross-Play.
 000000013A66.07C: Impossible d’inviter le joueur en raison de paramètres Cross-Play incompatibles.
+000000013A8F.07C: Bon augure
 000000013A9D.07C: Haroëris
 000000013AAC.07C: Copa Lúcioball 2021
 000000013AAD.07C: Copa Lúcioball
@@ -33098,6 +33101,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013B76.07C: Cross-Play activé. Vous pouvez rencontrer des joueurs venant d’autres plateformes.
 000000013B7F.07C: Certaines des personnalisations de votre héros sont indisponibles dans cette instance.
 000000013C49.07C: Certains joueurs ne pourront peut-être pas lire vos messages en raison de vos paramètres de communication Cross-Play.
+000000013C6A.07C: Prospérité
 000000013C7C.07C: Votre groupe a été exclu de la liste d’attente car il n’est plus éligible.
 000000013C84.07C: Déconnexion en raison d’une connexion au compte Battle.net depuis une autre plateforme
 000000013C8E.07C: Impossible d’inviter le joueur en raison des paramètres Cross-Play de la partie personnalisée.
@@ -33209,6 +33213,7 @@ Produced by BLIZZARD ENTERTAINMENT under license from the LEGO GROUP."
 000000013F82.07C: Signaler
 000000013F83.07C: Annuler
 000000013FC5.07C: Bateau pirate
+000000013FCB.07C: Porcelaine
 000000013FF3.07C: Populaire
 000000013FF4.07C: CME Malevento
 000000013FF5.07C: Atteignez le sommet du tableau des scores. L’équipe la plus meurtrière remportera la victoire.
@@ -33255,7 +33260,7 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 00000001406E.07C: Options de mode de jeu
 00000001407C.07C: Ce canal de discussion est désactivé. Pour afficher ou ajuster ce paramètre, rendez-vous sur l’onglet « Social » du menu Options.
 00000001407E.07C: Filtre de recherche
-000000014081.07C: Snowboardeuse
+000000014081.07C: Snowboardeur
 0000000140A6.07C: Activer/désactiver les favoris
 0000000140C2.07C: Actuellement en cours de remplissage, veuillez revenir plus tard !
 0000000140C3.07C: Code de la partie
@@ -33283,6 +33288,7 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000014298.07C: TENDANCE
 000000014299.07C: POPULAIRE
 00000001429A.07C: EN VEDETTE
+0000000142DF.07C: Seolbim
 0000000142F2.07C: Obtenu en participant au défi Sang neuf de Cassidy
 0000000142F3.07C: Tempête de sable
 0000000142F4.07C: Vieux amis
@@ -33335,6 +33341,7 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 00000001468A.07C: Cible en face uniquement
 00000001468B.07C: Favoriser la cible du rayon
 00000001468C.07C: Favoriser la cible en face
+0000000146BF.07C: Nezha
 0000000146DE.07C: Spectre de glace
 00000001471A.07C: Feux d’artifice du dragon
 00000001471B.07C: Obtenu en regardant la diffusion en direct du tournoi Summer Showdown de l’OWL 2021
@@ -33404,6 +33411,9 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000014813.07C: Citrouille
 000000014814.07C: Citrouille
 000000014AAE.07C: Santé
+000000014FFA.07C: Éventail
+000000014FFB.07C: Lanterne
+000000014FFD.07C: Cierges magiques
 00000001500A.07C: Obtenu en regardant la diffusion en direct du tournoi Countdown Cup de l’OWL 2021
 00000001500C.07C: Gladiators déchaînés
 000000015063.07C: Engagez le combat hors d’une salle d’apparition.
@@ -33452,7 +33462,7 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 0000000151E9.07C: Disponible dans les coffres hivernaux
 0000000151EA.07C: Sac de cadeaux
 0000000151EB.07C: Disponible dans les coffres hivernaux
-0000000151F6.07C: Snowboardeuse
+0000000151F6.07C: Snowboardeur
 0000000151F7.07C: Disponible dans les coffres hivernaux
 0000000151F8.07C: Renne
 0000000151F9.07C: Disponible dans les coffres hivernaux
@@ -33499,16 +33509,94 @@ Si vous souhaitez réactiver les paramètres concernés, veuillez vous rendre da
 000000015274.07C: Féerie hivernale 2021
 000000015275.07C: 2022
 000000015276.07C: Disponible dans les coffres hivernaux
-000000015284.07C: Semaine 1 : Tracer flot de laine
-000000015286.07C: Semaine 2 : Symmetra gui
-000000015287.07C: Semaine 3 : Brigitte chocolat à la menthe poivrée
-000000015331.07C: CONTINUER
-000000015336.07C: Fin de l’évènement le 6 janvier
-000000015337.07C: Obtenez de nouveaux modèles
-000000015338.07C: Défis hebdomadaires
-000000015339.07C: Semaine 1
-00000001533A.07C: Semaine 2
-00000001533B.07C: Semaine 3
-000000015340.07C: Batifolez dans la neige avec nos chocs hivernaux !
-000000015341.07C: La Féerie hivernale est de retour ! Vos coups de cœur des années précédentes reviennent avec une foule de nouveautés !
-[Core] Execution finished in 00:00:00.5323584 seconds
+000000015284.07C: Semaine 1 : Ashe prospérité
+000000015286.07C: Semaine 2 : Soldat : 76 bon augure
+000000015287.07C: Semaine 3 : Bouldozer porcelaine
+000000015443.07C: Lampion
+00000001544E.07C: Mouvements d’éventail
+000000015452.07C: Corée du Sud 3
+000000015453.07C: États-Unis - Est 2
+000000015479.07C: Gentil minou
+00000001547A.07C: Disponible dans les coffres lunaires
+0000000154A0.07C: J’ai fait mes preuves
+0000000154A1.07C: Disponible dans les coffres lunaires
+0000000154A2.07C: Pas de pitié pour le tigre
+0000000154A3.07C: Disponible dans les coffres lunaires
+0000000154A4.07C: Une lune
+0000000154A5.07C: Disponible dans les coffres lunaires
+0000000154A6.07C: Plus de raviolis
+0000000154A7.07C: Disponible dans les coffres lunaires
+0000000154A8.07C: Un an de plus
+0000000154A9.07C: Disponible dans les coffres lunaires
+0000000154AA.07C: Bonne année du tigre
+0000000154AB.07C: Disponible dans les coffres lunaires
+0000000154AC.07C: Un tigre par la queue
+0000000154AD.07C: Disponible dans les coffres lunaires
+0000000154AE.07C: Je vais te choper
+0000000154AF.07C: Disponible dans les coffres lunaires
+0000000154B0.07C: De sacrées dents
+0000000154B1.07C: Disponible dans les coffres lunaires
+0000000154B2.07C: Charmante réunion
+0000000154B3.07C: Disponible dans les coffres lunaires
+0000000154B4.07C: Couleur fétiche
+0000000154B5.07C: Disponible dans les coffres lunaires
+0000000154BA.07C: (non associé)
+0000000154C3.07C: Calotte
+0000000154C4.07C: Obtenu en participant au défi de la semaine 1 de l’année du tigre 2022
+0000000154C5.07C: Seolbim
+0000000154C6.07C: Disponible dans les coffres lunaires
+0000000154C7.07C: Couplets printaniers
+0000000154C8.07C: Obtenu en participant au défi de la semaine 1 de l’année du tigre 2022
+0000000154C9.07C: Bon augure
+0000000154CA.07C: Obtenu en participant au défi de la semaine 2 de l’année du tigre 2022
+0000000154CB.07C: Apprentissage des pas
+0000000154CC.07C: Obtenu en participant au défi de la semaine 2 de l’année du tigre 2022
+0000000154CD.07C: Porcelaine
+0000000154CE.07C: Obtenu en participant au défi de la semaine 3 de l’année du tigre 2022
+0000000154CF.07C: Thé
+0000000154D0.07C: Obtenu en participant au défi de la semaine 3 de l’année du tigre 2022
+0000000154D1.07C: Méfait de Nezha
+0000000154D2.07C: Disponible dans les coffres lunaires
+0000000154D3.07C: Nezha
+0000000154D4.07C: Disponible dans les coffres lunaires
+0000000154D5.07C: Seolbim
+0000000154D6.07C: Disponible dans les coffres lunaires
+0000000154D7.07C: Obtenu en participant au défi de la semaine 1 de l’année du tigre 2022
+0000000154D8.07C: Obtenu en participant au défi de la semaine 2 de l’année du tigre 2022
+0000000154D9.07C: Obtenu en participant au défi de la semaine 3 de l’année du tigre 2022
+0000000154DD.07C: Disponible dans les coffres lunaires
+0000000154DE.07C: Disponible dans les coffres lunaires
+0000000154DF.07C: Disponible dans les coffres lunaires
+0000000154E0.07C: Disponible dans les coffres lunaires
+0000000154E1.07C: Disponible dans les coffres lunaires
+0000000154E2.07C: Relâchement
+0000000154E3.07C: Disponible dans les coffres lunaires
+0000000154E4.07C: Année du tigre 2022
+00000001550A.07C: CONTINUER
+00000001550B.07C: Célébrez l’année du tigre avec les coffres lunaires ! Gagnez de nouveaux modèles, emotes et bien plus !
+00000001550C.07C: Capture du drapeau en compétitif
+00000001550D.07C: Capture du drapeau et Chasseur de primes sont de retour !
+00000001550E.07C: Fin de l’évènement le 15 février
+00000001550F.07C: Défis hebdomadaires
+000000015510.07C: Semaine 1
+000000015511.07C: Semaine 2
+000000015512.07C: Semaine 3
+000000015513.07C: Fête lunaire
+000000015514.07C: Année du tigre
+000000015515.07C: La saison 5 a commencé !
+000000015516.07C: Obtenez de nouveaux modèles
+00000001551A.07C: Héros Capture du drapeau 2022
+00000001551B.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2022
+00000001551C.07C: Héros Capture du drapeau 2022
+00000001551D.07C: Obtenu en se classant parmi les 500 meilleurs joueurs du mode Capture du drapeau en 2022
+00000001551E.07C: Compétiteur Capture du drapeau 2022
+00000001551F.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2022
+000000015520.07C: Compétiteur Capture du drapeau 2022
+000000015521.07C: Obtenu en effectuant toutes les parties de placement du mode Capture du drapeau en 2022
+00000001552A.07C: Capture du drapeau en compétitif
+00000001552B.07C: Grimpez les échelons et affrontez les meilleurs joueurs de capture du drapeau au monde !
+00000001552C.07C: Année du tigre
+00000001552D.07C: Disponible dans les coffres lunaires
+00000001552E.07C: Capture du drapeau en compétitif - Saison 5
+000000015680.07C: Competitive Season 32 - Open Queue
+[Core] Execution finished in 00:00:00.4809960 seconds
