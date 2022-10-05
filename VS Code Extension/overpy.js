@@ -26838,7 +26838,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        "return": "unsigned int",
+        "return": "Position",
         "guid": "00000000B355",
         "en-US": "Objective Position",
         "es-MX": "Posición del objetivo",
@@ -31504,7 +31504,7 @@ const mapKw =
             "skirmish",
             "hybrid",
         ],
-        "en-US": "paraiso",
+        "en-US": "Paraíso",
     },
     "midtown": {
         "gamemodes": [

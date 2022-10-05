@@ -1570,7 +1570,7 @@ const mapKw =
             "skirmish",
             "hybrid",
         ],
-        "en-US": "paraiso",
+        "en-US": "Paraíso",
     },
     "midtown": {
         "gamemodes": [
