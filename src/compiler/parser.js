@@ -83,9 +83,9 @@ function parseLines(lines) {
             try {
                 if (lines[i].tokens.length === 2) {
                     var path = getFilePaths(lines[i].tokens[1].text)[0];
-                    var customGameSettings = eval("("+getFileContent(path)+")");
+                    var customGameSettings = safeEval("("+getFileContent(path)+")");
                 } else {
-                    var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                    var customGameSettings = safeEval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
 
                 }
             } catch (e) {

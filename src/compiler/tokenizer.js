@@ -543,7 +543,7 @@ function resolveMacro(macro, args=[], indentLevel) {
 			scriptContent = vars + '\n'+scriptContent;
 			scriptContent = builtInJsFunctions + scriptContent;
             try {
-				result = eval(scriptContent);
+				result = safeEval(scriptContent);
 				if (!result && result !== 0) {
 					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
 				}

@@ -24,7 +24,16 @@ var currentLanguage;
 
 const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
-const DEBUG_MODE = (typeof window !== "undefined");
+const IS_IN_BROWSER = (typeof window !== "undefined");
+const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
+if (!IS_IN_BROWSER) {
+	const {VM} = require('vm2');
+	var evalVm = new VM({
+		timeout: 1000,
+		allowAsync: false,
+		sandbox: {}
+	});
+}
 
 //Compilation variables - are reset at each compilation.
 

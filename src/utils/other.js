@@ -102,3 +102,12 @@ function getUniqueNumber() {
 	return uniqueNumber;
 }
 
+//eval with VM if using node.js
+function safeEval(str) {
+	if (IS_IN_BROWSER) {
+		return eval(str);
+	} else {
+		return evalVm.run(str);
+	}
+}
+

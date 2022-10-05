@@ -41,7 +41,7 @@ astParsingFunctions.continue = function(content) {
         var labelName = "__label_continue_"+getUniqueNumber()+"__";
         var label = new Ast(labelName, [], [], "Label");
         label.parent = innermostStructure;
-        console.log(innermostStructure);
+        //console.log(innermostStructure);
         innermostStructure.children.splice(innermostStructure.children.length, 0, label);
 
         //Convert the continue to a goto

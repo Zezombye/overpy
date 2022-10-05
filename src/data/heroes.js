@@ -1920,7 +1920,7 @@ const heroKw =
             "ja-JP": "インフラサイト",
             "ko-KR": "적외선 투시",
             "pl-PL": "Infrawizja",
-            "pt-BR": "Visão Infravermelho",
+            "pt-BR": "Visão Infravermelha",
             "ru-RU": "Инфразрение",
             "zh-CN": "红外侦测",
             "zh-TW": "紅外線視野"

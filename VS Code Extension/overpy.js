@@ -102,6 +102,15 @@ function getUniqueNumber() {
 	return uniqueNumber;
 }
 
+//eval with VM if using node.js
+function safeEval(str) {
+	if (IS_IN_BROWSER) {
+		return eval(str);
+	} else {
+		return evalVm.run(str);
+	}
+}
+
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -33384,7 +33393,7 @@ const heroKw =
             "ja-JP": "インフラサイト",
             "ko-KR": "적외선 투시",
             "pl-PL": "Infrawizja",
-            "pt-BR": "Visão Infravermelho",
+            "pt-BR": "Visão Infravermelha",
             "ru-RU": "Инфразрение",
             "zh-CN": "红外侦测",
             "zh-TW": "紅外線視野"
@@ -38711,7 +38720,7 @@ const constantValues =
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "消散"
+            "zh-CN": "相移"
         },
         "ROOTED": {
             "guid": "00000000B365",
@@ -46238,7 +46247,16 @@ var currentLanguage;
 
 const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
-const DEBUG_MODE = (typeof window !== "undefined");
+const IS_IN_BROWSER = (typeof window !== "undefined");
+const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
+if (!IS_IN_BROWSER) {
+	const {VM} = require('vm2');
+	var evalVm = new VM({
+		timeout: 1000,
+		allowAsync: false,
+		sandbox: {}
+	});
+}
 
 //Compilation variables - are reset at each compilation.
 
@@ -52250,7 +52268,7 @@ function parseCustomString(str, formatArgs) {
 			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
 			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
 			for (var key of Object.keys(caseSensitiveReplacements)) {
-				content = content.replace(key, caseSensitiveReplacements[key])
+				content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key])
 			}
 		}
 	
@@ -54619,7 +54637,7 @@ astParsingFunctions.continue = function(content) {
         var labelName = "__label_continue_"+getUniqueNumber()+"__";
         var label = new Ast(labelName, [], [], "Label");
         label.parent = innermostStructure;
-        console.log(innermostStructure);
+        //console.log(innermostStructure);
         innermostStructure.children.splice(innermostStructure.children.length, 0, label);
 
         //Convert the continue to a goto
@@ -56406,7 +56424,7 @@ function resolveMacro(macro, args=[], indentLevel) {
 			scriptContent = vars + '\n'+scriptContent;
 			scriptContent = builtInJsFunctions + scriptContent;
             try {
-				result = eval(scriptContent);
+				result = safeEval(scriptContent);
 				if (!result && result !== 0) {
 					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
 				}
@@ -57545,9 +57563,9 @@ function parseLines(lines) {
             try {
                 if (lines[i].tokens.length === 2) {
                     var path = getFilePaths(lines[i].tokens[1].text)[0];
-                    var customGameSettings = eval("("+getFileContent(path)+")");
+                    var customGameSettings = safeEval("("+getFileContent(path)+")");
                 } else {
-                    var customGameSettings = eval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                    var customGameSettings = safeEval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
 
                 }
             } catch (e) {

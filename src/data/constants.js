@@ -4819,7 +4819,7 @@ const constantValues =
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "消散"
+            "zh-CN": "相移"
         },
         "ROOTED": {
             "guid": "00000000B365",
