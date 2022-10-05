@@ -111,26 +111,20 @@
                                     "busan",
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
-                                    "busanStadium",
-                                    "busanStadiumClassic",
                                     "castillo",
                                     "chateauGuillard",
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
-                                    "estadioDasRas",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "junkenstein",
                                     "junkertown",
@@ -146,13 +140,10 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepal",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
-                                    "nepalVillageWinter",
-                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -162,9 +153,6 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
-                                    "sydneyHarbourArena",
-                                    "sydneyHarbourArenaClassic",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -172,7 +160,13 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight"
+                                    "workshopIslandNight",
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet",
+                                    "circuitRoyal",
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         },
@@ -189,26 +183,20 @@
                                     "busan",
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
-                                    "busanStadium",
-                                    "busanStadiumClassic",
                                     "castillo",
                                     "chateauGuillard",
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
-                                    "estadioDasRas",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "junkenstein",
                                     "junkertown",
@@ -224,13 +212,10 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepal",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
-                                    "nepalVillageWinter",
-                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -240,9 +225,6 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
-                                    "sydneyHarbourArena",
-                                    "sydneyHarbourArenaClassic",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -250,7 +232,13 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight"
+                                    "workshopIslandNight",
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet",
+                                    "circuitRoyal",
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         },
@@ -677,7 +665,6 @@
                                     "hanamuraWinter",
                                     "horizonLunarColony",
                                     "paris",
-                                    "templeOfAnubis",
                                     "volskaya"
                                 ]
                             }
@@ -691,7 +678,6 @@
                                     "hanamuraWinter",
                                     "horizonLunarColony",
                                     "paris",
-                                    "templeOfAnubis",
                                     "volskaya"
                                 ]
                             }
@@ -963,7 +949,8 @@
                                     "junkertown",
                                     "rialto",
                                     "route66",
-                                    "watchpointGibraltar"
+                                    "watchpointGibraltar",
+                                    "circuitRoyal"
                                 ]
                             }
                         },
@@ -977,7 +964,8 @@
                                     "junkertown",
                                     "rialto",
                                     "route66",
-                                    "watchpointGibraltar"
+                                    "watchpointGibraltar",
+                                    "circuitRoyal"
                                 ]
                             }
                         }
@@ -1097,10 +1085,10 @@
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "kingsRow",
                                     "kingsRowWinter",
-                                    "numbani"
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         },
@@ -1114,10 +1102,10 @@
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "kingsRow",
                                     "kingsRowWinter",
-                                    "numbani"
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         }
@@ -1232,8 +1220,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "blackForestWinter"
                                 ]
                             }
                         },
@@ -1242,8 +1229,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "blackForestWinter"
                                 ]
                             }
                         }
@@ -1392,17 +1378,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1414,7 +1397,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1423,7 +1405,6 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -1448,17 +1429,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1470,7 +1448,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1479,7 +1456,6 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -1650,7 +1626,6 @@
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1676,7 +1651,6 @@
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1880,9 +1854,7 @@
                                     "blackForestWinter",
                                     "castillo",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1890,7 +1862,6 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1916,9 +1887,7 @@
                                     "blackForestWinter",
                                     "castillo",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1926,7 +1895,6 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -2128,9 +2096,7 @@
                                     "blackForest",
                                     "blackForestWinter",
                                     "castillo",
-                                    "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
-                                    "necropolis"
+                                    "ecopointAntarctica"
                                 ]
                             }
                         },
@@ -2143,9 +2109,7 @@
                                     "blackForest",
                                     "blackForestWinter",
                                     "castillo",
-                                    "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
-                                    "necropolis"
+                                    "ecopointAntarctica"
                                 ]
                             }
                         }
@@ -2285,17 +2249,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -2307,7 +2268,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -2316,7 +2276,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
+                                    "route66",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -2341,17 +2301,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -2363,7 +2320,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -2372,7 +2328,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
+                                    "route66",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -2508,7 +2464,6 @@
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "junkertown",
@@ -2517,12 +2472,10 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "nepal",
-                                    "numbani",
                                     "oasis",
                                     "paris",
                                     "rialto",
                                     "route66",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -2530,7 +2483,13 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight"
+                                    "workshopIslandNight",
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet",
+                                    "circuitRoyal",
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         },
@@ -2549,7 +2508,6 @@
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "junkertown",
@@ -2558,12 +2516,10 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "nepal",
-                                    "numbani",
                                     "oasis",
                                     "paris",
                                     "rialto",
                                     "route66",
-                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -2571,7 +2527,13 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight"
+                                    "workshopIslandNight",
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet",
+                                    "circuitRoyal",
+                                    "paraiso",
+                                    "midtown"
                                 ]
                             }
                         }
@@ -2986,26 +2948,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": [
-                                    "busanStadium",
-                                    "busanStadiumClassic",
-                                    "estadioDasRas",
-                                    "sydneyHarbourArena",
-                                    "sydneyHarbourArenaClassic"
-                                ]
+                                "enum": []
                             }
                         },
                         "enabledMaps": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": [
-                                    "busanStadium",
-                                    "busanStadiumClassic",
-                                    "estadioDasRas",
-                                    "sydneyHarbourArena",
-                                    "sydneyHarbourArenaClassic"
-                                ]
+                                "enum": []
                             }
                         }
                     }
@@ -3120,18 +3070,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": [
-                                    "nepalVillageWinter"
-                                ]
+                                "enum": []
                             }
                         },
                         "enabledMaps": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": [
-                                    "nepalVillageWinter"
-                                ]
+                                "enum": []
                             }
                         }
                     }
@@ -3254,17 +3200,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -3276,7 +3219,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -3285,7 +3227,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
+                                    "route66",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -3310,17 +3252,14 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
-                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
-                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
-                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -3332,7 +3271,6 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
-                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -3341,7 +3279,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
-                                    "templeOfAnubis",
+                                    "route66",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -3354,7 +3292,7 @@
                         }
                     }
                 },
-                "meisSnowballOffensive": {
+                "push": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -3450,8 +3388,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet"
                                 ]
                             }
                         },
@@ -3460,8 +3399,9 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "blackForestWinter",
-                                    "ecopointAntarcticaWinter"
+                                    "colosseo",
+                                    "esperanca",
+                                    "newQueenStreet"
                                 ]
                             }
                         }
@@ -3754,7 +3694,10 @@
                             "widowmaker",
                             "winston",
                             "zarya",
-                            "zenyatta"
+                            "zenyatta",
+                            "sojourn",
+                            "junkerQueen",
+                            "kiriko"
                         ]
                     }
                 },
@@ -3794,7 +3737,10 @@
                             "widowmaker",
                             "winston",
                             "zarya",
-                            "zenyatta"
+                            "zenyatta",
+                            "sojourn",
+                            "junkerQueen",
+                            "kiriko"
                         ]
                     }
                 },
@@ -7801,6 +7747,336 @@
                             "type": "boolean"
                         },
                         "enableSecondaryFire": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "sojourn": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileGravity%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "junkerQueen": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileGravity%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "kiriko": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileGravity%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
                             "type": "boolean"
                         }
                     }

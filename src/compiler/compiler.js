@@ -383,6 +383,9 @@ function compileCustomGameSettings(customGameSettings) {
 						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+					if (Array.isArray(customGameSettings.gamemodes[gamemode][mapsKey])) {
+						customGameSettings.gamemodes[gamemode][mapsKey] = customGameSettings.gamemodes[gamemode][mapsKey].reduce((acc,curr)=> (acc[curr]=0,acc),{})
+					}
 
 					//Test if there are only workshop maps (for extension points)
 					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
@@ -390,7 +393,7 @@ function compileCustomGameSettings(customGameSettings) {
 							//If only workshop maps are enabled in a gamemode, then it is less than 50%, so it will be "enabled maps".
 							areOnlyWorkshopMapsEnabled = false;
 						} else {
-							for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+							for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
 								if (!mapKw[map].isWorkshopMap) {
 									areOnlyWorkshopMapsEnabled = false;
 									break;
@@ -400,8 +403,8 @@ function compileCustomGameSettings(customGameSettings) {
 					}
 					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
 					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
-					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
-						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
+					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
+						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw)+" "+customGameSettings.gamemodes[gamemode][mapsKey][map])
 					}
 					delete customGameSettings.gamemodes[gamemode][mapsKey];
 				}

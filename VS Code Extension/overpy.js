@@ -30137,7 +30137,7 @@ const mapKw =
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
     },
-    "busanStadium": {
+    /*"busanStadium": {
         "gamemodes": [
             "lucioball"
         ],
@@ -30174,7 +30174,7 @@ const mapKw =
         "ru-RU": "Классический стадион Пусана",
         "zh-CN": "釜山体育场（经典）",
         "zh-TW": "經典釜山運動場"
-    },
+    },*/
     "castillo": {
         "guid": "000000005C04",
         "gamemodes": [
@@ -30272,7 +30272,7 @@ const mapKw =
         "zh-CN": "生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站"
     },
-    "ecopointAntarcticaWinter": {
+    /*"ecopointAntarcticaWinter": {
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
@@ -30301,7 +30301,7 @@ const mapKw =
         "ru-RU": "Экостанция: Антарктика зима",
         "zh-CN": "圣诞节生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站（冬境）"
-    },
+    },*/
     "eichenwalde": {
         "guid": "0000000029AF",
         "gamemodes": [
@@ -30334,7 +30334,7 @@ const mapKw =
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
-    "estadioDasRas": {
+    /*"estadioDasRas": {
         "guid": "000000004629",
         "gamemodes": [
             "lucioball"
@@ -30347,7 +30347,7 @@ const mapKw =
         "ru-RU": "«Эстадиу ди Ранс»",
         "zh-CN": "弗格体育场",
         "zh-TW": "青蛙體育場"
-    },
+    },*/
     "hanamura": {
         "guid": "000000000138",
         "gamemodes": [
@@ -30425,7 +30425,7 @@ const mapKw =
         "zh-CN": "好莱坞",
         "zh-TW": "好萊塢"
     },
-    "hollywoodHalloween": {
+    /*"hollywoodHalloween": {
         "guid": "000000004EE3",
         "gamemodes": [
             "hybrid",
@@ -30440,7 +30440,7 @@ const mapKw =
         "ru-RU": "Голливуд Хеллоуин",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）"
-    },
+    },*/
     "horizonLunarColony": {
         "guid": "000000004EEE",
         "gamemodes": [
@@ -30506,7 +30506,7 @@ const mapKw =
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔"
     },
-    "iliosRuins": {
+    /*"iliosRuins": {
         "guid": "000000005851",
         "gamemodes": [
             "elimination",
@@ -30532,7 +30532,7 @@ const mapKw =
         "ru-RU": "Илиос: развалины",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟"
-    },
+    },*/
     "iliosWell": {
         "guid": "00000000583B",
         "gamemodes": [
@@ -30861,7 +30861,7 @@ const mapKw =
         "zh-CN": "马莱温多",
         "zh-TW": "馬勒馮托"
     },
-    "necropolis": {
+    /*"necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [
             "elimination",
@@ -30888,7 +30888,7 @@ const mapKw =
         "ru-RU": "Некрополь",
         "zh-CN": "墓园",
         "zh-TW": "墓室"
-    },
+    },*/
     "nepal": {
         "guid": "00000000138A",
         "gamemodes": [
@@ -30987,7 +30987,7 @@ const mapKw =
         "zh-CN": "尼泊尔村庄",
         "zh-TW": "尼泊爾村落"
     },
-    "nepalVillageWinter": {
+    /*"nepalVillageWinter": {
         "guid": "000000006E1F",
         "gamemodes": [
             "yetiHunter"
@@ -31005,8 +31005,8 @@ const mapKw =
         "ru-RU": "Непал: деревня зима",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
-    },
-    "numbani": {
+    },*/
+    /*"numbani": {
         "guid": "0000000002EA",
         "gamemodes": [
             "hybrid",
@@ -31018,7 +31018,7 @@ const mapKw =
         "ru-RU": "Нумбани",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼"
-    },
+    },*/
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [
@@ -31187,7 +31187,9 @@ const mapKw =
         "guid": "0000000011D3",
         "gamemodes": [
             "escort",
-            "skirmish"
+            "skirmish",
+            "ffa",
+            "tdm",
         ],
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
@@ -31201,7 +31203,7 @@ const mapKw =
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
     },
-    "sydneyHarbourArena": {
+    /*"sydneyHarbourArena": {
         "gamemodes": [
             "lucioball"
         ],
@@ -31235,8 +31237,8 @@ const mapKw =
         "ru-RU": "Классическая «Арена Сидней-Харбор»",
         "zh-CN": "悉尼海港竞技场（经典）",
         "zh-TW": "經典雪梨海港運動公園"
-    },
-    "templeOfAnubis": {
+    },*/
+    /*"templeOfAnubis": {
         "guid": "00000000012E",
         "gamemodes": [
             "assault",
@@ -31258,7 +31260,7 @@ const mapKw =
         "ru-RU": "Храм Анубиса",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
-    },
+    },*/
     "volskaya": {
         "guid": "0000000002EB",
         "gamemodes": [
@@ -31468,7 +31470,49 @@ const mapKw =
         "ru-RU": "Мастерская: остров ночь",
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
-    }
+    },
+    "colosseo": {
+        "gamemodes": [
+            "skirmish",
+            "push",
+        ],
+        "en-US": "Colosseo",
+    },
+    "esperanca": {
+        "gamemodes": [
+            "skirmish",
+            "push",
+        ],
+        "en-US": "Esperança",
+    },
+    "newQueenStreet": {
+        "gamemodes": [
+            "skirmish",
+            "push",
+        ],
+        "en-US": "New Queen Street",
+    },
+    "circuitRoyal": {
+        "gamemodes": [
+            "skirmish",
+            "escort",
+        ],
+        "en-US": "Circuit Royal",
+    },
+    "paraiso": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid",
+        ],
+        "en-US": "paraiso",
+    },
+    "midtown": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid",
+        ],
+        "en-US": "Midtown",
+    },
 }
 //end-json
 /* 
@@ -31659,20 +31703,7 @@ const heroKw =
     "bastion": {
         "guid": "000000000023",
         "secondaryFire": {
-            "guid": "0000000003C5",
-            "en-US": "Self-Repair",
-            "de-DE": "Selbstreparatur",
-            "es-ES": "Autorreparación",
-            "es-MX": "Auto-reparación",
-            "fr-FR": "Autoréparation",
-            "it-IT": "Autoriparazione",
-            "ja-JP": "自己修復",
-            "ko-KR": "자가 수리",
-            "pl-PL": "Samonaprawa",
-            "pt-BR": "Autorreparo",
-            "ru-RU": "Саморемонт",
-            "zh-CN": "自我修复",
-            "zh-TW": "自我修復"
+            "en-US": "A-36 Tactical Grenade",
         },
         "ability1": {
             "guid": "0000000003C3",
@@ -31691,20 +31722,7 @@ const heroKw =
             "zh-TW": "切換模式"
         },
         "ultimate": {
-            "guid": "0000000003C1",
-            "en-US": "Configuration: Tank",
-            "de-DE": "Konfiguration: Panzer",
-            "es-ES": "Modo tanque",
-            "es-MX": "Configuración: tanque",
-            "fr-FR": "Configuration : tank",
-            "it-IT": "Assetto Carro Armato",
-            "ja-JP": "タンク・モード",
-            "ko-KR": "설정: 전차",
-            "pl-PL": "Konfiguracja: Czołg",
-            "pt-BR": "Configuração: Tanque",
-            "ru-RU": "Режим танка",
-            "zh-CN": "坦克模式",
-            "zh-TW": "坦克模式"
+            "en-US": "Configuration: Artillery",
         },
         "en-US": "Bastion",
         "ja-JP": "バスティオン",
@@ -31821,20 +31839,7 @@ const heroKw =
             "zh-TW": "火箭拳"
         },
         "ability1": {
-            "guid": "0000000056D0",
-            "en-US": "Rising Uppercut",
-            "de-DE": "Uppercut",
-            "es-ES": "Uppercut",
-            "es-MX": "Gancho ascendente",
-            "fr-FR": "Uppercut",
-            "it-IT": "Montante",
-            "ja-JP": "ライジング・アッパーカット",
-            "ko-KR": "라이징 어퍼컷",
-            "pl-PL": "Podbródkowy",
-            "pt-BR": "Gancho Ascendente",
-            "ru-RU": "Апперкот",
-            "zh-CN": "上勾重拳",
-            "zh-TW": "天鉤拳"
+            "en-US": "Power Block",
         },
         "ability2": {
             "guid": "000000005B4A",
@@ -32630,19 +32635,7 @@ const heroKw =
     "orisa": {
         "guid": "000000002D21",
         "secondaryFire": {
-            "guid": "000000004ED5",
-            "en-US": "Halt!",
-            "es-ES": "¡Alto!",
-            "es-MX": "¡Alto!",
-            "fr-FR": "Entrave",
-            "it-IT": "Mina Traente",
-            "ja-JP": "ストップ！",
-            "ko-KR": "꼼짝 마!",
-            "pl-PL": "Stać!",
-            "pt-BR": "Parados!",
-            "ru-RU": "Стоять!",
-            "zh-CN": "站住别动",
-            "zh-TW": "不准動！"
+            "en-US": "Energy Javelin",
         },
         "ability1": {
             "guid": "000000004ED3",
@@ -32661,36 +32654,10 @@ const heroKw =
             "zh-TW": "強化防禦"
         },
         "ability2": {
-            "guid": "000000004ED7",
-            "en-US": "Protective Barrier",
-            "de-DE": "Schutzbarriere",
-            "es-ES": "Barrera protectora",
-            "es-MX": "Barrera protectora",
-            "fr-FR": "Dispositif de protection",
-            "it-IT": "Barriera Protettiva",
-            "ja-JP": "プロテクティブ・バリア",
-            "ko-KR": "보호 방벽",
-            "pl-PL": "Bariera Ochronna",
-            "pt-BR": "Barreira Protetora",
-            "ru-RU": "Силовой барьер",
-            "zh-CN": "防护屏障",
-            "zh-TW": "防護屏障"
+            "en-US": "Javelin Spin",
         },
         "ultimate": {
-            "guid": "000000004EDB",
-            "en-US": "Supercharger",
-            "de-DE": "Superbooster",
-            "es-ES": "Potenciador",
-            "es-MX": "Supercargador",
-            "fr-FR": "Surchargeur",
-            "it-IT": "Sovralimentatore",
-            "ja-JP": "スーパーチャージャー",
-            "ko-KR": "초강력 증폭기",
-            "pl-PL": "Turbodoładowanie",
-            "pt-BR": "Amplificador",
-            "ru-RU": "Катализатор",
-            "zh-CN": "超充能器",
-            "zh-TW": "增壓強化裝置"
+            "en-US": "Terra Surge",
         },
         "en-US": "Orisa",
         "ja-JP": "オリーサ",
@@ -33578,6 +33545,45 @@ const heroKw =
         "ru-RU": "Дзенъятта",
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔"
+    },
+    "sojourn": {
+        "ability1": {
+            "en-US": "Power Slide",
+        },
+        "ability2": {
+            "en-US": "Disruptor Shot",
+        },
+        "ultimate": {
+            "en-US": "Overclock",
+        },
+        "en-US": "Sojourn",
+    },
+    "junkerQueen": {
+        "secondaryFire": {
+            "en-US": "Jagged Blade",
+        },
+        "ability2": {
+            "en-US": "Carnage",
+        },
+        "ability1": {
+            "en-US": "Commanding Shout",
+        },
+        "ultimate": {
+            "en-US": "Rampage",
+        },
+        "en-US": "Junker Queen",
+    },
+    "kiriko": {
+        "ability1": {
+            "en-US": "Swift Step",
+        },
+        "ability2": {
+            "en-US": "Protection Suzu",
+        },
+        "ultimate": {
+            "en-US": "Kitsune Rush",
+        },
+        "en-US": "Kiriko",
     }
 }
 //end-json
@@ -33722,7 +33728,7 @@ const gamemodeKw =
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
-    "freezethawElimination": {
+    /*"freezethawElimination": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "0000000122DF",
@@ -33739,7 +33745,7 @@ const gamemodeKw =
         "ru-RU": "Ледяная ликвидация",
         "zh-CN": "融冰决斗",
         "zh-TW": "凍凍大作戰"
-    },
+    },*/
     "hybrid": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -33775,7 +33781,7 @@ const gamemodeKw =
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
-    "lucioball": {
+    /*"lucioball": {
         "defaultTeam1Players": 3,
         "defaultTeam2Players": 3,
         "guid": "000000004989",
@@ -33807,7 +33813,7 @@ const gamemodeKw =
         "ru-RU": "Операция «Метелица»",
         "zh-CN": "雪球攻势",
         "zh-TW": "小美的雪球大作戰"
-    },
+    },*/
     "practiceRange": {
         "guid": "0000000040BE",
         "defaultTeam1Players": 6,
@@ -33844,7 +33850,7 @@ const gamemodeKw =
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
-    "snowballFfa": {
+    /*"snowballFfa": {
         "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
@@ -33860,7 +33866,7 @@ const gamemodeKw =
         "ru-RU": "Снежная схватка",
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
-    },
+    },*/
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -33879,7 +33885,7 @@ const gamemodeKw =
         "zh-CN": "团队死斗",
         "zh-TW": "團隊死鬥"
     },
-    "yetiHunter": {
+    /*"yetiHunter": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 1,
         "guid": "000000006DF1",
@@ -33896,6 +33902,11 @@ const gamemodeKw =
         "ru-RU": "Охота на йети",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
+    },*/
+    "push": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Push",
     }
 }
 //end-json
@@ -45132,7 +45143,7 @@ const customGameSettingsSchema =
                 "values": "__int__",
                 "min": 0,
                 "max": 12,
-                "default": 6,
+                "default": 5,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
                 "es-ES": "Máximo de jugadores de %1$s",
@@ -45152,7 +45163,7 @@ const customGameSettingsSchema =
                 "values": "__int__",
                 "min": 0,
                 "max": 12,
-                "default": 6,
+                "default": 5,
                 "en-US": "Max %1$s Players",
                 "de-DE": "Max. Anzahl Spieler %1$s",
                 "es-ES": "Máximo de jugadores de %1$s",
@@ -50677,9 +50688,9 @@ function decompileCustomGameSettings(content) {
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
-							result[opyCategory][opyGamemode][opyPropName] = [];
+							result[opyCategory][opyGamemode][opyPropName] = {};
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
-								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+								result[opyCategory][opyGamemode][opyPropName][topy(map.substring(0, map.length-1), mapKw)] = 0
 							}
 						}
 					}
@@ -58995,6 +59006,9 @@ function compileCustomGameSettings(customGameSettings) {
 						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
+					if (Array.isArray(customGameSettings.gamemodes[gamemode][mapsKey])) {
+						customGameSettings.gamemodes[gamemode][mapsKey] = customGameSettings.gamemodes[gamemode][mapsKey].reduce((acc,curr)=> (acc[curr]=0,acc),{})
+					}
 
 					//Test if there are only workshop maps (for extension points)
 					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
@@ -59002,7 +59016,7 @@ function compileCustomGameSettings(customGameSettings) {
 							//If only workshop maps are enabled in a gamemode, then it is less than 50%, so it will be "enabled maps".
 							areOnlyWorkshopMapsEnabled = false;
 						} else {
-							for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+							for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
 								if (!mapKw[map].isWorkshopMap) {
 									areOnlyWorkshopMapsEnabled = false;
 									break;
@@ -59012,8 +59026,8 @@ function compileCustomGameSettings(customGameSettings) {
 					}
 					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
 					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
-					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
-						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw))
+					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
+						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw)+" "+customGameSettings.gamemodes[gamemode][mapsKey][map])
 					}
 					delete customGameSettings.gamemodes[gamemode][mapsKey];
 				}

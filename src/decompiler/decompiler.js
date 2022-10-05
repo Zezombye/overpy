@@ -229,9 +229,9 @@ function decompileCustomGameSettings(content) {
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
-							result[opyCategory][opyGamemode][opyPropName] = [];
+							result[opyCategory][opyGamemode][opyPropName] = {};
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
-								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+								result[opyCategory][opyGamemode][opyPropName][topy(map.substring(0, map.length-1), mapKw)] = 0
 							}
 						}
 					}

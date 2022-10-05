@@ -10,7 +10,7 @@ settings
 		{
 			enabled maps
 			{
-				Workshop Island
+				Workshop Island 0
 			}
 		}
 		General

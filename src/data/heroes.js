@@ -186,20 +186,7 @@ const heroKw =
     "bastion": {
         "guid": "000000000023",
         "secondaryFire": {
-            "guid": "0000000003C5",
-            "en-US": "Self-Repair",
-            "de-DE": "Selbstreparatur",
-            "es-ES": "Autorreparación",
-            "es-MX": "Auto-reparación",
-            "fr-FR": "Autoréparation",
-            "it-IT": "Autoriparazione",
-            "ja-JP": "自己修復",
-            "ko-KR": "자가 수리",
-            "pl-PL": "Samonaprawa",
-            "pt-BR": "Autorreparo",
-            "ru-RU": "Саморемонт",
-            "zh-CN": "自我修复",
-            "zh-TW": "自我修復"
+            "en-US": "A-36 Tactical Grenade",
         },
         "ability1": {
             "guid": "0000000003C3",
@@ -218,20 +205,7 @@ const heroKw =
             "zh-TW": "切換模式"
         },
         "ultimate": {
-            "guid": "0000000003C1",
-            "en-US": "Configuration: Tank",
-            "de-DE": "Konfiguration: Panzer",
-            "es-ES": "Modo tanque",
-            "es-MX": "Configuración: tanque",
-            "fr-FR": "Configuration : tank",
-            "it-IT": "Assetto Carro Armato",
-            "ja-JP": "タンク・モード",
-            "ko-KR": "설정: 전차",
-            "pl-PL": "Konfiguracja: Czołg",
-            "pt-BR": "Configuração: Tanque",
-            "ru-RU": "Режим танка",
-            "zh-CN": "坦克模式",
-            "zh-TW": "坦克模式"
+            "en-US": "Configuration: Artillery",
         },
         "en-US": "Bastion",
         "ja-JP": "バスティオン",
@@ -348,20 +322,7 @@ const heroKw =
             "zh-TW": "火箭拳"
         },
         "ability1": {
-            "guid": "0000000056D0",
-            "en-US": "Rising Uppercut",
-            "de-DE": "Uppercut",
-            "es-ES": "Uppercut",
-            "es-MX": "Gancho ascendente",
-            "fr-FR": "Uppercut",
-            "it-IT": "Montante",
-            "ja-JP": "ライジング・アッパーカット",
-            "ko-KR": "라이징 어퍼컷",
-            "pl-PL": "Podbródkowy",
-            "pt-BR": "Gancho Ascendente",
-            "ru-RU": "Апперкот",
-            "zh-CN": "上勾重拳",
-            "zh-TW": "天鉤拳"
+            "en-US": "Power Block",
         },
         "ability2": {
             "guid": "000000005B4A",
@@ -1157,19 +1118,7 @@ const heroKw =
     "orisa": {
         "guid": "000000002D21",
         "secondaryFire": {
-            "guid": "000000004ED5",
-            "en-US": "Halt!",
-            "es-ES": "¡Alto!",
-            "es-MX": "¡Alto!",
-            "fr-FR": "Entrave",
-            "it-IT": "Mina Traente",
-            "ja-JP": "ストップ！",
-            "ko-KR": "꼼짝 마!",
-            "pl-PL": "Stać!",
-            "pt-BR": "Parados!",
-            "ru-RU": "Стоять!",
-            "zh-CN": "站住别动",
-            "zh-TW": "不准動！"
+            "en-US": "Energy Javelin",
         },
         "ability1": {
             "guid": "000000004ED3",
@@ -1188,36 +1137,10 @@ const heroKw =
             "zh-TW": "強化防禦"
         },
         "ability2": {
-            "guid": "000000004ED7",
-            "en-US": "Protective Barrier",
-            "de-DE": "Schutzbarriere",
-            "es-ES": "Barrera protectora",
-            "es-MX": "Barrera protectora",
-            "fr-FR": "Dispositif de protection",
-            "it-IT": "Barriera Protettiva",
-            "ja-JP": "プロテクティブ・バリア",
-            "ko-KR": "보호 방벽",
-            "pl-PL": "Bariera Ochronna",
-            "pt-BR": "Barreira Protetora",
-            "ru-RU": "Силовой барьер",
-            "zh-CN": "防护屏障",
-            "zh-TW": "防護屏障"
+            "en-US": "Javelin Spin",
         },
         "ultimate": {
-            "guid": "000000004EDB",
-            "en-US": "Supercharger",
-            "de-DE": "Superbooster",
-            "es-ES": "Potenciador",
-            "es-MX": "Supercargador",
-            "fr-FR": "Surchargeur",
-            "it-IT": "Sovralimentatore",
-            "ja-JP": "スーパーチャージャー",
-            "ko-KR": "초강력 증폭기",
-            "pl-PL": "Turbodoładowanie",
-            "pt-BR": "Amplificador",
-            "ru-RU": "Катализатор",
-            "zh-CN": "超充能器",
-            "zh-TW": "增壓強化裝置"
+            "en-US": "Terra Surge",
         },
         "en-US": "Orisa",
         "ja-JP": "オリーサ",
@@ -2105,6 +2028,45 @@ const heroKw =
         "ru-RU": "Дзенъятта",
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔"
+    },
+    "sojourn": {
+        "ability1": {
+            "en-US": "Power Slide",
+        },
+        "ability2": {
+            "en-US": "Disruptor Shot",
+        },
+        "ultimate": {
+            "en-US": "Overclock",
+        },
+        "en-US": "Sojourn",
+    },
+    "junkerQueen": {
+        "secondaryFire": {
+            "en-US": "Jagged Blade",
+        },
+        "ability2": {
+            "en-US": "Carnage",
+        },
+        "ability1": {
+            "en-US": "Commanding Shout",
+        },
+        "ultimate": {
+            "en-US": "Rampage",
+        },
+        "en-US": "Junker Queen",
+    },
+    "kiriko": {
+        "ability1": {
+            "en-US": "Swift Step",
+        },
+        "ability2": {
+            "en-US": "Protection Suzu",
+        },
+        "ultimate": {
+            "en-US": "Kitsune Rush",
+        },
+        "en-US": "Kiriko",
     }
 }
 //end-json
