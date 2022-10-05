@@ -2,6 +2,7 @@ The individual files in this folder are small gamemodes/PoC I made.
 
 Below are full gamemodes that are able to harness the full power of OverPy:
 
+- [OverWordle](https://github.com/Zezombye/overwordle)
 - [Riptire Racing](https://github.com/Zezombye/riptire-racing)
 - [Conquest](https://github.com/GrandeurHammers/Conquest)
 - [Bounty Hunter](https://github.com/nathan130200/BountyHunter)
