@@ -9031,6 +9031,7 @@ var valueFuncKw =
         "en-US": "All Heroes",
         "es-MX": "Todos los héroes",
         "fr-FR": "Tous les héros",
+        "ko-KR": "모든 영웅",
         "ja-JP": "全ヒーロー",
         "pt-BR": "Todos os Heróis",
         "zh-CN": "全部英雄"

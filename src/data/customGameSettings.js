@@ -947,7 +947,7 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            "snowballFfa": {
+            /*"snowballFfa": {
                 "values": {
                     "gameLengthInMn": {
                         "guid": "00000000632C",
@@ -1008,7 +1008,7 @@ const customGameSettingsSchema =
                         "zh-TW": "按重生鍵復活"
                     }
                 }
-            },
+            },*/
             "bountyHunter": {
                 "values": {
                     "baseScoreForKillingBountyTarget": {
@@ -1827,7 +1827,7 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            "freezethawElimination": {
+            /*"freezethawElimination": {
                 "values": {
                     "heroSelectionTime": {
                         "values": "__int__",
@@ -2217,7 +2217,7 @@ const customGameSettingsSchema =
                         "zh-TW": "經過多久之後顯示英雄位置"
                     }
                 }
-            },
+            },*/
             "tdm": {
                 "values": {
                     "gameLengthInMn": {
@@ -2617,7 +2617,7 @@ const customGameSettingsSchema =
                     }
                 }
             },
-            "lucioball": {
+            /*"lucioball": {
                 "values": {
                     "gameLengthInSec": {
                         "values": "__int__",
@@ -2854,7 +2854,7 @@ const customGameSettingsSchema =
                         "zh-TW": "最大獎勵球數"
                     }
                 }
-            },
+            },*//*
             "yetiHunter": {
                 "values": {
                     "maximumSimultaneousMeatSpawns": {
@@ -2918,7 +2918,7 @@ const customGameSettingsSchema =
                         "zh-TW": "雪怪獲勝分數"
                     }
                 }
-            },
+            },*/
             "ffa": {
                 "values": {
                     "gameLengthInMn": {
@@ -2979,6 +2979,42 @@ const customGameSettingsSchema =
                         "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
                     }
+                }
+            },
+            "push": {
+                "values": {
+                    "ts1WalkSpeedModifier%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "TS-1 Walk Speed Modifier",
+                    },
+                    "ts1PushSpeedModifier%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "TS-1 Push Speed Modifier",
+                    },
+                    "enableCompetitiveRules": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000005897",
+                        "en-US": "Competitive Rules",
+                        "de-DE": "Ranglistenregeln",
+                        "es-ES": "Reglas competitivas",
+                        "es-MX": "Reglas de Modo Competitivo",
+                        "fr-FR": "Règles des parties compétitives",
+                        "it-IT": "Regole competitive",
+                        "ja-JP": "ライバル・マッチ ルール",
+                        "ko-KR": "경쟁전 규칙",
+                        "pl-PL": "Zasady trybu rywalizacji",
+                        "pt-BR": "Regras competitivas",
+                        "ru-RU": "Соревновательные правила",
+                        "zh-CN": "竞技比赛规则",
+                        "zh-TW": "競技對戰規則"
+                    },
                 }
             }
         },
@@ -3434,6 +3470,7 @@ const customGameSettingsSchema =
                         "doomfist",
                         "echo",
                         "genji",
+                        "kiriko",
                         "lucio",
                         "mccree",
                         "mercy",
@@ -3442,6 +3479,7 @@ const customGameSettingsSchema =
                         "reaper",
                         "reinhardt",
                         "roadhog",
+                        "sojourn",
                         "soldier",
                         "symmetra",
                         "winston",
@@ -3532,7 +3570,10 @@ const customGameSettingsSchema =
                         "brigitte",
                         "dva",
                         "hanzo",
+                        "kiriko",
+                        "moira",
                         "reinhardt",
+                        "sojourn",
                         "sigma"
                     ],
                     "guid": "000000005ECC",
@@ -3557,8 +3598,10 @@ const customGameSettingsSchema =
                         "brigitte",
                         "dva",
                         "hanzo",
+                        "kiriko",
                         "moira",
                         "reinhardt",
+                        "sojourn",
                         "sigma"
                     ],
                     "guid": "000000005ECD",
@@ -3619,8 +3662,7 @@ const customGameSettingsSchema =
                     "exclude": [
                         "bastion"
                     ],
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
@@ -3780,11 +3822,13 @@ const customGameSettingsSchema =
                         "dva",
                         "doomfist",
                         "echo",
+                        "junkerQueen",
                         "lucio",
                         "orisa",
                         "pharah",
                         "reinhardt",
                         "sigma",
+                        "sojourn",
                         "soldier",
                         "sombra",
                         "hammond"
@@ -3799,10 +3843,10 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
-                        "bastion",
                         "brigitte",
                         "doomfist",
                         "echo",
+                        "junkerQueen",
                         "lucio",
                         "orisa",
                         "reinhardt",
@@ -3885,11 +3929,13 @@ const customGameSettingsSchema =
                     "include": [
                         "baptiste",
                         "genji",
+                        "kiriko",
                         "mccree",
                         "mei",
                         "mercy",
                         "moira",
                         "roadhog",
+                        "sojourn",
                         "symmetra",
                         "torbjorn",
                         "zarya",
@@ -4220,25 +4266,12 @@ const customGameSettingsSchema =
             },
             "doomfist": {
                 "values": {
-                    "ability1Kb%": {
+                    "ability1ChargeRate%": {
                         "values": "__percent__",
-                        "min": 0,
-                        "max": 300,
+                        "min": 10,
+                        "max": 500,
                         "default": 100,
-                        "guid": "000000006664",
-                        "en-US": "Rising Uppercut Knockback Scalar",
-                        "de-DE": "Uppercut – Rückstoß",
-                        "es-ES": "Repulsión de Uppercut",
-                        "es-MX": "Escala de derribos con Gancho ascendente",
-                        "fr-FR": "Recul d’Uppercut",
-                        "it-IT": "Montante - Intensità di respinta",
-                        "ja-JP": "ライジング・アッパーカット ノックバック・スカラー",
-                        "ko-KR": "라이징 어퍼컷 밀쳐내기 수준 조정",
-                        "pl-PL": "Skalowanie odrzucenia Podbródkowy",
-                        "pt-BR": "Repulsão escalar do Gancho Ascendente",
-                        "ru-RU": "Апперкот: сила отбрасывания",
-                        "zh-CN": "上勾重拳击退倍率",
-                        "zh-TW": "天鉤拳擊退距離"
+                        "en-US": "Power Block Charge Rate",
                     },
                     "secondaryFireKb%": {
                         "values": "__percent__",
@@ -4366,6 +4399,24 @@ const customGameSettingsSchema =
                     }
                 }
             },
+            "junkerQueen": {
+                "values": {
+                    "secondaryFireKb%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Jagged Blade Knockback Scalar",
+                    },
+                    "secondaryFireRecallDelay%": {
+                        "values": "__percent__",
+                        "min": 40,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Jagged Blade Delay Before Automatic Recall",
+                    }
+                }
+            },
             "junkrat": {
                 "values": {
                     "ability1Kb%": {
@@ -4407,6 +4458,18 @@ const customGameSettingsSchema =
                         "ru-RU": "Гранатомет: сила отбрасывания",
                         "zh-CN": "榴弹发射器击退倍率",
                         "zh-TW": "爆彈槍擊退距離"
+                    }
+                }
+            },
+            "kiriko": {
+                "values": {                    
+                    "ability1Distance%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Swift Step Distance Scalar",
+                        "ko-KR": "순보 거리 조정",
                     }
                 }
             },
@@ -4904,6 +4967,17 @@ const customGameSettingsSchema =
                         "zh-TW": "重力崩引擊退距離"
                     }
                 }
+            },
+            "sojourn": {
+                "values": {
+                    "secondaryFireEnergyChargeRate%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Railgun Alt Fire Energy Charge Rate",
+                    },
+                }  
             },
             "soldier": {
                 "values": {

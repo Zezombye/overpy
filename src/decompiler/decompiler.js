@@ -231,7 +231,11 @@ function decompileCustomGameSettings(content) {
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
 							result[opyCategory][opyGamemode][opyPropName] = {};
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
-								result[opyCategory][opyGamemode][opyPropName][topy(map.substring(0, map.length-1), mapKw)] = 0
+								//remove number at the end, if there is one
+								if (map.endsWith("0")) {
+									map = map.substring(0, map.length-1);
+								}
+								result[opyCategory][opyGamemode][opyPropName][topy(map, mapKw)] = 0
 							}
 						}
 					}

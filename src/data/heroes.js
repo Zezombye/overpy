@@ -187,6 +187,7 @@ const heroKw =
         "guid": "000000000023",
         "secondaryFire": {
             "en-US": "A-36 Tactical Grenade",
+            "ko-KR": "A-36 전술 수류탄",
         },
         "ability1": {
             "guid": "0000000003C3",
@@ -206,6 +207,7 @@ const heroKw =
         },
         "ultimate": {
             "en-US": "Configuration: Artillery",
+            "ko-KR": "설정: 전차",
         },
         "en-US": "Bastion",
         "ja-JP": "バスティオン",
@@ -323,6 +325,7 @@ const heroKw =
         },
         "ability1": {
             "en-US": "Power Block",
+            "ko-KR": "파워 블락",
         },
         "ability2": {
             "guid": "000000005B4A",
@@ -894,20 +897,8 @@ const heroKw =
             "zh-TW": "戰術翻滾"
         },
         "ability2": {
-            "guid": "0000000004A0",
-            "en-US": "Flashbang",
-            "de-DE": "Blendgranate",
-            "es-ES": "Granada cegadora",
-            "es-MX": "Granada aturdidora",
-            "fr-FR": "Grenade flash",
-            "it-IT": "Granata Stordente",
-            "ja-JP": "フラッシュバン",
-            "ko-KR": "섬광탄",
-            "pl-PL": "Granat Błyskowy",
-            "pt-BR": "Clarão",
-            "ru-RU": "Светошумовая граната",
-            "zh-CN": "闪光弹",
-            "zh-TW": "閃光彈"
+            "en-US": "Magnetic Grenade",
+            "ko-KR": "자력 수류탄",
         },
         "ultimate": {
             "guid": "0000000004A2",
@@ -1119,6 +1110,7 @@ const heroKw =
         "guid": "000000002D21",
         "secondaryFire": {
             "en-US": "Energy Javelin",
+            "ko-KR": "수호의 창",
         },
         "ability1": {
             "guid": "000000004ED3",
@@ -1138,9 +1130,11 @@ const heroKw =
         },
         "ability2": {
             "en-US": "Javelin Spin",
+            "ko-KR": "투창",
         },
         "ultimate": {
             "en-US": "Terra Surge",
+            "ko-KR": "대지의 창",
         },
         "en-US": "Orisa",
         "ja-JP": "オリーサ",
@@ -1364,7 +1358,7 @@ const heroKw =
             "fr-FR": "Traquelard",
             "it-IT": "Gancio",
             "ja-JP": "チェイン・フック",
-            "ko-KR": "갈고리 사슬",
+            "ko-KR": "사슬 갈고리",
             "pl-PL": "Hak na Łańcuchu",
             "pt-BR": "Corrente de Gancho",
             "ru-RU": "Цепной крюк",
@@ -2030,43 +2024,58 @@ const heroKw =
         "zh-TW": "禪亞塔"
     },
     "sojourn": {
+        "secondaryFire": {
+            "en-US": "Railgun Alt Fire",
+        },
         "ability1": {
             "en-US": "Power Slide",
+            "ko-KR": "파워 슬라이드",
         },
         "ability2": {
             "en-US": "Disruptor Shot",
+            "ko-KR": "분열 사격",
         },
         "ultimate": {
             "en-US": "Overclock",
+            "ko-KR": "오버클럭",
         },
         "en-US": "Sojourn",
+        "ko-KR": "소전",
     },
     "junkerQueen": {
         "secondaryFire": {
             "en-US": "Jagged Blade",
+            "ko-KR": "톱니칼",
         },
         "ability2": {
             "en-US": "Carnage",
+            "ko-KR": "도륙",
         },
         "ability1": {
             "en-US": "Commanding Shout",
         },
         "ultimate": {
             "en-US": "Rampage",
+            "ko-KR": "살육",
         },
         "en-US": "Junker Queen",
+        "ko-KR": "정커퀸",
     },
     "kiriko": {
         "ability1": {
             "en-US": "Swift Step",
+            "ko-KR": "순보",
         },
         "ability2": {
             "en-US": "Protection Suzu",
+            "ko-KR": "정화의 방울",
         },
         "ultimate": {
             "en-US": "Kitsune Rush",
+            "ko-KR": "여우길",
         },
         "en-US": "Kiriko",
+        "ko-KR": "키리코",
     }
 }
 //end-json

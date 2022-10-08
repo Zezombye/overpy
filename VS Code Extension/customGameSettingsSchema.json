@@ -282,14 +282,6 @@
                             "minimum": 10,
                             "maximum": 500
                         },
-                        "gameLengthInMn": {
-                            "type": "integer",
-                            "minimum": 5,
-                            "maximum": 15
-                        },
-                        "enableSelfInitiatedRespawn": {
-                            "type": "boolean"
-                        },
                         "baseScoreForKillingBountyTarget": {
                             "type": "integer",
                             "minimum": 0,
@@ -314,6 +306,14 @@
                             "type": "integer",
                             "minimum": 0,
                             "maximum": 1000
+                        },
+                        "gameLengthInMn": {
+                            "type": "integer",
+                            "minimum": 5,
+                            "maximum": 15
+                        },
+                        "enableSelfInitiatedRespawn": {
+                            "type": "boolean"
                         },
                         "enableBlitzFlagLocations": {
                             "type": "boolean"
@@ -494,66 +494,15 @@
                         "enableEndless": {
                             "type": "boolean"
                         },
-                        "gameLengthInSec": {
-                            "type": "integer",
-                            "minimum": 60,
-                            "maximum": 900
-                        },
-                        "scoreLeadToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 100
-                        },
-                        "ballKb%": {
+                        "ts1WalkSpeedModifier%": {
                             "type": "number",
-                            "minimum": 100,
+                            "minimum": 10,
                             "maximum": 500
                         },
-                        "enableWinIfEnoughGoalsScored": {
-                            "type": "boolean"
-                        },
-                        "resetPlayersAfterGoalScored": {
-                            "type": "boolean"
-                        },
-                        "ballCountPeriodIncreaseInSec": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 600
-                        },
-                        "bonusBallSpawningPeriodInSec": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 600
-                        },
-                        "bonusBallValue": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 50
-                        },
-                        "initialBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "maxBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "maxBonusBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "maximumSimultaneousMeatSpawns": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 6
-                        },
-                        "yetiScoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 12
+                        "ts1PushSpeedModifier%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
                         }
                     }
                 },
@@ -1106,130 +1055,6 @@
                                     "kingsRowWinter",
                                     "paraiso",
                                     "midtown"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "snowballFfa": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "gameLengthInMn": {
-                            "type": "integer",
-                            "minimum": 5,
-                            "maximum": 15
-                        },
-                        "scoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 50
-                        },
-                        "enableSelfInitiatedRespawn": {
-                            "type": "boolean"
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blackForestWinter"
-                                ]
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "blackForestWinter"
                                 ]
                             }
                         }
@@ -1907,209 +1732,6 @@
                                     "workshopGreenScreen",
                                     "workshopIsland",
                                     "workshopIslandNight"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "freezethawElimination": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "heroSelectionTime": {
-                            "type": "integer",
-                            "minimum": 20,
-                            "maximum": 60
-                        },
-                        "scoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 9
-                        },
-                        "restrictPreviouslyPlayedHeroes": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "afterRoundWon"
-                                },
-                                {
-                                    "const": "afterRoundPlayed"
-                                }
-                            ]
-                        },
-                        "heroesAvailable": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "any"
-                                },
-                                {
-                                    "const": "limited"
-                                },
-                                {
-                                    "const": "random"
-                                },
-                                {
-                                    "const": "mirroredRandom"
-                                }
-                            ]
-                        },
-                        "heroPoolSize": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "teamSize"
-                                },
-                                {
-                                    "const": "teamSize+1"
-                                },
-                                {
-                                    "const": "teamSize+2"
-                                },
-                                {
-                                    "const": "teamSize+3"
-                                }
-                            ]
-                        },
-                        "enableTiebreaker": {
-                            "type": "boolean"
-                        },
-                        "tiebreakerTime": {
-                            "type": "integer",
-                            "minimum": 30,
-                            "maximum": 300
-                        },
-                        "tiebreakerCaptureTime": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 7
-                        },
-                        "drawTime": {
-                            "type": "integer",
-                            "minimum": 60,
-                            "maximum": 300
-                        },
-                        "enableWallhack": {
-                            "type": "boolean"
-                        },
-                        "wallhackEnabledTime": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 180
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ayutthaya",
-                                    "blackForest",
-                                    "blackForestWinter",
-                                    "castillo",
-                                    "ecopointAntarctica"
-                                ]
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ayutthaya",
-                                    "blackForest",
-                                    "blackForestWinter",
-                                    "castillo",
-                                    "ecopointAntarctica"
                                 ]
                             }
                         }
@@ -2797,291 +2419,6 @@
                         }
                     }
                 },
-                "lucioball": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "gameLengthInSec": {
-                            "type": "integer",
-                            "minimum": 60,
-                            "maximum": 900
-                        },
-                        "scoreLeadToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 100
-                        },
-                        "ballKb%": {
-                            "type": "number",
-                            "minimum": 100,
-                            "maximum": 500
-                        },
-                        "enableWinIfEnoughGoalsScored": {
-                            "type": "boolean"
-                        },
-                        "scoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 9
-                        },
-                        "resetPlayersAfterGoalScored": {
-                            "type": "boolean"
-                        },
-                        "ballCountPeriodIncreaseInSec": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 600
-                        },
-                        "bonusBallSpawningPeriodInSec": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 600
-                        },
-                        "bonusBallValue": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 50
-                        },
-                        "initialBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "maxBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "maxBonusBallCount": {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 6
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": []
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": []
-                            }
-                        }
-                    }
-                },
-                "yetiHunter": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "maximumSimultaneousMeatSpawns": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 6
-                        },
-                        "gameLengthInMn": {
-                            "type": "integer",
-                            "minimum": 3,
-                            "maximum": 10
-                        },
-                        "yetiScoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 12
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "allSlotsFilled"
-                                },
-                                {
-                                    "const": "immediately"
-                                },
-                                {
-                                    "const": "manual"
-                                }
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "modeDependent"
-                                },
-                                {
-                                    "const": "enabled"
-                                },
-                                {
-                                    "const": "disabled"
-                                }
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "1PerTeam"
-                                },
-                                {
-                                    "const": "2PerTeam"
-                                },
-                                {
-                                    "const": "1PerGame"
-                                },
-                                {
-                                    "const": "2PerGame"
-                                }
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "oneOf": [
-                                {
-                                    "const": "off"
-                                },
-                                {
-                                    "const": "2OfEachRolePerTeam"
-                                }
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": []
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": []
-                            }
-                        }
-                    }
-                },
                 "ffa": {
                     "type": "object",
                     "additionalProperties": false,
@@ -3296,6 +2633,19 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
+                        "ts1WalkSpeedModifier%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "ts1PushSpeedModifier%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
                         "enableEnemyHealthBars": {
                             "type": "boolean"
                         },
@@ -3989,11 +3339,6 @@
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
-                        "secondaryFireCooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "secondaryFireMaximumTime%": {
                             "type": "number",
                             "minimum": 20,
@@ -4261,10 +3606,10 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "ability1Kb%": {
+                        "ability1ChargeRate%": {
                             "type": "number",
-                            "minimum": 0,
-                            "maximum": 300
+                            "minimum": 10,
+                            "maximum": 500
                         },
                         "secondaryFireKb%": {
                             "type": "number",
@@ -4515,6 +3860,134 @@
                         },
                         "enableUlt": {
                             "type": "boolean"
+                        }
+                    }
+                },
+                "junkerQueen": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "secondaryFireKb%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 400
+                        },
+                        "secondaryFireRecallDelay%": {
+                            "type": "number",
+                            "minimum": 40,
+                            "maximum": 400
+                        },
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileGravity%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        },
+                        "secondaryFireCooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         }
                     }
                 },
@@ -5114,11 +4587,6 @@
                         "enablePrimaryFire": {
                             "type": "boolean"
                         },
-                        "ammoClipSize%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 500
-                        },
                         "enableAbility1": {
                             "type": "boolean"
                         },
@@ -5649,6 +5117,111 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500
+                        }
+                    }
+                },
+                "sojourn": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "secondaryFireEnergyChargeRate%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableAbility2": {
+                            "type": "boolean"
+                        },
+                        "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
                         }
                     }
                 },
@@ -7751,226 +7324,6 @@
                         }
                     }
                 },
-                "sojourn": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableSpawningWithUlt": {
-                            "type": "boolean"
-                        },
-                        "damageDealt%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "damageReceived%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "healingDealt%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "healingReceived%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "health%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "jumpVerticalSpeed%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 800
-                        },
-                        "movementGravity%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 400
-                        },
-                        "movementSpeed%": {
-                            "type": "number",
-                            "minimum": 50,
-                            "maximum": 300
-                        },
-                        "projectileGravity%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "projectileSpeed%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableHeadshotsOnly": {
-                            "type": "boolean"
-                        },
-                        "enablePrimaryFire": {
-                            "type": "boolean"
-                        },
-                        "ammoClipSize%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 500
-                        },
-                        "enableInfiniteAmmo": {
-                            "type": "boolean"
-                        },
-                        "enableAbility1": {
-                            "type": "boolean"
-                        },
-                        "ability1Cooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableAbility2": {
-                            "type": "boolean"
-                        },
-                        "ability2Cooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "junkerQueen": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "enableMelee": {
-                            "type": "boolean"
-                        },
-                        "enableSpawningWithUlt": {
-                            "type": "boolean"
-                        },
-                        "damageDealt%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "damageReceived%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "healingDealt%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "healingReceived%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "health%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "jumpVerticalSpeed%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 800
-                        },
-                        "movementGravity%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 400
-                        },
-                        "movementSpeed%": {
-                            "type": "number",
-                            "minimum": 50,
-                            "maximum": 300
-                        },
-                        "projectileGravity%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "projectileSpeed%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableHeadshotsOnly": {
-                            "type": "boolean"
-                        },
-                        "enablePrimaryFire": {
-                            "type": "boolean"
-                        },
-                        "ammoClipSize%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 500
-                        },
-                        "enableInfiniteAmmo": {
-                            "type": "boolean"
-                        },
-                        "enableAbility1": {
-                            "type": "boolean"
-                        },
-                        "ability1Cooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableAbility2": {
-                            "type": "boolean"
-                        },
-                        "ability2Cooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "ultGen%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "combatUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "passiveUltGen%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "enableUlt": {
-                            "type": "boolean"
-                        }
-                    }
-                },
                 "kiriko": {
                     "type": "object",
                     "additionalProperties": false,
@@ -8021,11 +7374,6 @@
                             "minimum": 50,
                             "maximum": 300
                         },
-                        "projectileGravity%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
                         "projectileSpeed%": {
                             "type": "number",
                             "minimum": 0,
@@ -8035,14 +7383,6 @@
                             "type": "boolean"
                         },
                         "enablePrimaryFire": {
-                            "type": "boolean"
-                        },
-                        "ammoClipSize%": {
-                            "type": "number",
-                            "minimum": 25,
-                            "maximum": 500
-                        },
-                        "enableInfiniteAmmo": {
                             "type": "boolean"
                         },
                         "enableAbility1": {
@@ -8077,6 +7417,9 @@
                             "maximum": 500
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         }
                     }
