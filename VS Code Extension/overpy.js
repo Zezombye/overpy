@@ -30138,7 +30138,8 @@ const mapKw =
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
     },
-    /*"busanStadium": {
+    "busanStadium": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -30158,6 +30159,7 @@ const mapKw =
         "zh-TW": "釜山運動場"
     },
     "busanStadiumClassic": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -30175,7 +30177,7 @@ const mapKw =
         "ru-RU": "Классический стадион Пусана",
         "zh-CN": "釜山体育场（经典）",
         "zh-TW": "經典釜山運動場"
-    },*/
+    },
     "castillo": {
         "guid": "000000005C04",
         "gamemodes": [
@@ -30273,7 +30275,8 @@ const mapKw =
         "zh-CN": "生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站"
     },
-    /*"ecopointAntarcticaWinter": {
+    "ecopointAntarcticaWinter": {
+        "onlyInOw1": true,
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
@@ -30302,7 +30305,7 @@ const mapKw =
         "ru-RU": "Экостанция: Антарктика зима",
         "zh-CN": "圣诞节生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站（冬境）"
-    },*/
+    },
     "eichenwalde": {
         "guid": "0000000029AF",
         "gamemodes": [
@@ -30335,7 +30338,8 @@ const mapKw =
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
-    /*"estadioDasRas": {
+    "estadioDasRas": {
+        "onlyInOw1": true,
         "guid": "000000004629",
         "gamemodes": [
             "lucioball"
@@ -30348,7 +30352,7 @@ const mapKw =
         "ru-RU": "«Эстадиу ди Ранс»",
         "zh-CN": "弗格体育场",
         "zh-TW": "青蛙體育場"
-    },*/
+    },
     "hanamura": {
         "guid": "000000000138",
         "gamemodes": [
@@ -30426,7 +30430,8 @@ const mapKw =
         "zh-CN": "好莱坞",
         "zh-TW": "好萊塢"
     },
-    /*"hollywoodHalloween": {
+    "hollywoodHalloween": {
+        "onlyInOw1": true,
         "guid": "000000004EE3",
         "gamemodes": [
             "hybrid",
@@ -30441,7 +30446,7 @@ const mapKw =
         "ru-RU": "Голливуд Хеллоуин",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）"
-    },*/
+    },
     "horizonLunarColony": {
         "guid": "000000004EEE",
         "gamemodes": [
@@ -30507,7 +30512,7 @@ const mapKw =
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔"
     },
-    /*"iliosRuins": {
+    "iliosRuins": {
         "guid": "000000005851",
         "gamemodes": [
             "elimination",
@@ -30533,7 +30538,7 @@ const mapKw =
         "ru-RU": "Илиос: развалины",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟"
-    },*/
+    },
     "iliosWell": {
         "guid": "00000000583B",
         "gamemodes": [
@@ -30862,7 +30867,7 @@ const mapKw =
         "zh-CN": "马莱温多",
         "zh-TW": "馬勒馮托"
     },
-    /*"necropolis": {
+    "necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [
             "elimination",
@@ -30889,7 +30894,7 @@ const mapKw =
         "ru-RU": "Некрополь",
         "zh-CN": "墓园",
         "zh-TW": "墓室"
-    },*/
+    },
     "nepal": {
         "guid": "00000000138A",
         "gamemodes": [
@@ -30988,7 +30993,8 @@ const mapKw =
         "zh-CN": "尼泊尔村庄",
         "zh-TW": "尼泊爾村落"
     },
-    /*"nepalVillageWinter": {
+    "nepalVillageWinter": {
+        "onlyInOw1": true,
         "guid": "000000006E1F",
         "gamemodes": [
             "yetiHunter"
@@ -31006,8 +31012,8 @@ const mapKw =
         "ru-RU": "Непал: деревня зима",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
-    },*/
-    /*"numbani": {
+    },
+    "numbani": {
         "guid": "0000000002EA",
         "gamemodes": [
             "hybrid",
@@ -31019,7 +31025,7 @@ const mapKw =
         "ru-RU": "Нумбани",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼"
-    },*/
+    },
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [
@@ -31204,7 +31210,8 @@ const mapKw =
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
     },
-    /*"sydneyHarbourArena": {
+    "sydneyHarbourArena": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -31221,6 +31228,7 @@ const mapKw =
         "zh-TW": "雪梨海港運動公園"
     },
     "sydneyHarbourArenaClassic": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -31238,8 +31246,8 @@ const mapKw =
         "ru-RU": "Классическая «Арена Сидней-Харбор»",
         "zh-CN": "悉尼海港竞技场（经典）",
         "zh-TW": "經典雪梨海港運動公園"
-    },*/
-    /*"templeOfAnubis": {
+    },
+    "templeOfAnubis": {
         "guid": "00000000012E",
         "gamemodes": [
             "assault",
@@ -31261,7 +31269,7 @@ const mapKw =
         "ru-RU": "Храм Анубиса",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
-    },*/
+    },
     "volskaya": {
         "guid": "0000000002EB",
         "gamemodes": [
@@ -33738,7 +33746,8 @@ const gamemodeKw =
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
-    /*"freezethawElimination": {
+    "freezethawElimination": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "0000000122DF",
@@ -33755,7 +33764,7 @@ const gamemodeKw =
         "ru-RU": "Ледяная ликвидация",
         "zh-CN": "融冰决斗",
         "zh-TW": "凍凍大作戰"
-    },*/
+    },
     "hybrid": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -33791,7 +33800,8 @@ const gamemodeKw =
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
-    /*"lucioball": {
+    "lucioball": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 3,
         "defaultTeam2Players": 3,
         "guid": "000000004989",
@@ -33807,6 +33817,7 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "00000000525A",
@@ -33823,7 +33834,7 @@ const gamemodeKw =
         "ru-RU": "Операция «Метелица»",
         "zh-CN": "雪球攻势",
         "zh-TW": "小美的雪球大作戰"
-    },*/
+    },
     "practiceRange": {
         "guid": "0000000040BE",
         "defaultTeam1Players": 6,
@@ -33860,7 +33871,8 @@ const gamemodeKw =
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
-    /*"snowballFfa": {
+    "snowballFfa": {
+        "onlyInOw1": true,
         "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
@@ -33876,7 +33888,7 @@ const gamemodeKw =
         "ru-RU": "Снежная схватка",
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
-    },*/
+    },
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -33895,7 +33907,8 @@ const gamemodeKw =
         "zh-CN": "团队死斗",
         "zh-TW": "團隊死鬥"
     },
-    /*"yetiHunter": {
+    "yetiHunter": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 1,
         "guid": "000000006DF1",
@@ -33912,12 +33925,15 @@ const gamemodeKw =
         "ru-RU": "Охота на йети",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
-    },*/
+    },
     "push": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
         "en-US": "Push",
-    }
+    },
+    "survivor": {
+        "en-US": "Survivor",
+    },
 }
 //end-json
 /*
@@ -46344,14 +46360,8 @@ const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
-if (!IS_IN_BROWSER) {
-	const {VM} = require('vm2');
-	var evalVm = new VM({
-		timeout: 1000,
-		allowAsync: false,
-		sandbox: {}
-	});
-}
+var evalVm = null
+const {VM} = IS_IN_BROWSER ? null : require('vm2');
 
 //Compilation variables - are reset at each compilation.
 
@@ -46488,6 +46498,13 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
+	if (!IS_IN_BROWSER) {
+		evalVm = new VM({
+			timeout: 1000,
+			allowAsync: false,
+			sandbox: {}
+		});
+	}
 }
 
 //Other constants
@@ -49729,7 +49746,7 @@ function decompile(content) {
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
 				console.log(args[i])
-				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+				astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
 			} else if (wsFuncKw[name].args[i].type === "PlayerVariable") {
@@ -50569,6 +50586,16 @@ function decompileAllRules(content, language="en-US") {
 	var result = "";
 	content = content.trim();
 	
+	//Some maps and gamemodes are removed in ow2, making eg "Map("
+	//Before anything else, we must replace these to parse brackets correctly
+	var mapConstFunction = tows("__map__", valueFuncKw);
+	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
+
+	//This regex will sadly also replace instances in strings, but I doubt there are many.
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\((?!\\w)", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\w)", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
 	
 	var bracketPos = getBracketPositions(content);
 
@@ -51055,7 +51082,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object").map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object" && !constantValues[constantType][x].onlyInOw1).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -51125,6 +51152,10 @@ function obfuscateConstant(constantType, content) {
 		].includes(parentAction.name)) {
 			isEvaluatedClientSide = true;
 		}
+	}
+
+	if (!(content.args[0].name in obfuscationConstantsMapping[constantType])) {
+		error("No match found for keyword '"+content.args[0].name+"'");
 	}
 
 	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {
@@ -51261,7 +51292,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object").map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object" && !constantValues[constantType][x].onlyInOw1).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -51331,6 +51362,10 @@ function obfuscateConstant(constantType, content) {
 		].includes(parentAction.name)) {
 			isEvaluatedClientSide = true;
 		}
+	}
+
+	if (!(content.args[0].name in obfuscationConstantsMapping[constantType])) {
+		error("No match found for keyword '"+content.args[0].name+"'");
 	}
 
 	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {
@@ -51690,6 +51725,9 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
             variable["isChased"] = true;
             if (variable["isUsedInForLoop"]) {
                 warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
+            }
+            if (variable["isUsedInRuleCondition"]) {
+                warn("w_ow2_rule_condition_chase", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a rule condition, making the rule condition not trigger properly due to a workshop bug.");
             }
             isFound = true;
             break;
@@ -52706,6 +52744,80 @@ astParsingFunctions.__gamemode__ = function(content) {
 
 "use strict";
 
+astParsingFunctions.__globalVar__ = function(content) {
+
+    var isInRuleCondition = false
+    var contentParent = content.parent;
+    while (contentParent) {
+        if (contentParent.name === "@Condition") {
+            isInRuleCondition = true
+            break
+        }
+        contentParent = contentParent.parent;
+    }
+    
+    if (isInRuleCondition) {
+        if (content.name === "__playerVar__") {
+            var isGlobalVariable = false;
+            var varName = content.args[1].name;
+        } else if (content.name === "__globalVar__") {
+            var isGlobalVariable = true;
+            var varName = content.args[0].name;
+        } else {
+            error("Expected variable, but got "+functionNameToString(content));
+        }
+    
+        var varArray = isGlobalVariable ? globalVariables : playerVariables;
+        var isFound = false;
+        for (var variable of varArray) {
+            if (variable.name === varName) {
+                variable["isUsedInRuleCondition"] = true;
+                if (variable["isChased"]) {
+                    warn("w_ow2_rule_condition_chase", "This rule condition will not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
+                }
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            if (defaultVarNames.includes(varName)) {
+                //Add the variable as it doesn't already exist (else it would've been caught by the for)
+                //However, only do this if it is a default variable name
+                addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
+            } else {
+                error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+varName+"'");
+            }
+            for (var variable of varArray) {
+                if (variable.name === varName) {
+                    variable["isUsedInRuleCondition"] = true;
+                    break;
+                }
+            }
+        }
+    }
+    
+
+    return content;
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 astParsingFunctions.__greaterThan__ = function(content) {
     
     if (enableOptimization) {
@@ -53511,6 +53623,25 @@ astParsingFunctions.__or__ = function(content) {
     return content;
 }
 /* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.__playerVar__ = astParsingFunctions.__globalVar__;/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
  * 
@@ -57518,6 +57649,11 @@ function astToWs(content) {
         if (content.type === "HeroLiteral") {
             nbHeroesInValue++;
         }
+        if (!(content.name in constantValues[content.type])) {
+            error("Unknown "+content.type.replace("Literal", "").toLowerCase()+" '"+content.name+"'");
+        } else if (constantValues[content.type][content.name].onlyInOw1) {
+            error("The "+content.type.replace("Literal", "").toLowerCase()+" '"+content.name+"' is not available in OW2")
+        }
         result += tows(content.name, constantValues[content.type]);
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");
@@ -58811,6 +58947,10 @@ function compile(content, language="en-US", _rootPath="") {
 	} else {
 		availableExtensionPoints = -1;
 	}
+
+	if (!compiledCustomGameSettings) {
+		warn("w_workshop_ui_disabled", "No settings were declared; it is impossible to paste this gamemode as-is, as the workshop UI is disabled.");
+	}
 	
     
 	if (DEBUG_MODE) {
@@ -59081,6 +59221,13 @@ function compileCustomGameSettings(customGameSettings) {
 			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
 			result[wsGamemodes] = {};
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
+				if (gamemode !== "general") {
+					if (!(gamemode in gamemodeKw)) {
+						error("Unknown gamemode '"+gamemode+"'");
+					} else if (gamemodeKw[gamemode].onlyInOw1) {
+						error("The gamemode '"+gamemode+"' is not available in OW2");
+					}
+				}
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
 				var isGamemodeEnabled = true;
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
@@ -59097,7 +59244,15 @@ function compileCustomGameSettings(customGameSettings) {
 					if (Array.isArray(customGameSettings.gamemodes[gamemode][mapsKey])) {
 						customGameSettings.gamemodes[gamemode][mapsKey] = customGameSettings.gamemodes[gamemode][mapsKey].reduce((acc,curr)=> (acc[curr]=0,acc),{})
 					}
-
+					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
+						if (!(map in mapKw)) {
+							error("Unknown map '"+map+"'");
+						} else if (mapKw[map].onlyInOw1) {
+							error("The map '"+map+"' is not available in OW2");
+						} else if (map.endsWith("Night") || map.endsWith("Halloween") || map.endsWith("Winter") || map.endsWith("Lny") || ["iliosRuins", "iliosLighthouse", "iliosWell", "nepalSanctum", "nepalShrine", "nepalVillage", "oasisCityCenter", "oasisGardens", "oasisUniversity"].includes(map)) {
+							error("The map '"+map+"' cannot be pasted, you will have to select/deselect it manually via the UI")
+						}
+					}
 					//Test if there are only workshop maps (for extension points)
 					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
 						if (mapsKey === "disabledMaps") {

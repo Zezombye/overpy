@@ -139,7 +139,8 @@ const gamemodeKw =
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
-    /*"freezethawElimination": {
+    "freezethawElimination": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "0000000122DF",
@@ -156,7 +157,7 @@ const gamemodeKw =
         "ru-RU": "Ледяная ликвидация",
         "zh-CN": "融冰决斗",
         "zh-TW": "凍凍大作戰"
-    },*/
+    },
     "hybrid": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -192,7 +193,8 @@ const gamemodeKw =
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
-    /*"lucioball": {
+    "lucioball": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 3,
         "defaultTeam2Players": 3,
         "guid": "000000004989",
@@ -208,6 +210,7 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "00000000525A",
@@ -224,7 +227,7 @@ const gamemodeKw =
         "ru-RU": "Операция «Метелица»",
         "zh-CN": "雪球攻势",
         "zh-TW": "小美的雪球大作戰"
-    },*/
+    },
     "practiceRange": {
         "guid": "0000000040BE",
         "defaultTeam1Players": 6,
@@ -261,7 +264,8 @@ const gamemodeKw =
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
-    /*"snowballFfa": {
+    "snowballFfa": {
+        "onlyInOw1": true,
         "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
@@ -277,7 +281,7 @@ const gamemodeKw =
         "ru-RU": "Снежная схватка",
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
-    },*/
+    },
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -296,7 +300,8 @@ const gamemodeKw =
         "zh-CN": "团队死斗",
         "zh-TW": "團隊死鬥"
     },
-    /*"yetiHunter": {
+    "yetiHunter": {
+        "onlyInOw1": true,
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 1,
         "guid": "000000006DF1",
@@ -313,11 +318,14 @@ const gamemodeKw =
         "ru-RU": "Охота на йети",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
-    },*/
+    },
     "push": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
         "en-US": "Push",
-    }
+    },
+    "survivor": {
+        "en-US": "Survivor",
+    },
 }
 //end-json

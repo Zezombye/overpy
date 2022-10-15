@@ -13,10 +13,8 @@ settings
 			{
 				Workshop Chamber 0
 				Workshop Expanse 0
-				Workshop Expanse Night 0
 				Workshop Green Screen 0
 				Workshop Island 0
-				Workshop Island Night 0
 			}
 		}
 	}

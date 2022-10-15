@@ -16,6 +16,9 @@
  *
 -->
 <!--stfu firefox -->
+<!DOCTYPE html>
+<html>
+	<head>
 <meta charset="utf-8">
 <link rel="icon" type="image/png" href="VS Code Extension/img/overpy.ico"/>
 <title>OverPy Demo</title>
@@ -39,7 +42,8 @@ a {
 }
 
 </style>
-
+</head>
+<body>
 <center>
 	<a href="https://github.com/Zezombye/overpy"><h1>OverPy v6 language demo by Zezombye</h1></a>
 	<p><a href="https://github.com/Zezombye/overpy/blob/master/FUNCTIONS.md">Function documentation</a> | <button onclick="demoAddText();">Add example text</button> | Language: 
@@ -146,6 +150,7 @@ a {
 <script src="src/compiler/functions/__format__.js"></script>
 <script src="src/compiler/functions/__filteredArray__.js"></script>
 <script src="src/compiler/functions/__gamemode__.js"></script>
+<script src="src/compiler/functions/__globalVar__.js"></script>
 <script src="src/compiler/functions/__greaterThan__.js"></script>
 <script src="src/compiler/functions/__greaterThanOrEquals__.js"></script>
 <script src="src/compiler/functions/__hero__.js"></script>
@@ -164,6 +169,7 @@ a {
 <script src="src/compiler/functions/__number__.js"></script>
 <script src="src/compiler/functions/__not__.js"></script>
 <script src="src/compiler/functions/__or__.js"></script>
+<script src="src/compiler/functions/__playerVar__.js"></script>
 <script src="src/compiler/functions/__raiseToPower__.js"></script>
 <script src="src/compiler/functions/__remove__.js"></script>
 <script src="src/compiler/functions/__reverse__.js"></script>
@@ -296,3 +302,5 @@ function demoAddText() {
 }
 
 </script>
+</body>
+</html>

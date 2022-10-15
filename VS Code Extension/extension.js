@@ -79,6 +79,11 @@ for (var key of Object.keys(defaultConstValues)) {
         delete defaultConstValues[key];
     }
     if (key.endsWith("Literal")) {
+        for (var subKey of Object.keys(defaultConstValues[key])) {
+            if (defaultConstValues[key][subKey].onlyInOw1) {
+                delete defaultConstValues[key][subKey];
+            }
+        }
         defaultConstValues[key.substring(0, key.length-"Literal".length)] = defaultConstValues[key]
         delete defaultConstValues[key];
     }

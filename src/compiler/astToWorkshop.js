@@ -489,6 +489,11 @@ function astToWs(content) {
         if (content.type === "HeroLiteral") {
             nbHeroesInValue++;
         }
+        if (!(content.name in constantValues[content.type])) {
+            error("Unknown "+content.type.replace("Literal", "").toLowerCase()+" '"+content.name+"'");
+        } else if (constantValues[content.type][content.name].onlyInOw1) {
+            error("The "+content.type.replace("Literal", "").toLowerCase()+" '"+content.name+"' is not available in OW2")
+        }
         result += tows(content.name, constantValues[content.type]);
     } else {
         error("Unknown type '"+content.type+"' of '"+content.name+"'");

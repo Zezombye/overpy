@@ -9,10 +9,10 @@ settings {
             "enabledMaps": [
                 "workshopChamber",
                 "workshopExpanse",
-                "workshopExpanseNight",
+                /*"workshopExpanseNight",*/
                 "workshopGreenScreen",
-                "workshopIsland",
-                "workshopIslandNight"
+                "workshopIsland"
+                /*"workshopIslandNight"*/
             ]
         }
     }

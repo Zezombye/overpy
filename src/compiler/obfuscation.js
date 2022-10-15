@@ -117,7 +117,7 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
 for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object").map(x => constantType+x));
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object" && !constantValues[constantType][x].onlyInOw1).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -187,6 +187,10 @@ function obfuscateConstant(constantType, content) {
 		].includes(parentAction.name)) {
 			isEvaluatedClientSide = true;
 		}
+	}
+
+	if (!(content.args[0].name in obfuscationConstantsMapping[constantType])) {
+		error("No match found for keyword '"+content.args[0].name+"'");
 	}
 
 	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {

@@ -490,7 +490,7 @@ function decompile(content) {
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
 				console.log(args[i])
-				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+				astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
 			} else if (wsFuncKw[name].args[i].type === "PlayerVariable") {

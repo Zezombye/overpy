@@ -17,7 +17,7 @@ settings
 		{
 			enabled maps
 			{
-				Hanamura Winter 0
+				Temple of Anubis 0
 			}
 			Capture Speed Modifier: 60%
 		}

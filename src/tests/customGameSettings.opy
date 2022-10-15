@@ -12,7 +12,7 @@ settings {
     "gamemodes": {
         "assault": {
             "enabledMaps": [
-                "hanamuraWinter"
+                "templeOfAnubis"
             ],
             "captureSpeed%": 60
         },

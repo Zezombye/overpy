@@ -100,6 +100,10 @@ function compile(content, language="en-US", _rootPath="") {
 	} else {
 		availableExtensionPoints = -1;
 	}
+
+	if (!compiledCustomGameSettings) {
+		warn("w_workshop_ui_disabled", "No settings were declared; it is impossible to paste this gamemode as-is, as the workshop UI is disabled.");
+	}
 	
     
 	if (DEBUG_MODE) {
@@ -370,6 +374,13 @@ function compileCustomGameSettings(customGameSettings) {
 			var wsGamemodes = tows("gamemodes", customGameSettingsSchema);
 			result[wsGamemodes] = {};
 			for (var gamemode of Object.keys(customGameSettings.gamemodes)) {
+				if (gamemode !== "general") {
+					if (!(gamemode in gamemodeKw)) {
+						error("Unknown gamemode '"+gamemode+"'");
+					} else if (gamemodeKw[gamemode].onlyInOw1) {
+						error("The gamemode '"+gamemode+"' is not available in OW2");
+					}
+				}
 				var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
 				var isGamemodeEnabled = true;
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
@@ -386,7 +397,15 @@ function compileCustomGameSettings(customGameSettings) {
 					if (Array.isArray(customGameSettings.gamemodes[gamemode][mapsKey])) {
 						customGameSettings.gamemodes[gamemode][mapsKey] = customGameSettings.gamemodes[gamemode][mapsKey].reduce((acc,curr)=> (acc[curr]=0,acc),{})
 					}
-
+					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
+						if (!(map in mapKw)) {
+							error("Unknown map '"+map+"'");
+						} else if (mapKw[map].onlyInOw1) {
+							error("The map '"+map+"' is not available in OW2");
+						} else if (map.endsWith("Night") || map.endsWith("Halloween") || map.endsWith("Winter") || map.endsWith("Lny") || ["iliosRuins", "iliosLighthouse", "iliosWell", "nepalSanctum", "nepalShrine", "nepalVillage", "oasisCityCenter", "oasisGardens", "oasisUniversity"].includes(map)) {
+							error("The map '"+map+"' cannot be pasted, you will have to select/deselect it manually via the UI")
+						}
+					}
 					//Test if there are only workshop maps (for extension points)
 					if (isGamemodeEnabled && areOnlyWorkshopMapsEnabled) {
 						if (mapsKey === "disabledMaps") {

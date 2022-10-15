@@ -203,7 +203,8 @@ const mapKw =
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
     },
-    /*"busanStadium": {
+    "busanStadium": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -223,6 +224,7 @@ const mapKw =
         "zh-TW": "釜山運動場"
     },
     "busanStadiumClassic": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -240,7 +242,7 @@ const mapKw =
         "ru-RU": "Классический стадион Пусана",
         "zh-CN": "釜山体育场（经典）",
         "zh-TW": "經典釜山運動場"
-    },*/
+    },
     "castillo": {
         "guid": "000000005C04",
         "gamemodes": [
@@ -338,7 +340,8 @@ const mapKw =
         "zh-CN": "生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站"
     },
-    /*"ecopointAntarcticaWinter": {
+    "ecopointAntarcticaWinter": {
+        "onlyInOw1": true,
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
@@ -367,7 +370,7 @@ const mapKw =
         "ru-RU": "Экостанция: Антарктика зима",
         "zh-CN": "圣诞节生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站（冬境）"
-    },*/
+    },
     "eichenwalde": {
         "guid": "0000000029AF",
         "gamemodes": [
@@ -400,7 +403,8 @@ const mapKw =
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
-    /*"estadioDasRas": {
+    "estadioDasRas": {
+        "onlyInOw1": true,
         "guid": "000000004629",
         "gamemodes": [
             "lucioball"
@@ -413,7 +417,7 @@ const mapKw =
         "ru-RU": "«Эстадиу ди Ранс»",
         "zh-CN": "弗格体育场",
         "zh-TW": "青蛙體育場"
-    },*/
+    },
     "hanamura": {
         "guid": "000000000138",
         "gamemodes": [
@@ -491,7 +495,8 @@ const mapKw =
         "zh-CN": "好莱坞",
         "zh-TW": "好萊塢"
     },
-    /*"hollywoodHalloween": {
+    "hollywoodHalloween": {
+        "onlyInOw1": true,
         "guid": "000000004EE3",
         "gamemodes": [
             "hybrid",
@@ -506,7 +511,7 @@ const mapKw =
         "ru-RU": "Голливуд Хеллоуин",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）"
-    },*/
+    },
     "horizonLunarColony": {
         "guid": "000000004EEE",
         "gamemodes": [
@@ -572,7 +577,7 @@ const mapKw =
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔"
     },
-    /*"iliosRuins": {
+    "iliosRuins": {
         "guid": "000000005851",
         "gamemodes": [
             "elimination",
@@ -598,7 +603,7 @@ const mapKw =
         "ru-RU": "Илиос: развалины",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟"
-    },*/
+    },
     "iliosWell": {
         "guid": "00000000583B",
         "gamemodes": [
@@ -927,7 +932,7 @@ const mapKw =
         "zh-CN": "马莱温多",
         "zh-TW": "馬勒馮托"
     },
-    /*"necropolis": {
+    "necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [
             "elimination",
@@ -954,7 +959,7 @@ const mapKw =
         "ru-RU": "Некрополь",
         "zh-CN": "墓园",
         "zh-TW": "墓室"
-    },*/
+    },
     "nepal": {
         "guid": "00000000138A",
         "gamemodes": [
@@ -1053,7 +1058,8 @@ const mapKw =
         "zh-CN": "尼泊尔村庄",
         "zh-TW": "尼泊爾村落"
     },
-    /*"nepalVillageWinter": {
+    "nepalVillageWinter": {
+        "onlyInOw1": true,
         "guid": "000000006E1F",
         "gamemodes": [
             "yetiHunter"
@@ -1071,8 +1077,8 @@ const mapKw =
         "ru-RU": "Непал: деревня зима",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
-    },*/
-    /*"numbani": {
+    },
+    "numbani": {
         "guid": "0000000002EA",
         "gamemodes": [
             "hybrid",
@@ -1084,7 +1090,7 @@ const mapKw =
         "ru-RU": "Нумбани",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼"
-    },*/
+    },
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [
@@ -1269,7 +1275,8 @@ const mapKw =
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
     },
-    /*"sydneyHarbourArena": {
+    "sydneyHarbourArena": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -1286,6 +1293,7 @@ const mapKw =
         "zh-TW": "雪梨海港運動公園"
     },
     "sydneyHarbourArenaClassic": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
@@ -1303,8 +1311,8 @@ const mapKw =
         "ru-RU": "Классическая «Арена Сидней-Харбор»",
         "zh-CN": "悉尼海港竞技场（经典）",
         "zh-TW": "經典雪梨海港運動公園"
-    },*/
-    /*"templeOfAnubis": {
+    },
+    "templeOfAnubis": {
         "guid": "00000000012E",
         "gamemodes": [
             "assault",
@@ -1326,7 +1334,7 @@ const mapKw =
         "ru-RU": "Храм Анубиса",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
-    },*/
+    },
     "volskaya": {
         "guid": "0000000002EB",
         "gamemodes": [

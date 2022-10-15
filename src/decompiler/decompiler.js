@@ -26,6 +26,16 @@ function decompileAllRules(content, language="en-US") {
 	var result = "";
 	content = content.trim();
 	
+	//Some maps and gamemodes are removed in ow2, making eg "Map("
+	//Before anything else, we must replace these to parse brackets correctly
+	var mapConstFunction = tows("__map__", valueFuncKw);
+	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
+
+	//This regex will sadly also replace instances in strings, but I doubt there are many.
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\((?!\\w)", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\w)", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
 	
 	var bracketPos = getBracketPositions(content);
 

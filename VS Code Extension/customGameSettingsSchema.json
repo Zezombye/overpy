@@ -111,20 +111,26 @@
                                     "busan",
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
+                                    "busanStadium",
+                                    "busanStadiumClassic",
                                     "castillo",
                                     "chateauGuillard",
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
+                                    "estadioDasRas",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "junkenstein",
                                     "junkertown",
@@ -140,10 +146,13 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepal",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
+                                    "nepalVillageWinter",
+                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -153,6 +162,9 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
+                                    "sydneyHarbourArena",
+                                    "sydneyHarbourArenaClassic",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -183,20 +195,26 @@
                                     "busan",
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
+                                    "busanStadium",
+                                    "busanStadiumClassic",
                                     "castillo",
                                     "chateauGuillard",
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
+                                    "estadioDasRas",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "junkenstein",
                                     "junkertown",
@@ -212,10 +230,13 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepal",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
+                                    "nepalVillageWinter",
+                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -225,6 +246,9 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
+                                    "sydneyHarbourArena",
+                                    "sydneyHarbourArenaClassic",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -614,6 +638,7 @@
                                     "hanamuraWinter",
                                     "horizonLunarColony",
                                     "paris",
+                                    "templeOfAnubis",
                                     "volskaya"
                                 ]
                             }
@@ -627,6 +652,7 @@
                                     "hanamuraWinter",
                                     "horizonLunarColony",
                                     "paris",
+                                    "templeOfAnubis",
                                     "volskaya"
                                 ]
                             }
@@ -1034,8 +1060,10 @@
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "kingsRow",
                                     "kingsRowWinter",
+                                    "numbani",
                                     "paraiso",
                                     "midtown"
                                 ]
@@ -1051,8 +1079,10 @@
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "kingsRow",
                                     "kingsRowWinter",
+                                    "numbani",
                                     "paraiso",
                                     "midtown"
                                 ]
@@ -1203,14 +1233,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1222,6 +1255,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1230,6 +1264,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -1254,14 +1289,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1273,6 +1311,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1281,6 +1320,7 @@
                                     "oasisUniversity",
                                     "paris",
                                     "petra",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -1451,6 +1491,7 @@
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1476,6 +1517,7 @@
                                     "busanDowntownLny",
                                     "busanSanctuaryLny",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1679,7 +1721,9 @@
                                     "blackForestWinter",
                                     "castillo",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1687,6 +1731,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1712,7 +1757,9 @@
                                     "blackForestWinter",
                                     "castillo",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "lijiangControlCenter",
                                     "lijiangControlCenterLny",
@@ -1720,6 +1767,7 @@
                                     "lijiangGardenLny",
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1871,14 +1919,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1890,6 +1941,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1899,6 +1951,7 @@
                                     "paris",
                                     "petra",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -1923,14 +1976,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -1942,6 +1998,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -1951,6 +2008,7 @@
                                     "paris",
                                     "petra",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -2086,6 +2144,7 @@
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "junkertown",
@@ -2094,10 +2153,12 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "nepal",
+                                    "numbani",
                                     "oasis",
                                     "paris",
                                     "rialto",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -2130,6 +2191,7 @@
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "ilios",
                                     "junkertown",
@@ -2138,10 +2200,12 @@
                                     "lijiangTower",
                                     "lijiangTowerLny",
                                     "nepal",
+                                    "numbani",
                                     "oasis",
                                     "paris",
                                     "rialto",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
                                     "workshopChamber",
@@ -2537,14 +2601,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -2556,6 +2623,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -2565,6 +2633,7 @@
                                     "paris",
                                     "petra",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -2589,14 +2658,17 @@
                                     "chateauGuillardHalloween",
                                     "dorado",
                                     "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
                                     "eichenwalde",
                                     "eichenwaldeHalloween",
                                     "hanamura",
                                     "hanamuraWinter",
                                     "havana",
                                     "hollywood",
+                                    "hollywoodHalloween",
                                     "horizonLunarColony",
                                     "iliosLighthouse",
+                                    "iliosRuins",
                                     "iliosWell",
                                     "kanezaka",
                                     "kingsRow",
@@ -2608,6 +2680,7 @@
                                     "lijiangNightMarket",
                                     "lijiangNightMarketLny",
                                     "malevento",
+                                    "necropolis",
                                     "nepalSanctum",
                                     "nepalShrine",
                                     "nepalVillage",
@@ -2617,6 +2690,7 @@
                                     "paris",
                                     "petra",
                                     "route66",
+                                    "templeOfAnubis",
                                     "volskaya",
                                     "workshopChamber",
                                     "workshopExpanse",
@@ -2753,6 +2827,692 @@
                                     "esperanca",
                                     "newQueenStreet"
                                 ]
+                            }
+                        }
+                    }
+                },
+                "freezethawElimination": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "necropolis"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "necropolis"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "lucioball": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "busanStadium",
+                                    "busanStadiumClassic",
+                                    "estadioDasRas",
+                                    "sydneyHarbourArena",
+                                    "sydneyHarbourArenaClassic"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "busanStadium",
+                                    "busanStadiumClassic",
+                                    "estadioDasRas",
+                                    "sydneyHarbourArena",
+                                    "sydneyHarbourArenaClassic"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "meisSnowballOffensive": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "snowballFfa": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "blackForestWinter",
+                                    "ecopointAntarcticaWinter"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "yetiHunter": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "nepalVillageWinter"
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "nepalVillageWinter"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "survivor": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "allSlotsFilled"
+                                },
+                                {
+                                    "const": "immediately"
+                                },
+                                {
+                                    "const": "manual"
+                                }
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "modeDependent"
+                                },
+                                {
+                                    "const": "enabled"
+                                },
+                                {
+                                    "const": "disabled"
+                                }
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "1PerTeam"
+                                },
+                                {
+                                    "const": "2PerTeam"
+                                },
+                                {
+                                    "const": "1PerGame"
+                                },
+                                {
+                                    "const": "2PerGame"
+                                }
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "oneOf": [
+                                {
+                                    "const": "off"
+                                },
+                                {
+                                    "const": "2OfEachRolePerTeam"
+                                }
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": []
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": []
                             }
                         }
                     }

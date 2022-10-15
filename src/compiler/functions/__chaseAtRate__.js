@@ -39,6 +39,9 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
             if (variable["isUsedInForLoop"]) {
                 warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
             }
+            if (variable["isUsedInRuleCondition"]) {
+                warn("w_ow2_rule_condition_chase", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a rule condition, making the rule condition not trigger properly due to a workshop bug.");
+            }
             isFound = true;
             break;
         }

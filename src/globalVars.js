@@ -26,14 +26,8 @@ const ELEMENT_LIMIT = 32768;
 //If it is in a browser then it is assumed to be in debug mode.
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
-if (!IS_IN_BROWSER) {
-	const {VM} = require('vm2');
-	var evalVm = new VM({
-		timeout: 1000,
-		allowAsync: false,
-		sandbox: {}
-	});
-}
+var evalVm = null
+const {VM} = IS_IN_BROWSER ? null : require('vm2');
 
 //Compilation variables - are reset at each compilation.
 
@@ -170,6 +164,13 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
+	if (!IS_IN_BROWSER) {
+		evalVm = new VM({
+			timeout: 1000,
+			allowAsync: false,
+			sandbox: {}
+		});
+	}
 }
 
 //Other constants
