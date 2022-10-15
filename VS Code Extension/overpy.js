@@ -40285,21 +40285,8 @@ const customGameSettingsSchema =
                                 "zh-CN": "关闭",
                                 "zh-TW": "關閉"
                             },
-                            "2OfEachRolePerTeam": {
-                                "guid": "000000002C63",
-                                "en-US": "2 Of Each Role Per Team",
-                                "de-DE": "2 jeder Rolle im Team",
-                                "es-ES": "2 de cada por equipo",
-                                "es-MX": "2 de cada rol por equipo",
-                                "fr-FR": "2 de chaque par équipe",
-                                "it-IT": "2 di ogni ruolo per squadra",
-                                "ja-JP": "両チーム各ロール2名ずつ",
-                                "ko-KR": "팀당 역할별로 2명",
-                                "pl-PL": "2 z każdej roli na drużynę",
-                                "pt-BR": "2 de cada função por equipe",
-                                "ru-RU": "2 героя каждой роли на команду",
-                                "zh-CN": "每队同一职责最多2名",
-                                "zh-TW": "每隊同一角色類型最多2名"
+                            "1Tank2Offense2Support": {
+                                "en-US": "1 Tank 2 Offense 2 Support",
                             }
                         },
                         "guid": "00000000596D",
@@ -46361,7 +46348,10 @@ const ELEMENT_LIMIT = 32768;
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 var evalVm = null
-const {VM} = IS_IN_BROWSER ? null : require('vm2');
+var VM = null
+if (!IS_IN_BROWSER) {
+	({VM} = require('vm2'));
+}
 
 //Compilation variables - are reset at each compilation.
 
@@ -46456,6 +46446,9 @@ var decompilationLabelNumber;
 //Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
+//If current map is used, add the workaround for the map pasting bug.
+var isCurrentMapUsed;
+
 
 function resetGlobalVariables(language) {
 	rootPath = "";
@@ -46498,6 +46491,7 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
+	isCurrentMapUsed = false;
 	if (!IS_IN_BROWSER) {
 		evalVm = new VM({
 			timeout: 1000,
@@ -51727,7 +51721,7 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
                 warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
             }
             if (variable["isUsedInRuleCondition"]) {
-                warn("w_ow2_rule_condition_chase", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a rule condition, making the rule condition not trigger properly due to a workshop bug.");
+                warn("w_ow2_rule_condition_chase", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.");
             }
             isFound = true;
             break;
@@ -52773,7 +52767,7 @@ astParsingFunctions.__globalVar__ = function(content) {
             if (variable.name === varName) {
                 variable["isUsedInRuleCondition"] = true;
                 if (variable["isChased"]) {
-                    warn("w_ow2_rule_condition_chase", "This rule condition will not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
+                    warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
                 }
                 isFound = true;
                 break;
@@ -53251,8 +53245,36 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
 
 astParsingFunctions.__map__ = function(content) {
 
+    const mapIds = {
+        BLACK_FOREST_WINTER: 2147,
+        BLIZZ_WORLD_WINTER: 1228,
+        BUSAN_DOWNTOWN_LNY: 3206,
+        BUSAN_SANCTUARY_LNY: -6860,
+        CHATEAU_GUILLARD_HALLOWEEN: 3439,
+        EICHENWALDE_HALLOWEEN: 565,
+        HANAMURA_WINTER: 1848,
+        ILIOS_LIGHTHOUSE: 1459,
+        ILIOS_RUINS: 8669,
+        ILIOS_WELL: -2957,
+        KINGS_ROW_WINTER: 742,
+        LIJIANG_CONTROL_CENTER_LNY: 28714,
+        LIJIANG_GARDEN_LNY: 4714,
+        LIJIANG_NIGHT_MARKET_LNY: -1429,
+        LIJIANG_TOWER_LNY: 3676,
+        NEPAL_SANCTUM: -11860,
+        NEPAL_SHRINE: 1362,
+        NEPAL_VILLAGE: -9677,
+        OASIS_CITY_CENTER: 6920,
+        OASIS_GARDENS: 2159,
+        OASIS_UNIVERSITY: 345,
+        WORKSHOP_EXPANSE_NIGHT: 96,
+        WORKSHOP_ISLAND_NIGHT: 196,
+    }
+
     if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("MapLiteral", content);
+    } else if (content.args[0].name in mapIds) {
+        return getAstForNumber(mapIds[content.args[0].name]);
     } else {
         return content;
     }
@@ -55421,6 +55443,32 @@ astParsingFunctions.floor = function(content) {
 
 astParsingFunctions.getAllPlayers = function(content) {
     return new Ast("getPlayers", [getAstForTeamAll()]);
+}
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
+astParsingFunctions.getCurrentMap = function(content) {
+    isCurrentMapUsed = true;
+    if (!isVarName("__currentMap__", true)) {
+        addVariable("__currentMap__", true, 126);
+    }
+    return new Ast("__globalVar__", [new Ast("__currentMap__", [], [], "GlobalVariable")]);
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -58922,6 +58970,58 @@ function compile(content, language="en-US", _rootPath="") {
 	}
 
 	var compiledRules = astRulesToWs(parsedAstRules);
+
+	if (isCurrentMapUsed) {
+		var mapArray = tows("__array__", valueFuncKw)+"("+Object.keys(constantValues["MapLiteral"]).filter(x => typeof constantValues["MapLiteral"][x] === "object" && !constantValues["MapLiteral"][x].onlyInOw1).map(x => tows("__map__", valueFuncKw)+"("+tows(x, constantValues["MapLiteral"])+")").join(", ")+")";
+		var mapDetectionRule = `
+${tows("__rule__", ruleKw)}("OverPy Map Detection") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__if__", actionKw)}(${tows("__arrayContains__", valueFuncKw)}(${mapArray}, ${tows("getCurrentMap", valueFuncKw)}));
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("getCurrentMap", valueFuncKw)};
+			${tows("return", actionKw)};
+		${tows("__end__", actionKw)};
+		${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(500, 100, 500), ${tows("vect", valueFuncKw)}(-500, -100, -500), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(0, 0, 0) || ${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-500, -100, -500));
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(30, 5, 0), ${tows("vect", valueFuncKw)}(-30, -10, -10), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-30, -10, -10));
+				${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(200, 20, 100), ${tows("vect", valueFuncKw)}(100, -100, -100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+				${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(100, -100, -100));
+					${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(300, 20, -100), ${tows("vect", valueFuncKw)}(300, -100, 100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+					${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(300, -100, 100));
+						${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(50, 100, -150), ${tows("vect", valueFuncKw)}(-50, -100, -160), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+						${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-50, -100, -160));
+							${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(0, 300, 340), ${tows("vect", valueFuncKw)}(0, -100, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+							${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(0, -100, -300));
+								${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(140, 10, -240), ${tows("vect", valueFuncKw)}(200, -10, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+								${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(200, -10, -300));
+									${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, 30, 60), ${tows("vect", valueFuncKw)}(-180, -50, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+								${tows("__end__", actionKw)};
+							${tows("__end__", actionKw)};
+						${tows("__end__", actionKw)};
+					${tows("__end__", actionKw)};
+				${tows("__end__", actionKw)};
+			${tows("__end__", actionKw)};
+		${tows("__end__", actionKw)};
+		${tows("__global__", valueFuncKw)}.__currentMap__ = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__),
+			${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundDown__", constantValues["__Rounding__"])});
+		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == 10121);
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-60, 20, -60), ${tows("vect", valueFuncKw)}(60, -10, 60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(60, -10, 60));
+				${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, -70, 60), ${tows("vect", valueFuncKw)}(-180, -100, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__end__", actionKw)};
+			${tows("__global__", valueFuncKw)}.__currentMap__ = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__),
+				${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundDown__", constantValues["__Rounding__"])});
+		${tows("__end__", actionKw)};
+	}
+}		
+		
+		`
+		compiledRules.unshift(mapDetectionRule)
+	}
+
 	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
 		compiledRules = addObfuscationRules(compiledRules);
 	} else {

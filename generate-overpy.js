@@ -128,6 +128,7 @@ overpyFiles = [
 "compiler/functions/eventPlayer.js",
 "compiler/functions/floor.js",
 "compiler/functions/getAllPlayers.js",
+"compiler/functions/getCurrentMap.js",
 "compiler/functions/getOppositeTeam.js",
 "compiler/functions/len.js",
 "compiler/functions/lineIntersectsSphere.js",

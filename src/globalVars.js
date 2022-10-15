@@ -27,7 +27,10 @@ const ELEMENT_LIMIT = 32768;
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 var evalVm = null
-const {VM} = IS_IN_BROWSER ? null : require('vm2');
+var VM = null
+if (!IS_IN_BROWSER) {
+	({VM} = require('vm2'));
+}
 
 //Compilation variables - are reset at each compilation.
 
@@ -122,6 +125,9 @@ var decompilationLabelNumber;
 //Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
+//If current map is used, add the workaround for the map pasting bug.
+var isCurrentMapUsed;
+
 
 function resetGlobalVariables(language) {
 	rootPath = "";
@@ -164,6 +170,7 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
+	isCurrentMapUsed = false;
 	if (!IS_IN_BROWSER) {
 		evalVm = new VM({
 			timeout: 1000,

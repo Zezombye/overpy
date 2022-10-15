@@ -46,7 +46,7 @@ astParsingFunctions.__globalVar__ = function(content) {
             if (variable.name === varName) {
                 variable["isUsedInRuleCondition"] = true;
                 if (variable["isChased"]) {
-                    warn("w_ow2_rule_condition_chase", "This rule condition will not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
+                    warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
                 }
                 isFound = true;
                 break;

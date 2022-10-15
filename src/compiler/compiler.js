@@ -75,6 +75,58 @@ function compile(content, language="en-US", _rootPath="") {
 	}
 
 	var compiledRules = astRulesToWs(parsedAstRules);
+
+	if (isCurrentMapUsed) {
+		var mapArray = tows("__array__", valueFuncKw)+"("+Object.keys(constantValues["MapLiteral"]).filter(x => typeof constantValues["MapLiteral"][x] === "object" && !constantValues["MapLiteral"][x].onlyInOw1).map(x => tows("__map__", valueFuncKw)+"("+tows(x, constantValues["MapLiteral"])+")").join(", ")+")";
+		var mapDetectionRule = `
+${tows("__rule__", ruleKw)}("OverPy Map Detection") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__if__", actionKw)}(${tows("__arrayContains__", valueFuncKw)}(${mapArray}, ${tows("getCurrentMap", valueFuncKw)}));
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("getCurrentMap", valueFuncKw)};
+			${tows("return", actionKw)};
+		${tows("__end__", actionKw)};
+		${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(500, 100, 500), ${tows("vect", valueFuncKw)}(-500, -100, -500), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(0, 0, 0) || ${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-500, -100, -500));
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(30, 5, 0), ${tows("vect", valueFuncKw)}(-30, -10, -10), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-30, -10, -10));
+				${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(200, 20, 100), ${tows("vect", valueFuncKw)}(100, -100, -100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+				${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(100, -100, -100));
+					${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(300, 20, -100), ${tows("vect", valueFuncKw)}(300, -100, 100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+					${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(300, -100, 100));
+						${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(50, 100, -150), ${tows("vect", valueFuncKw)}(-50, -100, -160), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+						${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(-50, -100, -160));
+							${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(0, 300, 340), ${tows("vect", valueFuncKw)}(0, -100, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+							${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(0, -100, -300));
+								${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(140, 10, -240), ${tows("vect", valueFuncKw)}(200, -10, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+								${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(200, -10, -300));
+									${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, 30, 60), ${tows("vect", valueFuncKw)}(-180, -50, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+								${tows("__end__", actionKw)};
+							${tows("__end__", actionKw)};
+						${tows("__end__", actionKw)};
+					${tows("__end__", actionKw)};
+				${tows("__end__", actionKw)};
+			${tows("__end__", actionKw)};
+		${tows("__end__", actionKw)};
+		${tows("__global__", valueFuncKw)}.__currentMap__ = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__),
+			${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundDown__", constantValues["__Rounding__"])});
+		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == 10121);
+			${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-60, 20, -60), ${tows("vect", valueFuncKw)}(60, -10, 60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.__currentMap__ == ${tows("vect", valueFuncKw)}(60, -10, 60));
+				${tows("__global__", valueFuncKw)}.__currentMap__ = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, -70, 60), ${tows("vect", valueFuncKw)}(-180, -100, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
+			${tows("__end__", actionKw)};
+			${tows("__global__", valueFuncKw)}.__currentMap__ = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__),
+				${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.__currentMap__), ${tows("__roundDown__", constantValues["__Rounding__"])});
+		${tows("__end__", actionKw)};
+	}
+}		
+		
+		`
+		compiledRules.unshift(mapDetectionRule)
+	}
+
 	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
 		compiledRules = addObfuscationRules(compiledRules);
 	} else {

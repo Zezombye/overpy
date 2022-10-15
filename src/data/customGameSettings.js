@@ -525,21 +525,8 @@ const customGameSettingsSchema =
                                 "zh-CN": "关闭",
                                 "zh-TW": "關閉"
                             },
-                            "2OfEachRolePerTeam": {
-                                "guid": "000000002C63",
-                                "en-US": "2 Of Each Role Per Team",
-                                "de-DE": "2 jeder Rolle im Team",
-                                "es-ES": "2 de cada por equipo",
-                                "es-MX": "2 de cada rol por equipo",
-                                "fr-FR": "2 de chaque par équipe",
-                                "it-IT": "2 di ogni ruolo per squadra",
-                                "ja-JP": "両チーム各ロール2名ずつ",
-                                "ko-KR": "팀당 역할별로 2명",
-                                "pl-PL": "2 z każdej roli na drużynę",
-                                "pt-BR": "2 de cada função por equipe",
-                                "ru-RU": "2 героя каждой роли на команду",
-                                "zh-CN": "每队同一职责最多2名",
-                                "zh-TW": "每隊同一角色類型最多2名"
+                            "1Tank2Offense2Support": {
+                                "en-US": "1 Tank 2 Offense 2 Support",
                             }
                         },
                         "guid": "00000000596D",

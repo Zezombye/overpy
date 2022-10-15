@@ -25,7 +25,7 @@ rule ("enums") {
     actions {
         Set Global Variable(A, All Teams);
         Set Global Variable(B, Hero(Brigitte));
-        Set Global Variable(C, Map(Black Forest Winter));
+        Set Global Variable(C, 2147);
         Set Global Variable(D, Compare(Current Game Mode, ==, Game Mode(Assault)));
         Set Global Variable(E, Button(Interact));
         Set Global Variable(F, Is Button Held(Event Player, Button(Interact)));

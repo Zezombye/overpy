@@ -86,7 +86,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -617,7 +617,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -773,7 +773,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -902,7 +902,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -1038,7 +1038,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -1207,7 +1207,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -1470,7 +1470,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -1699,7 +1699,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -1893,7 +1893,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2117,7 +2117,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2315,7 +2315,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2451,7 +2451,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2575,7 +2575,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2795,7 +2795,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -2910,7 +2910,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -3033,7 +3033,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -3152,7 +3152,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -3265,7 +3265,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -3378,7 +3378,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
@@ -3489,7 +3489,7 @@
                                     "const": "off"
                                 },
                                 {
-                                    "const": "2OfEachRolePerTeam"
+                                    "const": "1Tank2Offense2Support"
                                 }
                             ]
                         },
