@@ -18,6 +18,9 @@
 "use strict";
 
 astParsingFunctions.__gamemode__ = function(content) {
+    if (constantValues["GamemodeLiteral"][content.args[0].name].onlyInOw1) {
+        error("The gamemode '"+content.args[0].name+"' is not available in OW2")
+    }
 
     if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("GamemodeLiteral", content);

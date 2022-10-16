@@ -41,7 +41,6 @@ overpyFiles = [
 "decompiler/decompiler.js",
 "compiler/obfuscation.js",
 
-"compiler/obfuscation.js",
 "compiler/functions/__add__.js",
 "compiler/functions/__and__.js",
 "compiler/functions/__append__.js",
