@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zez's Workshop UI Recreation</title>
+
+    <script src="vuejs/vue.js"></script>
+    <script src="vuejs/vue-select.min.js"></script>
+    <link rel="stylesheet" href="vuejs/vue-select.min.css">
+    <script src="../VS Code Extension/overpy.js"></script>
+
+    <style>
+        body, textarea {
+            color: #CCCCCC;
+            background-color: #222222;
+            scrollbar-color: #CCCCCC #222222;
+        }
+        
+        a {
+            color: lightblue;
+        }
+        .rule-title {
+            resize: none;
+            height: 17px;
+            width: 1000px;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+
+        .rule-content {
+            padding-left: 100px;
+        }
+
+        .rule-event {
+            width: 890px;
+            margin-top: 10px;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+
+        .rule-event-name {
+            background-color: rgb(30, 68, 73);
+            display: inline-block;
+            width: 580px;
+        }
+
+        .rule-event-value {
+            display: inline-block;
+            width: 300px;
+        }
+
+        .conditions-header, .actions-header {
+            text-transform: uppercase;
+            border-bottom: 2px solid rgb(20, 68, 37);
+        }
+
+        .conditions, .actions {
+            
+            width: 440px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .no-values-msg {
+            text-transform: uppercase;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <div v-for="(rule, ruleIdx) in rules">
+            <textarea rows="1" wrap="off" class="rule-title">{{ rule.ruleAttributes.name }}</textarea>
+            <div class="rule-content">
+                <div class="rule-event">
+                    <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventKw)" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.event"></v-select></div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
+                    <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventPlayerKw)"></v-select></div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
+                    <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventTeamKw)"></v-select></div>
+                </div>
+                <!--TODO: subroutines-->
+                <div class="conditions-and-actions">
+                    <div class="conditions">
+                        <div class="conditions-header">
+                            <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions.length }})</span></div>
+                            <div class="conditions-buttons"></div>
+                        </div>
+                        <div v-if="rules[ruleIdx].ruleAttributes.conditions.length === 0" class="no-values-msg">{{ translate("noConditions", uiDisplayNames) }}</div>
+                        <div v-else>
+
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <div class="actions-header">
+                            <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rules[ruleIdx].children.length }})</span></div>
+                            <div class="actions-buttons"></div>
+                        </div>
+                        <div v-if="rules[ruleIdx].children.length === 0" class="no-values-msg">{{ translate("noActions", uiDisplayNames) }}</div>
+                        <div v-else>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        Vue.component('v-select', VueSelect.VueSelect);
+        var app = new Vue({
+            "el": "#app",
+            "data": {
+                "language": "en-US",
+                "rules": [
+                    {
+                        ruleAttributes: {
+                            "name": "Rule title 1",
+                            "event": "global",
+                            "conditions": [],
+                        },
+                        "children": [],
+                    },{
+                        ruleAttributes: {
+                            "name": "Rule title 2",
+                            "event": "eachPlayer",
+                            "eventTeam": "1",
+                            "eventPlayer": "ana",
+                            "conditions": [],
+                        },
+                        "children": [],
+                    }
+                ],
+                ruleAttributesDisplayNames: {
+                    "event": {
+                        "en-US": "Event",
+                    },
+                    "subroutineName": {
+                        "en-US": "Subroutine",
+                    },
+                    "eventPlayer": {
+                        "en-US": "Player",
+                    },
+                    "eventTeam": {
+                        "en-US": "Team",
+                    }
+                },
+                uiDisplayNames: {
+                    "rules": {
+                        "en-US": "Rules",
+                    },
+                    "conditions": {
+                        "en-US": "Conditions",
+                    },
+                    "actions": {
+                        "en-US": "Actions",
+                    },
+                    "noConditions": {
+                        "en-US": "No Conditions",
+                    },
+                    "noActions": {
+                        "en-US": "No Actions",
+                    }
+                },
+                eventKw,
+                eventTeamKw,
+                eventPlayerKw,
+            },
+            "methods": {
+                translate: function(keyword, keywordObj) {
+                    if (!(keyword in keywordObj)) {
+                        throw new Error("Could not translate '"+keyword+"'");
+                    }
+                    if (this.language in keywordObj[keyword]) {
+                        return keywordObj[keyword][this.language];
+                    } else {
+                        return keywordObj[keyword]["en-US"];
+                    }
+                },
+                getDropdownOptions: function(keywordObj) {
+                    return Object.keys(keywordObj).map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x}))
+                },
+            }
+        })
+    </script>
+</body>
+</html>
