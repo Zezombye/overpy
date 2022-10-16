@@ -483,7 +483,6 @@ rule "GAME MEDKIT NERF":
     eventPlayer.*/setMoveSpeed(75)
 	` && "",
 		extensions: [
-			basicSetup,
 			syntaxHighlighting(overpyHighlight),
 			StreamLanguage.define(overpyLanguage),
 			history(),
@@ -494,6 +493,7 @@ rule "GAME MEDKIT NERF":
 				...historyKeymap,
           		{ key: "Enter", run: autoIndentOnEnter },
 			]),
+			basicSetup,
 		],
 		parent: document.getElementById("cm-overpy-text")
 	})

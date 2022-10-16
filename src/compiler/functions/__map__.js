@@ -24,7 +24,7 @@ astParsingFunctions.__map__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("MapLiteral", content);
-    } else if (content.args[0].name in mapIds) {
+    } else if (content.args[0].name in mapIds && !disableMapDetectionFix) {
         return getAstForNumber(mapIds[content.args[0].name]);
     } else {
         return content;

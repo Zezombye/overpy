@@ -18,6 +18,9 @@
 "use strict";
 
 astParsingFunctions.getCurrentMap = function(content) {
+    if (disableMapDetectionFix) {
+        return content;
+    }
     isCurrentMapUsed = true;
     if (!isVarName("__currentMap__", true)) {
         addVariable("__currentMap__", true, 126);

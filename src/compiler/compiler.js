@@ -76,7 +76,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var compiledRules = astRulesToWs(parsedAstRules);
 
-	if (isCurrentMapUsed) {
+	if (isCurrentMapUsed && !disableMapDetectionFix) {
 		var mapArray = tows("__array__", valueFuncKw)+"("+Object.keys(constantValues["MapLiteral"]).filter(x => typeof constantValues["MapLiteral"][x] === "object" && !constantValues["MapLiteral"][x].onlyInOw1).map(x => tows("__map__", valueFuncKw)+"("+tows(x, constantValues["MapLiteral"])+")").join(", ")+")";
 		var currentMapVar = translateVarToWs("__currentMap__", true)
 		var mapDetectionRule = `

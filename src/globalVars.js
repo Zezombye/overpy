@@ -127,6 +127,7 @@ var operatorPrecedenceStack;
 
 //If current map is used, add the workaround for the map pasting bug.
 var isCurrentMapUsed;
+var disableMapDetectionFix;
 
 
 function resetGlobalVariables(language) {
@@ -171,6 +172,7 @@ function resetGlobalVariables(language) {
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
 	isCurrentMapUsed = false;
+	disableMapDetectionFix = false;
 	if (!IS_IN_BROWSER) {
 		evalVm = new VM({
 			timeout: 1000,

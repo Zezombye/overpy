@@ -210,6 +210,8 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!disableMapDetectionFix")) {
+			disableMapDetectionFix = true;
 		} else if (content.startsWith("#!extension")) {
 			var addedExtension = content.substring("#!extension".length).trim()
 			if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
