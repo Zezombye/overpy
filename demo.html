@@ -41,6 +41,29 @@ a {
 	color: lightblue;
 }
 
+.cm-editor {
+	width: 100%;
+	text-align: left;
+	border: 2px solid gray;
+	color: #CCCCCC;
+	height: 320px;
+}
+
+.cm-content {
+	
+	white-space: pre-wrap !important;
+	word-break: break-word !important;
+	max-width: calc(100% - 32px);
+}
+
+.cm-cursor {
+	border-color: #CCCCCC !important;
+}
+
+.cm-selectionBackground, ::selection {
+	background-color: rgb(51, 153, 255) !important;
+}
+
 </style>
 </head>
 <body>
@@ -74,8 +97,9 @@ a {
 	<div id="overpy-text" style="float:left; width:33%;">
 		<p>OverPy text</p>
 		<button onclick="demoCompile()">Compile</button>
-		<textarea id="overpy-textarea" onkeyup="getTextareaLineNumber(this, 'overpy');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
-		<p style="float:left;">line <span id="overpy-textarea-line-number"></span>, col <span id="overpy-textarea-col-number"></span></p>
+		<div id="cm-overpy-text"></div>
+		<!--<textarea id="overpy-textarea" onkeyup="getTextareaLineNumber(this, 'overpy');" onmouseup="this.onkeyup();" rows="20" style="width:100%;" wrap="off"></textarea> 
+		<p style="float:left;">line <span id="overpy-textarea-line-number"></span>, col <span id="overpy-textarea-col-number"></span></p>-->
 	</div>
 	
 	<div id="compiled-text" style="float:right; width:34%;">
@@ -246,6 +270,234 @@ a {
 	
 </script>
 
+<script src="codemirror.min.js"></script>
+
+<script>
+
+	const {basicSetup} = CM["codemirror"];
+	const {EditorView, keymap} = CM["@codemirror/view"];
+	const {indentWithTab, defaultKeymap, history, historyKeymap} = CM["@codemirror/commands"];
+	const {LRLanguage, LanguageSupport, StreamLanguage, HighlightStyle, syntaxHighlighting, indentUnit, foldNodeProp, foldInside, indentNodeProp} = CM["@codemirror/language"]
+	const {styleTags, tags} = CM["@lezer/highlight"]
+	const {LRParser} = CM["@lezer/lr"]
+
+	function getIndentForLine(state, line) {
+		const spaces = /^\s*/.exec(state.doc.lineAt(line).text)?.[0].length
+		const tabs = /^\t*/.exec(state.doc.lineAt(line).text)?.[0].length
+		return Math.floor(spaces / 4) + tabs
+	}
+
+	function autoIndentOnEnter({ state, dispatch }) {
+		const changes = state.changeByRange(range => {
+		const { from, to } = range, line = state.doc.lineAt(from)
+
+		const indent = getIndentForLine(state, from)
+		let insert = "\n"
+		for (let i = 0; i < indent; i++) { insert += "    " }
+
+		const openBracket = /[\{\(\[]/gm.exec(state.doc.lineAt(from).text)?.[0].length
+		const closeBracket = /[\}\)\]]/gm.exec(state.doc.lineAt(from).text)?.[0].length
+		if (openBracket && !closeBracket) insert += "    "
+
+		return { changes: { from, to, insert }, range: EditorSelection.cursor(from + insert.length) }
+		})
+
+		dispatch(state.update(changes, { scrollIntoView: true, userEvent: "input" }))
+		return true
+	}
+
+	const overpyHighlight = HighlightStyle.define([
+		{tag: tags.keyword, color: "#C586C0"},
+		{tag: tags.operator, color: "#569cd6"},
+		{tag: tags.variableName, color: "#9CDCFE"},
+		{tag: tags.string, color: "#ce9178"},
+		{tag: tags.escape, color: "#d7ba7d"},
+		{tag: tags.annotation, color: "#d16969"},
+		{tag: tags.attributeValue, color: "#6796e6"},
+		{tag: tags.number, color: "#b5cea8"},
+		{tag: tags.labelName, color: "#4EC9B0"},
+		{tag: tags.comment, color: "#6A9955"},
+		{tag: tags.macroName, color: "#569cd6"},
+		{tag: tags.invalid, color: "#f44747"},
+		{tag: tags.propertyName, color: "#4FC1FF"},
+		{tag: tags.processingInstruction, color: "#DCDCAA"},
+		{tag: tags.className, color: "#d7ba7d"},
+		{tag: tags.modifier, color: "#9CDCFE"},
+	])
+
+	const overpyLanguage = {
+		startState: function() {
+			return {
+				isInLineComment: false,
+				isInMultilineComment: false,
+				stringChar: null,
+				isInMacro: false,
+				isInAnnotation: false,
+				isInGoto: false,
+
+			}
+		},
+		token: function(stream, state) {
+			if (stream.eatSpace()) {
+				return null;
+			}
+			if (stream.eol()) {
+				return null;
+			}
+			//console.log("current: |"+stream.peek()+"|, string char: |"+state.stringChar+"|");
+			if (state.stringChar) {
+				if (stream.match(/\\([\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\w+;)/)) {
+					return "escape";
+				}
+				if (stream.peek() === state.stringChar) {
+					state.stringChar = null;
+				}
+				stream.next();
+				return "string";
+			}
+			if (state.isInAnnotation) {
+				state.isInAnnotation = false
+				stream.skipToEnd();
+				return "attributeValue";
+			}
+			if (state.isInGoto) {
+				state.isInGoto = false
+				stream.skipToEnd();
+				return "labelName";
+			}
+			if (state.isInLineComment) {
+				if (!stream.match(/.*\\ *$/)) {
+					state.isInLineComment = false;
+				}
+				stream.skipToEnd();
+				return "comment";
+			}
+			if (state.isInMultilineComment) {
+				if (stream.match("*/")) {
+					state.isInMultilineComment = false;
+				} else {
+					stream.next();
+				}
+				return "comment";
+			}
+			if (state.isInMacro) {
+				if (!stream.match(/.*\\ *$/)) {
+					state.isInMacro = false;
+				}
+				stream.skipToEnd();
+				return "macroName";
+			}
+			if (stream.match(/(goto)\b/)) {
+				state.isInGoto = true;
+				return "keyword";
+			}
+			if (stream.match(/\b[a-z]+(?=["'])/)) {
+				return "modifier";
+			}
+			if (stream.match(/(if|else|elif|do|while|for|return|continue|false|true|null|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\b/)) {
+				return "keyword";
+			}
+			if (stream.match(/(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|import)\b/)) {
+				return "invalid";
+			}
+			if (stream.match("/*")) {
+				state.isInMultilineComment = true;
+				return "comment";
+			}
+			if (stream.match(/(and|or|not|in)\b|((\+|\-|\*\*|\/|\%|\*|<|>)=?)|(\=)|\.|((min|max|\!)\=)/)) {
+				return "operator";
+			}
+			if (stream.match(/(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\w+__|[A-Z]|[A-D][A-Z])\b/)) {
+				return "variable";
+			}
+			if (stream.match(/[A-Z_\d]+\b/)) {
+				return "propertyName";
+			}
+			if (stream.match(/\b\w+(?=\()/)) {
+				return "processingInstruction";
+			}
+			if (stream.match(/\b[A-Z][a-z_]\w*\b/)) {
+				return "className";
+			}
+			if (stream.match(/@(Event|Hero|Team|Slot|SuppressWarnings)+\b/)) {
+				state.isInAnnotation = true;
+				return "annotation";
+			}
+			if (stream.match(/@\w+\b/)) {
+				return "annotation";
+			}
+			if (stream.match(/\b[+-]?(\d*\.)?\d+\b/)) {
+				return "number";
+			}
+			if (stream.match(/[A-Za-z\d_]+(?=:)/)) {
+				return "labelName"
+			}
+			if (stream.match(/\w+/)) {
+				return null;
+			}
+			if (stream.match("#!")) {
+				state.isInMacro = true;
+				return "macroName";
+			}
+			if (stream.match("#")) {
+				state.isInLineComment = true;
+				return "comment";
+			}
+			var char = stream.next().toString();
+			//console.log(char);
+			if (char === "'" || char === '"') {
+				state.stringChar = char;
+				return "string"
+			}
+			return null;
+		}
+	}
+
+	var overpyTextEditorView = new EditorView({
+		doc: `
+#!define GAMEMODE_CODE "14WON"
+
+#!define i18n() __script__("i18n.js")
+
+#!define getKeyboardSelectedKey() updateEveryTick((\\
+    [1,2,3,4,5,6,7,8,9,10][(floor((CURSOR_X-KEYBOARD_TOP_LEFT_X)/HORIZONTAL_KEY_DISTANCE))] if KEYBOARD_TOP_LEFT_Y <= CURSOR_Y and CURSOR_Y <= KEYBOARD_TOP_LEFT_Y+KEY_SIDE_LENGTH and (CURSOR_X-KEYBOARD_TOP_LEFT_X)%HORIZONTAL_KEY_DISTANCE <= HORIZONTAL_KEY_DISTANCE else\\
+     null\\
+) or [""])
+
+rule "GAME MEDKIT NERF":
+    @Event playerReceivedHealing
+    @Hero all
+    @Condition eventWasHealthPack and eventPlayer == hostPlayer
+    
+    eventPlayer.setStatusEffect(null, Status.HACKED, 5)
+    eventPlayer.setMoveSpeed(75)
+	A = "owo\\nuwu\\x03\\uFFFE\\"f"
+	B = p'te\\zst'
+    wait(5) #comment, backslashed \\  
+	C = 3
+	goto bruh
+    eventPlayer.setMoveSpeed(100) #comment 1
+	bruh:
+	qsdffd = -3.5
+    eventPlayer./*setStatusEffect(null, Status.HACKED, 5)
+    eventPlayer.*/setMoveSpeed(75)
+	` && "",
+		extensions: [
+			basicSetup,
+			syntaxHighlighting(overpyHighlight),
+			StreamLanguage.define(overpyLanguage),
+			history(),
+			indentUnit.of("    "),
+			keymap.of([
+				indentWithTab, 
+				...defaultKeymap, 
+				...historyKeymap,
+          		{ key: "Enter", run: autoIndentOnEnter },
+			]),
+		],
+		parent: document.getElementById("cm-overpy-text")
+	})
+</script>
 
 <script>
 
@@ -266,7 +518,10 @@ function demoDecompile() {
 		console.log(e);
 		str = e;
 	}
-	document.getElementById("overpy-textarea").value = str;
+	//document.getElementById("overpy-textarea").value = str;
+	overpyTextEditorView.dispatch({
+		changes: {from: 0, to: overpyTextEditorView.state.doc.length, insert: str}
+	})
 }
 
 function demoCompile() {
@@ -274,7 +529,7 @@ function demoCompile() {
 	var str = "";
     var language = document.getElementById("languageInput").value;
 	try {
-		compilationResult = compile(document.getElementById("overpy-textarea").value, language);
+		compilationResult = compile(overpyTextEditorView.state.doc.toString(), language);
 		str += "//Elements: "+compilationResult.nbElements+"\n";
 		if (compilationResult.activatedExtensions.length > 0) {
 			str += "//Extension points: "+compilationResult.spentExtensionPoints+"/"+(compilationResult.availableExtensionPoints < 0 ? "unknown" : compilationResult.availableExtensionPoints)+"\n"
