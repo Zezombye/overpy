@@ -46448,6 +46448,7 @@ var operatorPrecedenceStack;
 
 //If current map is used, add the workaround for the map pasting bug.
 var isCurrentMapUsed;
+var disableMapDetectionFix;
 
 
 function resetGlobalVariables(language) {
@@ -46492,6 +46493,7 @@ function resetGlobalVariables(language) {
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
 	isCurrentMapUsed = false;
+	disableMapDetectionFix = false;
 	if (!IS_IN_BROWSER) {
 		evalVm = new VM({
 			timeout: 1000,
@@ -53073,7 +53075,7 @@ astParsingFunctions.__map__ = function(content) {
 
     if (obfuscationSettings.obfuscateConstants) {
         return obfuscateConstant("MapLiteral", content);
-    } else if (content.args[0].name in mapIds) {
+    } else if (content.args[0].name in mapIds && !disableMapDetectionFix) {
         return getAstForNumber(mapIds[content.args[0].name]);
     } else {
         return content;
@@ -55264,6 +55266,9 @@ astParsingFunctions.getAllPlayers = function(content) {
 "use strict";
 
 astParsingFunctions.getCurrentMap = function(content) {
+    if (disableMapDetectionFix) {
+        return content;
+    }
     isCurrentMapUsed = true;
     if (!isVarName("__currentMap__", true)) {
         addVariable("__currentMap__", true, 126);
@@ -56169,6 +56174,8 @@ function tokenize(content) {
 		} else if (content.startsWith("#!disableOptimizations")) {
 			enableOptimization = false;
 
+		} else if (content.startsWith("#!disableMapDetectionFix")) {
+			disableMapDetectionFix = true;
 		} else if (content.startsWith("#!extension")) {
 			var addedExtension = content.substring("#!extension".length).trim()
 			if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
@@ -58769,7 +58776,7 @@ function compile(content, language="en-US", _rootPath="") {
 
 	var compiledRules = astRulesToWs(parsedAstRules);
 
-	if (isCurrentMapUsed) {
+	if (isCurrentMapUsed && !disableMapDetectionFix) {
 		var mapArray = tows("__array__", valueFuncKw)+"("+Object.keys(constantValues["MapLiteral"]).filter(x => typeof constantValues["MapLiteral"][x] === "object" && !constantValues["MapLiteral"][x].onlyInOw1).map(x => tows("__map__", valueFuncKw)+"("+tows(x, constantValues["MapLiteral"])+")").join(", ")+")";
 		var currentMapVar = translateVarToWs("__currentMap__", true)
 		var mapDetectionRule = `
