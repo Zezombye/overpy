@@ -244,6 +244,7 @@ function decompile(content) {
 
 		if (operatorCheck.operatorFound !== null) {
 			var operator = operatorCheck.operatorFound.trim();
+			debug("Handling operator '"+operator+"'");
 			
 			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
 			if (operator in binaryOpToFuncMapping) {
@@ -328,9 +329,6 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
-		if (name.includes("W_e_l_c_o_m_e_ _t_o_ _L_o_o_t_ _Q_u_e_s_t_!".replace(/_/g, ""))) {
-			error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
-		}
         return new Ast(unescapeString(name, false), [], [], "StringLiteral");
     }
     
@@ -368,7 +366,7 @@ function decompile(content) {
         var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
         
 	}
-    debug("Arguments: "+args);
+    debug("Arguments: "+args.join(","));
 
     //Special functions
 
@@ -503,6 +501,12 @@ function decompile(content) {
 		} else {
 			astArgs.push(decompile(args[i]));
 		}
+	}
+
+	if (name === "__localizedString__") {
+		astArgs[0].type = "LocalizedStringLiteral";
+	} else if (name === "__customString__") {
+		astArgs[0].type = "CustomStringLiteral";
 	}
 	
 

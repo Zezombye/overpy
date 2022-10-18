@@ -181,6 +181,7 @@ function tokenize(content) {
 		} else if (content.startsWith("#!obfuscate")) {
 			obfuscationSettings = {
 				obfuscateNames: true,
+				obfuscateComments: true,
 				obfuscateStrings: true,
 				obfuscateConstants: true,
 				obfuscateInspector: true,
@@ -192,6 +193,7 @@ function tokenize(content) {
 			for (var tech of disabledObfuscationTechniques) {
 				if (tech === "noNameObfuscation") {
 					obfuscationSettings.obfuscateNames = false;
+					obfuscationSettings.obfuscateComments = false;
 				} else if (tech === "noStringObfuscation") {
 					obfuscationSettings.obfuscateStrings = false;
 				} else if (tech === "noConstantObfuscation") {

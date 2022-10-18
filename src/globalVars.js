@@ -138,6 +138,7 @@ function resetGlobalVariables(language) {
 	currentRuleEvent = "";
 	obfuscationSettings = {
 		obfuscateNames: false,
+		obfuscateComments: false,
 		obfuscateStrings: false,
 		obfuscateConstants: false,
 		obfuscateInspector: false,

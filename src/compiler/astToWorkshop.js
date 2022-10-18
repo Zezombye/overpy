@@ -93,7 +93,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (!obfuscationSettings.obfuscateNames && condition.comment) {
+    if (!obfuscationSettings.obfuscateComments && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
@@ -164,7 +164,7 @@ function astActionToWs(action, nbTabs) {
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
-    if (!obfuscationSettings.obfuscateNames && action.comment) {
+    if (!obfuscationSettings.obfuscateComments && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"

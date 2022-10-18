@@ -46459,6 +46459,7 @@ function resetGlobalVariables(language) {
 	currentRuleEvent = "";
 	obfuscationSettings = {
 		obfuscateNames: false,
+		obfuscateComments: false,
 		obfuscateStrings: false,
 		obfuscateConstants: false,
 		obfuscateInspector: false,
@@ -49496,6 +49497,7 @@ function decompile(content) {
 
 		if (operatorCheck.operatorFound !== null) {
 			var operator = operatorCheck.operatorFound.trim();
+			debug("Handling operator '"+operator+"'");
 			
 			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
 			if (operator in binaryOpToFuncMapping) {
@@ -49580,9 +49582,6 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
-		if (name.includes("W_e_l_c_o_m_e_ _t_o_ _L_o_o_t_ _Q_u_e_s_t_!".replace(/_/g, ""))) {
-			error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
-		}
         return new Ast(unescapeString(name, false), [], [], "StringLiteral");
     }
     
@@ -49620,7 +49619,7 @@ function decompile(content) {
         var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
         
 	}
-    debug("Arguments: "+args);
+    debug("Arguments: "+args.join(","));
 
     //Special functions
 
@@ -49755,6 +49754,12 @@ function decompile(content) {
 		} else {
 			astArgs.push(decompile(args[i]));
 		}
+	}
+
+	if (name === "__localizedString__") {
+		astArgs[0].type = "LocalizedStringLiteral";
+	} else if (name === "__customString__") {
+		astArgs[0].type = "CustomStringLiteral";
 	}
 	
 
@@ -50578,9 +50583,72 @@ function astToOpy(content) {
 function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables(language);
-	//return tokenizeWs(content).join("\n");
 	var result = "";
+
+	var [result, astRules] = decompileAllRulesToAst(content);
+
+	var variableDeclarations = "";	
+	if (globalVariables.length > 0) {
+		globalVariables.sort((a,b) => a.index-b.index);
+		var globalVariableDeclarations = "";
+		for (var variable of globalVariables) {
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				globalVariableDeclarations += "globalvar "+variable.name+" "+variable.index+"\n";
+			}
+		}
+		if (globalVariableDeclarations !== "") {
+			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
+		}
+	}
+	if (playerVariables.length > 0) {
+		playerVariables.sort((a,b) => a.index-b.index);
+		var playerVariableDeclarations = "";
+		for (var variable of playerVariables) {
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				playerVariableDeclarations += "playervar "+variable.name+" "+variable.index+"\n";
+			}
+		}
+		if (playerVariableDeclarations !== "") {
+			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
+		}
+	}
+
+	var subroutineDeclarations = "";
+	if (subroutines.length > 0) {
+		subroutines.sort((a,b) => a.index-b.index);
+		for (var subroutine of subroutines) {
+			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+				subroutineDeclarations += "subroutine "+subroutine.name+" "+subroutine.index+"\n";
+			}
+		}
+		if (subroutineDeclarations !== "") {
+			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
+		}
+	}
+	result += variableDeclarations + subroutineDeclarations;
+	
+	for (var rule of astRules) {
+		console.log(astToString(rule));
+	}
+	console.log(astRules);
+
+	var opyRules = astRulesToOpy(astRules)
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
+		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
+	}
+
+	result += opyRules;
+	
+		
+	return result;
+	
+}
+
+function decompileAllRulesToAst(content) {
+
 	content = content.trim();
+	var customGameSettings = "";
 	
 	//Some maps and gamemodes are removed in ow2, making eg "Map("
 	//Before anything else, we must replace these to parse brackets correctly
@@ -50597,7 +50665,7 @@ function decompileAllRules(content, language="en-US") {
 
 	//Check for settings
 	if (content.startsWith(tows("__settings__", ruleKw))) {
-		result += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
+		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
 
@@ -50648,66 +50716,7 @@ function decompileAllRules(content, language="en-US") {
 		}
 		astRules.push(decompileRuleToAst(content.substring(bracketPos[i]+1, bracketPos[i+4]+1)));
 	}
-
-	var variableDeclarations = "";	
-	if (globalVariables.length > 0) {
-		globalVariables.sort((a,b) => a.index-b.index);
-		var globalVariableDeclarations = "";
-		for (var variable of globalVariables) {
-			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				globalVariableDeclarations += "globalvar "+variable.name+" "+variable.index+"\n";
-			}
-		}
-		if (globalVariableDeclarations !== "") {
-			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
-		}
-	}
-	if (playerVariables.length > 0) {
-		playerVariables.sort((a,b) => a.index-b.index);
-		var playerVariableDeclarations = "";
-		for (var variable of playerVariables) {
-			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				playerVariableDeclarations += "playervar "+variable.name+" "+variable.index+"\n";
-			}
-		}
-		if (playerVariableDeclarations !== "") {
-			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
-		}
-	}
-
-	var subroutineDeclarations = "";
-	if (subroutines.length > 0) {
-		subroutines.sort((a,b) => a.index-b.index);
-		for (var subroutine of subroutines) {
-			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-				subroutineDeclarations += "subroutine "+subroutine.name+" "+subroutine.index+"\n";
-			}
-		}
-		if (subroutineDeclarations !== "") {
-			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
-		}
-	}
-	result += variableDeclarations + subroutineDeclarations;
-
-	
-
-	
-	for (var rule of astRules) {
-		console.log(astToString(rule));
-	}
-	console.log(astRules);
-
-	var opyRules = astRulesToOpy(astRules)
-	if (activatedExtensions.length > 0) {
-		activatedExtensions = [...new Set(activatedExtensions)]
-		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
-	}
-
-	result += opyRules;
-	
-		
-	return result;
-	
+	return [customGameSettings, astRules];
 }
 
 function decompileCustomGameSettings(content) {
@@ -56145,6 +56154,7 @@ function tokenize(content) {
 		} else if (content.startsWith("#!obfuscate")) {
 			obfuscationSettings = {
 				obfuscateNames: true,
+				obfuscateComments: true,
 				obfuscateStrings: true,
 				obfuscateConstants: true,
 				obfuscateInspector: true,
@@ -56156,6 +56166,7 @@ function tokenize(content) {
 			for (var tech of disabledObfuscationTechniques) {
 				if (tech === "noNameObfuscation") {
 					obfuscationSettings.obfuscateNames = false;
+					obfuscationSettings.obfuscateComments = false;
 				} else if (tech === "noStringObfuscation") {
 					obfuscationSettings.obfuscateStrings = false;
 				} else if (tech === "noConstantObfuscation") {
@@ -57108,7 +57119,7 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (!obfuscationSettings.obfuscateNames && condition.comment) {
+    if (!obfuscationSettings.obfuscateComments && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
 
@@ -57179,7 +57190,7 @@ function astActionToWs(action, nbTabs) {
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
-    if (!obfuscationSettings.obfuscateNames && action.comment) {
+    if (!obfuscationSettings.obfuscateComments && action.comment) {
         result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
