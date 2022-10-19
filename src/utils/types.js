@@ -34,12 +34,12 @@ function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
 
     if (receivedType instanceof Array) {
         //Check if each of the received type is valid for the expected type.
-        return receivedType.every(x => isTypeSuitable(expectedType, x));
+        return receivedType.every(x => isTypeSuitable(expectedType, x, valueTypeIsSuitable));
     }
 
     if (expectedType instanceof Array) {
         //Check if the received type is valid for any of the expected types.
-        return expectedType.some(x => isTypeSuitable(x, receivedType));
+        return expectedType.some(x => isTypeSuitable(x, receivedType, valueTypeIsSuitable));
     }
 
     if (typeof receivedType === "string") {

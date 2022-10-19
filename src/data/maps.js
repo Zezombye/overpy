@@ -295,6 +295,35 @@ const mapKw =
         "zh-CN": "万圣节吉拉德堡",
         "zh-TW": "蓋亞爾城堡（萬聖節）"
     },
+    "circuitRoyal": {
+        "gamemodes": [
+            "skirmish",
+            "escort"
+        ],
+        "guid": "00000001777C",
+        "en-US": "Circuit Royal",
+        "fr-FR": "Circuit royal",
+        "ja-JP": "CIRCUIT ROYAL",
+        "ko-KR": "서킷 로얄",
+        "pl-PL": "Circuit royal",
+        "ru-RU": "Королевская трасса",
+        "zh-CN": "皇家赛道",
+        "zh-TW": "皇家賽道"
+    },
+    "colosseo": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000015B56",
+        "en-US": "Colosseo",
+        "ja-JP": "COLOSSEO",
+        "ko-KR": "콜로세오",
+        "pl-PL": "Koloseum",
+        "ru-RU": "Колизей",
+        "zh-CN": "斗兽场",
+        "zh-TW": "羅馬競技場"
+    },
     "dorado": {
         "guid": "0000000008C1",
         "gamemodes": [
@@ -403,6 +432,19 @@ const mapKw =
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
+    "esperanca": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000016D84",
+        "en-US": "Esperança",
+        "ja-JP": "ESPERANCA",
+        "ko-KR": "이스페란사",
+        "ru-RU": "Эсперанса",
+        "zh-CN": "埃斯佩兰萨",
+        "zh-TW": "希望之城"
+    },
     "estadioDasRas": {
         "onlyInOw1": true,
         "guid": "000000004629",
@@ -457,7 +499,7 @@ const mapKw =
         "zh-TW": "花村（冬境）"
     },
     "havana": {
-        "guid": "00000000B457",
+        "guid": "00000000B8EA",
         "gamemodes": [
             "escort",
             "skirmish",
@@ -910,7 +952,7 @@ const mapKw =
         "es-MX": "Torre Lijiang Año Nuevo Lunar",
         "fr-FR": "Tour de Lijiang nouvel an lunaire",
         "it-IT": "Torre di Lijiang Capodanno Lunare",
-        "ja-JP": "LIJIANG TOWER LUNAR NEW YEAR",
+        "ja-JP": "LIJIANG TOWER 旧正月",
         "ko-KR": "리장 타워 설날",
         "pl-PL": "Wieża Lijiang Księżycowa",
         "pt-BR": "Torre Lijiang Ano Novo Lunar",
@@ -924,13 +966,27 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        "guid": "000000014366",
+        "guid": "000000010DFE",
         "en-US": "Malevento",
         "ja-JP": "MALEVENTO",
         "ko-KR": "말레벤토",
         "ru-RU": "Малевенто",
         "zh-CN": "马莱温多",
         "zh-TW": "馬勒馮托"
+    },
+    "midtown": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid"
+        ],
+        "guid": "00000001777A",
+        "en-US": "Midtown",
+        "ja-JP": "MIDTOWN",
+        "ko-KR": "미드타운",
+        "pl-PL": "Dzielnica Midtown",
+        "ru-RU": "Мидтаун",
+        "zh-CN": "中城",
+        "zh-TW": "中城區"
     },
     "necropolis": {
         "guid": "0000000053FB",
@@ -1078,6 +1134,20 @@ const mapKw =
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
     },
+    "newQueenStreet": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000015B54",
+        "en-US": "New Queen Street",
+        "ja-JP": "NEW QUEEN STREET",
+        "ko-KR": "뉴 퀸 스트리트",
+        "pt-BR": "Nova Queen Street",
+        "ru-RU": "Нью-Квин-стрит",
+        "zh-CN": "新皇后街",
+        "zh-TW": "新皇后街"
+    },
     "numbani": {
         "guid": "0000000002EA",
         "gamemodes": [
@@ -1190,6 +1260,19 @@ const mapKw =
         "zh-CN": "绿洲城大学",
         "zh-TW": "綠洲城大學"
     },
+    "paraiso": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid"
+        ],
+        "guid": "000000017763",
+        "en-US": "Paraíso",
+        "ja-JP": "PARAISO",
+        "ko-KR": "파라이수",
+        "ru-RU": "Параисо",
+        "zh-CN": "帕拉伊苏",
+        "zh-TW": "帕拉伊索"
+    },
     "paris": {
         "guid": "00000000831E",
         "gamemodes": [
@@ -1261,7 +1344,7 @@ const mapKw =
             "escort",
             "skirmish",
             "ffa",
-            "tdm",
+            "tdm"
         ],
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
@@ -1313,7 +1396,7 @@ const mapKw =
         "zh-TW": "經典雪梨海港運動公園"
     },
     "templeOfAnubis": {
-        "guid": "00000000012E",
+        "guid": "00000000AB25",
         "gamemodes": [
             "assault",
             "skirmish",
@@ -1544,48 +1627,6 @@ const mapKw =
         "ru-RU": "Мастерская: остров ночь",
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
-    },
-    "colosseo": {
-        "gamemodes": [
-            "skirmish",
-            "push",
-        ],
-        "en-US": "Colosseo",
-    },
-    "esperanca": {
-        "gamemodes": [
-            "skirmish",
-            "push",
-        ],
-        "en-US": "Esperança",
-    },
-    "newQueenStreet": {
-        "gamemodes": [
-            "skirmish",
-            "push",
-        ],
-        "en-US": "New Queen Street",
-    },
-    "circuitRoyal": {
-        "gamemodes": [
-            "skirmish",
-            "escort",
-        ],
-        "en-US": "Circuit Royal",
-    },
-    "paraiso": {
-        "gamemodes": [
-            "skirmish",
-            "hybrid",
-        ],
-        "en-US": "Paraíso",
-    },
-    "midtown": {
-        "gamemodes": [
-            "skirmish",
-            "hybrid",
-        ],
-        "en-US": "Midtown",
-    },
+    }
 }
 //end-json

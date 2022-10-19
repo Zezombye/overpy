@@ -822,7 +822,7 @@ const constantValues =
             "guid": "000000010BE8",
             "en-US": "Ready",
             "es-MX": "Listo",
-            "fr-FR": "Prêt",
+            "fr-FR": "Prête",
             "ja-JP": "準備完了",
             "pt-BR": "Pronto",
             "zh-CN": "做好准备"

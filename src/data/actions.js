@@ -2245,7 +2245,7 @@ const actionKw =
         "en-US": "Press Button",
         "es-MX": "Presionar botón",
         "fr-FR": "Appuyer sur un bouton",
-        "ja-JP": "ボタンを押してください",
+        "ja-JP": "ボタンを押す",
         "pt-BR": "Pressionar Botão",
         "zh-CN": "按下按键"
     },

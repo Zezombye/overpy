@@ -211,8 +211,8 @@ const gamemodeKw =
     },
     "meisSnowballOffensive": {
         "onlyInOw1": true,
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
         "de-DE": "Meis Schneeballschlacht",
@@ -229,7 +229,7 @@ const gamemodeKw =
         "zh-TW": "小美的雪球大作戰"
     },
     "practiceRange": {
-        "guid": "0000000040BE",
+        "guid": "000000002BA1",
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 0,
         "en-US": "Practice Range",
@@ -242,9 +242,27 @@ const gamemodeKw =
         "ko-KR": "훈련장",
         "pl-PL": "Obszar treningowy",
         "pt-BR": "Campo de Treinamento",
-        "ru-RU": "Учебный полигон",
+        "ru-RU": "УЧЕБНЫЙ ПОЛИГОН",
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心"
+    },
+    "push": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "guid": "00000001695F",
+        "en-US": "Push",
+        "de-DE": "Schub",
+        "es-ES": "Avance",
+        "es-MX": "Avance",
+        "fr-FR": "Avancée",
+        "it-IT": "Scorta",
+        "ja-JP": "プッシュ",
+        "ko-KR": "밀기",
+        "pl-PL": "Przepychanka",
+        "pt-BR": "Avanço",
+        "ru-RU": "Натиск",
+        "zh-CN": "机动推进",
+        "zh-TW": "推進"
     },
     "skirmish": {
         "defaultTeam1Players": 6,
@@ -282,6 +300,22 @@ const gamemodeKw =
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
+    "survivor": {
+        "guid": "00000000AC44",
+        "en-US": "Survivor",
+        "de-DE": "Langer Atem",
+        "es-ES": "Superviviente",
+        "es-MX": "Sobreviviente",
+        "fr-FR": "Survivant",
+        "it-IT": "Superstite",
+        "ja-JP": "サバイバー",
+        "ko-KR": "생존자",
+        "pl-PL": "Przetrwanie",
+        "pt-BR": "Sobrevivente",
+        "ru-RU": "Выжившие",
+        "zh-CN": "长夜余生",
+        "zh-TW": "生存專家"
+    },
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -318,14 +352,6 @@ const gamemodeKw =
         "ru-RU": "Охота на йети",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
-    },
-    "push": {
-        "defaultTeam1Players": 5,
-        "defaultTeam2Players": 5,
-        "en-US": "Push",
-    },
-    "survivor": {
-        "en-US": "Survivor",
-    },
+    }
 }
 //end-json

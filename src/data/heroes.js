@@ -186,8 +186,20 @@ const heroKw =
     "bastion": {
         "guid": "000000000023",
         "secondaryFire": {
+            "guid": "000000012F0C",
             "en-US": "A-36 Tactical Grenade",
+            "de-DE": "Taktische Granate A-36",
+            "es-ES": "Granada táctica A-36",
+            "es-MX": "Granada táctica A-36",
+            "fr-FR": "Grenade tactique A-36",
+            "it-IT": "Granata Tattica A-36",
+            "ja-JP": "A-36タクティカル・グレネード",
             "ko-KR": "A-36 전술 수류탄",
+            "pl-PL": "Granat Taktyczny A-36",
+            "pt-BR": "Granada Tática A-36",
+            "ru-RU": "Тактическая граната A-36",
+            "zh-CN": "A-36战术榴弹",
+            "zh-TW": "A-36戰術榴彈"
         },
         "ability1": {
             "guid": "0000000003C3",
@@ -206,8 +218,20 @@ const heroKw =
             "zh-TW": "切換模式"
         },
         "ultimate": {
+            "guid": "0000000003C1",
             "en-US": "Configuration: Artillery",
-            "ko-KR": "설정: 전차",
+            "de-DE": "Konfiguration: Panzer",
+            "es-ES": "Modo tanque",
+            "es-MX": "Configuración: tanque",
+            "fr-FR": "Configuration : artillerie",
+            "it-IT": "Assetto Carro Armato",
+            "ja-JP": "タンク・モード",
+            "ko-KR": "설정: 포격",
+            "pl-PL": "Konfiguracja: Czołg",
+            "pt-BR": "Configuração: Tanque",
+            "ru-RU": "Режим артиллерии",
+            "zh-CN": "火炮模式",
+            "zh-TW": "火砲模式"
         },
         "en-US": "Bastion",
         "ja-JP": "バスティオン",
@@ -324,8 +348,20 @@ const heroKw =
             "zh-TW": "火箭拳"
         },
         "ability1": {
+            "guid": "000000015B59",
             "en-US": "Power Block",
+            "de-DE": "Faustschild",
+            "es-ES": "Bloqueo de poder",
+            "es-MX": "Bloqueo de poder",
+            "fr-FR": "Parade puissante",
+            "it-IT": "Baluardo",
+            "ja-JP": "パワー・ブロック",
             "ko-KR": "파워 블락",
+            "pl-PL": "Mocarny Blok",
+            "pt-BR": "Bloqueio Energético",
+            "ru-RU": "Мощный блок",
+            "zh-CN": "悍猛格挡",
+            "zh-TW": "強力格擋"
         },
         "ability2": {
             "guid": "000000005B4A",
@@ -518,7 +554,7 @@ const heroKw =
             "zh-CN": "滑翔",
             "zh-TW": "滑翔"
         },
-        "guid": "0000000108C5",
+        "guid": "000000008684",
         "en-US": "Echo",
         "fr-FR": "Écho",
         "ja-JP": "エコー",
@@ -748,6 +784,82 @@ const heroKw =
         "zh-CN": "半藏",
         "zh-TW": "半藏"
     },
+    "junkerQueen": {
+        "secondaryFire": {
+            "guid": "00000000D3A4",
+            "en-US": "Jagged Blade",
+            "de-DE": "Gezackte Klinge",
+            "es-ES": "Cuchilla dentada",
+            "es-MX": "Hoja dentada",
+            "fr-FR": "Lame crantée",
+            "it-IT": "Lama Dentata",
+            "ja-JP": "ギザギザブレード",
+            "ko-KR": "톱니칼",
+            "pl-PL": "Postrzępione Ostrze",
+            "pt-BR": "Lâmina Serrilhada",
+            "ru-RU": "Зазубренный клинок",
+            "zh-CN": "锯齿利刃",
+            "zh-TW": "鋸刃"
+        },
+        "ability2": {
+            "guid": "00000000EB9B",
+            "en-US": "Carnage",
+            "de-DE": "Gemetzel",
+            "es-ES": "Matanza",
+            "es-MX": "Masacre",
+            "it-IT": "Mattanza",
+            "ja-JP": "カーネイジ",
+            "ko-KR": "도륙",
+            "pl-PL": "Rzeźnia",
+            "pt-BR": "Carnificina",
+            "ru-RU": "Карнаж",
+            "zh-CN": "血斩",
+            "zh-TW": "屠殺"
+        },
+        "ability1": {
+            "guid": "00000000EA9C",
+            "en-US": "Commanding Shout",
+            "de-DE": "Befehlsruf",
+            "es-ES": "Grito de mando",
+            "es-MX": "Alarido dominante",
+            "fr-FR": "Cri de commandement",
+            "it-IT": "Urlo di Comando",
+            "ja-JP": "コマンディング・シャウト",
+            "ko-KR": "지휘의 외침",
+            "pl-PL": "Władczy Okrzyk",
+            "pt-BR": "Grito de Guerra",
+            "ru-RU": "Ободряющий клич",
+            "zh-CN": "命令怒吼",
+            "zh-TW": "統率怒號"
+        },
+        "ultimate": {
+            "guid": "00000000EC04",
+            "en-US": "Rampage",
+            "de-DE": "Randale",
+            "es-ES": "Masacre",
+            "es-MX": "Desenfreno",
+            "fr-FR": "Massacre",
+            "it-IT": "Furia",
+            "ja-JP": "ランペイジ",
+            "ko-KR": "살육",
+            "pl-PL": "Rozwałka",
+            "pt-BR": "Chacina",
+            "ru-RU": "Буйство",
+            "zh-CN": "轰翻天",
+            "zh-TW": "瘋狂殺戮"
+        },
+        "guid": "000000016CEA",
+        "en-US": "Junker Queen",
+        "fr-FR": "Reine des Junkers",
+        "it-IT": "Regina dei Junker",
+        "ja-JP": "ジャンカー・クイーン",
+        "ko-KR": "정커퀸",
+        "pl-PL": "Królowa Junkertown",
+        "pt-BR": "Rainha Junker",
+        "ru-RU": "Королева Стервятников",
+        "zh-CN": "渣客女王",
+        "zh-TW": "垃圾鎮女王"
+    },
     "junkrat": {
         "guid": "0000000001AA",
         "ability1": {
@@ -806,6 +918,63 @@ const heroKw =
         "ru-RU": "Крысавчик",
         "zh-CN": "狂鼠",
         "zh-TW": "炸彈鼠"
+    },
+    "kiriko": {
+        "ability1": {
+            "guid": "000000009447",
+            "en-US": "Swift Step",
+            "de-DE": "Schneller Schritt",
+            "es-ES": "Paso ligero",
+            "es-MX": "Paso ágil",
+            "fr-FR": "Pas véloce",
+            "it-IT": "Passo Rapido",
+            "ja-JP": "神出鬼没",
+            "ko-KR": "순보",
+            "pl-PL": "Raźny Ruch",
+            "pt-BR": "Passo Rápido",
+            "ru-RU": "Быстрый шаг",
+            "zh-CN": "瞬",
+            "zh-TW": "瞬影步"
+        },
+        "ability2": {
+            "guid": "00000000D4DD",
+            "en-US": "Protection Suzu",
+            "de-DE": "Suzu des Schutzes",
+            "es-ES": "Suzu de protección",
+            "es-MX": "Suzu de protección",
+            "fr-FR": "Suzu de protection",
+            "it-IT": "Suzu di Protezione",
+            "ja-JP": "鈴のご加護",
+            "ko-KR": "정화의 방울",
+            "pl-PL": "Ochronne Suzu",
+            "pt-BR": "Suzu de Proteção",
+            "ru-RU": "Талисман защиты",
+            "zh-CN": "铃",
+            "zh-TW": "祓除鈴"
+        },
+        "ultimate": {
+            "guid": "000000009478",
+            "en-US": "Kitsune Rush",
+            "de-DE": "Kitsunami",
+            "es-ES": "Marcha del kitsune",
+            "es-MX": "Arremetida de kitsune",
+            "fr-FR": "Ruée de kitsune",
+            "it-IT": "Scatto Kitsune",
+            "ja-JP": "狐走り",
+            "ko-KR": "여우길",
+            "pl-PL": "Pęd Kitsune",
+            "pt-BR": "Corrida da Kitsune",
+            "ru-RU": "Рывок Кицунэ",
+            "zh-CN": "狐",
+            "zh-TW": "御狐衝刺"
+        },
+        "guid": "000000016CEC",
+        "en-US": "Kiriko",
+        "ja-JP": "キリコ",
+        "ko-KR": "키리코",
+        "ru-RU": "Кирико",
+        "zh-CN": "雾子",
+        "zh-TW": "霧子"
     },
     "lucio": {
         "guid": "0000000002DA",
@@ -897,8 +1066,20 @@ const heroKw =
             "zh-TW": "戰術翻滾"
         },
         "ability2": {
+            "guid": "000000015795",
             "en-US": "Magnetic Grenade",
+            "de-DE": "Magnetische Granate",
+            "es-ES": "Granada magnética",
+            "es-MX": "Granada magnética",
+            "fr-FR": "Grenade magnétique",
+            "it-IT": "Granata Magnetica",
+            "ja-JP": "マグネティック・グレネード",
             "ko-KR": "자력 수류탄",
+            "pl-PL": "Granat Magnetyczny",
+            "pt-BR": "Granada Magnética",
+            "ru-RU": "Магнитная граната",
+            "zh-CN": "磁性手雷",
+            "zh-TW": "磁吸榴彈"
         },
         "ultimate": {
             "guid": "0000000004A2",
@@ -1109,8 +1290,20 @@ const heroKw =
     "orisa": {
         "guid": "000000002D21",
         "secondaryFire": {
+            "guid": "000000014ED8",
             "en-US": "Energy Javelin",
-            "ko-KR": "수호의 창",
+            "de-DE": "Energiespeer",
+            "es-ES": "Jabalina de energía",
+            "es-MX": "Jabalina de energía",
+            "fr-FR": "Javelot d’énergie",
+            "it-IT": "Giavellotto Energetico",
+            "ja-JP": "エネルギー・ジャベリン",
+            "ko-KR": "투창",
+            "pl-PL": "Włócznia Energetyczna",
+            "pt-BR": "Dardo Energético",
+            "ru-RU": "Энергетическое копье",
+            "zh-CN": "能量标枪",
+            "zh-TW": "能量標槍"
         },
         "ability1": {
             "guid": "000000004ED3",
@@ -1129,12 +1322,36 @@ const heroKw =
             "zh-TW": "強化防禦"
         },
         "ability2": {
+            "guid": "000000014ED6",
             "en-US": "Javelin Spin",
-            "ko-KR": "투창",
+            "de-DE": "Speerwirbel",
+            "es-ES": "Girojabalina",
+            "es-MX": "Giro de lanza",
+            "fr-FR": "Rotation de javelot",
+            "it-IT": "Giavellotto Rotante",
+            "ja-JP": "ジャベリン・スピン",
+            "ko-KR": "수호의 창",
+            "pl-PL": "Obrót Włócznią",
+            "pt-BR": "Giro do Dardo",
+            "ru-RU": "Вращение копьем",
+            "zh-CN": "标枪旋击",
+            "zh-TW": "迴旋標槍"
         },
         "ultimate": {
+            "guid": "000000014EDA",
             "en-US": "Terra Surge",
+            "de-DE": "Terrawoge",
+            "es-ES": "Terraluvión",
+            "es-MX": "Impacto terrestre",
+            "fr-FR": "Vague Terra",
+            "it-IT": "Impeto Terrestre",
+            "ja-JP": "テラ・サージ",
             "ko-KR": "대지의 창",
+            "pl-PL": "Impuls Bojowy",
+            "pt-BR": "Rompante Terrano",
+            "ru-RU": "Встряска земли",
+            "zh-CN": "撼地猛刺",
+            "zh-TW": "大地湧能"
         },
         "en-US": "Orisa",
         "ja-JP": "オリーサ",
@@ -1478,6 +1695,77 @@ const heroKw =
         "ru-RU": "Сигма",
         "zh-CN": "西格玛",
         "zh-TW": "席格馬"
+    },
+    "sojourn": {
+        "secondaryFire": {
+            "guid": "00000000796B",
+            "en-US": "Railgun Alt Fire",
+            "de-DE": "Railgun – Alternativer Feuermodus",
+            "es-ES": "Disparo secundario del cañón de riel",
+            "es-MX": "Disparo secundario de Cañón de riel",
+            "fr-FR": "Canon électrique : tir alternatif",
+            "it-IT": "Fuoco Alternativo Fucile a Rotaia",
+            "ja-JP": "レールガン - サブ攻撃",
+            "ko-KR": "레일건 보조 발사",
+            "pl-PL": "Alternatywny atak Karabinu Kinetycznego",
+            "pt-BR": "Canhão Elétrico - Disparo alternativo",
+            "ru-RU": "Дополнительный режим огня рельсотрона",
+            "zh-CN": "电磁炮辅助模式",
+            "zh-TW": "磁軌槍次要攻擊"
+        },
+        "ability1": {
+            "guid": "000000007964",
+            "en-US": "Power Slide",
+            "de-DE": "Powerslide",
+            "es-ES": "Maniobra evasiva",
+            "es-MX": "Deslizamiento impulsor",
+            "fr-FR": "Tacle",
+            "it-IT": "Scivolata Energica",
+            "ja-JP": "パワー・スライド",
+            "ko-KR": "파워 슬라이드",
+            "pl-PL": "Super Wślizg",
+            "pt-BR": "Deslizada Enérgica",
+            "ru-RU": "Суперподкат",
+            "zh-CN": "机动滑铲",
+            "zh-TW": "強力滑行"
+        },
+        "ability2": {
+            "guid": "000000007965",
+            "en-US": "Disruptor Shot",
+            "de-DE": "Disruptionsschuss",
+            "es-ES": "Disparo inmovilizador",
+            "es-MX": "Disparo disruptivo",
+            "fr-FR": "Tir disruptif",
+            "it-IT": "Colpo Distruttivo",
+            "ja-JP": "ディスラプター・ショット",
+            "ko-KR": "분열 사격",
+            "pl-PL": "Strzał Zakłócający",
+            "pt-BR": "Disparo Disruptivo",
+            "ru-RU": "Дезинтегрирующий выстрел",
+            "zh-CN": "干扰弹",
+            "zh-TW": "擾亂射擊"
+        },
+        "ultimate": {
+            "guid": "00000000796E",
+            "en-US": "Overclock",
+            "de-DE": "Übertaktung",
+            "es-ES": "Supercarga",
+            "fr-FR": "Surcadençage",
+            "ja-JP": "オーバークロック",
+            "ko-KR": "오버클럭",
+            "pl-PL": "Przeciążenie",
+            "pt-BR": "Sobrecarga",
+            "ru-RU": "Разгон",
+            "zh-CN": "机体超频",
+            "zh-TW": "磁能超頻"
+        },
+        "guid": "000000016CFA",
+        "en-US": "Sojourn",
+        "ja-JP": "ソジョーン",
+        "ko-KR": "소전",
+        "ru-RU": "Соджорн",
+        "zh-CN": "索杰恩",
+        "zh-TW": "索潔恩"
     },
     "soldier": {
         "guid": "000000000224",
@@ -2022,60 +2310,6 @@ const heroKw =
         "ru-RU": "Дзенъятта",
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔"
-    },
-    "sojourn": {
-        "secondaryFire": {
-            "en-US": "Railgun Alt Fire",
-        },
-        "ability1": {
-            "en-US": "Power Slide",
-            "ko-KR": "파워 슬라이드",
-        },
-        "ability2": {
-            "en-US": "Disruptor Shot",
-            "ko-KR": "분열 사격",
-        },
-        "ultimate": {
-            "en-US": "Overclock",
-            "ko-KR": "오버클럭",
-        },
-        "en-US": "Sojourn",
-        "ko-KR": "소전",
-    },
-    "junkerQueen": {
-        "secondaryFire": {
-            "en-US": "Jagged Blade",
-            "ko-KR": "톱니칼",
-        },
-        "ability2": {
-            "en-US": "Carnage",
-            "ko-KR": "도륙",
-        },
-        "ability1": {
-            "en-US": "Commanding Shout",
-        },
-        "ultimate": {
-            "en-US": "Rampage",
-            "ko-KR": "살육",
-        },
-        "en-US": "Junker Queen",
-        "ko-KR": "정커퀸",
-    },
-    "kiriko": {
-        "ability1": {
-            "en-US": "Swift Step",
-            "ko-KR": "순보",
-        },
-        "ability2": {
-            "en-US": "Protection Suzu",
-            "ko-KR": "정화의 방울",
-        },
-        "ultimate": {
-            "en-US": "Kitsune Rush",
-            "ko-KR": "여우길",
-        },
-        "en-US": "Kiriko",
-        "ko-KR": "키리코",
     }
 }
 //end-json

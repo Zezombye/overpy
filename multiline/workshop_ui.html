@@ -22,6 +22,7 @@
             --dropdown-color: rgb(32, 82, 126);
             --action-hover-color: white;
             --edit-background-color: rgb(36, 46, 64);
+            --background-dim: rgba(0, 0, 0, 0.9);
         }
 
         body, textarea {
@@ -132,15 +133,34 @@
             left: 0px;
             width: 100%;
             height: 100%;
-            background-color: var(--edit-background-color);
             display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-dim);
+        }
+
+        #edit-title {
+            text-align: center;
+        }
+
+        #edit-background {
+            width: 100%;
+            padding-left: 300px;
+            padding-right: 300px;
+            background-color: var(--edit-background-color);
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
         .argument-value-wrapper {
+            display: flex;
         }
 
         .argument {
             display: inline-block;
+            width: 100%;
             background-color: var(--label-background-color);
             padding-left: 10px;
             padding-right: 10px;
@@ -148,10 +168,11 @@
             padding-bottom: 5px;
             margin-bottom: 2px;
             margin-top: 2px;
+            margin-right: 4px;
         }
 
         .value {
-            width: 400px;
+            min-width: 600px;
             display: inline-block;
         }
 
@@ -170,15 +191,15 @@
             <div class="rule-content">
                 <div class="rule-event">
                     <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventKw)" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.event"></v-select></div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.event"></v-select></div>
                 </div>
                 <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
                     <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventPlayerKw)"></v-select></div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.eventPlayer"></v-select></div>
                 </div>
                 <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
                     <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptions(eventTeamKw)"></v-select></div>
+                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.eventTeam"></v-select></div>
                 </div>
                 <!--TODO: subroutines-->
                 <div class="conditions-and-actions">
@@ -234,10 +255,18 @@
     </div>
 
     <template id="function-display-template">
-        <div class="argument-value-wrapper">
-            <div class="argument" :style="{'margin-left': (depth*20)+'px'}" v-if="!(ast.name === '__equals__' && ast.parent.name === '__rule__')">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" ? "description of action arg" : "description of value arg" }}</div>
-            <div class="value">{{ ast.name + "|" + astIdx + "|" + depth }}</div>
-            <hr class="line-break">
+        <div>
+            <div class="argument-value-wrapper">
+                <div class="argument" :style="{'margin-left': (depth*20)+'px'}" v-if="!(ast.name === '__equals__' && ast.parent.name === '__rule__')">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" ? $root.actionKw[ast.parent.name].args[astIdx].name : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+                <div class="value">
+                    <div v-if="ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)">
+                        <input type="number" v-model="ast.name">
+                    </div>
+                    <div v-else>
+                        <v-select :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name"></v-select>
+                    </div>
+                </div>
+            </div>
             <function-display v-for="(arg, idx) in ast.args" :ast="arg" :ast-idx="idx" :depth="depth+1"></function-display>
         </div>
     </template>
@@ -330,6 +359,9 @@
                 translateSubroutineToWs,
                 escapeString,
                 functionNameToString,
+                globalVariables,
+                playerVariables,
+                subroutines,
             },
             "methods": {
                 error: function(str) {
@@ -346,8 +378,29 @@
                         return keywordObj[keyword]["en-US"];
                     }
                 },
-                getDropdownOptions: function(keywordObj) {
-                    return Object.keys(keywordObj).map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x}))
+                getDropdownOptionsForType: function(type) {
+                    if (type === "GlobalVariable") {
+                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                    } else if (type === "PlayerVariable") {
+                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                    } else if (type === "Subroutine") {
+                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                    }
+                    keywordObj = null
+                    if (type === "void") {
+                        keywordObj = this.actionKw;
+                    } else if (type in this.constantValues) {
+                        keywordObj = this.constantValues[type];
+                    } else if (type === "event") {
+                        keywordObj = this.eventKw;
+                    } else if (type === "eventPlayer") {
+                        keywordObj = this.eventPlayerKw;
+                    } else if (type === "eventTeam") {
+                        keywordObj = this.eventTeamKw;
+                    } else {
+                        keywordObj = this.valueFuncKw;
+                    }
+                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1).map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
                 },
                 decompile: function(content) {
                     resetGlobalVariables(this.decompilationLanguage);
@@ -368,6 +421,9 @@
                         }
                     }
                     this.rules = rules;
+                    this.globalVariables = globalVariables;
+                    this.playerVariables = playerVariables;
+                    this.subroutines = subroutines;
                 },
                 adjustAstForWorkshop: function(ast) {
                     //We cannot use overpy functions because they also do a bunch of stuff such as optimization

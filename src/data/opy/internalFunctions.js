@@ -435,18 +435,6 @@ const opyInternalFuncs = {
         "isConstant": true,
         return: ["float", "Vector"],
     },
-    "__number__": {
-        "args": [
-            {
-                "name": "NUMBER",
-                "type": "FloatLiteral",
-                "default": "0",
-            },
-        ],
-        "isConstant": true,
-        return: "FloatLiteral",
-        "en-US": "Number",
-    },
     "__remove__": {
         "args": [
             {

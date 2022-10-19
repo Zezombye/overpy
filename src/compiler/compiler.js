@@ -456,7 +456,8 @@ function compileCustomGameSettings(customGameSettings) {
 						} else if (mapKw[map].onlyInOw1) {
 							error("The map '"+map+"' is not available in OW2");
 						} else if (map.endsWith("Night") || map.endsWith("Halloween") || map.endsWith("Winter") || map.endsWith("Lny") || ["iliosRuins", "iliosLighthouse", "iliosWell", "nepalSanctum", "nepalShrine", "nepalVillage", "oasisCityCenter", "oasisGardens", "oasisUniversity"].includes(map)) {
-							error("The map '"+map+"' cannot be pasted, you will have to select/deselect it manually via the UI")
+							warn("w_ow2_map_paste_bug", "The map '"+map+"' cannot be pasted, you will have to select/deselect it manually via the UI.")
+							delete customGameSettings.gamemodes[gamemode][mapsKey][map];
 						}
 					}
 					//Test if there are only workshop maps (for extension points)
