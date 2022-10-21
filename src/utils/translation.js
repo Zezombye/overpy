@@ -25,18 +25,18 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		if (keywordObj !== stringKw) {
 			keyword = keyword.replace(/\s/g, "");
 		}
+		if (keyword === "mccree") {
+			keyword = "cassidy";
+		} else if (keyword === "mccreeflashbangstunnedeffect") {
+			keyword = "cassidyflashbangstunnedeffect";
+		} else if (keyword === "mccreeflashbangexplosionsound") {
+			keyword = "cassidyflashbangexplosionsound";
+		} else if (keyword === "mccreeflashbangexplosioneffect") {
+			keyword = "cassidyflashbangexplosioneffect";
+		}
 	}
 	debug("Translating keyword '"+keyword+"'");
 	
-	//Check for current array element
-	if (toWorkshop) {
-		for (var i = 0; i < currentArrayElementNames.length; i++) {
-			if (keyword === currentArrayElementNames[i]) {
-				return translate("__currentArrayElement__", true, valueFuncKw);
-			}
-		}
-	}
-
 	if (toWorkshop) {
 		try {
 			//Check number of arguments
@@ -59,6 +59,10 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 	} else {
 
 		for (var key of Object.keys(keywordObj)) {
+
+			if (typeof keywordObj[key] !== "object") {
+				continue;
+			}
 			
 			if (currentLanguage in keywordObj[key]) {
 				var keywordComparing = keywordObj[key][currentLanguage];

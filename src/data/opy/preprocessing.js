@@ -38,7 +38,8 @@ The following obfuscation methods are applied:
 - Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
 - String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
 - Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
-- Inspector obfuscation: the inspector is disabled, and all disable/enable inspector actions are removed.
+- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
+- Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
 
 To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
 `
@@ -57,5 +58,85 @@ To save elements, it is possible to specify methods to disable, by prefixing the
     },
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
+    },
+    "optimizeForSize": {
+        "description": "Prioritizes lowering the number of elements over optimizing the runtime."
+    },
+    "replace0ByCapturePercentage": {
+        "description": `
+Replaces all instances of 0 by \`getCapturePercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, or Elimination.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getCapturePercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByPayloadProgressPercentage": {
+        "description": `
+Replaces all instances of 0 by \`getPayloadProgressPercentage()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Hybrid or Escort.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getPayloadProgressPercentage()
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replace0ByIsMatchComplete": {
+        "description": `
+Replaces all instances of 0 by \`isMatchComplete()\`, if replacement by \`null\` or \`false\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode is endless, or if you do not care about the integrity of the gamemode once victory/defeat is declared.
+`
+    },
+    "replace1ByMatchRound": {
+        "description": `
+Replaces all instances of 1 by \`getMatchRound()\`, if replacement by \`true\` is impossible. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Assault, Hybrid, Escort (with the competitive ruleset) or Control.
+
+If you want to make sure these gamemodes are not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getMatchRound() > 1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+    "replaceTeam1ByControlScoringTeam": {
+        "description": `
+Replaces all instances of \`Team.1\` by \`getControlScoringTeam()\`. Size optimizations must be enabled.
+
+This directive should only be used if the gamemode cannot be played in Control.
+
+If you want to make sure this gamemode is not mistakenly played, you can add the following rule:
+
+\`\`\`python
+rule "Integrity check":
+    @Condition getControlScoringTeam() != Team.1
+    print("This gamemode cannot be played!")
+\`\`\`
+`
+    },
+
+    "extension": {
+        "description": `
+Activates a workshop extension. The following extensions are available:
+
+${Object.keys(customGameSettingsSchema.extensions.values).map(x => "- `"+x+"` ("+customGameSettingsSchema.extensions.values[x].points+" point" + (customGameSettingsSchema.extensions.values[x].points > 1 ? "s" : "")+")").join("\n")}
+
+__extensionDescription__`,
+        "snippet": "extension ${1|"+Object.keys(customGameSettingsSchema.extensions.values).join(",")+"|}",
     }
 }

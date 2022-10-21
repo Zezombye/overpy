@@ -41,6 +41,7 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -68,11 +69,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "RATE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -96,11 +101,15 @@ const opyInternalFuncs = {
                     "float",
                     "Vector"
                 ],
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "DURATION",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -135,6 +144,7 @@ const opyInternalFuncs = {
                 "type": "DictElem",
             }
         ],
+        "isConstant": true,
         return: ["Object", "Array"],
     },
     "__dictElem__": {
@@ -147,6 +157,7 @@ const opyInternalFuncs = {
                 "type": ["Object", "Array"],
             }
         ],
+        "isConstant": true,
         return: "DictElem",
     },
     "__distanceTo__": {
@@ -168,19 +179,40 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
+    "__enum__": {
+        "args": [
+            {
+                "name": "NAME",
+                "type": "EnumName",
+            }
+        ],
+        return: "void",
+    },
+    "__enumType__": {
+        "args": [
+            {
+                "name": "VALUE",
+                "type": ["Array", "Object"],
+            }
+        ],
+        return: "Type",
+    },
     "__equals__": {
         "args": [
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__for__": {
@@ -195,10 +227,14 @@ const opyInternalFuncs = {
             },
             {
                 "name": "RANGE STOP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             },
             {
                 "name": "STEP",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "type": "float",
             }
         ],
@@ -217,6 +253,7 @@ const opyInternalFuncs = {
                 "default": "NULL"
             }
         ],
+        "isConstant": true,
         return: "String",
     },
     "__getNormal__": {
@@ -269,14 +306,19 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     
@@ -285,14 +327,19 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__inequals__": {
@@ -300,14 +347,17 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": ["Object", "Array"],
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThan__": {
@@ -315,14 +365,19 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "__lessThanOrEquals__": {
@@ -330,28 +385,20 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "bool",
-    },
-    "__mappedArray__": {
-        "args": [
-            {
-                "name": "ARRAY",
-                "type": "Array",
-            },
-            {
-                "name": "CONDITION",
-                "type": "bool",
-            }
-        ],
-        "return": {"Array": "bool"},
     },
     "__modifyVar__": {
         "args": [
@@ -385,18 +432,8 @@ const opyInternalFuncs = {
                 "default": "NUMBER"
             },
         ],
+        "isConstant": true,
         return: ["float", "Vector"],
-    },
-    "__number__": {
-        "args": [
-            {
-                "name": "NUMBER",
-                "type": "NumberLiteral",
-                "default": "0",
-            },
-        ],
-        return: "float",
-        "en-US": "Number",
     },
     "__remove__": {
         "args": [
@@ -409,6 +446,19 @@ const opyInternalFuncs = {
             }
         ],
         return: "void",
+    },
+    "__reverse__": {
+        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array to reverse.",
+                "type": "Array",
+                "default": "ARRAY"
+            }
+        ],
+        class: "Array",
+        return: "Array",
     },
     "__rule__": {
         "args": null,
@@ -423,14 +473,4 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
-    "__team__": {
-        "args": [
-            {
-                "name": "TEAM",
-                "type": "TeamLiteral",
-                "default": "ALL",
-            }
-        ],
-        return: "Team",
-    }
 }

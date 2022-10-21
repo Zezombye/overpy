@@ -23,14 +23,90 @@ function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables(language);
 	var result = "";
-	content = content.trim();
+
+	var [result, astRules] = decompileAllRulesToAst(content);
+
+	var variableDeclarations = "";	
+	if (globalVariables.length > 0) {
+		globalVariables.sort((a,b) => a.index-b.index);
+		var globalVariableDeclarations = "";
+		for (var variable of globalVariables) {
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				globalVariableDeclarations += "globalvar "+variable.name+" "+variable.index+"\n";
+			}
+		}
+		if (globalVariableDeclarations !== "") {
+			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
+		}
+	}
+	if (playerVariables.length > 0) {
+		playerVariables.sort((a,b) => a.index-b.index);
+		var playerVariableDeclarations = "";
+		for (var variable of playerVariables) {
+			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
+				playerVariableDeclarations += "playervar "+variable.name+" "+variable.index+"\n";
+			}
+		}
+		if (playerVariableDeclarations !== "") {
+			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
+		}
+	}
+
+	var subroutineDeclarations = "";
+	if (subroutines.length > 0) {
+		subroutines.sort((a,b) => a.index-b.index);
+		for (var subroutine of subroutines) {
+			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
+				subroutineDeclarations += "subroutine "+subroutine.name+" "+subroutine.index+"\n";
+			}
+		}
+		if (subroutineDeclarations !== "") {
+			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
+		}
+	}
+	result += variableDeclarations + subroutineDeclarations;
 	
+	for (var rule of astRules) {
+		console.log(astToString(rule));
+	}
+	console.log(astRules);
+
+	var opyRules = astRulesToOpy(astRules)
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
+		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
+	}
+
+	result += opyRules;
+	
+		
+	return result;
+	
+}
+
+function decompileAllRulesToAst(content) {
+
+	content = content.trim();
+	var customGameSettings = "";
+	
+	//Some maps and gamemodes are removed in ow2, making eg "Map("
+	//Before anything else, we must replace these to parse brackets correctly
+	var mapConstFunction = tows("__map__", valueFuncKw);
+	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
+
+	//This regex will sadly also replace instances in strings, but I doubt there are many.
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\((?!\\s*\\w)", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+
+	console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
 
 	//Check for settings
 	if (content.startsWith(tows("__settings__", ruleKw))) {
-		result += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
+		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
 
@@ -53,10 +129,19 @@ function decompileAllRules(content, language="en-US") {
 
 	}
 
+	content = content.trim();
 	bracketPos = getBracketPositions(content);
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
 	debug("subroutines: "+subroutines);
+	
+	//Check if we are decompiling actions or conditions
+	if (content.startsWith(tows("__actions__", ruleKw))) {
+		return astActionsToOpy(decompileActions(content.substring(bracketPos[0], bracketPos[1]+1)));
+	}
+	if (content.startsWith(tows("__conditions__", ruleKw))) {
+		return decompileConditions(content.substring(bracketPos[0], bracketPos[1]+1)).map(x => "@Condition "+astToOpy(x)).join("\n");
+	}
 	
 	bracketPos.unshift(-1);
 	//A rule looks like this:
@@ -72,56 +157,7 @@ function decompileAllRules(content, language="en-US") {
 		}
 		astRules.push(decompileRuleToAst(content.substring(bracketPos[i]+1, bracketPos[i+4]+1)));
 	}
-
-	var variableDeclarations = "";	
-	if (globalVariables.length > 0) {
-		globalVariables.sort((a,b) => a.index-b.index);
-		var globalVariableDeclarations = "";
-		for (var variable of globalVariables) {
-			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				globalVariableDeclarations += "globalvar "+translateVarToPy(variable.name, true)+" "+variable.index+"\n";
-			}
-		}
-		if (globalVariableDeclarations !== "") {
-			variableDeclarations += "#Global variables\n\n"+globalVariableDeclarations+"\n\n";
-		}
-	}
-	if (playerVariables.length > 0) {
-		playerVariables.sort((a,b) => a.index-b.index);
-		var playerVariableDeclarations = "";
-		for (var variable of playerVariables) {
-			if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-				playerVariableDeclarations += "playervar "+translateVarToPy(variable.name, false)+" "+variable.index+"\n";
-			}
-		}
-		if (playerVariableDeclarations !== "") {
-			variableDeclarations += "#Player variables\n\n"+playerVariableDeclarations+"\n\n";
-		}
-	}
-
-	var subroutineDeclarations = "";
-	if (subroutines.length > 0) {
-		subroutines.sort((a,b) => a.index-b.index);
-		for (var subroutine of subroutines) {
-			if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-				subroutineDeclarations += "subroutine "+translateSubroutineToPy(subroutine.name)+" "+subroutine.index+"\n";
-			}
-		}
-		if (subroutineDeclarations !== "") {
-			subroutineDeclarations = "#Subroutine names\n\n"+subroutineDeclarations+"\n\n";
-		}
-	}
-	result += variableDeclarations + subroutineDeclarations;
-	
-	for (var rule of astRules) {
-		console.log(astToString(rule));
-	}
-	console.log(astRules);
-
-	result += astRulesToOpy(astRules);
-		
-	return result;
-	
+	return [customGameSettings, astRules];
 }
 
 function decompileCustomGameSettings(content) {
@@ -178,8 +214,12 @@ function decompileCustomGameSettings(content) {
 		var opyCategory = topy(category, customGameSettingsSchema);
 		result[opyCategory] = {};
 		if (opyCategory === "main" || opyCategory === "lobby") {
-			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values)
+			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values);
 
+		} else if (opyCategory === "extensions") {
+			activatedExtensions = Object.keys(serialized[opyCategory]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
+			delete result[opyCategory];
+		
 		} else if (opyCategory === "gamemodes") {
 			for (var gamemode of Object.keys(serialized[category])) {
 				var isCurrentGamemodeDisabled = false;
@@ -205,9 +245,13 @@ function decompileCustomGameSettings(content) {
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
-							result[opyCategory][opyGamemode][opyPropName] = [];
+							result[opyCategory][opyGamemode][opyPropName] = {};
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
-								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+								//remove number at the end, if there is one
+								if (map.endsWith("0")) {
+									map = map.substring(0, map.length-1);
+								}
+								result[opyCategory][opyGamemode][opyPropName][topy(map, mapKw)] = 0
 							}
 						}
 					}
@@ -248,6 +292,48 @@ function decompileCustomGameSettings(content) {
 					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
 				}
 			}
+		} else if (opyCategory === "workshop") {
+			var workshopSettings = Object.keys(serialized[category]).map(x => x+"\n").join("");
+			var i = 0;
+			while (i < workshopSettings.length) {
+				var nextColonIndex = workshopSettings.indexOf(":", i);
+				if (nextColonIndex < 0) {
+					error("Expected a ':', but found none, while parsing workshop settings");
+				}
+				var key = workshopSettings.substring(i, nextColonIndex).trim();
+				i = nextColonIndex+1;
+				var nextNewlineIndex = workshopSettings.indexOf("\n", i);
+				if (nextNewlineIndex < 0) {
+					error("Expected a newline, but found none, while parsing workshop settings");
+				}
+				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
+				if (isNumber(value)) {
+					value = parseFloat(value);
+				} else if (value.startsWith("[") && value.endsWith("]")) {
+					//workshop enum
+					value = [parseFloat(value.substring(1), value.substring(value.length-1))]
+				} else if (/e[\+\-]\d+:F3/.test(value)) {
+					//Copy bug for too high/low numbers
+					value = parseFloat("1"+value.substring(0, value.indexOf(":")));
+				} else {
+					//It should be a boolean: translate On/Off.
+					try {
+						value = topy(value, customGameSettingsKw);
+						if (value === "__on__") {
+							value = true;
+						} else if (value === "__off__") {
+							value = false;
+						} else {
+							error("Unhandled value '"+value+"'");
+						}
+					} catch (e) {
+						//Maybe a hero?
+						value = topy(value, heroKw);
+					}
+				}
+				i = nextNewlineIndex+1;
+				result[opyCategory][key] = value;
+			}
 		}
 	}
 
@@ -277,7 +363,7 @@ function decompileVarNames(content) {
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}
-				addVariable(elems[0], isInGlobalVars, currentVarIndex);
+				addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				if (!isNaN(elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
@@ -293,7 +379,7 @@ function decompileVarNames(content) {
 				if (!isNaN(content[i])) {
 					currentVarIndex = +content[i];
 				} else if (i === content.length-1) {
-					addVariable(content[i], isInGlobalVars, currentVarIndex);
+					addVariable(translateNameToAvoidKeywords(content[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -315,11 +401,11 @@ function decompileSubroutines(content) {
 		if (content[i].split(":").length % 2 !== 0) {
 			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
 		}
-		var index = content[i].split(":")[0].trim();
+		var index = +content[i].split(":")[0].trim();
 		var subName = content[i].split(":")[1].trim();
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");
 		}
-		addSubroutine(subName, index);
+		addSubroutine(translateNameToAvoidKeywords(subName, "subroutine"), index);
 	}
 }

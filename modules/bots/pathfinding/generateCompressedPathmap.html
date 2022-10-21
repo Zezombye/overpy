@@ -1,0 +1,389 @@
+
+<head>
+    <title>
+        Zez's Compressed Pathmap Generator
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<style>
+
+    html, body, textarea {
+        color: #CCCCCC;
+        background-color: #222222;
+        scrollbar-color: #CCCCCC #222222;
+    }
+
+    html, body {
+        text-align: center;
+    }
+
+    textarea {
+        width: 800px;
+        height: 300px;
+    }
+
+    a {
+        color: lightblue;
+    }
+
+</style>
+
+<script src="../../../VS Code Extension/overpy.js"></script>
+
+<script>
+
+    function vect(x,y,z) {
+        return ({
+            x:x,
+            y:y,
+            z:z,
+            toString: function() {
+                return "vect("+this.x+","+this.y+","+this.z+")";
+            },
+            toJSON: function() {
+                return "vect("+this.x+","+this.y+","+this.z+")";
+            }
+        });
+    }
+    
+    function distance(a, b) {
+        return Math.sqrt(Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2) + Math.pow(a.z-b.z, 2));
+    }
+
+    
+    var Graph = (function (undefined) {
+
+        var extractKeys = function (obj) {
+            var keys = [], key;
+            for (key in obj) {
+                Object.prototype.hasOwnProperty.call(obj,key) && keys.push(key);
+            }
+            return keys;
+        }
+        var sorter = function (a, b) {
+            return parseFloat (a) - parseFloat (b);
+        }
+        var findPaths = function (map, start, end, infinity) {
+            infinity = infinity || Infinity;
+
+            var costs = {},
+                open = {'0': [start]},
+                predecessors = {},
+                keys;
+
+            var addToOpen = function (cost, vertex) {
+                var key = "" + cost;
+                if (!open[key]) open[key] = [];
+                open[key].push(vertex);
+            }
+
+            costs[start] = 0;
+
+            while (open) {
+                if(!(keys = extractKeys(open)).length) break;
+
+                keys.sort(sorter);
+
+                var key = keys[0],
+                    bucket = open[key],
+                    node = bucket.shift(),
+                    currentCost = parseFloat(key),
+                    adjacentNodes = map[node] || {};
+
+                if (!bucket.length) delete open[key];
+
+                for (var vertex in adjacentNodes) {
+                    if (Object.prototype.hasOwnProperty.call(adjacentNodes, vertex)) {
+                        var cost = adjacentNodes[vertex],
+                            totalCost = cost + currentCost,
+                            vertexCost = costs[vertex];
+
+                        if ((vertexCost === undefined) || (vertexCost > totalCost)) {
+                            costs[vertex] = totalCost;
+                            addToOpen(totalCost, vertex);
+                            predecessors[vertex] = node;
+                        }
+                    }
+                }
+            }
+            if (costs[end] === undefined) {
+                return null;
+            } else {
+                return predecessors;
+            }
+
+        }
+        var extractShortest = function (predecessors, end) {
+            var nodes = [],
+                u = end;
+
+            while (u !== undefined) {
+                nodes.push(u);
+                u = predecessors[u];
+            }
+
+            nodes.reverse();
+            return nodes;
+        }
+        var findShortestPath = function (map, nodes) {
+            var start = nodes.shift(),
+                end,
+                predecessors,
+                path = [],
+                shortest;
+
+            while (nodes.length) {
+                end = nodes.shift();
+                predecessors = findPaths(map, start, end);
+
+                if (predecessors) {
+                    shortest = extractShortest(predecessors, end);
+                    if (nodes.length) {
+                        path.push.apply(path, shortest.slice(0, -1));
+                    } else {
+                        return path.concat(shortest);
+                    }
+                } else {
+                    return null;
+                }
+
+                start = end;
+            }
+        }
+        var toArray = function (list, offset) {
+            try {
+                return Array.prototype.slice.call(list, offset);
+            } catch (e) {
+                var a = [];
+                for (var i = offset || 0, l = list.length; i < l; ++i) {
+                    a.push(list[i]);
+                }
+                return a;
+            }
+        }
+        var Graph = function (map) {
+            this.map = map;
+        }
+        Graph.prototype.findShortestPath = function (start, end) {
+            if (Object.prototype.toString.call(start) === '[object Array]') {
+                return findShortestPath(this.map, start);
+            } else if (arguments.length === 2) {
+                return findShortestPath(this.map, [start, end]);
+            } else {
+                return findShortestPath(this.map, toArray(arguments));
+            }
+        }
+        Graph.findShortestPath = function (map, start, end) {
+            if (Object.prototype.toString.call(start) === '[object Array]') {
+                return findShortestPath(map, start);
+            } else if (arguments.length === 3) {
+                return findShortestPath(map, [start, end]);
+            } else {
+                return findShortestPath(map, toArray(arguments, 1));
+            }
+        }
+        return Graph;
+    })();
+
+
+    async function generate() {
+        try {
+            var input = document.getElementById("input").value;
+            var language = document.getElementById("languageInput").value;
+            var decompiled = decompileAllRules(input, language);            
+
+            var nodePositions = eval(decompiled.match(/nodePositions = (\[.*?\])\n/)[1]);
+            var nodeConnections = eval(decompiled.match(/nodeConnections = (\[.*?\])\n/)[1]);
+
+            if (nodePositions.length > 256) {
+                throw new Error("Cannot have more than 256 nodes");
+            }
+
+            var map = {}
+            for (var i = 0; i < nodePositions.length; i++) {
+                map[i] = {};
+                for (var j = 0; j < nodeConnections[i].length; j++) {
+                    map[i][nodeConnections[i][j]] = distance(nodePositions[i], nodePositions[nodeConnections[i][j]]);
+                }
+            }
+
+            var alphabet = [];
+            for (var i = 0; alphabet.length < nodePositions.length+1; i++) {
+                if (i === 0) {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "{") {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "\r") {
+                    continue;
+                }
+                if (String.fromCharCode(i) == "\u00A0") {
+                    //firefox replaces the non-breaking space by a normal space when copying
+                    continue;
+                }
+                //Skip "8" because 1488 is a swear word...
+                if (String.fromCharCode(i) == "8") {
+                    continue;
+                }
+                //Skip the alphabet to avoid potential censors.
+                if (String.fromCharCode(i) == "A") {
+                    i = "Z".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "a") {
+                    i = "z".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "À") {
+                    i = "ÿ".charCodeAt(0);
+                    continue;
+                }
+                if (String.fromCharCode(i) == "Ͱ") {
+                    i = "ԯ".charCodeAt(0);
+                    continue;
+                }
+
+                alphabet.push(String.fromCharCode(i));
+            }
+
+            
+            var graph = new Graph(map);
+            
+            var data = [];
+            for (var i = 0; i < nodePositions.length; i++) {
+                nodeData = []
+                for (var j = 0; j < nodePositions.length; j++) {
+                    var nodeToTake = graph.findShortestPath(i, j);
+                    if (nodeToTake === null) {
+                        nodeToTake = -1;
+                    } else {
+                        //console.log(nodeToTake);
+                        nodeToTake = nodeToTake[1];
+                        if (isNaN(nodeToTake)) {
+                            nodeToTake = i;
+                        }
+                    }
+                    nodeData.push(parseInt(nodeToTake));
+                }
+                data.push(nodeData);
+            }
+
+            //console.log(data);
+
+            var flattenedData = []
+            for (var i = 0; i < nodePositions.length; i++) {
+                for (var j = 0; j < nodePositions.length; j++) {
+                    flattenedData.push(data[i][j]);
+                }
+            }
+
+            var strData = [];
+            var currentStr = "";
+
+            for (var i = 0; i < flattenedData.length; i++) {
+                var nbConsecutive = 0;
+                for (var j = i; j < flattenedData.length && flattenedData[i] === flattenedData[j]; j++) {
+                }
+                nbConsecutive = j - i;
+                currentStr += alphabet[nbConsecutive];
+                currentStr += alphabet[flattenedData[i] + 1];
+                if (currentStr.length >= 128) {
+                    strData.push(currentStr);
+                    currentStr = "";
+                }
+                i = j-1;
+            }
+            if (currentStr.length > 0) {
+                strData.push(currentStr)
+            }
+
+            var generateForOverpy = document.getElementById("generateForOverpy").checked;
+            var generateWholeGamemode = document.getElementById("generateWholeGamemode").checked;
+            
+            if (generateWholeGamemode) {
+                var template = await fetch("https://raw.githubusercontent.com/Zezombye/overpy/master/modules/bots/example_gamemode.opy");
+                template = await template.text();
+
+                template = template.replace(/#!include .*?\n/g, "");
+                template = template.replace(/"description": ".*"\n/g, '"description": "https://github.com/Zezombye/OverPy\\n\\nExample gamemode for the bots module.\\n\\nYou will have to manually select the map."\n');
+                template = template.replace(/(ALPHABET|DATA|POSITIONS)_\w+/g, "null");
+                template = template.replace("#!define IS_AUTOGENERATED false", "#!define IS_AUTOGENERATED true");
+                template = template.replace("globalvar alphabet\n", "globalvar alphabet = p"+JSON.stringify(alphabet.join(""))+"\n");
+                template = template.replace("globalvar compressedData\n", "globalvar compressedData = ["+strData.map(x => "p"+JSON.stringify(x)).join(",")+"]\n");
+                template = template.replace("globalvar nodePositions\n", "globalvar nodePositions = ["+nodePositions.join(", ")+"]\n");
+
+                if (generateForOverpy) {
+                    result = template;
+                } else {
+                    result = compile(template, language).result;
+                }
+
+            } else {
+                if (generateForOverpy) {
+                    result = `\nalphabet = p${JSON.stringify(alphabet.join(""))}\ncompressedData = [${strData.map(x => "p"+JSON.stringify(x)).join(",")}]\nnodePositions = [${nodePositions.join(", ")}]`
+                } else {
+                    result = `globalvar alphabet\nglobalvar compressedData\nglobalvar nodePositions\nrule "Bakemap contents":\n\talphabet = p${JSON.stringify(alphabet.join(""))}\n\tcompressedData = [${strData.map(x => "p"+JSON.stringify(x)).join(",")}]\n\tnodePositions = [${nodePositions.join(", ")}]`
+                    result = compile(result, language).result;
+                }
+            }
+
+            
+
+            document.getElementById("output").value = result;
+
+
+        } catch (e) {
+            document.getElementById("output").value = e+"\n\nPlease report to Zezombye";
+            throw e;
+        }
+    }
+
+</script>
+
+<h1><a href="https://github.com/Zezombye/overpy/wiki/Dummy-bot-pathfinding" target="_blank">Zez's Compressed Pathmap generator</a></h1>
+<br>
+
+Language: <select id="languageInput">
+    <option value="en-US">English [en-US]</option>
+    <option value="de-DE">Deutsch [de-DE]</option>
+    <option value="es-ES">Español (EU) [es-ES]</option>
+    <option value="es-MX">Español (AL) [es-MX]</option>
+    <option value="fr-FR">Français [fr-FR]</option>
+    <option value="it-IT">Italiano [it-IT]</option>
+    <option value="ja-JP">日本語 [ja-JP]</option>
+    <option value="ko-KR">한국어 [ko-KR]</option>
+    <option value="pl-PL">Polski [pl-PL]</option>
+    <option value="pt-BR">Português [pt-BR]</option>
+    <option value="ru-RU">Русский [ru-RU]</option>
+    <option value="zh-CN">简体中文 [zh-CN]</option>
+    <option value="zh-TW">繁體中文 [zh-TW]</option>
+</select>
+<p>Use the pathmap generator (<code>FNTOS</code>), copy as workshop actions, then paste here:</p>
+<textarea id="input" placeholder="variables {
+	global:
+		0: nodePositions
+		1: nodeConnections
+}
+
+actions {
+	Global.nodePositions = Array(Vector(5.058, 0, 2.081), Vector(1.996, 0, -1.694), Vector(-0.036, 0, -7.408));
+	Global.nodeConnections = Array(Array(1, 2), Array(0, 2), Array(0, 1));
+}"></textarea>
+<br>
+<br>
+<input type="checkbox" id="generateForOverpy" name="generateForOverpy" checked>
+<label for="generateForOverpy">Output OverPy code</label>
+<input type="checkbox" id="generateWholeGamemode" name="generateWholeGamemode">
+<label for="generateWholeGamemode">Include in demo gamemode</label>
+<br><br>
+<button onclick="generate()">Generate (might take a while)</button>
+
+
+<p>Output:</p>
+
+<textarea readonly id="output"></textarea>
+
+</body>

@@ -63,7 +63,10 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			value = topy(value, kwObj[keyName].values);
 
 		} else if (kwObj[keyName].values === "__string__") {
-			value = unescapeString(value);
+			value = unescapeString(value, false);
+			if (value.includes("D_e_l_w_i_o_n_#_2_6_6_7".replace(/_/g, ""))) {
+				error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
+			}
 
 		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
@@ -158,7 +161,7 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
 			
-		} else if (!currentPositionIsString && (content.charAt(i) == '"'/* || content.charAt(i) == '\''*/)) {
+		} else if (!currentPositionIsString && content.charAt(i) == '"') {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
@@ -193,6 +196,58 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 	return result;
 }
 
+function getOperatorInStr(content, operators, rtlPrecedence=false) {
+    
+    var operatorFound = null;
+    var operatorPosition = -1;
+	var bracketsLevel = 0;
+	var currentPositionIsString = false;
+		
+	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
+
+	//console.log("Getting operators '"+operators.join(", ")+"' in '"+content+"'");
+	
+	outer_loop:
+	for (var i = 0; i < content.length; i++) {
+
+		if (!currentPositionIsString && (content[i] === '(' || content[i] === '[' || content[i] === '{')) {
+            bracketsLevel++;
+            
+		} else if (!currentPositionIsString && (content[i] === ')' || content[i] === ']' || content[i] === '}')) {
+            bracketsLevel--;
+            
+		} else if (content[i] == '"') {
+			currentPositionIsString = !currentPositionIsString;
+
+		} else if (content[i] == '\\') {
+			i++;
+
+		} else if (bracketsLevel === 0 && !currentPositionIsString) {
+			for (var operator of operators) {
+				if (content.startsWith(operator, i)) {
+					operatorFound = operator;
+					operatorPosition = i;
+					//If right to left, return the first operator (as we need to split left to right)
+					if (rtlPrecedence) {
+						break outer_loop;
+					}
+					break;
+				}
+			}
+		}
+	}
+	
+	if (bracketsLevel !== 0) {
+		error("Decompiler broke (bracket level is "+bracketsLevel+")");
+	}
+	
+	//console.log("operator found: "+operatorFound+" at "+operatorPosition);
+    
+    return {
+        operatorFound,
+        operatorPosition,
+    }
+}
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].

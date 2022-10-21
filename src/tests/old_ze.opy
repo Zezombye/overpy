@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "cs:s zombie escape - made by /u/zezombye - discord in description":
 	@Event global
@@ -472,7 +473,7 @@ rule "initial zombie hero":
 	@Event global
     Z = Hero.TORBJORN
     N = 0
-    hudHeader(getAllPlayers(), l"Waiting 4 Players 2 Start ...", HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudHeader(getAllPlayers(), "Waiting 4 Players 2 Start ...", HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
 
 
 rule "list kb for each hero (k)":
@@ -562,14 +563,14 @@ rule "init section (slice + draw tp)":
 rule "(debug) section spheres draw":
 	@Event global
 	@Condition I == 0 and false
-    createEffect(getAllPlayers(), Effect.SPHERE, Color.WHITE, T[N], M[N], IconReeval.VISIBILITY)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.WHITE, T[N], M[N], EffectReeval.VISIBILITY)
 
 
 rule "trigger draw":
 	@Event global
 	@Condition I == 0
     destroyAllIcons()
-    createEffect(getAllPlayers(), Effect.SPHERE, Color.BLUE, T[N], 4, IconReeval.VISIBILITY)
+    createEffect(getAllPlayers(), Effect.SPHERE, Color.BLUE, T[N], 4, EffectReeval.VISIBILITY)
     createIcon(getAllPlayers(), T[N], Icon.ARROW_DOWN, IconReeval.VISIBILITY_AND_POSITION, Color.BLUE, true)
 
 
@@ -577,8 +578,8 @@ rule "walls visual effect":
 	@Event global
 	@Condition I == 0
     do:
-        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I], 4, IconReeval.VISIBILITY)
-        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I] + vect(0, 4, 0), 4, IconReeval.VISIBILITY)
+        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I], 4, EffectReeval.VISIBILITY)
+        createEffect(getAllPlayers(), Effect.SPHERE, Color.YELLOW, A[I] + vect(0, 4, 0), 4, EffectReeval.VISIBILITY)
         I++
         wait(0.05)
     while I < len(A)
@@ -639,16 +640,16 @@ rule "trigger":
         goto lbl_0
     if N == len(S) + -1:
         goto lbl_1
-    bigMessage(getAllPlayers(), l"Defend: {} sec".format(S[N].z))
+    bigMessage(getAllPlayers(), "Defend: {} sec".format(S[N].z))
     wait(S[N].z - 8)
     if R <= 2:
         return
-    bigMessage(getAllPlayers(), l"Defend: 8 sec")
+    bigMessage(getAllPlayers(), "Defend: 8 sec")
     Q = 1.5
     wait(7)
     if R <= 2:
         return
-    bigMessage(getAllPlayers(), l"Defend: 1 sec")
+    bigMessage(getAllPlayers(), "Defend: 1 sec")
     Q = 2
     wait(1)
     if R <= 2:
@@ -658,7 +659,7 @@ rule "trigger":
     N++
     if N == len(S) + 0:
         goto lbl_2
-    bigMessage(getAllPlayers(), l"Run!!!")
+    bigMessage(getAllPlayers(), "Run!!!")
     lbl_2:
     destroyAllEffects()
     wait(0.25)
@@ -678,7 +679,7 @@ rule "first infection":
 	@Condition R == 3
     do:
         wait(1)
-        bigMessage(getAllPlayers(), l"Initial Dead: {} sec".format(10 - O))
+        bigMessage(getAllPlayers(), "Initial Dead: {} sec".format(10 - O))
         O++
     while O < 10
     if len([player for player in getAllPlayers() if player.hasSpawned()]) <= 10:
@@ -714,7 +715,7 @@ rule "infect players":
     victim.Z = 1
     attacker.addToScore(1)
     victim.H = victim.getCurrentHero()
-    hudHeader(getAllPlayers(), l"{} {} -> {} {}".format(heroIcon(attacker.getCurrentHero()), attacker, heroIcon(victim.H), victim), HudPosition.RIGHT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudHeader(getAllPlayers(), "{} {} -> {} {}".format(heroIcon(attacker.getCurrentHero()), attacker, heroIcon(victim.H), victim), HudPosition.RIGHT, 0, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     if len([i for i in [player for player in getAllPlayers() if player.hasSpawned()] if i.Z == 0]) != 0:
         goto lbl_0
     E = 1
@@ -772,7 +773,7 @@ rule "zombie behavior":
     eventPlayer.teleport(eventPlayer.C)
     eventPlayer.stopAllHoT()
     eventPlayer.setStatusEffect(null, Status.ROOTED, 2)
-    bigMessage(eventPlayer, l"You Dead")
+    bigMessage(eventPlayer, "You Dead")
     wait(1)
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -829,34 +830,34 @@ rule "normal zombies: rein":
 	@Event global
 	@Condition J == 1
     Z = Hero.REINHARDT
-    bigMessage(getAllPlayers(), l"Level 2: {}".format(Hero.REINHARDT))
+    bigMessage(getAllPlayers(), "Level 2: {}".format(Hero.REINHARDT))
 
 
 rule "hard zombies: winston":
 	@Event global
 	@Condition J == 2
     Z = Hero.WINSTON
-    bigMessage(getAllPlayers(), l"Level 3: {}".format(Hero.WINSTON))
+    bigMessage(getAllPlayers(), "Level 3: {}".format(Hero.WINSTON))
 
 
 rule "expert zombies: brig":
 	@Event global
 	@Condition J == 3
     Z = Hero.BRIGITTE
-    bigMessage(getAllPlayers(), l"Final Level: {}".format(Hero.BRIGITTE))
+    bigMessage(getAllPlayers(), "Final Level: {}".format(Hero.BRIGITTE))
 
 
 rule "map finished":
 	@Event global
 	@Condition J == 4
-    declarePlayerVictory(sorted(getAllPlayers(), key=lambda player: player.getScore())[-1])
+    declarePlayerVictory(sorted(getAllPlayers(), key=lambda player: player.getScore()).last())
 
 
 rule "zombies win":
 	@Event global
 	@Condition E == 1
     stopAllDamageModifications()
-    bigMessage(getAllPlayers(), l"Dead Win")
+    bigMessage(getAllPlayers(), "Dead Win")
     wait(5)
     if getMatchTime() > 0:
         goto lbl_0
@@ -869,7 +870,7 @@ rule "humans win":
 	@Event global
 	@Condition E == 2
     stopAllDamageModifications()
-    bigMessage(getAllPlayers(), l"Heroes Win")
+    bigMessage(getAllPlayers(), "Heroes Win")
     wait(0)
     kill([player for player in getAllPlayers() if player.Z == 1], null)
     [player for player in getAllPlayers() if player.Z == 0].addToScore(100)

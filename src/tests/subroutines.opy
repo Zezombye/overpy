@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 subroutine foo
 subroutine bar 1

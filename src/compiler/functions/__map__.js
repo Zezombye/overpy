@@ -18,12 +18,14 @@
 "use strict";
 
 astParsingFunctions.__map__ = function(content) {
+    if (constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
+        error("The map '"+content.args[0].name+"' is not available in OW2")
+    }
 
     if (obfuscationSettings.obfuscateConstants) {
-        return new Ast("__valueInArray__", [
-            new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
-            getAstForNumber(obfuscationConstantsMapping.MapLiteral[content.args[0].name]),
-        ]);
+        return obfuscateConstant("MapLiteral", content);
+    } else if (content.args[0].name in mapIds && !disableMapDetectionFix) {
+        return getAstForNumber(mapIds[content.args[0].name]);
     } else {
         return content;
     }

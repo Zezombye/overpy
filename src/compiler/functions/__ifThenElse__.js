@@ -32,6 +32,13 @@ astParsingFunctions.__ifThenElse__ = function(content) {
         if (areAstsEqual(content.args[1], content.args[2])) {
             return content.args[1];
         }
+        //ifThenElse(not A, B, C) -> ifThenElse(A, C, B)
+        if (content.args[0].name === "__not__") {
+            var tmp = content.args[1];
+            content.args[1] = content.args[2];
+            content.args[2] = tmp;
+            content.args[0] = content.args[0].args[0];
+        }
     }
     return content;
 }

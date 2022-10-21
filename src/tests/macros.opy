@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 globalvar displayFinalScores
 globalvar gameStatus

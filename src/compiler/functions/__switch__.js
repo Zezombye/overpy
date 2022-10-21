@@ -48,6 +48,8 @@ astParsingFunctions.__switch__ = function(content) {
         casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
     }
 
+    casesChildren.push(getAstForEnd());
+
     //Build the cases arg array
     //[caseOffsets][[caseValues].index(switchValue)+1]
     var caseOffsets = [];
@@ -56,13 +58,7 @@ astParsingFunctions.__switch__ = function(content) {
         caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_"+i+"__", [], [], "Label")]));
     }
 
-    //Insert the children of the cases in the parent
-    for (var child of casesChildren) {
-        child.parent = content.parent;
-    }
-    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
-
-    return new Ast("__skip__", [
+    casesChildren.unshift(new Ast("__skip__", [
         new Ast("__valueInArray__", [
             new Ast("__array__", caseOffsets),
             new Ast("__add__", [
@@ -73,5 +69,15 @@ astParsingFunctions.__switch__ = function(content) {
                 ])
             ])
         ])
-    ]);
+    ]));
+
+    //Insert the children of the cases in the parent
+    for (var child of casesChildren) {
+        child.parent = content.parent;
+    }
+    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
+
+    var result = new Ast("__if__", [getAstForTrue()]);
+    result.doNotOptimize = true;
+    return result;
 }

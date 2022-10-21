@@ -41,13 +41,6 @@ function shuffleArray(a) {
     return a;
 }
 
-function getUtf8Length(s){
-	//console.log("getting utf8 length of '"+s+"'");
-    var b = 0, i = 0, c;
-    for(;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
-    return b;
-}
-
 function isNumber(x) {
 	if ((""+x).trim() === "" || x === null) {
 		return false;
@@ -72,11 +65,15 @@ function reverseOperator(content) {
 	}
 }
 
-//Returns 4 spaces per tab level.
-function tabLevel(nbTabs) {
+//Returns 4 spaces (or a tab) per tab level.
+function tabLevel(nbTabs, useTabs=false) {
 	var result = "";
 	for (var i = 0; i < nbTabs; i++) {
-		result += "    ";
+		if (useTabs) {
+			result += "\t";
+		} else {
+			result += "    ";
+		}
 	}
 	return result;
 }
@@ -103,5 +100,14 @@ function sleep(ms) {
 function getUniqueNumber() {
 	uniqueNumber++;
 	return uniqueNumber;
+}
+
+//eval with VM if using node.js
+function safeEval(str) {
+	if (IS_IN_BROWSER) {
+		return eval(str);
+	} else {
+		return evalVm.run(str);
+	}
 }
 

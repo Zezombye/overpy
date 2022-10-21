@@ -19,14 +19,12 @@
 
 function decompileRuleToAst(content) {
 	
-	//error("The decompiler currently cannot decompile rules.");
-
 	//Reset rule-specific global variables
 	decompilerGotos = [];
 	nbTabs = 0;
 	
 	//Check for potential error
-	if (currentArrayElementNames.length != 0) {
+	if (currentArrayElementName !== null && currentArrayIndexName !== null) {
 		error("Current array element names weren't cleared");
 	}
 	
@@ -38,7 +36,7 @@ function decompileRuleToAst(content) {
 	var ruleAttributes = {};
 	
 	var ruleName = content.substring(bracketPos[0]+1, bracketPos[1]);
-	ruleAttributes.name = unescapeString(ruleName);
+	ruleAttributes.name = unescapeString(ruleName, false);
 	
 	var currentRuleIsDisabled = false;
 	if (content.trim().startsWith(tows("__disabled__", ruleKw))) {
@@ -87,10 +85,7 @@ function decompileRuleToAst(content) {
 		} else {
 			if (eventInst.length > 1) {
 				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-				if (topy(eventInst[1], eventTeamKw) !== "all") {
-					ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
-				}
-
+				ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
 				ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
 			}
 		}
@@ -130,7 +125,7 @@ function decompileConditions(content) {
 		if (condition.startsWith('"')) {
 			var conditionComment = getPrefixString(condition);
 			condition = condition.substring(conditionComment.length).trim();
-			currentConditionComment = unescapeString(conditionComment);
+			currentConditionComment = unescapeString(conditionComment, false);
 		}
 
 		//Check if the condition is disabled
@@ -171,7 +166,7 @@ function decompileAction(content) {
 	if (content.startsWith('"')) {
 		var actionComment = getPrefixString(content);
 		content = content.substring(actionComment.length).trim();
-		currentActionComment = unescapeString(actionComment);
+		currentActionComment = unescapeString(actionComment, false);
 	}
 	if (content.startsWith(tows("__disabled__", ruleKw)+" ")) {
 		isCurrentActionDisabled = true;
@@ -193,33 +188,19 @@ function decompile(content) {
 		error("Content is undefined");
 	}
     content = content.trim();
-    content = content.replace(/[\t\n]/g, " ");
+    content = content.replace(/\n\t*/g, " ");
 	debug("Decompiling '"+content+"'");
 
 	//Workshop operators, from lowest to highest precedence.
 	const wsOperators = [
-		"+=",
-		"-=",
-		"*=",
-		"/=",
-		"%=",
-		"^=",
-		"=",
-		"?",
-		"||",
-		"&&",
-		"==",
-		"!=",
-		"<=",
-		">=",
-		">",
-		"<",
-		"+",
-		"-",
-		"*",
-		"/",
-		"%",
-        "^",
+		["+=","-=","*=","/=","%=","^=","="],
+		["?"],
+		["||"],
+		["&&"],
+		["==","!=","<=",">=",">","<"],
+		["+","-"],
+		["*","/","%"],
+        ["^"],
 	];
 
 	const binaryOpToFuncMapping = {
@@ -250,15 +231,19 @@ function decompile(content) {
 	}
 
 	//Split on operators
-	for (var operator of wsOperators) {
+	for (var operatorGroup of wsOperators) {
 		//The power operator is right to left, so split left to right
-		if (operator === "^") {
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, false);
+		if (operatorGroup.includes("^")) {
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), true);
 		} else {			
-			var operands = splitStrOnDelimiter(content, " "+operator+" ", false, true);
+			var operatorCheck = getOperatorInStr(content, operatorGroup.map(x => " "+x+" "), false);
 		}
 
-		if (operands.length === 2) {
+		if (operatorCheck.operatorFound !== null) {
+			var operator = operatorCheck.operatorFound.trim();
+			debug("Handling operator '"+operator+"'");
+			
+			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
 			if (operator in binaryOpToFuncMapping) {
 				return new Ast(binaryOpToFuncMapping[operator], [decompile(operands[0]), decompile(operands[1])]);
 
@@ -341,7 +326,7 @@ function decompile(content) {
     
     //Check for string literals
     if (name.startsWith('"')) {
-        return new Ast(unescapeString(name), [], [], "StringLiteral");
+        return new Ast(unescapeString(name, false), [], [], "StringLiteral");
     }
     
     //Check for numbers
@@ -357,6 +342,11 @@ function decompile(content) {
     } catch (e) {
         //Is it a constant instead of a function?
         name = topy(name.toLowerCase().replace(/\s/g, ""), constantKw);
+		if (name === "ColorLiteral.TEAM_1") {
+			name = "TeamLiteral.1"
+		} else if (name === "ColorLiteral.TEAM_2") {
+			name = "TeamLiteral.2"
+		}
         var type = name.substring(0, name.indexOf("."));
         var elem = name.substring(name.indexOf(".")+1);
         return new Ast(elem, [], [], type);
@@ -373,7 +363,7 @@ function decompile(content) {
         var args = getArgs(content.substring(bracketPos[0]+1, bracketPos[1]), false);
         
 	}
-    debug("Arguments: "+args);
+    debug("Arguments: "+args.join(","));
 
     //Special functions
 
@@ -456,6 +446,18 @@ function decompile(content) {
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
 	}
+	if (name === "_&startForcingOutlineFor" && args.length === 4) {
+		args.push("DEFAULT");
+	}
+	if (name === "__workshopSettingToggle__" && args.length === 3) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingInteger__" && args.length === 5) {
+		args.push("0");
+	}
+	if (name === "__workshopSettingReal__" && args.length === 5) {
+		args.push("0");
+	}
 	
 	if (!(name in wsFuncKw)) {
 		error("Function '"+name+"' is not in the function list");
@@ -482,7 +484,8 @@ function decompile(content) {
 			//console.log(wsFuncKw[name].args[i].type);
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
-				astArgs.push(new Ast(topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
+				console.log(args[i])
+				astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
 			} else if (wsFuncKw[name].args[i].type === "PlayerVariable") {
@@ -495,6 +498,12 @@ function decompile(content) {
 		} else {
 			astArgs.push(decompile(args[i]));
 		}
+	}
+
+	if (name === "__localizedString__") {
+		astArgs[0].type = "LocalizedStringLiteral";
+	} else if (name === "__customString__") {
+		astArgs[0].type = "CustomStringLiteral";
 	}
 	
 

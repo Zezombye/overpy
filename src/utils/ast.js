@@ -26,9 +26,6 @@ class Ast {
         if (typeof name !== "string") {
             error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
-        if (type === "NumberLiteral") {
-            this.numValue = Number(name);
-        }
         this.name = name;
         this.args = args ? args : [];
         this.children = children ? children : [];
@@ -41,6 +38,9 @@ class Ast {
             }
         } else {
             this.type = type;
+        }
+        if (isTypeSuitable("FloatLiteral", this.type, false)) {
+            this.numValue = Number(name);
         }
 
         for (var arg of this.args) {
@@ -58,6 +58,7 @@ class Ast {
             }
             child.parent = this;
         }
+        //console.log("Creating AST for '"+name+"', filestack = "+JSON.stringify(fileStack))
         this.fileStack = fileStack;
         this.argIndex = 0;
         this.childIndex = 0;
@@ -176,18 +177,27 @@ function areAstsEqual(a, b) {
     return true;
 }
 
-function astContainsFunctions(ast, functionNames) {
+function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
     if (functionNames.includes(ast.name)) {
+        if (errorOnTrue) {
+            error("Cannot have the "+functionNameToString(ast)+" in this context");
+        }
         return true;
     }
     for (var arg of ast.args) {
         if (astContainsFunctions(arg, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
     for (var child of ast.children) {
         if (astContainsFunctions(child, functionNames)) {
+            if (errorOnTrue) {
+                error("Cannot have the "+functionNameToString(ast)+" in this context");
+            }
             return true;
         }
     }
@@ -198,22 +208,43 @@ function astContainsFunctions(ast, functionNames) {
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 function getAstFor0() {
-    return new Ast("__number__", [new Ast("0", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("0", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor1() {
-    return new Ast("__number__", [new Ast("1", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("1", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstForMinus1() {
-    return new Ast("__number__", [new Ast("-1", [], [], "NumberLiteral")], [], "unsigned int");
+    return new Ast("__number__", [new Ast("-1", [], [], "SignedIntLiteral")], [], "signed int");
 }
 function getAstFor2() {
-    return new Ast("__number__", [new Ast("2", [], [], "NumberLiteral")], [], "int");
+    return new Ast("__number__", [new Ast("2", [], [], "UnsignedIntLiteral")], [], "int");
 }
 function getAstFor0_016() {
-    return new Ast("__number__", [new Ast("0.016", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.016", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstFor0_001() {
-    return new Ast("__number__", [new Ast("0.001", [], [], "NumberLiteral")], [], "unsigned float");
+    return new Ast("__number__", [new Ast("0.001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+}
+function getAstFor0_0001() {
+    return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+}
+function getAstFor255() {
+    return new Ast("__number__", [new Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
+}
+function getAstFor10000() {
+    return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
+}
+function getAstFor10Million() {
+    return new Ast("__number__", [new Ast("10000000", [], [], "UnsignedIntLiteral")], [], "int");
+}
+function getAstForInfinity() {
+    return new Ast("__number__", [new Ast("999999999999", [], [], "UnsignedIntLiteral")], [], "unsigned int");
+}
+function getAstForMinusInfinity() {
+    return new Ast("__number__", [new Ast("-999999999999", [], [], "SignedIntLiteral")], [], "signed int");
+}
+function getAstForE() {
+    return new Ast("__number__", [new Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
 function getAstForNumber(nb) {
     if (typeof nb !== "number") {
@@ -221,7 +252,7 @@ function getAstForNumber(nb) {
     }
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " "+(Number.isInteger(nb) ? "int" : "float");
-    return new Ast("__number__", [new Ast(nb.toString(), [], [], "NumberLiteral")], [], type);
+    return new Ast("__number__", [new Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed")+(Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
 function getAstForBool(bool) {
     if (bool) {
@@ -240,7 +271,7 @@ function getAstForTrue() {
     return new Ast("true", [], [], "bool");
 }
 function getAstForColorWhite() {
-    return new Ast("WHITE", [], [], "Color");
+    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")], [], "Color");
 }
 function getAstForTeamAll() {
     return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
@@ -253,4 +284,14 @@ function getAstForEnd() {
 }
 function getAstForEmptyArray() {
     return new Ast("__emptyArray__");
+}
+function getAstForNullVector() {
+    return new Ast("vect", [
+        getAstFor0(),
+        getAstFor0(),
+        getAstFor0(),
+    ])
+}
+function getAstForCurrentArrayIndex() {
+    return new Ast("__currentArrayIndex__");
 }

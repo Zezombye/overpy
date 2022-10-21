@@ -65,6 +65,39 @@ astParsingFunctions.__format__ = function(content) {
 
 }
 
+
+var caseSensitiveReplacements = {
+	"æ": "ӕ",
+	"nj": "ǌ",
+	" a ": " ａ ",
+	"a": "ạ",
+	"b": "ḅ",
+	"c": "ƈ",
+	"d": "ḍ",
+	"e": "ẹ",
+	"f": "ƒ",
+	"g": "ǵ",
+	"h": "һ",
+	"i": "і",
+	"j": "ј",
+	"k": "ḳ",
+	"l": "I",
+	"m": "ṃ",
+	"n": "ṇ",
+	"o": "ο",
+	"p": "ṗ",
+	"q": "ǫ",
+	"r": "ṛ",
+	"s": "ѕ",
+	"t": "ṭ",
+	"u": "υ",
+	"v": "ν",
+	"w": "ẉ",
+	"x": "ҳ",
+	"y": "ỵ",
+	"z": "ẓ",
+}
+
 //Parses a custom string.
 function parseCustomString(str, formatArgs) {
 
@@ -75,8 +108,10 @@ function parseCustomString(str, formatArgs) {
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
     var isPlaintext = (str.type === "PlaintextStringLiteral");
+	var isCaseSensitive = (str.type === "CaseSensitiveStringLiteral");
 
-    var content = str.name;
+	var content = str.name;
+	//console.log(content);
 	var tokens = [];
 	var numberIndex = 0;
 	var args = [];
@@ -113,6 +148,12 @@ function parseCustomString(str, formatArgs) {
 	
 			content = tmpStr;
 			
+		} else if (isCaseSensitive) {
+			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
+			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			for (var key of Object.keys(caseSensitiveReplacements)) {
+				content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key])
+			}
 		}
 	
 		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {
@@ -184,7 +225,8 @@ function parseCustomString(str, formatArgs) {
 		if (formatArgs[key]) {
 			args[numberMapping[key]] = formatArgs[key];
 		} else {
-			error("Too few arguments in format() function: expected "+(numberMapping[key]+1)+" but found "+formatArgs.length);
+			console.log(numberMapping);
+			error("Too few arguments in format() function: expected "+(+key+1)+" but found "+formatArgs.length);
 		}
 	}
 	//console.log("args = ");
@@ -243,7 +285,7 @@ function parseStringTokens(tokens, args) {
 	
 			//length check
 			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
-					|| tokens[i].type === "arg" && stringLength+3 > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
+					|| tokens[i].type === "arg" && stringLength+"{0}".length > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
 	
 				var splitString = false;
 				if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
@@ -279,7 +321,7 @@ function parseStringTokens(tokens, args) {
 				result += tokens[i].text;
 				stringLength += getUtf8Length(tokens[i].text);
 			} else {
-				if (numbersEncountered.length >= 2 && numbers.length > 3) {
+				if (numbersEncountered.length >= 2 && (numbers.length > 3 || i < tokens.length-1 && stringLength+(tokens[i+1].type === "string" ? getUtf8Length(tokens[i+1].text)+"{0}".length : "{0}".length) > 128)) {
 					//split
 					result += "{2}";
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
@@ -316,7 +358,7 @@ function parseStringTokens(tokens, args) {
 		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
 	}
 
-	return new Ast("__customString__", [new Ast(result, [], [], "StringLiteral")].concat(resultArgs));
+	return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
 
 //Parses localized string

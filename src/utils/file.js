@@ -21,23 +21,37 @@ function getFilenameFromPath(path) {
 	return path.split('\\').pop().split('/').pop();
 }
 
-function getFilePath(pathStr) {
+function getFilePaths(pathStr) {
+	var fs;
+	try {
+		fs = require("fs");
+	} catch (e) {
+		error("Cannot import files in browsers (fs not found)");
+	}
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
-	pathStr = unescapeString(pathStr);
+	pathStr = unescapeString(pathStr, false);
 	
 	//convert backslashes to normal slashes
 	pathStr = pathStr.replace(/\\/g, "/");
 	debug("Path str is now '"+pathStr+"'");
 
-	//Determine if the path is absolute or relative
-	if (pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr)) {
-		//absolute path
-		return pathStr;
-	} else {
+	//Determine if the path is relative
+	if (!(pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr))) {
 		//relative path
-		return rootPath+pathStr;
+		pathStr = rootPath+pathStr;
 	}
+
+	if (fs.lstatSync(pathStr).isDirectory()) {
+		var matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
+		matchingFiles = matchingFiles.filter(f => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
+		if (matchingFiles.length === 0) {
+			error("The directory '"+pathStr+"' does not have any .opy files.");
+		}
+	} else {
+		var matchingFiles = [pathStr];
+	}
+	return matchingFiles;
 }
 
 function getFileContent(path) {
@@ -45,29 +59,14 @@ function getFileContent(path) {
 	var fs;
 	try {
 		fs = require("fs");
-		//glob = require("glob");
 	} catch (e) {
-		error("Cannot use multiple files in browsers");
+		error("Cannot import files in browsers (fs not found)");
 	}
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
 		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");
 		return "";
 	}
 	try {
-		/*var matchingFiles = glob.sync(path);
-		if (matchingFiles.length === 0) {
-			error("The path '"+path+"' did not match any file.");
-		}
-		var result = "";
-		for (matchingFile in matchingFiles) {
-			importedFiles.push(matchingFile);
-			fileContent = ""+fs.readFileSync(matchingFile);
-			if (!fileContent.endsWith("\n")) {
-				fileContent += "\n";
-			}
-			result += fileContent;
-		}
-		return result;*/
 		importedFiles.push(path);
 		return ""+fs.readFileSync(path)+"\n";
 

@@ -30,6 +30,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "any": {
@@ -42,6 +43,7 @@ const opyFuncs = {
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        "isConstant": true,
         return: "bool",
     },
     "async": {
@@ -72,6 +74,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "chase": {
@@ -104,6 +107,60 @@ const opyFuncs = {
         ],
         return: "void",
     },
+    "createWorkshopSetting": {
+        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
+        "args": [
+            {
+                "name": "TYPE",
+                "description": 
+`The type of the setting. Can be an integer, float, hero, enum, or boolean. 
+
+To specify a minimum or maximum, use the type option syntax: for example, \`int[3:6]\` specifies an integer with a minimum of 3 and maximum of 6, included.
+
+Examples of valid types:
+
+- \`int[-2:7]\`
+- \`float[-3.5:3]\`
+- \`bool\`
+- \`Hero\`
+- \`enum["First option", "Second option"]\`
+`,
+                "type": "Type",
+                "default": "",
+            },{
+                "name": "CATEGORY",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "NAME",
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
+                "default": "CUSTOM STRING",
+            },{
+                "name": "DEFAULT",
+                "description": "The default value for this setting.",
+                "type": [
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                    "HeroLiteral",
+                ],
+                "default": 0,
+            },{
+                "name": "SORT ORDER",
+                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. If not specified, defaults to 0. Can be from 0 to 63.",
+                "type": "IntLiteral",
+                "default": 0,
+            }
+        ],
+        "isConstant": true,
+        "return": [
+            "bool",
+            "int",
+            "float",
+        ],
+    },
     "floor": {
         "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
         "args": [
@@ -114,6 +171,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
     "getAllPlayers": {
@@ -146,6 +204,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -194,6 +254,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -242,6 +304,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -302,6 +366,8 @@ const opyFuncs = {
                 "name": "SORT ORDER",
                 "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                 "type": "float",
+                canReplace0ByFalse: true,
+                canReplace1ByTrue: true,
                 "default": "NUMBER"
             },
             {
@@ -347,17 +413,48 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int",
     },
-    "math.e": {
-        "description": "The number e = 2.71828182846.",
-        "args": null,
-        return: "unsigned float",
+    "lineIntersectsSphere": {
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate around the edges of a sphere if `lineStart` is too close to `sphereCenter`.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection + lineStart, sphereCenter) <= sphereRadius`.",
+        "args": [
+            {
+                "name": "LINE START",
+                "description": "The starting position of the line.",
+                "type": "Position",
+            },{
+                "name": "LINE DIRECTION",
+                "description": "The direction from the starting position to the ending position of the line.",
+                "type": "Direction",
+            },{
+                "name": "SPHERE CENTER",
+                "description": "The center of the sphere.",
+                "type": "Position",
+            },{
+                "name": "SPHERE RADIUS",
+                "description": "The radius of the sphere.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "bool",
     },
-    "math.pi": {
-        "description": "The number pi = 3.14159265359.",
-        "args": null,
-        return: "unsigned float",
+    "log": {
+        "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
+        "args": [
+            {
+                "name": "NUMBER",
+                "description": "The number to get the logarithm of.",
+                "type": "unsigned float",
+            },{
+                "name": "BASE",
+                "description": "The base of the logarithm. If not specified, defaults to `math.e`.",
+                "type": "unsigned float",
+            }
+        ],
+        "isConstant": true,
+        return: "float",
     },
     "pass": {
         "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
@@ -436,6 +533,31 @@ const opyFuncs = {
         ],
         return: "Raycast",
     },
+	"rgb": {
+		"description": "A custom color with the specified red, green, and blue values.",
+		"args": [
+			{
+				"name": "Red",
+				"description": "The red component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Green",
+				"description": "The green component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			},
+			{
+				"name": "Blue",
+				"description": "The blue component of a color, from 0 to 255.",
+				"type": "unsigned int",
+				"default": 255
+			}
+		],
+        "isConstant": true,
+		"return": "Color",
+	},
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
         "args": [
@@ -446,6 +568,7 @@ const opyFuncs = {
                 "default": "NUMBER"
             }
         ],
+        "isConstant": true,
         return: "int"
     },
     "RULE_CONDITION": {
@@ -474,6 +597,7 @@ const opyFuncs = {
                 "default": "CURRENT ARRAY ELEMENT"
             }
         ],
+        "isConstant": true,
         return: {Array: "Object"},
     },
     "stopChasingVariable": {

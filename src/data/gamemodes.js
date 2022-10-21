@@ -21,6 +21,8 @@ const gamemodeKw =
 //begin-json
 {
     "assault": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -36,10 +38,42 @@ const gamemodeKw =
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
-    "assaultTest": {
-        "en-US": "Assault Test",
+    "bountyHunter": {
+        "guid": "000000012841",
+        "defaultFfaPlayers": 6,
+        "en-US": "Bounty Hunter",
+        "de-DE": "Kopfgeldjäger",
+        "es-ES": "Cazarrecompensas",
+        "es-MX": "Cazarrecompensas",
+        "fr-FR": "Chasseur de primes",
+        "it-IT": "Cacciatori di Taglie",
+        "ja-JP": "バウンティ・ハンター",
+        "ko-KR": "현상금 사냥꾼",
+        "pl-PL": "Łowca nagród",
+        "pt-BR": "Caçador de Recompensas",
+        "ru-RU": "Охота за головами",
+        "zh-CN": "赏金猎手",
+        "zh-TW": "賞金獵人"
+    },
+    "control": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
+        "guid": "00000000CD5B",
+        "en-US": "Control",
+        "de-DE": "Kontrolle",
+        "fr-FR": "Contrôle",
+        "it-IT": "Controllo",
+        "ja-JP": "コントロール",
+        "ko-KR": "쟁탈",
+        "pl-PL": "Kontrola",
+        "pt-BR": "Controle",
+        "ru-RU": "Контроль",
+        "zh-CN": "占领要点",
+        "zh-TW": "控制"
     },
     "ctf": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -55,35 +89,10 @@ const gamemodeKw =
         "zh-CN": "勇夺锦旗",
         "zh-TW": "搶旗"
     },
-    "control": {
-        "guid": "00000000CD5B",
-        "en-US": "Control",
-        "de-DE": "Kontrolle",
-        "fr-FR": "Contrôle",
-        "it-IT": "Controllo",
-        "ja-JP": "コントロール",
-        "ko-KR": "쟁탈",
-        "pl-PL": "Kontrola",
-        "pt-BR": "Controle",
-        "ru-RU": "Контроль",
-        "zh-CN": "占领要点",
-        "zh-TW": "控制"
-    },
-    "ffa": {
-        "guid": "000000006853",
-        "en-US": "Deathmatch",
-        "es-ES": "Combate a muerte",
-        "es-MX": "Combate a muerte",
-        "fr-FR": "Combat à mort",
-        "ja-JP": "デスマッチ",
-        "ko-KR": "데스매치",
-        "pt-BR": "Combate até a Morte",
-        "ru-RU": "Схватка",
-        "zh-CN": "死斗",
-        "zh-TW": "死鬥"
-    },
     "elimination": {
         "guid": "000000005887",
+        "defaultTeam1Players": 1,
+        "defaultTeam2Players": 1,
         "en-US": "Elimination",
         "de-DE": "Eliminierung",
         "es-ES": "Eliminación",
@@ -99,6 +108,8 @@ const gamemodeKw =
         "zh-TW": "鬥陣對決"
     },
     "escort": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -114,7 +125,42 @@ const gamemodeKw =
         "zh-CN": "运载目标",
         "zh-TW": "護送"
     },
+    "ffa": {
+        "guid": "000000006853",
+        "defaultFfaPlayers": 12,
+        "en-US": "Deathmatch",
+        "es-ES": "Combate a muerte",
+        "es-MX": "Combate a muerte",
+        "fr-FR": "Combat à mort",
+        "ja-JP": "デスマッチ",
+        "ko-KR": "데스매치",
+        "pt-BR": "Combate até a Morte",
+        "ru-RU": "Схватка",
+        "zh-CN": "死斗",
+        "zh-TW": "死鬥"
+    },
+    "freezethawElimination": {
+        "onlyInOw1": true,
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
+        "guid": "0000000122DF",
+        "en-US": "Freezethaw Elimination",
+        "de-DE": "Frosttau-Eliminierung",
+        "es-ES": "Congelación fatal",
+        "es-MX": "Eliminación por congelamiento",
+        "fr-FR": "Congélimination",
+        "it-IT": "Eliminazione Congelata",
+        "ja-JP": "フリーズソー・エリミネーション",
+        "ko-KR": "얼음땡 섬멸전",
+        "pl-PL": "Mroźna Eliminacja",
+        "pt-BR": "Eliminação Descongelante",
+        "ru-RU": "Ледяная ликвидация",
+        "zh-CN": "融冰决斗",
+        "zh-TW": "凍凍大作戰"
+    },
     "hybrid": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -130,6 +176,8 @@ const gamemodeKw =
         "zh-TW": "混合"
     },
     "junkenstein": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 0,
         "guid": "000000004AF4",
         "en-US": "Junkenstein's Revenge",
         "de-DE": "Junkensteins Rache",
@@ -146,6 +194,9 @@ const gamemodeKw =
         "zh-TW": "鼠肯斯坦復仇記"
     },
     "lucioball": {
+        "onlyInOw1": true,
+        "defaultTeam1Players": 3,
+        "defaultTeam2Players": 3,
         "guid": "000000004989",
         "en-US": "Lúcioball",
         "es-ES": "Lúciobol",
@@ -159,6 +210,9 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
+        "onlyInOw1": true,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
         "de-DE": "Meis Schneeballschlacht",
@@ -175,7 +229,9 @@ const gamemodeKw =
         "zh-TW": "小美的雪球大作戰"
     },
     "practiceRange": {
-        "guid": "0000000040BE",
+        "guid": "000000002BA1",
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 0,
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",
@@ -186,11 +242,31 @@ const gamemodeKw =
         "ko-KR": "훈련장",
         "pl-PL": "Obszar treningowy",
         "pt-BR": "Campo de Treinamento",
-        "ru-RU": "Учебный полигон",
+        "ru-RU": "УЧЕБНЫЙ ПОЛИГОН",
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心"
     },
+    "push": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "guid": "00000001695F",
+        "en-US": "Push",
+        "de-DE": "Schub",
+        "es-ES": "Avance",
+        "es-MX": "Avance",
+        "fr-FR": "Avancée",
+        "it-IT": "Scorta",
+        "ja-JP": "プッシュ",
+        "ko-KR": "밀기",
+        "pl-PL": "Przepychanka",
+        "pt-BR": "Avanço",
+        "ru-RU": "Натиск",
+        "zh-CN": "机动推进",
+        "zh-TW": "推進"
+    },
     "skirmish": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -207,6 +283,8 @@ const gamemodeKw =
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
+        "onlyInOw1": true,
+        "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
         "de-DE": "Schneeball-Deathmatch",
@@ -222,7 +300,25 @@ const gamemodeKw =
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
+    "survivor": {
+        "guid": "00000000AC44",
+        "en-US": "Survivor",
+        "de-DE": "Langer Atem",
+        "es-ES": "Superviviente",
+        "es-MX": "Sobreviviente",
+        "fr-FR": "Survivant",
+        "it-IT": "Superstite",
+        "ja-JP": "サバイバー",
+        "ko-KR": "생존자",
+        "pl-PL": "Przetrwanie",
+        "pt-BR": "Sobrevivente",
+        "ru-RU": "Выжившие",
+        "zh-CN": "长夜余生",
+        "zh-TW": "生存專家"
+    },
     "tdm": {
+        "defaultTeam1Players": 6,
+        "defaultTeam2Players": 6,
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",
@@ -239,6 +335,9 @@ const gamemodeKw =
         "zh-TW": "團隊死鬥"
     },
     "yetiHunter": {
+        "onlyInOw1": true,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 1,
         "guid": "000000006DF1",
         "en-US": "Yeti Hunter",
         "de-DE": "Yetijagd",

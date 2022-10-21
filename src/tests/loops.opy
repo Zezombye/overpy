@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "while loop":
     while A == B:
@@ -10,6 +11,8 @@ rule "while loop":
 
 rule "while to the end":
     while A == B:
+        if C:
+            continue
         A++
 
 
@@ -32,7 +35,7 @@ rule "for loop":
         A++
     for I in range(3):
         A++
-    for eventPlayer.I in range(3):
+    for hostPlayer.I in range(3):
         A++
 
 rule "do/while":

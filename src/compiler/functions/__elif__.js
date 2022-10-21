@@ -19,16 +19,19 @@
 
 astParsingFunctions.__elif__ = function(content) {
 
-    //Check if the elif is directly preceded by an if.
-    if (content.parent.childIndex === 0 || !["__elif__", "__if__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
-        error("Found 'elif', but no 'if'");
+    //Check if the elif is directly preceded by an elif/if/else.
+    if (content.parent.childIndex === 0 || !["__elif__", "__if__", "__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        error("Found 'elif', but no 'if' or 'elif' before it");
+    }
+    if (["__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+        warn("w_lone_elif", "Found 'elif' directly after an 'else'");
     }
 
     //Add the "end" function.
     if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
-        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent.
+        //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && content.parent.childIndex === content.parent.children.length-1) {
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
 
             var root = content;
             includeEnd = false;

@@ -20,15 +20,15 @@
 astParsingFunctions.print = function(content) {
 
     return new Ast("__hudText__", [
-        new Ast("getAllPlayers"),
+        new Ast("getPlayers", [getAstForTeamAll()]),
         content.args[0],
         getAstForNull(),
         getAstForNull(),
         new Ast("LEFT", [], [], "HudPosition"),
         getAstFor0(),
         getAstForColorWhite(),
-        getAstForColorWhite(),
-        getAstForColorWhite(),
+        getAstForNull(),
+        getAstForNull(),
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);

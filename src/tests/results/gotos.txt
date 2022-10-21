@@ -1,0 +1,31 @@
+variables {
+    global:
+        0: A
+}
+rule ("gotos") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "skip 3"
+        Skip(True);
+        If(False);
+            //lbl_0:
+            Set Global Variable(A, 2);
+        End;
+        If(False);
+            //lbl_1:
+        End;
+        Skip(Global.A);
+        "skip 3"
+        Skip(3);
+        "pass"
+        disabled Abort;
+        //lbl_3:
+        If(False);
+            Set Global Variable(A, 1);
+            //lbl_2:
+            Set Global Variable(A, 2);
+    }
+}
+

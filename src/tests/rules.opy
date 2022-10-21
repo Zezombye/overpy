@@ -1,3 +1,4 @@
+#!optimizeForSize
 
 rule "normal":
     A++
@@ -21,11 +22,12 @@ rule "filter on team+slot":
     @Slot 3
 
     healer.B++
-
+    
 rule "other directives":
     @Event playerDied
     @Disabled
     @SuppressWarnings w_type_check
+    @Delimiter
 
 rule "conditions":
     @Condition A and B

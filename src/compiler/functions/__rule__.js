@@ -58,9 +58,9 @@ astParsingFunctions.__rule__ = function(content) {
                 "__else__",
                 "__elif__",
                 "__end__",
-                "__for__",
-                "__forGlobalVariable__",
-                "__forPlayerVariable__",
+                //"__for__",
+                //"__forGlobalVariable__",
+                //"__forPlayerVariable__",
                 "__if__",
                 "__loop__",
                 "__loopIf__",
@@ -70,10 +70,10 @@ astParsingFunctions.__rule__ = function(content) {
                 "return",
                 "__skip__",
                 "__skipIf__",
-                "__wait__",
+                //"__wait__",
                 "__while__",
-            ].includes(children[i].name) && children[i].type !== "Label") {
-                console.debug("meaningful instruction :"+children[i].name);
+            ].includes(children[i].name) && children[i].type !== "Label" && !(children[i].name === "__wait__" && content.ruleAttributes.event !== "__subroutine__")) {
+                debug("meaningful instruction :"+children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;
             }
 
@@ -90,7 +90,7 @@ astParsingFunctions.__rule__ = function(content) {
         iterateOnRuleActions(content.children);
     }
 
-    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered) {
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
         return getAstForUselessInstruction();
     }
 
@@ -156,6 +156,13 @@ astParsingFunctions.__rule__ = function(content) {
 
 
         } else {
+            //optimize out skip(0)
+            if (enableOptimization) {
+                if (content.name === "__skip__" && content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0
+                        || content.name === "__skipIf__" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+                    return getAstForUselessInstruction();
+                }
+            }
             return content;
         }
     }
@@ -166,8 +173,10 @@ astParsingFunctions.__rule__ = function(content) {
     if (enableOptimization && content.ruleAttributes.conditions) {
         for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
             if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
-                console.debug("rule has false condition");
-                return getAstForUselessInstruction();
+                debug("rule has false condition");
+                if (!content.ruleAttributes.isDelimiter) {
+                    return getAstForUselessInstruction();
+                }
             } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
                 content.ruleAttributes.conditions.splice(i, 1);
                 i--;

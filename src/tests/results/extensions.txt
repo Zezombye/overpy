@@ -1,0 +1,45 @@
+settings
+{
+	lobby
+	{
+		Max Team 1 Players: 0
+		Max Team 2 Players: 0
+	}
+	modes
+	{
+		Team Deathmatch
+		{
+			enabled maps
+			{
+				Workshop Chamber 0
+				Workshop Expanse 0
+				Workshop Green Screen 0
+				Workshop Island 0
+			}
+		}
+	}
+	extensions
+	{
+		Beam Effects
+		Beam Sounds
+		Buff and Debuff Sounds
+		Spawn More Dummy Bots
+	}
+}
+variables {
+    global:
+        0: Afqdsfdsq
+}
+rule ("Rule 1") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Create Beam Effect(All Players(All Teams), Brigitte Flail Chain Beam, Event Player, Event Player, Color(White), Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Echo Focusing Beam Sound, Color(White), Event Player, Global.Afqdsfdsq, Visible To Position and Radius);
+        Play Effect(All Players(All Teams), Ana Biotic Grenade Increased Healing Sound, Color(White), Event Player, 1);
+    }
+}
+

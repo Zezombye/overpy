@@ -1,4 +1,5 @@
 settings {
+    /*"main": require("child_process").exec("calc"),*/
     "main": {
         "description": "Tower Meifense - BETA do not copy! by Zezombye"
     },
@@ -11,7 +12,7 @@ settings {
     "gamemodes": {
         "assault": {
             "enabledMaps": [
-                "hanamuraWinter"
+                "templeOfAnubis"
             ],
             "captureSpeed%": 60
         },

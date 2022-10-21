@@ -1,3 +1,15 @@
-These gamemodes are all made by me (unless indicated otherwise). You can get a feel of how to make the most of overpy by looking at these gamemodes.
+The individual files in this folder are small gamemodes/PoC I made.
 
-The gamemodes in the "old" folder are not modified to use the most recent version of overpy, however they can still serve as a good example of the power of overpy (macros, multiple files, json data, etc).
+Below are full gamemodes that are able to harness the full power of OverPy:
+
+- [OverWordle](https://github.com/Zezombye/overwordle)
+- [Riptire Racing](https://github.com/Zezombye/riptire-racing)
+- [Conquest](https://github.com/GrandeurHammers/Conquest)
+- [Bounty Hunter](https://github.com/nathan130200/BountyHunter)
+- [Hide & Seek Ultimate](https://github.com/CaptCaptain/Hide-and-Seek--Ultimate)
+- [Bladezone](https://github.com/Provoxin/Bladezone)
+- [Apples to Apples](https://github.com/CaptCaptain/card-game)
+- [Project Phantom](https://github.com/1blockyboi/owwprojectphantom)
+- [Superheroes](https://github.com/teknician/superheroes)
+- [Wrecking Ball](https://github.com/CaptCaptain/Wreckingball)
+- [Overwatch Merge](https://github.com/Jatoxo/OverwatchMerge)

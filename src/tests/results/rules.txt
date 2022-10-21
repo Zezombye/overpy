@@ -1,0 +1,91 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+        22: W
+        23: X
+        24: Y
+        25: Z
+    player:
+        0: A
+        1: B
+}
+rule ("normal") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(A, Add, True);
+        Modify Global Variable(B, Add, True);
+    }
+}
+
+rule ("event player") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Modify Player Variable(Event Player, A, Add, True);
+    }
+}
+
+rule ("filter on team+hero") {
+    event {
+        Player Took Damage;
+        Team 1;
+        Ana;
+    }
+    actions {
+        Modify Player Variable(Victim, A, Add, True);
+    }
+}
+
+rule ("filter on team+slot") {
+    event {
+        Player Received Healing;
+        All;
+        Slot 3;
+    }
+    actions {
+        Modify Player Variable(Healer, B, Add, True);
+    }
+}
+
+disabled rule ("other directives") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+}
+
+rule ("conditions") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.A != False;
+        Global.B != False;
+        Global.X != False;
+        Global.Y != False;
+        Global.Z != False;
+        Global.W != False;
+        Global.C != False;
+    }
+    actions {
+        Modify Global Variable(B, Add, True);
+    }
+}
+
+rule ("condition that is always true") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(B, Add, True);
+    }
+}
+

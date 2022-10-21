@@ -26,9 +26,60 @@ function addObfuscationRules(rules) {
 	if (!compiledCustomGameSettings) {
 		error("Cannot use obfuscation without custom game settings declared");
 	}
-	var nbEmptyRules = 2500;
-	var nbTotalRules = nbEmptyRules + rules.length;
+	var nbEmptyRules = (obfuscationSettings.ruleFilling ? 2500 : 0);
+	var nbTotalRules = nbEmptyRules + rules.length + 2 /*copy detection rules*/;
 	var emptyRule = tows("__rule__", ruleKw)+'(""){'+tows("__event__", ruleKw)+"{"+tows("global", eventKw)+";}}\n";
+
+	var copyDetectionRule1 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__abortIf__", actionKw)}(0.0000001);
+		${tows("__hudText__", actionKw)}(
+			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), 
+			${tows("__valueInArray__", valueFuncKw)}(
+				${tows("__array__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\n\nThe server will now crash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")),
+					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\n此工坊模式已被篡改!\n如需修改或反馈请联系工坊作者.                                 \n\n此工坊游戏即将退出.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+				),
+				${tows("__compare__", valueFuncKw)}(
+					${tows("__customString__", valueFuncKw)}("黑森林"),
+					==,
+					${tows("__customString__", valueFuncKw)}("{0}", ${tows("__map__", valueFuncKw)}(${tows("BLACK_FOREST", constantValues.MapLiteral)}))
+				)
+			), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("TOP", constantValues.HudPosition)}, 
+			-99999999, 
+			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), 
+			${tows("null", valueFuncKw)}, 
+			${tows("null", valueFuncKw)}, 
+			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, 
+			${tows("ALWAYS", constantValues.SpecVisibility)}
+		);
+	}
+}
+	`
+
+	var copyDetectionRule2 = `
+${tows("__rule__", ruleKw)}("") {
+	${tows("__event__", ruleKw)} {
+		${tows("global", eventKw)};
+	}
+	${tows("__conditions__", ruleKw)} {
+		0.0001 == ${tows("false", valueFuncKw)};
+	}
+	${tows("__actions__", ruleKw)} {
+		${tows("__wait__", actionKw)}(${tows("random.uniform", valueFuncKw)}(30, 60), ${tows("IGNORE_CONDITION", constantValues.Wait)});
+		${tows("__while__", actionKw)}(${tows("true", valueFuncKw)});
+		${tows("__end__", actionKw)};
+	}
+}
+	`
+
 	var result = "";
 	result += `
 ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.com/Zezombye/OverPy). Please respect its author's wishes and do not edit it. Thanks!") {
@@ -41,19 +92,23 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 	}
 }
 `;
-	var putEmptyRuleArray = shuffleArray(Array(nbEmptyRules).fill(true).concat(Array(rules.length).fill(false)));
+	var putEmptyRuleArray = shuffleArray([3,2].concat(Array(nbEmptyRules).fill(1)).concat(Array(rules.length).fill(0)));
 	var ruleIndex = 0;
-	if (obfuscationSettings.ruleFilling) {
-		for (var i = 0; i < nbTotalRules; i++) {
-			if (putEmptyRuleArray[i]) {
-				result += emptyRule;
-			} else {
-				result += rules[ruleIndex];
-				ruleIndex++;
+	for (var i = 0; i < nbTotalRules; i++) {
+		if (putEmptyRuleArray[i] === 1) {
+			result += emptyRule;
+		} else if (putEmptyRuleArray[i] === 3) {
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule1;
 			}
+		} else if (putEmptyRuleArray[i] === 2) {
+			if (obfuscationSettings.copyProtection) {
+				result += copyDetectionRule2;
+			};
+		} else {
+			result += rules[ruleIndex];
+			ruleIndex++;
 		}
-	} else {
-		result += rules.join("");
 	}
 	return result;
 
@@ -61,8 +116,8 @@ ${tows("__rule__", ruleKw)}("This program has been obfuscated by OverPy (github.
 
 //Gather all constants to obfuscate and shuffle them
 var constantsToObfuscate = [];
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
-	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).map(x => constantType+x));
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
+	constantsToObfuscate = constantsToObfuscate.concat(Object.keys(constantValues[constantType]).filter(x => typeof constantValues[constantType][x] === "object" && !constantValues[constantType][x].onlyInOw1).map(x => constantType+x));
 }
 constantsToObfuscate = shuffleArray(constantsToObfuscate);
 //console.log(constantsToObfuscate);
@@ -71,19 +126,54 @@ constantsToObfuscate = shuffleArray(constantsToObfuscate);
 var constantsToObfuscateAsts = Array(constantsToObfuscate.length);
 var obfuscationConstantsMapping = {}
 
+const mapIds = {
+	BLACK_FOREST_WINTER: 2147,
+	BLIZZ_WORLD_WINTER: 1228,
+	BUSAN_DOWNTOWN_LNY: 3206,
+	BUSAN_SANCTUARY_LNY: -6860,
+	CHATEAU_GUILLARD_HALLOWEEN: 3439,
+	EICHENWALDE_HALLOWEEN: 565,
+	HANAMURA_WINTER: 1848,
+	ILIOS_LIGHTHOUSE: 1459,
+	ILIOS_RUINS: 8669,
+	ILIOS_WELL: -2957,
+	KINGS_ROW_WINTER: 742,
+	LIJIANG_CONTROL_CENTER_LNY: 28714,
+	LIJIANG_GARDEN_LNY: 4714,
+	LIJIANG_NIGHT_MARKET_LNY: -1429,
+	LIJIANG_TOWER_LNY: 3676,
+	NEPAL_SANCTUM: -11860,
+	NEPAL_SHRINE: 1362,
+	NEPAL_VILLAGE: -9677,
+	OASIS_CITY_CENTER: 6920,
+	OASIS_GARDENS: 2159,
+	OASIS_UNIVERSITY: 345,
+	WORKSHOP_EXPANSE_NIGHT: 96,
+	WORKSHOP_ISLAND_NIGHT: 196,
+}
+
 var typeToAstFuncMapping = {
 	"HeroLiteral": "__hero__",
 	"MapLiteral": "__map__",
 	"GamemodeLiteral": "__gamemode__",
 	"ButtonLiteral": "__button__",
+	"TeamLiteral": "__team__",
+	"ColorLiteral": "__color__",
 }
-for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral"]) {
+for (var constantType of ["HeroLiteral", "MapLiteral", "GamemodeLiteral", "ButtonLiteral", "TeamLiteral", "ColorLiteral"]) {
 	obfuscationConstantsMapping[constantType] = {};
 
 	for (var constant of Object.keys(constantValues[constantType])) {
+		/*if (typeof constantValues[constantType][constant] !== "object") {
+			continue;
+		}*/
 		var constantIndex = constantsToObfuscate.indexOf(constantType+constant);
-		obfuscationConstantsMapping[constantType][constant] = constantIndex+(constantIndex > 0 ? (Math.random()*0.8)-0.4 : 0);
-		constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
+		obfuscationConstantsMapping[constantType][constant] = constantIndex;
+		if (constantType === "MapLiteral" && constant in mapIds) {
+			constantsToObfuscateAsts[constantIndex] = getAstForNumber(mapIds[constant]);
+		} else {
+			constantsToObfuscateAsts[constantIndex] = new Ast(typeToAstFuncMapping[constantType], [new Ast(constant, [], [], constantType)]);
+		}
 	}
 }
 
@@ -92,3 +182,59 @@ var obfuscationConstantsAst = new Ast("__assignTo__", [
 	new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
 	new Ast("__array__", constantsToObfuscateAsts),
 ]);
+
+function obfuscateConstant(constantType, content) {
+
+	var isEvaluatedClientSide = null; //we don't know yet
+
+	if (obfuscationSettings.copyProtection) {
+		//Client-side calculations (done on hud texts, and on visibility fields) do not have enough precision to handle the anti-copy obfuscation properly.
+		//Therefore, check if the constant is not inside a text or any action with a visibility field.
+
+		//console.log("evaluating parent action of "+content.name);
+		var parentAction = content.parent;
+		while (parentAction.type !== "void") {
+			parentAction = parentAction.parent;
+		}
+		//console.log("parent action is : "+parentAction.name);
+		if ([
+			"bigMessage",
+			"createBeam",
+			"createEffect",
+			"createIcon",
+			"createInWorldText",
+			"createProgressBarInWorldText",
+			"__hudText__",
+			"hudText",
+			"hudHeader",
+			"hudProgressBar",
+			"hudSubheader",
+			"hudSubtext",
+			"playEffect",
+			"print",
+			"setObjectiveDescription",
+			"smallMessage",
+		].includes(parentAction.name)) {
+			isEvaluatedClientSide = true;
+		}
+	}
+
+	if (!(content.args[0].name in obfuscationConstantsMapping[constantType])) {
+		error("No match found for keyword '"+content.args[0].name+"'");
+	}
+
+	if (obfuscationSettings.copyProtection && !isEvaluatedClientSide) {
+		var obfuscatedNumberAst = new Ast("__multiply__", [
+			getAstFor10Million(), getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] * 0.0000001),
+		]);
+	} else {
+		var obfuscatedNumberAst = getAstForNumber(obfuscationConstantsMapping[constantType][content.args[0].name] + Math.random()*0.8-0.4);
+	}
+
+	var result = new Ast("__valueInArray__", [
+		new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]), 
+		obfuscatedNumberAst,
+	]);
+	result.doNotOptimize = true;
+	return result;
+}

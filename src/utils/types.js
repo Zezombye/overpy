@@ -17,7 +17,6 @@
 
 "use strict";
 
-
 /*
 A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
 Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
@@ -35,12 +34,12 @@ function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
 
     if (receivedType instanceof Array) {
         //Check if each of the received type is valid for the expected type.
-        return receivedType.every(x => isTypeSuitable(expectedType, x));
+        return receivedType.every(x => isTypeSuitable(expectedType, x, valueTypeIsSuitable));
     }
 
     if (expectedType instanceof Array) {
         //Check if the received type is valid for any of the expected types.
-        return expectedType.some(x => isTypeSuitable(x, receivedType));
+        return expectedType.some(x => isTypeSuitable(x, receivedType, valueTypeIsSuitable));
     }
 
     if (typeof receivedType === "string") {
@@ -148,4 +147,90 @@ function replaceType(type, matchReplacementObj) {
         return type;
     }
     error("This shouldn't happen");
+}
+
+function parseType(tokens) {
+    if (tokens.length === 0) {
+        error("Content is empty (expected a type)");
+    }
+    if (!tokens[0].text in Object.keys(typeMatrix)) {
+        error("Expected a type, but got '"+tokens[0].text+"'");
+    }
+    if (tokens.length === 1) {
+        return new Ast(tokens[0].text, [], [], "Type");
+    }
+
+    if (tokens.length >= 3 && tokens[tokens.length-2].text === "[" && tokens[tokens.length-1].text === "]") {
+        return new Ast("Array", [parseType(tokens.slice(0, tokens.length-2))], [], "Type");
+    }
+
+    if (tokens[0].text === "unsigned" || tokens[0].text === "signed") {
+        if (tokens[1].text !== "int" && tokens[1].text !== "float") {
+            error("Expected 'int' or 'float' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+        }
+        if (tokens.length !== 2) {
+            error("Expected end of type after '"+tokens[0].text+" "+tokens[1].text+"', but got '"+tokens[2].text+"'");
+        }
+        return new Ast(tokens[0].text+" "+tokens[1].text, [], [], "Type");
+    }
+
+    if (tokens[1].text !== "<" && tokens[1].text !== "[") {
+        error("Expected '[' after '"+tokens[0].text+"', but got '"+tokens[1].text+"'");
+    }
+    if (tokens[tokens.length-1].text !== ">" && tokens[tokens.length-1].text !== "]") {
+        error("Expected ']' at end of type, but got '"+tokens[tokens.length-1].text+"'");
+    }
+
+    if (tokens[0].text !== "int" && tokens[0].text !== "float" && tokens[0].text !== "enum") {
+        error("Expected 'int', 'float' or 'enum' before '[', but got '"+tokens[0].text+"'");
+    }
+
+    var typeParams = tokens.slice(2, tokens.length-1);
+
+    if (tokens[0].text === "int" || tokens[0].text === "float") {
+        //There should be a ":" delimiter.
+        var tokenMinAndMax = splitTokens(typeParams, ":", true);
+        if (tokenMinAndMax.length !== 2) {
+            error("Expected one ':' in parameters for '"+tokens[0].text+"'");
+        }
+        var tokenMin = tokenMinAndMax[0];
+        var tokenMax = tokenMinAndMax[1];
+        if (tokenMin.length === 0) {
+            var min = -9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var min = parseInt(tokenMin.map(x => x.text).join(""));
+            } else {
+                var min = parseFloat(tokenMin.map(x => x.text).join(""));
+            }
+        }
+        if (tokenMax.length === 0) {
+            var max = 9999999999999;
+        } else {
+            if (tokens[0].text === "int") {
+                var max = parseInt(tokenMax.map(x => x.text).join(""));
+            } else {
+                var max = parseFloat(tokenMax.map(x => x.text).join(""));
+            }
+        }
+
+        if (min > max) {
+            error("Minimum for type '"+tokens[0].text+"' ("+min+") is higher than maximum ("+max+")");
+        }
+
+        return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
+    } else if (tokens[0].text === "enum") {
+        var enumMembers = splitTokens(typeParams, ",", true);
+        
+        if (enumMembers[enumMembers.length-1].length === 0) {
+            enumMembers.pop()
+        }
+        if (enumMembers.length === 0) {
+            error("Cannot declare an enum without specifying values");
+        }
+        return new Ast("__enumType__", enumMembers.map(x => parse(x)), [], "Type");
+    }
+
+    error("This shouldn't happen");
+    
 }

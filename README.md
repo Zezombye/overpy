@@ -1,7 +1,7 @@
-# OverPy v5.0
+# OverPy v6
 High-level language for the Overwatch Workshop with support for compilation and decompilation.
 
-Join the EloHell discord for feedback: https://discord.gg/zwF7KQm #highlevel-scripting
+Join the discord for help & feedback: https://discord.gg/EEMjjFB
 
 Check the wiki to get started: https://github.com/Zezombye/overpy/wiki
 

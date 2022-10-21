@@ -1,0 +1,131 @@
+
+<head>
+    <title>
+        Zez's Description Text Generator
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<style>
+
+html, body, textarea {
+	color: #CCCCCC;
+	background-color: #222222;
+	scrollbar-color: #CCCCCC #222222;
+    text-align: center;
+}
+
+a {
+	color: lightblue;
+}
+
+#img-holder {
+    text-align: center; 
+    background-image: url("https://i.imgur.com/A9KSZWE.png");
+    width: 521px;
+    height: 116px;
+    display: inline-block;
+}
+
+#para, #txt {
+    font-family: "BlizzardGlobal";
+    font-size: 15.085px;
+    display: inline-block;
+    text-align: left !important;
+    margin-top: 3px;
+    margin-left: 6px;
+    margin-right: 2px;
+}
+
+#txt {
+    width: 521px;
+    height: 200px;
+	resize: vertical;
+    overflow: hidden;
+    border: 1px solid skyblue;
+    white-space: break-spaces;
+    /*overflow-wrap:break-word;*/
+}
+
+</style>
+<!--
+<div id="img-holder">
+    <p id="para">
+        esse cillum dolorri eu irugiat rulla iirrri|atur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+</div>
+-->
+
+<script>
+    function getUtf8Length(str){
+        //returns the char length of an utf8 string
+        var result = 0;
+        for (var i = 0; i < str.length; i++) {
+            var code = str.charCodeAt(i);
+            if (code >= 0xDC00 && code <= 0xDFFF) {
+                //skip as it is a surrogate pair
+                continue;
+            }
+            result++;
+        }
+        return result;
+    }
+    
+    function getUtf8ByteLength(str){
+        // returns the byte length of an utf8 string
+        var s = str.length;
+        for (var i=str.length-1; i>=0; i--) {
+            var code = str.charCodeAt(i);
+            if (code > 0x7f && code <= 0x7ff) s++;
+            else if (code > 0x7ff && code <= 0xffff) s+=2;
+            if (code >= 0xDC00 && code <= 0xDFFF) i--; //trail surrogate
+        }
+        return s;
+    }
+
+    function updateNbChars(textarea) {
+        document.getElementById("nbchars").innerText = getUtf8ByteLength(textarea.innerText.trim())+"/511 bytes";
+        document.getElementById("output").value = textarea.innerText.trim().replace(/ㆍ/g, "ㅤ").replace(/\n/g, "")
+    }
+</script>
+
+<h1>Zez's Description text generator</h1>
+<br>
+<p id="txt" contenteditable="true" oninput="updateNbChars(this);">----------------------------------- Zez's Awesome Gamemode ----------------------------  |                                                         v 1.2.3                                                       |      - Fixes for Overwatch 2                                                                                |      - Added pet support                                                                                     |                                             discord.io/ZezWorkshop</p>
+<br>
+<p id="nbchars"></p>
+<!--
+<button onclick="document.getElementById('para').setAttribute('style', 'display: inline-block;');">show</button>
+<button onclick="document.getElementById('para').setAttribute('style', 'display: none;');">hide</button>
+-->
+<ul>
+    <li>
+        You MUST install the "Blizzard Global" font on your PC.
+    </li>
+    <li>
+        You CANNOT use any spaces other than normal spaces (they will be converted), including no-breaking spaces.
+    </li>
+    <li>
+        You CANNOT use whitespace at the beginning or the end of a line. However you can use a zero-width space to prevent trimming.
+    </li>
+    <li>
+        You CANNOT use newlines. You will have to use spaces, or fullwidth characters, to make a newline.
+    </li>
+    <li>
+        The word wrap is a little buggy and may not reflect what actually happens. The width should be good however.
+    </li>
+    <li>
+        The 'ㆍ' characters will be replaced by a not-quite-fullwidth space.
+    </li>
+</ul>
+
+<p>Output:</p>
+
+<textarea readonly id="output"></textarea>
+
+<script>
+    updateNbChars(document.getElementById("txt"));
+
+</script>
+</body>

@@ -25,9 +25,9 @@ astParsingFunctions.__arraySlice__ = function(content) {
 
         if (content.args[2].name === "__number__") {
             sliceLength = Math.round(content.args[2].args[0].numValue);
-        }
-        if (sliceLength < 0) {
-            return getAstForEmptyArray();
+            if (sliceLength <= 0) {
+                return getAstForEmptyArray();
+            }
         }
 
         if (content.args[0].name === "__array__" && content.args[1].name === "__number__" && sliceLength !== null) {

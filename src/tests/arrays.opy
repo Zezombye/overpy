@@ -23,10 +23,19 @@ rule "filtered array":
     A = [player for player in getAllPlayers() if player != (B == player)]
     A = [player for player in getAllPlayers() if player != B] #getAllPlayers.remove(B)
     A = [player for player in getAllPlayers() if A == B] #getAllPlayers() if A == B else []
+    A = [player for player in getAllPlayers() if true] #getAllPlayers()
+    A = [player for player, i in getAllPlayers() if player != i]
+    A = [player.getHealth() for player in getAllPlayers() if player.A == 2]
+    A = [player.getHealth() for player in getAllPlayers() if true] #mapped array()
+
+rule "mapped array":
+    A = [player.getHealth() for player in getAllPlayers()]
+    A = [player for player in getAllPlayers()] #getAllPlayers()
 
 rule "index":
     A = B.index(3)
-    A = [A,B,C].index(B) #1
+    A = [A,B,C].index(B)
+    A = [1,2,3].index(3) #2
     A = [A,B,C].index(3)
 
 rule "slice":
@@ -52,3 +61,5 @@ rule "other array functions":
     A = B.concat(2)
     A = B.index(3)
     A = B.exclude(3)
+    A = [X,Y,Z].reverse() #Z,Y,X
+    A = B.reverse()

@@ -17,6 +17,15 @@
 
 "use strict";
 
+/*
+Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
+
+Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
+
+Busan Meka Base: 2.32074 * x - 274.76433
+
+*/
+
 const mapKw = 
 //begin-json
 {
@@ -24,8 +33,14 @@ const mapKw =
         "guid": "00000000676E",
         "gamemodes": [
             "ctf",
-            "elimination"
+            "elimination",
+            "freezethawElimination"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": -7
+        },
         "en-US": "Ayutthaya",
         "ja-JP": "AYUTTHAYA",
         "ko-KR": "아유타야",
@@ -37,9 +52,16 @@ const mapKw =
         "guid": "0000000059C3",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
+        },
         "en-US": "Black Forest",
         "de-DE": "Schwarzwald",
         "es-ES": "Selva Negra",
@@ -58,9 +80,18 @@ const mapKw =
         "guid": "0000000070F4",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
-            "tdm"
+            "bountyHunter",
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 5
+        },
         "en-US": "Black Forest Winter",
         "de-DE": "Schwarzwald Winter",
         "es-ES": "Selva Negra invierno",
@@ -81,6 +112,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Blizzard World",
@@ -95,6 +127,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Blizzard World Winter",
@@ -129,6 +162,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 51.9
+        },
         "en-US": "Busan Downtown Lunar New Year",
         "de-DE": "Stadtzentrum von Busan Neujahr",
         "es-ES": "Centro de Busan Año Nuevo Lunar",
@@ -148,6 +185,10 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": -328.565
+        },
         "en-US": "Busan Sanctuary Lunar New Year",
         "de-DE": "Tempel von Busan Neujahr",
         "es-ES": "Santuario de Busan Año Nuevo Lunar",
@@ -161,13 +202,14 @@ const mapKw =
         "ru-RU": "Святилище Пусана Лунный Новый год",
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
-    },/*
-    "busanStadiumClassic": {
-        "guid": "000000008A19",
+    },
+    "busanStadium": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
-        "en-US": "Busan Stadium Classic",
+        "guid": "0000000112AA",
+        "en-US": "Busan Stadium",
         "de-DE": "Stadion von Busan",
         "es-ES": "Estadio de Busan",
         "es-MX": "Estadio de Busan",
@@ -180,14 +222,41 @@ const mapKw =
         "ru-RU": "Стадион Пусана",
         "zh-CN": "釜山体育场",
         "zh-TW": "釜山運動場"
-    },*/
+    },
+    "busanStadiumClassic": {
+        "onlyInOw1": true,
+        "gamemodes": [
+            "lucioball"
+        ],
+        "guid": "000000008A19",
+        "en-US": "Busan Stadium Classic",
+        "de-DE": "Klassisches Stadion von Busan",
+        "es-ES": "Estadio de Busan clásico",
+        "es-MX": "Estadio de Busan clásico",
+        "fr-FR": "Stade de Busan classique",
+        "it-IT": "Busan - Stadio classico",
+        "ja-JP": "BUSAN STADIUM CLASSIC",
+        "ko-KR": "부산 스타디움 클래식",
+        "pl-PL": "Klasyczny Stadion Pusan",
+        "pt-BR": "Estádio Busan Clássico",
+        "ru-RU": "Классический стадион Пусана",
+        "zh-CN": "釜山体育场（经典）",
+        "zh-TW": "經典釜山運動場"
+    },
     "castillo": {
         "guid": "000000005C04",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.19009,
+            "b": 38.79879
+        },
         "en-US": "Castillo",
         "ja-JP": "CASTILLO",
         "ko-KR": "카스티요",
@@ -199,6 +268,7 @@ const mapKw =
         "guid": "0000000069CA",
         "gamemodes": [
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Château Guillard",
@@ -213,6 +283,7 @@ const mapKw =
         "guid": "000000009FA4",
         "gamemodes": [
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Château Guillard Halloween",
@@ -224,12 +295,42 @@ const mapKw =
         "zh-CN": "万圣节吉拉德堡",
         "zh-TW": "蓋亞爾城堡（萬聖節）"
     },
+    "circuitRoyal": {
+        "gamemodes": [
+            "skirmish",
+            "escort"
+        ],
+        "guid": "00000001777C",
+        "en-US": "Circuit Royal",
+        "fr-FR": "Circuit royal",
+        "ja-JP": "CIRCUIT ROYAL",
+        "ko-KR": "서킷 로얄",
+        "pl-PL": "Circuit royal",
+        "ru-RU": "Королевская трасса",
+        "zh-CN": "皇家赛道",
+        "zh-TW": "皇家賽道"
+    },
+    "colosseo": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000015B56",
+        "en-US": "Colosseo",
+        "ja-JP": "COLOSSEO",
+        "ko-KR": "콜로세오",
+        "pl-PL": "Koloseum",
+        "ru-RU": "Колизей",
+        "zh-CN": "斗兽场",
+        "zh-TW": "羅馬競技場"
+    },
     "dorado": {
         "guid": "0000000008C1",
         "gamemodes": [
             "escort",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Dorado",
@@ -244,9 +345,16 @@ const mapKw =
         "guid": "0000000047D3",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Ecopoint: Antarctica",
         "de-DE": "Ecopoint: Antarktis",
         "es-ES": "Ecobase: Antártida",
@@ -262,12 +370,22 @@ const mapKw =
         "zh-TW": "南極洲生態觀測站"
     },
     "ecopointAntarcticaWinter": {
+        "onlyInOw1": true,
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
-            "tdm"
+            "bountyHunter",
+            "tdm",
+            "meisSnowballOffensive",
+            "snowballFfa"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Ecopoint: Antarctica Winter",
         "de-DE": "Ecopoint: Antarktis Winter",
         "es-ES": "Ecobase: Antártida invierno",
@@ -288,6 +406,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Eichenwalde",
@@ -303,6 +422,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Eichenwalde Halloween",
@@ -312,7 +432,21 @@ const mapKw =
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
+    "esperanca": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000016D84",
+        "en-US": "Esperança",
+        "ja-JP": "ESPERANCA",
+        "ko-KR": "이스페란사",
+        "ru-RU": "Эсперанса",
+        "zh-CN": "埃斯佩兰萨",
+        "zh-TW": "希望之城"
+    },
     "estadioDasRas": {
+        "onlyInOw1": true,
         "guid": "000000004629",
         "gamemodes": [
             "lucioball"
@@ -332,6 +466,7 @@ const mapKw =
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Hanamura",
@@ -347,6 +482,7 @@ const mapKw =
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Hanamura Winter",
@@ -363,11 +499,12 @@ const mapKw =
         "zh-TW": "花村（冬境）"
     },
     "havana": {
-        "guid": "00000000B457",
+        "guid": "00000000B8EA",
         "gamemodes": [
             "escort",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Havana",
@@ -389,6 +526,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Hollywood",
@@ -400,11 +538,13 @@ const mapKw =
         "zh-TW": "好萊塢"
     },
     "hollywoodHalloween": {
+        "onlyInOw1": true,
         "guid": "000000004EE3",
         "gamemodes": [
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Hollywood Halloween",
@@ -420,6 +560,7 @@ const mapKw =
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Horizon Lunar Colony",
@@ -456,8 +597,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -0.41437,
+            "b": 96.86593
+        },
         "en-US": "Ilios Lighthouse",
         "de-DE": "Ilios – Leuchtturm",
         "es-ES": "Faro de Ilios",
@@ -478,8 +625,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 28.6
+        },
         "en-US": "Ilios Ruins",
         "de-DE": "Ilios – Ruinen",
         "es-ES": "Ruinas de Ilios",
@@ -500,8 +652,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00409,
+            "b": 192.85907
+        },
         "en-US": "Ilios Well",
         "de-DE": "Ilios – Brunnen",
         "es-ES": "Pozo de Ilios",
@@ -548,12 +706,27 @@ const mapKw =
         "zh-CN": "渣客镇",
         "zh-TW": "垃圾鎮"
     },
+    "kanezaka": {
+        "gamemodes": [
+            "ffa",
+            "bountyHunter",
+            "tdm"
+        ],
+        "guid": "000000010D1A",
+        "en-US": "Kanezaka",
+        "ja-JP": "KANEZAKA",
+        "ko-KR": "카네자카",
+        "ru-RU": "Канедзака",
+        "zh-CN": "铁坂",
+        "zh-TW": "鐵坂"
+    },
     "kingsRow": {
         "guid": "000000000133",
         "gamemodes": [
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "King's Row",
@@ -570,6 +743,7 @@ const mapKw =
             "hybrid",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "King's Row Winter",
@@ -591,8 +765,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
+        },
         "en-US": "Lijiang Control Center",
         "de-DE": "Lijiang Tower – Kontrollzentrum",
         "es-ES": "Centro de control de Torre Lijiang",
@@ -613,8 +792,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
+        },
         "en-US": "Lijiang Control Center Lunar New Year",
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
         "es-ES": "Centro de control de Lijiang Año Nuevo Lunar",
@@ -635,8 +819,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
+        },
         "en-US": "Lijiang Garden",
         "de-DE": "Lijiang Tower – Garten",
         "es-ES": "Lijiang: Jardín",
@@ -657,8 +846,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 0
+        },
         "en-US": "Lijiang Garden Lunar New Year",
         "de-DE": "Lijiang Tower – Garten Neujahr",
         "es-ES": "Lijiang: Jardín Año Nuevo Lunar",
@@ -679,8 +873,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
+        },
         "en-US": "Lijiang Night Market",
         "de-DE": "Nachtmarkt von Lijiang",
         "es-ES": "Lijiang: Mercado nocturno",
@@ -701,8 +900,13 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "x": 1
+        },
         "en-US": "Lijiang Night Market Lunar New Year",
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
         "es-ES": "Mercado nocturno de Lijiang Año Nuevo Lunar",
@@ -748,7 +952,7 @@ const mapKw =
         "es-MX": "Torre Lijiang Año Nuevo Lunar",
         "fr-FR": "Tour de Lijiang nouvel an lunaire",
         "it-IT": "Torre di Lijiang Capodanno Lunare",
-        "ja-JP": "LIJIANG TOWER LUNAR NEW YEAR",
+        "ja-JP": "LIJIANG TOWER 旧正月",
         "ko-KR": "리장 타워 설날",
         "pl-PL": "Wieża Lijiang Księżycowa",
         "pt-BR": "Torre Lijiang Ano Novo Lunar",
@@ -756,13 +960,48 @@ const mapKw =
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）"
     },
+    "malevento": {
+        "gamemodes": [
+            "ffa",
+            "bountyHunter",
+            "tdm"
+        ],
+        "guid": "000000010DFE",
+        "en-US": "Malevento",
+        "ja-JP": "MALEVENTO",
+        "ko-KR": "말레벤토",
+        "ru-RU": "Малевенто",
+        "zh-CN": "马莱温多",
+        "zh-TW": "馬勒馮托"
+    },
+    "midtown": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid"
+        ],
+        "guid": "00000001777A",
+        "en-US": "Midtown",
+        "ja-JP": "MIDTOWN",
+        "ko-KR": "미드타운",
+        "pl-PL": "Dzielnica Midtown",
+        "ru-RU": "Мидтаун",
+        "zh-CN": "中城",
+        "zh-TW": "中城區"
+    },
     "necropolis": {
         "guid": "0000000053FB",
         "gamemodes": [
             "elimination",
+            "freezethawElimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Necropolis",
         "de-DE": "Nekropole",
         "es-ES": "Necrópolis",
@@ -797,8 +1036,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Nepal Sanctum",
         "de-DE": "Nepal – Sanktum",
         "es-ES": "Sagrario de Nepal",
@@ -819,8 +1064,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Nepal Shrine",
         "de-DE": "Nepal – Schrein",
         "es-ES": "Santuario de Nepal",
@@ -841,8 +1092,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Nepal Village",
         "de-DE": "Nepal – Dorf",
         "es-ES": "Aldea de Nepal",
@@ -858,6 +1115,7 @@ const mapKw =
         "zh-TW": "尼泊爾村落"
     },
     "nepalVillageWinter": {
+        "onlyInOw1": true,
         "guid": "000000006E1F",
         "gamemodes": [
             "yetiHunter"
@@ -875,6 +1133,20 @@ const mapKw =
         "ru-RU": "Непал: деревня зима",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
+    },
+    "newQueenStreet": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "guid": "000000015B54",
+        "en-US": "New Queen Street",
+        "ja-JP": "NEW QUEEN STREET",
+        "ko-KR": "뉴 퀸 스트리트",
+        "pt-BR": "Nova Queen Street",
+        "ru-RU": "Нью-Квин-стрит",
+        "zh-CN": "新皇后街",
+        "zh-TW": "新皇后街"
     },
     "numbani": {
         "guid": "0000000002EA",
@@ -910,8 +1182,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 1.00002,
+            "b": 103.99783
+        },
         "en-US": "Oasis City Center",
         "de-DE": "Oasis – Stadtzentrum",
         "es-ES": "Centro urbano de Oasis",
@@ -932,8 +1210,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": -1.00042,
+            "b": -106.1637
+        },
         "en-US": "Oasis Gardens",
         "de-DE": "Oasis – Gärten",
         "es-ES": "Jardines de Oasis",
@@ -954,8 +1238,14 @@ const mapKw =
             "elimination",
             "ctf",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
         "en-US": "Oasis University",
         "de-DE": "Oasis – Universität",
         "es-ES": "Universidad de Oasis",
@@ -970,12 +1260,26 @@ const mapKw =
         "zh-CN": "绿洲城大学",
         "zh-TW": "綠洲城大學"
     },
+    "paraiso": {
+        "gamemodes": [
+            "skirmish",
+            "hybrid"
+        ],
+        "guid": "000000017763",
+        "en-US": "Paraíso",
+        "ja-JP": "PARAISO",
+        "ko-KR": "파라이수",
+        "ru-RU": "Параисо",
+        "zh-CN": "帕拉伊苏",
+        "zh-TW": "帕拉伊索"
+    },
     "paris": {
         "guid": "00000000831E",
         "gamemodes": [
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Paris",
@@ -992,6 +1296,7 @@ const mapKw =
         "guid": "0000000081CB",
         "gamemodes": [
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Petra",
@@ -1037,7 +1342,9 @@ const mapKw =
         "guid": "0000000011D3",
         "gamemodes": [
             "escort",
-            "skirmish"
+            "skirmish",
+            "ffa",
+            "tdm"
         ],
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
@@ -1050,13 +1357,14 @@ const mapKw =
         "ru-RU": "Шоссе 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
-    },/*
-    "sydneyHarbourArenaClassic": {
-        "guid": "0000000063D5",
+    },
+    "sydneyHarbourArena": {
+        "onlyInOw1": true,
         "gamemodes": [
             "lucioball"
         ],
-        "en-US": "Sydney Harbour Arena Classic",
+        "guid": "0000000112A6",
+        "en-US": "Sydney Harbour Arena",
         "es-MX": "Arena Sydney Harbour",
         "fr-FR": "Harbour Arena de Sydney",
         "ja-JP": "SYDNEY HARBOUR ARENA",
@@ -1066,13 +1374,34 @@ const mapKw =
         "ru-RU": "«Арена Сидней-Харбор»",
         "zh-CN": "悉尼海港竞技场",
         "zh-TW": "雪梨海港運動公園"
-    },*/
+    },
+    "sydneyHarbourArenaClassic": {
+        "onlyInOw1": true,
+        "gamemodes": [
+            "lucioball"
+        ],
+        "guid": "0000000063D5",
+        "en-US": "Sydney Harbour Arena Classic",
+        "de-DE": "Klassische Sydney Harbour Arena",
+        "es-ES": "Sydney Harbour Arena clásico",
+        "es-MX": "Arena Sydney Harbour clásica",
+        "fr-FR": "Harbour Arena de Sydney classique",
+        "it-IT": "Sydney Harbour Arena classica",
+        "ja-JP": "SYDNEY HARBOUR ARENA CLASSIC",
+        "ko-KR": "시드니 하버 아레나 클래식",
+        "pl-PL": "Klasyczny Sydney Harbour Park",
+        "pt-BR": "Arena Sydney Harbour Clássica",
+        "ru-RU": "Классическая «Арена Сидней-Харбор»",
+        "zh-CN": "悉尼海港竞技场（经典）",
+        "zh-TW": "經典雪梨海港運動公園"
+    },
     "templeOfAnubis": {
-        "guid": "00000000012E",
+        "guid": "00000000AB25",
         "gamemodes": [
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Temple of Anubis",
@@ -1095,6 +1424,7 @@ const mapKw =
             "assault",
             "skirmish",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
         "en-US": "Volskaya Industries",
@@ -1134,8 +1464,15 @@ const mapKw =
             "skirmish",
             "elimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
+        "isWorkshopMap": true,
         "guid": "00000000FFF0",
         "en-US": "Workshop Chamber",
         "de-DE": "Workshop-Raum",
@@ -1156,8 +1493,15 @@ const mapKw =
             "skirmish",
             "elimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
+        "isWorkshopMap": true,
         "guid": "00000000FFF2",
         "en-US": "Workshop Expanse",
         "de-DE": "Workshop-Gebiet",
@@ -1178,8 +1522,15 @@ const mapKw =
             "skirmish",
             "elimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
+        "isWorkshopMap": true,
         "guid": "000000010C6D",
         "en-US": "Workshop Expanse Night",
         "de-DE": "Workshop-Gebiet Nacht",
@@ -1195,13 +1546,44 @@ const mapKw =
         "zh-CN": "地图工坊空地（夜间）",
         "zh-TW": "工作坊延伸區域（夜晚）"
     },
+    "workshopGreenScreen": {
+        "gamemodes": [
+            "skirmish",
+            "elimination",
+            "ffa",
+            "bountyHunter",
+            "tdm"
+        ],
+        "isWorkshopMap": true,
+        "guid": "000000011F44",
+        "en-US": "Workshop Green Screen",
+        "de-DE": "Workshop-Greenscreen",
+        "es-ES": "Pantalla verde del Taller",
+        "es-MX": "Pantalla verde del Workshop",
+        "fr-FR": "Écran vert de la Forge",
+        "it-IT": "Schermo verde Workshop",
+        "ja-JP": "WORKSHOP GREEN SCREEN",
+        "ko-KR": "워크샵 그린 스크린",
+        "pl-PL": "Zielony ekran Warsztatu",
+        "pt-BR": "Tela Verde do Workshop",
+        "ru-RU": "Мастерская: зеленый экран",
+        "zh-CN": "地图工坊绿幕",
+        "zh-TW": "工作坊綠幕島"
+    },
     "workshopIsland": {
         "gamemodes": [
             "skirmish",
             "elimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
+        "isWorkshopMap": true,
         "guid": "00000000FFF1",
         "en-US": "Workshop Island",
         "de-DE": "Workshop-Insel",
@@ -1222,8 +1604,15 @@ const mapKw =
             "skirmish",
             "elimination",
             "ffa",
+            "bountyHunter",
             "tdm"
         ],
+        "isSymmetrical": true,
+        "symmetryAxis": {
+            "a": 0,
+            "b": 0
+        },
+        "isWorkshopMap": true,
         "guid": "000000010C71",
         "en-US": "Workshop Island Night",
         "de-DE": "Workshop-Insel Nacht",

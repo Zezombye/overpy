@@ -36,13 +36,13 @@
 			"patterns": [
 				{
 					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine)\\b"
+					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\\b"
 				},{
 					"name": "keyword.other.overpy",
 					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
 				},{
 					"name": "variable.other",
-					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
+					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
 				},{
 					"name": "string.regexp",
 					"match": "\\@\\w+\\b"
@@ -87,7 +87,7 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.overpy",
-					"match": "\\\\[\\\\\"'n]"
+					"match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
 				}
 			]
 		},
@@ -98,7 +98,7 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.overpy",
-					"match": "\\\\[\\\\\"'n]"
+					"match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
 				}
 			]
 		},
@@ -125,7 +125,7 @@
 			"patterns": [
 				{
 					"name": "invalid.illegal",
-					"match": "\\b(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|int|float|import)\\b"
+					"match": "\\b(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|import)\\b"
 				}
 			]
 		},

@@ -19,18 +19,9 @@
 
 function translateSubroutineToPy(content) {
 	content = content.trim();
+	content = translateNameToAvoidKeywords(content, "subroutine");
 
 	if (subroutines.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedFuncNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (content.endsWith("__")) {
-			content += "_";
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for subroutine: '"+content+"'");
-		}
 		return content;
 	} else if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
@@ -69,31 +60,39 @@ function translateSubroutineToWs(content) {
 	error("Undeclared subroutine '"+content+"'");
 }
 
-function addSubroutine(content, index) {
+function addSubroutine(content, index, isFromDefStatement) {
 	if (index === undefined) {
 		error("Index is undefined");
 	}
-	if (reservedFuncNames.includes(content)) {
+	if (reservedSubroutineNames.includes(content)) {
 		error("Subroutine name '"+content+"' is a built-in function or keyword");
 	}
 	subroutines.push({
 		"name": content,
 		"index": index,
+		"isFromDefStatement": isFromDefStatement,
 	})
+}
+
+function translateNameToAvoidKeywords(content, nameType) {
+	//modify the name
+	if (content.endsWith("_") || nameType === "globalvar" && reservedNames.includes(content) || nameType === "playervar" && reservedMemberNames.includes(content) || nameType === "subroutine" && reservedSubroutineNames.includes(content)) {
+		content += "_";
+	}
+	if (!/[A-Za-z_]\w*/.test(content)) {
+		error("Unauthorized name for "+nameType+": '"+content+"'");
+	}
+	return content;
 }
 
 function translateVarToPy(content, isGlobalVariable) {
 	content = content.trim();
+	content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
+
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	if (varArray.map(x => x.name).includes(content)) {
-		//modify the name
-		if (content.startsWith("_") || reservedNames.includes(content)) {
-			content = "_"+content;
-		}
-		if (!/[A-Za-z_]\w*/.test(content)) {
-			error("Unauthorized name for variable: '"+content+"'");
-		}
 		return content;
+
 	} else if (defaultVarNames.includes(content)) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the first if)
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
@@ -140,7 +139,7 @@ function addVariable(content, isGlobalVariable, index, initValue=null) {
 	if (typeof index === "string") {
 		index = parseInt(index);
 	}
-	if (reservedNames.includes(content)) {
+	if (isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
 	if (isGlobalVariable) {

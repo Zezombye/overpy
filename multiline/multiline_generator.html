@@ -256,7 +256,7 @@ function generateAll() {
     nbHuds = 0;
     //currentLanguage = document.getElementById("language").options[document.getElementById("language").selectedIndex].value;
     //generateForOverpy = document.getElementById("generate-for-overpy").checked;
-    document.getElementById("output").value = generate("left")+generate("top")+generate("right");
+    document.getElementById("output").value = 'rule "result":\n'+generate("left")+generate("top")+generate("right");
 }
 
 function generate(position, color, sortOffset) {
@@ -326,7 +326,7 @@ function generate(position, color, sortOffset) {
 `@Rule "${position} HUD"
 @Event global
 `;*/
-        output += "#"+position+" HUD\n";
+        output += "    #"+position+" HUD\n";
     } else {
         output += tows("__rule__", ruleKw)+"(\""+position+" HUD\") {"+tows("@Event", ruleKw)+"{"+tows("global", eventKw)+";} "+tows("__actions__", ruleKw)+" {\n";
     }
@@ -343,7 +343,7 @@ function generate(position, color, sortOffset) {
         var color = document.getElementById("color-"+position).options[document.getElementById("color-"+position).selectedIndex].value;
 
         if (generateForOverpy) {
-            output += "hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", HudPosition."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
+            output += "    hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", HudPosition."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
         } else {
             output += "\t"+tows("__hudText__", actionKw)+"("
                 +tows("getPlayers", valueFuncKw)+"("

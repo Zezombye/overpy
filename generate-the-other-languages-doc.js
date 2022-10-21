@@ -4,8 +4,8 @@ var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", 
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release(19)\\DataTool.exe"
-var overwatchPath = "D:\\Overwatch"
+var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release\\DataTool.exe"
+var overwatchPath = "C:\\Program Files\\Overwatch"
 var outputFolder = "strings"
 var guids = {};
 var removeParentheses = true;
@@ -45,10 +45,11 @@ function getGuids() {
             }
         }
     }
-    console.log(guids["en-US"]);
+    //console.log(guids["en-US"]);
 }
 
 function replaceJsonObjectsInFile(path) {
+    console.log("Processing "+path)
     var content = ""+fs.readFileSync(path);
     var result = "";
     var currentJsonStr = "";
@@ -56,7 +57,15 @@ function replaceJsonObjectsInFile(path) {
     for (var line of content.split("\n")) {
         if (line === "//end-json") {
             isInJsonObject = false;
-            result += JSON.stringify(iterateOnObject(eval("("+currentJsonStr+")")), null, 4)+"\n";
+            tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
+            tmpObj = Object.keys(tmpObj).sort().reduce(
+                (obj, key) => { 
+                    obj[key] = tmpObj[key]; 
+                    return obj;
+                }, 
+                {}
+            );
+            result += JSON.stringify(tmpObj, null, 4)+"\n";
             currentJsonStr = "";
         }
         if (!isInJsonObject) {
@@ -70,15 +79,57 @@ function replaceJsonObjectsInFile(path) {
     }
     fs.writeFileSync(path, result.substring(0, result.length-1));
 }
+/*
+function replaceJsonObjectsInFile(path) {
+    console.log("Processing "+path)
+    var content = ""+fs.readFileSync(path);
+    var result = "";
+    var currentJsonStr = "";
+    var isInJsonObject = false;
+    for (var line of content.split("\n")) {
+        if (line === "//end-json") {
+            isInJsonObject = false;
+            tmp = eval("("+currentJsonStr+")");
+            for (var key in tmp) {
+                console.log(key);
+                if (tmp[key]["args"]) {
+                    for (var arg of tmp[key]["args"]) {
+                        console.log(JSON.stringify(arg));
+                        addTranslations(arg.descriptionLocalized)
+                    }
+                }
+            }
+            
+            result += JSON.stringify(tmp, null, 4)+"\n";
+
+            currentJsonStr = "";
+        }
+        if (!isInJsonObject) {
+            result += line+"\n";
+        } else {
+            currentJsonStr += line+"\n";
+        }
+        if (line === "//begin-json") {
+            isInJsonObject = true;
+        }
+    }
+    fs.writeFileSync(path, result.substring(0, result.length-1));
+}*/
 
 function iterateOnObject(content) {
+    if (content.onlyInOw1) {
+        return content;
+    }
     if ("guid" in content || "en-US" in content) {
         content = addTranslations(content);
     }
 
     for (var key of Object.keys(content)) {
         if (typeof content[key] === "object" && content[key] !== null) {
-            content[key] = iterateOnObject(content[key]);
+            //Skip the comparison operators as they must not be translated.
+            if (key !== "__Operator__" && key !== "descriptionLocalized") {
+                content[key] = iterateOnObject(content[key]);
+            }
         }
     }
     
@@ -87,6 +138,7 @@ function iterateOnObject(content) {
 
 function addTranslations(content) {
     //Find the guid, if it isn't already added
+    if (content.guid === "<unknown guid>") return;
     if (!("guid" in content)) {
         var matchingGuids = [];
         for (var elem of guids["en-US"]) {
@@ -139,18 +191,18 @@ function normalizeName(content) {
 
 
 
-generateStringFiles();
-//getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
-//replaceJsonObjectsInFile(docFolder+"values.js");
-//replaceJsonObjectsInFile(docFolder+"constants.js");
-//replaceJsonObjectsInFile(docFolder+"heroes.js");
-//replaceJsonObjectsInFile(docFolder+"maps.js");
-//replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
-//removeParentheses = false;
-//replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
-//replaceJsonObjectsInFile(docFolder+"other.js");
+/*generateStringFiles();*/
+getGuids();
+replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"values.js");
+replaceJsonObjectsInFile(docFolder+"constants.js");
+replaceJsonObjectsInFile(docFolder+"heroes.js");
+replaceJsonObjectsInFile(docFolder+"maps.js");
+replaceJsonObjectsInFile(docFolder+"gamemodes.js");
+replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+removeParentheses = false;
+replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
+replaceJsonObjectsInFile(docFolder+"other.js");
 
 function sleep(ms){
     return new Promise(resolve=>{

@@ -19,14 +19,9 @@
 
 astParsingFunctions.createBeam = function(content) {
 
-    //Mitigation for the vertical beam bug.
-    if (content.args[1].name === "GRAPPLE" || content.args[1].name === "BAD") {
-        if (content.args[2].name === "vect" && content.args[3].name === "vect") {
-            if (areAstsEqual(content.args[2].args[0], content.args[3].args[0]) && areAstsEqual(content.args[2].args[2], content.args[3].args[2])) {
-                content.args[2].args[0] = new Ast("__add__", [getAstFor0_001(), content.args[2].args[0]]);
-            }
-        }
+    if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension)) {
+        error("You must activate the extension '"+constantValues[content.args[1].type][content.args[1].name].extension+"' to use '"+content.args[1].type+"."+content.args[1].name+"'");
     }
-
+    
     return content;
 }

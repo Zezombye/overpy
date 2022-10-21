@@ -19,7 +19,7 @@
 
 astParsingFunctions.continue = function(content) {
 
-    //Determine the innermost loop or switch
+    //Determine the innermost loop
     var innermostStructure = content.parent;
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__doWhile__"].includes(innermostStructure.name)) {
@@ -34,9 +34,22 @@ astParsingFunctions.continue = function(content) {
         return new Ast("__loop__");
 
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
-        return content;
+        //Do not use the "continue" action because of a workshop bug where it will abort the rule if an "if" is above it.
+        //return content;
+
+        //Place a label at the end
+        var labelName = "__label_continue_"+getUniqueNumber()+"__";
+        var label = new Ast(labelName, [], [], "Label");
+        label.parent = innermostStructure;
+        //console.log(innermostStructure);
+        innermostStructure.children.splice(innermostStructure.children.length, 0, label);
+
+        //Convert the continue to a goto
+        return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
 
     } else {
-        error("Found 'continue' instruction, but not within a loop");
+        warn("w_continue_outside_loop", "Found 'continue' instruction, but not within a loop");
+        //continues outside loops act like aborts
+        return new Ast("return");
     }
 }

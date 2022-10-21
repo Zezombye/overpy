@@ -1,0 +1,32 @@
+variables {
+    global:
+        0: A
+        1: B
+}
+subroutines {
+    0: Sub0
+    1: bar
+    2: foo
+}
+rule ("my subroutine") {
+    event {
+        Subroutine;
+        foo;
+    }
+    actions {
+        Modify Global Variable(A, Add, True);
+        Call Subroutine(bar);
+        Start Rule(Sub0, Do Nothing);
+    }
+}
+
+rule ("Subroutine Sub0") {
+    event {
+        Subroutine;
+        Sub0;
+    }
+    actions {
+        Modify Global Variable(B, Add, True);
+    }
+}
+

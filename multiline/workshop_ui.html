@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zez's Workshop UI Recreation</title>
+
+    <script src="vuejs/vue.js"></script>
+    <script src="vuejs/vue-select.min.js"></script>
+    <link rel="stylesheet" href="vuejs/vue-select.min.css">
+    <script src="../VS Code Extension/overpy.js"></script>
+
+    <style>
+        :root {
+            --action-color: rgb(26, 174, 43);
+            --condition-color: rgb(197, 161, 16);
+            --action-color-muted: rgb(25, 111, 46);
+            --condition-color-muted: rgb(104, 85, 14);
+            --value-bg: black;
+            --separator-bar-color: rgb(62, 69, 81);
+            --label-background-color: rgb(50, 66, 96);
+            --dropdown-color: rgb(32, 82, 126);
+            --dropdown-bg-color: rgb(40, 54, 78);
+            --action-hover-color: white;
+            --edit-background-color: rgb(36, 46, 64);
+            --edit-buttons-bg-color: rgb(34, 32, 35);
+            --background-dim: rgba(0, 0, 0, 0.9);
+            --cancel-bg-color: rgb(53, 162, 231);
+            --ok-bg-color: rgb(223, 153, 49);
+            --text-color: rgb(199, 212, 223);
+            
+            --vs-dropdown-bg: var(--dropdown-bg-color);
+            --vs-dropdown-color: var(--text-color);
+            --vs-dropdown-option-color: var(--text-color);
+
+            --vs-search-input-color: var(--text-color);
+            --vs-search-input-placeholder-color: var(--text-color);
+            --vs-search-input-bg: var(--dropdown-color);
+            --vs-selected-bg: var(--dropdown-bg-color);
+            --vs-selected-color: var(--text-color);
+            --vs-controls-color: var(--text-color);
+            --vs-border-radius: 0px;
+            --vs-border-width: 0px;
+        }
+
+        body, textarea {
+            color: #CCCCCC;
+            background-color: #222222;
+            scrollbar-color: #CCCCCC #222222;
+            font-family: "Comic Sans MS";
+        }
+        
+        a {
+            color: lightblue;
+        }
+        .rule-title {
+            resize: none;
+            height: 17px;
+            width: 1000px;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-top: 10px;
+            white-space: pre;
+        }
+
+        .rule-content {
+            padding-left: 100px;
+        }
+
+        .rule-event {
+            width: 890px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+
+        .rule-event-name {
+            background-color: rgb(30, 68, 73);
+            display: inline-block;
+            width: 530px;
+        }
+
+        .rule-event-value {
+            display: inline-block;
+            width: 350px;
+        }
+
+        .conditions-header, .actions-header {
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--separator-bar-color);
+        }
+
+        .conditions-and-actions {
+            display: flex;
+        }
+
+        .conditions, .actions {
+            
+            width: 440px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .no-values-msg {
+            text-transform: uppercase;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .code-display-wrapper {
+            width: 100%;
+            background-color: var(--value-bg);
+            display: inline-block;
+            padding: 2px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            border: 1px solid transparent;
+        }
+        .code-display-wrapper:hover {
+            border-color: var(--action-hover-color);
+        }
+
+        .code-display {
+            word-break: break-word;
+        }
+
+        .action .code-display {
+            border-left: 3px solid var(--action-color);
+            padding: 5px;
+        }
+
+        .comment {
+            display:block;
+            width: 100%;
+            padding-top: 10px;
+            padding-left: 10px;
+            white-space: pre;
+        }
+
+        .condition .code-display {
+            border-left: 3px solid var(--condition-color);
+            padding: 5px;
+        }
+
+        .code-and-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        #ast-edit {
+            z-index: 9999;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: var(--background-dim);
+        }
+
+        #edit-title {
+            text-align: center;
+        }
+
+        #edit-comment {
+            resize: none;
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-top: 10px;
+            white-space: pre;
+            box-sizing: border-box;
+        }
+
+        #edit-background {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding-top: 50px;
+            background-color: var(--edit-background-color);
+            height: calc(100% - 200px);
+        }
+
+        #edit-content {
+            
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-bottom: 50px;
+        }
+
+        .argument-value-wrapper {
+            display: flex;
+        }
+
+        .argument {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--label-background-color);
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+            margin-right: 4px;
+        }
+
+        .value {
+            min-width: 600px;
+            display: inline-block;
+        }
+        
+        .edit-buttons {
+            width: 100%;
+            text-align: center;
+            background-color: var(--edit-buttons-bg-color);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .cancel-button {
+            background-color: var(--cancel-bg-color);
+            width: 130px;
+            height: 55px;
+            border-radius: 1px;
+            border: 1px solid transparent;
+        }
+
+        .ok-button {
+            background-color: var(--ok-bg-color);
+            width: 145px;
+            height: 55px;
+            border-radius: 1px;
+            border: 1px solid transparent;
+        }
+
+        button:hover {
+            border-color: white;
+        }
+                    
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <textarea id="custom-game-settings" v-model="customGameSettings"></textarea>
+        <div v-for="(rule, ruleIdx) in rules">
+            <textarea rows="1" wrap="off" class="rule-title">{{ rule.ruleAttributes.name }}</textarea>
+            <div class="rule-content">
+                <div class="rule-event">
+                    <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value">
+                        <v-select :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
+                        </v-select>
+                    </div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
+                    <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
+                    <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
+                    <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
+                </div>
+                <!--TODO: subroutines-->
+                <div class="conditions-and-actions">
+                    <div class="conditions">
+                        <div class="conditions-header">
+                            <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
+                            <div class="conditions-buttons"></div>
+                        </div>
+                        <div v-if="!rules[ruleIdx].ruleAttributes.conditions?.length" class="no-values-msg">{{ translate("noConditions", uiDisplayNames) }}</div>
+                        <div v-else>
+                            <div v-for="(condition, conditionIdx) in rules[ruleIdx].ruleAttributes.conditions" class="condition">
+                                <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
+                                <div class="code-and-checkbox">
+                                    <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
+                                        <div class="code-display">{{ displayAst(condition) }}</div>
+                                    </div>
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <div class="actions-header">
+                            <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rules[ruleIdx].children.length }})</span></div>
+                            <div class="actions-buttons"></div>
+                        </div>
+                        <div v-if="rules[ruleIdx].children.length === 0" class="no-values-msg">{{ translate("noActions", uiDisplayNames) }}</div>
+
+                        <div v-else v-for="(action, actionIdx) in rules[ruleIdx].children" class="action">
+                            <div class="comment" v-if="action.comment">{{ action.comment }}</div>
+                            <div class="code-and-checkbox">
+                                <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rules[ruleIdx].children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
+                                    <div class="code-display">{{ displayAst(action) }}</div>
+                                </div>
+                                <input type="checkbox" class="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="ast-edit" v-if="astToEdit">
+            <div id="edit-background">
+                <div id="edit-title">{{ astToEdit.name === "__compare__" ? translate("editCondition", uiDisplayNames) : translate("editAction", uiDisplayNames) }}</div>
+
+                <div id="edit-content">
+
+                    <!--<textarea rows="1" wrap="off" id="edit-comment">{{ astToEdit.comment }}</textarea>-->
+                    <div contenteditable="true" id="edit-comment">{{ astToEdit.comment }}</div>
+                    <function-display :ast="astToEdit" :depth="astToEdit.name === '__compare__' ? -1 : 0"></function-display>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button" v-on:click="cancelEdition()">Cancel</button>
+                    <button class="ok-button" v-on:click="validateEditedAst()">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="function-display-template">
+        <div>
+            <div class="argument-value-wrapper" v-if="!(ast.name === '__compare__' && ast.parent.name === '__rule__')">
+                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : ast.parent.name === "__array__" ? "["+astIdx+"]" : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+                <div class="value">
+                    <img src="img/array_add.png" class="array-add" v-if="ast.name === '__array__'"/>
+                    <img src="img/array_remove.png" class="array-remove" v-if="ast.parent.name === '__array__'"/>
+                    <div class="array-up-down" v-if="ast.parent.name === '__array__'">
+                        <img src="img/array_up.png" class="array-up"/>
+                        <img src="img/array_down.png" class="array-down"/>
+                    </div>
+                    <div v-if="ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)">
+                        <input type="number" v-model="ast.name">
+                    </div>
+                    <div v-else-if="ast.type === 'CustomStringLiteral'">
+                        <textarea rows="1" class="custom-string-textarea" v-model="ast.name">{{ ast.name }}</textarea>
+                    </div>
+                    <div v-else>
+                        <v-select :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
+                            
+                        </v-select>
+                    </div>
+                </div>
+            </div>
+            <function-display v-for="(arg, idx) in ast.args" :ast="arg" :ast-idx="idx" :depth="depth+1"></function-display>
+        </div>
+    </template>
+    
+    <script>
+        Vue.component('v-select', VueSelect.VueSelect);
+        Vue.component("function-display", {
+            props: ["ast", "astIdx", "depth"],
+            template: "#function-display-template",
+        })
+
+        var app = new Vue({
+            "el": "#app",
+            "data": {
+                "language": "en-US",
+                "decompilationLanguage": "en-US",
+                "compilationLanguage": "en-US",
+                "customGameSettings": null,
+                astToEdit: null,
+                astToEditIsCondition: null,
+                astToEditParent: null,
+                astToEditIndex: null,
+                "rules": [],
+                ruleAttributesDisplayNames: {
+                    "event": {
+                        "en-US": "Event",
+                    },
+                    "subroutineName": {
+                        "en-US": "Subroutine",
+                    },
+                    "eventPlayer": {
+                        "en-US": "Player",
+                    },
+                    "eventTeam": {
+                        "en-US": "Team",
+                    }
+                },
+                uiDisplayNames: {
+                    "rules": {
+                        "en-US": "Rules",
+                    },
+                    "conditions": {
+                        "en-US": "Conditions",
+                    },
+                    "actions": {
+                        "en-US": "Actions",
+                    },
+                    "noConditions": {
+                        "en-US": "No Conditions",
+                    },
+                    "noActions": {
+                        "en-US": "No Actions",
+                    },
+                    "editAction": {
+                        "en-US": "Edit Action",
+                    },
+                    "editCondition": {
+                        "en-US": "Edit Condition",
+                    },
+                    "action": {
+                        "en-US": "Action",
+                    }
+                },
+                eventKw,
+                eventTeamKw,
+                eventPlayerKw,
+                actionKw,
+                valueKw,
+                valueFuncKw,
+                stringKw,
+                constantValues,
+                astToString,
+                isTypeSuitable,
+                translateVarToWs,
+                translateSubroutineToWs,
+                escapeString,
+                functionNameToString,
+                globalVariables,
+                playerVariables,
+                subroutines,
+            },
+            "methods": {
+                error: function(str) {
+                    console.log(str);
+                    throw str;
+                },
+                translate: function(keyword, keywordObj) {
+                    if (!(keyword in keywordObj)) {
+                        throw new Error("Could not translate '"+keyword+"'");
+                    }
+                    if (this.language in keywordObj[keyword]) {
+                        return keywordObj[keyword][this.language];
+                    } else {
+                        return keywordObj[keyword]["en-US"];
+                    }
+                },
+                getDropdownOptionsForType: function(type) {
+                    if (type === "GlobalVariable") {
+                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                    } else if (type === "PlayerVariable") {
+                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                    } else if (type === "Subroutine") {
+                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                    }
+                    keywordObj = null
+                    if (type === "void") {
+                        keywordObj = this.actionKw;
+                    } else if (type in this.constantValues) {
+                        keywordObj = this.constantValues[type];
+                    } else if (type === "event") {
+                        keywordObj = this.eventKw;
+                    } else if (type === "eventPlayer") {
+                        keywordObj = this.eventPlayerKw;
+                    } else if (type === "eventTeam") {
+                        keywordObj = this.eventTeamKw;
+                    } else {
+                        keywordObj = this.valueFuncKw;
+                    }
+                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+                },
+                decompile: function(content) {
+                    resetGlobalVariables(this.decompilationLanguage);
+                    [customGameSettings, rules] = decompileAllRulesToAst(content);
+                    console.log(rules);
+                    this.customGameSettings = customGameSettings;
+                    //rules = rules.slice(0, 2);
+                    for (var rule of rules) {
+                        if ("conditions" in rule.ruleAttributes) {
+                            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                                rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
+                                rule.ruleAttributes.conditions[i].parent = rule;
+                            }
+                        }
+                        for (var i = 0; i < rule.children.length; i++) {
+                            rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
+                            rule.children[i].parent = rule;
+                        }
+                    }
+                    this.rules = rules;
+                    this.globalVariables = globalVariables;
+                    this.playerVariables = playerVariables;
+                    this.subroutines = subroutines;
+                    //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
+                    //Plus, we need var names to be in order for the UI
+                    for (var i = 0; i < 127; i++) {
+                        if (!this.globalVariables.map(x => x.index).includes(i)) {
+                            this.globalVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.playerVariables.map(x => x.index).includes(i)) {
+                            this.playerVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.subroutines.map(x => x.index).includes(i)) {
+                            this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
+                        }
+                    }
+                    this.globalVariables.sort((a,b) => (a.index - b.index))
+                    this.playerVariables.sort((a,b) => (a.index - b.index))
+                    this.subroutines.sort((a,b) => (a.index - b.index))
+                },
+                adjustAstForWorkshop: function(ast) {
+                    //We cannot use overpy functions because they also do a bunch of stuff such as optimization
+                    //This function does stuff like replacing __equals__(1,2) by __compare__(1, ==, 2)
+                    const comparisonFuncToOpMapping = {
+                        "__equals__": "==",
+                        "__inequals__": "!=",
+                        "__lessThanOrEquals__": "<=",
+                        "__greaterThanOrEquals__": ">=",
+                        "__lessThan__": "<",
+                        "__greaterThan__": ">",
+                    }
+                    if (ast.name in comparisonFuncToOpMapping) {
+                        return new Ast("__compare__", [this.adjustAstForWorkshop(ast.args[0]), new Ast(comparisonFuncToOpMapping[ast.name], [], [], "__Operator__"), this.adjustAstForWorkshop(ast.args[1])]);
+                    } else if (ast.name === "__assignTo__" || ast.name === "__modifyVar__") {
+
+                        var newName = ast.name === "__assignTo__" ? "__set" : "__modify";
+                        if (ast.args[0].name === "__globalVar__") {
+                            //A = 3 -> __setGlobalVariable__(A, 3)
+                            newName += "GlobalVariable__";
+                            ast.args = [ast.args[0].args[0]].concat(ast.args.slice(1));
+
+                        } else if (ast.args[0].name === "__playerVar__") {
+                            //eventPlayer.A = 3 -> __setPlayerVariable__(eventPlayer, A, 3)
+                            newName += "PlayerVariable__";
+                            ast.args = [ast.args[0].args[0], ast.args[0].args[1]].concat(ast.args.slice(1));
+
+                        } else if (ast.args[0].name === "__valueInArray__") {
+                            if (ast.args[0].args[0].name === "__globalVar__") {
+                                //A[0] = 3 -> __setGlobalVariableAtIndex__(A, 0, 3)
+                                newName += "GlobalVariableAtIndex__";
+                                ast.args = [ast.args[0].args[0].args[0], ast.args[0].args[1]].concat(ast.args.slice(1));
+
+                            } else if (ast.args[0].args[0].name === "__playerVar__") {
+                                //eventPlayer.A[0] = 3 -> __setPlayerVariableAtIndex__(eventPlayer, A, 0, 3)
+                                newName += "PlayerVariableAtIndex__";
+                                ast.args = [ast.args[0].args[0].args[0], ast.args[0].args[0].args[1], ast.args[0].args[1]].concat(ast.args.slice(1));
+                            } else {
+                                this.error("Cannot modify or assign to "+this.functionNameToString(ast.args[0].args[0]))
+                            }
+                        } else {
+                            this.error("Cannot modify or assign to "+this.functionNameToString(ast.args[0]))
+                        }
+                        ast.name = newName;
+                    } else if (ast.name === "__negate__") {
+                        ast.args[0].args[0].name = ""+(-ast.args[0].args[0].name);
+                        ast.args[0].args[0].numValue = -ast.args[0].args[0].numValue;
+                        ast = ast.args[0];
+                    } else if (ast.type === "TeamLiteral") {
+                        return new Ast("__team__", [ast]);
+                    } else if (ast.name === "__customString__") {
+                        //add potentially missing arguments
+                        for (var i = 0; i < 4; i++ ) {
+                            if (ast.args.length <= i) {
+                                ast.args.push(new Ast("__number__"))
+                                this.rebuildAst(ast.args[i]);
+                            }
+                        }
+                        console.log(ast);
+                    }
+                    for (var i = 0; i < ast.args.length; i++) {
+                        ast.args[i] = this.adjustAstForWorkshop(ast.args[i]);
+                        ast.args[i].parent = ast;
+                    }
+                    return ast;
+                },
+                displayAst: function(ast) {
+                    var result = "";
+                    if (ast.name === "__compare__" && ast.parent.name === "__rule__") {
+                        return ast.args.map(x => this.displayAst(x)).join(" ")
+                    } else if (ast.type === "GlobalVariable") {
+                        result += this.translateVarToWs(ast.name, true);
+                    } else if (ast.type === "PlayerVariable") {
+                        result += this.translateVarToWs(ast.name, false);
+                    } else if (ast.type === "Subroutine") {
+                        result += this.translateSubroutineToWs(ast.name);
+                    } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
+                        result += this.escapeString(ast.name, true);
+                    } else if (ast.type === "LocalizedStringLiteral") {
+                        result += this.escapeString(tows(ast.name, this.stringKw), true);
+                    } else if (ast.type === "void") {
+                        result += this.translate(ast.name, this.actionKw);
+                    } else if (ast.name === "__number__") {
+                        return ast.args[0].name+"";
+                    } else if (this.isTypeSuitable(["Object", "Array"], ast.type)){
+                        result += this.translate(ast.name, this.valueKw);
+                    } else if (ast.type in this.constantValues) {
+                        if (!(ast.name in this.constantValues[ast.type])) {
+                            this.error("Unknown "+ast.type.replace("Literal", "").toLowerCase()+" '"+ast.name+"'");
+                        }
+                        result += this.translate(ast.name, this.constantValues[ast.type]);
+                    } else {
+                        this.error("Unknown type '"+ast.type+"' of '"+ast.name+"'");
+                    }
+                    if (ast.args.length > 0) {
+                        result += "(" + ast.args.map(x => this.displayAst(x)).join(", ") + ")";
+                    }
+                    return result;
+                },
+                calculateActionPadding: function(action, actionIdx, ruleChildren) {
+                    var indent = 0;
+                    if (actionIdx === 0) {
+                        indent = 0;
+                    } else {
+                        if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(ruleChildren[actionIdx-1].name)) {
+                            indent = ruleChildren[actionIdx-1].indent + 1;
+                        } else {
+                            indent = ruleChildren[actionIdx-1].indent;
+                        }
+                        if (action.name === "__end__" || action.name === "__else__") {
+                            indent--;
+                        }
+                    }
+                    if (indent < 0) {
+                        indent = 0;
+                    }
+                    if (indent > 5) {
+                        indent = 5;
+                    }
+                    action.indent = indent;
+                    return indent*20+"px";
+                },
+                editActionOrCondition: function(ast, isCondition, index) {
+                    this.astToEdit = structuredClone(ast);
+                    this.astToEditParent = ast.parent;
+                    this.astToEditIsCondition = isCondition;
+                    this.astToEditIndex = index;
+                    console.log(ast);
+                },
+                cancelEdition: function() {
+                    this.astToEdit = null;
+                },
+                validateEditedAst: function() {
+                    console.log(this.astToEdit);
+                    console.log(this.astToEditParent);
+                    console.log(this.astToEditIsCondition);
+                    console.log(this.astToEditIndex);
+                    if (this.astToEditIsCondition) {
+                        this.astToEditParent.ruleAttributes.conditions[this.astToEditIndex] = this.astToEdit;
+                    } else {
+                        this.astToEditParent.children[this.astToEditIndex] = this.astToEdit;
+                    }
+                    this.astToEdit.comment = document.getElementById("edit-comment").innerText;
+                    this.astToEdit.parent = this.astToEditParent;
+                    this.astToEdit = null;
+                },
+                rebuildAst: function(ast) {
+                    console.log("Rebuilding AST: "+ast.name);
+                    //When selecting a new function, recreate its arguments using defaults
+                    if (ast.type in this.constantValues || ["FloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine"].includes(ast.type)) {
+                        return; //no args
+                    }
+                    ast.args = [];
+                    keywordObj = (ast.type === "void" ? this.actionKw : this.valueFuncKw);
+                    if (keywordObj[ast.name].args !== null) {
+                        for (var arg of keywordObj[ast.name].args) {
+                            var astType = arg.type;
+                            if (astType in this.constantValues) {
+                                var astName = Object.keys(constantValues[astType]);
+                            } else if (astType === "FloatLiteral") {
+                                var astName = "0";
+                            } else if (astType === "GlobalVariable") {
+                                var astName = this.globalVariables[0].name;
+                            } else if (astType === "PlayerVariable") {
+                                var astName = this.playerVariables[0].name;
+                            } else if (astType === "Subroutine") {
+                                var astName = this.subroutines[0].name;
+                            } else {
+                                var astName = "__number__";
+                            }
+                            var astArg = new Ast(astName, [], [], astType);
+                            astArg.parent = ast;
+                            this.rebuildAst(astArg);
+                            ast.args.push(astArg);
+
+                        }
+                    }
+                },
+                rebuildRuleAttributes: function(rule) {
+                    if (rule.ruleAttributes.event === "global") {
+                        delete rule.ruleAttributes.eventTeam;
+                        delete rule.ruleAttributes.eventPlayer;
+                        delete rule.ruleAttributes.subroutineName;
+                    } else if (rule.ruleAttributes.event === "__subroutine__") {
+                        delete rule.ruleAttributes.eventTeam;
+                        delete rule.ruleAttributes.eventPlayer;
+                        this.$set(rule.ruleAttributes, "subroutineName", this.subroutines[0].name);
+                    } else {
+                        delete rule.ruleAttributes.subroutineName;
+                        if (!rule.ruleAttributes.eventTeam) {
+                            this.$set(rule.ruleAttributes, "eventTeam", "all");
+                        }
+                        if (!rule.ruleAttributes.eventPlayer) {
+                            this.$set(rule.ruleAttributes, "eventPlayer", "all");
+                        }
+                    }
+                }
+            }
+        })
+
+        app.decompile(`
+settings
+{
+	lobby
+	{
+		Max Team 1 Players: 0
+		Max Team 2 Players: 1
+	}
+
+	modes
+	{
+		Escort
+		{
+			enabled maps
+			{
+				Rialto
+			}
+		}
+
+		General
+		{
+			Game Mode Start: Manual
+			Hero Limit: Off
+		}
+	}
+
+	heroes
+	{
+		General
+		{
+			McCree
+			{
+				Ammunition Clip Size Scalar: 500%
+				Damage Dealt: 200%
+				Movement Speed: 150%
+				No Ammunition Requirement: On
+			}
+		}
+	}
+}
+
+variables
+{
+	global:
+		0: timer
+		1: challenge
+		2: nbPlayersKilled
+		3: additionalTime
+		4: timeTarget
+}
+
+subroutines
+{
+	0: countdownTimer
+	1: nextChallenge
+}
+
+rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs out!")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+    actions {
+        
+		Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
+			Visible Always);
+    }
+}
+rule("player got kill")
+{
+	event
+	{
+		Player Earned Elimination;
+		All;
+		All;
+	}
+
+	conditions
+	{
+"test condition comment"
+		Attacker == Host Player;
+	}
+
+	actions
+	{
+        if (Global.nbPlayersKilled == custom string("ow{0}", 0, 3));
+        if (Array(3,6,1) == -1);
+		Global.nbPlayersKilled += 1;
+		Global.nbPlayersKilled -= 5.6;
+        end;
+        end;
+	}
+}
+
+
+rule("timer")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.timer = 5;
+	}
+}
+
+rule("reset time")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Interact) == True;
+	}
+
+	actions
+	{
+		Global.timer = 0;
+	}
+}
+
+rule("countdown timer")
+{
+	event
+	{
+		Subroutine;
+		countdownTimer;
+	}
+
+	actions
+	{
+"test comment <b>bold</b>"
+		Set Status(Host Player, Null, Rooted, 9999);
+		Set Ability 1 Enabled(Host Player, False);
+		Set Ability 2 Enabled(Host Player, False);
+		Set Ultimate Ability Enabled(Host Player, Hero Of(Host Player) == Hero(Widowmaker));
+		Set Primary Fire Enabled(Host Player, False);
+		Set Secondary Fire Enabled(Host Player, False);
+		Global.timeTarget = Global.timer + Global.additionalTime;
+		Chase Global Variable Over Time(timer, Global.timeTarget, 2, None);
+		Small Message(All Players(All Teams), 3);
+		Wait(1, Ignore Condition);
+        "test comment\nwith multiple lines"
+		Small Message(All Players(All Teams), 2);
+		Wait(1, Ignore Condition);
+		Small Message(All Players(All Teams), 1);
+		Wait(1, Ignore Condition);
+		Stop Chasing Global Variable(timer);
+		Chase Global Variable At Rate(timer, 0, 1, None);
+		Small Message(All Players(All Teams), Custom String("Go!"));
+		Clear Status(Host Player, Rooted);
+	}
+}
+
+rule("challenge finished")
+{
+	event
+	{
+		Subroutine;
+		nextChallenge;
+	}
+
+	actions
+	{
+		Destroy All Effects;
+		Destroy All Dummy Bots;
+		Stop Chasing Global Variable(timer);
+		Global.nbPlayersKilled = 0;
+		Global.challenge += 1;
+	}
+}
+
+rule("player spawned in")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Has Spawned(Host Player) == True;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Global.challenge = 1;
+		Set Objective Description(All Players(All Teams), Custom String("Challenge {0}", Global.challenge),
+			Visible To Sort Order and String);
+		Global.nbPlayersKilled = 0;
+	}
+}
+
+rule("challenge 1")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 1;
+	}
+
+	actions
+	{
+		Teleport(Host Player, Vector(116.110, -1.220, -21));
+		Set Facing(Host Player, Vector(1, 0, 0), To World);
+		Big Message(Host Player, Custom String("Get to the vortex!"));
+		Global.additionalTime = 5;
+		Start Forcing Player To Be Hero(Host Player, Hero(Lúcio));
+		Create Effect(All Players(All Teams), Bad Aura, Green, Vector(144, 9, -21), 2, Visible To Position and Radius);
+		Call Subroutine(countdownTimer);
+		Set Ability 1 Enabled(Host Player, True);
+		Set Ability 2 Enabled(Host Player, True);
+	}
+}
+
+rule("challenge 1 finished")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 1;
+		Distance Between(Position Of(Host Player), Vector(144, 9, -21)) < 2;
+	}
+
+	actions
+	{
+		Call Subroutine(nextChallenge);
+	}
+}
+
+rule("challenge 2")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 2;
+	}
+
+	actions
+	{
+		Teleport(Host Player, Vector(96.450, -1.410, -21));
+		Set Facing(Host Player, Vector(-1, 0, 0), To World);
+		Big Message(Host Player, Custom String("Hook em all!"));
+		Start Forcing Player To Be Hero(Host Player, Hero(Roadhog));
+		Global.additionalTime = 10;
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -23.800), Vector(1, 0, 0));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -21.060), Vector(1, 0, 0));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -18.340), Vector(1, 0, 0));
+		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.050, -1.400, -19.820), Vector(1, 0, 0));
+		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.050, -1.400, -22.720), Vector(1, 0, 0));
+		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(84.730, -1.360, -21), Vector(1, 0, 0));
+		Call Subroutine(countdownTimer);
+		Set Ability 1 Enabled(Host Player, True);
+	}
+}
+
+rule("challenge 2 dummies - rein")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Global.challenge == 2;
+	}
+
+	actions
+	{
+		Start Holding Button(Event Player, Secondary Fire);
+		Wait(2, Ignore Condition);
+		Stop Holding Button(Event Player, Secondary Fire);
+		Wait(2, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("challenge 2 dummies - zarya")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Zarya;
+	}
+
+	conditions
+	{
+		Global.challenge == 2;
+	}
+
+	actions
+	{
+		Wait(2, Ignore Condition);
+		Press Button(Event Player, Ability 1);
+		Wait(2, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("challenge 2 finished")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 2;
+		Global.nbPlayersKilled == 6;
+	}
+
+	actions
+	{
+		Call Subroutine(nextChallenge);
+	}
+}
+
+rule("challenge 3")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 3;
+	}
+
+	actions
+	{
+		Teleport(Host Player, Vector(20.510, 1.610, -68.870));
+		Set Facing(Host Player, Vector(-1, 0, 0), To World);
+		Big Message(Host Player, Custom String("Kill em all (hold rclick)!"));
+		Start Forcing Player To Be Hero(Host Player, Hero(McCree));
+		Global.additionalTime = 10;
+		Call Subroutine(countdownTimer);
+		Set Secondary Fire Enabled(Host Player, True);
+		Set Primary Fire Enabled(Host Player, True);
+		Set Ability 1 Enabled(Host Player, True);
+		Set Ability 2 Enabled(Host Player, True);
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -69.480), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -72.610), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -54.410), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(14, -1.250, -53), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(31.370, -0.250, -58.230), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(33.970, 6.750, -66.660), Vector(0, 0, 0));
+	}
+}
+
+rule("challenge 3 stun")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 3;
+		Hero Of(Host Player) == Hero(McCree);
+	}
+
+	actions
+	{
+		Set Status(Host Player, Null, Knocked Down, 0.016);
+		Wait(0.016, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("challenge 3 finished")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 3;
+		Global.nbPlayersKilled == 6;
+	}
+
+	actions
+	{
+		Call Subroutine(nextChallenge);
+	}
+}
+
+rule("challenge 4")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 4;
+	}
+
+	actions
+	{
+		Teleport(Host Player, Vector(-20, -1, -47.460));
+		Set Facing(Host Player, Vector(0, 0, -1), To World);
+		Big Message(Host Player, Custom String("Headshot Mondatta!"));
+		Start Forcing Player To Be Hero(Host Player, Hero(Widowmaker));
+		Global.additionalTime = 12;
+		Call Subroutine(countdownTimer);
+		Set Ability 1 Enabled(Host Player, True);
+		Set Primary Fire Enabled(Host Player, True);
+		Set Secondary Fire Enabled(Host Player, True);
+		Create Dummy Bot(Hero(Zenyatta), Team 1, -1, Vector(-57, 2.800, -131.510), Vector(0, 0, 1));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57.050, 2.800, -128.620), Vector(0, 0, 1));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-59.120, 2.800, -131.500), Vector(-1, 0, 0));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57, 2.800, -134.540), Vector(0, 0, -1));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-55.110, 2.800, -131.510), Vector(1, 0, 0));
+	}
+}
+
+rule("challenge 4 reins")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Global.challenge == 4;
+	}
+
+	actions
+	{
+		Start Holding Button(Event Player, Secondary Fire);
+	}
+}
+
+rule("challenge 4 end")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.challenge == 4;
+		Global.nbPlayersKilled == 1;
+	}
+
+	actions
+	{
+		Declare Team Victory(Team 2);
+	}
+}
+
+rule("lost")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.timer == 0;
+	}
+
+	actions
+	{
+		Declare Team Victory(Team 1);
+	}
+}
+`);
+    </script>
+</body>
+</html>

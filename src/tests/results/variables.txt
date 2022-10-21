@@ -1,0 +1,24 @@
+variables {
+    global:
+        0: A
+        1: foo
+        2: bar
+        4: E
+    player:
+        0: A
+        1: foo
+        2: bar
+        4: E
+}
+rule ("variables") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Set Global Variable(foo, Add(Add(Global.bar, Global.A), Global.E));
+        Set Player Variable(Event Player, foo, Add(Add((Event Player).bar, (Event Player).A), (Event Player).E));
+    }
+}
+
