@@ -7,7 +7,7 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "6.12.10",
+    "version": "6.12.11",
     "readme": "README.md",
     "engines": {
         "vscode": "^1.36.0"

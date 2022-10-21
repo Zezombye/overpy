@@ -85,10 +85,7 @@ function decompileRuleToAst(content) {
 		} else {
 			if (eventInst.length > 1) {
 				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-				if (topy(eventInst[1], eventTeamKw) !== "all") {
-					ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
-				}
-
+				ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
 				ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
 			}
 		}

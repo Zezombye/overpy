@@ -1116,17 +1116,6 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
-    "__team__": {
-        "args": [
-            {
-                "name": "TEAM",
-                "type": "TeamLiteral",
-                "default": "ALL",
-            }
-        ],
-        "isConstant": true,
-        return: "Team",
-    }
 }
 /* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
@@ -22296,7 +22285,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        "return": "FloatLiteral",
+        "return": "float",
         "guid": "00000000AC38",
         "en-US": "Number",
         "es-MX": "Número",
@@ -23378,6 +23367,22 @@ var valueFuncKw =
         "ja-JP": "減算",
         "pt-BR": "Subtrair",
         "zh-CN": "减"
+    },
+    "__team__": {
+        "args": [
+            {
+                "name": "TEAM",
+                "type": "TeamLiteral",
+                "default": "ALL",
+                "description": "Team",
+                "descriptionLocalized": {
+                    "en-US": "Team",
+                }
+            }
+        ],
+        "isConstant": true,
+        "en-US": "Team",
+        return: "Team",
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
@@ -48997,10 +49002,7 @@ function decompileRuleToAst(content) {
 		} else {
 			if (eventInst.length > 1) {
 				//There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-				if (topy(eventInst[1], eventTeamKw) !== "all") {
-					ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
-				}
-
+				ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
 				ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
 			}
 		}
@@ -49467,7 +49469,7 @@ function astRulesToOpy(rules) {
             if (rule.ruleAttributes.event !== "global") {
                 decompiledRuleAttributes += tabLevel(nbTabs)+"@Event "+rule.ruleAttributes.event+"\n";
             }
-            if (rule.ruleAttributes.eventTeam) {
+            if (rule.ruleAttributes.eventTeam && rule.ruleAttributes.eventTeam !== "all") {
                 decompiledRuleAttributes += tabLevel(nbTabs)+"@Team "+rule.ruleAttributes.eventTeam+"\n";
             }
             if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
@@ -50319,6 +50321,8 @@ function decompileAllRulesToAst(content) {
 	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
 	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
 	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+
+	console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
 
@@ -50619,7 +50623,7 @@ function decompileSubroutines(content) {
 		if (content[i].split(":").length % 2 !== 0) {
 			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
 		}
-		var index = content[i].split(":")[0].trim();
+		var index = +content[i].split(":")[0].trim();
 		var subName = content[i].split(":")[1].trim();
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");

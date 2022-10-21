@@ -5750,7 +5750,7 @@ var valueFuncKw =
             }
         ],
         "isConstant": true,
-        "return": "FloatLiteral",
+        "return": "float",
         "guid": "00000000AC38",
         "en-US": "Number",
         "es-MX": "Número",
@@ -6832,6 +6832,22 @@ var valueFuncKw =
         "ja-JP": "減算",
         "pt-BR": "Subtrair",
         "zh-CN": "减"
+    },
+    "__team__": {
+        "args": [
+            {
+                "name": "TEAM",
+                "type": "TeamLiteral",
+                "default": "ALL",
+                "description": "Team",
+                "descriptionLocalized": {
+                    "en-US": "Team",
+                }
+            }
+        ],
+        "isConstant": true,
+        "en-US": "Team",
+        return: "Team",
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",

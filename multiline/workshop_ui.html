@@ -20,9 +20,27 @@
             --separator-bar-color: rgb(62, 69, 81);
             --label-background-color: rgb(50, 66, 96);
             --dropdown-color: rgb(32, 82, 126);
+            --dropdown-bg-color: rgb(40, 54, 78);
             --action-hover-color: white;
             --edit-background-color: rgb(36, 46, 64);
+            --edit-buttons-bg-color: rgb(34, 32, 35);
             --background-dim: rgba(0, 0, 0, 0.9);
+            --cancel-bg-color: rgb(53, 162, 231);
+            --ok-bg-color: rgb(223, 153, 49);
+            --text-color: rgb(199, 212, 223);
+            
+            --vs-dropdown-bg: var(--dropdown-bg-color);
+            --vs-dropdown-color: var(--text-color);
+            --vs-dropdown-option-color: var(--text-color);
+
+            --vs-search-input-color: var(--text-color);
+            --vs-search-input-placeholder-color: var(--text-color);
+            --vs-search-input-bg: var(--dropdown-color);
+            --vs-selected-bg: var(--dropdown-bg-color);
+            --vs-selected-color: var(--text-color);
+            --vs-controls-color: var(--text-color);
+            --vs-border-radius: 0px;
+            --vs-border-width: 0px;
         }
 
         body, textarea {
@@ -35,7 +53,7 @@
         a {
             color: lightblue;
         }
-        .rule-title, #edit-comment {
+        .rule-title {
             resize: none;
             height: 17px;
             width: 1000px;
@@ -43,6 +61,7 @@
             border-radius: 10px;
             padding-left: 10px;
             margin-top: 10px;
+            white-space: pre;
         }
 
         .rule-content {
@@ -114,6 +133,7 @@
             width: 100%;
             padding-top: 10px;
             padding-left: 10px;
+            white-space: pre;
         }
 
         .condition .code-display {
@@ -127,8 +147,8 @@
         }
 
         #ast-edit {
-            z-index: 1;
-            position: absolute;
+            z-index: 9999;
+            position: fixed;
             top: 0px;
             left: 0px;
             width: 100%;
@@ -136,6 +156,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             background-color: var(--background-dim);
         }
 
@@ -143,15 +164,30 @@
             text-align: center;
         }
 
+        #edit-comment {
+            resize: none;
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-top: 10px;
+            white-space: pre;
+            box-sizing: border-box;
+        }
+
         #edit-background {
             width: 100%;
-            padding-left: 300px;
-            padding-right: 300px;
-            background-color: var(--edit-background-color);
-            padding-top: 50px;
-            padding-bottom: 50px;
             margin-top: 50px;
             margin-bottom: 50px;
+        }
+
+        #edit-content {
+            
+            background-color: var(--edit-background-color);
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         .argument-value-wrapper {
@@ -175,11 +211,35 @@
             min-width: 600px;
             display: inline-block;
         }
-
-        .line-break {
-            width: 100%;
-        }
         
+        .edit-buttons {
+            width: 100%;
+            text-align: center;
+            background-color: var(--edit-buttons-bg-color);
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .cancel-button {
+            background-color: var(--cancel-bg-color);
+            width: 130px;
+            height: 55px;
+            border-radius: 1px;
+            border: 1px solid transparent;
+        }
+
+        .ok-button {
+            background-color: var(--ok-bg-color);
+            width: 145px;
+            height: 55px;
+            border-radius: 1px;
+            border: 1px solid transparent;
+        }
+
+        button:hover {
+            border-color: white;
+        }
+                    
     </style>
 </head>
 <body>
@@ -191,15 +251,22 @@
             <div class="rule-content">
                 <div class="rule-event">
                     <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.event"></v-select></div>
+                    <div class="rule-event-value">
+                        <v-select :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
+                        </v-select>
+                    </div>
                 </div>
                 <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
                     <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.eventPlayer"></v-select></div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
                 </div>
                 <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
                     <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rules[ruleIdx].ruleAttributes.eventTeam"></v-select></div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
+                </div>
+                <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
+                    <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNames) }}</div>
+                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
                 </div>
                 <!--TODO: subroutines-->
                 <div class="conditions-and-actions">
@@ -213,7 +280,7 @@
                             <div v-for="(condition, conditionIdx) in rules[ruleIdx].ruleAttributes.conditions" class="condition">
                                 <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
                                 <div class="code-and-checkbox">
-                                    <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition)">
+                                    <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
                                         <div class="code-display">{{ displayAst(condition) }}</div>
                                     </div>
                                     <input type="checkbox" class="checkbox">
@@ -227,16 +294,14 @@
                             <div class="actions-buttons"></div>
                         </div>
                         <div v-if="rules[ruleIdx].children.length === 0" class="no-values-msg">{{ translate("noActions", uiDisplayNames) }}</div>
-                        <div v-else>
 
-                            <div v-for="(action, actionIdx) in rules[ruleIdx].children" class="action">
-                                <div class="comment" v-if="action.comment">{{ action.comment }}</div>
-                                <div class="code-and-checkbox">
-                                    <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rules[ruleIdx].children)}" v-on:click="editActionOrCondition(action)">
-                                        <div class="code-display">{{ displayAst(action) }}</div>
-                                    </div>
-                                    <input type="checkbox" class="checkbox">
+                        <div v-else v-for="(action, actionIdx) in rules[ruleIdx].children" class="action">
+                            <div class="comment" v-if="action.comment">{{ action.comment }}</div>
+                            <div class="code-and-checkbox">
+                                <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rules[ruleIdx].children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
+                                    <div class="code-display">{{ displayAst(action) }}</div>
                                 </div>
+                                <input type="checkbox" class="checkbox">
                             </div>
                         </div>
                     </div>
@@ -246,24 +311,37 @@
         </div>
         <div id="ast-edit" v-if="astToEdit">
             <div id="edit-background">
-                <div id="edit-title">{{ astToEdit.name === "__equals__" ? translate("editCondition", uiDisplayNames) : translate("editAction", uiDisplayNames) }}</div>
 
-                <textarea rows="1" wrap="off" id="edit-comment">{{ astToEdit.comment }}</textarea>
-                <function-display :ast="astToEdit" :depth="0"></function-display>
+                <div id="edit-content">
+                    <div id="edit-title">{{ astToEdit.name === "__compare__" ? translate("editCondition", uiDisplayNames) : translate("editAction", uiDisplayNames) }}</div>
+
+                    <!--<textarea rows="1" wrap="off" id="edit-comment">{{ astToEdit.comment }}</textarea>-->
+                    <div contenteditable="true" id="edit-comment">{{ astToEdit.comment }}</div>
+                    <function-display :ast="astToEdit" :depth="astToEdit.name === '__compare__' ? -1 : 0"></function-display>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button" v-on:click="cancelEdition()">Cancel</button>
+                    <button class="ok-button" v-on:click="validateEditedAst()">Ok</button>
+                </div>
             </div>
         </div>
     </div>
 
     <template id="function-display-template">
         <div>
-            <div class="argument-value-wrapper">
-                <div class="argument" :style="{'margin-left': (depth*20)+'px'}" v-if="!(ast.name === '__equals__' && ast.parent.name === '__rule__')">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" ? $root.actionKw[ast.parent.name].args[astIdx].name : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+            <div class="argument-value-wrapper" v-if="!(ast.name === '__compare__' && ast.parent.name === '__rule__')">
+                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
                 <div class="value">
                     <div v-if="ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)">
                         <input type="number" v-model="ast.name">
                     </div>
+                    <div v-else-if="ast.type === 'CustomStringLiteral'">
+                        <textarea rows="1" class="custom-string-textarea" v-model="ast.name">{{ ast.name }}</textarea>
+                    </div>
                     <div v-else>
-                        <v-select :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name"></v-select>
+                        <v-select :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
+                            
+                        </v-select>
                     </div>
                 </div>
             </div>
@@ -286,25 +364,10 @@
                 "compilationLanguage": "en-US",
                 "customGameSettings": null,
                 astToEdit: null,
-                "rules": [
-                    {
-                        ruleAttributes: {
-                            "name": "Rule title 1",
-                            "event": "global",
-                            "conditions": [],
-                        },
-                        "children": [],
-                    },{
-                        ruleAttributes: {
-                            "name": "Rule title 2",
-                            "event": "eachPlayer",
-                            "eventTeam": "1",
-                            "eventPlayer": "ana",
-                            "conditions": [],
-                        },
-                        "children": [],
-                    }
-                ],
+                astToEditIsCondition: null,
+                astToEditParent: null,
+                astToEditIndex: null,
+                "rules": [],
                 ruleAttributesDisplayNames: {
                     "event": {
                         "en-US": "Event",
@@ -380,11 +443,11 @@
                 },
                 getDropdownOptionsForType: function(type) {
                     if (type === "GlobalVariable") {
-                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
                     } else if (type === "PlayerVariable") {
-                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
                     } else if (type === "Subroutine") {
-                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => x.name);
+                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
                     }
                     keywordObj = null
                     if (type === "void") {
@@ -400,14 +463,14 @@
                     } else {
                         keywordObj = this.valueFuncKw;
                     }
-                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1).map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
                 },
                 decompile: function(content) {
                     resetGlobalVariables(this.decompilationLanguage);
                     [customGameSettings, rules] = decompileAllRulesToAst(content);
                     console.log(rules);
                     this.customGameSettings = customGameSettings;
-                    rules = rules.slice(0, 2);
+                    //rules = rules.slice(0, 2);
                     for (var rule of rules) {
                         if ("conditions" in rule.ruleAttributes) {
                             for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
@@ -424,6 +487,22 @@
                     this.globalVariables = globalVariables;
                     this.playerVariables = playerVariables;
                     this.subroutines = subroutines;
+                    //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
+                    //Plus, we need var names to be in order for the UI
+                    for (var i = 0; i < 127; i++) {
+                        if (!this.globalVariables.map(x => x.index).includes(i)) {
+                            this.globalVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.playerVariables.map(x => x.index).includes(i)) {
+                            this.playerVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.subroutines.map(x => x.index).includes(i)) {
+                            this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
+                        }
+                    }
+                    this.globalVariables.sort((a,b) => (a.index - b.index))
+                    this.playerVariables.sort((a,b) => (a.index - b.index))
+                    this.subroutines.sort((a,b) => (a.index - b.index))
                 },
                 adjustAstForWorkshop: function(ast) {
                     //We cannot use overpy functions because they also do a bunch of stuff such as optimization
@@ -468,6 +547,12 @@
                             this.error("Cannot modify or assign to "+this.functionNameToString(ast.args[0]))
                         }
                         ast.name = newName;
+                    } else if (ast.name === "__negate__") {
+                        ast.args[0].args[0].name = ""+(-ast.args[0].args[0].name);
+                        ast.args[0].args[0].numValue = -ast.args[0].args[0].numValue;
+                        ast = ast.args[0];
+                    } else if (ast.type === "TeamLiteral") {
+                        return new Ast("__team__", [ast]);
                     }
                     for (var i = 0; i < ast.args.length; i++) {
                         ast.args[i] = this.adjustAstForWorkshop(ast.args[i]);
@@ -531,9 +616,80 @@
                     action.indent = indent;
                     return indent*20+"px";
                 },
-                editActionOrCondition: function(ast) {
-                    this.astToEdit = ast;
+                editActionOrCondition: function(ast, isCondition, index) {
+                    this.astToEdit = structuredClone(ast);
+                    this.astToEditParent = ast.parent;
+                    this.astToEditIsCondition = isCondition;
+                    this.astToEditIndex = index;
                     console.log(ast);
+                },
+                cancelEdition: function() {
+                    this.astToEdit = null;
+                },
+                validateEditedAst: function() {
+                    console.log(this.astToEdit);
+                    console.log(this.astToEditParent);
+                    console.log(this.astToEditIsCondition);
+                    console.log(this.astToEditIndex);
+                    if (this.astToEditIsCondition) {
+                        this.astToEditParent.ruleAttributes.conditions[this.astToEditIndex] = this.astToEdit;
+                    } else {
+                        this.astToEditParent.children[this.astToEditIndex] = this.astToEdit;
+                    }
+                    this.astToEdit.comment = document.getElementById("edit-comment").innerText;
+                    this.astToEdit.parent = this.astToEditParent;
+                    this.astToEdit = null;
+                },
+                rebuildAst: function(ast) {
+                    console.log("Rebuilding AST: "+ast.name);
+                    //When selecting a new function, recreate its arguments using defaults
+                    if (ast.type in this.constantValues || ["FloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine"].includes(ast.type)) {
+                        return; //no args
+                    }
+                    ast.args = [];
+                    keywordObj = (ast.type === "void" ? this.actionKw : this.valueFuncKw);
+                    if (keywordObj[ast.name].args !== null) {
+                        for (var arg of keywordObj[ast.name].args) {
+                            var astType = arg.type;
+                            if (astType in this.constantValues) {
+                                var astName = Object.keys(constantValues[astType]);
+                            } else if (astType === "FloatLiteral") {
+                                var astName = "0";
+                            } else if (astType === "GlobalVariable") {
+                                var astName = this.globalVariables[0].name;
+                            } else if (astType === "PlayerVariable") {
+                                var astName = this.playerVariables[0].name;
+                            } else if (astType === "Subroutine") {
+                                var astName = this.subroutines[0].name;
+                            } else {
+                                var astName = "__number__";
+                            }
+                            var astArg = new Ast(astName, [], [], astType);
+                            astArg.parent = ast;
+                            this.rebuildAst(astArg);
+                            ast.args.push(astArg);
+
+                        }
+                    }
+                },
+                rebuildRuleAttributes: function(rule) {
+                    if (rule.ruleAttributes.event === "global") {
+                        delete rule.ruleAttributes.eventTeam;
+                        delete rule.ruleAttributes.eventPlayer;
+                        delete rule.ruleAttributes.subroutineName;
+                    } else if (rule.ruleAttributes.event === "__subroutine__") {
+                        delete rule.ruleAttributes.eventTeam;
+                        delete rule.ruleAttributes.eventPlayer;
+                        this.$set(rule.ruleAttributes, "subroutineName", this.subroutines[0].name);
+                    } else {
+                        delete rule.ruleAttributes.subroutineName;
+                        if (!rule.ruleAttributes.eventTeam) {
+                            this.$set(rule.ruleAttributes, "eventTeam", "all");
+                        }
+                        if (!rule.ruleAttributes.eventPlayer) {
+                            this.$set(rule.ruleAttributes, "eventPlayer", "all");
+                        }
+                    }
                 }
             }
         })
@@ -619,10 +775,10 @@ rule("player got kill")
 
 	actions
 	{
-        if (Global.nbPlayersKilled == 0);
-        if (Global.nbPlayersKilled == 0);
+        if (Global.nbPlayersKilled == custom string("ow{0}", 0, 3));
+        if (Global.nbPlayersKilled == -1);
 		Global.nbPlayersKilled += 1;
-		Global.nbPlayersKilled += 1;
+		Global.nbPlayersKilled -= 5.6;
         end;
         end;
 	}
@@ -672,7 +828,7 @@ rule("countdown timer")
 
 	actions
 	{
-"test comment"
+"test comment <b>bold</b>"
 		Set Status(Host Player, Null, Rooted, 9999);
 		Set Ability 1 Enabled(Host Player, False);
 		Set Ability 2 Enabled(Host Player, False);

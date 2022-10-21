@@ -99,6 +99,8 @@ function decompileAllRulesToAst(content) {
 	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
 	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
 	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+
+	console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
 
@@ -399,7 +401,7 @@ function decompileSubroutines(content) {
 		if (content[i].split(":").length % 2 !== 0) {
 			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
 		}
-		var index = content[i].split(":")[0].trim();
+		var index = +content[i].split(":")[0].trim();
 		var subName = content[i].split(":")[1].trim();
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");

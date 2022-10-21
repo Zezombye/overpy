@@ -473,15 +473,4 @@ const opyInternalFuncs = {
         ],
         return: "void",
     },
-    "__team__": {
-        "args": [
-            {
-                "name": "TEAM",
-                "type": "TeamLiteral",
-                "default": "ALL",
-            }
-        ],
-        "isConstant": true,
-        return: "Team",
-    }
 }
