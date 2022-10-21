@@ -123,6 +123,10 @@
             border-color: var(--action-hover-color);
         }
 
+        .code-display {
+            word-break: break-word;
+        }
+
         .action .code-display {
             border-left: 3px solid var(--action-color);
             padding: 5px;
@@ -179,14 +183,15 @@
             width: 100%;
             margin-top: 50px;
             margin-bottom: 50px;
+            padding-top: 50px;
+            background-color: var(--edit-background-color);
+            height: calc(100% - 200px);
         }
 
         #edit-content {
             
-            background-color: var(--edit-background-color);
             padding-left: 10%;
             padding-right: 10%;
-            padding-top: 50px;
             padding-bottom: 50px;
         }
 
@@ -311,9 +316,9 @@
         </div>
         <div id="ast-edit" v-if="astToEdit">
             <div id="edit-background">
+                <div id="edit-title">{{ astToEdit.name === "__compare__" ? translate("editCondition", uiDisplayNames) : translate("editAction", uiDisplayNames) }}</div>
 
                 <div id="edit-content">
-                    <div id="edit-title">{{ astToEdit.name === "__compare__" ? translate("editCondition", uiDisplayNames) : translate("editAction", uiDisplayNames) }}</div>
 
                     <!--<textarea rows="1" wrap="off" id="edit-comment">{{ astToEdit.comment }}</textarea>-->
                     <div contenteditable="true" id="edit-comment">{{ astToEdit.comment }}</div>
@@ -330,8 +335,14 @@
     <template id="function-display-template">
         <div>
             <div class="argument-value-wrapper" v-if="!(ast.name === '__compare__' && ast.parent.name === '__rule__')">
-                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : ast.parent.name === "__array__" ? "["+astIdx+"]" : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
                 <div class="value">
+                    <img src="img/array_add.png" class="array-add" v-if="ast.name === '__array__'"/>
+                    <img src="img/array_remove.png" class="array-remove" v-if="ast.parent.name === '__array__'"/>
+                    <div class="array-up-down" v-if="ast.parent.name === '__array__'">
+                        <img src="img/array_up.png" class="array-up"/>
+                        <img src="img/array_down.png" class="array-down"/>
+                    </div>
                     <div v-if="ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)">
                         <input type="number" v-model="ast.name">
                     </div>
@@ -553,6 +564,15 @@
                         ast = ast.args[0];
                     } else if (ast.type === "TeamLiteral") {
                         return new Ast("__team__", [ast]);
+                    } else if (ast.name === "__customString__") {
+                        //add potentially missing arguments
+                        for (var i = 0; i < 4; i++ ) {
+                            if (ast.args.length <= i) {
+                                ast.args.push(new Ast("__number__"))
+                                this.rebuildAst(ast.args[i]);
+                            }
+                        }
+                        console.log(ast);
                     }
                     for (var i = 0; i < ast.args.length; i++) {
                         ast.args[i] = this.adjustAstForWorkshop(ast.args[i]);
@@ -757,6 +777,11 @@ rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs ou
 	{
 		Ongoing - Global;
 	}
+    actions {
+        
+		Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
+			Visible Always);
+    }
 }
 rule("player got kill")
 {
@@ -776,7 +801,7 @@ rule("player got kill")
 	actions
 	{
         if (Global.nbPlayersKilled == custom string("ow{0}", 0, 3));
-        if (Global.nbPlayersKilled == -1);
+        if (Array(3,6,1) == -1);
 		Global.nbPlayersKilled += 1;
 		Global.nbPlayersKilled -= 5.6;
         end;
@@ -794,8 +819,6 @@ rule("timer")
 
 	actions
 	{
-		Create HUD Text(All Players(All Teams), Global.timer, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
-			Visible Always);
 		Global.timer = 5;
 	}
 }
