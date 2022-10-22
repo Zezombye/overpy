@@ -28,7 +28,7 @@
             --cancel-bg-color: rgb(53, 162, 231);
             --ok-bg-color: rgb(223, 153, 49);
             --text-color: rgb(199, 212, 223);
-            
+
             --vs-dropdown-bg: var(--dropdown-bg-color);
             --vs-dropdown-color: var(--text-color);
             --vs-dropdown-option-color: var(--text-color);
@@ -49,7 +49,7 @@
             scrollbar-color: #CCCCCC #222222;
             font-family: "Comic Sans MS";
         }
-        
+
         a {
             color: lightblue;
         }
@@ -97,7 +97,7 @@
         }
 
         .conditions, .actions {
-            
+
             width: 440px;
             display: inline-block;
             margin-left: 10px;
@@ -180,6 +180,8 @@
         }
 
         #edit-background {
+            display: grid;
+            grid-template-rows: 3rem auto;
             width: 100%;
             margin-top: 50px;
             margin-bottom: 50px;
@@ -189,10 +191,12 @@
         }
 
         #edit-content {
-            
+            box-sizing: border-box;
+            height: 100%;
             padding-left: 10%;
             padding-right: 10%;
             padding-bottom: 50px;
+            overflow: auto;
         }
 
         .argument-value-wrapper {
@@ -216,7 +220,7 @@
             min-width: 600px;
             display: inline-block;
         }
-        
+
         .edit-buttons {
             width: 100%;
             text-align: center;
@@ -244,11 +248,11 @@
         button:hover {
             border-color: white;
         }
-                    
+
     </style>
 </head>
 <body>
-    
+
     <div id="app">
         <textarea id="custom-game-settings" v-model="customGameSettings"></textarea>
         <div v-for="(rule, ruleIdx) in rules">
@@ -312,7 +316,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div id="ast-edit" v-if="astToEdit">
             <div id="edit-background">
@@ -351,7 +355,7 @@
                     </div>
                     <div v-else>
                         <v-select :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
-                            
+
                         </v-select>
                     </div>
                 </div>
@@ -359,7 +363,7 @@
             <function-display v-for="(arg, idx) in ast.args" :ast="arg" :ast-idx="idx" :depth="depth+1"></function-display>
         </div>
     </template>
-    
+
     <script>
         Vue.component('v-select', VueSelect.VueSelect);
         Vue.component("function-display", {
@@ -778,7 +782,7 @@ rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs ou
 		Ongoing - Global;
 	}
     actions {
-        
+
 		Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
 			Visible Always);
     }
