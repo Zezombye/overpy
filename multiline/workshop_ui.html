@@ -12,15 +12,20 @@
 
     <style>
         :root {
+            --rule-color: white;
+            --rule-color-muted: rgb(141, 141, 141);
             --action-color: rgb(26, 174, 43);
             --condition-color: rgb(197, 161, 16);
             --action-color-muted: rgb(25, 111, 46);
             --condition-color-muted: rgb(104, 85, 14);
-            --value-bg: black;
-            --separator-bar-color: rgb(62, 69, 81);
-            --label-background-color: rgb(50, 66, 96);
-            --dropdown-color: rgb(32, 82, 126);
+            --no-action-condition-color: rgb(147, 142, 141);
+            --value-bg: rgb(0, 0, 0, 0.7);
+            --separator-bar-color: rgba(62, 69, 81, 0.7);
+            --label-background-color: rgba(50, 66, 96, 0.7);
+            --dropdown-color: rgba(32, 82, 126, 0.7);
             --dropdown-bg-color: rgb(40, 54, 78);
+            --dropdown-bg-color-hover: rgb(27, 116, 187);
+            --dropdown-value-bg-hover: rgb(38, 141, 186);
             --action-hover-color: white;
             --edit-background-color: rgb(36, 46, 64);
             --edit-buttons-bg-color: rgb(34, 32, 35);
@@ -28,11 +33,24 @@
             --cancel-bg-color: rgb(53, 162, 231);
             --ok-bg-color: rgb(223, 153, 49);
             --text-color: rgb(199, 212, 223);
+            --text-field-bg: rgb(206, 206, 207);
+            --text-field-bg-focused: white;
+            --text-field-color: black;
+            --checkbox-bg: rgb(167, 170, 167);
+            --checkbox-border: rgb(19, 43, 67);
+            --collapse-line-color: rgb(26, 69, 104);
+            --comment-color: rgb(162, 165, 170);
+
+            --label-font-size: 20px;
+            --dropdown-font-size: 22px;
 
             --vs-dropdown-bg: var(--dropdown-bg-color);
             --vs-dropdown-color: var(--text-color);
             --vs-dropdown-option-color: var(--text-color);
+            --vs-dropdown-option--active-bg: var(--dropdown-value-bg-hover);
+            --vs-dropdown-option--active-color: var(--text-color);
 
+            --vs-actions-padding: 0px 12px;
             --vs-search-input-color: var(--text-color);
             --vs-search-input-placeholder-color: var(--text-color);
             --vs-search-input-bg: var(--dropdown-color);
@@ -43,81 +61,343 @@
             --vs-border-width: 0px;
         }
 
+        @font-face {
+            font-family: "FuturaNo2D";
+            src: url("fonts/futura_no2_d_demi_bold.ttf");
+        }
+
+        @font-face {
+            font-family: "BigNoodle";
+            src: url("fonts/big_noodle_too.ttf");
+        }
+
+        @font-face {
+            font-family: "BlizzardGlobal";
+            src: url("fonts/blizzard_global.ttf");
+        }
+
+        .font-blizzglobal {
+            font-family: "BlizzardGlobal";
+        }
+        .font-futurano2d {
+            font-family: "FuturaNo2D";
+        }
+        .font-bignoodle {
+            font-family: "BigNoodle";
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body, textarea {
             color: #CCCCCC;
             background-color: #222222;
             scrollbar-color: #CCCCCC #222222;
-            font-family: "Comic Sans MS";
         }
 
         a {
             color: lightblue;
         }
+
+        body {
+            margin: 0px;
+            background-image: url("img/backgrounds/monte_carlo.jpg");
+            background-size: cover;
+        }
+
+        #app {
+            padding-left: 170px;
+            padding-right: 170px;
+            text-transform: uppercase;
+            height: 100vh;
+            display: grid;
+            padding-bottom: 30px;
+            backdrop-filter: blur(10px) brightness(30%);
+        }
+
+        #workshop-title {
+            font-size: 48px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding-bottom: 20px;
+            padding-top: 10px;
+        }
+
+        .rule {
+            padding-bottom: 7px;
+            padding-top: 7px;
+            display: flex;
+        }
+
+        .rule-collapse-bar {
+            padding-right: 8px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        .rule-collapse-button, .rule-expand-button {
+            margin-top: 3px;
+            margin-left: 1px;
+        }
+
+        .rule-collapse-line {
+            flex: 1;
+            width: 3px;
+            background-color: var(--collapse-line-color);
+        }
+
+        .rule-header-and-content {
+            width: 100%;
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+        }
+
         .rule-title {
             resize: none;
-            height: 17px;
-            width: 1000px;
-            border: 1px solid white;
-            border-radius: 10px;
-            padding-left: 10px;
-            margin-top: 10px;
+            height: 43px;
+            border: 1px solid var(--text-field-bg-focused);
+            border-radius: 6px;
+            padding-left: 12px;
             white-space: pre;
+            width: 100%;
+            overflow: hidden;
+            font-size: 21px;
+            background-color: var(--text-field-bg);
+            color: var(--text-field-color);
+        }
+
+        .rule-title:hover, .rule-title:focus {
+            background-color: var(--text-field-bg-focused);
+        }
+
+        .rule-title:focus {
+            outline: var(--text-field-bg-focused) solid 2px;
         }
 
         .rule-content {
-            padding-left: 100px;
+            padding-left: 83px;
+            width: 100%;
+            padding-top: 10px;
+            padding-right: 59px;
+            padding-bottom: 67px;
         }
 
         .rule-event {
-            width: 890px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            padding-left: 10px;
-            text-transform: uppercase;
+            width: auto;
+            margin-bottom: 7px;
+            padding-left: 2px;
+            display: flex;
         }
 
         .rule-event-name {
-            background-color: rgb(30, 68, 73);
+            background-color: var(--label-background-color);
             display: inline-block;
-            width: 530px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-right: 7px;
+            padding-left: 20px;
+            height: 40px;
+            font-size: var(--label-font-size);
         }
 
         .rule-event-value {
             display: inline-block;
-            width: 350px;
+            min-width: 553px;
+            font-size: var(--dropdown-font-size);
+        }
+
+        input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+            outline: var(--checkbox-border) solid 3px;
+            margin-left: 9px;
+        }
+
+        #workshop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--separator-bar-color);
+            padding-bottom: 10px;
+            margin-bottom: 7px;
+        }
+
+        #rules {
+            overflow: auto;
+            padding-right: 20px;
+        }
+
+        #rules-title {
+            color: var(--rule-color);
+            font-size: 29px;
+            padding-right: 13px;
+            margin-right: 2px;
+        }
+
+        #rules-nb {
+            color: var(--rule-color-muted);
+            font-size: 22px;
+            padding-right: 7px;
+        }
+
+        .button-header {
+            margin-left: 5px;
+        }
+
+        .img-button:hover {
+            outline: white solid 1px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .button-delete.button-header {
+            margin-right: 70px;
+        }
+        
+        #button-separator {
+            border-left: 3px solid var(--separator-bar-color);
+            height: 50px;
+            padding-left: 10px;
+            margin-left: 15px;
+        }
+
+        #buttons-move-up-down {
+            display: grid;
+        }
+
+        .button-header #button-move-up {
+            margin-bottom: 2px;
+        }
+
+        #workshop-header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        #workshop-header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .v-select {
+            height: 100%;
+            display: grid;
+        }
+
+        .vs__selected-options {
+            padding-left: 12px;
+        }
+
+        .vs__selected {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+
+        .vs__search, vs__search:focus {
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+
+        .vs__dropdown-toggle {
+            padding-bottom: 0px;
+        }
+
+        .vs__dropdown-toggle:hover {
+            background-color: var(--dropdown-bg-color-hover);
         }
 
         .conditions-header, .actions-header {
             text-transform: uppercase;
-            border-bottom: 4px solid var(--separator-bar-color);
+            border-bottom: 3px solid var(--separator-bar-color);
+            font-size: var(--dropdown-font-size);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 9px;
+            margin-bottom: 8px;
+        }
+
+        .conditions-header {
+            color: var(--condition-color);
+        }
+
+        .conditions-nb {
+            color: var(--condition-color-muted);
+        }
+
+        .actions-header {
+            color: var(--action-color);
+        }
+
+        .actions-nb {
+            color: var(--action-color-muted);
         }
 
         .conditions-and-actions {
             display: flex;
+            padding-top: 4px;
         }
 
         .conditions, .actions {
 
-            width: 440px;
+            width: 50%;
             display: inline-block;
-            margin-left: 10px;
-            margin-right: 10px;
+        }
+
+        .actions {
+            padding-left: 20px;
+        }
+        .conditions {
+            padding-right: 20px;
+        }
+
+        .conditions-buttons, .actions-buttons {
+            display: flex;
+        }
+
+        .button-action-condition {
+            margin-left: 5px;
+            height: 35px;
+            width: 35px;
+        }
+
+        .button-delete.button-action-condition {
+            margin-right: 35px;
+        }
+
+        .button-action-condition #button-move-up {
+            margin-bottom: 1.5px;
+        }
+
+        .button-action-condition #button-move-up, .button-action-condition #button-move-down {
+            height: 16.5px;
+            width: 35px;
         }
 
         .no-values-msg {
             text-transform: uppercase;
             text-align: center;
             padding-top: 10px;
+            font-size: 22px;
+            color: var(--no-action-condition-color);
         }
 
         .code-display-wrapper {
             width: 100%;
             background-color: var(--value-bg);
             display: inline-block;
-            padding: 2px;
-            margin-top: 2px;
-            margin-bottom: 2px;
-            border: 1px solid transparent;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            border: 2px solid transparent;
+            font-size: 17px;
         }
         .code-display-wrapper:hover {
             border-color: var(--action-hover-color);
@@ -125,25 +405,29 @@
 
         .code-display {
             word-break: break-word;
+            padding: 9px;
+            text-transform: none;
         }
 
         .action .code-display {
             border-left: 3px solid var(--action-color);
-            padding: 5px;
+        }
+
+        .condition .code-display {
+            border-left: 3px solid var(--condition-color);
         }
 
         .comment {
             display:block;
             width: 100%;
-            padding-top: 10px;
-            padding-left: 10px;
+            padding-top: 15px;
+            padding-left: 15px;
             white-space: pre;
+            color: var(--comment-color);
+            text-transform: none;
+            font-size: 15px;
         }
 
-        .condition .code-display {
-            border-left: 3px solid var(--condition-color);
-            padding: 5px;
-        }
 
         .code-and-checkbox {
             display: flex;
@@ -193,8 +477,8 @@
         #edit-content {
             box-sizing: border-box;
             height: 100%;
-            padding-left: 10%;
-            padding-right: 10%;
+            padding-left: 214px;
+            padding-right: 214px;
             padding-bottom: 50px;
             overflow: auto;
         }
@@ -249,74 +533,143 @@
             border-color: white;
         }
 
+        .no-uppercase {
+            text-transform: none;
+        }
+
     </style>
 </head>
 <body>
 
-    <div id="app">
-        <textarea id="custom-game-settings" v-model="customGameSettings"></textarea>
-        <div v-for="(rule, ruleIdx) in rules">
-            <textarea rows="1" wrap="off" class="rule-title">{{ rule.ruleAttributes.name }}</textarea>
-            <div class="rule-content">
-                <div class="rule-event">
-                    <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value">
-                        <v-select :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
-                        </v-select>
-                    </div>
-                </div>
-                <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
-                    <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
-                </div>
-                <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
-                    <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
-                </div>
-                <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
-                    <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNames) }}</div>
-                    <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
-                </div>
-                <!--TODO: subroutines-->
-                <div class="conditions-and-actions">
-                    <div class="conditions">
-                        <div class="conditions-header">
-                            <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
-                            <div class="conditions-buttons"></div>
-                        </div>
-                        <div v-if="!rules[ruleIdx].ruleAttributes.conditions?.length" class="no-values-msg">{{ translate("noConditions", uiDisplayNames) }}</div>
-                        <div v-else>
-                            <div v-for="(condition, conditionIdx) in rules[ruleIdx].ruleAttributes.conditions" class="condition">
-                                <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
-                                <div class="code-and-checkbox">
-                                    <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
-                                        <div class="code-display">{{ displayAst(condition) }}</div>
-                                    </div>
-                                    <input type="checkbox" class="checkbox">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <div class="actions-header">
-                            <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rules[ruleIdx].children.length }})</span></div>
-                            <div class="actions-buttons"></div>
-                        </div>
-                        <div v-if="rules[ruleIdx].children.length === 0" class="no-values-msg">{{ translate("noActions", uiDisplayNames) }}</div>
-
-                        <div v-else v-for="(action, actionIdx) in rules[ruleIdx].children" class="action">
-                            <div class="comment" v-if="action.comment">{{ action.comment }}</div>
-                            <div class="code-and-checkbox">
-                                <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rules[ruleIdx].children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
-                                    <div class="code-display">{{ displayAst(action) }}</div>
-                                </div>
-                                <input type="checkbox" class="checkbox">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div id="app" class="font-futurano2d">
+        <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation</div>
+        <div id="workshop-header">
+            <div id="workshop-header-left">
+                <div id="rules-title">{{ translate("rules", uiDisplayNames) }}</div>
+                <div id="rules-nb">({{ rules.length || 0}})</div>
+                <img id="button-info" class="img-button button-header" src="img/info.png"/>
+                <img id="button-metrics" class="img-button button-header" src="img/metrics.png"/>
             </div>
+            <div id="workshop-header-right">
+                <img id="button-extensions" class="img-button button-header" src="img/extensions.png"/>
+                <img id="button-var-names" class="img-button button-header" src="img/var_names.png"/>
+                <img id="button-subroutine-names" class="img-button button-header" src="img/subroutine_names.png"/>
+                <div id="button-separator"></div>
+                <template v-if="rules.some(x => x.isSelected)">
+                    <img class="img-button button-header button-delete" src="img/delete.png"/>
+                    <div id="buttons-move-up-down" class="button-header">
+                        <img id="button-move-up" class="img-button" src="img/move_up.png"/>
+                        <img id="button-move-down" class="img-button" src="img/move_down.png"/>
+                    </div>
+                    <img id="button-toggle" class="img-button button-header" src="img/toggle.png"/>
+                    <img id="button-copy" class="img-button button-header" src="img/copy.png"/>
+                </template>
+                <img id="button-paste" class="img-button button-header" src="img/paste.png"/>
+                <img id="button-select-all" class="img-button button-header" src="img/select_all.png"/>
+                <img id="button-add" class="img-button button-header" src="img/add.png"/>
+            </div>
+        </div>
+        <div id="rules">
+            <div class="rule" v-for="(rule, ruleIdx) in rules">
+                <div class="rule-collapse-bar">
+                    <template v-if="rule.isCollapsed">
+                        <img class="img-button rule-expand-button" src="img/expand_rule.png" v-on:click="rule.isCollapsed=false"/>
+                    </template>
+                    <template v-else>
+                        <img class="img-button rule-collapse-button" src="img/collapse_rule.png" v-on:click="rule.isCollapsed=true"/>
+                        <div class="rule-collapse-line"></div>
+                    </template>
+                </div>
+                <div class="rule-header-and-content">
 
+                    <div class="rule-header">
+                        <input type="text" class="rule-title" :value="rule.ruleAttributes.name" v-model="rule.ruleAttributes.name">
+                        <input type="checkbox" class="checkbox" v-model="rule.isSelected">
+                    </div>
+                    <div class="rule-content" v-if="!rule.isCollapsed">
+                        <div class="rule-event">
+                            <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-value">
+                                <v-select :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
+                                </v-select>
+                            </div>
+                        </div>
+                        <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
+                            <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
+                        </div>
+                        <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
+                            <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
+                        </div>
+                        <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
+                            <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
+                        </div>
+                        <!--TODO: subroutines-->
+                        <div class="conditions-and-actions">
+                            <div class="conditions">
+                                <div class="conditions-header">
+                                    <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
+                                    <div class="conditions-buttons">
+                                        <img class="img-button button-action-condition button-delete" src="img/delete.png"/>
+                                        <div id="buttons-move-up-down" class="button-action-condition">
+                                            <img id="button-move-up" class="img-button" src="img/move_up.png"/>
+                                            <img id="button-move-down" class="img-button" src="img/move_down.png"/>
+                                        </div>
+                                        <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png"/>
+                                        <img id="button-copy" class="img-button button-action-condition" src="img/copy.png"/>
+                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png"/>
+                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png"/>
+                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png"/>
+                                    </div>
+                                </div>
+                                <div v-if="!rule.ruleAttributes.conditions?.length" class="no-values-msg font-blizzglobal">{{ translate("noConditions", uiDisplayNames) }}</div>
+                                <div v-else>
+                                    <div v-for="(condition, conditionIdx) in rule.ruleAttributes.conditions" class="condition">
+                                        <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
+                                        <div class="code-and-checkbox">
+                                            <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
+                                                <div class="code-display">{{ displayAst(condition) }}</div>
+                                            </div>
+                                            <input type="checkbox" class="checkbox" v-model="condition.isSelected">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="actions-header">
+                                    <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rule.children.length }})</span></div>
+                                    <div class="actions-buttons">
+                                        <img class="img-button button-action-condition button-delete" src="img/delete.png"/>
+                                        <div id="buttons-move-up-down" class="button-action-condition">
+                                            <img id="button-move-up" class="img-button" src="img/move_up.png"/>
+                                            <img id="button-move-down" class="img-button" src="img/move_down.png"/>
+                                        </div>
+                                        <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png"/>
+                                        <img id="button-copy" class="img-button button-action-condition" src="img/copy.png"/>
+                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png"/>
+                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png"/>
+                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png"/>
+                                    </div>
+                                </div>
+                                <div v-if="rule.children.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noActions", uiDisplayNames) }}</div>
+        
+                                <div v-else v-for="(action, actionIdx) in rule.children" class="action">
+                                    <div class="comment" v-if="action.comment">{{ action.comment }}</div>
+                                    <div class="code-and-checkbox">
+                                        <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rule.children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
+                                            <div class="code-display">{{ displayAst(action) }}</div>
+                                        </div>
+                                        <input type="checkbox" class="checkbox" v-model="action.isSelected">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
         </div>
         <div id="ast-edit" v-if="astToEdit">
             <div id="edit-background">
@@ -491,12 +844,17 @@
                             for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
                                 rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
                                 rule.ruleAttributes.conditions[i].parent = rule;
+                                rule.ruleAttributes.conditions[i].isSelected = false;
                             }
                         }
                         for (var i = 0; i < rule.children.length; i++) {
                             rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
                             rule.children[i].parent = rule;
+                            rule.children[i].isSelected = false;
                         }
+
+                        rule.isCollapsed = false;
+                        rule.isSelected = false;
                     }
                     this.rules = rules;
                     this.globalVariables = globalVariables;
@@ -638,7 +996,7 @@
                         indent = 5;
                     }
                     action.indent = indent;
-                    return indent*20+"px";
+                    return indent*25+"px";
                 },
                 editActionOrCondition: function(ast, isCondition, index) {
                     this.astToEdit = structuredClone(ast);
@@ -866,7 +1224,7 @@ rule("countdown timer")
 		Chase Global Variable Over Time(timer, Global.timeTarget, 2, None);
 		Small Message(All Players(All Teams), 3);
 		Wait(1, Ignore Condition);
-        "test comment\nwith multiple lines"
+        "Re-enable Announcer without her saying 'Capture the flag'"
 		Small Message(All Players(All Teams), 2);
 		Wait(1, Ignore Condition);
 		Small Message(All Players(All Teams), 1);
