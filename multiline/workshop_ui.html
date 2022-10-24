@@ -399,6 +399,11 @@
             border: 2px solid transparent;
             font-size: 17px;
         }
+
+        .disabled {
+            filter: brightness(35%);
+        }
+
         .code-display-wrapper:hover {
             border-color: var(--action-hover-color);
         }
@@ -556,17 +561,17 @@
                 <img id="button-subroutine-names" class="img-button button-header" src="img/subroutine_names.png"/>
                 <div id="button-separator"></div>
                 <template v-if="rules.some(x => x.isSelected)">
-                    <img class="img-button button-header button-delete" src="img/delete.png"/>
+                    <img class="img-button button-header button-delete" src="img/delete.png" v-on:click="deleteSelectedRules()"/>
                     <div id="buttons-move-up-down" class="button-header">
-                        <img id="button-move-up" class="img-button" src="img/move_up.png"/>
-                        <img id="button-move-down" class="img-button" src="img/move_down.png"/>
+                        <img id="button-move-up" class="img-button" src="img/move_up.png" v-on:click="moveSelectedRules(true)"/>
+                        <img id="button-move-down" class="img-button" src="img/move_down.png" v-on:click="moveSelectedRules(false)"/>
                     </div>
-                    <img id="button-toggle" class="img-button button-header" src="img/toggle.png"/>
-                    <img id="button-copy" class="img-button button-header" src="img/copy.png"/>
+                    <img id="button-toggle" class="img-button button-header" src="img/toggle.png" v-on:click="toggleSelectedRules()"/>
+                    <img id="button-copy" class="img-button button-header" src="img/copy.png" v-on:click="copySelectedRules()"/>
                 </template>
-                <img id="button-paste" class="img-button button-header" src="img/paste.png"/>
-                <img id="button-select-all" class="img-button button-header" src="img/select_all.png"/>
-                <img id="button-add" class="img-button button-header" src="img/add.png"/>
+                <img id="button-paste" class="img-button button-header" src="img/paste.png" v-on:click="pasteRules()"/>
+                <img id="button-select-all" class="img-button button-header" src="img/select_all.png" v-on:click="selectAllRules()"/>
+                <img id="button-add" class="img-button button-header" src="img/add.png" v-on:click="addRule()"/>
             </div>
         </div>
         <div id="rules">
@@ -583,7 +588,7 @@
                 <div class="rule-header-and-content">
 
                     <div class="rule-header">
-                        <input type="text" class="rule-title" :value="rule.ruleAttributes.name" v-model="rule.ruleAttributes.name">
+                        <input type="text" class="rule-title" :class="{'disabled': rule.isDisabled}" v-model="rule.ruleAttributes.name">
                         <input type="checkbox" class="checkbox" v-model="rule.isSelected">
                     </div>
                     <div class="rule-content" v-if="!rule.isCollapsed">
@@ -612,16 +617,18 @@
                                 <div class="conditions-header">
                                     <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
                                     <div class="conditions-buttons">
-                                        <img class="img-button button-action-condition button-delete" src="img/delete.png"/>
-                                        <div id="buttons-move-up-down" class="button-action-condition">
-                                            <img id="button-move-up" class="img-button" src="img/move_up.png"/>
-                                            <img id="button-move-down" class="img-button" src="img/move_down.png"/>
-                                        </div>
-                                        <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png"/>
-                                        <img id="button-copy" class="img-button button-action-condition" src="img/copy.png"/>
-                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png"/>
-                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png"/>
-                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png"/>
+                                        <template v-if="rule.ruleAttributes.conditions.some(x => x.isSelected)">
+                                            <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedConditions()"/>
+                                            <div id="buttons-move-up-down" class="button-action-condition">
+                                                <img id="button-move-up" class="img-button" src="img/move_up.png" v-on:click="moveSelectedConditions(rule, true)"/>
+                                                <img id="button-move-down" class="img-button" src="img/move_down.png" v-on:click="moveSelectedConditions(rule, false)"/>
+                                            </div>
+                                            <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png" v-on:click="toggleSelectedConditions(rule)">
+                                            <img id="button-copy" class="img-button button-action-condition" src="img/copy.png" v-on:click="copySelectedConditions(rule)"/>
+                                        </template>
+                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png" v-on:click="pasteConditions(rule)"/>
+                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png" v-on:click="selectAllConditions(rule)"/>
+                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png" v-on:click="addCondition(rule)"/>
                                     </div>
                                 </div>
                                 <div v-if="!rule.ruleAttributes.conditions?.length" class="no-values-msg font-blizzglobal">{{ translate("noConditions", uiDisplayNames) }}</div>
@@ -629,7 +636,7 @@
                                     <div v-for="(condition, conditionIdx) in rule.ruleAttributes.conditions" class="condition">
                                         <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
                                         <div class="code-and-checkbox">
-                                            <div class="code-display-wrapper" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
+                                            <div class="code-display-wrapper" :class="{'disabled': condition.isDisabled}" v-on:click="editActionOrCondition(condition, true, conditionIdx)">
                                                 <div class="code-display">{{ displayAst(condition) }}</div>
                                             </div>
                                             <input type="checkbox" class="checkbox" v-model="condition.isSelected">
@@ -641,16 +648,18 @@
                                 <div class="actions-header">
                                     <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rule.children.length }})</span></div>
                                     <div class="actions-buttons">
-                                        <img class="img-button button-action-condition button-delete" src="img/delete.png"/>
-                                        <div id="buttons-move-up-down" class="button-action-condition">
-                                            <img id="button-move-up" class="img-button" src="img/move_up.png"/>
-                                            <img id="button-move-down" class="img-button" src="img/move_down.png"/>
-                                        </div>
-                                        <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png"/>
-                                        <img id="button-copy" class="img-button button-action-condition" src="img/copy.png"/>
-                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png"/>
-                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png"/>
-                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png"/>
+                                        <template v-if="rule.children.some(x => x.isSelected)">
+                                            <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedActions(rule)"/>
+                                            <div id="buttons-move-up-down" class="button-action-condition">
+                                                <img id="button-move-up" class="img-button" src="img/move_up.png" v-on:click="moveSelectedActions(rule, true)"/>
+                                                <img id="button-move-down" class="img-button" src="img/move_down.png" v-on:click="moveSelectedActions(rule, false)">
+                                            </div>
+                                            <img id="button-toggle" class="img-button button-action-condition" src="img/toggle.png" v-on:click="toggleSelectedActions(rule)"/>
+                                            <img id="button-copy" class="img-button button-action-condition" src="img/copy.png" v-on:click="copySelectedActions(rule)"/>
+                                        </template>
+                                        <img id="button-paste" class="img-button button-action-condition" src="img/paste.png" v-on:click="pasteActions(rule)"/>
+                                        <img id="button-select-all" class="img-button button-action-condition" src="img/select_all.png" v-on:click="selectAllActions(rule)"/>
+                                        <img id="button-add" class="img-button button-action-condition" src="img/add.png" v-on:click="addAction(rule)"/>
                                     </div>
                                 </div>
                                 <div v-if="rule.children.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noActions", uiDisplayNames) }}</div>
@@ -658,7 +667,7 @@
                                 <div v-else v-for="(action, actionIdx) in rule.children" class="action">
                                     <div class="comment" v-if="action.comment">{{ action.comment }}</div>
                                     <div class="code-and-checkbox">
-                                        <div class="code-display-wrapper" :style="{'margin-left': calculateActionPadding(action, actionIdx, rule.children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
+                                        <div class="code-display-wrapper" :class="{'disabled': action.isDisabled}" :style="{'margin-left': calculateActionPadding(action, actionIdx, rule.children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
                                             <div class="code-display">{{ displayAst(action) }}</div>
                                         </div>
                                         <input type="checkbox" class="checkbox" v-model="action.isSelected">
@@ -754,6 +763,9 @@
                     "rules": {
                         "en-US": "Rules",
                     },
+                    "rule": {
+                        "en-US": "Rule %1$s",
+                    },
                     "conditions": {
                         "en-US": "Conditions",
                     },
@@ -811,11 +823,11 @@
                 },
                 getDropdownOptionsForType: function(type) {
                     if (type === "GlobalVariable") {
-                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                        return this.globalVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.index}));
                     } else if (type === "PlayerVariable") {
-                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                        return this.playerVariables.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.index}));
                     } else if (type === "Subroutine") {
-                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.name}));
+                        return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.index}));
                     }
                     keywordObj = null
                     if (type === "void") {
@@ -838,25 +850,6 @@
                     [customGameSettings, rules] = decompileAllRulesToAst(content);
                     console.log(rules);
                     this.customGameSettings = customGameSettings;
-                    //rules = rules.slice(0, 2);
-                    for (var rule of rules) {
-                        if ("conditions" in rule.ruleAttributes) {
-                            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
-                                rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
-                                rule.ruleAttributes.conditions[i].parent = rule;
-                                rule.ruleAttributes.conditions[i].isSelected = false;
-                            }
-                        }
-                        for (var i = 0; i < rule.children.length; i++) {
-                            rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
-                            rule.children[i].parent = rule;
-                            rule.children[i].isSelected = false;
-                        }
-
-                        rule.isCollapsed = false;
-                        rule.isSelected = false;
-                    }
-                    this.rules = rules;
                     this.globalVariables = globalVariables;
                     this.playerVariables = playerVariables;
                     this.subroutines = subroutines;
@@ -873,6 +866,31 @@
                             this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
                         }
                     }
+                    for (var rule of rules) {
+                        if ("conditions" in rule.ruleAttributes) {
+                            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                                rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
+                                rule.ruleAttributes.conditions[i].parent = rule;
+                                rule.ruleAttributes.conditions[i].isSelected = false;
+                                rule.ruleAttributes.conditions[i].isDisabled ||= false;
+                            }
+                        } else {
+                            rule.ruleAttributes.conditions = [];
+                        }
+                        if ("subroutineName" in rule.ruleAttributes) {
+                            rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.name === rule.ruleAttributes.subroutineName)[0].index;
+                        }
+                        for (var i = 0; i < rule.children.length; i++) {
+                            rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
+                            rule.children[i].parent = rule;
+                            rule.children[i].isSelected = false;
+                            rule.children[i].isDisabled ||= false;
+                        }
+
+                        rule.isCollapsed = false;
+                        rule.isSelected = false;
+                    }
+                    this.rules = rules;
                     this.globalVariables.sort((a,b) => (a.index - b.index))
                     this.playerVariables.sort((a,b) => (a.index - b.index))
                     this.subroutines.sort((a,b) => (a.index - b.index))
@@ -930,11 +948,16 @@
                         //add potentially missing arguments
                         for (var i = 0; i < 4; i++ ) {
                             if (ast.args.length <= i) {
-                                ast.args.push(new Ast("__number__"))
-                                this.rebuildAst(ast.args[i]);
+                                ast.args.push(new Ast("null"))
                             }
                         }
                         console.log(ast);
+                    } else if (ast.type === "GlobalVariable") {
+                        ast.name = this.globalVariables.filter(x => x.name === ast.name)[0].index;
+                    } else if (ast.type === "PlayerVariable") {
+                        ast.name = this.playerVariables.filter(x => x.name === ast.name)[0].index;
+                    } else if (ast.type === "Subroutine") {
+                        ast.name = this.subroutines.filter(x => x.name === ast.name)[0].index;
                     }
                     for (var i = 0; i < ast.args.length; i++) {
                         ast.args[i] = this.adjustAstForWorkshop(ast.args[i]);
@@ -947,11 +970,11 @@
                     if (ast.name === "__compare__" && ast.parent.name === "__rule__") {
                         return ast.args.map(x => this.displayAst(x)).join(" ")
                     } else if (ast.type === "GlobalVariable") {
-                        result += this.translateVarToWs(ast.name, true);
+                        result += this.translateVarToWs(this.globalVariables.filter(x => x.index === ast.name)[0].name, true);
                     } else if (ast.type === "PlayerVariable") {
-                        result += this.translateVarToWs(ast.name, false);
+                        result += this.translateVarToWs(this.playerVariables.filter(x => x.index === ast.name)[0].name, false);
                     } else if (ast.type === "Subroutine") {
-                        result += this.translateSubroutineToWs(ast.name);
+                        result += this.translateSubroutineToWs(this.subroutines.filter(x => x.index === ast.name)[0].name);
                     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
                         result += this.escapeString(ast.name, true);
                     } else if (ast.type === "LocalizedStringLiteral") {
@@ -971,7 +994,12 @@
                         this.error("Unknown type '"+ast.type+"' of '"+ast.name+"'");
                     }
                     if (ast.args.length > 0) {
-                        result += "(" + ast.args.map(x => this.displayAst(x)).join(", ") + ")";
+                        if (ast.name === "__customString__" || ast.name === "__localizedString__") {
+                            maxStrArg = ast.args[0].name.includes("{2}") ? 3 : ast.args[0].name.includes("{1}") ? 2 : ast.args[0].name.includes("{0}") ? 1 : 0
+                            result += "(" + ast.args.slice(0, maxStrArg+1).map(x => this.displayAst(x)).join(", ") + ")";
+                        } else {
+                            result += "(" + ast.args.map(x => this.displayAst(x)).join(", ") + ")";
+                        }
                     }
                     return result;
                 },
@@ -980,12 +1008,12 @@
                     if (actionIdx === 0) {
                         indent = 0;
                     } else {
-                        if (["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(ruleChildren[actionIdx-1].name)) {
+                        if (!ruleChildren[actionIdx-1].isDisabled && ["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(ruleChildren[actionIdx-1].name)) {
                             indent = ruleChildren[actionIdx-1].indent + 1;
                         } else {
                             indent = ruleChildren[actionIdx-1].indent;
                         }
-                        if (action.name === "__end__" || action.name === "__else__") {
+                        if (!ruleChildren[actionIdx-1].isDisabled && (action.name === "__end__" || action.name === "__else__")) {
                             indent--;
                         }
                     }
@@ -1072,6 +1100,102 @@
                             this.$set(rule.ruleAttributes, "eventPlayer", "all");
                         }
                     }
+                },
+                selectAllRules: function() {
+                    //unselect all actions & conditions
+                    /*for (var rule of this.rules) {
+                        for (var action of rule.children) {
+                            action.isSelected = false;
+                        }
+                        for (var condition of rule.ruleAttributes.conditions) {
+                            condition.isSelected = false;
+                        }
+                    }*/
+                    if (this.rules.every(x => x.isSelected)) {
+                        for (var rule of this.rules) {
+                            rule.isSelected = false;
+                        }
+                    } else {
+                        for (var rule of this.rules) {
+                            rule.isSelected = true;
+                        }
+                    }
+                },
+                selectAllConditions: function(rule) {
+                    var unselectAll = rule.ruleAttributes.conditions.every(x => x.isSelected);
+                    /*for (let rule of this.rules) {
+                        rule.isSelected = false;
+                        for (var action of rule.children) {
+                            action.isSelected = false;
+                        }
+                        for (var condition of rule.ruleAttributes.conditions) {
+                            condition.isSelected = false;
+                        }
+                    }*/
+                    for (var condition of rule.ruleAttributes.conditions) {
+                        condition.isSelected = !unselectAll;
+                    }
+                },
+                selectAllActions: function(rule) {
+                    var unselectAll = rule.children.every(x => x.isSelected);
+                    /*for (let rule of this.rules) {
+                        rule.isSelected = false;
+                        for (var action of rule.children) {
+                            action.isSelected = false;
+                        }
+                        for (var condition of rule.ruleAttributes.conditions) {
+                            condition.isSelected = false;
+                        }
+                    }*/
+                    for (var action of rule.children) {
+                        action.isSelected = !unselectAll;
+                    }
+                },
+                toggleSelectedRules: function() {
+                    for (var rule of this.rules) {
+                        if (rule.isSelected) {
+                            rule.isDisabled = !rule.isDisabled;
+                        }
+                    }
+                },
+                toggleSelectedActions: function(rule) {
+                    for (var action of rule.children) {
+                        if (action.isSelected) {
+                            action.isDisabled = !action.isDisabled;
+                        }
+                    }
+                },
+                toggleSelectedConditions: function(rule) {
+                    for (var condition of rule.ruleAttributes.conditions) {
+                        if (condition.isSelected) {
+                            condition.isDisabled = !condition.isDisabled;
+                        }
+                    }
+                },
+                addAction: function(rule) {
+                    var action = new Ast("__setGlobalVariable__", [new Ast("__globalVar__", [new Ast(this.globalVariables[0].index+"", [], [], "GlobalVariable")]), getAstFor0()]);
+                    action.args[0].args[0].name = +action.args[0].args[0].name;
+                    action.isSelected = false;
+                    action.isDisabled = false;
+                    action.parent = rule;
+                    rule.children.push(action);
+                },
+                addCondition: function(rule) {
+                    var condition = new Ast("__compare__", [getAstFor0(), new Ast("==", [], [], "__Operator__"), getAstFor0()]);
+                    condition.isSelected = false;
+                    condition.isDisabled = false;
+                    condition.parent = rule;
+                    rule.ruleAttributes.conditions.push(condition);
+                },
+                addRule: function() {
+                    var rule = new Ast("__rule__");
+                    rule.isDisabled = false;
+                    rule.isSelected = false;
+                    rule.ruleAttributes = {};
+                    rule.ruleAttributes.conditions = [];
+                    rule.ruleAttributes.event = "global";
+                    rule.ruleAttributes.name = this.translate("rule", this.uiDisplayNames).replace("%1$s", this.rules.length+1);
+                    this.rules.push(rule);
                 }
             }
         })
@@ -1133,7 +1257,7 @@ subroutines
 	1: nextChallenge
 }
 
-rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs out!")
+disabled rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs out!")
 {
 	event
 	{
@@ -1141,7 +1265,7 @@ rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs ou
 	}
     actions {
 
-		Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
+		disabled Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
 			Visible Always);
     }
 }
