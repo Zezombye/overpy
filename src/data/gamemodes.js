@@ -58,7 +58,7 @@ const gamemodeKw =
     "control": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
-        "guid": "00000000CD5B",
+        "guid": "000000005839",
         "en-US": "Control",
         "de-DE": "Kontrolle",
         "fr-FR": "Contrôle",
