@@ -169,6 +169,10 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 		} else if (content.charAt(i) == '\\') {
 			i++;
 		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
+			//fix for baguette
+			if (currentLanguage === "fr-FR" && delimiter === "." && (content.substring(0, i).toLowerCase().endsWith("créer une i") || content.substring(0, i).toLowerCase().endsWith("créer une i.a") || content.substring(0, i).toLowerCase().endsWith("est une i") || content.substring(0, i).toLowerCase().endsWith("est une i.a") || content.substring(0, i).toLowerCase().endsWith("détruire une i") || content.substring(0, i).toLowerCase().endsWith("détruire une i.a") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i.a") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i.a")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i.a"))) {
+				continue;
+			}
 			delimiterPos.push(i);
 		}
 

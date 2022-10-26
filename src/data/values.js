@@ -6841,13 +6841,23 @@ var valueFuncKw =
                 "default": "ALL",
                 "description": "Team",
                 "descriptionLocalized": {
-                    "en-US": "Team",
+                    "en-US": "Team"
                 }
             }
         ],
         "isConstant": true,
+        "guid": "00000000BB26",
+        "return": "Team",
         "en-US": "Team",
-        return: "Team",
+        "es-ES": "Equipo",
+        "es-MX": "Equipo",
+        "fr-FR": "Équipe",
+        "it-IT": "Squadra",
+        "ja-JP": "チーム",
+        "pl-PL": "Drużyna",
+        "pt-BR": "Equipe",
+        "ru-RU": "Команда",
+        "zh-CN": "队伍"
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",

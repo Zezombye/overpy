@@ -359,7 +359,8 @@ function decompileVarNames(content) {
 			}
 		} else {
 			if (content[i].search(/\s/) >= 0) {
-				var elems = content[i].split(/\s+/);
+				var [first, ...rest] = content[i].split(/\s+/);
+				var elems = [first, rest.join(" ")];
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}

@@ -522,7 +522,7 @@ function demoDecompile() {
         str = decompileAllRules(document.getElementById("workshop-textarea").value, language);
 	} catch (e) {
 		console.log(e);
-		str = e;
+		str = ""+e+", contact Zezombye about this";
 	}
 	//document.getElementById("overpy-textarea").value = str;
 	overpyTextEditorView.dispatch({

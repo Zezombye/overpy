@@ -23376,13 +23376,23 @@ var valueFuncKw =
                 "default": "ALL",
                 "description": "Team",
                 "descriptionLocalized": {
-                    "en-US": "Team",
+                    "en-US": "Team"
                 }
             }
         ],
         "isConstant": true,
+        "guid": "00000000BB26",
+        "return": "Team",
         "en-US": "Team",
-        return: "Team",
+        "es-ES": "Equipo",
+        "es-MX": "Equipo",
+        "fr-FR": "Équipe",
+        "it-IT": "Squadra",
+        "ja-JP": "チーム",
+        "pl-PL": "Drużyna",
+        "pt-BR": "Equipe",
+        "ru-RU": "Команда",
+        "zh-CN": "队伍"
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
@@ -33957,10 +33967,10 @@ const gamemodeKw =
     "control": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
-        "guid": "00000000CD5B",
+        "guid": "000000005839",
         "en-US": "Control",
         "de-DE": "Kontrolle",
-        "fr-FR": "Contrôle",
+        "fr-FR": "Point de contrôle",
         "it-IT": "Controllo",
         "ja-JP": "コントロール",
         "ko-KR": "쟁탈",
@@ -47410,6 +47420,10 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 		} else if (content.charAt(i) == '\\') {
 			i++;
 		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
+			//fix for baguette
+			if (currentLanguage === "fr-FR" && delimiter === "." && (content.substring(0, i).toLowerCase().endsWith("créer une i") || content.substring(0, i).toLowerCase().endsWith("créer une i.a") || content.substring(0, i).toLowerCase().endsWith("est une i") || content.substring(0, i).toLowerCase().endsWith("est une i.a") || content.substring(0, i).toLowerCase().endsWith("détruire une i") || content.substring(0, i).toLowerCase().endsWith("détruire une i.a") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i.a") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i.a")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i.a"))) {
+				continue;
+			}
 			delimiterPos.push(i);
 		}
 
@@ -50581,7 +50595,8 @@ function decompileVarNames(content) {
 			}
 		} else {
 			if (content[i].search(/\s/) >= 0) {
-				var elems = content[i].split(/\s+/);
+				var [first, ...rest] = content[i].split(/\s+/);
+				var elems = [first, rest.join(" ")];
 				if (elems.length !== 2) {
 					error("Could not parse variables field: too many elements on '"+content[i]+"'");
 				}

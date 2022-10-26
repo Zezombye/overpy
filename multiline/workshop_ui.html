@@ -32,6 +32,7 @@
             --background-dim: rgba(0, 0, 0, 0.9);
             --cancel-bg-color: rgb(53, 162, 231);
             --ok-bg-color: rgb(223, 153, 49);
+            --reset-to-defaults-bg-color: rgb(27, 116, 187);
             --text-color: rgb(199, 212, 223);
             --text-field-bg: rgb(206, 206, 207);
             --text-field-bg-focused: white;
@@ -40,8 +41,14 @@
             --checkbox-border: rgb(19, 43, 67);
             --collapse-line-color: rgb(26, 69, 104);
             --comment-color: rgb(162, 165, 170);
-            --title-color: white;
+            --title-color: rgb(243, 243, 243);
             --delete-title-background: rgb(155, 6, 19);
+            --variable-global-player-title: rgb(146, 153, 163);
+
+            --syntax-coloration-variable-and-num: rgb(208, 208, 208);
+            --syntax-coloration-value: rgb(176, 206, 247);
+            --syntax-coloration-action-and-operator: rgb(237, 213, 140);
+            --syntax-coloration-string: rgb(80, 113, 158);
 
             --label-font-size: 20px;
             --dropdown-font-size: 22px;
@@ -207,6 +214,7 @@
             padding-left: 20px;
             height: 40px;
             font-size: var(--label-font-size);
+            color: var(--text-color);
         }
 
         .rule-event-value {
@@ -414,6 +422,8 @@
             word-break: break-word;
             padding: 9px;
             text-transform: none;
+            color: var(--syntax-coloration-variable-and-num);
+            font-smooth: never;
         }
 
         .action .code-display {
@@ -441,7 +451,7 @@
             align-items: center;
         }
 
-        #ast-edit {
+        #ast-edit, #variables-edit-screen {
             z-index: 9999;
             position: fixed;
             top: 0px;
@@ -455,9 +465,11 @@
             background-color: var(--background-dim);
         }
 
-        #edit-title {
+        #edit-title, .variables-edit-title {
             text-align: center;
             color: var(--title-color);
+            width: 100%;
+            font-size: 45px;
         }
 
         #edit-comment {
@@ -471,19 +483,18 @@
             box-sizing: border-box;
         }
 
-        #edit-background {
+        #edit-background, .variables-background {
             display: grid;
             grid-template-rows: 3rem auto;
+            height: calc(100% - 200px);
             width: 100%;
             margin-top: 50px;
             margin-bottom: 50px;
             padding-top: 50px;
             background-color: var(--edit-background-color);
-            height: calc(100% - 200px);
         }
 
         #edit-content {
-            box-sizing: border-box;
             height: 100%;
             padding-left: 214px;
             padding-right: 214px;
@@ -506,6 +517,7 @@
             margin-bottom: 2px;
             margin-top: 2px;
             margin-right: 4px;
+            color: var(--text-color);
         }
 
         .value {
@@ -516,31 +528,33 @@
         .edit-buttons {
             width: 100%;
             text-align: center;
-            background-color: var(--edit-buttons-bg-color);
             padding-top: 8px;
             padding-bottom: 8px;
+            background-color: var(--edit-buttons-bg-color);
+            display: flex;
+            justify-content: center;
+            column-gap: 5px;
         }
 
         .cancel-button {
             background-color: var(--cancel-bg-color);
             width: 130px;
             height: 55px;
-            border-radius: 1px;
-            border: 1px solid transparent;
+            font-size: 27px;
         }
 
         .ok-button {
             background-color: var(--ok-bg-color);
             width: 145px;
             height: 55px;
-            border-radius: 1px;
-            border: 1px solid transparent;
+            font-size: 30px;
         }
 
         .cancel-button, .ok-button {
             color: var(--title-color);
-            font-size: 27px;
             text-transform: uppercase;
+            border-radius: 2px;
+            border: 1px solid transparent;
         }
 
         button:hover {
@@ -550,7 +564,6 @@
         .no-uppercase {
             text-transform: none;
         }
-
         
         #delete-confirmation {
             z-index: 9999;
@@ -574,12 +587,106 @@
         #delete-title {
             text-align: center;
             color: var(--title-color);
-            background-color: var(--delete-title-background);
+            /*background-color: var(--delete-title-background);*/
+            text-shadow: 0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red;
             font-size: 45px;
             padding-bottom: 70px;
             padding-top: 30px;
+            padding-right: 5px;
             width: 100%;
         }
+
+        .variables-background {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #variables-edit-wrapper {
+            padding-left: 200px;
+            padding-right: 200px;
+            padding-top: 35px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            column-gap: 35px;
+            height: calc(100% - 250px);
+        }
+
+        .variables-edit {
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+
+        .variables-edit-subtitle {
+            color: var(--variable-global-player-title);
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .variables-edit-fields {
+            height: 100%;
+            overflow: auto;
+            display: grid;
+            row-gap: 7px;
+            margin-top: 6px;
+        }
+
+        .variables-edit-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .variables-edit-nb {
+            color: var(--text-color);
+            font-size: 20px;
+            width: 50px;
+            text-align: center;
+        }
+
+        .variables-edit-field {
+            width: 100%;
+            height: 40px;
+            border: 1px solid var(--text-field-bg-focused);
+            border-radius: 6px;
+            padding-left: 12px;
+            white-space: pre;
+            overflow: hidden;
+            font-size: 21px;
+            background-color: var(--text-field-bg);
+            color: var(--text-field-color);
+            margin-right: 7px;
+        }
+        .variables-edit-field:hover, .variables-edit-field:focus {
+            background-color: var(--text-field-bg-focused);
+        }
+
+        .variables-edit-field:focus {
+            outline: var(--text-field-bg-focused) solid 2px;
+        }
+
+        .reset-to-defaults {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 200px;
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+
+        .reset-to-defaults-button {
+            color: var(--text-color);
+            background-color: var(--reset-to-defaults-bg-color);
+            font-size: 25px;
+            width: 250px;
+            height: 55px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            border: 1px solid transparent;
+        }
+
 
     </style>
 </head>
@@ -591,13 +698,13 @@
             <div id="workshop-header-left">
                 <div id="rules-title">{{ translate("rules", uiDisplayNames) }}</div>
                 <div id="rules-nb">({{ rules.length || 0}})</div>
-                <img id="button-info" class="img-button button-header" src="img/info.png"/>
-                <img id="button-metrics" class="img-button button-header" src="img/metrics.png"/>
+                <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo()"/>
+                <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetrics()"/>
             </div>
             <div id="workshop-header-right">
-                <img id="button-extensions" class="img-button button-header" src="img/extensions.png"/>
-                <img id="button-var-names" class="img-button button-header" src="img/var_names.png"/>
-                <img id="button-subroutine-names" class="img-button button-header" src="img/subroutine_names.png"/>
+                <img id="button-extensions" class="img-button button-header" src="img/extensions.png" v-on:click="editExtensions()"/>
+                <img id="button-var-names" class="img-button button-header" src="img/var_names.png" v-on:click="editVariables()"/>
+                <img id="button-subroutine-names" class="img-button button-header" src="img/subroutine_names.png" v-on:click="editSubroutines()"/>
                 <div id="button-separator"></div>
                 <template v-if="rules.some(x => x.isSelected)">
                     <img class="img-button button-header button-delete" src="img/delete.png" v-on:click="deleteSelectedRules()"/>
@@ -657,7 +764,7 @@
                                     <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
                                     <div class="conditions-buttons">
                                         <template v-if="rule.ruleAttributes.conditions.some(x => x.isSelected)">
-                                            <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedConditions()"/>
+                                            <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedConditions(rule)"/>
                                             <div id="buttons-move-up-down" class="button-action-condition">
                                                 <img id="button-move-up" class="img-button" src="img/move_up.png" v-on:click="moveSelectedConditions(rule, true)"/>
                                                 <img id="button-move-down" class="img-button" src="img/move_down.png" v-on:click="moveSelectedConditions(rule, false)"/>
@@ -729,16 +836,39 @@
                     <function-display :ast="astToEdit" :depth="astToEdit.name === '__compare__' ? -1 : 0"></function-display>
                 </div>
                 <div class="edit-buttons">
-                    <button class="cancel-button font-futurano2d" v-on:click="cancelEdition()">Cancel</button>
-                    <button class="ok-button font-futurano2d" v-on:click="validateEditedAst()">Ok</button>
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelEdition()">{{ translate("cancel", uiDisplayNames) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateEditedAst()">{{ translate("ok", uiDisplayNames) }}</button>
                 </div>
             </div>
         </div>
-        <div id="delete-confirmation" v-if="displayDeleteConfirmationFor">
-            <div id="delete-title" class="font-bignoodle">{{ translate(displayDeleteConfirmationFor === "actions" ? "deleteActions" : displayDeleteConfirmationFor === "conditions" ? "deleteConditions" : "deleteRules", uiDisplayNames) }}</div>
+        <div id="delete-confirmation" v-show="displayDeleteConfirmationFor">
+            <div id="delete-title" class="font-bignoodle">{{ translate(displayDeleteConfirmationFor === "actions" ? "deleteActions" : displayDeleteConfirmationFor === "conditions" ? "deleteConditions" : "deleteRules", uiDisplayNames, displayDeleteConfirmationFor === "actions" ? deleteForRule.children.filter(x => x.isSelected).length : displayDeleteConfirmationFor === "conditions" ? deleteForRule.ruleAttributes.conditions.filter(x => x.isSelected).length : rules.filter(x => x.isSelected).length) }}</div>
             <div class="edit-buttons">
                 <button class="cancel-button font-futurano2d" v-on:click="cancelDeletion()">Cancel</button>
                 <button class="ok-button font-futurano2d" v-on:click="validateDeletion()">Ok</button>
+            </div>
+        </div>
+        <div id="variables-edit-screen" v-show="displayVariableEditor">
+            <div class="variables-background">
+                <div class="variables-edit-title font-bignoodle">{{ translate("editVariableNames", uiDisplayNames) }}</div>
+                <div id="variables-edit-wrapper">
+                    <div class="variables-edit" v-for="(varArray, i) in [globalVariables, playerVariables]">
+                        <div class="variables-edit-subtitle">{{ translate(["__global__", "__player__"][i], ruleKw) }}</div>
+                        <div class="variables-edit-fields">
+                            <div v-for="v in varArray" class="variables-edit-row">
+                                <div class="variables-edit-nb">{{ v.index }}</div>
+                                <input type="text" class="variables-edit-field" v-model="v.name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-to-defaults">
+                    <button class="reset-to-defaults-button font-futurano2d" v-on:click="resetVariablesToDefault()">{{ translate("resetToDefaults", uiDisplayNames) }}</button>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelVarEdition()">{{ translate("cancel", uiDisplayNames) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateVariables()">{{ translate("ok", uiDisplayNames) }}</button>
+                </div>
             </div>
         </div>
     </div>
@@ -785,6 +915,9 @@
                 "decompilationLanguage": "en-US",
                 "compilationLanguage": "en-US",
                 displayDeleteConfirmationFor: null,
+                deleteForRule: null,
+                displayVariableEditor: true,
+                displaySubroutineEditor: false,
                 clipboard: {},
                 "customGameSettings": null,
                 astToEdit: null,
@@ -854,7 +987,16 @@
                     },
                     "deleteRules": {
                         "en-US": "Delete (%1$s) |RplRule:Rules;?",
-                    }
+                    },
+                    "editVariableNames": {
+                        "en-US": "Edit Variable Names",
+                    },
+                    "editSubroutineNames": {
+                        "en-US": "Edit Subroutine Names",
+                    },
+                    "resetToDefaults": {
+                        "en-US": "Reset To Defaults",
+                    },
                 },
                 eventKw,
                 eventTeamKw,
@@ -863,6 +1005,7 @@
                 valueKw,
                 valueFuncKw,
                 stringKw,
+                ruleKw,
                 constantValues,
                 astToString,
                 isTypeSuitable,
@@ -879,15 +1022,23 @@
                     console.log(str);
                     throw str;
                 },
-                translate: function(keyword, keywordObj) {
+                translate: function(keyword, keywordObj, ...args) {
                     if (!(keyword in keywordObj)) {
                         throw new Error("Could not translate '"+keyword+"'");
                     }
+                    var result = null;
                     if (this.language in keywordObj[keyword]) {
-                        return keywordObj[keyword][this.language];
+                        result = keywordObj[keyword][this.language];
                     } else {
-                        return keywordObj[keyword]["en-US"];
+                        result = keywordObj[keyword]["en-US"];
                     }
+                    if (result.includes("%1$s")) {
+                        result = result.replace("%1$s", args[0]);
+                        if (result.includes("|Rpl")) {
+                            result = result.replace(/\|Rpl(.*):(.*);/, +args[0] === 1 ? "$1" : "$2")
+                        }
+                    }
+                    return result;
                 },
                 getDropdownOptionsForType: function(type) {
                     if (type === "GlobalVariable") {
@@ -923,7 +1074,7 @@
                     this.subroutines = subroutines;
                     //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
                     //Plus, we need var names to be in order for the UI
-                    for (var i = 0; i < 127; i++) {
+                    for (var i = 0; i < 128; i++) {
                         if (!this.globalVariables.map(x => x.index).includes(i)) {
                             this.globalVariables.push({index: i, name: defaultVarNames[i]})
                         }
@@ -1270,7 +1421,7 @@
                     rule.ruleAttributes = {};
                     rule.ruleAttributes.conditions = [];
                     rule.ruleAttributes.event = "global";
-                    rule.ruleAttributes.name = this.translate("rule", this.uiDisplayNames).replace("%1$s", this.rules.length+1);
+                    rule.ruleAttributes.name = this.translate("rule", this.uiDisplayNames, this.rules.length+1);
                     this.rules.push(rule);
                 },
                 copySelectedRules: function() {
@@ -1316,6 +1467,64 @@
                 },
                 deleteSelectedActions: function(rule) {
                     this.displayDeleteConfirmationFor = "actions";
+                    this.deleteForRule = rule;
+                },
+                deleteSelectedConditions: function(rule) {
+                    this.displayDeleteConfirmationFor = "conditions";
+                    this.deleteForRule = rule;
+                },
+                deleteSelectedRules: function() {
+                    this.displayDeleteConfirmationFor = "rules";
+                    this.deleteForRule = null;
+                },
+                cancelDeletion: function() {
+                    this.displayDeleteConfirmationFor = null;
+                    this.deleteForRule = null;
+                },
+                validateDeletion: function() {
+                    if (this.displayDeleteConfirmationFor === "actions") {
+                        this.deleteForRule.children = this.deleteForRule.children.filter(x => !x.isSelected);
+                    } else if (this.displayDeleteConfirmationFor === "conditions") {
+                        this.deleteForRule.ruleAttributes.conditions = this.deleteForRule.ruleAttributes.conditions.filter(x => !x.isSelected);
+                    } else {
+                        this.rules = this.rules.filter(x => !x.isSelected);
+                    }
+                    this.displayDeleteConfirmationFor = null;
+                    this.deleteForRule = null;
+                },
+                moveSelected(array, moveUp) {
+                    if (moveUp) {
+                        for (var i = 1; i < array.length; i++) {
+                            if (array[i].isSelected && !array[i-1].isSelected) {
+                                var elem = array[i];
+                                array.splice(i, 1);
+                                array.splice(i-1, 0, elem);
+                            }
+                        }
+                    } else {
+                        for (var i = array.length - 2; i >= 0; i--) {
+                            if (array[i].isSelected && !array[i+1].isSelected) {
+                                var elem = array[i];
+                                array.splice(i, 1);
+                                array.splice(i+1, 0, elem);
+                            }
+                        }
+                    }
+                },
+                moveSelectedActions(rule, moveUp) {
+                    this.moveSelected(rule.children, moveUp);
+                },
+                moveSelectedConditions(rule, moveUp) {
+                    this.moveSelected(rule.ruleAttributes.conditions, moveUp);
+                },
+                moveSelectedRules(moveUp) {
+                    this.moveSelected(this.rules, moveUp);
+                },
+                editVariables: function() {
+                    this.displayVariableEditor = true;
+                },
+                editSubroutines: function() {
+                    this.displaySubroutineEditor = true;
                 }
             }
         })
@@ -1425,7 +1634,15 @@ rule("timer")
 
 	actions
 	{
+		Global.timer = 1;
+		Global.timer = 2;
+		Global.timer = 3;
+		Global.timer = 4;
 		Global.timer = 5;
+		Global.timer = 6;
+		Global.timer = 7;
+		Global.timer = 8;
+		Global.timer = 9;
 	}
 }
 

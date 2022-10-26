@@ -61,7 +61,7 @@ const gamemodeKw =
         "guid": "000000005839",
         "en-US": "Control",
         "de-DE": "Kontrolle",
-        "fr-FR": "Contrôle",
+        "fr-FR": "Point de contrôle",
         "it-IT": "Controllo",
         "ja-JP": "コントロール",
         "ko-KR": "쟁탈",
