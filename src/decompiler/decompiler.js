@@ -73,7 +73,6 @@ function decompileAllRules(content, language="en-US") {
 
 	var opyRules = astRulesToOpy(astRules)
 	if (activatedExtensions.length > 0) {
-		activatedExtensions = [...new Set(activatedExtensions)]
 		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
 	}
 
@@ -108,6 +107,10 @@ function decompileAllRulesToAst(content) {
 	if (content.startsWith(tows("__settings__", ruleKw))) {
 		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
+	}
+	
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
 	}
 
 	content = content.trim();

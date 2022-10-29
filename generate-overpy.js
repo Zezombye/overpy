@@ -20,6 +20,7 @@ overpyFiles = [
 "data/gamemodes.js",
 "data/constants.js",
 "data/other.js",
+"data/ui.js",
 "data/customGameSettings.js",
 "data/opy/preprocessing.js",
 "data/opy/annotations.js",

@@ -25,23 +25,23 @@ function error(str, token) {
 	}
 	
 	//var error = "ERROR: ";
-	var error = "";
-	error += str;
+	var err = "";
+	err += str;
 	if (token !== undefined) {
-		error += "'"+dispTokens(token)+"'";
+		err += "'"+dispTokens(token)+"'";
 	}
 	if (fileStack) {
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
 			for (var file of fileStack) {
-				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
 			}
 		}
 	} else {
-		error += "\n\t| <no filestack>";
+		err += "\n\t| <no filestack>";
 	}
 	
-	throw new Error(error);
+	throw new Error(err);
 }
 
 function warn(warnType, message) {
@@ -56,7 +56,7 @@ function warn(warnType, message) {
 				}
 			}
 		} else {
-			error += "\n\t| <no filestack>";
+			warning += "\n\t| <no filestack>";
 		}
 		console.warn(warning);
 		//suppressedWarnings.push(warnType);

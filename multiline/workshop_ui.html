@@ -27,7 +27,7 @@
             --dropdown-bg-color-hover: rgb(27, 116, 187);
             --dropdown-value-bg-hover: rgb(38, 141, 186);
             --action-hover-color: white;
-            --edit-background-color: rgb(36, 46, 64);
+            --edit-background-color: rgb(34, 45, 65);
             --edit-buttons-bg-color: rgba(34, 32, 35, 0.85);
             --background-dim: rgba(0, 0, 0, 0.9);
             --cancel-bg-color: rgb(53, 162, 231);
@@ -44,6 +44,11 @@
             --title-color: rgb(243, 243, 243);
             --delete-title-background: rgb(155, 6, 19);
             --variable-global-player-title: rgb(146, 153, 163);
+            --title-background: rgb(55, 71, 107);
+            --card-background: rgb(39, 50, 72);
+            --description-color: rgb(248, 158, 27);
+            --window-separator-color: rgb(80, 91, 113);
+            --subtitle-color: rgb(185, 192, 208);
 
             --syntax-coloration-variable-and-num: rgb(208, 208, 208);
             --syntax-coloration-value: rgb(176, 206, 247);
@@ -123,6 +128,7 @@
             display: grid;
             padding-bottom: 30px;
             backdrop-filter: blur(10px) brightness(30%);
+            align-content: baseline;
         }
 
         #workshop-title {
@@ -179,6 +185,7 @@
             font-size: 21px;
             background-color: var(--text-field-bg);
             color: var(--text-field-color);
+            margin-right: 9px;
         }
 
         .rule-title:hover, .rule-title:focus {
@@ -227,7 +234,6 @@
             width: 30px;
             height: 30px;
             outline: var(--checkbox-border) solid 3px;
-            margin-left: 9px;
         }
 
         #workshop-header {
@@ -400,6 +406,16 @@
             color: var(--no-action-condition-color);
         }
 
+        #app > .no-values-msg {
+            font-size: 45px;
+            height: calc(100vh - 178px); /*how the fuck do I center this shit*/
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 19vh;
+        }
+
         .code-display-wrapper {
             width: 100%;
             background-color: var(--value-bg);
@@ -451,7 +467,7 @@
             align-items: center;
         }
 
-        #ast-edit, #variables-edit-screen {
+        #ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen {
             z-index: 9999;
             position: fixed;
             top: 0px;
@@ -482,16 +498,31 @@
             white-space: pre;
             box-sizing: border-box;
         }
-
         #edit-background, .variables-background {
-            display: grid;
-            grid-template-rows: 3rem auto;
+            padding-top: 50px;
             height: calc(100% - 200px);
-            width: 100%;
             margin-top: 50px;
             margin-bottom: 50px;
-            padding-top: 50px;
+        }
+
+        #edit-background, .variables-background, .window-background {
+            display: grid;
+            grid-template-rows: auto;
+            width: 100%;
             background-color: var(--edit-background-color);
+        }
+        #info-screen .window-background {
+            height: calc(100% - 200px);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .window-background {
+            justify-items: center;
+        }
+
+        #extensions-edit-screen .window-background {
+            height: calc(100% - 50px);
         }
 
         #edit-content {
@@ -528,11 +559,11 @@
         .edit-buttons {
             width: 100%;
             text-align: center;
-            padding-top: 8px;
-            padding-bottom: 8px;
+            height: 71px;
             background-color: var(--edit-buttons-bg-color);
             display: flex;
             justify-content: center;
+            align-items: center;
             column-gap: 5px;
         }
 
@@ -566,7 +597,8 @@
         }
         
         #delete-confirmation {
-            z-index: 9999;
+            clip-path: circle(0);
+            z-index: 99999;
             position: fixed;
             top: 0px;
             left: 0px;
@@ -582,6 +614,10 @@
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
+        }
+        /*cannot use display:none because else the image won't be loaded on start*/
+        #delete-confirmation.shown {
+            clip-path: none;
         }
 
         #delete-title {
@@ -617,6 +653,7 @@
             width: 100%;
             display: grid;
             grid-template-rows: auto auto;
+            max-width: 750px;
         }
 
         .variables-edit-subtitle {
@@ -677,7 +714,7 @@
         }
 
         .reset-to-defaults-button {
-            color: var(--text-color);
+            color: var(--title-color);
             background-color: var(--reset-to-defaults-bg-color);
             font-size: 25px;
             width: 250px;
@@ -687,6 +724,141 @@
             border: 1px solid transparent;
         }
 
+        .window-edit-title {
+            text-align: center;
+            color: var(--title-color);
+            width: 100%;
+            font-size: 45px;
+            background-color: var(--title-background);
+            height: 91px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cards {
+            display: flex;
+            column-gap: 18px;
+            padding-top: 23px;
+            justify-content: center;
+            padding-bottom: 23px;
+        }
+
+        .card {
+            width: 280px;
+            height: 248px;
+            text-align: center;
+            background-color: var(--card-background);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-title {
+            height: 94px;
+            color: var(--subtitle-color);
+            font-size: 19px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-value {
+            height: 61px;
+            border-bottom: 3px solid var(--window-separator-color);
+            margin-left: 29px;
+            margin-right: 29px;
+            color: var(--title-color);
+            font-size: 30px;
+            width: 100%;
+        }
+
+        .card-description {
+            padding-top: 20px;
+            color: var(--description-color);
+            text-transform: none;
+            padding-left: 27px;
+            padding-right: 27px;
+            font-size: 11pt;
+            height: 100%;
+        }
+
+        #extensions {
+            max-width: 1130px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 27px;
+            overflow: auto;
+            margin-top: 24px;
+        }
+
+        .extension {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .extension-title {
+            width: 280px;
+            color: var(--title-color);
+            text-transform: none;
+            font-size: 19px;
+        }
+
+        .extension-description {
+            width: 500px;
+            color: var(--description-color);
+            text-transform: none;
+            font-size: 11pt;
+        }
+
+        .extension-points {
+            width: 135px;
+            color: var(--title-color);
+            font-size: 19px;
+        }
+
+        .extension-checkbox {
+            width: 135px;
+        }
+
+        #info {
+            max-width: 800px;
+            text-align: center;
+            color: var(--text-color);
+            text-transform: none;
+            font-size: 16pt;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto;
+        }
+
+        #info p {
+            width: 100%;
+        }
+
+        .setting {
+            display: flex;
+            column-gap: 10px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            width: 100%;
+        }
+
+        .setting-name {
+            background-color: var(--label-background-color);
+            width: 100%;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .setting-value {
+            width: 100%;
+        }
 
     </style>
 </head>
@@ -696,10 +868,10 @@
         <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation</div>
         <div id="workshop-header">
             <div id="workshop-header-left">
-                <div id="rules-title">{{ translate("rules", uiDisplayNames) }}</div>
+                <div id="rules-title">{{ translate("rules", workshopUiKw) }}</div>
                 <div id="rules-nb">({{ rules.length || 0}})</div>
-                <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo()"/>
-                <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetrics()"/>
+                <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo = true"/>
+                <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetrics = true"/>
             </div>
             <div id="workshop-header-right">
                 <img id="button-extensions" class="img-button button-header" src="img/extensions.png" v-on:click="editExtensions()"/>
@@ -720,7 +892,8 @@
                 <img id="button-add" class="img-button button-header" src="img/add.png" v-on:click="addRule()"/>
             </div>
         </div>
-        <div id="rules">
+        <div v-if="rules.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noRules", workshopUiKw) }}</div>
+        <div v-else id="rules">
             <div class="rule" v-for="(rule, ruleIdx) in rules">
                 <div class="rule-collapse-bar">
                     <template v-if="rule.isCollapsed">
@@ -739,29 +912,29 @@
                     </div>
                     <div class="rule-content" v-if="!rule.isCollapsed">
                         <div class="rule-event">
-                            <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value">
                                 <v-select :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
                                 </v-select>
                             </div>
                         </div>
                         <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
-                            <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
                         </div>
                         <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
-                            <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
                         </div>
                         <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
-                            <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNames) }}</div>
+                            <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value"><v-select :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
                         </div>
                         <!--TODO: subroutines-->
                         <div class="conditions-and-actions">
                             <div class="conditions">
                                 <div class="conditions-header">
-                                    <div class="conditions-title">{{ translate("conditions", uiDisplayNames) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
+                                    <div class="conditions-title">{{ translate("conditions", workshopUiKw) }} <span class="conditions-nb">({{ rules[ruleIdx].ruleAttributes.conditions?.length || 0}})</span></div>
                                     <div class="conditions-buttons">
                                         <template v-if="rule.ruleAttributes.conditions.some(x => x.isSelected)">
                                             <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedConditions(rule)"/>
@@ -777,7 +950,7 @@
                                         <img id="button-add" class="img-button button-action-condition" src="img/add.png" v-on:click="addCondition(rule)"/>
                                     </div>
                                 </div>
-                                <div v-if="!rule.ruleAttributes.conditions?.length" class="no-values-msg font-blizzglobal">{{ translate("noConditions", uiDisplayNames) }}</div>
+                                <div v-if="!rule.ruleAttributes.conditions?.length" class="no-values-msg font-blizzglobal">{{ translate("noConditions", workshopUiKw) }}</div>
                                 <div v-else>
                                     <div v-for="(condition, conditionIdx) in rule.ruleAttributes.conditions" class="condition">
                                         <div class="comment" v-if="condition.comment">{{ condition.comment }}</div>
@@ -792,7 +965,7 @@
                             </div>
                             <div class="actions">
                                 <div class="actions-header">
-                                    <div class="actions-title">{{ translate("actions", uiDisplayNames) }} <span class="actions-nb">({{ rule.children.length }})</span></div>
+                                    <div class="actions-title">{{ translate("actions", workshopUiKw) }} <span class="actions-nb">({{ rule.children.length }})</span></div>
                                     <div class="actions-buttons">
                                         <template v-if="rule.children.some(x => x.isSelected)">
                                             <img class="img-button button-action-condition button-delete" src="img/delete.png" v-on:click="deleteSelectedActions(rule)"/>
@@ -808,7 +981,7 @@
                                         <img id="button-add" class="img-button button-action-condition" src="img/add.png" v-on:click="addAction(rule)"/>
                                     </div>
                                 </div>
-                                <div v-if="rule.children.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noActions", uiDisplayNames) }}</div>
+                                <div v-if="rule.children.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noActions", workshopUiKw) }}</div>
         
                                 <div v-else v-for="(action, actionIdx) in rule.children" class="action">
                                     <div class="comment" v-if="action.comment">{{ action.comment }}</div>
@@ -827,7 +1000,7 @@
         </div>
         <div id="ast-edit" v-if="astToEdit">
             <div id="edit-background">
-                <div id="edit-title" class="font-bignoodle">{{ translate(astToEdit.name === "__compare__" ? (astToEditIndex === null ? "addCondition" : "editCondition") : (astToEditIndex === null ? "addAction" : "editAction"), uiDisplayNames) }}</div>
+                <div id="edit-title" class="font-bignoodle">{{ translate(astToEdit.name === "__compare__" ? (astToEditIndex === null ? "addCondition" : "editCondition") : (astToEditIndex === null ? "addAction" : "editAction"), workshopUiKw) }}</div>
 
                 <div id="edit-content">
 
@@ -836,13 +1009,13 @@
                     <function-display :ast="astToEdit" :depth="astToEdit.name === '__compare__' ? -1 : 0"></function-display>
                 </div>
                 <div class="edit-buttons">
-                    <button class="cancel-button font-futurano2d" v-on:click="cancelEdition()">{{ translate("cancel", uiDisplayNames) }}</button>
-                    <button class="ok-button font-futurano2d" v-on:click="validateEditedAst()">{{ translate("ok", uiDisplayNames) }}</button>
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelEdition()">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateEditedAst()">{{ translate("ok", workshopUiKw) }}</button>
                 </div>
             </div>
         </div>
-        <div id="delete-confirmation" v-show="displayDeleteConfirmationFor">
-            <div id="delete-title" class="font-bignoodle">{{ translate(displayDeleteConfirmationFor === "actions" ? "deleteActions" : displayDeleteConfirmationFor === "conditions" ? "deleteConditions" : "deleteRules", uiDisplayNames, displayDeleteConfirmationFor === "actions" ? deleteForRule.children.filter(x => x.isSelected).length : displayDeleteConfirmationFor === "conditions" ? deleteForRule.ruleAttributes.conditions.filter(x => x.isSelected).length : rules.filter(x => x.isSelected).length) }}</div>
+        <div id="delete-confirmation" :class="{'shown': displayDeleteConfirmationFor}">
+            <div id="delete-title" class="font-bignoodle">{{ translate(displayDeleteConfirmationFor === "actions" ? "deleteActions" : displayDeleteConfirmationFor === "conditions" ? "deleteConditions" : "deleteRules", workshopUiKw, displayDeleteConfirmationFor === "actions" ? deleteForRule.children.filter(x => x.isSelected).length : displayDeleteConfirmationFor === "conditions" ? deleteForRule.ruleAttributes.conditions.filter(x => x.isSelected).length : rules.filter(x => x.isSelected).length) }}</div>
             <div class="edit-buttons">
                 <button class="cancel-button font-futurano2d" v-on:click="cancelDeletion()">Cancel</button>
                 <button class="ok-button font-futurano2d" v-on:click="validateDeletion()">Ok</button>
@@ -850,9 +1023,9 @@
         </div>
         <div id="variables-edit-screen" v-show="displayVariableEditor">
             <div class="variables-background">
-                <div class="variables-edit-title font-bignoodle">{{ translate("editVariableNames", uiDisplayNames) }}</div>
+                <div class="variables-edit-title font-bignoodle">{{ translate("editVariableNames", workshopUiKw) }}</div>
                 <div id="variables-edit-wrapper">
-                    <div class="variables-edit" v-for="(varArray, i) in [globalVariables, playerVariables]">
+                    <div class="variables-edit" v-for="(varArray, i) in [editedGlobalVariables, editedPlayerVariables]">
                         <div class="variables-edit-subtitle">{{ translate(["__global__", "__player__"][i], ruleKw) }}</div>
                         <div class="variables-edit-fields">
                             <div v-for="v in varArray" class="variables-edit-row">
@@ -863,11 +1036,115 @@
                     </div>
                 </div>
                 <div class="reset-to-defaults">
-                    <button class="reset-to-defaults-button font-futurano2d" v-on:click="resetVariablesToDefault()">{{ translate("resetToDefaults", uiDisplayNames) }}</button>
+                    <button class="reset-to-defaults-button font-futurano2d" v-on:click="resetVariablesToDefault()">{{ translate("resetToDefaults", workshopUiKw) }}</button>
                 </div>
                 <div class="edit-buttons">
-                    <button class="cancel-button font-futurano2d" v-on:click="cancelVarEdition()">{{ translate("cancel", uiDisplayNames) }}</button>
-                    <button class="ok-button font-futurano2d" v-on:click="validateVariables()">{{ translate("ok", uiDisplayNames) }}</button>
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelVarEdition()">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateVariables()">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
+        <div id="subroutines-edit-screen" v-show="displaySubroutineEditor">
+            <div class="variables-background">
+                <div class="variables-edit-title font-bignoodle">{{ translate("editSubroutineNames", workshopUiKw) }}</div>
+                <div id="variables-edit-wrapper">
+                    <div class="variables-edit">
+                        <div class="variables-edit-fields">
+                            <div v-for="v in editedSubroutines" class="variables-edit-row">
+                                <div class="variables-edit-nb">{{ v.index }}</div>
+                                <input type="text" class="variables-edit-field" v-model="v.name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-to-defaults">
+                    <button class="reset-to-defaults-button font-futurano2d" v-on:click="resetSubroutinesToDefault()">{{ translate("resetToDefaults", workshopUiKw) }}</button>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelSubroutineEdition()">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateSubroutines()">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
+        <div id="extensions-edit-screen" v-if="displayExtensionsEditor">
+            <div class="window-background">
+                <div class="window-edit-title font-bignoodle">{{ translate("editExtensions", workshopUiKw) }}</div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-title">{{ translate("extensionPointsAvailable", workshopUiKw) }}</div>
+                        <div class="card-value">{{ availableExtensionPoints }}</div>
+                        <div class="card-description font-blizzglobal">{{ translate("extensionPointsAvailableDesc", workshopUiKw) }}</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">{{ translate("extensionPointsSpent", workshopUiKw) }}</div>
+                        <div class="card-value">{{ getSpentExtensionPoints() }}</div>
+                        <div class="card-description font-blizzglobal">{{ translate("extensionPointsSpentDesc", workshopUiKw) }}</div>
+                    </div>
+                </div>
+                <div id="extensions">
+                    <div class="extension" v-for="(extension, extensionId) in customGameSettingsSchema.extensions.values">
+                        <div class="extension-title">{{ translate(extensionId, customGameSettingsSchema.extensions.values) }}</div>
+                        <div class="extension-description font-blizzglobal">
+                            {{ translate("descriptionLocalized", customGameSettingsSchema.extensions.values[extensionId]) }}
+                        </div>
+                        <div class="extension-points">{{ customGameSettingsSchema.extensions.values[extensionId].points }}</div>
+                        <div class="extension-checkbox">
+                            <input type="checkbox" :value="extensionId" class="checkbox" v-model="editedActivatedExtensions">
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-to-defaults">
+                    <button class="reset-to-defaults-button font-futurano2d" v-on:click="resetExtensionsToDefault()">{{ translate("resetToDefaults", workshopUiKw) }}</button>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button font-futurano2d" v-on:click="cancelExtensionEdition()">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateExtensions()">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
+        <div id="metrics-screen" v-if="displayMetrics">
+            <div class="window-background">
+                <div class="window-edit-title font-bignoodle">{{ translate("scriptDiagnostics", workshopUiKw) }}</div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-title">{{ translate("totalElementCount", workshopUiKw) }}</div>
+                        <div class="card-value">{{ nbElements }}</div>
+                        <div class="card-description font-blizzglobal">{{ translate("totalElementCountDesc", workshopUiKw, ELEMENT_LIMIT) }}</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Size of largest rule</div>
+                        <div class="card-value">IDK</div>
+                        <div class="card-description font-blizzglobal">How the fuck do you calculate this shit?</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Hours spent making this UI</div>
+                        <div class="card-value">63</div>
+                        <div class="card-description font-blizzglobal">I am now a master at FlexBox</div>
+                    </div>
+                </div>
+                <div class="edit-buttons">
+                    <button class="ok-button font-futurano2d" v-on:click="displayMetrics = false">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
+        <div id="info-screen" v-if="displayInfo">
+            <div class="window-background">
+                <div class="window-edit-title font-bignoodle">Zez's Workshop UI Recreation</div>
+                <div id="info" class="font-blizzglobal">
+                    <p>Your gamemode is saved to your browser's local storage every time you edit an action/condition, or when you view the extensions or the element count.</p>
+                    <p>You can save manually by clicking on the Save button: <img src="img/save.png" width="25" height="25"/></p>
+                    <p>This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions.</p>
+                    <p>Below, you can configure some settings for the UI and for OverPy:</p>
+                    <div class="setting font-futurano2d" v-for="(setting, settingId) in uiAvailableSettings">
+                        <div class="setting-name">{{ setting.name }}</div>
+                        <div class="setting-value">
+                            <v-select :clearable="false" :options="Object.keys(setting.values).map(x => ({code: x, label: setting.values[x]}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
+                        </div>
+                    </div>
+                    <p>Feel free to join the discord if you have any questions or feedback!<br><a href="https://discord.gg/EEMjjFB" target="_blank">https://discord.gg/EEMjjFB</a></p>
+                </div>
+                <div class="edit-buttons">
+                    <button class="ok-button font-futurano2d" v-on:click="displayInfo = false">{{ translate("ok", workshopUiKw) }}</button>
                 </div>
             </div>
         </div>
@@ -876,7 +1153,7 @@
     <template id="function-display-template">
         <div>
             <div class="argument-value-wrapper" v-if="!(ast.name === '__compare__' && ast.parent.name === '__rule__')">
-                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.uiDisplayNames) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : ast.parent.name === "__array__" ? "["+astIdx+"]" : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+                <div class="argument" :style="{'margin-left': (depth*20)+'px'}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.workshopUiKw) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : ast.parent.name === "__array__" ? "["+astIdx+"]" : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
                 <div class="value">
                     <img src="img/array_add.png" class="array-add" v-if="ast.name === '__array__'"/>
                     <img src="img/array_remove.png" class="array-remove" v-if="ast.parent.name === '__array__'"/>
@@ -916,8 +1193,19 @@
                 "compilationLanguage": "en-US",
                 displayDeleteConfirmationFor: null,
                 deleteForRule: null,
-                displayVariableEditor: true,
+                displayInfo: true,
+                displayMetrics: false,
+                displayVariableEditor: false,
                 displaySubroutineEditor: false,
+                displayExtensionsEditor: false,
+                editedGlobalVariables: [],
+                editedPlayerVariables: [],
+                editedSubroutines: [],
+                activatedExtensions: [],
+                editedActivatedExtensions: [],
+                availableExtensionPoints: 0,
+                spentExtensionPoints: 0,
+                nbElements: 0,
                 clipboard: {},
                 "customGameSettings": null,
                 astToEdit: null,
@@ -925,79 +1213,61 @@
                 astToEditParent: null,
                 astToEditIndex: null,
                 "rules": [],
-                ruleAttributesDisplayNames: {
-                    "event": {
-                        "en-US": "Event",
+
+                uiAvailableSettings: {
+                    optimization: {
+                        name: "Optimization",
+                        values: {
+                            none: "No optimization",
+                            speed: "Optimize for speed (default)",
+                            size: "Optimize for size (reduce element count)",
+                        }
                     },
-                    "subroutineName": {
-                        "en-US": "Subroutine",
+                    language: {
+                        name: "UI Language",
+                        values: {
+                            "en-US": "🍔 English [en-US]",
+                            "de-DE": "🍺 Deutsch [de-DE]",
+                            "es-ES": "🐂 Español (EU) [es-ES]",
+                            "es-MX": "🌮 Español (AL) [es-MX]",
+                            "fr-FR": "🥖 Français [fr-FR]",
+                            "it-IT": "🤌 Italiano [it-IT]",
+                            "ja-JP": "🥷 日本語 [ja-JP]",
+                            "ko-KR": "🎮 한국어 [ko-KR]",
+                            "pl-PL": "🇵🇱 Polski [pl-PL]",
+                            "pt-BR": "🧱 Português [pt-BR]",
+                            "ru-RU": "🇷🇺 Русский [ru-RU]",
+                            "zh-CN": "🇨🇳 简体中文 [zh-CN]",
+                            "zh-TW": "🇹🇼 繁體中文 [zh-TW]",
+                        }
                     },
-                    "eventPlayer": {
-                        "en-US": "Player",
-                    },
-                    "eventTeam": {
-                        "en-US": "Team",
+                    compilationLanguage: {
+                        name: "Compilation Language",
+                        values: {
+                            "en-US": "🍔 English [en-US]",
+                            "de-DE": "🍺 Deutsch [de-DE]",
+                            "es-ES": "🐂 Español (EU) [es-ES]",
+                            "es-MX": "🌮 Español (AL) [es-MX]",
+                            "fr-FR": "🥖 Français [fr-FR]",
+                            "it-IT": "🤌 Italiano [it-IT]",
+                            "ja-JP": "🥷 日本語 [ja-JP]",
+                            "ko-KR": "🎮 한국어 [ko-KR]",
+                            "pl-PL": "🇵🇱 Polski [pl-PL]",
+                            "pt-BR": "🧱 Português [pt-BR]",
+                            "ru-RU": "🇷🇺 Русский [ru-RU]",
+                            "zh-CN": "🇨🇳 简体中文 [zh-CN]",
+                            "zh-TW": "🇹🇼 繁體中文 [zh-TW]",
+                        }
                     }
                 },
-                uiDisplayNames: {
-                    "rules": {
-                        "en-US": "Rules",
-                    },
-                    "rule": {
-                        "en-US": "Rule %1$s",
-                    },
-                    "conditions": {
-                        "en-US": "Conditions",
-                    },
-                    "actions": {
-                        "en-US": "Actions",
-                    },
-                    "noConditions": {
-                        "en-US": "No Conditions",
-                    },
-                    "noActions": {
-                        "en-US": "No Actions",
-                    },
-                    "editAction": {
-                        "en-US": "Edit Action",
-                    },
-                    "editCondition": {
-                        "en-US": "Edit Condition",
-                    },
-                    "addAction": {
-                        "en-US": "Add Action",
-                    },
-                    "addCondition": {
-                        "en-US": "Add Condition",
-                    },
-                    "action": {
-                        "en-US": "Action",
-                    },
-                    "cancel": {
-                        "en-US": "Cancel",
-                    },
-                    "ok": {
-                        "en-US": "OK",
-                    },
-                    "deleteActions": {
-                        "en-US": "Delete (%1$s) |RplAction:Actions;?",
-                    },
-                    "deleteConditions": {
-                        "en-US": "Delete (%1$s) |RplCondition:Conditions;?",
-                    },
-                    "deleteRules": {
-                        "en-US": "Delete (%1$s) |RplRule:Rules;?",
-                    },
-                    "editVariableNames": {
-                        "en-US": "Edit Variable Names",
-                    },
-                    "editSubroutineNames": {
-                        "en-US": "Edit Subroutine Names",
-                    },
-                    "resetToDefaults": {
-                        "en-US": "Reset To Defaults",
-                    },
+                uiSettings: {
+                    optimization: "speed",
+                    language: "en-US",
+                    compilationLanguage: "en-US",
                 },
+
+                ruleAttributesDisplayNamesKw,
+                workshopUiKw,
                 eventKw,
                 eventTeamKw,
                 eventPlayerKw,
@@ -1006,6 +1276,7 @@
                 valueFuncKw,
                 stringKw,
                 ruleKw,
+                customGameSettingsSchema,
                 constantValues,
                 astToString,
                 isTypeSuitable,
@@ -1016,6 +1287,7 @@
                 globalVariables,
                 playerVariables,
                 subroutines,
+                ELEMENT_LIMIT,
             },
             "methods": {
                 error: function(str) {
@@ -1024,7 +1296,7 @@
                 },
                 translate: function(keyword, keywordObj, ...args) {
                     if (!(keyword in keywordObj)) {
-                        throw new Error("Could not translate '"+keyword+"'");
+                        this.error("Could not translate '"+keyword+"'");
                     }
                     var result = null;
                     if (this.language in keywordObj[keyword]) {
@@ -1068,10 +1340,11 @@
                     resetGlobalVariables(this.decompilationLanguage);
                     [customGameSettings, rules] = decompileAllRulesToAst(content);
                     console.log(rules);
-                    this.customGameSettings = customGameSettings;
+                    this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
                     this.globalVariables = globalVariables;
                     this.playerVariables = playerVariables;
                     this.subroutines = subroutines;
+                    this.activatedExtensions = [...activatedExtensions];
                     //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
                     //Plus, we need var names to be in order for the UI
                     for (var i = 0; i < 128; i++) {
@@ -1189,11 +1462,11 @@
                     if (ast.name === "__compare__" && ast.parent.name === "__rule__") {
                         return ast.args.map(x => this.displayAst(x)).join(" ")
                     } else if (ast.type === "GlobalVariable") {
-                        result += this.translateVarToWs(this.globalVariables.filter(x => x.index === ast.name)[0].name, true);
+                        result += this.globalVariables.filter(x => x.index === ast.name)[0].name;
                     } else if (ast.type === "PlayerVariable") {
-                        result += this.translateVarToWs(this.playerVariables.filter(x => x.index === ast.name)[0].name, false);
+                        result += this.playerVariables.filter(x => x.index === ast.name)[0].name;
                     } else if (ast.type === "Subroutine") {
-                        result += this.translateSubroutineToWs(this.subroutines.filter(x => x.index === ast.name)[0].name);
+                        result += this.subroutines.filter(x => x.index === ast.name)[0].name;
                     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
                         result += this.escapeString(ast.name, true);
                     } else if (ast.type === "LocalizedStringLiteral") {
@@ -1421,7 +1694,7 @@
                     rule.ruleAttributes = {};
                     rule.ruleAttributes.conditions = [];
                     rule.ruleAttributes.event = "global";
-                    rule.ruleAttributes.name = this.translate("rule", this.uiDisplayNames, this.rules.length+1);
+                    rule.ruleAttributes.name = this.translate("rule", this.workshopUiKw, this.rules.length+1);
                     this.rules.push(rule);
                 },
                 copySelectedRules: function() {
@@ -1520,11 +1793,95 @@
                 moveSelectedRules(moveUp) {
                     this.moveSelected(this.rules, moveUp);
                 },
+                validateVariableOrSubroutineName: function(index, name, type) {
+                    if (!name) {
+                        this.error(this.translate("empty"+type+"Name", this.workshopUiKw, index))
+                    }
+                    if (name.length > 32) {
+                        this.error(this.translate("tooLong"+type+"Name", this.workshopUiKw, index))
+                    }
+                    if (!name.match(/^[A-Za-z_][A-Za-z0-9_]{0,31}$/)) {
+                        this.error(this.translate("invalid"+type+"Name", this.workshopUiKw, index))
+                    }
+                },
                 editVariables: function() {
                     this.displayVariableEditor = true;
+                    this.editedGlobalVariables = structuredClone(this.globalVariables);
+                    this.editedPlayerVariables = structuredClone(this.playerVariables);
                 },
                 editSubroutines: function() {
                     this.displaySubroutineEditor = true;
+                    this.editedSubroutines = structuredClone(this.subroutines);
+                },
+                cancelVarEdition: function() {
+                    this.displayVariableEditor = false;
+                },
+                cancelSubroutineEdition: function() {
+                    this.displaySubroutineEditor = false;
+                },
+                validateVariables: function() {
+                    for (var v of this.editedGlobalVariables) {
+                        v.name = v.name.trim();
+                        this.validateVariableOrSubroutineName(v.index, v.name, "GlobalVar");
+                        if (this.editedGlobalVariables.filter(x => x.name === v.name).length > 1) {
+                            this.error(this.translate("conflictingGlobalVarName", this.workshopUiKw, v.index))
+                        }
+                    }
+                    for (var v of this.editedPlayerVariables) {
+                        v.name = v.name.trim();
+                        this.validateVariableOrSubroutineName(v.index, v.name, "PlayerVar");
+                        if (this.editedPlayerVariables.filter(x => x.name === v.name).length > 1) {
+                            this.error(this.translate("conflictingPlayerVarName", this.workshopUiKw, v.index))
+                        }
+                    }
+                    this.globalVariables = structuredClone(this.editedGlobalVariables);
+                    this.playerVariables = structuredClone(this.editedPlayerVariables);
+                    this.displayVariableEditor = false;
+                },
+                validateSubroutines: function() {
+                    for (var v of this.editedSubroutines) {
+                        v.name = v.name.trim();
+                        this.validateVariableOrSubroutineName(v.index, v.name, "Subroutine");
+                        if (this.editedSubroutines.filter(x => x.name === v.name).length > 1) {
+                            this.error(this.translate("conflictingSubroutineName", this.workshopUiKw, v.index))
+                        }
+                    }
+                    this.subroutines = structuredClone(this.editedSubroutines);
+                    this.displaySubroutineEditor = false;
+                },
+                resetVariablesToDefault: function() {
+                    for (var i = 0; i < this.editedGlobalVariables.length; i++) {
+                        this.editedGlobalVariables[i].name = defaultVarNames[i];
+                        this.editedPlayerVariables[i].name = defaultVarNames[i];
+                    }
+                },
+                resetSubroutinesToDefault: function() {
+                    for (var i = 0; i < this.editedSubroutines.length; i++) {
+                        this.editedSubroutines[i].name = defaultSubroutineNames[i];
+                    }
+                },
+                editExtensions: function() {
+                    //TODO: compile first
+                    this.editedActivatedExtensions = structuredClone(this.activatedExtensions);
+                    this.availableExtensionPoints = 0;
+                    this.spentExtensionPoints = 0;
+                    this.displayExtensionsEditor = true;
+                },
+                getSpentExtensionPoints: function() {
+                    return [...this.editedActivatedExtensions].map(x => this.customGameSettingsSchema.extensions.values[x].points).reduce((partialSum, x) => partialSum+x, 0)
+                },
+                cancelExtensionEdition: function() {
+                    this.displayExtensionsEditor = false;
+                },
+                validateExtensions: function() {
+                    if (this.getSpentExtensionPoints() > this.availableExtensionPoints) {
+                        this.error(this.translate("notEnoughExtensionPoints", this.workshopUiKw));
+                    }
+                    this.activatedExtensions = structuredClone(this.editedActivatedExtensions);
+                    this.displayExtensionsEditor = false;
+                },
+                resetExtensionsToDefault: function() {
+                    this.editedActivatedExtensions = [];
                 }
             }
         })
@@ -1567,6 +1924,12 @@ settings
 				No Ammunition Requirement: On
 			}
 		}
+	}
+    
+	extensions
+	{
+		Spawn More Dummy Bots
+		Beam Effects
 	}
 }
 

@@ -40105,6 +40105,171 @@ const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
 
 "use strict";
 
+const ruleAttributesDisplayNamesKw =
+//begin-json
+{
+    "event": {
+        "en-US": "Event",
+    },
+    "subroutineName": {
+        "en-US": "Subroutine",
+    },
+    "eventPlayer": {
+        "en-US": "Player",
+    },
+    "eventTeam": {
+        "en-US": "Team",
+    }
+}
+//end-json
+
+const workshopUiKw =
+//begin-json
+{
+    "rules": {
+        "en-US": "Rules",
+    },
+    "rule": {
+        "en-US": "Rule %1$s",
+    },
+    "conditions": {
+        "en-US": "Conditions",
+    },
+    "actions": {
+        "en-US": "Actions",
+    },
+    "noConditions": {
+        "en-US": "No Conditions",
+    },
+    "noActions": {
+        "en-US": "No Actions",
+    },
+    "noRules": {
+        "en-US": "No Rules",
+    },
+    "editAction": {
+        "en-US": "Edit Action",
+    },
+    "editCondition": {
+        "en-US": "Edit Condition",
+    },
+    "addAction": {
+        "en-US": "Add Action",
+    },
+    "addCondition": {
+        "en-US": "Add Condition",
+    },
+    "action": {
+        "en-US": "Action",
+    },
+    "cancel": {
+        "en-US": "Cancel",
+    },
+    "ok": {
+        "en-US": "OK",
+    },
+    "deleteActions": {
+        "en-US": "Delete (%1$s) |RplAction:Actions;?",
+    },
+    "deleteConditions": {
+        "en-US": "Delete (%1$s) |RplCondition:Conditions;?",
+    },
+    "deleteRules": {
+        "en-US": "Delete (%1$s) |RplRule:Rules;?",
+    },
+    "editVariableNames": {
+        "en-US": "Edit Variable Names",
+    },
+    "editSubroutineNames": {
+        "en-US": "Edit Subroutine Names",
+    },
+    "editExtensions": {
+        "en-US": "Edit Extensions",
+    },
+    "resetToDefaults": {
+        "en-US": "Reset To Defaults",
+    },
+    "emptyGlobalVarName": {
+        "en-US": "Error: Global variable '%1$s' requires a name",
+    },
+    "invalidGlobalVarName": {
+        "en-US": "Error: Global variable '%1$s' contains an invalid name",
+    },
+    "conflictingGlobalVarName": {
+        "en-US": "Error: Global variable '%1$s' conflicts with another variable",
+    },
+    "tooLongGlobalVarName": {
+        "en-US": "Error: Global variable '%1$s' contains a name that is too long",
+    },
+    "emptyPlayerVarName": {
+        "en-US": "Error: Player variable '%1$s' requires a name",
+    },
+    "invalidPlayerVarName": {
+        "en-US": "Error: Player variable '%1$s' contains an invalid name",
+    },
+    "conflictingPlayerVarName": {
+        "en-US": "Error: Player variable '%1$s' conflicts with another variable",
+    },
+    "tooLongPlayerVarName": {
+        "en-US": "Error: Player variable '%1$s' contains a name that is too long",
+    },
+    "emptySubroutineName": {
+        "en-US": "Error: Subroutine '%1$s' requires a name",
+    },
+    "invalidSubroutineName": {
+        "en-US": "Error: Subroutine '%1$s' contains an invalid name",
+    },
+    "conflictingSubroutineName": {
+        "en-US": "Error: Subroutine '%1$s' conflicts with another subroutine",
+    },
+    "tooLongSubroutineName": {
+        "en-US": "Error: Subroutine '%1$s' contains a name that is too long",
+    },
+    "notEnoughExtensionPoints": {
+        "en-US": "Error: Too many Workshop Extension Points spent; please remove one or more Extensions.",
+    },
+    "extensionPointsAvailable": {
+        "en-US": "Extension Points Available",
+    },
+    "extensionPointsSpent": {
+        "en-US": "Extension Points Spent",
+    },
+    "extensionPointsAvailableDesc": {
+        "en-US": "You can gain Extension Points by removing Player Slots or by disabling all non-Workshop Maps",
+    },
+    "extensionPointsSpentDesc": {
+        "en-US": "Extension Points Spent cannot exceed Extension Points Available",
+    },
+    "scriptDiagnostics": {
+        "en-US": "Script Diagnostics",
+    },
+    "totalElementCount": {
+        "en-US": "Total Element Count",
+    },
+    "totalElementCountDesc": {
+        "en-US": "Elements include rules, conditions, actions, and values (up to a max of %1$s)",
+    },
+}
+//end-json
+/* 
+ * This file is part of OverPy (https://github.com/Zezombye/overpy).
+ * Copyright (c) 2019 Zezombye.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"use strict";
+
 const customGameSettingsSchema = 
 //begin-json
 {
@@ -40113,6 +40278,21 @@ const customGameSettingsSchema =
             "beamEffects": {
                 "points": 2,
                 "guid": "0000000129FF",
+                "descriptionLocalized": {
+                    "guid": "000000012BFC",
+                    "en-US": "Adds effects to the Type menu of the Create Beam Effect action. The Color parameter picks a Team Color if given a non-Team Color.",
+                    "de-DE": "Fügt dem Type-Menü der Aktion [Create Beam Effect] Effekte hinzu. Der Farbparameter wählt eine Teamfarbe wenn keine der Teamfarben ausgewählt ist.",
+                    "es-ES": "Añade efectos al menú «Tipo» de la acción «Create Beam Effect». El parámetro «Color» escoge un color de equipo si no se le da uno.",
+                    "es-MX": "Añade efectos al menú Tipo de la acción Crear efecto de rayo. El parámetro Color elige un color de equipo si obtiene un color que no pertenece a ningún equipo.",
+                    "fr-FR": "Ajoute des effets au menu de type de l’action « Créer un effet de rayon ». Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe.",
+                    "it-IT": "Aggiunge effetti al menu Tipo dell'Azione Create Beam Effect. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra.",
+                    "ja-JP": "「ビーム・エフェクトを作成」アクションのタイプ・メニューにエフェクトを追加する。チームカラー以外が割り当てられた場合、色パラメーターはチームカラーを選択する",
+                    "ko-KR": "Create Beam Effect 액션의 Type 메뉴에 효과를 추가합니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다.",
+                    "pl-PL": "Dodaje efekty do menu typów działania Create Beam Effect. Parametr Color wybiera kolor drużyny jeśli podano kolor inny niż drużyny.",
+                    "pt-BR": "Adiciona efeitos ao menu de Tipo da ação Criar Efeito de Feixe. O parâmetro Cor escolhe uma Cor de Equipe se outra Cor que não as das Equipes for atribuída.",
+                    "ru-RU": "Добавляет эффекты в меню «Тип» действия [Create Beam Effect]. Параметр «Цвет» выбирает цвет команды если задан вариант не соответствующий возможным цветам команды.",
+                    "zh-CN": "在“创建光束效果”动作的类型菜单中添加效果。当“颜色”参数被指定为非队伍颜色时，会选取一种队伍颜色。"
+                },
                 "en-US": "Beam Effects",
                 "de-DE": "Strahleffekte",
                 "es-ES": "Efectos de haz",
@@ -40126,6 +40306,21 @@ const customGameSettingsSchema =
             "beamSounds": {
                 "points": 1,
                 "guid": "000000012D9B",
+                "descriptionLocalized": {
+                    "guid": "000000012D9F",
+                    "en-US": "Adds sounds to the Type menu of the Create Effect action.",
+                    "de-DE": "Fügt dem Type-Menü der Aktion [Create Effect] Sounds hinzu.",
+                    "es-ES": "Añade sonidos al menú «Tipo» de la acción «Create Effect».",
+                    "es-MX": "Añade sonidos al menú Tipo de la acción Crear efecto.",
+                    "fr-FR": "Ajoute des sons au menu de type de l’action « Créer un effet ».",
+                    "it-IT": "Aggiunge suoni al menu Tipo dell'Azione Create Effect.",
+                    "ja-JP": "「エフェクトを作成」アクションのタイプ・メニューに音を追加する",
+                    "ko-KR": "Create Effect 액션의 Type 메뉴에 음향을 추가합니다.",
+                    "pl-PL": "Dodaje dźwięki do menu typów działania Create Effect.",
+                    "pt-BR": "Adiciona sons ao menu Tipo da ação Criar Efeito.",
+                    "ru-RU": "Добавляет звуки в меню «Тип» действия [Create Effect].",
+                    "zh-CN": "在“创建效果”动作的类型菜单中添加声音。"
+                },
                 "en-US": "Beam Sounds",
                 "de-DE": "Sounds von Strahlen",
                 "es-ES": "Sonidos de haz",
@@ -40139,6 +40334,21 @@ const customGameSettingsSchema =
             "buffAndDebuffSounds": {
                 "points": 2,
                 "guid": "000000012E70",
+                "descriptionLocalized": {
+                    "guid": "000000012E71",
+                    "en-US": "Adds sounds to the Type menu of the Create Effect and Play Effect actions.",
+                    "de-DE": "Fügt dem Type-Menü der Aktionen [Create Effect] und [Play Effect] Sounds hinzu.",
+                    "es-ES": "Añade sonidos al menú «Tipo» de las acciones «Create Effect» y «Play Effect».",
+                    "es-MX": "Añade sonidos al menú Tipo de las acciones Crear efecto y Reproducir efecto.",
+                    "fr-FR": "Ajoute des sons au menu de type des actions « Créer un effet » et « Jouer un effet ».",
+                    "it-IT": "Aggiunge suoni al menu Tipo delle Azioni Create Effect e Play Effect.",
+                    "ja-JP": "「エフェクトを作成」および「エフェクトを再生」アクションのタイプ・メニューに音を追加する",
+                    "ko-KR": "Create Effect 및 Play Effect 액션의 Type 메뉴에 음향을 추가합니다.",
+                    "pl-PL": "Dodaje dźwięki do menu typów działań Create Effect i Play Effect.",
+                    "pt-BR": "Adiciona sons ao menu Tipo das ações Criar Efeito e Reproduzir Efeito.",
+                    "ru-RU": "Добавляет звуковые эффекты в меню «Тип» действий [Create Effect] и [Play Effect].",
+                    "zh-CN": "在“创建效果”和“播放效果”动作的类型菜单中添加声音。"
+                },
                 "en-US": "Buff and Debuff Sounds",
                 "de-DE": "Sounds von Stärkungs- und Schwächungseffekten",
                 "es-ES": "Sonidos de beneficios y perjuicios",
@@ -40152,6 +40362,21 @@ const customGameSettingsSchema =
             "buffStatusEffects": {
                 "points": 2,
                 "guid": "000000012A02",
+                "descriptionLocalized": {
+                    "guid": "000000012D9C",
+                    "en-US": "Adds effects to the Type menus of the Create Effect and Play Effect actions. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color. For first-person effects Position expects a player.",
+                    "de-DE": "Fügt den Type-Menüs der Aktionen [Create Effect] und [Play Effect] Effekte hinzu. Der Radiusparameter wird ignoriert. Der Farbparameter wählt eine Teamfarbe wenn keine der Teamfarben ausgewählt ist. Bei Effekten für die Egoperspektive wird für den Positionswert ein Spieler erwartet.",
+                    "es-ES": "Añade efectos a los menús «Tipo» de las acciones «Create Effect» y «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno. Para los efectos en primera persona «Position» requiere un jugador.",
+                    "es-MX": "Añade efectos a los menús Tipo de las acciones Crear efecto y Reproducir efecto. Se ignora el parámetro del radio. El parámetro Color elige un color de equipo si obtiene un color que no pertenece a ningún equipo. Para efectos de primera persona Posición requiere un jugador.",
+                    "fr-FR": "Ajoute des effets aux menus de type des actions « Créer un effet » et « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe. Pour les effets en première personne la position suppose un joueur.",
+                    "it-IT": "Aggiunge effetti ai menu Tipo delle Azioni Create Effect e Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra. Per gli effetti in prima persona Posizione necessita un giocatore.",
+                    "ja-JP": "「エフェクトを作成」および「エフェクトを再生」アクションのタイプ・メニューにエフェクトを追加する。範囲パラメーターは無視する。チームカラー以外が割り当てられた場合、色パラメーターはチームカラーを選択する。一人称視点エフェクトの場合、「位置」はプレイヤーになる",
+                    "ko-KR": "Create Effect 및 Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다. 1인칭 시점 효과의 경우 Position에 플레이어가 필요합니다.",
+                    "pl-PL": "Dodaje efekty do menu typów działań Create Effect i Play Effect. Parametr Radius jest ignorowany. Parametr Color wybiera kolor drużyny jeśli podano kolor inny niż drużyny. Dla efektów pierwszoosobowych parametr Position oczekuje gracza.",
+                    "pt-BR": "Adiciona efeitos aos menus de Tipo das ações Criar Efeito e Reproduzir Efeito. O parâmetro Raio é ignorado. O parâmetro Cor escolhe uma Cor de Equipe se outra Cor que não as das Equipes for atribuída. Para efeitos em primeira pessoa Posição requer um jogador.",
+                    "ru-RU": "Добавляет эффекты в меню «Тип» действий [Create Effect] и [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды если задан вариант не соответствующий возможным цветам команды. Для эффектов от первого лица параметр «Позиция» требует указание игрока.",
+                    "zh-CN": "在“创建效果”和“播放效果”动作的类型菜单中添加效果。无视“半径”参数。当“颜色”参数被指定为非队伍颜色时，会选取一种队伍颜色。对第一人称效果，位置应为玩家。"
+                },
                 "en-US": "Buff Status Effects",
                 "de-DE": "Effekte von Stärkungseffekten",
                 "es-ES": "Efectos de estados de mejoras",
@@ -40165,6 +40390,21 @@ const customGameSettingsSchema =
             "debuffStatusEffects": {
                 "points": 2,
                 "guid": "000000012BFB",
+                "descriptionLocalized": {
+                    "guid": "000000012D9C",
+                    "en-US": "Adds effects to the Type menus of the Create Effect and Play Effect actions. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color. For first-person effects Position expects a player.",
+                    "de-DE": "Fügt den Type-Menüs der Aktionen [Create Effect] und [Play Effect] Effekte hinzu. Der Radiusparameter wird ignoriert. Der Farbparameter wählt eine Teamfarbe wenn keine der Teamfarben ausgewählt ist. Bei Effekten für die Egoperspektive wird für den Positionswert ein Spieler erwartet.",
+                    "es-ES": "Añade efectos a los menús «Tipo» de las acciones «Create Effect» y «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno. Para los efectos en primera persona «Position» requiere un jugador.",
+                    "es-MX": "Añade efectos a los menús Tipo de las acciones Crear efecto y Reproducir efecto. Se ignora el parámetro del radio. El parámetro Color elige un color de equipo si obtiene un color que no pertenece a ningún equipo. Para efectos de primera persona Posición requiere un jugador.",
+                    "fr-FR": "Ajoute des effets aux menus de type des actions « Créer un effet » et « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe. Pour les effets en première personne la position suppose un joueur.",
+                    "it-IT": "Aggiunge effetti ai menu Tipo delle Azioni Create Effect e Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra. Per gli effetti in prima persona Posizione necessita un giocatore.",
+                    "ja-JP": "「エフェクトを作成」および「エフェクトを再生」アクションのタイプ・メニューにエフェクトを追加する。範囲パラメーターは無視する。チームカラー以外が割り当てられた場合、色パラメーターはチームカラーを選択する。一人称視点エフェクトの場合、「位置」はプレイヤーになる",
+                    "ko-KR": "Create Effect 및 Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다. 1인칭 시점 효과의 경우 Position에 플레이어가 필요합니다.",
+                    "pl-PL": "Dodaje efekty do menu typów działań Create Effect i Play Effect. Parametr Radius jest ignorowany. Parametr Color wybiera kolor drużyny jeśli podano kolor inny niż drużyny. Dla efektów pierwszoosobowych parametr Position oczekuje gracza.",
+                    "pt-BR": "Adiciona efeitos aos menus de Tipo das ações Criar Efeito e Reproduzir Efeito. O parâmetro Raio é ignorado. O parâmetro Cor escolhe uma Cor de Equipe se outra Cor que não as das Equipes for atribuída. Para efeitos em primeira pessoa Posição requer um jogador.",
+                    "ru-RU": "Добавляет эффекты в меню «Тип» действий [Create Effect] и [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды если задан вариант не соответствующий возможным цветам команды. Для эффектов от первого лица параметр «Позиция» требует указание игрока.",
+                    "zh-CN": "在“创建效果”和“播放效果”动作的类型菜单中添加效果。无视“半径”参数。当“颜色”参数被指定为非队伍颜色时，会选取一种队伍颜色。对第一人称效果，位置应为玩家。"
+                },
                 "en-US": "Debuff Status Effects",
                 "de-DE": "Effekte von Schwächungseffekten",
                 "es-ES": "Efectos de estados de perjuicios",
@@ -40178,6 +40418,21 @@ const customGameSettingsSchema =
             "energyExplosionEffects": {
                 "points": 4,
                 "guid": "000000012D79",
+                "descriptionLocalized": {
+                    "guid": "000000012D9E",
+                    "en-US": "Adds effects to the Type menu of the Play Effect action. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color.",
+                    "de-DE": "Fügt dem Type-Menü der Aktion [Play Effect] Effekte hinzu. Der Radiusparameter wird ignoriert. Der Farbparameter wählt eine Teamfarbe wenn keine der Teamfarben ausgewählt ist.",
+                    "es-ES": "Añade efectos al menú «Tipo» de la acción «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno.",
+                    "es-MX": "Añade efectos al menú Tipo de la acción Reproducir efecto. Se ignora el parámetro del radio. El parámetro Color elige un color de equipo si obtiene un color que no pertenece a ningún equipo.",
+                    "fr-FR": "Ajoute des effets au menu de type de l’action « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe.",
+                    "it-IT": "Aggiunge effetti al menu Tipo dell'Azione Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra.",
+                    "ja-JP": "「エフェクトを再生」アクションのタイプ・メニューにエフェクトを追加する。範囲パラメーターは無視する。チームカラー以外が割り当てられた場合、色パラメーターはチームカラーを選択する",
+                    "ko-KR": "Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다.",
+                    "pl-PL": "Dodaje efekty do menu typów działania Play Effect. Parametr Radius jest ignorowany. Parametr Color wybiera kolor drużyny jeśli podano kolor inny niż drużyny.",
+                    "pt-BR": "Adiciona efeitos ao menu de Tipo da ação Reproduzir Efeito. O parâmetro Raio é ignorado. O parâmetro Cor escolhe uma Cor de Equipe se outra Cor que não as das Equipes for atribuída.",
+                    "ru-RU": "Добавляет эффекты в меню «Тип» действия [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды если задан вариант не соответствующий возможным цветам команды.",
+                    "zh-CN": "在“播放效果”动作的类型菜单中添加效果。无视“半径”参数。当“颜色”参数被指定为非队伍颜色时，会选取一种队伍颜色。"
+                },
                 "en-US": "Energy Explosion Effects",
                 "de-DE": "Effekte von Energieexplosionen",
                 "es-ES": "Efectos de explosión de energía",
@@ -40191,6 +40446,21 @@ const customGameSettingsSchema =
             "explosionSounds": {
                 "points": 2,
                 "guid": "000000012EB2",
+                "descriptionLocalized": {
+                    "guid": "000000012EB3",
+                    "en-US": "Adds sounds to the Type menu of the Play Effect action.",
+                    "de-DE": "Fügt dem Type-Menü der Aktion [Play Effect] Sounds hinzu.",
+                    "es-ES": "Añade sonidos al menú «Tipo» de la acción «Play Effect».",
+                    "es-MX": "Añade sonidos al menú Tipo de la acción Reproducir efecto.",
+                    "fr-FR": "Ajoute des sons au menu de type de l’action « Jouer un effet ».",
+                    "it-IT": "Aggiunge suoni al menu Tipo dell'Azione Play Effect.",
+                    "ja-JP": "「エフェクトを再生」アクションのタイプ・メニューに音を追加する",
+                    "ko-KR": "Play Effect 액션의 Type 메뉴에 음향을 추가합니다.",
+                    "pl-PL": "Dodaje dźwięki do menu typów działania Play Effect.",
+                    "pt-BR": "Adiciona sons ao menu Tipo da ação Reproduzir Efeito.",
+                    "ru-RU": "Добавляет звуковые эффекты в меню «Тип» действия [Play Effect].",
+                    "zh-CN": "在“播放效果”动作的类型菜单中添加声音。"
+                },
                 "en-US": "Explosion Sounds",
                 "de-DE": "Sounds von Explosionen",
                 "es-ES": "Sonidos de explosiones",
@@ -40204,6 +40474,21 @@ const customGameSettingsSchema =
             "kineticExplosionEffects": {
                 "points": 4,
                 "guid": "000000012D22",
+                "descriptionLocalized": {
+                    "guid": "000000012D9E",
+                    "en-US": "Adds effects to the Type menu of the Play Effect action. The Radius parameter is ignored. The Color parameter picks a Team Color if given a non-Team Color.",
+                    "de-DE": "Fügt dem Type-Menü der Aktion [Play Effect] Effekte hinzu. Der Radiusparameter wird ignoriert. Der Farbparameter wählt eine Teamfarbe wenn keine der Teamfarben ausgewählt ist.",
+                    "es-ES": "Añade efectos al menú «Tipo» de la acción «Play Effect». El parámetro «Radio» se ignora. El parámetro «Color» escoge un color de equipo si no se le da uno.",
+                    "es-MX": "Añade efectos al menú Tipo de la acción Reproducir efecto. Se ignora el parámetro del radio. El parámetro Color elige un color de equipo si obtiene un color que no pertenece a ningún equipo.",
+                    "fr-FR": "Ajoute des effets au menu de type de l’action « Jouer un effet ». Le paramètre de rayon est ignoré. Le paramètre de couleur choisit une couleur d’équipe s’il reçoit une couleur qui n’appartient à aucune équipe.",
+                    "it-IT": "Aggiunge effetti al menu Tipo dell'Azione Play Effect. Il parametro Raggio viene ignorato. Il parametro Colore sceglie un colore di squadra se gli viene attribuito un colore non di squadra.",
+                    "ja-JP": "「エフェクトを再生」アクションのタイプ・メニューにエフェクトを追加する。範囲パラメーターは無視する。チームカラー以外が割り当てられた場合、色パラメーターはチームカラーを選択する",
+                    "ko-KR": "Play Effect 액션의 Type 메뉴에 효과를 추가합니다. Radius 매개변수는 무시됩니다. 팀 색상이 아닌 색상이 주어졌을 경우 Color 매개변수가 팀 색상을 선택합니다.",
+                    "pl-PL": "Dodaje efekty do menu typów działania Play Effect. Parametr Radius jest ignorowany. Parametr Color wybiera kolor drużyny jeśli podano kolor inny niż drużyny.",
+                    "pt-BR": "Adiciona efeitos ao menu de Tipo da ação Reproduzir Efeito. O parâmetro Raio é ignorado. O parâmetro Cor escolhe uma Cor de Equipe se outra Cor que não as das Equipes for atribuída.",
+                    "ru-RU": "Добавляет эффекты в меню «Тип» действия [Play Effect]. Параметр «Радиус» не учитывается. Параметр «Цвет» выбирает цвет команды если задан вариант не соответствующий возможным цветам команды.",
+                    "zh-CN": "在“播放效果”动作的类型菜单中添加效果。无视“半径”参数。当“颜色”参数被指定为非队伍颜色时，会选取一种队伍颜色。"
+                },
                 "en-US": "Kinetic Explosion Effects",
                 "de-DE": "Effekte von kinetischen Explosionen",
                 "es-ES": "Efectos de explosión cinética",
@@ -40217,6 +40502,21 @@ const customGameSettingsSchema =
             "playMoreEffects": {
                 "points": 1,
                 "guid": "0000000128E9",
+                "descriptionLocalized": {
+                    "guid": "0000000128EA",
+                    "en-US": "Doubles the number of effects allowed to be played at a time.",
+                    "de-DE": "Verdoppelt die Anzahl von Effekten die gleichzeitig abgespielt werden können.",
+                    "es-ES": "Duplica el número de efectos que se pueden reproducir al mismo tiempo.",
+                    "es-MX": "Duplica el número de efectos permitidos para ser reproducidos a la vez.",
+                    "fr-FR": "Double le nombre d’effets pouvant être joués en même temps.",
+                    "it-IT": "Raddoppia il numero di effetti riproducibili contemporaneamente.",
+                    "ja-JP": "同時に再生できるエフェクトの数を2倍にする",
+                    "ko-KR": "동시에 재생될 수 있는 효과의 개수를 두 배로 늘립니다.",
+                    "pl-PL": "Podwaja liczbę efektów które mogą być odtwarzane w tym samym czasie.",
+                    "pt-BR": "Dobra o número de efeitos que podem ser usados ao mesmo tempo.",
+                    "ru-RU": "Позволяет одновременно воспроизводить вдвое больше эффектов.",
+                    "zh-CN": "允许同时播放的效果数量翻倍。"
+                },
                 "en-US": "Play More Effects",
                 "de-DE": "Mehr Effekte abspielen",
                 "es-ES": "Reproducir más efectos",
@@ -40230,6 +40530,21 @@ const customGameSettingsSchema =
             "spawnMoreDummyBots": {
                 "points": 2,
                 "guid": "0000000128E7",
+                "descriptionLocalized": {
+                    "guid": "0000000128E8",
+                    "en-US": "Increases the maximum number of allowed dummy bots by 12.",
+                    "de-DE": "Erhöht die maximal erlaubte Anzahl von Bots um 12.",
+                    "es-ES": "Aumenta en 12 el número máximo de robots permitidos.",
+                    "es-MX": "Aumenta el número máximo de robots de entrenamiento permitidos en 12.",
+                    "fr-FR": "Augmente le nombre maximum d’I.A. autorisées de 12.",
+                    "it-IT": "Aumenta di 12 il numero massimo di bot di prova.",
+                    "ja-JP": "利用できるダミーボットの最大数を12増加",
+                    "ko-KR": "허용된 더미 봇의 최대 개수를 12개로 늘립니다.",
+                    "pl-PL": "Zwiększa maksymalną liczbę dozwolonych atrap botów o 12.",
+                    "pt-BR": "Aumenta em 12 o máximo de bots permitidos.",
+                    "ru-RU": "Увеличивает максимальное количество допустимых манекенов на 12.",
+                    "zh-CN": "允许的机器人数量上限提高12。"
+                },
                 "en-US": "Spawn More Dummy Bots",
                 "de-DE": "Mehr Bots erschaffen",
                 "es-ES": "Generar más robots",
@@ -46474,23 +46789,23 @@ function error(str, token) {
 	}
 	
 	//var error = "ERROR: ";
-	var error = "";
-	error += str;
+	var err = "";
+	err += str;
 	if (token !== undefined) {
-		error += "'"+dispTokens(token)+"'";
+		err += "'"+dispTokens(token)+"'";
 	}
 	if (fileStack) {
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
 			for (var file of fileStack) {
-				error += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
 			}
 		}
 	} else {
-		error += "\n\t| <no filestack>";
+		err += "\n\t| <no filestack>";
 	}
 	
-	throw new Error(error);
+	throw new Error(err);
 }
 
 function warn(warnType, message) {
@@ -46505,7 +46820,7 @@ function warn(warnType, message) {
 				}
 			}
 		} else {
-			error += "\n\t| <no filestack>";
+			warning += "\n\t| <no filestack>";
 		}
 		console.warn(warning);
 		//suppressedWarnings.push(warnType);
@@ -50309,7 +50624,6 @@ function decompileAllRules(content, language="en-US") {
 
 	var opyRules = astRulesToOpy(astRules)
 	if (activatedExtensions.length > 0) {
-		activatedExtensions = [...new Set(activatedExtensions)]
 		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
 	}
 
@@ -50344,6 +50658,10 @@ function decompileAllRulesToAst(content) {
 	if (content.startsWith(tows("__settings__", ruleKw))) {
 		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
+	}
+	
+	if (activatedExtensions.length > 0) {
+		activatedExtensions = [...new Set(activatedExtensions)]
 	}
 
 	content = content.trim();
