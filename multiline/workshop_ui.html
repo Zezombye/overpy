@@ -1142,6 +1142,7 @@
                         </div>
                     </div>
                     <p>Feel free to join the discord if you have any questions or feedback!<br><a href="https://discord.gg/EEMjjFB" target="_blank">https://discord.gg/EEMjjFB</a></p>
+                    <p>Made by Zezombye, with help from Mitsiee</p>
                 </div>
                 <div class="edit-buttons">
                     <button class="ok-button font-futurano2d" v-on:click="displayInfo = false">{{ translate("ok", workshopUiKw) }}</button>
@@ -1188,9 +1189,7 @@
         var app = new Vue({
             "el": "#app",
             "data": {
-                "language": "en-US",
                 "decompilationLanguage": "en-US",
-                "compilationLanguage": "en-US",
                 displayDeleteConfirmationFor: null,
                 deleteForRule: null,
                 displayInfo: true,
@@ -1299,8 +1298,8 @@
                         this.error("Could not translate '"+keyword+"'");
                     }
                     var result = null;
-                    if (this.language in keywordObj[keyword]) {
-                        result = keywordObj[keyword][this.language];
+                    if (this.uiSettings.language in keywordObj[keyword]) {
+                        result = keywordObj[keyword][this.uiSettings.language];
                     } else {
                         result = keywordObj[keyword]["en-US"];
                     }
@@ -1334,7 +1333,7 @@
                     } else {
                         keywordObj = this.valueFuncKw;
                     }
-                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.language in keywordObj[x] ? keywordObj[x][this.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
                 },
                 decompile: function(content) {
                     resetGlobalVariables(this.decompilationLanguage);
