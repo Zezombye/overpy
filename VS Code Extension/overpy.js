@@ -40249,6 +40249,9 @@ const workshopUiKw =
     "totalElementCountDesc": {
         "en-US": "Elements include rules, conditions, actions, and values (up to a max of %1$s)",
     },
+    "editComment": {
+        "en-US": "Edit Comment",
+    }
 }
 //end-json
 /* 
