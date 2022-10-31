@@ -65,6 +65,35 @@ function compile(content, language="en-US", _rootPath="") {
 		console.log(astRules);
 	}
 
+	var result = compileRules(astRules);
+
+	var spentExtensionPoints = 0;
+	for (var ext of activatedExtensions) {
+		spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
+	}
+	
+    
+	if (DEBUG_MODE) {
+		var t1 = performance.now();
+		console.log("Compilation time: "+(t1-t0)+"ms");
+	}
+	return {
+		result: result,
+		macros: macros,
+		globalVariables: globalVariables,
+		playerVariables: playerVariables,
+		subroutines: subroutines,
+		encounteredWarnings: encounteredWarnings,
+		enumMembers: enumMembers,
+		nbElements: nbElements,
+		activatedExtensions: activatedExtensions,
+		spentExtensionPoints: spentExtensionPoints,
+		availableExtensionPoints: availableExtensionPoints,
+	};
+}
+
+function compileRules(astRules) {
+	
     var parsedAstRules = parseAstRules(astRules);
 
 	if (DEBUG_MODE) {
@@ -157,25 +186,8 @@ ${tows("__rule__", ruleKw)}("OverPy Map Detection") {
 	if (!compiledCustomGameSettings) {
 		warn("w_workshop_ui_disabled", "No settings were declared; it is impossible to paste this gamemode as-is, as the workshop UI is disabled.");
 	}
-	
-    
-	if (DEBUG_MODE) {
-		var t1 = performance.now();
-		console.log("Compilation time: "+(t1-t0)+"ms");
-	}
-	return {
-		result: result,
-		macros: macros,
-		globalVariables: globalVariables,
-		playerVariables: playerVariables,
-		subroutines: subroutines,
-		encounteredWarnings: encounteredWarnings,
-		enumMembers: enumMembers,
-		nbElements: nbElements,
-		activatedExtensions: activatedExtensions,
-		spentExtensionPoints: spentExtensionPoints,
-		availableExtensionPoints: availableExtensionPoints,
-	};
+
+	return result;
 }
 
 function getInitDirectivesRules() {
@@ -512,6 +524,11 @@ function compileCustomGameSettings(customGameSettings) {
 
 				for (var hero of Object.keys(customGameSettings.heroes[team])) {
 					var wsHero = tows(hero, heroKw);
+					for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
+						if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
+							error("'"+hero+"' has no property '"+key+"'");
+						}
+					}
 					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
 				}
 

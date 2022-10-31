@@ -362,6 +362,7 @@ function parseAst(content) {
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
         } else if (content.parent.name in funcKw) {
+            //console.log(content);
             content.expectedType = funcKw[content.parent.name].args[content.parent.argIndex].type;
         } else {
             error("Unknown parent name '"+content.parent.name+"'");

@@ -49720,6 +49720,7 @@ function decompile(content) {
 			if (args.length < 1) {
 				error("Function '"+name+"' has "+args.length+"args, expected at least 1");
 			}
+
 		} else if (name !== "__array__") {
 			if (args.length !== wsFuncKw[name].args.length) {
 				error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
@@ -49733,7 +49734,7 @@ function decompile(content) {
 			//console.log(wsFuncKw[name].args[i].type);
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
-				console.log(args[i])
+				//console.log(args[i])
 				astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
@@ -49753,6 +49754,12 @@ function decompile(content) {
 		astArgs[0].type = "LocalizedStringLiteral";
 	} else if (name === "__customString__") {
 		astArgs[0].type = "CustomStringLiteral";
+	}
+	
+	if (name === "__localizedString__" || name === "__customString__") {
+		while (astArgs.length < 4) {
+			astArgs.push(getAstForNull());
+		}
 	}
 	
 
@@ -50656,6 +50663,9 @@ function decompileAllRulesToAst(content) {
 	console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
+	if (bracketPos.length === 0) {
+		error("Content is not workshop code");
+	}
 
 	//Check for settings
 	if (content.startsWith(tows("__settings__", ruleKw))) {
@@ -57130,6 +57140,7 @@ function parseAst(content) {
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
         } else if (content.parent.name in funcKw) {
+            //console.log(content);
             content.expectedType = funcKw[content.parent.name].args[content.parent.argIndex].type;
         } else {
             error("Unknown parent name '"+content.parent.name+"'");
@@ -58925,6 +58936,35 @@ function compile(content, language="en-US", _rootPath="") {
 		console.log(astRules);
 	}
 
+	var result = compileRules(astRules);
+
+	var spentExtensionPoints = 0;
+	for (var ext of activatedExtensions) {
+		spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
+	}
+	
+    
+	if (DEBUG_MODE) {
+		var t1 = performance.now();
+		console.log("Compilation time: "+(t1-t0)+"ms");
+	}
+	return {
+		result: result,
+		macros: macros,
+		globalVariables: globalVariables,
+		playerVariables: playerVariables,
+		subroutines: subroutines,
+		encounteredWarnings: encounteredWarnings,
+		enumMembers: enumMembers,
+		nbElements: nbElements,
+		activatedExtensions: activatedExtensions,
+		spentExtensionPoints: spentExtensionPoints,
+		availableExtensionPoints: availableExtensionPoints,
+	};
+}
+
+function compileRules(astRules) {
+	
     var parsedAstRules = parseAstRules(astRules);
 
 	if (DEBUG_MODE) {
@@ -59017,25 +59057,8 @@ ${tows("__rule__", ruleKw)}("OverPy Map Detection") {
 	if (!compiledCustomGameSettings) {
 		warn("w_workshop_ui_disabled", "No settings were declared; it is impossible to paste this gamemode as-is, as the workshop UI is disabled.");
 	}
-	
-    
-	if (DEBUG_MODE) {
-		var t1 = performance.now();
-		console.log("Compilation time: "+(t1-t0)+"ms");
-	}
-	return {
-		result: result,
-		macros: macros,
-		globalVariables: globalVariables,
-		playerVariables: playerVariables,
-		subroutines: subroutines,
-		encounteredWarnings: encounteredWarnings,
-		enumMembers: enumMembers,
-		nbElements: nbElements,
-		activatedExtensions: activatedExtensions,
-		spentExtensionPoints: spentExtensionPoints,
-		availableExtensionPoints: availableExtensionPoints,
-	};
+
+	return result;
 }
 
 function getInitDirectivesRules() {
@@ -59372,6 +59395,11 @@ function compileCustomGameSettings(customGameSettings) {
 
 				for (var hero of Object.keys(customGameSettings.heroes[team])) {
 					var wsHero = tows(hero, heroKw);
+					for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
+						if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
+							error("'"+hero+"' has no property '"+key+"'");
+						}
+					}
 					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
 				}
 

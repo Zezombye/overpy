@@ -102,6 +102,9 @@ function decompileAllRulesToAst(content) {
 	console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
+	if (bracketPos.length === 0) {
+		error("Content is not workshop code");
+	}
 
 	//Check for settings
 	if (content.startsWith(tows("__settings__", ruleKw))) {

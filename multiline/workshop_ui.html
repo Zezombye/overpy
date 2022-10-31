@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Zez's Workshop UI Recreation</title>
 
-    <script src="vuejs/vue.js"></script>
-    <script src="vuejs/vue-select.min.js"></script>
-    <script src="popperjs/popper.min.js"></script>
-    <link rel="stylesheet" href="vuejs/vue-select.min.css">
+    <script src="libs/vue.js"></script>
+    <script src="libs/vue-select.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/toastify.js"></script>
+    <link rel="stylesheet" href="libs/toastify.css">
+    <link rel="stylesheet" href="libs/vue-select.min.css">
     <script src="../VS Code Extension/overpy.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.png" />
 
@@ -56,6 +58,12 @@
             --number-input-focused-border: rgb(56, 119, 177);
             --number-input-focused-bg: rgb(108, 140, 164);
 
+            --toast-background: /*#d0d0d0*/ rgba(255, 255, 255, 0.8);
+            --toast-text: black;
+            --toast-error: rgb(194, 0, 13);
+            --toast-warning: rgb(194, 171, 0);
+            --toast-info: rgb(0, 100, 194);
+
             --syntax-coloration-variable-and-num: rgb(208, 208, 208);
             --syntax-coloration-value: rgb(176, 206, 247);
             --syntax-coloration-action-and-operator: rgb(237, 213, 140);
@@ -69,6 +77,7 @@
             --vs-dropdown-option-color: var(--text-color);
             --vs-dropdown-option--active-bg: var(--dropdown-value-bg-hover);
             --vs-dropdown-option--active-color: var(--text-color);
+            --vs-font-size: 22px;
 
             --vs-actions-padding: 0px 12px;
             --vs-search-input-color: var(--text-color);
@@ -143,6 +152,8 @@
             display: grid;
             padding-bottom: 30px;
             align-content: baseline;
+            margin-left: 150px;
+            margin-right: 150px;
         }
 
         #workshop-title {
@@ -334,6 +345,8 @@
         .vs__search, vs__search:focus {
             padding: 0px !important;
             margin: 0px !important;
+            font-family: inherit;
+            font-size: 22px;
         }
 
         .vs__dropdown-menu {
@@ -523,7 +536,7 @@
             align-items: center;
         }
 
-        #ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen {
+        #ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen {
             z-index: 9999;
             position: fixed;
             top: 0px;
@@ -651,7 +664,7 @@
             min-width: 600px;
             display: flex;
             height: 100%;
-            font-size: 20px;
+            font-size: 22px;
         }
 
         .value-dropdown {
@@ -835,6 +848,7 @@
             row-gap: 7px;
             margin-top: 6px;
             max-height: calc(100vh - 600px);
+            min-height: 50px;
         }
 
         .variables-edit-row {
@@ -959,6 +973,7 @@
             row-gap: 27px;
             overflow: auto;
             margin-top: 24px;
+            min-height: 50px;
         }
 
         .extension {
@@ -995,6 +1010,7 @@
 
         #info {
             max-width: 800px;
+            width: 100%;
             text-align: center;
             color: var(--text-color);
             text-transform: none;
@@ -1030,19 +1046,65 @@
             width: 100%;
         }
 
+        #decompile-text {
+            min-height: 400px;
+            overflow: auto;
+        }
+
+        .toastify {
+            background: none;
+            box-shadow: none;
+            background-color: var(--toast-background);
+            color: var(--toast-text);
+            text-transform: none;
+            border: none;
+            border-radius: 0;
+            width: 435px;
+            padding: 5px 10px 5px 0px;
+            display: flex;
+            align-items: center;
+            min-height: 46px;
+            cursor: auto;
+        }
+
+        .toastify::before {
+            display: flex;
+            margin-right: 10px;
+            margin-top: -5px;
+            margin-bottom: -5px;
+            align-self: stretch;
+            content: "";
+            min-width: 43px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .toastify.error::before {
+            background-image: url("img/error.png");
+            background-color: var(--toast-error);
+        }
+        .toastify.info::before {
+            background-image: url("img/success.png");
+            background-color: var(--toast-info);
+        }
+        .toastify.warning::before {
+            background-image: url("img/warning.png");
+            background-color: var(--toast-warning);
+        }
+
     </style>
 </head>
 <body class="font-futurano2d">
     <div id="app-wrapper-wrapper" :style="{'background-image': 'url(&quot;img/backgrounds/'+background+'&quot;)'}">
     <div id="app-wrapper">
     <div id="app">
-        <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation</div>
+        <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation [BETA]</div>
         <div id="workshop-header">
             <div id="workshop-header-left">
                 <div id="rules-title">{{ translate("rules", workshopUiKw) }}</div>
                 <div id="rules-nb">({{ rules.length || 0}})</div>
                 <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo = true"/>
-                <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetrics = true"/>
+                <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetricsScreen()"/>
                 <img id="button-import" class="img-button button-header" src="img/import.png" v-on:click="displayImport = true"/>
                 <img id="button-save" class="img-button button-header" src="img/save.png" v-on:click="saveGamemode()"/>
             </div>
@@ -1304,7 +1366,7 @@
         </div>
         <div id="info-screen" v-if="displayInfo">
             <div class="window-background">
-                <div class="window-edit-title font-bignoodle">Zez's Workshop UI Recreation</div>
+                <div class="window-edit-title font-bignoodle">Zez's Workshop UI Recreation [BETA]</div>
                 <div id="info" class="font-blizzglobal">
                     <p>Your gamemode is saved to your browser's local storage every time you edit an action/condition, or when you view the extensions or the element count.</p>
                     <p>The UI was tested on Firefox with a resolution of 1920x1080. You can zoom or dezoom if the UI is not adapted to your screen resolution.</p>
@@ -1322,6 +1384,26 @@
                 </div>
                 <div class="edit-buttons">
                     <button class="ok-button font-futurano2d" v-on:click="displayInfo = false">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
+        <div id="import-screen" v-if="displayImport">
+            <div class="window-background">
+                <div class="window-edit-title font-bignoodle">Import Gamemode</div>
+                <div id="info" class="font-blizzglobal">
+                    <p>Paste your gamemode here:</p>
+                    <textarea id="decompile-text" class="font-blizzglobal" v-model="textToDecompile"></textarea>
+                    <div class="setting font-futurano2d">
+                        <div class="setting-name">Language</div>
+                        <div class="setting-value">
+                            <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
+                        </div>
+                    </div>
+                    <p>Note: this will erase the existing rules.<br>The gamemode has to be copied straight from Overwatch.</p>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button font-futurano2d" v-on:click="displayImport = false; textToDecompile = null">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="decompile(textToDecompile)">{{ translate("ok", workshopUiKw) }}</button>
                 </div>
             </div>
         </div>
@@ -1364,10 +1446,15 @@
             template: "#function-display-template",
         })
 
+        const oldConsoleInfo = console.info;
+        const oldConsoleError = console.error;
+        const oldConsoleWarn = console.warn;
+
         var app = new Vue({
             "el": "#app-wrapper-wrapper",
             "data": {
-                "decompilationLanguage": "en-US",
+                decompilationLanguage: "en-US",
+                textToDecompile: null,
                 displayDeleteConfirmationFor: null,
                 deleteForRule: null,
                 displayInfo: false,
@@ -1375,6 +1462,7 @@
                 displayVariableEditor: false,
                 displaySubroutineEditor: false,
                 displayExtensionsEditor: false,
+                displayImport: false,
                 editedGlobalVariables: [],
                 editedPlayerVariables: [],
                 editedSubroutines: [],
@@ -1384,7 +1472,18 @@
                 spentExtensionPoints: 0,
                 nbElements: 0,
                 clipboard: {},
-                "customGameSettings": null,
+                customGameSettings: {
+                    "main": {
+                        "description": "Some awesome game mode",
+                        "modeName": "GameMode v1.0"
+                    },
+                    "gamemodes": {
+                        "skirmish": {
+                            "heroLimit": "off",
+                            "respawnTime%": 30
+                        }
+                    },
+                },
                 astToEdit: null,
                 astToEditIsCondition: null,
                 astToEditParent: null,
@@ -1440,23 +1539,23 @@
                         name: "Background",
                         values: {
                             "random": "Random",
-                            "blizzard_world.png": "Blizzard World",
-                            "blizzard_world_2.png": "Blizzard World 2",
-                            "busan.png": "Busan",
-                            "chateau_halloween.png": "Château Halloween",
+                            "blizzard_world.jpg": "Blizzard World",
+                            "blizzard_world_2.jpg": "Blizzard World 2",
+                            "busan.jpg": "Busan",
+                            "chateau_halloween.jpg": "Château Halloween",
                             "dorado.jpg": "Dorado",
-                            "eichenwalde.png": "Eichenwalde",
-                            "eichenwalde_halloween.png": "Eichenwalde Halloween",
-                            "eichenwalde_halloween_2.png": "Eichenwalde Halloween 2",
+                            "eichenwalde.jpg": "Eichenwalde",
+                            "eichenwalde_halloween.jpg": "Eichenwalde Halloween",
+                            "eichenwalde_halloween_2.jpg": "Eichenwalde Halloween 2",
                             "hanamura.jpg": "Hanamura",
                             "kings_row.jpg": "King's Row",
                             "monte_carlo.jpg": "Monte Carlo",
-                            "monte_carlo_2.png": "Monte Carlo 2",
+                            "monte_carlo_2.jpg": "Monte Carlo 2",
                             "new_queen_street.jpg": "New Queen Street",
-                            "oasis.png": "Oasis",
-                            "paraiso.png": "Paraiso",
-                            "paris.png": "Paris",
-                            "rialto.png": "Rialto",
+                            "oasis.jpg": "Oasis",
+                            "paraiso.jpg": "Paraiso",
+                            "paris.jpg": "Paris",
+                            "rialto.jpg": "Rialto",
                             "temple_of_anubis.jpg": "Temple of Anubis",
                             "volskaya.jpg": "Volskaya",
          }
@@ -1487,9 +1586,9 @@
                 translateSubroutineToWs,
                 escapeString,
                 functionNameToString,
-                globalVariables,
-                playerVariables,
-                subroutines,
+                globalVariables: defaultVarNames.map((x, i) => ({name: x, index: i})),
+                playerVariables: defaultVarNames.map((x, i) => ({name: x, index: i})),
+                subroutines: defaultSubroutineNames.map((x, i) => ({name: x, index: i})),
                 ELEMENT_LIMIT,
             },
             computed: {
@@ -1503,13 +1602,46 @@
                 }
             },
             "methods": {
+                info: function(str) {
+                    oldConsoleInfo(str);
+                    Toastify({
+                        text: str,
+                        duration: 4000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "left", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className: "info",
+                    }).showToast();
+                },
+                warn: function(str) {
+                    oldConsoleWarn(str);
+                    Toastify({
+                        text: str,
+                        duration: 4000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "left", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className: "warn",
+                    }).showToast();
+                },
                 error: function(str) {
-                    console.log(str);
-                    throw str;
+                    oldConsoleError(str);
+                    str = ""+str;
+                    if (str.startsWith("Error: ")) {
+                        str = str.substring("Error: ".length);
+                    }
+                    Toastify({
+                        text: str,
+                        duration: 4000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "left", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        className: "error",
+                    }).showToast();
                 },
                 translate: function(keyword, keywordObj, ...args) {
                     if (!(keyword in keywordObj)) {
-                        this.error("Could not translate '"+keyword+"'");
+                        Error("Could not translate '"+keyword+"'");
                     }
                     var result = null;
                     if (this.uiSettings.language in keywordObj[keyword]) {
@@ -1550,55 +1682,64 @@
                     return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
                 },
                 decompile: function(content) {
-                    resetGlobalVariables(this.decompilationLanguage);
-                    [customGameSettings, rules] = decompileAllRulesToAst(content);
-                    console.log(rules);
-                    this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
-                    this.globalVariables = globalVariables;
-                    this.playerVariables = playerVariables;
-                    this.subroutines = subroutines;
-                    this.activatedExtensions = [...activatedExtensions];
-                    //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
-                    //Plus, we need var names to be in order for the UI
-                    for (var i = 0; i < 128; i++) {
-                        if (!this.globalVariables.map(x => x.index).includes(i)) {
-                            this.globalVariables.push({index: i, name: defaultVarNames[i]})
-                        }
-                        if (!this.playerVariables.map(x => x.index).includes(i)) {
-                            this.playerVariables.push({index: i, name: defaultVarNames[i]})
-                        }
-                        if (!this.subroutines.map(x => x.index).includes(i)) {
-                            this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
-                        }
-                    }
-                    for (var rule of rules) {
-                        if ("conditions" in rule.ruleAttributes) {
-                            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
-                                rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
-                                rule.ruleAttributes.conditions[i].parent = rule;
-                                rule.ruleAttributes.conditions[i].isSelected = false;
-                                rule.ruleAttributes.conditions[i].isDisabled ||= false;
-                            }
-                        } else {
-                            rule.ruleAttributes.conditions = [];
-                        }
-                        if ("subroutineName" in rule.ruleAttributes) {
-                            rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.name === rule.ruleAttributes.subroutineName)[0].index;
-                        }
-                        for (var i = 0; i < rule.children.length; i++) {
-                            rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
-                            rule.children[i].parent = rule;
-                            rule.children[i].isSelected = false;
-                            rule.children[i].isDisabled ||= false;
-                        }
+                    try {
 
-                        rule.isCollapsed = false;
-                        rule.isSelected = false;
+                        resetGlobalVariables(this.decompilationLanguage);
+                        [customGameSettings, rules] = decompileAllRulesToAst(content);
+                        console.log(customGameSettings);
+                        console.log(rules);
+                        this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
+                        this.globalVariables = globalVariables;
+                        this.playerVariables = playerVariables;
+                        this.subroutines = subroutines;
+                        this.activatedExtensions = [...activatedExtensions];
+                        //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
+                        //Plus, we need var names to be in order for the UI
+                        for (var i = 0; i < 128; i++) {
+                            if (!this.globalVariables.map(x => x.index).includes(i)) {
+                                this.globalVariables.push({index: i, name: defaultVarNames[i]})
+                            }
+                            if (!this.playerVariables.map(x => x.index).includes(i)) {
+                                this.playerVariables.push({index: i, name: defaultVarNames[i]})
+                            }
+                            if (!this.subroutines.map(x => x.index).includes(i)) {
+                                this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
+                            }
+                        }
+                        for (var rule of rules) {
+                            if ("conditions" in rule.ruleAttributes) {
+                                for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                                    rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
+                                    rule.ruleAttributes.conditions[i].parent = rule;
+                                    rule.ruleAttributes.conditions[i].isSelected = false;
+                                    rule.ruleAttributes.conditions[i].isDisabled ||= false;
+                                }
+                            } else {
+                                rule.ruleAttributes.conditions = [];
+                            }
+                            if ("subroutineName" in rule.ruleAttributes) {
+                                rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.name === rule.ruleAttributes.subroutineName)[0].index;
+                            }
+                            for (var i = 0; i < rule.children.length; i++) {
+                                rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
+                                rule.children[i].parent = rule;
+                                rule.children[i].isSelected = false;
+                                rule.children[i].isDisabled ||= false;
+                            }
+
+                            rule.isCollapsed = false;
+                            rule.isSelected = false;
+                        }
+                        this.rules = rules;
+                        this.globalVariables.sort((a,b) => (a.index - b.index))
+                        this.playerVariables.sort((a,b) => (a.index - b.index))
+                        this.subroutines.sort((a,b) => (a.index - b.index))
+                        console.info("Successfully imported!");
+                        this.textToDecompile = null;
+                        this.displayImport = false;
+                    } catch (e) {
+                        console.error(e + ", contact Zezombye about this");
                     }
-                    this.rules = rules;
-                    this.globalVariables.sort((a,b) => (a.index - b.index))
-                    this.playerVariables.sort((a,b) => (a.index - b.index))
-                    this.subroutines.sort((a,b) => (a.index - b.index))
                 },
                 adjustAstForWorkshop: function(ast) {
                     //We cannot use overpy functions because they also do a bunch of stuff such as optimization
@@ -1637,10 +1778,10 @@
                                 newName += "PlayerVariableAtIndex__";
                                 ast.args = [ast.args[0].args[0].args[0], ast.args[0].args[0].args[1], ast.args[0].args[1]].concat(ast.args.slice(1));
                             } else {
-                                this.error("Cannot modify or assign to "+this.functionNameToString(ast.args[0].args[0]))
+                                throw new Error("Cannot modify or assign to "+this.functionNameToString(ast.args[0].args[0]))
                             }
                         } else {
-                            this.error("Cannot modify or assign to "+this.functionNameToString(ast.args[0]))
+                            throw new Error("Cannot modify or assign to "+this.functionNameToString(ast.args[0]))
                         }
                         ast.name = newName;
                     } else if (ast.name === "__negate__") {
@@ -1649,6 +1790,13 @@
                         ast = ast.args[0];
                     } else if (ast.type === "TeamLiteral") {
                         return new Ast("__team__", [ast]);
+
+                    } else if (ast.type === "ColorLiteral" && ast.parent.name !== "__color__") {
+                        return new Ast("__color__", [ast]);
+
+                    } else if (ast.type === "ButtonLiteral" && ast.parent.name !== "__button__") {
+                        return new Ast("__button__", [ast]);
+
                     } else if (ast.name === "__customString__") {
                         //add potentially missing arguments
                         for (var i = 0; i < 4; i++ ) {
@@ -1670,10 +1818,78 @@
                     }
                     return ast;
                 },
-                sanitizeHtml: function(str) {
-                    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+                compileGamemode: function() {
+                    //Adjust AST for overpy
+                    var rules = structuredClone(this.rules);
+                    for (var rule of rules) {
+                        rule.ruleAttributes.isDelimiter = true;
+                        for (var i = 0; i < rule.children.length; i++) {
+                            resetGlobalVariables(this.uiSettings.language);
+                            globalVariables = structuredClone(this.globalVariables);
+                            playerVariables = structuredClone(this.playerVariables);
+                            subroutines = structuredClone(this.subroutines);
+                            rule.children[i] = decompile(this.displayAst(rule.children[i], false))
+                            rule.children[i].parent = rule;
+                        }
+
+                        //put the depth and remove the __end__
+                        for (var i = rule.children.length-1; i >= 0; i--) {
+                            if (["__for__", "__if__", "__elif__", "__else__", "__while__"].includes(rule.children[i].name)) {
+                                for (var j = i+1; j < rule.children.length; j++) {
+                                    if (rule.children[j].name === "__end__") {
+                                        break;
+                                    } else {
+                                        rule.children[i].children.push(rule.children[j]);
+                                        rule.children[j].parent = rule.children[i];
+                                    }
+                                }
+                                rule.children.splice(i+1, j-i);
+                            }
+                        }
+                        
+                        rule.ruleAttributes.conditionComments = [];
+                        for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                            
+                            resetGlobalVariables(this.uiSettings.language);
+                            globalVariables = structuredClone(this.globalVariables);
+                            playerVariables = structuredClone(this.playerVariables);
+                            subroutines = structuredClone(this.subroutines);
+                            rule.ruleAttributes.conditionComments.push(rule.ruleAttributes.conditions[i].comment);
+                            rule.ruleAttributes.conditions[i] = decompile(this.displayAst(rule.ruleAttributes.conditions[i], false));
+                            rule.ruleAttributes.conditions[i].parent = new Ast("@Condition", [], [], "__Annotation__");
+                        }
+                        
+                        if ("subroutineName" in rule.ruleAttributes) {
+                            rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.index === rule.ruleAttributes.subroutineName)[0].name
+                            rule.name = "__def__";
+                            delete rule.ruleAttributes.event;
+                            rule.ruleAttributes.conditions = undefined;
+                        }
+                    }
+
+                    resetGlobalVariables(this.uiSettings.compilationLanguage);
+                    compileCustomGameSettings(structuredClone(this.customGameSettings));
+                    globalVariables = structuredClone(this.globalVariables);
+                    playerVariables = structuredClone(this.playerVariables);
+                    subroutines = structuredClone(this.subroutines);
+
+                    return compileRules(rules)
+                    
                 },
-                displayAst: function(ast) {
+                saveGamemode: function() {
+                    var result = this.compileGamemode();
+                    navigator.clipboard.writeText(result);
+                    console.info("Successfully compiled! (copied into clipboard)");
+
+                },
+                displayHtml: function(str, actuallyDisplayHtml=true, category) {
+                    if (actuallyDisplayHtml) {
+                        return "<span class='code-"+category+"'>"+ str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;')+"</span>";
+                    } else {
+                        return str;
+                    }
+                },
+                displayAst: function(ast, useHtml=true) {
                     const funcToOpMapping = {
                         "__add__": "+=",
                         "__subtract__": "-=",
@@ -1684,61 +1900,61 @@
                     }
                     var result = "";
                     if (ast.name === "__compare__" && ast.parent.name === "__rule__") {
-                        return ast.args.map(x => this.displayAst(x)).join(" ")
+                        return ast.args.map(x => this.displayAst(x, useHtml)).join(" ")
 
                     } else if (ast.type === "GlobalVariable") {
-                        result += "<span class='code-var'>"+this.sanitizeHtml(this.globalVariables.filter(x => x.index === ast.name)[0].name)+"</span>";
+                        result += this.displayHtml(this.globalVariables.filter(x => x.index === ast.name)[0].name, useHtml, "var");
                     } else if (ast.type === "PlayerVariable") {
-                        result += "<span class='code-var'>"+this.sanitizeHtml(this.playerVariables.filter(x => x.index === ast.name)[0].name)+"</span>";
+                        result += this.displayHtml(this.playerVariables.filter(x => x.index === ast.name)[0].name, useHtml, "var");
                     } else if (ast.type === "Subroutine") {
-                        result += "<span class='code-var'>"+this.sanitizeHtml(this.subroutines.filter(x => x.index === ast.name)[0].name)+"</span>";
+                        result += this.displayHtml(this.subroutines.filter(x => x.index === ast.name)[0].name, useHtml, "var");
 
                     } else if (ast.name === "__team__") {
-                        return this.displayAst(ast.args[0]);
+                        return this.displayAst(ast.args[0], useHtml);
 
                     } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
-                        result += "<span class='code-string'>"+this.sanitizeHtml(this.escapeString(ast.name, true))+"</span>";
+                        result += this.displayHtml(this.escapeString(ast.name, true), useHtml, "string");
                     } else if (ast.type === "LocalizedStringLiteral") {
-                        result += "<span class='code-string'>"+this.sanitizeHtml(this.escapeString(tows(ast.name, this.stringKw), true))+"</span>";
+                        result += this.displayHtml(this.escapeString(tows(ast.name, this.stringKw), true), useHtml, "var");
 
                     } else if (ast.name === "__team__") {
-                        return this.displayAst(ast.args[0]);
+                        return this.displayAst(ast.args[0], useHtml);
 
                     } else if (ast.name === "__number__") {
-                        return "<span class='code-var'>"+this.sanitizeHtml(ast.args[0].name+"")+"</span>";
+                        return this.displayHtml(ast.args[0].name+"", useHtml, "var");
 
                     } else if (ast.name === "__globalVar__") {
-                        return "<span class='code-var'>"+this.sanitizeHtml(this.translate("__global__", this.valueKw))+"</span>."+this.displayAst(ast.args[0]);
+                        return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml);
 
                     } else if (ast.name === "__setGlobalVariable__") {
-                        return "<span class='code-var'>"+this.sanitizeHtml(this.translate("__global__", this.valueKw))+"</span>."+this.displayAst(ast.args[0])+" = "+this.displayAst(ast.args[1]);
+                        return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" = "+this.displayAst(ast.args[1], useHtml);
 
-                    } else if (ast.name === "__modifyGlobalVariable__") {
-                        return "<span class='code-var'>"+this.sanitizeHtml(this.translate("__global__", this.valueKw))+"</span>."+this.displayAst(ast.args[0])+" "+funcToOpMapping[ast.args[1].name]+" "+this.displayAst(ast.args[2]);
+                    } else if (ast.name === "__modifyGlobalVariable__" && ast.args[1].name in funcToOpMapping) {
+                        return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" "+funcToOpMapping[ast.args[1].name]+" "+this.displayAst(ast.args[2], useHtml);
                         
                     } else if (ast.name === "__setGlobalVariableAtIndex__") {
-                        return "<span class='code-var'>"+this.sanitizeHtml(this.translate("__global__", this.valueKw))+"</span>."+this.displayAst(ast.args[0])+"["+this.displayAst(ast.args[1])+"] = "+this.displayAst(ast.args[2]);
+                        return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+"["+this.displayAst(ast.args[1], useHtml)+"] = "+this.displayAst(ast.args[2], useHtml);
 
                     } else if (ast.type === "void") {
-                        result += this.sanitizeHtml(this.translate(ast.name, this.actionKw));
+                        result += this.displayHtml(this.translate(ast.name, this.actionKw), useHtml, "operator");
 
                     } else if (this.isTypeSuitable(["Object", "Array"], ast.type)){
-                        result += "<span class='code-value'>"+this.sanitizeHtml(this.translate(ast.name, this.valueKw))+"</span>";
+                        result += this.displayHtml(this.translate(ast.name, this.valueKw), useHtml, "value");
 
                     } else if (ast.type in this.constantValues) {
                         if (!(ast.name in this.constantValues[ast.type])) {
-                            this.error("Unknown "+ast.type.replace("Literal", "").toLowerCase()+" '"+ast.name+"'");
+                            throw new Error("Unknown "+ast.type.replace("Literal", "").toLowerCase()+" '"+ast.name+"'");
                         }
-                        result += "<span class='" + (ast.type === "__Operator__" ? "code-operator" : "code-value") + "'>"+this.sanitizeHtml(this.translate(ast.name, this.constantValues[ast.type]))+"</span>";
+                        result += this.displayHtml(this.translate(ast.name, this.constantValues[ast.type]), useHtml, (ast.type === "__Operator__" ? "operator" : "value"));
                     } else {
-                        this.error("Unknown type '"+ast.type+"' of '"+ast.name+"'");
+                        throw new Error("Unknown type '"+ast.type+"' of '"+ast.name+"'");
                     }
                     if (ast.args.length > 0) {
                         if (ast.name === "__customString__" || ast.name === "__localizedString__") {
                             maxStrArg = ast.args[0].name.includes("{2}") ? 3 : ast.args[0].name.includes("{1}") ? 2 : ast.args[0].name.includes("{0}") ? 1 : 0
-                            result += "(" + ast.args.slice(0, maxStrArg+1).map(x => this.displayAst(x)).join(", ") + ")";
+                            result += "(" + ast.args.slice(0, maxStrArg+1).map(x => this.displayAst(x, useHtml)).join(", ") + ")";
                         } else {
-                            result += "(" + ast.args.map(x => this.displayAst(x)).join(", ") + ")";
+                            result += "(" + ast.args.map(x => this.displayAst(x, useHtml)).join(", ") + ")";
                         }
                     }
                     return result;
@@ -1814,7 +2030,7 @@
                         for (var arg of keywordObj[ast.name].args) {
                             var astType = arg.type;
                             if (astType in this.constantValues) {
-                                var astName = Object.keys(constantValues[astType]);
+                                var astName = Object.keys(constantValues[astType])[0];
                             } else if (astType === "FloatLiteral") {
                                 var astName = "0";
                             } else if (astType === "GlobalVariable") {
@@ -1899,8 +2115,8 @@
                     }
                 },
                 addAction: function(rule) {
-                    var action = new Ast("__setGlobalVariable__", [new Ast("__globalVar__", [new Ast(this.globalVariables[0].index+"", [], [], "GlobalVariable")]), getAstFor0()]);
-                    action.args[0].args[0].name = +action.args[0].args[0].name;
+                    var action = new Ast("__setGlobalVariable__", [new Ast(this.globalVariables[0].index+"", [], [], "GlobalVariable"), getAstFor0()]);
+                    action.args[0].name = +action.args[0].name;
                     action.isSelected = false;
                     action.isDisabled = false;
                     action.parent = rule;
@@ -2040,13 +2256,13 @@
                 },
                 validateVariableOrSubroutineName: function(index, name, type) {
                     if (!name) {
-                        this.error(this.translate("empty"+type+"Name", this.workshopUiKw, index))
+                        throw new Error(this.translate("empty"+type+"Name", this.workshopUiKw, index))
                     }
                     if (name.length > 32) {
-                        this.error(this.translate("tooLong"+type+"Name", this.workshopUiKw, index))
+                        throw new Error(this.translate("tooLong"+type+"Name", this.workshopUiKw, index))
                     }
                     if (!name.match(/^[A-Za-z_][A-Za-z0-9_]{0,31}$/)) {
-                        this.error(this.translate("invalid"+type+"Name", this.workshopUiKw, index))
+                        throw new Error(this.translate("invalid"+type+"Name", this.workshopUiKw, index))
                     }
                 },
                 editVariables: function() {
@@ -2069,14 +2285,14 @@
                         v.name = v.name.trim();
                         this.validateVariableOrSubroutineName(v.index, v.name, "GlobalVar");
                         if (this.editedGlobalVariables.filter(x => x.name === v.name).length > 1) {
-                            this.error(this.translate("conflictingGlobalVarName", this.workshopUiKw, v.index))
+                            throw new Error(this.translate("conflictingGlobalVarName", this.workshopUiKw, v.index))
                         }
                     }
                     for (var v of this.editedPlayerVariables) {
                         v.name = v.name.trim();
                         this.validateVariableOrSubroutineName(v.index, v.name, "PlayerVar");
                         if (this.editedPlayerVariables.filter(x => x.name === v.name).length > 1) {
-                            this.error(this.translate("conflictingPlayerVarName", this.workshopUiKw, v.index))
+                            throw new Error(this.translate("conflictingPlayerVarName", this.workshopUiKw, v.index))
                         }
                     }
                     this.globalVariables = structuredClone(this.editedGlobalVariables);
@@ -2088,7 +2304,7 @@
                         v.name = v.name.trim();
                         this.validateVariableOrSubroutineName(v.index, v.name, "Subroutine");
                         if (this.editedSubroutines.filter(x => x.name === v.name).length > 1) {
-                            this.error(this.translate("conflictingSubroutineName", this.workshopUiKw, v.index))
+                            throw new Error(this.translate("conflictingSubroutineName", this.workshopUiKw, v.index))
                         }
                     }
                     this.subroutines = structuredClone(this.editedSubroutines);
@@ -2106,10 +2322,9 @@
                     }
                 },
                 editExtensions: function() {
-                    //TODO: compile first
+                    this.compileGamemode();
                     this.editedActivatedExtensions = structuredClone(this.activatedExtensions);
-                    this.availableExtensionPoints = 0;
-                    this.spentExtensionPoints = 0;
+                    this.availableExtensionPoints = availableExtensionPoints;
                     this.displayExtensionsEditor = true;
                 },
                 getSpentExtensionPoints: function() {
@@ -2120,13 +2335,18 @@
                 },
                 validateExtensions: function() {
                     if (this.getSpentExtensionPoints() > this.availableExtensionPoints) {
-                        this.error(this.translate("notEnoughExtensionPoints", this.workshopUiKw));
+                        throw new Error(this.translate("notEnoughExtensionPoints", this.workshopUiKw));
                     }
                     this.activatedExtensions = structuredClone(this.editedActivatedExtensions);
                     this.displayExtensionsEditor = false;
                 },
                 resetExtensionsToDefault: function() {
                     this.editedActivatedExtensions = [];
+                },
+                displayMetricsScreen: function() {
+                    this.compileGamemode();
+                    this.nbElements = nbElements;
+                    this.displayMetrics = true;
                 },
                 calculateDropdownPosition: function(dropdownList, component, {width}) {
                     dropdownList.style.width = width;
@@ -2161,6 +2381,11 @@
 
             },
         })
+
+        console.info = app.info;
+        console.error = app.error;
+
+
 
         app.decompile(`
 settings

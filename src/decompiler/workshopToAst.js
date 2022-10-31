@@ -471,6 +471,7 @@ function decompile(content) {
 			if (args.length < 1) {
 				error("Function '"+name+"' has "+args.length+"args, expected at least 1");
 			}
+
 		} else if (name !== "__array__") {
 			if (args.length !== wsFuncKw[name].args.length) {
 				error("Function '"+name+"' has "+args.length+"args, expected "+funcKw[name].args.length);
@@ -484,7 +485,7 @@ function decompile(content) {
 			//console.log(wsFuncKw[name].args[i].type);
 
 			if (wsFuncKw[name].args[i].type in constantValues) {
-				console.log(args[i])
+				//console.log(args[i])
 				astArgs.push(new Ast(args[i] === "__removed_from_ow2__" ? args[i] : topy(args[i], constantValues[wsFuncKw[name].args[i].type]), [], [], wsFuncKw[name].args[i].type));
 			} else if (wsFuncKw[name].args[i].type === "GlobalVariable") {
 				astArgs.push(new Ast(translateVarToPy(args[i], true), [], [], "GlobalVariable"));
@@ -504,6 +505,12 @@ function decompile(content) {
 		astArgs[0].type = "LocalizedStringLiteral";
 	} else if (name === "__customString__") {
 		astArgs[0].type = "CustomStringLiteral";
+	}
+	
+	if (name === "__localizedString__" || name === "__customString__") {
+		while (astArgs.length < 4) {
+			astArgs.push(getAstForNull());
+		}
 	}
 	
 
