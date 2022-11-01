@@ -1470,6 +1470,17 @@
                             <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(setting.values).map(x => ({code: x, label: setting.values[x]}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
                         </div>
                     </div>
+					<p>Known bugs:<br>
+						<ul style="text-align: left">
+							<li>The generated custom game settings are very fat</li>
+							<li>Some maps are not available in OW2, yet selectable in the custom game settings</li>
+							<li>The UI itself is not translated (but functions are)</li>
+							<li>No tooltips</li>
+							<li>No saving</li>
+							<li>The AST display is not workshop-like, eg Add() instead of +</li>
+							<li>The UI is slow when working with 200+ rules</li>
+						</ul>
+					</p>
                     <p>Feel free to join the discord if you have any questions or feedback!<br><a href="https://discord.gg/EEMjjFB" target="_blank">https://discord.gg/EEMjjFB</a></p>
                     <p>Made by Zezombye, with help from Mitsiee</p>
                 </div>
