@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Zez's Workshop UI Recreation</title>
 
-    <script src="libs/vue.js"></script>
+    <script src="libs/vue.min.js"></script>
     <script src="libs/vue-select.min.js"></script>
     <script src="libs/popper.min.js"></script>
     <script src="libs/toastify.js"></script>
@@ -2441,6 +2441,7 @@
                     var rule = new Ast("__rule__");
                     rule.isDisabled = false;
                     rule.isSelected = false;
+					rule.isCollapsed = false;
                     rule.ruleAttributes = {};
                     rule.ruleAttributes.conditions = [];
                     rule.ruleAttributes.event = "global";
