@@ -99,7 +99,7 @@ function decompileAllRulesToAst(content) {
 	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
 	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
 
-	console.log(content);
+	//console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
 	if (bracketPos.length === 0) {
@@ -251,13 +251,13 @@ function decompileCustomGameSettings(content) {
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
-							result[opyCategory][opyGamemode][opyPropName] = {};
+							result[opyCategory][opyGamemode][opyPropName] = [];
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
 								//remove number at the end, if there is one
 								if (map.endsWith("0")) {
 									map = map.substring(0, map.length-1);
 								}
-								result[opyCategory][opyGamemode][opyPropName][topy(map, mapKw)] = 0
+								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
 							}
 						}
 					}
@@ -295,7 +295,7 @@ function decompileCustomGameSettings(content) {
 				}
 
 				if (dict.length > 0) {
-					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
+					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general.values);
 				}
 			}
 		} else if (opyCategory === "workshop") {

@@ -104,8 +104,8 @@ function decompileRuleToAst(content) {
 	}
 
 	var astRule = new Ast("__rule__", [], astActions);
-	astRule.isDisabled = currentRuleIsDisabled;
 	astRule.ruleAttributes = ruleAttributes;
+	astRule.ruleAttributes.isDisabled = currentRuleIsDisabled;
 	
 	return astRule;
 }

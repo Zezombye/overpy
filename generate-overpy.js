@@ -337,14 +337,7 @@ function generateJsonSchema(json, settings) {
 				}
 			} else {
 				json.type = "string";
-				json.oneOf = [];
-				for (var key in settings.values) {
-					//console.log("generating "+key);
-					json.oneOf.push({
-						"const": key,
-						"description": settings.values[key].description,
-					})
-				}
+				json.enum = Object.keys(settings.values);
 			}
 		} else if (settings.values === "__string__") {
 			json.type = "string";
@@ -452,16 +445,17 @@ for (var key in overpy.customGameSettingsSchema) {
 			properties: {},
 		}
 		for (var team in overpy.customGameSettingsSchema[key].teams) {
-			jsonSchema.properties[key].properties[team] = {
+			/*jsonSchema.properties[key].properties[team] = {
 				"$ref": "#/definitions/heroes",
-			}
+			}*/
+			jsonSchema.properties[key].properties[team] = jsonSchema.definitions.heroes;
 		}
 	} else if (key === "workshop") {
 		jsonSchema.properties[key] = {
 			type: "object",
 			"patternProperties": {
 				".*": {
-					"type": ["number", "boolean"],
+					"type": ["number", "boolean", "string"],
 				},
 			},
 		}

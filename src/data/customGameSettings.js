@@ -675,6 +675,22 @@ const customGameSettingsSchema =
                                 "zh-CN": "关闭",
                                 "zh-TW": "關閉"
                             },
+                            "2OfEachRolePerTeam": {
+                                "guid": "000000002C63",
+                                "en-US": "2 Of Each Role Per Team",
+                                "de-DE": "2 jeder Rolle im Team",
+                                "es-ES": "2 de cada por equipo",
+                                "es-MX": "2 de cada rol por equipo",
+                                "fr-FR": "2 de chaque par équipe",
+                                "it-IT": "2 di ogni ruolo per squadra",
+                                "ja-JP": "両チーム各ロール2名ずつ",
+                                "ko-KR": "팀당 역할별로 2명",
+                                "pl-PL": "2 z każdej roli na drużynę",
+                                "pt-BR": "2 de cada função por equipe",
+                                "ru-RU": "2 героя каждой роли на команду",
+                                "zh-CN": "每队同一职责最多2名",
+                                "zh-TW": "每隊同一角色類型最多2名"
+                            },
                             "1Tank2Offense2Support": {
                                 "guid": "000000015884",
                                 "en-US": "1 Tank 2 Offense 2 Support",
@@ -1750,6 +1766,7 @@ const customGameSettingsSchema =
                                 "zh-TW": "隊伍人數+1"
                             },
                             "teamSize+2": {
+                                default: true,
                                 "guid": "000000006148",
                                 "en-US": "Team Size +2",
                                 "de-DE": "Teamgröße +2",
@@ -2297,6 +2314,7 @@ const customGameSettingsSchema =
                     },
                     "enableEndless": {
                         "values": "__boolOnOff__",
+                        default: "off",
                         "guid": "000000006FB1",
                         "en-US": "Endless Mode",
                         "de-DE": "Endlosmodus",
@@ -3839,7 +3857,7 @@ const customGameSettingsSchema =
                         "values": "__int__",
                         "min": 3,
                         "max": 12,
-                        "default": 100,
+                        "default": 5,
                         "guid": "000000008900",
                         "en-US": "Storm Arrows Quantity",
                         "de-DE": "Sturmpfeile – Anzahl",
@@ -5766,9 +5784,12 @@ for (var gamemode of Object.keys(gamemodeKw)) {
     Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode])
 }
 
-//Apply general settings to each gamemode
+//Apply general settings to each gamemode... but not Elimination for some reason lmao
 for (var gamemode in customGameSettingsSchema.gamemodes.values) {
-    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+    if (gamemode !== "elimination") {
+
+        Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+    }
 }
 
 //Apply each gamemode's settings to general settings
@@ -5777,7 +5798,8 @@ for (var gamemode in customGameSettingsSchema.gamemodes.values) {
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
+customGameSettingsSchema.heroes.values.general = {values: {}}
+customGameSettingsSchema.heroes.values.general.values = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
 
 //Generate settings for each hero
 for (var hero of Object.keys(heroKw)) {

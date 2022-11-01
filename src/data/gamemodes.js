@@ -300,22 +300,6 @@ const gamemodeKw =
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
-    "survivor": {
-        "guid": "00000000AC44",
-        "en-US": "Survivor",
-        "de-DE": "Langer Atem",
-        "es-ES": "Superviviente",
-        "es-MX": "Sobreviviente",
-        "fr-FR": "Survivant",
-        "it-IT": "Superstite",
-        "ja-JP": "サバイバー",
-        "ko-KR": "생존자",
-        "pl-PL": "Przetrwanie",
-        "pt-BR": "Sobrevivente",
-        "ru-RU": "Выжившие",
-        "zh-CN": "长夜余生",
-        "zh-TW": "生存專家"
-    },
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,

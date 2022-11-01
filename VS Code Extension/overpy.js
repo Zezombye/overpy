@@ -34209,22 +34209,6 @@ const gamemodeKw =
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
-    "survivor": {
-        "guid": "00000000AC44",
-        "en-US": "Survivor",
-        "de-DE": "Langer Atem",
-        "es-ES": "Superviviente",
-        "es-MX": "Sobreviviente",
-        "fr-FR": "Survivant",
-        "it-IT": "Superstite",
-        "ja-JP": "サバイバー",
-        "ko-KR": "생존자",
-        "pl-PL": "Przetrwanie",
-        "pt-BR": "Sobrevivente",
-        "ru-RU": "Выжившие",
-        "zh-CN": "长夜余生",
-        "zh-TW": "生存專家"
-    },
     "tdm": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
@@ -40931,6 +40915,22 @@ const customGameSettingsSchema =
                                 "zh-CN": "关闭",
                                 "zh-TW": "關閉"
                             },
+                            "2OfEachRolePerTeam": {
+                                "guid": "000000002C63",
+                                "en-US": "2 Of Each Role Per Team",
+                                "de-DE": "2 jeder Rolle im Team",
+                                "es-ES": "2 de cada por equipo",
+                                "es-MX": "2 de cada rol por equipo",
+                                "fr-FR": "2 de chaque par équipe",
+                                "it-IT": "2 di ogni ruolo per squadra",
+                                "ja-JP": "両チーム各ロール2名ずつ",
+                                "ko-KR": "팀당 역할별로 2명",
+                                "pl-PL": "2 z każdej roli na drużynę",
+                                "pt-BR": "2 de cada função por equipe",
+                                "ru-RU": "2 героя каждой роли на команду",
+                                "zh-CN": "每队同一职责最多2名",
+                                "zh-TW": "每隊同一角色類型最多2名"
+                            },
                             "1Tank2Offense2Support": {
                                 "guid": "000000015884",
                                 "en-US": "1 Tank 2 Offense 2 Support",
@@ -42006,6 +42006,7 @@ const customGameSettingsSchema =
                                 "zh-TW": "隊伍人數+1"
                             },
                             "teamSize+2": {
+                                default: true,
                                 "guid": "000000006148",
                                 "en-US": "Team Size +2",
                                 "de-DE": "Teamgröße +2",
@@ -42553,6 +42554,7 @@ const customGameSettingsSchema =
                     },
                     "enableEndless": {
                         "values": "__boolOnOff__",
+                        default: "off",
                         "guid": "000000006FB1",
                         "en-US": "Endless Mode",
                         "de-DE": "Endlosmodus",
@@ -44095,7 +44097,7 @@ const customGameSettingsSchema =
                         "values": "__int__",
                         "min": 3,
                         "max": 12,
-                        "default": 100,
+                        "default": 5,
                         "guid": "000000008900",
                         "en-US": "Storm Arrows Quantity",
                         "de-DE": "Sturmpfeile – Anzahl",
@@ -46022,9 +46024,12 @@ for (var gamemode of Object.keys(gamemodeKw)) {
     Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode])
 }
 
-//Apply general settings to each gamemode
+//Apply general settings to each gamemode... but not Elimination for some reason lmao
 for (var gamemode in customGameSettingsSchema.gamemodes.values) {
-    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+    if (gamemode !== "elimination") {
+
+        Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
+    }
 }
 
 //Apply each gamemode's settings to general settings
@@ -46033,7 +46038,8 @@ for (var gamemode in customGameSettingsSchema.gamemodes.values) {
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values.general = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
+customGameSettingsSchema.heroes.values.general = {values: {}}
+customGameSettingsSchema.heroes.values.general.values = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
 
 //Generate settings for each hero
 for (var hero of Object.keys(heroKw)) {
@@ -46801,7 +46807,11 @@ function error(str, token) {
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
 			for (var file of fileStack) {
-				err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				if ("rule" in file) {
+					err += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+				} else {
+					err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				}
 			}
 		}
 	} else {
@@ -46819,7 +46829,11 @@ function warn(warnType, message) {
 			if (fileStack.length !== 0) {
 				fileStack.reverse();
 				for (var file of fileStack) {
-					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+					if ("rule" in file) {
+						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+					} else {
+						warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+					}
 				}
 			}
 		} else {
@@ -47601,7 +47615,7 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
 			return locA.localeCompare(locB)
 		}).reverse()
-		console.log(objKeys)
+		//console.log(objKeys)
 		for (var key of objKeys) {
 			if (currentLanguage in kwObj[key]) {
 				if (elem.toLowerCase().startsWith(kwObj[key][currentLanguage].toLowerCase())) {
@@ -47633,9 +47647,6 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 
 		} else if (kwObj[keyName].values === "__string__") {
 			value = unescapeString(value, false);
-			if (value.includes("D_e_l_w_i_o_n_#_2_6_6_7".replace(/_/g, ""))) {
-				error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
-			}
 
 		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
@@ -49353,8 +49364,8 @@ function decompileRuleToAst(content) {
 	}
 
 	var astRule = new Ast("__rule__", [], astActions);
-	astRule.isDisabled = currentRuleIsDisabled;
 	astRule.ruleAttributes = ruleAttributes;
+	astRule.ruleAttributes.isDisabled = currentRuleIsDisabled;
 	
 	return astRule;
 }
@@ -49842,7 +49853,7 @@ function astRulesToOpy(rules) {
         //Decompile the rule actions
         decompiledRule += astActionsToOpy(rule.children);
 
-        if (rule.isDisabled) {
+        if (rule.ruleAttributes.isDisabled) {
             decompiledRule = "/*\n" + decompiledRule + "*/";
         }
         decompiledRule += "\n\n";
@@ -50660,7 +50671,7 @@ function decompileAllRulesToAst(content) {
 	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
 	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
 
-	console.log(content);
+	//console.log(content);
 	
 	var bracketPos = getBracketPositions(content);
 	if (bracketPos.length === 0) {
@@ -50812,13 +50823,13 @@ function decompileCustomGameSettings(content) {
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
-							result[opyCategory][opyGamemode][opyPropName] = {};
+							result[opyCategory][opyGamemode][opyPropName] = [];
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
 								//remove number at the end, if there is one
 								if (map.endsWith("0")) {
 									map = map.substring(0, map.length-1);
 								}
-								result[opyCategory][opyGamemode][opyPropName][topy(map, mapKw)] = 0
+								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
 							}
 						}
 					}
@@ -50856,7 +50867,7 @@ function decompileCustomGameSettings(content) {
 				}
 
 				if (dict.length > 0) {
-					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general);
+					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general.values);
 				}
 			}
 		} else if (opyCategory === "workshop") {
@@ -56997,7 +57008,7 @@ function parseAst(content) {
     }
 
     //Normalize arguments
-    if (content.name === "__for__") {
+    if (content.name === "__for__" && content.args.length !== 4) {
 
         if (content.args.length !== 1) {
             error("Function '"+content.name+"' takes 1 argument, received "+content.args.length);
@@ -59251,8 +59262,13 @@ function compileCustomGameSettings(customGameSettings) {
 
 	for (var key of Object.keys(customGameSettings)) {
 		if (key === "main" || key === "lobby") {
+			//workshop bug - cannot paste "best available"
+			if (key === "lobby" && customGameSettings["lobby"].dataCenterPreference === "bestAvailable") {
+				delete customGameSettings["lobby"].dataCenterPreference;
+			}
 			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
 			if (key === "lobby") {
+
 				//Figure out the amount of available slots
 				var maxTeam1Slots = 0;
 				var maxTeam2Slots = 0;
@@ -59322,8 +59338,8 @@ function compileCustomGameSettings(customGameSettings) {
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
 					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
 					isGamemodeEnabled = false;
-					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
+				delete customGameSettings.gamemodes[gamemode].enabled;
 				result[wsGamemodes][wsGamemode] = {};
 				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
 					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
@@ -59389,7 +59405,7 @@ function compileCustomGameSettings(customGameSettings) {
 				}
 
 				if ("general" in customGameSettings.heroes[team]) {
-					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
+					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general.values));
 					delete customGameSettings.heroes[team].general;
 				}
 

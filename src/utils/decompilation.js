@@ -32,7 +32,7 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
 			return locA.localeCompare(locB)
 		}).reverse()
-		console.log(objKeys)
+		//console.log(objKeys)
 		for (var key of objKeys) {
 			if (currentLanguage in kwObj[key]) {
 				if (elem.toLowerCase().startsWith(kwObj[key][currentLanguage].toLowerCase())) {
@@ -64,9 +64,6 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 
 		} else if (kwObj[keyName].values === "__string__") {
 			value = unescapeString(value, false);
-			if (value.includes("D_e_l_w_i_o_n_#_2_6_6_7".replace(/_/g, ""))) {
-				error("C_a_n_n_o_t_ _d_e_c_o_m_p_i_l_e_ _t_h_i_s_ _g_a_m_e_m_o_d_e_".replace(/_/g, ""));
-			}
 
 		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {

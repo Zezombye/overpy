@@ -73,7 +73,7 @@ function astRulesToOpy(rules) {
         //Decompile the rule actions
         decompiledRule += astActionsToOpy(rule.children);
 
-        if (rule.isDisabled) {
+        if (rule.ruleAttributes.isDisabled) {
             decompiledRule = "/*\n" + decompiledRule + "*/";
         }
         decompiledRule += "\n\n";

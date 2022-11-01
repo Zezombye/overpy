@@ -1,0 +1,12 @@
+
+- manage maps not available in ow2
+- translate the UI
+- different fonts for different languages
+- dropdown tooltips
+- local storage
+- switching between projects
+- display operators
+
+- disable debug in overpy
+- disable debug in vuejs
+- minify overpy ?

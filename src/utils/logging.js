@@ -34,7 +34,11 @@ function error(str, token) {
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
 			for (var file of fileStack) {
-				err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				if ("rule" in file) {
+					err += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+				} else {
+					err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+				}
 			}
 		}
 	} else {
@@ -52,7 +56,11 @@ function warn(warnType, message) {
 			if (fileStack.length !== 0) {
 				fileStack.reverse();
 				for (var file of fileStack) {
-					warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+					if ("rule" in file) {
+						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+					} else {
+						warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+					}
 				}
 			}
 		} else {

@@ -405,6 +405,11 @@
         .conditions {
             padding-right: 20px;
         }
+        
+        .action {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
         .conditions-buttons, .actions-buttons {
             display: flex;
@@ -534,9 +539,10 @@
         .code-and-checkbox {
             display: flex;
             align-items: center;
+            width: 100%;
         }
 
-        #ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen {
+        #ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen, #settings-screen {
             z-index: 9999;
             position: fixed;
             top: 0px;
@@ -1092,6 +1098,90 @@
             background-color: var(--toast-warning);
         }
 
+		#settings-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            color: var(--text-color);
+            text-transform: none;
+            font-size: 16pt;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto;
+            max-height: calc(100vh - 300px);
+			text-transform: uppercase;
+			padding: 5px;
+			row-gap: 5px;
+		}
+
+		.cgs-content {
+			width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+			margin-top: 5px;
+		}
+
+		.cgs-content .cgs-content, .cgs-values {
+			padding-left: 42px;
+		}
+
+		.cgs-title-wrapper {
+			width: 100%;
+			display: flex;
+            flex-wrap: wrap;
+			align-items: center;
+			column-gap: 5px;
+		}
+
+		.cgs-values {
+			width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+			row-gap: 5px;
+			padding-top: 5px;
+		}
+
+		.cgs-setting-name-value {
+			width: 100%;
+            display: flex;
+			column-gap: 5px;
+			align-items: center;
+		}
+
+		.cgs-setting-name {
+			width: 100%;
+			background-color: var(--label-background-color);
+			justify-content: end;
+            padding-left: 10px;
+			padding-right: 10px;
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
+
+		.cgs-setting-value {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.cgs-setting-value .v-select {
+			width: 100%;
+		}
+		
+		.cgs-setting-value input[type="checkbox"] {
+			width: 100%;
+		}
+
+		.cgs-setting-value input[type="number"] {
+			text-align: center;
+			width: 130px;
+			padding: 0px;
+		}
+		.cgs-setting-value input[type="range"] {
+			width: 100%;
+		}
+
     </style>
 </head>
 <body class="font-futurano2d">
@@ -1106,6 +1196,7 @@
                 <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo = true"/>
                 <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetricsScreen()"/>
                 <img id="button-import" class="img-button button-header" src="img/import.png" v-on:click="displayImport = true"/>
+                <img id="button-settings" class="img-button button-header" src="img/settings.png" v-on:click="editCustomGameSettings()"/>
                 <img id="button-save" class="img-button button-header" src="img/save.png" v-on:click="saveGamemode()"/>
             </div>
             <div id="workshop-header-right">
@@ -1142,7 +1233,7 @@
                 <div class="rule-header-and-content">
 
                     <div class="rule-header">
-                        <input type="text" class="rule-title" :class="{'disabled': rule.isDisabled}" v-model="rule.ruleAttributes.name">
+                        <input type="text" class="rule-title" :class="{'disabled': rule.ruleAttributes.isDisabled}" v-model="rule.ruleAttributes.name">
                         <input type="checkbox" class="checkbox" v-model="rule.isSelected">
                     </div>
                     <div class="rule-content" v-if="!rule.isCollapsed">
@@ -1219,7 +1310,7 @@
                                 <div v-if="rule.children.length === 0" class="no-values-msg font-blizzglobal">{{ translate("noActions", workshopUiKw) }}</div>
         
                                 <div v-else v-for="(action, actionIdx) in rule.children" class="action">
-                                    <div class="comment" v-if="action.comment">{{ action.comment }}</div>
+                                    <div class="comment" v-if="action.comment" :style="{'margin-left': calculateActionPadding(action, actionIdx, rule.children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">{{ action.comment }}</div>
                                     <div class="code-and-checkbox">
                                         <div class="code-display-wrapper" :class="{'disabled': action.isDisabled}" :style="{'margin-left': calculateActionPadding(action, actionIdx, rule.children)}" v-on:click="editActionOrCondition(action, false, actionIdx)">
                                             <div class="code-display" v-html="displayAst(action)"></div>
@@ -1371,7 +1462,7 @@
                     <p>Your gamemode is saved to your browser's local storage every time you edit an action/condition, or when you view the extensions or the element count.</p>
                     <p>The UI was tested on Firefox with a resolution of 1920x1080. You can zoom or dezoom if the UI is not adapted to your screen resolution.</p>
                     <p>You can save manually by clicking on the Save button: <img src="img/save.png" width="25" height="25"/></p>
-                    <p>This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions.</p>
+                    <p>This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions. Some errors use the OverPy syntax for functions.</p>
                     <p>Below, you can configure some settings for the UI and for OverPy:</p>
                     <div class="setting font-futurano2d" v-for="(setting, settingId) in uiAvailableSettings">
                         <div class="setting-name">{{ setting.name }}</div>
@@ -1407,6 +1498,83 @@
                 </div>
             </div>
         </div>
+        <div id="settings-screen" v-if="displaySettings">
+            <div class="window-background">
+                <div class="window-edit-title font-bignoodle">Custom Game Settings</div>
+                <div id="settings-wrapper">
+					<div class="cgs-content" v-for="(categoryContent, category) in editedCustomGameSettings">
+						<div class="cgs-title-wrapper">
+							<img v-if="categoryContent.isCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="categoryContent.isCollapsed=false; updateTextareasHeight()">
+							<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="categoryContent.isCollapsed=true"/>
+							<div class="cgs-title">{{ translate(category, customGameSettingsSchema) }}</div>
+						</div>
+						<template v-if="!categoryContent.isCollapsed">
+							<cgs-values v-if="category === 'lobby' || category === 'main'" :values="categoryContent" :schema="customGameSettingsSchema[category].values">
+
+							</cgs-values>
+							<div v-else-if="category === 'gamemodes'" v-for="(gamemodeContent, gamemode) in categoryContent" class="cgs-content">
+								<template v-if="gamemode !== 'isCollapsed' && gamemode !== 'isArrayCollapsed'">
+									<div class="cgs-title-wrapper">
+										<img v-if="gamemodeContent.isCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="gamemodeContent.isCollapsed=false"/>
+										<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="gamemodeContent.isCollapsed=true"/>
+										<input type="checkbox" v-model="gamemodeContent.enabled"/>
+										<div class="cgs-title">{{ translate(gamemode, customGameSettingsSchema.gamemodes.values) }}</div>
+									</div>
+									<div v-if="!gamemodeContent.isCollapsed && 'enabledMaps' in gamemodeContent" class="cgs-content">
+										<div class="cgs-title-wrapper">
+											<img v-if="gamemodeContent.isArrayCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="gamemodeContent.isArrayCollapsed=false"/>
+											<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="gamemodeContent.isArrayCollapsed=true"/>
+											<div class="cgs-title">{{ translate("enabledMaps", customGameSettingsSchema.gamemodes.values[gamemode].values) }}</div>
+										</div>
+										<cgs-values v-if="!gamemodeContent.isArrayCollapsed" :values="Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode))" :schema="mapKw" :array-obj="gamemodeContent" :array-key="'enabledMaps'"></cgs-values>
+									</div>
+									<cgs-values v-if="!gamemodeContent.isCollapsed" :values="gamemodeContent" :schema="customGameSettingsSchema[category].values[gamemode].values">
+									</cgs-values>
+								</template>
+
+							</div>
+							<div v-else-if="category === 'heroes'" v-for="(teamContent, team) in categoryContent" class="cgs-content">
+								<template v-if="team !== 'isCollapsed'">
+
+									<div class="cgs-title-wrapper">
+										<img v-if="teamContent.isCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="teamContent.isCollapsed=false"/>
+										<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="teamContent.isCollapsed=true"/>
+										<div class="cgs-title">{{ translate(team, customGameSettingsSchema.heroes.teams) }}</div>
+									</div>
+									<div v-if="!teamContent.isCollapsed" class="cgs-content">
+										<div class="cgs-title-wrapper">
+											<img v-if="teamContent.isArrayCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="teamContent.isArrayCollapsed=false"/>
+											<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="teamContent.isArrayCollapsed=true"/>
+											<div class="cgs-title">{{ translate("enabledHeroes", customGameSettingsSchema.heroes.values) }}</div>
+										</div>
+										<cgs-values v-if="!teamContent.isArrayCollapsed" :values="Object.keys(heroKw)" :schema="heroKw" :array-obj="teamContent" :array-key="'enabledHeroes'"></cgs-values>
+									</div>
+									<template v-if="!teamContent.isCollapsed" v-for="(heroContent, hero) in teamContent">
+										<div class="cgs-content" v-if="hero !== 'isCollapsed' && hero !== 'isArrayCollapsed' && hero !== 'enabledHeroes'">
+
+											<div class="cgs-title-wrapper">
+												<template v-if="'isCollapsed' in heroContent">
+													<img v-if="heroContent.isCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="heroContent.isCollapsed=false"/>
+													<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="heroContent.isCollapsed=true"/>
+												</template>
+												<div class="cgs-title">{{ translate(hero, (hero === 'general' ? customGameSettingsSchema.gamemodes.values : hero === 'enabledHeroes' ? customGameSettingsSchema.heroes.values : heroKw)) }}</div>
+											</div>
+											<cgs-values v-if="!heroContent.isCollapsed" :values="heroContent" :schema="customGameSettingsSchema[category].values[hero].values">
+			
+											</cgs-values>
+										</div>
+									</template>
+								</template>
+							</div>
+						</template>
+					</div>
+                </div>
+                <div class="edit-buttons">
+                    <button class="cancel-button font-futurano2d" v-on:click="displaySettings = false">{{ translate("cancel", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="validateSettings()">{{ translate("ok", workshopUiKw) }}</button>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 
@@ -1438,12 +1606,57 @@
             <function-display v-for="(arg, idx) in ast.args" :ast="arg" :ast-idx="idx" :depth="depth+1"></function-display>
         </div>
     </template>
+	<template id="custom-game-settings-values">
+		<div class="cgs-values">
+			<template v-if="arrayObj">
+				<div class="cgs-setting-name-value"  v-for="v in values">
+					<div class="cgs-setting-name">
+						{{ $root.translate(v, schema) }}
+					</div>
+					<div class="cgs-setting-value">
+						<input type="checkbox" :value="v" v-model="arrayObj[arrayKey]"/>
+					</div>
+				</div>
+			</template>
+			<template v-else v-for="(value, key) in values">
+				<div class="cgs-setting-name-value" v-if="key !== 'isCollapsed' && key !== 'isArrayCollapsed' && key !== 'enabled' && key !== 'enabledMaps' && key !== 'enabledHeroes'">
+					<div class="cgs-setting-name">
+						{{ $root.translate(key, schema) }}
+					</div>
+					<div class="cgs-setting-value">
+						<template v-if='["__boolYesNo__", "__boolOnOff__", "__boolEnabled__"].includes(schema[key].values)'>
+							<input type="checkbox" v-model="values[key]"/>
+						</template>
+						<template v-else-if="schema[key].values === '__boolReverseOnOff__'">
+							<input type="checkbox" v-model="values[key]" :true-value="false" :false-value="true"/>
+						</template>
+						<template v-else-if="['__percent__', '__int__', '__float__'].includes(schema[key].values)">
+							<input type="number" :min="schema[key].min" :max="schema[key].max" v-model="values[key]"/>
+							<input type="range" :min="schema[key].min" :max="schema[key].max" v-model="values[key]"/>
+						</template>
+						<template v-else-if="schema[key].values === '__string__'">
+							<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="font-blizzglobal" v-model="values[key]"></textarea>
+						</template>
+						<template v-else>
+							<v-select append-to-body :calculate-position="$root.calculateDropdownPosition" :clearable="false" :options="$root.getDropdownOptionsForKeywordObj(schema[key].values)" :reduce="x => x.code" v-model="values[key]"></v-select>
+						</template>
+					</div>
+				</div>
+			</template>
+		</div>
+	</template>
 
     <script>
+
+        console.debug = function() {}
         Vue.component('v-select', VueSelect.VueSelect);
         Vue.component("function-display", {
             props: ["ast", "astIdx", "depth"],
             template: "#function-display-template",
+        })
+        Vue.component("cgs-values", {
+            props: ["values", "schema", "arrayObj", "arrayKey"],
+            template: "#custom-game-settings-values",
         })
 
         const oldConsoleInfo = console.info;
@@ -1457,12 +1670,13 @@
                 textToDecompile: null,
                 displayDeleteConfirmationFor: null,
                 deleteForRule: null,
-                displayInfo: false,
+                displayInfo: true,
                 displayMetrics: false,
                 displayVariableEditor: false,
                 displaySubroutineEditor: false,
                 displayExtensionsEditor: false,
                 displayImport: false,
+				displaySettings: false,
                 editedGlobalVariables: [],
                 editedPlayerVariables: [],
                 editedSubroutines: [],
@@ -1472,6 +1686,7 @@
                 spentExtensionPoints: 0,
                 nbElements: 0,
                 clipboard: {},
+                compiledGamemode: null,
                 customGameSettings: {
                     "main": {
                         "description": "Some awesome game mode",
@@ -1484,6 +1699,7 @@
                         }
                     },
                 },
+				editedCustomGameSettings: null,
                 astToEdit: null,
                 astToEditIsCondition: null,
                 astToEditParent: null,
@@ -1539,18 +1755,18 @@
                         name: "Background",
                         values: {
                             "random": "Random",
-                            "blizzard_world.jpg": "Blizzard World",
-                            "blizzard_world_2.jpg": "Blizzard World 2",
+                            "blizzard_world.jpg": "Blizzard World #1",
+                            "blizzard_world_2.jpg": "Blizzard World #2",
                             "busan.jpg": "Busan",
                             "chateau_halloween.jpg": "Château Halloween",
                             "dorado.jpg": "Dorado",
                             "eichenwalde.jpg": "Eichenwalde",
-                            "eichenwalde_halloween.jpg": "Eichenwalde Halloween",
-                            "eichenwalde_halloween_2.jpg": "Eichenwalde Halloween 2",
+                            "eichenwalde_halloween.jpg": "Eichenwalde Halloween #1",
+                            "eichenwalde_halloween_2.jpg": "Eichenwalde Halloween #2",
                             "hanamura.jpg": "Hanamura",
                             "kings_row.jpg": "King's Row",
-                            "monte_carlo.jpg": "Monte Carlo",
-                            "monte_carlo_2.jpg": "Monte Carlo 2",
+                            "monte_carlo.jpg": "Monte Carlo #1",
+                            "monte_carlo_2.jpg": "Monte Carlo #2",
                             "new_queen_street.jpg": "New Queen Street",
                             "oasis.jpg": "Oasis",
                             "paraiso.jpg": "Paraiso",
@@ -1558,6 +1774,11 @@
                             "rialto.jpg": "Rialto",
                             "temple_of_anubis.jpg": "Temple of Anubis",
                             "volskaya.jpg": "Volskaya",
+                            "tf2.jpg": "TF2 #1",
+                            "tf2_2.jpg": "TF2 #2",
+                            "portal_2.jpg": "Portal 2",
+                            "workshop.jpg": "Workshop",
+                            "forge.jpg": "Forge",
          }
                     }
                 },
@@ -1578,6 +1799,8 @@
                 valueFuncKw,
                 stringKw,
                 ruleKw,
+				heroKw,
+				mapKw,
                 customGameSettingsSchema,
                 constantValues,
                 astToString,
@@ -1617,11 +1840,11 @@
                     oldConsoleWarn(str);
                     Toastify({
                         text: str,
-                        duration: 4000,
+                        duration: 5000,
                         gravity: "bottom", // `top` or `bottom`
                         position: "left", // `left`, `center` or `right`
                         stopOnFocus: true, // Prevents dismissing of toast on hover
-                        className: "warn",
+                        className: "warning",
                     }).showToast();
                 },
                 error: function(str) {
@@ -1632,7 +1855,7 @@
                     }
                     Toastify({
                         text: str,
-                        duration: 4000,
+                        duration: 5000,
                         gravity: "bottom", // `top` or `bottom`
                         position: "left", // `left`, `center` or `right`
                         stopOnFocus: true, // Prevents dismissing of toast on hover
@@ -1640,15 +1863,20 @@
                     }).showToast();
                 },
                 translate: function(keyword, keywordObj, ...args) {
+					if (!keywordObj) {
+						throw new Error("Invalid keywordobj for '"+keyword+"'");
+					}
                     if (!(keyword in keywordObj)) {
-                        Error("Could not translate '"+keyword+"'");
+                        throw new Error("Could not translate '"+keyword+"'");
                     }
                     var result = null;
                     if (this.uiSettings.language in keywordObj[keyword]) {
                         result = keywordObj[keyword][this.uiSettings.language];
-                    } else {
+                    } else if ("en-US" in keywordObj[keyword]) {
                         result = keywordObj[keyword]["en-US"];
-                    }
+                    } else {
+						throw new Error("Invalid keywordobj for '"+keyword+"': "+JSON.stringify(keywordObj));
+					}
                     if (result.includes("%1$s")) {
                         result = result.replace("%1$s", args[0]);
                         if (result.includes("|Rpl")) {
@@ -1679,13 +1907,21 @@
                     } else {
                         keywordObj = this.valueFuncKw;
                     }
-                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+					return this.getDropdownOptionsForKeywordObj(keywordObj);
                 },
+				getDropdownOptionsForKeywordObj: function(keywordObj) {
+
+                    return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+				},
                 decompile: function(content) {
                     try {
 
                         resetGlobalVariables(this.decompilationLanguage);
                         [customGameSettings, rules] = decompileAllRulesToAst(content);
+                        if (!customGameSettings) {
+                            console.error("Gamemode must have settings");
+                            return;
+                        }
                         console.log(customGameSettings);
                         console.log(rules);
                         this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
@@ -1727,7 +1963,11 @@
                                 rule.children[i].isDisabled ||= false;
                             }
 
-                            rule.isCollapsed = false;
+                            if (rules.length > 50) {
+                                rule.isCollapsed = true;
+                            } else {
+                                rule.isCollapsed = false;
+                            }
                             rule.isSelected = false;
                         }
                         this.rules = rules;
@@ -1753,7 +1993,10 @@
                         "__greaterThan__": ">",
                     }
                     if (ast.name in comparisonFuncToOpMapping) {
-                        return new Ast("__compare__", [this.adjustAstForWorkshop(ast.args[0]), new Ast(comparisonFuncToOpMapping[ast.name], [], [], "__Operator__"), this.adjustAstForWorkshop(ast.args[1])]);
+                        var result = new Ast("__compare__", [this.adjustAstForWorkshop(ast.args[0]), new Ast(comparisonFuncToOpMapping[ast.name], [], [], "__Operator__"), this.adjustAstForWorkshop(ast.args[1])]);
+                        result.comment = ast.comment;
+                        result.isDisabled = ast.isDisabled;
+                        return result;
                     } else if (ast.name === "__assignTo__" || ast.name === "__modifyVar__") {
 
                         var newName = ast.name === "__assignTo__" ? "__set" : "__modify";
@@ -1784,6 +2027,23 @@
                             throw new Error("Cannot modify or assign to "+this.functionNameToString(ast.args[0]))
                         }
                         ast.name = newName;
+
+                    } else if (ast.name === "__for__") {
+                        var newName = "";
+                        if (ast.args[0].name === "__globalVar__") {
+                            newName = "GlobalVariable";
+                            ast.args = [ast.args[0].args[0]].concat(ast.args.slice(1));
+
+                        } else if (ast.args[0].name === "__playerVar__") {
+                            newName = "PlayerVariable";
+                            ast.args = [ast.args[0].args[0], ast.args[0].args[1]].concat(ast.args.slice(1));
+
+                        } else {
+                            error("Expected a variable for 1st argument of "+functionNameToString(ast)+", but got "+functionNameToString(ast.args[0]));
+                        }
+                        newName = "__for"+newName+"__";
+                        ast.name = newName;
+
                     } else if (ast.name === "__negate__") {
                         ast.args[0].args[0].name = ""+(-ast.args[0].args[0].name);
                         ast.args[0].args[0].numValue = -ast.args[0].args[0].numValue;
@@ -1804,7 +2064,6 @@
                                 ast.args.push(new Ast("null"))
                             }
                         }
-                        console.log(ast);
                     } else if (ast.type === "GlobalVariable") {
                         ast.name = this.globalVariables.filter(x => x.name === ast.name)[0].index;
                     } else if (ast.type === "PlayerVariable") {
@@ -1820,34 +2079,64 @@
                 },
                 compileGamemode: function() {
                     //Adjust AST for overpy
+
+                    function recursivelySetFilestack(ast, fileStack) {
+                        ast.fileStack = fileStack;
+                        for (var arg of ast.args) {
+                            recursivelySetFilestack(arg, fileStack);
+                        }
+                    }
+
                     var rules = structuredClone(this.rules);
-                    for (var rule of rules) {
+                    for (let [ruleIdx, rule] of rules.entries()) {
                         rule.ruleAttributes.isDelimiter = true;
+                        rule.fileStack = [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name}]
                         for (var i = 0; i < rule.children.length; i++) {
-                            resetGlobalVariables(this.uiSettings.language);
-                            globalVariables = structuredClone(this.globalVariables);
-                            playerVariables = structuredClone(this.playerVariables);
-                            subroutines = structuredClone(this.subroutines);
-                            rule.children[i] = decompile(this.displayAst(rule.children[i], false))
+                            var comment = rule.children[i].comment;
+                            if (rule.children[i].isDisabled) {
+                                var dummyAction = getAstForUselessInstruction();
+                                rule.children[i] = dummyAction;
+                            } else {
+                                resetGlobalVariables(this.uiSettings.language);
+                                globalVariables = structuredClone(this.globalVariables);
+                                playerVariables = structuredClone(this.playerVariables);
+                                subroutines = structuredClone(this.subroutines);
+                                rule.children[i] = decompile(this.displayAst(rule.children[i], false))
+                            }
+                            rule.children[i].comment = comment;
                             rule.children[i].parent = rule;
+
+                            recursivelySetFilestack(rule.children[i], [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name, actionNb: i+1}])
+
                         }
 
+                        //console.log(rule.ruleAttributes.name);
                         //put the depth and remove the __end__
                         for (var i = rule.children.length-1; i >= 0; i--) {
                             if (["__for__", "__if__", "__elif__", "__else__", "__while__"].includes(rule.children[i].name)) {
+                                var depth = 0;
                                 for (var j = i+1; j < rule.children.length; j++) {
-                                    if (rule.children[j].name === "__end__") {
+                                    if (rule.children[j].name === "__end__" && depth === 0) {
+                                        break;
+                                    } else if (rule.children[j].name === "__end__") {
+                                        depth--;
+                                    } else if (["__if__", "__elif__", "__else__"].includes(rule.children[i].name) && ["__else__", "__elif__"].includes(rule.children[j].name) && depth === 0) {
                                         break;
                                     } else {
+                                        if (["__for__", "__if__", "__while__"].includes(rule.children[j].name)) {
+                                            depth++;
+                                        }
                                         rule.children[i].children.push(rule.children[j]);
                                         rule.children[j].parent = rule.children[i];
                                     }
                                 }
-                                rule.children.splice(i+1, j-i);
+                                rule.children.splice(i+1, j-i-1);
                             }
                         }
+                        rule.children = rule.children.filter(x => x.name !== "__end__");
                         
                         rule.ruleAttributes.conditionComments = [];
+                        rule.ruleAttributes.conditions = rule.ruleAttributes.conditions.filter(x => !x.isDisabled);
                         for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
                             
                             resetGlobalVariables(this.uiSettings.language);
@@ -1857,6 +2146,7 @@
                             rule.ruleAttributes.conditionComments.push(rule.ruleAttributes.conditions[i].comment);
                             rule.ruleAttributes.conditions[i] = decompile(this.displayAst(rule.ruleAttributes.conditions[i], false));
                             rule.ruleAttributes.conditions[i].parent = new Ast("@Condition", [], [], "__Annotation__");
+                            recursivelySetFilestack(rule.ruleAttributes.conditions[i], [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name, conditionNb: i+1}])
                         }
                         
                         if ("subroutineName" in rule.ruleAttributes) {
@@ -1868,6 +2158,12 @@
                     }
 
                     resetGlobalVariables(this.uiSettings.compilationLanguage);
+                    if (this.uiSettings.optimization === "none") {
+                        enableOptimization = false;
+                    } else if (this.uiSettings.optimization === "size") {
+                        optimizeForSize = true;
+                    }
+                    activatedExtensions = this.activatedExtensions;
                     compileCustomGameSettings(structuredClone(this.customGameSettings));
                     globalVariables = structuredClone(this.globalVariables);
                     playerVariables = structuredClone(this.playerVariables);
@@ -1877,10 +2173,18 @@
                     
                 },
                 saveGamemode: function() {
-                    var result = this.compileGamemode();
-                    navigator.clipboard.writeText(result);
-                    console.info("Successfully compiled! (copied into clipboard)");
-
+                    if (this.compiledGamemode) {
+                        var result = this.compiledGamemode;
+                    } else {
+                        var result = this.compileGamemode();
+                    }
+                    navigator.clipboard.writeText(result).then(() => {
+                        this.compiledGamemode = null;
+                        console.info("Successfully compiled! (copied into clipboard)");
+                    }).catch((e) => {
+                        this.compiledGamemode = result;
+                        this.error("Compilation took too long, please click again to copy.");
+                    });
                 },
                 displayHtml: function(str, actuallyDisplayHtml=true, category) {
                     if (actuallyDisplayHtml) {
@@ -1964,12 +2268,12 @@
                     if (actionIdx === 0) {
                         indent = 0;
                     } else {
-                        if (!ruleChildren[actionIdx-1].isDisabled && ["__if__", "__elif__", "__else__", "__while__", "__for__"].includes(ruleChildren[actionIdx-1].name)) {
+                        if (!ruleChildren[actionIdx-1].isDisabled && ["__if__", "__elif__", "__else__", "__while__", "__forGlobalVariable__", "__forPlayerVariable__"].includes(ruleChildren[actionIdx-1].name)) {
                             indent = ruleChildren[actionIdx-1].indent + 1;
                         } else {
                             indent = ruleChildren[actionIdx-1].indent;
                         }
-                        if (!ruleChildren[actionIdx-1].isDisabled && (action.name === "__end__" || action.name === "__else__")) {
+                        if (!action.isDisabled && (action.name === "__end__" || action.name === "__else__" || action.name === "__elif__")) {
                             indent--;
                         }
                     }
@@ -1982,16 +2286,19 @@
                     action.indent = indent;
                     return indent*25+"px";
                 },
-                editActionOrCondition: function(ast, isCondition, index) {
-                    this.astToEdit = structuredClone(ast);
-                    this.astToEditParent = ast.parent;
-                    this.astToEditIsCondition = isCondition;
-                    this.astToEditIndex = index;
+				updateTextareasHeight: function() {
                     Vue.nextTick(() => {
                         for (var textarea of document.getElementsByTagName("textarea")) {
                             this.updateTextareaHeight(textarea);
                         }
                     })
+				},
+                editActionOrCondition: function(ast, isCondition, index) {
+                    this.astToEdit = structuredClone(ast);
+                    this.astToEditParent = ast.parent;
+                    this.astToEditIsCondition = isCondition;
+                    this.astToEditIndex = index;
+                    this.updateTextareasHeight();
                     console.log(ast);
                 },
                 cancelEdition: function() {
@@ -2017,6 +2324,7 @@
                     }
                     this.astToEdit.parent = this.astToEditParent;
                     this.astToEdit = null;
+                    this.compileGamemode();
                 },
                 rebuildAst: function(ast) {
                     console.log("Rebuilding AST: "+ast.name);
@@ -2034,11 +2342,11 @@
                             } else if (astType === "FloatLiteral") {
                                 var astName = "0";
                             } else if (astType === "GlobalVariable") {
-                                var astName = this.globalVariables[0].name;
+                                var astName = this.globalVariables[0].index;
                             } else if (astType === "PlayerVariable") {
-                                var astName = this.playerVariables[0].name;
+                                var astName = this.playerVariables[0].index;
                             } else if (astType === "Subroutine") {
-                                var astName = this.subroutines[0].name;
+                                var astName = this.subroutines[0].index;
                             } else {
                                 var astName = "__number__";
                                 astType = "float";
@@ -2378,17 +2686,171 @@
                     textarea.style.height = '';
                     textarea.style.height = textarea.scrollHeight +'px'
                 },
+				editCustomGameSettings: function() {
+					var editedCustomGameSettings = structuredClone(this.customGameSettings);
+					
+					function fillMissingKeys(settings, schema) {
+						for (var key of Object.keys(schema)) {
+							if (key === "extensions" || key === "workshop") {
+								continue;
+							}
+							if (!(key in settings)) {
+								console.log("Adding key '"+key+"'");
+								if (schema[key].values === "__boolOnOff__") {
+									if (schema[key].default === "on") {
+										settings[key] = true;
+									} else if (schema[key].default === "off") {
+										settings[key] = false;
+									} else {
+										throw new Error("no default for '"+key+"'");
+									}
+								} else if (schema[key].values === "__boolYesNo__") {
+									if (schema[key].default === "yes") {
+										settings[key] = true;
+									} else if (schema[key].default === "no") {
+										settings[key] = false;
+									} else {
+										throw new Error("no default for '"+key+"'");
+									}
+								} else if (schema[key].values === "__boolEnabled__") {
+									if (schema[key].default === "enabled") {
+										settings[key] = true;
+									} else if (schema[key].default === "disabled") {
+										settings[key] = false;
+									} else {
+										throw new Error("no default for '"+key+"'");
+									}
+								} else if (schema[key].values === "__boolReverseOnOff__") {
+									if (schema[key].default === "on") {
+										settings[key] = false;
+									} else if (schema[key].default === "off") {
+										settings[key] = true;
+									} else {
+										throw new Error("no default for '"+key+"'");
+									}
+								} else if (schema[key].values === "__percent__") {
+									settings[key] = schema[key].default;
+								} else if (schema[key].values === "__int__") {
+									settings[key] = schema[key].default;
+								} else if (schema[key].values === "__float__") {
+									settings[key] = schema[key].default;
+								} else if (schema[key].values === "__percent__") {
+									settings[key] = schema[key].default;
+								} else if (schema[key].values === "__string__") {
+									settings[key] = "";
+								} else if (typeof schema[key].values === "object") {
+									var defaultSetting = Object.keys(schema[key].values).filter(x => schema[key].values[x].default === true);
+									if (defaultSetting.length !== 1) {
+										throw new Error("Could not find default setting for '"+key+"'");
+									}
+									settings[key] = defaultSetting[0];
+								}
+							}
+						}
+					}
+
+					if (!editedCustomGameSettings.lobby) {
+						editedCustomGameSettings.lobby = {};
+					}
+					fillMissingKeys(editedCustomGameSettings.lobby, customGameSettingsSchema.lobby.values);
+					if (!editedCustomGameSettings.main) {
+						editedCustomGameSettings.main = {};
+					}
+					fillMissingKeys(editedCustomGameSettings.main, customGameSettingsSchema.main.values);
+					if (!editedCustomGameSettings.gamemodes) {
+						editedCustomGameSettings.gamemodes = {};
+					}
+					for (var gamemode in customGameSettingsSchema.gamemodes.values) {
+						if (gamemode in gamemodeKw && gamemodeKw[gamemode].onlyInOw1) {
+							delete editedCustomGameSettings.gamemodes[gamemode];
+							continue;
+						}
+						if (!(gamemode in editedCustomGameSettings.gamemodes)) {
+							editedCustomGameSettings.gamemodes[gamemode] = {enabled: false};
+						} else {
+							editedCustomGameSettings.gamemodes[gamemode].enabled = true;
+						}
+						if ("disabledMaps" in editedCustomGameSettings.gamemodes[gamemode]) {
+							editedCustomGameSettings.gamemodes.enabledMaps = Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !editedCustomGameSettings.gamemodes.disabledMaps.includes(x));
+							delete editedCustomGameSettings.gamemodes.disabledMaps;
+						}
+						fillMissingKeys(editedCustomGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values);
+						editedCustomGameSettings.gamemodes[gamemode].isCollapsed = true;
+						editedCustomGameSettings.gamemodes[gamemode].isArrayCollapsed = true;
+					}
+					if (!editedCustomGameSettings.heroes) {
+						editedCustomGameSettings.heroes = {};
+					}
+					for (var team in customGameSettingsSchema.heroes.teams) {
+						if (!(team in editedCustomGameSettings.heroes)) {
+							editedCustomGameSettings.heroes[team] = {};
+						}
+						editedCustomGameSettings.heroes[team].isCollapsed = true;
+						editedCustomGameSettings.heroes[team].isArrayCollapsed = true;
+						if ("disabledHeroes" in editedCustomGameSettings.heroes[team]) {
+							editedCustomGameSettings.heroes[team].enabledHeroes = Object.keys(heroKw).filter(x => !editedCustomGameSettings.heroes[team].disabledHeroes.includes(x));
+							delete editedCustomGameSettings.heroes[team].disabledHeroes
+						} else if (!("enabledHeroes" in editedCustomGameSettings.heroes[team])) {
+							editedCustomGameSettings.heroes[team].enabledHeroes = Object.keys(heroKw);
+						}
+						for (var hero in customGameSettingsSchema.heroes.values) {
+							if (hero === "disabledHeroes" || hero === "enabledHeroes") {
+								continue;
+							}
+							console.log(hero);
+							if (!(hero in editedCustomGameSettings.heroes[team])) {
+								editedCustomGameSettings.heroes[team][hero] = {};
+							}
+							fillMissingKeys(editedCustomGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
+							editedCustomGameSettings.heroes[team][hero].isCollapsed = true;
+						}
+					}
+
+					for (var key in editedCustomGameSettings) {
+						editedCustomGameSettings[key].isCollapsed = true;
+					}
+
+					this.editedCustomGameSettings = editedCustomGameSettings;
+					this.displaySettings = true;
+				},
+
+				validateSettings: function() {
+					
+					for (var key in this.editedCustomGameSettings) {
+						delete this.editedCustomGameSettings[key].isCollapsed;
+					}
+					for (var key in this.editedCustomGameSettings.gamemodes) {
+						delete this.editedCustomGameSettings.gamemodes[key].isCollapsed;
+						delete this.editedCustomGameSettings.gamemodes[key].isArrayCollapsed;
+					}
+					for (var team in this.editedCustomGameSettings.heroes) {
+						delete this.editedCustomGameSettings.heroes[team].isCollapsed;
+						delete this.editedCustomGameSettings.heroes[team].isArrayCollapsed;
+						for (var hero in this.editedCustomGameSettings.heroes[team]) {
+
+							delete this.editedCustomGameSettings.heroes[team][hero].isCollapsed;
+							delete this.editedCustomGameSettings.heroes[team][hero].isArrayCollapsed;
+						}
+					}
+
+					this.customGameSettings = structuredClone(this.editedCustomGameSettings);
+					this.displaySettings = false;
+					this.saveGamemode();
+				}
 
             },
         })
 
         console.info = app.info;
+        console.warn = app.warn;
         console.error = app.error;
 
 
 
         app.decompile(`
-settings
+
+
+		settings
 {
 	lobby
 	{
@@ -2403,6 +2865,13 @@ settings
 			enabled maps
 			{
 				Rialto
+			}
+		}
+
+		Hybrid
+		{
+			enabled maps
+			{
 			}
 		}
 
@@ -2424,13 +2893,39 @@ settings
 				Movement Speed: 150%
 				No Ammunition Requirement: On
 			}
+
+			Pharah
+			{
+				Hover Jets Unlimited Fuel: On
+			}
+
+			Roadhog
+			{
+				Chain Hook Cooldown Time: 0%
+			}
+
+			Widowmaker
+			{
+				Grappling Hook Cooldown Time: 0%
+				Infinite Ultimate Duration: On
+				Spawn With Ultimate Ready: On
+			}
+
+			Wrecking Ball
+			{
+				Roll Always Active: On
+			}
+
+			Zarya
+			{
+				Particle Barrier Cooldown Time: 0%
+			}
+
+			disabled heroes
+			{
+				Echo
+			}
 		}
-	}
-    
-	extensions
-	{
-		Spawn More Dummy Bots
-		Beam Effects
 	}
 }
 
@@ -2450,458 +2945,15 @@ subroutines
 	1: nextChallenge
 }
 
-disabled rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs out!")
+rule("Crunch time Jam entry by Zezombye - complete the tasks before time runs out!")
 {
 	event
 	{
 		Ongoing - Global;
 	}
-    actions {
-"multiline\ncomment which is very, extremely long dsfq jmls lkmjlkjdm sflmkjdfqlkjmsfdq sfdjlkqmdsf qjlkmsfdqjlmkfdsqmljkfdsqmjlkfdsqljmkdqlmkj fdsqmldfskjqdfssdflqkdlqkmj dsqlkmjdqsflm dfsqkljmfdsql kmfjdsqfdsqlkjmfdsqlkmj"
-		disabled Create HUD Text(All Players(All Teams), Global.timer + 3 + 5 + 6 + 7 + 3 + 2 + 1 + 3 + 3 + 5  + 6 + 7 + 8 + 23 + 12 + 1 + 3 + 3, Null, Null, Top, 0, White, White, White, Visible To Sort Order and String,
-			Visible Always);
-    }
-}
-rule("player got kill")
-{
-	event
-	{
-		Player Earned Elimination;
-		All;
-		All;
-	}
-
-	conditions
-	{
-"test condition comment"
-		Attacker == Host Player;
-	}
-
-	actions
-	{
-        if (Global.nbPlayersKilled == custom string("multiline\\nowo\\now{0}", 0, 3));
-        if (Array(3,6,1) == -1);
-		Global.nbPlayersKilled += 1;
-		Global.nbPlayersKilled -= 5.6;
-        end;
-        end;
-	}
 }
 
 
-rule("timer")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	actions
-	{
-		Global.timer = 1;
-		Global.timer = 2;
-		Global.timer = 3;
-		Global.timer = 4;
-		Global.timer = 5;
-		Global.timer = 6;
-		Global.timer = 7;
-		Global.timer = 8;
-		Global.timer = 9;
-	}
-}
-
-rule("reset time")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Is Button Held(Host Player, Interact) == True;
-	}
-
-	actions
-	{
-		Global.timer = 0;
-	}
-}
-
-rule("countdown timer")
-{
-	event
-	{
-		Subroutine;
-		countdownTimer;
-	}
-
-	actions
-	{
-"test comment <b>bold</b>"
-		Set Status(Host Player, Null, Rooted, 9999);
-		Set Ability 1 Enabled(Host Player, False);
-		Set Ability 2 Enabled(Host Player, False);
-		Set Ultimate Ability Enabled(Host Player, Hero Of(Host Player) == Hero(Widowmaker));
-		Set Primary Fire Enabled(Host Player, False);
-		Set Secondary Fire Enabled(Host Player, False);
-		Global.timeTarget = Global.timer + Global.additionalTime;
-		Chase Global Variable Over Time(timer, Global.timeTarget, 2, None);
-		Small Message(All Players(All Teams), 3);
-		Wait(1, Ignore Condition);
-        "Re-enable Announcer without her saying 'Capture the flag'"
-		Small Message(All Players(All Teams), 2);
-		Wait(1, Ignore Condition);
-		Small Message(All Players(All Teams), 1);
-		Wait(1, Ignore Condition);
-		Stop Chasing Global Variable(timer);
-		Chase Global Variable At Rate(timer, 0, 1, None);
-		Small Message(All Players(All Teams), Custom String("Go!"));
-		Clear Status(Host Player, Rooted);
-	}
-}
-
-rule("challenge finished")
-{
-	event
-	{
-		Subroutine;
-		nextChallenge;
-	}
-
-	actions
-	{
-		Destroy All Effects;
-		Destroy All Dummy Bots;
-		Stop Chasing Global Variable(timer);
-		Global.nbPlayersKilled = 0;
-		Global.challenge += 1;
-	}
-}
-
-rule("player spawned in")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Has Spawned(Host Player) == True;
-	}
-
-	actions
-	{
-		Wait(1, Ignore Condition);
-		Global.challenge = 1;
-		Set Objective Description(All Players(All Teams), Custom String("Challenge {0}", Global.challenge),
-			Visible To Sort Order and String);
-		Global.nbPlayersKilled = 0;
-	}
-}
-
-rule("challenge 1")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 1;
-	}
-
-	actions
-	{
-		Teleport(Host Player, Vector(116.110, -1.220, -21));
-		Set Facing(Host Player, Vector(1, 0, 0), To World);
-		Big Message(Host Player, Custom String("Get to the vortex!"));
-		Global.additionalTime = 5;
-		Start Forcing Player To Be Hero(Host Player, Hero(Lúcio));
-		Create Effect(All Players(All Teams), Bad Aura, Green, Vector(144, 9, -21), 2, Visible To Position and Radius);
-		Call Subroutine(countdownTimer);
-		Set Ability 1 Enabled(Host Player, True);
-		Set Ability 2 Enabled(Host Player, True);
-	}
-}
-
-rule("challenge 1 finished")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 1;
-		Distance Between(Position Of(Host Player), Vector(144, 9, -21)) < 2;
-	}
-
-	actions
-	{
-		Call Subroutine(nextChallenge);
-	}
-}
-
-rule("challenge 2")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 2;
-	}
-
-	actions
-	{
-		Teleport(Host Player, Vector(96.450, -1.410, -21));
-		Set Facing(Host Player, Vector(-1, 0, 0), To World);
-		Big Message(Host Player, Custom String("Hook em all!"));
-		Start Forcing Player To Be Hero(Host Player, Hero(Roadhog));
-		Global.additionalTime = 10;
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -23.800), Vector(1, 0, 0));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -21.060), Vector(1, 0, 0));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(81.960, -1.320, -18.340), Vector(1, 0, 0));
-		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.050, -1.400, -19.820), Vector(1, 0, 0));
-		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(80.050, -1.400, -22.720), Vector(1, 0, 0));
-		Create Dummy Bot(Hero(Zarya), Team 1, -1, Vector(84.730, -1.360, -21), Vector(1, 0, 0));
-		Call Subroutine(countdownTimer);
-		Set Ability 1 Enabled(Host Player, True);
-	}
-}
-
-rule("challenge 2 dummies - rein")
-{
-	event
-	{
-		Ongoing - Each Player;
-		Team 1;
-		Reinhardt;
-	}
-
-	conditions
-	{
-		Global.challenge == 2;
-	}
-
-	actions
-	{
-		Start Holding Button(Event Player, Secondary Fire);
-		Wait(2, Ignore Condition);
-		Stop Holding Button(Event Player, Secondary Fire);
-		Wait(2, Ignore Condition);
-		Loop If Condition Is True;
-	}
-}
-
-rule("challenge 2 dummies - zarya")
-{
-	event
-	{
-		Ongoing - Each Player;
-		Team 1;
-		Zarya;
-	}
-
-	conditions
-	{
-		Global.challenge == 2;
-	}
-
-	actions
-	{
-		Wait(2, Ignore Condition);
-		Press Button(Event Player, Ability 1);
-		Wait(2, Ignore Condition);
-		Loop If Condition Is True;
-	}
-}
-
-rule("challenge 2 finished")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 2;
-		Global.nbPlayersKilled == 6;
-	}
-
-	actions
-	{
-		Call Subroutine(nextChallenge);
-	}
-}
-
-rule("challenge 3")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 3;
-	}
-
-	actions
-	{
-		Teleport(Host Player, Vector(20.510, 1.610, -68.870));
-		Set Facing(Host Player, Vector(-1, 0, 0), To World);
-		Big Message(Host Player, Custom String("Kill em all (hold rclick)!"));
-		Start Forcing Player To Be Hero(Host Player, Hero(McCree));
-		Global.additionalTime = 10;
-		Call Subroutine(countdownTimer);
-		Set Secondary Fire Enabled(Host Player, True);
-		Set Primary Fire Enabled(Host Player, True);
-		Set Ability 1 Enabled(Host Player, True);
-		Set Ability 2 Enabled(Host Player, True);
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -69.480), Vector(0, 0, 0));
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -72.610), Vector(0, 0, 0));
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(2.120, 5.740, -54.410), Vector(0, 0, 0));
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(14, -1.250, -53), Vector(0, 0, 0));
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(31.370, -0.250, -58.230), Vector(0, 0, 0));
-		Create Dummy Bot(Hero(Wrecking Ball), Team 1, -1, Vector(33.970, 6.750, -66.660), Vector(0, 0, 0));
-	}
-}
-
-rule("challenge 3 stun")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 3;
-		Hero Of(Host Player) == Hero(McCree);
-	}
-
-	actions
-	{
-		Set Status(Host Player, Null, Knocked Down, 0.016);
-		Wait(0.016, Ignore Condition);
-		Loop If Condition Is True;
-	}
-}
-
-rule("challenge 3 finished")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 3;
-		Global.nbPlayersKilled == 6;
-	}
-
-	actions
-	{
-		Call Subroutine(nextChallenge);
-	}
-}
-
-rule("challenge 4")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 4;
-	}
-
-	actions
-	{
-		Teleport(Host Player, Vector(-20, -1, -47.460));
-		Set Facing(Host Player, Vector(0, 0, -1), To World);
-		Big Message(Host Player, Custom String("Headshot Mondatta!"));
-		Start Forcing Player To Be Hero(Host Player, Hero(Widowmaker));
-		Global.additionalTime = 12;
-		Call Subroutine(countdownTimer);
-		Set Ability 1 Enabled(Host Player, True);
-		Set Primary Fire Enabled(Host Player, True);
-		Set Secondary Fire Enabled(Host Player, True);
-		Create Dummy Bot(Hero(Zenyatta), Team 1, -1, Vector(-57, 2.800, -131.510), Vector(0, 0, 1));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57.050, 2.800, -128.620), Vector(0, 0, 1));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-59.120, 2.800, -131.500), Vector(-1, 0, 0));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-57, 2.800, -134.540), Vector(0, 0, -1));
-		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Vector(-55.110, 2.800, -131.510), Vector(1, 0, 0));
-	}
-}
-
-rule("challenge 4 reins")
-{
-	event
-	{
-		Ongoing - Each Player;
-		Team 1;
-		Reinhardt;
-	}
-
-	conditions
-	{
-		Global.challenge == 4;
-	}
-
-	actions
-	{
-		Start Holding Button(Event Player, Secondary Fire);
-	}
-}
-
-rule("challenge 4 end")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.challenge == 4;
-		Global.nbPlayersKilled == 1;
-	}
-
-	actions
-	{
-		Declare Team Victory(Team 2);
-	}
-}
-
-rule("lost")
-{
-	event
-	{
-		Ongoing - Global;
-	}
-
-	conditions
-	{
-		Global.timer == 0;
-	}
-
-	actions
-	{
-		Declare Team Victory(Team 1);
-	}
-}
 `);
     </script>
 </body>

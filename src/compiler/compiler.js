@@ -380,8 +380,13 @@ function compileCustomGameSettings(customGameSettings) {
 
 	for (var key of Object.keys(customGameSettings)) {
 		if (key === "main" || key === "lobby") {
+			//workshop bug - cannot paste "best available"
+			if (key === "lobby" && customGameSettings["lobby"].dataCenterPreference === "bestAvailable") {
+				delete customGameSettings["lobby"].dataCenterPreference;
+			}
 			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
 			if (key === "lobby") {
+
 				//Figure out the amount of available slots
 				var maxTeam1Slots = 0;
 				var maxTeam2Slots = 0;
@@ -451,8 +456,8 @@ function compileCustomGameSettings(customGameSettings) {
 				if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
 					wsGamemode = tows("__disabled__", ruleKw)+" "+wsGamemode;
 					isGamemodeEnabled = false;
-					delete customGameSettings.gamemodes[gamemode].enabled;
 				}
+				delete customGameSettings.gamemodes[gamemode].enabled;
 				result[wsGamemodes][wsGamemode] = {};
 				if ("enabledMaps" in customGameSettings.gamemodes[gamemode] || "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
 					if ("enabledMaps" in customGameSettings.gamemodes[gamemode] && "disabledMaps" in customGameSettings.gamemodes[gamemode]) {
@@ -518,7 +523,7 @@ function compileCustomGameSettings(customGameSettings) {
 				}
 
 				if ("general" in customGameSettings.heroes[team]) {
-					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general));
+					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general.values));
 					delete customGameSettings.heroes[team].general;
 				}
 
