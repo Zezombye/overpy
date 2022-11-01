@@ -6,6 +6,7 @@
 - local storage
 - switching between projects
 - display operators
+- put defaults
 
 - disable debug in overpy
 - disable debug in vuejs

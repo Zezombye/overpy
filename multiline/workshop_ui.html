@@ -2207,11 +2207,11 @@
                         return ast.args.map(x => this.displayAst(x, useHtml)).join(" ")
 
                     } else if (ast.type === "GlobalVariable") {
-                        result += this.displayHtml(this.globalVariables.filter(x => x.index === ast.name)[0].name, useHtml, "var");
+                        result += this.displayHtml(this.globalVariables.filter(x => x.index === +ast.name)[0].name, useHtml, "var");
                     } else if (ast.type === "PlayerVariable") {
-                        result += this.displayHtml(this.playerVariables.filter(x => x.index === ast.name)[0].name, useHtml, "var");
+                        result += this.displayHtml(this.playerVariables.filter(x => x.index === +ast.name)[0].name, useHtml, "var");
                     } else if (ast.type === "Subroutine") {
-                        result += this.displayHtml(this.subroutines.filter(x => x.index === ast.name)[0].name, useHtml, "var");
+                        result += this.displayHtml(this.subroutines.filter(x => x.index === +ast.name)[0].name, useHtml, "var");
 
                     } else if (ast.name === "__team__") {
                         return this.displayAst(ast.args[0], useHtml);
@@ -2351,7 +2351,10 @@
                                 var astName = "__number__";
                                 astType = "float";
                             }
-                            var astArg = new Ast(astName, [], [], astType);
+                            var astArg = new Ast(""+astName, [], [], astType);
+							if (["GlobalVariable", "PlayerVariable", "Subroutine"].includes(astType)) {
+								astArg.name = +astArg.name;
+							}
                             astArg.parent = ast;
                             this.rebuildAst(astArg);
                             ast.args.push(astArg);
