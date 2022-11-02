@@ -13,5 +13,3 @@
 - disable debug in vuejs
 - minify overpy ?
 - add icons on dropdowns for icons + colors
-
-OverPy is a wrapper around the workshop, allowing you to code your gamemodes with modern development practices and break the limitations of the workshop UI with features such as multiple files, macros, switches, enums, optimizations, string splitting, better syntax, etc.

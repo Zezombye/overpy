@@ -1,0 +1,90 @@
+
+<meta charset="utf-8">
+<style>
+
+    textarea {
+        width: 1200px;
+        height: 400px;
+        white-space: pre;
+        overflow-wrap: normal;
+        overflow-x: scroll;
+        text-align: left !important;
+    }
+    
+    body, textarea {
+        color: #CCCCCC;
+        background-color: #222222;
+        scrollbar-color: #CCCCCC #222222;
+        text-align: center;
+    }
+    
+    a {
+        color: lightblue;
+    }
+    
+</style>
+    
+<input type="file" id="file-input">Upload png</input>
+<br>
+
+<button onclick="convert()">Convert</button>
+<br>
+<textarea id="output" placeholder="output"></textarea>
+<canvas style="display: none;" id="canvas"></canvas>
+
+<script>
+"use strict";
+
+function convert() {
+    
+    var file = document.getElementById("file-input").files[0];
+    var fileContent;
+    var result = "";
+
+    if (file) {
+
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (evt) {
+
+            fileContent = evt.target.result;
+            var img = new Image(); 
+            img.src = fileContent; 
+            img.onload = function(){
+                console.log( img.width+", "+img.height );
+
+                var context = document.getElementById('canvas').getContext('2d');
+                context.canvas.width = img.width;
+                context.canvas.height = img.height;
+                context.drawImage(img, 0, 0);
+                var lastPixelColor = [255,255,255]
+                for (var i = 0; i < img.height; i++) {
+                    lastPixelColor = [255,255,255]
+                    for (var j = 0; j < img.width; j++) {
+                        var data = context.getImageData(j, i, 1, 1).data;
+                        
+                        if (data[0] == 255 && data[1] == 255 && data[2] == 255) {
+                            result += " ";
+                        } else {
+                            /*if (lastPixelColor[0] != data[0] || lastPixelColor[1] != data[1] || lastPixelColor[2] != data[2]) {
+                                result += "{1}"+data[0].toString(16).padStart(2, "0")+data[1].toString(16).padStart(2, "0")+data[2].toString(16).padStart(2, "0")+"{2}"
+                                lastPixelColor[0] = data[0]
+                                lastPixelColor[1] = data[1]
+                                lastPixelColor[2] = data[2]
+                                
+                            }*/
+                            result += "#";
+                        }
+                    }
+                    result += "\n";
+                }
+                document.getElementById("output").value = result;
+            };
+        }
+
+    }
+
+}
+
+</script>
+
