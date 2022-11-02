@@ -2474,7 +2474,7 @@
                         content: rule.children.filter(x => x.isSelected).map(x => structuredClone(x)),
                     }
                 },
-                copySelectedConditions: function() {
+                copySelectedConditions: function(rule) {
                     this.clipboard = {
                         type: "conditions",
                         content: rule.ruleAttributes.conditions.filter(x => x.isSelected).map(x => structuredClone(x)),
