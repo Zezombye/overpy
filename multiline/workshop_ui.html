@@ -1345,8 +1345,8 @@
         <div id="delete-confirmation" :class="{'shown': displayDeleteConfirmationFor}">
             <div id="delete-title" class="font-bignoodle">{{ translate(displayDeleteConfirmationFor === "actions" ? "deleteActions" : displayDeleteConfirmationFor === "conditions" ? "deleteConditions" : "deleteRules", workshopUiKw, displayDeleteConfirmationFor === "actions" ? deleteForRule.children.filter(x => x.isSelected).length : displayDeleteConfirmationFor === "conditions" ? deleteForRule.ruleAttributes.conditions.filter(x => x.isSelected).length : rules.filter(x => x.isSelected).length) }}</div>
             <div class="edit-buttons">
-                <button class="cancel-button font-futurano2d" v-on:click="cancelDeletion()">Cancel</button>
-                <button class="ok-button font-futurano2d" v-on:click="validateDeletion()">Ok</button>
+                <button class="cancel-button font-futurano2d" v-on:click="cancelDeletion()">{{ translate("cancel", workshopUiKw) }}</button>
+                <button class="ok-button font-futurano2d" v-on:click="validateDeletion()">{{ translate("ok", workshopUiKw) }}</button>
             </div>
         </div>
         <div id="variables-edit-screen" v-show="displayVariableEditor">
@@ -1511,7 +1511,7 @@
         </div>
         <div id="settings-screen" v-if="displaySettings">
             <div class="window-background">
-                <div class="window-edit-title font-bignoodle">Custom Game Settings</div>
+                <div class="window-edit-title font-bignoodle">{{ translate("settings", workshopUiKw) }}</div>
                 <div id="settings-wrapper">
 					<div class="cgs-content" v-for="(categoryContent, category) in editedCustomGameSettings">
 						<div class="cgs-title-wrapper">
@@ -1642,8 +1642,8 @@
 							<input type="checkbox" v-model="values[key]" :true-value="false" :false-value="true"/>
 						</template>
 						<template v-else-if="['__percent__', '__int__', '__float__'].includes(schema[key].values)">
-							<input type="number" :min="schema[key].min" :max="schema[key].max" v-model="values[key]"/>
-							<input type="range" :min="schema[key].min" :max="schema[key].max" v-model="values[key]"/>
+							<input type="number" :min="schema[key].min" :max="schema[key].max" v-model.number="values[key]"/>
+							<input type="range" :min="schema[key].min" :max="schema[key].max" v-model.number="values[key]"/>
 						</template>
 						<template v-else-if="schema[key].values === '__string__'">
 							<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="font-blizzglobal" v-model="values[key]"></textarea>
@@ -1681,7 +1681,7 @@
                 textToDecompile: null,
                 displayDeleteConfirmationFor: null,
                 deleteForRule: null,
-                displayInfo: true,
+                displayInfo: !window.location.pathname.endsWith(".html"),
                 displayMetrics: false,
                 displayVariableEditor: false,
                 displaySubroutineEditor: false,
@@ -2100,7 +2100,9 @@
 
                     var rules = structuredClone(this.rules);
                     for (let [ruleIdx, rule] of rules.entries()) {
-                        rule.ruleAttributes.isDelimiter = true;
+						if (rule.children.length === 0) {
+							rule.ruleAttributes.isDelimiter = true;
+						}
                         rule.fileStack = [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name}]
                         for (var i = 0; i < rule.children.length; i++) {
                             var comment = rule.children[i].comment;
@@ -2236,7 +2238,7 @@
                         return this.displayAst(ast.args[0], useHtml);
 
                     } else if (ast.name === "__number__") {
-                        return this.displayHtml(ast.args[0].name+"", useHtml, "var");
+                        return this.displayHtml((+ast.args[0].name)+"", useHtml, "var");
 
                     } else if (ast.name === "__globalVar__") {
                         return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml);
@@ -2453,13 +2455,13 @@
                 },
                 addRule: function() {
                     var rule = new Ast("__rule__");
-                    rule.isDisabled = false;
                     rule.isSelected = false;
 					rule.isCollapsed = false;
                     rule.ruleAttributes = {};
                     rule.ruleAttributes.conditions = [];
                     rule.ruleAttributes.event = "global";
                     rule.ruleAttributes.name = this.translate("rule", this.workshopUiKw, this.rules.length+1);
+					rule.ruleAttributes.isDisabled = false;
                     this.rules.push(rule);
                 },
                 copySelectedRules: function() {
@@ -2786,7 +2788,7 @@
 							editedCustomGameSettings.gamemodes[gamemode].enabled = true;
 						}
 						if ("disabledMaps" in editedCustomGameSettings.gamemodes[gamemode]) {
-							editedCustomGameSettings.gamemodes.enabledMaps = Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !editedCustomGameSettings.gamemodes.disabledMaps.includes(x));
+							editedCustomGameSettings.gamemodes.enabledMaps = Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1 && !editedCustomGameSettings.gamemodes.disabledMaps.includes(x));
 							delete editedCustomGameSettings.gamemodes.disabledMaps;
 						}
 						fillMissingKeys(editedCustomGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values);
@@ -2830,13 +2832,38 @@
 				},
 
 				validateSettings: function() {
+
+					function removeDefaults(settings, schema) {
+						for (var key in settings) {
+							if (key === "enabled") {
+								continue;
+							}
+							if (!(key in schema)) {
+								throw new Error(key+" not found in schema");
+							}
+							var defaultSetting = schema[key].default;
+							if (schema[key].values === "__boolReverseOnOff__") {
+								defaultSetting = (defaultSetting === "on" ? false : true);
+							} else if (["yes", "enabled", "on"].includes(defaultSetting)) {
+								defaultSetting = true;
+							} else if (["no", "disabled", "off"].includes(defaultSetting)) {
+								defaultSetting = false;
+							}
+							if (settings[key] === defaultSetting) {
+								delete settings[key];
+							}
+						}
+					}
 					
 					for (var key in this.editedCustomGameSettings) {
 						delete this.editedCustomGameSettings[key].isCollapsed;
 					}
+					removeDefaults(this.editedCustomGameSettings.lobby, customGameSettingsSchema.lobby.values)
+					removeDefaults(this.editedCustomGameSettings.main, customGameSettingsSchema.main.values)
 					for (var key in this.editedCustomGameSettings.gamemodes) {
 						delete this.editedCustomGameSettings.gamemodes[key].isCollapsed;
 						delete this.editedCustomGameSettings.gamemodes[key].isArrayCollapsed;
+						removeDefaults(this.editedCustomGameSettings.gamemodes[key], customGameSettingsSchema.gamemodes.values[key].values)
 					}
 					for (var team in this.editedCustomGameSettings.heroes) {
 						delete this.editedCustomGameSettings.heroes[team].isCollapsed;
@@ -2845,6 +2872,10 @@
 
 							delete this.editedCustomGameSettings.heroes[team][hero].isCollapsed;
 							delete this.editedCustomGameSettings.heroes[team][hero].isArrayCollapsed;
+							if (hero !== "enabledHeroes") {	
+								console.log(hero);
+								removeDefaults(this.editedCustomGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values)
+							}
 						}
 					}
 

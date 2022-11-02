@@ -5703,6 +5703,7 @@ const customGameSettingsSchema =
             "description": {
                 "guid": "00000001007F",
                 "values": "__string__",
+                "default": "",
                 "maxChars": 512,
                 "en-US": "Description",
                 "de-DE": "Beschreibung",
@@ -5719,6 +5720,7 @@ const customGameSettingsSchema =
             },
             "modeName": {
                 "values": "__string__",
+                "default": "",
                 "maxChars": 32,
                 "guid": "000000013E36",
                 "en-US": "Mode Name",

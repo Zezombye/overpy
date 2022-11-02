@@ -193,16 +193,17 @@ function normalizeName(content) {
 
 /*generateStringFiles();*/
 getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
-replaceJsonObjectsInFile(docFolder+"values.js");
-replaceJsonObjectsInFile(docFolder+"constants.js");
-replaceJsonObjectsInFile(docFolder+"heroes.js");
-replaceJsonObjectsInFile(docFolder+"maps.js");
-replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+//replaceJsonObjectsInFile(docFolder+"actions.js");
+//replaceJsonObjectsInFile(docFolder+"values.js");
+//replaceJsonObjectsInFile(docFolder+"constants.js");
+//replaceJsonObjectsInFile(docFolder+"heroes.js");
+//replaceJsonObjectsInFile(docFolder+"maps.js");
+//replaceJsonObjectsInFile(docFolder+"gamemodes.js");
+//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 removeParentheses = false;
-replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
-replaceJsonObjectsInFile(docFolder+"other.js");
+replaceJsonObjectsInFile(docFolder+"ui.js");
+//replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
+//replaceJsonObjectsInFile(docFolder+"other.js");
 
 function sleep(ms){
     return new Promise(resolve=>{
