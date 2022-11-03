@@ -289,7 +289,7 @@
                 </div>
             </div>
         </div>
-        <div id="info-screen" v-if="displayInfo">
+        <div id="info-screen" v-if="displayInfo || !hasPassedWelcomeScreen">
             <div class="window-background">
                 <div class="window-edit-title font-bignoodle">Zez's Workshop UI Recreation [BETA]</div>
                 <div id="info" class="font-blizzglobal">
@@ -317,7 +317,7 @@
                     <p>Made by Zezombye, with help from Mitsiee</p>
                 </div>
                 <div class="edit-buttons">
-                    <button class="ok-button font-futurano2d" v-on:click="displayInfo = false">{{ translate("ok", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="displayInfo = false; hasPassedWelcomeScreen = true">{{ translate("ok", workshopUiKw) }}</button>
                 </div>
             </div>
         </div>
