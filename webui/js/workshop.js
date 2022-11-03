@@ -180,7 +180,7 @@ var app = new Vue({
             oldConsoleInfo(str);
             Toastify({
                 text: str,
-                duration: 4000,
+                duration: 5000,
                 gravity: "bottom", // `top` or `bottom`
                 position: "left", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
@@ -191,7 +191,7 @@ var app = new Vue({
             oldConsoleWarn(str);
             Toastify({
                 text: str,
-                duration: 5000,
+                duration: 10000,
                 gravity: "bottom", // `top` or `bottom`
                 position: "left", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
@@ -206,7 +206,7 @@ var app = new Vue({
             }
             Toastify({
                 text: str,
-                duration: 5000,
+                duration: 10000,
                 gravity: "bottom", // `top` or `bottom`
                 position: "left", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
