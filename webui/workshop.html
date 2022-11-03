@@ -2420,7 +2420,7 @@
                 toggleSelectedRules: function() {
                     for (var rule of this.rules) {
                         if (rule.isSelected) {
-                            rule.isDisabled = !rule.isDisabled;
+                            rule.ruleAttributes.isDisabled = !rule.ruleAttributes.isDisabled;
                         }
                     }
                 },
