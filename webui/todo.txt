@@ -1,8 +1,8 @@
 
+- add ui for projects
 - translate argument names
 - dropdown tooltips
+- display operators
+- add icons on dropdowns for icons + colors
 - local storage
 - switching between projects
-- display operators
-- put defaults
-- add icons on dropdowns for icons + colors

@@ -478,6 +478,15 @@ const constantValues =
         }
     },
     "ColorLiteral": {
+        "WHITE": {
+            "guid": "00000000B93C",
+            "en-US": "White",
+            "es-MX": "Blanco",
+            "fr-FR": "Blanc",
+            "ja-JP": "白",
+            "pt-BR": "Branco",
+            "zh-CN": "白色"
+        },
         "AQUA": {
             "guid": "00000000CDB3",
             "en-US": "Aqua",
@@ -609,15 +618,6 @@ const constantValues =
             "ja-JP": "バイオレット",
             "pt-BR": "Violeta",
             "zh-CN": "紫色"
-        },
-        "WHITE": {
-            "guid": "00000000B93C",
-            "en-US": "White",
-            "es-MX": "Blanco",
-            "fr-FR": "Blanc",
-            "ja-JP": "白",
-            "pt-BR": "Branco",
-            "zh-CN": "白色"
         },
         "YELLOW": {
             "guid": "00000000B93B",
@@ -3592,6 +3592,16 @@ const constantValues =
         }
     },
     "HudReeval": {
+        "VISIBILITY_SORT_ORDER_AND_STRING": {
+            "guid": "00000000FCA5",
+            "en-US": "Visible To Sort Order and String",
+            "es-MX": "Visible para clasificar orden y cadena",
+            "fr-FR": "Visible pour Tri et Chaîne de texte",
+            "ja-JP": "表示される相手、ソート順、文字列",
+            "ko-KR": "Visible To Sort Order String",
+            "pt-BR": "Visível para ordem de classificação e string",
+            "zh-CN": "可见性，排序规则和字符串"
+        },
         "COLOR": {
             "guid": "000000011E4A",
             "en-US": "Color",
@@ -3707,16 +3717,6 @@ const constantValues =
             "ja-JP": "表示される相手、ソート順、色",
             "pt-BR": "Visível para Ordem de Classificação e Cor",
             "zh-CN": "可见，排序规则和颜色"
-        },
-        "VISIBILITY_SORT_ORDER_AND_STRING": {
-            "guid": "00000000FCA5",
-            "en-US": "Visible To Sort Order and String",
-            "es-MX": "Visible para clasificar orden y cadena",
-            "fr-FR": "Visible pour Tri et Chaîne de texte",
-            "ja-JP": "表示される相手、ソート順、文字列",
-            "ko-KR": "Visible To Sort Order String",
-            "pt-BR": "Visível para ordem de classificação e string",
-            "zh-CN": "可见性，排序规则和字符串"
         },
         "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
             "guid": "000000011E72",
@@ -4853,6 +4853,15 @@ const constantValues =
         }
     },
     "TeamLiteral": {
+        "ALL": {
+            "guid": "00000000B470",
+            "en-US": "All Teams",
+            "es-MX": "Todos los equipos",
+            "fr-FR": "Toutes les équipes",
+            "ja-JP": "すべてのチーム",
+            "pt-BR": "Todas as Equipes",
+            "zh-CN": "所有队伍"
+        },
         "1": {
             "guid": "00000000B472",
             "en-US": "Team 1",
@@ -4871,15 +4880,6 @@ const constantValues =
             "pt-BR": "Equipe 2",
             "zh-CN": "队伍2"
         },
-        "ALL": {
-            "guid": "00000000B470",
-            "en-US": "All Teams",
-            "es-MX": "Todos los equipos",
-            "fr-FR": "Toutes les équipes",
-            "ja-JP": "すべてのチーム",
-            "pt-BR": "Todas as Equipes",
-            "zh-CN": "所有队伍"
-        }
     },
     "Throttle": {
         "REPLACE_EXISTING": {

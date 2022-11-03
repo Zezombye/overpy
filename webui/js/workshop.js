@@ -255,6 +255,8 @@ var app = new Vue({
                 keywordObj = this.eventPlayerKw;
             } else if (type === "eventTeam") {
                 keywordObj = this.eventTeamKw;
+            } else if (type === "BoolLiteral") {
+                keywordObj = {"true": this.valueFuncKw.true, "false": this.valueFuncKw.false};
             } else {
                 keywordObj = this.valueFuncKw;
             }
@@ -581,6 +583,9 @@ var app = new Vue({
             } else if (ast.name === "__number__") {
                 return this.displayHtml((+ast.args[0].name)+"", useHtml, "var");
 
+            } else if (["FloatLiteral", "IntLiteral", "UnsignedIntLiteral"].includes(ast.type)) {
+                return this.displayHtml((+ast.name)+"", useHtml, "var");
+
             } else if (ast.name === "__globalVar__") {
                 return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml);
 
@@ -681,9 +686,9 @@ var app = new Vue({
             this.compileGamemode();
         },
         rebuildAst: function(ast) {
-            console.log("Rebuilding AST: "+ast.name);
+            console.log("Rebuilding AST: '"+ast.name+"'");
             //When selecting a new function, recreate its arguments using defaults
-            if (ast.type in this.constantValues || ["FloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type)) {
+            if (ast.type in this.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type)) {
                 return; //no args
             }
             ast.args = [];
@@ -692,8 +697,8 @@ var app = new Vue({
                 for (var arg of keywordObj[ast.name].args) {
                     var astType = arg.type;
                     if (astType in this.constantValues) {
-                        var astName = Object.keys(constantValues[astType])[0];
-                    } else if (astType === "FloatLiteral") {
+                        var astName = astType === "TeamLiteral" ? "ALL" : Object.keys(constantValues[astType])[0];
+                    } else if (astType === "FloatLiteral" || astType === "IntLiteral" || astType === "UnsignedIntLiteral") {
                         var astName = "0";
                     } else if (astType === "GlobalVariable") {
                         var astName = this.globalVariables[0].index;
@@ -703,6 +708,42 @@ var app = new Vue({
                         var astName = this.subroutines[0].index;
                     } else if (astType === "CustomStringLiteral") {
                         var astName = "";
+                    } else if (astType === "Player") {
+                        var astName = "eventPlayer";
+                    } else if (astType === "Hero" || ""+ast.type === "[object Object]" && ast.type.Array === "Hero") {
+                        var astName = "__hero__";
+                    } else if (astType === "Button") {
+                        var astName = "__button__";
+                    } else if (astType === "Map") {
+                        var astName = "__map__";
+                    } else if (astType === "Gamemode") {
+                        var astName = "__gamemode__";
+                    } else if (astType === "Team") {
+                        var astName = "__team__";
+                    } else if (astType === "Color") {
+                        var astName = "__color__";
+                    } else if (astType === "DamageModificationId") {
+                        var astName = "getLastDamageModification";
+                    } else if (astType === "DotId") {
+                        var astName = "getLastDoT";
+                    } else if (astType === "EntityId") {
+                        var astName = "getLastCreatedEntity";
+                    } else if (astType === "HealingModificationId") {
+                        var astName = "getLastHealingModification";
+                    } else if (astType === "HealthPoolId") {
+                        var astName = "getLastCreatedHealthPool";
+                    } else if (astType === "HotId") {
+                        var astName = "getLastHoT";
+                    } else if (astType === "String") {
+                        var astName = "__customString__";
+                    } else if (astType === "Array" || ""+astType === "[object Object]") {
+                        var astName = "__array__";
+                    } else if (astType === "bool" || astType === "BoolLiteral") {
+                        var astName = "true";
+                    } else if (astType === "Direction" || astType === "Position" || astType === "Vector") {
+                        var astName = "vector";
+                    } else if (Array.isArray(astType) && astType.includes("Player")) {
+                        var astName = "getPlayers";
                     } else {
                         var astName = "__number__";
                         astType = "float";
