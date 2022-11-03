@@ -683,7 +683,7 @@ var app = new Vue({
         rebuildAst: function(ast) {
             console.log("Rebuilding AST: "+ast.name);
             //When selecting a new function, recreate its arguments using defaults
-            if (ast.type in this.constantValues || ["FloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine"].includes(ast.type)) {
+            if (ast.type in this.constantValues || ["FloatLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type)) {
                 return; //no args
             }
             ast.args = [];
@@ -701,6 +701,8 @@ var app = new Vue({
                         var astName = this.playerVariables[0].index;
                     } else if (astType === "Subroutine") {
                         var astName = this.subroutines[0].index;
+                    } else if (astType === "CustomStringLiteral") {
+                        var astName = "";
                     } else {
                         var astName = "__number__";
                         astType = "float";
@@ -1137,6 +1139,8 @@ var app = new Vue({
                         editedCustomGameSettings.gamemodes[gamemode].enabledMaps = editedCustomGameSettings.gamemodes[gamemode].enabledMaps.filter(x => !editedCustomGameSettings.gamemodes[gamemode].disabledMaps.includes(x));
                         delete editedCustomGameSettings.gamemodes[gamemode].disabledMaps;
                     }
+                } else if (!(gamemode in editedCustomGameSettings.gamemodes)) {
+                    editedCustomGameSettings.gamemodes[gamemode] = {};
                 }
                 fillMissingKeys(editedCustomGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values);
                 editedCustomGameSettings.gamemodes[gamemode].isCollapsed = true;
@@ -1216,7 +1220,7 @@ var app = new Vue({
                 if ("enabledMaps" in this.editedCustomGameSettings.gamemodes[gamemode] && this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps.length === Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1).length) {
                     delete this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps;
                 }
-                if (!this.editedCustomGameSettings.gamemodes[gamemode].enabled && Object.keys(this.editedCustomGameSettings.gamemodes[gamemode]).length === 1) {
+                if (!this.editedCustomGameSettings.gamemodes[gamemode].enabled && Object.keys(this.editedCustomGameSettings.gamemodes[gamemode]).length <= 1) {
                     delete this.editedCustomGameSettings.gamemodes[gamemode];
                 }
             }
