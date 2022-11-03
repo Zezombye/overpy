@@ -1,5 +1,6 @@
 const fs = require("fs");
 const JsDiff = require("diff");
+const UglifyJS = require("uglify-js");
  
 //import overpy files
 overpyFiles = [
@@ -207,6 +208,10 @@ if (typeof module !== "undefined") {
 `
 
 fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
+
+var minifiedCode = UglifyJS.minify(overpyCode).code;
+fs.writeFileSync("./VS Code Extension/overpy.min.js", minifiedCode);
+
 //fs.writeFileSync("./bot/overpy.js", overpyCode);
 
 //Generate functions.md
