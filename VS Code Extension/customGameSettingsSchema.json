@@ -73,6 +73,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -240,14 +248,6 @@
                                     "workshopIslandNight"
                                 ]
                             }
-                        },
-                        "captureSpeed%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableCompetitiveRules": {
-                            "type": "boolean"
                         },
                         "setValidControlPoints": {
                             "type": "string",
@@ -1368,6 +1368,78 @@
                             "type": "integer",
                             "minimum": 0,
                             "maximum": 180
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "iliosLighthouse",
+                                    "iliosRuins",
+                                    "iliosWell",
+                                    "lijiangControlCenter",
+                                    "lijiangControlCenterLny",
+                                    "lijiangGarden",
+                                    "lijiangGardenLny",
+                                    "lijiangNightMarket",
+                                    "lijiangNightMarketLny",
+                                    "necropolis",
+                                    "nepalSanctum",
+                                    "nepalShrine",
+                                    "nepalVillage",
+                                    "oasisCityCenter",
+                                    "oasisGardens",
+                                    "oasisUniversity",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
+                                ]
+                            }
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ayutthaya",
+                                    "blackForest",
+                                    "blackForestWinter",
+                                    "castillo",
+                                    "ecopointAntarctica",
+                                    "ecopointAntarcticaWinter",
+                                    "iliosLighthouse",
+                                    "iliosRuins",
+                                    "iliosWell",
+                                    "lijiangControlCenter",
+                                    "lijiangControlCenterLny",
+                                    "lijiangGarden",
+                                    "lijiangGardenLny",
+                                    "lijiangNightMarket",
+                                    "lijiangNightMarketLny",
+                                    "necropolis",
+                                    "nepalSanctum",
+                                    "nepalShrine",
+                                    "nepalVillage",
+                                    "oasisCityCenter",
+                                    "oasisGardens",
+                                    "oasisUniversity",
+                                    "workshopChamber",
+                                    "workshopExpanse",
+                                    "workshopExpanseNight",
+                                    "workshopGreenScreen",
+                                    "workshopIsland",
+                                    "workshopIslandNight"
+                                ]
+                            }
                         }
                     }
                 },

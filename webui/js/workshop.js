@@ -331,6 +331,7 @@ var app = new Vue({
             } catch (e) {
                 console.error(e + ", contact Zezombye about this");
             }
+            this.compileGamemode();
         },
         adjustAstForWorkshop: function(ast) {
             //We cannot use overpy functions because they also do a bunch of stuff such as optimization
@@ -1122,14 +1123,20 @@ var app = new Vue({
                     delete editedCustomGameSettings.gamemodes[gamemode];
                     continue;
                 }
-                if (!(gamemode in editedCustomGameSettings.gamemodes)) {
-                    editedCustomGameSettings.gamemodes[gamemode] = {enabled: false};
-                } else {
-                    editedCustomGameSettings.gamemodes[gamemode].enabled = true;
-                }
-                if ("disabledMaps" in editedCustomGameSettings.gamemodes[gamemode]) {
-                    editedCustomGameSettings.gamemodes.enabledMaps = Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1 && !editedCustomGameSettings.gamemodes.disabledMaps.includes(x));
-                    delete editedCustomGameSettings.gamemodes.disabledMaps;
+                if (gamemode !== "general") {
+                    if (!(gamemode in editedCustomGameSettings.gamemodes)) {
+                        editedCustomGameSettings.gamemodes[gamemode] = {enabled: false};
+                    } else if (!("enabled" in editedCustomGameSettings.gamemodes[gamemode])) {
+                        editedCustomGameSettings.gamemodes[gamemode].enabled = true;
+                    }
+                    if (!("enabledMaps" in editedCustomGameSettings.gamemodes[gamemode])) {
+                        editedCustomGameSettings.gamemodes[gamemode].enabledMaps = Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode));
+                    }
+                    editedCustomGameSettings.gamemodes[gamemode].enabledMaps = editedCustomGameSettings.gamemodes[gamemode].enabledMaps.filter(x => !mapKw[x].onlyInOw1);
+                    if ("disabledMaps" in editedCustomGameSettings.gamemodes[gamemode]) {
+                        editedCustomGameSettings.gamemodes[gamemode].enabledMaps = editedCustomGameSettings.gamemodes[gamemode].enabledMaps.filter(x => !editedCustomGameSettings.gamemodes[gamemode].disabledMaps.includes(x));
+                        delete editedCustomGameSettings.gamemodes[gamemode].disabledMaps;
+                    }
                 }
                 fillMissingKeys(editedCustomGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values);
                 editedCustomGameSettings.gamemodes[gamemode].isCollapsed = true;
@@ -1154,7 +1161,7 @@ var app = new Vue({
                     if (hero === "disabledHeroes" || hero === "enabledHeroes") {
                         continue;
                     }
-                    console.log(hero);
+                    //console.log(hero);
                     if (!(hero in editedCustomGameSettings.heroes[team])) {
                         editedCustomGameSettings.heroes[team][hero] = {};
                     }
@@ -1188,6 +1195,8 @@ var app = new Vue({
                         defaultSetting = true;
                     } else if (["no", "disabled", "off"].includes(defaultSetting)) {
                         defaultSetting = false;
+                    } else if (typeof schema[key].values === "object") {
+                        defaultSetting = Object.keys(schema[key].values).filter(x => schema[key].values[x].default === true)[0];
                     }
                     if (settings[key] === defaultSetting) {
                         delete settings[key];
@@ -1200,10 +1209,16 @@ var app = new Vue({
             }
             removeDefaults(this.editedCustomGameSettings.lobby, customGameSettingsSchema.lobby.values)
             removeDefaults(this.editedCustomGameSettings.main, customGameSettingsSchema.main.values)
-            for (var key in this.editedCustomGameSettings.gamemodes) {
-                delete this.editedCustomGameSettings.gamemodes[key].isCollapsed;
-                delete this.editedCustomGameSettings.gamemodes[key].isArrayCollapsed;
-                removeDefaults(this.editedCustomGameSettings.gamemodes[key], customGameSettingsSchema.gamemodes.values[key].values)
+            for (var gamemode in this.editedCustomGameSettings.gamemodes) {
+                delete this.editedCustomGameSettings.gamemodes[gamemode].isCollapsed;
+                delete this.editedCustomGameSettings.gamemodes[gamemode].isArrayCollapsed;
+                removeDefaults(this.editedCustomGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values);
+                if ("enabledMaps" in this.editedCustomGameSettings.gamemodes[gamemode] && this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps.length === Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1).length) {
+                    delete this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps;
+                }
+                if (!this.editedCustomGameSettings.gamemodes[gamemode].enabled && Object.keys(this.editedCustomGameSettings.gamemodes[gamemode]).length === 1) {
+                    delete this.editedCustomGameSettings.gamemodes[gamemode];
+                }
             }
             for (var team in this.editedCustomGameSettings.heroes) {
                 delete this.editedCustomGameSettings.heroes[team].isCollapsed;
@@ -1215,13 +1230,27 @@ var app = new Vue({
                     if (hero !== "enabledHeroes") {	
                         console.log(hero);
                         removeDefaults(this.editedCustomGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values)
+                        if (Object.keys(this.editedCustomGameSettings.heroes[team][hero]).length === 0) {
+                            delete this.editedCustomGameSettings.heroes[team][hero];
+                        }
+                    } else if (this.editedCustomGameSettings.heroes[team].enabledHeroes.length === Object.keys(heroKw).length) {
+                        delete this.editedCustomGameSettings.heroes[team].enabledHeroes;
                     }
+                }
+                if (Object.keys(this.editedCustomGameSettings.heroes[team].length === 0)) {
+                    delete this.editedCustomGameSettings.heroes[team];
+                }
+            }
+            
+            for (var key in this.editedCustomGameSettings) {
+                if (Object.keys(this.editedCustomGameSettings[key]).length === 0) {
+                    delete this.editedCustomGameSettings[key];
                 }
             }
 
             this.customGameSettings = structuredClone(this.editedCustomGameSettings);
             this.displaySettings = false;
-            this.saveGamemode();
+            this.compileGamemode();
         }
 
     },

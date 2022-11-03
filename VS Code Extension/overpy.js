@@ -45663,7 +45663,6 @@ const customGameSettingsSchema =
                 "values": {
                     "never": {
                         "guid": "000000002C5A",
-                        "default": true,
                         "en-US": "Never",
                         "de-DE": "Nie",
                         "es-ES": "Nunca",
@@ -45695,6 +45694,7 @@ const customGameSettingsSchema =
                         "zh-TW": "在每場對戰結束後"
                     },
                     "afterMirrorMatch": {
+                        "default": true,
                         "guid": "000000002C5C",
                         "en-US": "After A Mirror Match",
                         "de-DE": "Nach Hin- und Rückmatch",
@@ -46619,11 +46619,16 @@ for (var gamemode of Object.keys(gamemodeKw)) {
 
 //Apply general settings to each gamemode... but not Elimination for some reason lmao
 for (var gamemode in customGameSettingsSchema.gamemodes.values) {
-    if (gamemode !== "elimination") {
-
+    if (gamemode === "elimination") {
+        customGameSettingsSchema.gamemodes.values[gamemode].values.enabledMaps = customGameSettingsSchema.gamemodes.values.general.values.enabledMaps;
+        customGameSettingsSchema.gamemodes.values[gamemode].values.disabledMaps = customGameSettingsSchema.gamemodes.values.general.values.disabledMaps;
+    } else {
         Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
     }
 }
+//Can't enable/disable maps in general
+delete customGameSettingsSchema.gamemodes.values.general.values.enabledMaps;
+delete customGameSettingsSchema.gamemodes.values.general.values.disabledMaps;
 
 //Apply each gamemode's settings to general settings
 for (var gamemode in customGameSettingsSchema.gamemodes.values) {

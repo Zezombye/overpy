@@ -361,7 +361,7 @@
 									<div class="cgs-title-wrapper">
 										<img v-if="gamemodeContent.isCollapsed" class="img-button" src="img/expand_rule.png" v-on:click="gamemodeContent.isCollapsed=false"/>
 										<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="gamemodeContent.isCollapsed=true"/>
-										<input type="checkbox" v-model="gamemodeContent.enabled"/>
+										<input type="checkbox" v-if="gamemode !== 'general'" v-model="gamemodeContent.enabled"/>
 										<div class="cgs-title">{{ translate(gamemode, customGameSettingsSchema.gamemodes.values) }}</div>
 									</div>
 									<div v-if="!gamemodeContent.isCollapsed && 'enabledMaps' in gamemodeContent" class="cgs-content">
@@ -370,7 +370,7 @@
 											<img v-else class="img-button" src="img/collapse_rule.png" v-on:click="gamemodeContent.isArrayCollapsed=true"/>
 											<div class="cgs-title">{{ translate("enabledMaps", customGameSettingsSchema.gamemodes.values[gamemode].values) }}</div>
 										</div>
-										<cgs-values v-if="!gamemodeContent.isArrayCollapsed" :values="Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode))" :schema="mapKw" :array-obj="gamemodeContent" :array-key="'enabledMaps'"></cgs-values>
+										<cgs-values v-if="!gamemodeContent.isArrayCollapsed" :values="Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1)" :schema="mapKw" :array-obj="gamemodeContent" :array-key="'enabledMaps'"></cgs-values>
 									</div>
 									<cgs-values v-if="!gamemodeContent.isCollapsed" :values="gamemodeContent" :schema="customGameSettingsSchema[category].values[gamemode].values">
 									</cgs-values>
