@@ -5,8 +5,4 @@
 - switching between projects
 - display operators
 - put defaults
-
-- disable debug in overpy
-- disable debug in vuejs
-- minify overpy ?
 - add icons on dropdowns for icons + colors

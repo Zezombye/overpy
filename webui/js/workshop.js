@@ -1252,6 +1252,12 @@ var app = new Vue({
             this.displaySettings = false;
             this.compileGamemode();
         },
+
+        displayExportScreen: function() {
+            //todo: allow the user to select a project to save to, and to change which project it is saved to
+            //once this is done, modify the compileGamemode() function to save to the cloud(tm)
+            throw new Error("Not implemented yet!");
+        }
     },
     
     watch: {
