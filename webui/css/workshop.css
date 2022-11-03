@@ -78,16 +78,55 @@
     font-family: "FuturaNo2D";
     src: url("../fonts/futura_no2_d_demi_bold.ttf");
 }
-
 @font-face {
     font-family: "BigNoodle";
     src: url("../fonts/big_noodle_too.ttf");
 }
-
 @font-face {
     font-family: "BlizzardGlobal";
     src: url("../fonts/blizzard_global.ttf");
 }
+
+@font-face {
+    font-family: "Koverwatch";
+    src: url("../fonts/korean/Koverwatch\ v1.0.ttf");
+}
+@font-face {
+    font-family: "YoonBlackfit";
+    src: url("../fonts/korean/Yoon\ Blackfit\ 77\ v1.020.ttf");
+}
+
+@font-face {
+    font-family: "DfSoGei";
+    src: url("../fonts/japanese/DfSoGei\ Std\ W9\ v2.001.otf");
+}
+@font-face {
+    font-family: "UdTypos512";
+    src: url("../fonts/japanese/UDTypos512\ v001.000.ttf");
+}
+@font-face {
+    font-family: "BlizzardGlobalJap";
+    src: url("../fonts/japanese/BlizzardGlobalJAP\ v8.10.ttf");
+}
+
+@font-face {
+    font-family: "ArCrystalHei";
+    src: url("../fonts/chinese\ simplified/AR CrystalHeiGBK\ DB\ v1.20.ttf");
+}
+@font-face {
+    font-family: "ArUdjingX95";
+    src: url("../fonts/chinese\ simplified/AR UDJingXiHeiX95GBK DB v1.10.ttf");
+}
+
+@font-face {
+    font-family: "ArHei";
+    src: url("../fonts/chinese\ traditional/AR HeiU20 MD v1.23.ttf");
+}
+@font-face {
+    font-family: "ArUdjing";
+    src: url("../fonts/chinese\ traditional/AR UDJingXiHeiTC MD v1.00.ttf");
+}
+
 
 .font-blizzglobal {
     font-family: "BlizzardGlobal";
@@ -97,6 +136,41 @@
 }
 .font-bignoodle {
     font-family: "BigNoodle", "BlizzardGlobal";
+    font-style: italic;
+}
+
+.ko-KR .font-futurano2d, .ko-KR.font-futurano2d {
+    font-family: "YoonBlackfit", "BlizzardGlobal";
+}
+.ko-KR .font-bignoodle, .ko-KR.font-bignoodle {
+    font-family: "Koverwatch", "BlizzardGlobal";
+    font-style: italic;
+}
+
+.ja-JP .font-blizzglobal, .ja-JP.font-blizzglobal {
+    font-family: "BlizzardGlobalJap";
+}
+.ja-JP .font-futurano2d, .ja-JP.font-futurano2d {
+    font-family: "UdTypos512", "BlizzardGlobalJap";
+}
+.ja-JP .font-bignoodle, .ja-JP.font-bignoodle {
+    font-family: "DfSoGei", "BlizzardGlobalJap";
+    font-style: italic;
+}
+
+.zh-CN .font-futurano2d, .zh-CN.font-futurano2d {
+    font-family: "ArUdjingX95", "BlizzardGlobal";
+}
+.zh-CN .font-bignoodle, .zh-CN.font-bignoodle {
+    font-family: "ArCrystalHei", "BlizzardGlobal";
+    font-style: italic;
+}
+
+.zh-TW .font-futurano2d, .zh-TW.font-futurano2d {
+    font-family: "ArUdjing", "BlizzardGlobal";
+}
+.zh-TW .font-bignoodle, .zh-TW.font-bignoodle {
+    font-family: "ArHei", "BlizzardGlobal";
     font-style: italic;
 }
 

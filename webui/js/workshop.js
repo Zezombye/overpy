@@ -1251,9 +1251,17 @@ var app = new Vue({
             this.customGameSettings = structuredClone(this.editedCustomGameSettings);
             this.displaySettings = false;
             this.compileGamemode();
-        }
-
+        },
     },
+    
+    watch: {
+        "uiSettings.language": {
+            handler: function(newValue) {
+                document.getElementsByTagName("body")[0].className = "font-futurano2d "+newValue;
+            },
+            immediate: true,
+        }
+    }
 })
 
 console.info = app.info;

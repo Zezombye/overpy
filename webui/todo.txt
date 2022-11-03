@@ -1,8 +1,5 @@
 
-- fix fat af settings
-- manage maps not available in ow2
-- translate the UI
-- different fonts for different languages
+- translate argument names
 - dropdown tooltips
 - local storage
 - switching between projects

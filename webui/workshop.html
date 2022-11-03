@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/workshop.css">
 </head>
 
-<body class="font-futurano2d">
+<body id="body" class="font-futurano2d">
     <div id="app-wrapper-wrapper" :style="{'background-image': 'url(&quot;img/backgrounds/'+background+'&quot;)'}">
     <div id="app-wrapper">
     <div id="app">
@@ -305,9 +305,7 @@
                     </div>
 					<p>Known bugs:<br>
 						<ul style="text-align: left">
-							<li>The generated custom game settings are very fat</li>
-							<li>Some maps are not available in OW2, yet selectable in the custom game settings</li>
-							<li>The UI itself is not translated (but functions are)</li>
+							<li>Argument names are not translated</li>
 							<li>No tooltips</li>
 							<li>No saving</li>
 							<li>The AST display is not workshop-like, eg Add() instead of +</li>
