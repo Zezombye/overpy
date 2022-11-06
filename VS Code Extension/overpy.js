@@ -61177,7 +61177,7 @@ var constantsToObfuscateAsts = Array(constantsToObfuscate.length);
 var obfuscationConstantsMapping = {}
 
 const mapIds = {
-	BLACK_FOREST_WINTER: 2147,
+	BLACK_FOREST_WINTER: 2148,
 	BLIZZ_WORLD_WINTER: 1228,
 	BUSAN_DOWNTOWN_LNY: 3206,
 	BUSAN_SANCTUARY_LNY: -6860,
