@@ -48198,8 +48198,11 @@ function trimNb(x) {
 
 "use strict";
 
-function decompileCustomGameSettingsDict(dict, kwObj) {
+function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 	var result = {};
+	if (!("invalidButAcceptedProperties" in options)) {
+		options.invalidButAcceptedProperties = {};
+	}
 	for (var elem of dict) {
 		elem = elem.trim();
 		if (elem === "") {
@@ -48213,7 +48216,13 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
 			return locA.localeCompare(locB)
 		}).reverse()
+		var invalidButAcceptedPropertiesObjKeys = Object.keys(options.invalidButAcceptedProperties).sort(function(a,b) {
+			var locA = (currentLanguage in options.invalidButAcceptedProperties[a] ? options.invalidButAcceptedProperties[a][currentLanguage] : options.invalidButAcceptedProperties[a]["en-US"])
+			var locB = (currentLanguage in options.invalidButAcceptedProperties[b] ? options.invalidButAcceptedProperties[b][currentLanguage] : options.invalidButAcceptedProperties[b]["en-US"])
+			return locA.localeCompare(locB)
+		}).reverse()
 		//console.log(objKeys)
+		var isInvalidButAcceptedProperty = false;
 		for (var key of objKeys) {
 			if (currentLanguage in kwObj[key]) {
 				if (elem.toLowerCase().startsWith(kwObj[key][currentLanguage].toLowerCase())) {
@@ -48221,10 +48230,25 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 					value = elem.substring(kwObj[key][currentLanguage].length);
 					break;
 				}
-			} else {
-				if (elem.toLowerCase().startsWith(kwObj[key]["en-US"].toLowerCase())) {
+			} else if (elem.toLowerCase().startsWith(kwObj[key]["en-US"].toLowerCase())) {
+				keyName = key;
+				value = elem.substring(kwObj[key]["en-US"].length);
+				break;
+			}
+		}
+		if (keyName === null) {
+			for (var key of invalidButAcceptedPropertiesObjKeys) {
+				if (currentLanguage in options.invalidButAcceptedProperties[key]) {
+					if (elem.toLowerCase().startsWith(options.invalidButAcceptedProperties[key][currentLanguage].toLowerCase())) {
+						keyName = key;
+						value = elem.substring(options.invalidButAcceptedProperties[key][currentLanguage].length);
+						isInvalidButAcceptedProperty = true;
+						break;
+					}
+				} else if (elem.toLowerCase().startsWith(options.invalidButAcceptedProperties[key]["en-US"].toLowerCase())) {
 					keyName = key;
-					value = elem.substring(kwObj[key]["en-US"].length);
+					value = elem.substring(options.invalidButAcceptedProperties[key]["en-US"].length);
+					isInvalidButAcceptedProperty = true;
 					break;
 				}
 			}
@@ -48239,6 +48263,10 @@ function decompileCustomGameSettingsDict(dict, kwObj) {
 			error("Expected ':' after key in element '"+elem+"'");
 		}
 		value = value.substring(1).trim();
+
+		if (isInvalidButAcceptedProperty) {
+			continue;
+		}
 
 		if (typeof kwObj[keyName].values === "object") {
 			value = topy(value, kwObj[keyName].values);
@@ -51264,10 +51292,10 @@ function decompileAllRulesToAst(content) {
 	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
 
 	//This regex will sadly also replace instances in strings, but I doubt there are many.
-	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\((?!\\s*\\w)", "g")
-	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
-	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
-	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)$1")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)$1")
 
 	//console.log(content);
 	
@@ -51459,7 +51487,7 @@ function decompileCustomGameSettings(content) {
 							//probably a hero
 							var opyHero = topy(property, heroKw);
 							result[opyCategory][opyTeam][opyHero] = {};
-							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values))
+							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values, {invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general.values}))
 						}
 					}
 				}

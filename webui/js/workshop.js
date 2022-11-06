@@ -39,6 +39,9 @@ var app = new Vue({
         nbElements: 0,
         clipboard: {},
         compiledGamemode: null,
+        projectToImportToId: null,
+        currentProject: {id: null, name: "Loading projects..."},
+        projects: [],
         customGameSettings: {
             "main": {
                 "description": "Some awesome game mode",
@@ -131,7 +134,7 @@ var app = new Vue({
                     "portal_2.jpg": "Portal 2",
                     "workshop.jpg": "Workshop",
                     "forge.jpg": "Forge",
-    }
+                }
             }
         },
         uiSettings: {
@@ -276,72 +279,84 @@ var app = new Vue({
             return result;
         },
         decompile: function(content) {
-            try {
-
-                resetGlobalVariables(this.decompilationLanguage);
-                [customGameSettings, rules] = decompileAllRulesToAst(content);
-                if (!customGameSettings) {
-                    console.error("Gamemode must have settings");
+            if (this.projectToImportToId !== null) {
+                this.loadProject(this.projectToImportToId);
+            } else {
+                try {
+                    if (!content) {
+                        console.error("Cannot import an empty gamemode");
+                        return;
+                    }
+    
+                    resetGlobalVariables(this.decompilationLanguage);
+                    [customGameSettings, rules] = decompileAllRulesToAst(content);
+                    if (!customGameSettings) {
+                        console.error("Gamemode must have settings");
+                        return;
+                    }
+                    console.log(customGameSettings);
+                    console.log(rules);
+                    this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
+                    this.globalVariables = globalVariables;
+                    this.playerVariables = playerVariables;
+                    this.subroutines = subroutines;
+                    this.activatedExtensions = [...activatedExtensions];
+                    //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
+                    //Plus, we need var names to be in order for the UI
+                    for (var i = 0; i < 128; i++) {
+                        if (!this.globalVariables.map(x => x.index).includes(i)) {
+                            this.globalVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.playerVariables.map(x => x.index).includes(i)) {
+                            this.playerVariables.push({index: i, name: defaultVarNames[i]})
+                        }
+                        if (!this.subroutines.map(x => x.index).includes(i)) {
+                            this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
+                        }
+                    }
+                    for (var rule of rules) {
+                        if ("conditions" in rule.ruleAttributes) {
+                            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+                                rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
+                                rule.ruleAttributes.conditions[i].parent = rule;
+                                rule.ruleAttributes.conditions[i].isSelected = false;
+                                rule.ruleAttributes.conditions[i].isDisabled ||= false;
+                            }
+                        } else {
+                            rule.ruleAttributes.conditions = [];
+                        }
+                        if ("subroutineName" in rule.ruleAttributes) {
+                            rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.name === rule.ruleAttributes.subroutineName)[0].index;
+                        }
+                        for (var i = 0; i < rule.children.length; i++) {
+                            rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
+                            rule.children[i].parent = rule;
+                            rule.children[i].isSelected = false;
+                            rule.children[i].isDisabled ||= false;
+                        }
+    
+                        if (rules.length > 50) {
+                            rule.isCollapsed = true;
+                        } else {
+                            rule.isCollapsed = false;
+                        }
+                        rule.isSelected = false;
+                    }
+                    this.rules = rules;
+                    this.globalVariables.sort((a,b) => (a.index - b.index))
+                    this.playerVariables.sort((a,b) => (a.index - b.index))
+                    this.subroutines.sort((a,b) => (a.index - b.index))
+                    this.textToDecompile = null;
+                    this.setCurrentProject(this.projectToImportToId);
+    
+                } catch (err) {
+                    console.error(err + ", contact Zezombye about this");
                     return;
                 }
-                console.log(customGameSettings);
-                console.log(rules);
-                this.customGameSettings = JSON.parse(customGameSettings.replace("settings {", "{"));
-                this.globalVariables = globalVariables;
-                this.playerVariables = playerVariables;
-                this.subroutines = subroutines;
-                this.activatedExtensions = [...activatedExtensions];
-                //Add default var names (if eg there are no player variables, then adding a player variable will error because we cannot select one)
-                //Plus, we need var names to be in order for the UI
-                for (var i = 0; i < 128; i++) {
-                    if (!this.globalVariables.map(x => x.index).includes(i)) {
-                        this.globalVariables.push({index: i, name: defaultVarNames[i]})
-                    }
-                    if (!this.playerVariables.map(x => x.index).includes(i)) {
-                        this.playerVariables.push({index: i, name: defaultVarNames[i]})
-                    }
-                    if (!this.subroutines.map(x => x.index).includes(i)) {
-                        this.subroutines.push({index: i, name: defaultSubroutineNames[i]})
-                    }
-                }
-                for (var rule of rules) {
-                    if ("conditions" in rule.ruleAttributes) {
-                        for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
-                            rule.ruleAttributes.conditions[i] = this.adjustAstForWorkshop(rule.ruleAttributes.conditions[i]);
-                            rule.ruleAttributes.conditions[i].parent = rule;
-                            rule.ruleAttributes.conditions[i].isSelected = false;
-                            rule.ruleAttributes.conditions[i].isDisabled ||= false;
-                        }
-                    } else {
-                        rule.ruleAttributes.conditions = [];
-                    }
-                    if ("subroutineName" in rule.ruleAttributes) {
-                        rule.ruleAttributes.subroutineName = this.subroutines.filter(x => x.name === rule.ruleAttributes.subroutineName)[0].index;
-                    }
-                    for (var i = 0; i < rule.children.length; i++) {
-                        rule.children[i] = this.adjustAstForWorkshop(rule.children[i]);
-                        rule.children[i].parent = rule;
-                        rule.children[i].isSelected = false;
-                        rule.children[i].isDisabled ||= false;
-                    }
-
-                    if (rules.length > 50) {
-                        rule.isCollapsed = true;
-                    } else {
-                        rule.isCollapsed = false;
-                    }
-                    rule.isSelected = false;
-                }
-                this.rules = rules;
-                this.globalVariables.sort((a,b) => (a.index - b.index))
-                this.playerVariables.sort((a,b) => (a.index - b.index))
-                this.subroutines.sort((a,b) => (a.index - b.index))
-                console.info("Successfully imported!");
-                this.textToDecompile = null;
-                this.displayImport = false;
-            } catch (e) {
-                console.error(e + ", contact Zezombye about this");
             }
+            console.info("Successfully imported!");
+            this.projectToImportToId = null;
+            this.displayImport = false;
             this.compileGamemode();
         },
         adjustAstForWorkshop: function(ast) {
@@ -543,6 +558,7 @@ var app = new Vue({
             } else {
                 var result = this.compileGamemode();
             }
+            this.saveProject();
             navigator.clipboard.writeText(result).then(() => {
                 this.compiledGamemode = null;
                 console.info("Successfully compiled! (copied into clipboard)");
@@ -1306,12 +1322,125 @@ var app = new Vue({
             this.displaySettings = false;
             this.compileGamemode();
         },
+        loadProjects: async function() {
+            //var projects = await fetch("https://workshop.codes/api/owo");
+            var projects = [];
 
-        displayExportScreen: function() {
-            //todo: allow the user to select a project to save to, and to change which project it is saved to
-            //once this is done, modify the compileGamemode() function to save to the cloud(tm)
-            throw new Error("Not implemented yet!");
+            if (projects.length === 0) {
+                //If user has no projects, create a project for them
+                this.createNewProject("Untitled");
+                //projects = await fetch("https://workshop.codes/api/owo");
+                projects = [{id: "fdsmio-ameoi-qdfpskl", name: "Gamemode (3) final (true final) (1)"}]
+            }
+            if (window.location.pathname.startsWith("/C:")) {
+                this.currentProject = projects[0];
+            } else {
+                var currentProjectId = window.location.pathname.split("/")[window.location.pathname.split("/").length-1];
+                if (currentProjectId === "workshop-ui") {
+                    //User is currently not in a project. Redirect him to the first project
+                    this.currentProject = projects[0];
+                    this.setUrl();
+                } else {
+                    this.currentProject = projects.filter(x => x.id === currentProjectId)[0];
+                }
+            }
+            this.projects = projects;
+        },
+        createNewProject: async function(projectName) {
+            //var projectId = await fetch("https://workshop.codes/api/owo/"+this.currentProjectId, {method: "post"});
+            var projectId = "mljljkmqsdf-ezaioroi-dsqfosi";
+            this.projects.push({name: projectName, id: projectId});
+            return projectId; //the id of the project
+        },
+        setUrl: function() {
+            if (window.location.pathname.startsWith("/C:")) {
+                window.location.hash = "#" + this.currentProject.id;
+            } else {
+                //note: it has to not reload the page somehow
+                window.location = "https://workshop.codes/workshop-ui/" + this.currentProject.id;
+            }
+        },
+        setCurrentProject: async function(projectId) {
+            if (projectId === null) {
+                projectId = await this.createNewProject("Untitled");
+            }
+            this.currentProject = this.projects.filter(x => x.id === projectId)[0];
+        },
+        loadProject: function(projectId) {
+            //var projectData = fetch("htts://workshop.codes/api/owo/"+this.currentProjectId);
+            var projectData = {
+                rules: [],
+                customGameSettings: {
+                    "main": {
+                        "description": "Some awesome game mode",
+                        "modeName": "GameMode v1.0"
+                    },
+                    "gamemodes": {
+                        "skirmish": {
+                            "heroLimit": "off",
+                            "respawnTime%": 30
+                        }
+                    },
+                },
+                globalVariables: defaultVarNames.map((x, i) => ({name: x, index: i})),
+                playerVariables: defaultVarNames.map((x, i) => ({name: x, index: i})),
+                subroutines: defaultSubroutineNames.map((x, i) => ({name: x, index: i})),
+                activatedExtensions: [],
+            }
+
+            this.rules = projectData.rules;
+            this.customGameSettings = projectData.customGameSettings;
+            this.globalVariables = projectData.globalVariables;
+            this.playerVariables = projectData.playerVariables;
+            this.subroutines = projectData.subroutines;
+            this.activatedExtensions = projectData.activatedExtensions;
+
+            this.currentProject = this.projects.filter(x => x.id === projectId)[0];
+        },
+        saveProject: async function() {
+            return;
+            await fetch("https://workshop.codes/owo/"+this.currentProject.id, {
+                method: "post", 
+                body: JSON.stringify({
+                    rules: this.rules,
+                    customGameSettings: this.customGameSettings,
+                    globalVariables: this.globalVariables,
+                    playerVariables: this.playerVariables,
+                    subroutines: this.subroutines,
+                    activatedExtensions: this.activatedExtensions,
+                })
+            });
+        },
+        loadUiSettings: async function() {
+            //var data = await fetch("https://workshop.codes/uwu");
+            var data = {
+                uiSettings: {
+                    optimization: "speed",
+                    language: "en-US",
+                    compilationLanguage: "en-US",
+                    background: "random",
+                },
+                hasPassedWelcomeScreen: window.location.pathname.startsWith("/C:"),
+            }
+            this.uiSettings = data.uiSettings;
+            this.hasPassedWelcomeScreen = data.hasPassedWelcomeScreen;
+        },
+        saveUiSettings: async function() {
+            return;
+            await fetch("https://workshop.codes/uwu", {
+                method: "post", 
+                body: JSON.stringify({
+                    uiSettings: this.uiSettings,
+                    hasPassedWelcomeScreen: this.hasPassedWelcomeScreen,
+                })
+            });
         }
+
+    },
+
+    created: function() {
+        this.loadUiSettings();
+        this.loadProjects();
     },
     
     watch: {

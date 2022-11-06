@@ -94,10 +94,10 @@ function decompileAllRulesToAst(content) {
 	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
 
 	//This regex will sadly also replace instances in strings, but I doubt there are many.
-	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\((?!\\s*\\w)", "g")
-	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
-	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\((?!\\s*\\w)", "g")
-	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)$1")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)$1")
 
 	//console.log(content);
 	
@@ -289,7 +289,7 @@ function decompileCustomGameSettings(content) {
 							//probably a hero
 							var opyHero = topy(property, heroKw);
 							result[opyCategory][opyTeam][opyHero] = {};
-							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values))
+							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values, {invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general.values}))
 						}
 					}
 				}

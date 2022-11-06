@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Zez's Workshop UI Recreation</title>
 
-    <script src="libs/vue.min.js"></script>
+    <script src="libs/vue.js"></script>
     <script src="libs/vue-select.min.js"></script>
     <script src="libs/popper.min.js"></script>
     <script src="libs/toastify.js"></script>
@@ -22,6 +22,7 @@
     <div id="app-wrapper">
     <div id="app">
         <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation [BETA]</div>
+        <div id="workshop-subtitle">{{ currentProject.name }}</div>
         <div id="workshop-header">
             <div id="workshop-header-left">
                 <div id="rules-title">{{ translate("rules", workshopUiKw) }}</div>
@@ -29,7 +30,7 @@
                 <img id="button-info" class="img-button button-header" src="img/info.png" v-on:click="displayInfo = true"/>
                 <img id="button-metrics" class="img-button button-header" src="img/metrics.png" v-on:click="displayMetricsScreen()"/>
                 <img id="button-import" class="img-button button-header" src="img/import.png" v-on:click="displayImport = true"/>
-                <img id="button-export" class="img-button button-header" src="img/export.png" v-on:click="displayExportScreen()"/>
+                <!--<img id="button-export" class="img-button button-header" src="img/export.png" v-on:click="showExportLink()"/>-->
                 <img id="button-settings" class="img-button button-header" src="img/settings.png" v-on:click="editCustomGameSettings()"/>
                 <img id="button-save" class="img-button button-header" src="img/save.png" v-on:click="saveGamemode()"/>
             </div>
@@ -280,7 +281,7 @@
                     </div>
                     <div class="card">
                         <div class="card-title">Hours spent making this UI</div>
-                        <div class="card-value">63</div>
+                        <div class="card-value">71</div>
                         <div class="card-description font-blizzglobal">I am now a master at FlexBox</div>
                     </div>
                 </div>
@@ -317,7 +318,7 @@
                     <p>Made by Zezombye, with help from Mitsiee</p>
                 </div>
                 <div class="edit-buttons">
-                    <button class="ok-button font-futurano2d" v-on:click="displayInfo = false; hasPassedWelcomeScreen = true">{{ translate("ok", workshopUiKw) }}</button>
+                    <button class="ok-button font-futurano2d" v-on:click="displayInfo = false; hasPassedWelcomeScreen = true; saveUiSettings()">{{ translate("ok", workshopUiKw) }}</button>
                 </div>
             </div>
         </div>
@@ -325,15 +326,23 @@
             <div class="window-background">
                 <div class="window-edit-title font-bignoodle">Import Gamemode</div>
                 <div id="info" class="font-blizzglobal">
-                    <p>Paste your gamemode here:</p>
-                    <textarea id="decompile-text" class="font-blizzglobal" v-model="textToDecompile"></textarea>
                     <div class="setting font-futurano2d">
-                        <div class="setting-name">Language</div>
+                        <div class="setting-name">Import project:</div>
                         <div class="setting-value">
-                            <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
+                            <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="projects.map(x => ({code: x.id, label: x.name})).concat([{code: null, label: '&lt;New project&gt;'}])" :reduce="x => x.code" v-model="projectToImportToId">
                         </div>
                     </div>
-                    <p>Note: this will erase the existing rules.<br>The gamemode has to be copied straight from Overwatch.</p>
+                    <template v-if="projectToImportToId === null">
+                        <p>Paste your gamemode here:</p>
+                        <textarea id="decompile-text" class="font-blizzglobal" v-model="textToDecompile"></textarea>
+                        <div class="setting font-futurano2d">
+                            <div class="setting-name">Language</div>
+                            <div class="setting-value">
+                                <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
+                            </div>
+                        </div>
+                        <p>Note: this will erase the existing rules.<br>The gamemode has to be copied straight from Overwatch.</p>
+                    </template>
                 </div>
                 <div class="edit-buttons">
                     <button class="cancel-button font-futurano2d" v-on:click="displayImport = false; textToDecompile = null">{{ translate("cancel", workshopUiKw) }}</button>

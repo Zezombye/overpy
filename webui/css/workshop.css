@@ -219,8 +219,14 @@ body {
     font-style: italic;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
-    padding-bottom: 20px;
     padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#workshop-subtitle {
+    color: var(--title-color);
+    text-align: center;
+    padding-bottom: 15px;
 }
 
 .rule {
@@ -600,7 +606,7 @@ input[type="checkbox"] {
     width: 100%;
 }
 
-#ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen, #settings-screen {
+#ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen {
     z-index: 9999;
     position: fixed;
     top: 0px;
