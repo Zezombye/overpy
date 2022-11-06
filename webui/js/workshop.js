@@ -1405,6 +1405,7 @@ var app = new Vue({
                     playerVariables: this.playerVariables,
                     subroutines: this.subroutines,
                     activatedExtensions: this.activatedExtensions,
+                    name: this.customGameSettings?.main?.modeName || "<Untitled mode>"
                 })
             });
         },
