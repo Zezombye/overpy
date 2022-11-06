@@ -22,7 +22,7 @@
     <div id="app-wrapper">
     <div id="app">
         <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation [BETA]</div>
-        <div id="workshop-subtitle">{{ currentProject.name }}</div>
+        <div id="workshop-subtitle">{{ customGameSettings?.main?.modeName || "&lt;Untitled mode&gt;" }}</div>
         <div id="workshop-header">
             <div id="workshop-header-left">
                 <div id="rules-title">{{ translate("rules", workshopUiKw) }}</div>

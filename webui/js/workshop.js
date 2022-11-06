@@ -40,13 +40,9 @@ var app = new Vue({
         clipboard: {},
         compiledGamemode: null,
         projectToImportToId: null,
-        currentProject: {id: null, name: "Loading projects..."},
+        currentProjectId: null,
         projects: [],
         customGameSettings: {
-            "main": {
-                "description": "Some awesome game mode",
-                "modeName": "GameMode v1.0"
-            },
             "gamemodes": {
                 "skirmish": {
                     "heroLimit": "off",
@@ -1330,18 +1326,18 @@ var app = new Vue({
                 //If user has no projects, create a project for them
                 this.createNewProject("Untitled");
                 //projects = await fetch("https://workshop.codes/api/owo");
-                projects = [{id: "fdsmio-ameoi-qdfpskl", name: "Gamemode (3) final (true final) (1)"}]
+                projects = [{id: "fdsmio-ameoi-qdfpskl", name: "Gengu Parkour (3) final (true final) (1)"}]
             }
             if (window.location.pathname.startsWith("/C:")) {
-                this.currentProject = projects[0];
+                this.currentProjectId = projects[0].id;
             } else {
                 var currentProjectId = window.location.pathname.split("/")[window.location.pathname.split("/").length-1];
                 if (currentProjectId === "workshop-ui") {
                     //User is currently not in a project. Redirect him to the first project
-                    this.currentProject = projects[0];
+                    this.currentProjectId = projects[0].id;
                     this.setUrl();
                 } else {
-                    this.currentProject = projects.filter(x => x.id === currentProjectId)[0];
+                    this.currentProjectId = projects.filter(x => x.id === currentProjectId)[0].id;
                 }
             }
             this.projects = projects;
@@ -1354,17 +1350,17 @@ var app = new Vue({
         },
         setUrl: function() {
             if (window.location.pathname.startsWith("/C:")) {
-                window.location.hash = "#" + this.currentProject.id;
+                window.location.hash = this.currentProjectId;
             } else {
                 //note: it has to not reload the page somehow
-                window.location = "https://workshop.codes/workshop-ui/" + this.currentProject.id;
+                window.location = "https://workshop.codes/workshop-ui/" + this.currentProjectId;
             }
         },
         setCurrentProject: async function(projectId) {
             if (projectId === null) {
-                projectId = await this.createNewProject("Untitled");
+                projectId = await this.createNewProject("Untitled Project");
             }
-            this.currentProject = this.projects.filter(x => x.id === projectId)[0];
+            this.currentProjectId = this.projects.filter(x => x.id === projectId)[0].id;
         },
         loadProject: function(projectId) {
             //var projectData = fetch("htts://workshop.codes/api/owo/"+this.currentProjectId);
@@ -1395,11 +1391,12 @@ var app = new Vue({
             this.subroutines = projectData.subroutines;
             this.activatedExtensions = projectData.activatedExtensions;
 
-            this.currentProject = this.projects.filter(x => x.id === projectId)[0];
+            this.currentProjectId = this.projects.filter(x => x.id === projectId)[0].id;
+            this.setUrl();
         },
         saveProject: async function() {
             return;
-            await fetch("https://workshop.codes/owo/"+this.currentProject.id, {
+            await fetch("https://workshop.codes/owo/"+this.currentProjectId, {
                 method: "post", 
                 body: JSON.stringify({
                     rules: this.rules,
