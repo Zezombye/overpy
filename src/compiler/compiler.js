@@ -152,8 +152,7 @@ ${tows("__rule__", ruleKw)}("OverPy Map Detection") {
 		${tows("__end__", actionKw)};
 	}
 }		
-		
-		`
+`
 		compiledRules.unshift(mapDetectionRule)
 	}
 

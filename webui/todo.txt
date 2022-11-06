@@ -1,7 +1,5 @@
 
-- add disabled settings
-- fix current map bug
-- translate argument names
-- dropdown tooltips
+- fill missing localized descriptions
 - display operators
+- translate the custom parts of the UI
 - add icons on dropdowns for icons + colors

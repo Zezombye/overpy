@@ -131,13 +131,17 @@ var app = new Vue({
                     "workshop.jpg": "Workshop",
                     "forge.jpg": "Forge",
                 }
-            }
+            },
+            disabledWarnings: {
+                "name": "Disabled warnings (separate by commas)",
+            },
         },
         uiSettings: {
             optimization: "speed",
             language: "en-US",
             compilationLanguage: "en-US",
             background: "random",
+            disabledWarnings: "",
         },
 
         ruleAttributesDisplayNamesKw,
@@ -218,6 +222,7 @@ var app = new Vue({
                 throw new Error("Invalid keywordobj for '"+keyword+"'");
             }
             if (!(keyword in keywordObj)) {
+                console.log(keywordObj);
                 throw new Error("Could not translate '"+keyword+"'");
             }
             var result = null;
@@ -541,9 +546,10 @@ var app = new Vue({
             }
             activatedExtensions = this.activatedExtensions;
             compileCustomGameSettings(structuredClone(this.customGameSettings));
-            globalVariables = structuredClone(this.globalVariables);
-            playerVariables = structuredClone(this.playerVariables);
-            subroutines = structuredClone(this.subroutines);
+            globalVariables = structuredClone(this.globalVariables).filter(x => x.name !== defaultVarNames[x.index]);
+            playerVariables = structuredClone(this.playerVariables).filter(x => x.name !== defaultVarNames[x.index]);
+            subroutines = structuredClone(this.subroutines).filter(x => x.name !== defaultSubroutineNames[x.index]);
+            globalSuppressedWarnings = this.uiSettings.disabledWarnings.split(",").map(x => x.trim());
 
             return compileRules(rules)
             
@@ -1422,6 +1428,7 @@ var app = new Vue({
                     language: "en-US",
                     compilationLanguage: "en-US",
                     background: "random",
+                    disabledWarnings: "",
                 },
                 hasPassedWelcomeScreen: window.location.pathname.startsWith("/C:"),
             }

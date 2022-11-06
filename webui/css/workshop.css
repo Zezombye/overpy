@@ -41,6 +41,8 @@
     --array-button-border-color: rgb(156, 163, 176);
     --number-input-focused-border: rgb(56, 119, 177);
     --number-input-focused-bg: rgb(108, 140, 164);
+    --tooltip-background: rgba(0, 0, 0, 0.7);
+    --tooltip-border: rgba(48, 48, 48, 0.7);
 
     --toast-background: /*#d0d0d0*/ rgba(255, 255, 255, 0.8);
     --toast-text: black;
@@ -694,10 +696,13 @@ textarea {
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 50px;
     max-width: 1490px;
     padding-right: 2px;
     width: 100%;
+}
+
+#edit-margin {
+    height: 50px;
 }
 
 .argument-value-wrapper-wrapper {
@@ -724,6 +729,7 @@ textarea {
     margin-right: 7px;
     color: var(--text-color);
     height: 100%;
+    position: relative;
 }
 
 .argument.argument-number {
@@ -757,6 +763,7 @@ input[type="number"] {
     width: 100px;
     z-index: 999999999;
     -moz-appearance: textfield;
+    margin-left: 1px;
 }
 
 input[type="number"]:hover {
@@ -819,9 +826,11 @@ input[type="number"]:focus {
 
 .cancel-button {
     background-color: var(--cancel-bg-color);
-    width: 130px;
+    min-width: 130px;
     height: 55px;
     font-size: 27px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .ok-button {
@@ -1079,7 +1088,9 @@ button:hover {
 }
 
 #info {
-    max-width: 800px;
+    max-width: 850px;
+    padding-left: 25px;
+    padding-right: 25px;
     width: 100%;
     text-align: center;
     color: var(--text-color);
@@ -1116,6 +1127,10 @@ button:hover {
 
 .setting-value {
     width: 100%;
+}
+
+.setting-value textarea {
+    height: 100%;
 }
 
 #decompile-text {
@@ -1246,4 +1261,25 @@ button:hover {
 }
 .cgs-setting-value input[type="range"] {
     width: 100%;
+}
+
+[description]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[description]:after {
+    content: attr(description);
+    background-color: var(--tooltip-background);
+    font-size: 11.4px;
+    position: absolute;
+    padding: 7px 13px;
+    bottom: -1.6em;
+    white-space: pre-wrap;
+    opacity: 0;
+    border: 2px solid --tooltip-border;
+    border-radius: 5px;
+    z-index: 999999999999999;
+    visibility: hidden;
+    top: calc(100% + 5px);
 }

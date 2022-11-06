@@ -171,6 +171,7 @@
                     </div>
                     <function-display :ast="astToEdit" :depth="astToEdit.name === '__compare__' ? -1 : 0"></function-display>
                 </div>
+                <div id="edit-margin"></div>
                 <div class="edit-buttons">
                     <button class="cancel-button font-futurano2d" v-on:click="cancelEdition()">{{ translate("cancel", workshopUiKw) }}</button>
                     <button class="ok-button font-futurano2d" v-on:click="validateEditedAst()">{{ translate("ok", workshopUiKw) }}</button>
@@ -302,13 +303,13 @@
                     <div class="setting font-futurano2d" v-for="(setting, settingId) in uiAvailableSettings">
                         <div class="setting-name">{{ setting.name }}</div>
                         <div class="setting-value">
-                            <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(setting.values).map(x => ({code: x, label: setting.values[x]}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
+                            <textarea class="font-blizzglobal" v-if="settingId === 'disabledWarnings'" v-model="uiSettings[settingId]"></textarea>
+                            <v-select v-else append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(setting.values).map(x => ({code: x, label: setting.values[x]}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
                         </div>
                     </div>
 					<p>Known bugs:<br>
 						<ul style="text-align: left">
-							<li>Argument names are not translated</li>
-							<li>No tooltips</li>
+							<li>Tooltips are not translated</li>
 							<li>No saving</li>
 							<li>The AST display is not workshop-like, eg Add() instead of +</li>
 						</ul>
@@ -434,7 +435,7 @@
         <div class="argument-value-wrapper-wrapper">
             <div class="argument-value-wrapper" v-if="!(ast.name === '__compare__' && ast.parent.name === '__rule__')">
                 <div v-for="i in depth" class="indent-marker"></div>
-                <div class="argument" :class="{'argument-number': ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)}">{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.workshopUiKw) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx].name : ast.parent.name === "__array__" ? "["+astIdx+"]" : $root.valueFuncKw[ast.parent.name].args[astIdx].name }}</div>
+                <div class="argument" :class="{'argument-number': ast.type !== 'Variable' && $root.isTypeSuitable(['FloatLiteral', 'IntLiteral'], ast.type, false)}" :title='ast.parent.name === "__rule__" || ast.parent.name === "__array__" || !("descriptionLocalized" in (ast.parent.type === "void" ? $root.actionKw[ast.parent.name].args[astIdx] : $root.valueFuncKw[ast.parent.name].args[astIdx])) ? "" : $root.translate("descriptionLocalized", ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.actionKw[ast.parent.name].args[astIdx] : $root.valueFuncKw[ast.parent.name].args[astIdx])'>{{ ast.parent.name === "__rule__" ? $root.translate("action", $root.workshopUiKw) : ast.parent.parent.name === "__rule__" && ast.parent.name !== "__compare__" ? $root.translate("nameLocalized", $root.actionKw[ast.parent.name].args[astIdx]) : $root.translate("nameLocalized", $root.valueFuncKw[ast.parent.name].args[ast.parent.name === "__array__" ? 0 : astIdx], astIdx) }}</div>
                 <div class="value">
                     <img src="img/array_add.png" class="array-img-button array-add" v-if="ast.name === '__array__'" v-on:click="$root.addToArray(ast)"/>
                     <img src="img/array_remove.png" class="array-img-button array-remove" v-if="ast.parent.name === '__array__'" v-on:click="$root.removeFromArray(ast.parent, astIdx)"/>
@@ -448,7 +449,7 @@
                     <div class="value-string" v-else-if="ast.type === 'CustomStringLiteral'">
                         <textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="custom-string-textarea font-blizzglobal" v-model="ast.name">{{ ast.name }}</textarea>
                     </div>
-                    <div class="value-dropdown" v-else>
+                    <div class="value-dropdown" v-else :title='ast.type in $root.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type) || !("descriptionLocalized" in (ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])) ? "" : $root.translate("descriptionLocalized", ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])' >
                         <v-select append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
                         </v-select>
                     </div>

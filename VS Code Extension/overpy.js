@@ -2230,6 +2230,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
                     "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
                     "zh-CN": "下列玩家的移动碰撞将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2251,6 +2264,19 @@ const actionKw =
                     "pt-BR": "Especifica o tipo de vida armadura ou escudos contida na reserva de vida.",
                     "ru-RU": "Определяет тип ресурса здоровье броня щиты составляющего запас здоровья.",
                     "zh-CN": "指定此生命池中所包含的生命值类型（护甲或护盾）。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011429",
+                    "en-US": "Health Type",
+                    "es-ES": "Tipo de salud",
+                    "es-MX": "Tipo de salud",
+                    "fr-FR": "Type de points de vie",
+                    "it-IT": "Tipo Salute",
+                    "ja-JP": "ライフタイプ",
+                    "pl-PL": "Typ zdrowia",
+                    "pt-BR": "Tipo de Vida",
+                    "ru-RU": "Тип здоровья",
+                    "zh-CN": "生命值类型"
                 }
             },
             {
@@ -2261,6 +2287,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The size of the health pool",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001142D",
+                    "en-US": "Max Health",
+                    "es-ES": "Salud máxima",
+                    "es-MX": "Salud máxima",
+                    "fr-FR": "Points de vie maximum",
+                    "it-IT": "Salute Massima",
+                    "ja-JP": "最大ライフ",
+                    "pl-PL": "Maksimum zdrowia",
+                    "pt-BR": "Vida Máxima",
+                    "ru-RU": "Максимальный запас здоровья",
+                    "zh-CN": "最大生命值"
                 }
             },
             {
@@ -2282,6 +2321,19 @@ const actionKw =
                     "pt-BR": "Se a vida na reserva pode ser curada depois de perdida. Se o valor for falso a reserva de vida diminuirá e desaparecerá com o recebimento de dano.",
                     "ru-RU": "Определяет можно ли восполнить запас после утраты здоровья. Если значение неверно запас здоровья будет уменьшаться вплоть до полного истощения при получении урона.",
                     "zh-CN": "此生命池中的生命在失去后是否可以由治疗恢复。如果此值为假，则此生命值在受到伤害后会削减并消失。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001142F",
+                    "en-US": "Recoverable",
+                    "es-ES": "Recuperable",
+                    "es-MX": "Recuperable",
+                    "fr-FR": "Récupérable",
+                    "it-IT": "Recuperabile",
+                    "ja-JP": "復元可能",
+                    "pl-PL": "Regenerowalna",
+                    "pt-BR": "Regenerável",
+                    "ru-RU": "Восполнение",
+                    "zh-CN": "可恢复"
                 }
             },
             {
@@ -2292,6 +2344,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -2331,6 +2396,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja pontuação mudará.",
                     "ru-RU": "Игрок или игроки счет которых следует изменить.",
                     "zh-CN": "下列玩家的分数将被改变。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2354,6 +2432,19 @@ const actionKw =
                     "pt-BR": "A quantidade de mudança na pontuação. Se for positiva a pontuação aumentará. Se for negativa a pontuação diminuirá.",
                     "ru-RU": "Количество очков на которое должен уменьшиться или увеличиться счет. Если значение положительное то счет увеличится. Если оно отрицательное то счет уменьшится.",
                     "zh-CN": "增加或减少的分数。如果为正数则增加分数，为负数则减少分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22E",
+                    "en-US": "Score",
+                    "es-ES": "Puntuación",
+                    "es-MX": "Puntuación",
+                    "fr-FR": "Points",
+                    "it-IT": "Punteggio",
+                    "ja-JP": "スコア",
+                    "pl-PL": "Wynik",
+                    "pt-BR": "Pontuação",
+                    "ru-RU": "Счет",
+                    "zh-CN": "得分"
                 }
             }
         ],
@@ -2408,6 +2499,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo botão está sendo reativado.",
                     "ru-RU": "Игрок или игроки которым нужно повторно включить кнопку.",
                     "zh-CN": "下列玩家的按钮将重新启用。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2429,6 +2533,19 @@ const actionKw =
                     "pt-BR": "O botão lógico que está sendo reativado.",
                     "ru-RU": "Логическая кнопка которую нужно повторно включить.",
                     "zh-CN": "将要重新启用的逻辑按键。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -2483,6 +2600,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja velocidade será alterada.",
                     "ru-RU": "Игрок или игроки чья векторная скорость будет изменена.",
                     "zh-CN": "下列玩家的速度将被改变。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2504,6 +2634,18 @@ const actionKw =
                     "pt-BR": "A direção unitária na qual o impulso será aplicado. Esse Valor é normalizado internamente.",
                     "ru-RU": "Направление в котором применяется импульс. Это значение нормализуется игрой.",
                     "zh-CN": "施加推力的单位方向。此值将进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             },
             {
@@ -2525,6 +2667,19 @@ const actionKw =
                     "pt-BR": "A magnitude da alteração nas velocidades dos Jogadores.",
                     "ru-RU": "Величина на которую изменится векторная скорость игрока или игроков.",
                     "zh-CN": "玩家速度改变的数值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B173",
+                    "en-US": "Speed",
+                    "es-ES": "Velocidad",
+                    "es-MX": "Velocidad",
+                    "fr-FR": "Vitesse",
+                    "it-IT": "Velocità Non Direzionale",
+                    "ja-JP": "速さ",
+                    "pl-PL": "Szybkość",
+                    "pt-BR": "Velocidade",
+                    "ru-RU": "Скорость",
+                    "zh-CN": "速度"
                 }
             },
             {
@@ -2546,6 +2701,19 @@ const actionKw =
                     "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
                     "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
                     "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B174",
+                    "en-US": "Relative",
+                    "es-ES": "Relativo",
+                    "es-MX": "Relativo",
+                    "fr-FR": "Relatif",
+                    "it-IT": "Relativo",
+                    "ja-JP": "相対",
+                    "pl-PL": "Względnie",
+                    "pt-BR": "Relativo",
+                    "ru-RU": "Система координат",
+                    "zh-CN": "相对"
                 }
             },
             {
@@ -2567,6 +2735,19 @@ const actionKw =
                     "pt-BR": "Especifica se a velocidade existente contrária à Direção deve ser cancelada antes da aplicação do impulso.",
                     "ru-RU": "Определяет следует ли перед применением импульса нейтрализовать существующую векторную скорость противоположную направлению.",
                     "zh-CN": "确定在施加推力前是否首先消除已有的与此方向相反的速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B522",
+                    "en-US": "Motion",
+                    "es-ES": "Movimiento",
+                    "es-MX": "Movimiento",
+                    "fr-FR": "Mouvement",
+                    "it-IT": "Movimento",
+                    "ja-JP": "モーション",
+                    "pl-PL": "Ruch",
+                    "pt-BR": "Deslocamento",
+                    "ru-RU": "Движение",
+                    "zh-CN": "运动"
                 }
             }
         ],
@@ -2616,6 +2797,19 @@ const actionKw =
                     "pt-BR": "O Jogador que será unido ao Pai. Este Jogador não poderá se mover livremente até ser separado ou teleportado.",
                     "ru-RU": "Игрок которой будет привязан к ведущему игроку. Этот игрок не сможет свободно передвигаться пока не будет отвязан или телепортирован.",
                     "zh-CN": "将此玩家绑定至父玩家。在解除绑定或传送离开之前，此玩家无法自由移动。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010E51",
+                    "en-US": "Child",
+                    "es-ES": "Elemento secundario",
+                    "es-MX": "Hijo",
+                    "fr-FR": "Enfant",
+                    "it-IT": "Figlio",
+                    "ja-JP": "子プレイヤー",
+                    "pl-PL": "Potomny",
+                    "pt-BR": "Filho",
+                    "ru-RU": "Ведомый",
+                    "zh-CN": "子玩家"
                 }
             },
             {
@@ -2637,6 +2831,18 @@ const actionKw =
                     "pt-BR": "O Jogador a quem o Filho será unido. A movimentação deste Jogador não será afetada e determinará a posição do Filho.",
                     "ru-RU": "Игрок к которому будет привязан ведомый. Движение данного игрока не изменится и будет определять позицию ведомого.",
                     "zh-CN": "将子玩家绑定至此玩家。此玩家本身的动作不受影响，而其行动会决定子玩家的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010E50",
+                    "en-US": "Parent",
+                    "es-ES": "Elemento primario",
+                    "es-MX": "Padre",
+                    "it-IT": "Genitore",
+                    "ja-JP": "親プレイヤー",
+                    "pl-PL": "Nadrzędny",
+                    "pt-BR": "Pai",
+                    "ru-RU": "Ведущий",
+                    "zh-CN": "父玩家"
                 }
             },
             {
@@ -2648,6 +2854,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000010E55",
+                    "en-US": "Offset",
+                    "es-ES": "Compensar",
+                    "es-MX": "Compensación",
+                    "fr-FR": "Décalage",
+                    "it-IT": "Compensazione",
+                    "ja-JP": "オフセット",
+                    "pl-PL": "Wyrównanie",
+                    "pt-BR": "Deslocamento",
+                    "ru-RU": "Смещение",
+                    "zh-CN": "偏移"
                 }
             }
         ],
@@ -2687,6 +2906,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas habilidades ativas serão canceladas.",
                     "ru-RU": "Игрок или игроки для которых прерывается действие активных способностей.",
                     "zh-CN": "下列玩家的启动技能将取消。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -2726,6 +2958,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores de quem o status será removido.",
                     "ru-RU": "Игрок или игроки статус которых следует убрать.",
                     "zh-CN": "下列玩家的状态将被清除。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2747,6 +2992,17 @@ const actionKw =
                     "pt-BR": "O status a ser removido dos Jogadores.",
                     "ru-RU": "Статус игрока или игроков который нужно убрать.",
                     "zh-CN": "从指定玩家身上清除的状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B587",
+                    "en-US": "Status",
+                    "es-ES": "Estado",
+                    "es-MX": "Estado",
+                    "fr-FR": "Statut",
+                    "it-IT": "Stato",
+                    "ja-JP": "ステータス",
+                    "ru-RU": "Статус",
+                    "zh-CN": "状态"
                 }
             }
         ],
@@ -2801,6 +3057,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que usaráão a comunicação.",
                     "ru-RU": "Игрок или игроки которые применят средство коммуникации.",
                     "zh-CN": "下列玩家将自动开始交流。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -2822,6 +3091,18 @@ const actionKw =
                     "pt-BR": "O tipo de comunicação.",
                     "ru-RU": "Тип коммуникации.",
                     "zh-CN": "交流的类型。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8B0",
+                    "en-US": "Type",
+                    "es-ES": "Tipo",
+                    "es-MX": "Tipo",
+                    "it-IT": "Tipo",
+                    "ja-JP": "タイプ",
+                    "pl-PL": "Typ",
+                    "pt-BR": "Tipo",
+                    "ru-RU": "Тип",
+                    "zh-CN": "类型"
                 }
             }
         ],
@@ -2876,6 +3157,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que seráão separados de seu Pai.",
                     "ru-RU": "Игрок или игроки которые будут отвязаны от ведущего игрока.",
                     "zh-CN": "下列玩家将与其父玩家解除绑定。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010E53",
+                    "en-US": "Children",
+                    "es-ES": "Elementos secundarios",
+                    "es-MX": "Hijos",
+                    "fr-FR": "Enfants",
+                    "it-IT": "Figli",
+                    "ja-JP": "子プレイヤー（複数）",
+                    "pl-PL": "Potomne",
+                    "pt-BR": "Filhos",
+                    "ru-RU": "Ведомые",
+                    "zh-CN": "儿童"
                 }
             }
         ],
@@ -2915,6 +3209,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo comportamento padrão de visualização na morte será restaurado.",
                     "ru-RU": "Игрок или игроки которым будет восстановлено исходное отображение их собственного интерфейса в режиме наблюдения после смерти.",
                     "zh-CN": "下列玩家死亡后观战的行为将恢复正常。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -2954,6 +3261,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que voltaráão a ver seu próprio HUD enquanto estiverem mortos.",
                     "ru-RU": "Игрок или игроки которым будет возвращаться отображение их собственного интерфейса во время наблюдения после смерти.",
                     "zh-CN": "下列玩家在死亡后观战时将看到他们自己的HUD信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -2993,6 +3313,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
                     "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
                     "zh-CN": "下列玩家的移动碰撞将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -3003,6 +3336,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If true, collision with the floors is also disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011335",
+                    "en-US": "Include Floors",
+                    "es-ES": "Incluir suelo",
+                    "es-MX": "Incluir suelos",
+                    "fr-FR": "Inclut le sol",
+                    "it-IT": "Includi Pavimenti",
+                    "ja-JP": "床を含む",
+                    "pl-PL": "Uwzględnij podłoża",
+                    "pt-BR": "Incluir Chão",
+                    "ru-RU": "Учитывать пол",
+                    "zh-CN": "包括地面"
                 }
             }
         ],
@@ -3042,6 +3388,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o HUD de Modo de Jogo desabilitado.",
                     "ru-RU": "Игрок или игроки которым будет отключен интерфейс игрового режима.",
                     "zh-CN": "下列玩家的游戏模式HUD将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3096,6 +3455,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão a IU no Mundo do Modo de Jogo habilitado.",
                     "ru-RU": "Игрок или игроки которым будет отключен интерфейс игрового режима отображаемый в игре.",
                     "zh-CN": "下列玩家的游戏模式地图UI将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3150,6 +3522,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o HUD de Herói desabilitado.",
                     "ru-RU": "Игрок или игроки которым будет отключен интерфейс героя.",
                     "zh-CN": "下列玩家的英雄HUD将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3204,6 +3589,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o Feed de Abates desabilitado.",
                     "ru-RU": "Игрок или игроки которым будет отключена лента убийств.",
                     "zh-CN": "下列玩家的消灭提示将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3258,6 +3656,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão as Mensagens desabilitadas.",
                     "ru-RU": "Игрок или игроки для которых будут отключены сообщения.",
                     "zh-CN": "下列玩家的信息将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3301,6 +3712,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their nameplates disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125D",
+                    "en-US": "Viewed Players",
+                    "es-ES": "Jugadores observados",
+                    "es-MX": "Jugadores observados",
+                    "fr-FR": "Joueurs observés",
+                    "it-IT": "Giocatori Osservati",
+                    "ja-JP": "表示対象プレイヤー",
+                    "pl-PL": "Obserwowani gracze",
+                    "pt-BR": "Jogadores Observados",
+                    "ru-RU": "Наблюдаемые игроки",
+                    "zh-CN": "被观察的玩家"
                 }
             },
             {
@@ -3327,6 +3751,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores Observadores para quem o Nome do Jogador Observado será desabilitado.",
                     "ru-RU": "Наблюдающий игрок или игроки для которых будет отключена табличка с именем наблюдаемого игрока.",
                     "zh-CN": "从此观察玩家的视角看，被观察的玩家的姓名板将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125A",
+                    "en-US": "Viewing Players",
+                    "es-ES": "Jugadores observadores",
+                    "es-MX": "Jugadores que observan",
+                    "fr-FR": "Joueurs spectateurs",
+                    "it-IT": "Giocatori Osservatori",
+                    "ja-JP": "表示側プレイヤー",
+                    "pl-PL": "Obserwujący gracze",
+                    "pt-BR": "Jogadores Observadores",
+                    "ru-RU": "Наблюдающие игроки",
+                    "zh-CN": "观察玩家"
                 }
             }
         ],
@@ -3381,6 +3818,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
                     "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
                     "zh-CN": "下列玩家的移动碰撞将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3435,6 +3885,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo ressurgimento é afetado.",
                     "ru-RU": "Игрок или игроки у которых будет изменена механика возрождения.",
                     "zh-CN": "下列玩家的重生将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B879",
+                    "en-US": "Players",
+                    "es-ES": "Jugadores",
+                    "es-MX": "Jugadores",
+                    "fr-FR": "Joueurs",
+                    "it-IT": "Giocatori",
+                    "ja-JP": "プレイヤー（複数）",
+                    "pl-PL": "Gracze",
+                    "pt-BR": "Jogadores",
+                    "ru-RU": "Игроки",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3489,6 +3952,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o Placar desabilitado.",
                     "ru-RU": "Игрок или игроки которым будет отключена статистика.",
                     "zh-CN": "下列玩家的计分板将被隐藏。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3532,6 +4008,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their text chat disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3560,36 +4049,88 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their text chat disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
-                "name": "disable Team Voice Chat",
+                "name": "Team Voice Chat",
                 "description": "Whether or not team voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
                     "en-US": "Whether or not team voice chat will be disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012BBF",
+                    "en-US": "Team Voice Chat",
+                    "es-ES": "Chat de voz de equipo",
+                    "es-MX": "Chat de voz de equipo",
+                    "fr-FR": "Discussion d’équipe",
+                    "it-IT": "Chat Vocale di Squadra",
+                    "ja-JP": "チーム・ボイスチャット",
+                    "pl-PL": "Drużynowy czat głosowy",
+                    "pt-BR": "Bate-papo de Voz de Equipe",
+                    "ru-RU": "Голосовой чат команды",
+                    "zh-CN": "队伍语音聊天"
                 }
             },
             {
-                "name": "disable Match Voice Chat",
+                "name": "Match Voice Chat",
                 "description": "Whether or not match voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
                     "en-US": "Whether or not match voice chat will be disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012BC0",
+                    "en-US": "Match Voice Chat",
+                    "es-ES": "Chat de voz en partida",
+                    "es-MX": "Chat de voz de partida",
+                    "fr-FR": "Discussion audio de partie",
+                    "it-IT": "Chat Vocale della Partita",
+                    "ja-JP": "マッチ・ボイスチャット",
+                    "pl-PL": "Czat głosowy meczu",
+                    "pt-BR": "Bate-papo de Voz da Partida",
+                    "ru-RU": "Голосовой чат матча",
+                    "zh-CN": "比赛语音聊天"
                 }
             },
             {
-                "name": "disable Group Voice Chat",
+                "name": "Group Voice Chat",
                 "description": "Whether or not group voice chat will be disabled.",
                 "type": "bool",
                 "default": true,
                 "descriptionLocalized": {
                     "en-US": "Whether or not group voice chat will be disabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012BC2",
+                    "en-US": "Group Voice Chat",
+                    "es-ES": "Chat de voz de escuadrón",
+                    "es-MX": "Chat de voz del grupo",
+                    "fr-FR": "Discussion d’escouade",
+                    "it-IT": "Chat Vocale di Formazione",
+                    "ja-JP": "グループ・ボイスチャット",
+                    "pl-PL": "Czat głosowy z ekipą",
+                    "pt-BR": "Bate-papo de Voz em Grupo",
+                    "ru-RU": "Голосовой чат группы",
+                    "zh-CN": "小队语音聊天"
                 }
             }
         ],
@@ -3629,6 +4170,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo botão está sendo desativado.",
                     "ru-RU": "Игрок или игроки у которых нужно отключить кнопку.",
                     "zh-CN": "下列玩家的按钮将被禁用。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -3650,6 +4204,19 @@ const actionKw =
                     "pt-BR": "O botão lógico que está sendo desativado.",
                     "ru-RU": "Логическая кнопка которую нужно отключить.",
                     "zh-CN": "禁用的逻辑按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -3704,6 +4271,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão permissão para visualizar todos os Jogadores.",
                     "ru-RU": "Игрок или игроки которым разрешено наблюдать за всеми игроками.",
                     "zh-CN": "下列玩家将可以观看所有玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3747,6 +4327,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will begin seeing their spectate targets hud while death spectating.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3801,6 +4394,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
                     "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
                     "zh-CN": "下列玩家的移动碰撞将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3840,6 +4446,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o HUD de Modo de Jogo habilitado.",
                     "ru-RU": "Игрок или игроки которым будет включен интерфейс игрового режима.",
                     "zh-CN": "下列玩家的游戏模式HUD将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3894,6 +4513,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão a IU no Mundo do Modo de Jogo desabilitado.",
                     "ru-RU": "Игрок или игроки которым будет включен интерфейс игрового режима отображаемый в игре.",
                     "zh-CN": "下列玩家的游戏模式地图UI将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -3948,6 +4580,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o HUD de Herói habilitado.",
                     "ru-RU": "Игрок или игроки которым будет включен интерфейс героя.",
                     "zh-CN": "下列玩家的英雄HUD将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4002,6 +4647,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o Feed de Abates habilitado.",
                     "ru-RU": "Игрок или игроки которым будет включена лента убийств.",
                     "zh-CN": "下列玩家的消灭提示将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4056,6 +4714,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão as Mensagens habilitadas.",
                     "ru-RU": "Игрок или игроки для которых будут включены сообщения.",
                     "zh-CN": "下列玩家的信息将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4099,6 +4770,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their nameplates enabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125D",
+                    "en-US": "Viewed Players",
+                    "es-ES": "Jugadores observados",
+                    "es-MX": "Jugadores observados",
+                    "fr-FR": "Joueurs observés",
+                    "it-IT": "Giocatori Osservati",
+                    "ja-JP": "表示対象プレイヤー",
+                    "pl-PL": "Obserwowani gracze",
+                    "pt-BR": "Jogadores Observados",
+                    "ru-RU": "Наблюдаемые игроки",
+                    "zh-CN": "被观察的玩家"
                 }
             },
             {
@@ -4125,6 +4809,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores Observadores para quem o Nome do Jogador Observado será habilitado.",
                     "ru-RU": "Наблюдающий игрок или игроки для которых будут включены таблички с именами наблюдаемых игроков.",
                     "zh-CN": "从此观察玩家的视角看，被观察的玩家的姓名板将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125A",
+                    "en-US": "Viewing Players",
+                    "es-ES": "Jugadores observadores",
+                    "es-MX": "Jugadores que observan",
+                    "fr-FR": "Joueurs spectateurs",
+                    "it-IT": "Giocatori Osservatori",
+                    "ja-JP": "表示側プレイヤー",
+                    "pl-PL": "Obserwujący gracze",
+                    "pt-BR": "Jogadores Observadores",
+                    "ru-RU": "Наблюдающие игроки",
+                    "zh-CN": "观察玩家"
                 }
             }
         ],
@@ -4179,6 +4876,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja colisão de movimento é afetada.",
                     "ru-RU": "Игрок или игроки для которых изменятся правила столкновения.",
                     "zh-CN": "下列玩家的移动碰撞将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4233,6 +4943,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo ressurgimento é afetado.",
                     "ru-RU": "Игрок или игроки у которых будет изменена механика возрождения.",
                     "zh-CN": "下列玩家的重生将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B879",
+                    "en-US": "Players",
+                    "es-ES": "Jugadores",
+                    "es-MX": "Jugadores",
+                    "fr-FR": "Joueurs",
+                    "it-IT": "Giocatori",
+                    "ja-JP": "プレイヤー（複数）",
+                    "pl-PL": "Gracze",
+                    "pt-BR": "Jogadores",
+                    "ru-RU": "Игроки",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4287,6 +5010,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que teráão o Placar habilitado.",
                     "ru-RU": "Игрок или игроки которым будет включена статистика.",
                     "zh-CN": "下列玩家的计分板将被显示。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4330,6 +5066,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The Player or Players who will have their Text Chat enabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4358,6 +5107,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The Player or Players who will have their Voice Chat enabled.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4386,6 +5148,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players for whom the virtual button input will be forced.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -4407,6 +5182,19 @@ const actionKw =
                     "pt-BR": "O botão a ser pressionado.",
                     "ru-RU": "Кнопка которую нужно нажать.",
                     "zh-CN": "要按下的按键。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -4461,6 +5249,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que começaráão a pré-carregar um ou mais Heróis. Somente uma Ação Pré-carregar Herói será ativada por vez para um determinado Jogador.",
                     "ru-RU": "Игрок или игроки у которых начнется предварительная загрузка героев. Единовременно у одного игрока может быть активно только одно действие предварительной загрузки героя.",
                     "zh-CN": "下列玩家将开始预载一名或多名英雄。对每名玩家，同一时间只能有一个“预载英雄”动作生效。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -4487,6 +5288,19 @@ const actionKw =
                     "pt-BR": "Os Heróis que começaráão a ser pré-carregados para os Jogadores especificados. Quando vários Heróis forem especificados em uma matriz os Heróis no início da matriz terão prioridade.",
                     "ru-RU": "Герой или герои которых необходимо предварительно загрузить для указанного игрока или игроков. Если в массиве указано несколько игроков то приоритет их загрузки выстраивается в порядке их включения в список.",
                     "zh-CN": "指定玩家将在此列表中选择英雄。当数组中出现多个英雄时，将会优先选择排在前面的英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             }
         ],
@@ -4541,6 +5355,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas reservas de vida adicionadas serão removidas.",
                     "ru-RU": "Игрок или игроки у которых будет удален дополнительный запас здоровья.",
                     "zh-CN": "下列玩家身上所添加的生命池将移除。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4595,6 +5422,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja lista de heróis está sendo redefinida.",
                     "ru-RU": "Игрок или игроки у которых нужно обнулить список героев.",
                     "zh-CN": "下列玩家的英雄列表将被重置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4649,6 +5489,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que ressurgiráão.",
                     "ru-RU": "Возрождаемый игрок или игроки.",
                     "zh-CN": "下列玩家将重生。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4704,6 +5557,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que seráão ressuscitados.",
                     "ru-RU": "Игрок или игроки которые будут воскрешены.",
                     "zh-CN": "下列玩家将被复活。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -4757,6 +5623,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso à Habilidade 1 é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к 1-й способности.",
                     "zh-CN": "下列玩家的技能 1将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -4778,6 +5657,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar a Habilidade 1. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования 1-й способности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用技能 1。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -4832,6 +5724,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso à Habilidade 2 é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ ко 2-й способности.",
                     "zh-CN": "下列玩家的技能 2将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -4853,6 +5758,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar a Habilidade 2. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования 2-й способности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用技能 2。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -4907,6 +5825,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo número de cargas de habilidade será modificado.",
                     "ru-RU": "Игрок или игроки у которых будет изменено количество зарядов способности.",
                     "zh-CN": "下列玩家的技能充能次数将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -4928,6 +5859,19 @@ const actionKw =
                     "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
                     "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
                     "zh-CN": "与此技能关联的逻辑按钮将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             },
             {
@@ -4951,6 +5895,19 @@ const actionKw =
                     "pt-BR": "O número de cargas que será definido.",
                     "ru-RU": "Количество зарядов которое будет установлено.",
                     "zh-CN": "要设置的充能次数。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011213",
+                    "en-US": "Charge Count",
+                    "es-ES": "Número de cargas",
+                    "es-MX": "Conteo de carga",
+                    "fr-FR": "Nombre de charges",
+                    "it-IT": "Conteggio Carica",
+                    "ja-JP": "チャージ量",
+                    "pl-PL": "Liczba ładunków",
+                    "pt-BR": "Número de Cargas",
+                    "ru-RU": "Количество зарядов",
+                    "zh-CN": "充能计数"
                 }
             }
         ],
@@ -4990,6 +5947,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo tempo de recarga de habilidade será modificado.",
                     "ru-RU": "Игрок или игроки для которых изменяется время восстановления способности.",
                     "zh-CN": "下列玩家的技能冷却时间将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5011,6 +5981,19 @@ const actionKw =
                     "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
                     "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
                     "zh-CN": "与此技能关联的逻辑按钮将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             },
             {
@@ -5023,6 +6006,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The cooldown time that will be set in seconds. Max of 1000.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000109BB",
+                    "en-US": "Cooldown",
+                    "es-ES": "Tiempo de reutilización",
+                    "es-MX": "Tiempo de reutilización",
+                    "fr-FR": "Temps de recharge",
+                    "ja-JP": "クールダウン",
+                    "pl-PL": "Czas odnowienia",
+                    "pt-BR": "Tempo de Recarga",
+                    "ru-RU": "Время восстановления",
+                    "zh-CN": "冷却时间"
                 }
             }
         ],
@@ -5062,6 +6057,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo percentual de recurso de habilidade será modificado.",
                     "ru-RU": "Игрок или игроки у которых будет изменен процент ресурса способности.",
                     "zh-CN": "下列玩家的技能资源百分比将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5083,6 +6091,19 @@ const actionKw =
                     "pt-BR": "O botão lógico associado à habilidade a ser modificada.",
                     "ru-RU": "Логическая кнопка связанная с изменяемой способностью.",
                     "zh-CN": "与此技能关联的逻辑按钮将被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             },
             {
@@ -5095,6 +6116,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The percentage of resource that will be set with respect to each player's ability resource capacity.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011214",
+                    "en-US": "Resource Percent",
+                    "es-ES": "Porcentaje de recursos",
+                    "es-MX": "Porcentaje de recurso",
+                    "fr-FR": "Pourcentage de ressource",
+                    "it-IT": "Percentuale Risorse",
+                    "ja-JP": "リソースのパーセンテージ",
+                    "pl-PL": "Procent zasobu",
+                    "pt-BR": "Porcentagem de Recurso",
+                    "ru-RU": "Процент ресурса",
+                    "zh-CN": "资源百分比"
                 }
             }
         ],
@@ -5134,6 +6168,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja velocidade de mira será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости прицеливания.",
                     "zh-CN": "设置下列玩家的瞄准速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5155,6 +6202,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da velocidade de mira normal que será usada para definir a velocidade de mira dos Jogadores.",
                     "ru-RU": "Процентная доля обычной скорости прицеливания к которой будет приравнена новая скорость прицеливания выбранного игрока или игроков.",
                     "zh-CN": "将玩家的瞄准速度设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C367",
+                    "en-US": "Turn Speed Percent",
+                    "es-ES": "Porcentaje de velocidad de giro",
+                    "es-MX": "Porcentaje de velocidad de giro",
+                    "fr-FR": "Pourcentage de vitesse de rotation",
+                    "it-IT": "Percentuale Velocità di Rotazione",
+                    "ja-JP": "回転速度のパーセンテージ",
+                    "pl-PL": "Procentowa szybkość obrotu",
+                    "pt-BR": "Percentual da Velocidade de Giro",
+                    "ru-RU": "Процент скорости повторота",
+                    "zh-CN": "转向速度百分比"
                 }
             }
         ],
@@ -5209,6 +6269,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja lista de heróis está sendo definida.",
                     "ru-RU": "Игрок или игроки которым нужно задать новый список героев.",
                     "zh-CN": "设置下列玩家的英雄列表。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5235,6 +6308,19 @@ const actionKw =
                     "pt-BR": "Os Heróis que ficaráão disponívelis. Se nenhum Herói for fornecido a Ação não terá efeito.",
                     "ru-RU": "Герой или герои которые будут доступны. Если ни один из героев не указан действие не вызовет никаких изменений.",
                     "zh-CN": "可供选择的英雄。如果没有提供英雄，此动作无效。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             }
         ],
@@ -5289,6 +6375,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja munição será definida.",
                     "ru-RU": "Игрок или игроки для которых будет установлено количество боеприпасов.",
                     "zh-CN": "设置下列玩家面朝的弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5301,6 +6400,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110EE",
+                    "en-US": "Clip",
+                    "es-ES": "Cargador",
+                    "es-MX": "Cargador",
+                    "fr-FR": "Chargeur",
+                    "it-IT": "Caricatore",
+                    "ja-JP": "クリップ",
+                    "pl-PL": "Magazynek",
+                    "pt-BR": "Carregador",
+                    "ru-RU": "Боекомплект",
+                    "zh-CN": "弹夹"
                 }
             },
             {
@@ -5324,6 +6436,16 @@ const actionKw =
                     "pt-BR": "A munição que será definida.",
                     "ru-RU": "Количество боеприпасов которое будет назначено.",
                     "zh-CN": "要设置的弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110E8",
+                    "en-US": "Ammo",
+                    "es-ES": "Munición",
+                    "es-MX": "Munición",
+                    "fr-FR": "Munitions",
+                    "ja-JP": "弾薬数",
+                    "pt-BR": "Munição",
+                    "zh-CN": "弹药"
                 }
             }
         ],
@@ -5363,6 +6485,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso a Agachar é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к приседанию.",
                     "zh-CN": "下列玩家的下蹲动作将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5384,6 +6519,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar Agachar. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования приседания игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用蹲下。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -5438,6 +6586,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo dano causado será definido.",
                     "ru-RU": "Игрок или игроки для которых устанавливается величина наносимого урона.",
                     "zh-CN": "设置下列玩家造成的伤害。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5462,6 +6623,19 @@ const actionKw =
                     "pt-BR": "A porcentagem do dano bruto causado que será usada para definir o dano causado pelos Jogadores.",
                     "ru-RU": "Доля исходного наносимого урона к которой будет приравнена новая величина урона наносимого выбранным игроком или игроками.",
                     "zh-CN": "将玩家所造成的伤害设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9AC",
+                    "en-US": "Damage Dealt Percent",
+                    "es-ES": "Porcentaje de daño infligido",
+                    "es-MX": "Porcentaje de daño infligido",
+                    "fr-FR": "Pourcentage de dégâts infligés",
+                    "it-IT": "Percentuale Danni Inflitti",
+                    "ja-JP": "与えるダメージのパーセンテージ",
+                    "pl-PL": "Procentowe zadane obrażenia",
+                    "pt-BR": "Percentual de Dano Causado",
+                    "ru-RU": "Процент нанесенного урона",
+                    "zh-CN": "造成伤害百分比"
                 }
             }
         ],
@@ -5517,6 +6691,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo dano recebido será definido.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение получаемого урона.",
                     "zh-CN": "设置下列玩家受到的伤害。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5541,6 +6728,19 @@ const actionKw =
                     "pt-BR": "A porcentagem do dano bruto recebido que será usada para definir o dano recebido pelos Jogadores.",
                     "ru-RU": "Процентная доля исходного получаемого урона к которой будет приравнена новая величина урона получаемого игроком или игроками.",
                     "zh-CN": "将玩家所受到的伤害设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9AD",
+                    "en-US": "Damage Received Percent",
+                    "es-ES": "Porcentaje de daño recibido",
+                    "es-MX": "Porcentaje de daño recibido",
+                    "fr-FR": "Pourcentage de dégâts subis",
+                    "it-IT": "Percentuale Danni Subiti",
+                    "ja-JP": "受けるダメージのパーセンテージ",
+                    "pl-PL": "Procentowe otrzymane obrażenia",
+                    "pt-BR": "Percentual de Dano Recebido",
+                    "ru-RU": "Процент полученного урона",
+                    "zh-CN": "受到伤害百分比"
                 }
             }
         ],
@@ -5596,6 +6796,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores selecionados cuja morte está sendo considerada.",
                     "ru-RU": "Выбранный игрок или игроки чья смерть может засчитываться.",
                     "zh-CN": "目标玩家的阵亡将被纳入判断。"
+                },
+                "nameLocalized": {
+                    "guid": "000000007801",
+                    "en-US": "Target",
+                    "es-ES": "Objetivo",
+                    "es-MX": "Objetivo",
+                    "fr-FR": "Cible",
+                    "it-IT": "Bersaglio",
+                    "ja-JP": "ターゲット",
+                    "pl-PL": "Cel",
+                    "pt-BR": "Alvo",
+                    "ru-RU": "Цель",
+                    "zh-CN": "目标"
                 }
             },
             {
@@ -5617,6 +6830,19 @@ const actionKw =
                     "pt-BR": "O jogador que receberá crédito se os Jogadores especificados morrerem para o ambiente antes de tocar o chão. Se Jogador de Crédito de Ambiente for Nulo nenhum Jogador receberá o crédito.",
                     "ru-RU": "Игрок которому присуждается убийство если выбранный игрок или игроки умрут до приземления от урона нанесенного объектами. Пустое значение Null означает что убийство не будет присуждаться никому.",
                     "zh-CN": "当目标玩家在降落到地面前死于地形效果时，此消灭视为此名玩家造成的。如果“地形消灭者玩家”设置为“空”则此消灭不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011C0B",
+                    "en-US": "Environment Credit Player",
+                    "es-ES": "Atribución del entorno al jugador",
+                    "es-MX": "Jugador de crédito por entorno",
+                    "fr-FR": "Auteur en cas de mort due à l’environnement",
+                    "it-IT": "Giocatore Credito Ambientale",
+                    "ja-JP": "環境要因プレイヤー",
+                    "pl-PL": "Element otoczenia - zasługa gracza",
+                    "pt-BR": "Jogador de Crédito de Ambiente",
+                    "ru-RU": "Присуждение убийства с помощью окружения",
+                    "zh-CN": "地形消灭者玩家"
                 }
             }
         ],
@@ -5656,6 +6882,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja direção frontal será definida.",
                     "ru-RU": "Игрок или игроки направление взгляда которых следует установить.",
                     "zh-CN": "设置下列玩家面朝的方向。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5677,6 +6916,18 @@ const actionKw =
                     "pt-BR": "A direção unitária para a qual os Jogadores ficaráão virados. Esse Valor é normalizado internamente.",
                     "ru-RU": "Направление в котором будет смотреть игрок или игроки. Это значение нормализуется игрой.",
                     "zh-CN": "玩家面朝的单位方向。此值将进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             },
             {
@@ -5698,6 +6949,19 @@ const actionKw =
                     "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
                     "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
                     "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B174",
+                    "en-US": "Relative",
+                    "es-ES": "Relativo",
+                    "es-MX": "Relativo",
+                    "fr-FR": "Relatif",
+                    "it-IT": "Relativo",
+                    "ja-JP": "相対",
+                    "pl-PL": "Względnie",
+                    "pt-BR": "Relativo",
+                    "ru-RU": "Система координат",
+                    "zh-CN": "相对"
                 }
             }
         ],
@@ -5752,6 +7016,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja gravidade de movimento será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение влияния гравитации на движение.",
                     "zh-CN": "设置下列玩家的行动引力。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5775,6 +7052,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da gravidade de movimento regular que será usada para definir a gravidade de movimento pessoal dos Jogadores.",
                     "ru-RU": "Процентная доля обычного влияния гравитации на движение к которой будет приравнено влияние гравитации на движение одного или нескольких игроков.",
                     "zh-CN": "将玩家个人的行动引力设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B99A",
+                    "en-US": "Gravity Percent",
+                    "es-ES": "Porcentaje de gravedad",
+                    "es-MX": "Porcentaje de gravedad",
+                    "fr-FR": "Pourcentage de gravité",
+                    "it-IT": "Percentuale Gravità",
+                    "ja-JP": "重力のパーセンテージ",
+                    "pl-PL": "Procentowa grawitacja",
+                    "pt-BR": "Percentual da Gravidade",
+                    "ru-RU": "Процент силы гравитации",
+                    "zh-CN": "引力百分比"
                 }
             }
         ],
@@ -5814,6 +7104,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja cura realizada será definida.",
                     "ru-RU": "Игрок или игроки для которых задается эффективность исходящего от них исцеления.",
                     "zh-CN": "设置下列玩家造成的治疗。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5827,6 +7130,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "00000000B992",
+                    "en-US": "Healing Dealt Percent",
+                    "es-ES": "Porcentaje de sanación realizada",
+                    "es-MX": "Porcentaje de sanación realizada",
+                    "fr-FR": "Pourcentage de soins prodigués",
+                    "it-IT": "Percentuale Cure Fornite",
+                    "ja-JP": "与える回復のパーセンテージ",
+                    "pl-PL": "Procentowe wyleczone obrażenia",
+                    "pt-BR": "Percentual de Cura Realizada",
+                    "ru-RU": "Процент исходящего исцеления",
+                    "zh-CN": "造成治疗百分比"
                 }
             }
         ],
@@ -5882,6 +7198,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja cura recebida será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение получаемого исцеления.",
                     "zh-CN": "设置下列玩家受到的治疗。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5903,6 +7232,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da cura bruta recebida que será usada para definir a cura recebida pelos Jogadores.",
                     "ru-RU": "Доля получаемого исцеления к которому будет приравнена новая величина исцеления получаемого выбранным игроком или игроками.",
                     "zh-CN": "将玩家所受到的治疗设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B994",
+                    "en-US": "Healing Received Percent",
+                    "es-ES": "Porcentaje de sanación recibida",
+                    "es-MX": "Porcentaje de sanación recibida",
+                    "fr-FR": "Pourcentage de soins reçus",
+                    "it-IT": "Percentuale Cure Ricevute",
+                    "ja-JP": "受ける回復量のパーセンテージ",
+                    "pl-PL": "Procentowe otrzymane leczenie",
+                    "pt-BR": "Percentual da Cura Recebida",
+                    "ru-RU": "Процент входящего исцеления",
+                    "zh-CN": "受到治疗百分比"
                 }
             }
         ],
@@ -5957,6 +7299,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja vida será definida.",
                     "ru-RU": "Игрок или игроки для которых будет установлен объем запаса здоровья.",
                     "zh-CN": "将玩家的生命设为此值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -5978,6 +7333,19 @@ const actionKw =
                     "pt-BR": "Quanta vida o Jogador ou Jogadores terão.",
                     "ru-RU": "Объем здоровья который будет задан для игрока или игроков.",
                     "zh-CN": "玩家所能拥有的最大生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22C",
+                    "en-US": "Amount",
+                    "es-ES": "Cantidad",
+                    "es-MX": "Cantidad",
+                    "fr-FR": "Montant",
+                    "it-IT": "Quantità",
+                    "ja-JP": "ダメージ量",
+                    "pl-PL": "Ilość",
+                    "pt-BR": "Quantidade",
+                    "ru-RU": "Объем",
+                    "zh-CN": "伤害量"
                 }
             }
         ],
@@ -6032,6 +7400,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que ficaráão invisívelis.",
                     "ru-RU": "Игрок или игроки которые станут невидимыми.",
                     "zh-CN": "下列玩家将变得隐形。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6053,6 +7434,19 @@ const actionKw =
                     "pt-BR": "Especifica para quem os Jogadores ficaráão invisívelis.",
                     "ru-RU": "Определяет кто именно не будет видеть игроков.",
                     "zh-CN": "将要对下列玩家隐形。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9EE",
+                    "en-US": "Invisible To",
+                    "es-ES": "Invisible para",
+                    "es-MX": "Invisible para",
+                    "fr-FR": "Invisible pour",
+                    "it-IT": "Invisibile a",
+                    "ja-JP": "目視不可能: ",
+                    "pl-PL": "Niewidzialne dla",
+                    "pt-BR": "Invisível para",
+                    "ru-RU": "Невидимость для",
+                    "zh-CN": "不可见"
                 }
             }
         ],
@@ -6107,6 +7501,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso a Pular é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к прыжку.",
                     "zh-CN": "下列玩家的跳跃动作将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6128,6 +7535,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar Pular. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования прыжка игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用跳跃。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -6182,6 +7602,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja velocidade vertical de salto será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается вертикальная скорость прыжка.",
                     "zh-CN": "设置下列玩家的跳跃垂直速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6203,6 +7636,19 @@ const actionKw =
                     "pt-BR": "O percentual da velocidade de movimento bruta que será usado para definir a velocidade de movimento dos Jogadores.",
                     "ru-RU": "Процент от обычной вертикальной скорости прыжка который будет установлен в качестве вертикальной скорости прыжка для игрока или игроков.",
                     "zh-CN": "将玩家的跳跃垂直速度设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011230",
+                    "en-US": "Jump Vertical Speed Percent",
+                    "es-ES": "Porcentaje de velocidad de salto vertical",
+                    "es-MX": "Porcentaje de velocidad vertical de salto",
+                    "fr-FR": "Pourcentage de vitesse de saut verticale",
+                    "it-IT": "Percentuale Velocità Verticale di Salto",
+                    "ja-JP": "ジャンプ垂直速度のパーセンテージ",
+                    "pl-PL": "Procentowa wertykalna szybkość skoku",
+                    "pt-BR": "Percentual de Velocidade Vertical do Salto",
+                    "ru-RU": "Процент вертикальной скорости прыжка",
+                    "zh-CN": "垂直跳跃速度百分比"
                 }
             }
         ],
@@ -6257,6 +7703,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja repulsão causada será definida.",
                     "ru-RU": "Игрок или игроки для которых будет установлена сила производимого отбрасывания.",
                     "zh-CN": "设置下列玩家造成的击退。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6278,6 +7737,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da repulsão bruta causada que será usada para definir a repulsão causada pelos Jogadores.",
                     "ru-RU": "Величина отбрасывания которое будут производить указанный игрок или игроки в процентах.",
                     "zh-CN": "将玩家造成的击退效果设置为其原始造成击退效果的此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011FAE",
+                    "en-US": "Knockback Dealt Percent",
+                    "es-ES": "Porcentaje de repulsión realizada",
+                    "es-MX": "Porcentaje de derribos infligidos",
+                    "fr-FR": "Pourcentage de recul infligé",
+                    "it-IT": "Percentuale Respinta Inflitta",
+                    "ja-JP": "与えるノックバックのパーセンテージ",
+                    "pl-PL": "Procentowa wartość powodowanego odrzucenia",
+                    "pt-BR": "Porcentagem de Repulsão Causada",
+                    "ru-RU": "Процент произведенного отбрасывания",
+                    "zh-CN": "造成击退百分比"
                 }
             }
         ],
@@ -6332,6 +7804,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja repulsão recebida será definida.",
                     "ru-RU": "Игрок или игроки для которых будет установлена сила получаемого отбрасывания.",
                     "zh-CN": "设置下列玩家受到的击退。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6353,6 +7838,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da repulsão bruta recebida que será usada para definir a repulsão recebida pelos Jogadores.",
                     "ru-RU": "Величина отбрасывания которое будут получать указанный игрок или игроки в процентах.",
                     "zh-CN": "将玩家受到的击退效果设置为其原始受到击退效果的此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011FB1",
+                    "en-US": "Knockback Received Percent",
+                    "es-ES": "Porcentaje de repulsión recibida",
+                    "es-MX": "Porcentaje de derribos recibidos",
+                    "fr-FR": "Pourcentage de recul subi",
+                    "it-IT": "Percentuale Respinta Subita",
+                    "ja-JP": "受けるノックバックのパーセンテージ",
+                    "pl-PL": "Procentowa wartość otrzymanego odrzucenia",
+                    "pt-BR": "Porcentagem de Repulsão Recebida",
+                    "ru-RU": "Процент получаемого отбрасывания",
+                    "zh-CN": "受到击退百分比"
                 }
             }
         ],
@@ -6407,6 +7905,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja munição máxima será definida.",
                     "ru-RU": "Игрок или игроки для которых будет установлено максимальное количество боеприпасов.",
                     "zh-CN": "设置下列玩家面朝的最大弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6419,6 +7930,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the clip whose ammo will be set. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110EE",
+                    "en-US": "Clip",
+                    "es-ES": "Cargador",
+                    "es-MX": "Cargador",
+                    "fr-FR": "Chargeur",
+                    "it-IT": "Caricatore",
+                    "ja-JP": "クリップ",
+                    "pl-PL": "Magazynek",
+                    "pt-BR": "Carregador",
+                    "ru-RU": "Боекомплект",
+                    "zh-CN": "弹夹"
                 }
             },
             {
@@ -6442,6 +7966,16 @@ const actionKw =
                     "pt-BR": "A munição máxima que será definida.",
                     "ru-RU": "Максимальное количество боеприпасов которое будет установлено.",
                     "zh-CN": "要设置的最大弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110E8",
+                    "en-US": "Ammo",
+                    "es-ES": "Munición",
+                    "es-MX": "Munición",
+                    "fr-FR": "Munitions",
+                    "ja-JP": "弾薬数",
+                    "pt-BR": "Munição",
+                    "zh-CN": "弹药"
                 }
             }
         ],
@@ -6481,6 +8015,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja vida máxima será definida.",
                     "ru-RU": "Игрок или игроки которым будет установлен новый максимальный запас здоровья.",
                     "zh-CN": "下列玩家的最大生命值将被设定。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6505,6 +8052,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da vida máxima bruta que será usada para definir a vida máxima dos Jogadores.",
                     "ru-RU": "Процентная доля исходного максимального запаса здоровья к которой будет приравнен новый максимальный запас здоровья выбранного игрока или игроков.",
                     "zh-CN": "将这些玩家的最大生命值设为其原始最大生命值的百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22B",
+                    "en-US": "Health Percent",
+                    "es-ES": "Porcentaje de salud",
+                    "es-MX": "Porcentaje de salud",
+                    "fr-FR": "Pourcentage de points de vie",
+                    "it-IT": "Percentuale Salute",
+                    "ja-JP": "ライフのパーセンテージ",
+                    "pl-PL": "Procentowe zdrowie",
+                    "pt-BR": "Percentual de Vida",
+                    "ru-RU": "Процент здоровья",
+                    "zh-CN": "生命百分比"
                 }
             }
         ],
@@ -6545,6 +8105,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso ao Corpo a Corpo é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к атаке ближнего боя.",
                     "zh-CN": "下列玩家的近战攻击将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6566,6 +8139,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar Corpo a Corpo. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования атаки ближнего боя игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用近战攻击。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -6620,6 +8206,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja velocidade de movimento será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости движения.",
                     "zh-CN": "设置下列玩家的移动速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6643,6 +8242,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da velocidade de movimento bruta que será usada para definir a velocidade de movimento dos Jogadores.",
                     "ru-RU": "Процентная доля исходной скорости движения к которой будет приравнена новая скорость движения выбранного игрока или игроков.",
                     "zh-CN": "将玩家的移动速度设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B996",
+                    "en-US": "Move Speed Percent",
+                    "es-ES": "Porcentaje de velocidad de movimiento",
+                    "es-MX": "Porcentaje de velocidad de movimiento",
+                    "fr-FR": "Pourcentage de vitesse de déplacement",
+                    "it-IT": "Percentuale Velocità di Movimento Non Direzionale",
+                    "ja-JP": "移動速度パーセンテージ",
+                    "pl-PL": "Procentowa szybkość ruchu",
+                    "pt-BR": "Percentual da Velocidade de Movimento",
+                    "ru-RU": "Процент скорости передвижения",
+                    "zh-CN": "移动速度百分比"
                 }
             }
         ],
@@ -6697,6 +8309,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso ao Disparo Primário é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к основному режиму огня Primary Fire.",
                     "zh-CN": "下列玩家的主要攻击模式将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6718,6 +8343,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar o Disparo Primário. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования игроком или игроками основного режима огня Primary Fire. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "指定一名或多名玩家是否能够使用主要攻击模式。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -6772,6 +8410,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja gravidade de projétil será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение влияния гравитации на снаряды.",
                     "zh-CN": "设置下列玩家的弹道引力。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6795,6 +8446,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da gravidade de projétil regular que será usada para definir a gravidade de projétil pessoal dos Jogadores.",
                     "ru-RU": "Процентная доля обычного влияния гравитации на снаряды к которой будет приравнено влияние гравитации на снаряды одного или нескольких игроков.",
                     "zh-CN": "将玩家个人的弹道引力设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B99C",
+                    "en-US": "Projectile Gravity Percent",
+                    "es-ES": "Porcentaje de gravedad de proyectil",
+                    "es-MX": "Porcentaje de gravedad del proyectil",
+                    "fr-FR": "Pourcentage de gravité des projectiles",
+                    "it-IT": "Percentuale Gravità Proiettili",
+                    "ja-JP": "弾の重力パーセンテージ",
+                    "pl-PL": "Procentowa grawitacji pocisków",
+                    "pt-BR": "Percentual da Gravidade de Projétil",
+                    "ru-RU": "Процент гравитации для снарядов",
+                    "zh-CN": "弹道引力百分比"
                 }
             }
         ],
@@ -6849,6 +8513,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja velocidade de projétil será definida.",
                     "ru-RU": "Игрок или игроки для которых устанавливается новое значение скорости снарядов.",
                     "zh-CN": "设置下列玩家的弹道速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6872,6 +8549,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da velocidade de projétil regular que será usada para definir a velocidade de projétil pessoal dos Jogadores.",
                     "ru-RU": "Процентная доля обычной скорости снарядов к которой будет приравнена скорость снарядов одного или нескольких игроков.",
                     "zh-CN": "将玩家个人的弹道速度设置为此百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B99E",
+                    "en-US": "Projectile Speed Percent",
+                    "es-ES": "Porcentaje de velocidad de proyectil",
+                    "es-MX": "Porcentaje de velocidad del proyectil",
+                    "fr-FR": "Pourcentage de vitesse des projectiles",
+                    "it-IT": "Percentuale Velocità Proiettili Non Direzionale",
+                    "ja-JP": "弾速パーセンテージ",
+                    "pl-PL": "Procentowa szybkość pocisków",
+                    "pt-BR": "Percentual da Velocidade de Projétil",
+                    "ru-RU": "Процент скорости снарядов",
+                    "zh-CN": "弹道速度百分比"
                 }
             }
         ],
@@ -6911,6 +8601,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso a Recarregar é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменится доступ к перезарядке.",
                     "zh-CN": "下列玩家的装填将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -6932,6 +8635,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar Recarregar. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования перезарядки игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用装填。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -6986,6 +8702,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo tempo máximo de ressurgimento está sendo definido.",
                     "ru-RU": "Игрок или игроки для которых определяется максимальное время ожидания возрождения.",
                     "zh-CN": "设置下列玩家的最大重生时间。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7009,6 +8738,19 @@ const actionKw =
                     "pt-BR": "O intervalo entre a morte e o ressurgimento em segundos.",
                     "ru-RU": "Длительность ожидания возрождения в секундах.",
                     "zh-CN": "死亡与重生之间的持续时间，以秒为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B19B",
+                    "en-US": "Time",
+                    "es-ES": "Tiempo",
+                    "es-MX": "Tiempo",
+                    "fr-FR": "Temps",
+                    "it-IT": "Tempo",
+                    "ja-JP": "時間",
+                    "pl-PL": "Czas",
+                    "pt-BR": "Tempo",
+                    "ru-RU": "Время",
+                    "zh-CN": "时间"
                 }
             }
         ],
@@ -7063,6 +8805,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja pontuação será definida.",
                     "ru-RU": "Игрок или игроки которым будет установлен счет.",
                     "zh-CN": "设置下列玩家的分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7086,6 +8841,19 @@ const actionKw =
                     "pt-BR": "A pontuação que será definida.",
                     "ru-RU": "Устанавливаемый счет.",
                     "zh-CN": "要设置的分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22E",
+                    "en-US": "Score",
+                    "es-ES": "Puntuación",
+                    "es-MX": "Puntuación",
+                    "fr-FR": "Points",
+                    "it-IT": "Punteggio",
+                    "ja-JP": "スコア",
+                    "pl-PL": "Wynik",
+                    "pt-BR": "Pontuação",
+                    "ru-RU": "Счет",
+                    "zh-CN": "得分"
                 }
             }
         ],
@@ -7140,6 +8908,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso ao Disparo Secundário é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к дополнительному режиму огня Secondary Fire.",
                     "zh-CN": "下列玩家的辅助攻击模式将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7161,6 +8942,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar o Disparo Secundário. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования игроком или игроками дополнительного режима огня Secondary Fire. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "指定一名或多名玩家是否能够使用辅助攻击模式。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -7215,6 +9009,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores a quem o status será aplicado.",
                     "ru-RU": "Игрок или игроки к которым будет применяться статус.",
                     "zh-CN": "下列玩家将被施加此状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7236,6 +9043,19 @@ const actionKw =
                     "pt-BR": "Especifica um Jogador que receberá crédito por assistência caso os Jogadores afetados sejam mortos enquanto o status estiver em efeito. Um Assistente Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Определяет необходимость присуждения игроку очков содействия в случае убийства затронутого игрока или игроков во время действия статуса. Пустое значение Null переменной [Assister] означает что очки содействия не будут присуждаться никому.",
                     "zh-CN": "如果在效果持续期间受到影响的玩家被击杀，则视为此名玩家完成的助攻。如果“助攻者”设置为“空”则此助攻不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B58C",
+                    "en-US": "Assister",
+                    "es-ES": "Asistente",
+                    "es-MX": "Asistente",
+                    "fr-FR": "Soutien",
+                    "it-IT": "Assistente",
+                    "ja-JP": "アシスター",
+                    "pl-PL": "Asystujący",
+                    "pt-BR": "Assistente",
+                    "ru-RU": "Содействующий",
+                    "zh-CN": "助攻者"
                 }
             },
             {
@@ -7257,6 +9077,17 @@ const actionKw =
                     "pt-BR": "O status a ser aplicado aos Jogadores. Esses status têm comportamento semelhante àqueles aplicados por habilidades de herói.",
                     "ru-RU": "Статус применяемый к игроку или игрокам. Его действие аналогично действию статусов применяемых посредством способностей героев.",
                     "zh-CN": "对指定玩家施加此状态。此状态与玩家使用英雄技能时施放的状态效果相同。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B587",
+                    "en-US": "Status",
+                    "es-ES": "Estado",
+                    "es-MX": "Estado",
+                    "fr-FR": "Statut",
+                    "it-IT": "Stato",
+                    "ja-JP": "ステータス",
+                    "ru-RU": "Статус",
+                    "zh-CN": "状态"
                 }
             },
             {
@@ -7280,6 +9111,19 @@ const actionKw =
                     "pt-BR": "A duração do status em segundos. Para ter um status que dure até uma Ação Apagar Status ser executada forneça uma Duração arbitrariamente longa como 9999.",
                     "ru-RU": "Длительность статуса в секундах. Чтобы статус остался до выполнения действия [Clear Status] нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
                     "zh-CN": "状态持续时间，以秒为单位。如果要让状态持续直到执行“清除状态”动作为止，可以输入较长的持续时间，如9999。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B589",
+                    "en-US": "Duration",
+                    "es-ES": "Duración",
+                    "es-MX": "Duración",
+                    "fr-FR": "Durée",
+                    "it-IT": "Durata",
+                    "ja-JP": "期間",
+                    "pl-PL": "Czas trwania",
+                    "pt-BR": "Duração",
+                    "ru-RU": "Длительность",
+                    "zh-CN": "持续时间"
                 }
             }
         ],
@@ -7334,6 +9178,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja carga de suprema será definida.",
                     "ru-RU": "Игрок или игроки которым будет установлен уровень заряда суперспособности.",
                     "zh-CN": "设置下列玩家的终极技能充能。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7357,6 +9214,19 @@ const actionKw =
                     "pt-BR": "A porcentagem da carga máxima.",
                     "ru-RU": "Процентная доля максимального уровня заряда.",
                     "zh-CN": "最大的充能百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB1D",
+                    "en-US": "Charge Percent",
+                    "es-ES": "Porcentaje de carga",
+                    "es-MX": "Porcentaje de carga",
+                    "fr-FR": "Pourcentage de charge",
+                    "it-IT": "Percentuale Carica",
+                    "ja-JP": "チャージのパーセンテージ",
+                    "pl-PL": "Procentowe naładowanie",
+                    "pt-BR": "Percentual de Carga",
+                    "ru-RU": "Процент заряда",
+                    "zh-CN": "充能百分比"
                 }
             }
         ],
@@ -7411,6 +9281,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo acesso à habilidade suprema é afetado.",
                     "ru-RU": "Игрок или игроки у которых изменен доступ к суперспособности.",
                     "zh-CN": "下列玩家的终极技能将受到影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7432,6 +9315,19 @@ const actionKw =
                     "pt-BR": "Especifica se os Jogadores poderáão usar a habilidade suprema. Espera um Valor Booleano como Verdadeiro Falso ou Comparativo.",
                     "ru-RU": "Определяет возможность использования суперспособности игроком или игроками. Принимаются логические значения верности ложности и сравнения True False Compare.",
                     "zh-CN": "玩家是否可以使用终极技能。此处应为一个布尔值，如“真”、“假”或“比较式”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9B9",
+                    "en-US": "Enabled",
+                    "es-ES": "Habilitada",
+                    "es-MX": "Habilitado",
+                    "fr-FR": "Activé",
+                    "it-IT": "Attivo",
+                    "ja-JP": "有効",
+                    "pl-PL": "Włączono",
+                    "pt-BR": "Ativada",
+                    "ru-RU": "Вкл.",
+                    "zh-CN": "启用"
                 }
             }
         ],
@@ -7486,6 +9382,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja arma será definida.",
                     "ru-RU": "Игрок или игроки для которых будет выбрано оружие.",
                     "zh-CN": "设置下列玩家的武器。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7509,6 +9418,15 @@ const actionKw =
                     "pt-BR": "O número da arma a ser equipada. 1 é a primeira arma e 2 a segunda. Se a arma especificada não existir os Jogadores usarão a arma padrão.",
                     "ru-RU": "Номер оружия которое нужно взять. 1 – первое оружие 2 – второе. Если указанное оружие не существует игроки будут использовать стандартное.",
                     "zh-CN": "正在装备的武器号码。1为主武器，2为辅助武器。如果指定的武器不存在，玩家将使用默认武器。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011059",
+                    "en-US": "Weapon",
+                    "es-MX": "Arma",
+                    "fr-FR": "Arme",
+                    "ja-JP": "武器",
+                    "pt-BR": "Arma",
+                    "zh-CN": "武器"
                 }
             }
         ],
@@ -7563,6 +9481,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que começaráão a acelerar.",
                     "ru-RU": "Игрок или игроки которые начнут ускоряться.",
                     "zh-CN": "下列玩家将开始加速。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7584,6 +9515,18 @@ const actionKw =
                     "pt-BR": "A direção unitária na qual a aceleração será aplicada. Esse Valor é normalizado internamente.",
                     "ru-RU": "Направление в котором применяется ускорение. Это значение нормализуется игрой.",
                     "zh-CN": "施加加速度的单位方向。此值将进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             },
             {
@@ -7605,6 +9548,19 @@ const actionKw =
                     "pt-BR": "A taxa de aceleração em metros por segundo ao quadrado. Pode ser necessário que esse valor seja bem alto para superar a gravidade eou a fricção da superfície.",
                     "ru-RU": "Ускорение в метрах в секунду в квадрате. Это значение должно быть достаточно высоким для преодоления сил тяжести иили поверхностного трения.",
                     "zh-CN": "加速度，单位为米秒²。需要较大的加速度才能够克服引力和或表面摩擦力。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B844",
+                    "en-US": "Rate",
+                    "es-ES": "Ritmo",
+                    "es-MX": "Aceleración",
+                    "fr-FR": "Cadence",
+                    "it-IT": "Frequenza",
+                    "ja-JP": "レート",
+                    "pl-PL": "Tempo",
+                    "pt-BR": "Taxa",
+                    "ru-RU": "Шаг",
+                    "zh-CN": "频率"
                 }
             },
             {
@@ -7626,6 +9582,19 @@ const actionKw =
                     "pt-BR": "A velocidade na qual a aceleração parará para os Jogadores. Talvez não seja possível atingir essa velocidade devido à gravidade eou à fricção da superfície.",
                     "ru-RU": "Скорость при достижении которой ускорение игрока или игроков прекратится. В некоторых случаях конечная скорость недостижима из-за действия сил тяжести иили поверхностного трения.",
                     "zh-CN": "玩家达到此速度后会停止。由于引力和或表面摩擦力的存在，可能将无法达到此速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB17",
+                    "en-US": "Max Speed",
+                    "es-ES": "Velocidad máxima",
+                    "es-MX": "Velocidad máxima",
+                    "fr-FR": "Vitesse maximum",
+                    "it-IT": "Velocità Non Direzionale Massima",
+                    "ja-JP": "最大の速さ",
+                    "pl-PL": "Szybkość maksymalna",
+                    "pt-BR": "Velocidade Máx.",
+                    "ru-RU": "Максимальная скорость",
+                    "zh-CN": "最大速度"
                 }
             },
             {
@@ -7647,6 +9616,19 @@ const actionKw =
                     "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
                     "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
                     "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B174",
+                    "en-US": "Relative",
+                    "es-ES": "Relativo",
+                    "es-MX": "Relativo",
+                    "fr-FR": "Relatif",
+                    "it-IT": "Relativo",
+                    "ja-JP": "相対",
+                    "pl-PL": "Względnie",
+                    "pt-BR": "Relativo",
+                    "ru-RU": "Система координат",
+                    "zh-CN": "相对"
                 }
             },
             {
@@ -7668,6 +9650,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -7722,6 +9717,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas câmeras serão posicionadas no local.",
                     "ru-RU": "Игрок или игроки камеры которых будут расположены в указанном местоположении.",
                     "zh-CN": "将下列玩家的镜头放置于此。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7743,6 +9751,19 @@ const actionKw =
                     "pt-BR": "A posição da câmera. É reavaliada continuamente.",
                     "ru-RU": "Положение камеры. Проверяется постоянно.",
                     "zh-CN": "镜头的位置。持续重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C397",
+                    "en-US": "Eye Position",
+                    "es-ES": "Posición de los ojos",
+                    "es-MX": "Posición de la vista",
+                    "fr-FR": "Position des yeux",
+                    "it-IT": "Posizione Occhio",
+                    "ja-JP": "目の位置",
+                    "pl-PL": "Pozycja oka",
+                    "pt-BR": "Posição do Olho",
+                    "ru-RU": "Положение камеры",
+                    "zh-CN": "眼睛位置"
                 }
             },
             {
@@ -7764,6 +9785,19 @@ const actionKw =
                     "pt-BR": "Para onde a câmera olha. É reavaliada continuamente.",
                     "ru-RU": "Направление камеры. Проверяется постоянно.",
                     "zh-CN": "镜头望向的位置。持续重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C399",
+                    "en-US": "Look at Position",
+                    "es-ES": "Mirar a posición",
+                    "es-MX": "Mirar a la posición",
+                    "fr-FR": "Regarder la position",
+                    "it-IT": "Osserva Posizione",
+                    "ja-JP": "位置を見る",
+                    "pl-PL": "Pozycja patrzenia",
+                    "pt-BR": "Olhar para Posição",
+                    "ru-RU": "Позиция в кадре",
+                    "zh-CN": "望向位置"
                 }
             },
             {
@@ -7774,6 +9808,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "How fast to blend the camera speed as positions change. 0 means do not blend at all, and just change positions instantly.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C3BB",
+                    "en-US": "Blend Speed",
+                    "es-ES": "Velocidad de mezcla",
+                    "es-MX": "Velocidad de transición",
+                    "fr-FR": "Vitesse de fusion",
+                    "it-IT": "Interpola Velocità",
+                    "ja-JP": "ブレンド速度",
+                    "pl-PL": "Szybkość komponowania",
+                    "pt-BR": "Velocidade da Transição",
+                    "ru-RU": "Скорость перехода",
+                    "zh-CN": "转动速度"
                 }
             }
         ],
@@ -7828,6 +9875,19 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que receberão o Dano ao Longo do Tempo.",
                     "ru-RU": "Один или несколько игроков к которым будет применяться эффект периодического урона.",
                     "zh-CN": "在下列玩家身上施加持续伤害效果。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7849,6 +9909,19 @@ const actionKw =
                     "pt-BR": "O Jogador que receberá crédito pelo dano. Um Danificador Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Игрок который получит очки за урон. Пустое значение Null переменной [Damager] означает что очки не будут присуждаться никому.",
                     "zh-CN": "伤害视为此名玩家造成的。如果“伤害者”设置为“空”则此伤害不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B58F",
+                    "en-US": "Damager",
+                    "es-ES": "Dañador",
+                    "es-MX": "Dañador",
+                    "fr-FR": "Agresseur",
+                    "it-IT": "Attaccante",
+                    "ja-JP": "ダメージャー",
+                    "pl-PL": "Raniący",
+                    "pt-BR": "Danificador",
+                    "ru-RU": "Источник урона",
+                    "zh-CN": "伤害者"
                 }
             },
             {
@@ -7870,6 +9943,19 @@ const actionKw =
                     "pt-BR": "A duração do Dano ao Longo do Tempo em segundos. Para ter um DLT que dure até ser interrompido por script forneça uma Duração arbitrariamente longa como 9999.",
                     "ru-RU": "Длительность эффекта периодического урона в секундах. Чтобы эффект останавливался только посредством скрипта нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
                     "zh-CN": "持续伤害的持续时间，以秒为单位。如果要让状态持续到被程序终止为止，可以输出较长的持续时间，如9999。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B589",
+                    "en-US": "Duration",
+                    "es-ES": "Duración",
+                    "es-MX": "Duración",
+                    "fr-FR": "Durée",
+                    "it-IT": "Durata",
+                    "ja-JP": "期間",
+                    "pl-PL": "Czas trwania",
+                    "pt-BR": "Duração",
+                    "ru-RU": "Длительность",
+                    "zh-CN": "持续时间"
                 }
             },
             {
@@ -7891,6 +9977,19 @@ const actionKw =
                     "pt-BR": "O dano por segundo do Dano ao Longo do Tempo.",
                     "ru-RU": "Количество урона в секунду для переменной [Damage Over Time].",
                     "zh-CN": "持续伤害每秒造成的伤害值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9C8",
+                    "en-US": "Damage Per Second",
+                    "es-ES": "Daño por segundo",
+                    "es-MX": "Daño por segundo",
+                    "fr-FR": "Dégâts par seconde",
+                    "it-IT": "Danni al Secondo",
+                    "ja-JP": "秒ごとのダメージ",
+                    "pl-PL": "Obrażenia na sekundę",
+                    "pt-BR": "Dano por Segundo",
+                    "ru-RU": "Урон в секунду",
+                    "zh-CN": "每秒伤害"
                 }
             }
         ],
@@ -7945,6 +10044,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que começaráão a girar.",
                     "ru-RU": "Игрок или игроки которые начнут поворачиваться.",
                     "zh-CN": "下列玩家将开始转向。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -7966,6 +10078,18 @@ const actionKw =
                     "pt-BR": "A direção unitária para a qual os Jogadores terminaráão virados. Esse Valor é normalizado internamente.",
                     "ru-RU": "Направление в котором в итоге должен смотреть игрок или игроки. Значение нормализуется встроенными механизмами игры.",
                     "zh-CN": "玩家最终将面朝的单位方向。此值将进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             },
             {
@@ -7987,6 +10111,19 @@ const actionKw =
                     "pt-BR": "A taxa de giro em graus por segundo.",
                     "ru-RU": "Скорость поворота градусы в секунду.",
                     "zh-CN": "角速率，单位为度秒。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB1E",
+                    "en-US": "Turn Rate",
+                    "es-ES": "Frecuencia de giro",
+                    "es-MX": "Velocidad de giro",
+                    "fr-FR": "Taux de rotation",
+                    "it-IT": "Frequenza Rotazione",
+                    "ja-JP": "回転レート",
+                    "pl-PL": "Tempo obrotu",
+                    "pt-BR": "Taxa de Giro",
+                    "ru-RU": "Скорость поворота",
+                    "zh-CN": "角速率"
                 }
             },
             {
@@ -8008,6 +10145,19 @@ const actionKw =
                     "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
                     "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
                     "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B174",
+                    "en-US": "Relative",
+                    "es-ES": "Relativo",
+                    "es-MX": "Relativo",
+                    "fr-FR": "Relatif",
+                    "it-IT": "Relativo",
+                    "ja-JP": "相対",
+                    "pl-PL": "Względnie",
+                    "pt-BR": "Relativo",
+                    "ru-RU": "Система координат",
+                    "zh-CN": "相对"
                 }
             },
             {
@@ -8029,6 +10179,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -8083,6 +10246,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que estáão segurando virtualmente um botão.",
                     "ru-RU": "Игрок или игроки у которых будет виртуально удерживаться кнопка.",
                     "zh-CN": "下列玩家将持续按下虚拟按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8104,6 +10280,19 @@ const actionKw =
                     "pt-BR": "O botão lógico que está sendo segurado virtualmente.",
                     "ru-RU": "Логическая кнопка которую нужно виртуально удерживать.",
                     "zh-CN": "设置按下的虚拟按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -8158,6 +10347,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que seráão forçados a usar um Herói específico.",
                     "ru-RU": "Игрок или игроки для которых будет включено принудительное использование указанного героя.",
                     "zh-CN": "下列玩家将被强制使用指定英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8179,6 +10381,19 @@ const actionKw =
                     "pt-BR": "O Herói que os Jogadores seráão forçados a usar.",
                     "ru-RU": "Герой за которого принудительно будет играть один или несколько игроков.",
                     "zh-CN": "玩家将被强制使用的英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             }
         ],
@@ -8222,6 +10437,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player whose name will be forced.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8232,6 +10460,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The name to be forced.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             }
         ],
@@ -8260,6 +10501,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their outline modified.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125D",
+                    "en-US": "Viewed Players",
+                    "es-ES": "Jugadores observados",
+                    "es-MX": "Jugadores observados",
+                    "fr-FR": "Joueurs observés",
+                    "it-IT": "Giocatori Osservati",
+                    "ja-JP": "表示対象プレイヤー",
+                    "pl-PL": "Obserwowani gracze",
+                    "pt-BR": "Jogadores Observados",
+                    "ru-RU": "Наблюдаемые игроки",
+                    "zh-CN": "被观察的玩家"
                 }
             },
             {
@@ -8275,6 +10529,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The viewing player or players for whom the viewed player's outline will be modified.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125A",
+                    "en-US": "Viewing Players",
+                    "es-ES": "Jugadores observadores",
+                    "es-MX": "Jugadores que observan",
+                    "fr-FR": "Joueurs spectateurs",
+                    "it-IT": "Giocatori Osservatori",
+                    "ja-JP": "表示側プレイヤー",
+                    "pl-PL": "Obserwujący gracze",
+                    "pt-BR": "Jogadores Observadores",
+                    "ru-RU": "Наблюдающие игроки",
+                    "zh-CN": "观察玩家"
                 }
             },
             {
@@ -8296,6 +10563,16 @@ const actionKw =
                     "pt-BR": "Se os Contornos de Jogador especificados estarão visíveis.",
                     "ru-RU": "Определяет видимы ли контуры указанных игроков.",
                     "zh-CN": "指定玩家的轮廓是否可见。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011301",
+                    "en-US": "Visible",
+                    "it-IT": "Visibile",
+                    "ja-JP": "表示",
+                    "pl-PL": "Widoczne",
+                    "pt-BR": "Visível",
+                    "ru-RU": "Видимость",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -8306,6 +10583,14 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the specified player outlines, if they are visible.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011D42",
+                    "en-US": "Color",
+                    "fr-FR": "Couleur",
+                    "ja-JP": "色",
+                    "pt-BR": "Cor",
+                    "zh-CN": "颜色"
                 }
             },
             {
@@ -8316,6 +10601,15 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The visibility type of the specified player outlines, if they are visible.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             }
         ],
@@ -8350,6 +10644,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja posição será forçada a opção de Reavaliação não se aplica a este valor.",
                     "ru-RU": "Игрок позиция которого будет принудительно назначаться. К данному значению циклическая проверка не применяется.",
                     "zh-CN": "强制设置此玩家的位置。（重新赋值选项不会影响此值。）"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8372,6 +10679,18 @@ const actionKw =
                     "pt-BR": "A posição que o Jogador ocupará. Se a Reavaliação for ativada este valor poderá ser usado para mover o Jogador ao longo do tempo.",
                     "ru-RU": "Определяет позицию которую займет игрок. При включенном пересчете координат это значение можно использовать чтобы с течением времени перемещать игрока.",
                     "zh-CN": "将指定玩家设置至此位置。如果“重新赋值”选项启动，会使用这个值强制使玩家移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -8382,6 +10701,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the posiiton is only evaluated once when the action begins.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000010E87",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Reavaliação",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -8436,6 +10768,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja movimentação será forçada ou limitada.",
                     "ru-RU": "Игрок или игроки передвижение которых будет принудительным или ограниченным.",
                     "zh-CN": "下列玩家将被强制或限制移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8459,6 +10804,19 @@ const actionKw =
                     "pt-BR": "Define a quantidade mínima de corrida frontal. 0 permite que os Jogadores parem enquanto 1 força movimento frontal total.",
                     "ru-RU": "Устанавливает минимальное значение для движения вперед. Значение 0 позволяет игроку или игрокам останавливаться значение 1 принуждает егоих двигаться вперед на полной скорости.",
                     "zh-CN": "设置向前行进的最小速度。设为0时玩家可以停下，设为1时将强迫玩家全速向前移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB10",
+                    "en-US": "Min Forward",
+                    "es-ES": "Mín. hacia adelante",
+                    "es-MX": "Movimiento mínimo hacia adelante",
+                    "fr-FR": "Minimum en avant",
+                    "it-IT": "Minimo Avanti",
+                    "ja-JP": "前方最小",
+                    "pl-PL": "Minimum do przodu",
+                    "pt-BR": "Mín. Frontal",
+                    "ru-RU": "Мин. вперед",
+                    "zh-CN": "向前最小"
                 }
             },
             {
@@ -8482,6 +10840,19 @@ const actionKw =
                     "pt-BR": "Define a quantidade máxima de corrida frontal. 0 impede que os Jogadores andem para a frente enquanto 1 permite movimento frontal total.",
                     "ru-RU": "Устанавливает максимальное значение для движения вперед. Значение 0 не позволяет игроку или игрокам двигаться вперед значение 1 позволяет емуим двигаться вперед на полной скорости.",
                     "zh-CN": "设置向前行进的最大速度。设为0时玩家将无法前进，设为1时玩家可以全速向前移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB11",
+                    "en-US": "Max Forward",
+                    "es-ES": "Máx. hacia adelante",
+                    "es-MX": "Movimiento máximo hacia adelante",
+                    "fr-FR": "Maximum en avant",
+                    "it-IT": "Massimo Avanti",
+                    "ja-JP": "前方最大",
+                    "pl-PL": "Maksimum do przodu",
+                    "pt-BR": "Máx. Frontal",
+                    "ru-RU": "Макс. вперед",
+                    "zh-CN": "向前最大"
                 }
             },
             {
@@ -8505,6 +10876,19 @@ const actionKw =
                     "pt-BR": "Define a quantidade mínima de corrida para trás. 0 permite que os Jogadores parem enquanto 1 força movimento total para trás.",
                     "ru-RU": "Устанавливает минимальное значение для движения назад. Значение 0 позволяет игроку или игрокам останавливаться значение 1 принуждает егоих двигаться назад на полной скорости.",
                     "zh-CN": "设置向后行进的最小速度。设为0时玩家可以停下，设为1时将强迫玩家全速向后移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB15",
+                    "en-US": "Min Backward",
+                    "es-ES": "Mín. hacia atrás",
+                    "es-MX": "Movimiento mínimo hacia atrás",
+                    "fr-FR": "Minimum en arrière",
+                    "it-IT": "Minimo Indietro",
+                    "ja-JP": "後方最小",
+                    "pl-PL": "Minimum do tyłu",
+                    "pt-BR": "Mín. para Trás",
+                    "ru-RU": "Мин. назад",
+                    "zh-CN": "向后最小"
                 }
             },
             {
@@ -8528,6 +10912,19 @@ const actionKw =
                     "pt-BR": "Define a quantidade máxima de corrida para trás. 0 impede que os Jogadores andem para trás enquanto 1 permite movimento total para trás.",
                     "ru-RU": "Устанавливает максимальное значение для движения назад. Значение 0 не позволяет игроку или игрокам двигаться назад значение 1 позволяет емуим двигаться назад на полной скорости.",
                     "zh-CN": "设置向后行进的最大速度。设为0时玩家将无法后退，设为1时玩家可以全速向后移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB14",
+                    "en-US": "Max Backward",
+                    "es-ES": "Máx. hacia atrás",
+                    "es-MX": "Movimiento máximo hacia atrás",
+                    "fr-FR": "Maximum en arrière",
+                    "it-IT": "Massimo Indietro",
+                    "ja-JP": "後方最大",
+                    "pl-PL": "Maksimum do tyłu",
+                    "pt-BR": "Máx. para Trás",
+                    "ru-RU": "Макс. назад",
+                    "zh-CN": "向后最大"
                 }
             },
             {
@@ -8540,6 +10937,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Sets the minimum run sideways amount. 0 allows the player or players to stop while 1 forces full sideways movement.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB13",
+                    "en-US": "Min Sideways",
+                    "es-ES": "Mín. de lado",
+                    "es-MX": "Movimiento mínimo hacia los lados",
+                    "fr-FR": "Minimum latéral",
+                    "it-IT": "Minimo Laterale",
+                    "ja-JP": "横方向最小",
+                    "pl-PL": "Minimum na boki",
+                    "pt-BR": "Mín. Lateral",
+                    "ru-RU": "Мин. в сторону",
+                    "zh-CN": "侧向最小"
                 }
             },
             {
@@ -8563,6 +10973,19 @@ const actionKw =
                     "pt-BR": "Define a quantidade máxima de corrida lateral. 0 impede que os Jogadores andem para o lado enquanto 1 permite movimento lateral total.",
                     "ru-RU": "Устанавливает максимальное значение для движения вбок. Значение 0 не позволяет игроку или игрокам двигаться вбок значение 1 позволяет емуим двигаться вбок на полной скорости.",
                     "zh-CN": "设置侧向行进的最大速度。设为0时玩家将无法侧移，设为1时玩家可以全速向侧向移动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB12",
+                    "en-US": "Max Sideways",
+                    "es-ES": "Máx. de lado",
+                    "es-MX": "Movimiento máximo hacia los lados",
+                    "fr-FR": "Maximum latéral",
+                    "it-IT": "Massimo Laterale",
+                    "ja-JP": "横方向最大",
+                    "pl-PL": "Maksimum na boki",
+                    "pt-BR": "Máx. Lateral",
+                    "ru-RU": "Макс. в сторону",
+                    "zh-CN": "侧向最大"
                 }
             }
         ],
@@ -8606,6 +11029,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The target Player or Players who will receive assist credit.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012202",
+                    "en-US": "Assisters",
+                    "es-ES": "Asistentes",
+                    "es-MX": "Asistentes",
+                    "fr-FR": "Soutiens",
+                    "it-IT": "Assistenti",
+                    "ja-JP": "アシスター（複数）",
+                    "pl-PL": "Asystujący",
+                    "pt-BR": "Assistentes",
+                    "ru-RU": "Содействующие",
+                    "zh-CN": "助攻者"
                 }
             },
             {
@@ -8632,6 +11068,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas eliminações darão crédito aos Assistentes. Se o Assistente for Aliado dos Alvos será uma assistência defensiva. Caso contrário será uma assistência ofensiva.",
                     "ru-RU": "Игрок или игроки за убийства которых будут начислены очки содействующим. Если цель или цели являются союзниками содействующего содействие считается защитным. В противном случае оно будет считаться боевым.",
                     "zh-CN": "下列玩家被消灭时，会将助攻归于助攻者名下。如果目标和助攻者为盟友，则为协助防守。否则为协助进攻。"
+                },
+                "nameLocalized": {
+                    "guid": "000000012204",
+                    "en-US": "Targets",
+                    "es-ES": "Objetivos",
+                    "es-MX": "Objetivos",
+                    "fr-FR": "Cibles",
+                    "it-IT": "Bersagli",
+                    "ja-JP": "ターゲット（複数）",
+                    "pl-PL": "Cele",
+                    "pt-BR": "Alvos",
+                    "ru-RU": "Цели",
+                    "zh-CN": "目标"
                 }
             },
             {
@@ -8642,6 +11091,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies which of this Action's Inputs will be continously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -8681,6 +11143,19 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que receberão a Cura ao Longo do Tempo.",
                     "ru-RU": "Один или несколько игроков к которым будет применяться эффект периодического исцеления.",
                     "zh-CN": "下列玩家会受到持续治疗。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8702,6 +11177,19 @@ const actionKw =
                     "pt-BR": "O Jogador que receberá crédito pela cura. Um Curandeiro Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Игрок который получит очки за исцеление. Пустое значение Null переменной [Healer] означает что очки не будут присуждаться никому.",
                     "zh-CN": "治疗视为此名玩家造成的。如果“治疗者”设置为“空”则此治疗不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B58E",
+                    "en-US": "Healer",
+                    "es-ES": "Sanador",
+                    "es-MX": "Sanador",
+                    "fr-FR": "Soigneur",
+                    "it-IT": "Guaritore",
+                    "ja-JP": "ヒーラー",
+                    "pl-PL": "Leczący",
+                    "pt-BR": "Curandeiro",
+                    "ru-RU": "Источник исцеления",
+                    "zh-CN": "治疗者"
                 }
             },
             {
@@ -8723,6 +11211,19 @@ const actionKw =
                     "pt-BR": "A duração da Cura ao Longo do Tempo em segundos. Para ter uma CLT que dure até ser interrompida por script forneça uma Duração arbitrariamente longa como 9999.",
                     "ru-RU": "Длительность эффекта периодического исцеления в секундах. Чтобы эффект останавливался только посредством скрипта нужно указать достаточно большое значение переменной [Duration] такое как 9999.",
                     "zh-CN": "持续治疗的持续时间，以秒为单位。如果要让状态持续到被程序终止为止，可以输出较长的持续时间，如9999。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B589",
+                    "en-US": "Duration",
+                    "es-ES": "Duración",
+                    "es-MX": "Duración",
+                    "fr-FR": "Durée",
+                    "it-IT": "Durata",
+                    "ja-JP": "期間",
+                    "pl-PL": "Czas trwania",
+                    "pt-BR": "Duração",
+                    "ru-RU": "Длительность",
+                    "zh-CN": "持续时间"
                 }
             },
             {
@@ -8744,6 +11245,19 @@ const actionKw =
                     "pt-BR": "A cura por segundo da Cura ao Longo do Tempo.",
                     "ru-RU": "Объем исцеления в секунду для переменной [Heal Over Time].",
                     "zh-CN": "此持续治疗每秒造成的治疗。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9C9",
+                    "en-US": "Healing Per Second",
+                    "es-ES": "Sanación por segundo",
+                    "es-MX": "Sanación por segundo",
+                    "fr-FR": "Soins par seconde",
+                    "it-IT": "Cure al Secondo",
+                    "ja-JP": "秒ごとの回復量",
+                    "pl-PL": "Leczenie na sekundę",
+                    "pt-BR": "Cura por Segundo",
+                    "ru-RU": "Исцеление в секунду",
+                    "zh-CN": "每秒治疗"
                 }
             }
         ],
@@ -8787,6 +11301,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players whose voice line sound will be modified.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8809,6 +11336,19 @@ const actionKw =
                     "pt-BR": "O valor em que o tom da voz será aumentado até 15 ou baixado até 05.",
                     "ru-RU": "Степень изменения высоты звучания реплик в большую до 15 или меньшую до 05 сторону.",
                     "zh-CN": "语音的音调提高（最高至1.5）或降低（最低至0.5）的值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C5",
+                    "en-US": "Pitch Scalar",
+                    "es-ES": "Tono",
+                    "es-MX": "Escala de tono",
+                    "fr-FR": "Timbre de la voix",
+                    "it-IT": "Scalare del Pitch",
+                    "ja-JP": "ピッチスカラー",
+                    "pl-PL": "Współczynnik skalowania wysokości głosu",
+                    "pt-BR": "Escalar do Tom",
+                    "ru-RU": "Скалярное значение высоты звука",
+                    "zh-CN": "音调调整"
                 }
             },
             {
@@ -8819,6 +11359,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the actions executes.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -8873,6 +11426,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas barreiras terão o tamanho modificado.",
                     "ru-RU": "Игрок или игроки у которых изменится размер барьеров.",
                     "zh-CN": "停止强制设置下列玩家的屏障大小。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8885,6 +11451,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The multiplier applied to the size of the barriers (0.5 halves the size, 2.0 doubles the size, etc.).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011310",
+                    "en-US": "Scale",
+                    "es-ES": "Escala",
+                    "es-MX": "Escalar",
+                    "fr-FR": "Échelle",
+                    "it-IT": "Scala",
+                    "ja-JP": "スケール",
+                    "pl-PL": "Skala",
+                    "pt-BR": "Escala",
+                    "ru-RU": "Масштаб",
+                    "zh-CN": "大小"
                 }
             },
             {
@@ -8906,6 +11485,19 @@ const actionKw =
                     "pt-BR": "Se o valor for Verdadeiro a Escala será recalculada e aplicada ao Jogador ou Jogadores a cada quadro. Se o valor for Falso a Escala só será calculada quando a ação começar.",
                     "ru-RU": "Если данное значение верно True масштаб подвергается циклической проверке и назначается игроку или игрокам раз в один кадр. Если данное значение ложно False масштаб проверяется единожды при запуске действия.",
                     "zh-CN": "如果此值为真，那么每一帧都会重新计算玩家的大小。如果此值为假，则大小只会在此行动一开始时赋予一个值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -8945,6 +11537,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo tamanho será modificado.",
                     "ru-RU": "Игрок или игроки у которых изменится размер модели.",
                     "zh-CN": "设置下列玩家的大小。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -8957,6 +11562,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The multiplier applied to the size of the player or players (0.5 halves the size, 2.0 doubles the size, etc.).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011310",
+                    "en-US": "Scale",
+                    "es-ES": "Escala",
+                    "es-MX": "Escalar",
+                    "fr-FR": "Échelle",
+                    "it-IT": "Scala",
+                    "ja-JP": "スケール",
+                    "pl-PL": "Skala",
+                    "pt-BR": "Escala",
+                    "ru-RU": "Масштаб",
+                    "zh-CN": "大小"
                 }
             },
             {
@@ -8967,6 +11585,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -9006,6 +11637,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja aceleração será definida ou somada.",
                     "ru-RU": "Игрок или игроки для которых будет задан начальный или корректирующий импульс движения.",
                     "zh-CN": "设置或添加下列玩家的阈值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -9027,6 +11671,18 @@ const actionKw =
                     "pt-BR": "A direção unitária na qual a aceleração será definida ou somada. Esse Valor é normalizado internamente.",
                     "ru-RU": "Направление начального или корректирующего импульса движения. Это значение нормализуется игрой.",
                     "zh-CN": "设置或添加阈值的单位方向。此值将进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             },
             {
@@ -9048,6 +11704,18 @@ const actionKw =
                     "pt-BR": "A quantidade ou mudança de aceleração. O Valor 1 significa aceleração total.",
                     "ru-RU": "Сила импульса или его коррекции. Значение 1 соответствует максимальному импульсу.",
                     "zh-CN": "阈值的值（或改变值）。值为1时表示阈值为满。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CEAE",
+                    "en-US": "Magnitude",
+                    "es-ES": "Magnitud",
+                    "es-MX": "Magnitud",
+                    "fr-FR": "Ampleur",
+                    "it-IT": "Entità",
+                    "ja-JP": "変化の大きさ",
+                    "pl-PL": "Wielkość",
+                    "ru-RU": "Сила",
+                    "zh-CN": "幅度"
                 }
             },
             {
@@ -9069,6 +11737,19 @@ const actionKw =
                     "pt-BR": "Especifica se a Direção é relativa às coordenadas do mundo ou às coordenadas locais dos Jogadores.",
                     "ru-RU": "Определяет способ вычисления направления – относительно глобальной системы координат или относительно локальной системы координат игрока или игроков.",
                     "zh-CN": "确定此方向是相对于地图坐标还是玩家的本地坐标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B174",
+                    "en-US": "Relative",
+                    "es-ES": "Relativo",
+                    "es-MX": "Relativo",
+                    "fr-FR": "Relatif",
+                    "it-IT": "Relativo",
+                    "ja-JP": "相対",
+                    "pl-PL": "Względnie",
+                    "pt-BR": "Relativo",
+                    "ru-RU": "Система координат",
+                    "zh-CN": "相对"
                 }
             },
             {
@@ -9090,6 +11771,19 @@ const actionKw =
                     "pt-BR": "Especifica se a aceleração já existente será substituída ou somada.",
                     "ru-RU": "Определяет будет ли новый импульс движения прибавлен к существующему или заменит его.",
                     "zh-CN": "指定需要替换或添加的已存在的阈值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CEB5",
+                    "en-US": "Behavior",
+                    "es-ES": "Comportamiento",
+                    "es-MX": "Comportamiento",
+                    "fr-FR": "Comportement",
+                    "it-IT": "Comportamento",
+                    "ja-JP": "動作",
+                    "pl-PL": "Zachowanie",
+                    "pt-BR": "Comportamento",
+                    "ru-RU": "Поведение",
+                    "zh-CN": "行为"
                 }
             },
             {
@@ -9100,6 +11794,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. This aciton will keep asking for and using new values from reevaluated inputs.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -9154,6 +11861,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja aceleração será transformada.",
                     "ru-RU": "Один или несколько игроков для которых будет преобразован импульс движения.",
                     "zh-CN": "转换下列玩家的阈值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -9175,6 +11895,19 @@ const actionKw =
                     "pt-BR": "O eixo X de aceleração da esquerda para a direita dos Jogadores será multiplicado por esse valor antes de a aceleração ser girada para a nova Direção Relativa. Esse Valor é calculada continuamente atualizado a cada quadro.",
                     "ru-RU": "Импульс движения одного или нескольких игроков по оси X слева направо будет умножен на это значение перед поворотом импульса к новому относительному направлению. Это значение проверяется постоянно то есть раз в кадр.",
                     "zh-CN": "下列玩家阈值的X轴（左右方向）将会乘以此数值，然后转换到新的相对方向。这个值会不断被重新赋值（每一帧都会更新）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CC2D",
+                    "en-US": "X Axis Scalar",
+                    "es-ES": "Escala del eje X",
+                    "es-MX": "Escala de eje X",
+                    "fr-FR": "Scalaire axe X",
+                    "it-IT": "Scalare Asse X",
+                    "ja-JP": "X軸スカラー",
+                    "pl-PL": "Skalar osi Y",
+                    "pt-BR": "Escalar do Eixo X",
+                    "ru-RU": "Значение по оси X",
+                    "zh-CN": "X轴缩放"
                 }
             },
             {
@@ -9196,6 +11929,19 @@ const actionKw =
                     "pt-BR": "O eixo Y de aceleração da frente para trás dos Jogadores será multiplicado por esse valor antes de a aceleração ser girada para a nova Direção Relativa. Esse Valor é calculada continuamente atualizado a cada quadro.",
                     "ru-RU": "Импульс движения одного или нескольких игроков по оси Y спереди назад будет умножен на это значение перед поворотом импульса к новому относительному направлению. Это значение проверяется постоянно то есть раз в кадр.",
                     "zh-CN": "下列玩家阈值的Y轴（前后方向）将会乘以此数值，然后转换到新的相对方向。这个值会不断被重新赋值（每一帧都会更新）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CC2E",
+                    "en-US": "Y Axis Scalar",
+                    "es-ES": "Escala del eje Y",
+                    "es-MX": "Escala de eje Y",
+                    "fr-FR": "Scalaire axe Y",
+                    "it-IT": "Scalare Asse Y",
+                    "ja-JP": "Y軸スカラー",
+                    "pl-PL": "Skalar osi Y",
+                    "pt-BR": "Escalar do Eixo Y",
+                    "ru-RU": "Значение по оси Y",
+                    "zh-CN": "Y轴缩放"
                 }
             },
             {
@@ -9217,6 +11963,19 @@ const actionKw =
                     "pt-BR": "Ao aplicar as Escalares Axiais a aceleração dos Jogadores será transformada para que fique relativa ao vetor de direção desta unidade. Por exemplo: para tornar relativa a câmera de aceleração forneça a direção para a qual ela está virada. Esse Valor é calculado continuamente atualizado a cada quadro e normalizado internamente.",
                     "ru-RU": "После применения значений по осям преобразует импульс движения одного или нескольких игроков отноcительно этого единичного вектора. Пример: чтобы преобразовать импульс движения относительно камеры укажите направление в котором она развернута. Это значение проверяется постоянно раз в кадр и нормализуется встроенными механизмами игры.",
                     "zh-CN": "应用轴向缩放时，玩家的阈值将会被转换为相对此单位方向的矢量。例如，如果阈值转换至相对摄像机视角，则以摄像机的朝向为基准计算方向。这个值会不断被重新赋值（每一帧都会更新）并进行内部归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CC2B",
+                    "en-US": "Relative Direction",
+                    "es-ES": "Dirección relativa",
+                    "es-MX": "Dirección relativa",
+                    "fr-FR": "Direction relative",
+                    "it-IT": "Direzione Relativa",
+                    "ja-JP": "相対方向",
+                    "pl-PL": "Kierunek względny",
+                    "pt-BR": "Direção Relativa",
+                    "ru-RU": "Относительное направление",
+                    "zh-CN": "相对方向"
                 }
             }
         ],
@@ -9271,6 +12030,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que pararáão de acelerar.",
                     "ru-RU": "Игрок или игроки которые перестанут ускоряться.",
                     "zh-CN": "下列玩家将停止加速。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9325,6 +12097,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo Dano ao Longo do Tempo roteirizado será interrompido.",
                     "ru-RU": "Игрок или игроки чей скриптовый эффект периодического урона [Damage Over Time] прекратит свое действие.",
                     "zh-CN": "停止下列玩家身上程序给予的持续伤害。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9379,6 +12164,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja Cura ao Longo do Tempo roteirizada será interrompida.",
                     "ru-RU": "Игрок или игроки чьи скриптовые экземпляры периодического исцеления будут остановлены.",
                     "zh-CN": "停止下列玩家身上程序给予的持续治疗。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9433,6 +12231,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujas câmeras retornarão para a visão padrão.",
                     "ru-RU": "Игрок или игроки камеры которых будут ориентированы и возвращены к виду по умолчанию.",
                     "zh-CN": "将下列玩家的镜头恢复至默认视角。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9487,6 +12298,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que pararáão de girar.",
                     "ru-RU": "Игрок или игроки поворот которых будет прекращен.",
                     "zh-CN": "下列玩家将停止转向。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9541,6 +12365,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que não estáão mais segurando virtualmente um botão.",
                     "ru-RU": "Игрок или игроки у которых больше не будет виртуально удерживаться кнопка.",
                     "zh-CN": "下列玩家将不再持续按下虚拟按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -9562,6 +12399,19 @@ const actionKw =
                     "pt-BR": "O botão lógico que não está mais sendo segurado virtualmente.",
                     "ru-RU": "Логическая кнопка виртуальное удерживание которой нужно прекратить.",
                     "zh-CN": "不再持续按下的虚拟按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -9616,6 +12466,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que não seráão mais forçados a usar um Herói específico.",
                     "ru-RU": "Игрок или игроки для которых будет отключено принудительное использование указанного героя.",
                     "zh-CN": "下列玩家将不再被强制使用指定英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9659,6 +12522,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The Player or Players whose names will stop being forced",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9688,6 +12564,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players who will have their outlines reset.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125D",
+                    "en-US": "Viewed Players",
+                    "es-ES": "Jugadores observados",
+                    "es-MX": "Jugadores observados",
+                    "fr-FR": "Joueurs observés",
+                    "it-IT": "Giocatori Osservati",
+                    "ja-JP": "表示対象プレイヤー",
+                    "pl-PL": "Obserwowani gracze",
+                    "pt-BR": "Jogadores Observados",
+                    "ru-RU": "Наблюдаемые игроки",
+                    "zh-CN": "被观察的玩家"
                 }
             },
             {
@@ -9714,6 +12603,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores Observadores para quem os Contornos de Jogador Observado seráão redefinidos.",
                     "ru-RU": "Наблюдающий игрок или игроки для которых будут сброшены контуры игроков.",
                     "zh-CN": "从观察玩家的视角看，被观察的玩家的轮廓将被重新设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001125A",
+                    "en-US": "Viewing Players",
+                    "es-ES": "Jugadores observadores",
+                    "es-MX": "Jugadores que observan",
+                    "fr-FR": "Joueurs spectateurs",
+                    "it-IT": "Giocatori Osservatori",
+                    "ja-JP": "表示側プレイヤー",
+                    "pl-PL": "Obserwujący gracze",
+                    "pt-BR": "Jogadores Observadores",
+                    "ru-RU": "Наблюдающие игроки",
+                    "zh-CN": "观察玩家"
                 }
             }
         ],
@@ -9768,6 +12670,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja posição deixará de ser forçada.",
                     "ru-RU": "Игрок или игроки которым больше не будет принудительно назначаться позиция.",
                     "zh-CN": "停止强制设置下列玩家的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9807,6 +12722,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja entrada de movimento será restaurada.",
                     "ru-RU": "Игрок или игроки чей аргумент передвижения будет восстановлен.",
                     "zh-CN": "下列玩家的移动将恢复正常。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9861,6 +12789,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujos sons de fala de herói deixarão de ser modificados.",
                     "ru-RU": "Игрок или игроки у которых больше не будет изменяться звучание реплик персонажей.",
                     "zh-CN": "下列玩家的英雄语音声音将停止被修改。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9889,6 +12830,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players whose barriers will stop having their size being overridden.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9928,6 +12882,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo tamanho deixará de ser substituído.",
                     "ru-RU": "Игрок или игроки у которых больше не будет корректироваться размер барьеров.",
                     "zh-CN": "停止强制设置下列玩家的大小。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -9967,6 +12934,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo controle-padrão de aceleração será restaurado.",
                     "ru-RU": "Игрок или игроки для которых будут восстановлены обычные параметры импульса движения.",
                     "zh-CN": "恢复下列玩家的默认阈值控制。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -10021,6 +13001,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja aceleração deixará de ser transformada.",
                     "ru-RU": "Один или несколько игроков для которых будет прекращено преобразование импульса движения.",
                     "zh-CN": "停止转换下列玩家的阈值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -10076,6 +13069,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores a serem teletransportados.",
                     "ru-RU": "Телепортируемый игрок или игроки.",
                     "zh-CN": "下列玩家将被传送。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -10098,6 +13104,18 @@ const actionKw =
                     "pt-BR": "A posição para a qual os Jogadores seráão teletransportados. Se um Jogador for fornecido a posição do Jogador será usada.",
                     "ru-RU": "Точка куда будет телепортирован игрок или игроки. Если вместо значения указан игрок то будет использоваться его местоположение.",
                     "zh-CN": "玩家将被传送到的位置。如果此处填入一名玩家，则使用此玩家所在的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             }
         ],
@@ -10200,6 +13218,18 @@ const actionKw =
                     "pt-BR": "Especifica se a execução será interrompida ou não.",
                     "ru-RU": "Определяет будет ли остановлено выполнение.",
                     "zh-CN": "是否停止执行。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -10249,6 +13279,17 @@ const actionKw =
                     "pt-BR": "Especifica qual sub-rotina será chamada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina então ela será executada. Caso contrário a ação é ignorada.",
                     "ru-RU": "Задает подпрограмму для вызова. Если правило с типом события [Subroutine] задает ту же подпрограмму оно выполняется. В противном случае это действие пропускается.",
                     "zh-CN": "指定要调用的子程序。如果一个事件类型为子程序的规则指定了同一段子程序，那么它将会被执行。否则会忽略此行动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001001F",
+                    "en-US": "Subroutine",
+                    "es-MX": "Subrutina",
+                    "fr-FR": "Sous-programme",
+                    "ja-JP": "サブルーチン",
+                    "pl-PL": "Podprogram",
+                    "pt-BR": "Sub-rotina",
+                    "ru-RU": "Подпрограмма",
+                    "zh-CN": "子程序"
                 }
             }
         ],
@@ -10298,6 +13339,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Variável Global será modificada gradativamente.",
                     "ru-RU": "Определяет какая из глобальных переменных должна постепенно изменяться.",
                     "zh-CN": "指定要改变的全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -10322,6 +13373,18 @@ const actionKw =
                     "pt-BR": "O Valor que a Variável Global atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
                     "ru-RU": "Значение которого должна достигнуть глобальная переменная. Оно может быть численного или векторного типа но тип начального и конечного значений должен быть одинаковым.",
                     "zh-CN": "该全局变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时全局变量所具有的值相同。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B932",
+                    "en-US": "Destination",
+                    "es-ES": "Destino",
+                    "es-MX": "Destino",
+                    "it-IT": "Destinazione",
+                    "ja-JP": "目的",
+                    "pl-PL": "Miejsce docelowe",
+                    "pt-BR": "Destino",
+                    "ru-RU": "Цель",
+                    "zh-CN": "最终值"
                 }
             },
             {
@@ -10343,6 +13406,19 @@ const actionKw =
                     "pt-BR": "A quantidade de mudança que ocorrerá no Valor da Variável a cada segundo.",
                     "ru-RU": "Величина на которую будет изменяться значение переменной с каждой секундой.",
                     "zh-CN": "此变量的值每秒改变的量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B844",
+                    "en-US": "Rate",
+                    "es-ES": "Ritmo",
+                    "es-MX": "Aceleración",
+                    "fr-FR": "Cadence",
+                    "it-IT": "Frequenza",
+                    "ja-JP": "レート",
+                    "pl-PL": "Tempo",
+                    "pt-BR": "Taxa",
+                    "ru-RU": "Шаг",
+                    "zh-CN": "频率"
                 }
             },
             {
@@ -10364,6 +13440,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -10413,6 +13502,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Variável Global será modificada gradativamente.",
                     "ru-RU": "Определяет какая из глобальных переменных должна постепенно изменяться.",
                     "zh-CN": "指定要改变的全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -10437,6 +13536,18 @@ const actionKw =
                     "pt-BR": "O Valor que a Variável Global atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
                     "ru-RU": "Значение которого должна достигнуть глобальная переменная. Оно может быть численного или векторного типа но тип начального и конечного значений должен быть одинаковым.",
                     "zh-CN": "该全局变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时全局变量所具有的值相同。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B932",
+                    "en-US": "Destination",
+                    "es-ES": "Destino",
+                    "es-MX": "Destino",
+                    "it-IT": "Destinazione",
+                    "ja-JP": "目的",
+                    "pl-PL": "Miejsce docelowe",
+                    "pt-BR": "Destino",
+                    "ru-RU": "Цель",
+                    "zh-CN": "最终值"
                 }
             },
             {
@@ -10458,6 +13569,19 @@ const actionKw =
                     "pt-BR": "A quantidade de tempo em segundos ao longo da qual o Valor da Variável atingirá o Destino.",
                     "ru-RU": "Время в секундах в течение которого переменная должна достигнуть целевого значения.",
                     "zh-CN": "变量到达最终值所用的时间，以秒为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B589",
+                    "en-US": "Duration",
+                    "es-ES": "Duración",
+                    "es-MX": "Duración",
+                    "fr-FR": "Durée",
+                    "it-IT": "Durata",
+                    "ja-JP": "期間",
+                    "pl-PL": "Czas trwania",
+                    "pt-BR": "Duração",
+                    "ru-RU": "Длительность",
+                    "zh-CN": "持续时间"
                 }
             },
             {
@@ -10479,6 +13603,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -10533,6 +13670,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja Variável será alterada gradativamente. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será alterada de forma independente.",
                     "ru-RU": "Игрок переменную которого следует постепенно изменять. Если выбрано несколько игроков их переменные будут меняться независимо.",
                     "zh-CN": "此玩家的变量将被逐渐改变。如果有多个玩家，则每个玩家的变量都将各自被改变。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -10554,6 +13704,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador será modificada gradativamente.",
                     "ru-RU": "Определяет какую из переменных игрока следует постепенно изменять.",
                     "zh-CN": "指定将要改变的玩家变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -10578,6 +13738,18 @@ const actionKw =
                     "pt-BR": "O Valor que a Variável do Jogador atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
                     "ru-RU": "Значение которого должна достигнуть переменная игрока. Оно может быть численного или векторного типа но тип начального и конечного значения должен быть одинаковым.",
                     "zh-CN": "该玩家变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时玩家变量所具有的值相同。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B932",
+                    "en-US": "Destination",
+                    "es-ES": "Destino",
+                    "es-MX": "Destino",
+                    "it-IT": "Destinazione",
+                    "ja-JP": "目的",
+                    "pl-PL": "Miejsce docelowe",
+                    "pt-BR": "Destino",
+                    "ru-RU": "Цель",
+                    "zh-CN": "最终值"
                 }
             },
             {
@@ -10599,6 +13771,19 @@ const actionKw =
                     "pt-BR": "A quantidade de mudança que ocorrerá no Valor da Variável a cada segundo.",
                     "ru-RU": "Величина на которую будет изменяться значение переменной с каждой секундой.",
                     "zh-CN": "此变量的值每秒改变的量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B844",
+                    "en-US": "Rate",
+                    "es-ES": "Ritmo",
+                    "es-MX": "Aceleración",
+                    "fr-FR": "Cadence",
+                    "it-IT": "Frequenza",
+                    "ja-JP": "レート",
+                    "pl-PL": "Tempo",
+                    "pt-BR": "Taxa",
+                    "ru-RU": "Шаг",
+                    "zh-CN": "频率"
                 }
             },
             {
@@ -10620,6 +13805,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -10674,6 +13872,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja Variável será alterada gradativamente. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será alterada de forma independente.",
                     "ru-RU": "Игрок переменную которого следует постепенно изменять. Если выбрано несколько игроков их переменные будут меняться независимо.",
                     "zh-CN": "此玩家的变量将被逐渐改变。如果有多个玩家，则每个玩家的变量都将各自被改变。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -10695,6 +13906,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador será modificada gradativamente.",
                     "ru-RU": "Определяет какую из переменных игрока следует постепенно изменять.",
                     "zh-CN": "指定将要改变的玩家变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -10719,6 +13940,18 @@ const actionKw =
                     "pt-BR": "O Valor que a Variável do Jogador atingirá no fim. O tipo desse Valor pode ser um Número ou um Vetor embora o Valor existente da Variável deva ser do mesmo tipo antes de o acompanhamento começar.",
                     "ru-RU": "Значение которого должна достигнуть переменная игрока. Оно может быть численного или векторного типа но тип начального и конечного значения должен быть одинаковым.",
                     "zh-CN": "该玩家变量最后达到的值。这个值的类型可以是数字或矢量，然而必须与追踪开始时玩家变量所具有的值相同。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B932",
+                    "en-US": "Destination",
+                    "es-ES": "Destino",
+                    "es-MX": "Destino",
+                    "it-IT": "Destinazione",
+                    "ja-JP": "目的",
+                    "pl-PL": "Miejsce docelowe",
+                    "pt-BR": "Destino",
+                    "ru-RU": "Цель",
+                    "zh-CN": "最终值"
                 }
             },
             {
@@ -10740,6 +13973,19 @@ const actionKw =
                     "pt-BR": "A quantidade de tempo em segundos ao longo da qual o Valor da Variável atingirá o Destino.",
                     "ru-RU": "Время в секундах в течение которого переменная должна достигнуть целевого значения.",
                     "zh-CN": "变量到达最终值所用的时间，以秒为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B589",
+                    "en-US": "Duration",
+                    "es-ES": "Duración",
+                    "es-MX": "Duración",
+                    "fr-FR": "Durée",
+                    "it-IT": "Durata",
+                    "ja-JP": "期間",
+                    "pl-PL": "Czas trwania",
+                    "pt-BR": "Duração",
+                    "ru-RU": "Длительность",
+                    "zh-CN": "持续时间"
                 }
             },
             {
@@ -10761,6 +14007,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -10810,6 +14069,18 @@ const actionKw =
                     "pt-BR": "Se isso for avaliado como verdadeiro a execução continua com a próxima ação. Caso contrário a execução salta para a próxima ação Else If Else ou ação de Término do nível atual.",
                     "ru-RU": "Если это условие верно начинается выполнение следующего действия. В противном случае выполняется следующее действие [Else If] [Else] или [End] на текущем уровне.",
                     "zh-CN": "如果此值为真，则继续执行下一个行动。否则，跳转至当前层级的下一个Else If，Else或End行动并执行。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -10908,6 +14179,18 @@ const actionKw =
                     "pt-BR": "A variável modificada neste loop. Ela é definida para o valor do Início do Intervalo quando o loop começa e o loop continua até que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo.",
                     "ru-RU": "Переменная модифицируемая в этом цикле. В начале цикла ее значение приравнивается к началу диапазона и цикл продолжается до достижения или пересечения управляющей переменной значения конца диапазона.",
                     "zh-CN": "此变量将在循环（执行）过程中被修改。循环开始时将其设为初始值，直到控制变量达到或超过终止值时循环结束。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB42",
+                    "en-US": "Control Variable",
+                    "es-ES": "Variable de control",
+                    "es-MX": "Variable de control",
+                    "fr-FR": "Variable de contrôle",
+                    "it-IT": "Variabile di Controllo",
+                    "ja-JP": "コントロール変数",
+                    "pt-BR": "Variável de controle",
+                    "ru-RU": "Управляющая переменная",
+                    "zh-CN": "控制变量"
                 }
             },
             {
@@ -10929,6 +14212,18 @@ const actionKw =
                     "pt-BR": "A Variável de Controle é definida para esse valor quando o loop começa.",
                     "ru-RU": "Это значение присваивается управляющей переменной в начале цикла.",
                     "zh-CN": "当循环开始时，将控制变量设为此变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB47",
+                    "en-US": "Range Start",
+                    "es-ES": "Inicio de intervalo",
+                    "es-MX": "Inicio de rango",
+                    "fr-FR": "Début de l’intervalle",
+                    "it-IT": "Avvio Portata",
+                    "ja-JP": "開始値",
+                    "pt-BR": "Início do intervalo",
+                    "ru-RU": "Начало диапазона",
+                    "zh-CN": "起始值"
                 }
             },
             {
@@ -10950,6 +14245,18 @@ const actionKw =
                     "pt-BR": "Se a Variável de Controle atingir ou ultrapassar este valor o loop se encerrará e a execução saltará para a próxima ação após a ação de Término. O que define se esse valor foi ultrapassado ou não é o fato de o valor da Etapa ser negativo ou positivo. Se a Variável de Controle já tiver atingido ou ultrapassado esse valor quando o loop começar ele se encerrará.",
                     "ru-RU": "Если управляющая переменная достигает или пересекает это значение цикл прерывается а затем выполняется следующее действие после [End]. То считается ли значение пересеченным зависит от того является ли значение шага отрицательным или положительным. Если управляющая переменная уже достигла или пересекла данное значение в начале цикла цикл прерывается.",
                     "zh-CN": "如果控制变量的值达到或超过此值，则退出循环，并跳转至End行动后的下一个行动继续执行。考察控制变量是否超过此值时，会根据步长值是正是负进行判断。如果控制变量在循环开始时已经达到或超过此值，则立即退出循环。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB45",
+                    "en-US": "Range Stop",
+                    "es-ES": "Detención de intervalo",
+                    "es-MX": "Fin de rango",
+                    "fr-FR": "Fin de l’intervalle",
+                    "it-IT": "Interruzione Portata",
+                    "ja-JP": "終了値",
+                    "pt-BR": "Fim do intervalo",
+                    "ru-RU": "Конец диапазона",
+                    "zh-CN": "终止值"
                 }
             },
             {
@@ -10971,6 +14278,18 @@ const actionKw =
                     "pt-BR": "Esse valor é adicionado à Variável de Controle quando a ação Final é atingida. Essa modificação faz com que a Variável de Controle atinja ou ultrapasse o valor do Fim do Intervalo então o loop se encerra e a execução salta para a próxima ação após a ação de Término. Caso contrário o loop continua e a execução salta para a próxima ação após a ação For.",
                     "ru-RU": "Это значение добавляется к управляющей переменной после перехода к действию [End]. Если модификация приводит к достижению или пересечению управляющей переменной значения конца диапазона цикл завершается и начинается выполнение следующего действия после [End]. В противном случае цикл продолжается и выполняется следующее действие после [For].",
                     "zh-CN": "当达到End行动时，将此值加到控制变量上。如果此改动使控制变量达到或超过终止值，则退出循环，跳转执行End行动后的下一个行动。否则继续循环，并跳转至For行动后的下一个行动开始执行。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB40",
+                    "en-US": "Step",
+                    "es-ES": "Paso",
+                    "es-MX": "Paso",
+                    "fr-FR": "Étape",
+                    "ja-JP": "ステップ",
+                    "pl-PL": "Krok",
+                    "pt-BR": "Etapa",
+                    "ru-RU": "Шаг",
+                    "zh-CN": "步长"
                 }
             }
         ],
@@ -11020,6 +14339,19 @@ const actionKw =
                     "pt-BR": "O jogador cuja variável será modificada neste loop. Se vários jogadores forem especificados será usado o primeiro.",
                     "ru-RU": "Игрок чья переменная модифицируется в данном цикле. Если указано несколько игроков то контрольным считается первый игрок.",
                     "zh-CN": "在此循环中改变此玩家的变量。如果指定了多个玩家，则使用第一个玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FFD1",
+                    "en-US": "Control Player",
+                    "es-ES": "Jugador de control",
+                    "es-MX": "Jugador de control",
+                    "fr-FR": "Joueur de contrôle",
+                    "it-IT": "Giocatore di controllo",
+                    "ja-JP": "コントロールプレイヤー",
+                    "pl-PL": "Kontroluj gracza",
+                    "pt-BR": "Controlar jogador",
+                    "ru-RU": "Контрольный игрок",
+                    "zh-CN": "控制玩家"
                 }
             },
             {
@@ -11030,6 +14362,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB42",
+                    "en-US": "Control Variable",
+                    "es-ES": "Variable de control",
+                    "es-MX": "Variable de control",
+                    "fr-FR": "Variable de contrôle",
+                    "it-IT": "Variabile di Controllo",
+                    "ja-JP": "コントロール変数",
+                    "pt-BR": "Variável de controle",
+                    "ru-RU": "Управляющая переменная",
+                    "zh-CN": "控制变量"
                 }
             },
             {
@@ -11051,6 +14395,18 @@ const actionKw =
                     "pt-BR": "A Variável de Controle é definida para esse valor quando o loop começa.",
                     "ru-RU": "Это значение присваивается управляющей переменной в начале цикла.",
                     "zh-CN": "当循环开始时，将控制变量设为此变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB47",
+                    "en-US": "Range Start",
+                    "es-ES": "Inicio de intervalo",
+                    "es-MX": "Inicio de rango",
+                    "fr-FR": "Début de l’intervalle",
+                    "it-IT": "Avvio Portata",
+                    "ja-JP": "開始値",
+                    "pt-BR": "Início do intervalo",
+                    "ru-RU": "Начало диапазона",
+                    "zh-CN": "起始值"
                 }
             },
             {
@@ -11061,6 +14417,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB45",
+                    "en-US": "Range Stop",
+                    "es-ES": "Detención de intervalo",
+                    "es-MX": "Fin de rango",
+                    "fr-FR": "Fin de l’intervalle",
+                    "it-IT": "Interruzione Portata",
+                    "ja-JP": "終了値",
+                    "pt-BR": "Fim do intervalo",
+                    "ru-RU": "Конец диапазона",
+                    "zh-CN": "终止值"
                 }
             },
             {
@@ -11071,6 +14439,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FB40",
+                    "en-US": "Step",
+                    "es-ES": "Paso",
+                    "es-MX": "Paso",
+                    "fr-FR": "Étape",
+                    "ja-JP": "ステップ",
+                    "pl-PL": "Krok",
+                    "pt-BR": "Etapa",
+                    "ru-RU": "Шаг",
+                    "zh-CN": "步长"
                 }
             }
         ],
@@ -11110,6 +14490,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão o texto de HUD.",
                     "ru-RU": "Один или несколько игроков которым будет виден текстовый объект интерфейса.",
                     "zh-CN": "下列玩家将会看到这条HUD文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -11120,6 +14509,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BA89",
+                    "en-US": "Header",
+                    "es-ES": "Título",
+                    "es-MX": "Encabezado",
+                    "fr-FR": "Titre",
+                    "it-IT": "Titolo",
+                    "ja-JP": "ヘッダー",
+                    "pl-PL": "Nagłówek",
+                    "pt-BR": "Cabeçalho",
+                    "ru-RU": "Заголовок",
+                    "zh-CN": "标题"
                 }
             },
             {
@@ -11130,6 +14532,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The subheader text to be displayed (can be blank)",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C202",
+                    "en-US": "Subheader",
+                    "es-ES": "Subtítulo",
+                    "es-MX": "Subtítulo",
+                    "fr-FR": "Sous-titre",
+                    "it-IT": "Sottotitolo",
+                    "ja-JP": "サブヘッダー",
+                    "pl-PL": "Podnagłówek",
+                    "pt-BR": "Subcabeçalho",
+                    "ru-RU": "Подзаголовок",
+                    "zh-CN": "子标题"
                 }
             },
             {
@@ -11140,6 +14555,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The body text to be displayed (can be blank)",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001244A",
+                    "en-US": "Text",
+                    "es-ES": "Texto",
+                    "es-MX": "Texto",
+                    "fr-FR": "Texte",
+                    "it-IT": "Testo",
+                    "ja-JP": "テキスト",
+                    "pl-PL": "Tekst",
+                    "pt-BR": "Texto",
+                    "ru-RU": "Текст",
+                    "zh-CN": "文本"
                 }
             },
             {
@@ -11161,6 +14589,19 @@ const actionKw =
                     "pt-BR": "O local na tela onde o texto aparecerá.",
                     "ru-RU": "Участок экрана где будет отображаться текст.",
                     "zh-CN": "文本在屏幕上出现的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BAF9",
+                    "en-US": "Location",
+                    "es-ES": "Ubicación",
+                    "es-MX": "Ubicación",
+                    "fr-FR": "Lieu",
+                    "it-IT": "Luogo",
+                    "ja-JP": "場所",
+                    "pl-PL": "Lokalizacja",
+                    "pt-BR": "Local",
+                    "ru-RU": "Местоположение",
+                    "zh-CN": "坐标"
                 }
             },
             {
@@ -11173,6 +14614,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             },
             {
@@ -11183,6 +14637,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the header.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2AB",
+                    "en-US": "Header Color",
+                    "es-ES": "Color del título",
+                    "es-MX": "Color de encabezado",
+                    "fr-FR": "Couleur du titre",
+                    "it-IT": "Colore Titolo",
+                    "ja-JP": "ヘッダーの色",
+                    "pl-PL": "Kolor nagłówka",
+                    "pt-BR": "Cor do Cabeçalho",
+                    "ru-RU": "Цвет заголовка",
+                    "zh-CN": "标题颜色"
                 }
             },
             {
@@ -11193,6 +14660,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the subheader.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2C1",
+                    "en-US": "SubHeader Color",
+                    "es-ES": "Color del subtítulo",
+                    "es-MX": "Color de subtítulo",
+                    "fr-FR": "Couleur du sous-titre",
+                    "it-IT": "Colore Sottotitolo",
+                    "ja-JP": "サブヘッダーの色",
+                    "pl-PL": "Kolor podnagłówka",
+                    "pt-BR": "Cor do Subcabeçalho",
+                    "ru-RU": "Цвет подзаголовка",
+                    "zh-CN": "子标题颜色"
                 }
             },
             {
@@ -11203,6 +14683,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the text.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2C3",
+                    "en-US": "Text Color",
+                    "es-ES": "Color del texto",
+                    "es-MX": "Color de texto",
+                    "fr-FR": "Couleur du texte",
+                    "it-IT": "Colore Testo",
+                    "ja-JP": "テキストの色",
+                    "pl-PL": "Kolor tekstu",
+                    "pt-BR": "Cor do Texto",
+                    "ru-RU": "Цвет текста",
+                    "zh-CN": "文本颜色"
                 }
             },
             {
@@ -11213,6 +14706,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             },
             {
@@ -11223,6 +14729,20 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Whether spectators can see the text or not.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE58",
+                    "en-US": "Non-Team Spectators",
+                    "de-DE": "Teamlose Zuschauer",
+                    "es-ES": "Observadores fuera del equipo",
+                    "es-MX": "Espectadores que no pertenecen al equipo",
+                    "fr-FR": "Spectateurs neutres",
+                    "it-IT": "Spettatori esterni",
+                    "ja-JP": "非チーム視点の観戦者",
+                    "pl-PL": "Obserwatorzy spoza drużyny",
+                    "pt-BR": "Espectadores fora do time",
+                    "ru-RU": "Внекомандные зрители",
+                    "zh-CN": "无队伍观战者"
                 }
             }
         ],
@@ -11261,6 +14781,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -11332,6 +14864,18 @@ const actionKw =
                     "pt-BR": "Especifica se o loop ocorrerá ou não.",
                     "ru-RU": "Определяет возможность цикла.",
                     "zh-CN": "循环是否发生。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -11378,6 +14922,16 @@ const actionKw =
                     "pt-BR": "A Variável Global a ser modificada.",
                     "ru-RU": "Изменяемая глобальная переменная.",
                     "zh-CN": "要修改的全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11399,6 +14953,18 @@ const actionKw =
                     "pt-BR": "O Índice da matriz a ser modificada. Se o Índice estiver além do fim da matriz a matriz será ampliada com novos elementos de Valor zero.",
                     "ru-RU": "Индекс массива который нужно изменить. Если индекс не входит в диапазон массива то массив расширяется с добавлением новых элементов с нулевым значением.",
                     "zh-CN": "修改数组的索引。如果索引位置已经超过了数组的末尾，则将数组延伸至索引位置，且新的元素值均为0。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             },
             {
@@ -11420,6 +14986,19 @@ const actionKw =
                     "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
                     "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
                     "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B16E",
+                    "en-US": "Operation",
+                    "es-ES": "Operación",
+                    "es-MX": "Operación",
+                    "fr-FR": "Opération",
+                    "it-IT": "Operazione",
+                    "ja-JP": "演算",
+                    "pl-PL": "Operacja",
+                    "pt-BR": "Operação",
+                    "ru-RU": "Операция",
+                    "zh-CN": "操作"
                 }
             },
             {
@@ -11444,6 +15023,19 @@ const actionKw =
                     "pt-BR": "O Valor usado para modificação. Em operações aritméticas esse é o segundo dos dois operandos enquanto o outro é o Valor existente da Variável. Em operações de Matriz é o Valor a ser juntado ou removido.",
                     "ru-RU": "Значение используемое для изменения. В арифметических операциях это второй из двух операндов первый из которых – значение переменной в данный момент. Для операций с массивами это значение которое добавляется или убирается.",
                     "zh-CN": "用于修改的值。若要进行运算操作，则此值为两个运算量中的第二个，第一个运算量为变量当前的值。若要进行数组操作，则此值是用于添加或移除的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11493,6 +15085,16 @@ const actionKw =
                     "pt-BR": "A Variável Global a ser modificada.",
                     "ru-RU": "Изменяемая глобальная переменная.",
                     "zh-CN": "要修改的全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11514,6 +15116,19 @@ const actionKw =
                     "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
                     "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
                     "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B16E",
+                    "en-US": "Operation",
+                    "es-ES": "Operación",
+                    "es-MX": "Operación",
+                    "fr-FR": "Opération",
+                    "it-IT": "Operazione",
+                    "ja-JP": "演算",
+                    "pl-PL": "Operacja",
+                    "pt-BR": "Operação",
+                    "ru-RU": "Операция",
+                    "zh-CN": "操作"
                 }
             },
             {
@@ -11538,6 +15153,19 @@ const actionKw =
                     "pt-BR": "O Valor usado para modificação. Em operações aritméticas esse é o segundo dos dois operandos enquanto o outro é o Valor existente da Variável. Em operações de Matriz é o Valor a ser juntado ou removido.",
                     "ru-RU": "Значение используемое для изменения. В арифметических операциях это второй из двух операндов первый из которых – значение переменной в данный момент. Для операций с массивами это значение которое добавляется или убирается.",
                     "zh-CN": "用于修改的值。若要进行运算操作，则此值为两个运算量中的第二个，第一个运算量为变量当前的值。若要进行数组操作，则此值是用于添加或移除的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11581,6 +15209,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -11602,6 +15243,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador será modificada.",
                     "ru-RU": "Определяет какую из переменных игрока следует изменить.",
                     "zh-CN": "指定修改此玩家的哪些变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11623,6 +15274,18 @@ const actionKw =
                     "pt-BR": "O Índice da matriz a ser modificada. Se o Índice estiver além do fim da matriz a matriz será ampliada com novos elementos de Valor zero.",
                     "ru-RU": "Индекс массива который нужно изменить. Если индекс не входит в диапазон массива то массив расширяется с добавлением новых элементов с нулевым значением.",
                     "zh-CN": "修改数组的索引。如果索引位置已经超过了数组的末尾，则将数组延伸至索引位置，且新的元素值均为0。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             },
             {
@@ -11644,6 +15307,19 @@ const actionKw =
                     "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
                     "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
                     "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B16E",
+                    "en-US": "Operation",
+                    "es-ES": "Operación",
+                    "es-MX": "Operación",
+                    "fr-FR": "Opération",
+                    "it-IT": "Operazione",
+                    "ja-JP": "演算",
+                    "pl-PL": "Operacja",
+                    "pt-BR": "Operação",
+                    "ru-RU": "Операция",
+                    "zh-CN": "操作"
                 }
             },
             {
@@ -11657,6 +15333,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11711,6 +15400,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja Variável será modificada. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será definida.",
                     "ru-RU": "Игрок переменную которого нужно изменить. Если указано несколько игроков то переменная будет изменена у каждого из них.",
                     "zh-CN": "此玩家的变量将被修改。如果有多个玩家，则每个玩家的变量都将被设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -11732,6 +15434,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador será modificada.",
                     "ru-RU": "Определяет какую из переменных игрока следует изменить.",
                     "zh-CN": "指定修改此玩家的哪些变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11753,6 +15465,19 @@ const actionKw =
                     "pt-BR": "A forma na qual o Valor da Variável será alterado. As opções incluem operações aritméticas padrão e operações de Matriz para juntar ou remover Valores.",
                     "ru-RU": "Способ которым изменяется значение переменной. Это могут быть стандартные арифметические операции или операции с массивами включающие добавление или удаление значений.",
                     "zh-CN": "变量的值改变的方式。选项包括标准运算操作，以及数组操作（如添加或移除值）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B16E",
+                    "en-US": "Operation",
+                    "es-ES": "Operación",
+                    "es-MX": "Operación",
+                    "fr-FR": "Opération",
+                    "it-IT": "Operazione",
+                    "ja-JP": "演算",
+                    "pl-PL": "Operacja",
+                    "pt-BR": "Operação",
+                    "ru-RU": "Операция",
+                    "zh-CN": "操作"
                 }
             },
             {
@@ -11766,6 +15491,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The value used for the modification. For arithmetic operations, this is the second of the two operands, with the other being the variable's existing value. For array operations, this is the value to append or remove.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11815,6 +15553,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Valor de Variável Global é a matriz a ser modificada. Se o Valor da Variável não for uma matriz então seu Valor se tornará uma matriz vazia.",
                     "ru-RU": "Определяет какое из значений глобальной переменной является массивом который нужно изменить. Если значение переменной массивом не является оно преобразовывается в пустой массив.",
                     "zh-CN": "指定哪个全局变量的值是要修改的数组。如果变量的值不是一个数组，则使其值变为一个空的数组。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11827,6 +15575,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             },
             {
@@ -11851,6 +15611,19 @@ const actionKw =
                     "pt-BR": "O Valor que será armazenado na matriz.",
                     "ru-RU": "Значение которое будет записано в массив.",
                     "zh-CN": "将此值存储到数组中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11900,6 +15673,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Variável Global armazenará o Valor.",
                     "ru-RU": "Определяет в какую из глобальных переменных следует записать значение.",
                     "zh-CN": "指定将值存储哪个全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -11924,6 +15707,19 @@ const actionKw =
                     "pt-BR": "O Valor que será armazenado.",
                     "ru-RU": "Значение которое будет записано.",
                     "zh-CN": "此值将被存储。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -11967,6 +15763,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player whose variable will be modified. If multiple players are provided, each of their variables will be set.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -11988,6 +15797,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Valor de Variável de Jogador é a matriz a ser modificada. Se o Valor da Variável não for uma matriz então seu Valor se tornará uma matriz vazia.",
                     "ru-RU": "Определяет какое из значений переменной игрока является массивом который нужно изменить. Если значение переменной массивом не является оно преобразовывается в пустой массив.",
                     "zh-CN": "指定哪个玩家变量的值是要修改的数组。如果变量的值不是一个数组，则使其值变为一个空的数组。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -12000,6 +15819,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             },
             {
@@ -12024,6 +15855,19 @@ const actionKw =
                     "pt-BR": "O Valor que será armazenado na matriz.",
                     "ru-RU": "Значение которое будет записано в массив.",
                     "zh-CN": "将此值存储到数组中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -12078,6 +15922,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja Variável será definida. Se vários Jogadores forem fornecidos cada uma de suas Variáveis será definida.",
                     "ru-RU": "Игрок переменную которого нужно задать. Если указано несколько игроков то переменная будет задана у каждого из них.",
                     "zh-CN": "此玩家的变量将被设置。如果有多个玩家，则每个玩家的变量都将被设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -12099,6 +15956,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador armazenará o Valor.",
                     "ru-RU": "Определяет в какую из переменных игрока следует записать значение.",
                     "zh-CN": "指定将值存储为玩家的哪些变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             },
             {
@@ -12123,6 +15990,19 @@ const actionKw =
                     "pt-BR": "O Valor que será armazenado.",
                     "ru-RU": "Значение которое будет записано.",
                     "zh-CN": "此值将被存储。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -12172,6 +16052,18 @@ const actionKw =
                     "pt-BR": "Especifica se Ações serão ignoradas ou não.",
                     "ru-RU": "Определяет возможность пропуска.",
                     "zh-CN": "是否跳过行动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             },
             {
@@ -12195,6 +16087,19 @@ const actionKw =
                     "pt-BR": "O número de Ações a serem ignoradas sem incluir esta Ação.",
                     "ru-RU": "Количество пропускаемых действий не включая это действие.",
                     "zh-CN": "跳过的动作条数，不包括此动作。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB08",
+                    "en-US": "Number of Actions",
+                    "es-ES": "Número de acciones",
+                    "es-MX": "Cantidad de acciones",
+                    "fr-FR": "Nombre d’actions",
+                    "it-IT": "Numero Azioni",
+                    "ja-JP": "アクションの数",
+                    "pl-PL": "Liczba działań",
+                    "pt-BR": "Número de Ações",
+                    "ru-RU": "Количество действий",
+                    "zh-CN": "动作数量"
                 }
             }
         ],
@@ -12247,6 +16152,19 @@ const actionKw =
                     "pt-BR": "O número de Ações a serem ignoradas sem incluir esta Ação.",
                     "ru-RU": "Количество пропускаемых действий не включая это действие.",
                     "zh-CN": "跳过的动作条数，不包括此动作。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB08",
+                    "en-US": "Number of Actions",
+                    "es-ES": "Número de acciones",
+                    "es-MX": "Cantidad de acciones",
+                    "fr-FR": "Nombre d’actions",
+                    "it-IT": "Numero Azioni",
+                    "ja-JP": "アクションの数",
+                    "pl-PL": "Liczba działań",
+                    "pt-BR": "Número de Ações",
+                    "ru-RU": "Количество действий",
+                    "zh-CN": "动作数量"
                 }
             }
         ],
@@ -12295,6 +16213,17 @@ const actionKw =
                     "pt-BR": "Especifica qual sub-rotina será iniciada. Se uma regra contendo um evento do tipo Sub-rotina especificar a mesma sub-rotina então ela será executada. Caso contrário a ação é ignorada.",
                     "ru-RU": "Указывает какую подпрограмму следует запустить. Если правило с типом события [Subroutine] задает ту же подпрограмму оно выполняется. В противном случае это действие пропускается.",
                     "zh-CN": "指定要开始的子程序。如果一个事件类型为子程序的规则指定了同一段子程序，那么它将会被执行。否则会忽略此行动。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001001F",
+                    "en-US": "Subroutine",
+                    "es-MX": "Subrutina",
+                    "fr-FR": "Sous-programme",
+                    "ja-JP": "サブルーチン",
+                    "pl-PL": "Podprogram",
+                    "pt-BR": "Sub-rotina",
+                    "ru-RU": "Подпрограмма",
+                    "zh-CN": "子程序"
                 }
             },
             {
@@ -12316,6 +16245,18 @@ const actionKw =
                     "pt-BR": "Define o que deve acontecer se uma regra especificada pela Sub-rotina já estiver sendo executada no mesmo jogador ou entidade global.",
                     "ru-RU": "Определяет что должно произойти если указанное в подпрограмме правило уже выполняется для того же игрока или глобально.",
                     "zh-CN": "决定当子程序中指定的规则已经在同一玩家或环境实体上执行时会发生什么。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001002A",
+                    "en-US": "If Already Executing",
+                    "es-ES": "Si ya se está ejecutando",
+                    "es-MX": "Ya en ejecución",
+                    "fr-FR": "Si déjà en cours d’exécution",
+                    "it-IT": "Se già in esecuzione",
+                    "ja-JP": "既に実行中の場合",
+                    "pt-BR": "Se já em execução",
+                    "ru-RU": "Если уже выполняется",
+                    "zh-CN": "是否正在执行"
                 }
             }
         ],
@@ -12365,6 +16306,16 @@ const actionKw =
                     "pt-BR": "Especifica qual Variável Global deixará de ser modificada.",
                     "ru-RU": "Определяет изменение какой из глобальных переменных следует остановить.",
                     "zh-CN": "指定要停止修改的全局变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             }
         ],
@@ -12419,6 +16370,19 @@ const actionKw =
                     "pt-BR": "O Jogador cuja Variável deixará de ser alterada. Se vários Jogadores forem fornecidos cada uma de suas Variáveis deixará de ser alterada.",
                     "ru-RU": "Игрок переменная которого перестанет меняться. Если указано несколько игроков то переменная перестанет меняться у каждого из них.",
                     "zh-CN": "此玩家的变量将停止改变。如果有多个玩家，则每个玩家的变量都将停止改变。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -12440,6 +16404,16 @@ const actionKw =
                     "pt-BR": "Especifica qual das Variáveis do Jogador deixará de ser modificada.",
                     "ru-RU": "Определяет изменение какой из переменных игрока следует остановить.",
                     "zh-CN": "指定要停止修改的玩家变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             }
         ],
@@ -12492,6 +16466,19 @@ const actionKw =
                     "pt-BR": "A duração da pausa.",
                     "ru-RU": "Длительность паузы.",
                     "zh-CN": "暂停的持续时间。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B19B",
+                    "en-US": "Time",
+                    "es-ES": "Tiempo",
+                    "es-MX": "Tiempo",
+                    "fr-FR": "Temps",
+                    "it-IT": "Tempo",
+                    "ja-JP": "時間",
+                    "pl-PL": "Czas",
+                    "pt-BR": "Tempo",
+                    "ru-RU": "Время",
+                    "zh-CN": "时间"
                 }
             },
             {
@@ -12513,6 +16500,19 @@ const actionKw =
                     "pt-BR": "Especifica se e como Esperar pode ser interrompido. Se a lista de Condições for ignorada Esperar não será interrompido. Caso contrário a lista de Condições determinará se e quando a lista de Ações será anulada ou reiniciará.",
                     "ru-RU": "Определяет необходимость и способ прерывания действия [Wait]. Если список условий игнорируется ожидание не прервется. В противном случае необходимость и способ отмены или перезапуска списка действий определяется списком условий.",
                     "zh-CN": "指定等待是否可以被中断。如果忽略条件列表，则等待不会被中断。否则则依据条件列表判断是否及何时中止或重新开始动作列表。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22F",
+                    "en-US": "Wait Behavior",
+                    "es-ES": "Comportamiento en espera",
+                    "es-MX": "Comportamiento de espera",
+                    "fr-FR": "Comportement d’attente",
+                    "it-IT": "Comportamento di Attesa",
+                    "ja-JP": "待機動作",
+                    "pl-PL": "Oczekiwanie",
+                    "pt-BR": "Comportamento de espera",
+                    "ru-RU": "Поведение при ожидании",
+                    "zh-CN": "等待行为"
                 }
             }
         ],
@@ -12561,6 +16561,18 @@ const actionKw =
                     "pt-BR": "Se isso for avaliado como verdadeiro a execução continua com a próxima ação. Caso contrário a execução salta para a próxima ação de Término do nível atual.",
                     "ru-RU": "Если это условие верно начинается выполнение следующего действия. В противном случае выполнение переходит к следующему действию [End] на текущем уровне.",
                     "zh-CN": "如果此值为真，则继续执行下一个行动。否则，跳转至当前层级的下一个End行动并执行。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -12608,6 +16620,19 @@ const actionKw =
                     "pt-BR": "As Equipes cuja pontuação será alterada.",
                     "ru-RU": "Команда или команды счет которых нужно изменить.",
                     "zh-CN": "要改变分数的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -12631,6 +16656,19 @@ const actionKw =
                     "pt-BR": "A quantidade de mudança na pontuação. Se for positiva a pontuação aumentará. Se for negativa a pontuação diminuirá.",
                     "ru-RU": "Количество очков на которое должен уменьшиться или увеличиться счет. Если значение положительное то счет увеличится. Если оно отрицательное то счет уменьшится.",
                     "zh-CN": "增加或减少的分数。如果为正数则增加分数，为负数则减少分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22E",
+                    "en-US": "Score",
+                    "es-ES": "Puntuación",
+                    "es-MX": "Puntuación",
+                    "fr-FR": "Points",
+                    "it-IT": "Punteggio",
+                    "ja-JP": "スコア",
+                    "pl-PL": "Wynik",
+                    "pt-BR": "Pontuação",
+                    "ru-RU": "Счет",
+                    "zh-CN": "得分"
                 }
             }
         ],
@@ -12685,6 +16723,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
                     "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
                     "zh-CN": "下列玩家将看到此信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -12707,6 +16754,19 @@ const actionKw =
                     "pt-BR": "A mensagem a ser exibida.",
                     "ru-RU": "Отображаемое сообщение.",
                     "zh-CN": "将要显示的信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BA89",
+                    "en-US": "Header",
+                    "es-ES": "Título",
+                    "es-MX": "Encabezado",
+                    "fr-FR": "Titre",
+                    "it-IT": "Titolo",
+                    "ja-JP": "ヘッダー",
+                    "pl-PL": "Nagłówek",
+                    "pt-BR": "Cabeçalho",
+                    "ru-RU": "Заголовок",
+                    "zh-CN": "标题"
                 }
             }
         ],
@@ -12784,6 +16844,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
                     "ru-RU": "Один или несколько игроков которым будет виден эффект.",
                     "zh-CN": "一名或多名将家将可以看到此效果。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -12805,6 +16874,18 @@ const actionKw =
                     "pt-BR": "O tipo de efeito a ser criado.",
                     "ru-RU": "Тип создаваемого эффекта.",
                     "zh-CN": "将要创建的效果类型。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8B0",
+                    "en-US": "Type",
+                    "es-ES": "Tipo",
+                    "es-MX": "Tipo",
+                    "it-IT": "Tipo",
+                    "ja-JP": "タイプ",
+                    "pl-PL": "Typ",
+                    "pt-BR": "Tipo",
+                    "ru-RU": "Тип",
+                    "zh-CN": "类型"
                 }
             },
             {
@@ -12826,6 +16907,19 @@ const actionKw =
                     "pt-BR": "A posição inicial do efeito. Se este Valor for um Jogador então o efeito se moverá junto com o Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
                     "ru-RU": "Начальное местоположение эффекта. Если в качестве значения указан игрок то эффект будет перемещаться вместе с ним. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
                     "zh-CN": "效果开始的位置。如果此值为一名玩家，那么效果将随此玩家移动。否则，此值将代表地图中的一个位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE82",
+                    "en-US": "Start Position",
+                    "es-ES": "Posición inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Posição Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -12847,6 +16941,19 @@ const actionKw =
                     "pt-BR": "A posição final do efeito. Se este Valor for um Jogador o efeito se moverá junto com o Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
                     "ru-RU": "Конечное местоположение эффекта. Если в качестве значения указан игрок то эффект будет перемещаться вместе с ним. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
                     "zh-CN": "效果终点所在的位置。如果此值为一名玩家，那么该效果将与玩家一起移动。否则，此值将代表地图中的一个位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE83",
+                    "en-US": "End Position",
+                    "es-ES": "Posición final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Posição Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             },
             {
@@ -12857,6 +16964,14 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011D42",
+                    "en-US": "Color",
+                    "fr-FR": "Couleur",
+                    "ja-JP": "色",
+                    "pt-BR": "Cor",
+                    "zh-CN": "颜色"
                 }
             },
             {
@@ -12878,6 +16993,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O efeito continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Эффект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此效果会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -12927,6 +17055,19 @@ const actionKw =
                     "pt-BR": "O herói que o bot será. Se mais de um herói for fornecido um será escolhido aleatoriamente.",
                     "ru-RU": "Герой которым будет управлять ИИ. Если указано несколько героев один из них будет выбран случайным образом.",
                     "zh-CN": "机器人使用的英雄。如果提供了多于一个英雄，则会随机在其中选择。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -12948,6 +17089,19 @@ const actionKw =
                     "pt-BR": "A equipe que receberá o bot. A opção \"Todos\" só funciona no modo todos contra todos. A opção \"Equipe\" só funciona em modos de jogo com equipes.",
                     "ru-RU": "Команда в которую будет добавлен ИИ. Вариант [All] подходит только для режимов FFA а параметр [Team] — только для командных режимов.",
                     "zh-CN": "将机器人添加至此队伍。“全部”选项只适用于自由混战模式，“队伍”选项只适用于基于队伍的游戏模式。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -12971,6 +17125,18 @@ const actionKw =
                     "pt-BR": "O espaço de jogador que receberá o bot -1 para o primeiro espaço disponível. Até 6 bots podem ser adicionados a cada equipe ou 12 bots à equipe do modo todos contra todos independentemente das configurações do lobby.",
                     "ru-RU": "Ячейка игрока которую займет ИИ -1 для первой доступной ячейки. Вне зависимости от настроек лобби в игру может быть добавлено до 6 ИИ за одну команду или до 12 в режиме FFA. ",
                     "zh-CN": "在此玩家栏位添加机器人（-1表示第一个可用的空位）。不管游戏大厅中的设置如何，每支队伍最多可以加入6个机器人，自由混战队伍中最多可加入12个机器人。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B337",
+                    "en-US": "Slot",
+                    "es-ES": "Ranura",
+                    "es-MX": "Puesto",
+                    "fr-FR": "Emplacement",
+                    "ja-JP": "スロット",
+                    "pl-PL": "Miejsce",
+                    "pt-BR": "Espaço",
+                    "ru-RU": "Ячейка",
+                    "zh-CN": "栏位"
                 }
             },
             {
@@ -12993,6 +17159,18 @@ const actionKw =
                     "pt-BR": "A posição inicial onde o bot aparecerá.",
                     "ru-RU": "Начальная точка где появится ИИ.",
                     "zh-CN": "机器人最初出现的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -13015,6 +17193,19 @@ const actionKw =
                     "pt-BR": "A direção inicial para a qual o bot estará virado.",
                     "ru-RU": "Направление в котором изначально будет повернут герой под управлением ИИ.",
                     "zh-CN": "假人最初面向的方向。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CB0B",
+                    "en-US": "Facing",
+                    "es-ES": "Mirando a",
+                    "es-MX": "Mirando",
+                    "fr-FR": "Orientation",
+                    "it-IT": "Direzione",
+                    "ja-JP": "対面",
+                    "pl-PL": "Skierowanie",
+                    "pt-BR": "Encarando",
+                    "ru-RU": "Направление поворота",
+                    "zh-CN": "方向"
                 }
             }
         ],
@@ -13069,6 +17260,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
                     "ru-RU": "Один или несколько игроков которым будет виден эффект.",
                     "zh-CN": "一名或多名将家将可以看到此效果。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -13090,6 +17290,18 @@ const actionKw =
                     "pt-BR": "O tipo de efeito a ser criado.",
                     "ru-RU": "Тип создаваемого эффекта.",
                     "zh-CN": "将要创建的效果类型。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8B0",
+                    "en-US": "Type",
+                    "es-ES": "Tipo",
+                    "es-MX": "Tipo",
+                    "it-IT": "Tipo",
+                    "ja-JP": "タイプ",
+                    "pl-PL": "Typ",
+                    "pt-BR": "Tipo",
+                    "ru-RU": "Тип",
+                    "zh-CN": "类型"
                 }
             },
             {
@@ -13100,6 +17312,14 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011D42",
+                    "en-US": "Color",
+                    "fr-FR": "Couleur",
+                    "ja-JP": "色",
+                    "pt-BR": "Cor",
+                    "zh-CN": "颜色"
                 }
             },
             {
@@ -13113,6 +17333,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The effect's position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -13125,6 +17357,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The radius of this effect.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B237",
+                    "en-US": "Radius",
+                    "es-ES": "Radio",
+                    "es-MX": "Radio",
+                    "fr-FR": "Rayon",
+                    "it-IT": "Raggio",
+                    "ja-JP": "範囲",
+                    "pl-PL": "Promień",
+                    "pt-BR": "Raio",
+                    "ru-RU": "Радиус",
+                    "zh-CN": "半径"
                 }
             },
             {
@@ -13135,6 +17380,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -13189,6 +17447,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que poderão ver o ícone.",
                     "ru-RU": "Один или несколько игроков которым будет виден значок.",
                     "zh-CN": "一名或多名玩家将可以看到此图标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -13213,6 +17480,18 @@ const actionKw =
                     "pt-BR": "A posição do ícone. Se este Valor for um Jogador então o ícone aparecerá acima da cabeça do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
                     "ru-RU": "Местоположение значка. Если в качестве значения указан игрок то значок будет отображаться над его головой. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
                     "zh-CN": "图标所在的位置。如果此值为一名玩家，那么图标将显示在这名玩家的头顶上方。否则，此值将代表地图中的一个位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -13234,6 +17513,21 @@ const actionKw =
                     "pt-BR": "O ícone a ser criado.",
                     "ru-RU": "Создаваемый значок.",
                     "zh-CN": "将要创建的图标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B61B",
+                    "en-US": "Icon",
+                    "es-ES": "Icono",
+                    "es-MX": "Ícono",
+                    "fr-FR": "Icône",
+                    "it-IT": "Icona",
+                    "ja-JP": "アイコン",
+                    "ko-KR": "아이콘",
+                    "pl-PL": "Symbol",
+                    "pt-BR": "Ícone",
+                    "ru-RU": "Символ",
+                    "zh-CN": "图标",
+                    "zh-TW": "頭像"
                 }
             },
             {
@@ -13255,6 +17549,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O ícone continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Значок будет запрашивать и использовать новые значения в каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的哪个输入值将持续被重新赋值。此图标会一直要求并采用重新赋值所传入的值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             },
             {
@@ -13276,6 +17583,19 @@ const actionKw =
                     "pt-BR": "A cor do ícone a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
                     "ru-RU": "Цвет создаваемого значка. Если выбрана определенная команда то эффект будет синим или красным в зависимости от того враждебна ли команда по отношению к смотрящему.",
                     "zh-CN": "所创建图标的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2F2",
+                    "en-US": "Icon Color",
+                    "es-ES": "Color del icono",
+                    "es-MX": "Color de ícono",
+                    "fr-FR": "Couleur de l’icône",
+                    "it-IT": "Colore Icona",
+                    "ja-JP": "アイコンの色",
+                    "pl-PL": "Kolor symbolu",
+                    "pt-BR": "Cor do Ícone",
+                    "ru-RU": "Цвет значка",
+                    "zh-CN": "图标颜色"
                 }
             },
             {
@@ -13286,6 +17606,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Should this icon appear even when it is behind you?",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C374",
+                    "en-US": "Show When Offscreen",
+                    "es-ES": "Mostrar al estar fuera de pantalla",
+                    "es-MX": "Mostrar cuando está fuera de pantalla",
+                    "fr-FR": "Affichage hors champ",
+                    "it-IT": "Mostra Se Fuori Schermo",
+                    "ja-JP": "オフスクリーン時に表示する",
+                    "pl-PL": "Pokaż kiedy poza ekranem",
+                    "pt-BR": "Mostrar Quando Fora da Tela",
+                    "ru-RU": "Показывать вне экрана",
+                    "zh-CN": "离开屏幕后显示"
                 }
             }
         ],
@@ -13325,6 +17658,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão o texto no mundo.",
                     "ru-RU": "Один или несколько игроков которые увидят текстовый объект в игровом мире.",
                     "zh-CN": "下列玩家可以看到本条地图文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -13347,6 +17689,19 @@ const actionKw =
                     "pt-BR": "O texto a ser exibido.",
                     "ru-RU": "Отображаемый текст.",
                     "zh-CN": "将要显示的文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BA89",
+                    "en-US": "Header",
+                    "es-ES": "Título",
+                    "es-MX": "Encabezado",
+                    "fr-FR": "Titre",
+                    "it-IT": "Titolo",
+                    "ja-JP": "ヘッダー",
+                    "pl-PL": "Nagłówek",
+                    "pt-BR": "Cabeçalho",
+                    "ru-RU": "Заголовок",
+                    "zh-CN": "标题"
                 }
             },
             {
@@ -13372,6 +17727,18 @@ const actionKw =
                     "pt-BR": "A posição do texto. Se esse Valor for um Jogador então o texto aparecerá acima da cabeça do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
                     "ru-RU": "Местоположение текстового объекта. Если в качестве значения указан игрок то текстовый объект будет отображаться над его головой. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
                     "zh-CN": "文本所在位置。如果此值为一名玩家，那么文本将显示在这名玩家的头顶上方。否则，此值将代表地图中的一个位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -13395,6 +17762,19 @@ const actionKw =
                     "pt-BR": "A escala do texto.",
                     "ru-RU": "Масштаб текста.",
                     "zh-CN": "文本的大小。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011310",
+                    "en-US": "Scale",
+                    "es-ES": "Escala",
+                    "es-MX": "Escalar",
+                    "fr-FR": "Échelle",
+                    "it-IT": "Scala",
+                    "ja-JP": "スケール",
+                    "pl-PL": "Skala",
+                    "pt-BR": "Escala",
+                    "ru-RU": "Масштаб",
+                    "zh-CN": "大小"
                 }
             },
             {
@@ -13416,6 +17796,19 @@ const actionKw =
                     "pt-BR": "Especifica se o texto pode ser visto através de paredes ou se será cortado.",
                     "ru-RU": "Определяет виден ли текст сквозь непрозрачные препятствия.",
                     "zh-CN": "文本可以穿透墙壁或是将被遮挡。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BAF3",
+                    "en-US": "Clipping",
+                    "es-ES": "Recorte",
+                    "es-MX": "Atravesamiento",
+                    "fr-FR": "Masquage",
+                    "it-IT": "Visibilità Oggetto",
+                    "ja-JP": "クリッピング",
+                    "pl-PL": "Przenikanie",
+                    "pt-BR": "Corte",
+                    "ru-RU": "Пересечение",
+                    "zh-CN": "截取"
                 }
             },
             {
@@ -13437,6 +17830,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             },
             {
@@ -13447,6 +17853,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies the color of the in-world text to use.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2C3",
+                    "en-US": "Text Color",
+                    "es-ES": "Color del texto",
+                    "es-MX": "Color de texto",
+                    "fr-FR": "Couleur du texte",
+                    "it-IT": "Colore Testo",
+                    "ja-JP": "テキストの色",
+                    "pl-PL": "Kolor tekstu",
+                    "pt-BR": "Cor do Texto",
+                    "ru-RU": "Цвет текста",
+                    "zh-CN": "文本颜色"
                 }
             },
             {
@@ -13457,6 +17876,20 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Whether spectators can see the text or not.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE58",
+                    "en-US": "Non-Team Spectators",
+                    "de-DE": "Teamlose Zuschauer",
+                    "es-ES": "Observadores fuera del equipo",
+                    "es-MX": "Espectadores que no pertenecen al equipo",
+                    "fr-FR": "Spectateurs neutres",
+                    "it-IT": "Spettatori esterni",
+                    "ja-JP": "非チーム視点の観戦者",
+                    "pl-PL": "Obserwatorzy spoza drużyny",
+                    "pt-BR": "Espectadores fora do time",
+                    "ru-RU": "Внекомандные зрители",
+                    "zh-CN": "无队伍观战者"
                 }
             }
         ],
@@ -13496,6 +17929,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão o texto de HUD da Barra de Progresso.",
                     "ru-RU": "Игрок или игроки которые увидят текст шкалы прогресса.",
                     "zh-CN": "下列玩家将会看到这条进度条HUD文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -13517,6 +17959,19 @@ const actionKw =
                     "pt-BR": "O valor da barra de progresso a ser exibido como porcentagem de 0 a 100.",
                     "ru-RU": "Значение шкалы прогресса отображаемое в диапазоне от 0 до 100 процентов.",
                     "zh-CN": "将要显示的进度条值，为从0到100的百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -13527,6 +17982,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001244A",
+                    "en-US": "Text",
+                    "es-ES": "Texto",
+                    "es-MX": "Texto",
+                    "fr-FR": "Texte",
+                    "it-IT": "Testo",
+                    "ja-JP": "テキスト",
+                    "pl-PL": "Tekst",
+                    "pt-BR": "Texto",
+                    "ru-RU": "Текст",
+                    "zh-CN": "文本"
                 }
             },
             {
@@ -13540,6 +18008,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -13561,6 +18041,19 @@ const actionKw =
                     "pt-BR": "A escala do texto.",
                     "ru-RU": "Масштаб текста.",
                     "zh-CN": "文本的大小。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011310",
+                    "en-US": "Scale",
+                    "es-ES": "Escala",
+                    "es-MX": "Escalar",
+                    "fr-FR": "Échelle",
+                    "it-IT": "Scala",
+                    "ja-JP": "スケール",
+                    "pl-PL": "Skala",
+                    "pt-BR": "Escala",
+                    "ru-RU": "Масштаб",
+                    "zh-CN": "大小"
                 }
             },
             {
@@ -13582,6 +18075,19 @@ const actionKw =
                     "pt-BR": "Especifica se o texto pode ser visto através de paredes ou se será cortado.",
                     "ru-RU": "Определяет виден ли текст сквозь непрозрачные препятствия.",
                     "zh-CN": "文本可以穿透墙壁或是将被遮挡。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BAF3",
+                    "en-US": "Clipping",
+                    "es-ES": "Recorte",
+                    "es-MX": "Atravesamiento",
+                    "fr-FR": "Masquage",
+                    "it-IT": "Visibilità Oggetto",
+                    "ja-JP": "クリッピング",
+                    "pl-PL": "Przenikanie",
+                    "pt-BR": "Corte",
+                    "ru-RU": "Пересечение",
+                    "zh-CN": "截取"
                 }
             },
             {
@@ -13603,6 +18109,19 @@ const actionKw =
                     "pt-BR": "A cor do texto da Barra de Progresso a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
                     "ru-RU": "Цвет создаваемого текста шкалы прогресса. Если выбрана конкретная команда цвет будет красным или синим в зависимости от того враждебна ли команда по отношению к смотрящему.",
                     "zh-CN": "所创建进度条文本的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000122EA",
+                    "en-US": "Progress Bar Color",
+                    "es-ES": "Color de la barra de progreso",
+                    "es-MX": "Color de la barra de progreso",
+                    "fr-FR": "Couleur de barre de progression",
+                    "it-IT": "Colore Progress Bar",
+                    "ja-JP": "進行バーの色",
+                    "pl-PL": "Kolor paska postępu",
+                    "pt-BR": "Cor da Barra de Progresso",
+                    "ru-RU": "Цвет шкалы прогресса",
+                    "zh-CN": "进度条颜色"
                 }
             },
             {
@@ -13624,6 +18143,19 @@ const actionKw =
                     "pt-BR": "A cor do texto a ser criado. Se uma equipe em particular for escolhida o efeito será vermelho ou azul dependendo da hostilidade em relação ao espectador.",
                     "ru-RU": "Цвет создаваемого текста. Если выбрана определенная команда то эффект будет синим или красным в зависимости от того враждебна ли команда по отношению к смотрящему.",
                     "zh-CN": "所创建文本的颜色。如果选择了一支队伍，此效果将显示为红色或蓝色，根据观察者是否与这支队伍敌对决定。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2C3",
+                    "en-US": "Text Color",
+                    "es-ES": "Color del texto",
+                    "es-MX": "Color de texto",
+                    "fr-FR": "Couleur du texte",
+                    "it-IT": "Colore Testo",
+                    "ja-JP": "テキストの色",
+                    "pl-PL": "Kolor tekstu",
+                    "pt-BR": "Cor do Texto",
+                    "ru-RU": "Цвет текста",
+                    "zh-CN": "文本颜色"
                 }
             },
             {
@@ -13645,6 +18177,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             },
             {
@@ -13666,6 +18211,20 @@ const actionKw =
                     "pt-BR": "Define se os espectadores fora do time podem ver o texto ou não.",
                     "ru-RU": "Определяет могут ли внекомандные зрители видеть текст.",
                     "zh-CN": "无队伍观战者是否可以看到此文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE58",
+                    "en-US": "Non-Team Spectators",
+                    "de-DE": "Teamlose Zuschauer",
+                    "es-ES": "Observadores fuera del equipo",
+                    "es-MX": "Espectadores que no pertenecen al equipo",
+                    "fr-FR": "Spectateurs neutres",
+                    "it-IT": "Spettatori esterni",
+                    "ja-JP": "非チーム視点の観戦者",
+                    "pl-PL": "Obserwatorzy spoza drużyny",
+                    "pt-BR": "Espectadores fora do time",
+                    "ru-RU": "Внекомандные зрители",
+                    "zh-CN": "无队伍观战者"
                 }
             }
         ],
@@ -13706,6 +18265,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que receberáão dano.",
                     "ru-RU": "Игрок или игроки которым будет нанесен урон.",
                     "zh-CN": "下列玩家将受到伤害。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -13727,6 +18299,19 @@ const actionKw =
                     "pt-BR": "O Jogador que receberá crédito pelo dano. Um Danificador Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Игрок который получит очки за урон. Пустое значение Null переменной [Damager] означает что очки не будут присуждаться никому.",
                     "zh-CN": "伤害视为此名玩家造成的。如果“伤害者”设置为“空”则此伤害不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B58F",
+                    "en-US": "Damager",
+                    "es-ES": "Dañador",
+                    "es-MX": "Dañador",
+                    "fr-FR": "Agresseur",
+                    "it-IT": "Attaccante",
+                    "ja-JP": "ダメージャー",
+                    "pl-PL": "Raniący",
+                    "pt-BR": "Danificador",
+                    "ru-RU": "Источник урона",
+                    "zh-CN": "伤害者"
                 }
             },
             {
@@ -13748,6 +18333,19 @@ const actionKw =
                     "pt-BR": "A quantidade de dano a ser aplicada. Essa quantidade pode ser modificada por bônus penalidades ou armadura.",
                     "ru-RU": "Количество наносимого урона. Это значение может быть изменено положительными эффектами отрицательными эффектами или броней.",
                     "zh-CN": "造成的治疗量。此数值可能会受到增益、减益状态或护甲的影响。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22C",
+                    "en-US": "Amount",
+                    "es-ES": "Cantidad",
+                    "es-MX": "Cantidad",
+                    "fr-FR": "Montant",
+                    "it-IT": "Quantità",
+                    "ja-JP": "ダメージ量",
+                    "pl-PL": "Ilość",
+                    "pt-BR": "Quantidade",
+                    "ru-RU": "Объем",
+                    "zh-CN": "伤害量"
                 }
             }
         ],
@@ -13823,6 +18421,19 @@ const actionKw =
                     "pt-BR": "O Jogador vencedor.",
                     "ru-RU": "Игрок-победитель.",
                     "zh-CN": "获胜的玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -13899,6 +18510,21 @@ const actionKw =
                     "pt-BR": "Equipe vencedora da rodada",
                     "ru-RU": "Команда-победитель раунда.",
                     "zh-CN": "本回合获胜队伍"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF95",
+                    "en-US": "Round winning team",
+                    "de-DE": "Das Team das die Runde gewonnen hat.",
+                    "es-ES": "Equipo ganador de la ronda.",
+                    "es-MX": "Equipo ganador de la ronda",
+                    "fr-FR": "Équipe vainqueur de la manche",
+                    "it-IT": "Squadra vincitrice del round",
+                    "ja-JP": "ラウンドに勝利したチーム",
+                    "ko-KR": "라운드에서 승리한 팀입니다.",
+                    "pl-PL": "Drużyna wygrywająca rundę",
+                    "pt-BR": "Equipe vencedora da rodada",
+                    "ru-RU": "Команда-победитель раунда.",
+                    "zh-CN": "本回合获胜队伍"
                 }
             }
         ],
@@ -13934,6 +18560,19 @@ const actionKw =
                     "ru-RU": "Команда-победитель.",
                     "zh-CN": "获胜队伍。",
                     "zh-TW": "勝利隊伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -14127,6 +18766,19 @@ const actionKw =
                     "pt-BR": "A equipe da qual o bot será removido. A opção \"Todos\" só funciona no modo todos contra todos. A opção \"Equipe\" só funciona em modos de jogo com equipes.",
                     "ru-RU": "Команда из которой будет удален ИИ-манекен. Вариант [All] подходит только для режимов где каждый сам за себя а вариант [Team] — только для командных режимов.",
                     "zh-CN": "移除此队伍中的机器人。“全部”选项只适用于自由混战模式，“队伍”选项只适用于基于队伍的游戏模式。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -14150,6 +18802,18 @@ const actionKw =
                     "pt-BR": "O espaço do qual o bot será removido.",
                     "ru-RU": "Ячейка из которой будет удален манекен героя.",
                     "zh-CN": "移除此空位的机器人。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B337",
+                    "en-US": "Slot",
+                    "es-ES": "Ranura",
+                    "es-MX": "Puesto",
+                    "fr-FR": "Emplacement",
+                    "ja-JP": "スロット",
+                    "pl-PL": "Miejsce",
+                    "pt-BR": "Espaço",
+                    "ru-RU": "Ячейка",
+                    "zh-CN": "栏位"
                 }
             }
         ],
@@ -14199,6 +18863,19 @@ const actionKw =
                     "pt-BR": "Especifica qual entidade de efeito será destruída. Essa entidade pode ser a Entidade Criada por Último ou uma Variável na qual a Entidade Criada por Último tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров эффекта следует уничтожить. Это может быть последний созданный экземпляр или переменная в которую он был записан.",
                     "zh-CN": "指定要消除的效果实体。可以是“上一个创建的实体”，或一个之前储存“上一个创建的实体”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C194",
+                    "en-US": "Entity",
+                    "es-ES": "Entidad",
+                    "es-MX": "Entidad",
+                    "fr-FR": "Entité",
+                    "it-IT": "Entità",
+                    "ja-JP": "エンティティ",
+                    "pl-PL": "Encja",
+                    "pt-BR": "Entidade",
+                    "ru-RU": "Объект",
+                    "zh-CN": "实体"
                 }
             }
         ],
@@ -14233,6 +18910,19 @@ const actionKw =
                     "pt-BR": "Especifica qual texto de HUD será destruído. Esta ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente foi armazenada anteriormente.",
                     "ru-RU": "Определяет какой из текстовых объектов интерфейса надо уничтожить. Идентификатором может служить ID последнего текстового объекта или переменная в которую был записан такой ID.",
                     "zh-CN": "指定要消除的HUD文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BD4C",
+                    "en-US": "Text ID",
+                    "es-ES": "Id de texto",
+                    "es-MX": "ID de texto",
+                    "fr-FR": "Identifiant de texte",
+                    "it-IT": "ID Testo",
+                    "ja-JP": "テキストID",
+                    "pl-PL": "Identyfikator tekstu",
+                    "pt-BR": "ID de Texto",
+                    "ru-RU": "ID текста",
+                    "zh-CN": "文本ID"
                 }
             }
         ],
@@ -14282,6 +18972,19 @@ const actionKw =
                     "pt-BR": "Especifica qual entidade de ícone será destruída. Essa entidade pode ser a Entidade Criada por Último ou uma Variável na qual a Entidade Criada por Último tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров значка следует разрушить. Это может быть последний созданный экземпляр или переменная в которую был записан последний созданный экземпляр.",
                     "zh-CN": "指定要消除的图标实体。可以是“上一个创建的实体”，或一个之前储存“上一个创建的实体”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C194",
+                    "en-US": "Entity",
+                    "es-ES": "Entidad",
+                    "es-MX": "Entidad",
+                    "fr-FR": "Entité",
+                    "it-IT": "Entità",
+                    "ja-JP": "エンティティ",
+                    "pl-PL": "Encja",
+                    "pt-BR": "Entidade",
+                    "ru-RU": "Объект",
+                    "zh-CN": "实体"
                 }
             }
         ],
@@ -14331,6 +19034,19 @@ const actionKw =
                     "pt-BR": "Especifica qual texto no mundo será destruído. Essa ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из текстовых объектов в игровом мире надо уничтожить. Идентификатором может служить ID последнего текстового объекта или переменная в которую был записан такой ID.",
                     "zh-CN": "指定要消除的地图文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BD4C",
+                    "en-US": "Text ID",
+                    "es-ES": "Id de texto",
+                    "es-MX": "ID de texto",
+                    "fr-FR": "Identifiant de texte",
+                    "it-IT": "ID Testo",
+                    "ja-JP": "テキストID",
+                    "pl-PL": "Identyfikator tekstu",
+                    "pt-BR": "ID de Texto",
+                    "ru-RU": "ID текста",
+                    "zh-CN": "文本ID"
                 }
             }
         ],
@@ -14380,6 +19096,19 @@ const actionKw =
                     "pt-BR": "Especifica qual texto de HUD da Barra de Progresso será destruído. Essa ID pode ser a ID de Texto Mais Recente ou uma Variável na qual a ID de Texto Mais Recente tenha sido armazenada anteriormente.",
                     "ru-RU": "Указывает какой текст шкалы прогресса нужно убрать. Этот ID может принадлежать [Last Text ID] или переменной в которую ранее поместили [Last Text ID].",
                     "zh-CN": "指定要消除的进度条HUD文本。此ID可以是“上一个文本ID”，或一个之前储存“上一个文本ID”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BD4C",
+                    "en-US": "Text ID",
+                    "es-ES": "Id de texto",
+                    "es-MX": "ID de texto",
+                    "fr-FR": "Identifiant de texte",
+                    "it-IT": "ID Testo",
+                    "ja-JP": "テキストID",
+                    "pl-PL": "Identyfikator tekstu",
+                    "pt-BR": "ID de Texto",
+                    "ru-RU": "ID текста",
+                    "zh-CN": "文本ID"
                 }
             }
         ],
@@ -14403,6 +19132,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BD4C",
+                    "en-US": "Text ID",
+                    "es-ES": "Id de texto",
+                    "es-MX": "ID de texto",
+                    "fr-FR": "Identifiant de texte",
+                    "it-IT": "ID Testo",
+                    "ja-JP": "テキストID",
+                    "pl-PL": "Identyfikator tekstu",
+                    "pt-BR": "ID de Texto",
+                    "ru-RU": "ID текста",
+                    "zh-CN": "文本ID"
                 }
             }
         ],
@@ -14740,6 +19482,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja vida será restaurada.",
                     "ru-RU": "Игрок или игроки чье здоровье будет восстановлено.",
                     "zh-CN": "下列玩家将恢复生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -14761,6 +19516,19 @@ const actionKw =
                     "pt-BR": "O Jogador que receberá crédito pela cura. Um Curandeiro Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Игрок который получит очки за исцеление. Пустое значение Null переменной [Healer] означает что очки не будут присуждаться никому.",
                     "zh-CN": "治疗视为此名玩家造成的。如果“治疗者”设置为“空”则此治疗不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B58E",
+                    "en-US": "Healer",
+                    "es-ES": "Sanador",
+                    "es-MX": "Sanador",
+                    "fr-FR": "Soigneur",
+                    "it-IT": "Guaritore",
+                    "ja-JP": "ヒーラー",
+                    "pl-PL": "Leczący",
+                    "pt-BR": "Curandeiro",
+                    "ru-RU": "Источник исцеления",
+                    "zh-CN": "治疗者"
                 }
             },
             {
@@ -14782,6 +19550,19 @@ const actionKw =
                     "pt-BR": "A quantidade de cura a ser aplicada. Essa quantidade pode ser modificada por bônus ou penalidades. A cura é limitada pela vida máxima de cada Jogador.",
                     "ru-RU": "Объем применяемого исцеления. Это значение может быть изменено положительными или отрицательными эффектами. Объем получаемого игроком исцеления ограничен максимальным запасом его здоровья.",
                     "zh-CN": "造成的治疗量。此数值可能会受到增益或减益状态的影响。治疗量不会超过每名玩家的最大生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22C",
+                    "en-US": "Amount",
+                    "es-ES": "Cantidad",
+                    "es-MX": "Cantidad",
+                    "fr-FR": "Montant",
+                    "it-IT": "Quantità",
+                    "ja-JP": "ダメージ量",
+                    "pl-PL": "Ilość",
+                    "pt-BR": "Quantidade",
+                    "ru-RU": "Объем",
+                    "zh-CN": "伤害量"
                 }
             }
         ],
@@ -14836,6 +19617,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores que seráão mortos.",
                     "ru-RU": "Игрок или игроки которые будут убиты.",
                     "zh-CN": "下列玩家将被杀死。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -14857,6 +19651,19 @@ const actionKw =
                     "pt-BR": "O Jogador que receberá crédito pelo abate. Um Matador Nulo indica que nenhum Jogador receberá crédito.",
                     "ru-RU": "Игрок который получит очки за убийство. Пустое значение Null переменной [Killer] означает что очки не будут присуждаться никому.",
                     "zh-CN": "击杀视为此名玩家造成的。如果“击杀者”设置为“空”则此击杀不会归到任何玩家名下。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B590",
+                    "en-US": "Killer",
+                    "es-ES": "Asesino",
+                    "es-MX": "Asesino",
+                    "fr-FR": "Tueur",
+                    "it-IT": "Uccisore",
+                    "ja-JP": "キラー",
+                    "pl-PL": "Zabójca",
+                    "pt-BR": "Matador",
+                    "ru-RU": "Убийца",
+                    "zh-CN": "击杀者"
                 }
             }
         ],
@@ -14899,6 +19706,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players to move.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -14909,6 +19729,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -14919,6 +19752,18 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player slot which will receive the player (-1 for first available slot).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B337",
+                    "en-US": "Slot",
+                    "es-ES": "Ranura",
+                    "es-MX": "Puesto",
+                    "fr-FR": "Emplacement",
+                    "ja-JP": "スロット",
+                    "pl-PL": "Miejsce",
+                    "pt-BR": "Espaço",
+                    "ru-RU": "Ячейка",
+                    "zh-CN": "栏位"
                 }
             }
         ],
@@ -14985,6 +19830,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que poderão ver o efeito.",
                     "ru-RU": "Один или несколько игроков которым будет виден эффект.",
                     "zh-CN": "一名或多名将家将可以看到此效果。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -15006,6 +19860,18 @@ const actionKw =
                     "pt-BR": "O tipo de efeito a ser criado.",
                     "ru-RU": "Тип создаваемого эффекта.",
                     "zh-CN": "将要创建的效果类型。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8B0",
+                    "en-US": "Type",
+                    "es-ES": "Tipo",
+                    "es-MX": "Tipo",
+                    "it-IT": "Tipo",
+                    "ja-JP": "タイプ",
+                    "pl-PL": "Typ",
+                    "pt-BR": "Tipo",
+                    "ru-RU": "Тип",
+                    "zh-CN": "类型"
                 }
             },
             {
@@ -15016,6 +19882,14 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011D42",
+                    "en-US": "Color",
+                    "fr-FR": "Couleur",
+                    "ja-JP": "色",
+                    "pt-BR": "Cor",
+                    "zh-CN": "颜色"
                 }
             },
             {
@@ -15037,6 +19911,18 @@ const actionKw =
                     "pt-BR": "A posição do efeito. Se este Valor for um Jogador então o efeito será reproduzido na posição do Jogador. Caso contrário o Valor será interpretado como uma posição no mundo.",
                     "ru-RU": "Местоположение эффекта. Если в качестве значения указан игрок то эффект будет воспроизведен в местоположении игрока. В остальных случаях значение определяет местоположение в системе координат игрового мира.",
                     "zh-CN": "效果所在位置。如果此值为一名玩家，那么效果将在此玩家所在位置播放。否则，此值将代表地图中的一个位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             },
             {
@@ -15047,6 +19933,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The effect's radius in meters.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B237",
+                    "en-US": "Radius",
+                    "es-ES": "Radio",
+                    "es-MX": "Radio",
+                    "fr-FR": "Rayon",
+                    "it-IT": "Raggio",
+                    "ja-JP": "範囲",
+                    "pl-PL": "Promień",
+                    "pt-BR": "Raio",
+                    "ru-RU": "Радиус",
+                    "zh-CN": "半径"
                 }
             }
         ],
@@ -15096,6 +19995,19 @@ const actionKw =
                     "pt-BR": "A String precisa ser registrada no Inspetor da Oficina.",
                     "ru-RU": "Строка которую инспектор «Мастерской» запишет в журнал.",
                     "zh-CN": "将要记入地图工坊查看器的字符串。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001244A",
+                    "en-US": "Text",
+                    "es-ES": "Texto",
+                    "es-MX": "Texto",
+                    "fr-FR": "Texte",
+                    "it-IT": "Testo",
+                    "ja-JP": "テキスト",
+                    "pl-PL": "Tekst",
+                    "pt-BR": "Texto",
+                    "ru-RU": "Текст",
+                    "zh-CN": "文本"
                 }
             }
         ],
@@ -15153,6 +20065,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão o texto de HUD da Barra de Progresso.",
                     "ru-RU": "Игрок или игроки которые увидят текст шкалы прогресса.",
                     "zh-CN": "下列玩家将会看到这条进度条HUD文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -15174,6 +20095,19 @@ const actionKw =
                     "pt-BR": "O valor da barra de progresso a ser exibido como porcentagem de 0 a 100.",
                     "ru-RU": "Значение шкалы прогресса отображаемое в диапазоне от 0 до 100 процентов.",
                     "zh-CN": "将要显示的进度条值，为从0到100的百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -15184,6 +20118,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The text to be displayed (can be blank)",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001244A",
+                    "en-US": "Text",
+                    "es-ES": "Texto",
+                    "es-MX": "Texto",
+                    "fr-FR": "Texte",
+                    "it-IT": "Testo",
+                    "ja-JP": "テキスト",
+                    "pl-PL": "Tekst",
+                    "pt-BR": "Texto",
+                    "ru-RU": "Текст",
+                    "zh-CN": "文本"
                 }
             },
             {
@@ -15205,6 +20152,19 @@ const actionKw =
                     "pt-BR": "O local na tela onde o texto aparecerá.",
                     "ru-RU": "Участок экрана где будет отображаться текст.",
                     "zh-CN": "文本在屏幕上出现的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BAF9",
+                    "en-US": "Location",
+                    "es-ES": "Ubicación",
+                    "es-MX": "Ubicación",
+                    "fr-FR": "Lieu",
+                    "it-IT": "Luogo",
+                    "ja-JP": "場所",
+                    "pl-PL": "Lokalizacja",
+                    "pt-BR": "Local",
+                    "ru-RU": "Местоположение",
+                    "zh-CN": "坐标"
                 }
             },
             {
@@ -15215,6 +20175,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The sort order of the text relative to other text in the same location. Text with a higher sort order will come after the text with a lower sort order.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             },
             {
@@ -15225,6 +20198,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000122EA",
+                    "en-US": "Progress Bar Color",
+                    "es-ES": "Color de la barra de progreso",
+                    "es-MX": "Color de la barra de progreso",
+                    "fr-FR": "Couleur de barre de progression",
+                    "it-IT": "Colore Progress Bar",
+                    "ja-JP": "進行バーの色",
+                    "pl-PL": "Kolor paska postępu",
+                    "pt-BR": "Cor da Barra de Progresso",
+                    "ru-RU": "Цвет шкалы прогресса",
+                    "zh-CN": "进度条颜色"
                 }
             },
             {
@@ -15235,6 +20221,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C2C3",
+                    "en-US": "Text Color",
+                    "es-ES": "Color del texto",
+                    "es-MX": "Color de texto",
+                    "fr-FR": "Couleur du texte",
+                    "it-IT": "Colore Testo",
+                    "ja-JP": "テキストの色",
+                    "pl-PL": "Kolor tekstu",
+                    "pt-BR": "Cor do Texto",
+                    "ru-RU": "Цвет текста",
+                    "zh-CN": "文本颜色"
                 }
             },
             {
@@ -15256,6 +20255,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. O texto continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Текстовый объект будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段文本会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             },
             {
@@ -15277,6 +20289,20 @@ const actionKw =
                     "pt-BR": "Define se os espectadores fora do time podem ver o texto ou não.",
                     "ru-RU": "Определяет могут ли внекомандные зрители видеть текст.",
                     "zh-CN": "无队伍观战者是否可以看到此文本。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000CE58",
+                    "en-US": "Non-Team Spectators",
+                    "de-DE": "Teamlose Zuschauer",
+                    "es-ES": "Observadores fuera del equipo",
+                    "es-MX": "Espectadores que no pertenecen al equipo",
+                    "fr-FR": "Spectateurs neutres",
+                    "it-IT": "Spettatori esterni",
+                    "ja-JP": "非チーム視点の観戦者",
+                    "pl-PL": "Obserwatorzy spoza drużyny",
+                    "pt-BR": "Espectadores fora do time",
+                    "ru-RU": "Внекомандные зрители",
+                    "zh-CN": "无队伍观战者"
                 }
             }
         ],
@@ -15305,6 +20331,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The player or players to remove.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -15321,7 +20360,7 @@ const actionKw =
         "description": "Removes a health pool that was added via the Add Health Pool action.",
         "args": [
             {
-                "name": "ID",
+                "name": "Health Pool ID",
                 "description": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)",
                 "type": "HealthPoolId",
                 "default": "Last Created Health Pool",
@@ -15339,6 +20378,19 @@ const actionKw =
                     "pt-BR": "Especifica uma reserva de vida criada pela ação Adicionar Reserva de Vida. IDs de reserva de vida podem ser obtidas por meio do valor Última Reserva de Vida Criada.",
                     "ru-RU": "Определяет запас здоровья заданный действием [Add Health Pool]. ID запаса здоровья можно получить вызовом значения последнего заданного запаса здоровья [Last Created Health Pool].",
                     "zh-CN": "指定一个由“添加生命池”动作所创建的生命池。（可以用“上一个创建的生命池”获得生命池ID的值。）"
+                },
+                "nameLocalized": {
+                    "guid": "000000011437",
+                    "en-US": "Health Pool ID",
+                    "es-ES": "ID de reserva de salud",
+                    "es-MX": "ID de cantidad de salud",
+                    "fr-FR": "Identifiant de réserve de points de vie",
+                    "it-IT": "ID Riserva Salute",
+                    "ja-JP": "ライフプールID",
+                    "pl-PL": "ID puli zdrowia",
+                    "pt-BR": "ID de Reserva de Vida",
+                    "ru-RU": "ID запаса здоровья",
+                    "zh-CN": "生命池ID"
                 }
             }
         ],
@@ -15448,6 +20500,19 @@ const actionKw =
                     "pt-BR": "O tempo da partida em segundos.",
                     "ru-RU": "Время матча в секундах.",
                     "zh-CN": "比赛时间，单位为秒。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B19B",
+                    "en-US": "Time",
+                    "es-ES": "Tiempo",
+                    "es-MX": "Tiempo",
+                    "fr-FR": "Temps",
+                    "it-IT": "Tempo",
+                    "ja-JP": "時間",
+                    "pl-PL": "Czas",
+                    "pt-BR": "Tempo",
+                    "ru-RU": "Время",
+                    "zh-CN": "时间"
                 }
             }
         ],
@@ -15502,6 +20567,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
                     "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
                     "zh-CN": "下列玩家将看到此信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -15524,6 +20598,19 @@ const actionKw =
                     "pt-BR": "A mensagem a ser exibida.",
                     "ru-RU": "Отображаемое сообщение.",
                     "zh-CN": "将要显示的信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BA89",
+                    "en-US": "Header",
+                    "es-ES": "Título",
+                    "es-MX": "Encabezado",
+                    "fr-FR": "Titre",
+                    "it-IT": "Titolo",
+                    "ja-JP": "ヘッダー",
+                    "pl-PL": "Nagłówek",
+                    "pt-BR": "Cabeçalho",
+                    "ru-RU": "Заголовок",
+                    "zh-CN": "标题"
                 }
             },
             {
@@ -15545,6 +20632,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. A mensagem continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект сообщения будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。这段信息会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -15583,6 +20683,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9F3",
+                    "en-US": "Speed Percent",
+                    "es-ES": "Porcentaje de velocidad",
+                    "es-MX": "Porcentaje de velocidad",
+                    "fr-FR": "Pourcentage de vitesse",
+                    "it-IT": "Percentuale Velocità Non Direzionale",
+                    "ja-JP": "速さのパーセンテージ",
+                    "pl-PL": "Procentowa szybkość",
+                    "pt-BR": "Percentual de Velocidade",
+                    "ru-RU": "Процент скорости",
+                    "zh-CN": "速度百分比"
                 }
             }
         ],
@@ -15632,6 +20745,19 @@ const actionKw =
                     "pt-BR": "As Equipes cuja pontuação será definida.",
                     "ru-RU": "Команда или команды которым будет установлен счет.",
                     "zh-CN": "要设置分数的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -15655,6 +20781,19 @@ const actionKw =
                     "pt-BR": "A pontuação que será definida.",
                     "ru-RU": "Устанавливаемый счет.",
                     "zh-CN": "要设置的分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B22E",
+                    "en-US": "Score",
+                    "es-ES": "Puntuación",
+                    "es-MX": "Puntuación",
+                    "fr-FR": "Points",
+                    "it-IT": "Punteggio",
+                    "ja-JP": "スコア",
+                    "pl-PL": "Wynik",
+                    "pt-BR": "Pontuação",
+                    "ru-RU": "Счет",
+                    "zh-CN": "得分"
                 }
             }
         ],
@@ -15709,6 +20848,15 @@ const actionKw =
                     "pt-BR": "Um ou mais Jogadores que verão a mensagem.",
                     "ru-RU": "Один или несколько игроков которым будет видно сообщение.",
                     "zh-CN": "下列玩家将看到此信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8C4",
+                    "en-US": "Visible To",
+                    "es-MX": "Visible para",
+                    "fr-FR": "Visible pour",
+                    "ja-JP": "目視可能: ",
+                    "pt-BR": "Visível para",
+                    "zh-CN": "可见"
                 }
             },
             {
@@ -15731,6 +20879,19 @@ const actionKw =
                     "pt-BR": "A mensagem a ser exibida.",
                     "ru-RU": "Отображаемое сообщение.",
                     "zh-CN": "将要显示的信息。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BA89",
+                    "en-US": "Header",
+                    "es-ES": "Título",
+                    "es-MX": "Encabezado",
+                    "fr-FR": "Titre",
+                    "it-IT": "Titolo",
+                    "ja-JP": "ヘッダー",
+                    "pl-PL": "Nagłówek",
+                    "pt-BR": "Cabeçalho",
+                    "ru-RU": "Заголовок",
+                    "zh-CN": "标题"
                 }
             }
         ],
@@ -15785,6 +20946,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo dano recebido será modificado pelo ataque dos Danificadores.",
                     "ru-RU": "Игрок или игроки у которых будет изменен размер получаемого урона при атаках игроков из списка наносящих урон [Damagers].",
                     "zh-CN": "修正下列玩家受到的伤害（被“伤害者”攻击时）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C641",
+                    "en-US": "Receivers",
+                    "es-ES": "Receptores",
+                    "es-MX": "Receptores",
+                    "fr-FR": "Récepteurs de dégâts",
+                    "it-IT": "Ricevitori",
+                    "ja-JP": "レシーバー",
+                    "pl-PL": "Odbiorcy",
+                    "pt-BR": "Receptores",
+                    "ru-RU": "Получающие урон",
+                    "zh-CN": "受伤害者"
                 }
             },
             {
@@ -15811,6 +20985,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cujo dano causado será modificado ao atacar os Receptores.",
                     "ru-RU": "Игрок или игроки у которых будет изменен размер наносимого урона при атаках на игроков из списка получающих урон [Receivers].",
                     "zh-CN": "修正下列玩家造成的伤害（攻击“受伤害者”时）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C63D",
+                    "en-US": "Damagers",
+                    "es-ES": "Dañadores",
+                    "es-MX": "Infligidores de daño",
+                    "fr-FR": "Émetteurs de dégâts",
+                    "it-IT": "Attaccanti",
+                    "ja-JP": "ダメージャー（複数）",
+                    "pl-PL": "Raniący",
+                    "pt-BR": "Danificadores",
+                    "ru-RU": "Наносящие урон",
+                    "zh-CN": "伤害者"
                 }
             },
             {
@@ -15832,6 +21019,19 @@ const actionKw =
                     "pt-BR": "A porcentagem de dano que será aplicada aos Receptores quando forem atacados pelos Danificadores.",
                     "ru-RU": "Процентная доля урона которая будет применена к получающим урон при атаках игроков из списка наносящих урон [Damagers].",
                     "zh-CN": "伤害者对受伤害者造成伤害将调整至百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C63C",
+                    "en-US": "Damage Percent",
+                    "es-ES": "Porcentaje de daño",
+                    "es-MX": "Porcentaje de daño",
+                    "fr-FR": "Pourcentage de dégâts",
+                    "it-IT": "Percentuale Danni",
+                    "ja-JP": "ダメージのパーセンテージ",
+                    "pl-PL": "Procentowe obrażenia",
+                    "pt-BR": "Percentual de Dano",
+                    "ru-RU": "Процент урона",
+                    "zh-CN": "伤害百分比"
                 }
             },
             {
@@ -15853,6 +21053,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -15902,6 +21115,19 @@ const actionKw =
                     "pt-BR": "A Equipe cuja sala de ressurgimento será forçada.",
                     "ru-RU": "Команда для которой будет включено возрождение только в указанной стартовой комнате.",
                     "zh-CN": "这支队伍将被强制使用指定重生室。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -15913,6 +21139,19 @@ const actionKw =
                 "descriptionLocalized": {
                     "en-US": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B578",
+                    "en-US": "Room",
+                    "es-ES": "Sala",
+                    "es-MX": "Cuarto",
+                    "fr-FR": "Salle",
+                    "it-IT": "Stanza",
+                    "ja-JP": "ルーム",
+                    "pl-PL": "Pomieszczenie",
+                    "pt-BR": "Sala",
+                    "ru-RU": "Комната",
+                    "zh-CN": "室内"
                 }
             }
         ],
@@ -15979,6 +21218,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja cura recebida será modificada quando curados pelos Curandeiros.",
                     "ru-RU": "Игрок или игроки у которых будет модифицироваться значение получаемого исцеления от указанных источников.",
                     "zh-CN": "修正下列玩家受到的治疗（被“治疗者”治疗时）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C641",
+                    "en-US": "Receivers",
+                    "es-ES": "Receptores",
+                    "es-MX": "Receptores",
+                    "fr-FR": "Récepteurs de dégâts",
+                    "it-IT": "Ricevitori",
+                    "ja-JP": "レシーバー",
+                    "pl-PL": "Odbiorcy",
+                    "pt-BR": "Receptores",
+                    "ru-RU": "Получающие урон",
+                    "zh-CN": "受伤害者"
                 }
             },
             {
@@ -16005,6 +21257,19 @@ const actionKw =
                     "pt-BR": "Os Jogadores cuja cura causada será modificada ao curar os Receptores.",
                     "ru-RU": "Игрок или игроки у которых будет модифицировано исходящее исцеление указанных целей.",
                     "zh-CN": "修正下列玩家造成的治疗（治疗“受治疗者”时）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FD45",
+                    "en-US": "Healers",
+                    "es-ES": "Sanadores",
+                    "es-MX": "Sanadores",
+                    "fr-FR": "Soigneurs",
+                    "it-IT": "Guaritori",
+                    "ja-JP": "ヒーラー（複数）",
+                    "pl-PL": "Leczący",
+                    "pt-BR": "Curandeiros",
+                    "ru-RU": "Источники исцеления",
+                    "zh-CN": "治疗者"
                 }
             },
             {
@@ -16026,6 +21291,19 @@ const actionKw =
                     "pt-BR": "A porcentagem de cura que será aplicada aos Receptores quando forem curados pelos Curandeiros.",
                     "ru-RU": "Процент исцеления которое будет применено к получающим от источников.",
                     "zh-CN": "治疗者对受治疗者造成的治疗将调整至百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FD47",
+                    "en-US": "Healing Percent",
+                    "es-ES": "Porcentaje de sanación",
+                    "es-MX": "Porcentaje de sanación",
+                    "fr-FR": "Pourcentage de soins",
+                    "it-IT": "Percentuale Cure",
+                    "ja-JP": "回復量のパーセンテージ",
+                    "pl-PL": "Procentowe leczenie",
+                    "pt-BR": "Percentual de cura",
+                    "ru-RU": "Процент исцеления",
+                    "zh-CN": "治疗百分比"
                 }
             },
             {
@@ -16047,6 +21325,19 @@ const actionKw =
                     "pt-BR": "Especifica qual das Entradas desta Ação será reavaliada continuamente. Esta Ação continuará solicitando e usando novos Valores das Entradas reavaliadas.",
                     "ru-RU": "Определяет какие из аргументов этого действия подлежат циклической проверке. Объект действия будет запрашивать и использовать новые значения при каждом новом цикле проверки аргументов.",
                     "zh-CN": "指定此动作的某个输入值将被持续重新赋值。此动作会要求输入新的数值，并用输入的数值进行重新赋值。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000113C9",
+                    "en-US": "Reevaluation",
+                    "es-ES": "Revaluación",
+                    "es-MX": "Reevaluación",
+                    "fr-FR": "Réévaluation",
+                    "it-IT": "Rivalutazione",
+                    "ja-JP": "再評価",
+                    "pl-PL": "Ponowne oszacowanie",
+                    "pt-BR": "Recálculo",
+                    "ru-RU": "Пересчет",
+                    "zh-CN": "重新赋值"
                 }
             }
         ],
@@ -16177,6 +21468,19 @@ const actionKw =
                     "pt-BR": "Especifica qual instância de assistência será interrompida. Essa ID pode ser a ID da Última Assistência ou uma Variável na qual a ID da Última Assistência tenha sido armazenada anteriormente.",
                     "ru-RU": "Указывает какое именно содействие необходимо остановить. Этот ID может принадлежать [Last Assist ID] или переменной в которую ранее поместили [Last Assist ID].",
                     "zh-CN": "指定要停止的助攻副本。此ID可以是“上一个助攻ID”，或一个之前储存“上一个助攻ID”的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000121FE",
+                    "en-US": "Assist ID",
+                    "es-ES": "ID de asistencia",
+                    "es-MX": "ID de asistente",
+                    "fr-FR": "Identifiant de soutien",
+                    "it-IT": "ID Assist",
+                    "ja-JP": "アシストID",
+                    "pl-PL": "Identyfikator asysty",
+                    "pt-BR": "ID de Assistência",
+                    "ru-RU": "ID содействия",
+                    "zh-CN": "助攻ID"
                 }
             }
         ],
@@ -16208,7 +21512,7 @@ const actionKw =
         "description": "Stops a damage modification that was started by the start damage modification action.",
         "args": [
             {
-                "name": "DAMAGE MODIFICATION",
+                "name": "DAMAGE MODIFICATION ID",
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
                 "type": "DamageModificationId",
                 "default": "LAST DAMAGE MODIFICATION ID",
@@ -16226,6 +21530,18 @@ const actionKw =
                     "pt-BR": "Especifica qual instância de modificação de dano será interrompida. Essa ID pode ser a ID de Modificação de Dano Mais Recente ou uma Variável na qual a ID de Modificação de Dano Mais Recente tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров изменения урона следует остановить. В качестве идентификатора может выступать [Last Damage Modification ID] или переменная в которую был записан такой ID.",
                     "zh-CN": "指定要结束的伤害调整副本。此ID可以是”上一个伤害调整ID“，或一个之前储存”上一个伤害调整ID“的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C64D",
+                    "en-US": "Damage Modification ID",
+                    "es-MX": "ID de modificación de daño",
+                    "fr-FR": "Identifiant de modification de dégâts",
+                    "it-IT": "ID Modifica Danni",
+                    "ja-JP": "ダメージ変更ID",
+                    "pl-PL": "Identyfikator modyfikacji obrażeń",
+                    "pt-BR": "ID de Modificação de Dano",
+                    "ru-RU": "Идентификатор изменения урона",
+                    "zh-CN": "伤害调整ID"
                 }
             }
         ],
@@ -16275,6 +21591,19 @@ const actionKw =
                     "pt-BR": "Especifica qual instância de Dano ao Longo do Tempo será interrompida. Essa ID pode ser a ID de Dano ao Longo do Tempo Mais Recente ou uma Variável na qual a ID de Dano ao Longo do Tempo Mais Recente tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров периодического урона [Damage Over Time] следует остановить. В качестве идентификатора может выступать [Last Damage Over Time ID] или переменная в которую был записан такой ID.",
                     "zh-CN": "指定要结束的持续伤害副本。此ID可以是”上一个持续伤害ID“，或一个之前储存”上一个持续伤害ID“的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9CB",
+                    "en-US": "Damage Over Time ID",
+                    "es-ES": "Id de daño en el tiempo",
+                    "es-MX": "ID de daño con el tiempo",
+                    "fr-FR": "Identifiant de dégâts sur la durée",
+                    "it-IT": "ID Danni Periodici",
+                    "ja-JP": "継続ダメージID",
+                    "pl-PL": "Identyfikator obrażeń z upływem czasu",
+                    "pt-BR": "ID de Dano ao Longo do Tempo",
+                    "ru-RU": "ID периодического урона",
+                    "zh-CN": "持续伤害ID"
                 }
             }
         ],
@@ -16324,6 +21653,19 @@ const actionKw =
                     "pt-BR": "A Equipe que voltará a usar sua sala de ressurgimento normal.",
                     "ru-RU": "Команда которая будет возрождаться в их обычной стартовой комнате.",
                     "zh-CN": "这支队伍将使用正常状态下的重生室重生。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -16373,6 +21715,18 @@ const actionKw =
                     "pt-BR": "Especifica qual instância de modificação de cura será interrompida. Essa ID pode ser a ID da Última Modificação de Cura ou uma Variável na qual a ID da Última Modificação de Cura tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров модификации исцеления следует остановить. В качестве идентификатора можно использовать [Last Healing Modification ID] или переменную в которую был записан такой ID.",
                     "zh-CN": "指定要结束的治疗调整副本。此ID可以是”上一个治疗调整ID“，或一个之前储存”上一个治疗调整ID“的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000FD39",
+                    "en-US": "Healing Modification ID",
+                    "es-MX": "ID de modificación de sanación",
+                    "fr-FR": "Identifiant de modification de soins",
+                    "it-IT": "ID Modifica Cure",
+                    "ja-JP": "回復変更ID",
+                    "pl-PL": "Identyfikator modyfikacji leczenia",
+                    "pt-BR": "ID de modificação de cura",
+                    "ru-RU": "Идентификатор модификации исцеления",
+                    "zh-CN": "治疗调整ID"
                 }
             }
         ],
@@ -16422,6 +21776,19 @@ const actionKw =
                     "pt-BR": "Especifica qual instância de Cura ao Longo do Tempo será interrompida. Essa ID pode ser a ID de Cura ao Longo do Tempo Mais Recente ou uma Variável na qual a ID de Cura ao Longo do Tempo Mais Recente tenha sido armazenada anteriormente.",
                     "ru-RU": "Определяет какой из экземпляров периодического исцеления [Heal Over Time] следует остановить. В качестве идентификатора может выступать [Last Heal Over Time ID] или переменная в которую был записан такой ID.",
                     "zh-CN": "指定要结束的持续治疗副本。此ID可以是”上一个持续治疗ID“，或一个之前储存”上一个持续治疗ID“的变量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B9CC",
+                    "en-US": "Heal Over Time ID",
+                    "es-ES": "Id de sanación en el tiempo",
+                    "es-MX": "ID de sanación con el tiempo",
+                    "fr-FR": "Identifiant de soins sur la durée",
+                    "it-IT": "ID Cure Periodiche",
+                    "ja-JP": "継続回復ID",
+                    "pl-PL": "Identyfikator leczenia z upływem czasu",
+                    "pt-BR": "ID de Cura ao Longo do Tempo",
+                    "ru-RU": "ID периодического исцеления",
+                    "zh-CN": "持续治疗ID"
                 }
             }
         ],
@@ -16498,6 +21865,19 @@ const actionKw =
                     "pt-BR": "Se este valor for verdadeiro a espera será concluída e a próxima ação na lista de ações começará a ser executada.",
                     "ru-RU": "Если данное значение становится истинным true ожидание завершается и начинается выполнение следующего действия в списке.",
                     "zh-CN": "如果此值变为“真”，则终止等待，并开始执行动作列表中的下一个动作。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000121C4",
+                    "en-US": "Continue Condition",
+                    "es-ES": "Continuar condición",
+                    "es-MX": "Condición Continuar",
+                    "fr-FR": "Condition Continuer",
+                    "it-IT": "Continua Condizione",
+                    "ja-JP": "継続条件",
+                    "pl-PL": "Kontynuuj warunek",
+                    "pt-BR": "Condição de Continuação",
+                    "ru-RU": "Условие продолжения",
+                    "zh-CN": "继续条件"
                 }
             },
             {
@@ -16519,6 +21899,19 @@ const actionKw =
                     "pt-BR": "Se passarem esses segundos a espera será concluída e a próxima ação na lista de ações começará a ser executada.",
                     "ru-RU": "Через указанное количество секунд ожидание завершается и начинается выполнение следующего действия в списке.",
                     "zh-CN": "如果达到此秒数时限，则终止等待，并开始执行动作列表中的下一个动作。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000121CB",
+                    "en-US": "Timeout",
+                    "es-ES": "Tiempo de espera",
+                    "es-MX": "Tiempo de espera",
+                    "fr-FR": "Délai d’attente",
+                    "it-IT": "Scadenza",
+                    "ja-JP": "タイムアウト",
+                    "pl-PL": "Przekroczony czas oczekiwania",
+                    "pt-BR": "Tempo Limite",
+                    "ru-RU": "Время ожидания",
+                    "zh-CN": "超时"
                 }
             }
         ],
@@ -16785,6 +22178,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja Habilidade será verificada.",
                     "ru-RU": "Игрок к способности которого применяется проверка.",
                     "zh-CN": "检测此玩家的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -16806,6 +22212,19 @@ var valueFuncKw =
                     "pt-BR": "A habilidade a ser verificada associada por botão.",
                     "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
                     "zh-CN": "检测此按键对应的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -16855,6 +22274,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja Habilidade será verificada.",
                     "ru-RU": "Игрок к способности которого применяется проверка.",
                     "zh-CN": "检测此玩家的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -16876,6 +22308,19 @@ var valueFuncKw =
                     "pt-BR": "A habilidade a ser verificada associada por botão.",
                     "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
                     "zh-CN": "检测此按键对应的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -16925,6 +22370,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja Habilidade será verificada.",
                     "ru-RU": "Игрок к способности которого применяется проверка.",
                     "zh-CN": "检测此玩家的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -16946,6 +22404,19 @@ var valueFuncKw =
                     "pt-BR": "A habilidade a ser verificada associada por botão.",
                     "ru-RU": "Проверяемая способность сопоставленная с кнопкой.",
                     "zh-CN": "检测此按键对应的技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -16995,6 +22466,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujos Heróis permitidos serão adquiridos.",
                     "ru-RU": "Игрок список открытых героев которого нужно получить.",
                     "zh-CN": "获取此玩家可用的英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17047,6 +22531,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja altitude será adquirida.",
                     "ru-RU": "Игрок высоту нахождения которого нужно определить.",
                     "zh-CN": "获取此玩家的高度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17096,6 +22593,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja munição será adquirida.",
                     "ru-RU": "Игрок у которого нужно определить количество боеприпасов.",
                     "zh-CN": "获取此玩家的弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -17108,6 +22618,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110EE",
+                    "en-US": "Clip",
+                    "es-ES": "Cargador",
+                    "es-MX": "Cargador",
+                    "fr-FR": "Chargeur",
+                    "it-IT": "Caricatore",
+                    "ja-JP": "クリップ",
+                    "pl-PL": "Magazynek",
+                    "pt-BR": "Carregador",
+                    "ru-RU": "Боекомплект",
+                    "zh-CN": "弹夹"
                 }
             }
         ],
@@ -17158,6 +22681,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo Herói será adquirido.",
                     "ru-RU": "Игрок героя которого нужно узнать.",
                     "zh-CN": "获取此玩家的英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17208,6 +22744,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja arma será adquirida.",
                     "ru-RU": "Игрок данные об оружии которого нужно получить.",
                     "zh-CN": "获取此玩家的武器。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17243,6 +22792,19 @@ var valueFuncKw =
                     "pt-BR": "A posição da visão em primeira pessoa do Jogador usada para mira.",
                     "ru-RU": "Местоположение вида игрока от первого лица используется для прицеливания.",
                     "zh-CN": "玩家第一人称视角的位置（用于瞄准）"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17292,6 +22854,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja direção frontal será adquirida.",
                     "ru-RU": "Игрок направление взгляда которого нужно получить.",
                     "zh-CN": "获取此玩家面向的方向 。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17343,6 +22918,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida será adquirida.",
                     "ru-RU": "Игрок запас здоровья которого нужно узнать.",
                     "zh-CN": "获取此玩家的生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17391,6 +22979,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida será adquirida.",
                     "ru-RU": "Игрок запас здоровья которого нужно узнать.",
                     "zh-CN": "获取此玩家的生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -17412,6 +23013,15 @@ var valueFuncKw =
                     "pt-BR": "O tipo de vida que será adquirido.",
                     "ru-RU": "Тип запаса здоровья который нужно определить.",
                     "zh-CN": "获取此类型的生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011449",
+                    "en-US": "Health",
+                    "es-MX": "Salud",
+                    "fr-FR": "Vie",
+                    "ja-JP": "ライフ",
+                    "pt-BR": "Vida",
+                    "zh-CN": "生命值"
                 }
             }
         ],
@@ -17446,6 +23056,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador realizando a duplicação.",
                     "ru-RU": "Игрок использующий «Дубликацию».",
                     "zh-CN": "正在施展人格复制的玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17496,6 +23119,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja estatística será obtida.",
                     "ru-RU": "Игрок статистику которого нужно определить.",
                     "zh-CN": "获取此玩家的数据。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -17506,6 +23142,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The hero whose statistic to acquire",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -17527,6 +23176,19 @@ var valueFuncKw =
                     "pt-BR": "A estatística a ser obtida.",
                     "ru-RU": "Статистика которую нужно определить.",
                     "zh-CN": "获取数据。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001250A",
+                    "en-US": "Stat",
+                    "es-ES": "Estadística",
+                    "es-MX": "Estadísticas",
+                    "fr-FR": "Stats",
+                    "it-IT": "Statistica",
+                    "ja-JP": "統計",
+                    "pl-PL": "Statystyka",
+                    "pt-BR": "Estatística",
+                    "ru-RU": "Показатель",
+                    "zh-CN": "数据"
                 }
             }
         ],
@@ -17576,6 +23238,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo ângulo de direção horizontal será adquirido.",
                     "ru-RU": "Игрок горизонтальный угол взгляда которого нужно определить.",
                     "zh-CN": "获取此玩家的水平面向角度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17625,6 +23300,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja velocidade horizontal será adquirida.",
                     "ru-RU": "Игрок горизонтальную скорость которого нужно определить.",
                     "zh-CN": "获取此玩家的水平速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17674,6 +23362,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja munição máxima será adquirida.",
                     "ru-RU": "Игрок у которого нужно определить максимальное количество боеприпасов.",
                     "zh-CN": "获取此玩家的最大弹药数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -17686,6 +23387,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000110EE",
+                    "en-US": "Clip",
+                    "es-ES": "Cargador",
+                    "es-MX": "Cargador",
+                    "fr-FR": "Chargeur",
+                    "it-IT": "Caricatore",
+                    "ja-JP": "クリップ",
+                    "pl-PL": "Magazynek",
+                    "pt-BR": "Carregador",
+                    "ru-RU": "Боекомплект",
+                    "zh-CN": "弹夹"
                 }
             }
         ],
@@ -17735,6 +23449,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida máxima será adquirida.",
                     "ru-RU": "Игрок максимальный запас здоровья которого нужно узнать.",
                     "zh-CN": "获取此玩家的最大生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17784,6 +23511,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida máxima será adquirida.",
                     "ru-RU": "Игрок максимальный запас здоровья которого нужно узнать.",
                     "zh-CN": "获取此玩家的最大生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -17805,6 +23545,15 @@ var valueFuncKw =
                     "pt-BR": "O tipo de vida máxima que será adquirido.",
                     "ru-RU": "Тип максимального запаса здоровья который нужно определить.",
                     "zh-CN": "获取此类型的最大生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011449",
+                    "en-US": "Health",
+                    "es-MX": "Salud",
+                    "fr-FR": "Vie",
+                    "ja-JP": "ライフ",
+                    "pt-BR": "Vida",
+                    "zh-CN": "生命值"
                 }
             }
         ],
@@ -17839,6 +23588,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida normalizada será adquirida.",
                     "ru-RU": "Игрок нормализованный запас здоровья которого нужно узнать.",
                     "zh-CN": "获取此玩家的标准化生命值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17888,6 +23650,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja contagem de mortes será adquirida.",
                     "ru-RU": "Игрок количество смертей которого нужно получить.",
                     "zh-CN": "获取此玩家的死亡次数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17939,6 +23714,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja contagem de eliminações será adquirida.",
                     "ru-RU": "Игрок для которого нужно получить количество совершенных им убийств.",
                     "zh-CN": "获取此玩家的消灭次数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -17990,6 +23778,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja contagem de golpes finais será adquirida.",
                     "ru-RU": "Игрок количество смертельных ударов которого нужно получить.",
                     "zh-CN": "获取此玩家的最后一击次数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18041,6 +23842,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja mira será usada para buscar o Jogador mais próximo.",
                     "ru-RU": "Игрок в прицеле которого нужно искать ближайшего игрока.",
                     "zh-CN": "搜索距此玩家准星最近的玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -18062,6 +23876,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes usadas para buscar o Jogador mais próximo.",
                     "ru-RU": "Команда или команды из числа игроков которых нужно определить ближайшего.",
                     "zh-CN": "搜索此队伍中最近的玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -18111,6 +23938,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja visão será usada na verificação.",
                     "ru-RU": "Игрок поле зрения которого используется для проверки.",
                     "zh-CN": "检测此名玩家的视野。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -18132,6 +23972,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes cujos Jogadores serão considerados.",
                     "ru-RU": "Команда или команды игроков из которых нужно учитывать.",
                     "zh-CN": "考察的玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -18153,6 +24006,19 @@ var valueFuncKw =
                     "pt-BR": "O Ângulo de Visão a ser comparado em graus.",
                     "ru-RU": "Угол поля зрения в градусах по которому проводится сравнение.",
                     "zh-CN": "用于比较的视角，单位为度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF80",
+                    "en-US": "View Angle",
+                    "es-ES": "Ángulo de visión",
+                    "es-MX": "Ángulo de vista",
+                    "fr-FR": "Champ de vision",
+                    "it-IT": "Angolo di Visuale",
+                    "ja-JP": "視角範囲",
+                    "pl-PL": "Kąt widzenia",
+                    "pt-BR": "Ângulo de Visão",
+                    "ru-RU": "Угол обзора",
+                    "zh-CN": "视角"
                 }
             }
         ],
@@ -18204,6 +24070,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja posição será adquirida.",
                     "ru-RU": "Игрок положение которого нужно определить.",
                     "zh-CN": "获取此玩家的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18254,6 +24133,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja pontuação será adquirida.",
                     "ru-RU": "Игрок счет которого нужно узнать.",
                     "zh-CN": "获取此玩家的分数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18303,6 +24195,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo número de espaço será adquirido.",
                     "ru-RU": "Игрок номер ячейки которого нужно получить.",
                     "zh-CN": "获取此玩家的位置编号。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18352,6 +24257,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja velocidade será adquirida.",
                     "ru-RU": "Игрок скорость которого нужно определить.",
                     "zh-CN": "获取此玩家的速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18401,6 +24319,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja velocidade será adquirida.",
                     "ru-RU": "Игрок скорость которого нужно определить.",
                     "zh-CN": "获取此玩家的速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -18422,6 +24353,18 @@ var valueFuncKw =
                     "pt-BR": "A direção de movimento na qual a velocidade do Jogador será medida.",
                     "ru-RU": "Направление движения в котором нужно измерить скорость игрока.",
                     "zh-CN": "行动的方向，用于测量玩家速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             }
         ],
@@ -18471,6 +24414,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja estatística será obtida.",
                     "ru-RU": "Игрок статистику которого нужно определить.",
                     "zh-CN": "获取此玩家的数据。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -18492,6 +24448,19 @@ var valueFuncKw =
                     "pt-BR": "A estatística a ser obtida.",
                     "ru-RU": "Статистика которую нужно определить.",
                     "zh-CN": "获取数据。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001250A",
+                    "en-US": "Stat",
+                    "es-ES": "Estadística",
+                    "es-MX": "Estadísticas",
+                    "fr-FR": "Stats",
+                    "it-IT": "Statistica",
+                    "ja-JP": "統計",
+                    "pl-PL": "Statystyka",
+                    "pt-BR": "Estatística",
+                    "ru-RU": "Показатель",
+                    "zh-CN": "数据"
                 }
             }
         ],
@@ -18541,6 +24510,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja Equipe será adquirida.",
                     "ru-RU": "Игрок команду которого нужно определить.",
                     "zh-CN": "获取此玩家的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18591,6 +24573,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja entrada direcional será adquirida.",
                     "ru-RU": "Игрок аргумент направления которого нужно определить.",
                     "zh-CN": "获取此玩家的方向输入。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18641,6 +24636,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja porcentagem de carga da suprema será adquirida.",
                     "ru-RU": "Игрок процент заряда суперспособности которого нужно узнать.",
                     "zh-CN": "获取此玩家当前终极技能的充能百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18690,6 +24698,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja rapidez será adquirida.",
                     "ru-RU": "Игрок векторную скорость которого нужно определить.",
                     "zh-CN": "获取此玩家的速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18740,6 +24761,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo ângulo de direção vertical será adquirido.",
                     "ru-RU": "Игрок вертикальный угол взгляда которого нужно определить.",
                     "zh-CN": "获取此玩家的面向角度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18789,6 +24823,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja velocidade vertical será adquirida.",
                     "ru-RU": "Игрок вертикальную скорость которого нужно определить.",
                     "zh-CN": "获取此玩家的垂直速度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -18838,6 +24885,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador entidade de ícone ou entidade de efeito cuja presença no mundo será verificada.",
                     "ru-RU": "Игрок экземпляр значка или экземпляр эффекта присутствие которого в игровом мире нужно проверить.",
                     "zh-CN": "检测此玩家、图标实体或效果实体是否存在于地图中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C194",
+                    "en-US": "Entity",
+                    "es-ES": "Entidad",
+                    "es-MX": "Entidad",
+                    "fr-FR": "Entité",
+                    "it-IT": "Entità",
+                    "ja-JP": "エンティティ",
+                    "pl-PL": "Encja",
+                    "pt-BR": "Entidade",
+                    "ru-RU": "Объект",
+                    "zh-CN": "实体"
                 }
             }
         ],
@@ -18887,6 +24947,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status será verificado.",
                     "ru-RU": "Игрок статус которого нужно проверить.",
                     "zh-CN": "检测此玩家的状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -18908,6 +24981,17 @@ var valueFuncKw =
                     "pt-BR": "O status a ser verificado.",
                     "ru-RU": "Проверяемый статус.",
                     "zh-CN": "要检测的状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B587",
+                    "en-US": "Status",
+                    "es-ES": "Estado",
+                    "es-MX": "Estado",
+                    "fr-FR": "Statut",
+                    "it-IT": "Stato",
+                    "ja-JP": "ステータス",
+                    "ru-RU": "Статус",
+                    "zh-CN": "状态"
                 }
             }
         ],
@@ -18957,6 +25041,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja vida será verificada.",
                     "ru-RU": "Игрок для которого выполняется проверка на жизнь.",
                     "zh-CN": "检测此玩家的生命状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19006,6 +25103,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de comunicação será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса коммуникации.",
                     "zh-CN": "检测此玩家的交流状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -19027,6 +25137,18 @@ var valueFuncKw =
                     "pt-BR": "O tipo de comunicação a ser considerado. A duração dos emotes é exata presume-se que a duração das falas seja de 4 segundos e presume-se que todas as outras durações sejam de 2 segundos.",
                     "ru-RU": "Рассматриваемый тип коммуникации. Длительность эмоций ограничена жестко длительность реплик приравнивается к 4 секундам длительность остальных видов коммуникации приравнивается к 2 секундам.",
                     "zh-CN": "考察的交流类型。表情的持续时间为准确值，语音的播放时间视为4秒，其他所有交流类型的持续时间视为2秒。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B8B0",
+                    "en-US": "Type",
+                    "es-ES": "Tipo",
+                    "es-MX": "Tipo",
+                    "it-IT": "Tipo",
+                    "ja-JP": "タイプ",
+                    "pl-PL": "Typ",
+                    "pt-BR": "Tipo",
+                    "ru-RU": "Тип",
+                    "zh-CN": "类型"
                 }
             }
         ],
@@ -19061,6 +25183,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de comunicação será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса коммуникации.",
                     "zh-CN": "检测此玩家的交流状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19095,6 +25230,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de emote será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса выражения эмоции.",
                     "zh-CN": "检测此玩家是否在使用表情。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19144,6 +25292,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de spray será verificado.",
                     "ru-RU": "Игрок для которого производится проверка статуса граффити.",
                     "zh-CN": "检测此玩家的喷漆状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19193,6 +25354,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de fala será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса использования реплики.",
                     "zh-CN": "检测此玩家是否在播放语音。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19242,6 +25416,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de agachamento será verificado.",
                     "ru-RU": "Игрок которого нужно проверить не крадется ли он.",
                     "zh-CN": "检测此玩家是否正在下蹲。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19291,6 +25478,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja morte será verificada.",
                     "ru-RU": "Игрок для которого выполняется проверка на смерть.",
                     "zh-CN": "检测此玩家的死亡状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19340,6 +25540,19 @@ var valueFuncKw =
                     "pt-BR": "Jogador a ser considerado.",
                     "ru-RU": "Рассматриваемый игрок.",
                     "zh-CN": "考察此玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19389,6 +25602,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de duplicação será verificado.",
                     "ru-RU": "Игрок которого нужно проверить на использование «Дубликации».",
                     "zh-CN": "检测此玩家的人格复制状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19423,6 +25649,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso do ataque primário da arma será verificado.",
                     "ru-RU": "Игрок у которого нужно получить информацию об использовании основного режима атаки.",
                     "zh-CN": "检测此玩家的主要武器攻击状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19472,6 +25711,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso do ataque secundário da arma será verificado.",
                     "ru-RU": "Игрок у которого нужно получить информацию об использовании альтернативного режима атаки.",
                     "zh-CN": "检测此玩家的辅助武器攻击状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19521,6 +25773,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo botão será verificado.",
                     "ru-RU": "Игрок кнопку которого нужно проверить.",
                     "zh-CN": "检测此玩家的按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -19542,6 +25807,19 @@ var valueFuncKw =
                     "pt-BR": "O botão a ser verificado.",
                     "ru-RU": "Проверяемая кнопка.",
                     "zh-CN": "用于检测的按钮。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -19591,6 +25869,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status no ar será verificado.",
                     "ru-RU": "Игрок для которого проверяется статус нахождения в воздухе.",
                     "zh-CN": "检测此玩家的浮空状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19640,6 +25931,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja forma será verificada.",
                     "ru-RU": "Игрок у которого нужно проверить форму героя.",
                     "zh-CN": "检测此玩家的状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19674,6 +25978,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de sala de ressurgimento será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса нахождения в стартовой комнате.",
                     "zh-CN": "检测此玩家的重生室状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19723,6 +26040,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja visão será usada na verificação.",
                     "ru-RU": "Игрок поле зрения которого используется для проверки.",
                     "zh-CN": "检测此名玩家的视野。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -19744,6 +26074,19 @@ var valueFuncKw =
                     "pt-BR": "O Local a ser testado para saber se está na visão.",
                     "ru-RU": "Местоположение которое нужно проверить на предмет нахождения в поле зрения.",
                     "zh-CN": "检测此坐标是否在视角内。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BAF9",
+                    "en-US": "Location",
+                    "es-ES": "Ubicación",
+                    "es-MX": "Ubicación",
+                    "fr-FR": "Lieu",
+                    "it-IT": "Luogo",
+                    "ja-JP": "場所",
+                    "pl-PL": "Lokalizacja",
+                    "pt-BR": "Local",
+                    "ru-RU": "Местоположение",
+                    "zh-CN": "坐标"
                 }
             },
             {
@@ -19765,6 +26108,19 @@ var valueFuncKw =
                     "pt-BR": "O Ângulo de Visão a ser comparado em graus.",
                     "ru-RU": "Угол поля зрения в градусах по которому проводится сравнение.",
                     "zh-CN": "用于比较的视角，单位为度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF80",
+                    "en-US": "View Angle",
+                    "es-ES": "Ángulo de visión",
+                    "es-MX": "Ángulo de vista",
+                    "fr-FR": "Champ de vision",
+                    "it-IT": "Angolo di Visuale",
+                    "ja-JP": "視角範囲",
+                    "pl-PL": "Kąt widzenia",
+                    "pt-BR": "Ângulo de Visão",
+                    "ru-RU": "Угол обзора",
+                    "zh-CN": "视角"
                 }
             }
         ],
@@ -19803,6 +26159,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The player whose jump usage to check.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19837,6 +26206,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso de Corpo a Corpo será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса использования атаки ближнего боя.",
                     "zh-CN": "检测此玩家的近战攻击状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19871,6 +26253,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de movimento será verificado.",
                     "ru-RU": "Игрок к которому применяется проверка статуса движения.",
                     "zh-CN": "检测此玩家的运动状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19905,6 +26300,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo retrato será verificado.",
                     "ru-RU": "Игрок портрет которого нужно проверить.",
                     "zh-CN": "检测此玩家的头像状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -19954,6 +26362,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de chão será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка статуса стояния на земле.",
                     "zh-CN": "检测此玩家是否处于地面上。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20003,6 +26424,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de objetivo será verificado.",
                     "ru-RU": "Игрок статус выполнения задачи которым нужно проверить.",
                     "zh-CN": "检测此玩家的目标点状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20052,6 +26486,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status de parede será verificado.",
                     "ru-RU": "Игрок чей статус нахождения на стене нужно проверить.",
                     "zh-CN": "检测此玩家的滑墙状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20101,6 +26548,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso de Recarregar será verificado.",
                     "ru-RU": "Игрок у которого нужно проверить доступ к перезарядке.",
                     "zh-CN": "检测此玩家的装填状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20150,6 +26610,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo status parado será verificado.",
                     "ru-RU": "Игрок к которому применяется проверка статуса стояния на месте.",
                     "zh-CN": "检测此玩家的站立状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20199,6 +26672,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso da Habilidade 1 será verificado.",
                     "ru-RU": "Игрок у которого нужно получить информацию об использовании способности 1.",
                     "zh-CN": "检测此玩家的技能1状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20248,6 +26734,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso da Habilidade 2 será verificado.",
                     "ru-RU": "Игрок у которого нужно получить информацию об использовании способности 2.",
                     "zh-CN": "检测此玩家的技能2状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20297,6 +26796,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo uso de habilidade suprema será verificado.",
                     "ru-RU": "Игрок для которого выполняется проверка использования суперспособности.",
                     "zh-CN": "检测此玩家的终极技能状态。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             }
         ],
@@ -20351,6 +26863,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -20376,6 +26901,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -20428,6 +26966,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cujos Valores serão considerados.",
                     "ru-RU": "Массив значения которого будут учитываться.",
                     "zh-CN": "考察此数组中的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -20449,6 +26999,18 @@ var valueFuncKw =
                     "pt-BR": "A Condição avaliada para cada elemento da Matriz especificada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
                     "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента указанного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
                     "zh-CN": "对指定的数组中每个元素判断此条件。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -20499,6 +27061,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas Entradas consideradas. Se ambas forem Verdadeiras ou equivalentes a Verdadeiras então o Valor de E será Verdadeiro.",
                     "ru-RU": "Один из двух рассматриваемых аргументов. Если оба из них верны True или эквивалент True то результат [And] тоже верен.",
                     "zh-CN": "考察的两个输入值中的一个。如果两个值均为“真”（或等效于“真”），则“与”的值为“真”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -20520,6 +27095,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas Entradas consideradas. Se ambas forem Verdadeiras ou equivalentes a Verdadeiras então o Valor de E será Verdadeiro.",
                     "ru-RU": "Один из двух рассматриваемых аргументов. Если оба из них верны True или эквивалент True то результат [And] тоже верен.",
                     "zh-CN": "考察的两个输入值中的一个。如果两个值均为“真”（或等效于“真”），则“与”的值为“真”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -20570,6 +27158,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cujos Valores serão considerados.",
                     "ru-RU": "Массив значения которого будут учитываться.",
                     "zh-CN": "考察此数组中的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -20591,6 +27191,18 @@ var valueFuncKw =
                     "pt-BR": "A Condição avaliada para cada elemento da Matriz especificada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
                     "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента указанного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
                     "zh-CN": "对指定的数组中每个元素判断此条件。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -20641,6 +27253,18 @@ var valueFuncKw =
                     "pt-BR": "A Matriz na qual o Valor especificado será buscado.",
                     "ru-RU": "Массив в котором нужно найти указанное значение.",
                     "zh-CN": "在此数组中搜索指定的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -20663,6 +27287,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor a ser buscado.",
                     "ru-RU": "Значение которое нужно найти.",
                     "zh-CN": "要搜索的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -20715,6 +27352,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz a ser copiada.",
                     "ru-RU": "Массив копию значений из которого нужно создать.",
                     "zh-CN": "产生此数组的复制。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -20738,6 +27387,19 @@ var valueFuncKw =
                     "pt-BR": "O primeiro índice do intervalo.",
                     "ru-RU": "Первое значение диапазона.",
                     "zh-CN": "范围内的第一个索引。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5A0",
+                    "en-US": "Start Index",
+                    "es-ES": "Índice inicial",
+                    "es-MX": "Comenzar índice",
+                    "fr-FR": "Index de début",
+                    "it-IT": "Indice d'Avvio",
+                    "ja-JP": "インデックスを開始",
+                    "pl-PL": "Indeks początkowy",
+                    "pt-BR": "Começar Índice",
+                    "ru-RU": "Начальный индекс",
+                    "zh-CN": "开始索引"
                 }
             },
             {
@@ -20761,6 +27423,19 @@ var valueFuncKw =
                     "pt-BR": "O número de elementos na matriz resultante. A matriz resultante conterá menos elementos se o intervalo especificado exceder os limites da matriz.",
                     "ru-RU": "Количество элементов в итоговом массиве. Итоговый массив будет содержать меньшее количество элементов если указанный диапазон превышает границы массива.",
                     "zh-CN": "结果数组中的元素数量。如果指定的范围超过此数组的限制，则结果数组中会包含较少的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5A1",
+                    "en-US": "Count",
+                    "es-ES": "Recuento",
+                    "es-MX": "Conteo",
+                    "fr-FR": "Décompte",
+                    "it-IT": "Contatore",
+                    "ja-JP": "カウント",
+                    "pl-PL": "Liczba",
+                    "pt-BR": "Contagem",
+                    "ru-RU": "Число",
+                    "zh-CN": "计数"
                 }
             }
         ],
@@ -20796,6 +27471,10 @@ var valueFuncKw =
         "args": [
             {
                 "name": "[0]",
+                "nameLocalized": {
+                    "guid": "000000010BE1",
+                    "en-US": "[%1$s]"
+                },
                 "description": "The value that will be stored in the array at index [0].",
                 "type": [
                     "Object",
@@ -20856,6 +27535,19 @@ var valueFuncKw =
                     "pt-BR": "Uma constante de Botão.",
                     "ru-RU": "Константа кнопки.",
                     "zh-CN": "一个按钮常量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -20896,6 +27588,14 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "A Color Constant",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011D42",
+                    "en-US": "Color",
+                    "fr-FR": "Couleur",
+                    "ja-JP": "色",
+                    "pt-BR": "Cor",
+                    "zh-CN": "颜色"
                 }
             }
         ],
@@ -20934,6 +27634,19 @@ var valueFuncKw =
                     "pt-BR": "O lado esquerdo da comparação. Pode ser qualquer tipo de Valor se a operação for == ou !=. Caso contrário esperam-se números reais.",
                     "ru-RU": "Левая сторона сравнения. Значение может быть любого типа если выполняется операция [==] или [!=]. В остальных случаях используются действительные числа.",
                     "zh-CN": "比较式的左边。如果操作为“==”或“!=”，则可以为任意类型的值。否则此值应为实数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -20944,6 +27657,15 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "0000000081C6",
+                    "en-US": "Comparison",
+                    "es-MX": "Comparación",
+                    "fr-FR": "Comparaison",
+                    "ja-JP": "比較",
+                    "pt-BR": "Comparação",
+                    "zh-CN": "比较"
                 }
             },
             {
@@ -20968,6 +27690,19 @@ var valueFuncKw =
                     "pt-BR": "O lado direito da comparação. Pode ser qualquer tipo de Valor se a operação for == ou !=. Caso contrário esperam-se números reais.",
                     "ru-RU": "Правая сторона сравнения. Значение может быть любого типа если выполняется операция [==] или [!=]. В остальных случаях используются действительные числа.",
                     "zh-CN": "比较式的右边。如果操作为“==”或“!=”，则可以为任意类型的值。否则此值应为实数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -21019,6 +27754,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz a ser juntada.",
                     "ru-RU": "Массив который нужно дополнить.",
                     "zh-CN": "要添加至数组的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -21046,6 +27793,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor a ser juntado ao final da matriz. Se este Valor for uma matriz cada elemento dela será juntado.",
                     "ru-RU": "Значение добавляемое в конец массива. Если это значение представляет собой массив то из него берутся все элементы.",
                     "zh-CN": "加入数列尾端的值。如果值本身是一个数列，则添加其中的每一个元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -21146,6 +27906,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -21168,6 +27940,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {0}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{0}].",
                     "zh-CN": "此值将转换为文本并用于替代{0}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF50",
+                    "en-US": "{0}"
                 }
             },
             {
@@ -21190,6 +27966,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {1}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{1}].",
                     "zh-CN": "此值将转换为文本并用于替代{1}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF53",
+                    "en-US": "{1}"
                 }
             },
             {
@@ -21212,6 +27992,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {2}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{2}].",
                     "zh-CN": "此值将转换为文本并用于替代{2}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF55",
+                    "en-US": "{2}"
                 }
             }
         ],
@@ -21253,6 +28037,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -21277,6 +28074,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -21357,6 +28167,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cuja cópia será filtrada.",
                     "ru-RU": "Массив содержимое копии которого будет отфильтровано.",
                     "zh-CN": "对此数组的复制进行过滤。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -21378,6 +28200,18 @@ var valueFuncKw =
                     "pt-BR": "A Condição avaliada para cada elemento da matriz copiada. Se a Condição for verdadeira o elemento será mantido na matriz copiada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado.",
                     "ru-RU": "Условие выполнение которого будет проверяться для каждого элемента копии массива. Если условие верно то элемент сохраняется в копии массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
                     "zh-CN": "对复制的数组中每个元素判断此条件。如果条件为“真”，则在复制的数组中保留此元素。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -21428,6 +28262,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz da qual o Valor será adquirido.",
                     "ru-RU": "Массив из которого получено значение.",
                     "zh-CN": "获取此数组中的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             }
         ],
@@ -21482,6 +28328,15 @@ var valueFuncKw =
                     "pt-BR": "Uma constante do modo de jogo.",
                     "ru-RU": "Константа игрового режима.",
                     "zh-CN": "比赛模式常量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000F161",
+                    "en-US": "Game Mode",
+                    "es-MX": "Modo de juego",
+                    "fr-FR": "Mode de jeu",
+                    "ja-JP": "ゲーム・モード",
+                    "pt-BR": "Modo de jogo",
+                    "zh-CN": "游戏模式"
                 }
             }
         ],
@@ -21532,6 +28387,16 @@ var valueFuncKw =
                     "pt-BR": "A Variável cujo Valor será adquirido.",
                     "ru-RU": "Переменная значение которой нужно получить.",
                     "zh-CN": "获取此变量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             }
         ],
@@ -21592,6 +28457,19 @@ var valueFuncKw =
                     "pt-BR": "Uma constante de Herói.",
                     "ru-RU": "Константа героя.",
                     "zh-CN": "一个英雄常量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             }
         ],
@@ -21642,6 +28520,15 @@ var valueFuncKw =
                     "pt-BR": "Se essa condição for avaliada como verdadeira o resultado do valor será Then; caso contrário o resultado será Else.",
                     "ru-RU": "Если это условие верно возвращает значение «То»; в остальных случаях возвращает значение «В противном случае».",
                     "zh-CN": "如果此条件为真，则结果为Then后面的值；否则结果为Else后面的值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010BC9",
+                    "en-US": "If",
+                    "es-MX": "Si",
+                    "fr-FR": "Si",
+                    "ja-JP": "IF",
+                    "pl-PL": "Jeśli",
+                    "ru-RU": "Если"
                 }
             },
             {
@@ -21667,6 +28554,14 @@ var valueFuncKw =
                     "pt-BR": "O resultado do valor se a condição If for avaliada como verdadeira.",
                     "ru-RU": "Результат возвращаемый если условие «Если» верно.",
                     "zh-CN": "如果条件为真，则结果是这个值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010BCB",
+                    "en-US": "Then",
+                    "fr-FR": "Alors",
+                    "ja-JP": "THEN",
+                    "pl-PL": "Wtedy",
+                    "ru-RU": "То"
                 }
             },
             {
@@ -21692,6 +28587,15 @@ var valueFuncKw =
                     "pt-BR": "O resultado do valor se a condição If for avaliada como falsa.",
                     "ru-RU": "Результат возвращаемый если условие «Если» ложно.",
                     "zh-CN": "如果条件不为真，则结果是这个值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000010BCD",
+                    "en-US": "Else",
+                    "es-MX": "Si no",
+                    "fr-FR": "Sinon",
+                    "ja-JP": "ELSE",
+                    "pl-PL": "Inaczej",
+                    "ru-RU": "В противном случае"
                 }
             }
         ],
@@ -21744,6 +28648,18 @@ var valueFuncKw =
                     "pt-BR": "A Matriz na qual o Valor especificado será buscado.",
                     "ru-RU": "Массив в котором нужно найти указанное значение.",
                     "zh-CN": "在此数组中搜索指定的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -21766,6 +28682,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor a ser buscado.",
                     "ru-RU": "Значение которое нужно найти.",
                     "zh-CN": "要搜索的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -21816,6 +28745,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz da qual o Valor será adquirido.",
                     "ru-RU": "Массив из которого получено значение.",
                     "zh-CN": "获取此数组中的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             }
         ],
@@ -21859,6 +28800,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -21881,6 +28834,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {0}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{0}].",
                     "zh-CN": "此值将转换为文本并用于替代{0}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF50",
+                    "en-US": "{0}"
                 }
             },
             {
@@ -21903,6 +28860,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {1}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{1}].",
                     "zh-CN": "此值将转换为文本并用于替代{1}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF53",
+                    "en-US": "{1}"
                 }
             },
             {
@@ -21925,6 +28886,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor que será convertido em texto e usado para substituir {2}.",
                     "ru-RU": "Значение которое будет преобразовано в текст и использовано для замены [{2}].",
                     "zh-CN": "此值将转换为文本并用于替代{2}。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BF55",
+                    "en-US": "{2}"
                 }
             }
         ],
@@ -21975,6 +28940,15 @@ var valueFuncKw =
                     "pt-BR": "Uma constante de Mapa.",
                     "ru-RU": "Константа поля боя.",
                     "zh-CN": "一个地图常量"
+                },
+                "nameLocalized": {
+                    "guid": "00000000D415",
+                    "en-US": "Map",
+                    "es-MX": "Mapa",
+                    "fr-FR": "Carte",
+                    "ja-JP": "マップ",
+                    "pt-BR": "Mapa",
+                    "zh-CN": "地图"
                 }
             }
         ],
@@ -22025,6 +28999,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cuja cópia será mapeada.",
                     "ru-RU": "Массив копия которого будет сопоставлена.",
                     "zh-CN": "对此数组的复制进行映射。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -22046,6 +29032,18 @@ var valueFuncKw =
                     "pt-BR": "A Expressão de Mapeamento calculada para cada elemento da matriz copiada. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado no momento.",
                     "ru-RU": "Выражение сопоставления которое будет проверяться для каждого элемента скопированного массива. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
                     "zh-CN": "映射表达式将此数组中的每个元素复值为被复制的数组中的元素值。使用“当前数组元素值”可以指定当前考察的数组中元素的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5B8",
+                    "en-US": "Condition",
+                    "es-ES": "Condición",
+                    "es-MX": "Condición",
+                    "it-IT": "Condizione",
+                    "ja-JP": "条件",
+                    "pl-PL": "Warunek",
+                    "pt-BR": "Condição",
+                    "ru-RU": "Условие",
+                    "zh-CN": "条件"
                 }
             }
         ],
@@ -22098,6 +29096,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "左边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -22120,6 +29131,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "右边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22172,6 +29196,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -22196,6 +29233,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22249,6 +29299,19 @@ var valueFuncKw =
                     "pt-BR": "Quando esta Entrada for Falsa ou equivalente a Falsa então o Valor de Não será Verdadeiro. Caso contrário o Valor de Não será Falso.",
                     "ru-RU": "Если этот аргумент ложный False или эквивалентен False то верно значение [Not] в противном случае значение [Not] ложно.",
                     "zh-CN": "如果输入为“假”（或等效于“假”），则“非”值为“真”。否则，则“非”值为“假”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22281,7 +29344,20 @@ var valueFuncKw =
             {
                 "name": "NUMBER",
                 "type": "FloatLiteral",
-                "default": "0"
+                "default": "0",
+                "nameLocalized": {
+                    "guid": "00000000B219",
+                    "en-US": "Number",
+                    "es-ES": "Cifra",
+                    "es-MX": "Número",
+                    "fr-FR": "Nombre",
+                    "it-IT": "Numero",
+                    "ja-JP": "番号",
+                    "pl-PL": "Liczba",
+                    "pt-BR": "Número",
+                    "ru-RU": "Число",
+                    "zh-CN": "数字"
+                }
             }
         ],
         "isConstant": true,
@@ -22317,6 +29393,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas Entradas consideradas. Se qualquer uma delas for Verdadeira ou equivalente a Verdadeira então o Valor de Ou será Verdadeiro.",
                     "ru-RU": "Один из двух рассматриваемых аргументов. Если любой из них верен True или эквивалент True то результат [Or] тоже верен.",
                     "zh-CN": "考察的两个输入值中的一个。如果两个值中有一个为“真”（或等效于“真”），则“或”的值为“真”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -22338,6 +29427,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas Entradas consideradas. Se qualquer uma delas for Verdadeira ou equivalente a Verdadeira então o Valor de Ou será Verdadeiro.",
                     "ru-RU": "Один из двух рассматриваемых аргументов. Если любой из них верен True или эквивалент True то результат [Or] тоже верен.",
                     "zh-CN": "考察的两个输入值中的一个。如果两个值中有一个为“真”（或等效于“真”），则“或”的值为“真”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22387,6 +29489,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cujo Valor de Variável será adquirido.",
                     "ru-RU": "Игрок значение переменной которого нужно получить.",
                     "zh-CN": "获取此玩家的变量值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -22408,6 +29523,16 @@ var valueFuncKw =
                     "pt-BR": "A Variável cujo Valor será adquirido.",
                     "ru-RU": "Переменная значение которой нужно получить.",
                     "zh-CN": "获取此变量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B228",
+                    "en-US": "Variable",
+                    "it-IT": "Variabile",
+                    "ja-JP": "記号",
+                    "pl-PL": "Zmienna",
+                    "pt-BR": "Variável",
+                    "ru-RU": "Переменная",
+                    "zh-CN": "变量"
                 }
             }
         ],
@@ -22458,6 +29583,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "左边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -22479,6 +29617,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "右边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22528,6 +29679,19 @@ var valueFuncKw =
                     "pt-BR": "A posição inicial do lançamento de raio. Se um Jogador for atribuído será usada uma posição 2 metros acima dos pés dele.",
                     "ru-RU": "Начальная точка луча функции [Ray Cast]. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
                     "zh-CN": "射线开始施放的位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -22549,6 +29713,19 @@ var valueFuncKw =
                     "pt-BR": "A posição final do lançamento de raio. Se um Jogador for atribuído será usada uma posição 2 metros acima dos pés dele.",
                     "ru-RU": "Конечная точка луча функции [Ray Cast]. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
                     "zh-CN": "射线结束的位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             },
             {
@@ -22572,6 +29749,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
                     "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
                     "zh-CN": "哪些玩家可以被射线击中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A6",
+                    "en-US": "Players to Include",
+                    "es-MX": "Jugadores para incluir",
+                    "fr-FR": "Joueurs à inclure",
+                    "it-IT": "Giocatori da includere",
+                    "ja-JP": "含まれるプレイヤー",
+                    "pl-PL": "Gracze do uwzględnienia",
+                    "pt-BR": "Jogadores a Incluir",
+                    "ru-RU": "Затрагиваемые игроки",
+                    "zh-CN": "包括玩家"
                 }
             },
             {
@@ -22595,6 +29784,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
                     "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
                     "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C605",
+                    "en-US": "Players to Exclude",
+                    "es-MX": "Jugadores para excluir",
+                    "fr-FR": "Joueurs à exclure",
+                    "it-IT": "Giocatori da Escludere",
+                    "ja-JP": "除外するプレイヤー",
+                    "pl-PL": "Gracze do wykluczenia",
+                    "pt-BR": "Jogadores a Excluir",
+                    "ru-RU": "Незатрагиваемые игроки",
+                    "zh-CN": "不包括玩家"
                 }
             },
             {
@@ -22605,6 +29806,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A7",
+                    "en-US": "Include player owned objects",
+                    "es-MX": "Incluir objetos que le pertenecen al jugador",
+                    "fr-FR": "Inclure les objets appartenant aux joueurs",
+                    "it-IT": "Include gli oggetti posseduti dal giocatore",
+                    "ja-JP": "プレイヤーの所有するオブジェクトを含む",
+                    "pl-PL": "Uwzględnij obiekty należące do gracza",
+                    "pt-BR": "Incluir objetos de propriedade do jogador",
+                    "ru-RU": "Включать объекты принадлежащие игроку",
+                    "zh-CN": "包括玩家拥有的物体"
                 }
             }
         ],
@@ -22644,6 +29857,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -22654,6 +29880,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             },
             {
@@ -22677,6 +29916,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
                     "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
                     "zh-CN": "哪些玩家可以被射线击中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A6",
+                    "en-US": "Players to Include",
+                    "es-MX": "Jugadores para incluir",
+                    "fr-FR": "Joueurs à inclure",
+                    "it-IT": "Giocatori da includere",
+                    "ja-JP": "含まれるプレイヤー",
+                    "pl-PL": "Gracze do uwzględnienia",
+                    "pt-BR": "Jogadores a Incluir",
+                    "ru-RU": "Затрагиваемые игроки",
+                    "zh-CN": "包括玩家"
                 }
             },
             {
@@ -22700,6 +29951,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
                     "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
                     "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C605",
+                    "en-US": "Players to Exclude",
+                    "es-MX": "Jugadores para excluir",
+                    "fr-FR": "Joueurs à exclure",
+                    "it-IT": "Giocatori da Escludere",
+                    "ja-JP": "除外するプレイヤー",
+                    "pl-PL": "Gracze do wykluczenia",
+                    "pt-BR": "Jogadores a Excluir",
+                    "ru-RU": "Незатрагиваемые игроки",
+                    "zh-CN": "不包括玩家"
                 }
             },
             {
@@ -22710,6 +29973,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A7",
+                    "en-US": "Include player owned objects",
+                    "es-MX": "Incluir objetos que le pertenecen al jugador",
+                    "fr-FR": "Inclure les objets appartenant aux joueurs",
+                    "it-IT": "Include gli oggetti posseduti dal giocatore",
+                    "ja-JP": "プレイヤーの所有するオブジェクトを含む",
+                    "pl-PL": "Uwzględnij obiekty należące do gracza",
+                    "pt-BR": "Incluir objetos de propriedade do jogador",
+                    "ru-RU": "Включать объекты принадлежащие игроку",
+                    "zh-CN": "包括玩家拥有的物体"
                 }
             }
         ],
@@ -22749,6 +30024,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -22759,6 +30047,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             },
             {
@@ -22782,6 +30083,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores podem ser atingidos por este lançamento de raio.",
                     "ru-RU": "Определяет каких игроков может учитывать функция [Ray Cast].",
                     "zh-CN": "哪些玩家可以被射线击中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A6",
+                    "en-US": "Players to Include",
+                    "es-MX": "Jugadores para incluir",
+                    "fr-FR": "Joueurs à inclure",
+                    "it-IT": "Giocatori da includere",
+                    "ja-JP": "含まれるプレイヤー",
+                    "pl-PL": "Gracze do uwzględnienia",
+                    "pt-BR": "Jogadores a Incluir",
+                    "ru-RU": "Затрагиваемые игроки",
+                    "zh-CN": "包括玩家"
                 }
             },
             {
@@ -22805,6 +30118,18 @@ var valueFuncKw =
                     "pt-BR": "Quais jogadores não podem ser atingidos por este lançamento de raio. Esta lista tem precedência sobre Jogadores a Incluir.",
                     "ru-RU": "Определяет какие игроки не будут учитываться функцией [Ray Cast]. Этот список имеет приоритет над списком [Players To Include].",
                     "zh-CN": "射线不会击中的玩家。此列表将优先于“包括玩家”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C605",
+                    "en-US": "Players to Exclude",
+                    "es-MX": "Jugadores para excluir",
+                    "fr-FR": "Joueurs à exclure",
+                    "it-IT": "Giocatori da Escludere",
+                    "ja-JP": "除外するプレイヤー",
+                    "pl-PL": "Gracze do wykluczenia",
+                    "pt-BR": "Jogadores a Excluir",
+                    "ru-RU": "Незатрагиваемые игроки",
+                    "zh-CN": "不包括玩家"
                 }
             },
             {
@@ -22815,6 +30140,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C5A7",
+                    "en-US": "Include player owned objects",
+                    "es-MX": "Incluir objetos que le pertenecen al jugador",
+                    "fr-FR": "Inclure les objets appartenant aux joueurs",
+                    "it-IT": "Include gli oggetti posseduti dal giocatore",
+                    "ja-JP": "プレイヤーの所有するオブジェクトを含む",
+                    "pl-PL": "Uwzględnij obiekty należące do gracza",
+                    "pt-BR": "Incluir objetos de propriedade do jogador",
+                    "ru-RU": "Включать объекты принадлежащие игроку",
+                    "zh-CN": "包括玩家拥有的物体"
                 }
             }
         ],
@@ -22865,6 +30202,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz de onde os Valores serão removidos.",
                     "ru-RU": "Массив из которого нужно удалить значения.",
                     "zh-CN": "从此数列中移除值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -22890,6 +30239,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor a ser removido da matriz se encontrado. Se este Valor for uma matriz cada elemento correspondente dela será removido.",
                     "ru-RU": "Значение которое нужно удалить из массива если таковое имеется. Если значение представляет собой массив то из него удаляются все соответствующие элементы.",
                     "zh-CN": "要从数列中移除的值（如果能找到）。如果值本身是一个数列，则所有匹配的元素都将被移除。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -22940,6 +30302,19 @@ var valueFuncKw =
                     "pt-BR": "O número real a arredondar.",
                     "ru-RU": "Действительное число которое нужно округлить.",
                     "zh-CN": "要取整的实数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -22961,6 +30336,19 @@ var valueFuncKw =
                     "pt-BR": "Determina a direção na qual o Valor será arredondado.",
                     "ru-RU": "Определяет сторону в которую будет округляться значение.",
                     "zh-CN": "决定此值取整的方式。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C350",
+                    "en-US": "Rounding Type",
+                    "es-ES": "Tipo de redondeo",
+                    "es-MX": "Tipo de redondeo",
+                    "fr-FR": "Type d’arrondi",
+                    "it-IT": "Tipo Arrotondamento",
+                    "ja-JP": "四捨五入のタイプ",
+                    "pl-PL": "Typ zaokrąglenia",
+                    "pt-BR": "Tipo de Arredondamento",
+                    "ru-RU": "Тип округления",
+                    "zh-CN": "取整方式"
                 }
             }
         ],
@@ -23013,6 +30401,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cuja cópia será ordenada.",
                     "ru-RU": "Массив в копии которого нужно выполнить сортировку.",
                     "zh-CN": "对此数组的复制进行排序。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -23034,6 +30434,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor avaliado para cada elemento da matriz copiada. A matriz é ordenada neste ranque em ordem crescente. Use o Valor de Elemento da Matriz Atual para referenciar o elemento da matriz que está sendo considerado.",
                     "ru-RU": "Значение которое нужно проверить для каждого элемента скопированного массива. Сортировка массива выполняется с его учетом по восходящей. Чтобы сослаться на элемент проверяемого массива используйте значение [Current Array Element].",
                     "zh-CN": "将此值赋值给复制的数组中的每个元素。数组将以升序排列。可以使用“当前数组元素值”来指代数组中当前正在进行判断的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B5BF",
+                    "en-US": "Value Rank",
+                    "es-ES": "Rango de valor",
+                    "es-MX": "Clasificación de valores",
+                    "fr-FR": "Rang de la valeur",
+                    "it-IT": "Grado Valore",
+                    "ja-JP": "値のランク",
+                    "pl-PL": "Wartość rangi",
+                    "pt-BR": "Ranque de Valor",
+                    "ru-RU": "Ранг значения",
+                    "zh-CN": "数值排序"
                 }
             }
         ],
@@ -23075,6 +30488,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String value whose character to acquire.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -23085,6 +30510,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             }
         ],
@@ -23108,6 +30545,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String Value from which to search for the character.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -23118,6 +30567,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The character for which to search",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012D68",
+                    "en-US": "Character",
+                    "es-ES": "Carácter",
+                    "es-MX": "Personaje",
+                    "fr-FR": "Caractère",
+                    "it-IT": "Carattere",
+                    "ja-JP": "キャラクター",
+                    "pl-PL": "Znak",
+                    "pt-BR": "Caractere",
+                    "ru-RU": "Символ",
+                    "zh-CN": "字符"
                 }
             }
         ],
@@ -23141,6 +30603,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String Value with which to search for replacements.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -23151,6 +30625,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String pattern to be replaced.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012D70",
+                    "en-US": "Pattern",
+                    "es-ES": "Patrón",
+                    "es-MX": "Patrón",
+                    "fr-FR": "Motif",
+                    "it-IT": "Schema",
+                    "ja-JP": "パターン",
+                    "pl-PL": "Wzorzec",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "Шаблон",
+                    "zh-CN": "模式"
                 }
             },
             {
@@ -23161,6 +30648,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String Value with which to replace the pattern String",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012D72",
+                    "en-US": "Replacement",
+                    "es-ES": "Reemplazo",
+                    "es-MX": "Reemplazo",
+                    "fr-FR": "Remplacement",
+                    "it-IT": "Sostituzione",
+                    "ja-JP": "置換",
+                    "pl-PL": "Zamiennik",
+                    "pt-BR": "Substituição",
+                    "ru-RU": "Замена",
+                    "zh-CN": "替换"
                 }
             }
         ],
@@ -23184,6 +30684,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The String Value to split.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -23194,6 +30706,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The separator String with which to split the String Value.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000012D6D",
+                    "en-US": "Separator",
+                    "es-ES": "Separador",
+                    "es-MX": "Separador",
+                    "fr-FR": "Séparateur",
+                    "it-IT": "Separatore",
+                    "ja-JP": "分割",
+                    "pt-BR": "Separador",
+                    "ru-RU": "Разделитель",
+                    "zh-CN": "分隔符"
                 }
             }
         ],
@@ -23230,6 +30754,18 @@ var valueFuncKw =
                     "pt-BR": "O valor da string que será usada para construir a substring.",
                     "ru-RU": "Значение строки из которой будет взята подстрока.",
                     "zh-CN": "从此字符串值中构建子字符串。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -23251,6 +30787,19 @@ var valueFuncKw =
                     "pt-BR": "Especifica o caractere que iniciará a substring 0 é o primeiro 1 é o segundo etc.",
                     "ru-RU": "Указывает символ с которого будет начинаться подстрока первым символом будет 0 вторым – 1 и так далее.",
                     "zh-CN": "指定一个字符作为子字符串的起始处（0表示第一个字符，1表示第二个字符，以此类推）。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A9",
+                    "en-US": "Start Character Index",
+                    "es-ES": "Índice de caracteres inicial",
+                    "es-MX": "Comenzar índice de caracteres",
+                    "fr-FR": "Index du caractère de début",
+                    "it-IT": "Indice Carattere d'Avvio",
+                    "ja-JP": "開始文字インデックス",
+                    "pl-PL": "Indeks postaci startowej",
+                    "pt-BR": "Índice do Caractere Inicial",
+                    "ru-RU": "Индекс первого символа",
+                    "zh-CN": "开始字符索引"
                 }
             },
             {
@@ -23272,6 +30821,15 @@ var valueFuncKw =
                     "pt-BR": "Especifica o número de caracteres na substring.",
                     "ru-RU": "Указывает число символов в подстроке.",
                     "zh-CN": "指定子字符串的字符数。"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A2",
+                    "en-US": "String Length",
+                    "es-MX": "Longitud de la cadena",
+                    "fr-FR": "Longueur de la chaîne",
+                    "ja-JP": "文字列の長さ",
+                    "pt-BR": "Tamanho da String",
+                    "zh-CN": "字符串长度"
                 }
             }
         ],
@@ -23313,6 +30871,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "左边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -23338,6 +30909,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número ou vetor.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число или вектор.",
                     "zh-CN": "右边的运算量，可以是结果为数字或矢量的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -23377,6 +30961,19 @@ var valueFuncKw =
                 "description": "Team",
                 "descriptionLocalized": {
                     "en-US": "Team"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -23416,6 +31013,18 @@ var valueFuncKw =
                     "pt-BR": "A Matriz cujo elemento será adquirido.",
                     "ru-RU": "Массив элемент которого нужно получить.",
                     "zh-CN": "获取此数组中的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             },
             {
@@ -23439,6 +31048,18 @@ var valueFuncKw =
                     "pt-BR": "O Índice do elemento a ser adquirido.",
                     "ru-RU": "Индекс элемента который нужно получить.",
                     "zh-CN": "获取索引中的元素。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52B",
+                    "en-US": "Index",
+                    "es-ES": "Índice",
+                    "es-MX": "Índice",
+                    "it-IT": "Indice",
+                    "ja-JP": "インデックス",
+                    "pl-PL": "Indeks",
+                    "pt-BR": "Índice",
+                    "ru-RU": "Индекс",
+                    "zh-CN": "索引"
                 }
             }
         ],
@@ -23492,6 +31113,19 @@ var valueFuncKw =
                     "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
                     "ru-RU": "Название категории в которую будет помещен параметр.",
                     "zh-CN": "此类别的名字，可以用来找到此设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001136F",
+                    "en-US": "Category",
+                    "es-ES": "Categoría",
+                    "es-MX": "Categoría",
+                    "fr-FR": "Catégorie",
+                    "it-IT": "Categoria",
+                    "ja-JP": "カテゴリー",
+                    "pl-PL": "Kategoria",
+                    "pt-BR": "Categoria",
+                    "ru-RU": "Категория",
+                    "zh-CN": "类别"
                 }
             },
             {
@@ -23513,6 +31147,19 @@ var valueFuncKw =
                     "pt-BR": "O nome desta configuração.",
                     "ru-RU": "Название параметра.",
                     "zh-CN": "此设置的名称。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             },
             {
@@ -23534,6 +31181,19 @@ var valueFuncKw =
                     "pt-BR": "O valor padrão desta configuração.",
                     "ru-RU": "Значение этого параметра по умолчанию.",
                     "zh-CN": "此设置的默认值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011372",
+                    "en-US": "Default",
+                    "es-ES": "Por defecto",
+                    "es-MX": "Predeterminado",
+                    "fr-FR": "Par défaut",
+                    "it-IT": "Predefinito",
+                    "ja-JP": "デフォルト",
+                    "pl-PL": "Domyślna",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "По умолчанию",
+                    "zh-CN": "默认"
                 }
             },
             {
@@ -23557,6 +31217,18 @@ var valueFuncKw =
                     "pt-BR": "As opções desta configuração.",
                     "ru-RU": "Варианты этого параметра.",
                     "zh-CN": "此设置的选项。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011CC2",
+                    "en-US": "Options",
+                    "es-ES": "Opciones",
+                    "es-MX": "Opciones",
+                    "it-IT": "Opzioni",
+                    "ja-JP": "オプション",
+                    "pl-PL": "Opcje",
+                    "pt-BR": "Opções",
+                    "ru-RU": "Настройки",
+                    "zh-CN": "选项"
                 }
             },
             {
@@ -23578,6 +31250,19 @@ var valueFuncKw =
                     "pt-BR": "A ordem de classificação da configuração em relação a outras configurações na mesma categoria. Configurações com uma ordem de classificação maior virão depois de configurações com uma ordem de classificação menor.",
                     "ru-RU": "Порядок сортировки параметра по отношению к другим настройкам той же категории. Настройки с более высоким значением будут идти после настроек с более низким значением.",
                     "zh-CN": "此设置与其他同类别设置的排序关系。排序较高的设置会在排序较低的设置之后显示。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             }
         ],
@@ -23627,6 +31312,19 @@ var valueFuncKw =
                     "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
                     "ru-RU": "Название категории в которую будет помещен параметр.",
                     "zh-CN": "此类别的名字，可以用来找到此设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001136F",
+                    "en-US": "Category",
+                    "es-ES": "Categoría",
+                    "es-MX": "Categoría",
+                    "fr-FR": "Catégorie",
+                    "it-IT": "Categoria",
+                    "ja-JP": "カテゴリー",
+                    "pl-PL": "Kategoria",
+                    "pt-BR": "Categoria",
+                    "ru-RU": "Категория",
+                    "zh-CN": "类别"
                 }
             },
             {
@@ -23648,6 +31346,19 @@ var valueFuncKw =
                     "pt-BR": "O nome desta configuração.",
                     "ru-RU": "Название параметра.",
                     "zh-CN": "此设置的名称。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             },
             {
@@ -23669,6 +31380,19 @@ var valueFuncKw =
                     "pt-BR": "O valor padrão desta configuração.",
                     "ru-RU": "Значение этого параметра по умолчанию.",
                     "zh-CN": "此设置的默认值。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011372",
+                    "en-US": "Default",
+                    "es-ES": "Por defecto",
+                    "es-MX": "Predeterminado",
+                    "fr-FR": "Par défaut",
+                    "it-IT": "Predefinito",
+                    "ja-JP": "デフォルト",
+                    "pl-PL": "Domyślna",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "По умолчанию",
+                    "zh-CN": "默认"
                 }
             },
             {
@@ -23690,6 +31414,19 @@ var valueFuncKw =
                     "pt-BR": "A ordem de classificação da configuração em relação a outras configurações na mesma categoria. Configurações com uma ordem de classificação maior virão depois de configurações com uma ordem de classificação menor.",
                     "ru-RU": "Порядок сортировки параметра по отношению к другим настройкам той же категории. Настройки с более высоким значением будут идти после настроек с более низким значением.",
                     "zh-CN": "此设置与其他同类别设置的排序关系。排序较高的设置会在排序较低的设置之后显示。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             }
         ],
@@ -23724,6 +31461,19 @@ var valueFuncKw =
                     "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
                     "ru-RU": "Название категории в которую будет помещен параметр.",
                     "zh-CN": "此类别的名字，可以用来找到此设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001136F",
+                    "en-US": "Category",
+                    "es-ES": "Categoría",
+                    "es-MX": "Categoría",
+                    "fr-FR": "Catégorie",
+                    "it-IT": "Categoria",
+                    "ja-JP": "カテゴリー",
+                    "pl-PL": "Kategoria",
+                    "pt-BR": "Categoria",
+                    "ru-RU": "Категория",
+                    "zh-CN": "类别"
                 }
             },
             {
@@ -23745,6 +31495,19 @@ var valueFuncKw =
                     "pt-BR": "O nome desta configuração.",
                     "ru-RU": "Название параметра.",
                     "zh-CN": "此设置的名称。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             },
             {
@@ -23755,6 +31518,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011372",
+                    "en-US": "Default",
+                    "es-ES": "Por defecto",
+                    "es-MX": "Predeterminado",
+                    "fr-FR": "Par défaut",
+                    "it-IT": "Predefinito",
+                    "ja-JP": "デフォルト",
+                    "pl-PL": "Domyślna",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "По умолчанию",
+                    "zh-CN": "默认"
                 }
             },
             {
@@ -23765,6 +31541,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011377",
+                    "en-US": "Min",
+                    "es-ES": "Mín",
+                    "es-MX": "Mínimo",
+                    "fr-FR": "Minimum",
+                    "ja-JP": "最小",
+                    "pl-PL": "Minimum",
+                    "pt-BR": "Mín.",
+                    "ru-RU": "Мин.",
+                    "zh-CN": "最小"
                 }
             },
             {
@@ -23775,6 +31563,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011379",
+                    "en-US": "Max",
+                    "es-ES": "Máx",
+                    "es-MX": "Máximo",
+                    "fr-FR": "Maximum",
+                    "ja-JP": "最大",
+                    "pl-PL": "Maksimum",
+                    "pt-BR": "Máx.",
+                    "ru-RU": "Макс.",
+                    "zh-CN": "最大"
                 }
             },
             {
@@ -23785,6 +31585,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             }
         ],
@@ -23835,6 +31648,19 @@ var valueFuncKw =
                     "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
                     "ru-RU": "Название категории в которую будет помещен параметр.",
                     "zh-CN": "此类别的名字，可以用来找到此设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001136F",
+                    "en-US": "Category",
+                    "es-ES": "Categoría",
+                    "es-MX": "Categoría",
+                    "fr-FR": "Catégorie",
+                    "it-IT": "Categoria",
+                    "ja-JP": "カテゴリー",
+                    "pl-PL": "Kategoria",
+                    "pt-BR": "Categoria",
+                    "ru-RU": "Категория",
+                    "zh-CN": "类别"
                 }
             },
             {
@@ -23856,6 +31682,19 @@ var valueFuncKw =
                     "pt-BR": "O nome desta configuração.",
                     "ru-RU": "Название параметра.",
                     "zh-CN": "此设置的名称。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             },
             {
@@ -23866,6 +31705,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011372",
+                    "en-US": "Default",
+                    "es-ES": "Por defecto",
+                    "es-MX": "Predeterminado",
+                    "fr-FR": "Par défaut",
+                    "it-IT": "Predefinito",
+                    "ja-JP": "デフォルト",
+                    "pl-PL": "Domyślna",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "По умолчанию",
+                    "zh-CN": "默认"
                 }
             },
             {
@@ -23876,6 +31728,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011377",
+                    "en-US": "Min",
+                    "es-ES": "Mín",
+                    "es-MX": "Mínimo",
+                    "fr-FR": "Minimum",
+                    "ja-JP": "最小",
+                    "pl-PL": "Minimum",
+                    "pt-BR": "Mín.",
+                    "ru-RU": "Мин.",
+                    "zh-CN": "最小"
                 }
             },
             {
@@ -23886,6 +31750,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011379",
+                    "en-US": "Max",
+                    "es-ES": "Máx",
+                    "es-MX": "Máximo",
+                    "fr-FR": "Maximum",
+                    "ja-JP": "最大",
+                    "pl-PL": "Maksimum",
+                    "pt-BR": "Máx.",
+                    "ru-RU": "Макс.",
+                    "zh-CN": "最大"
                 }
             },
             {
@@ -23896,6 +31772,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             }
         ],
@@ -23946,6 +31835,19 @@ var valueFuncKw =
                     "pt-BR": "O nome da categoria em que esta configuração será encontrada.",
                     "ru-RU": "Название категории в которую будет помещен параметр.",
                     "zh-CN": "此类别的名字，可以用来找到此设置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000001136F",
+                    "en-US": "Category",
+                    "es-ES": "Categoría",
+                    "es-MX": "Categoría",
+                    "fr-FR": "Catégorie",
+                    "it-IT": "Categoria",
+                    "ja-JP": "カテゴリー",
+                    "pl-PL": "Kategoria",
+                    "pt-BR": "Categoria",
+                    "ru-RU": "Категория",
+                    "zh-CN": "类别"
                 }
             },
             {
@@ -23967,6 +31869,19 @@ var valueFuncKw =
                     "pt-BR": "O nome desta configuração.",
                     "ru-RU": "Название параметра.",
                     "zh-CN": "此设置的名称。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011371",
+                    "en-US": "Name",
+                    "es-ES": "Nombre",
+                    "es-MX": "Nombre",
+                    "fr-FR": "Nom",
+                    "it-IT": "Nome",
+                    "ja-JP": "名前",
+                    "pl-PL": "Nazwa",
+                    "pt-BR": "Nome",
+                    "ru-RU": "Название",
+                    "zh-CN": "名称"
                 }
             },
             {
@@ -23977,6 +31892,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011372",
+                    "en-US": "Default",
+                    "es-ES": "Por defecto",
+                    "es-MX": "Predeterminado",
+                    "fr-FR": "Par défaut",
+                    "it-IT": "Predefinito",
+                    "ja-JP": "デフォルト",
+                    "pl-PL": "Domyślna",
+                    "pt-BR": "Padrão",
+                    "ru-RU": "По умолчанию",
+                    "zh-CN": "默认"
                 }
             },
             {
@@ -23987,6 +31915,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "guid": "000000000F16",
                     "en-US": ""
+                },
+                "nameLocalized": {
+                    "guid": "000000011C94",
+                    "en-US": "Sort Order",
+                    "es-ES": "Orden",
+                    "es-MX": "Orden de vista",
+                    "fr-FR": "Tri",
+                    "it-IT": "Ordinamento",
+                    "ja-JP": "ソート順",
+                    "pl-PL": "Kolejność sortowania",
+                    "pt-BR": "Ordem de Classificação",
+                    "ru-RU": "Порядок сортировки",
+                    "zh-CN": "排序"
                 }
             }
         ],
@@ -24037,6 +31978,19 @@ var valueFuncKw =
                     "pt-BR": "O Vetor do qual o componente X será adquirido.",
                     "ru-RU": "Вектор из которого извлекается компонент X.",
                     "zh-CN": "要获取X方向分量的矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24087,6 +32041,19 @@ var valueFuncKw =
                     "pt-BR": "O Vetor do qual o componente Y será adquirido.",
                     "ru-RU": "Вектор из которого извлекается компонент Y.",
                     "zh-CN": "要获取Y方向分量的矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24137,6 +32104,19 @@ var valueFuncKw =
                     "pt-BR": "O Vetor do qual o componente Z será adquirido.",
                     "ru-RU": "Вектор из которого извлекается компонент Z.",
                     "zh-CN": "要获取Z方向分量的矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24187,6 +32167,19 @@ var valueFuncKw =
                     "pt-BR": "O herói da habilidade que será convertido em ícone.",
                     "ru-RU": "Герой связанный со способностью которая будет преобразована в значок.",
                     "zh-CN": "将这个英雄的技能转化为图标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -24197,6 +32190,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The button for the ability that will be converted to an icon.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -24248,6 +32254,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor em número real cujo valor absoluto será calculado.",
                     "ru-RU": "Действительное число абсолютная величина которого вычисляется.",
                     "zh-CN": "计算此实数值的绝对值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24298,6 +32317,19 @@ var valueFuncKw =
                     "pt-BR": "Valor de entrada da função.",
                     "ru-RU": "Аргумент функции.",
                     "zh-CN": "为函数输入值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24348,6 +32380,19 @@ var valueFuncKw =
                     "pt-BR": "Valor de entrada da função.",
                     "ru-RU": "Аргумент функции.",
                     "zh-CN": "为函数输入值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24398,6 +32443,16 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois vetores direcionais entre os quais o ângulo em graus será medido. Este vetor não precisa ser normalizado previamente.",
                     "ru-RU": "Один из двух векторов направления между которыми нужно измерить угол в градусах. Нормализовать вектор не требуется.",
                     "zh-CN": "需以角度为单位测量夹角的两个方向性矢量之一。该矢量不需要预先归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C815",
+                    "en-US": "Vector",
+                    "fr-FR": "Vecteur",
+                    "it-IT": "Vettore",
+                    "ja-JP": "ベクトル",
+                    "pt-BR": "Vetor",
+                    "ru-RU": "Вектор",
+                    "zh-CN": "矢量"
                 }
             },
             {
@@ -24419,6 +32474,16 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois vetores direcionais entre os quais o ângulo em graus será medido. Este vetor não precisa ser normalizado previamente.",
                     "ru-RU": "Один из двух векторов направления между которыми нужно измерить угол в градусах. Нормализовать вектор не требуется.",
                     "zh-CN": "需以角度为单位测量夹角的两个方向性矢量之一。该矢量不需要预先归一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C815",
+                    "en-US": "Vector",
+                    "fr-FR": "Vecteur",
+                    "it-IT": "Vettore",
+                    "ja-JP": "ベクトル",
+                    "pt-BR": "Vetor",
+                    "ru-RU": "Вектор",
+                    "zh-CN": "矢量"
                 }
             }
         ],
@@ -24469,6 +32534,18 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois ângulos entre os quais o ângulo resultante será medido.",
                     "ru-RU": "Один из двух углов между которыми измеряется результирующий угол.",
                     "zh-CN": "用于计算结果角度的两个角度之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             },
             {
@@ -24490,6 +32567,18 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois ângulos entre os quais o ângulo resultante será medido.",
                     "ru-RU": "Один из двух углов между которыми измеряется результирующий угол.",
                     "zh-CN": "用于计算结果角度的两个角度之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -24540,6 +32629,19 @@ var valueFuncKw =
                     "pt-BR": "O ângulo horizontal em graus usado para construir o Vetor resultante.",
                     "ru-RU": "Горизонтальный угол в градусах используемый для построения результирующего вектора.",
                     "zh-CN": "用于构建结果矢量的水平角度，单位为度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB2E",
+                    "en-US": "Horizontal Angle",
+                    "es-ES": "Ángulo horizontal",
+                    "es-MX": "Ángulo horizontal",
+                    "fr-FR": "Angle horizontal",
+                    "it-IT": "Angolo Orizzontale",
+                    "ja-JP": "水平角",
+                    "pl-PL": "Kąt poziomy",
+                    "pt-BR": "Ângulo Horizontal",
+                    "ru-RU": "Горизонтальный угол",
+                    "zh-CN": "水平角度"
                 }
             },
             {
@@ -24561,6 +32663,19 @@ var valueFuncKw =
                     "pt-BR": "O ângulo vertical em graus usado para construir o Vetor resultante.",
                     "ru-RU": "Вертикальный угол в градусах используемый для построения результирующего вектора.",
                     "zh-CN": "用于构建结果矢量的垂直角度，单位为度。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000BB2F",
+                    "en-US": "Vertical Angle",
+                    "es-ES": "Ángulo vertical",
+                    "es-MX": "Ángulo vertical",
+                    "fr-FR": "Angle vertical",
+                    "it-IT": "Angolo Verticale",
+                    "ja-JP": "頂角",
+                    "pl-PL": "Kąt pionowy",
+                    "pt-BR": "Ângulo Vertical",
+                    "ru-RU": "Вертикальный угол",
+                    "zh-CN": "垂直角度"
                 }
             }
         ],
@@ -24612,6 +32727,19 @@ var valueFuncKw =
                     "pt-BR": "Valor de entrada da função.",
                     "ru-RU": "Аргумент функции.",
                     "zh-CN": "为函数输入值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24662,6 +32790,19 @@ var valueFuncKw =
                     "pt-BR": "Valor de entrada da função.",
                     "ru-RU": "Аргумент функции.",
                     "zh-CN": "为函数输入值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -24712,6 +32853,18 @@ var valueFuncKw =
                     "pt-BR": "Entrada com o numerador da função.",
                     "ru-RU": "Аргумент числителя функции.",
                     "zh-CN": "为函数输入分子。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C80C",
+                    "en-US": "Numerator",
+                    "es-ES": "Numerador",
+                    "es-MX": "Numerador",
+                    "fr-FR": "Numérateur",
+                    "it-IT": "Numeratore",
+                    "ja-JP": "分子",
+                    "pt-BR": "Numerador",
+                    "ru-RU": "Числитель",
+                    "zh-CN": "分子"
                 }
             },
             {
@@ -24733,6 +32886,18 @@ var valueFuncKw =
                     "pt-BR": "Entrada com o denominador da função.",
                     "ru-RU": "Аргумент знаменателя функции.",
                     "zh-CN": "为函数输入分母。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C80D",
+                    "en-US": "Denominator",
+                    "es-ES": "Denominador",
+                    "es-MX": "Denominador",
+                    "fr-FR": "Dénominateur",
+                    "it-IT": "Denominatore",
+                    "ja-JP": "分母",
+                    "pt-BR": "Denominador",
+                    "ru-RU": "Знаменатель",
+                    "zh-CN": "分母"
                 }
             }
         ],
@@ -24783,6 +32948,18 @@ var valueFuncKw =
                     "pt-BR": "Entrada com o numerador da função.",
                     "ru-RU": "Аргумент числителя функции.",
                     "zh-CN": "为函数输入分子。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C80C",
+                    "en-US": "Numerator",
+                    "es-ES": "Numerador",
+                    "es-MX": "Numerador",
+                    "fr-FR": "Numérateur",
+                    "it-IT": "Numeratore",
+                    "ja-JP": "分子",
+                    "pt-BR": "Numerador",
+                    "ru-RU": "Числитель",
+                    "zh-CN": "分子"
                 }
             },
             {
@@ -24804,6 +32981,18 @@ var valueFuncKw =
                     "pt-BR": "Entrada com o denominador da função.",
                     "ru-RU": "Аргумент знаменателя функции.",
                     "zh-CN": "为函数输入分母。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C80D",
+                    "en-US": "Denominator",
+                    "es-ES": "Denominador",
+                    "es-MX": "Denominador",
+                    "fr-FR": "Dénominateur",
+                    "it-IT": "Denominatore",
+                    "ja-JP": "分母",
+                    "pt-BR": "Denominador",
+                    "ru-RU": "Знаменатель",
+                    "zh-CN": "分母"
                 }
             }
         ],
@@ -24871,6 +33060,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The button for the input binding that will be converted to a string.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2F4",
+                    "en-US": "Button",
+                    "es-ES": "Botón",
+                    "es-MX": "Botón",
+                    "fr-FR": "Bouton",
+                    "it-IT": "Tasto",
+                    "ja-JP": "ボタン",
+                    "pl-PL": "Przycisk",
+                    "pt-BR": "Botão",
+                    "ru-RU": "Кнопка",
+                    "zh-CN": "按钮"
                 }
             }
         ],
@@ -24922,6 +33124,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em radianos.",
                     "ru-RU": "Угол в радианах.",
                     "zh-CN": "角度，以弧度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -24972,6 +33186,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em graus.",
                     "ru-RU": "Угол в градусах.",
                     "zh-CN": "角度，以角度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -25022,6 +33248,19 @@ var valueFuncKw =
                     "pt-BR": "O operando de Vetor do lado esquerdo do produto vetorial.",
                     "ru-RU": "Левый векторный операнд векторного произведения.",
                     "zh-CN": "用于计算矢量积的左边矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -25043,6 +33282,19 @@ var valueFuncKw =
                     "pt-BR": "O operando de Vetor do lado direito do produto vetorial.",
                     "ru-RU": "Правый векторный операнд векторного произведения.",
                     "zh-CN": "用于计算矢量积的右边矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -25094,6 +33346,19 @@ var valueFuncKw =
                     "pt-BR": "A posição da qual o Vetor direcional resultante apontará.",
                     "ru-RU": "Точка от которой строится результирующий вектор направления.",
                     "zh-CN": "用于获取方向矢量的起点位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -25115,6 +33380,19 @@ var valueFuncKw =
                     "pt-BR": "A posição para a qual o Vetor direcional resultante apontará.",
                     "ru-RU": "Точка к которой строится результирующий вектор направления.",
                     "zh-CN": "用于获取方向矢量的终点位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             }
         ],
@@ -25166,6 +33444,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas posições usadas na medida de distância.",
                     "ru-RU": "Одна из двух точек используемых для измерения расстояния.",
                     "zh-CN": "用于测量距离的两个位置之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -25187,6 +33478,19 @@ var valueFuncKw =
                     "pt-BR": "Uma das duas posições usadas na medida de distância.",
                     "ru-RU": "Одна из двух точек используемых для измерения расстояния.",
                     "zh-CN": "用于测量距离的两个位置之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             }
         ],
@@ -25237,6 +33541,19 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois operandos de Vetor do produto escalar.",
                     "ru-RU": "Один из двух векторных операндов скалярного произведения.",
                     "zh-CN": "用于计算标量积的矢量之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -25258,6 +33575,19 @@ var valueFuncKw =
                     "pt-BR": "Um dos dois operandos de Vetor do produto escalar.",
                     "ru-RU": "Один из двух векторных операндов скалярного произведения.",
                     "zh-CN": "用于计算标量积的矢量之一。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -25311,6 +33641,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador entidade de ícone ou entidade de efeito cuja existência será verificada.",
                     "ru-RU": "Игрок экземпляр значка или экземпляр эффекта существование которого нужно проверить.",
                     "zh-CN": "检查是否存在此玩家、图标实体或效果实体。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C194",
+                    "en-US": "Entity",
+                    "es-ES": "Entidad",
+                    "es-MX": "Entidad",
+                    "fr-FR": "Entité",
+                    "it-IT": "Entità",
+                    "ja-JP": "エンティティ",
+                    "pl-PL": "Encja",
+                    "pt-BR": "Entidade",
+                    "ru-RU": "Объект",
+                    "zh-CN": "实体"
                 }
             }
         ],
@@ -25352,6 +33695,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The value that will be only evaluated once.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000001232E",
+                    "en-US": "Input Value",
+                    "es-ES": "Valor de entrada",
+                    "es-MX": "Valor de entrada",
+                    "fr-FR": "Valeur d’entrée",
+                    "it-IT": "Valore Input",
+                    "ja-JP": "入力値",
+                    "pl-PL": "Wartość wejściowa",
+                    "pt-BR": "Valor de Entrada",
+                    "ru-RU": "Значение ввода",
+                    "zh-CN": "输入值"
                 }
             }
         ],
@@ -25698,6 +34054,19 @@ var valueFuncKw =
                     "pt-BR": "A posição da qual a proximidade será medida.",
                     "ru-RU": "Точка от которой измеряется близость.",
                     "zh-CN": "用于测定距离的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B232",
+                    "en-US": "Center",
+                    "es-ES": "Centro",
+                    "es-MX": "Centro",
+                    "fr-FR": "Centre",
+                    "it-IT": "Centro",
+                    "ja-JP": "中心",
+                    "pl-PL": "Środek",
+                    "pt-BR": "Centro",
+                    "ru-RU": "Центр",
+                    "zh-CN": "中间"
                 }
             },
             {
@@ -25719,6 +34088,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes de onde o Jogador mais próximo virá.",
                     "ru-RU": "Команда или команды к которым принадлежит самый ближний из игроков.",
                     "zh-CN": "最近一名玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -25769,6 +34151,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja pontuação em porcentagem será adquirida.",
                     "ru-RU": "Команда процентную долю очков которой нужно определить.",
                     "zh-CN": "获取此队伍的得分百分比。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -25933,6 +34328,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
                     "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
                     "zh-CN": "玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -25985,6 +34393,19 @@ var valueFuncKw =
                     "pt-BR": "A posição da qual a distância será medida.",
                     "ru-RU": "Точка от которой измеряется расстояние.",
                     "zh-CN": "以此位置为起点测量距离。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B232",
+                    "en-US": "Center",
+                    "es-ES": "Centro",
+                    "es-MX": "Centro",
+                    "fr-FR": "Centre",
+                    "it-IT": "Centro",
+                    "ja-JP": "中心",
+                    "pl-PL": "Środek",
+                    "pt-BR": "Centro",
+                    "ru-RU": "Центр",
+                    "zh-CN": "中间"
                 }
             },
             {
@@ -26006,6 +34427,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes de onde o Jogador mais distante virá.",
                     "ru-RU": "Команда или команды к которым принадлежит самый дальний из игроков.",
                     "zh-CN": "最远一名玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26056,6 +34490,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja bandeira será verificada.",
                     "ru-RU": "Команда флаг которой нужно проверить.",
                     "zh-CN": "检测此队伍的旗帜。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26106,6 +34553,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja posição da bandeira será adquirida.",
                     "ru-RU": "Команда расположение флага которой следует определить.",
                     "zh-CN": "获取此队伍旗帜的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26343,6 +34803,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
                     "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
                     "zh-CN": "玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26473,6 +34946,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes cujos Jogadores serão contados.",
                     "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
                     "zh-CN": "计算下列队伍中玩家的数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26560,6 +35046,19 @@ var valueFuncKw =
                     "pt-BR": "O Herói a ser verificado em jogo.",
                     "ru-RU": "Герой факт игры за которого нужно проверить.",
                     "zh-CN": "检测此英雄是否在使用。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -26581,6 +35080,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
                     "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
                     "zh-CN": "检测队伍中是否正在使用这名英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26644,6 +35156,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes cujos Jogadores serão contados.",
                     "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
                     "zh-CN": "计算下列队伍中玩家的数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26695,6 +35220,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes cujos Jogadores serão contados.",
                     "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
                     "zh-CN": "计算下列队伍中玩家的数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26746,6 +35284,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes cujos Jogadores serão contados.",
                     "ru-RU": "Команда или команды количество игроков которых нужно подсчитать.",
                     "zh-CN": "计算下列队伍中玩家的数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26797,6 +35348,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes de onde contar os Espaços.",
                     "ru-RU": "Команда или команды для которых подсчитываются ячейки.",
                     "zh-CN": "计算下列队伍中栏位的数量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -26862,6 +35426,19 @@ var valueFuncKw =
                     "pt-BR": "O índice do objetivo a ser considerado iniciando em 0 e somando. Cada ponto de controle ponto de verificação de carga e destino de carga tem seu próprio índice.",
                     "ru-RU": "Индекс рассматриваемой задачи от 0 и выше. Каждая контрольная точка объект контрольная или конечная точка доставки груза имеют свой индекс.",
                     "zh-CN": "考察的目标点的索引，从0开始逐渐累加。每个控制点、运载目标检查点、运载目标目的地都有其独自的索引。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B219",
+                    "en-US": "Number",
+                    "es-ES": "Cifra",
+                    "es-MX": "Número",
+                    "fr-FR": "Nombre",
+                    "it-IT": "Numero",
+                    "ja-JP": "番号",
+                    "pl-PL": "Liczba",
+                    "pt-BR": "Número",
+                    "ru-RU": "Число",
+                    "zh-CN": "数字"
                 }
             }
         ],
@@ -26897,6 +35474,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja adversária será adquirida. Se for Todas o resultado será Todas.",
                     "ru-RU": "Команда для которой нужно определить соперников. Если указать всех то действие вернет значение [All].",
                     "zh-CN": "获得此队伍的对方队伍。如果选择“全部”，结果亦为“全部”。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27016,6 +35606,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
                     "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
                     "zh-CN": "玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27068,6 +35671,19 @@ var valueFuncKw =
                     "pt-BR": "A posição central da qual a distância será medida.",
                     "ru-RU": "Центральная точка от которой измеряется расстояние.",
                     "zh-CN": "以此位置为中心测定距离。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B232",
+                    "en-US": "Center",
+                    "es-ES": "Centro",
+                    "es-MX": "Centro",
+                    "fr-FR": "Centre",
+                    "it-IT": "Centro",
+                    "ja-JP": "中心",
+                    "pl-PL": "Środek",
+                    "pt-BR": "Centro",
+                    "ru-RU": "Центр",
+                    "zh-CN": "中间"
                 }
             },
             {
@@ -27089,6 +35705,19 @@ var valueFuncKw =
                     "pt-BR": "O raio em metros dentro do qual Jogadores precisam estar para serem incluídos na matriz resultante.",
                     "ru-RU": "Радиус в метрах в пределах которого должны находиться игроки для включения в итоговый массив.",
                     "zh-CN": "玩家需在此距离范围内（单位：米）才会出现在结果列表中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B237",
+                    "en-US": "Radius",
+                    "es-ES": "Radio",
+                    "es-MX": "Radio",
+                    "fr-FR": "Rayon",
+                    "it-IT": "Raggio",
+                    "ja-JP": "範囲",
+                    "pl-PL": "Promień",
+                    "pt-BR": "Raio",
+                    "ru-RU": "Радиус",
+                    "zh-CN": "半径"
                 }
             },
             {
@@ -27110,6 +35739,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes às qualis um Jogador precisa pertencer para ser incluído na matriz resultante.",
                     "ru-RU": "Команда или команды к которым должен принадлежать игрок для включения в итоговый массив.",
                     "zh-CN": "所选队伍的玩家会出现在结果列表中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             },
             {
@@ -27131,6 +35773,19 @@ var valueFuncKw =
                     "pt-BR": "Especifica se e como um Jogador precisa passar por uma verificação de linha de visão para ser incluído na matriz resultante.",
                     "ru-RU": "Определяет необходимость и способ проверки игрока на нахождение в поле зрения для включения в итоговый массив.",
                     "zh-CN": "只有通过视线检测的玩家才会出现在结果列表中。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E6",
+                    "en-US": "LOS Check",
+                    "es-ES": "Comprobación de línea de visión",
+                    "es-MX": "Verificación de LDV",
+                    "fr-FR": "Vérification de la ligne de vue",
+                    "it-IT": "Controllo Linea di Tiro",
+                    "ja-JP": "射線チェック",
+                    "pl-PL": "Sprawdzenie pola widzenia",
+                    "pt-BR": "Verificação de LdV",
+                    "ru-RU": "Проверка видимости",
+                    "zh-CN": "视线检测"
                 }
             }
         ],
@@ -27185,6 +35840,18 @@ var valueFuncKw =
                     "pt-BR": "O número de espaço de onde os Jogadores seráão adquiridos. Em partidas em equipe cada equipe tem espaços de 0 a 5. Em partidas todos contra todos os espaços são numerados de 0 a 11.",
                     "ru-RU": "Номер ячейки из которой нужно получить данные занимающего ее игрока или игроков. В командных играх у каждой команды есть ячейки с номерами от 0 до 5. В FFA ячейки имеют номера от 0 до 11.",
                     "zh-CN": "获取指定位置编号的玩家。在队伍模式中，每个队伍中玩家的位置编号为0到5的数字；在自由混战模式中，位置编号为0到11。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B337",
+                    "en-US": "Slot",
+                    "es-ES": "Ranura",
+                    "es-MX": "Puesto",
+                    "fr-FR": "Emplacement",
+                    "ja-JP": "スロット",
+                    "pl-PL": "Miejsce",
+                    "pt-BR": "Espaço",
+                    "ru-RU": "Ячейка",
+                    "zh-CN": "栏位"
                 }
             },
             {
@@ -27206,6 +35873,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes de onde os Jogadores seráão adquiridos.",
                     "ru-RU": "Команда или команды игрока или игроков которых нужно получить.",
                     "zh-CN": "从这些队伍中选择玩家。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27261,6 +35941,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
                     "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
                     "zh-CN": "玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27313,6 +36006,19 @@ var valueFuncKw =
                     "pt-BR": "O Herói a ser verificado em jogo.",
                     "ru-RU": "Герой факт игры за которого нужно проверить.",
                     "zh-CN": "检测此英雄是否在使用。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -27334,6 +36040,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
                     "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
                     "zh-CN": "检测队伍中是否正在使用这名英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27386,6 +36105,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes das qualis os Jogadores podem vir.",
                     "ru-RU": "Команда или команды к которым могут принадлежать игроки.",
                     "zh-CN": "玩家所在的队伍。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27466,6 +36198,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cujos pontos de ressurgimento serão adquiridos.",
                     "ru-RU": "Команда точки возрождения которой нужно определить.",
                     "zh-CN": "获取此队伍的重生点。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27632,6 +36377,19 @@ var valueFuncKw =
                     "pt-BR": "O herói que será convertido em ícone.",
                     "ru-RU": "Герой который будет преобразован в значок.",
                     "zh-CN": "此英雄将被转换为一个图标。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -27668,6 +36426,18 @@ var valueFuncKw =
                     "pt-BR": "O Vetor direcional do qual será adquirido um ângulo horizontal em graus. O Vetor é unitizado antes de o cálculo ser iniciado.",
                     "ru-RU": "Вектор направления от которого строится горизонтальный угол в градусах. Перед вычислением вектор нормализуется.",
                     "zh-CN": "对此方向矢量获取垂直角度，单位为度。此矢量在计算开始前进行统一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             }
         ],
@@ -27718,6 +36488,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja direção atual inicia o ângulo.",
                     "ru-RU": "Игрок относительно направления взгляда которого вычисляется угол.",
                     "zh-CN": "以此玩家当前面向的角度为起点。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -27739,6 +36522,18 @@ var valueFuncKw =
                     "pt-BR": "A posição no mundo onde o ângulo termina.",
                     "ru-RU": "Точка в игровом мире угол до которой нужно вычислить.",
                     "zh-CN": "测定与地图中此位置的夹角。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             }
         ],
@@ -27789,6 +36584,21 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The icon to display.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B61B",
+                    "en-US": "Icon",
+                    "es-ES": "Icono",
+                    "es-MX": "Ícono",
+                    "fr-FR": "Icône",
+                    "it-IT": "Icona",
+                    "ja-JP": "アイコン",
+                    "ko-KR": "아이콘",
+                    "pl-PL": "Symbol",
+                    "pt-BR": "Ícone",
+                    "ru-RU": "Символ",
+                    "zh-CN": "图标",
+                    "zh-TW": "頭像"
                 }
             }
         ],
@@ -27879,6 +36689,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja bandeira será verificada.",
                     "ru-RU": "Команда флаг которой нужно проверить.",
                     "zh-CN": "检测此队伍的旗帜。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -27928,6 +36751,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja bandeira será verificada.",
                     "ru-RU": "Команда флаг которой нужно проверить.",
                     "zh-CN": "检测此队伍的旗帜。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -28007,6 +36843,19 @@ var valueFuncKw =
                     "pt-BR": "A posição inicial da verificação de linha de visão. Se um Jogador for atribuído será usada uma posição a 2 metros acima dos pés do Jogador.",
                     "ru-RU": "Начальная точка проверки прямой видимости. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
                     "zh-CN": "用于进行视线检测的起点位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -28031,6 +36880,19 @@ var valueFuncKw =
                     "pt-BR": "A posição final da verificação de linha de visão. Se um Jogador for atribuído será usada uma posição a 2 metros acima dos pés do Jogador.",
                     "ru-RU": "Конечная точка проверки прямой видимости. Если указан игрок то проверка проводится на высоте 2 метров от ступней игрока.",
                     "zh-CN": "用于进行视线检测的终点位置。如果此处填入一名玩家，则使用从此玩家脚部向上2米的位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             },
             {
@@ -28041,6 +36903,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F0",
+                    "en-US": "BARRIERS",
+                    "es-ES": "BARRERAS",
+                    "es-MX": "BARRERAS",
+                    "fr-FR": "Barrières",
+                    "it-IT": "BARRIERE",
+                    "ja-JP": "バリア",
+                    "pl-PL": "BARIERY",
+                    "pt-BR": "BARREIRAS",
+                    "ru-RU": "БАРЬЕРЫ",
+                    "zh-CN": "屏障"
                 }
             }
         ],
@@ -28200,6 +37075,19 @@ var valueFuncKw =
                     "pt-BR": "O índice do objetivo a ser considerado iniciando em 0 e somando. Cada ponto de controle ponto de verificação de carga e destino de carga tem seu próprio índice.",
                     "ru-RU": "Индекс рассматриваемой задачи от 0 и выше. Каждая контрольная точка объект контрольная или конечная точка доставки груза имеют свой индекс.",
                     "zh-CN": "考察的目标点的索引，从0开始逐渐累加。每个控制点、运载目标检查点、运载目标目的地都有其独自的索引。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B219",
+                    "en-US": "Number",
+                    "es-ES": "Cifra",
+                    "es-MX": "Número",
+                    "fr-FR": "Nombre",
+                    "it-IT": "Numero",
+                    "ja-JP": "番号",
+                    "pl-PL": "Liczba",
+                    "pt-BR": "Número",
+                    "ru-RU": "Число",
+                    "zh-CN": "数字"
                 }
             }
         ],
@@ -28234,6 +37122,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja função será verificada.",
                     "ru-RU": "Команда роль которой нужно проверить.",
                     "zh-CN": "检查此队伍的职责。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -28283,6 +37184,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja função será verificada.",
                     "ru-RU": "Команда роль которой нужно проверить.",
                     "zh-CN": "检查此队伍的职责。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -28359,6 +37273,18 @@ var valueFuncKw =
                     "pt-BR": "A Matriz cujos elementos serão contados.",
                     "ru-RU": "Массив количество элементов в котором нужно подсчитать.",
                     "zh-CN": "计算此数组的元素个数。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             }
         ],
@@ -28406,6 +37332,19 @@ var valueFuncKw =
                     "pt-BR": "O Vetor em coordenadas do mundo que será convertido em coordenadas locais.",
                     "ru-RU": "Вектор в глобальной системе координат который нужно перенести в локальную систему координат.",
                     "zh-CN": "将此相对地图坐标的矢量值转化为相对于本地坐标的矢量值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B343",
+                    "en-US": "World Vector",
+                    "es-ES": "Vector del mundo",
+                    "es-MX": "Vector global",
+                    "fr-FR": "Vecteur mondial",
+                    "it-IT": "Vettore Globale",
+                    "ja-JP": "ワールドのベクトル",
+                    "pl-PL": "Wektor świata",
+                    "pt-BR": "Vetor do Mundo",
+                    "ru-RU": "Вектор в игровом мире",
+                    "zh-CN": "地图矢量"
                 }
             },
             {
@@ -28427,6 +37366,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador a quem o Vetor resultante será relativo.",
                     "ru-RU": "Игрок относительно которого строится результирующий вектор.",
                     "zh-CN": "本地矢量是相对此玩家的。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B340",
+                    "en-US": "Relative Player",
+                    "es-ES": "Jugador relativo",
+                    "es-MX": "Jugador relativo",
+                    "fr-FR": "Joueur relatif",
+                    "it-IT": "Giocatore Relativo",
+                    "ja-JP": "プレイヤー相対",
+                    "pl-PL": "Względny gracz",
+                    "pt-BR": "Jogador Relativo",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "相对玩家"
                 }
             },
             {
@@ -28448,6 +37400,18 @@ var valueFuncKw =
                     "pt-BR": "Especifica se o Vetor deve receber uma rotação e uma translação geralmente aplicada a posições ou apenas uma rotação geralmente aplicada a direções e velocidades.",
                     "ru-RU": "Определяет требуется ли для вектора поворот и смещение обычно применяется к местоположениям или только поворот обычно применяется к направлениям и векторным скоростям.",
                     "zh-CN": "指定此矢量是否接受旋转及平移（通常是位置），或者只接受旋转（通常是方向和速度）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B341",
+                    "en-US": "Transformation",
+                    "es-ES": "Transformación",
+                    "es-MX": "Transformación",
+                    "it-IT": "Trasformazione",
+                    "ja-JP": "変化",
+                    "pl-PL": "Transformacja",
+                    "pt-BR": "Transformação",
+                    "ru-RU": "Трансформация",
+                    "zh-CN": "转换"
                 }
             }
         ],
@@ -28487,6 +37451,16 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The vector to calculate the magnitude of.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C815",
+                    "en-US": "Vector",
+                    "fr-FR": "Vecteur",
+                    "it-IT": "Vettore",
+                    "ja-JP": "ベクトル",
+                    "pt-BR": "Vetor",
+                    "ru-RU": "Вектор",
+                    "zh-CN": "矢量"
                 }
             }
         ],
@@ -28525,6 +37499,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "左边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -28548,6 +37535,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "右边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -28600,6 +37600,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado esquerdo. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Левый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "左边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             },
             {
@@ -28623,6 +37636,19 @@ var valueFuncKw =
                     "pt-BR": "O operando do lado direito. Pode ser qualquer Valor que resulte em um número.",
                     "ru-RU": "Правый операнд. Можно использовать любое значение возвращающее число.",
                     "zh-CN": "右边的运算量，可以是结果为数字的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -28672,6 +37698,18 @@ var valueFuncKw =
                     "pt-BR": "A posição de onde buscar a posição transitável mais próxima.",
                     "ru-RU": "Точка от которой нужно искать ближайшую проходимую точку.",
                     "zh-CN": "寻找此位置附近最近的可行走位置。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             }
         ],
@@ -28722,6 +37760,16 @@ var valueFuncKw =
                     "pt-BR": "O Vetor a ser normalizado.",
                     "ru-RU": "Вектор который нужно нормализовать.",
                     "zh-CN": "要归一化的矢量。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C815",
+                    "en-US": "Vector",
+                    "fr-FR": "Vecteur",
+                    "it-IT": "Vettore",
+                    "ja-JP": "ベクトル",
+                    "pt-BR": "Vetor",
+                    "ru-RU": "Вектор",
+                    "zh-CN": "矢量"
                 }
             }
         ],
@@ -28802,6 +37850,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz da qual um Valor será obtido aleatoriamente. Se um Valor que não é de matriz for fornecido o resultado será simplesmente o Valor fornecido.",
                     "ru-RU": "Массив из которого берется случайное значение. Если передан не массив возвращается само переданное значение.",
                     "zh-CN": "从一个数组中随机取值。如果提供的值不是数组，则结果为提供的值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             }
         ],
@@ -28856,6 +37916,18 @@ var valueFuncKw =
                     "pt-BR": "O menor número inteiro permitido. Se um Número real for fornecido nesta Entrada será arredondado para o inteiro mais próximo.",
                     "ru-RU": "Минимально допустимое целое число. Если указано действительное число то оно округляется до ближайшего целого.",
                     "zh-CN": "允许的最小整数。如果此处输入的是一个实数，则取最接近此实数的整数。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011377",
+                    "en-US": "Min",
+                    "es-ES": "Mín",
+                    "es-MX": "Mínimo",
+                    "fr-FR": "Minimum",
+                    "ja-JP": "最小",
+                    "pl-PL": "Minimum",
+                    "pt-BR": "Mín.",
+                    "ru-RU": "Мин.",
+                    "zh-CN": "最小"
                 }
             },
             {
@@ -28879,6 +37951,18 @@ var valueFuncKw =
                     "pt-BR": "O maior número inteiro permitido. Se um Número real for fornecido nesta Entrada será arredondado para o inteiro mais próximo.",
                     "ru-RU": "Максимально допустимое целое число. Если указано действительное число то оно округляется до ближайшего целого.",
                     "zh-CN": "允许的最大整数。如果此处输入的是一个实数，则取最接近此实数的整数。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011379",
+                    "en-US": "Max",
+                    "es-ES": "Máx",
+                    "es-MX": "Máximo",
+                    "fr-FR": "Maximum",
+                    "ja-JP": "最大",
+                    "pl-PL": "Maksimum",
+                    "pt-BR": "Máx.",
+                    "ru-RU": "Макс.",
+                    "zh-CN": "最大"
                 }
             }
         ],
@@ -28928,6 +38012,18 @@ var valueFuncKw =
                     "pt-BR": "A matriz cuja cópia será randomizada.",
                     "ru-RU": "Массив копия которого будет создана со значениями в случайном порядке.",
                     "zh-CN": "对此数组的复制进行随机排列。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B52C",
+                    "en-US": "Array",
+                    "es-ES": "Matriz",
+                    "es-MX": "Matriz",
+                    "fr-FR": "Tableau",
+                    "ja-JP": "配列",
+                    "pl-PL": "Tabela",
+                    "pt-BR": "Matriz",
+                    "ru-RU": "Массив",
+                    "zh-CN": "数组"
                 }
             }
         ],
@@ -28977,6 +38073,18 @@ var valueFuncKw =
                     "pt-BR": "O menor Número real permitido.",
                     "ru-RU": "Наименьшее из допустимых действительных чисел.",
                     "zh-CN": "允许的最小实数。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011377",
+                    "en-US": "Min",
+                    "es-ES": "Mín",
+                    "es-MX": "Mínimo",
+                    "fr-FR": "Minimum",
+                    "ja-JP": "最小",
+                    "pl-PL": "Minimum",
+                    "pt-BR": "Mín.",
+                    "ru-RU": "Мин.",
+                    "zh-CN": "最小"
                 }
             },
             {
@@ -28998,6 +38106,18 @@ var valueFuncKw =
                     "pt-BR": "O maior Número real permitido.",
                     "ru-RU": "Наибольшее из допустимых действительных чисел.",
                     "zh-CN": "允许的最大实数。"
+                },
+                "nameLocalized": {
+                    "guid": "000000011379",
+                    "en-US": "Max",
+                    "es-ES": "Máx",
+                    "es-MX": "Máximo",
+                    "fr-FR": "Maximum",
+                    "ja-JP": "最大",
+                    "pl-PL": "Maksimum",
+                    "pt-BR": "Máx.",
+                    "ru-RU": "Макс.",
+                    "zh-CN": "最大"
                 }
             }
         ],
@@ -29036,6 +38156,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The red component of a color, from 0 to 255.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011DA7",
+                    "en-US": "Red",
+                    "es-ES": "Rojo",
+                    "es-MX": "Rojo",
+                    "fr-FR": "Rouge",
+                    "it-IT": "Rosso",
+                    "ja-JP": "赤",
+                    "pl-PL": "Czerwony",
+                    "pt-BR": "Vermelho",
+                    "ru-RU": "Красный",
+                    "zh-CN": "红色"
                 }
             },
             {
@@ -29046,6 +38179,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The green component of a color, from 0 to 255.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011E3E",
+                    "en-US": "Green",
+                    "es-ES": "Verde",
+                    "es-MX": "Verde",
+                    "fr-FR": "Vert",
+                    "it-IT": "Verde",
+                    "ja-JP": "緑",
+                    "pl-PL": "Zielony",
+                    "pt-BR": "Verde",
+                    "ru-RU": "Зеленый",
+                    "zh-CN": "绿色"
                 }
             },
             {
@@ -29056,6 +38202,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The blue component of a color, from 0 to 255.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011E41",
+                    "en-US": "Blue",
+                    "es-ES": "Azul",
+                    "es-MX": "Azul",
+                    "fr-FR": "Bleu",
+                    "it-IT": "Blu",
+                    "ja-JP": "青",
+                    "pl-PL": "Niebieski",
+                    "pt-BR": "Azul",
+                    "ru-RU": "Синий",
+                    "zh-CN": "蓝色"
                 }
             },
             {
@@ -29066,6 +38225,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "000000011DA6",
+                    "en-US": "Alpha",
+                    "es-ES": "Alfa",
+                    "es-MX": "Alfa",
+                    "it-IT": "Alfa",
+                    "ja-JP": "アルファ",
+                    "pl-PL": "Alfa",
+                    "pt-BR": "Alfa",
+                    "ru-RU": "Альфа",
+                    "zh-CN": "不透明度"
                 }
             }
         ],
@@ -29102,6 +38273,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em radianos.",
                     "ru-RU": "Угол в радианах.",
                     "zh-CN": "角度，以弧度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -29152,6 +38335,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em graus.",
                     "ru-RU": "Угол в градусах.",
                     "zh-CN": "角度，以角度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -29202,6 +38397,19 @@ var valueFuncKw =
                     "pt-BR": "O Valor em número real cuja raiz quadrada será calculada. Valores negativos resultam em zero.",
                     "ru-RU": "Действительное число квадратный корень из которого нужно вычислить. Корень отрицательных значений приравнивается к нулю.",
                     "zh-CN": "计算此实数值的平方根。负数值则为0。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -29241,6 +38449,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The string in which to search for the specified substring.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             },
             {
@@ -29251,6 +38471,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The substring for which to search.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             }
         ],
@@ -29275,6 +38507,18 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The string whose characters to count.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "0000000124A4",
+                    "en-US": "String",
+                    "es-ES": "Cadena",
+                    "es-MX": "Cadena",
+                    "fr-FR": "Chaîne de texte",
+                    "it-IT": "Stringa",
+                    "ja-JP": "文字列",
+                    "pl-PL": "Ciąg",
+                    "ru-RU": "Строка",
+                    "zh-CN": "字符串"
                 }
             }
         ],
@@ -29310,6 +38554,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em radianos.",
                     "ru-RU": "Угол в радианах.",
                     "zh-CN": "角度，以弧度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -29360,6 +38616,18 @@ var valueFuncKw =
                     "pt-BR": "Ângulo em graus.",
                     "ru-RU": "Угол в градусах.",
                     "zh-CN": "角度，以角度为单位。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B283",
+                    "en-US": "Angle",
+                    "es-ES": "Ángulo",
+                    "es-MX": "Ángulo",
+                    "it-IT": "Angolo",
+                    "ja-JP": "角度",
+                    "pl-PL": "Kąt",
+                    "pt-BR": "Ângulo",
+                    "ru-RU": "Угол",
+                    "zh-CN": "角度"
                 }
             }
         ],
@@ -29410,6 +38678,19 @@ var valueFuncKw =
                     "pt-BR": "O Herói a ser verificado em jogo.",
                     "ru-RU": "Герой факт игры за которого нужно проверить.",
                     "zh-CN": "检测此英雄是否在使用。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B293",
+                    "en-US": "Hero",
+                    "es-ES": "Héroe",
+                    "es-MX": "Héroe",
+                    "fr-FR": "Héros",
+                    "it-IT": "Eroe",
+                    "ja-JP": "ヒーロー",
+                    "pl-PL": "Bohater",
+                    "pt-BR": "Herói",
+                    "ru-RU": "Герой",
+                    "zh-CN": "英雄"
                 }
             },
             {
@@ -29431,6 +38712,19 @@ var valueFuncKw =
                     "pt-BR": "As Equipes que seráão verificadas para ver se o Herói está em jogo.",
                     "ru-RU": "Команда или команды для которых нужно проверить факт игры за указанного героя.",
                     "zh-CN": "检测队伍中是否正在使用这名英雄。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -29481,6 +38775,19 @@ var valueFuncKw =
                     "pt-BR": "A Equipe cuja pontuação será adquirida.",
                     "ru-RU": "Команда счет которой нужно получить.",
                     "zh-CN": "获取此队伍的得分。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B238",
+                    "en-US": "Team",
+                    "es-ES": "Equipo",
+                    "es-MX": "Equipo",
+                    "fr-FR": "Équipe",
+                    "it-IT": "Squadra",
+                    "ja-JP": "チーム",
+                    "pl-PL": "Drużyna",
+                    "pt-BR": "Equipe",
+                    "ru-RU": "Команда",
+                    "zh-CN": "队伍"
                 }
             }
         ],
@@ -29547,6 +38854,19 @@ var valueFuncKw =
                 "descriptionLocalized": {
                     "en-US": "The value that will be updated once per tick.",
                     "guid": "<unknown guid>"
+                },
+                "nameLocalized": {
+                    "guid": "00000000C335",
+                    "en-US": "Value",
+                    "es-ES": "Valor",
+                    "es-MX": "Valor",
+                    "fr-FR": "Valeur",
+                    "it-IT": "Valore",
+                    "ja-JP": "値",
+                    "pl-PL": "Wartość",
+                    "pt-BR": "Valor",
+                    "ru-RU": "Значение",
+                    "zh-CN": "值"
                 }
             }
         ],
@@ -29588,6 +38908,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor X do vetor.",
                     "ru-RU": "Компонент X значения вектора.",
                     "zh-CN": "矢量的X轴值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2CB",
+                    "en-US": "X"
                 }
             },
             {
@@ -29611,6 +38935,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor Y do vetor.",
                     "ru-RU": "Компонент Y значения вектора.",
                     "zh-CN": "矢量的Y轴值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2CC",
+                    "en-US": "Y"
                 }
             },
             {
@@ -29634,6 +38962,10 @@ var valueFuncKw =
                     "pt-BR": "O Valor Z do vetor.",
                     "ru-RU": "Компонент Z значения вектора.",
                     "zh-CN": "矢量的Z轴值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B2CD",
+                    "en-US": "Z"
                 }
             }
         ],
@@ -29683,6 +39015,19 @@ var valueFuncKw =
                     "pt-BR": "A posição na qual o Vetor de deslocamento resultante começa.",
                     "ru-RU": "Точка с которой начинается результирующий вектор смещения.",
                     "zh-CN": "位移矢量的起点。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E8",
+                    "en-US": "Start Pos",
+                    "es-ES": "Pos. inicial",
+                    "es-MX": "Posición inicial",
+                    "fr-FR": "Position de début",
+                    "it-IT": "Posizione Iniziale",
+                    "ja-JP": "開始位置",
+                    "pl-PL": "Pozycja początkowa",
+                    "pt-BR": "Pos. Inicial",
+                    "ru-RU": "Начальная позиция",
+                    "zh-CN": "开始位置"
                 }
             },
             {
@@ -29704,6 +39049,19 @@ var valueFuncKw =
                     "pt-BR": "A posição na qual o Vetor de deslocamento resultante termina.",
                     "ru-RU": "Точка в которой заканчивается результирующий вектор смещения.",
                     "zh-CN": "位移矢量的终点。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1E9",
+                    "en-US": "End Pos",
+                    "es-ES": "Pos. final",
+                    "es-MX": "Posición final",
+                    "fr-FR": "Position de fin",
+                    "it-IT": "Posizione Finale",
+                    "ja-JP": "終了位置",
+                    "pl-PL": "Pozycja końcowa",
+                    "pt-BR": "Pos. Final",
+                    "ru-RU": "Конечная позиция",
+                    "zh-CN": "结束位置"
                 }
             }
         ],
@@ -29755,6 +39113,18 @@ var valueFuncKw =
                     "pt-BR": "O Vetor direcional do qual será adquirido um ângulo vertical em graus. O Vetor é unitizado antes de o cálculo ser iniciado.",
                     "ru-RU": "Вектор направления от которого строится вертикальный угол в градусах. Перед вычислением вектор нормализуется.",
                     "zh-CN": "对此方向矢量获取水平角度，单位为度。此矢量在计算开始前进行统一化。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B25B",
+                    "en-US": "Direction",
+                    "es-ES": "Dirección",
+                    "es-MX": "Dirección",
+                    "it-IT": "Direzione",
+                    "ja-JP": "方向",
+                    "pl-PL": "Kierunek",
+                    "pt-BR": "Direção",
+                    "ru-RU": "Направление",
+                    "zh-CN": "方向"
                 }
             }
         ],
@@ -29805,6 +39175,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador cuja direção atual inicia o ângulo.",
                     "ru-RU": "Игрок относительно направления взгляда которого вычисляется угол.",
                     "zh-CN": "以此玩家当前面向的角度为起点。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B1F3",
+                    "en-US": "Player",
+                    "es-ES": "Jugador",
+                    "es-MX": "Jugador",
+                    "fr-FR": "Joueur",
+                    "it-IT": "Giocatore",
+                    "ja-JP": "プレイヤー",
+                    "pl-PL": "Gracz",
+                    "pt-BR": "Jogador",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "玩家"
                 }
             },
             {
@@ -29826,6 +39209,18 @@ var valueFuncKw =
                     "pt-BR": "A posição no mundo onde o ângulo termina.",
                     "ru-RU": "Точка в игровом мире угол до которой нужно вычислить.",
                     "zh-CN": "测定与地图中此位置的夹角。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B218",
+                    "en-US": "Position",
+                    "es-ES": "Posición",
+                    "es-MX": "Posición",
+                    "it-IT": "Posizione",
+                    "ja-JP": "位置",
+                    "pl-PL": "Pozycja",
+                    "pt-BR": "Posição",
+                    "ru-RU": "Положение",
+                    "zh-CN": "位置"
                 }
             }
         ],
@@ -29888,6 +39283,19 @@ var valueFuncKw =
                     "pt-BR": "O Vetor em coordenadas locais que será convertido em coordenadas do mundo.",
                     "ru-RU": "Вектор в локальной системе координат который нужно перенести в глобальную систему координат.",
                     "zh-CN": "将此相对本地坐标的矢量值转化为相对于地图坐标的矢量值。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B33F",
+                    "en-US": "Local Vector",
+                    "es-ES": "Vector local",
+                    "es-MX": "Vector local",
+                    "fr-FR": "Vecteur local",
+                    "it-IT": "Vettore Locale",
+                    "ja-JP": "ローカルのベクトル",
+                    "pl-PL": "Lokalny wektor",
+                    "pt-BR": "Vetor Local",
+                    "ru-RU": "Локальный вектор",
+                    "zh-CN": "本地矢量"
                 }
             },
             {
@@ -29909,6 +39317,19 @@ var valueFuncKw =
                     "pt-BR": "O Jogador a quem o Vetor Local é relativo.",
                     "ru-RU": "Игрок относительно которого строится локальный вектор.",
                     "zh-CN": "本地矢量是相对此玩家的。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B340",
+                    "en-US": "Relative Player",
+                    "es-ES": "Jugador relativo",
+                    "es-MX": "Jugador relativo",
+                    "fr-FR": "Joueur relatif",
+                    "it-IT": "Giocatore Relativo",
+                    "ja-JP": "プレイヤー相対",
+                    "pl-PL": "Względny gracz",
+                    "pt-BR": "Jogador Relativo",
+                    "ru-RU": "Игрок",
+                    "zh-CN": "相对玩家"
                 }
             },
             {
@@ -29930,6 +39351,18 @@ var valueFuncKw =
                     "pt-BR": "Especifica se o Vetor deve receber uma rotação e uma translação geralmente aplicada a posições ou apenas uma rotação geralmente aplicada a direções e velocidades.",
                     "ru-RU": "Определяет требуется ли для вектора поворот и смещение обычно применяется к местоположениям или только поворот обычно применяется к направлениям и векторным скоростям.",
                     "zh-CN": "指定此矢量是否接受旋转及平移（通常是位置），或者只接受旋转（通常是方向和速度）。"
+                },
+                "nameLocalized": {
+                    "guid": "00000000B341",
+                    "en-US": "Transformation",
+                    "es-ES": "Transformación",
+                    "es-MX": "Transformación",
+                    "it-IT": "Trasformazione",
+                    "ja-JP": "変化",
+                    "pl-PL": "Transformacja",
+                    "pt-BR": "Transformação",
+                    "ru-RU": "Трансформация",
+                    "zh-CN": "转换"
                 }
             }
         ],
@@ -59661,8 +69094,7 @@ ${tows("__rule__", ruleKw)}("OverPy Map Detection") {
 		${tows("__end__", actionKw)};
 	}
 }		
-		
-		`
+`
 		compiledRules.unshift(mapDetectionRule)
 	}
 
