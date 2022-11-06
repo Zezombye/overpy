@@ -39837,15 +39837,14 @@ const ruleKw =
 const eventKw = 
 //begin-json
 {
-    "__subroutine__": {
-        "guid": "00000000FFF6",
-        "en-US": "Subroutine",
-        "es-ES": "Subrutina",
-        "es-MX": "Subrutina",
-        "fr-FR": "Sous-programme",
-        "ja-JP": "サブルーチン",
-        "pt-BR": "Sub-rotina",
-        "zh-CN": "子程序"
+    "global": {
+        "guid": "000000007895",
+        "en-US": "Ongoing - Global",
+        "es-MX": "En curso - Global",
+        "fr-FR": "Toute la partie - Tout le monde",
+        "ja-JP": "進行中 - グローバル",
+        "pt-BR": "Em andamento - Global",
+        "zh-CN": "持续 - 全局"
     },
     "eachPlayer": {
         "guid": "000000007897",
@@ -39855,15 +39854,6 @@ const eventKw =
         "ja-JP": "進行中 - 各プレイヤー",
         "pt-BR": "Em andamento - Cada Jogador",
         "zh-CN": "持续 - 每名玩家"
-    },
-    "global": {
-        "guid": "000000007895",
-        "en-US": "Ongoing - Global",
-        "es-MX": "En curso - Global",
-        "fr-FR": "Toute la partie - Tout le monde",
-        "ja-JP": "進行中 - グローバル",
-        "pt-BR": "Em andamento - Global",
-        "zh-CN": "持续 - 全局"
     },
     "playerDealtDamage": {
         "guid": "00000000B52D",
@@ -39969,13 +39959,35 @@ const eventKw =
         "pt-BR": "Jogador Recebeu Dano",
         "ru-RU": "Player took damage",
         "zh-CN": "玩家受到伤害"
-    }
+    },
+    "__subroutine__": {
+        "guid": "00000000FFF6",
+        "en-US": "Subroutine",
+        "es-ES": "Subrutina",
+        "es-MX": "Subrutina",
+        "fr-FR": "Sous-programme",
+        "ja-JP": "サブルーチン",
+        "pt-BR": "Sub-rotina",
+        "zh-CN": "子程序"
+    },
 }
 //end-json
 
 const eventTeamKw = 
 //begin-json
 {
+    "all": {
+        "guid": "000000007804",
+        "en-US": "All",
+        "es-ES": "Todos",
+        "es-MX": "Todos",
+        "fr-FR": "Les deux",
+        "it-IT": "Tutti",
+        "ja-JP": "すべて",
+        "pl-PL": "Wszystkie",
+        "pt-BR": "Todas",
+        "zh-CN": "双方"
+    },
     "1": {
         "guid": "00000000B472",
         "en-US": "Team 1",
@@ -39993,18 +40005,6 @@ const eventTeamKw =
         "ja-JP": "チーム2",
         "pt-BR": "Equipe 2",
         "zh-CN": "队伍2"
-    },
-    "all": {
-        "guid": "000000007804",
-        "en-US": "All",
-        "es-ES": "Todos",
-        "es-MX": "Todos",
-        "fr-FR": "Les deux",
-        "it-IT": "Tutti",
-        "ja-JP": "すべて",
-        "pl-PL": "Wszystkie",
-        "pt-BR": "Todas",
-        "zh-CN": "双方"
     }
 }
 //end-json

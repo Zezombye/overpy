@@ -245,27 +245,35 @@ var app = new Vue({
             } else if (type === "Subroutine") {
                 return this.subroutines.slice().sort((a,b) => (a.index - b.index)).map(x => ({label: x.name, code: x.index}));
             }
-            keywordObj = null
+            var keywordObj = null
+            var sort = true
             if (type === "void") {
                 keywordObj = this.actionKw;
             } else if (type in this.constantValues) {
                 keywordObj = this.constantValues[type];
+                sort = false;
             } else if (type === "event") {
                 keywordObj = this.eventKw;
+                sort = false;
             } else if (type === "eventPlayer") {
                 keywordObj = this.eventPlayerKw;
+                sort = false;
             } else if (type === "eventTeam") {
                 keywordObj = this.eventTeamKw;
+                sort = false;
             } else if (type === "BoolLiteral") {
                 keywordObj = {"true": this.valueFuncKw.true, "false": this.valueFuncKw.false};
             } else {
                 keywordObj = this.valueFuncKw;
             }
-            return this.getDropdownOptionsForKeywordObj(keywordObj);
+            return this.getDropdownOptionsForKeywordObj(keywordObj, sort);
         },
-        getDropdownOptionsForKeywordObj: function(keywordObj) {
-
-            return Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice().sort((a,b) => (a.label.localeCompare(b.label)))
+        getDropdownOptionsForKeywordObj: function(keywordObj, sort=true) {
+            var result = Object.keys(keywordObj).filter(x => typeof keywordObj[x] === "object" && !keywordObj[x].onlyInOw1 && x !== "__global__").map(x => ({"label": this.uiSettings.language in keywordObj[x] ? keywordObj[x][this.uiSettings.language] : keywordObj[x]["en-US"], "code": x})).slice()
+            if (sort) {
+                result = result.sort((a,b) => (a.label.localeCompare(b.label)))
+            }
+            return result;
         },
         decompile: function(content) {
             try {

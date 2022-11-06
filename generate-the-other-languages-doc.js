@@ -58,13 +58,6 @@ function replaceJsonObjectsInFile(path) {
         if (line === "//end-json") {
             isInJsonObject = false;
             tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
-            tmpObj = Object.keys(tmpObj).sort().reduce(
-                (obj, key) => { 
-                    obj[key] = tmpObj[key]; 
-                    return obj;
-                }, 
-                {}
-            );
             result += JSON.stringify(tmpObj, null, 4)+"\n";
             currentJsonStr = "";
         }
