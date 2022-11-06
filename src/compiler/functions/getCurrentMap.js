@@ -23,7 +23,7 @@ astParsingFunctions.getCurrentMap = function(content) {
     }
     isCurrentMapUsed = true;
     if (!isVarName("__currentMap__", true)) {
-        addVariable("__currentMap__", true, 126);
+        addVariable("__currentMap__", true, null);
     }
     return new Ast("__globalVar__", [new Ast("__currentMap__", [], [], "GlobalVariable")]);
 }
