@@ -18,7 +18,7 @@
 "use strict";
 
 astParsingFunctions.__map__ = function(content) {
-    if (constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
+    if (content.args[0].name in constantValues.MapLiteral && constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
         error("The map '"+content.args[0].name+"' is not available in OW2")
     }
 

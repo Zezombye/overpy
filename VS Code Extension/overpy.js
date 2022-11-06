@@ -46620,8 +46620,9 @@ for (var gamemode of Object.keys(gamemodeKw)) {
 //Apply general settings to each gamemode... but not Elimination for some reason lmao
 for (var gamemode in customGameSettingsSchema.gamemodes.values) {
     if (gamemode === "elimination") {
-        customGameSettingsSchema.gamemodes.values[gamemode].values.enabledMaps = customGameSettingsSchema.gamemodes.values.general.values.enabledMaps;
-        customGameSettingsSchema.gamemodes.values[gamemode].values.disabledMaps = customGameSettingsSchema.gamemodes.values.general.values.disabledMaps;
+        for (var key of ["enabledMaps", "disabledMaps", "enableEnemyHealthBars", "gamemodeStartTrigger", "healthPackRespawnTime%", "enableKillCam", "enableKillFeed", "enableSkins", "spawnHealthPacks"]) {
+            customGameSettingsSchema.gamemodes.values[gamemode].values[key] = customGameSettingsSchema.gamemodes.values.general.values[key];
+        }
     } else {
         Object.assign(customGameSettingsSchema.gamemodes.values[gamemode].values, customGameSettingsSchema.gamemodes.values.general.values);
     }
@@ -53724,7 +53725,7 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
 "use strict";
 
 astParsingFunctions.__map__ = function(content) {
-    if (constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
+    if (content.args[0].name in constantValues.MapLiteral && constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
         error("The map '"+content.args[0].name+"' is not available in OW2")
     }
 

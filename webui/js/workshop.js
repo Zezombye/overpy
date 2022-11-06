@@ -626,10 +626,15 @@ var app = new Vue({
                 result += this.displayHtml(this.translate(ast.name, this.valueKw), useHtml, "value");
 
             } else if (ast.type in this.constantValues) {
-                if (!(ast.name in this.constantValues[ast.type])) {
-                    throw new Error("Unknown "+ast.type.replace("Literal", "").toLowerCase()+" '"+ast.name+"'");
+                if (ast.name === "__removed_from_ow2__") {
+                    result += this.displayHtml(ast.name, useHtml, (ast.type === "__Operator__" ? "operator" : "value"));
+                } else {
+
+                    if (!(ast.name in this.constantValues[ast.type])) {
+                        throw new Error("Unknown "+ast.type.replace("Literal", "").toLowerCase()+" '"+ast.name+"'");
+                    }
+                    result += this.displayHtml(this.translate(ast.name, this.constantValues[ast.type]), useHtml, (ast.type === "__Operator__" ? "operator" : "value"));
                 }
-                result += this.displayHtml(this.translate(ast.name, this.constantValues[ast.type]), useHtml, (ast.type === "__Operator__" ? "operator" : "value"));
             } else {
                 throw new Error("Unknown type '"+ast.type+"' of '"+ast.name+"'");
             }

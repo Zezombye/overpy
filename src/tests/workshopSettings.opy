@@ -21,7 +21,7 @@ rule "workshop settings":
     A = createWorkshopSetting(float<:6>, "float", "float<;6>", 3.5)
 
     #heros
-    A = createWorkshopSetting(Hero, "hero".substring(2,3), "hero", Hero.ANA)
+    A = createWorkshopSetting(Hero, "hero", "hero", Hero.ANA)
     A = createWorkshopSetting(Hero, "hero", "hero", Hero.HAMMOND, 3)
 
     #enums

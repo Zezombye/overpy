@@ -1440,6 +1440,39 @@
                                     "workshopIslandNight"
                                 ]
                             }
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
                         }
                     }
                 },

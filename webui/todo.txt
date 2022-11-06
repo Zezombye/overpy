@@ -1,8 +1,7 @@
 
-- add ui for projects
+- add disabled settings
+- fix current map bug
 - translate argument names
 - dropdown tooltips
 - display operators
 - add icons on dropdowns for icons + colors
-- local storage
-- switching between projects
