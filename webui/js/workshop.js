@@ -742,7 +742,7 @@ var app = new Vue({
                     } else if (astType === "bool" || astType === "BoolLiteral") {
                         var astName = "true";
                     } else if (astType === "Direction" || astType === "Position" || astType === "Vector") {
-                        var astName = "vector";
+                        var astName = "vect";
                     } else if (Array.isArray(astType) && astType.includes("Player")) {
                         var astName = "getPlayers";
                     } else {
