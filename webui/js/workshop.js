@@ -256,6 +256,8 @@ var app = new Vue({
             } else if (type in this.constantValues) {
                 keywordObj = this.constantValues[type];
                 sort = false;
+            } else if (type === "LocalizedStringLiteral") {
+                keywordObj = this.stringKw;
             } else if (type === "event") {
                 keywordObj = this.eventKw;
                 sort = false;
@@ -599,10 +601,10 @@ var app = new Vue({
             } else if (ast.name === "__team__") {
                 return this.displayAst(ast.args[0], useHtml);
 
-            } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
+            } else if (["CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
                 result += this.displayHtml(this.escapeString(ast.name, true), useHtml, "string");
             } else if (ast.type === "LocalizedStringLiteral") {
-                result += this.displayHtml(this.escapeString(tows(ast.name, this.stringKw), true), useHtml, "var");
+                result += this.displayHtml(this.escapeString(tows(ast.name, this.stringKw), true), useHtml, "string");
 
             } else if (ast.name === "__team__") {
                 return this.displayAst(ast.args[0], useHtml);
@@ -720,8 +722,100 @@ var app = new Vue({
         rebuildAst: function(ast) {
             console.log("Rebuilding AST: '"+ast.name+"'");
             //When selecting a new function, recreate its arguments using defaults
-            if (ast.type in this.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type)) {
+            if (ast.type in this.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral", "LocalizedStringLiteral"].includes(ast.type)) {
                 return; //no args
+            }
+            var astDefaultsToOverpy = {
+                "==": "==",
+                "0": 0,
+                "99999": 99999,
+                "ADD": "__add__",
+                "All Damage Dealt": "DAMAGE_DEALT",
+                "All Players": "getPlayers",
+                "ALL PLAYERS": "getPlayers",
+                "All": "ALL",
+                "ALL": "ALL",
+                "Armor": "ARMOR",
+                "Array": "__array__",
+                "ARROW: DOWN": "ARROW_DOWN",
+                "Assisters and Targets": "ASSISTERS_AND_TARGETS",
+                "BARRIERS DO NOT BLOCK LOS": "PASS_THROUGH_BARRIERS",
+                "Button": "__button__",
+                "BUTTON": "__button__",
+                "CANCEL CONTRARY MOTION": "CANCEL_CONTRARY_MOTION",
+                "CLIP AGAINST SURFACES": "SURFACES",
+                "COLOR": "__color__",
+                "COMPARE": "__compare__",
+                "COUNT OF": "len",
+                "CURRENT ARRAY ELEMENT": "__currentArrayElement__",
+                "Custom String": "__customString__",
+                "CUSTOM STRING": "__customString__",
+                "Default Visibility": "DEFAULT",
+                "DEFAULT VISIBILITY": "DEFAULT",
+                "DEFAULT": "DEFAULT",
+                "DESTINATION AND DURATION": "DESTINATION_AND_DURATION",
+                "DESTINATION AND RATE": "DESTINATION_AND_RATE",
+                "DIRECTION AND MAGNITUDE": "DIRECTION_AND_MAGNITUDE",
+                "DIRECTION AND TURN RATE": "DIRECTION_AND_TURN_RATE",
+                "DIRECTION, RATE, AND MAX SPEED": "DIRECTION_RATE_AND_MAX_SPEED",
+                "Event Player": "eventPlayer",
+                "EVENT PLAYER": "eventPlayer",
+                "false": "false",
+                "Global Variable": "__globalVar__",
+                "GLOBAL VARIABLE": "__globalVar__",
+                "GOOD BEAM": "GOOD",
+                "GOOD EXPLOSION": "GOOD_EXPLOSION",
+                "HACKED": "HACKED",
+                "HEALTH": "NORMAL",
+                "HELLO": "Hello",
+                "Hero": "__hero__",
+                "HERO": "__hero__",
+                "IGNORE CONDITION": "IGNORE_CONDITION",
+                "Last Assist ID": "getLastAssistID",
+                "LAST CREATED ENTITY": "getLastCreatedEntity",
+                "Last Created Health Pool": "getLastCreatedHealthPool",
+                "LAST DAMAGE MODIFICATION ID": "getLastDamageModification",
+                "LAST DAMAGE OVER TIME ID": "getLastDoT",
+                "LAST HEALING MODIFICATION ID": "getLastHoT",
+                "Last Text ID": "getLastCreatedText",
+                "LAST TEXT ID": "getLastCreatedText",
+                "Left": "LEFT",
+                "LEFT": "LEFT",
+                "NULL": "null",
+                "NUMBER": "__number__",
+                "OFF": "OFF",
+                "PLAYER VARIABLE": "__playerVar__",
+                "Position Of": "_&getPosition",
+                "PRIMARY FIRE": "PRIMARY_FIRE",
+                "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT": "RECEIVERS_DAMAGERS_AND_DMGPERCENT",
+                "RECEIVERS, HEALERS, AND HEALING PERCENT": "RECEIVERS_HEALERS_AND_HEALPERCENT",
+                "REPLACE EXISTING THROTTLE": "REPLACE_EXISTING",
+                "RESTART RULE": "RESTART",
+                "ROTATION": "ROTATION",
+                "SPHERE": "SPHERE",
+                "STRING": "__customString__",
+                "Team": "__team__",
+                "TEAM": "__team__",
+                "TO WORLD": "TO_WORLD",
+                "true": "true",
+                "TRUE": "true",
+                "UP": "__roundUp__",
+                "Vector": "vect",
+                "VECTOR": "vect",
+                "VISIBLE TO AND POSITION": "VISIBILITY_AND_POSITION",
+                "VISIBLE TO AND STRING": "VISIBILITY_AND_STRING",
+                "VISIBLE TO, POSITION, AND RADIUS": "VISIBILITY_POSITION_AND_RADIUS",
+                "VISIBLE TO, POSITION, AND STRING": "VISIBILITY_POSITION_AND_STRING",
+                "Visible To, Values, and Color": "VISIBILITY_VALUES_AND_COLOR",
+                "VOICE LINE UP": "VOICE_LINE_UP",
+                "White": "WHITE",
+                "WHITE": "WHITE",
+                0: 0,
+                1: 1,
+                100: 100,
+                255: 255,
+                null: "null",
+                true: "true",
             }
             ast.args = [];
             keywordObj = (ast.type === "void" ? this.actionKw : this.valueFuncKw);
@@ -729,9 +823,25 @@ var app = new Vue({
                 for (var arg of keywordObj[ast.name].args) {
                     var astType = arg.type;
                     if (astType in this.constantValues) {
-                        var astName = astType === "TeamLiteral" ? "ALL" : Object.keys(constantValues[astType])[0];
+                        if (arg.default && arg.default in astDefaultsToOverpy) {
+                            if (!(astDefaultsToOverpy[arg.default] in constantValues[astType])) {
+                                console.error(astDefaultsToOverpy[arg.default]+" doesn't exist, please tell Zezombye about it");
+                                var astName = astType === "TeamLiteral" ? "ALL" : Object.keys(constantValues[astType])[0];
+                            } else {
+                                var astName = astDefaultsToOverpy[arg.default];
+                            }
+                        } else {
+                            var astName = astType === "TeamLiteral" ? "ALL" : Object.keys(constantValues[astType])[0];
+                        }
                     } else if (astType === "FloatLiteral" || astType === "IntLiteral" || astType === "UnsignedIntLiteral") {
-                        var astName = "0";
+                        if (arg.default) {
+                            var astName = ""+arg.default;
+                        } else {
+                            var astName = "0";
+                        }
+                    } else if (arg.default && arg.default in astDefaultsToOverpy) {
+                        console.log("Setting default: "+arg.default);
+                        var astName = astDefaultsToOverpy[arg.default];
                     } else if (astType === "GlobalVariable") {
                         var astName = this.globalVariables[0].index;
                     } else if (astType === "PlayerVariable") {
@@ -780,12 +890,17 @@ var app = new Vue({
                         var astName = "__number__";
                         astType = "float";
                     }
-                    var astArg = new Ast(""+astName, [], [], astType);
-                    if (["GlobalVariable", "PlayerVariable", "Subroutine"].includes(astType)) {
-                        astArg.name = +astArg.name;
+                    if (isNumber(astName) && !["GlobalVariable", "PlayerVariable", "Subroutine", "FloatLiteral", "IntLiteral", "UnsignedIntLiteral"].includes(astType)) {
+                        var astArg = getAstForNumber(+astName);
+                        astArg.parent = ast;
+                    } else {
+                        var astArg = new Ast(""+astName, [], [], astType);
+                        if (["GlobalVariable", "PlayerVariable", "Subroutine"].includes(astType)) {
+                            astArg.name = +astArg.name;
+                        }
+                        astArg.parent = ast;
+                        this.rebuildAst(astArg);
                     }
-                    astArg.parent = ast;
-                    this.rebuildAst(astArg);
                     ast.args.push(astArg);
 
                 }
@@ -1445,7 +1560,6 @@ var app = new Vue({
                 })
             });
         }
-
     },
 
     created: function() {

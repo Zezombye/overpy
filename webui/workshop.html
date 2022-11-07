@@ -309,7 +309,6 @@
                     </div>
 					<p>Known bugs:<br>
 						<ul style="text-align: left">
-							<li>Tooltips are not translated</li>
 							<li>No saving</li>
 							<li>The AST display is not workshop-like, eg Add() instead of +</li>
 						</ul>
@@ -449,7 +448,7 @@
                     <div class="value-string" v-else-if="ast.type === 'CustomStringLiteral'">
                         <textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="custom-string-textarea font-blizzglobal" v-model="ast.name">{{ ast.name }}</textarea>
                     </div>
-                    <div class="value-dropdown" v-else :title='ast.type in $root.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral"].includes(ast.type) || !("descriptionLocalized" in (ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])) ? "" : $root.translate("descriptionLocalized", ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])' >
+                    <div class="value-dropdown" v-else :title='ast.type in $root.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "LocalizedStringLiteral"].includes(ast.type) || !("descriptionLocalized" in (ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])) ? "" : $root.translate("descriptionLocalized", ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])' >
                         <v-select append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
                         </v-select>
                     </div>

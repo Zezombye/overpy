@@ -3061,7 +3061,7 @@ const customGameSettingsSchema =
             },
             "__eachHero__": {
                 "enableAbility1": {
-                    "guid": "00000001005E",
+                    "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "%1$s",
@@ -3095,7 +3095,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility2": {
-                    "guid": "00000001005E",
+                    "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
@@ -3129,7 +3129,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility3": {
-                    "guid": "00000001005E",
+                    "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
@@ -3242,7 +3242,7 @@ const customGameSettingsSchema =
                     "zh-TW": "%1$s（絕招）"
                 },
                 "enablePassive": {
-                    "guid": "00000001005E",
+                    "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
@@ -3253,7 +3253,7 @@ const customGameSettingsSchema =
                     "ko-KR": "%1$s회"
                 },
                 "enableSecondaryFire": {
-                    "guid": "00000001005E",
+                    "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [

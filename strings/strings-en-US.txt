@@ -18595,7 +18595,7 @@ Blizzard Support
 000000010E89.07C: Player
 000000010E8A.07C: The Player whose position will be forced. (The Reevaluation option does not apply to this value.)
 000000010E8B.07C: The position the Player will occupy. If Reevaluation is enabled, this value can be used to move the Player around over time.
-000000010E8C.07C: If this value is True, then Position will be reevaluated and applied to the Player every frame. If this value is False, then the Position is only evaluated once when the action begins.
+000000010E8C.07C: If this value is True, then the Position will be reevaluated and applied to the Player every frame. If this value is False, then the Position is only evaluated once when the action begins.
 000000010E8D.07C: Stop Forcing Player Position
 000000010E8E.07C: Cancels the behavior of Start Forcing Player Position for the specified Player or Players. Regular movement will resume from the last forced position(s).
 000000010E8F.07C: Player
@@ -19073,7 +19073,7 @@ Blizzard Support
 0000000112ED.07C: Stop Forcing Player Outlines
 0000000112EE.07C: <1 Min
 0000000112EF.07C: Cancels the behavior of Start Forcing Player Outlines for the specified Viewed Player or Players from the perspective of one or more Viewing Players.
-0000000112F2.07C: Starts forcing the visbility and color of Player Outlines for the specified Viewed Player or Players from the perspective of one or more Viewing Players.
+0000000112F2.07C: Starts forcing the visibility and color of Player Outlines for the specified Viewed Player or Players from the perspective of one or more Viewing Players.
 0000000112F3.07C: No Achievements Unlocked
 0000000112F5.07C: The Viewed Player or Players who will have their Outlines reset.
 0000000112F6.07C: The Viewing Player or Players for whom the Viewed Player's Outlines will be reset.
