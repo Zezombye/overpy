@@ -101,7 +101,7 @@ var app = new Vue({
     computed: {
         background: function() {
             if (this.uiSettings.background === "random") {
-                var availableBackgrounds = Object.keys(this.uiAvailableSettings.background.values).filter(x => x !== "random")
+                var availableBackgrounds = this.uiAvailableSettings.background.filter(x => x !== "random")
                 return availableBackgrounds[Math.floor(Math.random() * availableBackgrounds.length)];
             } else {
                 return this.uiSettings.background;
