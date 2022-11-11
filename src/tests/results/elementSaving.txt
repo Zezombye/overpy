@@ -34,14 +34,14 @@ rule ("0 to false") {
         Ongoing - Global;
     }
     actions {
-        Set Global Variable(A, Compare(Global.B, >, False));
-        Set Global Variable(A, Compare(False, >, Global.B));
-        Set Global Variable(A, Compare(Global.B, >=, False));
-        Set Global Variable(A, Compare(False, >=, Global.B));
-        Set Global Variable(A, Compare(Global.B, <, False));
-        Set Global Variable(A, Compare(False, <, Global.B));
-        Set Global Variable(A, Compare(Global.B, <=, False));
-        Set Global Variable(A, Compare(False, <=, Global.B));
+        Set Global Variable(A, Compare(Global.B, >, Null));
+        Set Global Variable(A, Compare(Null, >, Global.B));
+        Set Global Variable(A, Compare(Global.B, >=, Null));
+        Set Global Variable(A, Compare(Null, >=, Global.B));
+        Set Global Variable(A, Compare(Global.B, <, Null));
+        Set Global Variable(A, Compare(Null, <, Global.B));
+        Set Global Variable(A, Compare(Global.B, <=, Null));
+        Set Global Variable(A, Compare(Null, <=, Global.B));
         Set Global Variable(A, Max(False, Global.B));
         Set Global Variable(A, Max(Global.B, False));
         Set Global Variable(A, Min(False, Global.B));
@@ -75,14 +75,14 @@ rule ("1 to true") {
     actions {
         Set Global Variable(A, Add(Global.B, True));
         Set Global Variable(A, Add(True, Global.B));
-        Set Global Variable(A, Compare(Global.B, >, True));
-        Set Global Variable(A, Compare(True, >, Global.B));
-        Set Global Variable(A, Compare(Global.B, >=, True));
-        Set Global Variable(A, Compare(True, >=, Global.B));
-        Set Global Variable(A, Compare(Global.B, <, True));
-        Set Global Variable(A, Compare(True, <, Global.B));
-        Set Global Variable(A, Compare(Global.B, <=, True));
-        Set Global Variable(A, Compare(True, <=, Global.B));
+        Set Global Variable(A, Compare(Global.B, >, 1));
+        Set Global Variable(A, Compare(1, >, Global.B));
+        Set Global Variable(A, Compare(Global.B, >=, 1));
+        Set Global Variable(A, Compare(1, >=, Global.B));
+        Set Global Variable(A, Compare(Global.B, <, 1));
+        Set Global Variable(A, Compare(1, <, Global.B));
+        Set Global Variable(A, Compare(Global.B, <=, 1));
+        Set Global Variable(A, Compare(1, <=, Global.B));
         Set Global Variable(A, Divide(True, Global.B));
         Set Global Variable(A, Max(True, Global.B));
         Set Global Variable(A, Max(Global.B, True));

@@ -757,3 +757,269 @@ const workshopUiKw =
     }
 }
 //end-json
+
+const workshopUiCustomKw = {
+    "zezWorkshopUiRecreation": {
+        "en-US": "Zez's workshop UI recreation",
+    },
+    "untitledMode": {
+        "en-US": "<Untitled mode>",
+    },
+    "pressButtonToImport1": {
+        "en-US": "Press the",
+        "fr-FR": "Appuyez sur le bouton",
+    },
+    "pressButtonToImport2": {
+        "en-US": "button to import an existing gamemode",
+        "fr-FR": "pour importer un mode existant",
+    },
+    "sizeOfLargestRule": {
+        "en-US": "Size of largest rule",
+    },
+    "idk": {
+        "en-US": "IDK",
+    },
+    "howTheFuck": {
+        "en-US": "How the fuck do you calculate this shit?",
+    },
+    "hoursSpent": {
+        "en-US": "Hours spent making this UI",
+    },
+    "flexboxMaster": {
+        "en-US": "I am now a master at FlexBox",
+    },
+    "para1": {
+        "en-US": "The UI was tested on Firefox with a resolution of 1920x1080. You can zoom or dezoom if the UI is not adapted to your screen resolution.",
+    },
+    "para2": {
+        "en-US": "You can save manually by clicking on the Save button:",
+    },
+    "para3": {
+        "en-US": "Then, you can paste into Overwatch by clicking on the button below:",
+    },
+    "para4": {
+        "en-US": "This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions. Some errors use the OverPy syntax for functions.",
+    },
+    "para5": {
+        "en-US": "Below, you can configure some settings for the UI and for OverPy:",
+    },
+    "para6": {
+        "en-US": "Feel free to join the discord if you have any questions or feedback!",
+    },
+    "para7": {
+        "en-US": "Made by Zezombye, with help from Mitsiee",
+    },
+    "importGamemode": {
+        "en-US": "Import Gamemode",
+    },
+    "importProject": {
+        "en-US": "Import project:",
+    },
+    "pasteGamemodeHere": {
+        "en-US": "Paste your gamemode here",
+    },
+    "language": {
+        "en-US": "Language",
+    },
+    "note1": {
+        "en-US": "Note: this will erase the existing rules.",
+    },
+    "note2": {
+        "en-US": "The gamemode has to be copied straight from Overwatch.",
+    },
+    "setting-optimization": {
+        "en-US": "Optimization",
+    },
+    "setting-optimization-none": {
+        "en-US": "No optimization",
+    },
+    "setting-optimization-speed": {
+        "en-US": "Optimize for speed (default)",
+    },
+    "setting-optimization-size": {
+        "en-US": "Optimize for size (reduce element count)",
+    },
+    "setting-language": {
+        "en-US": "UI Language",
+    },
+    "setting-compilationLanguage": {
+        "en-US": "Compilation Language",
+    },
+    "setting-language-en-US": {
+        "en-US": "🍔 English [en-US]",
+    },
+    "setting-language-de-DE": {
+        "en-US": "🍺 Deutsch [de-DE]",
+    },
+    "setting-language-es-ES": {
+        "en-US": "🐂 Español (EU) [es-ES]",
+    },
+    "setting-language-es-MX": {
+        "en-US": "🌮 Español (AL) [es-MX]",
+    },
+    "setting-language-fr-FR": {
+        "en-US": "🥖 Français [fr-FR]",
+    },
+    "setting-language-it-IT": {
+        "en-US": "🤌 Italiano [it-IT]",
+    },
+    "setting-language-ja-JP": {
+        "en-US": "🥷 日本語 [ja-JP]",
+    },
+    "setting-language-ko-KR": {
+        "en-US": "🎮 한국어 [ko-KR]",
+    },
+    "setting-language-pl-PL": {
+        "en-US": "🇵🇱 Polski [pl-PL]",
+    },
+    "setting-language-pt-BR": {
+        "en-US": "🧱 Português [pt-BR]",
+    },
+    "setting-language-ru-RU": {
+        "en-US": "🇷🇺 Русский [ru-RU]",
+    },
+    "setting-language-zh-CN": {
+        "en-US": "🇨🇳 简体中文 [zh-CN]",
+    },
+    "setting-language-zh-TW": {
+        "en-US": "🇹🇼 繁體中文 [zh-TW]",
+    },
+    "setting-compilationLanguage-en-US": {
+        "en-US": "🍔 English [en-US]",
+    },
+    "setting-compilationLanguage-de-DE": {
+        "en-US": "🍺 Deutsch [de-DE]",
+    },
+    "setting-compilationLanguage-es-ES": {
+        "en-US": "🐂 Español (EU) [es-ES]",
+    },
+    "setting-compilationLanguage-es-MX": {
+        "en-US": "🌮 Español (AL) [es-MX]",
+    },
+    "setting-compilationLanguage-fr-FR": {
+        "en-US": "🥖 Français [fr-FR]",
+    },
+    "setting-compilationLanguage-it-IT": {
+        "en-US": "🤌 Italiano [it-IT]",
+    },
+    "setting-compilationLanguage-ja-JP": {
+        "en-US": "🥷 日本語 [ja-JP]",
+    },
+    "setting-compilationLanguage-ko-KR": {
+        "en-US": "🎮 한국어 [ko-KR]",
+    },
+    "setting-compilationLanguage-pl-PL": {
+        "en-US": "🇵🇱 Polski [pl-PL]",
+    },
+    "setting-compilationLanguage-pt-BR": {
+        "en-US": "🧱 Português [pt-BR]",
+    },
+    "setting-compilationLanguage-ru-RU": {
+        "en-US": "🇷🇺 Русский [ru-RU]",
+    },
+    "setting-compilationLanguage-zh-CN": {
+        "en-US": "🇨🇳 简体中文 [zh-CN]",
+    },
+    "setting-compilationLanguage-zh-TW": {
+        "en-US": "🇹🇼 繁體中文 [zh-TW]",
+    },
+    "setting-background": {
+        "en-US": "Background",
+    },
+    "setting-background-random": {
+        "en-US": "Random",
+    },
+    "setting-background-blizzard_world.jpg": {
+        "en-US": "Blizzard World #1",
+    },
+    "setting-background-blizzard_world_2.jpg": {
+        "en-US": "Blizzard World #2",
+    },
+    "setting-background-busan.jpg": {
+        "en-US": "Busan",
+    },
+    "setting-background-chateau_halloween.jpg": {
+        "en-US": "Château Halloween",
+    },
+    "setting-background-dorado.jpg": {
+        "en-US": "Dorado",
+    },
+    "setting-background-eichenwalde.jpg": {
+        "en-US": "Eichenwalde",
+    },
+    "setting-background-eichenwalde_halloween.jpg": {
+        "en-US": "Eichenwalde Halloween #1",
+    },
+    "setting-background-eichenwalde_halloween_2.jpg": {
+        "en-US": "Eichenwalde Halloween #2",
+    },
+    "setting-background-hanamura.jpg": {
+        "en-US": "Hanamura",
+    },
+    "setting-background-kings_row.jpg": {
+        "en-US": "King's Row",
+    },
+    "setting-background-monte_carlo.jpg": {
+        "en-US": "Monte Carlo #1",
+    },
+    "setting-background-monte_carlo_2.jpg": {
+        "en-US": "Monte Carlo #2",
+    },
+    "setting-background-new_queen_street.jpg": {
+        "en-US": "New Queen Street",
+    },
+    "setting-background-oasis.jpg": {
+        "en-US": "Oasis",
+    },
+    "setting-background-paraiso.jpg": {
+        "en-US": "Paraiso",
+    },
+    "setting-background-paris.jpg": {
+        "en-US": "Paris",
+    },
+    "setting-background-rialto.jpg": {
+        "en-US": "Rialto",
+    },
+    "setting-background-temple_of_anubis.jpg": {
+        "en-US": "Temple of Anubis",
+    },
+    "setting-background-volskaya.jpg": {
+        "en-US": "Volskaya",
+    },
+    "setting-background-tf2.jpg": {
+        "en-US": "TF2 #1",
+    },
+    "setting-background-tf2_2.jpg": {
+        "en-US": "TF2 #2",
+    },
+    "setting-background-portal_2.jpg": {
+        "en-US": "Portal 2",
+    },
+    "setting-background-workshop.jpg": {
+        "en-US": "Workshop",
+    },
+    "setting-background-forge.jpg": {
+        "en-US": "Forge",
+    },
+    "setting-disabledWarnings": {
+        "en-US": "Disabled warnings (separate by commas)",
+    },
+    "cannotImportEmptyGamemode": {
+        "en-US": "Cannot import an empty gamemode",
+    },
+    "gamemodeMustHaveSettings": {
+        "en-US": "Gamemode must have settings",
+    },
+    "contactZez": {
+        "en-US": "contact Zezombye about this",
+    },
+    "successfullyImported": {
+        "en-US": "Successfully imported!",
+    },
+    "successfullyCompiled": {
+        "en-US": "Successfully compiled! (copied into clipboard)",
+    },
+    "compilationTooLong": {
+        "en-US": "Compilation took too long, please click again to copy.",
+    }
+}

@@ -22,7 +22,7 @@ var app = new Vue({
         displayDeleteConfirmationFor: null,
         deleteForRule: null,
         displayInfo: false,
-        hasPassedWelcomeScreen: window.location.pathname.startsWith("/C:"),
+        hasPassedWelcomeScreen: localStorage.hasPassedWelcomeScreen,
         displayMetrics: false,
         displayVariableEditor: false,
         displaySubroutineEditor: false,
@@ -58,83 +58,11 @@ var app = new Vue({
         "rules": [],
 
         uiAvailableSettings: {
-            optimization: {
-                name: "Optimization",
-                values: {
-                    none: "No optimization",
-                    speed: "Optimize for speed (default)",
-                    size: "Optimize for size (reduce element count)",
-                }
-            },
-            language: {
-                name: "UI Language",
-                values: {
-                    "en-US": "🍔 English [en-US]",
-                    "de-DE": "🍺 Deutsch [de-DE]",
-                    "es-ES": "🐂 Español (EU) [es-ES]",
-                    "es-MX": "🌮 Español (AL) [es-MX]",
-                    "fr-FR": "🥖 Français [fr-FR]",
-                    "it-IT": "🤌 Italiano [it-IT]",
-                    "ja-JP": "🥷 日本語 [ja-JP]",
-                    "ko-KR": "🎮 한국어 [ko-KR]",
-                    "pl-PL": "🇵🇱 Polski [pl-PL]",
-                    "pt-BR": "🧱 Português [pt-BR]",
-                    "ru-RU": "🇷🇺 Русский [ru-RU]",
-                    "zh-CN": "🇨🇳 简体中文 [zh-CN]",
-                    "zh-TW": "🇹🇼 繁體中文 [zh-TW]",
-                }
-            },
-            compilationLanguage: {
-                name: "Compilation Language",
-                values: {
-                    "en-US": "🍔 English [en-US]",
-                    "de-DE": "🍺 Deutsch [de-DE]",
-                    "es-ES": "🐂 Español (EU) [es-ES]",
-                    "es-MX": "🌮 Español (AL) [es-MX]",
-                    "fr-FR": "🥖 Français [fr-FR]",
-                    "it-IT": "🤌 Italiano [it-IT]",
-                    "ja-JP": "🥷 日本語 [ja-JP]",
-                    "ko-KR": "🎮 한국어 [ko-KR]",
-                    "pl-PL": "🇵🇱 Polski [pl-PL]",
-                    "pt-BR": "🧱 Português [pt-BR]",
-                    "ru-RU": "🇷🇺 Русский [ru-RU]",
-                    "zh-CN": "🇨🇳 简体中文 [zh-CN]",
-                    "zh-TW": "🇹🇼 繁體中文 [zh-TW]",
-                }
-            },
-            background: {
-                name: "Background",
-                values: {
-                    "random": "Random",
-                    "blizzard_world.jpg": "Blizzard World #1",
-                    "blizzard_world_2.jpg": "Blizzard World #2",
-                    "busan.jpg": "Busan",
-                    "chateau_halloween.jpg": "Château Halloween",
-                    "dorado.jpg": "Dorado",
-                    "eichenwalde.jpg": "Eichenwalde",
-                    "eichenwalde_halloween.jpg": "Eichenwalde Halloween #1",
-                    "eichenwalde_halloween_2.jpg": "Eichenwalde Halloween #2",
-                    "hanamura.jpg": "Hanamura",
-                    "kings_row.jpg": "King's Row",
-                    "monte_carlo.jpg": "Monte Carlo #1",
-                    "monte_carlo_2.jpg": "Monte Carlo #2",
-                    "new_queen_street.jpg": "New Queen Street",
-                    "oasis.jpg": "Oasis",
-                    "paraiso.jpg": "Paraiso",
-                    "paris.jpg": "Paris",
-                    "rialto.jpg": "Rialto",
-                    "temple_of_anubis.jpg": "Temple of Anubis",
-                    "volskaya.jpg": "Volskaya",
-                    "tf2.jpg": "TF2 #1",
-                    "tf2_2.jpg": "TF2 #2",
-                    "portal_2.jpg": "Portal 2",
-                    "workshop.jpg": "Workshop",
-                    "forge.jpg": "Forge",
-                }
-            },
-            disabledWarnings: {
-                "name": "Disabled warnings (separate by commas)",
-            },
+            optimization: ["none", "speed", "size"],
+            language: ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"],
+            compilationLanguage: ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"],
+            background: ["random", "blizzard_world.jpg", "blizzard_world_2.jpg", "busan.jpg", "chateau_halloween.jpg", "dorado.jpg", "eichenwalde.jpg", "eichenwalde_halloween.jpg", "eichenwalde_halloween_2.jpg", "hanamura.jpg", "kings_row.jpg", "monte_carlo.jpg", "monte_carlo_2.jpg", "new_queen_street.jpg", "oasis.jpg", "paraiso.jpg", "paris.jpg", "rialto.jpg", "temple_of_anubis.jpg", "volskaya.jpg", "tf2.jpg", "tf2_2.jpg", "portal_2.jpg", "workshop.jpg", "forge.jpg"],
+            disabledWarnings: null,
         },
         uiSettings: {
             optimization: "speed",
@@ -146,6 +74,7 @@ var app = new Vue({
 
         ruleAttributesDisplayNamesKw,
         workshopUiKw,
+        workshopUiCustomKw,
         eventKw,
         eventTeamKw,
         eventPlayerKw,
@@ -287,14 +216,14 @@ var app = new Vue({
             } else {
                 try {
                     if (!content) {
-                        console.error("Cannot import an empty gamemode");
+                        console.error(this.translate("cannotImportEmptyGamemode", this.workshopUiCustomKw));
                         return;
                     }
     
                     resetGlobalVariables(this.decompilationLanguage);
                     [customGameSettings, rules] = decompileAllRulesToAst(content);
                     if (!customGameSettings) {
-                        console.error("Gamemode must have settings");
+                        console.error(this.translate("gamemodeMustHaveSettings", this.workshopUiCustomKw));
                         return;
                     }
                     console.log(customGameSettings);
@@ -353,11 +282,11 @@ var app = new Vue({
                     this.setCurrentProject(this.projectToImportToId);
     
                 } catch (err) {
-                    console.error(err + ", contact Zezombye about this");
+                    console.error(err + ", " + this.translate("contactZez", this.workshopUiCustomKw));
                     return;
                 }
             }
-            console.info("Successfully imported!");
+            console.info(this.translate("successfullyImported", this.workshopUiCustomKw));
             this.projectToImportToId = null;
             this.displayImport = false;
             this.compileGamemode();
@@ -473,7 +402,7 @@ var app = new Vue({
                 if (rule.children.length === 0) {
                     rule.ruleAttributes.isDelimiter = true;
                 }
-                rule.fileStack = [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name}]
+                rule.fileStack = [{ruleNb: ruleIdx+1, rule: rule.ruleAttributes.name}]
                 for (var i = 0; i < rule.children.length; i++) {
                     var comment = rule.children[i].comment;
                     if (rule.children[i].isDisabled) {
@@ -489,7 +418,7 @@ var app = new Vue({
                     rule.children[i].comment = comment;
                     rule.children[i].parent = rule;
 
-                    recursivelySetFilestack(rule.children[i], [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name, actionNb: i+1}])
+                    recursivelySetFilestack(rule.children[i], [{ruleNb: ruleIdx+1, rule: rule.ruleAttributes.name, actionNb: i+1}])
 
                 }
 
@@ -529,7 +458,7 @@ var app = new Vue({
                     rule.ruleAttributes.conditionComments.push(rule.ruleAttributes.conditions[i].comment);
                     rule.ruleAttributes.conditions[i] = decompile(this.displayAst(rule.ruleAttributes.conditions[i], false));
                     rule.ruleAttributes.conditions[i].parent = new Ast("@Condition", [], [], "__Annotation__");
-                    recursivelySetFilestack(rule.ruleAttributes.conditions[i], [{ruleNb: ruleIdx, rule: rule.ruleAttributes.name, conditionNb: i+1}])
+                    recursivelySetFilestack(rule.ruleAttributes.conditions[i], [{ruleNb: ruleIdx+1, rule: rule.ruleAttributes.name, conditionNb: i+1}])
                 }
                 
                 if ("subroutineName" in rule.ruleAttributes) {
@@ -565,10 +494,10 @@ var app = new Vue({
             this.saveProject();
             navigator.clipboard.writeText(result).then(() => {
                 this.compiledGamemode = null;
-                console.info("Successfully compiled! (copied into clipboard)");
+                console.info(this.translate("successfullyCompiled", this.workshopUiCustomKw));
             }).catch((e) => {
                 this.compiledGamemode = result;
-                this.error("Compilation took too long, please click again to copy.");
+                this.error(this.translate("compilationTooLong", this.workshopUiCustomKw));
             });
         },
         displayHtml: function(str, actuallyDisplayHtml=true, category) {
@@ -579,18 +508,82 @@ var app = new Vue({
             }
         },
         displayAst: function(ast, useHtml=true) {
-            const funcToOpMapping = {
+            const modifyVarFuncToOpMapping = {
                 "__add__": "+=",
                 "__subtract__": "-=",
                 "__multiply__": "*=",
                 "__divide__": "/=",
                 "__modulo__": "%=",
-                "__raiseToPower__": "**=",
+                "__raiseToPower__": "^=",
+            }
+            const funcToOpMapping = {
+                "__add__": "+",
+                "__subtract__": "-",
+                "__multiply__": "*",
+                "__divide__": "/",
+                "__modulo__": "%",
+                "__raiseToPower__": "^",
+                "__and__": "&&",
+                "__or__": "||",
+            }
+            const astOperatorPrecedence = {
+                "__ifThenElse__": 2,
+                "__or__": 3,
+                "__and__": 4,
+                "__compare__": 5,
+                "__add__": 6,
+                "__subtract__": 6,
+                "__multiply__": 7,
+                "__divide__": 7,
+                "__modulo__": 7, 
+                "__raiseToPower__": 8,
+                "__not__": 9,
             }
             var result = "";
-            if (ast.name === "__compare__" && ast.parent.name === "__rule__") {
-                return ast.args.map(x => this.displayAst(x, useHtml)).join(" ")
+            if (ast.name in funcToOpMapping && ast.args.length === 2) {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[ast.name] + (ast.name === "__raiseToPower__" ? 1 : 0)))) {
+                    op1 = "("+op1+")";
+                }
+                var op2 = this.displayAst(ast.args[1], useHtml);
+                
+                if (ast.args[1].name in astOperatorPrecedence && astContainsFunctions(ast.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[ast.name] - (ast.name === "__raiseToPower__" ? 1 : 0)))) {
+                    op2 = "("+op2+")";
+                }
+                return op1+" "+this.displayHtml(funcToOpMapping[ast.name], useHtml, "operator")+" "+op2;
 
+            } else if (ast.name === "__compare__") {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[ast.name] + 0.5))) {
+                    op1 = "("+op1+")";
+                }
+                var op2 = this.displayAst(ast.args[2], useHtml);
+                
+                if (ast.args[2].name in astOperatorPrecedence && astContainsFunctions(ast.args[2], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[ast.name] + 0.5))) {
+                    op2 = "("+op2+")";
+                }
+                return op1+" "+this.displayHtml(ast.args[1].name, useHtml, "operator")+" "+op2;
+
+            } else if (ast.name === "__ifThenElse__") {
+                var opThen = this.displayAst(ast.args[1], useHtml);
+                if (ast.args[1].name in astOperatorPrecedence && astContainsFunctions(ast.args[1], Object.keys(astOperatorPrecedence))) {
+                    opThen = "("+opThen+")";
+                }
+                var opIf = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    opIf = "("+opIf+")";
+                }
+                var opElse = this.displayAst(ast.args[2], useHtml);
+                if (ast.args[2].name in astOperatorPrecedence && astContainsFunctions(ast.args[2], Object.keys(astOperatorPrecedence))) {
+                    opElse = "("+opElse+")";
+                }
+                return opIf+" ? "+opThen+" : "+opElse;
+            } else if (ast.name === "__not__") {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[ast.name]))) {
+                    op1 = "("+op1+")";
+                }
+                return "!"+op1;
             } else if (ast.type === "GlobalVariable") {
                 result += this.displayHtml(this.globalVariables.filter(x => x.index === +ast.name)[0].name, useHtml, "var");
             } else if (ast.type === "PlayerVariable") {
@@ -606,9 +599,6 @@ var app = new Vue({
             } else if (ast.type === "LocalizedStringLiteral") {
                 result += this.displayHtml(this.escapeString(tows(ast.name, this.stringKw), true), useHtml, "string");
 
-            } else if (ast.name === "__team__") {
-                return this.displayAst(ast.args[0], useHtml);
-
             } else if (ast.name === "__number__") {
                 return this.displayHtml((+ast.args[0].name)+"", useHtml, "var");
 
@@ -621,12 +611,50 @@ var app = new Vue({
             } else if (ast.name === "__setGlobalVariable__") {
                 return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" = "+this.displayAst(ast.args[1], useHtml);
 
-            } else if (ast.name === "__modifyGlobalVariable__" && ast.args[1].name in funcToOpMapping) {
-                return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" "+funcToOpMapping[ast.args[1].name]+" "+this.displayAst(ast.args[2], useHtml);
+            } else if (ast.name === "__modifyGlobalVariable__" && ast.args[1].name in modifyVarFuncToOpMapping) {
+                return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" "+modifyVarFuncToOpMapping[ast.args[1].name]+" "+this.displayAst(ast.args[2], useHtml);
                 
             } else if (ast.name === "__setGlobalVariableAtIndex__") {
                 return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+"["+this.displayAst(ast.args[1], useHtml)+"] = "+this.displayAst(ast.args[2], useHtml);
 
+            } else if (ast.name === "__modifyGlobalVariableAtIndex__" && ast.args[2].name in modifyVarFuncToOpMapping) {
+                return this.displayHtml(this.translate("__global__", this.valueKw), useHtml, "var")+"."+this.displayAst(ast.args[0], useHtml)+" ["+this.displayAst(ast.args[1], useHtml)+"] "+modifyVarFuncToOpMapping[ast.args[2].name]+" "+this.displayAst(ast.args[3], useHtml);
+                
+            } else if (ast.name === "__playerVar__") {
+                var result = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    result = "("+result+")";
+                }
+                return result+"."+this.displayAst(ast.args[1], useHtml);
+
+            } else if (ast.name === "__setPlayerVariable__") {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                return op1+"."+this.displayAst(ast.args[1], useHtml)+" = "+this.displayAst(ast.args[2], useHtml);
+
+            } else if (ast.name === "__modifyPlayerVariable__" && ast.args[2].name in modifyVarFuncToOpMapping) {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                return op1+"."+this.displayAst(ast.args[1], useHtml)+" "+modifyVarFuncToOpMapping[ast.args[2].name]+" "+this.displayAst(ast.args[3], useHtml);
+                
+            } else if (ast.name === "__setPlayerVariableAtIndex__") {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                return op1+"."+this.displayAst(ast.args[1], useHtml)+"["+this.displayAst(ast.args[2], useHtml)+"] = "+this.displayAst(ast.args[3], useHtml);
+
+            } else if (ast.name === "__modifyPlayerVariableAtIndex__" && ast.args[3].name in modifyVarFuncToOpMapping) {
+                var op1 = this.displayAst(ast.args[0], useHtml);
+                if (ast.args[0].name in astOperatorPrecedence && astContainsFunctions(ast.args[0], Object.keys(astOperatorPrecedence))) {
+                    op1 = "("+op1+")";
+                }
+                return op1+"."+this.displayAst(ast.args[1], useHtml)+"["+this.displayAst(ast.args[2], useHtml)+"] "+modifyVarFuncToOpMapping[ast.args[3].name]+" "+this.displayAst(ast.args[4], useHtml);
+                
             } else if (ast.type === "void") {
                 result += this.displayHtml(this.translate(ast.name, this.actionKw), useHtml, "operator");
 
@@ -720,7 +748,7 @@ var app = new Vue({
             this.compileGamemode();
         },
         rebuildAst: function(ast) {
-            console.log("Rebuilding AST: '"+ast.name+"'");
+            //console.log("Rebuilding AST: '"+ast.name+"'");
             //When selecting a new function, recreate its arguments using defaults
             if (ast.type in this.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "CustomStringLiteral", "LocalizedStringLiteral"].includes(ast.type)) {
                 return; //no args
@@ -1491,7 +1519,114 @@ var app = new Vue({
         loadProject: function(projectId) {
             //var projectData = fetch("htts://workshop.codes/api/owo/"+this.currentProjectId);
             var projectData = {
-                rules: [],
+                rules: [
+                    {
+                        "name": "__rule__",
+                        "args": [],
+                        "children": [
+                            {
+                                "name": "__setGlobalVariable__",
+                                "args": [
+                                    {
+                                        "name": 0,
+                                        "args": [],
+                                        "children": [],
+                                        "type": "GlobalVariable",
+                                        "argIndex": 0,
+                                        "childIndex": 0,
+                                        "wasParsed": false
+                                    },
+                                    {
+                                        "name": "__number__",
+                                        "args": [
+                                            {
+                                                "name": "0",
+                                                "args": [],
+                                                "children": [],
+                                                "type": "UnsignedIntLiteral",
+                                                "numValue": 0,
+                                                "argIndex": 0,
+                                                "childIndex": 0,
+                                                "wasParsed": false
+                                            }
+                                        ],
+                                        "children": [],
+                                        "type": "int",
+                                        "argIndex": 0,
+                                        "childIndex": 0,
+                                        "wasParsed": false
+                                    }
+                                ],
+                                "children": [],
+                                "type": "void",
+                                "argIndex": 0,
+                                "childIndex": 0,
+                                "wasParsed": false,
+                                "isSelected": true,
+                                "isDisabled": true,
+                                "indent": 0
+                            },
+                            {
+                                "name": "__setGlobalVariable__",
+                                "args": [
+                                    {
+                                        "name": 0,
+                                        "args": [],
+                                        "children": [],
+                                        "type": "GlobalVariable",
+                                        "fileStack": null,
+                                        "argIndex": 0,
+                                        "childIndex": 0,
+                                        "wasParsed": false
+                                    },
+                                    {
+                                        "name": "__number__",
+                                        "args": [
+                                            {
+                                                "name": "0",
+                                                "args": [],
+                                                "children": [],
+                                                "type": "UnsignedIntLiteral",
+                                                "numValue": 0,
+                                                "fileStack": null,
+                                                "argIndex": 0,
+                                                "childIndex": 0,
+                                                "wasParsed": false
+                                            }
+                                        ],
+                                        "children": [],
+                                        "type": "int",
+                                        "fileStack": null,
+                                        "argIndex": 0,
+                                        "childIndex": 0,
+                                        "wasParsed": false
+                                    }
+                                ],
+                                "children": [],
+                                "type": "void",
+                                "fileStack": null,
+                                "argIndex": 0,
+                                "childIndex": 0,
+                                "wasParsed": false,
+                                "isSelected": false,
+                                "isDisabled": false,
+                                "indent": 0
+                            }
+                        ],
+                        "type": "void",
+                        "argIndex": 0,
+                        "childIndex": 0,
+                        "wasParsed": false,
+                        "isSelected": true,
+                        "isCollapsed": false,
+                        "ruleAttributes": {
+                            "conditions": [],
+                            "event": "global",
+                            "name": "Rule 1",
+                            "isDisabled": false
+                        }
+                    }
+                ],
                 customGameSettings: {
                     "main": {
                         "description": "Some awesome game mode",
@@ -1508,6 +1643,28 @@ var app = new Vue({
                 playerVariables: defaultVarNames.map((x, i) => ({name: x, index: i})),
                 subroutines: defaultSubroutineNames.map((x, i) => ({name: x, index: i})),
                 activatedExtensions: [],
+                disabledWarnings: "",
+                optimization: "speed",
+            }
+
+            function addParent(ast) {
+                for (var arg of ast.args) {
+                    arg.parent = ast;
+                    addParent(arg);
+                }
+                for (var child of ast.children) {
+                    child.parent = ast;
+                    addParent(child);
+                }
+                if (ast.name === "__rule__") {
+                    for (var cond of ast.ruleAttributes.conditions) {
+                        cond.parent = ast;
+                        addParent(cond);
+                    }
+                }
+            }
+            for (var rule of projectData.rules) {
+                addParent(rule);
             }
 
             this.rules = projectData.rules;
@@ -1516,6 +1673,8 @@ var app = new Vue({
             this.playerVariables = projectData.playerVariables;
             this.subroutines = projectData.subroutines;
             this.activatedExtensions = projectData.activatedExtensions;
+            this.uiSettings.disabledWarnings = projectData.disabledWarnings;
+            this.uiSettings.optimization = projectData.optimization;
 
             this.currentProjectId = this.projects.filter(x => x.id === projectId)[0].id;
             this.setUrl();
@@ -1536,29 +1695,28 @@ var app = new Vue({
             });
         },
         loadUiSettings: async function() {
-            //var data = await fetch("https://workshop.codes/uwu");
-            var data = {
-                uiSettings: {
-                    optimization: "speed",
-                    language: "en-US",
-                    compilationLanguage: "en-US",
-                    background: "random",
-                    disabledWarnings: "",
-                },
-                hasPassedWelcomeScreen: window.location.pathname.startsWith("/C:"),
+            if (localStorage.uiSettings) {
+                var uiSettings = JSON.parse(localStorage.uiSettings);
+                
+                this.uiSettings.background = uiSettings.background;
+                this.uiSettings.language = uiSettings.language;
+                this.uiSettings.compilationLanguage = uiSettings.compilationLanguage;
             }
-            this.uiSettings = data.uiSettings;
-            this.hasPassedWelcomeScreen = data.hasPassedWelcomeScreen;
         },
         saveUiSettings: async function() {
-            return;
-            await fetch("https://workshop.codes/uwu", {
-                method: "post", 
-                body: JSON.stringify({
-                    uiSettings: this.uiSettings,
-                    hasPassedWelcomeScreen: this.hasPassedWelcomeScreen,
-                })
-            });
+            localStorage.uiSettings = JSON.stringify({
+                background: this.uiSettings.background,
+                language: this.uiSettings.language,
+                compilationLanguage: this.uiSettings.compilationLanguage,
+            })
+            localStorage.hasPassedWelcomeScreen = this.hasPassedWelcomeScreen;
+        },
+        filterDropdownOptions: function(options, search) {
+            search = search.toLocaleLowerCase().replace(/[-:' ]/g, "");
+            return options.filter(option => {
+                let label = option.label.toLocaleLowerCase().replace(/[-:' ]/g, "");
+                return label.includes(search);
+            }).sort((a, b) => a.label.toLocaleLowerCase().replace(/[-:' ]/g, "").startsWith(search) && !b.label.toLocaleLowerCase().replace(/[-:' ]/g, "").startsWith(search) ? -1 : !a.label.toLocaleLowerCase().replace(/[-:' ]/g, "").startsWith(search) && b.label.toLocaleLowerCase().replace(/[-:' ]/g, "").startsWith(search) ? 1 : a.label.localeCompare(b.label))
         }
     },
 

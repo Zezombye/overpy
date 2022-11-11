@@ -306,15 +306,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -327,15 +325,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -365,15 +361,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],
@@ -385,15 +379,13 @@ const opyInternalFuncs = {
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             },
             {
                 "name": "VALUE",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                canReplace0ByNull: true,
                 "default": "NUMBER"
             }
         ],

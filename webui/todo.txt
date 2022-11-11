@@ -1,4 +1,0 @@
-
-- display operators
-- translate the custom parts of the UI
-- add icons on dropdowns for icons + colors

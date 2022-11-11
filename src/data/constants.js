@@ -480,6 +480,9 @@ const constantValues =
     "ColorLiteral": {
         "WHITE": {
             "guid": "00000000B93C",
+            red: 255,
+            green: 255,
+            blue: 255,
             "en-US": "White",
             "es-MX": "Blanco",
             "fr-FR": "Blanc",
@@ -489,6 +492,9 @@ const constantValues =
         },
         "AQUA": {
             "guid": "00000000CDB3",
+            red: 0,
+            green: 234,
+            blue: 234,
             "en-US": "Aqua",
             "es-MX": "Aguamarina",
             "fr-FR": "Cyan",
@@ -498,6 +504,9 @@ const constantValues =
         },
         "BLACK": {
             "guid": "000000012551",
+            red: 0,
+            green: 0,
+            blue: 0,
             "en-US": "Black",
             "es-MX": "Negro",
             "fr-FR": "Noir",
@@ -507,6 +516,9 @@ const constantValues =
         },
         "BLUE": {
             "guid": "00000000B939",
+            red: 39,
+            green: 170,
+            blue: 255,
             "en-US": "Blue",
             "es-MX": "Azul",
             "fr-FR": "Bleu",
@@ -516,6 +528,9 @@ const constantValues =
         },
         "GRAY": {
             "guid": "00000001254E",
+            red: 127,
+            green: 127,
+            blue: 127,
             "en-US": "Gray",
             "es-MX": "Gris",
             "fr-FR": "Gris",
@@ -525,6 +540,9 @@ const constantValues =
         },
         "GREEN": {
             "guid": "00000000B93A",
+            red: 200,
+            green: 0,
+            blue: 19,
             "en-US": "Green",
             "es-MX": "Verde",
             "fr-FR": "Vert",
@@ -534,6 +552,9 @@ const constantValues =
         },
         "LIME_GREEN": {
             "guid": "00000000CDB7",
+            red: 160,
+            green: 232,
+            blue: 27,
             "en-US": "Lime Green",
             "es-MX": "Verde lima",
             "fr-FR": "Citron vert",
@@ -543,6 +564,9 @@ const constantValues =
         },
         "ORANGE": {
             "guid": "00000000CDB4",
+            red: 236,
+            green: 153,
+            blue: 0,
             "en-US": "Orange",
             "es-MX": "Naranja",
             "ja-JP": "オレンジ",
@@ -551,6 +575,9 @@ const constantValues =
         },
         "PURPLE": {
             "guid": "00000000BC1C",
+            red: 161,
+            green: 73,
+            blue: 197,
             "en-US": "Purple",
             "es-MX": "Morado",
             "fr-FR": "Violet",
@@ -560,6 +587,9 @@ const constantValues =
         },
         "RED": {
             "guid": "00000000B938",
+            red: 200,
+            green: 0,
+            blue: 19,
             "en-US": "Red",
             "es-MX": "Rojo",
             "fr-FR": "Rouge",
@@ -569,6 +599,9 @@ const constantValues =
         },
         "ROSE": {
             "guid": "000000012550",
+            red: 255,
+            green: 50,
+            blue: 145,
             "en-US": "Rose",
             "es-MX": "Rosa",
             "ja-JP": "ローズ",
@@ -577,6 +610,9 @@ const constantValues =
         },
         "SKY_BLUE": {
             "guid": "00000000CDB5",
+            red: 108,
+            green: 190,
+            blue: 244,
             "en-US": "Sky Blue",
             "es-MX": "Azul cielo",
             "fr-FR": "Bleu ciel",
@@ -586,6 +622,9 @@ const constantValues =
         },
         "TEAM_1": {
             "guid": "00000000B472",
+            red: null,
+            green: null,
+            blue: null,
             "en-US": "Team 1",
             "es-MX": "Equipo 1",
             "fr-FR": "Équipe 1",
@@ -595,6 +634,9 @@ const constantValues =
         },
         "TEAM_2": {
             "guid": "00000000B471",
+            red: null,
+            green: null,
+            blue: null,
             "en-US": "Team 2",
             "es-MX": "Equipo 2",
             "fr-FR": "Équipe 2",
@@ -604,6 +646,9 @@ const constantValues =
         },
         "TURQUOISE": {
             "guid": "00000000CDB6",
+            red: 0,
+            green: 230,
+            blue: 151,
             "en-US": "Turquoise",
             "es-MX": "Turquesa",
             "ja-JP": "ターコイズ",
@@ -612,6 +657,9 @@ const constantValues =
         },
         "VIOLET": {
             "guid": "00000001254F",
+            red: 100,
+            green: 50,
+            blue: 255,
             "en-US": "Violet",
             "es-MX": "Violeta",
             "fr-FR": "Mauve",
@@ -621,6 +669,9 @@ const constantValues =
         },
         "YELLOW": {
             "guid": "00000000B93B",
+            red: 255,
+            green: 255,
+            blue: 0,
             "en-US": "Yellow",
             "es-MX": "Amarillo",
             "fr-FR": "Jaune",

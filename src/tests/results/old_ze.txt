@@ -496,7 +496,7 @@ rule ("init round") {
         Set Global Variable(I, Null);
         Set Global Variable(R, 3);
         Set Match Time(Global.P);
-        Skip If(Compare(Match Time, >, False), True);
+        Skip If(Compare(Match Time, >, Null), True);
         Set Global Variable(J, 4);
         //lbl_2:
         Set Global Variable(G, Null);
@@ -940,7 +940,7 @@ rule ("zombies win") {
         Stop All Damage Modifications;
         Big Message(All Players(All Teams), Custom String("Dead Win", Null, Null, Null));
         Wait(5, Ignore Condition);
-        Skip If(Compare(Match Time, >, False), True);
+        Skip If(Compare(Match Time, >, Null), True);
         Set Global Variable(J, 4);
         //lbl_0:
         Set Global Variable(R, 1);

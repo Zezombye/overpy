@@ -21,8 +21,8 @@
     <div id="app-wrapper-wrapper" :style="{'background-image': 'url(&quot;img/backgrounds/'+background+'&quot;)'}">
     <div id="app-wrapper">
     <div id="app">
-        <div id="workshop-title" class="font-bignoodle">Zez's workshop UI recreation [BETA]</div>
-        <div id="workshop-subtitle">{{ customGameSettings?.main?.modeName || "&lt;Untitled mode&gt;" }}</div>
+        <div id="workshop-title" class="font-bignoodle">{{ translate("zezWorkshopUiRecreation", workshopUiCustomKw) }}</div>
+        <div id="workshop-subtitle">{{ customGameSettings?.main?.modeName || translate("untitledMode", workshopUiCustomKw) }}</div>
         <div id="workshop-header">
             <div id="workshop-header-left">
                 <div id="rules-title">{{ translate("rules", workshopUiKw) }}</div>
@@ -53,7 +53,7 @@
                 <img id="button-add" class="img-button button-header" src="img/add.png" v-on:click="addRule()"/>
             </div>
         </div>
-        <div v-if="rules.length === 0" class="no-values-msg font-blizzglobal"><div id="no-rules">{{ translate("noRules", workshopUiKw) }}</div><div id="no-rules-help" class="font-futurano2d">Press the <img id="button-import" src="img/import.png"/> button to import an existing gamemode</div></div>
+        <div v-if="rules.length === 0" class="no-values-msg font-blizzglobal"><div id="no-rules">{{ translate("noRules", workshopUiKw) }}</div><div id="no-rules-help" class="font-futurano2d">{{ translate("pressButtonToImport1", workshopUiCustomKw) }}<img id="button-import" src="img/import.png"/>{{ translate("pressButtonToImport2", workshopUiCustomKw) }}</div></div>
         <div v-else id="rules">
             <div class="rule" v-for="(rule, ruleIdx) in rules">
                 <div class="rule-collapse-bar">
@@ -75,21 +75,21 @@
                         <div class="rule-event">
                             <div class="rule-event-name">{{ translate("event", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value">
-                                <v-select append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
+                                <v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('event')" :reduce="x => x.code" v-model="rule.ruleAttributes.event" v-on:input="rebuildRuleAttributes(rule)">
                                 </v-select>
                             </div>
                         </div>
-                        <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
-                            <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNamesKw) }}</div>
-                            <div class="rule-event-value"><v-select append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
-                        </div>
                         <div class="rule-event" v-if="rule.ruleAttributes.eventTeam">
                             <div class="rule-event-name">{{ translate("eventTeam", ruleAttributesDisplayNamesKw) }}</div>
-                            <div class="rule-event-value"><v-select append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
+                            <div class="rule-event-value"><v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('eventTeam')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventTeam"></v-select></div>
+                        </div>
+                        <div class="rule-event" v-if="rule.ruleAttributes.eventPlayer">
+                            <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNamesKw) }}</div>
+                            <div class="rule-event-value"><v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
                         </div>
                         <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
                             <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNamesKw) }}</div>
-                            <div class="rule-event-value"><v-select append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
+                            <div class="rule-event-value"><v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
                         </div>
                         <!--TODO: subroutines-->
                         <div class="conditions-and-actions">
@@ -276,14 +276,14 @@
                         <div class="card-description font-blizzglobal">{{ translate("totalElementCountDesc", workshopUiKw, ELEMENT_LIMIT) }}</div>
                     </div>
                     <div class="card">
-                        <div class="card-title">Size of largest rule</div>
-                        <div class="card-value">IDK</div>
-                        <div class="card-description font-blizzglobal">How the fuck do you calculate this shit?</div>
+                        <div class="card-title">{{ translate("sizeOfLargestRule", workshopUiCustomKw) }}</div>
+                        <div class="card-value">{{ translate("idk", workshopUiCustomKw) }}</div>
+                        <div class="card-description font-blizzglobal">{{ translate("howTheFuck", workshopUiCustomKw) }}</div>
                     </div>
                     <div class="card">
-                        <div class="card-title">Hours spent making this UI</div>
+                        <div class="card-title">{{ translate("hoursSpent", workshopUiCustomKw) }}</div>
                         <div class="card-value">71</div>
-                        <div class="card-description font-blizzglobal">I am now a master at FlexBox</div>
+                        <div class="card-description font-blizzglobal">{{ translate("flexboxMaster", workshopUiCustomKw) }}</div>
                     </div>
                 </div>
                 <div class="edit-buttons">
@@ -293,28 +293,22 @@
         </div>
         <div id="info-screen" v-if="displayInfo || !hasPassedWelcomeScreen">
             <div class="window-background">
-                <div class="window-edit-title font-bignoodle">Zez's Workshop UI Recreation [BETA]</div>
+                <div class="window-edit-title font-bignoodle">{{ translate("zezWorkshopUiRecreation", workshopUiCustomKw) }}</div>
                 <div id="info" class="font-blizzglobal">
                     <!--<p>Your gamemode is saved to your browser's local storage every time you edit an action/condition, or when you view the extensions or the element count.</p>-->
-                    <p>The UI was tested on Firefox with a resolution of 1920x1080. You can zoom or dezoom if the UI is not adapted to your screen resolution.</p>
-                    <p>You can save manually by clicking on the Save button: <img src="img/save.png" width="25" height="25"/></p>
-                    <p>This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions. Some errors use the OverPy syntax for functions.</p>
-                    <p>Below, you can configure some settings for the UI and for OverPy:</p>
-                    <div class="setting font-futurano2d" v-for="(setting, settingId) in uiAvailableSettings">
-                        <div class="setting-name">{{ setting.name }}</div>
+                    <p>{{ translate("para1", workshopUiCustomKw) }}</p>
+                    <p style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">{{ translate("para2", workshopUiCustomKw) }} <img src="img/save.png" width="25" height="25" style="margin-left: 8px;"/><br>{{ translate("para3", workshopUiCustomKw) }}<br><img src="img/how_to_paste.png" style="margin-top: 5px"/></p>
+                    <p>{{ translate("para4", workshopUiCustomKw) }}</p>
+                    <p>{{ translate("para5", workshopUiCustomKw) }}</p>
+                    <div class="setting font-futurano2d" v-for="(settingValues, settingId) in uiAvailableSettings">
+                        <div class="setting-name">{{ translate("setting-"+settingId, workshopUiCustomKw) }}</div>
                         <div class="setting-value">
                             <textarea class="font-blizzglobal" v-if="settingId === 'disabledWarnings'" v-model="uiSettings[settingId]"></textarea>
-                            <v-select v-else append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(setting.values).map(x => ({code: x, label: setting.values[x]}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
+                            <v-select :filter="$root.filterDropdownOptions" v-else append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="settingValues.map(x => ({code: x, label: translate('setting-'+settingId+'-'+x, workshopUiCustomKw)}))" :reduce="x => x.code" v-model="uiSettings[settingId]">
                         </div>
                     </div>
-					<p>Known bugs:<br>
-						<ul style="text-align: left">
-							<li>No saving</li>
-							<li>The AST display is not workshop-like, eg Add() instead of +</li>
-						</ul>
-					</p>
-                    <p>Feel free to join the discord if you have any questions or feedback!<br><a href="https://discord.gg/EEMjjFB" target="_blank">https://discord.gg/EEMjjFB</a></p>
-                    <p>Made by Zezombye, with help from Mitsiee</p>
+                    <p>{{ translate("para6", workshopUiCustomKw) }}<br><a href="https://discord.gg/EEMjjFB" target="_blank">https://discord.gg/EEMjjFB</a></p>
+                    <p>{{ translate("para7", workshopUiCustomKw) }}</p>
                 </div>
                 <div class="edit-buttons">
                     <button class="ok-button font-futurano2d" v-on:click="displayInfo = false; hasPassedWelcomeScreen = true; saveUiSettings()">{{ translate("ok", workshopUiKw) }}</button>
@@ -323,24 +317,24 @@
         </div>
         <div id="import-screen" v-if="displayImport">
             <div class="window-background">
-                <div class="window-edit-title font-bignoodle">Import Gamemode</div>
+                <div class="window-edit-title font-bignoodle">{{ translate("importGamemode", workshopUiCustomKw) }}</div>
                 <div id="info" class="font-blizzglobal">
                     <div class="setting font-futurano2d">
-                        <div class="setting-name">Import project:</div>
+                        <div class="setting-name">{{ translate("importProject", workshopUiCustomKw) }}</div>
                         <div class="setting-value">
-                            <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="projects.map(x => ({code: x.id, label: x.name})).concat([{code: null, label: '&lt;New project&gt;'}])" :reduce="x => x.code" v-model="projectToImportToId">
+                            <v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="projects.map(x => ({code: x.id, label: x.name})).concat([{code: null, label: '&lt;New project&gt;'}])" :reduce="x => x.code" v-model="projectToImportToId">
                         </div>
                     </div>
                     <template v-if="projectToImportToId === null">
-                        <p>Paste your gamemode here:</p>
+                        <p>{{ translate("pasteGamemodeHere", workshopUiCustomKw) }}</p>
                         <textarea id="decompile-text" class="font-blizzglobal" v-model="textToDecompile"></textarea>
                         <div class="setting font-futurano2d">
-                            <div class="setting-name">Language</div>
+                            <div class="setting-name">{{ translate("language", workshopUiCustomKw) }}</div>
                             <div class="setting-value">
-                                <v-select append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
+                                <v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
                             </div>
                         </div>
-                        <p>Note: this will erase the existing rules.<br>The gamemode has to be copied straight from Overwatch.</p>
+                        <p>{{ translate("note1", workshopUiCustomKw) }}<br>{{ translate("note2", workshopUiCustomKw) }}</p>
                     </template>
                 </div>
                 <div class="edit-buttons">
@@ -449,7 +443,23 @@
                         <textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="custom-string-textarea font-blizzglobal" v-model="ast.name">{{ ast.name }}</textarea>
                     </div>
                     <div class="value-dropdown" v-else :title='ast.type in $root.constantValues || ["FloatLiteral", "IntLiteral", "UnsignedIntLiteral", "GlobalVariable", "PlayerVariable", "Subroutine", "LocalizedStringLiteral"].includes(ast.type) || !("descriptionLocalized" in (ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])) ? "" : $root.translate("descriptionLocalized", ast.type === "void" ? $root.actionKw[ast.name] : $root.valueFuncKw[ast.name])' >
-                        <v-select append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
+                        <v-select v-if="ast.type === 'Icon'" :filter="$root.filterDropdownOptions" append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
+                            <template #option="option">
+                                <div style="display:flex; align-items: center;">
+                                    <img :src='"img/icons/"+option.code.toLowerCase()+".png"' width="15px" height="15px" style="margin-right: 10px;"/>
+                                    {{ option.label }}
+                                </div>
+                            </template>
+                        </v-select>
+                        <v-select v-else-if="ast.type === 'ColorLiteral'" :filter="$root.filterDropdownOptions" append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
+                            <template #option="option">
+                                <div style="display:flex; align-items: center;">
+                                    <div style="width: 17px; height: 17px; margin-right: 10px; border: 1px solid black;" :style="{'background-color': 'rgb('+constantValues.ColorLiteral[option.code].red+', '+constantValues.ColorLiteral[option.code].green+', '+constantValues.ColorLiteral[option.code].blue+')', 'visibility': constantValues.ColorLiteral[option.code].red === null ? 'hidden' : 'visible'}"></div>
+                                    {{ option.label }}
+                                </div>
+                            </template>
+                        </v-select>
+                        <v-select v-else :filter="$root.filterDropdownOptions" append-to-body :calculate-position="$root.calculateDropdownPosition"  :clearable="false" :options="$root.getDropdownOptionsForType(ast.type)" :reduce="x => x.code" v-model="ast.name" v-on:input="$root.rebuildAst(ast)">
                         </v-select>
                     </div>
                 </div>
@@ -489,7 +499,7 @@
 							<textarea oninput="this.style.height = ''; this.style.height = this.scrollHeight +'px'" class="font-blizzglobal" v-model="values[key]"></textarea>
 						</template>
 						<template v-else>
-							<v-select append-to-body :calculate-position="$root.calculateDropdownPosition" :clearable="false" :options="$root.getDropdownOptionsForKeywordObj(schema[key].values)" :reduce="x => x.code" v-model="values[key]"></v-select>
+							<v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="$root.calculateDropdownPosition" :clearable="false" :options="$root.getDropdownOptionsForKeywordObj(schema[key].values)" :reduce="x => x.code" v-model="values[key]"></v-select>
 						</template>
 					</div>
 				</div>
