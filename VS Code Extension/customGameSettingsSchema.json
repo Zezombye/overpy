@@ -20194,8 +20194,7 @@
                     "maxLength": 512
                 },
                 "modeName": {
-                    "type": "string",
-                    "maxLength": 32
+                    "type": "string"
                 }
             }
         },

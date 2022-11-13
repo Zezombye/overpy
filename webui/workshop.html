@@ -331,7 +331,7 @@
                         <div class="setting font-futurano2d">
                             <div class="setting-name">{{ translate("language", workshopUiCustomKw) }}</div>
                             <div class="setting-value">
-                                <v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="Object.keys(uiAvailableSettings.language.values).map(x => ({code: x, label: uiAvailableSettings.language.values[x]}))" :reduce="x => x.code" v-model="decompilationLanguage">
+                                <v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition" :clearable="false" :options="uiAvailableSettings.language.map(x => ({code: x, label: translate('setting-language-'+x, workshopUiCustomKw)}))" :reduce="x => x.code" v-model="decompilationLanguage">
                             </div>
                         </div>
                         <p>{{ translate("note1", workshopUiCustomKw) }}<br>{{ translate("note2", workshopUiCustomKw) }}</p>

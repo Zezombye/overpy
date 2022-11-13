@@ -82,14 +82,14 @@ function iterateOnObject(content) {
         content = addTranslations(content);
     }
 
-    if ("description" in content && !("descriptionLocalized" in content)) {
+    /*if ("description" in content && !("descriptionLocalized" in content)) {
         content["descriptionLocalized"] = {"en-US": content["description"]}
-    }
+    }*/
 
     for (var key of Object.keys(content)) {
         if (typeof content[key] === "object" && content[key] !== null) {
             //Skip the comparison operators as they must not be translated.
-            if (key !== "__Operator__") {
+            if (key !== "__Operator__" && key !== "descriptionLocalized") {
                 if (key === "nameLocalized" || key === "descriptionLocalized") {
                     oldRemoveParentheses = removeParentheses;
                     removeParentheses = false;
@@ -167,20 +167,20 @@ function normalizeName(content) {
 
 
 
-/*generateStringFiles();*/
+//generateStringFiles();
 getGuids();
-//replaceJsonObjectsInFile(docFolder+"actions.js");
+replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
-//replaceJsonObjectsInFile(docFolder+"constants.js");
-//replaceJsonObjectsInFile(docFolder+"heroes.js");
-//replaceJsonObjectsInFile(docFolder+"maps.js");
-//replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-//replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+replaceJsonObjectsInFile(docFolder+"constants.js");
+replaceJsonObjectsInFile(docFolder+"heroes.js");
+replaceJsonObjectsInFile(docFolder+"maps.js");
+replaceJsonObjectsInFile(docFolder+"gamemodes.js");
+replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
 removeParentheses = false;
-//replaceJsonObjectsInFile(docFolder+"ui.js");
-//replaceJsonObjectsInFile(docFolder+"argnames.js");
-//replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
-//replaceJsonObjectsInFile(docFolder+"other.js");
+replaceJsonObjectsInFile(docFolder+"ui.js");
+replaceJsonObjectsInFile(docFolder+"argnames.js");
+replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
+replaceJsonObjectsInFile(docFolder+"other.js");
 
 function sleep(ms){
     return new Promise(resolve=>{

@@ -1,16 +1,18 @@
-[Core] DataTool v2.1.0.0+1004+c5fce64c
+[Core] DataTool v2.1.0.0+1009+de9c785f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 2.1.0.2.106389
+[CASC] Overwatch build 2.1.1.0.106617
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106110 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
+[GUIDNames] GUIDNames.csv not found
+[LocalizedNames] LocalizedNamesMapping.csv not found
 [Core] Tooling...
 000000000019.07C: Giń! Giń! Giń!... I trup!
 000000000020.07C: Łaska
@@ -634,7 +636,6 @@ się poruszasz, po czym przeładowujesz broń.
 0000000008D8.07C: OBSERWACJA GRACZA 10
 0000000008D9.07C: OBSERWACJA GRACZA 11
 0000000008DA.07C: OBSERWACJA GRACZA 12
-00000000094D.07C: %1$s (%2$s): Do mnie!
 00000000094E.07C: %1$s (%2$s): Superzdolność (%3$s %4$s) gotowa!
 00000000099D.07C:  nie może dołączyć do ekipy.
 0000000009A0.07C: %2$s (%1$s): Moja superzdolność (%4$s %5$s) jeszcze się ładuje! %3$s%%
@@ -1706,7 +1707,6 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000001AA6.07C: ATAK
 000000001AA7.07C: ATAK
 000000001AA8.07C: ZIMNA PUSTKA
-000000001AAD.07C: <tx%1$s> LUBIĘ TO
 000000001AAE.07C: NISKA
 000000001AAF.07C: ŚREDNIA
 000000001AB0.07C: WYSOKA
@@ -5061,7 +5061,7 @@ w 1. sezonie
 0000000048A0.07C: |Rpl %1$s:Bramki:Bramki:Bramki;
 0000000048A1.07C: %1$s |Rpl Bramka:Bramki:Bramek;
 0000000048A8.07C: NAJLEPSZE ZAGRANIE:
-0000000048AA.07C: [%1$s (%2$s) do: %3$s (%4$s)] Zbiórka!
+0000000048AA.07C: [%1$s (%2$s - %3$sm) do %6$s (%7$s)] Zbiórka! %5$s
 0000000048AB.07C: Wyświetlanie zegara systemowego
 0000000048AC.07C: |Rpl %1$s:Przechwyt:Przechwyty:Przechwyty;
 0000000048AD.07C: %1$s |Rpl Przechwyt:Przechwyty:Przechwytów;
@@ -5427,6 +5427,7 @@ w 2. sezonie
 000000004C26.07C: Fanbot 2016
 000000004C27.07C: Cyfrowy gadżet z BlizzConu 2016
 000000004C28.07C: Mroczny Wędrowiec
+000000004C29.07C: Zemsta dr. Złomensteina
 000000004C2C.07C: Zrzut ekranu
 000000004C2E.07C: Ograniczenie częstotliwości wysyłania danych przez klienta
 000000004C2F.07C: Ograniczenie częstotliwości wysyłania danych przez serwer
@@ -5573,7 +5574,6 @@ w 2. sezonie
 000000004E24.07C: Azja
 000000004E25.07C: Chiny
 000000004E35.07C: ODRODZISZ SIĘ ZA:
-000000004E36.07C: POZOSTAŁY CZAS:
 000000004E43.07C: ZWYCIĘŻA %1$s
 000000004E65.07C: Drużyna wroga zabrała flagę!
 000000004E66.07C: Masz flagę!
@@ -5798,6 +5798,8 @@ w 4. sezonie
 0000000050CD.07C: Zhakuj Sombrą 15 wrogów w Szybkiej grze/Rywalizacji, nie umierając.
 0000000050CE.07C: Bez prądu
 0000000050CF.07C: Zhakuj Sombrą 5 wrogów naraz w Szybkiej grze/Rywalizacji.
+0000000050EE.07C: WSKRZESZANIE GRACZA %1$s
+0000000050EF.07C: PRZYTRZYMAJ, ABY WSKRZESIĆ GRACZA %2$s
 0000000050FF.07C: Eliminacja
 000000005101.07C: Rywalizacja trzyosobowych drużyn w serii pojedynków.
 000000005108.07C: 3 na 3
@@ -6178,6 +6180,7 @@ w 4. sezonie
 00000000557D.07C: Nagroda za udział
 w obchodach 20. rocznicy
 premiery Diablo.
+000000005582.07C: Dołącz do czatu drużynowego
 000000005588.07C: Szczęściara!
 00000000558D.07C: Nie można dołączyć do grupy w trybie rywalizacji.
 000000005590.07C: Szacunek
@@ -6843,6 +6846,7 @@ premiery Diablo.
 000000005B66.07C:  został usunięty z gry dowolnej.
 000000005B68.07C: 
 000000005B6B.07C: Szpon
+000000005B83.07C: %1$s wskrzesza cię
 000000005B84.07C: Czas odnowienia: %1$s
 000000005B85.07C: Superzdolność (%1$s)
 000000005B86.07C: Ładowanie Superzdolności (%1$s)
@@ -6862,7 +6866,7 @@ premiery Diablo.
 000000005BD4.07C: Masło orzechowe
 000000005BD7.07C: Medytacja
 000000005BD8.07C: Mól książkowy
-000000005BD9.07C: To Skip
+000000005BD9.07C: Przytrzymaj %1$s, aby pominąć
 000000005BDA.07C: CZEKANIE NA GRACZY
 000000005BDB.07C: Nie można dołączyć do gry dowolnej ze względu na ustawienia dostępu wybrane przez właściciela gry.
 000000005C04.07C: Castillo
@@ -8064,7 +8068,6 @@ w 7. sezonie
 00000000669A.07C: 30 kredytów i 11 darmowych skrzynek z letnich igrzysk
 00000000669B.07C: 60 kredytów i 24 darmowe skrzynki z letnich igrzysk
 00000000669C.07C: 120 kredytów i 50 darmowych skrzynek z letnich igrzysk
-00000000669D.07C: %1$s, %2$s, %3$s KL./S, %4$s jakość, kodowanie sprzętowe %5$s, muzyka %6$s
 0000000066A4.07C: Dzisiejsze Top 5
 0000000066A5.07C: Natychmiastowe nagranie
 0000000066A6.07C: Zapisz
@@ -8272,6 +8275,7 @@ w Copa Futbolúcio.
 Your fellow players reported you for a gameplay offense. This includes griefing, inactivity, ongoing harassment, physical harassment, and scams.
 
 After a thorough investigation of the evidence, we have Suspended your Overwatch account. As the owner of this account, you are responsible for all actions associated with it. We will only overturn penalties if there is evidence of a compromised account or similar extenuating circumstances.
+0000000069CE.07C: Wieczna zemsta dr. Złomensteina
 0000000069E4.07C: Dyniara
 0000000069E9.07C: Obrażenia zadane barierom – najwięcej w meczu
 0000000069EA.07C: Obrażenia zadane barierom – najwięcej w meczu: %1$s
@@ -8481,6 +8485,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006C68.07C: Twoje konto zostało wyciszone na stałe z powodu wysyłania obraźliwych wiadomości lub spamu.
 000000006CDC.07C: Wyciszyliśmy twoje konto, ponieważ otrzymaliśmy liczne doniesienia o wysyłaniu obraźliwych wiadomości do innych graczy.
 000000006CDD.07C: Przyjmij
+000000006CE9.07C: Zemsta dr. Złomensteina
 000000006CEA.07C: EKSPERCKI
 000000006CEC.07C: Nieliczni przetrwają tę noc.
 000000006CF2.07C: Dziedzic
@@ -8510,7 +8515,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D90.07C: Pusan
 000000006D96.07C: Nie można dołączyć do ekipy, która gra w tym trybie.
 000000006D97.07C: Nie można zaprosić gracza do ekipy. Gra on w trybie, który na to nie pozwala.
-000000006D9D.07C: Eichenwalde
+000000006D9D.07C: Adlersbrunn
 000000006D9E.07C: OBRONA
 000000006D9F.07C: ATAK
 000000006DA4.07C: Rola: Pasywna zdolność roli wsparcia jest znacznie wzmocniona.
@@ -8551,7 +8556,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: OBRONA
 000000006E64.07C: ATAK
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: Wskrześ: %1$s
 000000006E70.07C: Ruch względem kamery przy rozglądaniu się z barierą
 000000006E72.07C: NANO
 000000006E73.07C: OGŁUSZENIE
@@ -8607,6 +8611,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006EFF.07C: Zemsta dr. Złomensteina
 000000006F00.07C: UŚPIENIE
 000000006F01.07C: Zemsta dr. Złomensteina
+000000006F03.07C: Wieczna zemsta dr. Złomensteina
 000000006FB1.07C: Wieczna zemsta
 000000006FB2.07C: Śnieżkowa Ofensywa Mei
 000000006FB3.07C: Poziom trudności
@@ -8638,6 +8643,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006FD5.07C: %1$s |Rpl osłonięty złomnik:osłonięte złomniki:osłoniętych złomników;
 000000006FD7.07C: |Rfn %1$s:N0;%%
 000000006FFE.07C: Zemsta dr. Złomensteina
+000000007002.07C: Wieczna zemsta dr. Złomensteina
 000000007004.07C: Zaklinaczka
 000000007005.07C: %1$s %2$s
 000000007007.07C: Czas działania aury leczenia
@@ -9344,6 +9350,7 @@ Prosimy o pomoc w tworzeniu jak najbardziej przyjaznej i pozytywnie nastawionej 
 00000000769A.07C: Florida Mayhem 2018
 00000000769B.07C: Dallas Fuel
 00000000769C.07C: Boston Uprising
+00000000769E.07C: Zemsta dr. Złomensteina
 00000000769F.07C: Swap Sides
 0000000076A0.07C: Używaj
 0000000076AA.07C: Stała blokada trybu Rywalizacji
@@ -9470,7 +9477,7 @@ o dużym zasięgu.
 00000000795B.07C: Uwaga, leci!
 00000000795E.07C: Robisz ślizg po ziemi, który możesz anulować, aby wyskoczyć wysoko.
 000000007961.07C: Wystrzeliwujesz impuls energii, która zatrzymuje i zadaje obrażenia wrogom znajdującym się w jego zasięgu.
-000000007964.07C: Super Wślizg
+000000007964.07C: Superwślizg
 000000007965.07C: Strzał Zakłócający
 000000007966.07C: Karabin Kinetyczny
 000000007967.07C: Szybkostrzelne pociski, które przy trafieniu generują energię.
@@ -9479,6 +9486,7 @@ o dużym zasięgu.
 00000000796E.07C: Przeciążenie
 00000000796F.07C: Energia Karabinu Kinetycznego ładuje się samoczynnie przez krótki czas, a naładowane strzały przebijają wrogów.
 000000007975.07C: Sojourn
+000000007995.07C: https://overwatchleague.com/
 00000000799B.07C: Włączono
 00000000799C.07C: Wyłączono
 0000000079A5.07C: Pustkowie
@@ -10866,7 +10874,7 @@ w trybie Eliminacji 6 na 6 w 2018
 000000008749.07C: |Rfd %1$s:m:ss;
 000000008764.07C: Regeneracja
 00000000876F.07C: Kiler-76
-000000008770.07C: Panna młoda
+000000008770.07C: Narzeczona
 000000008771.07C: Cukrowa Wróżka
 00000000877F.07C: Deathmatch
 000000008780.07C: Deathmatch w trybie Rywalizacji OW1 – Sezon 1
@@ -10900,6 +10908,7 @@ w trybie Eliminacji 6 na 6 w 2018
 000000008838.07C: Każda skrzynka z łupami zawiera maksymalnie 4 elementy ozdobne lub kredyty w grze, w tym przynajmniej jeden element z kolekcji rocznicowej. Skrzynki z łupami można zdobywać dzięki systemom w grze.
 000000008845.07C: Wczytywanie sklepu
 00000000884A.07C: Ostatni mecz:
+00000000884C.07C: Wybierz przeciwnika, aby go pochwalić
 00000000885E.07C: Wesprzyj fundację BCRF
 000000008861.07C: Platforma Teleportera
 000000008866.07C: Nazwa
@@ -11988,7 +11997,7 @@ i dodatkowo 10 darmowych
 000000009EFE.07C: Cukierek albo psikus
 000000009F00.07C: Cukierek albo psikus
 000000009F02.07C: Potwór z bagien
-000000009F04.07C: Panna młoda
+000000009F04.07C: Narzeczona
 000000009F06.07C: Banshee
 000000009F08.07C: Zaklęta
 000000009F0A.07C: Slasher
@@ -12408,6 +12417,7 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000A9A4.07C: GALERIA
 00000000A9AA.07C: WYJDŹ Z GRY
 00000000A9C2.07C: WYBIERZ
+00000000A9C7.07C: 
 00000000A9D5.07C: Guangzhou (Goście)
 00000000A9D6.07C: Vancouver (Goście)
 00000000A9D7.07C: Ozdoba
@@ -12548,20 +12558,11 @@ Prosimy o przesyłanie komentarzy i opinii, które pomogą nam usprawnić dział
 00000000AC38.07C: Number
 00000000AC39.07C: True
 00000000AC3A.07C: False
-00000000AC3F.07C: PRZETRWANIE
-00000000AC40.07C: Oczekiwanie na graczy
-00000000AC41.07C: Walcz
-00000000AC42.07C: Odliczanie
-00000000AC43.07C: Przetrwanie
-00000000AC44.07C: Przetrwanie
-00000000AC45.07C: Eliminacje potrzebne do wygranej
 00000000AC46.07C: |Rfn %1$s:N0;
 00000000AC5C.07C: Dostępna jest obowiązkowa aktualizacja Overwatch.
 00000000AC5D.07C: Dostępna jest aktualizacja Overwatch.
 00000000AC5E.07C: Aktualizuj
 00000000AC5F.07C: Anuluj
-00000000AC6A.07C: Round Rank #%1$s
-00000000AC80.07C: Zegar rozpoczęcia zamykania kręgu
 00000000ACA9.07C: Hero Of
 00000000ACAA.07C: Hero
 00000000ACF1.07C: |Rfn %1$s:P0;
@@ -12642,7 +12643,6 @@ w sezonie 15.
 00000000ADA0.07C: Guangzhou
 00000000ADA1.07C: GZ
 00000000ADA2.07C: Charge
-00000000ADA3.07C: Mnożnik szybkości zamykania kręgu
 00000000ADA6.07C: Guangzhou
 00000000ADA7.07C: GZ
 00000000ADA8.07C: Charge
@@ -13122,7 +13122,6 @@ w sezonie 15.
 00000000AFBB.07C: Vancouver Titans (Goście)
 00000000AFBC.07C: Vancouver Titans (Goście)
 00000000AFBD.07C: Vancouver Titans (Goście)
-00000000AFBE.07C: Round Rank #%1$s (+%2$s Points)
 00000000AFBF.07C: Washington Justice
 00000000AFC0.07C: Vancouver Titans
 00000000AFC1.07C: Toronto Defiant
@@ -13144,7 +13143,6 @@ w sezonie 15.
 00000000AFD1.07C: Skórka
 00000000AFD2.07C: Graffiti
 00000000AFD3.07C: Portret gracza
-00000000AFDA.07C: Finalny promień kręgu w metrach
 00000000AFDB.07C: Użyj prostej kamery trzecioosobowej
 00000000AFEF.07C: Sezon 15
 00000000AFF0.07C: Sezon 15
@@ -14837,6 +14835,7 @@ w trybie Deathmatch 2019
 00000000BF58.07C: Wszyscy bohaterowie
 00000000BF59.07C: Tabela bez żadnych elementów.
 00000000BF5A.07C: Empty Array
+00000000BF61.07C: <fg%1$s>%2$s</fg>
 00000000BF6C.07C: Illidan
 00000000BF6D.07C: Wartość Z wektora.
 00000000BF6E.07C: Wartość Y wektora.
@@ -15363,6 +15362,13 @@ w trybie Deathmatch 2019
 00000000C193.07C: Czy encja pojawiła się w świecie. Zwraca wynik Fałsz dla graczy, którzy nie wybrali jeszcze bohatera.
 00000000C194.07C: Encja
 00000000C195.07C: Gracz, encja symbolu lub encja efektu, których istnienie w świecie zostanie sprawdzone.
+00000000C1A6.07C: Punkty za zabójstwa
+00000000C1A7.07C: Premia za przetrwanie
+00000000C1A8.07C: Premia za czas
+00000000C1A9.07C: Premia za cel
+00000000C1AA.07C: PREMIA ZA CEL! +%1$s pkt.
+00000000C1AB.07C: PREMIA ZA CZAS! +%1$s pkt.
+00000000C1AC.07C: PREMIA ZA PRZETRWANIE! +%1$s pkt.
 00000000C1B2.07C: Musisz znajdować się w grze, aby zapisać bieżącą pozycję kamery.
 00000000C1D7.07C: Zacznij płonąć, kiedy stoisz na ziemi
 00000000C1D8.07C: Przestań płonąć, kiedy nie stoisz na ziemi
@@ -15944,6 +15950,10 @@ w trybie Deathmatch 2019
 00000000C613.07C: Ray Cast Hit Normal
 00000000C614.07C: Normalna powierzchnia w pozycji raycastingu (lub pozycja końcowa do pozycji startowej, jeśli nie nastąpiło oświetlenie).
 00000000C615.07C: Gracz oświetlony przez raycasting, lub „Null” (Brak), jeśli nie oświetlono żadnego gracza.
+00000000C616.07C: Normalny
+00000000C617.07C: Wysoki
+00000000C618.07C: Weteran
+00000000C619.07C: Legendarny
 00000000C61A.07C: Usuwa z tabeli zmiennej (jeśli ją znaleziono) element określony przez indeks. Jeśli zmienna nie jest jeszcze tabelą, staje się tabelą jednoelementową przed usunięciem.
 00000000C61B.07C: Remove From Array By Index
 00000000C635.07C: Event Damage
@@ -16155,7 +16165,7 @@ w Copa Futbolúcio 2019.
 00000000C899.07C: Nagroda: Skrzynka z łupami
 00000000C8BA.07C: Szczurzy Król
 00000000C8CF.07C: Zadanie
-00000000C8D0.07C: Gotowe!
+00000000C8D0.07C: Ukończone!
 00000000C8D1.07C: Anuluj
 00000000C8D2.07C: Gotowe
 00000000C8D7.07C: Strzelectwo
@@ -16645,6 +16655,7 @@ w wyzwaniu Klockowy Bastion.
 00000000CE6A.07C: TY
 00000000CE6D.07C: Wampir
 00000000CE6E.07C: Edycja tekstu jest wyłączona na tym koncie.
+00000000CE74.07C: <fg%1$s>WSKRZESZANIE</fg>
 00000000CE7C.07C: Dół
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Tworzy encję efektu wiązki w świecie, która będzie się utrzymywać do jej usunięcia. Aby pozyskać odniesienie do tej encji, użyj wartości „Last Created Entity” (Ostatnia stworzona encja). To działanie nie powiedzie się, jeśli stworzono zbyt dużo encji.
@@ -16696,6 +16707,7 @@ Overwatch League 2019.
 00000000CEFF.07C: Piekielnik
 00000000CF28.07C: 2019
 00000000CF2C.07C: Dyrektor udźwiękowienia projektu
+00000000CF3B.07C: %1$s
 00000000CF44.07C: Best Halloween Score
 00000000CF45.07C: %1$s Best Halloween Score
 00000000CF46.07C: Najlepszy wynik w Wiecznej Zemście
@@ -16982,6 +16994,10 @@ w wyzwaniu Klockowy Bastion.
 00000000D1D5.07C: Usuwa wszystkie atrapy botów z meczu.
 00000000D1D6.07C: Overwatch League – Szara
 00000000D1DC.07C: |Rpl %1$s:nagroda –:nagrody –:nagrody –;
+00000000D1DD.07C: Drużyna wyeliminowana
+00000000D1E1.07C: %1$s
+00000000D1E2.07C: Pozostałe próby
+00000000D1EC.07C: Finalna próba
 00000000D1EE.07C: WPROWADZANIE AKTUALIZACJI
 00000000D1F9.07C: Brakuje dodatkowej zawartości do pakietu głosowego %1$s lub jest ona nieaktualna. Pobierz najnowszą, darmową wersję pakietu głosowego z eSklepu Nintendo. Do tego czasu głosy będą dostępne w następującym języku: %2$s.
 00000000D1FC.07C: Kontynuuj
@@ -17024,8 +17040,10 @@ w wyzwaniu Klockowy Bastion.
 00000000D24B.07C: Chyba śnisz
 00000000D24D.07C: Spójrz w lustro
 00000000D24F.07C: Uwaga na brodę!
+00000000D258.07C: Wykonano
 00000000D25B.07C: ANULUJ
 00000000D264.07C: Nowa zawartość będzie dostępna dopiero po zrestartowaniu.
+00000000D26F.07C: Gracz %1$s nie został ożywiony
 00000000D29E.07C: |Rfn %1$s:D2;
 00000000D2C9.07C: Pusan: Centrum (Księżycowy Nowy Rok)
 00000000D2CA.07C: Pusan: Sanktuarium (Księżycowy Nowy Rok)
@@ -17099,6 +17117,7 @@ Zdolność pasywna: Z upływem czasu zadajesz obrażenia wrogom zranionym przez 
 00000000D410.07C: Misja nieudana
 00000000D411.07C: Mapa
 00000000D412.07C: Błąd: Oczekiwano nazwy mapy po „%1$s” w linii %2$s
+00000000D413.07C: YOU ARE ABLE TO MOVE WHILE INCAPACITATED
 00000000D415.07C: Map
 00000000D416.07C: Stała mapy.
 00000000D417.07C: Stała mapy.
@@ -17126,7 +17145,6 @@ w sezonie 20.
 00000000D49E.07C: Argentyna
 00000000D4A0.07C: WC – domyślna gości
 00000000D4B9.07C: Maskarada
-00000000D4C8.07C: Przytrzymaj
 00000000D4C9.07C: %1$s
 00000000D4D8.07C: Belgia
 00000000D4D9.07C: BEL
@@ -17233,7 +17251,6 @@ w sezonie 20.
 00000000EB14.07C: Król Jamison
 00000000EB16.07C: All-Stars dywizja atlantycka 2020
 00000000EB17.07C: Włącz precyzyjne dane wejściowe myszy
-00000000EB18.07C: Trwa ożywianie...
 00000000EB1E.07C: Błąd: Zmienna gracza (%1$s) wymaga nazwy
 00000000EB1F.07C: Globalnie
 00000000EB21.07C: Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną
@@ -17429,7 +17446,7 @@ w Drużynowym Deathmatchu 2019
 00000000F39D.07C: Puszczanie latawca
 00000000F3A2.07C: Wybór postaci zablokowany przez Echo
 00000000F3A3.07C: Kiedy znajdziemy mecz z danej kolejki, włączymy cię do gry.
-00000000F3A4.07C: Fill Bots
+00000000F3A4.07C: Fill Bots (Dev Only)
 00000000F3A7.07C: statescript.broadcast 6A6
 00000000F3A9.07C: All-Stars dywizja pacyficzna 2020
 00000000F3AE.07C: Dołączanie do meczu
@@ -18078,6 +18095,10 @@ w trybie Eliminacji 6 na 6 w 2020
 00000001031C.07C: Użyj superzdolności 2 innych bohaterów jako Echo, nie ginąc, w Szybkiej grze/Rywalizacji.
 00000001031D.07C: Zdolność adaptacji
 00000001031E.07C: Archiwa 2020
+00000001033D.07C: Template - Checkpoint
+00000001033F.07C: Template - Gather At or Go To Location
+000000010342.07C: Template - Interact with Objects
+000000010346.07C: Template - Wait For Game Message
 00000001034E.07C: Deathmatch w trybie Rywalizacji
 00000001034F.07C: Rywalizuj z najlepszymi graczami na świecie w trybie Deathmatch i pnij się w tabeli wyników!
 000000010350.07C: Deathmatch w trybie Rywalizacji OW1 – Sezon 3
@@ -18112,6 +18133,7 @@ w sezonie 22.
 00000001041F.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec sezonu 22.
 000000010427.07C: Raynhardt
 00000001043B.07C: Zgłoś
+00000001043F.07C: Cel został zniszczony
 000000010473.07C: Remix Futbolúcio
 000000010476.07C: Remix Futbolúcio
 000000010477.07C: Mecz 3 na 3 w Futbolúcio. Wiele piłek i chaotyczna akcja non-stop.
@@ -19373,6 +19395,8 @@ w Copa Futbolúcio 2020.
 00000001144E.07C: Typ maksimum zdrowia do pozyskania.
 00000001144F.07C: 120 kredytów i 60 darmowych skrzynek z letnich igrzysk
 00000001146F.07C: 50 +10 skrzynek z letnich igrzysk
+0000000114DC.07C: Oglądaj teraz
+0000000114DF.07C: Oglądaj Overwatch League
 0000000114E4.07C: Piernikarka
 00000001152E.07C: Drwal
 0000000115E4.07C: Kkachi
@@ -19460,6 +19484,8 @@ Overwatch League 2020.
 0000000117A9.07C: Rywalizacja w Zdobywaniu flagi
 0000000117AA.07C: Otwarta Rywalizacja
 0000000117FC.07C: Kamień
+00000001180C.07C: Zemsta dr. Złomensteina – Mściwy Duch
+00000001180D.07C: Zemsta dr. Złomensteina – Szalony Spęd
 00000001180E.07C: Best Halloween Score
 00000001180F.07C: %1$s Best Halloween Score
 000000011811.07C: Mściwy Duch
@@ -19474,6 +19500,10 @@ Overwatch League 2020.
 00000001181B.07C: Nagroda za udział w wyzwaniu 3. tygodnia Halloweenowej Grozy 2020
 00000001181C.07C: Nagroda za udział w wyzwaniu 1. tygodnia Halloweenowej Grozy 2020
 00000001181D.07C: Nagroda za udział w wyzwaniu 2. tygodnia Halloweenowej Grozy 2020
+00000001182A.07C: Zemsta dr. Złomensteina – Wybuchowe Złomniki
+00000001182B.07C: Zemsta dr. Złomensteina – Ich Troje
+00000001182C.07C: Zemsta dr. Złomensteina – Tajemnicza Zamiana
+00000001182D.07C: Zemsta dr. Złomensteina – Szokująca Niespodzianka
 00000001182E.07C: Best Halloween Score
 00000001182F.07C: %1$s Best Halloween Score
 000000011830.07C: Best Halloween Score
@@ -19559,6 +19589,7 @@ w sezonie 25.
 0000000119BA.07C: Szokująca Niespodzianka
 0000000119BB.07C: Ukończ misję-wyzwanie Szokująca Niespodzianka w Zemście Złomensteina.
 0000000119BC.07C: Marammat
+0000000119BD.07C: KONTYNUUJ
 0000000119CB.07C: Najlepszy wynik w Halloween
 0000000119CC.07C: Najlepszy wynik w Halloween: %1$s
 0000000119CD.07C: Najlepszy wynik w Wiecznej Zemście
@@ -19610,6 +19641,7 @@ w sezonie 25.
 000000011C0D.07C: Ustawia gracza, któremu przypisana zostanie zasługa, jeśli określony docelowy gracz lub gracze zginą zabici elementem otoczenia przed wylądowaniem na ziemi.
 000000011C0F.07C: Cel
 000000011C10.07C: Pierwszoosobowy HUD bohatera
+000000011C2B.07C: Wyposażenie
 000000011C4B.07C: Smoczy Ogień
 000000011C4C.07C: Pewność siebie
 000000011C50.07C: Default
@@ -19820,6 +19852,7 @@ w Drużynowym Deathmatchu 2020
 000000012294.07C: Mściwy Duch
 0000000122DF.07C: Mroźna Eliminacja
 0000000122E0.07C: 
+0000000122E1.07C: Poziom
 0000000122E2.07C: Destroy All Progress Bar HUD Text
 0000000122E3.07C: Usuwa cały tekst w pasku postępu stworzone działaniem „Create Progress Bar In-World Text” (Stwórz tekst w pasku postępu).
 0000000122E4.07C: Destroy Progress Bar HUD Text
@@ -19830,6 +19863,8 @@ w Drużynowym Deathmatchu 2020
 0000000122E9.07C: Wartość paska postępu, który ma być wyświetlany jako odsetek procentowy od 0 do 100.
 0000000122EA.07C: Kolor paska postępu
 0000000122EB.07C: Kolor tekstu paska postępu, który zostanie stworzony. Jeśli wybrano konkretną drużynę, efekt będzie czerwony albo niebieski, zależnie od tego, czy drużyna jest wroga wobec obserwatora.
+0000000122EC.07C: Skład
+0000000122ED.07C: Zamknij
 0000000122EE.07C: Visible To, Values, and Color
 0000000122EF.07C: Visible To and Values
 0000000122F0.07C: Values and Color
@@ -19837,6 +19872,8 @@ w Drużynowym Deathmatchu 2020
 0000000122F2.07C: Na błysk
 0000000122F3.07C: Create Progress Bar HUD Text
 0000000122F4.07C: Tworzy tekst w pasku postępu widziany przez określonych graczy w określonym miejscu na ekranie. Będzie się utrzymywać do usunięcia. Aby pozyskać odniesienie do tego tekstu, użyj wartości „Last Text ID” (Identyfikator ostatniego tekstu). To działanie nie powiedzie się, jeśli stworzono zbyt dużo elementów tekstu.
+0000000122F5.07C: Pokaż skład
+0000000122F7.07C: Początek misji za:
 0000000122F8.07C: Zlikwidowani wrogowie zostają zamrożeni i mogą ich rozmrozić sojusznicy. Zamroź wszystkich wrogów, aby wygrać rundę. Zwycięscy bohaterowie są niedostępni w późniejszych rundach.
 000000012320.07C: Tempo interpolacji pola widzenia
 000000012321.07C: Zmiana pola widzenia przy każdym zbliżeniu
@@ -19869,7 +19906,9 @@ w Drużynowym Deathmatchu 2020
 000000012469.07C: Dziennik
 00000001246A.07C: Skopiuj do schowka bieżący dziennik
 00000001246B.07C: Skopiuj do schowka cały dziennik
+00000001246C.07C: Puste
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
+000000012470.07C: Wybieranie...
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
 000000012483.07C: Zablokowane
 00000001248B.07C: Zamrożeni wrogowie
@@ -20038,6 +20077,7 @@ bez ograniczeń 2020
 0000000125A2.07C: Wesołych Świąt
 0000000125A4.07C: Jeśli cel porusza się w przeciwnym kierunku do impulsu, względna prędkość jest negowana przed zastosowaniem impulsu. Prędkości w pionie i poziomie (XYZ) są przetwarzane razem.
 0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125D3.07C: Należy wybrać bohaterów przed użyciem botów zapełniających
 0000000125D4.07C: Sprawdzenie broni
 0000000125D5.07C: <fg%1$s>ZAMROŻENIE</fg>
 0000000125D7.07C: Zamrożenie – Likwidacja
@@ -20180,6 +20220,7 @@ w sezonie 26.
 000000012846.07C: Punkty za likwidację jako cel
 000000012847.07C: Podstawowy wynik za likwidację celu
 000000012848.07C: Corredor
+00000001284A.07C: Nie udało się osiągnąć celu
 00000001284F.07C: Liczba celów
 000000012850.07C: Kyōgisha
 00000001287A.07C: Nie można obejrzeć powtórki nierozstrzygniętego meczu.
@@ -20268,6 +20309,7 @@ w wyzwaniu Kanezaka
 000000012AED.07C: Przyrost nagród za każdą likwidację jako cel
 000000012AF0.07C: Zatrzymaj mecz
 000000012AF1.07C: Wznów mecz
+000000012B1F.07C: Ten bohater jest niezbędny w drużynie, aby ukończyć misję.
 000000012B20.07C: Przełącz okno debugowania
 000000012B32.07C: Niedostępna z nieznanego powodu
 000000012B34.07C: Tryby Zdobywania flagi
@@ -21180,7 +21222,6 @@ w sezonie 29.
 000000013D44.07C: Twoja wiadomość jest niewidoczna dla niektórych uczestników twojego meczu z powodu ustawień komunikacji międzyplatformowej.
 000000013D66.07C: Wstecz
 000000013D67.07C: Przewrót Bojowy – Czas odnowienia
-000000013D68.07C: Regeneracja
 000000013D6B.07C: Zdrowie
 000000013D6C.07C: Przycelowanie – Tempo obrażeń – Ostrzeżenie
 000000013D7A.07C: Granat Błyskowy – Obrażenia
@@ -21388,11 +21429,17 @@ w Copa Futbolúcio 2021.
 000000013FF6.07C: Kaduceusz – Wzmocnienie
 000000013FF7.07C: Matryca Wzmacniająca – Wzmocnienie
 000000013FF9.07C: Zdruzgotanie – Czas trwania odrzucenia
+000000014003.07C: Podnieś złoty klucz
+000000014004.07C: Podnieś czerwony klucz
+000000014005.07C: Podnieś niebieski klucz
+000000014006.07C: Podnieś fioletowy klucz
+000000014007.07C: Podnieś zielony klucz
 00000001400D.07C: Czat tekstowy z ekipą
 00000001400E.07C: Drużynowy czat tekstowy
 00000001400F.07C: Meczowy czat tekstowy
 000000014011.07C: Czat tekstowy
 000000014013.07C: <Unknown>
+000000014015.07C: Przytrzymaj, aby zdeponować cel
 000000014019.07C: <Unknown>
 000000014022.07C: Ustawienia regionu
 000000014026.07C: Czy chcesz zresetować wszystkie ustawienia regionu?
@@ -21591,7 +21638,7 @@ w trybie Eliminacji 3 na 3 w 2021
 000000014608.07C: Strumień Grawitacyjny – Obrażenia od trafienia
 000000014611.07C: Rywalizacja w Drużynowym Deathmatchu
 000000014612.07C: Wywalczcie miejsce na szczycie tabeli wyników. Wygrywa najbardziej zabójcza drużyna.
-000000014613.07C: Rywalizacja w Drużynowym Deathmatchu OW 4 – Sezon 1
+000000014613.07C: Rywalizacja w Drużynowym Deathmatchu OW 4 – Sezon 4
 000000014614.07C: Bohater Rywalizacji w Drużynowym Deathmatchu 2021
 000000014615.07C: Nagroda za miejsce wśród 500 najlepszych pod koniec Rywalizacji w Drużynowym Deathmatchu 2021.
 000000014616.07C: Uczestnik Rywalizacji w Drużynowym Deathmatchu 2021
@@ -21660,6 +21707,7 @@ w Drużynowym Deathmatchu 2021
 0000000146D5.07C: %1$s/%2$s
 0000000146D6.07C: Fala Dźwiękowa – Czas odnowienia
 0000000146DE.07C: Lodowy upiór
+0000000146E4.07C: Przeklęty Kapitan
 000000014716.07C: Potencjometr – Czas odnowienia
 000000014717.07C: Potencjometr – Czas działania
 000000014718.07C: Bariera Dźwiękowa – Czas działania
@@ -21762,6 +21810,9 @@ Affiliation: Overwatch (Formerly)
 000000014AF8.07C: %1$s%%
 000000014C47.07C: Wybierz bohatera
 000000014C49.07C: Zmień bohatera
+000000014D45.07C: Complete the story mission: "%1$s"
+000000014DC3.07C:   Complete %1$s side missions. 
+  Current: %2$s
 000000014E41.07C: Klasyczne kredyty
 000000014E42.07C: Rywalizacja
 000000014E43.07C: Żetony
@@ -21769,6 +21820,8 @@ Affiliation: Overwatch (Formerly)
 000000014E4D.07C: Skalowanie progresji zdrowia
 000000014E4E.07C: Skalowanie progresji pancerza
 000000014E4F.07C: Skalowanie progresji leczenia
+000000014E63.07C: Ładunek chemiczny: aktywny
+000000014E6A.07C: %1$s do aktywacji Ładunku Chemicznego
 000000014E7C.07C: WRÓG
 000000014E7D.07C: OBSERWUJĘ TUTAJ
 000000014EAA.07C: Biegaczka
@@ -21803,7 +21856,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: Prezentacja_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: [%1$s (%2$s)] Jestem blisko.
-000000014F4F.07C: [%1$s (%2$s - %5$s m) do: %3$s (%4$s)] Jestem blisko.
+000000014F4F.07C: [%1$s (%2$s - %3$s m) do: %3$s (%4$s)] Jestem blisko.
 000000014F50.07C: [%1$s (%2$s)] Jestem w drodze!
 000000014F51.07C: [%1$s (%2$s-%5$sm) do: %3$s (%4$s)] Jestem w drodze!
 000000014F52.07C: [%1$s (%2$s)] Proszę bardzo.
@@ -21811,7 +21864,6 @@ Affiliation: Overwatch (Formerly)
 000000014F54.07C: [%1$s (%2$s)] W gotowości.
 000000014F55.07C: [%1$s (%2$s-%5$sm) do: %3$s (%4$s)] Jestem w gotowości.
 000000014F60.07C: Ożywianie...
-000000014F61.07C: Regeneracja...
 000000014F62.07C: Wskrześ!
 000000014F66.07C: Prezentacja_PH
 000000014FC5.07C: <fg%1$s>%2$s</fg> DAJE CI <fg%1$s>KULĘ HARMONII</fg>
@@ -21829,8 +21881,9 @@ Affiliation: Overwatch (Formerly)
 000000015037.07C: [%1$s (%2$s)] Za mną, do obrony! %4$s
 000000015038.07C: [%1$s (%2$s)] Popilnuję tutaj. %4$s
 000000015039.07C: [%1$s (%2$s)] Dzięki! %4$s
-00000001503A.07C: [%1$s (%2$s)] Zbiórka! %4$s
+00000001503A.07C: [%1$s (%2$s)] Zbiórka! %5$s
 00000001504B.07C: Monety Overwatch
+000000015050.07C: Egzekutorka
 000000015063.07C: Weź udział w walce poza pomieszczeniem startowym.
 00000001507A.07C: Domyślne
 000000015093.07C: Elegancki prezent
@@ -22040,6 +22093,8 @@ w Zdobywanie flagi 2022
 000000015541.07C: Zmierz się z graczami o zbliżonych umiejętnościach.
 00000001556C.07C: Fala %1$s / 12
 00000001556D.07C: Dodatkowa fala %1$s
+00000001557D.07C: Inni gracze wybierający talenty:   Pozostało maksymalnie %1$s sek.
+000000015605.07C: Wiedźma
 000000015610.07C: –
 000000015611.07C: |Rfn %1$s:N2;m
 000000015612.07C: |Rfn %1$s:P1;
@@ -22129,7 +22184,7 @@ w sezonie 33
 00000001577E.07C: WYSZUKIWANIE
 000000015780.07C: DOŁĄCZ PONOWNIE
 000000015788.07C: Nowości
-00000001578F.07C: Z poziomu %1$s na %2$s
+00000001578F.07C: Z poziomów %1$s - %2$s
 000000015790.07C: Kup poziomy
 000000015791.07C: Ulepsz Karnet Bojowy
 000000015794.07C: Rzucasz na niewielką odległość granatem, który namierza pobliskich wrogów i zadaje im dodatkowe obrażenia, jeśli się do nich przyczepi.
@@ -22308,7 +22363,7 @@ zapisane na kolejny sezon: %1$s
 000000015C77.07C: Codzienne
 000000015C78.07C: Cotygodniowe
 000000015C79.07C: Sezonowe
-000000015C7A.07C: Wydarzenie
+000000015C7A.07C: Wydarzenia
 000000015C7E.07C: Zdrowie
 000000015C8B.07C: Komunikacja
 000000015C8C.07C: Kwestie
@@ -22319,7 +22374,7 @@ zapisane na kolejny sezon: %1$s
 000000015C9F.07C: Presentation_PH
 000000015CC7.07C: W poczekalni
 000000015CD3.07C: Prezentacja_PH
-000000015CD6.07C: PD KARNETU BOJOWEGO
+000000015CD6.07C: PD KARNETU
 000000015CE0.07C: Broń alternatywna – Obrażenia
 000000015CE3.07C: Pokazuj sygnały
 000000015CEF.07C: Dalej
@@ -22343,7 +22398,6 @@ zapisane na kolejny sezon: %1$s
 Zmniejsza ładowanie superzdolności od leczenia i otrzymywanych obrażeń.
 000000015FC6.07C: Wyświetl samouczek
 000000015FC7.07C: Kontynuuj
-000000015FC8.07C: Otwórz Karnet Bojowy
 000000015FD1.07C: Varsity 
 000000015FD4.07C: PROGRESJA
 000000015FD5.07C: WITAMY W KARNECIE BOJOWYM OVERWATCH
@@ -22383,7 +22437,6 @@ Rozgrywaj mecze i kończ wyzwania, aby zdobywać PD Karnetu Bojowego.
 000000016002.07C: Dodaj poziomy
 000000016003.07C: Nie dodano żadnych poziomów
 000000016004.07C: Wszystkie nagrody z Karnetu Bojowego Premium
-000000016005.07C: Karnet Bojowy Premium obejmuje:
 000000016006.07C: Informacje
 000000016007.07C: Samouczek
 000000016008.07C: Aby osiągać wyższe poziomy Karnetu Bojowego, zdobywaj PD w jego ramach. PD otrzymasz za rozgrywane mecze oraz wykonane codzienne, tygodniowe i sezonowe wyzwania. Sprawdź Samouczek, aby uzyskać dodatkowe informacje!
@@ -22657,6 +22710,7 @@ w trybie Deathmatch 2022
 000000016329.07C: Drużyna %1$s
 000000016333.07C: Kugelblitz Cooldown
 000000016334.07C: %1$s (%2$s) czeka na odrodzenie! (%3$s sek.)
+000000016340.07C: Pickup Container A
 00000001634A.07C: Prezentacja_PH
 00000001634C.07C: Medytacja
 00000001634E.07C: <fg%1$s>%2$s DAJE CI DODATKOWE </fg> <fg%1$s>%3$s</fg> PKT. ZDROWIA
@@ -22830,7 +22884,7 @@ w trybie Deathmatch 2022
 000000016506.07C: Ustaw suwak tak, aby symbol był ledwo widoczny.
 000000016508.07C: <fg%1$s>OGŁUSZENIE</fg>
 000000016509.07C: <fg%1$s>OGŁUSZENIE</fg>
-00000001650D.07C: Ten wyświetlacz obsługuje HDR.
+00000001650D.07C: Ten wyświetlacz obsługuje HDR
 00000001650E.07C: Ten wyświetlacz nie obsługuje HDR
 00000001650F.07C: Kalibracja HDR 2/2
 000000016510.07C: |Rpl %1$s:asysty:asysty:asysty; – średnio na 10 min.
@@ -22855,6 +22909,12 @@ w trybie Deathmatch 2022
 000000016663.07C: Sprawdź
 000000016666.07C: SKLEP
 000000016686.07C: Karnet Bojowy
+000000016688.07C: Złomnik
+00000001668A.07C: Szok-opona
+00000001668C.07C: Złombardier
+00000001668D.07C: Junkenstein2 - NullSector - Castle
+00000001668E.07C: Checkpoint - Initial
+00000001668F.07C: Open Door
 00000001669B.07C: [%1$s (%2$s)] Tutaj śpi %3$s wrogów!
 0000000166A5.07C: Zdrowie
 0000000166A6.07C: Pancerz
@@ -22863,6 +22923,7 @@ w trybie Deathmatch 2022
 0000000166A9.07C: Poczwórne Działka – Pojemność magazynków
 0000000166AA.07C: Poczwórne Działka – Minimalny rozrzut
 0000000166AB.07C: Poczwórne Działka – Maksymalny rozrzut
+0000000166AC.07C: Zniszczcie barykadę
 0000000166AF.07C: Pazur – Czas odnowienia
 0000000166B3.07C: Adaptabilne Osłony – Czas działania
 0000000166B6.07C: Burzyciel – Adaptabilne Osłony – Minimum zdrowia
@@ -22870,12 +22931,13 @@ w trybie Deathmatch 2022
 0000000166B8.07C: Burzyciel – Adaptabilne Osłony – Promień
 0000000166BC.07C: TEMPO ODTWARZANIA AUDIODESKRYPCJI
 0000000166BE.07C: DOSTĘPNOŚĆ
+0000000166C3.07C: Tryb bohaterski
 0000000166EA.07C: Pazur – Maksimum szybkości – Czas działania
 0000000166EB.07C: Kulowrotek – Obrażenia od trafienia
 0000000166EC.07C: Kulowrotek – Odrzucenie poziome
 0000000166ED.07C: Presenatation_PH
 0000000166EE.07C: Prezentacja_PH
-0000000166EF.07C: Tryb gry chwilowo niedostępny.
+0000000166EF.07C: Tryb gry chwilowo niedostępny
 0000000166F1.07C: Kafar – Czas odnowienia
 0000000166F2.07C: Adaptabilne Osłony – Czas odnowienia
 0000000166FE.07C: Kafar – Maksymalne obrażenia
@@ -22930,6 +22992,10 @@ w trybie Deathmatch 2022
 00000001673F.07C: Punkt kontrolny – Ósmy
 000000016740.07C: Punkt kontrolny – Dziewiąty
 000000016741.07C: Punkt kontrolny – Dziesiąty
+000000016746.07C: Gather at Pub Entrance
+000000016749.07C: Zbierzcie się w tawernie
+0000000167CE.07C: Clear the ramparts
+0000000167D1.07C: Pokonajcie gargulce
 0000000167D4.07C: Kopniak
 0000000167D5.07C: Szybki atak wręcz jest silniejszy o 50%% i odrzuca znacznie dalej.
 0000000167D6.07C: Podstawowa
@@ -23033,8 +23099,8 @@ w trybie Deathmatch 2022
 0000000168D8.07C: %1$s |Rpl odrzucony gracz:odrzuconych graczy:odrzuconych graczy; – średnio na 10 min.
 0000000168D9.07C: |Rpl %1$s:odrzuceni gracze:odrzuceni gracze:odrzuceni gracze; – najwięcej w meczu
 0000000168DA.07C: %1$s |Rpl odrzucony gracz:odrzuconych graczy:odrzuconych graczy; – najwięcej w meczu
-0000000168DB.07C: Procentowy czas działania Wsparcia – Najwięcej w meczu
-0000000168DC.07C: Procentowy czas działania Wsparcia – Najwięcej w meczu: %1$s
+0000000168DB.07C: Procentowy czas działania Wsparcia – najwięcej w meczu
+0000000168DC.07C: Procentowy czas działania Wsparcia – najwięcej w meczu: %1$s
 0000000168DD.07C: |Rpl %1$s:odrzuceni gracze:odrzuceni gracze:odrzuceni gracze; – średnio na 10 min.
 0000000168DE.07C: %1$s |Rpl odrzucony gracz:odrzuconych graczy:odrzuconych graczy; – średnio na 10 min.
 0000000168DF.07C: |Rpl %1$s:odrzuceni gracze:odrzuceni gracze:odrzuceni gracze; – najwięcej w meczu
@@ -23099,12 +23165,16 @@ w trybie Deathmatch 2022
 00000001693B.07C: Prezentacja_PH
 00000001693D.07C: Poziomy prestiżowe odblokowane
 00000001693E.07C: Karnet Bojowy ukończony
+00000001693F.07C: Get to dungeon
+000000016940.07C: Defeat Dungeon Enemies
+000000016941.07C: Reach The Castle
 000000016943.07C: Pierwsze kroki
 000000016944.07C: Wybierz SZKOLENIE.
 000000016946.07C: Graj bez rankingu lub trenuj z SI
 000000016947.07C: Ukończ 5 meczów, aby odblokować nowe tryby gry.
 000000016948.07C: Rozegraj więcej meczów
 000000016949.07C: Ukończ 5 meczów, aby odblokować dodatkowe tryby gry.
+000000016956.07C: Defeat Castle Guards
 000000016958.07C: Prezentacja_PH
 00000001695B.07C: Kontrola – Losowi bohaterowie
 00000001695C.07C: Hybryda – Losowi bohaterowie
@@ -23194,6 +23264,8 @@ w trybie Deathmatch 2022
 0000000169D0.07C: 2.600 żetonów ligowych
 0000000169D1.07C: Rozdzielczość w grze
 0000000169D2.07C: TEST - Static Bundle II - Grants VC
+0000000169D3.07C: Open Gate To Ramparts
+0000000169D4.07C: Znajdźcie klucz i otwórzcie wrota
 0000000169D5.07C: |Rpl %1$s:resety:resety:resety; Szybkiego Cięcia
 0000000169D6.07C: %1$s |Rpl reset:resety:resetów; Szybkiego Cięcia
 0000000169D7.07C: |Rpl %1$s:resety:resety:resety; Szybkiego Cięcia – najwięcej w meczu
@@ -23210,6 +23282,7 @@ w trybie Deathmatch 2022
 0000000169E2.07C: Celność trafień bezpośrednich: %1$s
 0000000169E3.07C: Celność trafień bezpośrednich – najlepsza w meczu
 0000000169E4.07C: Celność trafień bezpośrednich – najlepsza w meczu: %1$s
+0000000169E5.07C: Reach the lord of the castle
 0000000169E9.07C: Niebieska Stal
 0000000169EA.07C: Celność ataku podstawowego
 0000000169EB.07C: Celność ataku podstawowego: %1$s
@@ -23252,6 +23325,10 @@ w trybie Deathmatch 2022
 000000016A16.07C: |Rpl %1$s:przerwane zdolności:przerwane zdolności:przerwane zdolności; – średnio na 10 min.
 000000016A17.07C: %1$s |Rpl przerwana zdolność:przerwane zdolności:przerwanych zdolności; – średnio na 10 min.
 000000016A19.07C: %1$s (%2$s): Tutaj jest mój teleport.
+000000016A1A.07C: Obierzcie skrót przez podziemia
+000000016A1B.07C: Przetrwajcie koszmar
+000000016A1C.07C: Dotrzyjcie do zamku
+000000016A1D.07C: Pokonajcie strażników zamku
 000000016A24.07C: Średni mnożnik obrażeń
 000000016A25.07C: Średni mnożnik obrażeń: %1$s
 000000016A26.07C: Średni mnożnik obrażeń – najlepszy w meczu
@@ -23260,6 +23337,8 @@ w trybie Deathmatch 2022
 000000016A2B.07C: Bonus Multiplier Accumulation
 000000016A2C.07C: Kumulacja mnożnika premii: %1$s
 000000016A31.07C: Przetwarzanie zgłoszenia
+000000016A3F.07C: Znajdźcie Pana na Zamku
+000000016A40.07C: Rescue the Lord of the castle
 000000016A43.07C: |Rpl %1$s:zabici:zabici:zabici; młotem – średnio na 10 min.
 000000016A44.07C: %1$s |Rpl zabity:zabitych:zabitych; młotem – średnio na 10 min.
 000000016A45.07C: Celność ataku podstawowego
@@ -23303,7 +23382,10 @@ w trybie Deathmatch 2022
 000000016A6B.07C: GŁOŚNOŚĆ AUDIODESKRYPCJI
 000000016A6D.07C: Wstecz
 000000016A75.07C: Zmieniono konto
+000000016A7D.07C: Upuść niesiony obiekt
 000000016A7E.07C: GŁOS
+000000016A9D.07C: Gargulec
+000000016A9E.07C: Uratujcie Pana na Zamku
 000000016AA0.07C: Karnet Bojowy Premium
 000000016AA1.07C: Odblokowano
 000000016AA2.07C: Zakupiono
@@ -23438,8 +23520,9 @@ w trybie Deathmatch 2022
 000000016C36.07C: OPUŚĆ KOLEJKĘ
 000000016C37.07C: ZAAWANSOWANE
 000000016C38.07C: Wydarzenie sezonowe
+000000016C40.07C: Pozamiatane
 000000016C44.07C: Anuluj
-000000016C45.07C: Kup monety Overwatch.
+000000016C45.07C: Kup monety Overwatch
 000000016C51.07C: Skupienie – Toast
 000000016C52.07C: Akceptuj
 000000016C53.07C: Odrzuć
@@ -23450,11 +23533,15 @@ w trybie Deathmatch 2022
 000000016C67.07C: Superzdolność
 000000016C68.07C: Zdolność pasywna
 000000016C6A.07C: CZAT MECZOWY
-000000016C6B.07C: CZAT DRUŻYNY
+000000016C6B.07C: CZAT DRUŻYNOWY
 000000016C6C.07C: CZAT EKIPY
 000000016C6D.07C: SZEPTY
 000000016C70.07C: Nagroda za udział
 w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
+000000016C93.07C: Eksperyment
+000000016C94.07C: Banshee
+000000016C95.07C: Narzeczona Złomensteina
+000000016C96.07C: Marionetka
 000000016C97.07C: Przepychanka – Rywalizacja
 000000016C99.07C: Pokonaj drużynę wroga bez ograniczeń ról przy wyborze bohaterów.
 000000016C9E.07C: Celność ataku podstawowego – najlepsza w meczu
@@ -23474,6 +23561,7 @@ w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
 000000016CC0.07C: Stworzone Adaptabilne Osłony – najwięcej w meczu: %1$s
 000000016CC1.07C: Stworzone Adaptabilne Osłony – średnio na 10 min.
 000000016CC2.07C: Stworzone Adaptabilne Osłony – średnio na 10 min.: %1$s
+000000016CC3.07C: Podnieś klucz szkieletowy
 000000016CCA.07C: |Rpl %1$s:Wygrane mecze:Wygrane mecze:Wygrane mecze;
 000000016CCB.07C: %1$s |Rpl wygrany mecz:wygrane mecze:wygranych meczów;
 000000016CCC.07C: |Rpl %1$s:Wygrane mecze:Wygrane mecze:Wygrane mecze;
@@ -23526,6 +23614,8 @@ w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
 000000016D03.07C: Zaria
 000000016D04.07C: Zenyatta
 000000016D07.07C: Press %1$s to change heroes
+000000016D0A.07C: Destroy Castle Door
+000000016D0B.07C: Spalcie wrota zamku
 000000016D0C.07C: |Rpl %1$s:zabici:zabici:zabici; Postrzępionym Ostrzem
 000000016D0D.07C: %1$s |Rpl zabity:zabitych:zabitych; Postrzępionym Ostrzem
 000000016D0E.07C: |Rpl %1$s:zabici:zabici:zabici; Postrzępionym Ostrzem – średnio na 10 min.
@@ -23559,18 +23649,33 @@ w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
 000000016D2A.07C: Czas działania ran
 000000016D2B.07C: Czas działania ran: %1$s
 000000016D2F.07C: Ewaluacja
+000000016D38.07C: Reach the ramparts gate
+000000016D39.07C: Dotrzyjcie do zamku
+000000016D3A.07C: Otwórzcie wrota
 000000016D72.07C: Ruszaj, Śnieżko!
 000000016D73.07C: ANULUJ
 000000016D78.07C: Paraíso
 000000016D79.07C: Urodziłam się, żeby rządzić
 000000016D84.07C: Esperança
+000000016D8B.07C: Activate Secret Passage
+000000016D8C.07C: Ukryta dźwignia
+000000016D8D.07C: Znajdźcie ukryte dźwignie
 000000016D8E.07C: Atak podstawowy anuluje atak alternatywny
 000000016D91.07C: Możesz wypróbować swoich nowych bohaterów, dopóki gra nie będzie gotowa!
 000000016DAD.07C: https://support.blizzard.com/article/000034849
+000000016DB0.07C: Zniszczcie
+000000016DB1.07C: Zniszcz
 000000016DB4.07C: Ukończ codzienne wyzwania: %1$s
 000000016DC9.07C: WYBIERZ
 000000016DCA.07C: OK
 000000016DD0.07C: Postępy Rywalizacji
+000000016DD3.07C: Checkpoint - Banshee Fight
+000000016DD4.07C: Checkpoint - Gargoyle Winston Fight
+000000016DD5.07C: Checkpoint - Echo Doll Fight
+000000016DD6.07C: Checkpoint - Castle Gate Fight
+000000016DD7.07C: Checkpoint - Reach The Throne Room
+000000016DD8.07C: Checkpoint - Final Battle
+000000016DD9.07C: Checkpoint - Pub
 000000016DF3.07C: Uzbrojenie i superzdolność
 000000016DF5.07C: Historia
 000000016E01.07C: Otwórz Karnet Bojowy
@@ -23583,6 +23688,7 @@ w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
 000000016E14.07C: Zdrowie
 000000016E15.07C: Osłony
 000000016E16.07C: Sklep
+000000016E2B.07C: Przytrzymaj, aby otworzyć
 000000016E6D.07C: |Rpl %1$s:wygrane:wygrane:wygrane; bohaterem
 000000016E6E.07C: %1$s |Rpl wygrana:wygrane:wygranych; bohaterem
 000000016E95.07C: Bateria
@@ -23619,7 +23725,7 @@ w sezonie 36.
 000000016F11.07C: NAZWA GRACZA + BOHATER
 000000016F12.07C: NAZWA GRACZA + DRUŻYNA, BOHATER
 000000016F16.07C: Zamknij
-000000016F17.07C: Opuszczone mecze:
+000000016F17.07C: Opuszczone mecze: 
 000000016F18.07C: Aktualizacja Rywalizacji
 000000016F1F.07C: POWIADOMIENIA MECZOWE
 000000016F20.07C: KOMUNIKATY SYSTEMOWE
@@ -23634,11 +23740,27 @@ w sezonie 36.
 000000016FB5.07C: Robokciuk
 000000016FB6.07C: Pizza z ananasem
 000000016FB7.07C: Obrończyni Kanezaki
+000000016FB8.07C: Gather In The Pub
+000000016FBB.07C: Ukryjcie się w środku
 000000016FC3.07C: Komendantka
 000000016FC4.07C: Bohater jest obecnie wyłączony
 000000016FC5.07C: Bohater jest obecnie wyłączony w grach rankingowych
 000000016FC9.07C: Wybierz walutę, aby kupić: %1$s
 000000016FCD.07C: Zdruzgotanie – Obrażenia od młota
+000000016FD8.07C: Zemsta dr. Złomensteina: Gniew Narzeczonej Złomensteina
+000000016FD9.07C: Narzeczona Złomensteina przybyła do Adlersbrunn, by pomścić swego poległego twórcę. Czwórka bohaterów musi ją powstrzymać.
+000000016FDA.07C: FABUŁA
+000000016FDB.07C: Ciesz się historią bez porażki
+UWAGA: są straszne momenty
+000000016FDC.07C: WYSOKI
+000000016FDD.07C: Sługi Narzeczonej Złomensteina rosną w siłę
+UWAGA: są straszne momenty
+000000016FDE.07C: EKSPERCKI
+000000016FDF.07C: Niewielu dotrze do zamku
+UWAGA: są straszne momenty
+000000016FE0.07C: LEGENDARNY
+000000016FE1.07C: Legendarna opowieść
+UWAGA: są straszne momenty
 000000016FE9.07C: Pęd Kitsune
 000000016FEB.07C: Śmiech
 000000016FEC.07C: Odblokuj poprzez wyzwanie specjalne, Karnet Bojowy lub sklep w grze.
@@ -23670,13 +23792,13 @@ w sezonie 36.
 00000001703C.07C: Trudne się wylosowało
 00000001703D.07C: Wygraj mecze (%1$s) po ustawieniu się w kolejce do wszystkich ról.
 00000001703E.07C: Mistrz ról
-00000001703F.07C: Wygraj 10 meczów w 2 różnych rolach w Szybkiej Grze lub Rywalizacji.
+00000001703F.07C: Wygraj 10 meczów w 2 różnych rolach w Szybkiej grze lub Rywalizacji.
 000000017040.07C: Najlepsza obrona
-000000017041.07C: Zadaj/Wzmocnij łącznie %1$s pkt. obrażeń (Totalna Masakra się nie liczy).
+000000017041.07C: Zadaj/Wzmocnij łącznie %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017042.07C: Opieka zdrowotna
-000000017043.07C: Zapobiegnij łącznie %1$s pkt. obrażeń (Totalna Masakra się nie liczy).
+000000017043.07C: Zapobiegnij łącznie %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 00000001704E.07C: Prawdziwi bohaterowie
-00000001704F.07C: Wylecz łącznie %1$s pkt. obrażeń (Totalna Masakra się nie liczy).
+00000001704F.07C: Wylecz łącznie %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017050.07C: DOMYŚLNA
 000000017051.07C: ZŁOTA
 000000017056.07C: Zamknij
@@ -23684,7 +23806,7 @@ w sezonie 36.
 000000017059.07C: Mistrz bohaterów
 00000001705A.07C: Ukończ mecze (%1$s) jako bohaterowie NIE z twojej pierwszej trójki (wszystkie tryby gry).
 00000001705B.07C: Najlepsze zagranie
-00000001705C.07C: Zalicz likwidacje/asysty (%1$s) z pomocą superzdolności (Totalna Masakra się nie liczy).
+00000001705C.07C: Zalicz likwidacje/asysty (%1$s) z pomocą superzdolności (z wyłączeniem Totalnej Masakry i trybów współpracy).
 00000001705D.07C: Robienie porządków
 00000001705E.07C: Zalicz likwidacje drużynowe (%1$s).
 000000017064.07C: Wielozadaniowość
@@ -23699,15 +23821,15 @@ w sezonie 36.
 00000001707B.07C: Zakończono
 00000001707D.07C: W kolejce
 00000001707E.07C: Zbawca
-00000001707F.07C: Zalicz następującą liczbę ocaleń: %1$s (Totalna Masakra się nie liczy).
+00000001707F.07C: Uratuj życie %1$s razy (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017080.07C: Nie ma obijania się
 000000017081.07C: Bądź przy celu przez %1$s sek.
 000000017082.07C: Śmierciodawca
-000000017083.07C: Zalicz następującą liczbę likwidacji: %1$s (Totalna Masakra się nie liczy).
+000000017083.07C: Zalicz likwidacje (%1$s) – (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017084.07C: Nietykalność
-000000017085.07C: Zalicz 10 likwidacji/asyst, nie ginąc (Totalna Masakra się nie liczy).
+000000017085.07C: Zalicz 10 likwidacji/asyst, nie ginąc (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017086.07C: Niepo-Q-nani
-000000017087.07C: Użyj superzdolności %1$s razy (Totalna Masakra się nie liczy).
+000000017087.07C: Użyj %1$s razy superzdolności (z wyłączeniem Totalnej Masakry i trybów współpracy).
 00000001708A.07C: Dostępne w Karnecie Bojowym
 00000001708B.07C: Gratuluję
 00000001708C.07C: Jedziemy!
@@ -23744,7 +23866,7 @@ w sezonie 36.
 0000000170AC.07C: Istniejemy
 0000000170AD.07C: Dostępne w ramach Pakietu Posterunku
 0000000170AE.07C: Nie grożę, ostrzegam
-0000000170AF.07C: Czasami dostępne w Sklepie
+0000000170AF.07C: Od czasu do czasu dostępne w Sklepie
 0000000170B0.07C: Część i całość
 0000000170B2.07C: Moja okolica
 0000000170B4.07C: Na salonach
@@ -23758,35 +23880,35 @@ w sezonie 36.
 0000000170BC.07C: Otwarcie sezonu
 0000000170BD.07C: Ukończ mecze (%1$s) w Otwartej Rywalizacji.
 0000000170BE.07C: Pochłaniacz kul
-0000000170BF.07C: Zapobiegnij %1$s pkt. obrażeń (Totalna Masakra się nie liczy).
+0000000170BF.07C: Zapobiegnij %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170C0.07C: Znowu was ratuję
-0000000170C1.07C: Wylecz %1$s pkt. obrażeń (Totalna Masakra się nie liczy).
+0000000170C1.07C: Wylecz %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170C2.07C: Walka o życie
-0000000170C3.07C: Wylecz 1500 pkt. obrażeń, nie ginąc (Totalna Masakra się nie liczy).
+0000000170C3.07C: Wylecz 1.500 pkt. obrażeń, nie ginąc (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170C4.07C: Co mnie nie zabije
 0000000170C5.07C: Zapobiegnij 2000 pkt. obrażeń, nie ginąc.
 0000000170C6.07C: Ktoś musi nas ponieść
-0000000170C7.07C: Bądź przy celu lub zajmuj go przez 30 sekund, nie ginąc (Totalna Masakra się nie liczy).
+0000000170C7.07C: Bądź przy celu lub zajmuj go przez 30 sekund, nie ginąc (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170CA.07C: Wszechogarniająca moc
-0000000170CB.07C: Zalicz likwidacje lub asysty (%1$s) z pomocą superzdolności (Totalna Masakra się nie liczy).
+0000000170CB.07C: Zalicz likwidacje lub asysty (%1$s) z pomocą superzdolności (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170CC.07C: Strzelec wyborowy
 0000000170CD.07C: Zalicz następującą liczbę trafień krytycznych: %1$s.
 0000000170CE.07C: Mistrz obrażeń od broni
 0000000170CF.07C: Zadaj lub wzmocnij %1$s pkt. obrażeń za pomocą broni.
 0000000170D0.07C: Cichy bohater
-0000000170D1.07C: Zalicz następującą liczbę asyst: %1$s (Totalna Masakra się nie liczy).
+0000000170D1.07C: Zalicz asysty (%1$s) – (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170D2.07C: Krótkowidztwo
 0000000170D3.07C: Zalicz likwidacje/asysty (%1$s) z odległości poniżej 15 metrów.
 0000000170D4.07C: Dalekowidztwo
 0000000170D5.07C: Zalicz likwidacje/asysty (%1$s) z odległości powyżej 15 metrów.
 0000000170D6.07C: Ruchy, ruchy
-0000000170D7.07C: Zalicz likwidację/asystę w ciągu 3 sekund od użycia zdolności ruchowej (Totalna Masakra się nie liczy).
+0000000170D7.07C: Zalicz likwidację/asystę w ciągu 3 sekund od użycia zdolności ruchowej (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170D8.07C: Władca życia i śmierci
-0000000170D9.07C: Zalicz likwidację/asystę w ciągu 3 sekund od użycia zdolności leczące (Totalna Masakra się nie liczy).
+0000000170D9.07C: Zalicz likwidację/asystę w ciągu 3 sekund od użycia zdolności leczącej (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170DA.07C: Obrażony na śmierć
-0000000170DB.07C: Zadaj %1$s pkt. obrażeń zdolnościami (Totalna Masakra się nie liczy).
+0000000170DB.07C: Zadaj %1$s pkt. obrażeń zdolnościami (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000170DC.07C: W ekipie raźniej
-0000000170DD.07C: Ukończ mecz (%1$s), grając w ekipie.
+0000000170DD.07C: Ukończ mecze (%1$s), grając w ekipie.
 0000000170DE.07C: Przełamywanie lodów
 0000000170DF.07C: Wyślij emotkę „Cześć” do sojusznika.
 0000000170E0.07C: Dzięki za wsparcie
@@ -23805,6 +23927,7 @@ w sezonie 36.
 0000000170F9.07C: Złożony jednorożec
 0000000170FD.07C: Cyberkula
 0000000170FE.07C: Mieszek monet
+0000000170FF.07C: Czarny kot
 000000017100.07C: Brelok Tokki
 000000017101.07C: Żuraw origami
 000000017102.07C: Maska cyberdemona
@@ -23849,19 +23972,19 @@ w sezonie 36.
 000000017131.07C: Twoje konto zostało połączone!
 000000017132.07C: Zmigrowano następujące dane:
 000000017133.07C: Możesz rozpocząć migrację!
-000000017134.07C: Close your game now to begin the migration.
+000000017134.07C: Zamknij grę, aby rozpocząć migrację.
 
-It will take approximately %1$s.
+Zajmie to około %1$s min.
 000000017135.07C: Twoje konta są przygotowywane do migracji.
 000000017136.07C: Obecnie zajmujesz %1$s. miejsce w kolejce do migracji.
 000000017137.07C: Kontakt z obsługą klienta
-000000017138.07C: Wystąpił błąd z twoją migracją.
+000000017138.07C: Wystąpił błąd z twoją migracją
 000000017139.07C: Please contact customer support for additional information.
 Error Code: BLZOWMIG60001
 00000001713B.07C: Kontakt z obsługą klienta
 00000001713C.07C: https://support.blizzard.com/article/000313803
 00000001713D.07C: Padać nie przestanie
-000000017141.07C: Alerty komórkowe są wymagane, aby chronić twoje konto. Spowoduje to otwarcie przeglądarki w innym oknie w celi dokończenia tego kroku.
+000000017141.07C: Alerty komórkowe są wymagane, aby chronić twoje konto. Spowoduje to otwarcie przeglądarki w innym oknie w celu finalizacji tego kroku.
 000000017142.07C: Cyberdetektywka
 000000017144.07C: Hinotori
 000000017145.07C: Kitsune
@@ -23889,7 +24012,6 @@ Error Code: BLZOWMIG60001
 00000001716B.07C: Obejrzyj najciekawszy moment
 00000001716C.07C: DRUŻYNOWY CZAT GŁOSOWY
 00000001716D.07C: CZAT GŁOSOWY Z EKIPĄ
-00000001716F.07C: Kanezaka
 000000017176.07C: Premia za dobieranie ról: %1$s PD
 000000017179.07C: Kolejka do gry
 00000001717A.07C: Wygraj mecze (%1$s) w dowolnym trybie z Salonu Gier.
@@ -23903,6 +24025,7 @@ Error Code: BLZOWMIG60001
 000000017186.07C: GG
 000000017188.07C: Błąd zapisu
 000000017189.07C: Kostka Rubika
+00000001718B.07C: Gibraltarski odrzutowiec
 00000001718C.07C: Serce
 00000001718D.07C: Królewski ładunek
 00000001718E.07C: Solniczka
@@ -24009,10 +24132,11 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000172BA.07C: Jeśli trafi cię Postrzępione Ostrze, postaraj się ukryć za czymś, aby nie zostać przyciągniętym w stronę Królowej.
 0000000172BB.07C: Rzeźnia zadaje dużo obrażeń, ale pozostawia Królową Junkertown bezbronną, zanim skończy się zamach. Wykorzystaj tę okazję, aby zadać obrażenia lub uciec.
 0000000172BC.07C: Staraj się oddzielić Królową Junkertown od jej drużyny, aby zmniejszyć skuteczność Władczego Okrzyku.
+0000000172C0.07C: Użyj zdolności Dynamitu Ashe, aby wyważyć drzwi.
 0000000172C2.07C: Mistrz broni
 0000000172C3.07C: Wylecz %1$s pkt. obrażeń za pomocą broni.
 0000000172C4.07C: Mistrz wsparcia
-0000000172C5.07C: Wylecz %1$s pkt. obrażeń zdolnościami (Totalna Masakra się nie liczy).
+0000000172C5.07C: Wylecz %1$s pkt. obrażeń zdolnościami (z wyłączeniem Totalnej Masakry i trybów współpracy).
 0000000172C6.07C: Postrzępione Ostrze – Skalowanie odrzucenia
 0000000172C7.07C: PvP Challenges - Player - Ability Damage
 0000000172C8.07C: PvP Challenges - Player - Damage Amplified with Ability
@@ -24049,6 +24173,9 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000172F1.07C: Wybierz bohatera wsparcia
 0000000172F4.07C: Rozegraj więcej meczów
 0000000172F5.07C: Ukończ 5 meczów, aby odblokować dodatkowe tryby gry.
+0000000172F7.07C: Interact with Radio
+0000000172F8.07C: Sprawdźcie radio
+0000000172F9.07C: Sprawdźcie radio
 0000000172FB.07C: Zniszcz 10 botów treningowych (%1$s/10)
 0000000172FD.07C: PvP Challenges - Player - Ability Healing
 0000000172FF.07C: Sezon 1: uczestnik Dobierania ról
@@ -24084,11 +24211,11 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001731F.07C: Nieustępliwy bohater
 000000017320.07C: Wygraj mecze (%1$s) w dowolnym trybie.
 000000017321.07C: Egzekutor
-000000017322.07C: Wygraj mecze (%1$s) w dowolnym trybie Deathmatch.
+000000017322.07C: Wygraj mecze (%1$s) w nierankingowym Deathmatchu.
 000000017323.07C: Zmiennokształtny
-000000017324.07C: Wygraj mecze (%1$s) w Tajemniczych Bohaterach.
+000000017324.07C: Wygraj mecze (%1$s) w nierankingowych Tajemniczych Bohaterach.
 000000017325.07C: Gracz drużynowy
-000000017326.07C: Wygraj mecze (%1$s) w dowolnym trybie z Salonu Gier, wyłączając Deathmatch.
+000000017326.07C: Wygraj mecze (%1$s) w dowolnym trybie z Salonu Gier.
 000000017327.07C: Zdolny gracz
 000000017328.07C: Wygraj mecze (%1$s) w dowolnym trybie Rywalizacji.
 000000017329.07C: Doświadczony gracz
@@ -24100,7 +24227,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001732F.07C: Zabójca
 000000017330.07C: Wygraj mecze (%1$s) jako dowolny bohater natarcia w trybie Szybkiej gry lub Rywalizacji.
 000000017331.07C: Sanitariusz
-000000017332.07C: Wygraj mecze (%1$s) jako dowolny bohater wsparcia w trybie Szybkiej Gry lub Rywalizacji.
+000000017332.07C: Wygraj mecze (%1$s) jako dowolny bohater wsparcia w trybie Szybkiej gry lub Rywalizacji.
 000000017333.07C: Gwiazda w każdej roli
 000000017334.07C: Wygraj po 85 meczów w każdej z 3 ról w Szybkiej Grze/Rywalizacji.
 000000017335.07C: PvP Challenges - Player - Eliminations after Using Movement Ability
@@ -24118,7 +24245,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001734B.07C: Oczekiwanie na gracza
 00000001734E.07C: Brak wizytówki
 000000017352.07C: Opcjonalne
-000000017354.07C: Zapisany numer telefonu komórkowego został już użyty do utworzenia innego konta w Overwatch. Zaktualizuj swój numer w opcjach zarządzaniu kontem Battle.net lub skontaktuj się z obsługą klienta.
+000000017354.07C: Zapisany numer telefonu komórkowego został już użyty do utworzenia innego konta w Overwatch. Zaktualizuj swój numer w opcjach zarządzania kontem Battle.net lub skontaktuj się z obsługą klienta.
 000000017364.07C: Fala Sejsmiczna – likwidacje
 000000017365.07C: Szybkie Cięcie – Resety
 000000017366.07C: Trafienia bezpośrednie – celność
@@ -24254,6 +24381,8 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017433.07C: Cyberdemon
 000000017436.07C: Kula Biotyczna – Likwidacje
 000000017438.07C: Serwery są obecnie zajęte a twoje saldo zostanie zaktualizowane w późniejszym czasie.
+000000017467.07C: Gather In The Ramparts
+000000017468.07C: Przedostańcie się przez obwarowania
 00000001748C.07C: PvP Challenges - Player - Eliminations and Assists without Dying
 00000001748F.07C: PvP Challenges - Player - Healing without Dying
 00000001749E.07C: Sojourn
@@ -24341,7 +24470,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001751D.07C: Wysoka stawka
 00000001751E.07C: Zalicz likwidacje (%1$s) z balkonu budynku Maison Borsa na Circuit royal.
 00000001751F.07C: Zabawa w betonowej dżungli
-000000017520.07C: Zalicz likwidacje (%1$s) z wysoka w Tunelu Śródmiejskim na Śródmieściu.
+000000017520.07C: Zalicz likwidacje (%1$s) z wysoka w Tunelu Śródmiejskim w Dzielnicy Midtown.
 000000017521.07C: Na dobrych torach
 000000017522.07C: Zalicz likwidacje (%1$s) w lub z metra niedaleko punktu przechwytywania w Dzielnicy Midtown.
 000000017523.07C: Gramy u siebie
@@ -24425,6 +24554,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001758B.07C: Komandoska
 00000001758D.07C: Tylko ty
 00000001758F.07C: Pobudka
+000000017592.07C: Wiedźma
 0000000175B5.07C: |Rfd %1$s:mm:ss;
 0000000175B6.07C: PvP Challenges - Player - Damage Amplified and Done
 0000000175D0.07C: PvP Challenges - Player - Challenges Completed
@@ -24444,6 +24574,8 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017618.07C: Procentowy czas gry postacią:
 000000017619.07C: Czas gry:
 00000001761A.07C: Wszyscy bohaterowie
+00000001761E.07C: Czajnik
+000000017624.07C: Ciężary
 000000017625.07C: Informacje o poczekalni
 000000017626.07C: Opis
 00000001764D.07C: PvP Challenges - Player - Mitigation without Dying
@@ -24549,14 +24681,14 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001777A.07C: Dzielnica Midtown
 00000001777B.07C: Odeprzyj atak wrogów wśród cieni drapaczy chmur!
 00000001777C.07C: Circuit royal
-00000001777D.07C: Broń ładunku na oszałamiającym placu zabaw mega-bogaczy!
+00000001777D.07C: Broń ładunku na oszałamiającym placu zabaw megabogaczy!
 000000017798.07C: PvP Challenges - Player - Orisa Ultimates Escaped
 00000001779B.07C: PvP Challenges - Player - Eliminations on Enemies Affected by Orisa Abilities
 00000001779C.07C: PvP Challenges - Player - Bastion - Break Barriers
 00000001779D.07C: PvP Challenges - Player - Eliminations on Enemies Damaged by Bastion Ultimate
 0000000177A3.07C: Pierwsi w akcji
 0000000177A4.07C: PvP Challenges - Player - Complete Games in Group
-0000000177A6.07C: Wyzwania PvP - Reinhardt - Likwidacje z użyciem otoczenia podczas Szarży i bez ginięcia
+0000000177A6.07C: Wyzwania PvP – Reinhardt – Likwidacje z użyciem otoczenia podczas Szarży i bez ginięcia
 0000000177A7.07C: PvP Challenges - Player - Roadhog - Hook During Ult
 0000000177A8.07C: PvP Challenges - Player - Winston - Secondary Fire Damage
 0000000177A9.07C: PvP Challenges - Player - Brigitte - Shield Bash and Whip Flail Combo Elimination
@@ -24570,6 +24702,10 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000177BB.07C: PvP Challenges - Player - Arcade - Duel - Win
 0000000177BD.07C: PvP Challenges - Player - Any Competitive Mode - Win
 0000000177C2.07C: PvP Challenges - Player - Mystery Heroes - Win
+0000000177C4.07C: Overwatch League – Szara
+0000000177C5.07C: Overwatch League – Szara
+0000000177C6.07C: Overwatch League – Biała
+0000000177C7.07C: Overwatch League – Biała
 0000000177C8.07C: Karnet Bojowy
 0000000177C9.07C: Monety
 0000000177CA.07C: Premie
@@ -24579,7 +24715,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000177D2.07C: PvP Challenges - Player - Healing Done
 0000000177D3.07C: Wyleczone obrażenia: %1$s
 0000000177FC.07C: Bohaterowie
-0000000177FD.07C: Odwiedź menu Bohaterowie, by sprawdzić zdolności i superzdolność jakimi posługuje się %1$s.
+0000000177FD.07C: Odwiedź menu Bohaterowie, by sprawdzić zdolności i superzdolność postaci %1$s.
 0000000177FE.07C: Odblokowano nowego bohatera w roli: %1$s
 00000001780F.07C: Karnet Bojowy Premium (Sezon 1)
 000000017811.07C: PvP Challenges - Player - TEMP - Competitive End of Season
@@ -24601,7 +24737,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017868.07C: PvP Challenges - Player - Objective Time
 00000001786D.07C: +20%% PD przez cały sezon
 00000001786E.07C: PvP Challenges - Player - Map - Colosseo - Win
-000000017873.07C: Szybka Gra w Otwartą Rywalizację
+000000017873.07C: Szybka gra w Otwartą Rywalizację
 000000017874.07C: Nowy bohater
 000000017875.07C: PvP Challenges - Player - Map - New Queen Street
 000000017876.07C: PvP Challenges - Player - Map - Circuit Royal - Win
@@ -24633,9 +24769,11 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000178F9.07C: Wyzwanie sezonowe
 0000000178FA.07C: Wyzwanie bohaterskie
 0000000178FB.07C: Wyzwanie kariery
+0000000178FE.07C: Zniszcz
 0000000178FF.07C: Przytrzymaj %1$s, aby zmienić bohatera
 000000017902.07C: PD
-000000017903.07C: Nagroda:
+000000017903.07C: Nagroda: 
+000000017924.07C: Calypso – TrybBohaterski
 00000001793E.07C: Ukończ wprowadzenie dla nowego gracza, aby odblokować to działanie.
 00000001793F.07C: WYBIERZ SKÓRKĘ
 000000017941.07C: Gracz – Czas przy celu bez ginięcia
@@ -24658,7 +24796,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 00000001795E.07C: Zwiększone obrażenia: %1$s
 000000017963.07C: Tylko znajomi
 000000017964.07C: Niedostępne
-000000017965.07C: Usługa walutowa jest obecnie niedostępna. Spróbuj ponownie później.
+000000017965.07C: Usługa walutowa jest obecnie niedostępna. Spróbuj ponownie później
 000000017966.07C: Player - Battle Pass Tiers Earned
 000000017967.07C: Player - Endorsements Earned
 000000017969.07C: OK
@@ -24672,7 +24810,9 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000179EE.07C: PvP Challenges - Player - Games Played
 0000000179F0.07C: Kup żetony Overwatch League
 0000000179F8.07C: CZAS:
-000000017A2A.07C: Włącz reakcje spustów kontrolera DualSense
+000000017A2A.07C: Włącz efekty spustów kontrolera DualSense
+000000017A40.07C: Przytrzymaj, aby odblokować
+000000017A41.07C: Podnieś klucz szkieletowy
 000000017A48.07C: Pasywnie zwiększa liczbę PD Karnetu Bojowego zdobywanych w trakcie sezonu.
 000000017A4A.07C: (Mecze do końca: %1$s)
 000000017A4B.07C: %1$s%% PD
@@ -24848,6 +24988,8 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017B1B.07C: PvP Challenges - Player - Daily Challenges Completed
 000000017B1D.07C: PvP Challenges - Player - Queued as All Roles - Win
 000000017B1F.07C: PvP Challenges - Player - Arcade - Non Deathmatch Aracde - Win
+000000017B26.07C: Najlepszy wynik w Halloween (fabuła)
+000000017B27.07C: Najlepszy wynik w Halloween (fabuła): %1$s
 000000017B28.07C: Ograniczenie ruchu w menu
 000000017B29.07C: Poznaj podstawy poruszania się, strzelania i zdolności w tym krótkim samouczku.
 000000017B4A.07C: Ukończone codzienne: %1$s
@@ -24964,9 +25106,11 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017C18.07C: Tundra
 000000017C19.07C: Las
 000000017C1A.07C: Zorza
+000000017C1B.07C: Zajrzyj do środka
 000000017C1C.07C: Kup Premium
 000000017C1D.07C: Kup Premium + 20 dodatkowych poziomów
 000000017C25.07C: Wyzwania
+000000017C27.07C: Adlersbrunn
 000000017C2B.07C: %2$s | %1$s
 000000017C43.07C: PvP Challenges - Player - Hero - Sojourn - Win
 000000017C44.07C: PvP Challenges - Player - Hero - Queen - Win
@@ -24975,6 +25119,10 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017C49.07C: Wygraj mecze (%1$s) jako Sojourn.
 000000017C59.07C: Dowódczyni szturmowa Chase
 000000017C5A.07C: Wygraj mecze (%1$s) jako Sojourn.
+000000017C5B.07C: PvE Challenges - Player - Event - Halloween- 2022 - Witness Banshee Moments
+000000017C5C.07C: Złowieszczy omen
+000000017C5D.07C: Bądź świadkiem wszystkich 7 momentów Banshee w jednej rozgrywce w Gniew Narzeczonej Złomensteina.
+000000017C60.07C: PD Karnetu Bojowego
 000000017C63.07C: Urodziłam się, żeby rządzić
 000000017C64.07C: Wygraj mecze (%1$s) jako Królowa.
 000000017C67.07C: Niech żyje Królowa
@@ -24987,11 +25135,173 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000018578.07C: Czat głosowy meczu
 000000018584.07C: PD Karnetu Bojowego
 000000018585.07C: PD Karnetu Bojowego
+00000001858A.07C: Gniew Narzeczonej Złomensteina
+00000001858B.07C: Ukończ Gniew Narzeczonej Złomensteina na dowolnym poziomie trudności.
+00000001858D.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win Any difficulty
+00000001858E.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Expert
+00000001858F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Legendary
+000000018590.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Ashe
+000000018592.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Photobomb Bride
+000000018594.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Destroy N Shock Tires
+000000018595.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Crouch At Bonfire
+000000018596.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Discover Secret Area
+000000018598.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Get N Score Or Higher
+00000001859A.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate N Bosses
+00000001859B.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate Bastion In Tank Form
+00000001859C.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win With No Lord Of The Castle Damage
 00000001859D.07C: Dostępne w ramach promocji regionalnej. Dostępne w menu Bohaterowie od sezonu 2.
 00000001859F.07C: PD Karnetu Bojowego
+000000018600.07C: Pod latarnią najciemniej
+000000018601.07C: Przykucnij przy latarni na 6 sek., gdy Duch jest aktywny w Gniewie Narzeczonej Złomensteina.
+000000018602.07C: Złapać gumę
+000000018603.07C: Zniszcz %1$s Szok-Opon w Gniewie Narzeczonej Złomensteina.
+000000018604.07C: Wywar wiedźmy
+000000018605.07C: Odkryj los grozy z przeszłości w ukrytym zakątku Adlersbrunn w Gniewie Narzeczonej Złomensteina.
+000000018606.07C: Automaton transformowany
+000000018607.07C: Zlikwiduj Eksperyment, gdy jest w Konfiguracji: Czołg w Gniewie Narzeczonej Złomensteina na wysokim lub wyższym poziomie trudności.
+000000018608.07C: Rada Narzeczonej
+000000018609.07C: Zlikwiduj %1$s bossów w Gniewie Narzeczonej Złomensteina.
+00000001860A.07C: Furia bohaterów
+00000001860B.07C: Ukończ Gniew Narzeczonej Złomensteina z wynikiem 10 000 pkt. lub wyższym.
+00000001860E.07C: Fotozłomba
+00000001860F.07C: Zrób pozę z Narzeczoną podczas jej prezentacji w Gniewie Narzeczonej Złomensteina.
+000000018612.07C: Nadchodzi Narzeczona Złomensteina
+000000018613.07C: Ukończ Gniew Narzeczonej Złomensteina na eksperckim poziomie trudności.
+000000018614.07C: Miłość wszystko zwycięży
+000000018615.07C: Ukończ Gniew Narzeczonej Złomensteina na legendarnym poziomie trudności.
+000000018616.07C: Czwórka dzielnych bohaterów
+000000018617.07C: Ukończ Gniew Narzeczonej Złomensteina jako 4 różnych bohaterów.
+000000018618.07C: Bez iskry
+000000018619.07C: Ukończ Gniew Narzeczonej Złomensteina, nie pozwalając Panu Zamku na otrzymanie jakichkolwiek obrażeń.
+00000001863F.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Sojourn
+000000018640.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Queen
+000000018641.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Kiriko
+00000001864E.07C: W przypadku powalenia przeczołgaj się do osłony i unikaj wrogów, aby sojusznicy mogli cię bezpiecznie ożywić.
+00000001865A.07C: Współtowarzysze są jedynymi, którzy mogą zapewnić leczenie, więc trzymajcie się razem!
 00000001865B.07C: Brak talizmanu
+000000018667.07C: Przesądni mieszkańcy Adlersbrunn wierzą, że zawodzący wiatr to zły omen...
+000000018668.07C: Uważajcie! Złomniki słyną z tego, że tworzą chmary.
+000000018669.07C: Jeśli się boicie, wystarczy zamknąć oczy.
+00000001866A.07C: Wiedźmy nie widziano w Adlersbrunn od jakiegoś czasu, ale plotki głoszą, że wciąż nawiedza miasteczko.
+00000001866B.07C: Nie jesteście bezpieczni, nawet w swoich snach.
+000000018690.07C: Potwór był pierwszym monstrum Złomensteina, ale nie jedynym...
+000000018693.07C: Zastanawialiście się kiedyś, czy słowa mogą doprowadzić do obłędu?
+000000018694.07C: Wciąż jest czas, by zawrócić.
+000000018695.07C: Czy wiecie, że Narzeczona Złomensteina nigdy nie zapomina, ani nie wybacza.
+000000018696.07C: Ona was znajdzie.
+0000000186A9.07C: Koniec za %1$s!
+0000000186AA.07C: Najlepszy wynik w Halloween (fabuła)
+0000000186AB.07C: Najlepszy wynik w Halloween (fabuła): %1$s
+0000000186AE.07C: Halloweenowa Groza 2022
+0000000186AF.07C: Zmrok nad Adlersbrunn
+0000000186B1.07C: Złomniczne graffiti
+0000000186B3.07C: Hasta la muerte
+0000000186B4.07C: Nagroda za ukończenie wyzwania Furia bohaterów z wydarzenia Halloweenowa Groza.
+0000000186B5.07C: Nagroda za ukończenie wyzwania Na głęboką wodę z wydarzenia Halloweenowa Groza.
+0000000186B7.07C: Defeat Sombra
+0000000186B8.07C: Pokonajcie Narzeczoną
+0000000186BD.07C: Udostępnia zablokowanych bohaterów
+0000000186BE.07C: Wiedźma o imieniu Kiriko specjalizuje się we wróżeniu, rzadkiej umiejętności, przez jednych postrzeganej jako dar, a przez innych jako przekleństwo. Jej wizje zawsze prowadzą ją tam, gdzie jest najbardziej potrzebna.
+000000018742.07C: Nie za-wiedźmie
+000000018744.07C: PvE Challenges - Player - Event - Halloween - OW1 - Normal - Win a Game
+000000018747.07C: Wróżenie z kart
+000000018753.07C: Nasza opowieść zaczyna się
+000000018754.07C: Sprzeciw Narzeczonej
+000000018756.07C: Strzelanie do złomników
+000000018757.07C: Strach na wróble
+000000018759.07C: Ciała do spakowania
+00000001875A.07C: Winna jest zawsze wdowa
+00000001875C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Endless - Win a Game
+00000001875E.07C: Zapukaj
+00000001875F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Tavern Secret
+000000018760.07C: Puk, puk...
+000000018761.07C: Zakłóć spokój gościowi w tawernie w Gniewie Narzeczonej Złomensteina.
+000000018768.07C: PvE Challenges - Player - Event - Halloween - OW1 - Chaser - Win a Game
+000000018769.07C: PvE Challenges - Player - Event - Halloween - OW1 - Speed - Win a Game
+00000001876A.07C: PvE Challenges - Player - Event - Halloween - OW1 - Trio - Win a Game
+00000001876B.07C: PvE Challenges - Player - Event - Halloween - OW1 - Tires - Win a Game
+00000001876C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Boom - Win a Game
+00000001876D.07C: PvE Challenges - Player - Event - Halloween - OW1 - Mystery - Win a Game
+000000018785.07C: Wygraj Zemstę dr. Złomensteina na dowolnym poziomie trudności.
+00000001878E.07C: Wędrowcy z dawnych czasów
+00000001878F.07C: Początek niekończącej się nocy
+000000018790.07C: Ukończ falę 12 w Wiecznej zemście dr. Złomensteina.
+0000000187A3.07C: Oglądaj od 30.10
+0000000187C6.07C: Wyzwanie rywalizacji
+0000000187C7.07C: Wyzwanie wydarzenia
+0000000187E5.07C: Niedokończone sprawy
+0000000187E6.07C: Wygraj misję-wyzwanie Złomensteina: Mściwy Duch.
+0000000187E7.07C: Straszna szybkość
+0000000187E8.07C: Wygraj misję-wyzwanie Złomensteina: Szalony Spęd.
+0000000187E9.07C: Straszne trio
+0000000187EA.07C: Wygra misję-wyzwanie Złomensteina: Ich Troje.
+0000000187EB.07C: Przygotujcie się na szok!
+0000000187EC.07C: Wygraj misję-wyzwanie Złomensteina: Szokująca Niespodzianka.
+0000000187ED.07C: Koniec wydarzenia 8 listopada
+0000000187F0.07C: Nowe Halloweenowe skórki w sklepie, dostępne jedynie przez ograniczony czas!
+Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach na wróble) i inne elementy ozdobne!
+0000000187F1.07C: Powrót uwielbianej Zemsty Złomensteina w zupełnie nowej formie, zwanej Gniewem Narzeczonej Złomensteina!
+0000000187F4.07C: Wybuchowe i wredne
+0000000187F5.07C: Wygraj misję-wyzwanie Złomensteina: Wybuchowe Złomniki.
+0000000187F6.07C: Impreza kostiumowa
+0000000187F7.07C: Wygraj misję-wyzwanie Złomensteina: Tajemnicza Zamiana.
+000000018800.07C: Nagroda za ukończenie wyzwania Czwórka dzielnych bohaterów z wydarzenia Halloweenowa Groza.
+000000018806.07C: Nagroda za ukończenie wyzwania Wywar wiedźmy z wydarzenia Halloweenowa Groza.
+000000018807.07C: Nagroda za ukończenie wyzwania Złowieszczy omen z wydarzenia Halloweenowa Groza.
+000000018808.07C: Nagroda za ukończenie wyzwania Puk, puk z wydarzenia Halloweenowa Groza.
+000000018809.07C: Nagroda za ukończenie wyzwania Rada Narzeczonej z wydarzenia Halloweenowa Groza.
+00000001880A.07C: Nagroda za ukończenie wyzwania Gniew Narzeczonej Złomensteina z wydarzenia Halloweenowa Groza.
+00000001880B.07C: Nagroda za ukończenie wyzwania Fotozłomba z wydarzenia Halloweenowa Groza.
+00000001880C.07C: Nagroda za ukończenie wyzwania Złapać gumę z wydarzenia Halloweenowa Groza.
+000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
+00000001884A.07C: Na głęboką wodę
+00000001884B.07C: Ukończ Gniew Narzeczonej Złomensteina na wysokim poziomie trudności.
+000000018850.07C: 13 prac bohatera
+000000018851.07C: Ukończ 13 wyzwań Złomensteina.
+000000018855.07C: Wpisz nazwę powtórki
+000000018858.07C: Wyzwanie ukończone: %1$s
+000000018859.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win with Different Heroes
+00000001885A.07C: PD Karnetu Bojowego
+00000001885B.07C: PD Karnetu Bojowego
+000000018876.07C: Nie udało się ocalić pana zamku z Adlersbrunn
+000000018878.07C: Nagroda za ukończenie wyzwania 13 prac bohatera z wydarzenia Halloweenowa Groza.
+00000001889F.07C: Down for
+0000000188B3.07C: PREMIA ZA PRZETRWANIE! +%1$s pkt.
+0000000188B4.07C: PREMIA ZA CZAS! +%1$s pkt.
+0000000188B5.07C: PREMIA ZA CEL! +%1$s pkt.
+0000000188B6.07C: Punkty za zabójstwa: + %1$s PKT.
+0000000188B7.07C: Premia za przeżycie: + %1$s PKT.
+0000000188B8.07C: Premia za czas: + %1$s PKT.
+0000000188B9.07C: Premia za cel: + %1$s PKT.
+0000000188BA.07C: Gniew Narzeczonej Złomensteina
+0000000188E1.07C: VS
+0000000188FF.07C: Gargulec
+000000018900.07C: Narzeczona Złomensteina
+000000018901.07C: Niepowstrzymany duch
+000000018902.07C: Eksperyment
+000000018903.07C: Marionetka
+000000018904.07C: Zaklinaczka
+000000018907.07C: BOHATEROWIE: Ashe, Królowa Junkertown, Sojourn, Kiriko
+000000018908.07C: ZWYCIĘSTWO: Pokonaj narzeczoną i jej sługi
+000000018919.07C: Gniew Narzeczonej Złomensteina
 00000001891A.07C: Porównanie cen zestawów w oparciu o cenę każdej pozycji osobno. Dla pozycji, które nie są regularnie oferowane osobno, porównanie opiera się na cenie podobnych pozycji oferowanych indywidualnie w tej samej kategorii i o tej samej jakości.
+000000018931.07C: Domyślny głos
+000000018932.07C: Wieczna Zemsta
+000000018934.07C: Powalenie...
+000000018935.07C: Powalenie!
+00000001894B.07C: Resurrect %1$s
+000000018999.07C: |Rpl %1$s:obezwładnienia:obezwładnienia:obezwładnienia;
+00000001899A.07C: %1$s |Rpl obezwładnienie:obezwładnienia:obezwładnień;
+0000000189A3.07C: Wygrane w Zemście Złomensteina 2022
+0000000189A7.07C: Napisy do filmów
 0000000189A8.07C: https://account.battle.net/connections
 0000000189A9.07C: https://www.blizzard.com/%1$s/legal/
-000000018AE0.07C: Please return to login for your account changes to take effect.
-[Core] Execution finished in 00:00:00.6990817 seconds
+0000000189EC.07C: CHECKPOINT RESTORE
+000000018A00.07C: 
+000000018A0C.07C: Dostępne od listopada w ramach promocji regionalnej. Czasami dostępne w Sklepie.
+000000018A74.07C: PvP Challenges - Player - Critical Damage
+000000018A75.07C: Strzelec wyborowy
+000000018A76.07C: Zadaj %1$s pkt. obrażeń krytycznych.
+000000018ADF.07C: Otwórz Salę Tronową
+000000018AE0.07C: Zaloguj się ponownie, aby zmiany na koncie zaczęły obowiązywać.
+[Core] Execution finished in 00:00:00.7296184 seconds

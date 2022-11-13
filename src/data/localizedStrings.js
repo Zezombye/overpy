@@ -9440,7 +9440,7 @@ var normalStrKw =
         "de-DE": "Fähigkeit 1 einsetzen",
         "es-ES": "Usar habilidad 1",
         "es-MX": "Usar habilidad 1",
-        "fr-FR": "Utilisation de la capacité 1",
+        "fr-FR": "Utilisation de la capacité 1",
         "it-IT": "Usa Abilità 1",
         "ja-JP": "アビリティ1を使う",
         "pl-PL": "Użyj Zdolności 1",
@@ -9455,7 +9455,7 @@ var normalStrKw =
         "de-DE": "Fähigkeit 2 einsetzen",
         "es-ES": "Usar habilidad 2",
         "es-MX": "Usar habilidad 2",
-        "fr-FR": "Utilisation de la capacité 2",
+        "fr-FR": "Utilisation de la capacité 2",
         "it-IT": "Usa Abilità 2",
         "ja-JP": "アビリティ2を使う",
         "pl-PL": "Użyj Zdolności 2",
@@ -9689,7 +9689,7 @@ var normalStrKw =
         "de-DE": "Sieg: %1$s EP",
         "es-ES": "Victoria: %1$s PE",
         "es-MX": "Victoria: %1$s EXP",
-        "fr-FR": "Victoire : %1$s EXP",
+        "fr-FR": "Victoire : %1$s EXP",
         "it-IT": "Vittoria: %1$s PE",
         "ja-JP": "勝利: %1$s XP",
         "ko-KR": "승리: %1$s 경험치",
@@ -9992,7 +9992,7 @@ var postfixStrKw =
         "guid": "00000000BFA5",
         "en-US": "{0}!",
         "es-ES": "¡{0}!",
-        "fr-FR": "{0} !",
+        "fr-FR": "{0} !",
         "ja-JP": "{0}！",
         "zh-CN": "{0}！"
     },
@@ -10000,7 +10000,7 @@ var postfixStrKw =
         "guid": "00000000BF98",
         "en-US": "{0}!!",
         "es-ES": "¡¡{0}!!",
-        "fr-FR": "{0} !!",
+        "fr-FR": "{0} !!",
         "ja-JP": "{0}！！",
         "zh-CN": "{0}！！"
     },
@@ -10008,26 +10008,26 @@ var postfixStrKw =
         "guid": "00000000BF97",
         "en-US": "{0}!!!",
         "es-ES": "¡¡¡{0}!!!",
-        "fr-FR": "{0} !!!",
+        "fr-FR": "{0} !!!",
         "ja-JP": "{0}！！！",
         "zh-CN": "{0}！！！"
     },
     "{0}%": {
         "guid": "00000000BFBC",
         "en-US": "{0}%",
-        "fr-FR": "{0} %"
+        "fr-FR": "{0} %"
     },
     "{0}:": {
         "guid": "00000000BA64",
         "en-US": "{0}:",
-        "fr-FR": "{0} :",
+        "fr-FR": "{0} :",
         "ja-JP": "{0}: "
     },
     "{0}?": {
         "guid": "00000000BFAA",
         "en-US": "{0}?",
         "es-ES": "¿{0}?",
-        "fr-FR": "{0} ?",
+        "fr-FR": "{0} ?",
         "ja-JP": "{0}？",
         "zh-CN": "{0}？"
     },
@@ -10035,7 +10035,7 @@ var postfixStrKw =
         "guid": "00000000BFA8",
         "en-US": "{0}??",
         "es-ES": "¿¿{0}??",
-        "fr-FR": "{0} ??",
+        "fr-FR": "{0} ??",
         "ja-JP": "{0}？？",
         "zh-CN": "{0}？？"
     },
@@ -10043,7 +10043,7 @@ var postfixStrKw =
         "guid": "00000000BFA7",
         "en-US": "{0}???",
         "es-ES": "¿¿¿{0}???",
-        "fr-FR": "{0} ???",
+        "fr-FR": "{0} ???",
         "ja-JP": "{0}？？？",
         "zh-CN": "{0}？？？"
     }
@@ -10147,7 +10147,7 @@ var binaryStrKw =
     "{0}: {1}": {
         "guid": "00000000BFB3",
         "en-US": "{0}: {1}",
-        "fr-FR": "{0} : {1}",
+        "fr-FR": "{0} : {1}",
         "zh-CN": "{0}：{1}"
     },
     "{0}:{1}": {
@@ -10195,7 +10195,7 @@ var ternaryStrKw =
         "de-DE": "{0}: {1} und {2}",
         "es-ES": "{0}: {1} y {2}",
         "es-MX": "{0}: {1} y {2}",
-        "fr-FR": "{0} : {1} et {2}",
+        "fr-FR": "{0} : {1} et {2}",
         "it-IT": "{0}: {1} e {2}",
         "ja-JP": "{0}: {1}と{2}",
         "pl-PL": "{0}: {1} i {2}",

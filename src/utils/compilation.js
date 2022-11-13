@@ -26,8 +26,14 @@ function compileCustomGameSettingsDict(dict, refDict) {
 			result[wsKey] = tows(dict[key], refDict[key].values);
 
 		} else if (refDict[key].values === "__string__") {
-			if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
-				error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
+			if (refDict[key].maxChars) {
+				if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
+					error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
+				}
+			} else if (refDict[key].maxBytes) {
+				if (getUtf8ByteLength(dict[key]) > refDict[key].maxBytes) {
+					error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
+				}
 			}
 			result[wsKey] = escapeBadWords(escapeString(dict[key], true));
 

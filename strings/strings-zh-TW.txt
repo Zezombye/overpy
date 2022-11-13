@@ -1,16 +1,18 @@
-[Core] DataTool v2.1.0.0+1004+c5fce64c
+[Core] DataTool v2.1.0.0+1009+de9c785f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhTW", "-T=zhTW"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: zhTW | Speech Language: zhTW
-[CASC] Overwatch build 2.1.0.2.106389
+[CASC] Overwatch build 2.1.1.0.106617
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106110 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
+[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LzhTW_speech_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LzhTW_text_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
+[GUIDNames] GUIDNames.csv not found
+[LocalizedNames] LocalizedNamesMapping.csv not found
 [Core] Tooling...
 000000000019.07C: 殺...殺...殺...
 000000000020.07C: 慈悲
@@ -619,7 +621,6 @@
 0000000008D8.07C: 觀看玩家10
 0000000008D9.07C: 觀看玩家11
 0000000008DA.07C: 觀看玩家12
-00000000094D.07C: %1$s(%2$s)說：跟我一起走！
 00000000094E.07C: %1$s(%2$s)說：我的絕招(%3$s)%4$s準備就緒！
 00000000099D.07C: 無法加入團隊
 0000000009A0.07C: %1$s(%2$s)說：我的絕招(%4$s)%5$s已經蓄力%3$s%%！
@@ -1687,7 +1688,6 @@
 000000001AA6.07C: 攻擊方
 000000001AA7.07C: 攻擊方
 000000001AA8.07C: 無底深淵
-000000001AAD.07C: <tx%1$s>讚
 000000001AAE.07C: 低
 000000001AAF.07C: 中
 000000001AB0.07C: 高
@@ -5042,7 +5042,7 @@ A.I.對手。
 0000000048A0.07C: 進球數
 0000000048A1.07C: 進球數%1$s
 0000000048A8.07C: 精彩鏡頭：
-0000000048AA.07C: %1$s(%2$s)對%3$s(%4$s)說：集合！
+0000000048AA.07C: %1$s(%2$s - %3$s公尺)對%6$s(%7$s)說：集合！%5$s
 0000000048AB.07C: 顯示系統時鐘
 0000000048AC.07C: 攔截數
 0000000048AD.07C: 攔截數%1$s
@@ -5407,6 +5407,7 @@ A.I.對手。
 000000004C26.07C: BlizzCon 2016
 000000004C27.07C: 透過BlizzCon 2016福袋來解鎖
 000000004C28.07C: 黑暗流浪者
+000000004C29.07C: 鼠肯斯坦復仇記
 000000004C2C.07C: 擷取遊戲畫面
 000000004C2E.07C: 限制客戶端傳送速率
 000000004C2F.07C: 限制伺服器傳送速率
@@ -5553,7 +5554,6 @@ A.I.對手。
 000000004E24.07C: 亞洲
 000000004E25.07C: 中國
 000000004E35.07C: 距離重生還有
-000000004E36.07C: 對戰時間
 000000004E43.07C: %1$s勝利！
 000000004E65.07C: 敵方隊伍取得旗幟！
 000000004E66.07C: 你拿到旗幟了！
@@ -5776,6 +5776,8 @@ A.I.對手。
 0000000050CD.07C: 在快速對戰或競技對戰中一直未死亡的狀態下，以駭影駭入15名敵人
 0000000050CE.07C: 大斷電
 0000000050CF.07C: 在快速對戰或競技對戰中，以駭影同時駭入5名敵人
+0000000050EE.07C: 復活%1$s
+0000000050EF.07C: 按住以復活%2$s
 0000000050FF.07C: 鬥陣對決
 000000005101.07C: 以三人一隊的方式，進行一連串的戰鬥。
 000000005108.07C: 3v3
@@ -6154,6 +6156,7 @@ A.I.對手。
 000000005577.07C: 選取
 000000005579.07C: 煙火壞了?
 00000000557D.07C: 透過暗黑破壞神20週年紀念來解鎖
+000000005582.07C: 加入隊伍聊天頻道
 000000005588.07C: 紅包拿來！
 00000000558D.07C: 進行競技對戰時無法加入團隊
 000000005590.07C: 拱手作揖
@@ -6819,6 +6822,7 @@ A.I.對手。
 000000005B66.07C: 被移出遊戲。
 000000005B68.07C: 
 000000005B6B.07C: 利爪組織
+000000005B83.07C: %1$s在復活隊友
 000000005B84.07C: %1$s的冷卻時間
 000000005B85.07C: %1$s（絕招）
 000000005B86.07C: %1$s的絕招蓄力速度
@@ -6838,7 +6842,7 @@ A.I.對手。
 000000005BD4.07C: 最愛花生醬
 000000005BD7.07C: 冥想
 000000005BD8.07C: 悠閒看書
-000000005BD9.07C: To Skip
+000000005BD9.07C: 按住%1$s可略過
 000000005BDA.07C: 等待其他玩家
 000000005BDB.07C: 根據主持人設定的權限，你無法加入這個自訂遊戲
 000000005C04.07C: 城塞
@@ -8037,7 +8041,6 @@ A.I.對手。
 00000000669A.07C: 30枚鬥陣幣，以及免費11箱夏季運動會戰利品
 00000000669B.07C: 60枚鬥陣幣，以及免費24箱夏季運動會戰利品
 00000000669C.07C: 120枚鬥陣幣，以及免費50箱夏季運動會戰利品
-00000000669D.07C: %1$s、%2$s、每秒幀數%3$s張、%4$s畫質、硬體編碼%5$s、音樂%6$s
 0000000066A4.07C: 精彩重播前五名
 0000000066A5.07C: 立即記錄
 0000000066A6.07C: 儲存
@@ -8242,6 +8245,7 @@ A.I.對手。
 Your fellow players reported you for a gameplay offense. This includes griefing, inactivity, ongoing harassment, physical harassment, and scams.
 
 After a thorough investigation of the evidence, we have Suspended your Overwatch account. As the owner of this account, you are responsible for all actions associated with it. We will only overturn penalties if there is evidence of a compromised account or similar extenuating circumstances.
+0000000069CE.07C: 鼠肯斯坦無盡復仇
 0000000069E4.07C: 浮空南瓜
 0000000069E9.07C: 單場最高對屏障傷害量
 0000000069EA.07C: 單場最高對屏障傷害量%1$s
@@ -8451,6 +8455,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006C68.07C: 由於你多次言詞羞辱或濫發訊息，你已被永久禁言
 000000006CDC.07C: 由於其他玩家舉報你多次言詞羞辱，你的帳號遭到禁言。
 000000006CDD.07C: 接受
+000000006CE9.07C: 鼠肯斯坦復仇記
 000000006CEA.07C: 專家
 000000006CEC.07C: 有多少人能活到天亮呢？
 000000006CF2.07C: 島田長子
@@ -8480,7 +8485,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D90.07C: 釜山
 000000006D96.07C: 在這個模式的時候無法加入團隊
 000000006D97.07C: 無法邀請玩家加入你的團隊，因為對方正在進行的模式不允許你這樣做
-000000006D9D.07C: 愛西瓦德
+000000006D9D.07C: 阿德勒堡
 000000006D9E.07C: 防守方
 000000006D9F.07C: 攻擊方
 000000006DA4.07C: 角色類型：輔助被動效果大幅提高。
@@ -8521,7 +8526,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: 防守方
 000000006E64.07C: 攻擊方
 000000006E6B.07C: 愛西瓦德（萬聖節）
-000000006E6F.07C: 復活%1$s
 000000006E70.07C: 啟動屏障時角色移動方向以視角為基準
 000000006E72.07C: 奈米
 000000006E73.07C: 昏迷
@@ -8577,6 +8581,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006EFF.07C: 鼠肯斯坦復仇記
 000000006F00.07C: 沉睡
 000000006F01.07C: 鼠肯斯坦復仇記
+000000006F03.07C: 鼠肯斯坦無盡復仇
 000000006FB1.07C: 無盡模式
 000000006FB2.07C: 小美的雪球大作戰
 000000006FB3.07C: 難度
@@ -8608,6 +8613,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006FD5.07C: 提供給屍械的護盾數%1$s
 000000006FD7.07C: |Rfn %1$s:N0;%%
 000000006FFE.07C: 鼠肯斯坦復仇記
+000000007002.07C: 鼠肯斯坦無盡復仇
 000000007004.07C: 召喚師
 000000007005.07C: %1$s %2$s
 000000007007.07C: 治療曲目的持續時間
@@ -9311,6 +9317,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000769A.07C: Florida Mayhem(2018年)
 00000000769B.07C: Dallas Fuel
 00000000769C.07C: Boston Uprising
+00000000769E.07C: 鼠肯斯坦復仇記
 00000000769F.07C: Swap Sides
 0000000076A0.07C: 套用
 0000000076AA.07C: 競技對戰永久禁賽
@@ -9444,6 +9451,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000796E.07C: 磁能超頻
 00000000796F.07C: 磁軌槍的能量會在一小段時間內自動充滿，充能射擊可穿透敵人
 000000007975.07C: 索潔恩
+000000007995.07C: https://overwatchleague.com/
 00000000799B.07C: 啟用
 00000000799C.07C: 停用
 0000000079A5.07C: 荒地居民
@@ -10845,6 +10853,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008838.07C: 每箱戰利品內含最多4個外觀物品或鬥陣幣，其中至少有一個週年物品。也可以透過遊戲機制獲得戰利品。
 000000008845.07C: 讀取商店頁面
 00000000884A.07C: 上一場比賽：
+00000000884C.07C: 選擇要表揚的對手
 00000000885E.07C: 支持BCRF組織
 000000008861.07C: 傳送器
 000000008866.07C: 團隊名稱
@@ -12325,6 +12334,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000A9A4.07C: 展示廳
 00000000A9AA.07C: 離開遊戲
 00000000A9C2.07C: 選擇
+00000000A9C7.07C: <空白>
 00000000A9D5.07C: 廣州（客場）
 00000000A9D6.07C: 溫哥華（客場）
 00000000A9D7.07C: 裝飾
@@ -12465,20 +12475,11 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AC38.07C: Number
 00000000AC39.07C: True
 00000000AC3A.07C: False
-00000000AC3F.07C: SURVIVOR
-00000000AC40.07C: 等待玩家
-00000000AC41.07C: 戰鬥
-00000000AC42.07C: 倒數計時
-00000000AC43.07C: 生存專家
-00000000AC44.07C: 生存專家
-00000000AC45.07C: 獲勝分數
 00000000AC46.07C: |Rfn %1$s:N0;
 00000000AC5C.07C: 需要更新鬥陣特攻。
 00000000AC5D.07C: 有可用的鬥陣特攻更新。
 00000000AC5E.07C: 更新
 00000000AC5F.07C: 取消
-00000000AC6A.07C: Round Rank #%1$s
-00000000AC80.07C: 圓形關閉開始計時器
 00000000ACA9.07C: Hero Of
 00000000ACAA.07C: Hero
 00000000ACF1.07C: |Rfn %1$s:P0;
@@ -12552,7 +12553,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000ADA0.07C: Guangzhou
 00000000ADA1.07C: GZ
 00000000ADA2.07C: Charge
-00000000ADA3.07C: 圓形關閉速度乘數
 00000000ADA6.07C: Guangzhou
 00000000ADA7.07C: GZ
 00000000ADA8.07C: Charge
@@ -13032,7 +13032,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AFBB.07C: Vancouver Titans(客場)
 00000000AFBC.07C: Vancouver Titans(客場)
 00000000AFBD.07C: Vancouver Titans(客場)
-00000000AFBE.07C: Round Rank #%1$s (+%2$s Points)
 00000000AFBF.07C: Washington Justice
 00000000AFC0.07C: Vancouver Titans
 00000000AFC1.07C: Toronto Defiant
@@ -13054,7 +13053,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000AFD1.07C: 造型
 00000000AFD2.07C: 噴漆
 00000000AFD3.07C: 玩家頭像
-00000000AFDA.07C: 最終圓形範圍（米）
 00000000AFDB.07C: 使用簡易第三人稱觀戰視角
 00000000AFEF.07C: 第15賽季
 00000000AFF0.07C: 第15賽季
@@ -13092,7 +13090,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B044.07C: <fg%1$s>%2$s</fg>
 00000000B046.07C: <fg%1$s>%2$s正在大喊</fg>
 00000000B065.07C: 全新！
-00000000B069.07C: 
+00000000B069.07C: <空白>
 00000000B06A.07C: 繼續
 00000000B083.07C: 和其他玩家較量，提升你的排名
 00000000B08B.07C: 取消
@@ -13674,8 +13672,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000B6F6.07C: 是否確認購買%1$s？
 00000000B6F7.07C: 解鎖
 00000000B6F8.07C: 套用
-00000000B6F9.07C: 上一套裝備
-00000000B6FA.07C: 下一套裝備
+00000000B6F9.07C: 上個物品
+00000000B6FA.07C: 下個物品
 00000000B6FF.07C: 全新解鎖
 00000000B700.07C: 是否購買所有的物品？
 00000000B702.07C: 篩選條件
@@ -14731,6 +14729,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BF58.07C: 所有英雄
 00000000BF59.07C: An array with no elements.
 00000000BF5A.07C: Empty Array
+00000000BF61.07C: <fg%1$s>%2$s</fg>
 00000000BF6C.07C: 伊利丹
 00000000BF6D.07C: The Z Value of the vector.
 00000000BF6E.07C: The Y Value of the vector.
@@ -15257,6 +15256,13 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C193.07C: Whether an Entity has spawned in the world. Results in False for Players who have not chosen a Hero yet.
 00000000C194.07C: Entity
 00000000C195.07C: The Player, icon entity, or effect entity whose presence in world to check.
+00000000C1A6.07C: 擊殺分數
+00000000C1A7.07C: 存活獎勵
+00000000C1A8.07C: 時間獎勵
+00000000C1A9.07C: 目標達成獎勵
+00000000C1AA.07C: 目標達成獎勵！+%1$s分
+00000000C1AB.07C: 時間獎勵！+%1$s分
+00000000C1AC.07C: 存活獎勵！+%1$s分
 00000000C1B2.07C: 你必須在遊戲中才能錄製目前的鏡頭位置。
 00000000C1D7.07C: 在地面會燃燒
 00000000C1D8.07C: 不在地面就不會燃燒
@@ -15838,6 +15844,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000C613.07C: Ray Cast Hit Normal
 00000000C614.07C: The surface normal at the ray cast hit position (or from End Pos to Start Pos if no hit occurs).
 00000000C615.07C: The Player hit by the ray cast (or Null if no Player is hit).
+00000000C616.07C: 普通
+00000000C617.07C: 困難
+00000000C618.07C: 專家
+00000000C619.07C: 傳奇
 00000000C61A.07C: Removes the Element specified by the Index from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.
 00000000C61B.07C: Remove From Array By Index
 00000000C635.07C: Event Damage
@@ -16491,7 +16501,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE09.07C: 平均每十分鐘擋下絕招次數%1$s
 00000000CE0A.07C: 單場最高擋下絕招次數
 00000000CE0B.07C: 單場最高擋下絕招次數%1$s
-00000000CE1C.07C: 
+00000000CE1C.07C: <空白>
 00000000CE1F.07C: 由於設定錯誤，無法重新開始
 00000000CE28.07C: 佔領
 00000000CE29.07C: 控制
@@ -16530,6 +16540,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CE6A.07C: 你
 00000000CE6D.07C: 吸血鬼
 00000000CE6E.07C: 這個帳號無法編輯文字。
+00000000CE74.07C: <fg%1$s>已復活</fg>
 00000000CE7C.07C: 下
 00000000CE80.07C: Create Beam Effect
 00000000CE81.07C: Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the Last Created Entity Value. This Action will fail if too many entities have been created.
@@ -16579,6 +16590,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CEFF.07C: 煉獄
 00000000CF28.07C: 2019
 00000000CF2C.07C: Project Audio Director
+00000000CF3B.07C: %1$s
 00000000CF44.07C: Best Halloween Score
 00000000CF45.07C: %1$s Best Halloween Score
 00000000CF46.07C: 萬聖節無盡模式最佳分數
@@ -16863,6 +16875,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000D1D5.07C: Removes all dummy bots from the match.
 00000000D1D6.07C: 職業電競聯賽(灰)
 00000000D1DC.07C: 獎勵：
+00000000D1DD.07C: 隊伍全滅
+00000000D1E1.07C: %1$s
+00000000D1E2.07C: 剩餘機會
+00000000D1EC.07C: 最終機會
 00000000D1EE.07C: 正在套用更新
 00000000D1F9.07C: 找不到%1$s語音包的新增內容，或是該內容已經過期。請至Nintendo eShop下載該語音包的最新免費版本。
 下載完畢之前，語言會設定為%2$s。
@@ -16906,8 +16922,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000D24B.07C: 你想得美
 00000000D24D.07C: 反省自我
 00000000D24F.07C: 小心我的鬍子
+00000000D258.07C: 完成
 00000000D25B.07C: 取消
 00000000D264.07C: 必須重新啟動軟體才能套用新內容。
+00000000D26F.07C: %1$s復活失敗
 00000000D29E.07C: |Rfn %1$s:D2;
 00000000D2C9.07C: 釜山市區（春節）
 00000000D2CA.07C: 釜山寺院（春節）
@@ -16978,6 +16996,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000D410.07C: 任務失敗
 00000000D411.07C: 地圖
 00000000D412.07C: 錯誤：第%2$s行的'%1$s'之後預期要有地圖名稱
+00000000D413.07C: YOU ARE ABLE TO MOVE WHILE INCAPACITATED
 00000000D415.07C: Map
 00000000D416.07C: A Map constant.
 00000000D417.07C: A Map constant.
@@ -17004,7 +17023,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000D49E.07C: 阿根廷
 00000000D4A0.07C: 世界盃一般客場
 00000000D4B9.07C: 化裝舞會
-00000000D4C8.07C: 按住
 00000000D4C9.07C: %1$s
 00000000D4D8.07C: 比利時
 00000000D4D9.07C: BEL
@@ -17111,7 +17129,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000EB14.07C: 詹米森國王
 00000000EB16.07C: 2020年全明星賽大西洋隊
 00000000EB17.07C: 啟用高準確度滑鼠輸入
-00000000EB18.07C: 接受復活中…
 00000000EB1E.07C: 錯誤：玩家變數'%1$s'需要命名
 00000000EB1F.07C: Global
 00000000EB21.07C: 錯誤：全域變數'%1$s'與其它變數相衝突
@@ -17301,7 +17318,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F39D.07C: 放風箏
 00000000F3A2.07C: 迴音停止選擇英雄
 00000000F3A3.07C: 對戰配對成功後，你會自動進入佇列中的遊戲。
-00000000F3A4.07C: Fill Bots
+00000000F3A4.07C: Fill Bots (Dev Only)
 00000000F3A7.07C: statescript.broadcast 6A6
 00000000F3A9.07C: 2020年全明星賽太平洋隊
 00000000F3AE.07C: 正在加入對戰
@@ -17941,6 +17958,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001031C.07C: 在快速對戰或競技對戰中一直未死亡的狀態下，以迴音使用2個其他英雄的絕招。
 00000001031D.07C: 模組適應
 00000001031E.07C: 2020年捍衛密令
+00000001033D.07C: Template - Checkpoint
+00000001033F.07C: Template - Gather At or Go To Location
+000000010342.07C: Template - Interact with Objects
+000000010346.07C: Template - Wait For Game Message
 00000001034E.07C: 死鬥競技模式
 00000001034F.07C: 提高排名，和全世界頂尖的死鬥好手一同競賽吧！
 000000010350.07C: 《鬥陣特攻》死鬥競技模式第3賽季
@@ -17974,6 +17995,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001041F.07C: 在第22賽季進入前500名即可解鎖
 000000010427.07C: 雷因哈特
 00000001043B.07C: 檢舉
+00000001043F.07C: 目標已摧毀
 000000010473.07C: 路西歐競球混音秀
 000000010476.07C: 路西歐競球混音秀
 000000010477.07C: 快速、混亂、球球踢不完的3v3路西歐競球。
@@ -19207,6 +19229,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001144E.07C: The type of max health to acquire.
 00000001144F.07C: 120枚鬥陣幣，以及免費60箱夏季運動會戰利品
 00000001146F.07C: 50箱與額外10箱夏季運動會戰利品
+0000000114DC.07C: 立即觀賞
+0000000114DF.07C: 觀賞《鬥陣特攻》職業電競聯賽
 0000000114E4.07C: 薑餅人
 00000001152E.07C: 伐木工
 0000000115E4.07C: 喜鵲
@@ -19286,6 +19310,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000117A9.07C: 搶旗競技
 0000000117AA.07C: 自由佇列競技對戰
 0000000117FC.07C: 石衛
+00000001180C.07C: 鼠肯斯坦復仇記復仇之鬼
+00000001180D.07C: 鼠肯斯坦復仇記高速湧竄
 00000001180E.07C: Best Halloween Score
 00000001180F.07C: %1$s Best Halloween Score
 000000011811.07C: 復仇之鬼
@@ -19300,6 +19326,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001181B.07C: 參與2020年萬聖節驚魂第3週挑戰即可解鎖
 00000001181C.07C: 參與2020年萬聖節驚魂第1週挑戰即可解鎖
 00000001181D.07C: 參與2020年萬聖節驚魂第2週挑戰即可解鎖
+00000001182A.07C: 鼠肯斯坦復仇記屍械爆爆
+00000001182B.07C: 鼠肯斯坦復仇記三缺一
+00000001182C.07C: 鼠肯斯坦復仇記神秘變變變
+00000001182D.07C: 鼠肯斯坦復仇記電流快感
 00000001182E.07C: Best Halloween Score
 00000001182F.07C: %1$s Best Halloween Score
 000000011830.07C: Best Halloween Score
@@ -19384,6 +19414,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000119BA.07C: 電流快感
 0000000119BB.07C: 完成鼠肯斯坦大挑戰的電流快感任務
 0000000119BC.07C: 修復者
+0000000119BD.07C: 繼續
 0000000119CB.07C: 萬聖節最佳分數
 0000000119CC.07C: 萬聖節最佳分數%1$s
 0000000119CD.07C: 萬聖節無盡模式最佳分數
@@ -19434,6 +19465,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000011C0D.07C: Sets the Player who will receive credit if the specified target Player or Players die to the environment before landing on the ground.
 000000011C0F.07C: Target
 000000011C10.07C: 第一人稱英雄抬頭顯示器
+000000011C2B.07C: 技能配置
 000000011C4B.07C: 龍焰
 000000011C4C.07C: 信心
 000000011C50.07C: Default
@@ -19641,6 +19673,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000012294.07C: 復仇之鬼
 0000000122DF.07C: 凍凍大作戰
 0000000122E0.07C: 
+0000000122E1.07C: 等級
 0000000122E2.07C: Destroy All Progress Bar HUD Text
 0000000122E3.07C: Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.
 0000000122E4.07C: Destroy Progress Bar HUD Text
@@ -19651,6 +19684,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000122E9.07C: The value of the progress bar to be displayed as a percentage from 0 to 100.
 0000000122EA.07C: Progress Bar Color
 0000000122EB.07C: The color of the Progress Bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.
+0000000122EC.07C: 英雄列表
+0000000122ED.07C: 關閉
 0000000122EE.07C: Visible To, Values, and Color
 0000000122EF.07C: Visible To and Values
 0000000122F0.07C: Values and Color
@@ -19658,6 +19693,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000122F2.07C: 小心擦拭
 0000000122F3.07C: Create Progress Bar HUD Text
 0000000122F4.07C: Creates Progress Bar HUD text visible to specific Players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the Last Text ID Value. This Action will fail if too many text elements have been created.
+0000000122F5.07C: 顯示英雄列表
+0000000122F7.07C: 任務即將開始：
 0000000122F8.07C: 遭到擊殺的英雄會陷入凍結狀態，不過隊友可以幫忙解凍，讓敵方隊伍全員凍結即可獲勝，打贏的英雄無法在之後的回合使用。
 000000012320.07C: 視野範圍變動率
 000000012321.07C: 每次放大縮小的視野範圍變動比例
@@ -19690,7 +19727,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000012469.07C: 紀錄
 00000001246A.07C: 將當前紀錄複製至剪貼簿
 00000001246B.07C: 將所有紀錄複製至剪貼簿
+00000001246C.07C: 無
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
+000000012470.07C: 選取中...
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
 000000012483.07C: 未解鎖
 00000001248B.07C: 凍結的敵人數
@@ -19853,6 +19892,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000125A2.07C: 佳節愉快！
 0000000125A4.07C: If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.
 0000000125A5.07C: Cancel Contrary Motion XYZ
+0000000125D3.07C: 使用電腦隊友前必須先選擇英雄
 0000000125D4.07C: 檢查武器
 0000000125D5.07C: <fg%1$s>凍結</fg>
 0000000125D7.07C: 凍凍大作戰
@@ -19922,7 +19962,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000127A5.07C: 紅包
 0000000127A6.07C: 五月錦標賽小美
 0000000127BB.07C: 玩家選項
-0000000127BC.07C: 
+0000000127BC.07C: <空白>
 0000000127BD.07C: 返回
 0000000127BE.07C: 尋求組隊
 0000000127BF.07C: 邀請玩家加入團隊
@@ -19993,6 +20033,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000012846.07C: 成為懸賞目標時每次擊殺得分
 000000012847.07C: 擊殺懸賞目標的基礎得分
 000000012848.07C: 飆風手
+00000001284A.07C: 目標失守！
 00000001284F.07C: 成為懸賞目標的次數
 000000012850.07C: 競技者
 00000001287A.07C: 無法觀看尚未結束的戰鬥錄影。
@@ -20079,6 +20120,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000012AED.07C: 成為懸賞目標時每次擊殺提高的賞金
 000000012AF0.07C: 暫停對戰
 000000012AF1.07C: 取消暫停對戰
+000000012B1F.07C: 隊伍中須有這名英雄才能完成此任務。
 000000012B20.07C: 切換抓錯視窗
 000000012B32.07C: 因不明原因而無法使用
 000000012B34.07C: 搶旗模式
@@ -20969,7 +21011,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000013D44.07C: 由於你的跨平台連線通訊設定，對戰中某些成員無法看見你的訊息。
 000000013D66.07C: 返回
 000000013D67.07C: Combat Roll Cooldown
-000000013D68.07C: 恢復中
 000000013D6B.07C: 生命值
 000000013D6C.07C: Deadeye Damage Rate Warning
 000000013D7A.07C: Flashbang Damage
@@ -21169,11 +21210,17 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000013FF6.07C: 天使之杖增幅
 000000013FF7.07C: 增幅矩陣增幅
 000000013FF9.07C: Earthshatter Knockdown Duration
+000000014003.07C: 拾取金色鑰匙
+000000014004.07C: 拾取紅色鑰匙
+000000014005.07C: 拾取藍色鑰匙
+000000014006.07C: 拾取紫色鑰匙
+000000014007.07C: 拾取綠色鑰匙
 00000001400D.07C: 團隊文字聊天
 00000001400E.07C: 隊伍文字聊天
 00000001400F.07C: 對戰文字聊天
 000000014011.07C: 文字聊天
 000000014013.07C: <未知>
+000000014015.07C: 按住以儲存目標
 000000014019.07C: <未知>
 000000014022.07C: 地區設定
 000000014026.07C: 你確定要重置所有地區設定嗎？
@@ -21429,6 +21476,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000146D5.07C: %1$s/%2$s
 0000000146D6.07C: Soundwave Cooldown
 0000000146DE.07C: 霜怨
+0000000146E4.07C: 受詛咒船長
 000000014716.07C: Amp It Up Cooldown
 000000014717.07C: Amp It Up Duration
 000000014718.07C: Sound Barrier Duration
@@ -21529,6 +21577,9 @@ Affiliation: Overwatch (Formerly)
 000000014AF8.07C: %1$s%%
 000000014C47.07C: 選擇英雄
 000000014C49.07C: 更換英雄
+000000014D45.07C: Complete the story mission: "%1$s"
+000000014DC3.07C:   Complete %1$s side missions. 
+  Current: %2$s
 000000014E41.07C: 經典鬥陣幣
 000000014E42.07C: 競技對戰
 000000014E43.07C: 聯賽代幣
@@ -21536,6 +21587,8 @@ Affiliation: Overwatch (Formerly)
 000000014E4D.07C: 生命值進度
 000000014E4E.07C: 裝甲進度
 000000014E4F.07C: 治療進度
+000000014E63.07C: 化學炸彈：啟動
+000000014E6A.07C: 在化學炸彈啟動前%1$s
 000000014E7C.07C: 敵方
 000000014E7D.07C: 注意這裡！
 000000014EAA.07C: 信差
@@ -21570,7 +21623,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: 展示_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: %1$s(%2$s)說：我跟你一起行動
-000000014F4F.07C: %1$s(%2$s - %5$s公尺)對%3$s(%4$s)說：我跟你一起行動。
+000000014F4F.07C: %1$s(%2$s - %3$s公尺)對%3$s(%4$s)說：我跟你一起行動。
 000000014F50.07C: %1$s(%2$s)說：我馬上到！
 000000014F51.07C: %1$s(%2$s - %5$s公尺)對%3$s(%4$s)說：我馬上到！
 000000014F52.07C: %1$s(%2$s)說：不用客氣。
@@ -21578,7 +21631,6 @@ Affiliation: Overwatch (Formerly)
 000000014F54.07C: %1$s(%2$s)說：我準備好了。
 000000014F55.07C: %1$s(%2$s - %5$s公尺)對%3$s(%4$s)說：我準備好了。
 000000014F60.07C: 復活中...
-000000014F61.07C: 恢復中...
 000000014F62.07C: 復活！
 000000014F66.07C: 展示_PH
 000000014FC5.07C: 從<fg%1$s>%2$s</fg>獲得<fg%1$s>和諧之珠</fg>
@@ -21596,8 +21648,9 @@ Affiliation: Overwatch (Formerly)
 000000015037.07C: %1$s(%2$s)說：跟我一起防守！%4$s
 000000015038.07C: %1$s(%2$s)說：我留在這裡警戒。%4$s
 000000015039.07C: %1$s(%2$s)說：謝謝你！%4$s
-00000001503A.07C: %1$s(%2$s)說：集合！%4$s
+00000001503A.07C: %1$s(%2$s)說：集合！%5$s
 00000001504B.07C: 鬥陣幣
+000000015050.07C: 處決者
 000000015063.07C: 在重生點外進行戰鬥
 00000001507A.07C: 預設
 000000015093.07C: 友善的禮物
@@ -21786,6 +21839,8 @@ Affiliation: Overwatch (Formerly)
 000000015541.07C: 和實力相當的玩家進行對戰。
 00000001556C.07C: 目前波數：%1$s/12
 00000001556D.07C: 額外波數：%1$s
+00000001557D.07C: 其他玩家正在選擇天賦：最多剩下%1$s秒。
+000000015605.07C: 女巫
 000000015610.07C: -
 000000015611.07C: |Rfn %1$s:N2;m
 000000015612.07C: |Rfn %1$s:P1;
@@ -21884,7 +21939,7 @@ Affiliation: Overwatch (Formerly)
 0000000157CB.07C: 正在等待
 0000000157CC.07C: 玩家不足
 0000000157CD.07C: 回合結束
-0000000157CE.07C: 
+0000000157CE.07C: <空白>
 0000000157E3.07C: 敵方標示靈敏度
 00000001580C.07C: 標示：選項
 00000001580E.07C: 確認/取消標示靈敏度
@@ -21994,7 +22049,7 @@ Affiliation: Overwatch (Formerly)
 000000015B5D.07C: 一拳入魂
 000000015B5E.07C: 在快速對戰或競技對戰中，以毀滅拳王的強化火箭拳一次將3個敵人打到牆上
 000000015B71.07C: 21:9
-000000015B7E.07C: 開心
+000000015B7E.07C: 短褂
 000000015B83.07C: 正在加入對戰
 000000015B84.07C: 自訂
 000000015B85.07C: 聯賽ID：%1$s，比賽ID：%2$s，遊戲編號：%3$s
@@ -22081,7 +22136,6 @@ Affiliation: Overwatch (Formerly)
 000000015FC2.07C: 減少受到的擊退效果。治療和受到傷害時產生的絕招蓄力較少。
 000000015FC6.07C: 顯示教學模式
 000000015FC7.07C: 繼續
-000000015FC8.07C: 開啟戰鬥通行證
 000000015FD1.07C: 代表隊
 000000015FD4.07C: 英雄進度
 000000015FD5.07C: 歡迎進入《鬥陣特攻》戰鬥通行證
@@ -22121,7 +22175,6 @@ Affiliation: Overwatch (Formerly)
 000000016002.07C: 增加等級
 000000016003.07C: 未增加等級
 000000016004.07C: 所有特級戰鬥通行證獎勵
-000000016005.07C: 特級戰鬥通行證內含：
 000000016006.07C: 資訊
 000000016007.07C: 教學模式
 000000016008.07C: 獲得戰鬥通行證經驗值來提升戰鬥通行證的進度。進行遊戲、完成每日挑戰、每週挑戰和賽季挑戰皆可獲得戰鬥通行證經驗值。詳情請參閱教學模式！
@@ -22369,7 +22422,7 @@ Affiliation: Overwatch (Formerly)
 0000000162B4.07C: 完成2022年死鬥競技模式預選賽即可解鎖
 0000000162B5.07C: 2022年死鬥競技精英
 0000000162B6.07C: 在2022年死鬥競技進入前500名即可解鎖
-0000000162B7.07C: 《鬥陣特攻》職業電競聯賽限定造型(客場)
+0000000162B7.07C: 職業電競聯賽限定造型(客場)
 0000000162F1.07C: 自信十足
 0000000162F5.07C: 夥伴
 0000000162FE.07C: 衝鋒
@@ -22383,6 +22436,7 @@ Affiliation: Overwatch (Formerly)
 000000016329.07C: 隊伍%1$s
 000000016333.07C: 球狀閃電冷卻時間
 000000016334.07C: %1$s(%2$s)正在等待重生！(%3$s秒)
+000000016340.07C: Pickup Container A
 00000001634A.07C: 展示_PH
 00000001634C.07C: 冥想
 00000001634E.07C: 從<fg%1$s>%2$s</fg>獲得的<fg%1$s>%3$s點額外生命值</fg>
@@ -22581,6 +22635,12 @@ Affiliation: Overwatch (Formerly)
 000000016663.07C: 檢視
 000000016666.07C: 商店
 000000016686.07C: 戰鬥通行證
+000000016688.07C: 屍械
+00000001668A.07C: 電流飛輪
+00000001668C.07C: 屍械砲兵
+00000001668D.07C: Junkenstein2 - NullSector - Castle
+00000001668E.07C: Checkpoint - Initial
+00000001668F.07C: Open Door
 00000001669B.07C: %1$s(%2$s)說：敵方%3$s在這裡昏睡！
 0000000166A5.07C: 生命值
 0000000166A6.07C: Armor
@@ -22589,6 +22649,7 @@ Affiliation: Overwatch (Formerly)
 0000000166A9.07C: 四管加農砲彈匣量
 0000000166AA.07C: 四管加農砲最小彈道擴散
 0000000166AB.07C: 四管加農砲最大彈道擴散
+0000000166AC.07C: 突破路障
 0000000166AF.07C: Grappling Claw Cooldown
 0000000166B3.07C: Adaptive Shield Duration
 0000000166B6.07C: Wrecking Ball Adaptive Shield Health Minimum
@@ -22596,6 +22657,7 @@ Affiliation: Overwatch (Formerly)
 0000000166B8.07C: 火爆鋼球的自動調整型護盾範圍
 0000000166BC.07C: 文字轉語音播放速度
 0000000166BE.07C: 協助工具
+0000000166C3.07C: 英雄模式
 0000000166EA.07C: Grappling Claw Maximum Speed Duration
 0000000166EB.07C: 滾球形態範圍傷害量
 0000000166EC.07C: Roll Lateral Knockback
@@ -22656,6 +22718,10 @@ Affiliation: Overwatch (Formerly)
 00000001673F.07C: 第八檢查點
 000000016740.07C: 第九檢查點
 000000016741.07C: 第十檢查點
+000000016746.07C: Gather at Pub Entrance
+000000016749.07C: 酒館會合
+0000000167CE.07C: Clear the ramparts
+0000000167D1.07C: 擊敗石像鬼
 0000000167D4.07C: 猛踢
 0000000167D5.07C: 快速近戰攻擊的傷害提高50%%，並且大幅提高擊退的距離。
 0000000167D6.07C: 英雄
@@ -22825,12 +22891,16 @@ Affiliation: Overwatch (Formerly)
 00000001693B.07C: 展示_PH
 00000001693D.07C: 威望等級已解鎖
 00000001693E.07C: 已完成戰鬥通行證
+00000001693F.07C: Get to dungeon
+000000016940.07C: Defeat Dungeon Enemies
+000000016941.07C: Reach The Castle
 000000016943.07C: 熱身
 000000016944.07C: 選擇訓練模式。
 000000016946.07C: 進行非排名模式或練習戰
 000000016947.07C: 完成5場對戰，即可解鎖新遊戲模式。
 000000016948.07C: 進行更多對戰
 000000016949.07C: 完成5場對戰，即可解鎖更多遊戲模式。
+000000016956.07C: Defeat Castle Guards
 000000016958.07C: 展示_PH
 00000001695B.07C: 控制類型(隨機英雄)
 00000001695C.07C: 混合類型(隨機英雄)
@@ -22920,6 +22990,8 @@ Affiliation: Overwatch (Formerly)
 0000000169D0.07C: 2600枚聯賽代幣
 0000000169D1.07C: 遊戲解析度
 0000000169D2.07C: TEST - Static Bundle II - Grants VC
+0000000169D3.07C: Open Gate To Ramparts
+0000000169D4.07C: 找到鑰匙，打開城牆大門
 0000000169D5.07C: 迅影襲重置次數
 0000000169D6.07C: 迅影襲重置次數%1$s
 0000000169D7.07C: 迅影襲單場最高重置次數
@@ -22936,6 +23008,7 @@ Affiliation: Overwatch (Formerly)
 0000000169E2.07C: 直接擊中命中率%1$s
 0000000169E3.07C: 單場最佳直接擊中命中率
 0000000169E4.07C: 單場最佳直接擊中命中率%1$s
+0000000169E5.07C: Reach the lord of the castle
 0000000169E9.07C: 藍鋼
 0000000169EA.07C: 主要攻擊命中率未採用
 0000000169EB.07C: 主要攻擊命中率%1$s未採用
@@ -22978,6 +23051,10 @@ Affiliation: Overwatch (Formerly)
 000000016A16.07C: 平均每十分鐘中斷技能次數
 000000016A17.07C: 平均每十分鐘中斷技能次數%1$s
 000000016A19.07C: %1$s(%2$s)說：我把傳送器放在這裡。
+000000016A1A.07C: 走地牢捷徑
+000000016A1B.07C: 在夢魘中存活
+000000016A1C.07C: 抵達城堡
+000000016A1D.07C: 擊敗城堡守衛
 000000016A24.07C: 平均傷害倍率
 000000016A25.07C: 平均傷害倍率%1$s
 000000016A26.07C: 單場最佳平均傷害倍率
@@ -22986,6 +23063,8 @@ Affiliation: Overwatch (Formerly)
 000000016A2B.07C: Bonus Multiplier Accumulation
 000000016A2C.07C: 加成倍率累積量%1$s
 000000016A31.07C: 正在處理請求
+000000016A3F.07C: 尋找城堡主人
+000000016A40.07C: Rescue the Lord of the castle
 000000016A43.07C: 平均每十分鐘鍛造鎚擊殺數
 000000016A44.07C: 平均每十分鐘鍛造鎚擊殺數%1$s
 000000016A45.07C: 主要攻擊命中率未採用
@@ -23029,7 +23108,10 @@ Affiliation: Overwatch (Formerly)
 000000016A6B.07C: 文字轉語音音量
 000000016A6D.07C: 返回
 000000016A75.07C: 帳號已變更
+000000016A7D.07C: 丟棄攜帶的目標物
 000000016A7E.07C: 語音
+000000016A9D.07C: 石像鬼
+000000016A9E.07C: 拯救城堡主人
 000000016AA0.07C: 特級戰鬥通行證
 000000016AA1.07C: 已解鎖
 000000016AA2.07C: 已購買
@@ -23164,6 +23246,7 @@ Affiliation: Overwatch (Formerly)
 000000016C36.07C: 離開佇列
 000000016C37.07C: 進階
 000000016C38.07C: 賽季活動
+000000016C40.07C: 打掃
 000000016C44.07C: 取消
 000000016C45.07C: 購買鬥陣幣
 000000016C51.07C: 專注舉杯
@@ -23180,6 +23263,10 @@ Affiliation: Overwatch (Formerly)
 000000016C6C.07C: 團隊聊天
 000000016C6D.07C: 悄悄話
 000000016C70.07C: 參與「支持實況主：醫護兵碧姬」活動即可解鎖
+000000016C93.07C: 實驗
+000000016C94.07C: 女妖
+000000016C95.07C: 新娘
+000000016C96.07C: 木偶
 000000016C97.07C: 推進：競技對戰
 000000016C99.07C: 選擇英雄時沒有角色類型限制，目標是擊敗敵方隊伍。
 000000016C9E.07C: 主要攻擊單場最佳命中率
@@ -23199,6 +23286,7 @@ Affiliation: Overwatch (Formerly)
 000000016CC0.07C: 自動調整型護盾單場最高產生量%1$s
 000000016CC1.07C: 自動調整型護盾平均每十分鐘產生量
 000000016CC2.07C: 自動調整型護盾平均每十分鐘產生量%1$s
+000000016CC3.07C: 拾取骷髏鑰匙
 000000016CCA.07C: 勝場數
 000000016CCB.07C: 勝場數%1$s
 000000016CCC.07C: 勝場數%1$s
@@ -23251,6 +23339,8 @@ Affiliation: Overwatch (Formerly)
 000000016D03.07C: 札莉雅
 000000016D04.07C: 禪亞塔
 000000016D07.07C: Press %1$s to change heroes
+000000016D0A.07C: Destroy Castle Door
+000000016D0B.07C: 燒毀城堡大門
 000000016D0C.07C: 鋸刃擊殺數%1$s
 000000016D0D.07C: 鋸刃擊殺數%1$s
 000000016D0E.07C: 鋸刃平均每十分鐘擊殺數
@@ -23284,18 +23374,33 @@ Affiliation: Overwatch (Formerly)
 000000016D2A.07C: 創傷持續時間
 000000016D2B.07C: 創傷持續時間%1$s
 000000016D2F.07C: 鑑定
+000000016D38.07C: Reach the ramparts gate
+000000016D39.07C: 抵達城堡
+000000016D3A.07C: 打開大門
 000000016D72.07C: 雪球出擊！
 000000016D73.07C: 取消
 000000016D78.07C: 帕拉伊索
 000000016D79.07C: 天生統治者
 000000016D84.07C: 希望之城
+000000016D8B.07C: Activate Secret Passage
+000000016D8C.07C: 隱密的開關
+000000016D8D.07C: 找到隱密的拉桿
 000000016D8E.07C: 主要攻擊取消次要攻擊
 000000016D91.07C: 在等候遊戲開始的時候，可以先試看看新英雄！
 000000016DAD.07C: https://support.blizzard.com/article/000034849
+000000016DB0.07C: 摧毀
+000000016DB1.07C: 摧毀
 000000016DB4.07C: 完成%1$s個每日挑戰
 000000016DC9.07C: 選擇
 000000016DCA.07C: 確認
 000000016DD0.07C: 競技對戰進度
+000000016DD3.07C: Checkpoint - Banshee Fight
+000000016DD4.07C: Checkpoint - Gargoyle Winston Fight
+000000016DD5.07C: Checkpoint - Echo Doll Fight
+000000016DD6.07C: Checkpoint - Castle Gate Fight
+000000016DD7.07C: Checkpoint - Reach The Throne Room
+000000016DD8.07C: Checkpoint - Final Battle
+000000016DD9.07C: Checkpoint - Pub
 000000016DF3.07C: 武器和絕招
 000000016DF5.07C: 紀錄
 000000016E01.07C: 開啟戰鬥通行證
@@ -23308,6 +23413,7 @@ Affiliation: Overwatch (Formerly)
 000000016E14.07C: 生命值
 000000016E15.07C: Shields
 000000016E16.07C: 商店
+000000016E2B.07C: 按住可解鎖
 000000016E6D.07C: 英雄勝場數%1$s
 000000016E6E.07C: 英雄勝場數%1$s
 000000016E95.07C: 電池
@@ -23357,11 +23463,27 @@ Affiliation: Overwatch (Formerly)
 000000016FB5.07C: 機器人拇指
 000000016FB6.07C: 鳳梨披薩
 000000016FB7.07C: 鐵坂守護者
+000000016FB8.07C: Gather In The Pub
+000000016FBB.07C: 躲進安全之處
 000000016FC3.07C: 部隊指揮官
 000000016FC4.07C: 目前停用的英雄
 000000016FC5.07C: 目前在排名對戰中停用的英雄
 000000016FC9.07C: 選擇鬥陣幣進行購買%1$s
 000000016FCD.07C: Earthshatter Hammer Damage
+000000016FD8.07C: 鼠肯斯坦復仇記：新娘之怒
+000000016FD9.07C: 鼠肯斯坦的新娘為了替她死去的創造者復仇，來到了阿德勒堡。四名英雄必須攜手合作才能阻止她
+000000016FDA.07C: 故事
+000000016FDB.07C: 享受故事情節，不會失敗
+警告：內含突發驚嚇片段
+000000016FDC.07C: 困難
+000000016FDD.07C: 新娘的手下變得更加強大了
+警告：內含突發驚嚇片段
+000000016FDE.07C: 專家
+000000016FDF.07C: 想抵達城堡可不容易
+警告：內含突發驚嚇片段
+000000016FE0.07C: 傳奇
+000000016FE1.07C: 傳奇故事
+警告：內含突發驚嚇片段
 000000016FE9.07C: 御狐衝刺
 000000016FEB.07C: 大笑
 000000016FEC.07C: 經由特殊挑戰、戰鬥通行證或遊戲內商店解鎖
@@ -23395,11 +23517,11 @@ Affiliation: Overwatch (Formerly)
 00000001703E.07C: 角色專精
 00000001703F.07C: 在快速對戰或競技對戰中，使用2種不同角色類型贏得10場對戰。
 000000017040.07C: 最佳防禦
-000000017041.07C: 總計造成或強化%1$s點傷害。(全面破壞不計入)
+000000017041.07C: 總計造成或強化%1$s點傷害。(全面破壞和合作模式不計入)
 000000017042.07C: 守住陣線
-000000017043.07C: 總計減免%1$s點傷害。(全面破壞不計入)
+000000017043.07C: 總計減免%1$s點傷害。(全面破壞和合作模式不計入)
 00000001704E.07C: 真正的英雄
-00000001704F.07C: 總計治療%1$s點傷害。(全面破壞不計入)
+00000001704F.07C: 總計治療%1$s點傷害。(全面破壞和合作模式不計入)
 000000017050.07C: 預設
 000000017051.07C: 尊爵金
 000000017056.07C: 關閉
@@ -23407,7 +23529,7 @@ Affiliation: Overwatch (Formerly)
 000000017059.07C: 英雄專精
 00000001705A.07C: 以常用英雄前3名以外的英雄完成任何模式的%1$s場對戰。
 00000001705B.07C: 精彩鏡頭
-00000001705C.07C: 使用絕招獲得%1$s次擊殺或助攻。(全面破壞不計入)
+00000001705C.07C: 使用絕招獲得%1$s次擊殺或助攻。(全面破壞和合作模式不計入)
 00000001705D.07C: 大掃除
 00000001705E.07C: 達成%1$s次敵隊全滅。
 000000017064.07C: 十項全能
@@ -23422,15 +23544,15 @@ Affiliation: Overwatch (Formerly)
 00000001707B.07C: 完成
 00000001707D.07C: 在佇列中
 00000001707E.07C: 關鍵救援
-00000001707F.07C: 拯救玩家%1$s次。(全面破壞不計入)
+00000001707F.07C: 拯救玩家%1$s次。(全面破壞和合作模式不計入)
 000000017080.07C: 禁止偷點戰術
 000000017081.07C: 爭奪或佔領目標%1$s秒。
 000000017082.07C: 奪命煞星
-000000017083.07C: 獲得%1$s次擊殺。(全面破壞不計入)
+000000017083.07C: 獲得%1$s次擊殺。(全面破壞和合作模式不計入)
 000000017084.07C: 所向披靡
-000000017085.07C: 在沒有死亡的情況下獲得10次擊殺或助攻。(全面破壞不計入)
+000000017085.07C: 在沒有死亡的情況下獲得10次擊殺或助攻。(全面破壞和合作模式不計入)
 000000017086.07C: 絕命招式
-000000017087.07C: 使用%1$s次絕招。(全面破壞不計入)
+000000017087.07C: 使用%1$s次絕招。(全面破壞和合作模式不計入)
 00000001708A.07C: 經由戰鬥通行證解鎖
 00000001708B.07C: 幹得好
 00000001708C.07C: 出發囉！
@@ -23481,33 +23603,33 @@ Affiliation: Overwatch (Formerly)
 0000000170BC.07C: 自由活躍
 0000000170BD.07C: 在自由佇列中完成%1$s場對戰。
 0000000170BE.07C: 防彈緩衝墊
-0000000170BF.07C: 減免%1$s點傷害。(全面破壞不計入)
+0000000170BF.07C: 減免%1$s點傷害。(全面破壞和合作模式不計入)
 0000000170C0.07C: 又救了你一次
-0000000170C1.07C: 治療%1$s點傷害。(全面破壞不計入)
+0000000170C1.07C: 治療%1$s點傷害。(全面破壞和合作模式不計入)
 0000000170C2.07C: 好好活著
-0000000170C3.07C: 在沒有死亡的情況下，治療1,500點傷害。(全面破壞不計入)
+0000000170C3.07C: 在沒有死亡的情況下，治療1,500點傷害。(全面破壞和合作模式不計入)
 0000000170C4.07C: 這樣殺不死我的
 0000000170C5.07C: 在沒有死亡的情況下，減免2,000點傷害。
 0000000170C6.07C: 總得有人罩著大家
-0000000170C7.07C: 在沒有死亡的情況下，爭奪或佔領目標30秒。(全面破壞不計入)
+0000000170C7.07C: 在沒有死亡的情況下，爭奪或佔領目標30秒。(全面破壞和合作模式不計入)
 0000000170CA.07C: 壓倒性的力量
-0000000170CB.07C: 使用絕招獲得%1$s次擊殺或助攻。(全面破壞不計入)
+0000000170CB.07C: 使用絕招獲得%1$s次擊殺或助攻。(全面破壞和合作模式不計入)
 0000000170CC.07C: 神射手
 0000000170CD.07C: 造成%1$s次爆擊。
 0000000170CE.07C: 攻擊武器專精
 0000000170CF.07C: 使用武器造成或強化%1$s點傷害。
 0000000170D0.07C: 無名英雄
-0000000170D1.07C: 獲得%1$s次助攻。(全面破壞不計入)
+0000000170D1.07C: 獲得%1$s次助攻。(全面破壞和合作模式不計入)
 0000000170D2.07C: 近距離專家
 0000000170D3.07C: 在15公尺內獲得%1$s次擊殺或助攻。
 0000000170D4.07C: 遠距離專家
 0000000170D5.07C: 在15公尺外獲得%1$s次擊殺或助攻。
 0000000170D6.07C: 移動中別擋路
-0000000170D7.07C: 使用移動技能後，在3秒內獲得擊殺或助攻。(全面破壞不計入)
+0000000170D7.07C: 使用移動技能後，在3秒內獲得擊殺或助攻。(全面破壞和合作模式不計入)
 0000000170D8.07C: 生死交錯
-0000000170D9.07C: 使用治療技能後，在3秒內獲得擊殺或助攻。(全面破壞不計入)
+0000000170D9.07C: 使用治療技能後，在3秒內獲得擊殺或助攻。(全面破壞和合作模式不計入)
 0000000170DA.07C: 攻擊技能專精
-0000000170DB.07C: 使用技能造成%1$s點傷害。(全面破壞不計入)
+0000000170DB.07C: 使用技能造成%1$s點傷害。(全面破壞和合作模式不計入)
 0000000170DC.07C: 與好友同樂
 0000000170DD.07C: 組隊完成%1$s場對戰。
 0000000170DE.07C: 社交破冰
@@ -23523,11 +23645,12 @@ Affiliation: Overwatch (Formerly)
 0000000170EB.07C: PvP Challenges - Player - Ultimate Eliminations
 0000000170EC.07C: PvP Challenges - Player - Ultimate Eliminations and Assists
 0000000170F5.07C: 你的帳號整合完畢！
-0000000170F6.07C: 整合過程發生錯誤：BLZOWMIG10001
+0000000170F6.07C: 帳號整合過程發生錯誤：BLZOWMIG10001
 0000000170F7.07C: 你的帳號正在等待整合。在整合完成前，無法使用某些功能。
 0000000170F9.07C: 摺疊獨角獸
 0000000170FD.07C: 生化球
 0000000170FE.07C: 一小袋金幣
+0000000170FF.07C: 黑貓
 000000017100.07C: 小兔兔鑰匙圈
 000000017101.07C: 摺紙鶴
 000000017102.07C: 生化惡鬼面
@@ -23535,7 +23658,7 @@ Affiliation: Overwatch (Formerly)
 000000017104.07C: 御狐
 000000017106.07C: 最佳進球
 000000017107.07C: 桃子章魚
-000000017108.07C: 《鬥陣特攻》標示
+000000017108.07C: 捍衛者標誌
 000000017109.07C: 彩虹
 00000001710A.07C: 治療包
 00000001710B.07C: 甜甜圈
@@ -23612,7 +23735,6 @@ Affiliation: Overwatch (Formerly)
 00000001716B.07C: 觀賞精彩回顧
 00000001716C.07C: 隊伍語音聊天
 00000001716D.07C: 團隊語音聊天
-00000001716F.07C: 鐵坂
 000000017176.07C: 角色類型佇列加成：%1$s點經驗值
 000000017179.07C: 投幣順序
 00000001717A.07C: 在任意遊樂場模式中贏得%1$s場對戰。
@@ -23626,6 +23748,7 @@ Affiliation: Overwatch (Formerly)
 000000017186.07C: GG
 000000017188.07C: 儲存錯誤
 000000017189.07C: 魔術方塊
+00000001718B.07C: 直布羅陀噴射機
 00000001718C.07C: 紅心
 00000001718D.07C: 國王的目標
 00000001718E.07C: 鹹味
@@ -23731,10 +23854,11 @@ Affiliation: Overwatch (Formerly)
 0000000172BA.07C: 如果被鋸刃擊中，試著躲到地形後方以避免被拉到垃圾鎮女王身邊。
 0000000172BB.07C: 屠殺可以造成大量傷害，但在揮舞結束前會讓垃圾鎮女王變得比較脆弱。好好這個把握機會攻擊或是逃跑。
 0000000172BC.07C: 試著讓垃圾鎮女王遠離她的隊友，來降低統率怒號的使用效果。
+0000000172C0.07C: 使用艾西的炸藥破壞大門
 0000000172C2.07C: 輔助武器專精
 0000000172C3.07C: 使用武器治療%1$s點傷害。
 0000000172C4.07C: 輔助技能專精
-0000000172C5.07C: 使用技能治療%1$s點傷害。(全面破壞不計入)
+0000000172C5.07C: 使用技能治療%1$s點傷害。(全面破壞和合作模式不計入)
 0000000172C6.07C: 鋸刃擊退距離
 0000000172C7.07C: PvP Challenges - Player - Ability Damage
 0000000172C8.07C: PvP Challenges - Player - Damage Amplified with Ability
@@ -23771,6 +23895,9 @@ Affiliation: Overwatch (Formerly)
 0000000172F1.07C: 選擇輔助型英雄
 0000000172F4.07C: 進行更多對戰
 0000000172F5.07C: 完成5場對戰即可解鎖更多遊戲模式。
+0000000172F7.07C: Interact with Radio
+0000000172F8.07C: 檢查收音機
+0000000172F9.07C: 檢查收音機
 0000000172FB.07C: 擊殺10個訓練機器人(%1$s/10)
 0000000172FD.07C: PvP Challenges - Player - Ability Healing
 0000000172FF.07C: 第1賽季：角色類型佇列選手
@@ -23806,11 +23933,11 @@ Affiliation: Overwatch (Formerly)
 00000001731F.07C: 堅毅不屈
 000000017320.07C: 在任意模式贏得%1$s場對戰。
 000000017321.07C: 要你死
-000000017322.07C: 在任意死鬥模式贏得%1$s場對戰。
+000000017322.07C: 在非排名死鬥模式贏得%1$s場對戰。
 000000017323.07C: 變化多端
-000000017324.07C: 在神秘客模式贏得%1$s場對戰。
+000000017324.07C: 在非排名模式神秘客模式贏得%1$s場對戰。
 000000017325.07C: 派對咖
-000000017326.07C: 在任意遊樂場模式(不含死鬥)贏得%1$s場對戰。
+000000017326.07C: 在任意遊樂場模式贏得%1$s場對戰。
 000000017327.07C: 內行選手
 000000017328.07C: 在任意競技對戰模式贏得%1$s場對戰。
 000000017329.07C: 老練選手
@@ -23976,6 +24103,8 @@ Affiliation: Overwatch (Formerly)
 000000017433.07C: 生化惡鬼
 000000017436.07C: 生化球擊殺數
 000000017438.07C: 伺服器忙碌中，稍後會更新餘額。
+000000017467.07C: Gather In The Ramparts
+000000017468.07C: 通過城牆
 00000001748C.07C: PvP Challenges - Player - Eliminations and Assists without Dying
 00000001748F.07C: PvP Challenges - Player - Healing without Dying
 00000001749E.07C: 索潔恩
@@ -24126,7 +24255,7 @@ Affiliation: Overwatch (Formerly)
 000000017562.07C: 在角色類型佇列以自由位贏得一次勝利。
 000000017563.07C: 首次搶旗勝利
 000000017564.07C: 贏得一次搶旗對戰。
-000000017567.07C: 首次自由混戰死鬥勝利
+000000017567.07C: 首次贏得死鬥勝利
 000000017568.07C: 贏得一場團隊死鬥。
 000000017571.07C: 首次隊伍死鬥勝利
 000000017572.07C: 贏得一場團隊死鬥。
@@ -24147,6 +24276,7 @@ Affiliation: Overwatch (Formerly)
 00000001758B.07C: 突擊隊
 00000001758D.07C: 唯有你
 00000001758F.07C: 日照大地
+000000017592.07C: 女巫
 0000000175B5.07C: |Rfd %1$s:mm:ss;
 0000000175B6.07C: PvP Challenges - Player - Damage Amplified and Done
 0000000175D0.07C: PvP Challenges - Player - Challenges Completed
@@ -24166,6 +24296,8 @@ Affiliation: Overwatch (Formerly)
 000000017618.07C: 近期遊玩：
 000000017619.07C: 遊玩時間：
 00000001761A.07C: 所有英雄
+00000001761E.07C: 壺鈴
+000000017624.07C: 鐵板
 000000017625.07C: 大廳資訊
 000000017626.07C: 描述
 00000001764D.07C: PvP Challenges - Player - Mitigation without Dying
@@ -24292,6 +24424,10 @@ Affiliation: Overwatch (Formerly)
 0000000177BB.07C: PvP Challenges - Player - Arcade - Duel - Win
 0000000177BD.07C: PvP Challenges - Player - Any Competitive Mode - Win
 0000000177C2.07C: PvP Challenges - Player - Mystery Heroes - Win
+0000000177C4.07C: 職業電競聯賽(灰)
+0000000177C5.07C: 職業電競聯賽(灰)
+0000000177C6.07C: 職業電競聯賽(白)
+0000000177C7.07C: 職業電競聯賽(白)
 0000000177C8.07C: 戰鬥通行證
 0000000177C9.07C: 鬥陣幣
 0000000177CA.07C: 加成
@@ -24329,11 +24465,11 @@ Affiliation: Overwatch (Formerly)
 000000017876.07C: PvP Challenges - Player - Map - Circuit Royal - Win
 000000017877.07C: PvP Challenges - Player - Map - Paraiso - Win
 000000017878.07C: PvP Challenges - Player - Map - Midtown - Win
-000000017882.07C: 
-000000017883.07C: 
-000000017884.07C: 
-000000017885.07C: 
-000000017886.07C: 
+000000017882.07C: <空白>
+000000017883.07C: <空白>
+000000017884.07C: <空白>
+000000017885.07C: <空白>
+000000017886.07C: <空白>
 000000017887.07C: %1$s點戰鬥通行證經驗值
 000000017889.07C: 武器
 00000001788A.07C: 紋身
@@ -24355,9 +24491,11 @@ Affiliation: Overwatch (Formerly)
 0000000178F9.07C: 賽季挑戰
 0000000178FA.07C: 英雄挑戰
 0000000178FB.07C: 生涯挑戰
+0000000178FE.07C: 摧毀
 0000000178FF.07C: 按住%1$s來更換英雄
 000000017902.07C: 經驗值
 000000017903.07C: 獎勵：
+000000017924.07C: Calypso英雄模式
 00000001793E.07C: 完成新玩家體驗即可解鎖此功能。
 00000001793F.07C: 選擇造型
 000000017941.07C: 玩家：在沒有死亡的情況下目標攻防時間
@@ -24394,7 +24532,9 @@ Affiliation: Overwatch (Formerly)
 0000000179EE.07C: PvP Challenges - Player - Games Played
 0000000179F0.07C: 購買《鬥陣特攻》職業電競聯賽代幣
 0000000179F8.07C: 時間：
-000000017A2A.07C: 啟動扳機回饋
+000000017A2A.07C: 啟動DualSense扳機效果
+000000017A40.07C: 按住可解鎖
+000000017A41.07C: 拾取骷髏鑰匙
 000000017A48.07C: 在整個賽季提高獲得的戰鬥通行證經驗值。
 000000017A4A.07C: (還剩%1$s場)
 000000017A4B.07C: %1$s%%經驗值
@@ -24570,6 +24710,8 @@ Affiliation: Overwatch (Formerly)
 000000017B1B.07C: PvP Challenges - Player - Daily Challenges Completed
 000000017B1D.07C: PvP Challenges - Player - Queued as All Roles - Win
 000000017B1F.07C: PvP Challenges - Player - Arcade - Non Deathmatch Aracde - Win
+000000017B26.07C: 萬聖節（故事模式）最佳分數
+000000017B27.07C: 萬聖節（故事模式）最佳分數%1$s
 000000017B28.07C: 降低選單移動
 000000017B29.07C: 在教學模式中學習移動、射擊和技能的基本操作。
 000000017B4A.07C: 已完成%1$s個每日挑戰
@@ -24678,7 +24820,7 @@ Affiliation: Overwatch (Formerly)
 000000017BEB.07C: 檢視遊戲報告
 000000017BFF.07C: 開啟戰鬥通行證
 000000017C04.07C: 每次開遊戲時重置
-000000017C09.07C: 在第1賽季經由Twitch Drops活動解鎖。在第2賽季經由英雄展示廳解鎖。
+000000017C09.07C: 在第1賽季經由Twitch Drops活動解鎖。在第2賽季的英雄展示廳中解鎖。
 000000017C0A.07C: 經由地區活動解鎖。從11月起可在英雄展示廳解鎖。
 000000017C0B.07C: 禁止%1$s發言
 000000017C10.07C: 沒有足夠位置加入對戰
@@ -24686,9 +24828,11 @@ Affiliation: Overwatch (Formerly)
 000000017C18.07C: 苔原
 000000017C19.07C: 林地
 000000017C1A.07C: 北極光
+000000017C1B.07C: 窺探內部
 000000017C1C.07C: 購買特級戰鬥通行證
 000000017C1D.07C: 購買特級戰鬥通行證，以及20級獎勵等級
 000000017C25.07C: 挑戰
+000000017C27.07C: 阿德勒堡
 000000017C2B.07C: %1$s %2$s
 000000017C43.07C: PvP Challenges - Player - Hero - Sojourn - Win
 000000017C44.07C: PvP Challenges - Player - Hero - Queen - Win
@@ -24697,6 +24841,10 @@ Affiliation: Overwatch (Formerly)
 000000017C49.07C: 以索潔恩贏得%1$s場對戰。
 000000017C59.07C: 指揮官追緝
 000000017C5A.07C: 以索潔恩贏得%1$s場對戰。
+000000017C5B.07C: PvE Challenges - Player - Event - Halloween- 2022 - Witness Banshee Moments
+000000017C5C.07C: 不祥預兆
+000000017C5D.07C: 在一次「新娘之怒」挑戰中，見證全部7次的女妖時刻。
+000000017C60.07C: 戰鬥通行證經驗值
 000000017C63.07C: 天生統治者
 000000017C64.07C: 以垃圾鎮女王贏得%1$s場對戰。
 000000017C67.07C: 女王萬歲
@@ -24709,11 +24857,173 @@ Affiliation: Overwatch (Formerly)
 000000018578.07C: 對戰語音聊天
 000000018584.07C: 戰鬥通行證經驗值
 000000018585.07C: 戰鬥通行證經驗值
+00000001858A.07C: 新娘之怒
+00000001858B.07C: 在任意難度的「新娘之怒」贏得勝利。
+00000001858D.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win Any difficulty
+00000001858E.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Expert
+00000001858F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Legendary
+000000018590.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Ashe
+000000018592.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Photobomb Bride
+000000018594.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Destroy N Shock Tires
+000000018595.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Crouch At Bonfire
+000000018596.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Discover Secret Area
+000000018598.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Get N Score Or Higher
+00000001859A.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate N Bosses
+00000001859B.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate Bastion In Tank Form
+00000001859C.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win With No Lord Of The Castle Damage
 00000001859D.07C: 經由地區活動解鎖。從第2賽季起可在英雄展示廳解鎖。
 00000001859F.07C: 戰鬥通行證經驗值
+000000018600.07C: 點燃提燈
+000000018601.07C: 在新娘之怒中鬼魂出現期間，蹲在燈籠旁6秒。
+000000018602.07C: 換上備胎
+000000018603.07C: 在新娘之怒中摧毀%1$s個電流飛輪。
+000000018604.07C: 女巫的陰謀
+000000018605.07C: 在新娘之怒中，發掘隱藏在阿德勒堡深處的可怕過去。
+000000018606.07C: 變形機器人
+000000018607.07C: 在困難以上難度的「新娘之怒」中，在實驗體為坦克型態時將之殲滅。
+000000018608.07C: 新娘的手下
+000000018609.07C: 在新娘之怒中，消滅%1$s個頭目。
+00000001860A.07C: 英雄之怒
+00000001860B.07C: 在「新娘之怒」中，以10,000以上的分數獲得勝利即可解鎖。
+00000001860E.07C: 殭屍合照
+00000001860F.07C: 在新娘之怒中，於新娘登場時擺個姿勢。
+000000018612.07C: 新娘來了
+000000018613.07C: 在專家難度的「新娘之怒」贏得勝利。
+000000018614.07C: 愛能征服一切
+000000018615.07C: 在傳奇難度的「新娘之怒」贏得勝利。
+000000018616.07C: 勇敢四英雄
+000000018617.07C: 使用4種不同英雄在新娘之怒贏得勝利。
+000000018618.07C: 毫髮無傷
+000000018619.07C: 在城堡主人沒有受到傷害的情況下贏得新娘之怒。
+00000001863F.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Sojourn
+000000018640.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Queen
+000000018641.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Kiriko
+00000001864E.07C: 當你瀕臨死亡時，快爬到掩體後並避開敵人，讓隊友可以安全地復活你。
+00000001865A.07C: 你的英雄夥伴是你唯一的治療來源，所以別走散了！
 00000001865B.07C: 沒有吊飾
+000000018667.07C: 阿德勒堡有些迷信的人相信風嘨聲是不祥之兆...
+000000018668.07C: 注意你的周遭！屍械通常都會成群出現。
+000000018669.07C: 如果你會怕就閉上眼睛。
+00000001866A.07C: 女巫已經有一段時間沒有出現在阿德勒堡，但據說她還在城鎮裡遊蕩。
+00000001866B.07C: 你即使在夢裡也不安全。
+000000018690.07C: 那個怪物是鼠肯斯坦創造的第一個，但不是最後一個…
+000000018693.07C: 你有想過話語可以把你逼瘋嗎？
+000000018694.07C: 現在回頭還來得及。
+000000018695.07C: 你知道嗎？新娘有仇必報。
+000000018696.07C: 她會找到你的。
+0000000186A9.07C: 還剩下%1$s！
+0000000186AA.07C: 萬聖節（故事模式）最佳分數
+0000000186AB.07C: 萬聖節（故事模式）最佳分數%1$s
+0000000186AE.07C: 2022年萬聖節驚魂
+0000000186AF.07C: 阿德勒堡夜幕
+0000000186B1.07C: 屍械塗鴉
+0000000186B3.07C: 至死方休
+0000000186B4.07C: 完成萬聖節驚魂的英雄之怒挑戰來解鎖
+0000000186B5.07C: 完成萬聖節驚魂的下定決心挑戰來解鎖
+0000000186B7.07C: Defeat Sombra
+0000000186B8.07C: 擊敗新娘
+0000000186BD.07C: 開放鎖定英雄
+0000000186BE.07C: 有位名叫霧子的女巫擅長占卜，有些人覺得這是稀有的天賦…也有人將其視為詛咒。她占卜的未來常常帶領她前往最需要她的地方。
+000000018742.07C: 來占卜一下吧
+000000018744.07C: PvE Challenges - Player - Event - Halloween - OW1 - Normal - Win a Game
+000000018747.07C: 閱讀塔羅牌
+000000018753.07C: 我們的故事開始了
+000000018754.07C: 別惹新娘
+000000018756.07C: 月下屍械
+000000018757.07C: 南瓜燈籠
+000000018759.07C: 有屍體要處理
+00000001875A.07C: 兇手通常是寡婦
+00000001875C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Endless - Win a Game
+00000001875E.07C: 敲打
+00000001875F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Tavern Secret
+000000018760.07C: 有人在嗎...
+000000018761.07C: 在新娘之怒中干擾酒館的客人。
+000000018768.07C: PvE Challenges - Player - Event - Halloween - OW1 - Chaser - Win a Game
+000000018769.07C: PvE Challenges - Player - Event - Halloween - OW1 - Speed - Win a Game
+00000001876A.07C: PvE Challenges - Player - Event - Halloween - OW1 - Trio - Win a Game
+00000001876B.07C: PvE Challenges - Player - Event - Halloween - OW1 - Tires - Win a Game
+00000001876C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Boom - Win a Game
+00000001876D.07C: PvE Challenges - Player - Event - Halloween - OW1 - Mystery - Win a Game
+000000018785.07C: 在任意難度的「鼠肯斯坦復仇記」贏得勝利。
+00000001878E.07C: 往日的英雄
+00000001878F.07C: 無盡之夜開始
+000000018790.07C: 在鼠肯斯坦無盡復仇完成第12波攻勢。
+0000000187A3.07C: 10/30切勿錯過
+0000000187C6.07C: 競技挑戰
+0000000187C7.07C: 活動挑戰
+0000000187E5.07C: 陰魂不散
+0000000187E6.07C: 贏得鼠肯斯坦大挑戰任務：復仇之鬼。
+0000000187E7.07C: 快得嚇人
+0000000187E8.07C: 贏得鼠肯斯坦大挑戰任務：高速湧竄。
+0000000187E9.07C: 可怕三人組
+0000000187EA.07C: 贏得鼠肯斯大坦挑戰任務：三缺一。
+0000000187EB.07C: 接受電擊吧！
+0000000187EC.07C: 贏得鼠肯斯坦大挑戰任務：電流快感。
+0000000187ED.07C: 活動於11月8日截止
+0000000187F0.07C: 商店限時推出全新萬聖節造型！
+完成活動挑戰即可獲得南瓜燈籠武器吊飾和其他趣味外觀！
+0000000187F1.07C: 粉絲最愛的鼠肯斯坦復仇記這次帶著全新的「新娘之怒」體驗回歸了！
+0000000187F4.07C: 邪惡爆爆
+0000000187F5.07C: 贏得鼠肯斯坦大挑戰任務：屍械爆爆。
+0000000187F6.07C: 變裝派對
+0000000187F7.07C: 贏得鼠肯斯坦大挑戰任務：神秘變變變。
+000000018800.07C: 完成萬聖節驚魂的勇敢四英雄挑戰來解鎖
+000000018806.07C: 完成萬聖節驚魂的女巫的陰謀挑戰來解鎖
+000000018807.07C: 完成萬聖節驚魂的不祥預兆挑戰來解鎖
+000000018808.07C: 完成萬聖節驚魂的有人在嗎...挑戰來解鎖
+000000018809.07C: 完成萬聖節驚魂的新娘的手下挑戰來解鎖
+00000001880A.07C: 完成萬聖節驚魂的新娘之怒挑戰來解鎖
+00000001880B.07C: 完成萬聖節驚魂的殭屍合照挑戰來解鎖
+00000001880C.07C: 完成萬聖節驚魂的換上備胎挑戰來解鎖
+000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
+00000001884A.07C: 下定決心
+00000001884B.07C: 在困難難度的「新娘之怒」贏得勝利。
+000000018850.07C: 婚禮企劃師
+000000018851.07C: 完成13個鼠肯斯坦大挑戰。
+000000018855.07C: 輸入精彩回顧名稱
+000000018858.07C: 挑戰完成：%1$s
+000000018859.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win with Different Heroes
+00000001885A.07C: 戰鬥通行證經驗值
+00000001885B.07C: 戰鬥通行證經驗值
+000000018876.07C: 未救出阿德勒堡的主人
+000000018878.07C: 完成萬聖節驚魂的婚禮企劃師挑戰來解鎖
+00000001889F.07C: 倒地倒數
+0000000188B3.07C: 存活獎勵！+%1$s分
+0000000188B4.07C: 時間獎勵！+%1$s分
+0000000188B5.07C: 目標達成獎勵！+%1$s分
+0000000188B6.07C: 擊殺分數+%1$s分
+0000000188B7.07C: 存活獎勵+%1$s分
+0000000188B8.07C: 時間獎勵+%1$s分
+0000000188B9.07C: 目標達成獎勵+%1$s分
+0000000188BA.07C: 新娘之怒
+0000000188E1.07C: VS
+0000000188FF.07C: 石像鬼
+000000018900.07C: 新娘
+000000018901.07C: 陰魂不散的鬼魂
+000000018902.07C: 恐怖的實驗
+000000018903.07C: 木偶
+000000018904.07C: 召喚師
+000000018907.07C: 英雄：艾西、垃圾鎮女王、索潔恩、霧子
+000000018908.07C: 勝利條件：打倒新娘以及她的同夥
+000000018919.07C: 新娘之怒
 00000001891A.07C: 組合包販售折扣乃是以各物品獨立販售之價格為比較基礎。對於沒有常態獨立販售的物品，將改採同階級和類型的類似物品之獨立販售價格做為比較基礎。
+000000018931.07C: 預設語音
+000000018932.07C: 無盡模式
+000000018934.07C: 倒下...
+000000018935.07C: 倒下！
+00000001894B.07C: Resurrect %1$s
+000000018999.07C: 瀕死次數
+00000001899A.07C: 瀕死次數%1$s
+0000000189A3.07C: 鼠肯斯坦2022年勝場
+0000000189A7.07C: 影片字幕
 0000000189A8.07C: https://account.battle.net/connections
 0000000189A9.07C: https://www.blizzard.com/%1$s/legal/
-000000018AE0.07C: Please return to login for your account changes to take effect.
-[Core] Execution finished in 00:00:00.6258835 seconds
+0000000189EC.07C: CHECKPOINT RESTORE
+000000018A00.07C: 
+000000018A0C.07C: 經由11月開始的地區活動解鎖。有時可在商店中解鎖。
+000000018A74.07C: PvP Challenges - Player - Critical Damage
+000000018A75.07C: 神射手
+000000018A76.07C: 造成%1$s點爆擊傷害。
+000000018ADF.07C: 解鎖王座廳
+000000018AE0.07C: 請重新登入讓你的帳號變更生效。
+[Core] Execution finished in 00:00:00.6689106 seconds

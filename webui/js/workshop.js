@@ -1093,19 +1093,37 @@ var app = new Vue({
         },
         moveSelected(array, moveUp) {
             if (moveUp) {
-                for (var i = 1; i < array.length; i++) {
-                    if (array[i].isSelected && !array[i-1].isSelected) {
-                        var elem = array[i];
-                        array.splice(i, 1);
-                        array.splice(i-1, 0, elem);
+                var arrayStop = array.length;
+                for (var i = 0; i < arrayStop; i++) {
+                    if (array[i].isSelected) {
+                        if (i === 0) {
+                            var elem = array[i];
+                            array.shift();
+                            array.push(elem);
+                            arrayStop--;
+                            i--;
+                        } else if (!array[i-1].isSelected) {
+                            var elem = array[i];
+                            array.splice(i, 1);
+                            array.splice(i-1, 0, elem);
+                        }
                     }
                 }
             } else {
-                for (var i = array.length - 2; i >= 0; i--) {
-                    if (array[i].isSelected && !array[i+1].isSelected) {
-                        var elem = array[i];
-                        array.splice(i, 1);
-                        array.splice(i+1, 0, elem);
+                var arrayStop = 0
+                for (var i = array.length - 1; i >= arrayStop; i--) {
+                    if (array[i].isSelected) {
+                        if (i === array.length - 1) {
+                            var elem = array[i];
+                            array.pop();
+                            array.unshift(elem);
+                            arrayStop++;
+                            i++;
+                        } else if (!array[i+1].isSelected) {
+                            var elem = array[i];
+                            array.splice(i, 1);
+                            array.splice(i+1, 0, elem);
+                        }
                     }
                 }
             }
@@ -1701,6 +1719,7 @@ var app = new Vue({
                 this.uiSettings.background = uiSettings.background;
                 this.uiSettings.language = uiSettings.language;
                 this.uiSettings.compilationLanguage = uiSettings.compilationLanguage;
+                this.decompilationLanguage = uiSettings.compilationLanguage;
             }
         },
         saveUiSettings: async function() {

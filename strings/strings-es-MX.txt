@@ -1,16 +1,18 @@
-[Core] DataTool v2.1.0.0+1004+c5fce64c
+[Core] DataTool v2.1.0.0+1009+de9c785f
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=esMX", "-T=esMX"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: esMX | Speech Language: esMX
-[CASC] Overwatch build 2.1.0.2.106389
+[CASC] Overwatch build 2.1.1.0.106617
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106110 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
-[Manifest] Using CMF procedure 106110 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LesMX_text_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LesMX_speech_EExt.cmf
+[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
 [Core] Checking ResourceKeys
+[GUIDNames] GUIDNames.csv not found
+[LocalizedNames] LocalizedNamesMapping.csv not found
 [Core] Tooling...
 000000000019.07C: Muere... Muere... Muere...
 000000000020.07C: Mercy
@@ -619,7 +621,6 @@
 0000000008D8.07C: OBSERVAR A JUGADOR 10
 0000000008D9.07C: OBSERVAR A JUGADOR 11
 0000000008DA.07C: OBSERVAR A JUGADOR 12
-00000000094D.07C: %1$s (%2$s): ¡Agrúpense conmigo!
 00000000094E.07C: %1$s (%2$s): ¡Mi habilidad máxima (%3$s) %4$s está lista!
 00000000099D.07C:  no pudo unirse al grupo.
 0000000009A0.07C: %1$s (%2$s): ¡Mi habilidad máxima (%4$s) %5$s está cargándose! %3$s%%
@@ -1687,7 +1688,6 @@ Vive la experiencia completa con nuevas formas de jugar con una selección varia
 000000001AA6.07C: ATAQUE
 000000001AA7.07C: ATAQUE
 000000001AA8.07C: EL VACÍO INSENSIBLE
-000000001AAD.07C: <tx%1$s> ME GUSTA
 000000001AAE.07C: BAJA
 000000001AAF.07C: MEDIA
 000000001AB0.07C: ALTA
@@ -4830,7 +4830,7 @@ de dificultad letal.
 0000000046D4.07C: Las partidas competitivas no están disponibles actualmente.
 0000000046D5.07C: Oasis
 0000000046D8.07C: BENEFICIO DE IGR PREMIUM
-0000000046D9.07C: 15 %% DE EXP ADICIONAL del pase de batalla
+0000000046D9.07C: 15 %% de EXP ADICIONAL del pase de batalla
 0000000046DA.07C: ¡DISEÑOS EDICIÓN ORIGIN DESBLOQUEADOS!
 0000000046E3.07C: Reiniciar
 0000000046E7.07C: RONDA %1$s COMPLETADA
@@ -5038,7 +5038,7 @@ de colocación
 0000000048A0.07C: |Rpl %1$s gol:goles;
 0000000048A1.07C: %1$s |Rpl gol:goles;
 0000000048A8.07C: JUGADA DE LA PARTIDA POR
-0000000048AA.07C: %1$s (%2$s) a %3$s (%4$s): ¡Agrúpense!
+0000000048AA.07C: %1$s (%2$s - %3$s m) a %6$s (%7$s): ¡Agrúpense! %5$s
 0000000048AB.07C: Mostrar el reloj del sistema
 0000000048AC.07C: |Rpl %1$s:interceptación:interceptaciones;
 0000000048AD.07C: %1$s |Rpl interceptación:interceptaciones;
@@ -5403,6 +5403,7 @@ de colocación
 000000004C26.07C: BlizzCon 2016
 000000004C27.07C: Desbloqueado como parte de la bolsa de recuerdos de la BlizzCon 2016
 000000004C28.07C: Errante oscuro
+000000004C29.07C: La venganza de Junkenstein
 000000004C2C.07C: Tomar captura de pantalla
 000000004C2E.07C: Limitar cliente a la velocidad de envío
 000000004C2F.07C: Limitar servidor a la velocidad de envío
@@ -5549,7 +5550,6 @@ de colocación
 000000004E24.07C: Asia
 000000004E25.07C: China
 000000004E35.07C: REAPARICIÓN EN
-000000004E36.07C: TIEMPO DE LA PARTIDA:
 000000004E43.07C: ¡GANA %1$s!
 000000004E65.07C: ¡El equipo enemigo tomó la bandera!
 000000004E66.07C: ¡Tienes la bandera!
@@ -5703,7 +5703,7 @@ de colocación
 000000005039.07C: Tercero
 00000000503A.07C: Todos
 00000000503F.07C: Oportunista
-000000005040.07C: Detectas enemigos con heridas críticas a través de las paredes e infliges un 40 %% de daño adicional a los enemigos hackeados.
+000000005040.07C: Detectas enemigos con heridas críticas a través de las paredes e infliges un 40 %% de daño adicional a los enemigos hackeados.
 000000005041.07C: Daña a Sombra mientras te hackea a ti o a un compañero de equipo para interrumpir el hackeo.
 000000005042.07C: Las habilidades como Infravisión de Widowmaker y Flecha sónica de Hanzo revelan a Sombra.
 000000005043.07C: Cuando veas la ubicación de Sombra, asegúrate de comunicársela al resto de tu equipo.
@@ -5772,6 +5772,8 @@ de colocación
 0000000050CD.07C: Hackea a 15 enemigos como Sombra sin morir en partida rápida o juego competitivo.
 0000000050CE.07C: Apagón
 0000000050CF.07C: Hackea a 5 enemigos a la vez como Sombra en Partida rápida o Juego competitivo.
+0000000050EE.07C: REVIVIENDO A %1$s
+0000000050EF.07C: MANTÉN PRESIONADO PARA REVIVIR A %2$s
 0000000050FF.07C: Eliminación
 000000005101.07C: Compite en un equipo de tres jugadores en una serie de peleas.
 000000005108.07C: 3v3
@@ -6154,6 +6156,7 @@ recargadas;
 000000005577.07C: Seleccionar
 000000005579.07C: ¿Qué?
 00000000557D.07C: Desbloqueado como parte del vigésimo aniversario de Diablo
+000000005582.07C: Unirte a chat de equipo
 000000005588.07C: ¡Qué suerte!
 00000000558D.07C: No puedes unirte a un grupo durante una partida competitiva.
 000000005590.07C: Manos unidas
@@ -6354,7 +6357,7 @@ recargadas;
 00000000579B.07C: HÉROES: Reinhardt, Mercy, Tracer, Torbjörn
 00000000579C.07C: VICTORIA: completar exitosamente todos los objetivos de la misión
 00000000579D.07C: Cooperativo
-0000000057A0.07C: |Rpl %1$s:Generador de escudo destruído:Generadores de escudos destruidos;  
+0000000057A0.07C: |Rpl %1$s:Generador de escudo destruído:Generadores de escudos destruidos;  
 0000000057A1.07C: %1$s |Rpl Generador de escudo destruido:Generadores de escudo destruidos;
 0000000057A2.07C: Unirse
 0000000057A3.07C: Creado: %1$s
@@ -6498,7 +6501,7 @@ recargadas;
 0000000058C2.07C: Captura la bandera
 0000000058C3.07C: Dos equipos de cinco jugadores compiten para capturar la bandera del enemigo mientras defienden la suya.
 0000000058C4.07C: ATRÁS
-0000000058C5.07C: |Rpl %1$s:Generador de escudo destruído:Generadores de escudos destruidos;  
+0000000058C5.07C: |Rpl %1$s:Generador de escudo destruído:Generadores de escudos destruidos;  
 0000000058C6.07C: %1$s |Rpl Generador de escudo destruido:Generadores de escudo destruidos;
 0000000058C7.07C: Sensibilidad de Ángel guardián
 0000000058C8.07C: Sensibilidad de Rayo
@@ -6819,6 +6822,7 @@ recargadas;
 000000005B66.07C:  ha sido removido de la partida personalizada.
 000000005B68.07C: 
 000000005B6B.07C: Talon
+000000005B83.07C: %1$s te está reviviendo
 000000005B84.07C: Tiempo de reutilización de %1$s
 000000005B85.07C: Habilidad máxima (%1$s)
 000000005B86.07C: Generación de la habilidad máxima (%1$s)
@@ -6838,7 +6842,7 @@ recargadas;
 000000005BD4.07C: Mantequilla de maní
 000000005BD7.07C: Meditar
 000000005BD8.07C: Lectura ligera
-000000005BD9.07C: To Skip
+000000005BD9.07C: Mantén presionado %1$s para omitir
 000000005BDA.07C: ESPERANDO JUGADORES
 000000005BDB.07C: No es posible unirse a una partida personalizada por la configuración de permisos del propietario.
 000000005C04.07C: Castillo
@@ -8037,7 +8041,6 @@ Un nombre de jugador o BattleTag que use un idioma diferente al tuyo.
 00000000669A.07C: 30 créditos y un regalo de 11 cajas de botín de los Juegos de Verano
 00000000669B.07C: 60 créditos y un regalo de 24 cajas de botín de los Juegos de Verano
 00000000669C.07C: 120 créditos y un regalo de 50 cajas de botín de los Juegos de Verano
-00000000669D.07C: %1$s, %2$s, %3$sFPS, %4$s Calidad, Codificación del hardware %5$s, Musica %6$s
 0000000066A4.07C: Los mejores 5 de hoy
 0000000066A5.07C: Captura instantánea
 0000000066A6.07C: Guardar
@@ -8242,6 +8245,7 @@ Un nombre de jugador o BattleTag que use un idioma diferente al tuyo.
 Your fellow players reported you for a gameplay offense. This includes griefing, inactivity, ongoing harassment, physical harassment, and scams.
 
 After a thorough investigation of the evidence, we have Suspended your Overwatch account. As the owner of this account, you are responsible for all actions associated with it. We will only overturn penalties if there is evidence of a compromised account or similar extenuating circumstances.
+0000000069CE.07C: Junkenstein Interminable
 0000000069E4.07C: Titiritera
 0000000069E9.07C: Daño infligido a barreras - Mayor cantidad en una partida
 0000000069EA.07C: %1$s Daño infligido a barreras - Mayor cantidad en una partida
@@ -8451,6 +8455,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006C68.07C: Fuiste silenciado permanentemente por un continuo uso abusivo del chat o violaciones al envío de spam.
 000000006CDC.07C: Hemos silenciado tu cuenta tras múltiples reportes de otros jugadores sobre uso abusivo del chat.
 000000006CDD.07C: Aceptar
+000000006CE9.07C: La venganza de Junkenstein
 000000006CEA.07C: EXPERTO
 000000006CEC.07C: Pocos sobrevivirán la noche.
 000000006CF2.07C: Descendiente
@@ -8480,7 +8485,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D90.07C: Busan
 000000006D96.07C: No puedes unirte a un grupo que está jugando en este modo.
 000000006D97.07C: No se puede invitar al jugador a tu grupo. Está jugando en un modo que no lo permite.
-000000006D9D.07C: Eichenwalde
+000000006D9D.07C: Adlersbrunn
 000000006D9E.07C: DEFENSA
 000000006D9F.07C: ATAQUE
 000000006DA4.07C: La pasiva del rol de apoyo aumenta en gran medida.
@@ -8521,7 +8526,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006E63.07C: DEFENSA
 000000006E64.07C: ATAQUE
 000000006E6B.07C: Eichenwalde (Halloween)
-000000006E6F.07C: Revivir a %1$s
 000000006E70.07C: Movimiento de la cámara durante la barrera en vista libre
 000000006E72.07C: NANO
 000000006E73.07C: ATURDIDO
@@ -8577,6 +8581,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006EFF.07C: La venganza de Junkenstein
 000000006F00.07C: DORMIDO
 000000006F01.07C: La venganza de Junkenstein
+000000006F03.07C: Junkenstein Interminable
 000000006FB1.07C: Modo Interminable
 000000006FB2.07C: Mei: Operación Bola de Nieve
 000000006FB3.07C: Dificultad
@@ -8608,6 +8613,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006FD5.07C: %1$s |Rpl Zómnico:Zómnicos; con escudo
 000000006FD7.07C: |Rfn %1$s:N0;%%
 000000006FFE.07C: La venganza de Junkenstein
+000000007002.07C: Junkenstein Interminable
 000000007004.07C: La invocadora
 000000007005.07C: %1$s %2$s
 000000007007.07C: Tiempo de canción de sanación
@@ -9313,6 +9319,7 @@ Por favor, ayúdanos a crear la mejor comunidad de Overwatch posible manteniendo
 00000000769A.07C: Florida Mayhem 2018
 00000000769B.07C: Dallas Fuel
 00000000769C.07C: Boston Uprising
+00000000769E.07C: La venganza de Junkenstein
 00000000769F.07C: Swap Sides
 0000000076A0.07C: Equipar
 0000000076AA.07C: Bloqueo permanente de Juego competitivo
@@ -9446,6 +9453,7 @@ Otros modos de juego de Overwatch, como Partida rápida, Arcade y Explorador de 
 00000000796E.07C: Overclock
 00000000796F.07C: La energía del cañón de riel se carga de manera automática durante un instante y luego los disparos cargados atraviesan a los enemigos.
 000000007975.07C: Sojourn
+000000007995.07C: https://overwatchleague.com/
 00000000799B.07C: Habilitada
 00000000799C.07C: Deshabilitada
 0000000079A5.07C: Desierto
@@ -10848,6 +10856,7 @@ Otros modos de juego de Overwatch, como Partida rápida, Arcade y Explorador de 
 000000008838.07C: Cada caja de botín contiene una mezcla de hasta 4 objetos cosméticos o créditos del juego, entre ellos por lo menos un objeto de Aniversario. Puedes ganar cajas de botín a través de sistemas en el juego.
 000000008845.07C: Cargando tienda
 00000000884A.07C: Última partida:
+00000000884C.07C: Selecciona a un jugador enemigo para recomendarlo
 00000000885E.07C: Apoya a la Fundación de Investigación del Cáncer de Mama
 000000008861.07C: Plataforma de transportador
 000000008866.07C: Título
@@ -12333,6 +12342,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000A9A4.07C: GALERÍA
 00000000A9AA.07C: SALIR DEL JUEGO
 00000000A9C2.07C: SELECCIONAR
+00000000A9C7.07C: 
 00000000A9D5.07C: OWL GZC (visitante)
 00000000A9D6.07C: OWL VAN (visitante)
 00000000A9D7.07C: Adorno
@@ -12473,20 +12483,11 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AC38.07C: Número
 00000000AC39.07C: Verdadero
 00000000AC3A.07C: Falso
-00000000AC3F.07C: SOBREVIVIENTE
-00000000AC40.07C: Esperando jugadores
-00000000AC41.07C: Luchen
-00000000AC42.07C: Conteo regresivo
-00000000AC43.07C: Sobreviviente
-00000000AC44.07C: Sobreviviente
-00000000AC45.07C: Puntos para ganar
 00000000AC46.07C: |Rfn %1$s:N0;
 00000000AC5C.07C: Hay una actualización requerida de Overwatch disponible.
 00000000AC5D.07C: Hay una actualización de Overwatch disponible.
 00000000AC5E.07C: Actualizar
 00000000AC5F.07C: Cancelar
-00000000AC6A.07C: Rango de ronda #%1$s
-00000000AC80.07C: Cierre de círculo iniciar cronómetro
 00000000ACA9.07C: Héroe de
 00000000ACAA.07C: Héroe
 00000000ACF1.07C: |Rfn %1$s:P0;
@@ -12560,7 +12561,6 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000ADA0.07C: Guangzhou
 00000000ADA1.07C: GZ
 00000000ADA2.07C: Charge
-00000000ADA3.07C: Cierre de círculo multiplicador de velocidad
 00000000ADA6.07C: Guangzhou
 00000000ADA7.07C: GZ
 00000000ADA8.07C: Charge
@@ -13040,7 +13040,6 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AFBB.07C: Vancouver Titans (visitante)
 00000000AFBC.07C: Vancouver Titans (visitante)
 00000000AFBD.07C: Vancouver Titans (visitante)
-00000000AFBE.07C: Rango de ronda #%1$s (+%2$s Puntos)
 00000000AFBF.07C: Washington Justice
 00000000AFC0.07C: Vancouver Titans
 00000000AFC1.07C: Toronto Defiant
@@ -13062,7 +13061,6 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000AFD1.07C: Diseño
 00000000AFD2.07C: Spray
 00000000AFD3.07C: Ícono de jugador
-00000000AFDA.07C: Círculo final radio en metros
 00000000AFDB.07C: Usar cámara de espectador simple en tercera persona
 00000000AFEF.07C: Temporada 15
 00000000AFF0.07C: Temporada 15
@@ -14739,6 +14737,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000BF58.07C: Todos los héroes
 00000000BF59.07C: Una matriz sin elementos.
 00000000BF5A.07C: Matriz vacía
+00000000BF61.07C: <fg%1$s>%2$s</fg>
 00000000BF6C.07C: Illidan
 00000000BF6D.07C: El valor Z del vector.
 00000000BF6E.07C: El valor Y del vector.
@@ -15265,6 +15264,13 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C193.07C: Verifica si una entidad ha aparecido en el mundo. El resultado será falso si los jugadores todavía no han seleccionado un héroe.
 00000000C194.07C: Entidad
 00000000C195.07C: El jugador, la entidad de ícono o de efecto cuya presencia en el mundo se verificará.
+00000000C1A6.07C: Puntuación de eliminaciones
+00000000C1A7.07C: Bonificación de supervivencia
+00000000C1A8.07C: Bonificación de tiempo
+00000000C1A9.07C: Bonificación de objetivo
+00000000C1AA.07C: ¡BONIFICACIÓN DE OBJETIVO! +%1$s pts
+00000000C1AB.07C: ¡BONIFICACIÓN DE TIEMPO! +%1$s pts
+00000000C1AC.07C: ¡BONIFICACIÓN DE SUPERVIVENCIA! +%1$s pts
 00000000C1B2.07C: Debes estar en una partida para grabar con la posición de cámara actual.
 00000000C1D7.07C: Comenzar a quemar si se encuentra en el suelo
 00000000C1D8.07C: Dejar de quemar si no se encuentra en el suelo
@@ -15846,6 +15852,10 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000C613.07C: Estándar de impacto de lanzamiento de rayo
 00000000C614.07C: Estándar de superficie en la posición de impacto del lanzamiento de rayo (o desde la posición final a la posición inicial si no ocurre ningún impacto).
 00000000C615.07C: El jugador golpeado por el lanzamiento de rayo (o nulo si ningún jugador es golpeado).
+00000000C616.07C: Normal
+00000000C617.07C: Difícil
+00000000C618.07C: Experto
+00000000C619.07C: Legendario
 00000000C61A.07C: Elimina el elemento especificado por el índice de la matriz de la variable (si se encuentra). Si la variable todavía no es una matriz, esta se convertirá en una matriz de un elemento antes de que ocurra la eliminación.
 00000000C61B.07C: Eliminar de la matriz por índice
 00000000C635.07C: Daño de evento
@@ -16538,6 +16548,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CE6A.07C: TÚ
 00000000CE6D.07C: Vampira
 00000000CE6E.07C: Se ha deshabilitado la edición de texto para esta cuenta.
+00000000CE74.07C: <fg%1$s>REVIVIDO</fg>
 00000000CE7C.07C: Abajo
 00000000CE80.07C: Crear efecto de rayo
 00000000CE81.07C: Crea una entidad de efecto de rayo dentro del mundo. Esta entidad de efecto permanecerá intacta hasta que sea destruida. Para obtener una referencia a esta entidad, utiliza el valor Última entidad creada. Esta acción no podrá realizarse si se han creado demasiadas entidades.
@@ -16587,6 +16598,7 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000CEFF.07C: Infierno
 00000000CF28.07C: 2019
 00000000CF2C.07C: Director de proyectos de audio
+00000000CF3B.07C: %1$s
 00000000CF44.07C: Best Halloween Score
 00000000CF45.07C: %1$s Best Halloween Score
 00000000CF46.07C: Mejor puntuación de Halloween interminable
@@ -16871,6 +16883,10 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000D1D5.07C: Quita a todos los robots de entrenamiento de la partida.
 00000000D1D6.07C: Liga Overwatch - Gris
 00000000D1DC.07C: |Rpl %1$s:Recompensa:Recompensas;:
+00000000D1DD.07C: Equipo eliminado
+00000000D1E1.07C: %1$s
+00000000D1E2.07C: Intentos restantes
+00000000D1EC.07C: Último intento
 00000000D1EE.07C: APLICANDO LA ACTUALIZACIÓN
 00000000D1F9.07C: El contenido adicional para el pack de voz en %1$s no se encuentra o está desactualizado. Descarga la versión gratuita más reciente del pack de voz desde Nintendo eShop. Mientras tanto, el idioma de voz estará en %2$s.
 00000000D1FC.07C: Continuar
@@ -16913,8 +16929,10 @@ Envíanos tus comentarios para ayudarnos a mejorar la experiencia de visualizaci
 00000000D24B.07C: Ni lo sueñes
 00000000D24D.07C: Mira en el espejo
 00000000D24F.07C: Cuidado con la barba
+00000000D258.07C: Completada
 00000000D25B.07C: CANCELAR
 00000000D264.07C: El contenido nuevo solo estará disponible después de reiniciar la aplicación.
+00000000D26F.07C: No revivieron a %1$s
 00000000D29E.07C: |Rfn %1$s:D2;
 00000000D2C9.07C: Centro de Busan (Año Nuevo Lunar)
 00000000D2CA.07C: Santuario de Busan (Año Nuevo Lunar)
@@ -16985,6 +17003,7 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000000D410.07C: Misión fallida
 00000000D411.07C: Mapa
 00000000D412.07C: Error: Se esperaba un nombre de mapa después de '%1$s' en la línea %2$s
+00000000D413.07C: YOU ARE ABLE TO MOVE WHILE INCAPACITATED
 00000000D415.07C: Mapa
 00000000D416.07C: Una constante de mapa.
 00000000D417.07C: Una constante de mapa.
@@ -17011,7 +17030,6 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000000D49E.07C: Argentina
 00000000D4A0.07C: CM Genérico Visitante
 00000000D4B9.07C: Mascarada
-00000000D4C8.07C: Mantener presionado
 00000000D4C9.07C: %1$s
 00000000D4D8.07C: Bélgica
 00000000D4D9.07C: BEL
@@ -17118,7 +17136,6 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000000EB14.07C: Rey Jamison
 00000000EB16.07C: All-Stars del Atlántico 2020
 00000000EB17.07C: Habilitar entrada de mouse de alta precisión
-00000000EB18.07C: Te están reviviendo...
 00000000EB1E.07C: Error: La variable de jugador '%1$s' requiere un nombre
 00000000EB1F.07C: Global
 00000000EB21.07C: Error: La variable global '%1$s' está en conflicto con otra variable
@@ -17308,7 +17325,7 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000000F39D.07C: Volando una cometa
 00000000F3A2.07C: Selección de héroe deshabilitada por Echo
 00000000F3A3.07C: Al encontrar una partida, ingresarás al juego que estabas esperando en la fila.
-00000000F3A4.07C: Fill Bots
+00000000F3A4.07C: Fill Bots (Dev Only)
 00000000F3A7.07C: statescript.broadcast 6A6
 00000000F3A9.07C: All-Stars del Pacífico 2020
 00000000F3AE.07C: Entrando a la partida
@@ -17948,6 +17965,10 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000001031C.07C: Usa las habilidades máximas de otros 2 héroes como Echo sin morir en partida rápida o competitiva.
 00000001031D.07C: Adaptabilidad
 00000001031E.07C: Archivos 2020
+00000001033D.07C: Template - Checkpoint
+00000001033F.07C: Template - Gather At or Go To Location
+000000010342.07C: Template - Interact with Objects
+000000010346.07C: Template - Wait For Game Message
 00000001034E.07C: Combate a muerte competitivo
 00000001034F.07C: ¡Sube de rango y compite con los mejores jugadores de Combate a muerte del mundo!
 000000010350.07C: Temporada 3 de Combate a muerte competitivo de OW1
@@ -17981,6 +18002,7 @@ Pasiva: hiere a los enemigos alcanzados por un ataque cuerpo a cuerpo o un lanza
 00000001041F.07C: Se desbloquea al estar entre los 500 mejores al final de la temporada 22.
 000000010427.07C: Raynhardt
 00000001043B.07C: Denunciar
+00000001043F.07C: El objetivo fue destruido
 000000010473.07C: Lúciobol Remix
 000000010476.07C: Lúciobol Remix
 000000010477.07C: Partido de equipos 3 vs. 3 de Lúciobol repletos de caótica acción incesante y balones múltiples.
@@ -19215,6 +19237,8 @@ El equipo de soporte de Blizzard
 00000001144E.07C: El tipo de salud máxima que se adquirirá.
 00000001144F.07C: 120 créditos y un regalo de 60 cajas de botín de los Juegos de Verano
 00000001146F.07C: 50 + 10 cajas de botín de los Juegos de Verano
+0000000114DC.07C: Ver ahora
+0000000114DF.07C: Mira la Liga Overwatch
 0000000114E4.07C: Pan de jengibre
 00000001152E.07C: Leñador
 0000000115E4.07C: Kkachi
@@ -19294,6 +19318,8 @@ El equipo de soporte de Blizzard
 0000000117A9.07C: Competitivo CLB
 0000000117AA.07C: Cola competitiva abierta
 0000000117FC.07C: Roca
+00000001180C.07C: Fantasma vengativo de La venganza de Junkenstein
+00000001180D.07C: Estampida frenética de La venganza de Junkenstein
 00000001180E.07C: Best Halloween Score
 00000001180F.07C: %1$s Best Halloween Score
 000000011811.07C: Fantasma vengativo
@@ -19308,6 +19334,10 @@ El equipo de soporte de Blizzard
 00000001181B.07C: Se desbloquea al participar en el desafío de la semana 3 de Terror de Halloween 2020.
 00000001181C.07C: Se desbloquea al participar en el desafío de la semana 1 de Terror de Halloween 2020.
 00000001181D.07C: Se desbloquea al participar en el desafío de la semana 2 de Terror de Halloween 2020.
+00000001182A.07C: Zómnicos volátiles de La venganza de Junkenstein
+00000001182B.07C: Eran tres de La venganza de Junkenstein
+00000001182C.07C: Cambio misterioso de La venganza de Junkenstein
+00000001182D.07C: Sorpresa impactante de La venganza de Junkenstein
 00000001182E.07C: Best Halloween Score
 00000001182F.07C: %1$s Best Halloween Score
 000000011830.07C: Best Halloween Score
@@ -19392,6 +19422,7 @@ El equipo de soporte de Blizzard
 0000000119BA.07C: Sorpresa impactante
 0000000119BB.07C: Completa la misión de desafío de Junkenstein Sorpresa impactante.
 0000000119BC.07C: Marammat
+0000000119BD.07C: CONTINUAR
 0000000119CB.07C: Mejor puntuación de Halloween
 0000000119CC.07C: %1$s Mejor puntuación de Halloween
 0000000119CD.07C: Mejor puntuación de Halloween interminable
@@ -19443,6 +19474,7 @@ El equipo de soporte de Blizzard
 000000011C0D.07C: Establece al jugador que recibirá el crédito si el jugador o los jugadores objetivo especificados mueren por causa del entorno antes de aterrizar en el suelo.
 000000011C0F.07C: Objetivo
 000000011C10.07C: HUD del héroe en primera persona
+000000011C2B.07C: Equipamiento
 000000011C4B.07C: Fuego de dragón
 000000011C4C.07C: Confianza
 000000011C50.07C: Predeterminado
@@ -19650,6 +19682,7 @@ El equipo de soporte de Blizzard
 000000012294.07C: Fantasma vengativo
 0000000122DF.07C: Eliminación por congelamiento
 0000000122E0.07C: 
+0000000122E1.07C: Nivel
 0000000122E2.07C: Destruir todo el texto del HUD en la barra de progreso
 0000000122E3.07C: Destruye todo el texto del HUD en la barra de progreso que fue creado por la acción Crear texto del HUD en la barra de progreso.
 0000000122E4.07C: Destruir texto del HUD en la barra de progreso
@@ -19660,6 +19693,8 @@ El equipo de soporte de Blizzard
 0000000122E9.07C: El valor de la barra de progreso aparecerá como porcentaje de 0 a 100.
 0000000122EA.07C: Color de la barra de progreso
 0000000122EB.07C: El color del texto en la barra de progreso que se creará. Si se selecciona un equipo determinado, el efecto será rojo o azul, dependiendo de si el equipo es aliado o enemigo para el espectador.
+0000000122EC.07C: Alineación
+0000000122ED.07C: Cerrar
 0000000122EE.07C: Visible para, valores y color
 0000000122EF.07C: Visible para y valores
 0000000122F0.07C: Valores y color
@@ -19667,6 +19702,8 @@ El equipo de soporte de Blizzard
 0000000122F2.07C: Pulido
 0000000122F3.07C: Crear texto del HUD en la barra de progreso
 0000000122F4.07C: Crea texto del HUD en la barra de progreso visible para determinados jugadores en una ubicación determinada de la pantalla. Este texto permanecerá intacto hasta que sea destruido. Para obtener una referencia a este texto, utiliza el valor ID de texto anterior. Esta acción no podrá realizarse si se han creado demasiados elementos de texto.
+0000000122F5.07C: Mostrar alineación
+0000000122F7.07C: La misión comienza en
 0000000122F8.07C: Los héroes eliminados quedan congelados y pueden ser descongelados por aliados. Congela a todos los enemigos para ganar la ronda. Los héroes exitosos son removidos de las rondas posteriores.
 000000012320.07C: Velocidades de interpolación del campo visual
 000000012321.07C: Cambio del campo visual por acercamiento
@@ -19699,7 +19736,9 @@ El equipo de soporte de Blizzard
 000000012469.07C: Registro
 00000001246A.07C: Copiar el registro actual al portapapeles
 00000001246B.07C: Copiar todos los registros al portapapeles
+00000001246C.07C: Vacío
 00000001246F.07C: <fg#FFEAA239>[|Rfd %1$s:HH:mm:ss;]</fg>
+000000012470.07C: Seleccionando...
 000000012472.07C: |Rfd %1$s:HH:mm:ss;
 000000012483.07C: Bloqueado
 00000001248B.07C: Enemigos congelados
@@ -19862,6 +19901,7 @@ El equipo de soporte de Blizzard
 0000000125A2.07C: Felices fiestas
 0000000125A4.07C: Si el objetivo se mueve en contra de la dirección del impulso, esta rapidez relativa se negará antes de aplicar el impulso. La rapidez horizontal y vertical (XYZ) se procesan juntas.
 0000000125A5.07C: Cancelar movimiento contrario (XYZ)
+0000000125D3.07C: Debes seleccionar héroes antes de usar los bots de relleno
 0000000125D4.07C: Revisión de armas
 0000000125D5.07C: <fg%1$s>CONGELADO</fg>
 0000000125D7.07C: Eliminación por congelación
@@ -20003,6 +20043,7 @@ y 10 cajas de botín de invierno gratis
 000000012846.07C: Puntuación por eliminación como objetivo de recompensa
 000000012847.07C: Puntuación básica por eliminar a un objetivo de recompensa
 000000012848.07C: Corredor
+00000001284A.07C: Objetivo fallado
 00000001284F.07C: Conteo de objetivos de recompensa
 000000012850.07C: Kyōgisha
 00000001287A.07C: No se puede ver la repetición de una partida sin terminar.
@@ -20089,6 +20130,7 @@ y 10 cajas de botín de invierno gratis
 000000012AED.07C: Incremento de recompensa por eliminación como objetivo de recompensa
 000000012AF0.07C: Pausar partida
 000000012AF1.07C: Despausar partida
+000000012B1F.07C: Este héroe debe ser parte del equipo para completar esta misión.
 000000012B20.07C: Alternar ventana de depuración
 000000012B32.07C: No disponible por algún motivo desconocido
 000000012B34.07C: Modos de CLB
@@ -20978,7 +21020,6 @@ También te colocarás en el grupo de exclusión voluntaria en esta temporada co
 000000013D44.07C: Algunos miembros de tu partida no pueden ver tu mensaje debido a tu configuración de comunicación de juego entre plataformas.
 000000013D66.07C: Atrás
 000000013D67.07C: Tiempo de reutilización de Voltereta de combate
-000000013D68.07C: Recuperándose
 000000013D6B.07C: Salud
 000000013D6C.07C: Advertencia de tasa de daño de Tiro certero
 000000013D7A.07C: Daño de la Granada aturdidora
@@ -21178,11 +21219,17 @@ También te colocarás en el grupo de exclusión voluntaria en esta temporada co
 000000013FF6.07C: Amplificación de Bastón caduceo
 000000013FF7.07C: Amplificación de Matriz de amplificación
 000000013FF9.07C: Duración del derribo de Quebrantasuelos
+000000014003.07C: Recoger llave dorada
+000000014004.07C: Recoger llave roja
+000000014005.07C: Recoger llave azul
+000000014006.07C: Recoger llave morada
+000000014007.07C: Recoger llave verde
 00000001400D.07C: Chat de texto de grupo
 00000001400E.07C: Chat de texto del equipo
 00000001400F.07C: Chat de texto de la partida
 000000014011.07C: Chat de texto
 000000014013.07C: <Desconocido>
+000000014015.07C: Mantén presionado para depositar el objetivo.
 000000014019.07C: <Desconocido>
 000000014022.07C: Configuración de región
 000000014026.07C: ¿Realmente quieres restaurar la configuración de todas las regiones?
@@ -21432,6 +21479,7 @@ También te colocarás en el grupo de exclusión voluntaria en esta temporada co
 0000000146D5.07C: %1$s/%2$s
 0000000146D6.07C: Tiempo de reutilización de Onda sonora
 0000000146DE.07C: Espectro del hielo
+0000000146E4.07C: Capitán maldito
 000000014716.07C: Tiempo de reutilización de Sube el volumen
 000000014717.07C: Duración de Sube el volumen
 000000014718.07C: Duración de Barrera de sonido
@@ -21483,7 +21531,7 @@ También te colocarás en el grupo de exclusión voluntaria en esta temporada co
 0000000147CE.07C: ¿Luna llena?
 0000000147D1.07C: ¿Eso es un disfraz?
 0000000147D4.07C: No eres la única persona que está aquí
-0000000147D7.07C: El arquero desapareció... 
+0000000147D7.07C: El arquero desapareció... 
 0000000147D8.07C: Calabazas mágicas
 0000000147DB.07C: Armadura
 0000000147DC.07C: Salud
@@ -21532,6 +21580,9 @@ Affiliation: Overwatch (Formerly)
 000000014AF8.07C: %1$s %%
 000000014C47.07C: Seleccionar héroe
 000000014C49.07C: Cambiar héroe
+000000014D45.07C: Complete the story mission: "%1$s"
+000000014DC3.07C:   Complete %1$s side missions. 
+  Current: %2$s
 000000014E41.07C: Créditos originales
 000000014E42.07C: Juego competitivo
 000000014E43.07C: Fichas
@@ -21539,6 +21590,8 @@ Affiliation: Overwatch (Formerly)
 000000014E4D.07C: Escala de progresión de salud
 000000014E4E.07C: Escala de progresión de armadura
 000000014E4F.07C: Escala de progresión de sanación
+000000014E63.07C: Carga química: activa
+000000014E6A.07C: %1$s hasta que Carga química se active
 000000014E7C.07C: ENEMIGO
 000000014E7D.07C: ESTOY VIGILANDO AQUÍ
 000000014EAA.07C: Carrera
@@ -21573,7 +21626,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: Presentación_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: %1$s (%2$s): Estoy contigo.
-000000014F4F.07C: %1$s (%2$s - %5$s m) a %3$s (%4$s): Estoy contigo.
+000000014F4F.07C: %1$s (%2$s - %3$s m) a %3$s (%4$s): Estoy contigo.
 000000014F50.07C: %1$s (%2$s): ¡Voy en camino!
 000000014F51.07C: %1$s (%2$s - %5$s m) a %3$s (%4$s): ¡Voy en camino!
 000000014F52.07C: %1$s (%2$s): De nada.
@@ -21581,7 +21634,6 @@ Affiliation: Overwatch (Formerly)
 000000014F54.07C: %1$s (%2$s): Todo listo.
 000000014F55.07C: %1$s (%2$s - %5$s m) a %3$s (%4$s): Todo listo.
 000000014F60.07C: Reviviendo...
-000000014F61.07C: Recuperándose...
 000000014F62.07C: ¡Revive!
 000000014F66.07C: Presentación_PH
 000000014FC5.07C: <fg%1$s>ORBE DE ARMONÍA</fg> OBTENIDO DE <fg%1$s>%2$s</fg>
@@ -21599,8 +21651,9 @@ Affiliation: Overwatch (Formerly)
 000000015037.07C: %1$s (%2$s): ¡Defiendan conmigo! %4$s
 000000015038.07C: %1$s (%2$s): Vigilaré aquí. %4$s
 000000015039.07C: %1$s (%2$s): ¡Gracias! %4$s
-00000001503A.07C: %1$s (%2$s): ¡Agrúpense! %4$s
+00000001503A.07C: %1$s (%2$s): ¡Agrúpense! %5$s
 00000001504B.07C: Monedas de Overwatch
+000000015050.07C: Verduga
 000000015063.07C: Combate afuera de un cuarto de reaparición.
 00000001507A.07C: Predeterminado
 000000015093.07C: Un buen regalo
@@ -21789,6 +21842,8 @@ Affiliation: Overwatch (Formerly)
 000000015541.07C: Entra a una partida contra otros jugadores de tu mismo nivel.
 00000001556C.07C: Oleada %1$s / 12
 00000001556D.07C: Oleada de bonificación %1$s
+00000001557D.07C: Otros jugadores están seleccionando talentos:   quedan %1$s segundos como máximo.
+000000015605.07C: Bruja
 000000015610.07C: -
 000000015611.07C: |Rfn %1$s:N2;m
 000000015612.07C: |Rfn %1$s:P1;
@@ -22038,8 +22093,7 @@ Affiliation: Overwatch (Formerly)
 000000015C57.07C: Armadura
 000000015C60.07C: Aniversario 2022
 000000015C62.07C: %1$s |Rplnivel del pase de batalla
-acumulado para la siguiente temporada:niveles del pase de batalla
-acumulados para la siguiente temporada;
+acumulado para la siguiente temporada:niveles del pase de batalla acumulados para la siguiente temporada;
 000000015C63.07C: Daño propio de destrucción
 000000015C64.07C: Daño de autodestrucción aliado
 000000015C65.07C: Daño de autodestrucción enemigo
@@ -22068,10 +22122,10 @@ acumulados para la siguiente temporada;
 000000015CF0.07C: Salud
 000000015DF4.07C: Rol: Apoyo
 000000015DF5.07C: Te sanas automáticamente con el tiempo.
-000000015FA5.07C: <fg%1$s>DISPARO PRINCIPAL</fg> +%2$s %%
-000000015FA6.07C: Disparo principal +%1$s %%
-000000015FA7.07C: <fg%1$s>DISPARO PRINCIPAL</fg> +%2$s %%
-000000015FA8.07C: +%1$s %% del disparo secundario
+000000015FA5.07C: <fg%1$s>DISPARO PRINCIPAL</fg> +%2$s %%
+000000015FA6.07C: Disparo principal +%1$s %%
+000000015FA7.07C: <fg%1$s>DISPARO PRINCIPAL</fg> +%2$s %%
+000000015FA8.07C: +%1$s %% del disparo secundario
 000000015FAF.07C: Juego competitivo
 000000015FB0.07C: Tiempo de reutilización de Hackeo
 000000015FB1.07C: Tiempo de reutilización de la baliza del Transportador
@@ -22085,7 +22139,6 @@ acumulados para la siguiente temporada;
 Se genera menos carga de la habilidad máxima por la sanación y el daño recibido.
 000000015FC6.07C: Mostrar tutorial
 000000015FC7.07C: Continuar
-000000015FC8.07C: Abrir pase de batalla
 000000015FD1.07C: Varsity 
 000000015FD4.07C: PROGRESO
 000000015FD5.07C: TE DAMOS LA BIENVENIDA AL PASE DE BATALLA DE OVERWATCH
@@ -22125,7 +22178,6 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016002.07C: Agregar niveles
 000000016003.07C: Ningún nivel agregado
 000000016004.07C: Todas las recompensas del pase de batalla prémium
-000000016005.07C: El pase de batalla prémium incluye:
 000000016006.07C: Información
 000000016007.07C: Tutorial
 000000016008.07C: Al conseguir EXP del pase de batalla, progresas en los niveles del pase. Puedes conseguir EXP del pase de batalla jugando el juego y completando desafíos diarios, semanales y de temporada. ¡Consulta el tutorial para más información!
@@ -22386,7 +22438,8 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016328.07C: Equipo %1$s
 000000016329.07C: Equipo %1$s
 000000016333.07C: Kugelblitz Cooldown
-000000016334.07C: ¡%1$s (%2$s) está en espera para reaparecer! (%3$s s)
+000000016334.07C: ¡%1$s (%2$s) está en espera para reaparecer! (%3$s s)
+000000016340.07C: Pickup Container A
 00000001634A.07C: Presentación_PH
 00000001634C.07C: Meditar
 00000001634E.07C: OBTUVISTE <fg%1$s>%3$s DE SALUD ADICIONAL </fg> DE <fg%1$s>%2$s</fg>
@@ -22394,7 +22447,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016368.07C: DISPAROS PERFORADORES
 000000016369.07C: DISPAROS EXPLOSIVOS
 00000001636A.07C: DISPARO ADICIONAL
-00000001636D.07C: <fg%1$s>Reanimar: debes apuntar al aliado caído</fg> +25 %%
+00000001636D.07C: <fg%1$s>Reanimar: debes apuntar al aliado caído</fg> +25 %%
 00000001636E.07C: Venganza: ¡+25 %% de habilidad máxima!
 00000001637D.07C: |Rpl %1$s:Derribo:Derribos; con Configuración: artillería
 00000001637E.07C: %1$s |Rpl Derribo:Derribos; con Configuración: artillería
@@ -22585,6 +22638,12 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016663.07C: Examinar
 000000016666.07C: TIENDA
 000000016686.07C: Pase de batalla
+000000016688.07C: Zómnico
+00000001668A.07C: Neumático electrificante
+00000001668C.07C: Zombardero
+00000001668D.07C: Junkenstein2 - NullSector - Castle
+00000001668E.07C: Checkpoint - Initial
+00000001668F.07C: Open Door
 00000001669B.07C: %1$s (%2$s): ¡%3$s del equipo enemigo durmiendo aquí!
 0000000166A5.07C: Salud
 0000000166A6.07C: Armadura
@@ -22593,6 +22652,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000166A9.07C: Capacidad de cargador de Cañones cuádruples
 0000000166AA.07C: Dispersión mínima de Cañones cuádruples
 0000000166AB.07C: Dispersión máxima de Cañones cuádruples
+0000000166AC.07C: Derriba la barricada
 0000000166AF.07C: Tiempo de reutilización de Garra mecánica
 0000000166B3.07C: Duración de Escudo adaptable
 0000000166B6.07C: Mínimo de salud de Escudo adaptable de Wrecking Ball
@@ -22600,6 +22660,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000166B8.07C: Radio de Escudo adaptable de Wrecking Ball
 0000000166BC.07C: VELOCIDAD DE REPRODUCCIÓN DE TEXTO A VOZ
 0000000166BE.07C: ACCESIBILIDAD
+0000000166C3.07C: Modo héroe
 0000000166EA.07C: Duración de la velocidad máxima de Garra mecánica
 0000000166EB.07C: Daño por impacto de Rodar
 0000000166EC.07C: Repulsión lateral de Rodar
@@ -22660,8 +22721,12 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 00000001673F.07C: Punto de control - Octavo
 000000016740.07C: Punto de control - Noveno
 000000016741.07C: Punto de control - Décimo
+000000016746.07C: Gather at Pub Entrance
+000000016749.07C: Ve a la taberna
+0000000167CE.07C: Clear the ramparts
+0000000167D1.07C: Derrota a las gárgolas
 0000000167D4.07C: Patada repulsora
-0000000167D5.07C: El daño del ataque cuerpo a cuerpo rápido aumenta un 50 %% e incrementa su repulsión de manera significativa.
+0000000167D5.07C: El daño del ataque cuerpo a cuerpo rápido aumenta un 50 %% e incrementa su repulsión de manera significativa.
 0000000167D6.07C: Heroica
 0000000167D8.07C: Conectándose con el servidor
 0000000167D9.07C: |Rfn %1$s:N0;m ¿?
@@ -22829,12 +22894,16 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 00000001693B.07C: Presentación_PH
 00000001693D.07C: Niveles de prestigio desbloqueados
 00000001693E.07C: Pase de batalla completado
+00000001693F.07C: Get to dungeon
+000000016940.07C: Defeat Dungeon Enemies
+000000016941.07C: Reach The Castle
 000000016943.07C: Primeros pasos
 000000016944.07C: Selecciona ENTRENAMIENTO.
 000000016946.07C: Juega partidas en No clasificatoria o Practicar contra IA
 000000016947.07C: Completa 5 partidas para desbloquear nuevos modos de juego.
 000000016948.07C: Juega más partidas
 000000016949.07C: Completa 5 partidas para desbloquear más modos de juego.
+000000016956.07C: Defeat Castle Guards
 000000016958.07C: Presentación_PH
 00000001695B.07C: Control - Héroes aleatorios
 00000001695C.07C: Híbrido - Héroes aleatorios
@@ -22924,6 +22993,8 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000169D0.07C: 2600 fichas de Liga
 0000000169D1.07C: Resolución del juego
 0000000169D2.07C: TEST - Static Bundle II - Grants VC
+0000000169D3.07C: Open Gate To Ramparts
+0000000169D4.07C: Encuentra la llave y abre la puerta de las murallas
 0000000169D5.07C: |Rpl %1$s:Restablecimiento:Restablecimientos; de Golpe ágil
 0000000169D6.07C: %1$s |Rpl Restablecimiento:Restablecimientos; de Golpe ágil
 0000000169D7.07C: |Rpl %1$s:Restablecimiento:Restablecimientos; de Golpe ágil - Mayor cantidad en la partida
@@ -22940,6 +23011,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000169E2.07C: %1$s Precisión de impactos directos
 0000000169E3.07C: Precisión de impactos directos - Mejor de la partida
 0000000169E4.07C: %1$s Precisión de impactos directos - Mejor de la partida
+0000000169E5.07C: Reach the lord of the castle
 0000000169E9.07C: Acero azul
 0000000169EA.07C: Precisión con disparo principal
 0000000169EB.07C: %1$s Precisión con disparo principal
@@ -22982,6 +23054,10 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016A16.07C: |Rpl %1$s:Habilidad interrumpida:Habilidades interrumpidas; - Promedio por 10 minutos
 000000016A17.07C: %1$s |Rpl Habilidad interrumpida:Habilidades interrumpidas; - Promedio por 10 minutos
 000000016A19.07C: %1$s (%2$s): Mi transportador está aquí.
+000000016A1A.07C: Toma el atajo del calabozo
+000000016A1B.07C: Sobrevive a la pesadilla
+000000016A1C.07C: Llega al castillo
+000000016A1D.07C: Derrota a los guardias del castillo
 000000016A24.07C: Multiplicador de daño promedio
 000000016A25.07C: %1$s Multiplicador de daño promedio
 000000016A26.07C: Multiplicador de daño promedio - Mejor de la partida
@@ -22990,6 +23066,8 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016A2B.07C: Bonus Multiplier Accumulation
 000000016A2C.07C: %1$s Acumulación del multiplicador adicional
 000000016A31.07C: Solicitud en proceso
+000000016A3F.07C: Encuentra al señor del castillo
+000000016A40.07C: Rescue the Lord of the castle
 000000016A43.07C: |Rpl %1$s:Derribo:Derribos; por Martillo - Promedio por 10 minutos
 000000016A44.07C: %1$s |Rpl Derribo:Derribos; por Martillo - Promedio por 10 minutos
 000000016A45.07C: Precisión con disparo principal
@@ -23033,7 +23111,10 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016A6B.07C: VOLUMEN DE TEXTO A VOZ
 000000016A6D.07C: Atrás
 000000016A75.07C: Cuenta modificada
+000000016A7D.07C: Soltar objeto
 000000016A7E.07C: VOZ
+000000016A9D.07C: Gárgola
+000000016A9E.07C: Rescata al señor del castillo
 000000016AA0.07C: Pase de batalla prémium
 000000016AA1.07C: Desbloqueado
 000000016AA2.07C: Comprado
@@ -23168,6 +23249,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016C36.07C: ABANDONAR FILA
 000000016C37.07C: AVANZADA
 000000016C38.07C: Evento de temporada
+000000016C40.07C: Barrido total
 000000016C44.07C: Cancelar
 000000016C45.07C: Comprar monedas de Overwatch
 000000016C51.07C: Focus Toast
@@ -23184,6 +23266,10 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016C6C.07C: CHAT DE GRUPO
 000000016C6D.07C: SUSURROS
 000000016C70.07C: Se desbloquea al participar en el evento Apoya a un streamer: Brigitte Médica
+000000016C93.07C: Experimento
+000000016C94.07C: Banshee
+000000016C95.07C: Novia
+000000016C96.07C: Marioneta
 000000016C97.07C: Avance - Competitivo
 000000016C99.07C: Derrota al equipo enemigo sin límite de roles en la selección de héroes.
 000000016C9E.07C: Precisión con disparo principal - Mejor de la partida
@@ -23203,6 +23289,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016CC0.07C: %1$s Escudo adaptable generado - Mayor cantidad en la partida
 000000016CC1.07C: Escudo adaptable generado - Promedio por 10 minutos
 000000016CC2.07C: %1$s Escudo adaptable generado - Promedio por 10 minutos
+000000016CC3.07C: Recoger llave maestra
 000000016CCA.07C: |Rpl %1$s:Partida ganada:Partidas ganadas;
 000000016CCB.07C: %1$s |Rpl Partida ganada:Partidas ganadas;
 000000016CCC.07C: |Rpl %1$s:Partida ganada:Partidas ganadas;
@@ -23255,6 +23342,8 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016D03.07C: Zarya
 000000016D04.07C: Zenyatta
 000000016D07.07C: Press %1$s to change heroes
+000000016D0A.07C: Destroy Castle Door
+000000016D0B.07C: Quema la puerta del castillo
 000000016D0C.07C: |Rpl %1$s:Derribo:Derribos; por Hoja dentada
 000000016D0D.07C: %1$s |Rpl Derribo:Derribos; por Hoja dentada
 000000016D0E.07C: |Rpl %1$s:Derribo:Derribos; por Hoja dentada - Promedio por 10 minutos
@@ -23288,18 +23377,33 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016D2A.07C: Duración de heridas
 000000016D2B.07C: %1$s Duración de heridas
 000000016D2F.07C: Evaluación
+000000016D38.07C: Reach the ramparts gate
+000000016D39.07C: Llega al castillo
+000000016D3A.07C: Abre la puerta
 000000016D72.07C: ¡Vamos, Snowball!
 000000016D73.07C: CANCELAR
 000000016D78.07C: Paraíso
 000000016D79.07C: Nací para gobernar
 000000016D84.07C: Esperança
+000000016D8B.07C: Activate Secret Passage
+000000016D8C.07C: Interruptor oculto
+000000016D8D.07C: Encuentra las palancas ocultas
 000000016D8E.07C: El disparo principal cancela el disparo secundario
 000000016D91.07C: ¡Prueba tus nuevos héroes cuando esté lista una partida!
 000000016DAD.07C: https://support.blizzard.com/article/000034849
+000000016DB0.07C: Destruye
+000000016DB1.07C: Destruir
 000000016DB4.07C: Completa %1$s desafíos diarios
 000000016DC9.07C: SELECCIONAR
 000000016DCA.07C: Aceptar
 000000016DD0.07C: Progreso de Juego competitivo
+000000016DD3.07C: Checkpoint - Banshee Fight
+000000016DD4.07C: Checkpoint - Gargoyle Winston Fight
+000000016DD5.07C: Checkpoint - Echo Doll Fight
+000000016DD6.07C: Checkpoint - Castle Gate Fight
+000000016DD7.07C: Checkpoint - Reach The Throne Room
+000000016DD8.07C: Checkpoint - Final Battle
+000000016DD9.07C: Checkpoint - Pub
 000000016DF3.07C: Armas y habilidad máxima
 000000016DF5.07C: Historia
 000000016E01.07C: Abrir pase de batalla
@@ -23312,6 +23416,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016E14.07C: Salud
 000000016E15.07C: Escudos
 000000016E16.07C: Tienda
+000000016E2B.07C: Mantén presionado para desbloquear
 000000016E6D.07C: |Rpl %1$s:Victoria:Victorias de héroe
 000000016E6E.07C: %1$s |Rpl Victoria:Victorias de héroe
 000000016E95.07C: Batería
@@ -23361,11 +23466,27 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016FB5.07C: Pulgar robótico
 000000016FB6.07C: Pizza con piña
 000000016FB7.07C: Protectora de Kanezaka
+000000016FB8.07C: Gather In The Pub
+000000016FBB.07C: Entra y ponte a salvo
 000000016FC3.07C: Comandante de tropas
 000000016FC4.07C: Este personaje no está disponible por ahora
 000000016FC5.07C: Este personaje no está disponible por ahora en las partidas competitivas.
 000000016FC9.07C: Selecciona la moneda para comprar %1$s
 000000016FCD.07C: Daño del martillo de Quebrantasuelos
+000000016FD8.07C: La venganza de Junkenstein: La furia de la Novia
+000000016FD9.07C: La Novia de Junkenstein llegó a Adlersbrunn para vengar la derrota de su creador. Para detenerla, cuatro almas valientes deberán reunirse y luchar con fervor.
+000000016FDA.07C: HISTORIA
+000000016FDB.07C: Disfruta la historia sin fallar
+ADVERTENCIA: contiene sustos repentinos
+000000016FDC.07C: DIFÍCIL
+000000016FDD.07C: Los sirvientes de la Novia se fortalecen
+ADVERTENCIA: contiene sustos repentinos
+000000016FDE.07C: EXPERTO
+000000016FDF.07C: Pocos lograrán llegar al castillo
+ADVERTENCIA: contiene sustos repentinos
+000000016FE0.07C: LEGENDARIO
+000000016FE1.07C: Una historia legendaria
+ADVERTENCIA: contiene sustos repentinos
 000000016FE9.07C: Arremetida de kitsune
 000000016FEB.07C: Risa
 000000016FEC.07C: Se desbloquea mediante un desafío especial, el pase de batalla o en la tienda del juego.
@@ -23378,7 +23499,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000016FF3.07C: MÁXIMO
 000000016FF4.07C: AIMBOT
 000000016FF6.07C: Temporada competitiva 1
-000000016FFB.07C: (-%1$s %%)
+000000016FFB.07C: (-%1$s %%)
 000000017000.07C: Sukajan
 000000017001.07C: Disyuntor
 00000001700E.07C: NORMAL
@@ -23399,11 +23520,11 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 00000001703E.07C: Control del rol
 00000001703F.07C: Gana 10 partidas con 2 roles diferentes en Partida rápida o Juego competitivo.
 000000017040.07C: La mejor defensa
-000000017041.07C: Inflige o potencia %1$s de daño en total (Caos total no cuenta).
+000000017041.07C: Inflige o potencia %1$s de daño en total (excepto en Caos total y modos cooperativos).
 000000017042.07C: Protección férrea
-000000017043.07C: Mitiga %1$s de daño en total (Caos total no cuenta).
+000000017043.07C: Mitiga %1$s de daño en total (excepto en Caos total y modos cooperativos).
 00000001704E.07C: Heroísmo real
-00000001704F.07C: Sana %1$s de daño en total (Caos total no cuenta).
+00000001704F.07C: Sana %1$s de daño en total (excepto en Caos total y modos cooperativos).
 000000017050.07C: PREDETERMINADO
 000000017051.07C: DORADO
 000000017056.07C: Cerrar
@@ -23411,7 +23532,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000017059.07C: Control de héroes
 00000001705A.07C: Completa %1$s partidas con héroes que NO sean de los 3 con quienes más juegas (de todos los modos de juego).
 00000001705B.07C: Jugada de la partida
-00000001705C.07C: Consigue %1$s eliminaciones o asistencias con habilidades máximas (Caos total no cuenta).
+00000001705C.07C: Consigue %1$s eliminaciones o asistencias con habilidades máximas (excepto en Caos total y modos cooperativos).
 00000001705D.07C: Limpiando la casa
 00000001705E.07C: Consigue %1$s muertes en equipo.
 000000017064.07C: Haz gala de tu versatilidad
@@ -23426,15 +23547,15 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 00000001707B.07C: Completada
 00000001707D.07C: En fila
 00000001707E.07C: Salvavidas
-00000001707F.07C: Salva a alguien %1$s veces (Caos total no cuenta).
+00000001707F.07C: Salva a alguien %1$s veces (excepto en Caos total y modos cooperativos).
 000000017080.07C: Sin capturas furtivas
 000000017081.07C: Disputa o captura objetivos durante %1$s segundos.
 000000017082.07C: Ejecución
-000000017083.07C: Consigue %1$s eliminaciones (Caos total no cuenta).
+000000017083.07C: Consigue %1$s eliminaciones (excepto en Caos total y modos cooperativos).
 000000017084.07C: Intocable
-000000017085.07C: Consigue 10 eliminaciones o asistencias sin morir. (Caos total no cuenta).
+000000017085.07C: Consigue 10 eliminaciones o asistencias sin morir (excepto en Caos total y modos cooperativos).
 000000017086.07C: El botón de la victoria
-000000017087.07C: Utiliza la habilidad máxima %1$s veces (Caos total no cuenta).
+000000017087.07C: Utiliza la habilidad máxima %1$s veces (excepto en Caos total y modos cooperativos).
 00000001708A.07C: Disponible en el pase de batalla
 00000001708B.07C: Bien ahí.
 00000001708C.07C: ¡Vamos!
@@ -23485,33 +23606,33 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000170BC.07C: Temporada de caza
 0000000170BD.07C: Completa %1$s partidas en la fila abierta.
 0000000170BE.07C: Esponja de balas
-0000000170BF.07C: Mitiga %1$s de daño (Caos total no cuenta).
+0000000170BF.07C: Mitiga %1$s de daño (excepto en Caos total y modos cooperativos).
 0000000170C0.07C: Al rescate… otra vez
-0000000170C1.07C: Sana %1$s de daño (Caos total no cuenta).
+0000000170C1.07C: Sana %1$s de daño (excepto en Caos total y modos cooperativos).
 0000000170C2.07C: Sobreviviré
-0000000170C3.07C: Sana 1500 de daño sin morir. (Caos total no cuenta).
+0000000170C3.07C: Sana 1500 de daño sin morir (excepto en Caos total y modos cooperativos).
 0000000170C4.07C: Lo que no me mata...
 0000000170C5.07C: Mitiga 2000 de daño sin morir.
 0000000170C6.07C: Alguien tiene que encargarse de esto
-0000000170C7.07C: Disputa o captura objetivos durante 30 segundos sin morir (Caos total no cuenta).
+0000000170C7.07C: Disputa o captura objetivos durante 30 segundos sin morir (excepto en Caos total y modos cooperativos).
 0000000170CA.07C: Poder abrumador
-0000000170CB.07C: Consigue %1$s eliminaciones o asistencias con habilidades máximas (Caos total no cuenta).
+0000000170CB.07C: Consigue %1$s eliminaciones o asistencias con habilidades máximas (excepto en Caos total y modos cooperativos).
 0000000170CC.07C: Ojo de águila
 0000000170CD.07C: Consigue %1$s impactos críticos.
 0000000170CE.07C: Maestría de daño con armas
 0000000170CF.07C: Inflige o potencia %1$s de daño con armas.
 0000000170D0.07C: Heroísmo anónimo
-0000000170D1.07C: Consigue %1$s asistencias (Caos total no cuenta).
+0000000170D1.07C: Consigue %1$s asistencias (excepto en Caos total y modos cooperativos).
 0000000170D2.07C: Visión corta
 0000000170D3.07C: Consigue %1$s eliminaciones o asistencias a menos de 15 metros.
 0000000170D4.07C: Clarividente
 0000000170D5.07C: Consigue %1$s eliminaciones o asistencias a más de 15 metros.
 0000000170D6.07C: A moverse
-0000000170D7.07C: Consigue una eliminación o asistencia en los siguientes 3 segundos tras usar una habilidad de movimiento (Caos total no cuenta).
+0000000170D7.07C: Consigue una eliminación o asistencia en los siguientes 3 segundos tras usar una habilidad de movimiento (excepto en Caos total y modos cooperativos).
 0000000170D8.07C: Control de la vida y la muerte
-0000000170D9.07C: Consigue una eliminación o asistencia en los siguientes 3 segundos tras usar una habilidad de sanación (Caos total no cuenta).
+0000000170D9.07C: Consigue una eliminación o asistencia en los siguientes 3 segundos tras usar una habilidad de sanación (excepto en Caos total y modos cooperativos).
 0000000170DA.07C: Dominio de habilidades de daño
-0000000170DB.07C: Inflige %1$s de daño con habilidades (Caos total no cuenta).
+0000000170DB.07C: Inflige %1$s de daño con habilidades (excepto en Caos total y modos cooperativos).
 0000000170DC.07C: En buena compañía
 0000000170DD.07C: Completa %1$s partidas mientras estás en un grupo.
 0000000170DE.07C: Para romper el hielo
@@ -23532,6 +23653,7 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 0000000170F9.07C: Unicornio doblado
 0000000170FD.07C: Ciberorbe
 0000000170FE.07C: Monedero
+0000000170FF.07C: Gato negro
 000000017100.07C: Llavero de Tokki
 000000017101.07C: Grulla de origami
 000000017102.07C: Máscara de ciberdemonio
@@ -23576,9 +23698,9 @@ Juega partidas y completa desafíos para obtener EXP del pase de batalla.
 000000017131.07C: ¡Tu cuenta se combinó!
 000000017132.07C: Se migraron los siguientes datos:
 000000017133.07C: ¡Todo listo para la migración!
-000000017134.07C: Close your game now to begin the migration.
+000000017134.07C: Cierra el juego para comenzar la migración.
 
-It will take approximately %1$s.
+Este proceso tardará alrededor de %1$s minutos.
 000000017135.07C: Se están preparando tus cuentas para la migración.
 000000017136.07C: Posición en la fila de migración: %1$s
 000000017137.07C: Comunícate con Servicio al cliente
@@ -23616,8 +23738,7 @@ Error Code: BLZOWMIG60001
 00000001716B.07C: Ver destacado
 00000001716C.07C: CHAT DE VOZ DE EQUIPO
 00000001716D.07C: CHAT DE VOZ DEL GRUPO
-00000001716F.07C: Kanezaka
-000000017176.07C: Bonificación de Fila de roles: %1$s %%
+000000017176.07C: Bonificación de Fila de roles: %1$s %%
 000000017179.07C: Fila de monedas
 00000001717A.07C: Gana %1$s partidas en cualquier modo de Arcade.
 00000001717B.07C: Frutos de la victoria
@@ -23630,6 +23751,7 @@ Error Code: BLZOWMIG60001
 000000017186.07C: Buen juego
 000000017188.07C: Error al guardar
 000000017189.07C: Cubo de acertijos
+00000001718B.07C: Jet de Gibraltar
 00000001718C.07C: Corazón
 00000001718D.07C: Carga del rey
 00000001718E.07C: Salero
@@ -23703,13 +23825,13 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017269.07C: Comprar ahora
 00000001726A.07C: continuation-type
 00000001726B.07C: DETACHED_GAME
-000000017270.07C: Bonificación de IGR: %1$s %%
-000000017271.07C: Bonificación de grupo: %1$s %%
-000000017272.07C: Penalización por abandonar: %1$s %%
-000000017273.07C: Penalización por CAIS: %1$s %%
-000000017274.07C: Límite de partidas personalizadas: %1$s %%
-000000017275.07C: Bonificación de fila: %1$s %%
-000000017276.07C: Potenciador del pase de batalla: %1$s %%
+000000017270.07C: Bonificación de IGR: %1$s %%
+000000017271.07C: Bonificación de grupo: %1$s %%
+000000017272.07C: Penalización por abandonar: %1$s %%
+000000017273.07C: Penalización por CAIS: %1$s %%
+000000017274.07C: Límite de partidas personalizadas: %1$s %%
+000000017275.07C: Bonificación de fila: %1$s %%
+000000017276.07C: Potenciador del pase de batalla: %1$s %%
 00000001727C.07C: 44475039-4d32-3036-c031-43324239ea00
 000000017287.07C: PvP Challenges - Player - Long Range Eliminations and Assists
 000000017288.07C: PvP Challenges - Player - Close Range Eliminations and Assists
@@ -23736,10 +23858,11 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 0000000172BA.07C: Si Hoja dentada te atrapa, intenta colocarte detrás de algo para evitar que te arrastre hacia Junker Queen.
 0000000172BB.07C: Masacre inflige mucho daño, pero deja vulnerable a Junker Queen antes de que termine de usar el hacha. Aprovecha esa oportunidad para infligir daño o huir.
 0000000172BC.07C: Intenta separar a Junker Queen de su equipo para reducir la efectividad de Alarido dominante.
+0000000172C0.07C: Usa la habilidad Dinamita de Ashe para derribar la puerta.
 0000000172C2.07C: Dominio de armas de apoyo
 0000000172C3.07C: Sana %1$s de daño con armas.
 0000000172C4.07C: Dominio de habilidades de apoyo
-0000000172C5.07C: Sana %1$s de daño con habilidades (Caos total no cuenta).
+0000000172C5.07C: Sana %1$s de daño con habilidades (excepto en Caos total y modos cooperativos).
 0000000172C6.07C: Escala de repulsión de Hoja dentada
 0000000172C7.07C: PvP Challenges - Player - Ability Damage
 0000000172C8.07C: PvP Challenges - Player - Damage Amplified with Ability
@@ -23776,6 +23899,9 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 0000000172F1.07C: Selecciona un héroe de apoyo
 0000000172F4.07C: Juega más partidas
 0000000172F5.07C: Completa 5 partidas para desbloquear más modos de juego.
+0000000172F7.07C: Interact with Radio
+0000000172F8.07C: Revisa el radio
+0000000172F9.07C: Revisa el radio
 0000000172FB.07C: Elimina a 10 robots de entrenamiento (%1$s/10)
 0000000172FD.07C: PvP Challenges - Player - Ability Healing
 0000000172FF.07C: Temporada 1: competidor de fila de roles
@@ -23811,11 +23937,11 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 00000001731F.07C: Heroísmo implacable
 000000017320.07C: Gana %1$s partidas en cualquier modo.
 000000017321.07C: Verdugo
-000000017322.07C: Gana %1$s partidas en cualquier modo de Combate a muerte.
+000000017322.07C: Gana %1$s partidas de Combate a muerte no clasificatorias.
 000000017323.07C: Camaleón
-000000017324.07C: Gana %1$s partidas en Héroes misteriosos.
+000000017324.07C: Gana %1$s partidas de Héroes misteriosos no clasificatorias.
 000000017325.07C: Alma de la fiesta
-000000017326.07C: Gana %1$s partidas en cualquier modo de Arcade, excepto Combate a muerte.
+000000017326.07C: Gana %1$s partidas en cualquier modo de Arcade.
 000000017327.07C: Competidor adepto
 000000017328.07C: Gana %1$s partidas en cualquier modo de Juego competitivo.
 000000017329.07C: Competidor conocedor
@@ -23981,6 +24107,8 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017433.07C: Ciberdemonio
 000000017436.07C: Eliminaciones con Orbe biótico
 000000017438.07C: Los servidores están ocupados en este momento; tu saldo se actualizará más adelante.
+000000017467.07C: Gather In The Ramparts
+000000017468.07C: Atraviesa las murallas
 00000001748C.07C: PvP Challenges - Player - Eliminations and Assists without Dying
 00000001748F.07C: PvP Challenges - Player - Healing without Dying
 00000001749E.07C: Sojourn
@@ -24131,7 +24259,7 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017562.07C: Gana una partida con cada rol en Fila de roles.
 000000017563.07C: Primera victoria de CLB
 000000017564.07C: Gana una partida de CLB.
-000000017567.07C: Primera victoria de Combate a muerte TCT
+000000017567.07C: Primera victoria de Combate a muerte todos contra todos
 000000017568.07C: Gana una partida de Combate a muerte todos contra todos.
 000000017571.07C: Primera victoria de Combate a muerte por equipos
 000000017572.07C: Gana una partida de Combate a muerte por equipos.
@@ -24152,6 +24280,7 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 00000001758B.07C: Comando
 00000001758D.07C: Solo tú
 00000001758F.07C: Todo mundo arriba
+000000017592.07C: Bruja
 0000000175B5.07C: |Rfd %1$s:mm:ss;
 0000000175B6.07C: PvP Challenges - Player - Damage Amplified and Done
 0000000175D0.07C: PvP Challenges - Player - Challenges Completed
@@ -24171,6 +24300,8 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017618.07C: Porcentaje jugado:
 000000017619.07C: Tiempo de juego:
 00000001761A.07C: Todos los héroes
+00000001761E.07C: Pesa rusa
+000000017624.07C: Placas
 000000017625.07C: Información de la sala de espera
 000000017626.07C: Descripción
 00000001764D.07C: PvP Challenges - Player - Mitigation without Dying
@@ -24297,6 +24428,10 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 0000000177BB.07C: PvP Challenges - Player - Arcade - Duel - Win
 0000000177BD.07C: PvP Challenges - Player - Any Competitive Mode - Win
 0000000177C2.07C: PvP Challenges - Player - Mystery Heroes - Win
+0000000177C4.07C: Liga Overwatch - Gris
+0000000177C5.07C: Liga Overwatch - Gris
+0000000177C6.07C: Liga Overwatch - Blanco
+0000000177C7.07C: Liga Overwatch - Blanco
 0000000177C8.07C: Pase de batalla 
 0000000177C9.07C: Monedas
 0000000177CA.07C: Potenciamientos
@@ -24360,9 +24495,11 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 0000000178F9.07C: Desafío de temporada
 0000000178FA.07C: Desafío de héroe
 0000000178FB.07C: Desafío permanente
+0000000178FE.07C: Destruye
 0000000178FF.07C: Mantén presionado %1$s para cambiar de héroe
 000000017902.07C: EXP
 000000017903.07C: Recompensa: 
+000000017924.07C: Calypso ModoHéroe
 00000001793E.07C: Completa la experiencia de nuevo jugador para desbloquear esta acción.
 00000001793F.07C: SELECCIONAR DISEÑO
 000000017941.07C: Jugador - Tiempo en objetivo sin morir
@@ -24399,10 +24536,12 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 0000000179EE.07C: PvP Challenges - Player - Games Played
 0000000179F0.07C: Comprar fichas de la Liga Overwatch
 0000000179F8.07C: TIEMPO:
-000000017A2A.07C: Habilitar la respuesta reactiva de los gatillos del DualSense
+000000017A2A.07C: Habilitar el efecto de los gatillos del DualSense
+000000017A40.07C: Mantén presionado para desbloquear
+000000017A41.07C: Recoger llave maestra
 000000017A48.07C: Aumenta de manera pasiva la EXP del pase de batalla obtenida durante la temporada.
 000000017A4A.07C: (Partidas restantes: %1$s)
-000000017A4B.07C: %1$s %% de EXP
+000000017A4B.07C: %1$s %% de EXP
 000000017A4C.07C: Gerente general
 000000017A4D.07C: Líder comercial
 000000017A4E.07C: Líder de Finanzas y estrategia
@@ -24575,6 +24714,8 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017B1B.07C: PvP Challenges - Player - Daily Challenges Completed
 000000017B1D.07C: PvP Challenges - Player - Queued as All Roles - Win
 000000017B1F.07C: PvP Challenges - Player - Arcade - Non Deathmatch Aracde - Win
+000000017B26.07C: Mejor puntuación de Halloween (modo Historia)
+000000017B27.07C: Mejor puntuación de Halloween (modo Historia): %1$s
 000000017B28.07C: Reducir el movimiento del menú
 000000017B29.07C: Aprende los conceptos básicos sobre el movimiento, los disparos y las habilidades con este breve tutorial.
 000000017B4A.07C: Desafíos diarios completados: %1$s
@@ -24691,9 +24832,11 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017C18.07C: Tundra
 000000017C19.07C: Forestal
 000000017C1A.07C: Boreal
+000000017C1B.07C: Echa un vistazo adentro
 000000017C1C.07C: Comprar prémium
 000000017C1D.07C: Comprar prémium + 20 niveles adicionales
 000000017C25.07C: Desafíos
+000000017C27.07C: Adlersbrunn
 000000017C2B.07C: %1$s %2$s
 000000017C43.07C: PvP Challenges - Player - Hero - Sojourn - Win
 000000017C44.07C: PvP Challenges - Player - Hero - Queen - Win
@@ -24702,6 +24845,10 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000017C49.07C: Gana %1$s partidas con Sojourn.
 000000017C59.07C: Comandante Chase
 000000017C5A.07C: Gana %1$s partidas con Sojourn.
+000000017C5B.07C: PvE Challenges - Player - Event - Halloween- 2022 - Witness Banshee Moments
+000000017C5C.07C: Mal presagio
+000000017C5D.07C: Presencia los 7 momentos de la Banshee en un solo intento de La furia de la Novia.
+000000017C60.07C: EXP del pase de batalla
 000000017C63.07C: Nací para gobernar
 000000017C64.07C: Gana %1$s partidas con Junker Queen.
 000000017C67.07C: Que viva la reina
@@ -24714,12 +24861,173 @@ Ya falta poco, héroes… ¡nos vemos pronto en Overwatch 2!
 000000018578.07C: Chat de voz de partida
 000000018584.07C: EXP del pase de batalla
 000000018585.07C: EXP del pase de batalla
+00000001858A.07C: La furia de la Novia
+00000001858B.07C: Gana en La furia de la Novia en cualquier dificultad.
+00000001858D.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win Any difficulty
+00000001858E.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Expert
+00000001858F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win On Legendary
+000000018590.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Ashe
+000000018592.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Photobomb Bride
+000000018594.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Destroy N Shock Tires
+000000018595.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Crouch At Bonfire
+000000018596.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Discover Secret Area
+000000018598.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Get N Score Or Higher
+00000001859A.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate N Bosses
+00000001859B.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Eliminate Bastion In Tank Form
+00000001859C.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Win With No Lord Of The Castle Damage
 00000001859D.07C: Disponible mediante una promoción regional. Disponible en la galería de héroes a partir de la temporada 2.
 00000001859F.07C: EXP del pase de batalla
+000000018600.07C: Linterna encendida
+000000018601.07C: Agáchate en la linterna durante 6 segundos mientras el Fantasma está activo en Furia de la Novia.
+000000018602.07C: El llanto de la llanta
+000000018603.07C: Destruye %1$s neumáticos electrificantes en La furia de la Novia.
+000000018604.07C: Brebaje de la bruja
+000000018605.07C: Descubre el destino de un pasado terrorífico en un rincón oculto de Adlersbrunn en La furia de la Novia.
+000000018606.07C: La transformación del autómata
+000000018607.07C: Elimina al Experimento mientras está en su forma de tanque en la dificultad Difícil o superior Furia de la Novia.
+000000018608.07C: Consejo de la Novia
+000000018609.07C: Elimina a %1$s jefes en La furia de la Novia.
+00000001860A.07C: La furia de los héroes
+00000001860B.07C: Gana en Furia de la Novia con una puntuación de 10 000 o más.
+00000001860E.07C: Pose que asombra
+00000001860F.07C: Haz una pose con la Novia durante su presentación en La furia de la Novia.
+000000018612.07C: Aquí viene la Novia
+000000018613.07C: Gana La furia de la Novia en dificultad Experto.
+000000018614.07C: El amor lo vence todo
+000000018615.07C: Gana La furia de la Novia en dificultad Legendario.
+000000018616.07C: Cuatro valientes héroes
+000000018617.07C: Gana La furia de la Novia con 4 héroes diferentes.
+000000018618.07C: Ni una chispa
+000000018619.07C: Gana La furia de la Novia sin dejar que el señor del castillo reciba daño.
+00000001863F.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Sojourn
+000000018640.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Queen
+000000018641.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Kiriko
+00000001864E.07C: Si te incapacitan, arrástrate para cubrirte y evitar a los enemigos, así tu equipo podrá revivirte de manera segura.
+00000001865A.07C: Tu única fuente de sanación son tus acompañantes, ¡así que no se separen!
 00000001865B.07C: Sin amuleto
+000000018667.07C: Según las supersticiones en Adlersbrunn, los lamentos en el viento son el signo de un mal presagio...
+000000018668.07C: ¡Vigila tu entorno! Es común que los zómnicos avancen en masa.
+000000018669.07C: Si tienes miedo, solo cierra los ojos.
+00000001866A.07C: Aunque nadie ha visto a la Bruja en Adlersbrunn durante algún tiempo, los rumores dicen que todavía ronda por este lugar.
+00000001866B.07C: No estás a salvo, ni siquiera en tus sueños.
+000000018690.07C: El Monstruo fue la primera abominación de Junkenstein, pero no la única...
+000000018693.07C: ¿Te has preguntado si las palabras pueden hacer que pierdas la cordura?
+000000018694.07C: Aún hay tiempo para dar marcha atrás.
+000000018695.07C: ¿Sabías que la Novia nunca olvida ni perdona?
+000000018696.07C: Ella te va a encontrar.
+0000000186A9.07C: ¡Termina en %1$s!
+0000000186AA.07C: Mejor puntuación de Halloween (modo Historia)
+0000000186AB.07C: Mejor puntuación de Halloween (modo Historia): %1$s
+0000000186AE.07C: Terror de Halloween 2022
+0000000186AF.07C: Cae la noche sobre Adlersbrunn
+0000000186B1.07C: Grafiti zómnico
+0000000186B3.07C: Hasta la muerte
+0000000186B4.07C: Se desbloquea al completar el desafío La furia de los héroes del evento Terror de Halloween.
+0000000186B5.07C: Se desbloquea al completar el desafío Dando el gran paso del evento Terror de Halloween.
+0000000186B7.07C: Defeat Sombra
+0000000186B8.07C: Derrota a la Novia
+0000000186BD.07C: Permite héroes bloqueados
+0000000186BE.07C: La bruja llamada Kiriko se especializa en la adivinación, una habilidad inusual que para algunos es un don... y para otros una maldición. Sus visiones siempre la llevan a donde más la necesitan.
+000000018742.07C: Predice quién llora
+000000018744.07C: PvE Challenges - Player - Event - Halloween - OW1 - Normal - Win a Game
+000000018747.07C: Lectura de tarot
+000000018753.07C: Nuestra historia comienza
+000000018754.07C: No molesten a la Novia
+000000018756.07C: Zómnicos bajo la luna
+000000018757.07C: Calabaza de Halloween
+000000018759.07C: Cuerpos que embolsar
+00000001875A.07C: Siempre es la viuda
+00000001875C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Endless - Win a Game
+00000001875E.07C: Toca
+00000001875F.07C: PvE Challenges - Player - Event - Halloween- 2022 - WOTB - Tavern Secret
+000000018760.07C: Toc, toc...
+000000018761.07C: Molesta a la visita en la taberna en La furia de la Novia.
+000000018768.07C: PvE Challenges - Player - Event - Halloween - OW1 - Chaser - Win a Game
+000000018769.07C: PvE Challenges - Player - Event - Halloween - OW1 - Speed - Win a Game
+00000001876A.07C: PvE Challenges - Player - Event - Halloween - OW1 - Trio - Win a Game
+00000001876B.07C: PvE Challenges - Player - Event - Halloween - OW1 - Tires - Win a Game
+00000001876C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Boom - Win a Game
+00000001876D.07C: PvE Challenges - Player - Event - Halloween - OW1 - Mystery - Win a Game
+000000018785.07C: Gana La venganza de Junkenstein en cualquier dificultad.
+00000001878E.07C: Errantes del pasado
+00000001878F.07C: La noche eterna ya comenzó
+000000018790.07C: Completa la oleada 12 en Junkenstein Interminable.
+0000000187A3.07C: Sintoniza a partir del 30/10
+0000000187C6.07C: Desafío competitivo
+0000000187C7.07C: Desafío de evento
+0000000187E5.07C: Asuntos pendientes
+0000000187E6.07C: Gana la misión de desafío de Junkenstein: Fantasma vengativo.
+0000000187E7.07C: Atroces y veloces
+0000000187E8.07C: Gana la misión de desafío de Junkenstein: Estampida frenética.
+0000000187E9.07C: Trío sombrío
+0000000187EA.07C: Gana la misión de desafío de Junkenstein: Eran tres.
+0000000187EB.07C: ¡Prepárense para algo electrizante!
+0000000187EC.07C: Gana la misión de desafío de Junkenstein: Sorpresa impactante.
+0000000187ED.07C: El evento finaliza el 8 de noviembre
+0000000187F0.07C: ¡Nuevos diseños de Halloween disponibles en la tienda por tiempo limitado!
+¡Completa los desafíos del evento y gana el amuleto de arma Calabaza de Halloween y otros objetos cosméticos interesantes!
+0000000187F1.07C: La venganza de Junkenstein, uno de los eventos favoritos de todos, está de vuelta con una novedosa experiencia: ¡"La furia de la Novia"!
+0000000187F4.07C: Volátil y vil
+0000000187F5.07C: Gana la misión de desafío de Junkenstein: Zómnicos volátiles.
+0000000187F6.07C: Fiesta de disfraces
+0000000187F7.07C: Gana la misión de desafío de Junkenstein: Cambio misterioso.
+000000018800.07C: Se desbloquea al completar el desafío Cuatro almas valientes del evento Terror de Halloween.
+000000018806.07C: Se desbloquea al completar el desafío El brebaje de la bruja del evento Terror de Halloween.
+000000018807.07C: Se desbloquea al completar el desafío Un mal presagio del evento Terror de Halloween.
+000000018808.07C: Se desbloquea al completar el desafío Toc, toc... del evento Terror de Halloween.
+000000018809.07C: Se desbloquea al completar el desafío Consejo de la Novia del evento Terror de Halloween.
+00000001880A.07C: Se desbloquea al completar el desafío Furia de la Novia del evento Terror de Halloween.
+00000001880B.07C: Se desbloquea al completar el desafío Pose que asombra del evento Terror de Halloween.
+00000001880C.07C: Se desbloquea al completar el desafío El llanto de la llanta del evento Terror de Halloween.
+000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
+00000001884A.07C: Dando el gran paso
+00000001884B.07C: Gana La furia de la Novia en dificultad Difícil.
+000000018850.07C: Organización de bodas
+000000018851.07C: Completa 13 desafíos de Junkenstein.
+000000018855.07C: Ingresa el nombre del destacado
+000000018858.07C: Desafíos completados: %1$s
+000000018859.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win with Different Heroes
+00000001885A.07C: EXP del pase de batalla
+00000001885B.07C: EXP del pase de batalla
+000000018876.07C: El señor de Adlersbrunn no se salvó
+000000018878.07C: Se desbloquea al completar el desafío Organización de bodas del evento Terror de Halloween.
+00000001889F.07C: Down for
+0000000188B3.07C: ¡BONIFICACIÓN DE SUPERVIVENCIA! +%1$s pts
+0000000188B4.07C: ¡BONIFICACIÓN DE TIEMPO! +%1$s pts
+0000000188B5.07C: ¡BONIFICACIÓN DE OBJETIVO! +%1$s pts
+0000000188B6.07C: Puntuación de eliminaciones + %1$s ptos.
+0000000188B7.07C: Bonificación de supervivencia + %1$s ptos.
+0000000188B8.07C: Bonificación de tiempo + %1$s ptos.
+0000000188B9.07C: Bonificación de objetivo + %1$s ptos.
+0000000188BA.07C: Furia de la Novia
+0000000188E1.07C: VS.
+0000000188FF.07C: Las gárgolas
+000000018900.07C: La Novia
+000000018901.07C: Fantasma imparable
+000000018902.07C: El Experimento
+000000018903.07C: La Marioneta
+000000018904.07C: La Invocadora
+000000018907.07C: HEROÍNAS: Ashe, Junker Queen, Sojourn, Kiriko
+000000018908.07C: VICTORIA: Derrota a la Novia y sus aliados
+000000018919.07C: La furia de la Novia
 00000001891A.07C: Comparación de precios por lote basada en la compra de cada objeto por separado. En el caso de los objetos que no se ofrecen de manera individual, la comparación se basa en el precio de objetos similares disponibles por separado en el mismo nivel y categoría.
-
+000000018931.07C: Voz predeterminada
+000000018932.07C: Interminable
+000000018934.07C: Abajo...
+000000018935.07C: ¡Abajo!
+00000001894B.07C: Resurrect %1$s
+000000018999.07C: |Rpl %1$s:incapacitación:incapacitaciones;
+00000001899A.07C: %1$s |Rpl incapacitación:incapacitaciones;
+0000000189A3.07C: Victorias en Junkenstein 2022
+0000000189A7.07C: Subtítulos de video
 0000000189A8.07C: https://account.battle.net/connections
 0000000189A9.07C: https://www.blizzard.com/%1$s/legal/
-000000018AE0.07C: Please return to login for your account changes to take effect.
-[Core] Execution finished in 00:00:00.6417863 seconds
+0000000189EC.07C: CHECKPOINT RESTORE
+000000018A00.07C: 
+000000018A0C.07C: Disponible mediante una promoción regional a partir de noviembre. Disponible en la tienda ocasionalmente.
+000000018A74.07C: PvP Challenges - Player - Critical Damage
+000000018A75.07C: Ojo de águila
+000000018A76.07C: Inflige %1$s de daño crítico.
+000000018ADF.07C: Desbloquea la sala del trono
+000000018AE0.07C: Vuelve a iniciar sesión para que los cambios de tu cuenta surtan efecto.
+[Core] Execution finished in 00:00:00.6426990 seconds

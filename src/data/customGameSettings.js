@@ -1766,7 +1766,7 @@ const customGameSettingsSchema =
                                 "zh-TW": "隊伍人數+1"
                             },
                             "teamSize+2": {
-                                default: true,
+                                "default": true,
                                 "guid": "000000006148",
                                 "en-US": "Team Size +2",
                                 "de-DE": "Teamgröße +2",
@@ -2314,7 +2314,7 @@ const customGameSettingsSchema =
                     },
                     "enableEndless": {
                         "values": "__boolOnOff__",
-                        default: "off",
+                        "default": "off",
                         "guid": "000000006FB1",
                         "en-US": "Endless Mode",
                         "de-DE": "Endlosmodus",
@@ -2490,7 +2490,7 @@ const customGameSettingsSchema =
                 "en-US": "Team 1",
                 "es-ES": "Equipo 1",
                 "es-MX": "Equipo 1",
-                "fr-FR": "Équipe 1",
+                "fr-FR": "Équipe 1",
                 "it-IT": "Squadra 1",
                 "ja-JP": "チーム1",
                 "ko-KR": "1팀",
@@ -2505,7 +2505,7 @@ const customGameSettingsSchema =
                 "en-US": "Team 2",
                 "es-ES": "Equipo 2",
                 "es-MX": "Equipo 2",
-                "fr-FR": "Équipe 2",
+                "fr-FR": "Équipe 2",
                 "it-IT": "Squadra 2",
                 "ja-JP": "チーム2",
                 "ko-KR": "2팀",
@@ -3064,8 +3064,7 @@ const customGameSettingsSchema =
                     "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "ability1Cooldown%": {
                     "guid": "000000005B84",
@@ -3101,8 +3100,7 @@ const customGameSettingsSchema =
                     "exclude": [
                         "bastion"
                     ],
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
@@ -3137,8 +3135,7 @@ const customGameSettingsSchema =
                         "hanzo",
                         "hammond"
                     ],
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "ability3Cooldown%": {
                     "guid": "000000005B84",
@@ -3249,8 +3246,7 @@ const customGameSettingsSchema =
                         "mercy",
                         "echo"
                     ],
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "enableSecondaryFire": {
                     "guid": "000000013A5C",
@@ -3273,8 +3269,7 @@ const customGameSettingsSchema =
                         "sombra",
                         "hammond"
                     ],
-                    "en-US": "%1$s",
-                    "ko-KR": "%1$s회"
+                    "en-US": "%1$s"
                 },
                 "secondaryFireCooldown%": {
                     "guid": "000000005B84",
@@ -3454,7 +3449,7 @@ const customGameSettingsSchema =
                     "de-DE": "%1$s Energieaufladungsrate",
                     "es-ES": "%1$s de índice de carga de energía",
                     "es-MX": "%1$s de tasa de carga de energía",
-                    "fr-FR": "Vitesse de rechargement de l’énergie : %1$s",
+                    "fr-FR": "Vitesse de rechargement de l’énergie : %1$s",
                     "it-IT": "%1$s Velocità di ricarica energia",
                     "ja-JP": "%1$s エネルギー チャージ率",
                     "ko-KR": "%1$s 에너지 충전률",
@@ -3569,7 +3564,7 @@ const customGameSettingsSchema =
                         "de-DE": "Konfiguration: Panzer – Waffenrückstoß",
                         "es-ES": "Repulsión de arma de Modo tanque",
                         "es-MX": "Escala de derribo de arma Configuración: tanque",
-                        "fr-FR": "Recul du canon en configuration : tank",
+                        "fr-FR": "Recul du canon en configuration : tank",
                         "it-IT": "Assetto Carro Armato - Intensità di respinta dell'arma",
                         "ja-JP": "タンク・モード（武器） ノックバック・スカラー",
                         "ko-KR": "설정: 전차 무기 밀쳐내기 수준 조정",
@@ -5076,7 +5071,10 @@ const customGameSettingsSchema =
                 "pt-BR": "Permitir jogadores na fila",
                 "ru-RU": "Открыть для игроков в очереди",
                 "zh-CN": "队列中的玩家可以加入",
-                "zh-TW": "佇列中的玩家可進行"
+                "zh-TW": "佇列中的玩家可進行",
+                "descriptionLocalized": {
+                    "en-US": "Whether to allow players in 'While you wait'."
+                }
             },
             "useExperimentalUpdate": {
                 "values": "__boolYesNo__",
@@ -5543,7 +5541,7 @@ const customGameSettingsSchema =
                         "guid": "00000000AA75",
                         "en-US": "USA - Central",
                         "de-DE": "USA – Mitte",
-                        "es-ES": "EE. UU. - Central",
+                        "es-ES": "EE. UU. - Central",
                         "es-MX": "Estados Unidos - Central",
                         "fr-FR": "États-Unis - Centre",
                         "it-IT": "Stati Uniti - Centro",
@@ -5559,7 +5557,7 @@ const customGameSettingsSchema =
                         "guid": "00000000AA6E",
                         "en-US": "USA - East",
                         "de-DE": "USA – Osten",
-                        "es-ES": "EE. UU. - Este",
+                        "es-ES": "EE. UU. - Este",
                         "es-MX": "Estados Unidos - Este",
                         "fr-FR": "États-Unis - Est",
                         "it-IT": "Stati Uniti - Est",
@@ -5575,7 +5573,7 @@ const customGameSettingsSchema =
                         "guid": "000000015453",
                         "en-US": "USA - East 2",
                         "de-DE": "USA – Osten 2",
-                        "es-ES": "EE. UU. - Este 2",
+                        "es-ES": "EE. UU. - Este 2",
                         "es-MX": "Estados Unidos - Este 2",
                         "fr-FR": "États-Unis - Est 2",
                         "it-IT": "USA - Est 2",
@@ -5591,7 +5589,7 @@ const customGameSettingsSchema =
                         "guid": "00000000AA6F",
                         "en-US": "USA - Northwest",
                         "de-DE": "USA – Nordwesten",
-                        "es-ES": "EE. UU. - Noroeste",
+                        "es-ES": "EE. UU. - Noroeste",
                         "es-MX": "Estados Unidos - Noroeste",
                         "fr-FR": "États-Unis - Nord-ouest",
                         "it-IT": "Stati Uniti - Nord-ovest",
@@ -5607,7 +5605,7 @@ const customGameSettingsSchema =
                         "guid": "00000000AA62",
                         "en-US": "USA - Southwest",
                         "de-DE": "USA – Südwesten",
-                        "es-ES": "EE. UU. - Suroeste",
+                        "es-ES": "EE. UU. - Suroeste",
                         "es-MX": "Estados Unidos - Sudoeste",
                         "fr-FR": "États-Unis - Sud-ouest",
                         "it-IT": "Stati Uniti - Sud-ovest",
@@ -5623,7 +5621,7 @@ const customGameSettingsSchema =
                         "guid": "00000000AA63",
                         "en-US": "USA - West",
                         "de-DE": "USA – Westen",
-                        "es-ES": "EE. UU. - Oeste",
+                        "es-ES": "EE. UU. - Oeste",
                         "es-MX": "Estados Unidos - Oeste",
                         "fr-FR": "États-Unis - Ouest",
                         "it-IT": "Stati Uniti - Ovest",
@@ -5639,7 +5637,7 @@ const customGameSettingsSchema =
                         "guid": "0000000125DF",
                         "en-US": "USA - West 2",
                         "de-DE": "USA – Westen 2",
-                        "es-ES": "EE. UU. - Oeste 2",
+                        "es-ES": "EE. UU. - Oeste 2",
                         "es-MX": "Estados Unidos - Oeste 2",
                         "fr-FR": "États-Unis - Ouest 2",
                         "it-IT": "Stati Uniti - Ovest 2",
@@ -5721,7 +5719,7 @@ const customGameSettingsSchema =
             "modeName": {
                 "values": "__string__",
                 "default": "",
-                "maxChars": 32,
+                "maxBytes": 129,
                 "guid": "000000013E36",
                 "en-US": "Mode Name",
                 "de-DE": "Modusname",
@@ -5736,7 +5734,7 @@ const customGameSettingsSchema =
                 "ru-RU": "Название режима",
                 "zh-CN": "模式名称",
                 "zh-TW": "模式名稱"
-            }
+            },
         },
         "guid": "00000001006E",
         "en-US": "main",
