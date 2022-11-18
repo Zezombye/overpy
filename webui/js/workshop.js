@@ -1,3 +1,4 @@
+"use strict";
 
 console.debug = function() {}
 Vue.component('v-select', VueSelect.VueSelect);
@@ -221,7 +222,7 @@ var app = new Vue({
                     }
     
                     resetGlobalVariables(this.decompilationLanguage);
-                    [customGameSettings, rules] = decompileAllRulesToAst(content);
+                    var [customGameSettings, rules] = decompileAllRulesToAst(content);
                     if (!customGameSettings) {
                         console.error(this.translate("gamemodeMustHaveSettings", this.workshopUiCustomKw));
                         return;
@@ -676,7 +677,7 @@ var app = new Vue({
             }
             if (ast.args.length > 0) {
                 if (ast.name === "__customString__" || ast.name === "__localizedString__") {
-                    maxStrArg = ast.args[0].name.includes("{2}") ? 3 : ast.args[0].name.includes("{1}") ? 2 : ast.args[0].name.includes("{0}") ? 1 : 0
+                    var maxStrArg = ast.args[0].name.includes("{2}") ? 3 : ast.args[0].name.includes("{1}") ? 2 : ast.args[0].name.includes("{0}") ? 1 : 0
                     result += "(" + ast.args.slice(0, maxStrArg+1).map(x => this.displayAst(x, useHtml)).join(", ") + ")";
                 } else {
                     result += "(" + ast.args.map(x => this.displayAst(x, useHtml)).join(", ") + ")";
@@ -846,7 +847,7 @@ var app = new Vue({
                 true: "true",
             }
             ast.args = [];
-            keywordObj = (ast.type === "void" ? this.actionKw : this.valueFuncKw);
+            var keywordObj = (ast.type === "void" ? this.actionKw : this.valueFuncKw);
             if (keywordObj[ast.name].args !== null) {
                 for (var arg of keywordObj[ast.name].args) {
                     var astType = arg.type;
@@ -1152,7 +1153,7 @@ var app = new Vue({
             array.args.splice(i, 1);
         },
         addToArray(array) {
-            arg = new Ast("null");
+            var arg = new Ast("null");
             arg.parent = array;
             array.args.push(arg);
         },
@@ -1253,26 +1254,26 @@ var app = new Vue({
         calculateDropdownPosition: function(dropdownList, component, {width}) {
             dropdownList.style.width = width;
             const popper = Popper.createPopper(component.$refs.toggle, dropdownList, {
-            placement: "bottom",
-            modifiers: [
-                {
-                name: 'offset',
-                options: {
-                    offset: [0, -1],
-                },
-                },
-                {
-                name: 'toggleClass',
-                enabled: true,
-                phase: 'write',
-                fn({ state }) {
-                    component.$el.classList.toggle(
-                    'drop-up',
-                    state.placement === 'top'
-                    )
-                },
-                },
-            ],
+                placement: "bottom",
+                modifiers: [
+                    {
+                    name: 'offset',
+                    options: {
+                        offset: [0, -1],
+                    },
+                    },
+                    {
+                    name: 'toggleClass',
+                    enabled: true,
+                    phase: 'write',
+                    fn({ state }) {
+                        component.$el.classList.toggle(
+                        'drop-up',
+                        state.placement === 'top'
+                        )
+                    },
+                    },
+                ],
             })
             return () => popper.destroy()
         },
