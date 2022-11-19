@@ -762,115 +762,144 @@ const workshopUiCustomKw = {
     "zezWorkshopUiRecreation": {
         "en-US": "Zez's workshop UI recreation",
         "zh-CN": "Zez的工坊编辑器再现",
+        "zh-TW": "Zez的工坊編輯器再現"
     },
     "untitledMode": {
         "en-US": "<Untitled mode>",
         "zh-CN": "未命名的工坊",
+        "zh-TW": "未命名的工坊"
     },
     "pressButtonToImport1": {
         "en-US": "Press the",
         "fr-FR": "Appuyez sur le bouton",
         "zh-CN": "点击",
+        "zh-TW": "點擊"
     },
     "pressButtonToImport2": {
         "en-US": "button to import an existing gamemode",
         "fr-FR": "pour importer un mode existant",
         "zh-CN": "按钮导入模式",
+        "zh-TW": "按鈕導入模式"
     },
     "sizeOfLargestRule": {
         "en-US": "Size of largest rule",
         "zh-CN": "最大规则的大小",
+        "zh-TW": "最大規則的大小"
     },
     "idk": {
         "en-US": "IDK",
         "zh-CN": "未知",
+        "zh-TW": "未知"
     },
     "howTheFuck": {
         "en-US": "How the fuck do you calculate this shit?",
         "zh-CN": "这鬼东西你怎么算?",
+        "zh-TW": "這鬼東西你怎麼算?"
     },
     "hoursSpent": {
         "en-US": "Hours spent making this UI",
         "zh-CN": "制作这个UI花费的小时数",
+        "zh-TW": "製作這個UI花費的小時數"
     },
     "flexboxMaster": {
         "en-US": "I am now a master at FlexBox",
         "zh-CN": "现在我是个网页大师",
+        "zh-TW": "現在我是個網頁大師"
     },
     "para1": {
         "en-US": "The UI was tested on Firefox with a resolution of 1920x1080. You can zoom or dezoom if the UI is not adapted to your screen resolution.",
         "zh-CN": "本UI已在火狐浏览器1920x1080分辨率测试过. 如果本UI不符合你屏幕的分辨率你可以进行缩放大小.",
+        "zh-TW": "本UI已在火狐瀏覽器1920x1080分辨率測試過. 如果本UI不符合你屏幕的分辨率你可以進行縮放大小."
     },
     "para2": {
         "en-US": "You can save manually by clicking on the Save button:",
         "zh-CN": "你可以点击保存按钮手动保存:",
+        "zh-TW": "你可以點擊保存按鈕手動保存:"
     },
     "para3": {
         "en-US": "Then, you can paste into Overwatch by clicking on the button below:",
         "zh-CN": "然后可以在守望先锋中点击如下按钮粘贴到游戏:",
+        "zh-TW": "然後可以在守望先鋒中點擊如下按鈕黏貼到遊戲:"
     },
     "para4": {
         "en-US": "This workshop UI uses OverPy to decompile and compile. The only known limitation is that disabled actions and conditions cannot be outputted; they will be replaced by useless actions. Some errors use the OverPy syntax for functions.",
         "zh-CN": "此工坊界面使用OverPy(为工坊脚本制作的一个high-level脚本语言)工作. 已知问题只有被禁用的条件与动作会被忽略, 不会被输出; 和工坊的原有脚本错误提示会用overpy的格式来提示.",
+        "zh-TW": "此工坊界面使用OverPy(為工坊腳本製作的一個high-level腳本語言)工作. 已知問題只有被禁用的條件與動作會被忽略, 不會被輸出; 和工坊的原有腳本錯誤提示會用overpy的格式來提示."
     },
     "para5": {
         "en-US": "Below, you can configure some settings for the UI and for OverPy:",
         "zh-CN": "下方, 你可以调整一些界面设置和Overpy设置",
+        "zh-TW": "下方, 你可以調整一些界面設置和Overpy設置"
     },
     "para6": {
-        "en-US": "如果有任何问题和反馈欢迎加入discord频道!",
+        "en-US": "Feel free to join the discord if you have any questions or feedback!",
+        "zh-CN": "如果有任何问题和反馈欢迎加入discord频道!",
+        "zh-TW": "如果有任何問題和反饋歡迎加入discord頻道!"
     },
     "para7": {
         "en-US": "Made by Zezombye, with help from Mitsiee",
         "zh-CN": "Zezombye制作, 和Mitsiee帮助",
+        "zh-TW": "Zezombye製作, 和Mitsiee幫助"
     },
     "importGamemode": {
         "en-US": "Import Gamemode",
         "zh-CN": "导入游戏脚本",
+        "zh-TW": "導入遊戲腳本"
     },
     "importProject": {
         "en-US": "Import project:",
         "zh-CN": "导入游戏脚本:",
+        "zh-TW": "導入遊戲腳本:"
     },
     "pasteGamemodeHere": {
         "en-US": "Paste your gamemode here",
         "zh-CN": "粘贴你的游戏脚本到下方",
+        "zh-TW": "黏貼你的遊戲腳本到下方"
     },
     "language": {
         "en-US": "Language",
         "zh-CN": "语言",
+        "zh-TW": "語言"
     },
     "note1": {
         "en-US": "Note: this will erase the existing rules.",
         "zh-CN": "注意: 这操作会清除现有规则.",
+        "zh-TW": "注意: 這操作會清除現有規則."
     },
     "note2": {
         "en-US": "The gamemode has to be copied straight from Overwatch.",
         "zh-CN": "游戏脚本需要直接从守望先锋中复制",
+        "zh-TW": "遊戲腳本需要直接從守望先鋒中複製"
     },
     "setting-optimization": {
         "en-US": "Optimization",
         "zh-CN": "优化",
+        "zh-TW": "優化"
     },
     "setting-optimization-none": {
         "en-US": "No optimization",
         "zh-CN": "不优化",
+        "zh-TW": "不優化"
     },
     "setting-optimization-speed": {
         "en-US": "Optimize for speed (default)",
         "zh-CN": "优化速度 (默认)",
+        "zh-TW": "優化速度 (默認)"
     },
     "setting-optimization-size": {
         "en-US": "Optimize for size (reduce element count)",
         "zh-CN": "优化大小 (减少元素数量)",
+        "zh-TW": "優化大小 (減少元素數量)"
     },
     "setting-language": {
         "en-US": "UI Language",
         "zh-CN": "界面语言",
+        "zh-TW": "界面語言"
     },
     "setting-compilationLanguage": {
         "en-US": "Compilation Language",
         "zh-CN": "输出脚本语言",
+        "zh-TW": "輸出腳本語言"
     },
     "setting-language-en-US": {
         "en-US": "🍔 English [en-US]",
@@ -953,86 +982,107 @@ const workshopUiCustomKw = {
     "setting-background": {
         "en-US": "Background",
         "zh-CN": "背景",
+        "zh-TW": "背景"
     },
     "setting-background-random": {
         "en-US": "Random",
         "zh-CN": "随机",
+        "zh-TW": "隨機"
     },
     "setting-background-blizzard_world.jpg": {
         "en-US": "Blizzard World #1",
         "zh-CN": "暴雪世界#1",
+        "zh-TW": "暴雪世界#1"
     },
     "setting-background-blizzard_world_2.jpg": {
         "en-US": "Blizzard World #2",
         "zh-CN": "暴雪世界#2",
+        "zh-TW": "暴雪世界#2"
     },
     "setting-background-busan.jpg": {
         "en-US": "Busan",
         "zh-CN": "釜山",
+        "zh-TW": "釜山"
     },
     "setting-background-chateau_halloween.jpg": {
         "en-US": "Château Halloween",
         "zh-CN": "万圣节吉拉德堡",
+        "zh-TW": "萬聖節吉拉德堡"
     },
     "setting-background-dorado.jpg": {
         "en-US": "Dorado",
         "zh-CN": "多伦多",
+        "zh-TW": "多倫多"
     },
     "setting-background-eichenwalde.jpg": {
         "en-US": "Eichenwalde",
         "zh-CN": "艾兴瓦尔德",
+        "zh-TW": "艾興瓦爾德"
     },
     "setting-background-eichenwalde_halloween.jpg": {
         "en-US": "Eichenwalde Halloween #1",
         "zh-CN": "万圣节艾兴瓦尔德#1",
+        "zh-TW": "萬聖節艾興瓦爾德#1"
     },
     "setting-background-eichenwalde_halloween_2.jpg": {
         "en-US": "Eichenwalde Halloween #2",
         "zh-CN": "万圣节艾兴瓦尔德#2",
+        "zh-TW": "萬聖節艾興瓦爾德#2"
     },
     "setting-background-hanamura.jpg": {
         "en-US": "Hanamura",
         "zh-CN": "花村",
+        "zh-TW": "花村"
     },
     "setting-background-kings_row.jpg": {
         "en-US": "King's Row",
         "zh-CN": "国王大道",
+        "zh-TW": "國王大道"
     },
     "setting-background-monte_carlo.jpg": {
         "en-US": "Monte Carlo #1",
         "zh-CN": "皇家赛道#1",
+        "zh-TW": "皇家賽道#1"
     },
     "setting-background-monte_carlo_2.jpg": {
         "en-US": "Monte Carlo #2",
         "zh-CN": "皇家赛道#2",
+        "zh-TW": "皇家賽道#2"
     },
     "setting-background-new_queen_street.jpg": {
         "en-US": "New Queen Street",
         "zh-CN": "新皇后街",
+        "zh-TW": "新皇后街"
     },
     "setting-background-oasis.jpg": {
         "en-US": "Oasis",
         "zh-CN": "绿洲",
+        "zh-TW": "綠洲"
     },
     "setting-background-paraiso.jpg": {
         "en-US": "Paraiso",
         "zh-CN": "帕拉伊苏",
+        "zh-TW": "帕拉伊蘇"
     },
     "setting-background-paris.jpg": {
         "en-US": "Paris",
         "zh-CN": "巴黎",
+        "zh-TW": "巴黎"
     },
     "setting-background-rialto.jpg": {
         "en-US": "Rialto",
         "zh-CN": "里阿尔托",
+        "zh-TW": "裡阿爾托"
     },
     "setting-background-temple_of_anubis.jpg": {
         "en-US": "Temple of Anubis",
         "zh-CN": "阿努比斯神殿",
+        "zh-TW": "阿努比斯神殿"
     },
     "setting-background-volskaya.jpg": {
         "en-US": "Volskaya",
         "zh-CN": "沃斯卡娅工业区",
+        "zh-TW": "沃斯卡婭工業區"
     },
     "setting-background-tf2.jpg": {
         "en-US": "TF2 #1",
@@ -1046,49 +1096,76 @@ const workshopUiCustomKw = {
     "setting-background-workshop.jpg": {
         "en-US": "Workshop",
         "zh-CN": "工作间",
+        "zh-TW": "工作間"
     },
     "setting-background-forge.jpg": {
         "en-US": "Forge",
         "zh-CN": "铁匠铺",
+        "zh-TW": "鐵匠鋪"
     },
     "setting-disabledWarnings": {
         "en-US": "Disabled warnings (separate by commas)",
         "zh-CN": "禁用警告 (逗号分隔)",
+        "zh-TW": "禁用警告 (逗號分隔)"
     },
     "cannotImportEmptyGamemode": {
         "en-US": "Cannot import an empty gamemode",
         "zh-CN": "无法导入空游戏脚本",
+        "zh-TW": "無法導入空遊戲腳本"
     },
     "gamemodeMustHaveSettings": {
         "en-US": "Gamemode must have settings",
         "zh-CN": "游戏脚本必须有设置段落",
+        "zh-TW": "遊戲腳本必須有設置段落"
     },
     "contactZez": {
         "en-US": "contact Zezombye about this",
         "zh-CN": "此问题联系Zezombye",
+        "zh-TW": "此問題聯繫Zezombye"
     },
     "successfullyImported": {
         "en-US": "Successfully imported!",
         "zh-CN": "导入成功!",
+        "zh-TW": "導入成功!"
     },
     "successfullyCompiled": {
         "en-US": "Successfully compiled! (copied into clipboard)",
         "zh-CN": "输出成功! (已复制到剪贴板)",
+        "zh-TW": "輸出成功! (已複製到剪貼板)"
     },
     "compilationTooLong": {
         "en-US": "Compilation took too long, please click again to copy.",
         "zh-CN": "生成过久, 请重新点击复制",
+        "zh-TW": "生成過久, 請重新點擊複製"
     },
     "modeWillNotBeSaved": {
         "en-US": "You are not signed in and nothing you do will be saved to your account.",
         "zh-CN": "你没有登录, 你的操作不会被保存到你的本站账户.",
+        "zh-TW": "你沒有登錄, 你的操作不會被保存到你的本站賬戶."
     },
     "pleaseSignIn": {
         "en-US": "Please sign in",
         "zh-CN": "请登录",
+        "zh-TW": "請登錄"
     },
     "youAreNotSignedIn": {
         "en-US": "You are not signed in and your mode will not be saved. It is still copied to your clipboard.",
         "zh-CN": "你没有登录, 你的工坊不会被保存. 但一样复制到了你的剪贴板.",
-    }
+        "zh-TW": "你沒有登錄, 你的工坊不會被保存. 但一樣複製到了你的剪貼板."
+    },
+    "youDoNotOwnThisProject": {
+        "en-US": "You do not own this project and your changes will not be saved. It is still copied to your clipboard.",
+        "zh-CN": "你没拥有这个项目, 你的改动不会被保存. 但一样复制到了你的剪贴板.",
+        "zh-TW": "你沒擁有這個項目, 你的改動不會被保存. 但一樣複製到了你的剪貼板."
+    },
+    "errorWhenSaving": {
+        "en-US": "Error when saving, try again.",
+        "zh-CN": "保存出现错误, 请重试.",
+        "zh-TW": "保存出現錯誤, 請重試."
+    },
+    "youDoNotOwnThisProject2": {
+        "en-US": "You do not own this project, changes will not be saved.",
+        "zh-CN": "你没拥有这个项目, 改动不会被保存.",
+        "zh-TW": "你沒擁有這個項目, 改動不會被保存."
+    },
 }
