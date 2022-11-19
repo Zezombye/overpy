@@ -1115,8 +1115,8 @@ const workshopUiCustomKw = {
     },
     "gamemodeMustHaveSettings": {
         "en-US": "Gamemode must have settings",
-        "zh-CN": "游戏脚本必须有设置段落",
-        "zh-TW": "遊戲腳本必須有設置段落"
+        "zh-CN": "游戏脚本中必须有\"设置\"段落",
+        "zh-TW": "遊戲腳本中必須有\"設置\"段落"
     },
     "contactZez": {
         "en-US": "contact Zezombye about this",
@@ -1135,8 +1135,8 @@ const workshopUiCustomKw = {
     },
     "compilationTooLong": {
         "en-US": "Compilation took too long, please click again to copy.",
-        "zh-CN": "生成过久, 请重新点击复制",
-        "zh-TW": "生成過久, 請重新點擊複製"
+        "zh-CN": "生成用时过久, 请重新点击复制",
+        "zh-TW": "生成用時過久, 請重新點擊複製"
     },
     "modeWillNotBeSaved": {
         "en-US": "You are not signed in and nothing you do will be saved to your account.",
