@@ -776,14 +776,14 @@ const workshopUiCustomKw = {
         "fr-FR": "Appuyez sur le bouton",
         "zh-CN": "点击",
         "zh-TW": "點擊",
-        "pt-BR": "Clique no",
+        "pt-BR": "Clique no botão",
     },
     "pressButtonToImport2": {
         "en-US": "button to import an existing gamemode",
         "fr-FR": "pour importer un mode existant",
         "zh-CN": "按钮导入模式",
         "zh-TW": "按鈕導入模式",
-        "pt-BR": "botão para importar um modo existente",
+        "pt-BR": "para importar um modo existente",
     },
     "sizeOfLargestRule": {
         "en-US": "Size of largest rule",
