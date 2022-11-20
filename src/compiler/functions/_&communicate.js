@@ -19,7 +19,7 @@
 
 astParsingFunctions["_&communicate"] = function(content) {
 
-    warn("w_ow2_communicate_bug", "The function Player.communicate() currently returns '0' and 'false' instead of false/true. It is possible to distinguish the values through string concatenation.")
+    warn("w_ow2_communicate_bug", "The function Player.communicate() currently does not work.")
     
     return content;
 }
