@@ -1,15 +1,15 @@
-[Core] DataTool v2.1.0.0+1009+de9c785f
+[Core] DataTool v2.1.0.0+1016+3098d9fc
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=ptBR", "-T=ptBR"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: ptBR | Speech Language: ptBR
-[CASC] Overwatch build 2.1.1.0.106617
+[CASC] Overwatch build 2.1.2.0.107076
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
+[Manifest] Using TRG procedure 107076 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LptBR_speech_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LptBR_text_EExt.cmf
 [CASC] Ready
-[Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
+[Core] Reminder!! When extracting data in languages other than English, the names of the heroes and skins MUST be in the language you have chosen! (ptBR)
 [Core] Checking ResourceKeys
 [GUIDNames] GUIDNames.csv not found
 [LocalizedNames] LocalizedNamesMapping.csv not found
@@ -909,7 +909,6 @@
 000000000F17.07C: Insira um endereço de e-mail ou BattleTag
 000000000F1B.07C: X
 000000000F2A.07C: REFLEXOS LOCAIS
-000000000F3E.07C: <tx0C00000000004480> Clique com o botão direito para desvincular
 000000000F3F.07C: MOVIMENTO
 000000000F42.07C: ARMAS E HABILIDADES
 000000000F43.07C: Comunicação
@@ -3469,7 +3468,6 @@ para entrar na partida.
 000000002C9B.07C: MÉDIO - 2X
 000000002C9C.07C: BAIXO - 1X
 000000002C9D.07C: ÉPICO - 16X
-000000002C9E.07C: ULTRA - SMAA ALTO
 000000002C9F.07C: ALTO - SMAA MÉDIO
 000000002CA0.07C: MÉDIO - SMAA BAIXO
 000000002CA1.07C: BAIXO - FXAA
@@ -5879,7 +5877,6 @@ letais.
 000000005254.07C: Esquiando
 00000000525A.07C: Ofensiva de Bola de Neve da Mei
 00000000525B.07C: Enfrente uma série de batalhas de cinco contra cinco. Cada jogador usará a Mei, equipada com um Detonador de Bola de Neve poderoso. Essa arma só tem um tiro, mas pode ser recarregada em montes de neve.
-00000000525E.07C: <tx0C000000000044B0> para desvincular
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Truque com chapéu
 000000005263.07C: Pressione qualquer %1$s agora ou %2$s para cancelar
@@ -7105,7 +7102,7 @@ Um nome de jogador ou BattleTag que usa um idioma diferente do seu.
 000000005E02.07C: Lacroix
 000000005E04.07C: Blackwatch
 000000005E0B.07C: Salva-vidas
-000000005E0D.07C: Merda
+000000005E0D.07C: Droga
 000000005E1C.07C: O fantasma está assistindo
 000000005E35.07C: Ativando objetivo...
 000000005E36.07C: Objetivo assegurado!
@@ -10816,6 +10813,7 @@ Outros modos de jogo de Overwatch, como Jogo Rápido, o Modo Arcade e o Navegado
 0000000086E6.07C: Lacrosse
 0000000086EC.07C: Raio
 0000000086ED.07C: Bitrate
+000000008723.07C: Selecionar
 000000008727.07C: Precisão de tiros diretos
 000000008728.07C: %1$s de precisão de tiros diretos
 000000008749.07C: |Rfd %1$s:m:ss;
@@ -11272,6 +11270,7 @@ Deseja cancelar?
 000000008EAC.07C: Busan
 000000008EAD.07C: Duas equipes competem para tomar o controle de Busan.
 000000008EAE.07C: MAPA: Busan
+000000008EB3.07C: Detalhes
 000000008EC9.07C: Aparecimento
 000000008ECA.07C: Sair do grupo
 000000008F31.07C: Medalha
@@ -19444,6 +19443,7 @@ Competitiva 2020
 000000011A22.07C: Revivendo
 000000011A24.07C: Overwatch Contenders
 000000011A25.07C: Overwatch Contenders
+000000011A27.07C: Ótica
 000000011A53.07C: TEM CERTEZA DE QUE DESEJA DESATIVAR O FILTRO DE LINGUAGEM OFENSIVA?
 000000011AB1.07C: Duração do intervalo de avanço de tempo
 000000011AB3.07C: Abrangência do filtro de texto com linguagem ofensiva
@@ -20901,6 +20901,7 @@ Você também será colocado no conjunto de fora desta temporada competitiva.
 000000013944.07C: Escrever mensagem
 000000013945.07C: Canais
 000000013946.07C: Fechar
+000000013975.07C: Art Déco
 000000013979.07C: |Rpl %1$s:Segundo lugar:Segundos lugares;
 00000001397A.07C: %1$s |Rpl Segundo lugar:Segundos lugares;
 00000001397B.07C: |Rpl %1$s:Jogo vencido:Jogos vencidos;
@@ -21281,6 +21282,7 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 0000000140CA.07C: Entrada Automática
 0000000140CD.07C: Tentativa de Entrada Automática
 000000014120.07C: Aguardando jogadores
+0000000141C1.07C: Estrela Retrô
 0000000141EE.07C: Raio mínimo dos Foguetes Hélix
 000000014207.07C: Criando jogos com código
 000000014208.07C: Falha ao importar código
@@ -21354,6 +21356,7 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 000000014329.07C: Indisponível no momento
 00000001432A.07C: Exibindo %1$s |Rpl Lobby:Lobbies;
 00000001432B.07C: Não encontramos um jogo válido.
+00000001432D.07C: Calavera
 00000001433C.07C: Tesouro dos Dragões
 00000001433D.07C: Desbloqueado ao assistir ao Torneio Joust June da OWL 2021 ao vivo
 000000014342.07C: Talon Avistada
@@ -21544,7 +21547,6 @@ Se desejar reativar as configurações afetadas, acesse a aba "Configurações d
 0000000147DB.07C: Armadura
 0000000147DC.07C: Vida
 0000000147DD.07C: Escudos
-0000000147EA.07C: Alerta
 000000014801.07C: Real name: Reinhardt Wilhelm
 Age: 50
 Affiliation: Overwatch (Formerly)
@@ -21634,7 +21636,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: Presentation_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: %1$s (%2$s): Estou com você.
-000000014F4F.07C: %1$s (%2$s - %3$s m) para %3$s (%4$s): Estou com você.
+000000014F4F.07C: %1$s (%2$s - %5$s m) para %3$s (%4$s): Estou com você.
 000000014F50.07C: %1$s (%2$s): Estou a caminho!
 000000014F51.07C: %1$s (%2$s - %5$s m) para %3$s (%4$s): Estou a caminho!
 000000014F52.07C: %1$s (%2$s): De nada.
@@ -21776,6 +21778,7 @@ Affiliation: Overwatch (Formerly)
 000000015406.07C: Tempo restante:
 000000015409.07C: General
 000000015422.07C: Heroica
+000000015436.07C: Ciberdragão
 00000001543A.07C: Comprar %1$s?
 00000001543B.07C: Raio do Salto a Jato
 000000015443.07C: Balão Oriental
@@ -21880,7 +21883,7 @@ Affiliation: Overwatch (Formerly)
 000000015694.07C: Jogue com qualquer função.
 000000015695.07C: Heróis Misteriosos
 000000015696.07C: Combate até a Morte
-000000015698.07C: %1$s (%2$s): Eu preciso de cura! %4$s
+000000015698.07C: %1$s (%2$s): Eu preciso de cura! %6$s %4$s
 0000000156A1.07C: %1$s (%2$s): Venham até mim para se curar!
 0000000156A2.07C: %1$s (%2$s - %5$s m) para %3$s (%4$s): Venha até mim para se curar!
 0000000156A6.07C: %1$s chegou ao Ponto de Controle do Avanço
@@ -21931,6 +21934,7 @@ Affiliation: Overwatch (Formerly)
 000000015733.07C: Escalão %1$s
 000000015735.07C: Torneio
 000000015739.07C: OPACIDADE DO ANEL DA CONTAGEM DE HABILIDADE
+000000015746.07C: Orgulhosa
 000000015747.07C: Ciberdetetive
 000000015749.07C: FOGO
 000000015769.07C: %1$s (%2$s): Entendido.
@@ -22739,6 +22743,7 @@ Jogue partidas e conclua desafios para ganhar EXP do Passe de Batalha.
 0000000167D8.07C: Conectando-se ao servidor
 0000000167D9.07C: |Rfn %1$s:N0;m ???
 0000000167DA.07C: Holograma
+0000000167DD.07C: Danza de los Diablos
 0000000167DF.07C: Buscando partida
 0000000167E3.07C: Legendas
 0000000167E7.07C: Temporada
@@ -22909,8 +22914,6 @@ Jogue partidas e conclua desafios para ganhar EXP do Passe de Batalha.
 000000016944.07C: Selecione TREINAMENTO.
 000000016946.07C: Jogue no Casual ou Praticar vs. IA
 000000016947.07C: Conclua 5 partidas para desbloquear novos modos de jogo.
-000000016948.07C: Jogue mais partidas
-000000016949.07C: Conclua 5 partidas para desbloquear mais modos de jogo.
 000000016956.07C: Defeat Castle Guards
 000000016958.07C: Presentation_PH
 00000001695B.07C: Controle - Heróis aleatórios
@@ -23274,6 +23277,7 @@ Jogue partidas e conclua desafios para ganhar EXP do Passe de Batalha.
 000000016C6C.07C: BATE-PAPO DO GRUPO
 000000016C6D.07C: SUSSURROS
 000000016C70.07C: Desbloqueado ao participar do evento Apoie um Streamer: Brigitte Médica
+000000016C8F.07C: O bate-papo de voz pode ser gravado para investigar e verificar denúncias de comportamento inadequado.
 000000016C93.07C: Experimento
 000000016C94.07C: Banshee
 000000016C95.07C: Noiva
@@ -23412,6 +23416,7 @@ Jogue partidas e conclua desafios para ganhar EXP do Passe de Batalha.
 000000016DD7.07C: Checkpoint - Reach The Throne Room
 000000016DD8.07C: Checkpoint - Final Battle
 000000016DD9.07C: Checkpoint - Pub
+000000016DE5.07C: No Vento
 000000016DF3.07C: Armas e Habilidades Supremas
 000000016DF5.07C: História
 000000016E01.07C: Abrir Passe de Batalha
@@ -23449,6 +23454,7 @@ Jogue partidas e conclua desafios para ganhar EXP do Passe de Batalha.
 000000016EC2.07C: 1ª Temporada
 000000016EC8.07C: Torneio de Eliminação Limitada 2v2
 000000016ED6.07C: Torneio de Eliminação 2v2
+000000016F03.07C: Cinco Dedos
 000000016F08.07C: MENSAGENS DE COMUNICAÇÃO RÁPIDA
 000000016F0B.07C: LER CANAL ATUAL AO ENTRAR NO BATE-PAPO
 000000016F0C.07C: INFORMAÇÕES DO AUTOR ADICIONADAS À FALA
@@ -23525,8 +23531,6 @@ AVISO: Contém sustos
 000000017039.07C: Vença %1$s partidas.
 00000001703C.07C: Poder Flexível
 00000001703D.07C: Vença %1$s partidas na fila Todas as Funções.
-00000001703E.07C: Maestria de Funções
-00000001703F.07C: Vença 10 partidas usando 2 funções diferentes no Jogo Rápido ou Competitivo.
 000000017040.07C: A Melhor Defesa
 000000017041.07C: Cause ou impulsione um total de %1$s de dano. (Não inclui Caos Total e modos cooperativos.)
 000000017042.07C: Linha de Defesa
@@ -23541,8 +23545,6 @@ AVISO: Contém sustos
 00000001705A.07C: Conclua %1$s partidas com heróis que NÃO estejam entre os seus 3 mais jogados. (Todos os modos)
 00000001705B.07C: Jogada da Partida
 00000001705C.07C: Realize %1$s eliminações/assistências com habilidades supremas. (Não inclui Caos Total e modos cooperativos.)
-00000001705D.07C: Hora da Faxina
-00000001705E.07C: Realize %1$s Eliminações de Equipe.
 000000017064.07C: Flexibilidade com Classe
 000000017065.07C: Conclua %1$s partidas na fila Todas as Funções.
 000000017066.07C: Boas-vindas a Overwatch: parte 1 de 3
@@ -23600,7 +23602,7 @@ AVISO: Contém sustos
 0000000170AC.07C: Exista
 0000000170AD.07C: Disponível como parte do Pacote do Observatório
 0000000170AE.07C: Uma longa descida
-0000000170AF.07C: Disponível na Loja temporariamente
+0000000170AF.07C: Disponível na Loja ocasionalmente
 0000000170B0.07C: Partes e inteiro
 0000000170B2.07C: Essas bandas
 0000000170B4.07C: Noite no Arcade
@@ -23648,14 +23650,14 @@ AVISO: Contém sustos
 0000000170E0.07C: Educação
 0000000170E1.07C: Use o emote "Obrigado" para um Herói de Suporte.
 0000000170E2.07C: Acabe com Eles!
-0000000170E3.07C: Realize %1$s Eliminações de Equipe.
+0000000170E3.07C: Realize uma aniquilação de equipe.
 0000000170E4.07C: Arrebentando
 0000000170E5.07C: Realize uma assistência/abate triplo ou superior.
 0000000170E7.07C: Está tudo ligado
 0000000170EA.07C: PvP Challenges - Player - Ultimate Assists
 0000000170EB.07C: PvP Challenges - Player - Ultimate Eliminations
 0000000170EC.07C: PvP Challenges - Player - Ultimate Eliminations and Assists
-0000000170F5.07C: Suas contas foram fundidas!
+0000000170F5.07C: Suas contas foram fundidas! Selecione Fusão de Contas para ver o resultado.
 0000000170F6.07C: Houve um erro na fusão de contas: BLZOWMIG10001
 0000000170F7.07C: A sua conta está na fila para a fusão. Alguns recursos ficarão bloqueados até ela ser concluída.
 0000000170F9.07C: Dobradura de Unicórnio
@@ -23713,8 +23715,8 @@ Levará aproximadamente %1$s.
 000000017136.07C: A sua posição na fila de migração é: %1$s.
 000000017137.07C: Entrar em contato com o Suporte ao Cliente
 000000017138.07C: Houve um erro com a sua migração
-000000017139.07C: Please contact customer support for additional information.
-Error Code: BLZOWMIG60001
+000000017139.07C: Entre em contato com o Suporte ao Cliente para saber mais.
+Código do erro: BLZOWMIG60001
 00000001713B.07C: Entrar em contato com o Suporte ao Cliente
 00000001713C.07C: https://support.blizzard.com/article/000313803
 00000001713D.07C: A chuva não vai passar
@@ -23732,6 +23734,7 @@ Error Code: BLZOWMIG60001
 00000001714D.07C: Rave
 00000001714F.07C: Guarda Florestal
 000000017151.07C: Geranman
+000000017152.07C: Ciberdragão
 000000017155.07C: Corvos
 000000017158.07C: Chefe do Crime
 00000001715A.07C: Ciberfênix
@@ -23789,8 +23792,10 @@ Error Code: BLZOWMIG60001
 0000000171BF.07C: %1$s |Rpl Abate:Abates; com Kunai - média por 10 min
 0000000171C5.07C: Melhorias
 0000000171C9.07C: Na bicicleta
+0000000171CA.07C: Venham comemorar o dia dos mortos
 0000000171CD.07C: Centuriã do Céu
 0000000171CF.07C: Desafios
+0000000171D0.07C: Ciberdragão
 0000000171DA.07C: Corro com facas
 0000000171DF.07C: Você pode melhorar
 0000000171E2.07C: Eu não tremo
@@ -24308,7 +24313,11 @@ Está quase na hora, heróis... nos vemos em breve em Overwatch 2!
 000000017618.07C: Percentual jogado:
 000000017619.07C: Tempo de jogo:
 00000001761A.07C: Todos os Heróis
+00000001761C.07C: Xícara
+00000001761D.07C: DJ Sapo
 00000001761E.07C: Chaleira
+000000017620.07C: Sonhe com os Anjos
+000000017621.07C: Lucrilhos
 000000017624.07C: Placas
 000000017625.07C: Informações da Sala
 000000017626.07C: Descrição
@@ -24697,7 +24706,6 @@ Está quase na hora, heróis... nos vemos em breve em Overwatch 2!
 000000017AE1.07C: Eficiência da Coalescência em inimigos
 000000017AE2.07C: %1$s Eficiência da Coalescência em inimigos
 000000017AE3.07C: Eficiência da Coalescência em inimigos
-000000017AE6.07C: Primeiros passos
 000000017AE9.07C: Selecione CAMPO DE TREINAMENTO.
 000000017AF2.07C: Reinhardt
 000000017AF5.07C: %1$s (%2$s): Preciso de ajuda! (sem curandeiros próximos) %3$s
@@ -24975,6 +24983,7 @@ Está quase na hora, heróis... nos vemos em breve em Overwatch 2!
 0000000187F0.07C: Novos visuais de Halloween na loja por tempo limitado!
 Conclua os desafios do evento para ganhar o pingente de arma Lanterna de Abóbora e outros itens cosméticos divertidos!
 0000000187F1.07C: A volta do adorado evento A Vingança de Junkenstein com a nova experiência "A Ira da Noiva"!
+0000000187F2.07C: Torne o seu medo em um aliado
 0000000187F4.07C: Volátil e vil
 0000000187F5.07C: Vença a Missão de Desafio de Junkenstein: Zômnicos Voláteis.
 0000000187F6.07C: Festa à fantasia
@@ -24987,6 +24996,17 @@ Conclua os desafios do evento para ganhar o pingente de arma Lanterna de Abóbor
 00000001880A.07C: Desbloqueado ao concluir o desafio A Ira da Noiva no evento Terror de Halloween.
 00000001880B.07C: Desbloqueado ao concluir o desafio Zumbigênico no evento Terror de Halloween.
 00000001880C.07C: Desbloqueado ao concluir o desafio Mau Condutor no evento Terror de Halloween.
+000000018816.07C: Happi
+000000018818.07C: Grande Final 2
+000000018819.07C: Desbloqueado ao participar do evento Grande Final da Liga Overwatch 2022
+00000001881C.07C: Pistola Eletromagnética
+000000018820.07C: Cavaleira Real
+000000018822.07C: Zhulong
+000000018824.07C: Luchador
+000000018826.07C: Relógio
+000000018828.07C: 5 Anos da OWL
+00000001882A.07C: Grande Final 1
+00000001882C.07C: Novos Torcedores
 000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
 00000001884A.07C: Dando um Mergulho
 00000001884B.07C: Vença A Ira da Noiva no modo Difícil.
@@ -24999,7 +25019,8 @@ Conclua os desafios do evento para ganhar o pingente de arma Lanterna de Abóbor
 00000001885B.07C: EXP do Passe de Batalha
 000000018876.07C: O Senhor de Adlersbrunn não foi salvo
 000000018878.07C: Desbloqueado ao concluir o desafio Planos de Casamento no evento Terror de Halloween.
-00000001889F.07C: Down for
+00000001889F.07C: Incapacitado por
+0000000188B0.07C: Gladiadora Real 
 0000000188B3.07C: BÔNUS DE SOBREVIVÊNCIA! +%1$s pts
 0000000188B4.07C: BÔNUS DE TEMPO! +%1$s pts
 0000000188B5.07C: BÔNUS DE OBJETIVO! +%1$s pts
@@ -25023,7 +25044,7 @@ Conclua os desafios do evento para ganhar o pingente de arma Lanterna de Abóbor
 000000018932.07C: Sem Fim
 000000018934.07C: No chão...
 000000018935.07C: No chão!
-00000001894B.07C: Resurrect %1$s
+00000001894B.07C: Ressuscitar %1$s
 000000018999.07C: |Rpl %1$s:Incapacitação:Incapacitações;
 00000001899A.07C: %1$s |Rpl Incapacitação:Incapacitações;
 0000000189A3.07C: Vitórias de Junkenstein 2022
@@ -25038,4 +25059,31 @@ Conclua os desafios do evento para ganhar o pingente de arma Lanterna de Abóbor
 000000018A76.07C: Cause %1$s de dano crítico.
 000000018ADF.07C: Desbloquear Sala do Trono
 000000018AE0.07C: Volte para a tela de login para que as mudanças na sua conta sejam aplicadas.
-[Core] Execution finished in 00:00:00.6184293 seconds
+000000018C0C.07C: Mais opções
+000000018C9B.07C: Conclua o desafio de desbloqueio do modo Competitivo para acessar
+000000018D08.07C: %1$s - %2$s 
+000000018D7A.07C: Preço reduzido de acordo com itens da oferta já adquiridos.
+000000018E54.07C: %1$s (%2$s): Recuar! %3$s
+000000018E5B.07C: Para desvincular
+000000018E76.07C: Mitzi
+000000018E7F.07C: Bebida de Leão
+000000018E89.07C: Dobro de EXP nas partidas
+000000018E8A.07C: Triplo de EXP nas partidas
+000000018EB0.07C: Disponível através de promoção de login. Disponível na Galeria de Heróis a partir da 2ª Temporada.
+000000018F89.07C: Maestria de Funções
+000000018F8A.07C: Vença 3 partidas como cada uma das 3 funções diferentes no Jogo Rápido ou Competitivo.
+000000018F8B.07C: [PH] Assistências/salvamentos semanais
+000000018F8C.07C: Realize %1$s assistências/salvamentos. (Não inclui Caos Total e modos cooperativos.)
+000000018F8D.07C: PvP Challenges - Player - Assists and Saves
+000000018FD2.07C: Fusão de contas pendente
+00000001900E.07C: Disponível através de promoção regional em novembro. Ficará disponível na Loja posteriormente.
+0000000190B8.07C: Shanghai Verão 
+0000000190B9.07C: Dallas Verão
+0000000191BF.07C: Bônus da Fila por Função: %1$s EXP
+0000000191C0.07C: Bônus da Fila por Função: %1$s EXP
+0000000191C1.07C: Bônus da Fila por Função: %1$s EXP
+0000000191C2.07C: Bônus da Fila por Função: %1$s EXP
+0000000191C3.07C: Bônus da Fila por Função: %1$s EXP
+0000000191C4.07C: Bônus da Fila por Função: %1$s EXP
+000000019209.07C: Pradaria
+[Core] Execution finished in 00:00:00.6506221 seconds

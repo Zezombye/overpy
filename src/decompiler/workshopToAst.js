@@ -459,6 +459,10 @@ function decompile(content) {
 	if (name === "__workshopSettingReal__" && args.length === 5) {
 		args.push("0");
 	}
+
+	if ((name === "__map__" || name === "__gamemode__") && args.length === 0) {
+		args.push("__removed_from_ow2__");
+	}
 	
 	if (!(name in wsFuncKw)) {
 		error("Function '"+name+"' is not in the function list");

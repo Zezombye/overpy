@@ -94,10 +94,13 @@ function decompileAllRulesToAst(content) {
 	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
 
 	//This regex will sadly also replace instances in strings, but I doubt there are many.
-	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
-	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)$1")
-	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*([&\\-|)=*,?;.:!])", "g")
-	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)$1")
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g")
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g")
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+
+	console.log(gamemodeRegex);
+	console.log(gamemodeConstFunction);
 
 	//console.log(content);
 	

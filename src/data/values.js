@@ -16744,7 +16744,7 @@ var valueFuncKw =
         "en-US": "Min",
         "es-MX": "Mínimo",
         "fr-FR": "Minimum",
-        "ja-JP": "分",
+        "ja-JP": "最小",
         "pt-BR": "Mín.",
         "zh-CN": "较小"
     },

@@ -87,7 +87,7 @@
                             <div class="rule-event-name">{{ translate("eventPlayer", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value"><v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('eventPlayer')" :reduce="x => x.code" v-model="rule.ruleAttributes.eventPlayer"></v-select></div>
                         </div>
-                        <div class="rule-event" v-if="rule.ruleAttributes.subroutineName">
+                        <div class="rule-event" v-if="rule.ruleAttributes.subroutineName !== undefined">
                             <div class="rule-event-name">{{ translate("subroutineName", ruleAttributesDisplayNamesKw) }}</div>
                             <div class="rule-event-value"><v-select :filter="$root.filterDropdownOptions" append-to-body :calculate-position="calculateDropdownPosition"  :clearable="false" :options="getDropdownOptionsForType('Subroutine')" :reduce="x => x.code" v-model="rule.ruleAttributes.subroutineName"></v-select></div>
                         </div>

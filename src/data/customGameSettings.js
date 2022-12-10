@@ -5059,6 +5059,9 @@ const customGameSettingsSchema =
                 "default": "no",
                 "guid": "00000000F25B",
                 "description": "Whether to allow players in 'While you wait'.",
+                "descriptionLocalized": {
+                    "en-US": "Whether to allow players in 'While you wait'."
+                },
                 "en-US": "Allow Players Who Are In Queue",
                 "de-DE": "Spieler in der Spielsuche zulassen",
                 "es-ES": "Permitir jugadores que estén en cola",
@@ -5071,10 +5074,7 @@ const customGameSettingsSchema =
                 "pt-BR": "Permitir jogadores na fila",
                 "ru-RU": "Открыть для игроков в очереди",
                 "zh-CN": "队列中的玩家可以加入",
-                "zh-TW": "佇列中的玩家可進行",
-                "descriptionLocalized": {
-                    "en-US": "Whether to allow players in 'While you wait'."
-                }
+                "zh-TW": "佇列中的玩家可進行"
             },
             "useExperimentalUpdate": {
                 "values": "__boolYesNo__",
@@ -5734,7 +5734,7 @@ const customGameSettingsSchema =
                 "ru-RU": "Название режима",
                 "zh-CN": "模式名称",
                 "zh-TW": "模式名稱"
-            },
+            }
         },
         "guid": "00000001006E",
         "en-US": "main",

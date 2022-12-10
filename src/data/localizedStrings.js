@@ -5376,7 +5376,7 @@ var normalStrKw =
         "es-MX": "Mínimo",
         "fr-FR": "Minimum",
         "it-IT": "Minimo",
-        "ja-JP": "分",
+        "ja-JP": "最小",
         "pt-BR": "Mín.",
         "ru-RU": "Мин.",
         "zh-CN": "较小",

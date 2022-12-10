@@ -1,15 +1,15 @@
-[Core] DataTool v2.1.0.0+1009+de9c785f
+[Core] DataTool v2.1.0.0+1016+3098d9fc
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=plPL", "-T=plPL"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: plPL | Speech Language: plPL
-[CASC] Overwatch build 2.1.1.0.106617
+[CASC] Overwatch build 2.1.2.0.107076
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
+[Manifest] Using TRG procedure 107076 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LplPL_speech_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LplPL_text_EExt.cmf
 [CASC] Ready
-[Core] Reminder! When extracting data in other languages, the names of the heroes/skins/etc must be in the language you have chosen.
+[Core] Reminder!! When extracting data in languages other than English, the names of the heroes and skins MUST be in the language you have chosen! (plPL)
 [Core] Checking ResourceKeys
 [GUIDNames] GUIDNames.csv not found
 [LocalizedNames] LocalizedNamesMapping.csv not found
@@ -925,7 +925,6 @@ by po niej jechać.
 000000000F17.07C: Podaj adres e-mail lub battletag
 000000000F1B.07C: X
 000000000F2A.07C: MIEJSCOWE ODBICIA
-000000000F3E.07C: <tx0C00000000004480> PPM, aby usunąć przypisanie
 000000000F3F.07C: RUCH
 000000000F42.07C: BROŃ I ZDOLNOŚCI
 000000000F43.07C: Komunikacja
@@ -3487,7 +3486,6 @@ Poznaj nowe sposoby rozgrywki dzięki wachlarzowi zmiennych trybów gry, które 
 000000002C9B.07C: ŚREDNIA – 2X
 000000002C9C.07C: NISKA – 1X
 000000002C9D.07C: EPICKA – 16X
-000000002C9E.07C: ULTRA – WYSOKI SMAA
 000000002C9F.07C: WYSOKA – ŚREDNI SMAA
 000000002CA0.07C: ŚREDNIA – NISKI SMAA
 000000002CA1.07C: NISKA – FXAA
@@ -5902,7 +5900,6 @@ w 4. sezonie
 000000005254.07C: Narty
 00000000525A.07C: Śnieżkowa Ofensywa Mei
 00000000525B.07C: Stań do walki w serii pojedynków 5 na 5 jako Mei wyposażona w potężny Miotacz Śnieżek. Jest to jednostrzałowa broń, lecz można ją przeładowywać przy zaspach śniegu.
-00000000525E.07C: <tx0C000000000044B0> usuń przypisanie
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Hat trick
 000000005263.07C: Wciśnij dowolny %1$s lub %2$s, aby anulować
@@ -10869,6 +10866,7 @@ w trybie Eliminacji 6 na 6 w 2018
 0000000086E6.07C: Lacrosse
 0000000086EC.07C: Błyskawica
 0000000086ED.07C: Bit
+000000008723.07C: Wybierz
 000000008727.07C: Celność trafień bezpośrednich
 000000008728.07C: Celność trafień bezpośrednich: %1$s
 000000008749.07C: |Rfd %1$s:m:ss;
@@ -11334,6 +11332,7 @@ Czy chcesz anulować?
 000000008EAC.07C: Pusan
 000000008EAD.07C: Dwie drużyny walczą o przejęcie kontroli nad Pusan.
 000000008EAE.07C: MAPA: Pusan
+000000008EB3.07C: Szczegóły
 000000008EC9.07C: Wyjście
 000000008ECA.07C: Opuść ekipę
 000000008F31.07C: Medal
@@ -19610,6 +19609,7 @@ w sezonie 25.
 000000011A22.07C: Trwa ożywianie
 000000011A24.07C: Overwatch Contenders
 000000011A25.07C: Overwatch Contenders
+000000011A27.07C: Optyka
 000000011A53.07C: CZY NA PEWNO CHCESZ WYŁĄCZYĆ FILTR WULGARYZMÓW?
 000000011AB1.07C: Długość przeskoku
 000000011AB3.07C: Siła filtra wulgaryzmów
@@ -21099,6 +21099,7 @@ w trybie Deathmatch 2021
 000000013944.07C: Napisz wiadomość
 000000013945.07C: Kanały
 000000013946.07C: Zamknij
+000000013975.07C: Art Deco
 000000013979.07C: |Rpl %1$s:Drugie miejsca:Drugie miejsce:Drugie miejsca
 00000001397A.07C: %1$s |Rpl drugie miejsce:drugie miejsca:drugich miejsc;
 00000001397B.07C: |Rpl %1$s:Wygrane mecze:Wygrane mecze:Wygrane mecze;
@@ -21489,6 +21490,7 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 0000000140CA.07C: Dołącz automatycznie
 0000000140CD.07C: Próba automatycznego dołączenia
 000000014120.07C: Oczekiwanie na graczy
+0000000141C1.07C: Retro Gwiazda
 0000000141EE.07C: Rakiety Helix – Minimalny promień
 000000014207.07C: Tworzenie gry z kodu
 000000014208.07C: Nie udało się zaimportować kodu
@@ -21562,6 +21564,7 @@ Jeżeli chcesz je ponownie uaktywnić, przejdź do zakładki „Ustawienia regio
 000000014329.07C: Tryb obecnie niedostępny
 00000001432A.07C: Oglądasz %1$s |Rpl poczekalnię:poczekalnie:poczekalni;
 00000001432B.07C: Nie można znaleźć prawidłowej gry, do której można dołączyć.
+00000001432D.07C: Calavera
 00000001433C.07C: Smoczy skarb
 00000001433D.07C: Nagroda z oglądanie transmisji na żywo z turnieju OWL June Joust 2021
 000000014342.07C: To Szpon
@@ -21766,7 +21769,6 @@ w sezonie 31.
 0000000147DB.07C: Pancerz
 0000000147DC.07C: Zdrowie
 0000000147DD.07C: Osłony
-0000000147EA.07C: Alert
 000000014801.07C: Real name: Reinhardt Wilhelm
 Age: 50
 Affiliation: Overwatch (Formerly)
@@ -21856,7 +21858,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: Prezentacja_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: [%1$s (%2$s)] Jestem blisko.
-000000014F4F.07C: [%1$s (%2$s - %3$s m) do: %3$s (%4$s)] Jestem blisko.
+000000014F4F.07C: [%1$s (%2$s - %5$s m) do: %3$s (%4$s)] Jestem blisko.
 000000014F50.07C: [%1$s (%2$s)] Jestem w drodze!
 000000014F51.07C: [%1$s (%2$s-%5$sm) do: %3$s (%4$s)] Jestem w drodze!
 000000014F52.07C: [%1$s (%2$s)] Proszę bardzo.
@@ -22009,6 +22011,7 @@ w wyzwaniu Żniwiarza: Kodeks Przemocy
 000000015406.07C: Pozostały czas:
 000000015409.07C: Generał
 000000015422.07C: Podstawowa
+000000015436.07C: Cybersmok
 00000001543A.07C: Potwierdź zakup: %1$s.
 00000001543B.07C: Plecak Odrzutowy – Promień
 000000015443.07C: Lampion
@@ -22123,7 +22126,7 @@ w Zdobywanie flagi 2022
 000000015694.07C: Graj w dowolnej roli.
 000000015695.07C: Tajemniczy bohaterowie
 000000015696.07C: Deathmatch
-000000015698.07C: [%1$s (%2$s)] Potrzebuję leczenia! %4$s
+000000015698.07C: [%1$s (%2$s)] Potrzebuję leczenia! %6$s%4$s
 0000000156A1.07C: [%1$s (%2$s)] Do mnie po leczenie!
 0000000156A2.07C: [%1$s (%2$s-%5$sm) do: %3$s (%4$s)] Do mnie po leczenie!
 0000000156A6.07C: %1$s osiąga punkt kontrolny w Przepychance
@@ -22176,6 +22179,7 @@ w sezonie 33
 000000015733.07C: Poziom %1$s
 000000015735.07C: Turniej
 000000015739.07C: PRZEZIERNOŚĆ OBWÓDKI LICZNIKA ZDOLNOŚCI
+000000015746.07C: Dumny
 000000015747.07C: Cyberdetektyw
 000000015749.07C: STRZAŁ
 000000015769.07C: [%1$s (%2$s)] Zrozumiano.
@@ -23002,6 +23006,7 @@ w trybie Deathmatch 2022
 0000000167D8.07C: Łączenie z serwerem
 0000000167D9.07C: |Rfn %1$s:N0;m ???
 0000000167DA.07C: Hologram
+0000000167DD.07C: Danza de los Diablos
 0000000167DF.07C: Wyszukiwanie
 0000000167E3.07C: Napisy
 0000000167E7.07C: Sezonowe
@@ -23172,8 +23177,6 @@ w trybie Deathmatch 2022
 000000016944.07C: Wybierz SZKOLENIE.
 000000016946.07C: Graj bez rankingu lub trenuj z SI
 000000016947.07C: Ukończ 5 meczów, aby odblokować nowe tryby gry.
-000000016948.07C: Rozegraj więcej meczów
-000000016949.07C: Ukończ 5 meczów, aby odblokować dodatkowe tryby gry.
 000000016956.07C: Defeat Castle Guards
 000000016958.07C: Prezentacja_PH
 00000001695B.07C: Kontrola – Losowi bohaterowie
@@ -23538,6 +23541,7 @@ w trybie Deathmatch 2022
 000000016C6D.07C: SZEPTY
 000000016C70.07C: Nagroda za udział
 w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
+000000016C8F.07C: Czat głosowy może być nagrywany w celu badania i weryfikowania zgłoszeń dotyczących nieodpowiedniego zachowania.
 000000016C93.07C: Eksperyment
 000000016C94.07C: Banshee
 000000016C95.07C: Narzeczona Złomensteina
@@ -23676,6 +23680,7 @@ w wydarzeniu Wspieraj streamera: Sanitariuszka Brigitte
 000000016DD7.07C: Checkpoint - Reach The Throne Room
 000000016DD8.07C: Checkpoint - Final Battle
 000000016DD9.07C: Checkpoint - Pub
+000000016DE5.07C: Na wietrze
 000000016DF3.07C: Uzbrojenie i superzdolność
 000000016DF5.07C: Historia
 000000016E01.07C: Otwórz Karnet Bojowy
@@ -23715,6 +23720,7 @@ w sezonie 36.
 000000016EC2.07C: Sezon 1
 000000016EC8.07C: Turniej w Ograniczoną Eliminację 2 na 2
 000000016ED6.07C: Turniej eliminacyjny 2 na 2
+000000016F03.07C: Pięć palców
 000000016F08.07C: SZYBKIE WIADOMOŚCI KOMUNIKACYJNE
 000000016F0B.07C: ODCZYTYWANIE BIEŻĄCEGO KANAŁU PO WEJŚCIU NA CZATU
 000000016F0C.07C: INFORMACJA O AUTORZE W AUDIODESKRYPCJI
@@ -23791,8 +23797,6 @@ UWAGA: są straszne momenty
 000000017039.07C: Wygraj mecze (%1$s).
 00000001703C.07C: Trudne się wylosowało
 00000001703D.07C: Wygraj mecze (%1$s) po ustawieniu się w kolejce do wszystkich ról.
-00000001703E.07C: Mistrz ról
-00000001703F.07C: Wygraj 10 meczów w 2 różnych rolach w Szybkiej grze lub Rywalizacji.
 000000017040.07C: Najlepsza obrona
 000000017041.07C: Zadaj/Wzmocnij łącznie %1$s pkt. obrażeń (z wyłączeniem Totalnej Masakry i trybów współpracy).
 000000017042.07C: Opieka zdrowotna
@@ -23807,8 +23811,6 @@ UWAGA: są straszne momenty
 00000001705A.07C: Ukończ mecze (%1$s) jako bohaterowie NIE z twojej pierwszej trójki (wszystkie tryby gry).
 00000001705B.07C: Najlepsze zagranie
 00000001705C.07C: Zalicz likwidacje/asysty (%1$s) z pomocą superzdolności (z wyłączeniem Totalnej Masakry i trybów współpracy).
-00000001705D.07C: Robienie porządków
-00000001705E.07C: Zalicz likwidacje drużynowe (%1$s).
 000000017064.07C: Wielozadaniowość
 000000017065.07C: Ukończ mecze (%1$s) dołączając do kolejki we wszystkich rolach.
 000000017066.07C: Powitanie w Overwatch: część 1 z 3
@@ -23914,14 +23916,14 @@ UWAGA: są straszne momenty
 0000000170E0.07C: Dzięki za wsparcie
 0000000170E1.07C: Wyślij emotkę „Dzięki” do gracza wsparcia.
 0000000170E2.07C: Wykończmy ich!
-0000000170E3.07C: Zalicz likwidacje drużynowe (%1$s).
+0000000170E3.07C: Zalicz likwidację drużynową.
 0000000170E4.07C: Dajesz czadu
 0000000170E5.07C: Zalicz potrójną likwidację/asystę lub większą.
 0000000170E7.07C: Wszystko się łączy
 0000000170EA.07C: PvP Challenges - Player - Ultimate Assists
 0000000170EB.07C: PvP Challenges - Player - Ultimate Eliminations
 0000000170EC.07C: PvP Challenges - Player - Ultimate Eliminations and Assists
-0000000170F5.07C: Twoje konta zostały połączone!
+0000000170F5.07C: Twoje konta zostały połączone! Wybierz opcję Łączenie kont, aby poznać szczegóły.
 0000000170F6.07C: Wystąpił błąd przy łączeniu kont: BLZOWMIG10001
 0000000170F7.07C: Twoje konto jest w kolejce do połączenia. Niektóre funkcje będą zablokowane do czasu zakończenia łączenia.
 0000000170F9.07C: Złożony jednorożec
@@ -23979,8 +23981,8 @@ Zajmie to około %1$s min.
 000000017136.07C: Obecnie zajmujesz %1$s. miejsce w kolejce do migracji.
 000000017137.07C: Kontakt z obsługą klienta
 000000017138.07C: Wystąpił błąd z twoją migracją
-000000017139.07C: Please contact customer support for additional information.
-Error Code: BLZOWMIG60001
+000000017139.07C: W celu uzyskania dodatkowych informacji skontaktuj się z obsługą klienta.
+Kod błędu: BLZOWMIG60001
 00000001713B.07C: Kontakt z obsługą klienta
 00000001713C.07C: https://support.blizzard.com/article/000313803
 00000001713D.07C: Padać nie przestanie
@@ -23998,6 +24000,7 @@ Error Code: BLZOWMIG60001
 00000001714D.07C: EDM
 00000001714F.07C: Strażnik Leśny
 000000017151.07C: Geranman
+000000017152.07C: Cybersmok
 000000017155.07C: Wrony
 000000017158.07C: Boss Mafii
 00000001715A.07C: Cyber Feniks
@@ -24055,8 +24058,10 @@ Error Code: BLZOWMIG60001
 0000000171BF.07C: %1$s |Rpl zabity:zabitych:zabitych; Kunai – średnio na 10 min.
 0000000171C5.07C: Ulepszenia
 0000000171C9.07C: Mój motocykl
+0000000171CA.07C: To dobry dzień na twoją śmierć.
 0000000171CD.07C: Podniebna Centurionka
 0000000171CF.07C: Wyzwania
+0000000171D0.07C: Cybersmok
 0000000171DA.07C: Sny elektronicznych lisów
 0000000171DF.07C: Każdego można ulepszyć
 0000000171E2.07C: Zła się nie ulęknę
@@ -24574,7 +24579,11 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017618.07C: Procentowy czas gry postacią:
 000000017619.07C: Czas gry:
 00000001761A.07C: Wszyscy bohaterowie
+00000001761C.07C: Filiżanka
+00000001761D.07C: DJ Żabolec
 00000001761E.07C: Czajnik
+000000017620.07C: Słodkie sny
+000000017621.07C: Lucio-Ochy
 000000017624.07C: Ciężary
 000000017625.07C: Informacje o poczekalni
 000000017626.07C: Opis
@@ -24963,7 +24972,6 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 000000017AE1.07C: Efektywność Koalescencji na wrogach
 000000017AE2.07C: Efektywność Koalescencji na wrogach: %1$s
 000000017AE3.07C: Efektywność Koalescencji wrogiej
-000000017AE6.07C: Pierwsze kroki
 000000017AE9.07C: Wybierz OBSZAR TRENINGOWY.
 000000017AF2.07C: Reinhardt
 000000017AF5.07C: [%1$s (%2$s)] Potrzebuję pomocy! (brak uzdrowicieli w pobliżu) %3$s
@@ -25241,6 +25249,7 @@ Bohaterowie, już niedługo zobaczymy się w Overwatch 2!
 0000000187F0.07C: Nowe Halloweenowe skórki w sklepie, dostępne jedynie przez ograniczony czas!
 Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach na wróble) i inne elementy ozdobne!
 0000000187F1.07C: Powrót uwielbianej Zemsty Złomensteina w zupełnie nowej formie, zwanej Gniewem Narzeczonej Złomensteina!
+0000000187F2.07C: Musisz uczynić sojusznika ze swojego strachu
 0000000187F4.07C: Wybuchowe i wredne
 0000000187F5.07C: Wygraj misję-wyzwanie Złomensteina: Wybuchowe Złomniki.
 0000000187F6.07C: Impreza kostiumowa
@@ -25253,6 +25262,19 @@ Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach 
 00000001880A.07C: Nagroda za ukończenie wyzwania Gniew Narzeczonej Złomensteina z wydarzenia Halloweenowa Groza.
 00000001880B.07C: Nagroda za ukończenie wyzwania Fotozłomba z wydarzenia Halloweenowa Groza.
 00000001880C.07C: Nagroda za ukończenie wyzwania Złapać gumę z wydarzenia Halloweenowa Groza.
+000000018816.07C: Happi
+000000018818.07C: Wielkie Finały 2
+000000018819.07C: Nagroda za udział
+w wielkich finałach
+Overwatch League 2022.
+00000001881C.07C: Pistolety Pulsacyjne
+000000018820.07C: Kawalerzystka
+000000018822.07C: Zhulong
+000000018824.07C: Luchador
+000000018826.07C: Automaton
+000000018828.07C: 5 lat OWL
+00000001882A.07C: Wielkie Finały 1
+00000001882C.07C: Nowi fani
 000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
 00000001884A.07C: Na głęboką wodę
 00000001884B.07C: Ukończ Gniew Narzeczonej Złomensteina na wysokim poziomie trudności.
@@ -25265,7 +25287,8 @@ Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach 
 00000001885B.07C: PD Karnetu Bojowego
 000000018876.07C: Nie udało się ocalić pana zamku z Adlersbrunn
 000000018878.07C: Nagroda za ukończenie wyzwania 13 prac bohatera z wydarzenia Halloweenowa Groza.
-00000001889F.07C: Down for
+00000001889F.07C: Powalenie przez:
+0000000188B0.07C: Królewska gladiatorka
 0000000188B3.07C: PREMIA ZA PRZETRWANIE! +%1$s pkt.
 0000000188B4.07C: PREMIA ZA CZAS! +%1$s pkt.
 0000000188B5.07C: PREMIA ZA CEL! +%1$s pkt.
@@ -25289,7 +25312,7 @@ Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach 
 000000018932.07C: Wieczna Zemsta
 000000018934.07C: Powalenie...
 000000018935.07C: Powalenie!
-00000001894B.07C: Resurrect %1$s
+00000001894B.07C: Wskrzeszenie (%1$s)
 000000018999.07C: |Rpl %1$s:obezwładnienia:obezwładnienia:obezwładnienia;
 00000001899A.07C: %1$s |Rpl obezwładnienie:obezwładnienia:obezwładnień;
 0000000189A3.07C: Wygrane w Zemście Złomensteina 2022
@@ -25304,4 +25327,31 @@ Wykonuj wyzwania związane z wydarzeniem, aby zdobyć talizman na broń (Strach 
 000000018A76.07C: Zadaj %1$s pkt. obrażeń krytycznych.
 000000018ADF.07C: Otwórz Salę Tronową
 000000018AE0.07C: Zaloguj się ponownie, aby zmiany na koncie zaczęły obowiązywać.
-[Core] Execution finished in 00:00:00.7296184 seconds
+000000018C0C.07C: Więcej opcji
+000000018C9B.07C: Musisz ukończyć wyzwanie odblokowujące tryb Rywalizacji, aby uzyskać dostęp do:
+000000018D08.07C: %1$s – %2$s
+000000018D7A.07C: Cena obniżona na podstawie częściowej własności pakietu.
+000000018E54.07C: [%1$s (%2$s)] Wycofać się! %3$s
+000000018E5B.07C: Usuń przypisanie
+000000018E76.07C: Mitzi
+000000018E7F.07C: Lwi napitek
+000000018E89.07C: Podwójne PD meczowe
+000000018E8A.07C: Potrójne PD meczowe
+000000018EB0.07C: Dostępne w ramach promocji za logowanie. Dostępne w menu Bohaterowie od sezonu 2.
+000000018F89.07C: Mistrz ról
+000000018F8A.07C: Wygraj 3 mecze w 3 różnych rolach w Szybkiej grze/Rywalizacji.
+000000018F8B.07C: Tygodniowe asysty/ocalenia
+000000018F8C.07C: Zalicz asysty/ocalenia %1$s razy (z wyłączeniem Totalnej Masakry i trybów współpracy).
+000000018F8D.07C: PvP Challenges - Player - Assists and Saves
+000000018FD2.07C: Łączenie kont w toku
+00000001900E.07C: Dostępne w ramach promocji regionalnej w listopadzie. Będzie dostępne w Sklepie w późniejszym terminie.
+0000000190B8.07C: Shanghai (Lato)
+0000000190B9.07C: Dallas (Lato)
+0000000191BF.07C: Premia za dobieranie ról: %1$s PD
+0000000191C0.07C: Premia za dobieranie ról: %1$s PD
+0000000191C1.07C: Premia za dobieranie ról: %1$s PD
+0000000191C2.07C: Premia za dobieranie ról: %1$s PD
+0000000191C3.07C: Premia za dobieranie ról: %1$s PD
+0000000191C4.07C: Premia za dobieranie ról: %1$s PD
+000000019209.07C: Pastwiska
+[Core] Execution finished in 00:00:00.6180084 seconds

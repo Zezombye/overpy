@@ -411,9 +411,9 @@ var app = new Vue({
                         rule.children[i] = dummyAction;
                     } else {
                         resetGlobalVariables(this.uiSettings.language);
-                        globalVariables = structuredClone(this.globalVariables);
-                        playerVariables = structuredClone(this.playerVariables);
-                        subroutines = structuredClone(this.subroutines);
+                        globalVariables = structuredClone(this.globalVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "globalvar")}));
+                        playerVariables = structuredClone(this.playerVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "playervar")}));
+                        subroutines = structuredClone(this.subroutines).filter(x => x.name !== defaultSubroutineNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "subroutine")}));
                         rule.children[i] = decompile(this.displayAst(rule.children[i], false))
                     }
                     rule.children[i].comment = comment;
@@ -453,9 +453,9 @@ var app = new Vue({
                 for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
                     
                     resetGlobalVariables(this.uiSettings.language);
-                    globalVariables = structuredClone(this.globalVariables);
-                    playerVariables = structuredClone(this.playerVariables);
-                    subroutines = structuredClone(this.subroutines);
+                    globalVariables = structuredClone(this.globalVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "globalvar")}));
+                    playerVariables = structuredClone(this.playerVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "playervar")}));
+                    subroutines = structuredClone(this.subroutines).filter(x => x.name !== defaultSubroutineNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "subroutine")}));
                     rule.ruleAttributes.conditionComments.push(rule.ruleAttributes.conditions[i].comment);
                     rule.ruleAttributes.conditions[i] = decompile(this.displayAst(rule.ruleAttributes.conditions[i], false));
                     rule.ruleAttributes.conditions[i].parent = new Ast("@Condition", [], [], "__Annotation__");
@@ -478,9 +478,9 @@ var app = new Vue({
             }
             activatedExtensions = this.activatedExtensions;
             compileCustomGameSettings(structuredClone(this.customGameSettings));
-            globalVariables = structuredClone(this.globalVariables).filter(x => x.name !== defaultVarNames[x.index]);
-            playerVariables = structuredClone(this.playerVariables).filter(x => x.name !== defaultVarNames[x.index]);
-            subroutines = structuredClone(this.subroutines).filter(x => x.name !== defaultSubroutineNames[x.index]);
+            globalVariables = structuredClone(this.globalVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "globalvar")}));
+            playerVariables = structuredClone(this.playerVariables).filter(x => x.name !== defaultVarNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "playervar")}));
+            subroutines = structuredClone(this.subroutines).filter(x => x.name !== defaultSubroutineNames[x.index]).map(x => ({index: x.index, name: translateNameToAvoidKeywords(x.name, "subroutine")}));
             globalSuppressedWarnings = this.uiSettings.disabledWarnings.split(",").map(x => x.trim());
 
             return compileRules(rules)
@@ -598,7 +598,7 @@ var app = new Vue({
             } else if (["CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(ast.type)) {
                 result += this.displayHtml(this.escapeString(ast.name, true), useHtml, "string");
             } else if (ast.type === "LocalizedStringLiteral") {
-                result += this.displayHtml(this.escapeString(tows(ast.name, this.stringKw), true), useHtml, "string");
+                result += this.displayHtml(this.escapeString(this.translate(ast.name, this.stringKw), true), useHtml, "string");
 
             } else if (ast.name === "__number__") {
                 return this.displayHtml((+ast.args[0].name)+"", useHtml, "var");
@@ -943,7 +943,7 @@ var app = new Vue({
             } else if (rule.ruleAttributes.event === "__subroutine__") {
                 delete rule.ruleAttributes.eventTeam;
                 delete rule.ruleAttributes.eventPlayer;
-                this.$set(rule.ruleAttributes, "subroutineName", this.subroutines[0].name);
+                this.$set(rule.ruleAttributes, "subroutineName", this.subroutines[0].index);
             } else {
                 delete rule.ruleAttributes.subroutineName;
                 if (!rule.ruleAttributes.eventTeam) {
@@ -1476,7 +1476,7 @@ var app = new Vue({
                         delete this.editedCustomGameSettings.heroes[team].enabledHeroes;
                     }
                 }
-                if (Object.keys(this.editedCustomGameSettings.heroes[team].length === 0)) {
+                if (Object.keys(this.editedCustomGameSettings.heroes[team]).length === 0) {
                     delete this.editedCustomGameSettings.heroes[team];
                 }
             }

@@ -1,13 +1,13 @@
-[Core] DataTool v2.1.0.0+1009+de9c785f
+[Core] DataTool v2.1.0.0+1016+3098d9fc
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 2.1.1.0.106617
+[CASC] Overwatch build 2.1.2.0.107076
 [CASC] Initializing...
-[Manifest] Using TRG procedure 106400 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 106400 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
+[Manifest] Using TRG procedure 107076 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 107076 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
 [GUIDNames] GUIDNames.csv not found
@@ -908,7 +908,6 @@
 000000000F17.07C: Enter an email address or BattleTag
 000000000F1B.07C: X
 000000000F2A.07C: LOCAL REFLECTIONS
-000000000F3E.07C: <tx0C00000000004480> to unbind
 000000000F3F.07C: MOVEMENT
 000000000F42.07C: WEAPONS & ABILITIES
 000000000F43.07C: Communication
@@ -3467,7 +3466,6 @@ Experience new ways to play with a changing selection of game modes that include
 000000002C9B.07C: MEDIUM - 2X
 000000002C9C.07C: LOW - 1X
 000000002C9D.07C: EPIC - 16X
-000000002C9E.07C: ULTRA - SMAA HIGH
 000000002C9F.07C: HIGH - SMAA MEDIUM
 000000002CA0.07C: MEDIUM - SMAA LOW
 000000002CA1.07C: LOW - FXAA
@@ -5877,7 +5875,6 @@ AI-controlled heroes.
 000000005254.07C: Skiing
 00000000525A.07C: Mei's Snowball Offensive
 00000000525B.07C: Face off in a series of five-on-five fights as Mei, who is equipped with a powerful Snowball Blaster. This weapon only has one shot, but can be reloaded at snow piles.
-00000000525E.07C: <tx0C000000000044B0> to unbind
 000000005260.07C: <tx0C000000000065FD>
 000000005262.07C: Hat Trick
 000000005263.07C: Press any %1$s now or %2$s to cancel
@@ -10813,6 +10810,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000086E6.07C: Lacrosse
 0000000086EC.07C: Lightning
 0000000086ED.07C: Bitrate
+000000008723.07C: Select
 000000008727.07C: Direct Hit Accuracy
 000000008728.07C: %1$s Direct Hit Accuracy
 000000008749.07C: |Rfd %1$s:m:ss;
@@ -11269,6 +11267,7 @@ Do you want to cancel?
 000000008EAC.07C: Busan
 000000008EAD.07C: Two teams compete to take control of Busan.
 000000008EAE.07C: MAP: Busan
+000000008EB3.07C: Details
 000000008EC9.07C: Pop Up
 000000008ECA.07C: Leave Group
 000000008F31.07C: Medal
@@ -19435,6 +19434,7 @@ Blizzard Support
 000000011A22.07C: Being Revived
 000000011A24.07C: Overwatch Contenders
 000000011A25.07C: Overwatch Contenders
+000000011A27.07C: Optics
 000000011A53.07C: ARE YOU SURE YOU WANT TO TURN THE PROFANITY FILTER OFF?
 000000011AB1.07C: Time Skip Interval Length
 000000011AB3.07C: Text Profanity Filter Strength
@@ -20891,6 +20891,7 @@ You will also be placed in the opt-out pool for this competitive season.
 000000013944.07C: Write Message
 000000013945.07C: Channels
 000000013946.07C: Close
+000000013975.07C: Art Deco
 000000013979.07C: |Rpl %1$s:Runner-up Finish:Runner-up Finishes;
 00000001397A.07C: %1$s |Rpl Runner-up Finish:Runner-up Finishes;
 00000001397B.07C: |Rpl %1$s:Game:Games; Won
@@ -21271,6 +21272,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 0000000140CA.07C: Auto Join
 0000000140CD.07C: Attempting Auto Join
 000000014120.07C: Waiting For Players
+0000000141C1.07C: Retro Star
 0000000141EE.07C: Helix Rockets Min Radius
 000000014207.07C: Creating Game With Code
 000000014208.07C: Failed To Import Code
@@ -21344,6 +21346,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014329.07C: Currently unavailable
 00000001432A.07C: Viewing %1$s |Rpl Lobby:Lobbies;
 00000001432B.07C: Unable to find a valid game to join.
+00000001432D.07C: Calavera
 00000001433C.07C: Dragons' Treasure
 00000001433D.07C: Unlocked by watching the 2021 OWL June Joust Tournament live broadcast
 000000014342.07C: Talon Spotted
@@ -21534,7 +21537,6 @@ If you would like to re-enable affected settings, please go to the “Region Set
 0000000147DB.07C: Armor
 0000000147DC.07C: Health
 0000000147DD.07C: Shields
-0000000147EA.07C: Alert
 000000014801.07C: Real name: Reinhardt Wilhelm
 Age: 50
 Affiliation: Overwatch (Formerly)
@@ -21624,7 +21626,7 @@ Affiliation: Overwatch (Formerly)
 000000014F2F.07C: Presentation_PH
 000000014F30.07C: %1$s/%2$s
 000000014F4E.07C: %1$s (%2$s): I'm with you.
-000000014F4F.07C: %1$s (%2$s - %3$sm) to %3$s (%4$s): I'm with you.
+000000014F4F.07C: %1$s (%2$s - %5$sm) to %3$s (%4$s): I'm with you.
 000000014F50.07C: %1$s (%2$s): I am on my way!
 000000014F51.07C: %1$s (%2$s - %5$sm) to %3$s (%4$s): I am on my way!
 000000014F52.07C: %1$s (%2$s): You are welcome.
@@ -21766,6 +21768,7 @@ Affiliation: Overwatch (Formerly)
 000000015406.07C: Time Remaining:
 000000015409.07C: General
 000000015422.07C: Heroic
+000000015436.07C: Cyber Dragon
 00000001543A.07C: Purchase %1$s?
 00000001543B.07C: Jump Pack Radius
 000000015443.07C: Sky Lantern
@@ -21870,7 +21873,7 @@ Affiliation: Overwatch (Formerly)
 000000015694.07C: Play any role.
 000000015695.07C: Mystery Heroes
 000000015696.07C: Deathmatch
-000000015698.07C: %1$s (%2$s): I need healing! %4$s
+000000015698.07C: %1$s (%2$s): I need healing! %6$s %4$s
 0000000156A1.07C: %1$s (%2$s): Come to me for healing!
 0000000156A2.07C: %1$s (%2$s - %5$sm) to %3$s (%4$s): Come to me for healing!
 0000000156A6.07C: %1$s Has Reached Push Checkpoint
@@ -21921,6 +21924,7 @@ Affiliation: Overwatch (Formerly)
 000000015733.07C: Tier %1$s
 000000015735.07C: Tournament
 000000015739.07C: ABILITY TIMER RING OPACITY
+000000015746.07C: Prideful
 000000015747.07C: Cyber Detective
 000000015749.07C: FIRE
 000000015769.07C: %1$s (%2$s): Understood.
@@ -22729,6 +22733,7 @@ Play games and complete challenges to earn Battle Pass XP.
 0000000167D8.07C: Connecting to Server
 0000000167D9.07C: |Rfn %1$s:N0;m ???
 0000000167DA.07C: Hologram
+0000000167DD.07C: Danza de los Diablos
 0000000167DF.07C: Finding Game
 0000000167E3.07C: Subtitles
 0000000167E7.07C: Seasonal
@@ -22899,8 +22904,6 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016944.07C: Select TRAINING.
 000000016946.07C: Play Unranked or Train Vs AI
 000000016947.07C: Complete 5 games to unlock new game modes.
-000000016948.07C: Play More Games
-000000016949.07C: Complete 5 games to unlock additional game modes.
 000000016956.07C: Defeat Castle Guards
 000000016958.07C: Presentation_PH
 00000001695B.07C: Control - Random Heroes
@@ -23264,6 +23267,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016C6C.07C: GROUP CHAT
 000000016C6D.07C: WHISPERS
 000000016C70.07C: Unlocked by participating in the Support a Streamer: Medic Brigitte event
+000000016C8F.07C: Voice chat may be recorded to investigate and verify reports of disruptive behavior.
 000000016C93.07C: Experiment
 000000016C94.07C: Banshee
 000000016C95.07C: Bride
@@ -23402,6 +23406,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016DD7.07C: Checkpoint - Reach The Throne Room
 000000016DD8.07C: Checkpoint - Final Battle
 000000016DD9.07C: Checkpoint - Pub
+000000016DE5.07C: On the Wind
 000000016DF3.07C: Weapons & Ultimate
 000000016DF5.07C: History
 000000016E01.07C: Open Battle Pass
@@ -23439,6 +23444,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016EC2.07C: Season 1
 000000016EC8.07C: 2v2 Limited Tournament Elimination
 000000016ED6.07C: 2v2 Elimination Tournament
+000000016F03.07C: Five Fingers
 000000016F08.07C: QUICK COMMUNICATION MESSAGES
 000000016F0B.07C: READ CURRENT CHANNEL WHEN ENTERING CHAT
 000000016F0C.07C: AUTHOR INFORMATION ADDED TO SPEECH
@@ -23515,8 +23521,6 @@ WARNING: Contains jumpscares
 000000017039.07C: Win %1$s games.
 00000001703C.07C: Flex Your Power
 00000001703D.07C: Win %1$s games queued as All Roles.
-00000001703E.07C: Role Mastery
-00000001703F.07C: Win 10 games each as 2 different roles in Quick Play or Competitive Play.
 000000017040.07C: The Best Defense
 000000017041.07C: Deal/boost a total of %1$s damage. (Excludes Total Mayhem and co-op modes.)
 000000017042.07C: Hold the Line
@@ -23531,8 +23535,6 @@ WARNING: Contains jumpscares
 00000001705A.07C: Complete %1$s games as heroes NOT in your top 3 most played (All Modes).
 00000001705B.07C: Play of the Game
 00000001705C.07C: Earn %1$s eliminations/assists with ultimates. (Excludes Total Mayhem and co-op modes.)
-00000001705D.07C: Cleaning House
-00000001705E.07C: Earn %1$s Team Kills.
 000000017064.07C: A Classy Flex
 000000017065.07C: Complete %1$s games queued for All Roles.
 000000017066.07C: Welcome to Overwatch: Part 1 of 3
@@ -23638,14 +23640,14 @@ WARNING: Contains jumpscares
 0000000170E0.07C: Not so Thankless
 0000000170E1.07C: Emote "Thanks" to a Support Hero.
 0000000170E2.07C: Finish Them!
-0000000170E3.07C: Earn %1$s Team Kills.
+0000000170E3.07C: Earn a Team Kill.
 0000000170E4.07C: Popping Off
 0000000170E5.07C: Earn a triple kill/assist or higher.
 0000000170E7.07C: It's all connected
 0000000170EA.07C: PvP Challenges - Player - Ultimate Assists
 0000000170EB.07C: PvP Challenges - Player - Ultimate Eliminations
 0000000170EC.07C: PvP Challenges - Player - Ultimate Eliminations and Assists
-0000000170F5.07C: Your accounts have been successfully merged!
+0000000170F5.07C: Your accounts have been successfully merged! Please select Account Merge to see the result.
 0000000170F6.07C: There has been an error with your account merge: BLZOWMIG10001
 0000000170F7.07C: Your account is in queue to be merged. Certain features will be locked until the merge is complete.
 0000000170F9.07C: Folded Unicorn
@@ -23722,6 +23724,7 @@ Error Code: BLZOWMIG60001
 00000001714D.07C: EDM
 00000001714F.07C: Forest Ranger
 000000017151.07C: Geranman
+000000017152.07C: Cyber Dragon
 000000017155.07C: Crows
 000000017158.07C: Crime Boss
 00000001715A.07C: Cyber Phoenix
@@ -23779,8 +23782,10 @@ Error Code: BLZOWMIG60001
 0000000171BF.07C: %1$s Kunai |Rpl Kill:Kills; - Avg per 10 Min
 0000000171C5.07C: Upgrades
 0000000171C9.07C: On my bike
+0000000171CA.07C: It’s your day to be dead
 0000000171CD.07C: Sky Centurion
 0000000171CF.07C: Challenges
+0000000171D0.07C: Cyber Dragon
 0000000171DA.07C: Run with blades
 0000000171DF.07C: You can be improved
 0000000171E2.07C: I do not cower
@@ -24298,7 +24303,11 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017618.07C: Percent Played:
 000000017619.07C: Play Time:
 00000001761A.07C: All Heroes
+00000001761C.07C: Teacup
+00000001761D.07C: DJ Frog
 00000001761E.07C: Kettlebell
+000000017620.07C: Sweet Dreams
+000000017621.07C: Lucio-Oh's
 000000017624.07C: Plates
 000000017625.07C: Lobby Info
 000000017626.07C: Description
@@ -24687,7 +24696,6 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017AE1.07C: Enemy Coalescence Efficiency
 000000017AE2.07C: %1$s Enemy Coalescence Efficiency
 000000017AE3.07C: Enemy Coalescence Efficiency
-000000017AE6.07C: Getting Started
 000000017AE9.07C: Select PRACTICE RANGE.
 000000017AF2.07C: Reinhardt
 000000017AF5.07C: %1$s (%2$s): I need help! (no healers nearby) %3$s
@@ -24965,6 +24973,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000187F0.07C: New Halloween skins in the shop for a limited time!
 Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun cosmetics!
 0000000187F1.07C: Return of fan-favorite Junkenstein's Revenge with a brand new "Wrath of the Bride" experience!
+0000000187F2.07C: You must make an ally of your fear
 0000000187F4.07C: Volatile and Vile
 0000000187F5.07C: Win Junkenstein Challenge Mission: Volatile Zomnics.
 0000000187F6.07C: Costume Party
@@ -24977,6 +24986,17 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 00000001880A.07C: Unlocked by completing the Wrath of the Bride challenge from the Halloween Terror event.
 00000001880B.07C: Unlocked by completing the Photozomb challenge from the Halloween Terror event.
 00000001880C.07C: Unlocked by completing the Re-Tired challenge from the Halloween Terror event.
+000000018816.07C: Happi
+000000018818.07C: Grand Finals 2
+000000018819.07C: Unlocked by participating in the 2022 Overwatch League Grand Finals event
+00000001881C.07C: Pulse Pistol
+000000018820.07C: Royal Knight
+000000018822.07C: Zhulong
+000000018824.07C: Luchador
+000000018826.07C: Clockwork
+000000018828.07C: OWL Turns 5
+00000001882A.07C: Grand Finals 1
+00000001882C.07C: New Fans
 000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
 00000001884A.07C: Taking the Plunge
 00000001884B.07C: Win Wrath of the Bride on Hard difficulty.
@@ -24990,6 +25010,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018876.07C: The Lord of Adlersbrunn was not saved
 000000018878.07C: Unlocked by completing the Wedding Planner challenge from the Halloween Terror event.
 00000001889F.07C: Down for
+0000000188B0.07C: Royal Gladiator 
 0000000188B3.07C: SURVIVAL BONUS! +%1$s pts
 0000000188B4.07C: TIME BONUS! +%1$s pts
 0000000188B5.07C: OBJECTIVE BONUS! +%1$s pts
@@ -25028,4 +25049,31 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018A76.07C: Deal %1$s critical damage.
 000000018ADF.07C: Unlock Throne Room
 000000018AE0.07C: Please return to login for your account changes to take effect.
-[Core] Execution finished in 00:00:00.6210997 seconds
+000000018C0C.07C: More Options
+000000018C9B.07C: You must complete the Competitive mode unlock challenge to access
+000000018D08.07C: %1$s - %2$s 
+000000018D7A.07C: Price reduced based on partial ownership of bundle.
+000000018E54.07C: %1$s (%2$s): Fall back! %3$s
+000000018E5B.07C: To Unbind
+000000018E76.07C: Mitzi
+000000018E7F.07C: Lion’s Drink
+000000018E89.07C: Double Match XP
+000000018E8A.07C: Triple Match XP
+000000018EB0.07C: Available through a log-in promotion. Available in Hero Gallery starting Season 2
+000000018F89.07C: Role Mastery
+000000018F8A.07C: Win 3 games as each of the 3 roles in Quick Play or Competitive Play.
+000000018F8B.07C: Helping Hand
+000000018F8C.07C: Earn %1$s assists/saves. (Excludes Total Mayhem and co-op modes.)
+000000018F8D.07C: PvP Challenges - Player - Assists and Saves
+000000018FD2.07C: Account Merge Pending
+00000001900E.07C: Available through a regional promotion in November. Will be available in the shop at a later date.
+0000000190B8.07C: Shanghai Summer 
+0000000190B9.07C: Dallas Summer
+0000000191BF.07C: Role Queue Bonus: %1$s XP
+0000000191C0.07C: Role Queue Bonus: %1$s XP
+0000000191C1.07C: Role Queue Bonus: %1$s XP
+0000000191C2.07C: Role Queue Bonus: %1$s XP
+0000000191C3.07C: Role Queue Bonus: %1$s XP
+0000000191C4.07C: Role Queue Bonus: %1$s XP
+000000019209.07C: Pastures
+[Core] Execution finished in 00:00:00.6664858 seconds

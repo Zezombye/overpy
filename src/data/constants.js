@@ -62,69 +62,69 @@ const constantValues =
         "RESTART": {
             "guid": "000000010025",
             "description": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc).",
+            "descriptionLocalized": {
+                "en-US": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)."
+            },
             "en-US": "Restart Rule",
             "es-MX": "Reiniciar regla",
             "fr-FR": "Relancer la règle",
             "ja-JP": "ルールをやり直す",
             "pt-BR": "Regra de reinício",
-            "zh-CN": "重新开始规则",
-            "descriptionLocalized": {
-                "en-US": "Restart the specified rule with new contextual values (including event player, attacker, victim, etc)."
-            }
+            "zh-CN": "重新开始规则"
         },
         "NOOP": {
             "guid": "000000010026",
             "description": "Allow the rule to finish executing without changing its contextual values.",
+            "descriptionLocalized": {
+                "en-US": "Allow the rule to finish executing without changing its contextual values."
+            },
             "en-US": "Do Nothing",
             "es-MX": "Hacer nada",
             "fr-FR": "Ne rien faire",
             "ja-JP": "何もしない",
             "pt-BR": "Não fazer nada",
-            "zh-CN": "无动作",
-            "descriptionLocalized": {
-                "en-US": "Allow the rule to finish executing without changing its contextual values."
-            }
+            "zh-CN": "无动作"
         }
     },
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
             "guid": "00000000B1EE",
             "description": "Line of sight is blocked by barriers created by the enemy team.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is blocked by barriers created by the enemy team."
+            },
             "en-US": "Enemy Barriers Block LOS",
             "es-MX": "Las barreras enemigas bloquean la LDV",
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
             "pt-BR": "Barreiras Inimigas Bloqueiam LdV",
-            "zh-CN": "敌方屏障阻挡视线",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is blocked by barriers created by the enemy team."
-            }
+            "zh-CN": "敌方屏障阻挡视线"
         },
         "BLOCKED_BY_ALL_BARRIERS": {
             "guid": "00000000B1EF",
             "description": "Line of sight is blocked by all barriers.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is blocked by all barriers."
+            },
             "en-US": "All Barriers Block LOS",
             "es-MX": "Todas las barreras bloquean la LDV",
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
             "pt-BR": "Todas as Barreiras Bloqueiam LdV",
-            "zh-CN": "所有屏障阻挡视线",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is blocked by all barriers."
-            }
+            "zh-CN": "所有屏障阻挡视线"
         },
         "PASS_THROUGH_BARRIERS": {
             "guid": "00000000B1ED",
             "description": "Line of sight is not blocked by any barriers.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is not blocked by any barriers."
+            },
             "en-US": "Barriers Do Not Block LOS",
             "es-MX": "Las barreras no bloquean la LDV",
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
             "pt-BR": "Barreiras Não Bloqueiam LdV",
-            "zh-CN": "屏障不会阻挡视线",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is not blocked by any barriers."
-            }
+            "zh-CN": "屏障不会阻挡视线"
         }
     },
     "Beam": {
@@ -474,28 +474,28 @@ const constantValues =
         "SURFACES": {
             "guid": "00000000BAF5",
             "description": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.",
+            "descriptionLocalized": {
+                "en-US": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects."
+            },
             "en-US": "Clip Against Surfaces",
             "es-MX": "Atravesar las superficies",
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
             "pt-BR": "Cortar nas Superfícies",
-            "zh-CN": "根据表面截取",
-            "descriptionLocalized": {
-                "en-US": "The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects."
-            }
+            "zh-CN": "根据表面截取"
         },
         "NONE": {
             "guid": "00000000BAF4",
             "description": "The text will always be fully visible, even if it is behind a wall or solid object.",
+            "descriptionLocalized": {
+                "en-US": "The text will always be fully visible, even if it is behind a wall or solid object."
+            },
             "en-US": "Do Not Clip",
             "es-MX": "No atravesar",
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
             "pt-BR": "Não Cortar",
-            "zh-CN": "不要截取",
-            "descriptionLocalized": {
-                "en-US": "The text will always be fully visible, even if it is behind a wall or solid object."
-            }
+            "zh-CN": "不要截取"
         }
     },
     "ColorLiteral": {
@@ -3336,15 +3336,15 @@ const constantValues =
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
             "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "descriptionLocalized": {
+                "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)."
+            },
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
             "fr-FR": "Dégâts infligés tous",
             "ja-JP": "与ダメージ（全体）",
             "pt-BR": "Todo o dano causado",
-            "zh-CN": "所有造成伤害量",
-            "descriptionLocalized": {
-                "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)."
-            }
+            "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
             "guid": "0000000124B8",
@@ -3466,15 +3466,15 @@ const constantValues =
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
             "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "descriptionLocalized": {
+                "en-US": "Specifies damage dealt to heroes, but not barriers or pets."
+            },
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
             "fr-FR": "Dégâts infligés aux héros",
             "ja-JP": "ヒーロー与ダメージ",
             "pt-BR": "Dano causado a heróis",
-            "zh-CN": "对英雄造成伤害量",
-            "descriptionLocalized": {
-                "en-US": "Specifies damage dealt to heroes, but not barriers or pets."
-            }
+            "zh-CN": "对英雄造成伤害量"
         },
         "MULTIKILL_BEST": {
             "guid": "0000000124CD",
@@ -3819,459 +3819,459 @@ const constantValues =
         "ARROW_DOWN": {
             "description": "__iconDescription__",
             "guid": "00000000C2C9",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Arrow: Down",
             "es-MX": "Flecha: Hacia abajo",
             "fr-FR": "Flèche bas",
             "ja-JP": "矢印:下",
             "pt-BR": "Seta: Baixo",
-            "zh-CN": "箭头：向下",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "箭头：向下"
         },
         "ARROW_LEFT": {
             "description": "__iconDescription__",
             "guid": "00000000C2CA",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Arrow: Left",
             "es-MX": "Flecha: Hacia la izquierda",
             "fr-FR": "Flèche gauche",
             "ja-JP": "矢印:左",
             "pt-BR": "Seta: Esquerda",
-            "zh-CN": "箭头：向左",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "箭头：向左"
         },
         "ARROW_RIGHT": {
             "description": "__iconDescription__",
             "guid": "00000000C2CB",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Arrow: Right",
             "es-MX": "Flecha: Hacia la derecha",
             "fr-FR": "Flèche droite",
             "ja-JP": "矢印:右",
             "pt-BR": "Seta: Direita",
-            "zh-CN": "箭头：向右",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "箭头：向右"
         },
         "ARROW_UP": {
             "description": "__iconDescription__",
             "guid": "00000000C2CC",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Arrow: Up",
             "es-MX": "Flecha: Hacia arriba",
             "fr-FR": "Flèche haut",
             "ja-JP": "矢印:上",
             "pt-BR": "Seta: Cima",
-            "zh-CN": "箭头：向上",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "箭头：向上"
         },
         "ASTERISK": {
             "description": "__iconDescription__",
             "guid": "00000000C2CD",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Asterisk",
             "es-MX": "Asterisco",
             "fr-FR": "Astérisque",
             "ja-JP": "アスタリスク",
             "pt-BR": "Asterisco",
-            "zh-CN": "星形",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "星形"
         },
         "BOLT": {
             "description": "__iconDescription__",
             "guid": "00000000C2CE",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Bolt",
             "es-MX": "Rayo",
             "fr-FR": "Boulon",
             "ja-JP": "雷光の弓",
             "pt-BR": "Raio",
-            "zh-CN": "箭矢",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "箭矢"
         },
         "CHECKMARK": {
             "description": "__iconDescription__",
             "guid": "00000000C2CF",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Checkmark",
             "es-MX": "Marca de control",
             "fr-FR": "Coche",
             "ja-JP": "チェックマーク",
             "pt-BR": "Marca de Verificação",
-            "zh-CN": "对号",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "对号"
         },
         "CIRCLE": {
             "guid": "00000000C2D0",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Circle",
             "es-MX": "Círculo",
             "fr-FR": "Cercle",
             "ja-JP": "サークル",
             "pt-BR": "Círculo",
-            "zh-CN": "圆圈",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "圆圈"
         },
         "CLUB": {
             "guid": "00000000C2D1",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Club",
             "es-MX": "Trébol",
             "fr-FR": "Trèfle",
             "ja-JP": "棍棒",
             "pt-BR": "Paus",
-            "zh-CN": "梅花",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "梅花"
         },
         "DIAMOND": {
             "guid": "00000000C2D2",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Diamond",
             "es-MX": "Diamante",
             "fr-FR": "Carreau",
             "ja-JP": "ダイヤモンド",
             "pt-BR": "Ouros",
-            "zh-CN": "方块",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "方块"
         },
         "DIZZY": {
             "guid": "00000000C2D3",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Dizzy",
             "es-MX": "Mareado",
             "fr-FR": "Étourdi",
             "ja-JP": "めまい",
             "pt-BR": "Tonto",
-            "zh-CN": "晕眩",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "晕眩"
         },
         "EXCLAMATION_MARK": {
             "description": "__iconDescription__",
             "guid": "00000000C2D4",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Exclamation Mark",
             "es-MX": "Signo de exclamación",
             "fr-FR": "Point d’exclamation",
             "ja-JP": "エクスクラメーションマーク",
             "pt-BR": "Ponto de Exclamação",
-            "zh-CN": "感叹号",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "感叹号"
         },
         "EYE": {
             "description": "__iconDescription__",
             "guid": "00000000C2D5",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Eye",
             "es-MX": "Ojo",
             "fr-FR": "Œil",
             "ja-JP": "眼差し",
             "pt-BR": "Olho",
-            "zh-CN": "眼睛",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "眼睛"
         },
         "FIRE": {
             "description": "__iconDescription__",
             "guid": "00000000C2D6",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Fire",
             "es-MX": "Fuego",
             "fr-FR": "Flamme",
             "ja-JP": "砲撃",
             "pt-BR": "Fogo",
-            "zh-CN": "火焰",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "火焰"
         },
         "FLAG": {
             "description": "__iconDescription__",
             "guid": "00000000C2F0",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Flag",
             "es-MX": "Bandera",
             "fr-FR": "Drapeau",
             "ja-JP": "通報",
             "pt-BR": "Bandeira",
-            "zh-CN": "旗帜",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "旗帜"
         },
         "HALO": {
             "guid": "00000000C2D7",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Halo",
             "ja-JP": "光輪",
             "pt-BR": "Auréola",
-            "zh-CN": "光晕",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "光晕"
         },
         "HAPPY": {
             "description": "__iconDescription__",
             "guid": "00000000C2D8",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Happy",
             "es-MX": "Feliz",
             "fr-FR": "Smiley content",
             "ja-JP": "ハッピー",
             "pt-BR": "Feliz",
-            "zh-CN": "高兴",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "高兴"
         },
         "HEART": {
             "guid": "00000000C2D9",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Heart",
             "es-MX": "Corazón",
             "fr-FR": "Cœur",
             "ja-JP": "ハート",
             "pt-BR": "Copas",
-            "zh-CN": "红桃",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "红桃"
         },
         "MOON": {
             "guid": "00000000C2DA",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Moon",
             "es-MX": "Luna",
             "fr-FR": "Lune",
             "ja-JP": "月",
             "pt-BR": "Lua",
-            "zh-CN": "满月",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "满月"
         },
         "NO": {
             "guid": "00000000C2DB",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "No",
             "fr-FR": "Interdit",
             "ja-JP": "いいえ",
             "pt-BR": "Não",
-            "zh-CN": "拒绝",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "拒绝"
         },
         "PLUS": {
             "description": "__iconDescription__",
             "guid": "00000000C2DC",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Plus",
             "es-MX": "Signo de suma",
             "ja-JP": "プラス",
             "pt-BR": "Mais",
-            "zh-CN": "加号",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "加号"
         },
         "POISON": {
             "description": "__iconDescription__",
             "guid": "00000000C2DD",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Poison",
             "es-MX": "Veneno",
             "ja-JP": "ポイズン",
             "pt-BR": "Veneno",
-            "zh-CN": "剧毒",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "剧毒"
         },
         "POISON_2": {
             "description": "__iconDescription__",
             "guid": "00000000C2DE",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Poison 2",
             "es-MX": "Veneno 2",
             "ja-JP": "ポイズン2",
             "pt-BR": "Veneno 2",
-            "zh-CN": "剧毒2",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "剧毒2"
         },
         "QUESTION_MARK": {
             "description": "__iconDescription__",
             "guid": "00000000C2DF",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Question Mark",
             "es-MX": "Signo de interrogación",
             "fr-FR": "Point d’interrogation",
             "ja-JP": "クエスチョンマーク",
             "pt-BR": "Ponto de Interrogação",
-            "zh-CN": "问号",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "问号"
         },
         "RADIOACTIVE": {
             "description": "__iconDescription__",
             "guid": "00000000C2E4",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Radioactive",
             "es-MX": "Radiactivo",
             "fr-FR": "Radioactif",
             "ja-JP": "レディオアクティブ",
             "pt-BR": "Radiativo",
-            "zh-CN": "辐射",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "辐射"
         },
         "RECYCLE": {
             "description": "__iconDescription__",
             "guid": "00000000C2E5",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Recycle",
             "es-MX": "Reciclaje",
             "fr-FR": "Recyclage",
             "ja-JP": "リサイクル",
             "pt-BR": "Reciclagem",
-            "zh-CN": "回收",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "回收"
         },
         "RING_THICK": {
             "description": "__iconDescription__",
             "guid": "00000000C2E6",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Ring Thick",
             "es-MX": "Anillo grueso",
             "fr-FR": "Anneau épais",
             "ja-JP": "リング太",
             "pt-BR": "Anel Grosso",
-            "zh-CN": "宽环",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "宽环"
         },
         "RING_THIN": {
             "description": "__iconDescription__",
             "guid": "00000000C2E7",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Ring Thin",
             "es-MX": "Anillo delgado",
             "fr-FR": "Anneau fin",
             "ja-JP": "リング細",
             "pt-BR": "Anel Fino",
-            "zh-CN": "细环",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "细环"
         },
         "SAD": {
             "description": "__iconDescription__",
             "guid": "00000000C2E8",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Sad",
             "es-MX": "Triste",
             "fr-FR": "Smiley triste",
             "ja-JP": "サッド",
             "pt-BR": "Triste",
-            "zh-CN": "难过",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "难过"
         },
         "SKULL": {
             "guid": "00000000C2E9",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Skull",
             "es-MX": "Cráneo",
             "fr-FR": "Crâne",
             "ja-JP": "スカル",
             "pt-BR": "Caveira",
-            "zh-CN": "骷髅",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "骷髅"
         },
         "SPADE": {
             "guid": "00000000C2EA",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Spade",
             "es-MX": "Pica",
             "fr-FR": "Pique",
             "ja-JP": "スペード",
             "pt-BR": "Espadas",
-            "zh-CN": "黑桃",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "黑桃"
         },
         "SPIRAL": {
             "description": "__iconDescription__",
             "guid": "00000000C2EB",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Spiral",
             "es-MX": "Espiral",
             "fr-FR": "Spirale",
             "ja-JP": "螺旋を描く",
             "pt-BR": "Espiral",
-            "zh-CN": "螺旋",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "螺旋"
         },
         "STOP": {
             "guid": "00000000C2EC",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Stop",
             "es-MX": "Detener",
             "ja-JP": "停止",
             "pt-BR": "Parada",
-            "zh-CN": "停止",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "停止"
         },
         "TRASHCAN": {
             "description": "__iconDescription__",
             "guid": "00000000C2ED",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Trashcan",
             "es-MX": "Tacho de basura",
             "fr-FR": "Poubelle",
             "ja-JP": "ゴミ箱",
             "pt-BR": "Lata de Lixo",
-            "zh-CN": "垃圾箱",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "垃圾箱"
         },
         "WARNING": {
             "guid": "00000000C2EE",
             "description": "__iconDescription__",
+            "descriptionLocalized": {
+                "en-US": "__iconDescription__"
+            },
             "en-US": "Warning",
             "es-MX": "Advertencia",
             "fr-FR": "Avertissement",
             "ja-JP": "警告",
             "pt-BR": "Aviso",
-            "zh-CN": "警告",
-            "descriptionLocalized": {
-                "en-US": "__iconDescription__"
-            }
+            "zh-CN": "警告"
         },
         "CROSS": {
             "guid": "00000000C2EF",
             "description": "__iconDescription__",
-            "en-US": "X",
-            "fr-FR": "Croix",
             "descriptionLocalized": {
                 "en-US": "__iconDescription__"
-            }
+            },
+            "en-US": "X",
+            "fr-FR": "Croix"
         }
     },
     "IconReeval": {
@@ -4350,41 +4350,41 @@ const constantValues =
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
             "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+            "descriptionLocalized": {
+                "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately."
+            },
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário",
-            "zh-CN": "取消相反运动",
-            "descriptionLocalized": {
-                "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately."
-            }
+            "zh-CN": "取消相反运动"
         },
         "CANCEL_CONTRARY_MOTION_XYZ": {
             "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together.",
             "guid": "0000000125A5",
+            "descriptionLocalized": {
+                "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together."
+            },
             "en-US": "Cancel Contrary Motion XYZ",
             "es-MX": "Cancelar movimiento contrario XYZ",
             "fr-FR": "Annuler le mouvement contraire XYZ",
             "ja-JP": "逆モーションXYZをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário XYZ",
-            "zh-CN": "取消相反运动XYZ",
-            "descriptionLocalized": {
-                "en-US": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal and vertical velocity (XYZ) are processed together."
-            }
+            "zh-CN": "取消相反运动XYZ"
         },
         "INCORPORATE_CONTRARY_MOTION": {
             "guid": "00000000B521",
             "description": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect.",
+            "descriptionLocalized": {
+                "en-US": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect."
+            },
             "en-US": "Incorporate Contrary Motion",
             "es-MX": "Incorporar movimiento contrario",
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
             "pt-BR": "Incorporar Deslocamento Contrário",
-            "zh-CN": "合并相反运动",
-            "descriptionLocalized": {
-                "en-US": "The impulse is added directly to the velocity of the target, so if the target is moving against the direction of the impulse, it might seem like the impulse has less of an effect."
-            }
+            "zh-CN": "合并相反运动"
         }
     },
     "Invis": {
@@ -4420,94 +4420,94 @@ const constantValues =
         "OFF": {
             "guid": "00000000B1E2",
             "description": "Line of sight is never blocked, allowing results through walls.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is never blocked, allowing results through walls."
+            },
             "en-US": "Off",
             "es-MX": "No",
             "fr-FR": "Désactivé",
             "ja-JP": "OFF",
             "pt-BR": "Desligado",
-            "zh-CN": "关闭",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is never blocked, allowing results through walls."
-            }
+            "zh-CN": "关闭"
         },
         "SURFACES": {
             "guid": "00000000B1E3",
             "description": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles."
+            },
             "en-US": "Surfaces",
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
-            "zh-CN": "表面",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, and any fixed object that blocks projectiles."
-            }
+            "zh-CN": "表面"
         },
         "SURFACES_AND_ALL_BARRIERS": {
             "guid": "00000000B1E5",
             "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers."
+            },
             "en-US": "Surfaces And All Barriers",
             "es-MX": "Superficies y todas las barreras",
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
             "pt-BR": "Superfícies e Todas as Barreiras",
-            "zh-CN": "表面及全部屏障",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and all barriers."
-            }
+            "zh-CN": "表面及全部屏障"
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
             "guid": "00000000B1E4",
             "description": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team.",
+            "descriptionLocalized": {
+                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team."
+            },
             "en-US": "Surfaces And Enemy Barriers",
             "es-MX": "Superficies y barreras enemigas",
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
             "pt-BR": "Superfícies e Barreiras Inimigas",
-            "zh-CN": "表面及敌方屏障",
-            "descriptionLocalized": {
-                "en-US": "Line of sight is blocked by ceilings, walls, floors, platforms, any fixed object that blocks projectiles, and barriers created by the enemy team."
-            }
+            "zh-CN": "表面及敌方屏障"
         }
     },
     "OutlineVisibility": {
         "DEFAULT": {
             "description": "Outlines are visible based on the default game settings.",
             "guid": "000000011C50",
+            "descriptionLocalized": {
+                "en-US": "Outlines are visible based on the default game settings."
+            },
             "en-US": "Default",
             "es-MX": "Predeterminado",
             "fr-FR": "Par défaut",
             "ja-JP": "デフォルト",
             "pt-BR": "Padrão",
-            "zh-CN": "默认",
-            "descriptionLocalized": {
-                "en-US": "Outlines are visible based on the default game settings."
-            }
+            "zh-CN": "默认"
         },
         "OCCLUDED": {
             "description": "Outlines are visible when occluded by the environment.",
             "guid": "000000011C51",
+            "descriptionLocalized": {
+                "en-US": "Outlines are visible when occluded by the environment."
+            },
             "en-US": "Occluded",
             "es-MX": "Ocluido",
             "fr-FR": "Obstrué",
             "ja-JP": "オクルード",
             "pt-BR": "Ocultado",
-            "zh-CN": "遮蔽",
-            "descriptionLocalized": {
-                "en-US": "Outlines are visible when occluded by the environment."
-            }
+            "zh-CN": "遮蔽"
         },
         "ALWAYS": {
             "description": "Outlines are always visible.",
             "guid": "000000011C52",
+            "descriptionLocalized": {
+                "en-US": "Outlines are always visible."
+            },
             "en-US": "Always",
             "es-MX": "Siempre",
             "fr-FR": "Toujours",
             "ja-JP": "常時",
             "pt-BR": "Sempre",
-            "zh-CN": "总是",
-            "descriptionLocalized": {
-                "en-US": "Outlines are always visible."
-            }
+            "zh-CN": "总是"
         }
     },
     "ProgressHudReeval": {
@@ -4731,84 +4731,84 @@ const constantValues =
         "TO_PLAYER": {
             "guid": "00000000B16F",
             "description": "Relative to the player's local coordinate system (which moves and rotates with the player).",
+            "descriptionLocalized": {
+                "en-US": "Relative to the player's local coordinate system (which moves and rotates with the player)."
+            },
             "en-US": "To Player",
             "es-MX": "Al jugador",
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
             "pt-BR": "Ao Jogador",
-            "zh-CN": "至玩家",
-            "descriptionLocalized": {
-                "en-US": "Relative to the player's local coordinate system (which moves and rotates with the player)."
-            }
+            "zh-CN": "至玩家"
         },
         "TO_WORLD": {
             "guid": "00000000B170",
             "description": "Relative to the world's coordinate system.",
+            "descriptionLocalized": {
+                "en-US": "Relative to the world's coordinate system."
+            },
             "en-US": "To World",
             "es-MX": "Al mundo",
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
             "pt-BR": "Ao Mundo",
-            "zh-CN": "至地图",
-            "descriptionLocalized": {
-                "en-US": "Relative to the world's coordinate system."
-            }
+            "zh-CN": "至地图"
         }
     },
     "SpecVisibility": {
         "DEFAULT": {
             "guid": "00000000CE55",
             "description": "Non-team spectators can see text when all players can see it.",
+            "descriptionLocalized": {
+                "en-US": "Non-team spectators can see text when all players can see it."
+            },
             "en-US": "Default Visibility",
             "es-MX": "Visibilidad predeterminada",
             "fr-FR": "Visibilité par défaut",
             "ja-JP": "デフォルト表示",
             "pt-BR": "Visibilidade-padrão",
-            "zh-CN": "默认可见度",
-            "descriptionLocalized": {
-                "en-US": "Non-team spectators can see text when all players can see it."
-            }
+            "zh-CN": "默认可见度"
         },
         "ALWAYS": {
             "guid": "00000000CE56",
             "description": "Non-team spectators can always see text.",
+            "descriptionLocalized": {
+                "en-US": "Non-team spectators can always see text."
+            },
             "en-US": "Visible Always",
             "es-MX": "Siempre visible",
             "fr-FR": "Toujours visible",
             "ja-JP": "常に表示",
             "pt-BR": "Sempre Visível",
-            "zh-CN": "始终可见",
-            "descriptionLocalized": {
-                "en-US": "Non-team spectators can always see text."
-            }
+            "zh-CN": "始终可见"
         },
         "NEVER": {
             "guid": "00000000CE57",
             "description": "Non-team spectators can never see text.",
+            "descriptionLocalized": {
+                "en-US": "Non-team spectators can never see text."
+            },
             "en-US": "Visible Never",
             "es-MX": "Nunca visible",
             "fr-FR": "Jamais visible",
             "ja-JP": "表示されない",
             "pt-BR": "Nunca Visível",
-            "zh-CN": "始终不可见",
-            "descriptionLocalized": {
-                "en-US": "Non-team spectators can never see text."
-            }
+            "zh-CN": "始终不可见"
         }
     },
     "Stat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
             "description": "Specifies all damage dealt (to heroes, barriers, and pets).",
+            "descriptionLocalized": {
+                "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)."
+            },
             "en-US": "All Damage Dealt",
             "es-MX": "Todo el daño infligido",
             "fr-FR": "Dégâts infligés tous",
             "ja-JP": "与ダメージ（全体）",
             "pt-BR": "Todo o dano causado",
-            "zh-CN": "所有造成伤害量",
-            "descriptionLocalized": {
-                "en-US": "Specifies all damage dealt (to heroes, barriers, and pets)."
-            }
+            "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
             "guid": "0000000124B8",
@@ -4894,15 +4894,15 @@ const constantValues =
         "HERO_DAMAGE_DEALT": {
             "guid": "0000000124D5",
             "description": "Specifies damage dealt to heroes, but not barriers or pets.",
+            "descriptionLocalized": {
+                "en-US": "Specifies damage dealt to heroes, but not barriers or pets."
+            },
             "en-US": "Hero Damage Dealt",
             "es-MX": "Daño infligido a héroes",
             "fr-FR": "Dégâts infligés aux héros",
             "ja-JP": "ヒーロー与ダメージ",
             "pt-BR": "Dano causado a heróis",
-            "zh-CN": "对英雄造成伤害量",
-            "descriptionLocalized": {
-                "en-US": "Specifies damage dealt to heroes, but not barriers or pets."
-            }
+            "zh-CN": "对英雄造成伤害量"
         },
         "HEALING_DEALT": {
             "guid": "0000000124D1",
@@ -4991,131 +4991,131 @@ const constantValues =
         "ASLEEP": {
             "guid": "00000000B36A",
             "description": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status."
+            },
             "en-US": "Asleep",
             "es-MX": "Dormido",
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
             "pt-BR": "Dormindo",
-            "zh-CN": "沉睡",
-            "descriptionLocalized": {
-                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Ana's sleep dart causes this status."
-            }
+            "zh-CN": "沉睡"
         },
         "BURNING": {
             "guid": "00000000B36C",
             "description": "The player is burning. For example, Ashe's dynamite causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player is burning. For example, Ashe's dynamite causes this status."
+            },
             "en-US": "Burning",
             "es-MX": "En llamas",
             "fr-FR": "Enflammé",
             "ja-JP": "燃焼中",
             "pt-BR": "Queimando",
-            "zh-CN": "点燃",
-            "descriptionLocalized": {
-                "en-US": "The player is burning. For example, Ashe's dynamite causes this status."
-            }
+            "zh-CN": "点燃"
         },
         "FROZEN": {
             "guid": "00000000B369",
             "description": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status."
+            },
             "en-US": "Frozen",
             "es-MX": "Congelado",
             "fr-FR": "Gelé",
             "ja-JP": "凍っている",
             "pt-BR": "Congelado",
-            "zh-CN": "冰冻",
-            "descriptionLocalized": {
-                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Mei's endothermic blaster causes this status."
-            }
+            "zh-CN": "冰冻"
         },
         "HACKED": {
             "guid": "00000000B36D",
             "description": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status.",
+            "descriptionLocalized": {
+                "en-US": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status."
+            },
             "en-US": "Hacked",
             "es-MX": "Hackeado",
             "fr-FR": "Piraté",
             "ja-JP": "ハックされている",
             "pt-BR": "Hackeado",
-            "zh-CN": "被入侵",
-            "descriptionLocalized": {
-                "en-US": "The player is unable to use abilities or ultimate abilities. Weapon attacks are unaffected. For example, Sombra can cause this status."
-            }
+            "zh-CN": "被入侵"
         },
         "INVINCIBLE": {
             "guid": "00000000B367",
             "description": "The player does not take damage.",
+            "descriptionLocalized": {
+                "en-US": "The player does not take damage."
+            },
             "en-US": "Invincible",
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
-            "zh-CN": "无敌",
-            "descriptionLocalized": {
-                "en-US": "The player does not take damage."
-            }
+            "zh-CN": "无敌"
         },
         "KNOCKED_DOWN": {
             "guid": "00000000B36B",
             "description": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status."
+            },
             "en-US": "Knocked Down",
             "es-MX": "Derribado",
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
             "pt-BR": "Nocauteado",
-            "zh-CN": "击倒",
-            "descriptionLocalized": {
-                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Reinhardt's Earthshatter causes this status."
-            }
+            "zh-CN": "击倒"
         },
         "PHASED_OUT": {
             "guid": "00000000B366",
             "description": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status."
+            },
             "en-US": "Phased Out",
             "es-MX": "Forma etérea",
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
-            "zh-CN": "相移",
-            "descriptionLocalized": {
-                "en-US": "The player passes through other players and avoids all enemy attacks. For example, Reaper's wraith form causes this status."
-            }
+            "zh-CN": "相移"
         },
         "ROOTED": {
             "guid": "00000000B365",
             "description": "The player cannot move unless moved by another player or object. Aiming is unaffected.",
+            "descriptionLocalized": {
+                "en-US": "The player cannot move unless moved by another player or object. Aiming is unaffected."
+            },
             "en-US": "Rooted",
             "es-MX": "Arraigado",
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
             "pt-BR": "Enraizado",
-            "zh-CN": "定身",
-            "descriptionLocalized": {
-                "en-US": "The player cannot move unless moved by another player or object. Aiming is unaffected."
-            }
+            "zh-CN": "定身"
         },
         "STUNNED": {
             "guid": "00000000B565",
             "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status.",
+            "descriptionLocalized": {
+                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
+            },
             "en-US": "Stunned",
             "es-MX": "Aturdido",
             "fr-FR": "Étourdi",
             "ja-JP": "スタンされている",
             "pt-BR": "Atordoado",
-            "zh-CN": "击晕",
-            "descriptionLocalized": {
-                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
-            }
+            "zh-CN": "击晕"
         },
         "UNKILLABLE": {
             "guid": "00000000B368",
             "description": "The player's health will not drop below 1.",
+            "descriptionLocalized": {
+                "en-US": "The player's health will not drop below 1."
+            },
             "en-US": "Unkillable",
             "es-MX": "Inmortal",
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
             "pt-BR": "Imortal",
-            "zh-CN": "无法杀死",
-            "descriptionLocalized": {
-                "en-US": "The player's health will not drop below 1."
-            }
+            "zh-CN": "无法杀死"
         }
     },
     "TeamLiteral": {
@@ -5191,33 +5191,36 @@ const constantValues =
         "ROTATION": {
             "guid": "00000000B33B",
             "description": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity.",
+            "descriptionLocalized": {
+                "en-US": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity."
+            },
             "en-US": "Rotation",
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
-            "zh-CN": "旋转",
-            "descriptionLocalized": {
-                "en-US": "The resulting vector will be rotated to the new frame of reference. Use this option when the provided vector is a direction or velocity."
-            }
+            "zh-CN": "旋转"
         },
         "ROTATION_AND_TRANSLATION": {
             "guid": "00000000B33C",
             "description": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position.",
+            "descriptionLocalized": {
+                "en-US": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position."
+            },
             "en-US": "Rotation And Translation",
             "es-MX": "Rotación y traslación",
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
             "pt-BR": "Rotação e Translação",
-            "zh-CN": "旋转并转换",
-            "descriptionLocalized": {
-                "en-US": "The resulting vector will be rotated and translated to the new frame of reference. Use this option when the provided vector is a position."
-            }
+            "zh-CN": "旋转并转换"
         }
     },
     "Wait": {
         "ABORT_WHEN_FALSE": {
             "guid": "00000000787D",
             "description": "The execution of the action list is aborted if any condition on this rule becomes false.",
+            "descriptionLocalized": {
+                "en-US": "The execution of the action list is aborted if any condition on this rule becomes false."
+            },
             "en-US": "Abort When False",
             "es-ES": "Abortar cuando sea falso",
             "es-MX": "Cancelar cuando es falso",
@@ -5226,14 +5229,14 @@ const constantValues =
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
-            "zh-CN": "当为“假”时中止",
-            "descriptionLocalized": {
-                "en-US": "The execution of the action list is aborted if any condition on this rule becomes false."
-            }
+            "zh-CN": "当为“假”时中止"
         },
         "IGNORE_CONDITION": {
             "guid": "00000000787C",
             "description": "The execution of the action list is never interrupted.",
+            "descriptionLocalized": {
+                "en-US": "The execution of the action list is never interrupted."
+            },
             "en-US": "Ignore Condition",
             "es-ES": "Ignorar condición",
             "es-MX": "Ignorar condición",
@@ -5242,14 +5245,14 @@ const constantValues =
             "ja-JP": "条件無視",
             "pl-PL": "Zignoruj warunek",
             "pt-BR": "Ignorar Condição",
-            "zh-CN": "无视条件",
-            "descriptionLocalized": {
-                "en-US": "The execution of the action list is never interrupted."
-            }
+            "zh-CN": "无视条件"
         },
         "RESTART_WHEN_TRUE": {
             "guid": "00000000787E",
             "description": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions.",
+            "descriptionLocalized": {
+                "en-US": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions."
+            },
             "en-US": "Restart When True",
             "es-ES": "Reiniciar cuando sea verdadero",
             "es-MX": "Reiniciar cuando es verdadero",
@@ -5258,10 +5261,7 @@ const constantValues =
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
-            "zh-CN": "当为“真”时重新开始",
-            "descriptionLocalized": {
-                "en-US": "The execution of the action list restarts from the first action if the condition list transitions from false to true or if the rule's event occurs again with true conditions."
-            }
+            "zh-CN": "当为“真”时重新开始"
         }
     },
     "WorldTextReeval": {
@@ -5455,7 +5455,7 @@ const constantValues =
             "en-US": "Min",
             "es-MX": "Mínimo",
             "fr-FR": "Minimum",
-            "ja-JP": "分",
+            "ja-JP": "最小",
             "pt-BR": "Mín.",
             "zh-CN": "最小"
         },
