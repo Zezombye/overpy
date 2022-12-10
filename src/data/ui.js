@@ -743,7 +743,7 @@ const workshopUiKw =
         "guid": "00000000F41D",
         "en-US": "Elements include rules, conditions, actions, and values (up to a max of %1$s)",
         "de-DE": "Elemente schließen Regeln, Konditionen, Aktionen und Werte ein (bis zu einem Maximum von %1$s)",
-        "es-ES": "Entre los elementos se incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s)",
+        "es-ES": "Entre los elementos se incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s).",
         "es-MX": "Los elementos incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s)",
         "fr-FR": "Ces éléments incluent les règles, conditions, actions et valeurs (jusqu’à un maximum de %1$s).",
         "it-IT": "Gli elementi includono regole, condizioni, azioni e valori (fino a un massimo di %1$s)",

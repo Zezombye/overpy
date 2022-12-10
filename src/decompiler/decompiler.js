@@ -226,7 +226,7 @@ function decompileCustomGameSettings(content) {
 			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values);
 
 		} else if (opyCategory === "extensions") {
-			activatedExtensions = Object.keys(serialized[opyCategory]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
+			activatedExtensions = Object.keys(serialized[category]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
 			delete result[opyCategory];
 		
 		} else if (opyCategory === "gamemodes") {

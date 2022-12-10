@@ -140,7 +140,6 @@ const gamemodeKw =
         "zh-TW": "死鬥"
     },
     "freezethawElimination": {
-        "onlyInOw1": true,
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
         "guid": "0000000122DF",
@@ -210,12 +209,11 @@ const gamemodeKw =
         "zh-TW": "路西歐競球"
     },
     "meisSnowballOffensive": {
-        "onlyInOw1": true,
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
         "guid": "00000000525A",
         "en-US": "Mei's Snowball Offensive",
-        "de-DE": "Meis Schneeballschlacht",
+        "de-DE": "Meis Schneeball<hy>schlacht",
         "es-ES": "Mei: Operación Bola de Nieve",
         "es-MX": "Mei: Operación Bola de Nieve",
         "fr-FR": "Opération Boule de neige",
@@ -283,7 +281,6 @@ const gamemodeKw =
         "zh-TW": "衝突戰"
     },
     "snowballFfa": {
-        "onlyInOw1": true,
         "defaultFfaPlayers": 12,
         "guid": "00000000EC7B",
         "en-US": "Snowball Deathmatch",
@@ -319,7 +316,6 @@ const gamemodeKw =
         "zh-TW": "團隊死鬥"
     },
     "yetiHunter": {
-        "onlyInOw1": true,
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 1,
         "guid": "000000006DF1",

@@ -2687,7 +2687,8 @@ const customGameSettingsSchema =
                         "torbjorn",
                         "widowmaker",
                         "winston",
-                        "hammond"
+                        "hammond",
+                        "ramattra"
                     ],
                     "guid": "000000007671",
                     "en-US": "Ultimate Duration",
@@ -2719,7 +2720,8 @@ const customGameSettingsSchema =
                         "torbjorn",
                         "widowmaker",
                         "winston",
-                        "hammond"
+                        "hammond",
+                        "ramattra"
                     ],
                     "guid": "000000007672",
                     "en-US": "Infinite Ultimate Duration",
@@ -3267,7 +3269,8 @@ const customGameSettingsSchema =
                         "sojourn",
                         "soldier",
                         "sombra",
-                        "hammond"
+                        "hammond",
+                        "ramattra"
                     ],
                     "en-US": "%1$s"
                 },
@@ -3288,7 +3291,8 @@ const customGameSettingsSchema =
                         "sigma",
                         "soldier",
                         "sombra",
-                        "hammond"
+                        "hammond",
+                        "ramattra"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -4380,6 +4384,28 @@ const customGameSettingsSchema =
                         "ru-RU": "Ракетомет: сила отбрасывания",
                         "zh-CN": "火箭发射器击退倍率",
                         "zh-TW": "火箭發射器擊退距離"
+                    }
+                }
+            },
+            "ramattra": {
+                "values": {
+                    "secondaryFireAlternateForm": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "00000000D2A8",
+                        "en-US": "Block Nemesis Form",
+                        "de-DE": "Blocken Nemesisform",
+                        "es-ES": "Bloquear Forma de némesis",
+                        "es-MX": "Bloqueo Forma de némesis",
+                        "fr-FR": "Blocage forme de némésis",
+                        "it-IT": "Blocco Forma Nemesi",
+                        "ja-JP": "ブロック（ネメシス・フォーム）",
+                        "ko-KR": "막기 네메시스 형태",
+                        "pl-PL": "Blok Postać Nemezis",
+                        "pt-BR": "Bloqueio Forma Nêmesis",
+                        "ru-RU": "Блок форма Немезиды",
+                        "zh-CN": "铁臂（天罚形态）",
+                        "zh-TW": "格擋（復仇形態）"
                     }
                 }
             },

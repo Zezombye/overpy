@@ -2310,6 +2310,78 @@ const heroKw =
         "ru-RU": "Дзенъятта",
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔"
+    },
+    "ramattra": {
+        "secondaryFire": {
+            "guid": "00000000CDF6",
+            "en-US": "Void Barrier Omnic Form",
+            "de-DE": "Leerenbarriere Omnicform",
+            "es-ES": "Barrera de vacío Forma de ómnico",
+            "es-MX": "Barrera del vacío Forma de ómnico",
+            "fr-FR": "Barrière du vide forme d’omniaque",
+            "it-IT": "Barriera del Vuoto Forma Omnic",
+            "ja-JP": "ヴォイド・バリア（オムニック・フォーム）",
+            "ko-KR": "공허 방벽 옴닉 형태",
+            "pl-PL": "Bariera Otchłani Postać Omnika",
+            "pt-BR": "Barreira do Vazio Forma Ômnica",
+            "ru-RU": "Барьер пустоты форма омника",
+            "zh-CN": "虚空屏障（智械形态）",
+            "zh-TW": "虛空屏障（智械形態）"
+        },
+        "ability1": {
+            "guid": "00000000D2AE",
+            "en-US": "Nemesis Form",
+            "de-DE": "Nemesisform",
+            "es-ES": "Forma de némesis",
+            "es-MX": "Forma de némesis",
+            "fr-FR": "Forme de némésis",
+            "it-IT": "Forma Nemesi",
+            "ja-JP": "ネメシス・フォーム",
+            "ko-KR": "네메시스 형태",
+            "pl-PL": "Postać Nemezis",
+            "pt-BR": "Forma Nêmesis",
+            "ru-RU": "Форма Немезиды",
+            "zh-CN": "天罚形态",
+            "zh-TW": "復仇形態"
+        },
+        "ability2": {
+            "guid": "00000000D267",
+            "en-US": "Ravenous Vortex",
+            "de-DE": "Gefräßiger Wirbel",
+            "es-ES": "Vórtice voraz",
+            "es-MX": "Vórtice voraz",
+            "fr-FR": "Vortex vorace",
+            "it-IT": "Vortice Insaziabile",
+            "ja-JP": "貪欲な渦",
+            "ko-KR": "탐식의 소용돌이",
+            "pl-PL": "Wściekły Wir",
+            "pt-BR": "Vórtice Devorador",
+            "ru-RU": "Ненасытный вихрь",
+            "zh-CN": "吞噬漩涡",
+            "zh-TW": "貪婪漩渦"
+        },
+        "ultimate": {
+            "guid": "00000000D2AC",
+            "en-US": "Annihilation",
+            "de-DE": "Vernichtung",
+            "es-ES": "Aniquilación",
+            "es-MX": "Aniquilación",
+            "it-IT": "Annientamento",
+            "ja-JP": "アナイアレーション",
+            "ko-KR": "절멸",
+            "pl-PL": "Anihilacja",
+            "pt-BR": "Aniquilação",
+            "ru-RU": "Аннигиляция",
+            "zh-CN": "诛",
+            "zh-TW": "殲滅"
+        },
+        "guid": "00000000CD70",
+        "en-US": "Ramattra",
+        "ja-JP": "ラマットラ",
+        "ko-KR": "라마트라",
+        "ru-RU": "Раматтра",
+        "zh-CN": "拉玛刹",
+        "zh-TW": "拉瑪塔"
     }
 }
 //end-json

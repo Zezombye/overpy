@@ -2899,7 +2899,7 @@ const constantValues =
             "es-ES": "Efecto de Nanoestimulantes de Ana",
             "es-MX": "Efecto de Nanopotenciado de Ana",
             "fr-FR": "Effet de Nanoboost d’Ana",
-            "ja-JP": "アナの 〈ナノ・ブースト〉のエフェクト",
+            "ja-JP": "アナの〈ナノ・ブースト〉のエフェクト",
             "pl-PL": "Ana – Nano – Efekt wzmocnienia",
             "pt-BR": "Efeito do Estimulante da Ana",
             "zh-CN": "安娜纳米激素强化效果"

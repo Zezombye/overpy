@@ -370,7 +370,6 @@ const mapKw =
         "zh-TW": "南極洲生態觀測站"
     },
     "ecopointAntarcticaWinter": {
-        "onlyInOw1": true,
         "guid": "0000000075A7",
         "gamemodes": [
             "elimination",
@@ -390,7 +389,7 @@ const mapKw =
         "de-DE": "Ecopoint: Antarktis Winter",
         "es-ES": "Ecobase: Antártida invierno",
         "es-MX": "Ecopunto: Antártida Invierno",
-        "fr-FR": "Écolab : Antarctique hiver",
+        "fr-FR": "Écolab : Antarctique hiver",
         "it-IT": "Ecobase: Antartide inverno",
         "ja-JP": "ECOPOINT: ANTARCTICA （ウィンター）",
         "ko-KR": "탐사 기지: 남극 겨울",
@@ -538,13 +537,11 @@ const mapKw =
         "zh-TW": "好萊塢"
     },
     "hollywoodHalloween": {
-        "onlyInOw1": true,
         "guid": "000000004EE3",
         "gamemodes": [
             "hybrid",
             "skirmish",
             "ffa",
-            "bountyHunter",
             "tdm"
         ],
         "en-US": "Hollywood Halloween",
@@ -1115,7 +1112,6 @@ const mapKw =
         "zh-TW": "尼泊爾村落"
     },
     "nepalVillageWinter": {
-        "onlyInOw1": true,
         "guid": "000000006E1F",
         "gamemodes": [
             "yetiHunter"
@@ -1627,6 +1623,26 @@ const mapKw =
         "ru-RU": "Мастерская: остров ночь",
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
+    },
+    "shambaliMonastery": {
+        "gamemodes": [
+            "skirmish",
+            "escort"
+        ],
+        "guid": "0000000189CE",
+        "en-US": "Shambali Monastery",
+        "de-DE": "Shambali-Kloster",
+        "es-ES": "Monasterio Shambali",
+        "es-MX": "Monasterio Shambali",
+        "fr-FR": "Monastère shambali",
+        "it-IT": "Monastero Shambali",
+        "ja-JP": "SHAMBALI MONASTERY",
+        "ko-KR": "샴발리 수도원",
+        "pl-PL": "Klasztor Szambala",
+        "pt-BR": "Monastério de Shambali",
+        "ru-RU": "Монастырь Шамбала",
+        "zh-CN": "香巴里寺院",
+        "zh-TW": "香巴里僧院"
     }
 }
 //end-json

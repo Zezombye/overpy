@@ -1455,6 +1455,9 @@ var app = new Vue({
                 if ("enabledMaps" in this.editedCustomGameSettings.gamemodes[gamemode] && this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps.length === Object.keys(mapKw).filter(x => mapKw[x].gamemodes.includes(gamemode) && !mapKw[x].onlyInOw1).length) {
                     delete this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps;
                 }
+                if (!this.editedCustomGameSettings.gamemodes[gamemode].enabled) {
+                    delete this.editedCustomGameSettings.gamemodes[gamemode].enabledMaps;
+                }
                 if (!this.editedCustomGameSettings.gamemodes[gamemode].enabled && Object.keys(this.editedCustomGameSettings.gamemodes[gamemode]).length <= 1) {
                     delete this.editedCustomGameSettings.gamemodes[gamemode];
                 }

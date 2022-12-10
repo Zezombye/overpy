@@ -3750,6 +3750,7 @@ const actionKw =
             "zh-CN": "立即使一名到多名玩家在其死亡的位置复活，无需等待时间。"
         },
         "en-US": "Resurrect",
+        "es-ES": "Resurrección:",
         "es-MX": "Resucitar",
         "fr-FR": "Ressusciter",
         "ja-JP": "蘇生",
