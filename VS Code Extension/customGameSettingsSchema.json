@@ -68,6 +68,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -87,6 +92,7 @@
                                 "type": "string",
                                 "enum": [
                                     "ayutthaya",
+                                    "antarcticPeninsula",
                                     "blackForest",
                                     "blackForestWinter",
                                     "blizzWorld",
@@ -140,7 +146,6 @@
                                     "nepalVillage",
                                     "nepalVillageWinter",
                                     "newQueenStreet",
-                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -172,6 +177,7 @@
                                 "type": "string",
                                 "enum": [
                                     "ayutthaya",
+                                    "antarcticPeninsula",
                                     "blackForest",
                                     "blackForestWinter",
                                     "blizzWorld",
@@ -225,7 +231,6 @@
                                     "nepalVillage",
                                     "nepalVillageWinter",
                                     "newQueenStreet",
-                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -532,6 +537,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -655,6 +665,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -665,6 +680,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "antarcticPeninsula",
                                     "busan",
                                     "ilios",
                                     "lijiangTower",
@@ -679,6 +695,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "antarcticPeninsula",
                                     "busan",
                                     "ilios",
                                     "lijiangTower",
@@ -758,6 +775,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -872,6 +894,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -891,7 +918,6 @@
                                     "kingsRow",
                                     "kingsRowWinter",
                                     "midtown",
-                                    "numbani",
                                     "paraiso"
                                 ]
                             }
@@ -910,7 +936,6 @@
                                     "kingsRow",
                                     "kingsRowWinter",
                                     "midtown",
-                                    "numbani",
                                     "paraiso"
                                 ]
                             }
@@ -1015,6 +1040,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -1245,6 +1275,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -1568,6 +1603,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -1759,6 +1799,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -1769,6 +1814,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "antarcticPeninsula",
                                     "blizzWorld",
                                     "blizzWorldWinter",
                                     "busan",
@@ -1793,7 +1839,6 @@
                                     "midtown",
                                     "nepal",
                                     "newQueenStreet",
-                                    "numbani",
                                     "oasis",
                                     "paraiso",
                                     "paris",
@@ -1817,6 +1862,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
+                                    "antarcticPeninsula",
                                     "blizzWorld",
                                     "blizzWorldWinter",
                                     "busan",
@@ -1841,7 +1887,6 @@
                                     "midtown",
                                     "nepal",
                                     "newQueenStreet",
-                                    "numbani",
                                     "oasis",
                                     "paraiso",
                                     "paris",
@@ -1933,6 +1978,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -2037,6 +2087,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -2135,6 +2190,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -2331,6 +2391,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -2420,6 +2485,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",
@@ -2519,6 +2589,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -2613,6 +2688,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -2701,6 +2781,11 @@
                         "enableRandomHeroes": {
                             "type": "boolean"
                         },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
                         "respawnTime%": {
                             "type": "number",
                             "minimum": 0,
@@ -2788,6 +2873,11 @@
                         },
                         "enableRandomHeroes": {
                             "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
                         },
                         "respawnTime%": {
                             "type": "number",

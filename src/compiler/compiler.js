@@ -182,10 +182,6 @@ ${tows("__rule__", ruleKw)}("OverPy Map Detection") {
 		availableExtensionPoints = -1;
 	}
 
-	if (!compiledCustomGameSettings) {
-		warn("w_workshop_ui_disabled", "No settings were declared; it is impossible to paste this gamemode as-is, as the workshop UI is disabled.");
-	}
-
 	return result;
 }
 

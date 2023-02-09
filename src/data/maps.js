@@ -48,6 +48,13 @@ const mapKw =
         "zh-CN": "阿育陀耶",
         "zh-TW": "大城"
     },
+    "antarcticPeninsula": {
+        "gamemodes": [
+            "control",
+            "skirmish",
+        ],
+        "en-US": "Antarctic Peninsula",
+    },
     "blackForest": {
         "guid": "0000000059C3",
         "gamemodes": [
@@ -1144,7 +1151,7 @@ const mapKw =
         "zh-CN": "新皇后街",
         "zh-TW": "新皇后街"
     },
-    "numbani": {
+    /*"numbani": {
         "guid": "0000000002EA",
         "gamemodes": [
             "hybrid",
@@ -1156,7 +1163,7 @@ const mapKw =
         "ru-RU": "Нумбани",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼"
-    },
+    },*/
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [

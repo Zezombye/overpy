@@ -741,6 +741,13 @@ const customGameSettingsSchema =
                         "zh-CN": "随机英雄复生",
                         "zh-TW": "重生時隨機更換英雄"
                     },
+                    "randomHeroRoleLimitPerTeam": {
+                        "values": "__int__",
+                        "default": 6,
+                        "min": 1,
+                        "max": 6,
+                        "en-US": "Random Hero Role Limit Per Team",
+                    },
                     "respawnTime%": {
                         "values": "__percent__",
                         "min": 0,
