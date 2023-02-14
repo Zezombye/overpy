@@ -1,18 +1,16 @@
-[Core] DataTool v2.2.0.0+1018+78a02334
+[Core] DataTool v2.3.0.0+1025+f6a2810c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=zhCN", "-T=zhCN"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: zhCN | Speech Language: zhCN
-[CASC] Overwatch build 2.2.0.2.107804
+[CASC] Overwatch build 2.3.0.0.109691
 [CASC] Initializing...
-[Manifest] Using TRG procedure 107804 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 109691 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_LzhCN_speech_EExt.cmf
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_LzhCN_text_EExt.cmf
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_EExt.cmf
 [CASC] Ready
 [Core] Reminder!! When extracting data in languages other than English, the names of the heroes and skins MUST be in the language you have chosen! (zhCN)
 [Core] Checking ResourceKeys
-[GUIDNames] GUIDNames.csv not found
-[LocalizedNames] LocalizedNamesMapping.csv not found
 [Core] Tooling...
 000000000019.07C: 死吧，死吧…死了
 000000000020.07C: 天使
@@ -377,6 +375,8 @@
 0000000003A6.07C: 跃上并沿着墙壁攀爬
 0000000003A7.07C: 竜
 0000000003A8.07C: 召唤致命的天竜之魂吞噬遇到的所有敌人
+0000000003A9.07C: 散
+0000000003AA.07C: 击中后分散成多个会弹射的小箭头
 0000000003AB.07C: 风
 0000000003AC.07C: 长按鼠标左键然后放开可以射得更远
 0000000003AD.07C: 火箭弹幕
@@ -471,6 +471,7 @@
 000000000410.07C: 守护天使
 000000000412.07C: 天使之杖
 000000000413.07C: 长按可以治疗队友
+对生命值低于一半的盟友治疗速度更快
 000000000414.07C: 天使之杖
 000000000415.07C: 长按可以增加队友造成的伤害
 000000000416.07C: 天使冲击枪
@@ -551,8 +552,6 @@
 00000000049E.07C: 战术翻滚
 00000000049F.07C: 向移动方向翻滚
 并装填子弹
-0000000004A0.07C: 闪光弹
-0000000004A1.07C: 击晕前方的敌人
 0000000004A2.07C: 神射手
 0000000004A3.07C: 面对你的敌人。按下 %1$s 锁定目标
 随后按下 %1$s 或 %2$s 开枪
@@ -586,7 +585,6 @@
 0000000005F7.07C: 当一位队友阵亡时，你将看到一个英雄标记用来表示队友的阵亡位置。
 0000000005F8.07C: 重装型英雄擅长夺取和防守地图目标，以及干扰敌方队伍。
 0000000005F9.07C: 支援型英雄可以保护并治疗他们的队友，同时提供有用的综合能力。
-000000000606.07C: <fg%1$s>击晕</fg>
 000000000609.07C: <fg%1$s>击晕</fg>
 000000000641.07C: 选择英雄
 000000000642.07C: 得分面板
@@ -823,6 +821,7 @@
 000000000CC7.07C: “士兵：76”倾向于和敌人在中距离进行交战，便于其寻找掩护和用生物力场进行治疗。
 000000000CC8.07C: 不要和站在生物力场里的“士兵：76”交战。
 000000000CC9.07C: 当“士兵：76”激活战术目镜时，赶快寻找掩护。如果你正在空旷地带，那就尽可能在他消灭你之前干掉他。
+000000000CD1.07C: 自定游戏
 000000000CF9.07C: 音速扩音器
 000000000CFA.07C: 超音速飞弹发射器
 000000000CFB.07C: 治愈音效
@@ -861,7 +860,7 @@
 000000000D8A.07C: 视频
 000000000D8C.07C: 离开比赛
 000000000D8D.07C: 退回桌面
-000000000D8F.07C: 暴雪娱乐有限公司©2016 - 2022版权所有。
+000000000D8F.07C: 暴雪娱乐有限公司©2016 - 2023版权所有。
 000000000D94.07C: 狙击时，反复出入掩体可以很好地保护自己。
 000000000D97.07C: 那些不太依赖武器命中率的英雄，比如温斯顿、托比昂对“猎空”来说会是大麻烦。
 000000000D99.07C: 退回桌面
@@ -915,7 +914,6 @@
 000000000E0D.07C: 动态反射
 000000000E0E.07C: 需要重新启动游戏才能使某些设定生效。
 000000000E0F.07C: 退出小队
-000000000E14.07C: X
 000000000E39.07C: 被自定义服务器%1$s屏蔽原因：%2$s
 000000000E3A.07C: 管理员结束了自定游戏。
 000000000E3B.07C: 管理员重新开始了自定游戏。
@@ -1503,6 +1501,7 @@ D.Va从中弹出
 0000000017A3.07C: 呼叫一台全新的机甲
 0000000017A6.07C: 比赛时间：
 0000000017B6.07C: 你与受邀者已经是好友了。
+0000000017BD.07C: 返回
 0000000017C2.07C: Ping: %1$s MS
 0000000017C4.07C: 延迟: %1$s MS
 0000000017C5.07C: IND: %1$s MS
@@ -2182,6 +2181,7 @@ D.Va从中弹出
 00000000231F.07C: 匹配服务器已离线
 000000002320.07C: 赞
 000000002323.07C: 《守望先锋》设定
+00000000234C.07C: 士兵：76
 000000002356.07C: 无法连接至服务器。
 000000002369.07C: %1$s 位好友正在玩《守望先锋》
 000000002370.07C: ALT
@@ -3622,11 +3622,13 @@ D.Va从中弹出
 000000002D8B.07C: 向下移动左摇杆可以后退。
 000000002D8C.07C: 左右移动左摇杆可以使你朝对应的方向移动。
 000000002D95.07C: 训练机器人
+000000002D96.07C: 预览
 000000002D97.07C: 获得总奖章
 000000002D98.07C: 总奖章 %1$s
 000000002D99.07C: 获得黄金奖章
 000000002D9A.07C: 获得黄金奖章 %1$s
 000000002D9B.07C: 继续
+000000002D9D.07C: 禅雅塔
 000000002DA5.07C: 数量
 000000002DA6.07C: 推荐
 000000002DA7.07C: 添加电脑
@@ -3645,7 +3647,6 @@ D.Va从中弹出
 000000002DBA.07C: 自动加入
 000000002DBB.07C: 语音聊天设备
 000000002DC3.07C: 最大
-000000002DC4.07C: 在小队中不可用
 000000002DC5.07C: 1
 000000002DC6.07C: 2
 000000002DC7.07C: 3
@@ -5742,7 +5743,7 @@ D.Va从中弹出
 00000000503A.07C: 所有
 00000000503F.07C: 相时而动
 000000005040.07C: 你可以透过墙体侦测到严重受伤的敌人
-且对被侵入敌人造成的伤害提高40%%
+且对被侵入敌人造成更高伤害
 000000005041.07C: 在“黑影”试图侵入你或队友时对其造成伤害可以打断侵入。
 000000005042.07C: “黑百合”的红外侦测和半藏的“音”会暴露“黑影”的行踪。
 000000005043.07C: 当你发现“黑影”后，一定要告诉队友。
@@ -6040,8 +6041,6 @@ D.Va从中弹出
 0000000053C4.07C: 禁闭决斗3v3
 0000000053C5.07C: 雪球冲击枪
 0000000053C6.07C: 发射一枚雪球
-0000000053C7.07C: 重新装填
-0000000053C8.07C: 在雪堆处重新装填雪球冲击枪
 0000000053C9.07C: 雪球弹幕
 0000000053CA.07C: 提供无限的雪球
 0000000053CB.07C: 神秘圣诞
@@ -6651,7 +6650,7 @@ D.Va从中弹出
 0000000059B3.07C: Ping峰值
 0000000059B4.07C: 仅显示有足够空位的房间
 0000000059B5.07C: 显示比赛
-0000000059B6.07C: 游戏模式
+0000000059B6.07C: 终极情人节
 0000000059B7.07C: 地图
 0000000059B8.07C: 英雄
 0000000059B9.07C: 受到伤害打断夺旗
@@ -7043,9 +7042,9 @@ D.Va从中弹出
 000000005D5D.07C: 感谢您举报玩家%1$s的%2$s行为。您的举报信息可以帮助我们让《守望先锋》变得更好！
 000000005D5F.07C: 十分感谢
 000000005D60.07C: ThisShouldNotBeAnUnlock_PH
-000000005D62.07C: 作为守望先锋的副指挥官，安娜利用她的技巧和专长保护家园
-和最亲密的人
-000000005D64.07C: 充满好奇心的“堡垒”现在成为了一名探险者，被人性之善深深吸引，却又惧怕人性之恶
+000000005D62.07C: 作为守望先锋的副指挥官，安娜·艾玛莉利用她的技巧和专长
+保护家园和最亲密的人
+000000005D64.07C: 曾在智械危机中身为前线战斗单位，充满好奇心的“堡垒”现在成为了一名探险者，被自然之美深深吸引的同时也警惕着人性之恶
 000000005D65.07C: D.Va曾经是一名职业玩家，而现在则利用自己的技巧驾驶一台尖端机甲保卫国家
 000000005D66.07C: 半机械忍者岛田源氏已经接受了他曾经排斥的强化躯体，并因此发现了更高境界的人性
 000000005D67.07C: 作为箭术和忍术大师，岛田半藏一直都在追求极致完美的技艺
@@ -8559,8 +8558,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D9D.07C: 阿德勒斯布鲁恩
 000000006D9E.07C: 防守
 000000006D9F.07C: 进攻
-000000006DA4.07C: “职责：支援”被动效果大幅提升
-000000006DA7.07C: 自动恢复
 000000006DAA.07C: 女武神
 000000006DAB.07C: 获得飞行能力并强化各技能
 000000006DB2.07C: 黑森林
@@ -8949,7 +8946,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007239.07C: 知足常乐
 00000000723B.07C: 你难道想看仙女吗
 00000000723D.07C: 吼吼吼
-00000000723F.07C: 年度表现分析
+00000000723F.07C: 年度表现
 000000007241.07C: 骑士精神早就过时了
 000000007243.07C: 你给我带礼物了吗？
 000000007245.07C: 我今晚不能为你带路了吗
@@ -9020,9 +9017,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000730A.07C: ==== 第%1$s轮完成====
 00000000730B.07C: Capture Point %1$s Captured by %2$s
 00000000730C.07C: Payload reached checkpoint #%1$s
-00000000730D.07C: 原始暴怒
-00000000730E.07C: 额外获得大量生命值
-但只能跳跃和拳击敌人
 00000000730F.07C: %1$s/%2$s
 000000007311.07C: 锦标赛ID：%1$s，比赛ID：%2$s，游戏编号：%3$s
 000000007317.07C: %1$s 得分
@@ -9340,8 +9334,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000075DC.07C: 如果你长时间处于静止状态，将无法从这场比赛中获得经验。
 0000000075DE.07C: 你是雪人
 0000000075DF.07C: 你是猎手
-0000000075E0.07C: 团队合作
-0000000075E1.07C: 雪人受到伤害时会显示其位置
 0000000075E9.07C: 肉块刷新上限
 0000000075EA.07C: |Rfn %1$s:N0;
 0000000075FE.07C: 上海
@@ -9577,7 +9569,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000796F.07C: 电磁炮在短时间内自动充能
 充能射击可以穿透敌人
 000000007975.07C: 索杰恩
-000000007995.07C: https://overwatchleague.com/zh-cn/
+000000007995.07C: http://overwatchworldcup.com/
 00000000799B.07C: 启用
 00000000799C.07C: 禁用
 0000000079A5.07C: 废土士兵
@@ -10130,7 +10122,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007E8A.07C: OWL
 000000007E8D.07C: OWL
 000000007E8F.07C: 守望先锋联赛（白）
-000000007E90.07C: 守望先锋联赛活动皮肤
+000000007EB0.07C: 守望先锋联赛（白）
+000000007EC4.07C: 守望先锋联赛（白）
 000000007ED3.07C: 击退玩家
 000000007ED4.07C: %1$s |Rpl Player:Players; Knocked Back
 000000007ED5.07C: 舞扇
@@ -10834,7 +10827,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000085B4.07C: 上海龙之队客场
 0000000085BB.07C: 里阿尔托
 0000000085BC.07C: 历史上著名的"威尼斯事件“发生的地方，战火又一次在街道与运河中燃起
-0000000085BD.07C: 智械侍者
+0000000085BD.07C: 侍者机器人
 0000000085C0.07C: 再多练练
 0000000085C2.07C: 黑爪步兵
 0000000085C4.07C: 基础
@@ -10941,6 +10934,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008671.07C: 终级技能获得 - 参与
 000000008672.07C: 终级技能获得 - 参与 %1$s
 000000008684.07C: 回声
+000000008688.07C: 敌方队伍
 00000000868A.07C: 守望先锋联赛全明星
 大西洋赛区
 00000000868B.07C: 守望先锋联赛全明星
@@ -11057,6 +11051,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000088FC.07C: 慈善皮肤上线！
 0000000088FF.07C: 粉红天使
 000000008900.07C: “岚”数量
+00000000890A.07C: 赞赏
 00000000890B.07C: 队伍选项
 00000000890D.07C: 正装
 00000000890F.07C: 隐秘堡垒
@@ -11191,7 +11186,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008AA0.07C: 加入比赛即可赢得奖励
 000000008AA1.07C: 死斗
 000000008AA3.07C: 无效选项
-000000008AB8.07C: +%1$s XP
+000000008AB8.07C: +%1$s 战令经验
 000000008AB9.07C: 需有 PlayStation®Plus 方能使用这一功能。
 000000008ABA.07C: 在没有加入 PlayStation®Plus 之前，您无法使用这个功能。
 
@@ -11377,6 +11372,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000008DCE.07C: 炮台
 000000008DEE.07C: 添加短信安全保护
 000000008DEF.07C: 恶鬼机甲
+000000008DF0.07C: 灭除者
 000000008DF3.07C: 该账号需要绑定手机号码。
 000000008E00.07C: “地平线”自由乱斗
 000000008E01.07C: 英雄选择不设限制，加油击败敌人吧。
@@ -11748,8 +11744,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000092B8.07C: 其他队伍05（主场）
 0000000092BD.07C: 其他队伍09（主场）
 0000000092BE.07C: 补充能量
-0000000092BF.07C: 2018全明星太平洋赛区
-0000000092C1.07C: 2018全明星大西洋赛区
+0000000092BF.07C: 2018全明星
+太平洋赛区
+0000000092C1.07C: 2018全明星
+大西洋赛区
 0000000092C2.07C: 其他队伍10（主场）
 0000000092C3.07C: 其他队伍11（主场）
 0000000092C4.07C: 其他队伍12（主场）
@@ -14215,8 +14213,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BB7F.07C: 栏位
 00000000BB84.07C: 设置
 00000000BB85.07C: 概述
-00000000BB8A.07C: 2019全明星太平洋赛区
-00000000BB8B.07C: 2019全明星大西洋赛区
+00000000BB8A.07C: 2019全明星
+太平洋赛区
+00000000BB8B.07C: 2019全明星
+大西洋赛区
 00000000BBA4.07C: 未决定的
 00000000BBA8.07C: 可用英雄
 00000000BBA9.07C: 在索引处设置玩家变量
@@ -15011,8 +15011,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000BFD5.07C: 物品
 00000000BFD6.07C: 目标点
 00000000BFD7.07C: 人质
-00000000BFD8.07C: 终点
-00000000BFD9.07C: 终点
+00000000BFD8.07C: 目标
+00000000BFD9.07C: 目标
 00000000BFDA.07C: 强化
 00000000BFDB.07C: 强化
 00000000BFDC.07C: 玩家
@@ -16406,7 +16406,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CA45.07C: 预设职责测试版
 00000000CA47.07C: 毫无意义
 00000000CA4A.07C: 栏位
-00000000CA4B.07C: 在此玩家栏位添加机器人（-1表示第一个可用的空位）。不管游戏大厅中的设置如何，每支队伍最多可以加入6个机器人，自由混战队伍中最多可加入12个机器人。
+00000000CA4B.07C: 在此玩家栏位添加机器人（-1表示第一个可用的空位）。机器人会占据同队的无玩家栏位。不管游戏大厅中的设置如何，共计可拥有12个玩家与机器人（启用扩展后可拥有24个）。
 00000000CA51.07C: 镇定
 00000000CA52.07C: 无
 00000000CA6A.07C: 生成机器人
@@ -16664,7 +16664,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CD3A.07C: 最新消息
 00000000CD3B.07C: • 每个竞技段位分为5个分组
 • 分组从5（最低）到1（最高）
-• 每7次胜利或20次失败/平局后竞技段位和分组会有相应调整
+• 每%1$s次胜利或%2$s次失败/平局后竞技段位和分组会有相应调整
 00000000CD3C.07C: 天梯赛季
 00000000CD47.07C: 25货币
 00000000CD48.07C: 10货币
@@ -16681,7 +16681,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000CD53.07C: 一名小队成员拒绝了职责选择的邀请。
 00000000CD54.07C: 测试版排行榜
 00000000CD55.07C: - 每名玩家不同的英雄职责（伤害、支援及重装）会有不同的竞技段位
-- 会根据每个职责的竞技段位分别奖励竞技点数
+- 通过挑战奖励竞技点数，奖励的点数由各英雄职责间的最高竞技段位决定
 - 宗师玩家只能以单人或两人小队的形式进行匹配
 00000000CD58.07C: 经典快速比赛
 00000000CD59.07C: 攻防作战
@@ -17132,17 +17132,17 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000D25B.07C: 取消
 00000000D264.07C: 重新启动后可使用新的内容。
 00000000D267.07C: 吞噬漩涡
-00000000D268.07C: 发射一枚纳米球，击中地面后会爆炸，变成一道伤害性力场。受影响的敌人会被减速并被拽向地面
+00000000D268.07C: 发射一枚能量球，在地面上生成一股减速漩涡，处于其中的敌人会受到伤害并被拽向地面
 00000000D26F.07C: %1$s 未被复活
 00000000D29E.07C: |Rfn %1$s:D2;
 00000000D2A3.07C: 虚空加速器（智械形态）
-00000000D2A4.07C: 发射一串模式恒定的粒子
+00000000D2A4.07C: 发射一串粒子
 00000000D2A5.07C: 猛拳（天罚形态）
-00000000D2A6.07C: 向前捶击，每次挥拳都会产生一道贯穿能量波
+00000000D2A6.07C: 出拳捶击，每次挥拳都会产生一道贯穿能量波
 00000000D2A8.07C: 铁臂（天罚形态）
 00000000D2A9.07C: 大幅降低来自前方的伤害并降低自身移动速度
 00000000D2AC.07C: 诛
-00000000D2AD.07C: 进入天罚形态并生成环绕自身的能量簇。能量簇会对周围的敌人造成伤害，且在造成伤害期间，持续时间会暂停
+00000000D2AD.07C: 进入天罚形态并生成致命的粒子簇，痛击周围的敌人，只要敌人受到此效果伤害，效果持续时间就会延长
 00000000D2AE.07C: 天罚形态
 00000000D2AF.07C: 变为天罚形态，改变攻击方式并获得额外护甲
 00000000D2C9.07C: 春节釜山城区
@@ -17466,7 +17466,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F0A4.07C: 铃儿响叮当
 00000000F0A6.07C: 新年快乐！
 00000000F0C9.07C: 接住
-00000000F0CA.07C: 接住掷来的雪球，将它加入你的弹药仓。
+00000000F0CA.07C: 接住掷来的雪球，将它加入你的弹药仓
 00000000F0CB.07C: 继续
 00000000F0CC.07C: 训练机器人刷新时间
 00000000F0CD.07C: |Rfn %1$s:P0;
@@ -17614,7 +17614,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F52E.07C: 健身达人
 00000000F531.07C: 洛杉矶英勇队客场
 00000000F532.07C: 旧金山震动队客场
-00000000F533.07C: 旧金山震动队客场02
+00000000F533.07C: 旧金山震动队客场
 00000000F534.07C: 旧金山震动队客场
 00000000F535.07C: 旧金山震动队客场
 00000000F536.07C: 旧金山震动队客场
@@ -17645,7 +17645,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F54F.07C: 旧金山震动队客场
 00000000F550.07C: 旧金山震动队客场
 00000000F551.07C: 旧金山震动队
-00000000F552.07C: 旧金山震动队02
+00000000F552.07C: 旧金山震动队
 00000000F553.07C: 旧金山震动队
 00000000F554.07C: 旧金山震动队
 00000000F555.07C: 旧金山震动队
@@ -17676,7 +17676,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F56E.07C: 旧金山震动队
 00000000F56F.07C: 旧金山震动队
 00000000F570.07C: 洛杉矶英勇队
-00000000F571.07C: 洛杉矶英勇队02
+00000000F571.07C: 洛杉矶英勇队
 00000000F572.07C: 洛杉矶英勇队
 00000000F573.07C: 洛杉矶英勇队
 00000000F574.07C: 洛杉矶英勇队
@@ -17706,7 +17706,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F58C.07C: 洛杉矶英勇队
 00000000F58D.07C: 洛杉矶英勇队
 00000000F58E.07C: 洛杉矶英勇队
-00000000F58F.07C: 洛杉矶英勇队客场02
+00000000F58F.07C: 洛杉矶英勇队客场
 00000000F590.07C: 洛杉矶英勇队客场
 00000000F591.07C: 洛杉矶英勇队客场
 00000000F592.07C: 洛杉矶英勇队客场
@@ -17737,7 +17737,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F5AB.07C: 洛杉矶英勇队客场
 00000000F5AC.07C: 洛杉矶英勇队客场
 00000000F5AD.07C: 佛罗里达狂欢队
-00000000F5AE.07C: 佛罗里达狂欢队02
+00000000F5AE.07C: 佛罗里达狂欢队
 00000000F5AF.07C: 佛罗里达狂欢队
 00000000F5B0.07C: 佛罗里达狂欢队
 00000000F5B1.07C: 佛罗里达狂欢队
@@ -17768,7 +17768,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000F5CA.07C: 佛罗里达狂欢队
 00000000F5CB.07C: 佛罗里达狂欢队
 00000000F5CC.07C: 佛罗里达狂欢队客场
-00000000F5CD.07C: 佛罗里达狂欢队客场02
+00000000F5CD.07C: 佛罗里达狂欢队客场
 00000000F5CE.07C: 佛罗里达狂欢队客场
 00000000F5CF.07C: 佛罗里达狂欢队客场
 00000000F5D0.07C: 佛罗里达狂欢队客场
@@ -18454,8 +18454,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000108FA.07C: 极地企鹅
 0000000108FD.07C: 音乐家
 0000000108FE.07C: 按飞行计划执行
-00000001090A.07C: 2020全明星大西洋赛区
-00000001090B.07C: 2020全明星太平洋赛区
+00000001090A.07C: 2020全明星
+大西洋赛区
+00000001090B.07C: 2020全明星
+太平洋赛区
 00000001094D.07C: 异化战士
 000000010950.07C: 在英雄“回声”上线期间参与观看直播活动即可解锁
 000000010951.07C: 起飞升空
@@ -18927,6 +18929,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000010F4E.07C: 生命值
 000000010F57.07C: 全部英雄
 000000010F5B.07C: 预设职责
+000000010F5E.07C: 南极半岛
 000000010F5F.07C: 筛选
 000000010F6E.07C: 挑战者系列赛客场
 000000010F6F.07C: 挑战者系列赛客场
@@ -19516,7 +19519,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001144F.07C: 120游戏货币
 （赠送60份夏季运动会补给）
 00000001146F.07C: 50份夏季运动会补给（附送10份）
-0000000114DC.07C: 立即观看
 0000000114DF.07C: 观看守望先锋联赛
 0000000114E4.07C: 美味姜饼
 00000001152E.07C: 伐木老手
@@ -20763,6 +20765,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000012DB5.07C: 铁面裁判
 000000012DC0.07C: 默认
 000000012DC4.07C: 嗒哒！
+000000012DCB.07C: 破冰船
 000000012E66.07C: DAMAGE
 000000012E67.07C: TANK
 000000012E68.07C: SUPPORT
@@ -21364,6 +21367,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000013D37.07C: 作者
 000000013D38.07C: 大厅数量
 000000013D39.07C: 上次游玩
+000000013D3A.07C: 光子发射器
 000000013D3D.07C: 近期
 000000013D3E.07C: 收藏
 000000013D40.07C: 所有
@@ -21391,6 +21395,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000013DBC.07C: 日本选手
 000000013DBD.07C: 烂漫晚霞
 000000013DBE.07C: 水肺深潜
+000000013DC1.07C: 阿兹特克
 000000013DC3.07C: 烂漫晚霞
 000000013DC4.07C: 维和者射速
 000000013DC5.07C: 游戏代码
@@ -21587,7 +21592,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001400F.07C: 比赛文字聊天
 000000014011.07C: 文字聊天
 000000014013.07C: <佚名>
-000000014015.07C: 长按放置目标物品
+000000014015.07C: 使用电池引发过载
 000000014019.07C: <佚名>
 000000014022.07C: 地区设置
 000000014026.07C: 是否确认要重置所有地区设置？
@@ -21641,6 +21646,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001419D.07C: 舞光拾色
 0000000141C1.07C: 复古明星
 0000000141EE.07C: 螺旋飞弹最小半径
+0000000141F8.07C: 破片爆裂!
 000000014207.07C: 正在使用代码创建游戏
 000000014208.07C: 导入代码失败
 000000014209.07C: 确定
@@ -21653,6 +21659,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001422A.07C: 已达收藏数量上限。若想使用此功能，请先移除一些现有收藏。
 00000001422C.07C: 无法更新收藏状态
 00000001422D.07C: 暮冥
+000000014237.07C: 黑金属
 000000014245.07C: 决斗先锋竞技比赛
 000000014246.07C: 与最出色的决斗先锋玩家相互切磋，跻身排行榜！
 000000014247.07C: 决斗先锋3v3竞技比赛《守望先锋》第4赛季
@@ -21728,6 +21735,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000014368.07C: 生化榴弹枪主要攻击模式射速
 000000014369.07C: 南瓜
 00000001436A.07C: 增幅矩阵强化
+000000014370.07C: 汪洋船长
 000000014377.07C: 聚变机炮暴击系数
 00000001437C.07C: 微型飞弹冷却时间
 000000014381.07C: 仙境雪橇
@@ -21867,6 +21875,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000146D6.07C: 音波冷却时间
 0000000146DE.07C: 冰霜魔灵
 0000000146E4.07C: 诅咒船长
+0000000146F2.07C: 替换
 000000014716.07C: 强音冷却时间
 000000014717.07C: 强音持续时间
 000000014718.07C: 音障持续时间
@@ -21925,6 +21934,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000147DC.07C: 生命值
 0000000147DD.07C: 护盾
 0000000147EB.07C: 敬礼
+0000000147ED.07C: 行礼
+0000000147EE.07C: 胜利
 0000000147EF.07C: 休闲
 000000014801.07C: 本名：莱因哈特·威尔海姆
 年龄：50
@@ -21968,6 +21979,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000014AE2.07C: 鲍勃火炮伤害
 000000014AE3.07C: 鲍勃上勾拳伤害
 000000014AF8.07C: %1$s%%
+000000014AF9.07C: 飞枭守护者
+000000014AFA.07C: 章鱼烧
 000000014C47.07C: 选择英雄
 000000014C49.07C: 更换英雄
 000000014D45.07C: 完成剧情任务：“%1$s”
@@ -21984,6 +21997,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000014E6A.07C: %1$s 后化学炸药激活
 000000014E7C.07C: 有敌人
 000000014E7D.07C: 盯住这里
+000000014E92.07C: 全新
 000000014EAA.07C: 跑步健将
 000000014EB0.07C: 展示
 000000014EB3.07C: 展示
@@ -22033,8 +22047,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000014F60.07C: 正在复活……
 000000014F62.07C: 复活！
 000000014F66.07C: 展示
+000000014F77.07C: 正义装填
 000000014FC5.07C: 获得来自<fg%1$s>%2$s</fg>的<fg%1$s>“谐”</fg>
 000000014FC6.07C: 受到%1$s的“谐”
+000000014FCD.07C: 啄迷藏
 000000014FFA.07C: 舞扇
 000000014FFB.07C: 孔明灯
 000000014FFD.07C: 焰火
@@ -22173,6 +22189,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015422.07C: 默认
 000000015423.07C: 迪斯科
 000000015436.07C: 赛博神龙
+000000015437.07C: 死灵法师
 00000001543A.07C: 是否确认购买%1$s？
 00000001543B.07C: 喷射背包半径
 000000015443.07C: 孔明灯
@@ -22185,6 +22202,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015453.07C: 美国东部 2
 000000015466.07C: %1$s级奖励
 000000015471.07C: “灭”恢复时间
+000000015477.07C: 浏览
 000000015479.07C: 小猫乖
 000000015492.07C: 电子舞曲
 00000001549D.07C: %1$s - %2$s
@@ -22228,6 +22246,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000154E7.07C: 蒙面摔角
 0000000154E8.07C: 你拥有的货币不足
 0000000154ED.07C: 禅雅塔终极技能消耗
+0000000154F9.07C: 风情芭蕾
+000000015501.07C: 甲壳动物
+000000015513.07C: 化身丘比特半藏，用他最爱的“散”在几何学之恋中一决高下
 00000001551A.07C: 2022竞技夺旗
 英雄
 00000001551B.07C: 在2022竞技夺旗达到前500名后解锁
@@ -22251,10 +22272,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015535.07C: 靓紫
 000000015536.07C: 蒲黄
 000000015537.07C: 碧绿
+00000001553C.07C: 战令
 000000015541.07C: 在线与水平相当的玩家较量。
 00000001556C.07C: 波次 %1$s/12
 00000001556D.07C: 额外波次 %1$s
-00000001557D.07C: 其他玩家选择天赋：  最多还剩%1$s秒
 000000015587.07C: 激怒！
 000000015605.07C: 灵利女巫
 000000015610.07C: -
@@ -22266,6 +22287,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015633.07C: %1$s 推进距离
 000000015634.07C: 推进初始检查点
 000000015638.07C: 皇家骑士
+000000015639.07C: 养蜂人
 00000001563A.07C: 战令
 00000001563B.07C: 奖励
 00000001563D.07C: 绿林侠盗
@@ -22290,6 +22312,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000156A1.07C: %1$s (%2$s) ：到我这儿来治疗！
 0000000156A2.07C: %1$s (%2$s - %5$s米) 对%3$s (%4$s) 说：到我这儿来治疗！
 0000000156A6.07C: %1$s 已抵达推进检查点
+0000000156AE.07C: 独眼巨人
 0000000156B4.07C: 阴森召唤
 0000000156B5.07C: 参加“死神的武力准则大挑战”活动可解锁
 0000000156B6.07C: 斗士
@@ -22302,6 +22325,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000156BD.07C: 参加“死神的武力准则大挑战”活动可解锁
 0000000156BE.07C: 武力准则
 0000000156BF.07C: 参加“死神的武力准则大挑战”活动可解锁
+0000000156C0.07C: 视觉系
 0000000156C3.07C: 节日庆典
 0000000156E7.07C: 展示
 0000000156E8.07C: 吸收伤害量
@@ -22399,10 +22423,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015897.07C: 白猫露娜
 00000001589D.07C: 煞白铁鸦
 0000000158A0.07C: 箭毒蛙
+0000000158AE.07C: 弥诺陶洛斯
 0000000158B5.07C: 展示
 0000000158BD.07C: Seasonal Play
 0000000158C1.07C: 提示：
 0000000158D5.07C: 霓虹炫猫
+0000000158F4.07C: 举炮
 0000000158F5.07C: 负面效果净化
 0000000158F6.07C: 负面效果净化 %1$s
 0000000158F7.07C: 单场最多负面效果净化
@@ -22464,6 +22490,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015B43.07C: 辅助攻击模式暴击 %1$s
 000000015B44.07C: 单场最多辅助攻击模式暴击
 000000015B45.07C: 单场最多辅助攻击模式暴击 %1$s
+000000015B48.07C: 冰下层
 000000015B4B.07C: 机甲霸主
 000000015B4C.07C: 平均每10分钟负面效果净化
 000000015B4D.07C: 平均每10分钟负面效果净化 %1$s
@@ -22483,6 +22510,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015B5E.07C: 在快速或竞技比赛中，使用“末日铁拳”的强化火箭重拳一次将3个敌人重击至墙面上
 000000015B71.07C: 21:9
 000000015B75.07C: 宙斯
+000000015B79.07C: 美杜莎
 000000015B7E.07C: 夏日法披
 000000015B83.07C: 正在进入游戏
 000000015B84.07C: 自定义
@@ -22515,7 +22543,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015C04.07C: “瞬”可以直接传送到一名盟友身旁，即使目标在墙壁后面也可以使用。
 000000015C05.07C: “铃”能使盟友在短时间内变为无敌状态。尽量在合适的时机施放，可以避免大量伤害。
 000000015C06.07C: “狐”的路径会根据施放时你瞄准的位置连成一条直线。在开阔地带使用可以达到最大的覆盖范围。
-000000015C21.07C: 炮火来袭！
+000000015C21.07C: 炮火来袭!
 000000015C30.07C: 威望
 000000015C33.07C: 高级战令
 000000015C3C.07C: %1$s 更改职责
@@ -22572,6 +22600,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015FC2.07C: 降低受到的击退效果
 降低受到治疗和伤害时产生的
 终极技能充能
+提高预设职责模式下的基础生命值
 000000015FC6.07C: 显示教学
 000000015FC7.07C: 继续
 000000015FD1.07C: 芳华校园
@@ -22607,6 +22636,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000015FF6.07C: 已拥有
 000000015FF7.07C: 经验需求
 000000015FF8.07C: 等级需求
+000000015FFA.07C: 锦鲤
 000000015FFE.07C: 战令升级
 000000015FFF.07C: 赠礼
 000000016000.07C: 解锁所有高级战令等级
@@ -22629,6 +22659,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016016.07C: 展示
 000000016017.07C: 伤害
 000000016018.07C: 治疗
+00000001601F.07C: 街头行者
 00000001602D.07C: AMD FSR 1.0
 00000001602E.07C: 默认
 00000001602F.07C: 高质量上采样
@@ -22780,7 +22811,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001620F.07C: 体验由玩家创作的多种模式！
 000000016211.07C: 展示
 00000001621B.07C: 冰雪女王
-00000001621E.07C: %1$s (%2$s)：我还不能复活队友。(%4$s秒)
+00000001621E.07C: %1$s (%2$s)：我还不能复活队友。(%7$s秒)
 000000016220.07C: 第35赛季选手
 000000016221.07C: 完成第35赛季定级赛后解锁
 000000016222.07C: 第35赛季英雄
@@ -22805,7 +22836,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001623C.07C: 从侧面包抄敌人，借此靠近并突袭对方。
 00000001623D.07C: 在敌人被你的队友引开注意时使用死亡绽放，可以让它的效果最大化。
 00000001623E.07C: %1$s (%2$s)：我来复活队友。掩护我！
-00000001623F.07C: %1$s (%2$s)：我还不能复活队友。
 000000016240.07C: HDR
 000000016246.07C: 测试期间暂不可用
 000000016249.07C: [%1$s (%2$s)]
@@ -22863,7 +22893,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000162B4.07C: 完成2022竞技死斗定级赛后解锁
 0000000162B5.07C: 2022竞技死斗英雄
 0000000162B6.07C: 在2022竞技死斗达到前500名后解锁
-0000000162B7.07C: 守望先锋联赛活动皮肤客场
 0000000162F1.07C: 自信
 0000000162F5.07C: 伙伴
 0000000162FE.07C: 充能
@@ -22928,6 +22957,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000163FB.07C: %1$s (%2$s) 被裂地猛击击晕
 0000000163FC.07C: %2$s <fg%1$s>被质量吸附击晕</fg>
 0000000163FD.07C: %1$s (%2$s) 被质量吸附击晕
+0000000163FE.07C: 雷神
 00000001640D.07C: <fg%1$s>使</fg>%2$s <fg>%1$s沉睡</fg>
 00000001640E.07C: 使%1$s (%2$s) 沉睡
 00000001640F.07C: 朋克女王
@@ -23076,6 +23106,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016660.07C: %1$s Time Played Since 2.09 OW2
 000000016663.07C: 查看
 000000016666.07C: 商城
+000000016685.07C: 冰霜天使
 000000016686.07C: 战令
 000000016688.07C: 机械僵尸
 00000001668A.07C: 电击轮胎
@@ -23166,6 +23197,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016746.07C: Gather at Pub Entrance
 000000016749.07C: 在旅店会合
 0000000167CE.07C: Clear the ramparts
+0000000167CF.07C: 隐形人
 0000000167D1.07C: 击败石像鬼
 0000000167D4.07C: 蹬
 0000000167D5.07C: 近身攻击伤害提高50%%
@@ -23177,11 +23209,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000167DA.07C: 全息屏幕
 0000000167DD.07C: 魔鬼舞
 0000000167DF.07C: 正在搜索比赛
-0000000167E3.07C: 字幕
+0000000167E3.07C: 游戏字幕
 0000000167E6.07C: 牵绳拉线
 0000000167E7.07C: 赛季
 0000000167E9.07C: Pet Health
 0000000167EA.07C: 信号音效
+0000000167F2.07C: 丘比特
 0000000167FA.07C: FTUE Debug:
 00000001681C.07C: https://blizz.ly/OWCrossProgression
 00000001681D.07C: 了解跨平台进度详情
@@ -23191,6 +23224,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016826.07C: 确认账号错误
 000000016827.07C: 继续
 00000001682A.07C: 你的战网账号与主机账号的数据将在《守望先锋》“归来”中整合。
+00000001682D.07C: 阴曹差使
 00000001682F.07C: 代币
 000000016830.07C: 竞技点数
 000000016832.07C: 个性化物品
@@ -23203,6 +23237,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016844.07C: 长按确认账号
 00000001684F.07C: Barrier Health
 000000016852.07C: 切换账号
+000000016853.07C: 美味姜饼
 00000001685E.07C: 抵挡伤害量
 00000001685F.07C: 抵挡伤害量 %1$s
 000000016860.07C: 平均每10分钟抵挡伤害量
@@ -23360,6 +23395,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001695F.07C: 机动推进
 000000016960.07C: 远距离最后一击
 000000016961.07C: 远距离最后一击 %1$s
+000000016962.07C: 神圣白猴
 000000016963.07C: 单场最多远距离最后一击
 000000016964.07C: 单场最多远距离最后一击 %1$s
 000000016965.07C: 平均每10分钟远距离最后一击
@@ -23791,7 +23827,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016D02.07C: 破坏球
 000000016D03.07C: 查莉娅
 000000016D04.07C: 禅雅塔
-000000016D07.07C: Press %1$s to change heroes
+000000016D07.07C: 按下 %1$s 键切换英雄
 000000016D0A.07C: Destroy Castle Door
 000000016D0B.07C: 烧毁城堡大门
 000000016D0C.07C: 锯齿利刃消灭
@@ -23832,6 +23868,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016D3A.07C: 打开大门
 000000016D72.07C: 上吧雪球！
 000000016D73.07C: 取消
+000000016D76.07C: 邪魔女王
 000000016D78.07C: 帕拉伊苏
 000000016D79.07C: 天生王者
 000000016D84.07C: 埃斯佩兰萨
@@ -23844,6 +23881,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016DB0.07C: 摧毁
 000000016DB1.07C: 摧毁
 000000016DB4.07C: 完成%1$s项日常挑战
+000000016DBE.07C: 朋克飞鹰
 000000016DC9.07C: 选择
 000000016DCA.07C: 确定
 000000016DD0.07C: 竞技进度
@@ -23877,6 +23915,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016E99.07C: 在第36赛季达到天梯前500名后解锁
 000000016E9A.07C: 礼包
 000000016E9B.07C: 皮肤
+000000016E9D.07C: 生化灾厄
 000000016EA7.07C: 波塞冬
 000000016EA9.07C: 吸到底
 000000016EAC.07C: 在快速或竞技比赛中，使用卡西迪的磁性手雷一次消灭2个敌人
@@ -23885,6 +23924,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000016EB4.07C: 霜寒护甲
 000000016EB7.07C: 雄狮蒙面摔角
 000000016EB8.07C: 猛虎蒙面摔角
+000000016EB9.07C: 业务猿
 000000016EBA.07C: 继续
 000000016EBB.07C: 第36赛季选手
 000000016EBC.07C: 完成第36赛季定级赛后解锁
@@ -23963,11 +24003,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017011.07C: 传奇
 000000017012.07C: %1$s/%2$s 已获取
 000000017013.07C: 无头衔
+00000001702B.07C: 红孩儿
+00000001702C.07C: 金牌
 00000001702D.07C: %1$s/%2$s
 00000001702E.07C: 科技是高是低……
 000000017033.07C: 每日首胜
 000000017034.07C: 赢得一场游戏
 000000017035.07C: 是否确认要重置所有辅助功能设置？
+000000017036.07C: 爆甜糖球
 000000017038.07C: 为赢而玩
 000000017039.07C: 赢得%1$s场游戏
 00000001703C.07C: 灵活驾驭
@@ -23994,6 +24037,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017069.07C: 欢迎来到《守望先锋》：第二章
 00000001706C.07C: 竞技比赛参与资格
 00000001706D.07C: 在快速比赛中赢得%1$s场游戏。解锁：竞技比赛游戏模式
+00000001706E.07C: 午夜迷彩
+000000017077.07C: 天照大神
 000000017078.07C: 教学模式
 00000001707B.07C: 完成
 00000001707D.07C: 队列中
@@ -24040,6 +24085,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000170A8.07C: 传统与新潮
 0000000170A9.07C: 庇护
 0000000170AA.07C: 挺身而出
+0000000170AB.07C: 第2赛季战令奖励
 0000000170AC.07C: 记忆中的幽影
 0000000170AD.07C: 可购买监测站礼包解锁
 0000000170AE.07C: 未来很长
@@ -24120,6 +24166,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001710A.07C: 急救包
 00000001710B.07C: 甜甜圈
 00000001710D.07C: 双骰
+00000001710E.07C: 暗影守望标志
 00000001710F.07C: Offense Contest Time
 000000017110.07C: 进攻争夺时间 %1$s
 000000017111.07C: Defense Contest Time
@@ -24193,6 +24240,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001716B.07C: 观看亮眼表现
 00000001716C.07C: 队伍语音聊天
 00000001716D.07C: 小队语音聊天
+00000001716F.07C: 铁坂
 000000017176.07C: 预设职责加成：%1$s 经验
 000000017179.07C: 一币通关
 00000001717A.07C: 在任意街机模式中赢得%1$s场游戏
@@ -24256,6 +24304,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 
 战斗即将打响，各位英雄……我们《守望先锋》“归来”再见！
 000000017228.07C: 正在更新
+000000017229.07C: 女皇
 00000001722A.07C: 我喜欢霓虹灯
 00000001722C.07C: 命运，往往充满讽刺。
 00000001722F.07C: 不死火鸟
@@ -24366,6 +24415,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000172F9.07C: 查看收音机
 0000000172FB.07C: 消灭10个训练机器人 (%1$s/10)
 0000000172FD.07C: PvP Challenges - Player - Ability Healing
+000000017308.07C: 在任意竞技模式中赢得%1$s场游戏
 000000017309.07C: 第1赛季结束：500强
 00000001730A.07C: 赛季结束时，在竞技比赛中达到天梯前500名。只能获得一项排名挑战奖励
 00000001730B.07C: 第1赛季结束：宗师
@@ -24484,13 +24534,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000173AC.07C: 减弱
 0000000173B2.07C: 镜头抖动
 0000000173B3.07C: HUD抖动
+0000000173B4.07C: 高尔夫球手：76
 0000000173B6.07C: 色盲选项
 0000000173B7.07C: 语音测试
 0000000173B8.07C: 音量
 0000000173B9.07C: 设备
 0000000173BA.07C: 声音
 0000000173BB.07C: 频道
-0000000173BC.07C: 截图
+0000000173BC.07C: 捕捉
 0000000173BD.07C: 数据
 0000000173BE.07C: 信息
 0000000173BF.07C: 高级
@@ -24593,7 +24644,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000174D0.07C: 禅雅塔剪影
 0000000174D1.07C: “狂鼠”剪影
 0000000174D2.07C: 卢西奥剪影
-0000000174D3.07C: “末日铁拳”剪影
+0000000174D3.07C: “末日铁拳”
+剪影
 0000000174D4.07C: “回声”剪影
 0000000174D5.07C: 美剪影
 0000000174D6.07C: 巴蒂斯特剪影
@@ -24608,11 +24660,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000174E0.07C: 布丽吉塔剪影
 0000000174E1.07C: “死神”剪影
 0000000174E2.07C: “路霸”剪影
-0000000174E3.07C: “法老之鹰”剪影
-0000000174E4.07C: “士兵：76”剪影
+0000000174E3.07C: “法老之鹰”
+剪影
+0000000174E4.07C: “士兵：76”
+剪影
 0000000174E5.07C: 温斯顿剪影
 0000000174E6.07C: 源氏剪影
-0000000174E7.07C: “秩序之光”剪影
+0000000174E7.07C: “秩序之光”
+剪影
 0000000174E8.07C: “猎空”剪影
 0000000174E9.07C: “黑百合”剪影
 0000000174EA.07C: “破坏球”剪影
@@ -24746,6 +24801,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017662.07C: 战令经验
 000000017663.07C: 战令经验
 000000017664.07C: 战令经验
+000000017677.07C: 刷手机
 000000017678.07C: 显示
 000000017685.07C: 购买
 000000017699.07C: 完成1项挑战
@@ -24771,6 +24827,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000176FE.07C: 竞技点数
 0000000176FF.07C: 竞技点数
 000000017702.07C: 飞向一名队友。在飞行时，按跳跃可以向前飞，按下蹲可以向上飞
+000000017713.07C: 疾步横行
 000000017717.07C: 巨竜离弦
 000000017721.07C: PvP Challenges - Player - Arcade - Win
 000000017723.07C: PvP Challenges - Player - Any Competitive Mode - Played
@@ -24820,6 +24877,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017765.07C: +%1$s
 000000017768.07C: 500守望金币
 000000017769.07C: 2000守望金币
+00000001776A.07C: 死亡凝视
 000000017775.07C: PvP Challenges - Player - Quick Play - Win
 00000001777A.07C: 中城
 00000001777B.07C: 把敌人赶回幢幢摩天大楼的阴影之下！
@@ -24829,6 +24887,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000177A4.07C: PvP Challenges - Player - Complete Games in Group
 0000000177A7.07C: PvP Challenges - Player - Roadhog - Hook During Ult
 0000000177AE.07C: PvP Challenges - Player - Queued as All Roles - Played
+0000000177B2.07C: 死斗
 0000000177B3.07C: PvP Challenges - Player - Arcade - CTF - Win
 0000000177B5.07C: PvP Challenges - Player - Deathmatch - Win
 0000000177B7.07C: PvP Challenges - Player - Arcade - Team Deathmatch - Win
@@ -24846,19 +24905,26 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000177CB.07C: 钻石挑战者
 0000000177D2.07C: PvP Challenges - Player - Healing Done
 0000000177D3.07C: 治疗量 %1$s
+0000000177E4.07C: 角斗士队主场2022
+0000000177EF.07C: 九霄天擎队主场2022
+0000000177F3.07C: 首尔烈火队主场2022
 0000000177FC.07C: 英雄
 0000000177FD.07C: 进入英雄界面可查看%1$s的终极技能和技能信息。
 0000000177FE.07C: 新%1$s英雄已解锁
 00000001780F.07C: 高级战令（第1赛季）
-000000017811.07C: PvP Challenges - Player - TEMP - Competitive End of Season
 000000017812.07C: 无
 000000017814.07C: PvP Challenges - Player - Wins
 000000017816.07C: PvP Challenges - FTUE - All Heroes - Guided Practice Range Completion
+00000001781A.07C: 蜜蜂
 000000017839.07C: 跨平台进度已开启！
 00000001783A.07C: 经典货币
 00000001783B.07C: PvP Challenges - Player - Damage Mitigation
 000000017840.07C: PvP Challenges - Player - Players Saved
 000000017843.07C: PvP Challenges - Player - Ultimates Used
+000000017845.07C: 奥林匹斯之战
+000000017848.07C: 奥林匹斯之战
+000000017849.07C: 奥林匹斯的群雄汇聚一堂
+争夺不朽荣耀
 00000001784B.07C: 机动推进 - 失重环境
 00000001784C.07C: 机动推进 - 自由乱斗
 000000017863.07C: PvP Challenges - Player - Eliminations
@@ -24886,6 +24952,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001788D.07C: 护甲
 00000001788E.07C: 武器
 00000001788F.07C: 配色
+000000017890.07C: 发型
+000000017891.07C: 武器
+000000017892.07C: 永生队主场
 000000017894.07C: 雅典娜的指导
 0000000178A2.07C: 凝神
 0000000178AA.07C: 更改用户
@@ -24897,6 +24966,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000178BC.07C: %1$s份物品
 0000000178C0.07C: 挑衅
 0000000178C2.07C: 虚空加速器
+0000000178D9.07C: 冠冕
 0000000178DD.07C: 胜利手势
 0000000178DE.07C: 行星
 0000000178DF.07C: 威望等级已完成！
@@ -24943,6 +25013,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017982.07C: 55级奖励
 000000017983.07C: 80级奖励
 0000000179A8.07C: 皮肤
+0000000179CD.07C: 甩头
+0000000179CF.07C: 优雅转体
 0000000179D4.07C: 是否确认更改用户？
 0000000179DF.07C: 继续
 0000000179ED.07C: PvP Challenges - Player - Hero Unlock - Games Played with Bonus Progress Wins
@@ -25147,6 +25219,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017B1B.07C: PvP Challenges - Player - Daily Challenges Completed
 000000017B1D.07C: PvP Challenges - Player - Queued as All Roles - Win
 000000017B1F.07C: PvP Challenges - Player - Arcade - Non Deathmatch Aracde - Win
+000000017B25.07C: 巨人肩上
 000000017B26.07C: 万圣节（剧情模式）最高得分
 000000017B27.07C: 万圣节（剧情模式）最高得分 %1$s
 000000017B28.07C: 减弱菜单动态
@@ -25164,7 +25237,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017B5B.07C: 11600
 000000017B5C.07C: 已含赠送16%%
 000000017B60.07C: 肩甲
-000000017B73.07C: 每7次胜利或20次失败/平局后竞技段位和分组会有相应调整
+000000017B73.07C: 每%1$s次胜利或%2$s次失败/平局后竞技段位和分组会有相应调整
 000000017B75.07C: PvP Challenges - Player - Count Vs AI - Role - Tank - Win
 000000017B77.07C: 藏品
 000000017B78.07C: 吊坠
@@ -25235,9 +25308,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017BCC.07C: 竞技点数
 000000017BCD.07C: 竞技
 000000017BCF.07C: 大部分挑战任务无法在自定游戏或电脑训练中完成
+000000017BD5.07C: 猛袭
 000000017BD6.07C: 难度选择
 000000017BD7.07C: |Rfd %1$s:H:mm:ss;
-000000017BDD.07C: 战令
 000000017BDF.07C: 当前等级
 000000017BE0.07C: 总计%1$s经验
 000000017BE3.07C: 战令已达到%1$s级！
@@ -25252,6 +25325,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 自11月起可在英雄界面中解锁
 000000017C0B.07C: 屏蔽%1$s聊天
 000000017C10.07C: 空位不足，无法加入比赛
+000000017C12.07C: 碎颅重击
 000000017C13.07C: 超然
 000000017C14.07C: 戒律
 000000017C15.07C: 礼敬
@@ -25263,6 +25337,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017C1B.07C: 向内探视
 000000017C1C.07C: 购买高级战令
 000000017C1D.07C: 购买高级战令 + 额外20级
+000000017C1E.07C: 虎头帽
 000000017C25.07C: 挑战任务
 000000017C2B.07C: %1$s%2$s
 000000017C43.07C: PvP Challenges - Player - Hero - Sojourn - Win
@@ -25286,6 +25361,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000017C70.07C: 使用雾子赢得%1$s场游戏
 0000000184BE.07C: 香巴里
 000000018573.07C: PvP Challenges - Player - Placeholder Stat
+000000018576.07C: 莹粉珠光
 000000018578.07C: 比赛语音聊天
 00000001857B.07C: 大笑
 00000001857F.07C: 三叉戟
@@ -25357,6 +25433,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018617.07C: 在新娘之怒中使用4名不同英雄获胜
 000000018618.07C: 哑火
 000000018619.07C: 在新娘之怒中获胜，且不让城堡领主受到任何伤害
+000000018628.07C: 刷手机
 00000001862D.07C: 原初之形
 00000001863F.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Sojourn
 000000018640.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Queen
@@ -25369,12 +25446,14 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018669.07C: 如果你觉得害怕，闭上眼睛就好。
 00000001866A.07C: 女巫的身影已经有段日子不曾出现在阿德勒斯布鲁恩了，不过有传言说她依旧阴魂不散。
 00000001866B.07C: 即便身在梦乡，危险依旧。
+00000001868D.07C: Weapon Damage
+00000001868E.07C: Weapon Damage
+00000001868F.07C: Weapon Damage
 000000018690.07C: 怪物是弗兰狂斯鼠的第一个扭曲造物，但并不是唯一一个……
 000000018693.07C: 你可曾想过，就连只言片语也能把你逼疯？
 000000018694.07C: 想回头还来得及。
 000000018695.07C: 知道吗？新娘从不遗忘，也从不原谅。
 000000018696.07C: 她会找到你。
-0000000186A9.07C: 活动将在%1$s后结束！
 0000000186AA.07C: 万圣节（剧情模式）最高得分
 0000000186AB.07C: 万圣节（剧情模式）最高得分 %1$s
 0000000186AE.07C: 2022年
@@ -25388,6 +25467,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000186B8.07C: 击败新娘
 0000000186BD.07C: 允许锁定英雄
 0000000186BE.07C: 这位名为雾子的女巫专研占卜之术，有些人将这项稀罕的本领视为天赋……另一些人则将其当做诅咒。她的灵视总能将她引向最需要她的地方。
+000000018702.07C: Captive Sun Mag Size
 000000018742.07C: 尽情占卜吧
 000000018744.07C: PvE Challenges - Player - Event - Halloween - OW1 - Normal - Win a Game
 000000018747.07C: 解读塔罗牌
@@ -25408,13 +25488,13 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001876B.07C: PvE Challenges - Player - Event - Halloween - OW1 - Tires - Win a Game
 00000001876C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Boom - Win a Game
 00000001876D.07C: PvE Challenges - Player - Event - Halloween - OW1 - Mystery - Win a Game
+000000018780.07C: 昼夜更替
 000000018785.07C: 在任意难度的怪鼠复仇中获胜
 00000001878E.07C: 旧日冒险者
 00000001878F.07C: 无尽之夜降临
 000000018790.07C: 在怪鼠复仇（无尽模式）中完成12波
-0000000187A3.07C: 10月31日起
-敬请关注
 0000000187B9.07C: 伊利奥斯
+0000000187C4.07C: 铁甲
 0000000187C6.07C: 竞技挑战
 0000000187C7.07C: 活动挑战
 0000000187E5.07C: 恩怨未了
@@ -25454,6 +25534,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 5岁了
 00000001882A.07C: 总决赛1
 00000001882C.07C: 新粉丝
+00000001882F.07C: 饭不香了
 000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
 00000001884A.07C: 以身犯险
 00000001884B.07C: 在困难难度的新娘之怒中获胜
@@ -25467,6 +25548,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000001885D.07C: 云游僧
 000000018876.07C: 未能拯救阿德勒斯布鲁恩的领主
 000000018878.07C: 完成万圣夜惊魂活动的“婚礼策划师”挑战后解锁
+00000001887D.07C: Healing Amount
+00000001888B.07C: Weapon Damage Min
+00000001888C.07C: Weapon Damage Max
 00000001889F.07C: 倒下时间：
 0000000188B0.07C: 皇家角斗士
 0000000188B3.07C: 生存奖励！+%1$s分
@@ -25486,6 +25570,8 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018904.07C: 召唤师
 000000018907.07C: 英雄限制：艾什、“渣客女王”、“索杰恩”、雾子
 000000018908.07C: 胜利条件：击败新娘和她的盟友
+000000018913.07C: 黑手大佬
+000000018918.07C: 来电召唤
 000000018919.07C: 新娘之怒
 00000001891A.07C: 礼包的价格对比会以购买各项物品的单价为基础。如果玩家已拥有礼包中的一件或多件物品，剩余的礼包物品仍可享受礼包折扣。
 000000018923.07C: 训练模式
@@ -25494,6 +25580,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018934.07C: 倒地……
 000000018935.07C: 倒地！
 00000001894B.07C: 复活%1$s
+000000018952.07C: 摇滚！
 000000018999.07C: 濒死次数
 00000001899A.07C: 濒死次数 %1$s
 0000000189A3.07C: 怪鼠复仇2022获胜
@@ -25503,13 +25590,16 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000189CE.07C: 香巴里寺院
 0000000189E4.07C: 里拉琴
 0000000189E6.07C: 刻耳柏洛斯
+0000000189E7.07C: 飞翼便鞋
 0000000189E8.07C: 三叉戟
 0000000189E9.07C: 盐罐
 0000000189EC.07C: CHECKPOINT RESTORE
+0000000189F5.07C: 浩瀚银河
 000000018A00.07C: 
 000000018A02.07C: 阴
 000000018A03.07C: 虚空加速器
 000000018A04.07C: 压抑自我
+000000018A06.07C: 爱神之吻
 000000018A07.07C: 觉醒
 000000018A08.07C: 吞噬漩涡
 000000018A19.07C: 对练
@@ -25579,10 +25669,12 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018AC3.07C: 平均每10分钟阻挡伤害量 %1$s
 000000018AC4.07C: 单场最多阻挡伤害量
 000000018AC5.07C: 单场最多阻挡伤害量%1$s
+000000018ACA.07C: 御尸
 000000018AD3.07C: PvP Challenges - Player - OW2 Hero Unlock - Kiriko - Games Won
 000000018ADA.07C: PvP Challenges - Player - OW2 Hero Unlock - Junker Queen - Games Won
 000000018ADB.07C: PvP Challenges - Player - OW2 Hero Unlock - Sojourn- Games Won
 000000018ADD.07C: 香巴里
+000000018ADE.07C: 旋击强袭
 000000018ADF.07C: 打开王座大厅
 000000018AE0.07C: 为使账号变更生效，请重新登陆。
 000000018AE1.07C: D.Va：图标
@@ -25590,8 +25682,10 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018AE3.07C: PvP Challenges - Player - Hero - Dva - Win
 000000018AE4.07C: D.Va：兔子
 000000018AE5.07C: 使用D.Va赢得%1$s场游戏
+000000018AEA.07C: 字幕大小
 000000018AF3.07C: 随机
 000000018AF4.07C: 战斗的目的
+000000018AF5.07C: 星座
 000000018AF6.07C: 末日铁拳：铁拳
 000000018AF7.07C: 使用“末日铁拳”赢得%1$s场游戏
 000000018AF8.07C: PvP Challenges - Player - Hero - Doomfist - Win
@@ -25762,18 +25856,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018B9F.07C: 第2赛季开放职责
 000000018BA0.07C: 竞技比赛第2赛季 - 开放职责
 000000018BA1.07C: 竞技比赛第2赛季
-000000018BB0.07C: 香巴里的英雄
-000000018BB1.07C: 在香巴里寺院赢得%1$s场游戏
-000000018BB2.07C: 汝命“修”矣
-000000018BB3.07C: 在香巴里寺院的维修铺 (Repair Shop) 内获得%1$s次消灭
-000000018BB4.07C: 隧道战术
-000000018BB5.07C: 在香巴里的隧道区域内获得%1$s次消灭
-000000018BB6.07C: 慧眼得道
-000000018BB7.07C: 在香巴里寺院四位大师的注视下获得%1$s次消灭
-000000018BBD.07C: 天罚形态：贯穿猛拳
-000000018BBE.07C: 使用拉玛刹天罚形态下的猛拳穿过屏障造成%1$s点伤害
-000000018BBF.07C: 吞噬漩涡：禁止飞行
-000000018BC0.07C: 对被拉玛刹的吞噬漩涡禁飞的英雄造成一次消灭
 000000018BC2.07C: 叫我独眼巨人
 000000018BC4.07C: 现实
 000000018BC5.07C: 挨锤还是挨劈
@@ -25787,12 +25869,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018BCD.07C: 猎空松
 000000018BCE.07C: 能飞多高
 000000018BCF.07C: 正义是残酷的
-000000018BD3.07C: PvP Challenges - Player - Map - Shambali Monastery
-000000018BD4.07C: PvP Challenges - Player - Eliminations - Shambali Repair Shop
-000000018BD5.07C: PvP Challenges - Player - Eliminations - Shambali Tunnel
-000000018BD6.07C: PvP Challenges - Player - Eliminations - Shambali Four Masters Statues
-000000018BD7.07C: PvP Challenges - Player - Ramattra - Eliminate Aerial Heroes with Ravenous Vortex
-000000018BD8.07C: PvP Challenges - Player - Ramattra - Deal Damage through Barriers with Pummel
 000000018BD9.07C: 第2赛季：预设职责选手
 000000018BDA.07C: 在预设职责竞技比赛中赢得%1$s场游戏
 000000018BDB.07C: 第2赛季：老练选手
@@ -25819,26 +25895,31 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018BF0.07C: 取得竞技比赛奖励资格且赛季结束时，在竞技比赛中达到钻石段位。只能获得一项排名挑战奖励
 000000018BF1.07C: 第2赛季结束：青铜
 000000018BF2.07C: 取得竞技比赛奖励资格且赛季结束时，在竞技比赛中达到青铜段位。只能获得一项排名挑战奖励
-000000018BF3.07C: 雾子
+000000018BF3.07C: 解锁雾子
 000000018BF4.07C: 完成所有雾子解锁挑战
-000000018BF5.07C: 渣客女王
+000000018BF5.07C: 解锁渣客女王
 000000018BF6.07C: 完成所有“渣客女王”解锁挑战
-000000018BF7.07C: 索杰恩
+000000018BF7.07C: 解锁索杰恩
 000000018BF8.07C: 完成所有“索杰恩”解锁挑战
 000000018C0C.07C: 更多选项
 000000018C25.07C: 购买英雄
+000000018C38.07C: 请尝
 000000018C44.07C: 精神点儿
 000000018C46.07C: 冥王小鱿
 000000018C48.07C: 海王小鱿
 000000018C4A.07C: 雷王小鱿
 000000018C4B.07C: 植物学家
 000000018C4D.07C: 舞光拾色
+000000018C4E.07C: 生化灾厄
+000000018C52.07C: 赫尔墨斯
 000000018C61.07C: 飞翼头盔
 000000018C63.07C: 美杜莎
 000000018C64.07C: 山茶花
 000000018C65.07C: 珀加索斯
 000000018C66.07C: 重磅新闻
 000000018C6E.07C: 前往挑战
+000000018C6F.07C: 竞技夺旗
+000000018C70.07C: 与最出色的勇夺锦旗玩家相互切磋，跻身排行榜！
 000000018C75.07C: 植物学家
 000000018C77.07C: 宙斯
 000000018C78.07C: 哈迪斯
@@ -25847,7 +25928,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018C7B.07C: 街头报童
 000000018C84.07C: 选择
 000000018C86.07C: 感谢游玩
-000000018C87.07C: 第1赛季
 000000018C88.07C: 高级战令（第2赛季）
 000000018C94.07C: 挑战中可用
 000000018C95.07C: 奖励：
@@ -25855,6 +25935,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018C98.07C: 预设职责
 000000018C99.07C: 开放职责
 000000018C9B.07C: 继续进行游戏可解锁。
+000000018C9F.07C: 白雪天使
 000000018CA0.07C: 竞技夺旗《守望先锋》“归来”第1赛季
 000000018CA1.07C: 守望先锋
 2022职业之路
@@ -25865,16 +25946,13 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018CA8.07C: “诛”每次使用效率 %1$s
 000000018CC9.07C: 湮灭效率
 000000018D06.07C: 第2赛季
-000000018D07.07C: 你达到的最高排位级别为：
+000000018D07.07C: 最终奖励级别：
 000000018D08.07C: %1$s - %2$s 
-000000018D09.07C: 香巴里
-000000018D0A.07C: 在最新的运载目标地图上感受宁静，
-尽享史诗级团队动作游戏体验。
-000000018D0B.07C: 驾驭奥林匹斯山的伟力，用来自古希腊神话的全新个性化物品彰显你的神威
-000000018D0D.07C: 拉玛刹
-000000018D0E.07C: 全新重装英雄
+000000018D0B.07C: 新赛季自然有新活动与新奖励，终极情人节、阳春小鱿，
+还有更多惊喜等着你！
+000000018D10.07C: 星座
 000000018D11.07C: 新地图
-000000018D12.07C: 第2赛季
+000000018D31.07C: #%1$s
 000000018D33.07C: 竞技夺旗
 000000018D34.07C: 植物学家
 000000018D35.07C: 双耳瓶
@@ -25912,7 +25990,29 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018D61.07C: 特别奖励
 000000018D7A.07C: 礼包会根据你已经拥有的物品而自动调整价格。
 000000018D8B.07C: 第1赛季战令奖励
+000000018D8D.07C: 注射器
+000000018D8F.07C: 摇滚
+000000018D90.07C: 横行霸道
+000000018D92.07C: 拐杖糖
+000000018D93.07C: 雪花
+000000018D95.07C: 石化哈蒙德
+000000018D96.07C: 锦鲤
 000000018D97.07C: 璀璨星座
+000000018D98.07C: 幽深迷宫
+000000018D99.07C: 美杜莎
+000000018D9A.07C: 阿兹特克
+000000018D9B.07C: 碧蓝海岸
+000000018D9C.07C: 视觉系麦克风
+000000018D9F.07C: 弥诺陶洛斯
+000000018DA0.07C: 阿兹特克
+000000018DA1.07C: 视觉系
+000000018DA2.07C: 飞枭守护者
+000000018DA3.07C: 水中锦鲤
+000000018DA5.07C: 你击不沉我的铁甲舰！
+000000018DA6.07C: 同群之鸟，一起愈疗
+000000018DA7.07C: 飞枭守护者
+000000018DA8.07C: 弥诺陶洛斯
+000000018DA9.07C: 赫尔墨斯
 000000018E26.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022雪域狩猎雪人获胜
 000000018E27.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022雪域狩猎美获胜
 000000018E29.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022解冻N个盟友
@@ -25922,7 +26022,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018E2F.07C: 在融冰决斗中赢得一场游戏
 000000018E31.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022赢得融冰决斗
 000000018E33.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022赢得雪球死斗
-000000018E35.07C: PvE挑战 - 玩家 - 活动 - 冬季 - 2022赢得雪球攻势
+000000018E35.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Wins
 000000018E36.07C: 冰雪风暴
 000000018E37.07C: 在雪球死斗中赢得一场游戏
 000000018E38.07C: 来杯热饮
@@ -25937,21 +26037,41 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018E41.07C: 在雪球死斗中接住%1$s枚雪球
 000000018E42.07C: 寒冰屏障
 000000018E43.07C: 在雪球死斗或雪球攻势中使用急冻或冰墙阻挡%1$s枚雪球
-000000018E4B.07C: Short-range spray weapon that freezes enemies.
+000000018E44.07C: 思响者
 000000018E54.07C: %1$s (%2$s) ：撤退！ %3$s
+000000018E55.07C: 竞技夺旗第2赛季结束：500强
+000000018E56.07C: 赛季结束时，在竞技夺旗中达到天梯前500名。只能获得一项排名挑战奖励
+000000018E57.07C: 竞技夺旗第2赛季结束：宗师
+000000018E58.07C: 赛季结束时，在竞技夺旗中达到宗师段位。只能获得一项排名挑战奖励
+000000018E59.07C: 竞技夺旗第2赛季结束：大师
+000000018E5A.07C: 赛季结束时，在竞技夺旗中达到大师段位。只能获得一项排名挑战奖励
 000000018E5B.07C: 解除绑定
+000000018E5C.07C: 竞技夺旗第2赛季结束：钻石
+000000018E5D.07C: 赛季结束时，在竞技夺旗中达到钻石段位。只能获得一项排名挑战奖励
+000000018E5E.07C: 竞技夺旗第2赛季结束：白金
+000000018E5F.07C: 赛季结束时，在竞技夺旗中达到白金段位。只能获得一项排名挑战奖励
+000000018E60.07C: 竞技夺旗第2赛季结束：黄金
+000000018E61.07C: 赛季结束时，在竞技夺旗中达到黄金段位。只能获得一项排名挑战奖励
+000000018E62.07C: 竞技夺旗第2赛季结束：白银
+000000018E63.07C: 赛季结束时，在竞技夺旗中达到白银段位。只能获得一项排名挑战奖励
+000000018E64.07C: 竞技夺旗第2赛季结束：青铜
+000000018E65.07C: 赛季结束时，在竞技夺旗中达到青铜段位。只能获得一项排名挑战奖励
+000000018E72.07C: 坚定旗手
+000000018E73.07C: 在竞技夺旗中赢得%1$s场游戏（此模式当前不可用）
+000000018E74.07C: 无双旗手
+000000018E75.07C: 在竞技夺旗中赢得%1$s场游戏（此模式当前不可用）
 000000018E76.07C: 米茨
+000000018E7A.07C: 十字军头盔
 000000018E7F.07C: 雄狮豪饮
 000000018E80.07C: 电磁脉冲命中%1$s个目标
 000000018E81.07C: 拉玛刹剪影
 000000018E83.07C: 目标
 000000018E86.07C: 完成6项雪国仙境挑战
 000000018E87.07C: 节日问候
-000000018E89.07C: 双倍比赛经验
-000000018E8A.07C: 三倍比赛经验
 000000018E8B.07C: 第2赛季：竞技比赛奖励资格
 000000018E8C.07C: 在竞技比赛中赢得%1$s场游戏
 000000018E8D.07C: PvP Challenges - Player - Competitive Play - Win
+000000018E9A.07C: PvP Challenges - Player - Competitive CTF - Win
 000000018EA8.07C: 深海三叉戟
 000000018EB0.07C: 可通过地区活动解锁
 自第2赛季起可在英雄界面中解锁
@@ -25999,6 +26119,20 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018F02.07C: 温哥华泰坦队客场
 000000018F03.07C: 华盛顿正义队
 000000018F04.07C: 华盛顿正义队客场
+000000018F05.07C: 查看竞技进度
+000000018F06.07C: 竞技点数
+000000018F07.07C: 竞技点数
+000000018F08.07C: 竞技点数
+000000018F09.07C: 竞技点数
+000000018F0A.07C: 竞技点数
+000000018F0B.07C: 竞技点数
+000000018F0C.07C: 竞技点数
+000000018F0E.07C: 500强扛旗手
+000000018F0F.07C: 宗师扛旗手
+000000018F10.07C: 大师扛旗手
+000000018F11.07C: 钻石扛旗手
+000000018F14.07C: 坚定旗手
+000000018F15.07C: 无双旗手
 000000018F1E.07C: 节日花环
 000000018F1F.07C: 雪人头
 000000018F83.07C: 佛罗里达狂欢队02
@@ -26017,7 +26151,17 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000018F96.07C: 吊坠
 000000018FA3.07C: 挑战完成：%1$s
 000000018FD2.07C: 账号整合等待中
+000000018FD7.07C: 第3赛季战令
+000000018FD8.07C: 1级奖励
+000000018FD9.07C: 55级奖励
+000000018FDA.07C: 80级奖励
+000000018FDB.07C: 第3赛季
+000000018FDC.07C: 第3赛季
 000000018FDD.07C: 挑战完成：%1$s
+000000018FDE.07C: 竞技比赛第3赛季
+000000018FDF.07C: 第3赛季开放职责
+000000018FE0.07C: 第3赛季开放职责
+000000018FE1.07C: 竞技比赛第3赛季 - 开放职责
 000000018FE4.07C: 挑战完成：%1$s
 000000018FE7.07C: 挑战完成：%1$s
 000000018FE8.07C: 战令经验
@@ -26094,6 +26238,15 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000019067.07C: %1$s
 000000019068.07C: 新英雄：雾子解锁！
 000000019069.07C: %1$s
+000000019091.07C: 主播模式（仅限客户端）
+000000019094.07C: 隐藏我的名称
+000000019095.07C: 隐藏其他玩家名称
+000000019096.07C: 隐藏回放代码
+000000019098.07C: 隐藏排队时间
+000000019099.07C: 随机排队延迟
+00000001909A.07C: 最小排队延迟
+00000001909B.07C: 最大排队延迟
+00000001909C.07C: 隐藏其他玩家名称开关
 0000000190AB.07C: 完成雪国仙境活动的“寒冰屏障”挑战后解锁
 0000000190AC.07C: 完成雪国仙境活动的“酷寒猎手”挑战后解锁
 0000000190AD.07C: 完成雪国仙境活动的“雪中送炭”挑战后解锁
@@ -26104,6 +26257,9 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 0000000190C1.07C: 完成所有挑战即可解锁%1$s
 0000000190C2.07C: 激活挑战
 0000000190C5.07C: %1$s/%2$s
+0000000190C8.07C: 分诊
+0000000190D4.07C: 福袋
+0000000190D6.07C: 红包
 000000019137.07C: 世间凡人
 000000019139.07C: 冥思哲人
 00000001913B.07C: 阿尔戈英雄
@@ -26125,27 +26281,688 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000019184.07C: “索杰恩”解锁挑战已全部完成。
 000000019185.07C: %1$s
 00000001918D.07C: Health
+000000019199.07C: 使用系统HDR校准
 00000001919D.07C: 黎明
 0000000191A3.07C: 戈耳工铸币
+0000000191A5.07C: 特种战术
 0000000191BF.07C: 预设职责加成：%1$s 经验
 0000000191C0.07C: 预设职责加成：%1$s 经验
 0000000191C1.07C: 预设职责加成：%1$s 经验
 0000000191C2.07C: 预设职责加成：%1$s 经验
 0000000191C3.07C: 预设职责加成：%1$s 经验
 0000000191C4.07C: 预设职责加成：%1$s 经验
+0000000191E7.07C: 活动将于1月20日结束
+0000000191E9.07C: 完成活动挑战，赢取胜利女神“天使”传奇皮肤以及其他有趣好玩的个性化物品！
+0000000191EA.07C: 奥林匹斯的群雄汇聚一堂，争夺不朽荣耀！
+最强王者的英姿将被塑成石像！
 00000001920C.07C: 英雄奖励
-00000001920D.07C: 图标
+00000001920D.07C: 头像
 000000019233.07C: 阳
 00000001924B.07C: 英雄解锁
 00000001924C.07C: %1$s / 19
+000000019282.07C: 宙斯最爱的孩子
+000000019284.07C: 波塞冬的骄傲
+000000019285.07C: 哈迪斯的哨兵
+000000019286.07C: 赫尔墨斯的传令官
+000000019287.07C: 弥诺陶洛斯之主
+000000019288.07C: 美杜莎的侍从
+000000019289.07C: 独眼巨人的子嗣
+00000001928E.07C: 英雄头像
+00000001928F.07C: 完成玉兔献春活动的“捷报频传”挑战后解锁
+000000019290.07C: 玉兔献春
+000000019291.07C: 完成玉兔献春活动的“狡兔印记”挑战后解锁
+00000001929C.07C: 2023年
+玉兔献春
+00000001929D.07C: 玉兔献春
+00000001929E.07C: 完成玉兔献春活动的“瑞兔呈祥”挑战后解锁
+00000001929F.07C: *****
 0000000192A4.07C: 英雄已解锁
+0000000192A6.07C: 神圣之力
+0000000192A7.07C: 火箭弹幕期间，哈迪斯可以移动。弹幕结束后，火箭发射器能发射出三头刻耳柏洛斯火箭，持续15秒。造成消灭会延长此效果的持续时间并治疗哈迪斯
+0000000192AA.07C: 冠军天神
+0000000192AB.07C: 在奥林匹斯之战中赢得%1$s场游戏
+0000000192AC.07C: 赛季专属
+0000000192AD.07C: 黑翼之颅
+0000000192B0.07C: 战令经验
+0000000192B1.07C: 御守
+0000000192B2.07C: 招财猫
+0000000192B3.07C: 邪魔女王面具
+0000000192B4.07C: 龟船
+0000000192B5.07C: 神圣之力
+0000000192B6.07C: 宙斯体内充盈着雷电之力，持续25秒，所有武器和技能均会电击敌人并造成额外伤害
+0000000192B8.07C: 神圣之力
+0000000192B9.07C: 独眼巨人的体型激增，持续16秒，他的生命值翻倍，且会更换武器，投出威力十足的巨石
 0000000192BC.07C: 
+0000000192BD.07C: 神圣之力
+0000000192BE.07C: 波塞冬进入强化天罚形态，持续20秒，每次挥拳都会轰出一道激浪，并且吞噬漩涡会用汹涌的涡流将敌人卷入其中
+0000000192BF.07C: 神圣之力
+0000000192C0.07C: 强化弥诺陶洛斯的冲锋，持续20秒，冲锋可以带走多名敌人并立刻消灭被冲撞的目标。用此方式消灭敌人会治疗弥诺陶洛斯，并且消灭敌人可以延长他的怒火。
+0000000192C1.07C: 神圣之力
+0000000192C2.07C: 美杜莎露出石化凝视，持续25秒，在她开镜瞄准时看向她的敌人会被变成石头
+0000000192C3.07C: 神圣之力
+0000000192C4.07C: 赫尔墨斯飞速奔跑，持续20秒，移动速度大幅提升且弹药无限
+0000000192C5.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Ramattra
+0000000192C8.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Junker Queen
+0000000192C9.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Reinhardt
+0000000192CA.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Roadhog
+0000000192CB.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Pharah
+0000000192CC.07C: PvP挑战 - 玩家 - 活动 - 冬季 - 2023 - 希腊众神死斗 - 最后一击 - 黑百合
+0000000192CD.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Lucio
+0000000192CE.07C: 波塞冬的骄傲
+0000000192CF.07C: 使用波塞冬拉玛刹获得%1$s次最后一击
+0000000192D0.07C: 宙斯最爱的孩子
+0000000192D1.07C: 使用宙斯“渣客女王”获得%1$s次最后一击
+0000000192D2.07C: 弥诺陶洛斯之主
+0000000192D3.07C: 使用弥诺陶洛斯莱因哈特获得%1$s次最后一击
+0000000192D4.07C: 独眼巨人的子嗣
+0000000192D5.07C: 使用独眼巨人“路霸”获得%1$s次最后一击
+0000000192D6.07C: 哈迪斯的哨兵
+0000000192D7.07C: 使用哈迪斯“法老之鹰”获得%1$s次最后一击
+0000000192D8.07C: 美杜莎的侍从
+0000000192D9.07C: 使用美杜莎“黑百合”获得%1$s次最后一击
+0000000192DA.07C: 赫尔墨斯的传令官
+0000000192DB.07C: 使用赫尔墨斯卢西奥获得%1$s次最后一击
+0000000192DE.07C: 感谢赞赏！
+0000000192E1.07C: 狡兔印记
+0000000192E2.07C: 在赏金猎手中赢得%1$s场游戏
+0000000192E3.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - Bounty Hunter - Wins
+0000000192E4.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF - Wins
+0000000192E5.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF Blitz - Wins
+0000000192E9.07C: 解锁
 0000000192EA.07C: 挑战激活
+0000000192EE.07C: 战令经验
+0000000192EF.07C: 瑞兔呈祥
+0000000192F0.07C: 在勇夺锦旗或竞技夺旗中赢得%1$s场游戏
+0000000192F1.07C: 捷报频传
+0000000192F2.07C: 在勇夺锦旗闪电赛中赢得%1$s场游戏
 0000000192F3.07C: 英雄已解锁
+0000000192F4.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Junker Queen
+0000000192F5.07C: 宙斯之声
+0000000192F6.07C: 使用宙斯“渣客女王”，在终极技能期间获得%1$s次最后一击
+0000000192F9.07C: 战令经验
+0000000192FA.07C: 杯面
+0000000192FC.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Ramattra
+0000000192FD.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Reinhardt
+0000000192FE.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Roadhog
+0000000192FF.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Pharah
+000000019300.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Widowmaker
+000000019301.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Lucio
+000000019302.07C: 波塞冬之声
+000000019303.07C: 使用波塞冬拉玛刹，在终极技能期间获得%1$s次最后一击
+000000019304.07C: 弥诺陶洛斯之声
+000000019305.07C: 使用弥诺陶洛斯莱因哈特，在终极技能期间获得%1$s次最后一击
+000000019306.07C: 独眼巨人之声
+000000019307.07C: 使用独眼巨人“路霸”，在终极技能期间获得%1$s次最后一击
+000000019308.07C: 哈迪斯之声
+000000019309.07C: 使用哈迪斯“法老之鹰”，在终极技能期间获得%1$s次最后一击
+00000001930C.07C: 美杜莎之声
+00000001930D.07C: 使用美杜莎“黑百合”，在终极技能期间获得%1$s次最后一击
+000000019310.07C: 赫尔墨斯之声
+000000019311.07C: 使用赫尔墨斯卢西奥，在终极技能期间获得%1$s次最后一击
+000000019312.07C: 已赞赏
+000000019313.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Overhealth Powerup Pick Ups
+000000019319.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Charge Power Up Pick Ups
+00000001931A.07C: 赫菲斯托斯的祝福
+00000001931B.07C: 拾取%1$s件过量生命值强化道具
+00000001931C.07C: 天神的仙酒
+00000001931D.07C: 拾取%1$s件终极技能充能强化道具
+00000001931E.07C: 战令经验
+00000001931F.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF - Flag Captures
+000000019320.07C: 勇夺玉兔
+000000019321.07C: 在勇夺锦旗或勇夺锦旗闪电赛中夺取旗帜
+000000019322.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - Bounty Hunter - Bounty Target Eliminations
+000000019323.07C: 逢六有喜
+000000019324.07C: 消灭狩猎目标%1$s次
+00000001933B.07C: 金属吉他
+00000001933D.07C: 刮刮木蛙
+00000001933E.07C: 本次更新中暂无胜场
+00000001933F.07C: 76标志
+000000019341.07C: 墓碑
 00000001934C.07C: 预设职责加成：%1$s 经验
+00000001934D.07C: 友方队伍
+00000001935D.07C: 胜利女神
+00000001935E.07C: 在奥林匹斯之战中完成%1$s项挑战
+00000001935F.07C: 福袋纳吉
+000000019360.07C: 在欢度新春中完成%1$s项挑战
+000000019361.07C: 灵鹊兆喜
+000000019362.07C: 在欢度新春中完成%1$s项挑战
+000000019366.07C: 字幕背景透明度
+000000019371.07C: 电闪雷鸣
+000000019372.07C: 完成奥林匹斯之战活动的“宙斯之声”挑战后解锁
+000000019381.07C: 弥诺陶洛斯牛动力
+000000019382.07C: 完成奥林匹斯之战活动的“弥诺陶洛斯之声”挑战后解锁
+000000019383.07C: 速度之神
+000000019384.07C: 完成奥林匹斯之战活动的“赫尔墨斯之声”挑战后解锁
+000000019385.07C: 永恒的烈焰
+000000019386.07C: 完成奥林匹斯之战活动的“哈迪斯之声”挑战后解锁
+000000019387.07C: 放出海怪
+000000019388.07C: 完成奥林匹斯之战活动的“波塞冬之声”挑战后解锁
+000000019389.07C: 盯着你
+00000001938A.07C: 完成奥林匹斯之战活动的“独眼巨人之声”挑战后解锁
+00000001938B.07C: 自己的墓碑
+00000001938C.07C: 完成奥林匹斯之战活动的“美杜莎之声”挑战后解锁
+00000001938F.07C: 花村
+0000000193B0.07C: 实验区
+0000000193B2.07C: 鼠标指针大小
+0000000193B3.07C: 96x96
+0000000193B4.07C: 128x128
+0000000193B5.07C: 玩家名称
+0000000193C7.07C: 自定义颜色
+0000000193C8.07C: 自定义界面颜色
+0000000193C9.07C: 差使帽
+0000000193EB.07C: 奥林匹斯之战
+0000000193EE.07C: 按下 %1$s 查看神明独特的神圣之力
+0000000193F0.07C: 挑战奖励
+0000000193F1.07C: 春节游戏模式赏金猎手、勇夺锦旗和勇夺锦旗闪电赛开启，
+快来试试你的当头鸿运。
+0000000193F2.07C: 爆竹辞旧岁，群英换新装。和天幕中的璀璨烟花一同绽放吧。
+0000000193F3.07C: 游玩“恋恋先锋：真爱不朽”
+恋爱模拟游戏！
+0000000193F5.07C: 将于2023年2月1日结束
+0000000193F8.07C: 团队死斗
+000000019400.07C: 64x64
+000000019410.07C: 我感觉如有神助！
+000000019412.07C: 维生力场让你不朽，谁想来？
+000000019413.07C: 浮生若梦
+000000019414.07C: 为什么怕我
+000000019415.07C: 给我讲个故事吧
+000000019416.07C: 三昧真火
 000000019417.07C: 付款
+000000019418.07C: 最宝贵的那一个
 000000019419.07C: 守望金币
+00000001941A.07C: 把我引出去
 00000001941B.07C: 守望先锋联赛代币
+00000001941C.07C: 愚公移山
+00000001941D.07C: 比你年纪大
+00000001941E.07C: 六枪，一个
+00000001941F.07C: 锶和钡
 000000019421.07C: 高级战令
 000000019422.07C: 高级战令 + 额外20级
-[Core] Execution finished in 00:00:00.6720401
+00000001942C.07C: 选择并预览自定义颜色
+000000019446.07C: 返回
+000000019447.07C: 48x48
+000000019448.07C: 32x32（默认）
+000000019449.07C: 鼠标指针
+000000019474.07C: 我看到你们了。
+000000019475.07C: 飞出去了！
+000000019476.07C: 小队界面颜色
+000000019477.07C: 不当名称
+000000019478.07C: 不当言论
+000000019479.07C: 不当自定义内容
+00000001947C.07C: 举报%1$s - %2$s
+00000001947D.07C: 选择最适合的类别：
+00000001947F.07C: 文字聊天
+000000019480.07C: 语音聊天
+000000019481.07C: 广告
+000000019482.07C: 作弊
+000000019483.07C: 外挂
+000000019484.07C: 脚本
+000000019485.07C: 代练/故意掉分
+000000019486.07C: 挂机
+000000019487.07C: 故意送人头
+000000019488.07C: 阻挠队伍
+000000019489.07C: 消极比赛
+00000001948A.07C: 不当描述
+00000001948B.07C: 广告
+000000019497.07C: 穿心箭
+00000001949B.07C: 碎糖炸弹
+00000001949D.07C: 小企鹅
+00000001949E.07C: 小蜜蜂
+0000000194A0.07C: 神圣三叉戟
+0000000194A1.07C: 章鱼
+0000000194B5.07C: 选择所有适用选项（选填）
+0000000194B6.07C: 补充反馈（选填）：
+0000000194BA.07C: 感谢你对%1$s%2$s行为的举报。
+0000000194BB.07C: 你发送的举报会让《守望先锋》的游戏环境更舒适、更友好。
+0000000194BE.07C: 玩家
+0000000194BF.07C: 自定游戏链接
+0000000194CA.07C: 牌位
+0000000194CD.07C: 自定游戏
+0000000194D1.07C: 爱心枕头
+0000000194D8.07C: 金元宝
+0000000194D9.07C: 章鱼烧
+0000000194DA.07C: 100货币
+0000000194E5.07C: 可在商城中限时购买
+000000019528.07C: 奢华
+00000001952A.07C: 风情芭蕾
+00000001952B.07C: 巧手木雕
+00000001952C.07C: 黑金属
+00000001952D.07C: 天照大神
+00000001952E.07C: 完成玉兔献春活动的“福袋纳吉”挑战后解锁
+000000019554.07C: 练习猛拳
+000000019555.07C: 使用拉玛刹在天罚形态期间的猛拳在训练靶场中同时对2个机器人造成伤害
+000000019556.07C: 挑战完成：%1$s
+000000019557.07C: 新英雄：拉玛刹解锁！
+000000019558.07C: %1$s
+000000019559.07C: 拉玛刹解锁挑战已全部完成。
+00000001955A.07C: %1$s
+000000019560.07C: 解锁拉玛刹
+000000019561.07C: 完成所有拉玛刹解锁挑战
+000000019563.07C: 几何学之恋
+000000019566.07C: 完成玉兔献春活动的“灵鹊兆喜”挑战后解锁。也可在商城中限时购买
+000000019567.07C: 完成奥林匹斯之战活动的“胜利女神”挑战后解锁。也可在商城中限时购买
+00000001957A.07C: 暗处预览
+00000001957B.07C: 亮处预览
+00000001957C.07C: 警报界面颜色
+00000001958F.07C: 挑战完成：%1$s
+000000019594.07C: 练习虚空加速器
+000000019595.07C: 使用拉玛刹的虚空加速器在训练靶场消灭3个机器人
+000000019596.07C: 拉玛刹解锁挑战已全部完成。
+000000019597.07C: %1$s
+000000019598.07C: 新英雄：拉玛刹解锁！
+000000019599.07C: %1$s
+00000001959A.07C: 高级战令（第3赛季）
+00000001959B.07C: 练习虚空屏障
+00000001959C.07C: 使用拉玛刹的虚空屏障在训练靶场吸收30点伤害
+00000001959D.07C: 新英雄：拉玛刹解锁！
+00000001959E.07C: %1$s
+00000001959F.07C: 拉玛刹解锁挑战已全部完成。
+0000000195A0.07C: %1$s
+0000000195A1.07C: 挑战完成：%1$s
+0000000195A2.07C: 挑战完成：%1$s
+0000000195A3.07C: 拉玛刹解锁挑战已全部完成。
+0000000195A4.07C: %1$s
+0000000195A5.07C: 新英雄：拉玛刹解锁！
+0000000195A6.07C: %1$s
+0000000195A7.07C: 练习铁臂
+0000000195A8.07C: 使用拉玛刹在天罚形态期间的铁臂在训练靶场吸收30点伤害
+0000000195AA.07C: 练习“诛”
+0000000195AB.07C: 使用拉玛刹在训练靶场使“诛”的持续时间延长至少6秒
+0000000195AC.07C: 挑战完成：%1$s
+0000000195AD.07C: 拉玛刹解锁挑战已全部完成。
+0000000195AE.07C: %1$s
+0000000195AF.07C: 新英雄：拉玛刹解锁！
+0000000195B0.07C: %1$s
+0000000195E1.07C: 新英雄：拉玛刹解锁！
+0000000195E2.07C: %1$s
+0000000195E3.07C: 拉玛刹解锁挑战已全部完成。
+0000000195E4.07C: %1$s
+0000000195E5.07C: 挑战完成：%1$s
+0000000195E8.07C: 练习吞噬漩涡
+0000000195E9.07C: 在训练靶场中，使用拉玛刹在智械形态和天罚形态期间的吞噬漩涡
+0000000195EA.07C: 拉玛刹胜利
+0000000195EB.07C: 在快速比赛、竞技比赛或自由乱斗中，选择“任意”职责或使用重装英雄赢得%1$s场游戏
+000000019637.07C: 字幕
+00000001963C.07C: 在HUD中预览颜色
+000000019671.07C: 南极半岛
+0000000196A0.07C: 爱与争战，不择手段
+0000000196A1.07C: 在几何学之恋中赢得%1$s场游戏
+0000000196A3.07C: 爱神穿心箭
+0000000196A4.07C: 在几何学之恋中获得%1$s次消灭
+0000000196A5.07C: 爱拼才会赢
+0000000196A6.07C: 赢得%1$s场游戏
+0000000196A7.07C: 残暴欢愉，残暴结局
+0000000196A8.07C: 总计造成/强化%1$s点伤害（战斗狂欢和合作模式除外）
+0000000196A9.07C: 占领我的心
+0000000196AA.07C: 争夺/占领攻防目标共计%1$s秒
+0000000196AB.07C: 爱能征服一切
+0000000196AC.07C: 使用任意支援英雄赢得%1$s场游戏
+0000000196AD.07C: 爱能治愈一切
+0000000196AE.07C: 总计治疗%1$s点伤害（战斗狂欢和合作模式除外）
+0000000196AF.07C: 爱能拯救世界
+0000000196B0.07C: 获得%1$s次助攻/拯救（战斗狂欢和合作模式除外）
+0000000196B1.07C: 谢了亲爱的！
+0000000196B2.07C: 向一名支援英雄发送表情“感谢”
+0000000196B3.07C: PvP Challenges - Player - Role - Support - Wins
+0000000196B4.07C: PvP Challenges - Player - Deathmatch - Valentines 4v4 - Wins
+0000000196B5.07C: 白色（默认）
+0000000196B6.07C: 黄色
+0000000196ED.07C: 绿色
+000000019700.07C: 水绿色
+000000019701.07C: 蓝色
+000000019702.07C: 金色
+000000019703.07C: 灰绿色
+000000019704.07C: 洋红色
+000000019705.07C: 浅蓝色
+000000019706.07C: 粉色
+000000019707.07C: 紫色
+000000019708.07C: 红色
+00000001970D.07C: 安全橙色
+00000001970E.07C: 茶色
+00000001970F.07C: 字幕文本颜色
+000000019717.07C: PvP Challenges - Player - OW2 Hero Unlock - Ramattra - Games Won
+000000019738.07C: %1$s (%2$s)：%3$s%4$s的冷却时间还有%5$s秒。
+000000019765.07C: PvP Challenges - Player - Deathmatch - Valentines 4v4 - Final Blows
+000000019766.07C: 脸红心跳
+000000019767.07C: 完成4项活动挑战
+000000019768.07C: 恋爱大师
+000000019769.07C: 完成6项活动挑战
+000000019774.07C: 2022雪国仙境活动期间登录奖励
+000000019785.07C: 与丘比特并肩作战，
+用“散”一决高下
+000000019789.07C: 可购买监测站礼包解锁
+000000019799.07C: 连续消灭5人！
+0000000197A2.07C: 队伍
+0000000197B1.07C: hmet_PH
+0000000197B4.07C: Health
+0000000197B5.07C: Armor
+0000000197B6.07C: Health
+0000000197B7.07C: Health
+0000000197C3.07C: 第1赛季
+0000000197C4.07C: 《守望先锋》第1赛季
+0000000197C8.07C: 选择赛季
+0000000197D4.07C: 关闭预览
+0000000197DD.07C: 第3赛季：竞技比赛奖励资格
+0000000197E0.07C: 第3赛季结束：500强
+0000000197E4.07C: 第3赛季结束：宗师
+0000000197EA.07C: 第3赛季结束：大师
+0000000197FD.07C: 第3赛季结束：钻石
+0000000197FF.07C: 第3赛季结束：白金
+000000019801.07C: 第3赛季结束：黄金
+000000019803.07C: 第3赛季结束：白银
+000000019805.07C: 第3赛季结束：青铜
+000000019811.07C: 第3赛季：预设职责选手
+000000019813.07C: 第3赛季：开放职责选手
+000000019815.07C: 南极洲的英雄
+000000019816.07C: 在南极半岛赢得%1$s场游戏
+000000019817.07C: PvP Challenges - Player - Season 02 - Map - Win - Antarctica
+00000001981A.07C: PvP Challenges - Player - Season 02 - Other - Earn Endorsements
+00000001981B.07C: 第3赛季：业余选手
+00000001981D.07C: 第3赛季：熟练选手
+00000001981F.07C: 第3赛季：老练选手
+000000019823.07C: Toys for Bob
+000000019853.07C: 1000守望金币
+00000001985C.07C: PvP Challenges - Player - Season 03 - Map - Eliminations - Antarctica Sublevel - Capture Point High Ground
+00000001985D.07C: PvP Challenges - Player - Season 03 - Map - Eliminations - Antarctica Labs - Capture Point High Ground
+00000001985E.07C: 冰冷无情
+00000001985F.07C: 在南极半岛冰下层目标点旁的高台区域获得%1$s次消灭
+000000019860.07C: 实验安全
+000000019861.07C: 在南极半岛实验区目标点旁的高台区域获得%1$s次消灭
+000000019862.07C: 安娜：剪影
+000000019863.07C: 使用安娜赢得%1$s场游戏
+000000019864.07C: 艾什：剪影
+000000019865.07C: 使用艾什赢得%1$s场游戏
+000000019866.07C: 巴蒂斯特：剪影
+000000019867.07C: 使用巴蒂斯特赢得%1$s场游戏
+000000019868.07C: 堡垒：剪影
+000000019869.07C: 使用“堡垒”赢得%1$s场游戏
+00000001986A.07C: 布丽吉塔：剪影
+00000001986B.07C: 使用布丽吉塔赢得%1$s场游戏
+00000001986C.07C: 卡西迪：剪影
+00000001986D.07C: 使用卡西迪赢得%1$s场游戏
+00000001986E.07C: 末日铁拳：剪影
+00000001986F.07C: 使用“末日铁拳”赢得%1$s场游戏
+000000019870.07C: D.Va：剪影
+000000019871.07C: 使用D.Va赢得%1$s场游戏
+000000019872.07C: 回声：剪影
+000000019873.07C: 使用“回声”赢得%1$s场游戏
+000000019874.07C: 源氏：剪影
+000000019875.07C: 使用源氏赢得%1$s场游戏
+000000019876.07C: 半藏：剪影
+000000019877.07C: 使用半藏赢得%1$s场游戏
+000000019878.07C: 渣客女王：剪影
+000000019879.07C: 使用“渣客女王”赢得%1$s场游戏
+00000001987A.07C: 狂鼠：剪影
+00000001987B.07C: 使用“狂鼠”赢得%1$s场游戏
+00000001987C.07C: 雾子：剪影
+00000001987D.07C: 使用雾子赢得%1$s场游戏
+00000001987E.07C: 卢西奥：剪影
+00000001987F.07C: 使用卢西奥赢得%1$s场游戏
+000000019880.07C: 美：剪影
+000000019881.07C: 使用美赢得%1$s场游戏
+000000019882.07C: 天使：剪影
+000000019883.07C: 使用“天使”赢得%1$s场游戏
+000000019884.07C: 莫伊拉：剪影
+000000019885.07C: 使用莫伊拉赢得%1$s场游戏
+000000019886.07C: 奥丽莎：剪影
+000000019887.07C: 使用奥丽莎赢得%1$s场游戏
+000000019888.07C: 法老之鹰：剪影
+000000019889.07C: 使用“法老之鹰”赢得%1$s场游戏
+00000001988A.07C: 拉玛刹：剪影
+00000001988B.07C: 使用拉玛刹赢得%1$s场游戏
+00000001988C.07C: 死神：剪影
+00000001988D.07C: 使用“死神”赢得%1$s场游戏
+00000001988E.07C: 莱因哈特：剪影
+00000001988F.07C: 使用莱因哈特赢得%1$s场游戏
+000000019890.07C: 路霸：剪影
+000000019891.07C: 使用“路霸”赢得%1$s场游戏
+000000019892.07C: 西格玛：剪影
+000000019893.07C: 使用“西格玛”赢得%1$s场游戏
+000000019894.07C: 索杰恩：剪影
+000000019895.07C: 使用“索杰恩”赢得%1$s场游戏
+000000019896.07C: 士兵：76：剪影
+000000019897.07C: 使用“士兵：76”赢得%1$s场游戏
+000000019898.07C: 黑影：剪影
+000000019899.07C: 使用“黑影”赢得%1$s场游戏
+00000001989A.07C: 秩序之光：剪影
+00000001989B.07C: 使用“秩序之光”赢得%1$s场游戏
+00000001989C.07C: 托比昂：剪影
+00000001989D.07C: 使用托比昂赢得%1$s场游戏
+00000001989E.07C: 猎空：剪影
+00000001989F.07C: 使用“猎空”赢得%1$s场游戏
+0000000198A0.07C: 黑百合：剪影
+0000000198A1.07C: 使用“黑百合”赢得%1$s场游戏
+0000000198A2.07C: 温斯顿：剪影
+0000000198A3.07C: 使用温斯顿赢得%1$s场游戏
+0000000198A4.07C: 破坏球：剪影
+0000000198A5.07C: 使用“破坏球”赢得%1$s场游戏
+0000000198A6.07C: 查莉娅：剪影
+0000000198A7.07C: 使用查莉娅赢得%1$s场游戏
+0000000198A8.07C: 禅雅塔：剪影
+0000000198A9.07C: 使用禅雅塔赢得%1$s场游戏
+0000000198AA.07C: 延迟已启用
+0000000198B7.07C: 九霄天擎队客场2022
+0000000198BE.07C: 维加斯永生队客场2022
+0000000198BF.07C: 首尔烈火队客场2022
+0000000198C1.07C: 角斗士队客场2022
+0000000198C4.07C: 洛杉矶
+0000000198C5.07C: LA
+0000000198C6.07C: 角斗士队
+0000000198C7.07C: 洛杉矶
+0000000198C8.07C: LA
+0000000198C9.07C: 角斗士队
+0000000198CA.07C: 纽约
+0000000198CB.07C: NY
+0000000198CC.07C: 九霄天擎队
+0000000198CD.07C: 纽约
+0000000198CE.07C: NY
+0000000198CF.07C: 九霄天擎队
+0000000198D7.07C: 维加斯
+0000000198D8.07C: PA
+0000000198D9.07C: 永生队
+0000000198DA.07C: 维加斯
+0000000198DB.07C: PA
+0000000198DC.07C: 永生队
+0000000198DF.07C: 首尔
+0000000198E0.07C: PHL
+0000000198E1.07C: 烈火队
+0000000198E2.07C: 首尔
+0000000198E3.07C: PHL
+0000000198E4.07C: 烈火队
+000000019E1B.07C: [小队]：
+000000019E1C.07C: [玩家名称]：各位队伍成员好！
+000000019E1D.07C: [玩家名称]：各位参赛玩家好！
+000000019E1F.07C: [玩家名称]：各位小队成员好！
+000000019E30.07C: 你愿意
+000000019E31.07C: 完成终极情人节活动的“爱能治愈一切”挑战后解锁
+000000019E32.07C: 情人节快乐
+000000019E33.07C: 终极情人节活动期间登录奖励
+000000019E34.07C: 我的心
+000000019E35.07C: 完成终极情人节活动的“谢了亲爱的！”挑战后解锁
+000000019E36.07C: 和我在一起
+000000019E37.07C: 完成终极情人节活动的“爱能治愈一切”挑战后解锁
+000000019E38.07C: 未知英雄竞技比赛
+000000019E39.07C: 生命苦短
+000000019E3A.07C: 完成终极情人节活动的“爱能拯救世界”挑战后解锁
+000000019E3C.07C: 很可怜嘛
+000000019E3D.07C: 完成终极情人节活动的“爱能征服一切”挑战后解锁。
+000000019E3F.07C: 放心吧
+000000019E40.07C: 完成终极情人节活动的“谢了亲爱的！”挑战后解锁
+000000019E41.07C: 假如我拥有一颗心
+000000019E42.07C: 完成终极情人节活动的“爱与争战，不择手段”挑战后解锁
+000000019E44.07C: 一箭穿心
+000000019E45.07C: 完成终极情人节活动的“爱神穿心箭”挑战后解锁
+000000019E46.07C: 你是我眼中的星光
+000000019E47.07C: 完成终极情人节活动的“爱拼才会赢”挑战后解锁
+000000019E4A.07C: 看电影
+000000019E4B.07C: 完成终极情人节活动的“占领我的心”挑战后解锁
+000000019E4F.07C: 可通过地区活动解锁
+
+000000019E51.07C: 交互
+000000019E6B.07C: 拉玛刹
+000000019E6D.07C: 有新版本《守望先锋》可用。请退出并重启游戏开始更新。
+000000019E71.07C: 刷屏
+000000019E80.07C: 附赠：
+第3赛季开战礼包
+000000019E93.07C: 上一场比赛
+000000019E97.07C: 草绿色（小队默认）
+000000019E99.07C: 橘红色（警报默认）
+000000019EA1.07C: Shields
+000000019EA2.07C: 章鱼
+000000019EB1.07C: 帝王雪球
+000000019EB2.07C: 铁甲龟船
+000000019EB3.07C: 莹粉珠光
+000000019ED0.07C: 丘比特
+000000019ED1.07C: 隐形人
+000000019ED2.07C: 红孩儿
+000000019ED3.07C: 浩瀚银河
+000000019ED6.07C: 神圣苦无
+000000019ED7.07C: 天照大神
+000000019ED8.07C: 黑金属
+000000019ED9.07C: 邪魔女王
+000000019EDA.07C: 阴曹差使
+000000019EDB.07C: 神圣白猴
+000000019EDC.07C: 榴莲小鱿
+000000019EDF.07C: 葱葱肠加油
+000000019EE5.07C: 英雄限制：半藏
+000000019EEE.07C: 同情愈疗
+000000019EEF.07C: 使用天使之杖治疗盟友也会治疗自己
+000000019EF3.07C: 战令等级直升20级
+000000019EFD.07C: 胜利条件：最先消灭50名敌人的队伍
+000000019EFF.07C: 丘比特有支散射箭！
+用它消灭敌人可获得双倍分数。
+000000019F22.07C: 每队随机限定英雄职责
+000000019F28.07C: 难熄之焰
+000000019F2A.07C: 草莓奶油酥饼
+000000019F2F.07C: 情意绵绵
+丘比特
+000000019F30.07C: 情意绵绵
+源氏
+000000019F31.07C: 情意绵绵
+“天使”
+000000019F32.07C: 下一个
+000000019F35.07C: 第3赛季火热开启
+000000019F36.07C: 雷神与风神
+000000019F38.07C: 邪魔女王之舞
+000000019F3A.07C: 邪魔女王面具
+000000019F3C.07C: 邪魔女王
+000000019F3E.07C: 手印
+000000019F40.07C: 隐形人
+000000019F42.07C: 芭蕉扇
+000000019F43.07C: 红孩儿
+000000019F44.07C: 风情芭蕾
+000000019F45.07C: 多彩点缀
+000000019F46.07C: 眨眼葱葱肠
+000000019F47.07C: 黑金属
+000000019F48.07C: 阴曹差使
+000000019F49.07C: 特种战术
+000000019F4A.07C: 欢迎光临！
+000000019F4B.07C: 帝王雪球
+000000019F4C.07C: 铁甲龟船
+000000019F4D.07C: 白金挑战者
+000000019F4E.07C: 神圣白猴
+000000019F4F.07C: 穿心之恋
+000000019F88.07C: 南极半岛
+000000019F8F.07C: 探索地球极寒之地深处。
+欢迎来到寒风刺骨的全新占领要点地图：南极半岛。
+000000019FC2.07C: 经典货币
+000000019FC4.07C: 南极半岛
+000000019FCA.07C: 雷神与风神
+000000019FCC.07C: 丘比特的标靶
+000000019FCD.07C: 珠光海岸
+000000019FCE.07C: 金龙腾空
+000000019FCF.07C: 小鱿萌友
+000000019FD1.07C: 夺旗
+000000019FD2.07C: %1$s%2$s
+000000019FD3.07C: 重装
+000000019FD4.07C: 输出
+000000019FD5.07C: 支援
+000000019FD9.07C: 丘比特之箭
+000000019FDA.07C: 源氏的平静
+000000019FDB.07C: 勤恳农夫
+000000019FDD.07C: 天使的慈悲
+000000019FDE.07C: 狡诈骗徒
+000000019FE0.07C: 虔诚信徒
+000000019FE2.07C: 名门望族
+000000019FE4.07C: 渊博学者
+000000019FE6.07C: 智慧圣人
+000000019FE8.07C: 恐怖邪灵
+000000019FEA.07C: 传奇灵兽
+000000019FF4.07C: 欢迎来到第3赛季
+000000019FF5.07C: 看看最新内容
+000000019FFA.07C: 守望先锋世界杯
+00000001A002.07C: 皮肤
+00000001A003.07C: 藏品
+00000001A004.07C: 表情
+00000001A006.07C: 完成挑战，赢取奖励，支援你的支援战友！
+00000001A009.07C: 爱将于3月1日溜走
+00000001A00A.07C: 地图工坊回来了！
+00000001A00B.07C: 前往自定游戏
+00000001A015.07C: General_002_PH_ART
+00000001A019.07C: 1000
+00000001A01C.07C: http://overwatch.blizzard.com/valentines
+00000001A01D.07C: 游玩恋恋先锋
+00000001A02B.07C: 前往街机先锋
+00000001A079.07C: 完成终极情人节活动的“爱与争战，不择手段”挑战后解锁
+00000001A07B.07C: 完成终极情人节活动的“脸红心跳”挑战后解锁。也可在英雄界面解锁
+00000001A07C.07C: 完成终极情人节活动的“爱能征服一切”挑战后解锁。也可在英雄界面解锁
+00000001A07E.07C: 完成终极情人节活动的“爱拼才会赢”挑战后解锁。也可在英雄界面解锁
+00000001A07F.07C: 完成终极情人节活动的“残暴欢愉，残暴结局”挑战后解锁。也可在英雄界面解锁
+00000001A080.07C: 完成终极情人节活动的“占领我的心”挑战后解锁。也可在英雄界面解锁
+00000001A09A.07C: 双倍经验周末
+00000001A09C.07C: 赛季活动
+00000001A09D.07C: 风情芭蕾
+00000001A0A0.07C: 灵狐版画
+00000001A0A1.07C: 天照大神版画
+00000001A0AE.07C: 电闪雷鸣
+00000001A0BD.07C: 英雄集结，为家乡而战
+00000001A0D8.07C: 商城上架了新物品！
+00000001A0D9.07C: 前往商城
+00000001A0EA.07C: 欢迎来到第3赛季
+00000001A0EB.07C: 看看最新内容
+00000001A0EC.07C: 商城上架了新物品！
+00000001A0ED.07C: 前往商城
+00000001A0EE.07C: http://overwatch.blizzard.com/valentines
+00000001A0F0.07C: 恋恋先锋
+00000001A0F1.07C: 跳转网页游玩
+00000001A0F3.07C: 前往街机先锋
+00000001A100.07C: 商城上架了新物品！
+00000001A101.07C: 前往商城
+00000001A108.07C: 商城上架了新物品！
+00000001A109.07C: 前往商城
+00000001A10B.07C: 商城上架了新物品！
+00000001A10C.07C: 前往挑战任务
+00000001A10D.07C: 商城上架了新物品！
+00000001A10E.07C: 前往商城
+00000001A10F.07C: 商城上架了新物品！
+00000001A110.07C: 前往商城
+00000001A114.07C: 商城上架了新物品！
+00000001A115.07C: 前往商城
+00000001A116.07C: https://overwatchleague.com/
+00000001A117.07C: 观看守望先锋联赛
+00000001A118.07C: https://overwatchleague.com/
+00000001A119.07C: 观看守望先锋联赛
+00000001A12D.07C: 双倍经验现已开启
+00000001A12E.07C: 经验加成现已开启
+00000001A136.07C: 完成终极情人节活动的“恋爱大师”挑战后解锁。也可在商城中限时购买
+00000001A137.07C: 高级战令
+00000001A138.07C: 高级战令
+00000001A139.07C: 赛季即将结束
+00000001A141.07C: 第3赛季登录奖励
+共庆2023年《守望先锋世界杯》
+00000001A1A0.07C: 我方队伍获得优势。
+00000001A1A5.07C: %1$s
+00000001A1A6.07C: %1$s%%
+00000001A1A7.07C: contested!
+00000001A1D8.07C: 100货币
+00000001A1E1.07C: 已发送好友请求
+00000001A1E4.07C: %1$s %2$s%3$s%4$s
+00000001A1E5.07C: 进度： 
+00000001A1E6.07C: /
+00000001A211.07C: 不当自定比赛名称
+00000001A212.07C: 不当游戏内容
+00000001A2C3.07C: %1$s经典货币
+00000001A33A.07C: 第3赛季
+00000001A348.07C: 争夺冰封大陆的控制权！称霸南极洲！
+00000001A513.07C: Abandonded
+[Core] Execution finished in 00:00:00.6872087

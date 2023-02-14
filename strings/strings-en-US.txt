@@ -1,17 +1,15 @@
-[Core] DataTool v2.2.0.0+1018+78a02334
+[Core] DataTool v2.3.0.0+1025+f6a2810c
 [Core] CommandLine: ["C:\Program Files\Overwatch", "Dump-strings", "-L=enUS", "-T=enUS"]
 [Core] CommandLineFile: C:\Users\Zezombye\Downloads\toolchain-release\DataTool.args
 [CASC] Text Language: enUS | Speech Language: enUS
-[CASC] Overwatch build 2.2.0.2.107804
+[CASC] Overwatch build 2.3.0.0.109691
 [CASC] Initializing...
-[Manifest] Using TRG procedure 107804 for Win_SPWin_RDEV_EExt.trg
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
-[Manifest] Using CMF procedure 107804 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using TRG procedure 109691 for Win_SPWin_RDEV_EExt.trg
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_EExt.cmf
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_LenUS_speech_EExt.cmf
+[Manifest] Using CMF procedure 109691 for Win_SPWin_RDEV_LenUS_text_EExt.cmf
 [CASC] Ready
 [Core] Checking ResourceKeys
-[GUIDNames] GUIDNames.csv not found
-[LocalizedNames] LocalizedNamesMapping.csv not found
 [Core] Tooling...
 000000000019.07C: Die Die Die... Die
 000000000020.07C: Mercy
@@ -374,6 +372,8 @@
 0000000003A6.07C: Jump at walls to climb up them.
 0000000003A7.07C: Dragonstrike
 0000000003A8.07C: Launch a deadly Dragon Spirit that devastates enemies it passes through.
+0000000003A9.07C: Scatter Arrow
+0000000003AA.07C: Splits into multiple ricochet arrows on impact.
 0000000003AB.07C: Storm Bow
 0000000003AC.07C: Hold to charge then release to launch arrows further.
 0000000003AD.07C: Barrage
@@ -461,7 +461,7 @@
 00000000040F.07C: Revive a dead teammate.
 000000000410.07C: Guardian Angel
 000000000412.07C: Caduceus Staff 
-000000000413.07C: Hold to heal an ally.
+000000000413.07C: Hold to heal an ally. Heals allies under half health more quickly.
 000000000414.07C: Caduceus Staff
 000000000415.07C: Hold to increase an ally's damage inflicted.
 000000000416.07C: Caduceus Blaster
@@ -538,8 +538,6 @@
 00000000049D.07C: Wildly fire remaining rounds.
 00000000049E.07C: Combat Roll
 00000000049F.07C: Roll in the direction you're moving and reload.
-0000000004A0.07C: Flashbang
-0000000004A1.07C: Stun enemies in front of you.
 0000000004A2.07C: Deadeye
 0000000004A3.07C: Face off against your enemies. Press %1$s to lock on, then %1$s or %2$s to fire.
 0000000004A5.07C: No Function
@@ -572,7 +570,6 @@
 0000000005F7.07C: When a teammate dies, the location of their corpse is marked by their hero icon visible in the world.
 0000000005F8.07C: Tank heroes excel at taking and holding map objectives, as well as disrupting the enemy team.
 0000000005F9.07C: Support heroes protect and heal their teammates while also providing useful utility capabilities.
-000000000606.07C: <fg%1$s>STUNNED</fg>
 000000000609.07C: <fg%1$s>STUNNED</fg>
 000000000641.07C: HERO SELECT
 000000000642.07C: SCOREBOARD
@@ -808,6 +805,7 @@
 000000000CC7.07C: Soldier: 76 prefers to keep his enemies at medium range to allow him to retreat, use cover, and heal with Biotic Field.
 000000000CC8.07C: Avoid fighting Soldier 76’s when he’s standing in his Biotic Field.
 000000000CC9.07C: When Soldier: 76 activates Tactical Visor, immediately seek cover. If you're caught out in the open, try to kill him before he kills you.
+000000000CD1.07C: Custom Game
 000000000CF9.07C: Sonic Amplifier
 000000000CFA.07C: Sonic projectile launcher.
 000000000CFB.07C: Healing Boost
@@ -842,7 +840,7 @@
 000000000D8A.07C: Video
 000000000D8C.07C: LEAVE GAME
 000000000D8D.07C: EXIT TO DESKTOP
-000000000D8F.07C: © 2016 - 2022 Blizzard Entertainment, Inc. All rights reserved.
+000000000D8F.07C: © 2016 - 2023 Blizzard Entertainment, Inc. All rights reserved.
 000000000D94.07C: Move in and out of cover to protect yourself while sniping.
 000000000D97.07C: Heroes with weapons that do not rely on accuracy, such as Winston or Torbjörn can be problematic for Tracer. 
 000000000D99.07C: EXIT TO DESKTOP
@@ -896,7 +894,6 @@
 000000000E0D.07C: DYNAMIC REFLECTIONS
 000000000E0E.07C: A RESTART IS REQUIRED TO APPLY SOME SETTINGS.
 000000000E0F.07C: LEAVE GROUP
-000000000E14.07C: X
 000000000E39.07C: Banned from custom server %1$s Reason: %2$s
 000000000E3A.07C: Custom game match ended by moderator.
 000000000E3B.07C: Custom game match restarted by moderator.
@@ -1476,6 +1473,7 @@
 0000000017A3.07C: Call down a new mech.
 0000000017A6.07C: Match Time:
 0000000017B6.07C: You are already friends with that invitee.
+0000000017BD.07C: Back
 0000000017C2.07C: PNG: %1$s MS
 0000000017C4.07C: LATENCY: %1$s MS
 0000000017C5.07C: IND: %1$s MS
@@ -2153,6 +2151,7 @@ Experience new ways to play with a changing selection of game modes that include
 00000000231F.07C: Matchmaking server is down
 000000002320.07C: Commend
 000000002323.07C: Overwatch Settings
+00000000234C.07C: Soldier: 76
 000000002356.07C: Failed to connect to server.
 000000002369.07C: %1$s |Rplfriend:friends; playing Overwatch.
 000000002370.07C: ALT
@@ -3593,11 +3592,13 @@ Experience new ways to play with a changing selection of game modes that include
 000000002D8B.07C: Move the Left Stick down to move backwards.
 000000002D8C.07C: Move the Left Stick left and right to move in that direction.
 000000002D95.07C: Training Bot
+000000002D96.07C: PREVIEW
 000000002D97.07C: Total |Rpl %1$s:Medal:Medals; Earned
 000000002D98.07C: %1$s Total |Rpl Medal:Medals;
 000000002D99.07C: Gold |Rpl %1$s:Medal:Medals; Earned
 000000002D9A.07C: %1$s Gold |Rpl Medal:Medals; Earned
 000000002D9B.07C: CONTINUE
+000000002D9D.07C: ZENYATTA
 000000002DA5.07C: COUNT
 000000002DA6.07C: RECOMMENDED
 000000002DA7.07C: ADD AI
@@ -3616,7 +3617,6 @@ Experience new ways to play with a changing selection of game modes that include
 000000002DBA.07C: AUTO JOIN
 000000002DBB.07C: VOICE CHAT DEVICES
 000000002DC3.07C: MAX
-000000002DC4.07C: Unavailable while in a group
 000000002DC5.07C: 1
 000000002DC6.07C: 2
 000000002DC7.07C: 3
@@ -5703,7 +5703,7 @@ AI-controlled heroes.
 000000005039.07C: Third
 00000000503A.07C: All
 00000000503F.07C: Opportunist
-000000005040.07C: You detect critically injured enemies through walls, and deal 40%% more damage to hacked enemies.
+000000005040.07C: You detect critically injured enemies through walls, and deal more damage to hacked enemies.
 000000005041.07C: Damage Sombra while she's hacking you or a teammate to interrupt the hack.
 000000005042.07C: Abilities like Widowmaker’s Infra-Sight and Hanzo’s Sonic Arrow reveal Sombra.
 000000005043.07C: When you see Sombra's location, make sure to communicate it to the rest of your team.
@@ -5999,8 +5999,6 @@ AI-controlled heroes.
 0000000053C4.07C: 3v3 Lockout Elimination
 0000000053C5.07C: Snowball Blaster
 0000000053C6.07C: Launch a snowball.
-0000000053C7.07C: Reload Blaster
-0000000053C8.07C: Reload the Snowball Blaster at a snow pile.
 0000000053C9.07C: Flurry
 0000000053CA.07C: Provides unlimited snowballs.
 0000000053CB.07C: Winter Mystery
@@ -6610,7 +6608,7 @@ AI-controlled heroes.
 0000000059B3.07C: Max Ping
 0000000059B4.07C: Only show games with space for party
 0000000059B5.07C: Show Games
-0000000059B6.07C: Game Modes
+0000000059B6.07C: Ultimate Valentine
 0000000059B7.07C: Maps
 0000000059B8.07C: Heroes
 0000000059B9.07C: Damage Interrupts Flag Interaction
@@ -8486,8 +8484,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000006D9D.07C: Adlersbrunn
 000000006D9E.07C: DEFEND
 000000006D9F.07C: ATTACK
-000000006DA4.07C: Role: Support passive is greatly increased.
-000000006DA7.07C: Regeneration
 000000006DAA.07C: Valkyrie
 000000006DAB.07C: Gain the ability to fly. Abilities are enhanced.
 000000006DB2.07C: Black Forest
@@ -8870,7 +8866,7 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 000000007239.07C: Count your blessings
 00000000723B.07C: Expecting a miracle?
 00000000723D.07C: Ho ho ho!
-00000000723F.07C: Annual performance analysis
+00000000723F.07C: Annual performance
 000000007241.07C: They say chivalry is dead
 000000007243.07C: Did you bring me a present?
 000000007245.07C: Can't I guide your way tonight
@@ -8941,8 +8937,6 @@ After a thorough investigation of the evidence, we have Suspended your Overwatch
 00000000730A.07C: ==== Round %1$s Complete ====
 00000000730B.07C: Capture Point %1$s Captured by %2$s
 00000000730C.07C: Payload reached checkpoint #%1$s
-00000000730D.07C: Primal Rage
-00000000730E.07C: Gain immense health, but you can only leap and punch enemies.
 00000000730F.07C: %1$s/%2$s
 000000007311.07C: Tournament ID: %1$s, Match ID: %2$s, Game Number: %3$s
 000000007317.07C: %1$s Score
@@ -9260,8 +9254,6 @@ Blizzard Support
 0000000075DC.07C: You will not receive experience for this match if you remain inactive.
 0000000075DE.07C: You are the Yeti
 0000000075DF.07C: You are a Hunter
-0000000075E0.07C: Teamwork
-0000000075E1.07C: Yeti is revealed while taking damage.
 0000000075E9.07C: Maximum Simultaneous Meat Spawns
 0000000075EA.07C: |Rfn %1$s:N0;
 0000000075FE.07C: Shanghai
@@ -9487,7 +9479,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 00000000796E.07C: Overclock
 00000000796F.07C: Railgun energy auto-charges for a short duration and charged shots pierce enemies.
 000000007975.07C: Sojourn
-000000007995.07C: https://overwatchleague.com/
+000000007995.07C: http://overwatchworldcup.com/
 00000000799B.07C: Enabled
 00000000799C.07C: Disabled
 0000000079A5.07C: Wasteland
@@ -10039,7 +10031,8 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000007E8A.07C: OWL
 000000007E8D.07C: OWL
 000000007E8F.07C: Overwatch League White
-000000007E90.07C: Overwatch League Promo Skins
+000000007EB0.07C: Overwatch League White
+000000007EC4.07C: Overwatch League White
 000000007ED3.07C: |Rpl %1$s:Player:Players; Knocked Back
 000000007ED4.07C: %1$s |Rpl Player:Players; Knocked Back
 000000007ED5.07C: Fans
@@ -10831,6 +10824,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008671.07C: |Rpl %1$s:Ultimate:Ultimates; Earned - Fractional
 000000008672.07C: %1$s |Rpl Ultimate:Ultimates; Earned - Fractional
 000000008684.07C: Echo
+000000008688.07C: Enemy Team
 00000000868A.07C: OWL All Stars 2018 Atlantic
 00000000868B.07C: OWL All Stars 2018 Pacific
 000000008693.07C: OK
@@ -10944,6 +10938,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 0000000088FC.07C: New Charity Skin!
 0000000088FF.07C: Pink Mercy
 000000008900.07C: Storm Arrows Quantity
+00000000890A.07C: Endorse
 00000000890B.07C: Group Options
 00000000890D.07C: Formal
 00000000890F.07C: Stealth
@@ -11069,7 +11064,7 @@ Other game modes of Overwatch including Quick Play, the Arcade, and the Game Bro
 000000008AA0.07C: Earn these rewards by participating
 000000008AA1.07C: Deathmatch
 000000008AA3.07C: Invalid Options
-000000008AB8.07C: +%1$s XP
+000000008AB8.07C: +%1$s Battle Pass XP
 000000008AB9.07C: You need PlayStation®Plus to access this feature.
 000000008ABA.07C: You will not be able to use this feature until you join PlayStation®Plus.
 
@@ -11254,6 +11249,7 @@ Do you want to cancel?
 000000008DCE.07C: Turret
 000000008DEE.07C: ATTACH SMS
 000000008DEF.07C: Demon
+000000008DF0.07C: Eradicator
 000000008DF3.07C: Account requires a phone number.
 000000008E00.07C: Horizon No Limits
 000000008E01.07C: Defeat the enemy team without any limits on hero selection.
@@ -12042,7 +12038,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000A2D0.07C: Blue (Friendly Default)
 00000000A2D1.07C: Aqua
 00000000A2D2.07C: Friendly UI Color
-00000000A2D3.07C: Enemy UI Color
+00000000A2D3.07C: Enemy UI Colors
 00000000A2DE.07C: Customize
 00000000A2E4.07C: |Rfn %1$s:P0;
 00000000A2E5.07C: Coach Gun Knockback Scalar (Self)
@@ -16241,7 +16237,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CA45.07C: Role Queue Beta
 00000000CA47.07C: Inconsequential
 00000000CA4A.07C: Slot
-00000000CA4B.07C: The player slot which will receive the bot (-1 for first available slot). Up to 6 bots may be added to each team, or 12 bots to the free-for-all team, regardless of lobby settings.
+00000000CA4B.07C: The player slot which will receive the bot (-1 for first available slot). Bots will take a player's slot provided there is no player in the slot and it is on the same team. You can have a combined total of 12 players and bots (24 with extension enabled), regardless of lobby settings.
 00000000CA51.07C: Poised
 00000000CA52.07C: Empty
 00000000CA6A.07C: Create Dummy Bot
@@ -16499,7 +16495,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CD3A.07C: BREAKING NEWS
 00000000CD3B.07C: • 5 Divisions per Skill Tier
 • Divisions ranked from 5 (lowest) to 1 (highest)
-• Skill Tier and Division adjust after every 7 wins or 20 losses/ties
+• Skill Tier and Division adjust after every %1$s wins or %2$s losses/ties
 00000000CD3C.07C: Seasons
 00000000CD47.07C: 25 Credits
 00000000CD48.07C: 10 Credits
@@ -16516,7 +16512,7 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000CD53.07C: A group member has declined the role selection invite.
 00000000CD54.07C: Leaderboard Beta
 00000000CD55.07C: - Players have different Skill Tiers for each hero role (Damage, Support, and Tank).
-- Competitive Points are rewarded separately for each role’s skill tier.
+- Competitive Points are awarded through challenges. Points received are based on the highest Skill Tier across all hero roles.
 - Grandmaster players may only queue solo or in a party of 2.
 00000000CD58.07C: Quick Play Classic
 00000000CD59.07C: Assault
@@ -16967,17 +16963,17 @@ Please send your feedback and comments to help us improve the viewer experience.
 00000000D25B.07C: CANCEL
 00000000D264.07C: New content will only be available on application restart.
 00000000D267.07C: Ravenous Vortex
-00000000D268.07C: Fire a nano ball, which explodes when it hits the ground, spreading a damaging field. Affected enemies are slowed and pulled downward.
+00000000D268.07C: Fire a sphere of energy that creates a slowing vortex on the ground, damaging enemies within and pulling them downward.
 00000000D26F.07C: %1$s Was Not Revived
 00000000D29E.07C: |Rfn %1$s:D2;
 00000000D2A3.07C: Void Accelerator (Omnic Form)
-00000000D2A4.07C: Fire a stream of projectiles in a fixed pattern.
+00000000D2A4.07C: Fire a stream of projectiles.
 00000000D2A5.07C: Pummel (Nemesis Form)
-00000000D2A6.07C: Punch forward, creating a wave of piercing energy with every swing.
+00000000D2A6.07C: Punch, creating a wave of piercing energy with every swing.
 00000000D2A8.07C: Block (Nemesis Form)
 00000000D2A9.07C: Significantly reduces damage taken from the front and reduces movement speed.
 00000000D2AC.07C: Annihilation
-00000000D2AD.07C: Enter Nemesis Form and create an energy swarm surrounding yourself. This swarm will lash out towards nearby enemies, dealing damage and pausing the duration when damage is dealt.
+00000000D2AD.07C: Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies.
 00000000D2AE.07C: Nemesis Form
 00000000D2AF.07C: Transform into Nemesis Form, changing your attacks and gaining bonus armor.
 00000000D2C9.07C: Busan Downtown (Lunar New Year)
@@ -17430,7 +17426,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F52E.07C: Workout
 00000000F531.07C: Los Angeles Valiant Away
 00000000F532.07C: San Francisco Shock Away
-00000000F533.07C: San Francisco Shock Away_02
+00000000F533.07C: San Francisco Shock Away
 00000000F534.07C: San Francisco Shock Away
 00000000F535.07C: San Francisco Shock Away
 00000000F536.07C: San Francisco Shock Away
@@ -17461,7 +17457,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F54F.07C: San Francisco Shock Away
 00000000F550.07C: San Francisco Shock Away
 00000000F551.07C: San Francisco Shock
-00000000F552.07C: San Francisco Shock_02
+00000000F552.07C: San Francisco Shock
 00000000F553.07C: San Francisco Shock
 00000000F554.07C: San Francisco Shock
 00000000F555.07C: San Francisco Shock
@@ -17492,7 +17488,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F56E.07C: San Francisco Shock
 00000000F56F.07C: San Francisco Shock
 00000000F570.07C: Los Angeles Valiant
-00000000F571.07C: Los Angeles Valiant_02
+00000000F571.07C: Los Angeles Valiant
 00000000F572.07C: Los Angeles Valiant
 00000000F573.07C: Los Angeles Valiant
 00000000F574.07C: Los Angeles Valiant
@@ -17522,7 +17518,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F58C.07C: Los Angeles Valiant
 00000000F58D.07C: Los Angeles Valiant
 00000000F58E.07C: Los Angeles Valiant
-00000000F58F.07C: Los Angeles Valiant Away_02
+00000000F58F.07C: Los Angeles Valiant Away
 00000000F590.07C: Los Angeles Valiant Away
 00000000F591.07C: Los Angeles Valiant Away
 00000000F592.07C: Los Angeles Valiant Away
@@ -17553,7 +17549,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F5AB.07C: Los Angeles Valiant Away
 00000000F5AC.07C: Los Angeles Valiant Away
 00000000F5AD.07C: Florida Mayhem
-00000000F5AE.07C: Florida Mayhem_02
+00000000F5AE.07C: Florida Mayhem
 00000000F5AF.07C: Florida Mayhem
 00000000F5B0.07C: Florida Mayhem
 00000000F5B1.07C: Florida Mayhem
@@ -17584,7 +17580,7 @@ Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.
 00000000F5CA.07C: Florida Mayhem
 00000000F5CB.07C: Florida Mayhem
 00000000F5CC.07C: Florida Mayhem Away
-00000000F5CD.07C: Florida Mayhem Away_02
+00000000F5CD.07C: Florida Mayhem Away
 00000000F5CE.07C: Florida Mayhem Away
 00000000F5CF.07C: Florida Mayhem Away
 00000000F5D0.07C: Florida Mayhem Away
@@ -18704,6 +18700,7 @@ Blizzard Support
 000000010F4E.07C: Health
 000000010F57.07C: All Heroes
 000000010F5B.07C: Role Queue
+000000010F5E.07C: Antarctic Peninsula
 000000010F5F.07C: Filters
 000000010F6E.07C: Contenders Away
 000000010F6F.07C: Contenders Away
@@ -19287,7 +19284,6 @@ Blizzard Support
 00000001144E.07C: The type of max health to acquire.
 00000001144F.07C: 120 credits, and a free gift of 60 Summer Games Loot Boxes
 00000001146F.07C: 50 + 10 Summer Games Loot Boxes
-0000000114DC.07C: Watch Now
 0000000114DF.07C: Watch Overwatch League
 0000000114E4.07C: Gingerbread
 00000001152E.07C: Lumberjack
@@ -20512,6 +20508,7 @@ and 10 Free Winter Loot Boxes
 000000012DB5.07C: Referee
 000000012DC0.07C: DEFAULT
 000000012DC4.07C: Ta-da!
+000000012DCB.07C: Icebreaker
 000000012E66.07C: DAMAGE
 000000012E67.07C: TANK
 000000012E68.07C: SUPPORT
@@ -21104,6 +21101,7 @@ You will also be placed in the opt-out pool for this competitive season.
 000000013D37.07C: Author
 000000013D38.07C: # Lobbies
 000000013D39.07C: Last Played
+000000013D3A.07C: Photon Projector
 000000013D3D.07C: Recent
 000000013D3E.07C: Favorites
 000000013D40.07C: All Games
@@ -21131,6 +21129,7 @@ You will also be placed in the opt-out pool for this competitive season.
 000000013DBC.07C: Nihon
 000000013DBD.07C: Sunset
 000000013DBE.07C: Scuba
+000000013DC1.07C: Aztec
 000000013DC3.07C: Sunset
 000000013DC4.07C: Peacekeeper Fire Rate
 000000013DC5.07C: Game Code
@@ -21322,7 +21321,7 @@ You will also be placed in the opt-out pool for this competitive season.
 00000001400F.07C: Match Text Chat
 000000014011.07C: Text Chat
 000000014013.07C: <Unknown>
-000000014015.07C: Hold to Deposit Objective
+000000014015.07C: Use Battery to Overcharge
 000000014019.07C: <Unknown>
 000000014022.07C: Region Settings
 000000014026.07C: Are you sure you want to reset all region settings?
@@ -21376,6 +21375,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001419D.07C: Dance Machine
 0000000141C1.07C: Retro Star
 0000000141EE.07C: Helix Rockets Min Radius
+0000000141F8.07C: Scrapped!
 000000014207.07C: Creating Game With Code
 000000014208.07C: Failed To Import Code
 000000014209.07C: OK
@@ -21388,6 +21388,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 00000001422A.07C: Maximum favorites reached. Please remove some favorites to use this feature.
 00000001422C.07C: Unable to update favorite status
 00000001422D.07C: Dusk
+000000014237.07C: Black Metal
 000000014245.07C: Competitive Elimination
 000000014246.07C: Rise up the ranks and compete with the best Elimination players in the world!
 000000014247.07C: Competitive 3v3 Elimination OW1 Season 4
@@ -21463,6 +21464,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 000000014368.07C: Biotic Launcher Primary Fire Rate
 000000014369.07C: Pumpkin
 00000001436A.07C: Amp Matrix Amp
+000000014370.07C: Captain
 000000014377.07C: Fusion Cannon Crit Multiplier
 00000001437C.07C: Micro Missile Cooldown
 000000014381.07C: Sleighing
@@ -21589,6 +21591,7 @@ If you would like to re-enable affected settings, please go to the “Region Set
 0000000146D6.07C: Soundwave Cooldown
 0000000146DE.07C: Ice Wraith
 0000000146E4.07C: Cursed Captain
+0000000146F2.07C: Exchange
 000000014716.07C: Amp It Up Cooldown
 000000014717.07C: Amp It Up Duration
 000000014718.07C: Sound Barrier Duration
@@ -21646,6 +21649,8 @@ If you would like to re-enable affected settings, please go to the “Region Set
 0000000147DC.07C: Health
 0000000147DD.07C: Shields
 0000000147EB.07C: Salute
+0000000147ED.07C: Paying Respects
+0000000147EE.07C: Victorious
 0000000147EF.07C: Casual
 000000014801.07C: Real name: Reinhardt Wilhelm
 Age: 50
@@ -21690,12 +21695,14 @@ Affiliation: Overwatch (Formerly)
 000000014AE2.07C: Bob Gun Damage
 000000014AE3.07C: Bob Uppercut Damage
 000000014AF8.07C: %1$s%%
+000000014AF9.07C: Owl Guardian
+000000014AFA.07C: Takoyaki
 000000014C47.07C: Select Hero
 000000014C49.07C: Change Hero
 000000014D45.07C: Complete the story mission: "%1$s"
 000000014DC3.07C:   Complete %1$s side missions. 
   Current: %2$s
-000000014E41.07C: Legacy Credits
+000000014E41.07C: Credits
 000000014E42.07C: Competitive
 000000014E43.07C: Tokens
 000000014E48.07C: Rifle Primary Damage
@@ -21706,6 +21713,7 @@ Affiliation: Overwatch (Formerly)
 000000014E6A.07C: %1$s Until Chem Charge Activates
 000000014E7C.07C: ENEMY
 000000014E7D.07C: WATCHING HERE
+000000014E92.07C: New
 000000014EAA.07C: Runner
 000000014EB0.07C: Presentation_PH
 000000014EB3.07C: Presentation_PH
@@ -21748,8 +21756,10 @@ Affiliation: Overwatch (Formerly)
 000000014F60.07C: Reviving...
 000000014F62.07C: Revive!
 000000014F66.07C: Presentation_PH
+000000014F77.07C: Justice Reloaded
 000000014FC5.07C: <fg%1$s>ORB OF HARMONY</fg> GAINED FROM <fg%1$s>%2$s</fg>
 000000014FC6.07C: Orb of Harmony from %1$s
+000000014FCD.07C: Hide and Beak
 000000014FFA.07C: Fan
 000000014FFB.07C: Lantern
 000000014FFD.07C: Sparklers
@@ -21883,6 +21893,7 @@ Affiliation: Overwatch (Formerly)
 000000015422.07C: Heroic
 000000015423.07C: Disco
 000000015436.07C: Cyber Dragon
+000000015437.07C: Necromancer
 00000001543A.07C: Purchase %1$s?
 00000001543B.07C: Jump Pack Radius
 000000015443.07C: Sky Lantern
@@ -21895,6 +21906,7 @@ Affiliation: Overwatch (Formerly)
 000000015453.07C: USA - East 2
 000000015466.07C: Tier %1$s Reward
 000000015471.07C: Orb Recovery Time
+000000015477.07C: Browsing
 000000015479.07C: Good Kitty
 000000015492.07C: EDM
 00000001549D.07C: %1$s - %2$s
@@ -21937,6 +21949,9 @@ Affiliation: Overwatch (Formerly)
 0000000154E7.07C: Luchador
 0000000154E8.07C: You do not have enough currency
 0000000154ED.07C: Zenyatta Ultimate Cost
+0000000154F9.07C: Folklórica
+000000015501.07C: Crustacean
+000000015513.07C: Play as Cupid Hanzo with his favorite Scatter Arrow in Love of Geometry
 00000001551A.07C: Competitive CTF Hero 2022
 00000001551B.07C: Unlocked by achieving top 500 ranking at the end of Competitive Capture the Flag 2022
 00000001551C.07C: Competitive CTF Hero 2022
@@ -21956,10 +21971,10 @@ Affiliation: Overwatch (Formerly)
 000000015535.07C: Fuji
 000000015536.07C: Tanpopo
 000000015537.07C: Take
+00000001553C.07C: BATTLE PASS
 000000015541.07C: Jump into a game against other players of your skill level.
 00000001556C.07C: Wave %1$s / 12
 00000001556D.07C: Bonus Wave %1$s
-00000001557D.07C: Other Players Selecting Talents:   At most %1$s Seconds Left.
 000000015587.07C: Enraged!
 000000015605.07C: Witch
 000000015610.07C: -
@@ -21971,6 +21986,7 @@ Affiliation: Overwatch (Formerly)
 000000015633.07C: %1$s Push Distance
 000000015634.07C: Push Initial Checkpoint
 000000015638.07C: Royal Knight
+000000015639.07C: Beekeeper
 00000001563A.07C: BATTLE PASS
 00000001563B.07C: Rewards
 00000001563D.07C: Merry Outlaw
@@ -21995,6 +22011,7 @@ Affiliation: Overwatch (Formerly)
 0000000156A1.07C: %1$s (%2$s): Come to me for healing!
 0000000156A2.07C: %1$s (%2$s - %5$sm) to %3$s (%4$s): Come to me for healing!
 0000000156A6.07C: %1$s Has Reached Push Checkpoint
+0000000156AE.07C: Cyclops
 0000000156B4.07C: Grim Calling
 0000000156B5.07C: Unlocked by watching participating streams during Reaper's Code of Violence Challenge
 0000000156B6.07C: Crusader
@@ -22007,6 +22024,7 @@ Affiliation: Overwatch (Formerly)
 0000000156BD.07C: Unlocked by watching participating streams during Reaper's Code of Violence Challenge
 0000000156BE.07C: Code of Violence
 0000000156BF.07C: Unlocked by watching participating streams during Reaper's Code of Violence Challenge
+0000000156C0.07C: Visual Kei
 0000000156C3.07C: Matsuri
 0000000156E7.07C: Presentation_PH
 0000000156E8.07C: Damage Absorbed
@@ -22103,10 +22121,12 @@ Affiliation: Overwatch (Formerly)
 000000015897.07C: White Cat
 00000001589D.07C: Evermore
 0000000158A0.07C: Poison Dart
+0000000158AE.07C: Minotaur
 0000000158B5.07C: Presentation_PH
 0000000158BD.07C: Seasonal Play
 0000000158C1.07C: TIP:
 0000000158D5.07C: Neon Cat
+0000000158F4.07C: Cannon Up
 0000000158F5.07C: Negative |Rpl %1$s:Effect:Effects; Cleansed
 0000000158F6.07C: %1$s Negative |Rpl Effect:Effects; Cleansed
 0000000158F7.07C: Negative |Rpl %1$s:Effect:Effects; Cleansed - Most in Game
@@ -22157,6 +22177,7 @@ Affiliation: Overwatch (Formerly)
 000000015B43.07C: %1$s Secondary Critical |Rpl Hits:Hits;
 000000015B44.07C: Secondary Critical Hits; - Most in Game
 000000015B45.07C: %1$s Secondary Critical Hits; - Most in Game
+000000015B48.07C: Sublevel
 000000015B4B.07C: Mechatron
 000000015B4C.07C: Negative |Rpl %1$s:Effect:Effects; Cleansed - Avg per 10 Min
 000000015B4D.07C: %1$s Negative |Rpl Effect:Effects; Cleansed - Avg per 10 Min
@@ -22175,6 +22196,7 @@ Affiliation: Overwatch (Formerly)
 000000015B5E.07C: Slam 3 enemies into a wall with Doomfist's Empowered Rocket Punch in Quick or Competitive Play.
 000000015B71.07C: 21:9
 000000015B75.07C: Zeus
+000000015B79.07C: Medusa
 000000015B7E.07C: Happi
 000000015B83.07C: ENTERING GAME
 000000015B84.07C: Custom
@@ -22262,6 +22284,7 @@ Banked For Next Season
 000000015FC1.07C: Role: Tank
 000000015FC2.07C: Reduces knockbacks received.
 Less ultimate generated by healing and damage received.
+Increases base health in Role Queue game modes.
 000000015FC6.07C: Show Tutorial
 000000015FC7.07C: Continue
 000000015FD1.07C: Varsity 
@@ -22297,6 +22320,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000015FF6.07C: Owned
 000000015FF7.07C: Experience Required
 000000015FF8.07C: Tier Required
+000000015FFA.07C: Koi
 000000015FFE.07C: Upgrade to
 000000015FFF.07C: Gift
 000000016000.07C: Unlocks all premium Battle Pass Tiers
@@ -22319,6 +22343,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016016.07C: Presentation_PH
 000000016017.07C: DMG
 000000016018.07C: H
+00000001601F.07C: Street Runner
 00000001602D.07C: AMD FSR 1.0
 00000001602E.07C: Default
 00000001602F.07C: High Quality Upsampling
@@ -22470,7 +22495,7 @@ Play games and complete challenges to earn Battle Pass XP.
 00000001620F.07C: Play a variety of modes created by players!
 000000016211.07C: Presentation_PH
 00000001621B.07C: Ice Queen
-00000001621E.07C: %1$s (%2$s): I can't resurrect them yet. (%4$s s)
+00000001621E.07C: %1$s (%2$s): I can't resurrect them yet. (%7$s s)
 000000016220.07C: Season 35 Competitor
 000000016221.07C: Unlocked by completing Season 35 placement matches
 000000016222.07C: Season 35 Hero
@@ -22495,7 +22520,6 @@ Play games and complete challenges to earn Battle Pass XP.
 00000001623C.07C: Surprise and flank enemies so you get in close.
 00000001623D.07C: Use Death Blossom when your enemies are distracted by other members of your team to maximize its impact.
 00000001623E.07C: %1$s (%2$s): I'll resurrect them. Cover me!
-00000001623F.07C: %1$s (%2$s): I can't resurrect them yet.
 000000016240.07C: HDR
 000000016246.07C: Currently Unavailable for Beta
 000000016249.07C: [%1$s (%2$s)]
@@ -22553,7 +22577,6 @@ Play games and complete challenges to earn Battle Pass XP.
 0000000162B4.07C: Unlocked by completing Competitive Deathmatch 2022 placement matches
 0000000162B5.07C: Competitive Deathmatch Hero 2022
 0000000162B6.07C: Unlocked by achieving top 500 ranking at the end of Competitive Deathmatch 2022
-0000000162B7.07C: Overwatch League Promo Skins Away
 0000000162F1.07C: Confident
 0000000162F5.07C: Companion
 0000000162FE.07C: CHARGE
@@ -22618,6 +22641,7 @@ Play games and complete challenges to earn Battle Pass XP.
 0000000163FB.07C: %1$s (%2$s) stunned by Earthshatter
 0000000163FC.07C: %2$s <fg%1$s>stunned by Accretion</fg>
 0000000163FD.07C: %1$s (%2$s) stunned by Accretion
+0000000163FE.07C: Raijin
 00000001640D.07C: <fg%1$s>PUT</fg>%2$s <fg>%1$sTO SLEEP</fg>
 00000001640E.07C: Put %1$s (%2$s) to Sleep
 00000001640F.07C: Punker Queen
@@ -22766,6 +22790,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016660.07C: %1$s Time Played Since 2.09 OW2
 000000016663.07C: Inspect
 000000016666.07C: SHOP
+000000016685.07C: Ice Angel
 000000016686.07C: Battle Pass
 000000016688.07C: Zomnic
 00000001668A.07C: Shock-Tire
@@ -22856,6 +22881,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016746.07C: Gather at Pub Entrance
 000000016749.07C: Gather at the tavern
 0000000167CE.07C: Clear the ramparts
+0000000167CF.07C: Invisible Man
 0000000167D1.07C: Defeat the Gargoyles
 0000000167D4.07C: Snap Kick
 0000000167D5.07C: Quick melee damage increased by 50%%, and its knockback is significantly increased.
@@ -22866,11 +22892,12 @@ Play games and complete challenges to earn Battle Pass XP.
 0000000167DA.07C: Hologram
 0000000167DD.07C: Danza de los Diablos
 0000000167DF.07C: Finding Game
-0000000167E3.07C: Subtitles
+0000000167E3.07C: Game Subtitles
 0000000167E6.07C: Rope Pull
 0000000167E7.07C: Seasonal
 0000000167E9.07C: Pet Health
 0000000167EA.07C: Ping Sound Effects
+0000000167F2.07C: Cupid
 0000000167FA.07C: FTUE Debug:
 00000001681C.07C: https://blizz.ly/OWCrossProgression
 00000001681D.07C: Learn More About Cross Progression
@@ -22880,6 +22907,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016826.07C: Error Confirming |Rpl %1$s:Account:Accounts;
 000000016827.07C: Continue
 00000001682A.07C: Your data on your Battle.net account and console accounts will be merged for Overwatch 2.
+00000001682D.07C: Chasa
 00000001682F.07C: Tokens
 000000016830.07C: Competitive Points
 000000016832.07C: Cosmetics
@@ -22892,6 +22920,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016844.07C: Hold To Confirm Account
 00000001684F.07C: Barrier Health
 000000016852.07C: Switch Accounts
+000000016853.07C: Gingerbread
 00000001685E.07C: Damage Mitigated
 00000001685F.07C: %1$s Damage Mitigated
 000000016860.07C: Damage Mitigated - Avg per 10 Min
@@ -23049,6 +23078,7 @@ Play games and complete challenges to earn Battle Pass XP.
 00000001695F.07C: Push
 000000016960.07C: Long Range Final |Rpl %1$s:Blow:Blows;
 000000016961.07C: %1$s Long Range Final |Rpl Blow:Blows;
+000000016962.07C: Divine Monkey
 000000016963.07C: Long Range Final |Rpl %1$s:Blow:Blows; - Most in Game
 000000016964.07C: %1$s Long Range Final |Rpl Blow:Blows; - Most in Game
 000000016965.07C: Long Range Final |Rpl %1$s:Blow:Blows; - Avg per 10 Min
@@ -23521,6 +23551,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016D3A.07C: Unlock Gate
 000000016D72.07C: Go Snowball!
 000000016D73.07C: CANCEL
+000000016D76.07C: Demon Queen
 000000016D78.07C: Paraíso
 000000016D79.07C: Born to rule
 000000016D84.07C: Esperança
@@ -23533,6 +23564,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016DB0.07C: Destroy
 000000016DB1.07C: Destroy
 000000016DB4.07C: Complete %1$s Daily Challenges
+000000016DBE.07C: Punk
 000000016DC9.07C: SELECT
 000000016DCA.07C: Ok
 000000016DD0.07C: Competitive Progress
@@ -23566,6 +23598,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016E99.07C: Unlocked by achieving top 500 ranking at the end of Season 36
 000000016E9A.07C: Bundle
 000000016E9B.07C: Skin
+000000016E9D.07C: Biohazard
 000000016EA7.07C: Poseidon
 000000016EA9.07C: Sipping
 000000016EAC.07C: Get 2 killing blows with a single use of Cassidy's Magnetic Grenade in Quick or Competitive Play.
@@ -23574,6 +23607,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016EB4.07C: Frost Armor
 000000016EB7.07C: Lion Luchador
 000000016EB8.07C: Tiger Luchador
+000000016EB9.07C: Monkey Business
 000000016EBA.07C: Continue
 000000016EBB.07C: Season 36 Competitor
 000000016EBC.07C: Unlocked by completing Season 36 placement matches
@@ -23594,7 +23628,7 @@ Play games and complete challenges to earn Battle Pass XP.
 000000016F11.07C: PLAYER NAME + HERO
 000000016F12.07C: PLAYER NAME + TEAM, HERO
 000000016F16.07C: Close
-000000016F17.07C: Game Leaves: 
+000000016F17.07C: Games Abandoned:
 000000016F18.07C: Competitive Update
 000000016F1F.07C: GAME NOTIFICATIONS
 000000016F20.07C: SYSTEM MESSAGES
@@ -23652,11 +23686,14 @@ WARNING: Contains jumpscares
 000000017011.07C: LEGENDARY
 000000017012.07C: %1$s/%2$s Earned
 000000017013.07C: No Title
+00000001702B.07C: Hong Hai Er
+00000001702C.07C: Gold Medal
 00000001702D.07C: %1$s/%2$s
 00000001702E.07C: High tech, low tech...
 000000017033.07C: First Win of the Day
 000000017034.07C: Win a game.
 000000017035.07C: Are you sure you want to reset all accessibility settings?
+000000017036.07C: Sugar Bomb
 000000017038.07C: Playing to Win
 000000017039.07C: Win %1$s games.
 00000001703C.07C: Flex Your Power
@@ -23683,6 +23720,8 @@ WARNING: Contains jumpscares
 000000017069.07C: Welcome to Overwatch: Part 2 of 3
 00000001706C.07C: Competitive Play Qualification
 00000001706D.07C: Win %1$s games in Quick Play. Unlock: Competitive Play game modes.
+00000001706E.07C: Midnight Camo
+000000017077.07C: Amaterasu
 000000017078.07C: Tutorial
 00000001707B.07C: Complete
 00000001707D.07C: In Queue
@@ -23729,6 +23768,7 @@ WARNING: Contains jumpscares
 0000000170A8.07C: Some of the old...
 0000000170A9.07C: Refuge
 0000000170AA.07C: Stand up
+0000000170AB.07C: Part of the Season 2 Battle Pass
 0000000170AC.07C: Exist
 0000000170AD.07C: Available as part of the Watchpoint Pack
 0000000170AE.07C: A long way down
@@ -23809,6 +23849,7 @@ WARNING: Contains jumpscares
 00000001710A.07C: Health Pack
 00000001710B.07C: Donut
 00000001710D.07C: Double Dice
+00000001710E.07C: Blackwatch Logo
 00000001710F.07C: Offense Contest Time
 000000017110.07C: %1$s Offense Contest Time
 000000017111.07C: Defense Contest Time
@@ -23823,7 +23864,7 @@ WARNING: Contains jumpscares
 00000001711B.07C: %1$s Offense Contest Time - Avg per 10 Min
 00000001711C.07C: Assault Maps
 00000001711D.07C: Capture the objectives!
-00000001711E.07C: Legacy Credits
+00000001711E.07C: Credits
 00000001711F.07C: Cosmetics
 000000017120.07C: League Tokens
 000000017121.07C: Competitive Points
@@ -23882,6 +23923,7 @@ Error Code: BLZOWMIG60001
 00000001716B.07C: View Highlight
 00000001716C.07C: TEAM VOICE CHAT
 00000001716D.07C: GROUP VOICE CHAT
+00000001716F.07C: Kanezaka
 000000017176.07C: Role Queue Bonus: %1$s XP
 000000017179.07C: Coin Line
 00000001717A.07C: Win %1$s games in any Arcade mode.
@@ -23945,6 +23987,7 @@ Can’t wait to get started? Get equipped with the Watchpoint Pack, which includ
 It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 
 000000017228.07C: Update In Progress
+000000017229.07C: Empress
 00000001722A.07C: I do love neon
 00000001722C.07C: Fate is not without a sense of irony
 00000001722F.07C: Hinotori
@@ -23952,7 +23995,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017231.07C: PvP Challenges - Player - Emote Hello
 000000017233.07C: Your %1$s |Rpl Lootbox has:Lootboxes have; been opened!
 000000017234.07C: Due to the transition to Overwatch 2, all the Loot Boxes you have left in the game will automatically open.
-000000017235.07C: Overwatch Legacy Credits can be used for permanent items in the Hero Gallery.
+000000017235.07C: Overwatch Credits can be used for permanent items in the Hero Gallery.
 000000017236.07C: PvP Challenges - Player - Emote Thank You
 000000017237.07C: Continue
 000000017238.07C: First Time Setup
@@ -24055,6 +24098,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000172F9.07C: Check the Radio
 0000000172FB.07C: Kill 10 Training Bots (%1$s/10)
 0000000172FD.07C: PvP Challenges - Player - Ability Healing
+000000017308.07C: Win %1$s games in any Competitive mode.
 000000017309.07C: Season 1 End: Top 500
 00000001730A.07C: End the season ranked as Top 500 in Competitive Play. Only one rank challenge awarded.
 00000001730B.07C: Season 1 End: Grandmaster
@@ -24173,6 +24217,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000173AC.07C: Reduced
 0000000173B2.07C: Camera Shake
 0000000173B3.07C: HUD Shake
+0000000173B4.07C: Golfer: 76
 0000000173B6.07C: Color Blind Options
 0000000173B7.07C: Voice Test
 0000000173B8.07C: Volume
@@ -24431,6 +24476,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017662.07C: Battle Pass XP
 000000017663.07C: Battle Pass XP
 000000017664.07C: Battle Pass XP
+000000017677.07C: Screentime
 000000017678.07C: Display
 000000017685.07C: Purchase
 000000017699.07C: Complete 1 Challenge
@@ -24456,6 +24502,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000176FE.07C: Competitive Points
 0000000176FF.07C: Competitive Points
 000000017702.07C: Fly towards an ally. While in flight, Jump launches you forward, and Crouch launches you upward.
+000000017713.07C: Scurrying
 000000017717.07C: Unleashed
 000000017721.07C: PvP Challenges - Player - Arcade - Win
 000000017723.07C: PvP Challenges - Player - Any Competitive Mode - Played
@@ -24505,6 +24552,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017765.07C: +%1$s
 000000017768.07C: 500 Overwatch Coins
 000000017769.07C: 2000 Overwatch Coins
+00000001776A.07C: Death Stare
 000000017775.07C: PvP Challenges - Player - Quick Play - Win
 00000001777A.07C: Midtown
 00000001777B.07C: Drive your enemies back through the shadows of skyscrapers!
@@ -24514,6 +24562,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000177A4.07C: PvP Challenges - Player - Complete Games in Group
 0000000177A7.07C: PvP Challenges - Player - Roadhog - Hook During Ult
 0000000177AE.07C: PvP Challenges - Player - Queued as All Roles - Played
+0000000177B2.07C: Deathmatch
 0000000177B3.07C: PvP Challenges - Player - Arcade - CTF - Win
 0000000177B5.07C: PvP Challenges - Player - Deathmatch - Win
 0000000177B7.07C: PvP Challenges - Player - Arcade - Team Deathmatch - Win
@@ -24531,19 +24580,25 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000177CB.07C: Diamond Challenger
 0000000177D2.07C: PvP Challenges - Player - Healing Done
 0000000177D3.07C: %1$s Healing Done
+0000000177E4.07C: OWL GLA Home 2022
+0000000177EF.07C: OWL NYE Home 2022
+0000000177F3.07C: OWL Seoul Infernal home 2022
 0000000177FC.07C: Hero Gallery
 0000000177FD.07C: Visit the hero gallery to view %1$s’s ultimate and abilities.
 0000000177FE.07C: New %1$s Hero Unlocked
 00000001780F.07C: Premium Battle Pass (Season 1)
-000000017811.07C: PvP Challenges - Player - TEMP - Competitive End of Season
 000000017812.07C: Empty
 000000017814.07C: PvP Challenges - Player - Wins
 000000017816.07C: PvP Challenges - FTUE - All Heroes - Guided Practice Range Completion
+00000001781A.07C: Honey Bee
 000000017839.07C: Cross Progression is here!
-00000001783A.07C: Legacy Credits
+00000001783A.07C: Credits
 00000001783B.07C: PvP Challenges - Player - Damage Mitigation
 000000017840.07C: PvP Challenges - Player - Players Saved
 000000017843.07C: PvP Challenges - Player - Ultimates Used
+000000017845.07C: Battle for Olympus
+000000017848.07C: Battle for Olympus
+000000017849.07C: Champions of Olympus battle for immortal glory
 00000001784B.07C: Push - Low Gravity
 00000001784C.07C: Push - No Limits
 000000017863.07C: PvP Challenges - Player - Eliminations
@@ -24571,6 +24626,9 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 00000001788D.07C: Armor
 00000001788E.07C: Weapon
 00000001788F.07C: Color
+000000017890.07C: Hair
+000000017891.07C: Weapon
+000000017892.07C: OWL PAR Home
 000000017894.07C: Listen to Athena
 0000000178A2.07C: Focus
 0000000178AA.07C: CHANGE USER
@@ -24582,6 +24640,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000178BC.07C: %1$s ITEMS
 0000000178C0.07C: Provoke
 0000000178C2.07C: Void Accelerator
+0000000178D9.07C: Crown
 0000000178DD.07C: Victory Sign
 0000000178DE.07C: Planet
 0000000178DF.07C: Prestige Tiers Completed!
@@ -24628,6 +24687,8 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017982.07C: Tier 55 Rewards
 000000017983.07C: Tier 80 Rewards
 0000000179A8.07C: Skin
+0000000179CD.07C: Headbanging
+0000000179CF.07C: Dainty
 0000000179D4.07C: Changing User. Are you sure?
 0000000179DF.07C: Continue
 0000000179ED.07C: PvP Challenges - Player - Hero Unlock - Games Played with Bonus Progress Wins
@@ -24677,7 +24738,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017A5B.07C: Mission Designers
 000000017A5C.07C: Level Designers
 000000017A5D.07C: Production Manager
-000000017A5E.07C: Production Leads
+000000017A5E.07C: Associate Production Directors
 000000017A5F.07C: HR
 000000017A60.07C: Community
 000000017A61.07C: Global Communications
@@ -24832,6 +24893,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017B1B.07C: PvP Challenges - Player - Daily Challenges Completed
 000000017B1D.07C: PvP Challenges - Player - Queued as All Roles - Win
 000000017B1F.07C: PvP Challenges - Player - Arcade - Non Deathmatch Aracde - Win
+000000017B25.07C: On The Shoulder
 000000017B26.07C: Best Halloween (Story) Score
 000000017B27.07C: %1$s Best Halloween (Story) Score
 000000017B28.07C: Reduce menu movement
@@ -24849,7 +24911,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017B5B.07C: 11,600
 000000017B5C.07C: 16%% Bonus
 000000017B60.07C: Shoulder Pad
-000000017B73.07C: Skill Tier and Division adjust after every 7 wins or 20 losses/ties
+000000017B73.07C: Skill Tier and Division adjust after every %1$s wins or %2$s losses/ties
 000000017B75.07C: PvP Challenges - Player - Count Vs AI - Role - Tank - Win
 000000017B77.07C: Souvenir
 000000017B78.07C: Weapon Charm
@@ -24920,9 +24982,9 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017BCC.07C: Competitive Points
 000000017BCD.07C: Competitive
 000000017BCF.07C: Most challenges cannot be completed in Custom Games or Practice Vs AI.
+000000017BD5.07C: Pounce
 000000017BD6.07C: Difficulty Selection
 000000017BD7.07C: |Rfd %1$s:H:mm:ss;
-000000017BDD.07C: Battle Pass
 000000017BDF.07C: Current Tier
 000000017BE0.07C: Total %1$s XP
 000000017BE3.07C: Reached Battle Pass Tier %1$s!
@@ -24936,6 +24998,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017C0A.07C: Available through a regional promotion. Available in Hero Gallery starting November.
 000000017C0B.07C: Squelch %1$s Chat
 000000017C10.07C: Not enough room to join match
+000000017C12.07C: Crushing Blow
 000000017C13.07C: Detachment
 000000017C14.07C: Discipline
 000000017C15.07C: Reverence
@@ -24947,6 +25010,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017C1B.07C: Peek Inside
 000000017C1C.07C: Buy Premium
 000000017C1D.07C: Buy Premium + 20 Bonus Tiers
+000000017C1E.07C: Hu Tou Mao
 000000017C25.07C: Challenges
 000000017C2B.07C: %1$s %2$s
 000000017C43.07C: PvP Challenges - Player - Hero - Sojourn - Win
@@ -24970,6 +25034,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000017C70.07C: Win %1$s games as Kiriko.
 0000000184BE.07C: Shambali
 000000018573.07C: PvP Challenges - Player - Placeholder Stat
+000000018576.07C: Pearlescent
 000000018578.07C: Match Voice Chat
 00000001857B.07C: Laughter
 00000001857F.07C: Trident
@@ -25041,6 +25106,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000018617.07C: Win Wrath of the Bride as 4 different heroes.
 000000018618.07C: No Spark
 000000018619.07C: Win Wrath of the Bride without letting the Lord of the Castle take any damage.
+000000018628.07C: Screentime
 00000001862D.07C: Primordial
 00000001863F.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Sojourn
 000000018640.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win With Hero - Queen
@@ -25053,12 +25119,14 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 000000018669.07C: If you feel scared, just close your eyes.
 00000001866A.07C: The Witch has not been seen in Adlersbrunn for some time, but rumor says she still haunts the town.
 00000001866B.07C: You are not safe, even in your dreams.
+00000001868D.07C: Weapon Damage
+00000001868E.07C: Weapon Damage
+00000001868F.07C: Weapon Damage
 000000018690.07C: The Monster was Junkenstein's first abomination, but not the only one...
 000000018693.07C: Have you ever wondered if words can drive you mad?
 000000018694.07C: There is still time to turn back.
 000000018695.07C: Did you know? The Bride never forgets, nor forgives.
 000000018696.07C: She will find you.
-0000000186A9.07C: Ends In %1$s!
 0000000186AA.07C: Best Halloween (Story) Score
 0000000186AB.07C: %1$s Best Halloween (Story) Score
 0000000186AE.07C: Halloween Terror 2022
@@ -25071,6 +25139,7 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 0000000186B8.07C: Defeat the Bride
 0000000186BD.07C: Allows Locked Heroes
 0000000186BE.07C: The witch named Kiriko specializes in divination, a rare skill seen as a gift by some... and a curse by others. Her visions always lead her to where she's needed most.
+000000018702.07C: Captive Sun Mag Size
 000000018742.07C: Scry Some More
 000000018744.07C: PvE Challenges - Player - Event - Halloween - OW1 - Normal - Win a Game
 000000018747.07C: Tarot Reading
@@ -25091,12 +25160,13 @@ It’s almost time, heroes… we’ll see you soon in Overwatch 2!
 00000001876B.07C: PvE Challenges - Player - Event - Halloween - OW1 - Tires - Win a Game
 00000001876C.07C: PvE Challenges - Player - Event - Halloween - OW1 - Boom - Win a Game
 00000001876D.07C: PvE Challenges - Player - Event - Halloween - OW1 - Mystery - Win a Game
+000000018780.07C: Night to Day
 000000018785.07C: Win Junkenstein's Revenge on any difficulty.
 00000001878E.07C: The Wanderers of Old
 00000001878F.07C: The Endless Night Began
 000000018790.07C: Complete Wave 12 in Junkenstein Endless.
-0000000187A3.07C: Tune in starting 10/30
 0000000187B9.07C: Ilios
+0000000187C4.07C: Unsinkable
 0000000187C6.07C: Competitive Challenge
 0000000187C7.07C: Event Challenge
 0000000187E5.07C: Unfinished Business
@@ -25135,6 +25205,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018828.07C: OWL Turns 5
 00000001882A.07C: Grand Finals 1
 00000001882C.07C: New Fans
+00000001882F.07C: Crushed
 000000018849.07C: PvE Challenges - Player - Event - Halloween - 2022 - WOTB - Win On Hard
 00000001884A.07C: Taking the Plunge
 00000001884B.07C: Win Wrath of the Bride on Hard difficulty.
@@ -25148,6 +25219,9 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 00000001885D.07C: Travelling Monk
 000000018876.07C: The Lord of Adlersbrunn was not saved
 000000018878.07C: Unlocked by completing the Wedding Planner challenge from the Halloween Terror event.
+00000001887D.07C: Healing Amount
+00000001888B.07C: Weapon Damage Min
+00000001888C.07C: Weapon Damage Max
 00000001889F.07C: Down for
 0000000188B0.07C: Royal Gladiator 
 0000000188B3.07C: SURVIVAL BONUS! +%1$s pts
@@ -25167,6 +25241,8 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018904.07C: The Summoner
 000000018907.07C: HEROES: Ashe, Junker Queen, Sojourn, Kiriko
 000000018908.07C: VICTORY: Defeat The Bride and her allies
+000000018913.07C: Mob Boss
+000000018918.07C: Taking A Call
 000000018919.07C: Wrath of the Bride
 00000001891A.07C: Bundled price comparison based on acquiring each item separately.  Bundle discount will still be applied to remaining items if one or more bundle items are already in player’s inventory.
 000000018923.07C: Training
@@ -25175,6 +25251,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018934.07C: Down...
 000000018935.07C: Down!
 00000001894B.07C: Resurrect %1$s
+000000018952.07C: Rock On!
 000000018999.07C: |Rpl %1$s:Incapacitation:Incapacitations;
 00000001899A.07C: %1$s |Rpl Incapacitation:Incapacitations;
 0000000189A3.07C: Junkenstein 2022 Wins
@@ -25184,13 +25261,16 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 0000000189CE.07C: Shambali Monastery
 0000000189E4.07C: Lyre
 0000000189E6.07C: Cerberus
+0000000189E7.07C: Winged Sandals
 0000000189E8.07C: Trident
 0000000189E9.07C: Salt
 0000000189EC.07C: CHECKPOINT RESTORE
+0000000189F5.07C: Galactic
 000000018A00.07C: 
 000000018A02.07C: Yin
 000000018A03.07C: Void Accelerator
 000000018A04.07C: Restrained
+000000018A06.07C: Cupid's Kiss
 000000018A07.07C: Awakening
 000000018A08.07C: Ravenous Vortex
 000000018A19.07C: Sparring
@@ -25260,10 +25340,12 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018AC3.07C: %1$s Damage Blocked - Avg per 10 Min
 000000018AC4.07C: Damage Blocked - Most in Game
 000000018AC5.07C: %1$s Damage Blocked - Most in Game
+000000018ACA.07C: Necromancer
 000000018AD3.07C: PvP Challenges - Player - OW2 Hero Unlock - Kiriko - Games Won
 000000018ADA.07C: PvP Challenges - Player - OW2 Hero Unlock - Junker Queen - Games Won
 000000018ADB.07C: PvP Challenges - Player - OW2 Hero Unlock - Sojourn- Games Won
 000000018ADD.07C: Shambali
+000000018ADE.07C: Breaching
 000000018ADF.07C: Unlock Throne Room
 000000018AE0.07C: Please return to login for your account changes to take effect.
 000000018AE1.07C: D.Va: Icon
@@ -25271,8 +25353,10 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018AE3.07C: PvP Challenges - Player - Hero - Dva - Win
 000000018AE4.07C: D.Va: Bunny
 000000018AE5.07C: Win %1$s games as D.Va.
+000000018AEA.07C: Subtitle Size
 000000018AF3.07C: RANDOM
 000000018AF4.07C: Fight for myself
+000000018AF5.07C: Constellation
 000000018AF6.07C: Doomfist: Fist
 000000018AF7.07C: Win %1$s games as Doomfist.
 000000018AF8.07C: PvP Challenges - Player - Hero - Doomfist - Win
@@ -25391,7 +25475,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018B6B.07C: Win %1$s games as Hanzo.
 000000018B6C.07C: Junkrat: Have a Nice Day
 000000018B6D.07C: Win %1$s games as Junkrat.
-000000018B6E.07C: Lucio: Kamb
+000000018B6E.07C: Lucio: Kambô
 000000018B6F.07C: Win %1$s games as Lucio.
 000000018B70.07C: Mei: Snowball
 000000018B71.07C: Win %1$s games as Mei.
@@ -25443,18 +25527,6 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018B9F.07C: Season 2 OpenQueue
 000000018BA0.07C: Competitive Season 2 - Open Queue
 000000018BA1.07C: Competitive Season 2
-000000018BB0.07C: Hero of Shambali
-000000018BB1.07C: Win %1$s games in Shambali Monastery.
-000000018BB2.07C: Beyond Repair
-000000018BB3.07C: Earn %1$s eliminations while inside the Repair Shop in Shambali Monastery.
-000000018BB4.07C: Tunnel Tactics
-000000018BB5.07C: Earn %1$s eliminations in the tunnel area in Shambali.
-000000018BB6.07C: Attain Mastery
-000000018BB7.07C: Earn %1$s eliminations under the gaze of the four masters in Shambali Monastery.
-000000018BBD.07C: Nemesis Form: Piercing Pummels
-000000018BBE.07C: As Ramattra, deal %1$s damage through barriers with Pummel while in Nemesis form.
-000000018BBF.07C: Ravenous Vortex: Grounded
-000000018BC0.07C: Get an elimination on a hero grounded by Ramattra's Ravenous Vortex.
 000000018BC2.07C: Call me Cyclops
 000000018BC4.07C: Real life
 000000018BC5.07C: Smited or smitten
@@ -25468,12 +25540,6 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018BCD.07C: Tracer-thon
 000000018BCE.07C: How high
 000000018BCF.07C: Justice is cruel
-000000018BD3.07C: PvP Challenges - Player - Map - Shambali Monastery
-000000018BD4.07C: PvP Challenges - Player - Eliminations - Shambali Repair Shop
-000000018BD5.07C: PvP Challenges - Player - Eliminations - Shambali Tunnel
-000000018BD6.07C: PvP Challenges - Player - Eliminations - Shambali Four Masters Statues
-000000018BD7.07C: PvP Challenges - Player - Ramattra - Eliminate Aerial Heroes with Ravenous Vortex
-000000018BD8.07C: PvP Challenges - Player - Ramattra - Deal Damage through Barriers with Pummel
 000000018BD9.07C: Season 2: Role Queue Competitor
 000000018BDA.07C: Win %1$s games in Competitive Play's Role Queue.
 000000018BDB.07C: Season 2: Veteran Competitor
@@ -25500,26 +25566,31 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018BF0.07C: Qualify for competitive rewards and end the season ranked as Diamond in Competitive Play. Only one rank challenge awarded.
 000000018BF1.07C: Season 2 End: Bronze
 000000018BF2.07C: Qualify for competitive rewards and end the season ranked as Bronze in Competitive Play. Only one rank challenge awarded.
-000000018BF3.07C: Kiriko
+000000018BF3.07C: Unlock Kiriko
 000000018BF4.07C: Complete all Kiriko unlock challenges.
-000000018BF5.07C: Junker Queen
+000000018BF5.07C: Unlock Junker Queen
 000000018BF6.07C: Complete all Junker Queen unlock challenges.
-000000018BF7.07C: Sojourn
+000000018BF7.07C: Unlock Sojourn
 000000018BF8.07C: Complete all Sojourn unlock challenges.
 000000018C0C.07C: More Options
 000000018C25.07C: Purchase Hero
+000000018C38.07C: Dōzo
 000000018C44.07C: Shape up
 000000018C46.07C: Plutomari
 000000018C48.07C: Poseidomari
 000000018C4A.07C: Shockimari
 000000018C4B.07C: Botanist
 000000018C4D.07C: Dance Machine
+000000018C4E.07C: Biohazard
+000000018C52.07C: Hermes
 000000018C61.07C: Winged Helm
 000000018C63.07C: Medusa
 000000018C64.07C: Camellia
 000000018C65.07C: Pegasus
 000000018C66.07C: Breaking News
 000000018C6E.07C: GO TO CHALLENGES
+000000018C6F.07C: Competitive CTF
+000000018C70.07C: Rise up the ranks and compete with the best Capture The Flag players in the world!
 000000018C75.07C: Botanist
 000000018C77.07C: Zeus
 000000018C78.07C: Hades
@@ -25528,7 +25599,6 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018C7B.07C: Street Urchin
 000000018C84.07C: Select
 000000018C86.07C: Thanks for Playing
-000000018C87.07C: Season 1
 000000018C88.07C: Premium Battle Pass (Season 2)
 000000018C94.07C: AVAILABLE IN CHALLENGES
 000000018C95.07C: Rewards:
@@ -25536,6 +25606,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018C98.07C: Role Queue
 000000018C99.07C: Open Queue
 000000018C9B.07C: Play more games to unlock
+000000018C9F.07C: Snow Angel
 000000018CA0.07C: Competitive CTF OW2 Season 1
 000000018CA1.07C: Overwatch Path to Pro 2022
 000000018CA3.07C: Classic
@@ -25545,15 +25616,12 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018CA8.07C: Annihilation Efficiency %1$s per Use
 000000018CC9.07C: Annihilation Efficiency
 000000018D06.07C: Season 2
-000000018D07.07C: The highest reward rank you've reached:
+000000018D07.07C: Final Rewards Rank:
 000000018D08.07C: %1$s - %2$s 
-000000018D09.07C: Shambali
-000000018D0A.07C: Experience tranquility and epic team-based action in the newest Escort map.
-000000018D0B.07C: Personify the power of Mount Olympus with new cosmetic items inspired by the myths of Ancient Greece.
-000000018D0D.07C: Ramattra
-000000018D0E.07C: New Tank Hero
+000000018D0B.07C: A new season brings new events and rewards to earn, from Ultimate Valentine, to Pachimarchi, and more!
+000000018D10.07C: Constellations
 000000018D11.07C: New Map
-000000018D12.07C: Season 2
+000000018D31.07C: #%1$s
 000000018D33.07C: Competitive Capture The Flag
 000000018D34.07C: Botanist
 000000018D35.07C: Amphora
@@ -25590,7 +25658,29 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018D61.07C: Special Rewards
 000000018D7A.07C: Price automatically reduced due to one or more bundle items in your inventory.
 000000018D8B.07C: Part of the Season 1 Battle Pass
+000000018D8D.07C: Syringe
+000000018D8F.07C: Rocker
+000000018D90.07C: Scuttle along
+000000018D92.07C: Candy Cane
+000000018D93.07C: Snowflake
+000000018D95.07C: Petrified Hammond
+000000018D96.07C: Koi
 000000018D97.07C: Constellations
+000000018D98.07C: Labyrinth
+000000018D99.07C: Medusa
+000000018D9A.07C: Aztec
+000000018D9B.07C: Coastal
+000000018D9C.07C: Visual Kei Mic
+000000018D9F.07C: Minotaur
+000000018DA0.07C: Aztec
+000000018DA1.07C: Visual Kei
+000000018DA2.07C: Owl Guardian
+000000018DA3.07C: Koi
+000000018DA5.07C: You won't sink my battleship!
+000000018DA6.07C: Birds of a feather get healed together
+000000018DA7.07C: Owl Guardian
+000000018DA8.07C: Minotaur
+000000018DA9.07C: Hermes
 000000018E26.07C: PvE Challenges - Player - Event - Winter - 2022 Win Yeti Hunter With Yeti
 000000018E27.07C: PvE Challenges - Player - Event - Winter - 2022 Win Yeti Hunter With Mei
 000000018E29.07C: PvE Challenges - Player - Event - Winter - 2022 Thaw N Allies
@@ -25600,7 +25690,7 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018E2F.07C: Win a game in Freezethaw Elimination.
 000000018E31.07C: PvE Challenges - Player - Event - Winter - 2022 Win Freezethaw Elimination
 000000018E33.07C: PvE Challenges - Player - Event - Winter - 2022 Win Snowball Deathmatch
-000000018E35.07C: PvE Challenges - Player - Event - Winter - 2022 Win Snowball Offensive
+000000018E35.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Wins
 000000018E36.07C: Snowstorm
 000000018E37.07C: Win a game in Snowball Deathmatch.
 000000018E38.07C: Time for Cocoa
@@ -25615,21 +25705,41 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018E41.07C: Catch %1$s snowballs in Snowball Deathmatch.
 000000018E42.07C: Block of Ice
 000000018E43.07C: Block %1$s snowballs with Cryo-Freeze or Ice Wall in Snowball Deathmatch or Mei's Snowball Offensive.
-000000018E4B.07C: Short-range spray weapon that freezes enemies.
+000000018E44.07C: The Excogitator
 000000018E54.07C: %1$s (%2$s): Fall back! %3$s
+000000018E55.07C: CTF Season 2 End: Top 500
+000000018E56.07C: End the season ranked as Top 500 in Competitive CTF. Only one rank challenge awarded.
+000000018E57.07C: CTF Season 2 End: Grandmaster
+000000018E58.07C: End the season ranked as Grandmaster in Competitive CTF. Only one rank challenge awarded.
+000000018E59.07C: CTF Season 2 End: Master
+000000018E5A.07C: End the season ranked as Master in Competitive CTF. Only one rank challenge awarded.
 000000018E5B.07C: To Unbind
+000000018E5C.07C: CTF Season 2 End: Diamond
+000000018E5D.07C: End the season ranked as Diamond in Competitive CTF. Only one rank challenge awarded.
+000000018E5E.07C: CTF Season 2 End: Platinum
+000000018E5F.07C: End the season ranked as Platinum in Competitive CTF. Only one rank challenge awarded.
+000000018E60.07C: CTF Season 2 End: Gold
+000000018E61.07C: End the season ranked as Gold in Competitive CTF. Only one rank challenge awarded.
+000000018E62.07C: CTF Season 2 End: Silver
+000000018E63.07C: End the season ranked as Silver in Competitive CTF. Only one rank challenge awarded.
+000000018E64.07C: CTF Season 2 End: Bronze
+000000018E65.07C: End the season ranked as Bronze in Competitive CTF. Only one rank challenge awarded.
+000000018E72.07C: Determined Flag Runner
+000000018E73.07C: Win %1$s games in Competitive CTF. (Mode currently not available.)
+000000018E74.07C: Unparalleled Flag Runner
+000000018E75.07C: Win %1$s games in Competitive CTF.  (Mode currently not available.)
 000000018E76.07C: Mitzi
+000000018E7A.07C: Crusader Helm
 000000018E7F.07C: Lion’s Drink
 000000018E80.07C: %1$s target hit by EMP
 000000018E81.07C: Ramattra Silhouette
 000000018E83.07C: Target
 000000018E86.07C: Complete 6 Winter Wonderland Challenges.
 000000018E87.07C: Season's Greetings
-000000018E89.07C: Double Match XP
-000000018E8A.07C: Triple Match XP
 000000018E8B.07C: Season 2: Competitive Rewards Qualification
 000000018E8C.07C: Win %1$s games in Competitive Play.
 000000018E8D.07C: PvP Challenges - Player - Competitive Play - Win
+000000018E9A.07C: PvP Challenges - Player - Competitive CTF - Win
 000000018EA8.07C: Trident
 000000018EB0.07C: Available through a log-in promotion. Available in Hero Gallery starting Season 2
 000000018ED9.07C: Evening
@@ -25676,6 +25786,20 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018F02.07C: Vancouver Titans Away
 000000018F03.07C: Washington Justice
 000000018F04.07C: Washington Justice Away
+000000018F05.07C: View Competitive Progress
+000000018F06.07C: Competitive Points
+000000018F07.07C: Competitive Points
+000000018F08.07C: Competitive Points
+000000018F09.07C: Competitive Points
+000000018F0A.07C: Competitive Points
+000000018F0B.07C: Competitive Points
+000000018F0C.07C: Competitive Points
+000000018F0E.07C: Top 500 Flag Bearer
+000000018F0F.07C: Grandmaster Flag Bearer
+000000018F10.07C: Master Flag Bearer
+000000018F11.07C: Diamond Flag Bearer
+000000018F14.07C: Determined Flag Runner
+000000018F15.07C: Unparalleled Flag Runner
 000000018F1E.07C: Festive Wreath
 000000018F1F.07C: Snowman Head
 000000018F83.07C: Florida Mayhem_02
@@ -25694,7 +25818,17 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000018F96.07C: Weapon Charm
 000000018FA3.07C: Challenge Complete: %1$s
 000000018FD2.07C: Account Merge Pending
+000000018FD7.07C: Season 3 Battle Pass
+000000018FD8.07C: Tier 1 Rewards
+000000018FD9.07C: Tier 55 Rewards
+000000018FDA.07C: Tier 80 Rewards
+000000018FDB.07C: Season 3
+000000018FDC.07C: Season 3
 000000018FDD.07C: Challenge Complete: %1$s
+000000018FDE.07C: Competitive Season 3
+000000018FDF.07C: Season 3 OpenQueue
+000000018FE0.07C: Season 3 OpenQueue
+000000018FE1.07C: Competitive Season 3 - Open Queue
 000000018FE4.07C: Challenge Complete: %1$s
 000000018FE7.07C: Challenge Complete: %1$s
 000000018FE8.07C: Battle Pass XP
@@ -25770,6 +25904,15 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000019067.07C: %1$s
 000000019068.07C: New Hero: Kiriko unlocked!
 000000019069.07C: %1$s
+000000019091.07C: Streamer Mode (Client Only)
+000000019094.07C: Hide My Name
+000000019095.07C: Hide Other Player Names
+000000019096.07C: Hide Replay Codes
+000000019098.07C: Hide Queue Time
+000000019099.07C: Random Queue Delay
+00000001909A.07C: Minimum Queue Delay
+00000001909B.07C: Maximum Queue Delay
+00000001909C.07C: Toggle Hide Other Player Names
 0000000190AB.07C: Unlocked by completing the Block of Ice challenge from the Winter Wonderland event.
 0000000190AC.07C: Unlocked by completing the Abominable challenge from the Winter Wonderland event.
 0000000190AD.07C: Unlocked by completing the Warmhearted challenge from the Winter Wonderland event.
@@ -25780,6 +25923,9 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 0000000190C1.07C: Complete all challenges to unlock %1$s
 0000000190C2.07C: Activate Challenges
 0000000190C5.07C: %1$s of %2$s
+0000000190C8.07C: Triage
+0000000190D4.07C: Lucky Pouch
+0000000190D6.07C: Hongbao
 000000019137.07C: Mortal
 000000019139.07C: Philosopher
 00000001913B.07C: Argonaut
@@ -25801,27 +25947,678 @@ Complete event challenges to earn a Jack-o-Lantern weapon charm and other fun co
 000000019184.07C: All Sojourn unlock challenges complete.
 000000019185.07C: %1$s
 00000001918D.07C: Health
+000000019199.07C: Use System HDR Calibration
 00000001919D.07C: Dawn
 0000000191A3.07C: Gorgon Coin
+0000000191A5.07C: Tactical
 0000000191BF.07C: Role Queue Bonus: %1$s XP
 0000000191C0.07C: Role Queue Bonus: %1$s XP
 0000000191C1.07C: Role Queue Bonus: %1$s XP
 0000000191C2.07C: Role Queue Bonus: %1$s XP
 0000000191C3.07C: Role Queue Bonus: %1$s XP
 0000000191C4.07C: Role Queue Bonus: %1$s XP
+0000000191E7.07C: Event Ends Jan 19
+0000000191E9.07C: Complete event challenges to earn the Winged Victory Mercy Legendary skin and other fun cosmetics!
+0000000191EA.07C: Champions of Olympus battle for immortal glory!
+The top champion will have a statue made in their form!
 00000001920C.07C: Rewards
 00000001920D.07C: Icons
 000000019233.07C: Yang
 00000001924B.07C: Hero Unlocks
 00000001924C.07C: %1$s / 19
+000000019282.07C: Zeus's Favorite Child
+000000019284.07C: Pride of Poseidon
+000000019285.07C: Sentinel of Hades
+000000019286.07C: Herald of Hermes
+000000019287.07C: Master of Minotaurs
+000000019288.07C: Acolyte of Medusa
+000000019289.07C: Scion of Cyclops
+00000001928E.07C: Hero Portrait
+00000001928F.07C: Unlocked by completing the Auspicious Victories challenge from the Year of the Rabbit event.
+000000019290.07C: Year of the Rabbit
+000000019291.07C: Unlocked by completing the Mark of the Rabbit challenge from the Year of the Rabbit event.
+00000001929C.07C: Year of the Rabbit 2023
+00000001929D.07C: Year of the Rabbit
+00000001929E.07C: Unlocked by completing the Lucky Rabbit challenge from the Year of the Rabbit event.
+00000001929F.07C: *****
 0000000192A4.07C: Hero Unlocked
+0000000192A6.07C: Divine Power
+0000000192A7.07C: Hades can move during Rocket Barrage. Afterward, Rocket Launcher fires three-headed Cerberus Rockets for 15 seconds. Killing blows extend this duration and heal Hades.
+0000000192AA.07C: Olympian Champion
+0000000192AB.07C: Win %1$s games in Battle for Olympus.
+0000000192AC.07C: Seasonal
+0000000192AD.07C: Skull & Wings
+0000000192B0.07C: Battle Pass XP
+0000000192B1.07C: Omamori
+0000000192B2.07C: Lucky Cat
+0000000192B3.07C: Demon Queen Mask
+0000000192B4.07C: Turtle Ship
+0000000192B5.07C: Divine Power
+0000000192B6.07C: Zeus becomes charged with electricity for 25 seconds, causing all weapons and abilities to zap enemies for extra damage.
+0000000192B8.07C: Divine Power
+0000000192B9.07C: The Cyclops greatly increases in size for 16 seconds, doubling his health and converting his weapon to hurl devastating boulders.
 0000000192BC.07C: 
+0000000192BD.07C: Divine Power
+0000000192BE.07C: Poseidon enters an empowered Nemesis Form for 20 seconds, blasting a torrent of water with each punch and giving Ravenous Vortex a violent whirlpool that pulls in enemies.
+0000000192BF.07C: Divine Power
+0000000192C0.07C: The Minotaur empowers Charge for 20 seconds, gaining the ability to carry multiple enemies and instantly killing those pinned. Additionally, the Minotaur heals when killing enemies in this way and killing blows extend his rampage.
+0000000192C1.07C: Divine Power
+0000000192C2.07C: Medusa unveils her petrifying gaze for 25 seconds, turning enemies to stone if they look at her while she is scoped in.
+0000000192C3.07C: Divine Power
+0000000192C4.07C: Hermes moves swiftly for 20 seconds, greatly increasing movement speed and gaining infinite ammo.
+0000000192C5.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Ramattra
+0000000192C8.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Junker Queen
+0000000192C9.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Reinhardt
+0000000192CA.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Roadhog
+0000000192CB.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Pharah
+0000000192CC.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Widowmaker
+0000000192CD.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Final Blows - Lucio
+0000000192CE.07C: Pride of Poseidon
+0000000192CF.07C: Earn %1$s final blows as Poseidon Ramattra.
+0000000192D0.07C: Zeus's Favorite Child
+0000000192D1.07C: Earn %1$s final blows as Zeus Junker Queen.
+0000000192D2.07C: Master of Minotaurs
+0000000192D3.07C: Earn %1$s final blows as Minotaur Reinhardt.
+0000000192D4.07C: Scion of Cyclops
+0000000192D5.07C: Earn %1$s final blows as Cyclops Roadhog.
+0000000192D6.07C: Sentinel of Hades
+0000000192D7.07C: Earn %1$s final blows as Hades Pharah.
+0000000192D8.07C: Acolyte of Medusa
+0000000192D9.07C: Earn %1$s final blows as Medusa Widowmaker.
+0000000192DA.07C: Herald of Hermes
+0000000192DB.07C: Earn %1$s final blows as Hermes Lucio.
+0000000192DE.07C: Thank you for endorsing!
+0000000192E1.07C: Mark of the Rabbit
+0000000192E2.07C: Win %1$s games in Bounty Hunter.
+0000000192E3.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - Bounty Hunter - Wins
+0000000192E4.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF - Wins
+0000000192E5.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF Blitz - Wins
+0000000192E9.07C: UNLOCK
 0000000192EA.07C: Challenges Active
+0000000192EE.07C: Battle Pass XP
+0000000192EF.07C: Lucky Rabbit
+0000000192F0.07C: Win %1$s games in CTF or Competitive CTF.
+0000000192F1.07C: Auspicious Victories
+0000000192F2.07C: Win %1$s games in CTF Blitz.
 0000000192F3.07C: Heroes Unlocked
+0000000192F4.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Junker Queen
+0000000192F5.07C: Voice of Zeus
+0000000192F6.07C: Earn %1$s final blows with Zeus Junker Queen during her ultimate.
+0000000192F9.07C: Battle Pass XP
+0000000192FA.07C: Ramen Cup
+0000000192FC.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Ramattra
+0000000192FD.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Reinhardt
+0000000192FE.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Roadhog
+0000000192FF.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Pharah
+000000019300.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Widowmaker
+000000019301.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Final Blows - Lucio
+000000019302.07C: Voice of Poseidon
+000000019303.07C: Earn %1$s final blows with Poseidon Ramattra during his ultimate.
+000000019304.07C: Voice of the Minotaur
+000000019305.07C: Earn %1$s final blows with Minotaur Reinhardt during his ultimate.
+000000019306.07C: Voice of the Cyclops
+000000019307.07C: Earn %1$s final blows with Cyclops Roadhog during his ultimate.
+000000019308.07C: Voice of Hades
+000000019309.07C: Earn %1$s final blows with Hades Pharah during her ultimate.
+00000001930C.07C: Voice of Medusa
+00000001930D.07C: Earn %1$s final blows with Medusa Widowmaker during her ultimate.
+000000019310.07C: Voice of Hermes
+000000019311.07C: Earn %1$s final blows with Hermes Lucio during his ultimate.
+000000019312.07C: Endorsed
+000000019313.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Overhealth Powerup Pick Ups
+000000019319.07C: PvP Challenges - Player - Event - Winter - 2023 - Greek Gods FFA - Ultimate Charge Power Up Pick Ups
+00000001931A.07C: Blessing of Hephaestus
+00000001931B.07C: Pick up %1$s overhealth power ups.
+00000001931C.07C: Nectar of the Gods
+00000001931D.07C: Pick up %1$s ultimate charge power ups.
+00000001931E.07C: Battle Pass XP
+00000001931F.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - CTF - Flag Captures
+000000019320.07C: Catch the Rabbit
+000000019321.07C: Capture the flag in CTF or CTF Blitz.
+000000019322.07C: PvP Challenges - Player - Event - Winter - 2023 - Lunar - Bounty Hunter - Bounty Target Eliminations
+000000019323.07C: Sixth Time's the Charm
+000000019324.07C: Eliminate the bounty target %1$s times.
+00000001933B.07C: Metal Guitar
+00000001933D.07C: Wooden Frog
+00000001933E.07C: NO WINS RECORDED THIS UPDATE
+00000001933F.07C: 76 Logo
+000000019341.07C: Grave
 00000001934C.07C: Role Queue Bonus: %1$s XP
+00000001934D.07C: Ally Team
+00000001935D.07C: Winged Victory 
+00000001935E.07C: Complete %1$s challenges in Battle for Olympus.
+00000001935F.07C: Lucky Pouch
+000000019360.07C: Complete %1$s challenges in Lunar New Year.
+000000019361.07C: Good Fortune Kkachi
+000000019362.07C: Complete %1$s challenges in Lunar New Year.
+000000019366.07C: Subtitle Background Opacity
+000000019371.07C: Struck Like Lightning
+000000019372.07C: Unlocked by completing the Voice of Zeus challenge from the Battle for Olympus event.
+000000019381.07C: Minotaur Power
+000000019382.07C: Unlocked by completing the Voice of the Minotaur challenge from the Battle for Olympus event.
+000000019383.07C: The God of Speed
+000000019384.07C: Unlocked by completing the Voice of Hermes challenge from the Battle for Olympus event.
+000000019385.07C: Eternal Flames
+000000019386.07C: Unlocked by completing the Voice of Hades challenge from the Battle for Olympus event.
+000000019387.07C: Free the Kraken
+000000019388.07C: Unlocked by completing the Voice of Poseidon challenge from the Battle for Olympus event.
+000000019389.07C: My Eye
+00000001938A.07C: Unlocked by completing the Voice of the Cyclops challenge from the Battle for Olympus event.
+00000001938B.07C: Your Own Gravestone
+00000001938C.07C: Unlocked by completing the Voice of Medusa challenge from the Battle for Olympus event.
+00000001938F.07C: Hanamura
+0000000193B0.07C: Labs
+0000000193B2.07C: Cursor Size
+0000000193B3.07C: 96x96
+0000000193B4.07C: 128x128
+0000000193B5.07C: Player Name
+0000000193C7.07C: Customize Colors
+0000000193C8.07C: Customize UI Colors
+0000000193C9.07C: Chasa Hat
+0000000193EB.07C: Battle for Olympus
+0000000193EE.07C: Press %1$s to view your God's unique Divine Power
+0000000193F0.07C: Challenges Rewards
+0000000193F1.07C: Test your luck in Lunar New Year modes Bounty Hunter, Capture the Flag and Capture the Flag Blitz.
+0000000193F2.07C: Ready the fireworks with these explosive themed items.
+0000000193F3.07C: Play the Loverwatch: Love Never Dies dating sim!
+0000000193F5.07C: ENDS JANUARY 31, 2023
+0000000193F8.07C: Team Deathmatch
+000000019400.07C: 64x64
+000000019410.07C: I'm feeling divine!
+000000019412.07C: Who wants to be immortal?
+000000019413.07C: A fond reality
+000000019414.07C: Reason to fear
+000000019415.07C: Tell me a story
+000000019416.07C: Gift for fire
 000000019417.07C: Checkout
+000000019418.07C: Most precious
 000000019419.07C: Overwatch Coins
+00000001941A.07C: Lure me out
 00000001941B.07C: Overwatch League Tokens
+00000001941C.07C: Move mountains
+00000001941D.07C: Older than you
+00000001941E.07C: Six shots, one kill
+00000001941F.07C: Strontium and barium
 000000019421.07C: Premium
 000000019422.07C: Premium + 20 Bonus Tiers
-[Core] Execution finished in 00:00:00.7201573
+00000001942C.07C: Select And Preview Custom Color
+000000019446.07C: Back
+000000019447.07C: 48x48
+000000019448.07C: 32x32 (Default)
+000000019449.07C: Cursor
+000000019474.07C: I've got you in my sights.
+000000019475.07C: Winging it!
+000000019476.07C: Group UI Color
+000000019477.07C: Inappropriate Name
+000000019478.07C: Inappropriate Communication
+000000019479.07C: Inappropriate Custom Content
+00000001947C.07C: Report %1$s - %2$s
+00000001947D.07C: choose the most appropriate category:
+00000001947F.07C: Text Chat
+000000019480.07C: Voice Chat
+000000019481.07C: Advertising
+000000019482.07C: Cheating
+000000019483.07C: Hacking
+000000019484.07C: Botting
+000000019485.07C: Boosting/Deranking
+000000019486.07C: AFK
+000000019487.07C: Intentionally Feeding
+000000019488.07C: Blocking Team Progress
+000000019489.07C: Griefing
+00000001948A.07C: Inappropriate Description
+00000001948B.07C: Advertisement
+000000019497.07C: Pierced Heart
+00000001949B.07C: Candy Bomb
+00000001949D.07C: Penguin
+00000001949E.07C: Bee
+0000000194A0.07C: Divine Trident
+0000000194A1.07C: Tako
+0000000194B5.07C: Choose all that apply (Optional)
+0000000194B6.07C: Additional Feedback (Optional):
+0000000194BA.07C: Thank You for reporting %1$s for %2$s.
+0000000194BB.07C: Reports like yours help make Overwatch a better and friendlier place to play.
+0000000194BE.07C: Player
+0000000194BF.07C: Custom Game Link
+0000000194CA.07C: Shinwi
+0000000194CD.07C: Custom Game
+0000000194D1.07C: Heart Pillow
+0000000194D8.07C: Gold Sycees
+0000000194D9.07C: Takoyaki
+0000000194DA.07C: 100 Credits
+0000000194E5.07C: Sometimes available in the Shop
+000000019528.07C: Deluxe
+00000001952A.07C: Folklórica
+00000001952B.07C: Woodcraft
+00000001952C.07C: Black Metal
+00000001952D.07C: Amaterasu
+00000001952E.07C: Unlocked by completing the Lucky Pouch challenge from the Year of the Rabbit event.
+000000019554.07C: Practice Pummel
+000000019555.07C: Damage 2 bots simultaneously with Pummel during Nemesis Form in the Practice Range as Ramattra.
+000000019556.07C: Challenge Complete: %1$s
+000000019557.07C: New Hero: Ramattra unlocked!
+000000019558.07C: %1$s
+000000019559.07C: All Ramattra unlock challenges complete.
+00000001955A.07C: %1$s
+000000019560.07C: Unlock Ramattra
+000000019561.07C: Complete all Ramattra unlock challenges.
+000000019563.07C: Love of Geometry
+000000019566.07C: Unlocked by completing the Good Fortune Kkachi challenge from the Year of the Rabbit event. Also sometimes available in the shop.
+000000019567.07C: Unlocked by completing the Winged Victory challenge from the Battle for Olympus event. Also sometimes available in the shop.
+00000001957A.07C: Dark Preview
+00000001957B.07C: Light Preview
+00000001957C.07C: Alert UI Color 
+00000001958F.07C: Challenge Complete: %1$s
+000000019594.07C: Practice Void Accelerator
+000000019595.07C: Eliminate 3 bots with Void Accelerator in the Practice Range as Ramattra.
+000000019596.07C: All Ramattra unlock challenges complete.
+000000019597.07C: %1$s
+000000019598.07C: New Hero: Ramattra unlocked!
+000000019599.07C: %1$s
+00000001959A.07C: Premium Battle Pass (Season 3)
+00000001959B.07C: Practice Barrier
+00000001959C.07C: Absorb 30 damage with Void Barrier in the Practice Range as Ramattra.
+00000001959D.07C: New Hero: Ramattra unlocked!
+00000001959E.07C: %1$s
+00000001959F.07C: All Ramattra unlock challenges complete.
+0000000195A0.07C: %1$s
+0000000195A1.07C: Challenge Complete: %1$s
+0000000195A2.07C: Challenge Complete: %1$s
+0000000195A3.07C: All Ramattra unlock challenges complete.
+0000000195A4.07C: %1$s
+0000000195A5.07C: New Hero: Ramattra unlocked!
+0000000195A6.07C: %1$s
+0000000195A7.07C: Practice Block
+0000000195A8.07C: Block 30 damage during Nemesis Form in the Practice Range as Ramattra.
+0000000195AA.07C: Practice Annihilation
+0000000195AB.07C: Extend the duration of Annihilation for 6 seconds or more in the Practice Range as Ramattra.
+0000000195AC.07C: Challenge Complete: %1$s
+0000000195AD.07C: All Ramattra unlock challenges complete.
+0000000195AE.07C: %1$s
+0000000195AF.07C: New Hero: Ramattra unlocked!
+0000000195B0.07C: %1$s
+0000000195E1.07C: New Hero: Ramattra unlocked!
+0000000195E2.07C: %1$s
+0000000195E3.07C: All Ramattra unlock challenges complete.
+0000000195E4.07C: %1$s
+0000000195E5.07C: Challenge Complete: %1$s
+0000000195E8.07C: Practice Ravenous Vortex
+0000000195E9.07C: Use Ravenous Vortex during Omnic Form and Nemesis Form in the Practice Range as Ramattra. 
+0000000195EA.07C: Wins for Ramattra
+0000000195EB.07C: Win %1$s games queued as All Roles or playing Tank heroes in Quick Play, Competitive Play, or No Limits.
+000000019637.07C: Subtitles
+00000001963C.07C: Preview Colors in HUD
+000000019671.07C: Antarctic Peninsula
+0000000196A0.07C: All's Fair in Love and War
+0000000196A1.07C: Win %1$s game in Love of Geometry.
+0000000196A3.07C: Struck by Cupid
+0000000196A4.07C: Earn %1$s eliminations in Love of Geometry.
+0000000196A5.07C: Better to Have Loved and Won
+0000000196A6.07C: Win %1$s games.
+0000000196A7.07C: Violent Delights, Violent Ends
+0000000196A8.07C: Deal/boost a total of %1$s damage. (Excludes Total Mayhem and co-op modes.)
+0000000196A9.07C: Capture My Heart
+0000000196AA.07C: Contest/capture objectives for %1$s seconds.
+0000000196AB.07C: Love Conquers All
+0000000196AC.07C: Win %1$s games as any Support hero.
+0000000196AD.07C: Love Heals All
+0000000196AE.07C: Heal a total of %1$s damage. (Excludes Total Mayhem and co-op modes.)
+0000000196AF.07C: Love Saves the Day
+0000000196B0.07C: Earn %1$s assists/saves. (Excludes Total Mayhem and co-op modes.)
+0000000196B1.07C: Thanks Love!
+0000000196B2.07C: Emote "Thanks" to a Support Hero.
+0000000196B3.07C: PvP Challenges - Player - Role - Support - Wins
+0000000196B4.07C: PvP Challenges - Player - Deathmatch - Valentines 4v4 - Wins
+0000000196B5.07C: White (Default)
+0000000196B6.07C: Yellow
+0000000196ED.07C: Green
+000000019700.07C: Aqua
+000000019701.07C: Blue
+000000019702.07C: Gold
+000000019703.07C: Lime Green
+000000019704.07C: Magenta
+000000019705.07C: Neon Blue
+000000019706.07C: Pink
+000000019707.07C: Purple
+000000019708.07C: Red
+00000001970D.07C: Safety Orange
+00000001970E.07C: Tawny
+00000001970F.07C: Subtitle Text Color
+000000019717.07C: PvP Challenges - Player - OW2 Hero Unlock - Ramattra - Games Won
+000000019738.07C: %1$s (%2$s): %3$s %4$s on cooldown for %5$s seconds.
+000000019765.07C: PvP Challenges - Player - Deathmatch - Valentines 4v4 - Final Blows
+000000019766.07C: Blushing Pink
+000000019767.07C: Complete 4 event challenges.
+000000019768.07C: Mastery of Love
+000000019769.07C: Complete 6 event challenges.
+000000019774.07C: Available as a log-in bonus during winter 2022
+000000019785.07C: Team up with Cupid and scatter the competition
+000000019789.07C: Available with the purchase of Watchpoint Pack
+000000019799.07C: 5 PLAYER KILL STREAK!
+0000000197A2.07C: Teams
+0000000197B1.07C: hmet_PH
+0000000197B4.07C: Health
+0000000197B5.07C: Armor
+0000000197B6.07C: Health
+0000000197B7.07C: Health
+0000000197C3.07C: Season 1
+0000000197C4.07C: OW1 Season 1
+0000000197C8.07C: Select Season
+0000000197D4.07C: Close Preview
+0000000197DD.07C: Season 3: Competitive Rewards Qualification
+0000000197E0.07C: Season 3 End: Top 500
+0000000197E4.07C: Season 3 End: Grandmaster
+0000000197EA.07C: Season 3 End: Master
+0000000197FD.07C: Season 3 End: Diamond
+0000000197FF.07C: Season 3 End: Platinum
+000000019801.07C: Season 3 End: Gold
+000000019803.07C: Season 3 End: Silver
+000000019805.07C: Season 3 End: Bronze
+000000019811.07C: Season 3: Role Queue Competitor
+000000019813.07C: Season 3: Open Queue Competitor
+000000019815.07C: Hero of Antarctica
+000000019816.07C: Win %1$s games in Antarctic Peninsula.
+000000019817.07C: PvP Challenges - Player - Season 02 - Map - Win - Antarctica
+00000001981A.07C: PvP Challenges - Player - Season 02 - Other - Earn Endorsements
+00000001981B.07C: Season 3: Amateur Competitor
+00000001981D.07C: Season 3: Experienced Competitor
+00000001981F.07C: Season 3: Veteran Competitor
+000000019823.07C: Toys for Bob
+000000019853.07C: 1000 Overwatch Coins
+00000001985C.07C: PvP Challenges - Player - Season 03 - Map - Eliminations - Antarctica Sublevel - Capture Point High Ground
+00000001985D.07C: PvP Challenges - Player - Season 03 - Map - Eliminations - Antarctica Labs - Capture Point High Ground
+00000001985E.07C: Out Cold
+00000001985F.07C: Earn %1$s eliminations from high-ground areas around the Antarctica Sublevel capture point.
+000000019860.07C: Lab Safety
+000000019861.07C: Earn %1$s eliminations from high-ground areas around the Antarctica Labs capture point.
+000000019862.07C: Ana: Silhouette
+000000019863.07C: Win %1$s games as Ana.
+000000019864.07C: Ashe: Silhouette
+000000019865.07C: Win %1$s games as Ashe.
+000000019866.07C: Baptiste: Silhouette
+000000019867.07C: Win %1$s games as Baptiste.
+000000019868.07C: Bastion: Silhouette
+000000019869.07C: Win %1$s games as Bastion.
+00000001986A.07C: Brigitte: Silhouette
+00000001986B.07C: Win %1$s games as Brigitte.
+00000001986C.07C: Cassidy: Silhouette
+00000001986D.07C: Win %1$s games as Cassidy.
+00000001986E.07C: Doomfist: Silhouette
+00000001986F.07C: Win %1$s games as Doomfist.
+000000019870.07C: D.Va: Silhouette
+000000019871.07C: Win %1$s games as D.Va.
+000000019872.07C: Echo: Silhouette
+000000019873.07C: Win %1$s games as Echo.
+000000019874.07C: Genji: Silhouette
+000000019875.07C: Win %1$s games as Genji.
+000000019876.07C: Hanzo: Silhouette
+000000019877.07C: Win %1$s games as Hanzo.
+000000019878.07C: Junker Queen: Silhouette
+000000019879.07C: Win %1$s games as Junker Queen.
+00000001987A.07C: Junkrat: Silhouette
+00000001987B.07C: Win %1$s games as Junkrat.
+00000001987C.07C: Kiriko: Silhouette
+00000001987D.07C: Win %1$s games as Kiriko.
+00000001987E.07C: Lucio: Silhouette
+00000001987F.07C: Win %1$s games as Lucio.
+000000019880.07C: Mei: Silhouette
+000000019881.07C: Win %1$s games as Mei.
+000000019882.07C: Mercy: Silhouette
+000000019883.07C: Win %1$s games as Mercy.
+000000019884.07C: Moira: Silhouette
+000000019885.07C: Win %1$s games as Moira.
+000000019886.07C: Orisa: Silhouette
+000000019887.07C: Win %1$s games as Orisa.
+000000019888.07C: Pharah: Silhouette
+000000019889.07C: Win %1$s games as Pharah.
+00000001988A.07C: Ramattra: Silhouette
+00000001988B.07C: Win %1$s games as Ramattra.
+00000001988C.07C: Reaper: Silhouette
+00000001988D.07C: Win %1$s games as Reaper.
+00000001988E.07C: Reinhardt: Silhouette
+00000001988F.07C: Win %1$s games as Reinhardt.
+000000019890.07C: Roadhog: Silhouette
+000000019891.07C: Win %1$s games as Roadhog.
+000000019892.07C: Sigma: Silhouette
+000000019893.07C: Win %1$s games as Sigma.
+000000019894.07C: Sojourn: Silhouette
+000000019895.07C: Win %1$s games as Sojourn.
+000000019896.07C: Soldier: 76: Silhouette
+000000019897.07C: Win %1$s games as Soldier: 76.
+000000019898.07C: Sombra: Silhouette
+000000019899.07C: Win %1$s games as Sombra.
+00000001989A.07C: Symmetra: Silhouette
+00000001989B.07C: Win %1$s games as Symmetra.
+00000001989C.07C: Torbjörn: Silhouette
+00000001989D.07C: Win %1$s games as Torbjorn.
+00000001989E.07C: Tracer: Silhouette
+00000001989F.07C: Win %1$s games as Tracer.
+0000000198A0.07C: Widowmaker: Silhouette
+0000000198A1.07C: Win %1$s games as Widowmaker.
+0000000198A2.07C: Winston: Silhouette
+0000000198A3.07C: Win %1$s games as Winston.
+0000000198A4.07C: Wrecking Ball: Silhouette
+0000000198A5.07C: Win %1$s games as Wrecking Ball.
+0000000198A6.07C: Zarya: Silhouette
+0000000198A7.07C: Win %1$s games as Zarya.
+0000000198A8.07C: Zenyatta: Silhouette
+0000000198A9.07C: Win %1$s games as Zenyatta.
+0000000198AA.07C: Delay Enabled
+0000000198B7.07C: OWL NYE Away 2022
+0000000198BE.07C: OWL Vegas Away 2022
+0000000198BF.07C: OWL Seoul Infernal away 2022
+0000000198C1.07C: OWL Gladiators Away 2022
+0000000198C4.07C: Los Angeles
+0000000198C5.07C: LA
+0000000198C6.07C: Gladiators
+0000000198C7.07C: Los Angeles
+0000000198C8.07C: LA
+0000000198C9.07C: Gladiators
+0000000198CA.07C: New York
+0000000198CB.07C: NY
+0000000198CC.07C: Excelsior
+0000000198CD.07C: New York
+0000000198CE.07C: NY
+0000000198CF.07C: Excelsior
+0000000198D7.07C: Vegas
+0000000198D8.07C: PA
+0000000198D9.07C: Eternal
+0000000198DA.07C: Vegas
+0000000198DB.07C: PA
+0000000198DC.07C: Eternal
+0000000198DF.07C: Seoul
+0000000198E0.07C: PHL
+0000000198E1.07C: Infernal
+0000000198E2.07C: Seoul
+0000000198E3.07C: PHL
+0000000198E4.07C: Infernal
+000000019E1B.07C:  [Group]:
+000000019E1C.07C: [Player Name]: Hello Team!
+000000019E1D.07C: [Player Name]: Hello Match!
+000000019E1F.07C: [Player Name]: Hello Group!
+000000019E30.07C: Would you
+000000019E31.07C: Unlocked by completing the Love Heals All challenge from the Ultimate Valentine event.
+000000019E32.07C: Happy Valentine's Day
+000000019E33.07C: Available as a log-in bonus during the Ultimate Valentine event.
+000000019E34.07C: My heart
+000000019E35.07C: Unlocked by completing the Thanks Love! challenge from the Ultimate Valentine event.
+000000019E36.07C: Be with me
+000000019E37.07C: Unlocked by completing the Love Heals All challenge from the Ultimate Valentine event.
+000000019E38.07C: Competitive Mystery Heroes
+000000019E39.07C: Lives are short
+000000019E3A.07C: Unlocked by completing the Love Saves the Day challenge from the Ultimate Valentine event.
+000000019E3C.07C: Just pathetic
+000000019E3D.07C: Unlocked by completing the Love Conquers All challenge from the Ultimate Valentine event.
+000000019E3F.07C: You're all right
+000000019E40.07C: Unlocked by completing the Thanks Love! challenge from the Ultimate Valentine event.
+000000019E41.07C: If I had a heart
+000000019E42.07C: Unlocked by completing the All's Fair in Love and War challenge from the Ultimate Valentine event.
+000000019E44.07C: Shot through the heart
+000000019E45.07C: Unlocked by completing the Struck by Cupid challenge from the Ultimate Valentine event.
+000000019E46.07C: You are my starlight
+000000019E47.07C: Unlocked by completing the Better to Have Loved and Won challenge from the Ultimate Valentine event.
+000000019E4A.07C: See a movie
+000000019E4B.07C: Unlocked by completing the Capture my Heart challenge from the Ultimate Valentine event.
+000000019E4F.07C: Available through a regional promotion.
+000000019E51.07C: Interact
+000000019E6B.07C: Ramattra
+000000019E6D.07C: There is a new version of Overwatch available. Please exit and restart the game to update.
+000000019E71.07C: spamming
+000000019E80.07C: Bonus:
+Season 3 starter pack
+000000019E93.07C: Last Match
+000000019E97.07C: Lawn Green (Group Default)
+000000019E99.07C: Tangerine (Alert Default)
+000000019EA1.07C: Shields
+000000019EA2.07C: Tako
+000000019EB1.07C: Imperial Snowball
+000000019EB2.07C: Turtle Ship
+000000019EB3.07C: Pearlescent
+000000019ED0.07C: Cupid
+000000019ED1.07C: Invisible Man
+000000019ED2.07C: Hong Hai Er
+000000019ED3.07C: Galactic
+000000019ED6.07C: Divine Kunai
+000000019ED7.07C: Amaterasu
+000000019ED8.07C: Black Metal
+000000019ED9.07C: Demon Queen
+000000019EDA.07C: Chasa
+000000019EDB.07C: Divine Monkey
+000000019EDC.07C: Pachiduri
+000000019EDF.07C: Yache Fighting
+000000019EE5.07C: UNIQUE HERO: Hanzo
+000000019EEE.07C: Sympathetic Recovery
+000000019EEF.07C: Healing allies with the Caduceus Staff heals you.
+000000019EF3.07C: 20 Battle Pass Tier Skips
+000000019EFD.07C: VICTORY: First team to earn 50 kills
+000000019EFF.07C: Cupid has a scatter arrow!
+Kills with it grant double score.
+000000019F22.07C: Random Hero Role Limit Per Team
+000000019F28.07C: Inextinguishable
+000000019F2A.07C: Strawberry Shortcake
+000000019F2F.07C: Lovey Dovey Cupid
+000000019F30.07C: Lovey Dovey Genji
+000000019F31.07C: Lovey Dovey Mercy
+000000019F32.07C: NEXT
+000000019F35.07C: Introducing season 3
+000000019F36.07C: Raijin and Fūjin
+000000019F38.07C: Demon Queen Dance
+000000019F3A.07C: Demon Queen Mask
+000000019F3C.07C: Demon Queen
+000000019F3E.07C: Handprint
+000000019F40.07C: Invisible Man
+000000019F42.07C: Ba Jiao Shan
+000000019F43.07C: Hong Hai Er
+000000019F44.07C: Folklórica
+000000019F45.07C: Adorno
+000000019F46.07C: Yache Thonk
+000000019F47.07C: Black Metal
+000000019F48.07C: Chasa
+000000019F49.07C: Tactical
+000000019F4A.07C: Irrasshaimase!
+000000019F4B.07C: Imperial Snowball
+000000019F4C.07C: Turtle Ship
+000000019F4D.07C: Platinum Challenger
+000000019F4E.07C: Divine Monkey
+000000019F4F.07C: Piercing Love
+000000019F88.07C: Antarctic Peninsula
+000000019F8F.07C: Discover the depths of the coldest place on Earth. Welcome to Antarctic Peninsula, the coolest new control map.
+000000019FC2.07C: Credits
+000000019FC4.07C: Antarctic Peninsula
+000000019FCA.07C: Raijin and Fūjin
+000000019FCC.07C: Cupid's Target
+000000019FCD.07C: Pearlescent Shores
+000000019FCE.07C: Golden Dragon
+000000019FCF.07C: Mari Friends
+000000019FD1.07C: CTF
+000000019FD2.07C: %1$s %2$s
+000000019FD3.07C: Tank
+000000019FD4.07C: Damage
+000000019FD5.07C: Support
+000000019FD9.07C: Cupid's Arrow
+000000019FDA.07C: Genji's Peace
+000000019FDB.07C: Peasant
+000000019FDD.07C: Mercy's Angel
+000000019FDE.07C: Trickster
+000000019FE0.07C: Disciple
+000000019FE2.07C: Noble
+000000019FE4.07C: Scholar
+000000019FE6.07C: Sage
+000000019FE8.07C: Fearsome Spirit
+000000019FEA.07C: Legendary Beast
+000000019FF4.07C: Welcome to Season 3 
+000000019FF5.07C: See What's New
+000000019FFA.07C: Overwatch World Cup
+00000001A002.07C: Skin
+00000001A003.07C: Souvenir
+00000001A004.07C: Emote
+00000001A006.07C: Support your Supports by completing challenges and earning rewards!
+00000001A009.07C: Love Ends February 28
+00000001A00A.07C: Workshop is back!
+00000001A00B.07C: Go to Custom Games
+00000001A015.07C: General_002_PH_ART
+00000001A019.07C: 1000
+00000001A01C.07C: http://overwatch.blizzard.com/valentines
+00000001A01D.07C: Play Loverwatch
+00000001A02B.07C: Go to Arcade
+00000001A079.07C: Unlocked by completing the All's Fair in Love and War challenge from the Ultimate Valentine event.
+00000001A07B.07C: Unlocked by completing the Blushing Pink challenge from the Ultimate Valentine event. Also available in the hero gallery.
+00000001A07C.07C: Unlocked by completing the Love Conquers All challenge from the Ultimate Valentine event. Also available in the hero gallery.
+00000001A07E.07C: Unlocked by completing the Better to Have Loved and Won challenge from the Ultimate Valentine event. Also available in the hero gallery.
+00000001A07F.07C: Unlocked by completing the Violent Delights, Violent Ends challenge from the Ultimate Valentine event. Also available in the hero gallery.
+00000001A080.07C: Unlocked by completing the Capture my Heart challenge from the Ultimate Valentine event. Also available in the hero gallery.
+00000001A09A.07C: Double XP Weekend
+00000001A09C.07C: Season Events
+00000001A09D.07C: Folklórica
+00000001A0A0.07C: Woodblock Fox
+00000001A0A1.07C: Woodblock Amaterasu
+00000001A0AE.07C: Every good storm
+00000001A0BD.07C: RALLY FOR YOUR HOMELAND
+00000001A0D8.07C: new items available in shop!
+00000001A0D9.07C: go to shop
+00000001A0EA.07C: Welcome to Season 3 
+00000001A0EB.07C: See What's New
+00000001A0EC.07C: new items available in shop!
+00000001A0ED.07C: go to shop
+00000001A0EE.07C: http://overwatch.blizzard.com/valentines
+00000001A0F0.07C: Loverwatch
+00000001A0F1.07C: Play on Web Now
+00000001A0F3.07C: Go to Arcade
+00000001A100.07C: new items available in shop!
+00000001A101.07C: go to shop
+00000001A108.07C: new items available in shop!
+00000001A109.07C: go to shop
+00000001A10B.07C: new items available in shop!
+00000001A10C.07C: Go to Challenges 
+00000001A10D.07C: new items available in shop!
+00000001A10E.07C: go to shop
+00000001A10F.07C: new items available in shop!
+00000001A110.07C: go to shop
+00000001A114.07C: new items available in shop!
+00000001A115.07C: go to shop
+00000001A116.07C: https://overwatchleague.com/
+00000001A117.07C: Watch Overwatch League
+00000001A118.07C: https://overwatchleague.com/
+00000001A119.07C: Watch Overwatch League
+00000001A12D.07C: 2X Match XP Live Now
+00000001A12E.07C: XP Boost Live Now
+00000001A136.07C: Unlocked by completing the Mastery of Love challenge from the Ultimate Valentine event. Also sometimes available in the Shop.
+00000001A137.07C: Premium Battle Pass
+00000001A138.07C: Premium Battle Pass
+00000001A139.07C: Season ends soon
+00000001A141.07C: Season 3 login reward to celebrate Overwatch World Cup 2023
+00000001A1A0.07C: Your team has taken the lead.
+00000001A1A5.07C: %1$s
+00000001A1A6.07C: %1$s%%
+00000001A1A7.07C: contested!
+00000001A1D8.07C: 100 Credits
+00000001A1E1.07C: Friend Request Sent
+00000001A1E4.07C: %1$s %2$s%3$s%4$s
+00000001A1E5.07C: Progress: 
+00000001A1E6.07C: /
+00000001A211.07C: Inappropriate Custom Game Name
+00000001A212.07C: Inappropriate Game Content
+00000001A2C3.07C: %1$s Credits
+00000001A33A.07C: Season 3
+00000001A348.07C: Fight for control of a frozen continent! Fight for control of Antarctica!
+00000001A513.07C: Abandonded
+[Core] Execution finished in 00:00:00.6572960

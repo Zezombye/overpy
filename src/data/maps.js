@@ -51,9 +51,22 @@ const mapKw =
     "antarcticPeninsula": {
         "gamemodes": [
             "control",
-            "skirmish",
+            "skirmish"
         ],
+        "guid": "000000010F5E",
         "en-US": "Antarctic Peninsula",
+        "de-DE": "Antarktische Halbinsel",
+        "es-ES": "Península Antártica",
+        "es-MX": "Península Antártica",
+        "fr-FR": "Péninsule Antarctique",
+        "it-IT": "Penisola Antartica",
+        "ja-JP": "ANTARCTIC PENINSULA",
+        "ko-KR": "남극 반도",
+        "pl-PL": "Półwysep Antarktyczny",
+        "pt-BR": "Península Antártica",
+        "ru-RU": "Антарктический полуостров",
+        "zh-CN": "南极半岛",
+        "zh-TW": "南極半島"
     },
     "blackForest": {
         "guid": "0000000059C3",
@@ -1151,19 +1164,6 @@ const mapKw =
         "zh-CN": "新皇后街",
         "zh-TW": "新皇后街"
     },
-    /*"numbani": {
-        "guid": "0000000002EA",
-        "gamemodes": [
-            "hybrid",
-            "skirmish"
-        ],
-        "en-US": "Numbani",
-        "ja-JP": "NUMBANI",
-        "ko-KR": "눔바니",
-        "ru-RU": "Нумбани",
-        "zh-CN": "努巴尼",
-        "zh-TW": "努巴尼"
-    },*/
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [

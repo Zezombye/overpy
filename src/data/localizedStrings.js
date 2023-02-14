@@ -3718,10 +3718,11 @@ var normalStrKw =
         "fr-FR": "But",
         "it-IT": "Obiettivo",
         "ja-JP": "目標",
+        "ko-KR": "목표",
         "pl-PL": "Wytyczna",
         "pt-BR": "Meta",
-        "ru-RU": "Гол",
-        "zh-CN": "终点",
+        "ru-RU": "Цель",
+        "zh-CN": "目标",
         "zh-TW": "目標"
     },
     "Goals": {
@@ -3736,7 +3737,7 @@ var normalStrKw =
         "pl-PL": "Wytyczne",
         "pt-BR": "Metas",
         "ru-RU": "Голы",
-        "zh-CN": "终点",
+        "zh-CN": "目标",
         "zh-TW": "目標"
     },
     "Going": {
@@ -4119,7 +4120,7 @@ var normalStrKw =
         "de-DE": "Verstecken",
         "es-ES": "Ocultar",
         "es-MX": "Ocultar",
-        "fr-FR": "Cacher",
+        "fr-FR": "Se cacher",
         "it-IT": "Nascondi",
         "ja-JP": "非表示",
         "pl-PL": "Ukryj",

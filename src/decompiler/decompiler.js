@@ -22,9 +22,16 @@
 function decompileAllRules(content, language="en-US") {
 
 	resetGlobalVariables(language);
-	var result = "";
+	var result = decompileAllRulesToAst(content);
 
-	var [result, astRules] = decompileAllRulesToAst(content);
+	if (Array.isArray(result)) {
+		//decompiled rules
+		var astRules = result[1];
+		result = result[0];
+	} else {
+		//decompiled actions or conditions
+		return result;
+	}
 
 	var variableDeclarations = "";	
 	if (globalVariables.length > 0) {

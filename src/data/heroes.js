@@ -1194,7 +1194,7 @@ const heroKw =
             "zh-TW": "復活"
         },
         "passive": {
-            "guid": "000000006DA7",
+            "guid": "000000008764",
             "en-US": "Regeneration",
             "es-ES": "Regeneración",
             "es-MX": "Regeneración",
