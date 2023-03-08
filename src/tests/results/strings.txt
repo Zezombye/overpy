@@ -10,7 +10,7 @@ rule ("strings") {
         Create HUD Text(All Players(All Teams), Custom String("custom 'string'", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("new\nline", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("qu\"o\"tes", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
-        Create HUD Text(All Players(All Teams), Custom String("zero width space: |​|", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Custom String("zero width space: |­|", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("single '\"quotes\"", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);

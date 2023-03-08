@@ -35,7 +35,7 @@ const opyStringEntities = {
         description: "The middle dot.",
     },
     "zero_width_space": {
-        codepoint: 0x200B,
+        codepoint: 0x00AD,
         description: "A zero-width space.",
     },
     "horizontal_bar": {

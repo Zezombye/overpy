@@ -133,7 +133,7 @@ rule ("kings row") {
     }
 }
 
-rule ("b﻿lizz world") {
+rule ("blizz world") {
     event {
         Ongoing - Global;
     }

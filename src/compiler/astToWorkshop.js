@@ -96,6 +96,11 @@ function astRuleConditionToWs(condition) {
     if (!obfuscationSettings.obfuscateComments && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
+    
+    if (condition.type === "void") {
+        fileStack = condition.fileStack;
+        error("Expected a value, but got "+functionNameToString(condition)+" which is an action");
+    }
 
     if (condition.name in funcToOpMapping) {
 
@@ -119,6 +124,12 @@ function astRuleConditionToWs(condition) {
                 } else if (replacementForTeam1 !== null && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
                     condition.args[i] = new Ast(replacementForTeam1)
                 }
+            }
+        }
+        for (var i = 0; i < condition.args.length; i++) {
+            if (condition.args[i].type === "void") {
+                fileStack = condition.args[i].fileStack;
+                error("Expected a value, but got "+functionNameToString(condition.args[i])+" which is an action");
             }
         }
         nbHeroesInValue = 0;
@@ -158,7 +169,7 @@ function astActionToWs(action, nbTabs) {
     }
     if (action.type !== "void") {
         fileStack = action.fileStack;
-        error("Expected an action, but got "+functionNameToString(action));
+        error("Expected an action, but got "+functionNameToString(action)+" which is a value");
     }
     var result = "";
     if (action.name === "pass" && !action.comment) {
