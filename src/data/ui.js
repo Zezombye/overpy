@@ -181,7 +181,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną",
         "pt-BR": "Erro: Conflito da variável global '%1$s' com outra variável",
         "ru-RU": "Ошибка: обнаружен конфликт глобальной переменной '%1$s' с другой переменной",
-        "zh-CN": "错误：全局变量”%1$s“与另一个变量冲突",
+        "zh-CN": "错误：全局变量“%1$s”与另一个变量冲突",
         "zh-TW": "錯誤：全域變數'%1$s'與其它變數相衝突"
     },
     "conflictingPlayerVarName": {
@@ -197,7 +197,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Występuje konflikt globalnej „%1$s” gracza z inną zmienną.",
         "pt-BR": "Erro: Conflito da variável de jogador '%1$s' com outra variável",
         "ru-RU": "Ошибка: обнаружен конфликт переменной игрока '%1$s' с другой переменной",
-        "zh-CN": "错误：玩家变量”%1$s“与另一个变量冲突",
+        "zh-CN": "错误：玩家变量“%1$s”与另一个变量冲突",
         "zh-TW": "錯誤：玩家變數'%1$s'與其它變數相衝突"
     },
     "conflictingSubroutineName": {
@@ -213,7 +213,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Konflikt podprogramu „%1$s” z innym podprogramem",
         "pt-BR": "Erro: Sub-rotina '%1$s' está em conflito com outra",
         "ru-RU": "Ошибка: подпрограмма '%1$s' конфликтует с другой подпрограммой",
-        "zh-CN": "错误：子程序”%1$s“与另一个子程序冲突",
+        "zh-CN": "错误：子程序“%1$s”与另一个子程序冲突",
         "zh-TW": "錯誤：子程序'%1$s'與其它子程序相衝突"
     },
     "deleteActions": {
@@ -485,7 +485,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna globalna (%1$s) zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: A variável global '%1$s' contém um nome inválido",
         "ru-RU": "Ошибка: глобальная переменная '%1$s' содержит некорректное имя",
-        "zh-CN": "错误：全局变量”%1$s“包含无效的名称",
+        "zh-CN": "错误：全局变量“%1$s”包含无效的名称",
         "zh-TW": "錯誤：全域變數'%1$s'包含無效命名"
     },
     "invalidPlayerVarName": {
@@ -501,7 +501,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna gracza (%1$s) zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: A variável de jogador '%1$s' contém um nome inválido",
         "ru-RU": "Ошибка: переменная игрока '%1$s' содержит некорректное имя",
-        "zh-CN": "错误：玩家变量”%1$s“包含无效的名称",
+        "zh-CN": "错误：玩家变量“%1$s”包含无效的名称",
         "zh-TW": "錯誤：玩家變數'%1$s'包含無效命名"
     },
     "invalidSubroutineName": {
@@ -517,7 +517,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Podprogram „%1$s” zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: Sub-rotina '%1$s' contém nome inválido",
         "ru-RU": "Ошибка: подпрограмма '%1$s' содержит некорректное имя",
-        "zh-CN": "错误：子程序”%1$s“包含无效的名称",
+        "zh-CN": "错误：子程序“%1$s”包含无效的名称",
         "zh-TW": "錯誤：子程序'%1$s'的命名無效"
     },
     "noActions": {
@@ -600,7 +600,7 @@ const workshopUiKw =
         "zh-TW": "確認"
     },
     "resetToDefaults": {
-        "guid": "00000000FFF5",
+        "guid": "000000012998",
         "en-US": "Reset to Defaults",
         "de-DE": "Einstellungen zurücksetzen",
         "es-ES": "Restablecer valores por defecto",
@@ -610,7 +610,7 @@ const workshopUiKw =
         "ja-JP": "デフォルトに戻す",
         "ko-KR": "기본값으로 다시 설정",
         "pl-PL": "Przywróć domyślne",
-        "pt-BR": "Restaurar predefinições",
+        "pt-BR": "Restaurar Predefinições",
         "ru-RU": "По умолчанию",
         "zh-CN": "重设为默认",
         "zh-TW": "恢復為預設值"
@@ -660,19 +660,17 @@ const workshopUiKw =
         "zh-TW": "腳本診斷分析"
     },
     "settings": {
-        "guid": "000000002CD4",
-        "en-US": "SETTINGS",
-        "de-DE": "EINSTELLUNGEN",
-        "es-ES": "AJUSTES",
-        "es-MX": "CONFIGURACIÓN",
-        "fr-FR": "PARAMÈTRES",
-        "it-IT": "IMPOSTAZIONI",
+        "guid": "000000010030",
+        "en-US": "settings",
+        "de-DE": "einstellungen",
+        "es-ES": "ajustes",
+        "es-MX": "configuración",
+        "fr-FR": "paramètres",
+        "it-IT": "impostazioni",
         "ja-JP": "設定",
-        "ko-KR": "설정",
-        "pl-PL": "USTAWIENIA",
-        "pt-BR": "CONFIGURAÇÕES",
-        "ru-RU": "НАСТРОЙКИ",
-        "zh-CN": "比赛设置",
+        "pl-PL": "ustawienia",
+        "pt-BR": "configurações",
+        "zh-CN": "设置",
         "zh-TW": "設定"
     },
     "tooLongGlobalVarName": {
@@ -688,7 +686,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna globalna (%1$s) zawiera zbyt długą nazwę",
         "pt-BR": "Erro: A variável global '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: глобальная переменная '%1$s' содержит слишком длинное имя",
-        "zh-CN": "错误：全局变量”%1$s“包含过长的名称",
+        "zh-CN": "错误：全局变量“%1$s”包含过长的名称",
         "zh-TW": "錯誤：全域變數'%1$s'包含過長的命名"
     },
     "tooLongPlayerVarName": {
@@ -704,7 +702,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna gracza (%1$s) zawiera zbyt długą nazwę",
         "pt-BR": "Erro: A variável de jogador '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: переменная игрока '%1$s' содержит слишком длинное имя",
-        "zh-CN": "错误：玩家变量”%1$s“包含过长的名称",
+        "zh-CN": "错误：玩家变量“%1$s”包含过长的名称",
         "zh-TW": "錯誤：玩家變數'%1$s'包含過長的命名"
     },
     "tooLongSubroutineName": {
@@ -720,7 +718,7 @@ const workshopUiKw =
         "pl-PL": "Błąd: Podprogram „%1$s” zawiera zbyt długą nazwę",
         "pt-BR": "Erro: Sub-rotina '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: подпрограмма '%1$s' содержит слишком длинное имя",
-        "zh-CN": "错误：子程序”%1$s“包含过长的名称",
+        "zh-CN": "错误：子程序“%1$s”包含过长的名称",
         "zh-TW": "錯誤：子程序'%1$s'包含過長的命名"
     },
     "totalElementCount": {
@@ -743,7 +741,7 @@ const workshopUiKw =
         "guid": "00000000F41D",
         "en-US": "Elements include rules, conditions, actions, and values (up to a max of %1$s)",
         "de-DE": "Elemente schließen Regeln, Konditionen, Aktionen und Werte ein (bis zu einem Maximum von %1$s)",
-        "es-ES": "Entre los elementos se incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s).",
+        "es-ES": "Entre los elementos se incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s)",
         "es-MX": "Los elementos incluyen reglas, condiciones, acciones y valores (hasta un máximo de %1$s)",
         "fr-FR": "Ces éléments incluent les règles, conditions, actions et valeurs (jusqu’à un maximum de %1$s).",
         "it-IT": "Gli elementi includono regole, condizioni, azioni e valori (fino a un massimo di %1$s)",

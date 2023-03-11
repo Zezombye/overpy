@@ -5303,7 +5303,7 @@ var valueFuncKw =
         "fr-FR": "Vrai pour tous",
         "ja-JP": "すべてに対して「TRUE」",
         "pt-BR": "É Verdadeiro para Todos",
-        "zh-CN": "对全部为”真“"
+        "zh-CN": "对全部为“真”"
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -5495,7 +5495,7 @@ var valueFuncKw =
         "fr-FR": "Vrai pour n’importe qui",
         "ja-JP": "いずれに対しても「TRUE」",
         "pt-BR": "É Verdadeiro para Qualquer",
-        "zh-CN": "对任意为”真“"
+        "zh-CN": "对任意为“真”"
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -16898,7 +16898,7 @@ var valueFuncKw =
         "fr-FR": "Non applicable",
         "ja-JP": "NULL",
         "pt-BR": "Nulo",
-        "zh-CN": "无"
+        "zh-CN": "空"
     },
     "random.choice": {
         "description": "A random value from the specified array.",

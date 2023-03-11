@@ -1508,7 +1508,7 @@ const constantValues =
             "ja-JP": "トレーサーの〈リコール〉の消失エフェクト",
             "pl-PL": "Smuga – Powrót – Efekt zniknięcia",
             "pt-BR": "Efeito de Desaparecimento da Recordação da Tracer",
-            "zh-CN": "”猎空“闪回消失效果"
+            "zh-CN": "“猎空”闪回消失效果"
         },
         "TRACER_RECALL_REAPPEAR": {
             "extension": "energyExplosionEffects",

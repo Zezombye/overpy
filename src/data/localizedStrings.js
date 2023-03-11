@@ -824,7 +824,7 @@ var normalStrKw =
         "es-MX": "Desafío aceptado",
         "fr-FR": "Défi accepté",
         "it-IT": "Sfida Accettata",
-        "ja-JP": "売られた喧嘩は買うぞ",
+        "ja-JP": "売られたケンカは買うぞ",
         "pl-PL": "Przyjmuję wyzwanie",
         "pt-BR": "Desafio Aceito",
         "ru-RU": "Вызов принят",

@@ -78,6 +78,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "captureSpeed%": {
                             "type": "number",
                             "minimum": 10,
@@ -547,6 +555,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -675,6 +691,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -785,6 +809,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -903,6 +935,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -1050,6 +1090,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -1285,6 +1333,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -1613,6 +1669,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -1809,6 +1873,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -1989,6 +2061,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2097,6 +2177,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2200,6 +2288,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -2401,6 +2497,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2495,6 +2599,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",
@@ -2599,6 +2711,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2698,6 +2818,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2791,6 +2919,14 @@
                             "minimum": 0,
                             "maximum": 100
                         },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
                         "disabledMaps": {
                             "type": "array",
                             "items": {
@@ -2883,6 +3019,14 @@
                             "type": "number",
                             "minimum": 0,
                             "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
                         },
                         "disabledMaps": {
                             "type": "array",

@@ -11904,7 +11904,7 @@ const actionKw =
         "fr-FR": "Interrompre si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合中止",
         "pt-BR": "Anular se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则中止"
+        "zh-CN": "如条件为“真”则中止"
     },
     "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -13737,7 +13737,7 @@ const actionKw =
         "fr-FR": "Boucle si la condition est vraie",
         "ja-JP": "条件が「TRUE」の場合ループ",
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
-        "zh-CN": "如条件为”真“则循环"
+        "zh-CN": "如条件为“真”则循环"
     },
     "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action.",
