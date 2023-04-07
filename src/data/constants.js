@@ -5561,6 +5561,76 @@ const constantValues =
             "pt-BR": "Ao Mais Próximo",
             "zh-CN": "至最近"
         }
+    },
+    "ModifyHealth": {
+        "DAMAGE": {
+            "en-US": "Damage",
+        },
+        "HEAL": {
+            "en-US": "Heal",
+        }
+    },
+    "Projectile": {
+        "ORB": {
+            "en-US": "Orb Projectile",
+        },
+        "BAPTISTE_BIOTIC_LAUNCHER": {
+            "en-US": "Baptiste Biotic Launcher",
+        },
+        "BASTION_TACTICAL_GRENADE": {
+            "en-US": "Bastion A-36 Tactical Grenade",
+        },
+        "ECHO_STICKY_BOMB": {
+            "en-US": "Echo Sticky Bomb",
+        },
+        "GENJI_SHURIKEN": {
+            "en-US": "Genji Shuriken",
+        },
+        "LUCIO_SONIC_AMPLIFIER": {
+            "en-US": "Lucio Sonic Amplifier",
+        },
+        "MEI_ICICLE": {
+            "en-US": "Mei Icicle",
+        },
+        "MERCY_CADUCEUS_BLASTER": {
+            "en-US": "Mercy Caduceus Blaster",
+        },
+        "MOIRA_DAMAGE_ORB": {
+            "en-US": "Moira Damage Orb",
+        },
+        "MOIRA_HEAL_ORB": {
+            "en-US": "Moira Heal Orb",
+        },
+        "ORISA_FUSION_DRIVER": {
+            "en-US": "Orisa Fusion Driver",
+        },
+        "PHARAH_ROCKET": {
+            "en-US": "Pharah Rocket",
+        },
+        "REINHARDT_FIRE_STRIKE": {
+            "en-US": "Reinhardt Fire Strike",
+        },
+        "ROADHOG_SCRAP": {
+            "en-US": "Roadhog Scrap",
+        },
+        "ROADHOG_SCRAP_BALL": {
+            "en-US": "Roadhog Scrap Ball",
+        },
+        "SIGMA_HYPERSPHERE": {
+            "en-US": "Sigma Hypersphere",
+        },
+        "SYMMETRA_PHOTON_PROJECTOR": {
+            "en-US": "Symmetra Photon Projector",
+        },
+        "RAMATTRA_RAVENOUS_VORTEX_SPHERE": {
+            "en-US": "Ramattra Ravenous Vortex Sphere",
+        },
+        "ZARYA_GRAVITON": {
+            "en-US": "Zarya Graviton",
+        },
+        "ZARYA_PARTICLE_CANNON": {
+            "en-US": "Zarya Particle Cannon",
+        },
     }
 }
 //end-json

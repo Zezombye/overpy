@@ -21454,6 +21454,546 @@ const actionKw =
         "ja-JP": "条件待機",
         "pt-BR": "Esperar até",
         "zh-CN": "等待直到 "
+    },
+    "createProjectile": {
+        "description": "Creates a projectile. (Duh.)",
+        "descriptionLocalized": {
+            "en-US": "Creates a projectile. (Duh.)",
+        },
+        "args": [
+            {
+                name: "Type",
+                nameLocalized: {
+                    "en-US": "Projectile type",
+                },
+                type: "Projectile",
+                default: "ORB",
+                description: "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension.",
+                descriptionLocalized: {
+                    "en-US": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension.",
+                }
+
+            },{
+                name: "Player",
+                nameLocalized: {
+                    "en-US": "Player",
+                },
+                type: [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                default: "event player",
+                description: "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+                descriptionLocalized: {
+                    "en-US": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+                }
+            },{
+                name: "Start Position",
+                nameLocalized: {
+                    "en-US": "Start Position",
+                },
+                type: "Position",
+                default: "null",
+                description: "The start position of the projectile. If null, the player's eye position will be used.",
+                descriptionLocalized: {
+                    "en-US": "The start position of the projectile. If null, the player's eye position will be used.",
+                }
+            },{
+                name: "Direction",
+                nameLocalized: {
+                    "en-US": "Direction",
+                },
+                type: "Direction",
+                default: "null",
+                description: "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+                descriptionLocalized: {
+                    "en-US": "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+                }
+            },{
+                name: "Relative",
+                nameLocalized: {
+                    "en-US": "Relative",
+                },
+                type: "Relativity",
+                default: "TO WORLD",
+                description: "Whether the projectile's start position and direction are relative to the player or to the world.",
+                descriptionLocalized: {
+                    "en-US": "Whether the projectile's start position and direction are relative to the player or to the world.",
+                }
+            },{
+                name: "Modify Health Type",
+                nameLocalized: {
+                    "en-US": "Modify Health Type",
+                },
+                type: "ModifyHealth",
+                default: "DAMAGE",
+                description: "Whether the projectile will heal or damage targets it collides with.",
+                descriptionLocalized: {
+                    "en-US": "Whether the projectile will heal or damage targets it collides with.",
+                }
+            },{
+                name: "Affected Team",
+                nameLocalized: {
+                    "en-US": "Affected Team",
+                },
+                type: "Team",
+                default: "TEAM",
+                description: "Which team the projectile will collide with. The projectile will never affect its owner regardless of team.",
+                descriptionLocalized: {
+                    "en-US": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team.",
+                }
+            },{
+                name: "Damage",
+                nameLocalized: {
+                    "en-US": "Amount",
+                },
+                type: "unsigned float",
+                default: "50",
+                description: "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center.",
+                descriptionLocalized: {
+                    "en-US": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center.",
+                }
+            },{
+                name: "Damage Scalar",
+                nameLocalized: {
+                    "en-US": "Amount Scalar",
+                },
+                type: "unsigned float",
+                default: "1",
+                description: "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion.",
+                descriptionLocalized: {
+                    "en-US": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion.",
+                }
+            },{
+                name: "Explosion Radius",
+                nameLocalized: {
+                    "en-US": "Explosion Radius",
+                },
+                type: "unsigned float",
+                default: "0",
+                description: "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion.",
+                descriptionLocalized: {
+                    "en-US": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion.",
+                }
+            },{
+                name: "Explosion Effect",
+                nameLocalized: {
+                    "en-US": "Explosion Effect",
+                },
+                type: "DynamicEffect",
+                default: "BAD EXPLOSION",
+                description: "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                descriptionLocalized: {
+                    "en-US": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                }
+            },{
+                name: "Explosion Sound",
+                nameLocalized: {
+                    "en-US": "Explosion Sound Effect",
+                },
+                type: "DynamicEffect",
+                default: "Explosion Sound",
+                description: "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                descriptionLocalized: {
+                    "en-US": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                }
+            },{
+                name: "Oversize",
+                nameLocalized: {
+                    "en-US": "Oversize",
+                },
+                type: "unsigned float",
+                default: "0",
+                min: 0,
+                max: 1,
+                description: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                descriptionLocalized: {
+                    "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                }
+            },{
+                name: "Speed",
+                nameLocalized: {
+                    "en-US": "Speed",
+                },
+                type: "unsigned float",
+                default: "10",
+                min: 0.1,
+                max: 1000,
+                description: "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)",
+                descriptionLocalized: {
+                    "en-US": "The speed in meters per second that the projectile will travel along its direction.",
+                }
+            },{
+                name: "Lifetime",
+                nameLocalized: {
+                    "en-US": "Lifetime",
+                },
+                type: "unsigned float",
+                default: "5",
+                description: "How long in seconds before the projectile expires.",
+                descriptionLocalized: {
+                    "en-US": "How long in seconds before the projectile expires.",
+                }
+            },{
+                name: "Impulse Strength",
+                nameLocalized: {
+                    "en-US": "Impulse",
+                },
+                type: "unsigned float",
+                default: "0",
+                description: "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion.",
+                descriptionLocalized: {
+                    "en-US": "The impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion.",
+                }
+            },{
+                name: "Ricochet Count",
+                nameLocalized: {
+                    "en-US": "Ricochet Count",
+                },
+                type: "unsigned float",
+                default: "0",
+                min: 0,
+                max: 20,
+                description: "How many times the projectile will ricochet off the environment before expiring.",
+                descriptionLocalized: {
+                    "en-US": "How many times the projectile will ricochet off the environment before expiring.",
+                }
+            },{
+                name: "Gravity",
+                nameLocalized: {
+                    "en-US": "Gravity",
+                },
+                type: "float",
+                default: "0",
+                description: "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards.",
+                descriptionLocalized: {
+                    "en-US": "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards.",
+                }
+            },
+        ],
+        return: "void",
+        "en-US": "Create Projectile",
+    },
+    
+    "createHomingProjectile": {
+        "description": "Creates a homing projectile. (Duh.)",
+        "descriptionLocalized": {
+            "en-US": "Creates a homing projectile. (Duh.)",
+        },
+        "args": [
+            {
+                name: "Type",
+                nameLocalized: {
+                    "en-US": "Projectile type",
+                },
+                type: "Projectile",
+                default: "ORB",
+                description: "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension.",
+                descriptionLocalized: {
+                    "en-US": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension.",
+                }
+
+            },{
+                name: "Player",
+                nameLocalized: {
+                    "en-US": "Player",
+                },
+                type: [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                default: "event player",
+                description: "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+                descriptionLocalized: {
+                    "en-US": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+                }
+            },{
+                name: "Start Position",
+                nameLocalized: {
+                    "en-US": "Start Position",
+                },
+                type: "Position",
+                default: "null",
+                description: "The start position of the projectile. If null, the player's eye position will be used.",
+                descriptionLocalized: {
+                    "en-US": "The start position of the projectile. If null, the player's eye position will be used.",
+                }
+            },{
+                name: "Direction",
+                nameLocalized: {
+                    "en-US": "Direction",
+                },
+                type: "Direction",
+                default: "null",
+                description: "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+                descriptionLocalized: {
+                    "en-US": "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+                }
+            },{
+                name: "Relative",
+                nameLocalized: {
+                    "en-US": "Relative",
+                },
+                type: "Relativity",
+                default: "TO WORLD",
+                description: "Whether the projectile's start position and direction are relative to the player or to the world.",
+                descriptionLocalized: {
+                    "en-US": "Whether the projectile's start position and direction are relative to the player or to the world.",
+                }
+            },{
+                name: "Modify Health Type",
+                nameLocalized: {
+                    "en-US": "Modify Health Type",
+                },
+                type: "ModifyHealth",
+                default: "DAMAGE",
+                description: "Whether the projectile will heal or damage targets it collides with.",
+                descriptionLocalized: {
+                    "en-US": "Whether the projectile will heal or damage targets it collides with.",
+                }
+            },{
+                name: "Affected Team",
+                nameLocalized: {
+                    "en-US": "Affected Team",
+                },
+                type: "Team",
+                default: "TEAM",
+                description: "Which team the projectile will collide with. The projectile will never affect its owner regardless of team.",
+                descriptionLocalized: {
+                    "en-US": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team.",
+                }
+            },{
+                name: "Damage",
+                nameLocalized: {
+                    "en-US": "Amount",
+                },
+                type: "unsigned float",
+                default: "50",
+                description: "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center.",
+                descriptionLocalized: {
+                    "en-US": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center.",
+                }
+            },{
+                name: "Damage Scalar",
+                nameLocalized: {
+                    "en-US": "Amount Scalar",
+                },
+                type: "unsigned float",
+                default: "1",
+                description: "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion.",
+                descriptionLocalized: {
+                    "en-US": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion.",
+                }
+            },{
+                name: "Explosion Radius",
+                nameLocalized: {
+                    "en-US": "Explosion Radius",
+                },
+                type: "unsigned float",
+                default: "0",
+                description: "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion.",
+                descriptionLocalized: {
+                    "en-US": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion.",
+                }
+            },{
+                name: "Explosion Effect",
+                nameLocalized: {
+                    "en-US": "Explosion Effect",
+                },
+                type: "DynamicEffect",
+                default: "BAD EXPLOSION",
+                description: "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                descriptionLocalized: {
+                    "en-US": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                }
+            },{
+                name: "Explosion Sound",
+                nameLocalized: {
+                    "en-US": "Explosion Sound Effect",
+                },
+                type: "DynamicEffect",
+                default: "Explosion Sound",
+                description: "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                descriptionLocalized: {
+                    "en-US": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created.",
+                }
+            },{
+                name: "Oversize",
+                nameLocalized: {
+                    "en-US": "Oversize",
+                },
+                type: "unsigned float",
+                default: "0",
+                min: 0,
+                max: 1,
+                description: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                descriptionLocalized: {
+                    "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                }
+            },{
+                name: "Speed",
+                nameLocalized: {
+                    "en-US": "Speed",
+                },
+                type: "unsigned float",
+                default: "10",
+                min: 0.1,
+                max: 1000,
+                description: "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)",
+                descriptionLocalized: {
+                    "en-US": "The speed in meters per second that the projectile will travel along its direction.",
+                }
+            },{
+                name: "Lifetime",
+                nameLocalized: {
+                    "en-US": "Lifetime",
+                },
+                type: "unsigned float",
+                default: "5",
+                description: "How long in seconds before the projectile expires.",
+                descriptionLocalized: {
+                    "en-US": "How long in seconds before the projectile expires.",
+                }
+            },{
+                name: "Impulse Strength",
+                nameLocalized: {
+                    "en-US": "Impulse",
+                },
+                type: "unsigned float",
+                default: "0",
+                description: "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion.",
+                descriptionLocalized: {
+                    "en-US": "The impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion.",
+                }
+            },{
+                name: "Homing Target",
+                nameLocalized: {
+                    "en-US": "Homing Target",
+                },
+                type: "Player",
+                default: "null",
+                description: "The homing target for the projectile. If null, the projectile will travel in a straight line.",
+                descriptionLocalized: {
+                    "en-US": "The homing target for the projectile. If null, the projectile will travel in a straight line.",
+                }
+            },{
+                name: "Homing Strength",
+                nameLocalized: {
+                    "en-US": "Homing Strength",
+                },
+                type: "float",
+                default: "0.5",
+                min: 0,
+                max: 1,
+                description: "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it.",
+                descriptionLocalized: {
+                    "en-US": "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it.",
+                }
+            },
+        ],
+        return: "void",
+        "en-US": "Create Projectile",
+    },
+    "createProjectileEffect": {
+        description: "Creates a projectile effect. (I think.)",
+        descriptionLocalized: {
+            "en-US": "Creates a projectile effect. (I think.)"
+        },
+        args: [
+            {
+                name: "Visibility",
+                nameLocalized: {
+                    "en-US": "Visible To",
+                },
+                type: [
+                    "Player",
+                    {"Array": "Player"}
+                ],
+                default: "All Players",
+                description: "One or more players who will be able to see the effect.",
+                descriptionLocalized: {
+                    "en-US": "One or more players who will be able to see the effect.",
+                }
+            },{
+                name: "Type",
+                nameLocalized: {
+                    "en-US": "Projectile Type",
+                },
+                type: "Projectile",
+                default: "ORB",
+                description: "The type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension.",
+                descriptionLocalized: {
+                    "en-US": "Type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension.",
+                }
+            },{
+                name: "Friendly To",
+                nameLocalized: {
+                    "en-US": "Friendly To",
+                },
+                type: [
+                    "Player",
+                    {"Array": "Player"}
+                ],
+                default: "null",
+                description: "One or more players who the projectile will appear friendly to.",
+                descriptionLocalized: {
+                    "en-US": "One or more players who the projectile will appear friendly to.",
+                }
+            },{
+                name: "Position",
+                nameLocalized: {
+                    "en-US": "Position",
+                },
+                type: [
+                    "Position",
+                    "Player"
+                ],
+                default: "Event Player",
+                description: "The position of the effect.",
+                descriptionLocalized: {
+                    "en-US": "The position in of the effect.",
+                }
+            },{
+                name: "Direction",
+                nameLocalized: {
+                    "en-US": "Direction",
+                },
+                type: "Direction",
+                default: "vector",
+                description: "The facing direction of the effect.",
+                descriptionLocalized: {
+                    "en-US": "The facing direction of the effect.",
+                }
+            },{
+                name: "Oversize",
+                nameLocalized: {
+                    "en-US": "Oversize",
+                },
+                type: "unsigned float",
+                default: "0",
+                min: 0,
+                max: 1,
+                description: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                descriptionLocalized: {
+                    "en-US": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type.",
+                }
+            },{
+                name: "Reevaluation",
+                nameLocalized: {
+                    "en-US": "Reevaluation",
+                },
+                type: "ProjectileEffectReeval",
+                default: "Visible To Position Direction And Size",
+                description: "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
+                descriptionLocalized: {
+                    "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
+                }
+            },
+        ]
     }
 }
 //end-json
