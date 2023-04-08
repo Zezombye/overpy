@@ -2382,6 +2382,24 @@ const heroKw =
         "ru-RU": "Раматтра",
         "zh-CN": "拉玛刹",
         "zh-TW": "拉瑪塔"
+    },
+    "lifeweaver": {
+        "en-US": "Lifeweaver",
+        ability1: {
+            "en-US": "Rejuvenating Dash",
+        },
+        ability2: {
+            "en-US": "Life Grip",
+        },
+        ultimate: {
+            "en-US": "Tree of Life",
+        },
+        passive: {
+            "en-US": "Parting Gift",
+        },
+        "secondaryFire": {
+            "en-US": "Petal Platform",
+        }
     }
 }
 //end-json

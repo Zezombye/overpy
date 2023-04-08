@@ -21896,7 +21896,7 @@ const actionKw =
             },
         ],
         return: "void",
-        "en-US": "Create Projectile",
+        "en-US": "Create Homing Projectile",
     },
     "createProjectileEffect": {
         description: "Creates a projectile effect. (I think.)",
@@ -21993,7 +21993,9 @@ const actionKw =
                     "en-US": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
                 }
             },
-        ]
+        ],
+        return: "void",
+        "en-US": "Create Projectile Effect"
     }
 }
 //end-json

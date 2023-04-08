@@ -24,7 +24,7 @@ astParsingFunctions.__if__ = function(content) {
 
         if (currentRuleHasVariableGoto) {
             //Keep the child and add a "pass" for the "end"
-            content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+            content.parent.children.splice(content.parent.childIndex+1, 0, content.args[0].name === "RULE_CONDITION" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
         }
 
         if (content.children.length !== 1) {

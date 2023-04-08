@@ -23,6 +23,7 @@ var subroutines;
 var currentLanguage;
 
 const ELEMENT_LIMIT = 32768;
+const PAGE_SIZE = 100;
 //If it is in a browser then it is assumed to be in debug mode.
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";

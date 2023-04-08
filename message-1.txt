@@ -1,0 +1,164 @@
+# Extensions
+- Projectiles (appears second-to-last)
+  - Cost: 4
+  - Description: Adds projectiles to the Projectile Type menu of the Create Projectile actions.
+
+# Create Projectile
+- Projectile Type [enum]: "Type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension."
+	- Orb Projectile (default)
+	- Baptiste Biotic Launcher
+	- Bastion A-36 Tactical Grenade
+	- Echo Sticky Bomb
+	- Genji Shuriken
+	- Lucio Sonic Amplifier
+	- Mei Icicle
+	- Mercy Caduceus Blaster
+	- Moira Damage Orb
+	- Moira Heal Orb
+	- Orisa Fusion Driver
+	- Pharah Rocket
+	- Reinhardt Fire Strike
+	- Roadhog Scrap
+	- Roadhog Scrap Ball
+	- Sigma Hypersphere
+	- Symmetra Photon Projector
+	- Ramattra Ravenous Vortex Sphere
+	- Zarya Graviton
+	- Zarya Particle Cannon
+- Player [player]: "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner."
+  - Event Player (default)
+- Start Position [vector]: "The start position of the projectile. If null, the player's eye position will be used."
+  - Null (default)
+- Direction [vector]: "The direction for the projectile to travel. If null, the player's facing direction will be used."
+  - Null (default)
+- Relative [enum]: "Whether the projectile's start position and direction are relative to the player or to the world."
+  - To World (default)
+  - To Player
+- Modify Health Type [enum]: "Whether the projectile will heal or damage targets it collides with."
+  - Damage (default)
+  - Heal
+- Affected Team [team]: "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
+  - Team(All) (default)
+- Amount [number]: "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
+  - 50.00 (default)
+- Amount Scalar [number]: "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
+  - 1.00 (default)
+- Explosion Radius [number]: "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
+  - 0.00 (default)
+- Explosion Effect [Play Effect]: "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+  - Bad Explosion (default)
+- Explosion Sound Effect [Play Effect]: "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+  - Explosion Sound (default)
+- Oversize [number]: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+  - 0.00 (default)
+- Speed [number]: "The speed in meters per second that the projectile will travel along its direction." 0.1 to 1000
+  - 10.00 (default)
+- Lifetime [number]: "How long in seconds before the projectile expires."
+  - 5.00 (default)
+- Impulse [number]: "The impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
+  - 0.00 (default)
+- Ricochet Count [number]: "How many times the projectile will ricochet off the environment before expiring." 0 to 20
+  - 0.00
+- Gravity [number]: "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards."
+  - 0.00
+
+# Create Homing Projectile
+- Projectile Type [enum]: "Type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension."
+	- Orb Projectile (default)
+	- Baptiste Biotic Launcher
+	- Bastion A-36 Tactical Grenade
+	- Echo Sticky Bomb
+	- Genji Shuriken
+	- Lucio Sonic Amplifier
+	- Mei Icicle
+	- Mercy Caduceus Blaster
+	- Moira Damage Orb
+	- Moira Heal Orb
+	- Orisa Fusion Driver
+	- Pharah Rocket
+	- Reinhardt Fire Strike
+	- Roadhog Scrap
+	- Roadhog Scrap Ball
+	- Sigma Hypersphere
+	- Symmetra Photon Projector
+	- Ramattra Ravenous Vortex Sphere
+	- Zarya Graviton
+	- Zarya Particle Cannon
+- Player [player]: "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner."
+  - Event Player (default)
+- Start Position [vector]: "The start position of the projectile. If null, the player's eye position will be used."
+  - Null (default)
+- Direction [vector]: "The direction for the projectile to travel. If null, the player's facing direction will be used."
+  - Null (default)
+- Relative [enum]: "Whether the projectile's start position and direction are relative to the player or to the world."
+  - To World (default)
+  - To Player
+- Modify Health Type [enum]: "Whether the projectile will heal or damage targets it collides with."
+  - Damage (default)
+  - Heal
+- Affected Team [team]: "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
+  - Team(All) (default)
+- Amount [number]: "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
+  - 50.00 (default)
+- Amount Scalar [number]: "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
+  - 1.00 (default)
+- Explosion Radius [number]: "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
+  - 0.00 (default)
+- Explosion Effect [Play Effect]: "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+  - Bad Explosion (default)
+- Explosion Sound Effect [Play Effect]: "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
+  - Explosion Sound (default)
+- Oversize [number]: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+  - 0.00 (default)
+- Speed [number]: "The speed in meters per second that the projectile will travel along its direction." 0.1 to 1000
+  - 10.00 (default)
+- Lifetime [number]: "How long in seconds before the projectile expires."
+  - 5.00 (default)
+- Impulse [number]: "The impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
+  - 0.00 (default)
+- Homing Target [player]: "The homing target for the projectile. If null, the projectile will travel in a straight line."
+  - Null
+- Homing Strength [number]: "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it."
+  - 0.5
+
+# Create Projectile Effect
+- Visible To (Player | Player[]): "One or more players who will be able to see the effect."
+  - All Players(Team(All))
+- Projectile Type [enum]: "Type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension."
+	- Orb Projectile (default)
+	- Baptiste Biotic Launcher
+	- Bastion A-36 Tactical Grenade
+	- Echo Sticky Bomb
+	- Genji Shuriken
+	- Lucio Sonic Amplifier
+	- Mei Icicle
+	- Mercy Caduceus Blaster
+	- Moira Damage Orb
+	- Moira Heal Orb
+	- Orisa Fusion Driver
+	- Pharah Rocket
+	- Reinhardt Fire Strike
+	- Roadhog Scrap
+	- Roadhog Scrap Ball
+	- Sigma Hypersphere
+	- Symmetra Photon Projector
+	- Ramattra Ravenous Vortex Sphere
+	- Zarya Graviton
+	- Zarya Particle Cannon
+- Friendly To (Player | Player[]): "One or more players who the projectile will appear friendly to."
+  - Null
+- Position [vector]: "The position in of the effect."
+  - Event Player
+- Direction [vector]: "The facing direction of the effect."
+  - Vector(0,0,0)
+- Oversize [number]: "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
+  - 0.00 (default)
+- Reevaluation [enum]: "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs."
+  - Visible To, Position, Direction and Size (default)
+  - Position, Direction And Size
+  - Visible To
+  - None
+  - Visible To, Friendly To, Position, Direction And Size
+  - Friendly To, Position, Direction And Size
+  - Visible To, Friendly To
+  - Friendly To

@@ -95,8 +95,9 @@ function parseLines(lines) {
         
         } else if (lines[i].tokens[0].text.startsWith("@")) {
 
-            if (lines[i].tokens[0].text === "@Condition" || lines[i].tokens[0].text === "@Name") {
-                var currentLineAst = new Ast(lines[i].tokens[0].text, [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
+            if (["@Condition", "@Name", "@NewPage"].includes(lines[i].tokens[0].text)) {
+
+                var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens[0].text === "@NewPage" && lines[i].tokens.length === 1 ? [] : [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
 
             } else {
                 var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
@@ -213,6 +214,10 @@ function parseLines(lines) {
             if (funcName === "__doWhile__") {
                 //There should be a "while" matching the "do"
                 if (j < lines.length && lines[j].tokens[0].text === "while") {
+                    if (lines[j].tokens[lines[j].tokens.length-1].text.startsWith("#")) {
+                        currentComments.push(lines[j].tokens[lines[j].tokens.length-1].text.substring(1));
+                        lines[j].tokens.pop();
+                    }
                     args = [parse(lines[j].tokens.slice(1))];
                     j++;
                 } else {

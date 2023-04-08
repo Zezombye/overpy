@@ -45,6 +45,7 @@ astParsingFunctions.__doWhile__ = function(content) {
         loopFunc = new Ast("__loopIf__", content.args);
     }
     loopFunc.originalName = "__doWhile__";
+    loopFunc.comment = content.comment;
 
     //Insert the children in the parent
     for (var child of content.children) {

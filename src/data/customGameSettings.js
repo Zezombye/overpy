@@ -274,6 +274,13 @@ const customGameSettingsSchema =
                 "pt-BR": "Reproduzir Mais Efeitos",
                 "zh-CN": "播放更多效果"
             },
+            "projectiles": {
+                points: 4,
+                descriptionLocalized: {
+                    "en-US": "Adds projectiles to the Projectile Type menu of the Create Projectile actions."
+                },
+                "en-US": "Projectiles",
+            },
             "spawnMoreDummyBots": {
                 "points": 2,
                 "guid": "0000000128E7",
@@ -3333,7 +3340,8 @@ const customGameSettingsSchema =
                     "default": "on",
                     "include": [
                         "mercy",
-                        "echo"
+                        "echo",
+                        "lifeweaver"
                     ],
                     "en-US": "%1$s"
                 },
@@ -3357,7 +3365,8 @@ const customGameSettingsSchema =
                         "soldier",
                         "sombra",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "lifeweaver"
                     ],
                     "en-US": "%1$s"
                 },
@@ -3379,7 +3388,8 @@ const customGameSettingsSchema =
                         "soldier",
                         "sombra",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "lifeweaver"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -4850,6 +4860,65 @@ const customGameSettingsSchema =
                         "ru-RU": "Лучевая пушка: сила отбрасывания взрывом",
                         "zh-CN": "粒子炮辅助攻击击退倍率",
                         "zh-TW": "粒子砲次要攻擊擊退距離"
+                    }
+                }
+            },
+            "lifeweaver": {
+                values: {
+                    "ultHealth%": {
+                        "values": "__percent__",
+                        "min": 50,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Tree of Life Health"
+                    },
+                    "ability1Health%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Rejuvenating Dash Healing",
+                    },
+                    "secondaryFireHealth%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Petal Platform Health"
+                    },
+                    "primaryFireRange%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Life Grip and Healing Blossom Range",
+                    },
+                    "weaponsEnabled": {
+                        "values": {
+                            "all": {
+                                "guid": "000000006019",
+                                "default": true,
+                                "en-US": "All",
+                                "de-DE": "Alle",
+                                "es-ES": "Todas",
+                                "es-MX": "Todos",
+                                "fr-FR": "Toutes",
+                                "it-IT": "Tutte",
+                                "ja-JP": "すべて",
+                                "ko-KR": "모두 사용",
+                                "pl-PL": "Wszystkie",
+                                "pt-BR": "Todas",
+                                "ru-RU": "Все",
+                                "zh-CN": "全部",
+                                "zh-TW": "全部"
+                            },
+                            "healingBlossom": {
+                                "en-US": "Healing Blossom Only",
+                            },
+                            "thornVolley": {
+                                "en-US": "Thorn Volley Only",
+                            }
+                        },
                     }
                 }
             }

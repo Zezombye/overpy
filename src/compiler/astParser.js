@@ -79,6 +79,28 @@ function parseAstRules(rules) {
             } else if (rule.children[i].name === "@Delimiter") {
                 rule.ruleAttributes.isDelimiter = true;
 
+            } else if (rule.children[i].name === "@NewPage") {
+                if (rule.children[i].args.length > 1) {
+                    error("Annotation '@NewPage' takes at most 1 argument, received "+rule.children[i].args.length);
+                }
+                var fillerName = ""
+                if (rule.children[i].args.length > 0) {
+                    if (rule.children[i].args[0].type !== "StringLiteral") {
+                        error("Expected a string as argument of '@NewPage'");
+                    }
+                    fillerName = rule.children[i].args[0].name
+                }
+                while (rulesResult.filter(x => x.name === "__rule__").length % 100 !== 0 || rulesResult.filter(x => x.name === "__rule__").length === 0) {
+                    var emptyRule = new Ast("__rule__");
+                    emptyRule.ruleAttributes = {
+                        isDelimiter: true,
+                        isDisabled: fillerName === "",
+                        name: fillerName,
+                        event: "global",
+                    }
+                    rulesResult.push(emptyRule);
+                }
+
             } else if (rule.children[i].name === "@Condition") {
                 if (!("conditions" in rule.ruleAttributes)) {
                     rule.ruleAttributes.conditions = [];
