@@ -30,7 +30,7 @@
         "Programming Languages"
     ],
     "dependencies": {
-        "vm2": "3.9.15"
+        "vm2": "3.9.16"
     },
     "contributes": {
         "configuration": {
