@@ -264,10 +264,33 @@ function decompileCustomGameSettings(content) {
 							result[opyCategory][opyGamemode][opyPropName] = [];
 							for (var map of Object.keys(serialized[category][gamemode][property])) {
 								//remove number at the end, if there is one
-								if (map.endsWith("0")) {
-									map = map.substring(0, map.length-1);
+								if (map.endsWith(" 0")) {
+									map = map.substring(0, map.length-2);
 								}
-								result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+								if (map.includes("972777")) {
+									var variants = [...map.matchAll(/\b972777\d+\b/g)].map(x => x[0]);
+									var mapName = topy(map.replace(/\b972777\d+\b/g, ""), mapKw);
+									var mapVariants = []
+									if (!("variants" in mapKw[mapName])) {
+										error("Map '"+mapName+"' should have no variants")
+									}
+									for (var variant of variants) {
+										var variantName = Object.keys(mapKw[mapName].variants).filter(x => mapKw[mapName].variants[x] === variant);
+										if (variantName.length === 0) {
+											error("Unknown variant '"+variant+"' for map '"+mapName+"'");
+										}
+										mapVariants.push(variantName[0])
+									}
+									if (mapVariants.length === Object.keys(mapKw[mapName].variants).length) {
+										result[opyCategory][opyGamemode][opyPropName].push(mapName)
+									} else {
+										var mapObj = {}
+										mapObj[mapName] = mapVariants
+										result[opyCategory][opyGamemode][opyPropName].push(mapObj)
+									}
+								} else {
+									result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+								}
 							}
 						}
 					}

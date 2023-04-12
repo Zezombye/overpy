@@ -21456,9 +21456,9 @@ const actionKw =
         "zh-CN": "等待直到 "
     },
     "createProjectile": {
-        "description": "Creates a projectile. (Duh.)",
+        "description": "Creates a projectile entity that either heals or damages players and player-owned entities. This action will fail if too many entities have been created.",
         "descriptionLocalized": {
-            "en-US": "Creates a projectile. (Duh.)",
+            "en-US": "Create a projectile entity that either heals or damages players and player owned entities. This action will fail if too many entities have been created.",
         },
         "args": [
             {
@@ -21632,6 +21632,8 @@ const actionKw =
                 },
                 type: "unsigned float",
                 default: "5",
+                min: 0.1,
+                max: 100,
                 description: "How long in seconds before the projectile expires.",
                 descriptionLocalized: {
                     "en-US": "How long in seconds before the projectile expires.",
@@ -21678,9 +21680,9 @@ const actionKw =
     },
     
     "createHomingProjectile": {
-        "description": "Creates a homing projectile. (Duh.)",
+        "description": "Creates a projectile entity that either heals or damages players and player-owned entities. The projectile follows the provided target with variable strength. This action will fail if too many entities have been created.",
         "descriptionLocalized": {
-            "en-US": "Creates a homing projectile. (Duh.)",
+            "en-US": "Create a projectile entity that either heals or damages players and player owned entities. The projectile follows the provided target with variable strength. This action will fail if too many entities have been created.",
         },
         "args": [
             {
@@ -21854,6 +21856,8 @@ const actionKw =
                 },
                 type: "unsigned float",
                 default: "5",
+                min: 0.1,
+                max: 100,
                 description: "How long in seconds before the projectile expires.",
                 descriptionLocalized: {
                     "en-US": "How long in seconds before the projectile expires.",
@@ -21899,9 +21903,9 @@ const actionKw =
         "en-US": "Create Homing Projectile",
     },
     "createProjectileEffect": {
-        description: "Creates a projectile effect. (I think.)",
+        description: "Creates an in-world projectile effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         descriptionLocalized: {
-            "en-US": "Creates a projectile effect. (I think.)"
+            "en-US": "Creates an in-world projectil effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created."
         },
         args: [
             {

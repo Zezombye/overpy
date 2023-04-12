@@ -5631,6 +5631,32 @@ const constantValues =
         "ZARYA_PARTICLE_CANNON": {
             "en-US": "Zarya Particle Cannon",
         },
+    },
+    "ProjectileEffectReeval": {
+        "VISIBILITY_POSITION_DIRECTION_AND_SIZE": {
+            "en-US": "Visible To Position Direction and Size",
+        },
+        "POSITION_DIRECTION_AND_SIZE": {
+            "en-US": "Position Direction And Size",
+        },
+        "VISIBILITY": {
+            "en-US": "Visible To",
+        },
+        "NONE": {
+            "en-US": "None",
+        },
+        "VISIBILITY_FRIENDLINESS_POSITION_DIRECTION_AND_SIZE": {
+            "en-US": "Visible To Friendly To Position Direction And Size",
+        },
+        "FRIENDLINESS_POSITION_DIRECTION_AND_SIZE": {
+            "en-US": "Friendly To Position, Direction And Size",
+        },
+        "VISIBILITY_AND_FRIENDLINESS": {
+            "en-US": "Visible To Friendly To",
+        },
+        "FRIENDLINESS": {
+            "en-US": "Friendly To",
+        },
     }
 }
 //end-json

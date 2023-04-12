@@ -154,6 +154,7 @@
                                     "nepalVillage",
                                     "nepalVillageWinter",
                                     "newQueenStreet",
+                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -164,6 +165,7 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
+                                    "shambaliMonastery",
                                     "sydneyHarbourArena",
                                     "sydneyHarbourArenaClassic",
                                     "templeOfAnubis",
@@ -174,8 +176,7 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight",
-                                    "shambaliMonastery"
+                                    "workshopIslandNight"
                                 ]
                             }
                         },
@@ -239,6 +240,7 @@
                                     "nepalVillage",
                                     "nepalVillageWinter",
                                     "newQueenStreet",
+                                    "numbani",
                                     "oasis",
                                     "oasisCityCenter",
                                     "oasisGardens",
@@ -249,6 +251,7 @@
                                     "practiceRange",
                                     "rialto",
                                     "route66",
+                                    "shambaliMonastery",
                                     "sydneyHarbourArena",
                                     "sydneyHarbourArenaClassic",
                                     "templeOfAnubis",
@@ -259,8 +262,7 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight",
-                                    "shambaliMonastery"
+                                    "workshopIslandNight"
                                 ]
                             }
                         },
@@ -829,8 +831,8 @@
                                     "junkertown",
                                     "rialto",
                                     "route66",
-                                    "watchpointGibraltar",
-                                    "shambaliMonastery"
+                                    "shambaliMonastery",
+                                    "watchpointGibraltar"
                                 ]
                             }
                         },
@@ -845,8 +847,8 @@
                                     "junkertown",
                                     "rialto",
                                     "route66",
-                                    "watchpointGibraltar",
-                                    "shambaliMonastery"
+                                    "shambaliMonastery",
+                                    "watchpointGibraltar"
                                 ]
                             }
                         }
@@ -958,6 +960,7 @@
                                     "kingsRow",
                                     "kingsRowWinter",
                                     "midtown",
+                                    "numbani",
                                     "paraiso"
                                 ]
                             }
@@ -976,6 +979,7 @@
                                     "kingsRow",
                                     "kingsRowWinter",
                                     "midtown",
+                                    "numbani",
                                     "paraiso"
                                 ]
                             }
@@ -1908,14 +1912,15 @@
                                     "kingsRowWinter",
                                     "lijiangTower",
                                     "lijiangTowerLny",
-                                    "midtown",
                                     "nepal",
                                     "newQueenStreet",
+                                    "numbani",
                                     "oasis",
                                     "paraiso",
                                     "paris",
                                     "rialto",
                                     "route66",
+                                    "shambaliMonastery",
                                     "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
@@ -1924,8 +1929,7 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight",
-                                    "shambaliMonastery"
+                                    "workshopIslandNight"
                                 ]
                             }
                         },
@@ -1956,14 +1960,15 @@
                                     "kingsRowWinter",
                                     "lijiangTower",
                                     "lijiangTowerLny",
-                                    "midtown",
                                     "nepal",
                                     "newQueenStreet",
+                                    "numbani",
                                     "oasis",
                                     "paraiso",
                                     "paris",
                                     "rialto",
                                     "route66",
+                                    "shambaliMonastery",
                                     "templeOfAnubis",
                                     "volskaya",
                                     "watchpointGibraltar",
@@ -1972,8 +1977,7 @@
                                     "workshopExpanseNight",
                                     "workshopGreenScreen",
                                     "workshopIsland",
-                                    "workshopIslandNight",
-                                    "shambaliMonastery"
+                                    "workshopIslandNight"
                                 ]
                             }
                         }

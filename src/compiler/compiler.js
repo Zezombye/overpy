@@ -105,57 +105,6 @@ function compileRules(astRules) {
 
 	var compiledRules = astRulesToWs(parsedAstRules);
 
-	if (isCurrentMapUsed && !disableMapDetectionFix) {
-		var mapArray = tows("__array__", valueFuncKw)+"("+Object.keys(constantValues["MapLiteral"]).filter(x => typeof constantValues["MapLiteral"][x] === "object" && !constantValues["MapLiteral"][x].onlyInOw1).map(x => tows("__map__", valueFuncKw)+"("+tows(x, constantValues["MapLiteral"])+")").join(", ")+")";
-		var currentMapVar = translateVarToWs("__currentMap__", true)
-		var mapDetectionRule = `
-${tows("__rule__", ruleKw)}("OverPy Map Detection") {
-	${tows("__event__", ruleKw)} {
-		${tows("global", eventKw)};
-	}
-	${tows("__actions__", ruleKw)} {
-		${tows("__if__", actionKw)}(${tows("__arrayContains__", valueFuncKw)}(${mapArray}, ${tows("getCurrentMap", valueFuncKw)}));
-			${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("getCurrentMap", valueFuncKw)};
-			${tows("return", actionKw)};
-		${tows("__end__", actionKw)};
-		${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(500, 100, 500), ${tows("vect", valueFuncKw)}(-500, -100, -500), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(0, 0, 0) || ${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(-500, -100, -500));
-			${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(30, 5, 0), ${tows("vect", valueFuncKw)}(-30, -10, -10), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(-30, -10, -10));
-				${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(200, 20, 100), ${tows("vect", valueFuncKw)}(100, -100, -100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-				${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(100, -100, -100));
-					${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(300, 20, -100), ${tows("vect", valueFuncKw)}(300, -100, 100), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-					${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(300, -100, 100));
-						${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(50, 100, -150), ${tows("vect", valueFuncKw)}(-50, -100, -160), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-						${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(-50, -100, -160));
-							${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(0, 300, 340), ${tows("vect", valueFuncKw)}(0, -100, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-							${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(0, -100, -300));
-								${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(140, 10, -240), ${tows("vect", valueFuncKw)}(200, -10, -300), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-								${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(200, -10, -300));
-									${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, 30, 60), ${tows("vect", valueFuncKw)}(-180, -50, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-								${tows("__end__", actionKw)};
-							${tows("__end__", actionKw)};
-						${tows("__end__", actionKw)};
-					${tows("__end__", actionKw)};
-				${tows("__end__", actionKw)};
-			${tows("__end__", actionKw)};
-		${tows("__end__", actionKw)};
-		${tows("__global__", valueFuncKw)}.${currentMapVar} = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}),
-			${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}), ${tows("__roundDown__", constantValues["__Rounding__"])});
-		${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == 10121);
-			${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-60, 20, -60), ${tows("vect", valueFuncKw)}(60, -10, 60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-			${tows("__if__", actionKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar} == ${tows("vect", valueFuncKw)}(60, -10, 60));
-				${tows("__global__", valueFuncKw)}.${currentMapVar} = ${tows("__raycastHitPosition__", valueFuncKw)}(${tows("vect", valueFuncKw)}(-180, -70, 60), ${tows("vect", valueFuncKw)}(-180, -100, -60), ${tows("null", valueFuncKw)}, ${tows("null", valueFuncKw)}, ${tows("false", valueFuncKw)});
-			${tows("__end__", actionKw)};
-			${tows("__global__", valueFuncKw)}.${currentMapVar} = 100 * ${tows("__round__", valueFuncKw)}(${tows("__yComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}), ${tows("__roundUp__", constantValues["__Rounding__"])}) + 10 * ${tows("__round__", valueFuncKw)}(${tows("__xComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}),
-				${tows("__roundToNearest__", constantValues["__Rounding__"])}) + ${tows("__round__", valueFuncKw)}(${tows("__zComponentOf__", valueFuncKw)}(${tows("__global__", valueFuncKw)}.${currentMapVar}), ${tows("__roundDown__", constantValues["__Rounding__"])});
-		${tows("__end__", actionKw)};
-	}
-}		
-`
-		compiledRules.unshift(mapDetectionRule)
-	}
-
 	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
 		compiledRules = addObfuscationRules(compiledRules);
 	} else {
@@ -459,17 +408,34 @@ function compileCustomGameSettings(customGameSettings) {
 						error("Cannot have both 'enabledMaps' and 'disabledMaps' in gamemode '"+gamemode+"'");
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
-					if (Array.isArray(customGameSettings.gamemodes[gamemode][mapsKey])) {
-						customGameSettings.gamemodes[gamemode][mapsKey] = customGameSettings.gamemodes[gamemode][mapsKey].reduce((acc,curr)=> (acc[curr]=0,acc),{})
-					}
-					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
-						if (!(map in mapKw)) {
-							error("Unknown map '"+map+"'");
-						} else if (mapKw[map].onlyInOw1) {
-							error("The map '"+map+"' is not available in OW2");
-						} else if (map.endsWith("Night") || map.endsWith("Halloween") || map.endsWith("Winter") || map.endsWith("Lny") || ["iliosRuins", "iliosLighthouse", "iliosWell", "nepalSanctum", "nepalShrine", "nepalVillage", "oasisCityCenter", "oasisGardens", "oasisUniversity"].includes(map)) {
-							warn("w_ow2_map_paste_bug", "The map '"+map+"' cannot be pasted, you will have to select/deselect it manually via the UI.")
-							delete customGameSettings.gamemodes[gamemode][mapsKey][map];
+					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
+					var encounteredMaps = []
+					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
+					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
+						if (typeof map === "object" && !Array.isArray(map)) {
+							if (Object.keys(map).length !== 1) {
+								error("Malformed map object, should only have 1 key");
+							}
+							var mapName = Object.keys(map)[0]
+							var variants = []
+							for (var variant of map[mapName]) {
+								if (!(variant in mapKw[mapName].variants)) {
+									error("Unknown variant '"+variant+"' for map '"+mapName+"'");
+								}
+								variants.push(mapKw[mapName].variants[variant]);
+							}
+							encounteredMaps.push(mapName)
+							result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));
+
+
+						} else {
+							if (!(map in mapKw)) {
+								error("Unknown map '"+map+"'");
+							} else if (mapKw[map].onlyInOw1) {
+								error("The map '"+map+"' is not available in OW2");
+							}
+							encounteredMaps.push(map)
+							result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw));
 						}
 					}
 					//Test if there are only workshop maps (for extension points)
@@ -478,18 +444,13 @@ function compileCustomGameSettings(customGameSettings) {
 							//If only workshop maps are enabled in a gamemode, then it is less than 50%, so it will be "enabled maps".
 							areOnlyWorkshopMapsEnabled = false;
 						} else {
-							for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
+							for (var map of encounteredMaps) {
 								if (!mapKw[map].isWorkshopMap) {
 									areOnlyWorkshopMapsEnabled = false;
 									break;
 								}
 							}
 						}
-					}
-					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
-					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
-					for (var map in customGameSettings.gamemodes[gamemode][mapsKey]) {
-						result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw)+" "+customGameSettings.gamemodes[gamemode][mapsKey][map])
 					}
 					delete customGameSettings.gamemodes[gamemode][mapsKey];
 				}

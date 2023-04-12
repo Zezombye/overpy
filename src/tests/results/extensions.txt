@@ -11,10 +11,10 @@ settings
 		{
 			enabled maps
 			{
-				Workshop Chamber 0
-				Workshop Expanse 0
-				Workshop Green Screen 0
-				Workshop Island 0
+				Workshop Chamber
+				Workshop Expanse
+				Workshop Green Screen
+				Workshop Island
 			}
 		}
 	}

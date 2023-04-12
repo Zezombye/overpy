@@ -17,7 +17,7 @@ settings
 		{
 			enabled maps
 			{
-				Temple of Anubis 0
+				Temple of Anubis
 			}
 			Capture Speed Modifier: 60%
 		}

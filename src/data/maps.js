@@ -36,6 +36,9 @@ const mapKw =
             "elimination",
             "freezethawElimination"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -53,6 +56,9 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "default": "972777519512068153",
+        },
         "guid": "000000010F5E",
         "en-US": "Antarctic Peninsula",
         "de-DE": "Antarktische Halbinsel",
@@ -77,6 +83,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -107,6 +116,9 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -135,6 +147,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "morning": "972777519512068154",
+            "overcast": "972777519512068194",
+        },
         "en-US": "Blizzard World",
         "ja-JP": "BLIZZARD WORLD",
         "ko-KR": "블리자드 월드",
@@ -150,6 +166,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Blizzard World Winter",
         "es-ES": "Blizzard World invierno",
         "es-MX": "Blizzard World invierno",
@@ -169,6 +188,10 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
         "en-US": "Busan",
         "ja-JP": "BUSAN",
         "ko-KR": "부산",
@@ -182,6 +205,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 51.9
@@ -205,6 +231,9 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": -328.565
@@ -272,6 +301,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": -0.19009,
@@ -291,6 +323,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Château Guillard",
         "es-ES": "Palacio Guillard",
         "ja-JP": "CHATEAU GUILLARD",
@@ -306,6 +341,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Château Guillard Halloween",
         "es-ES": "Palacio Guillard Halloween",
         "ja-JP": "CHATEAU GUILLARD ハロウィン",
@@ -320,6 +358,10 @@ const mapKw =
             "skirmish",
             "escort"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
         "guid": "00000001777C",
         "en-US": "Circuit Royal",
         "fr-FR": "Circuit royal",
@@ -335,6 +377,10 @@ const mapKw =
             "skirmish",
             "push"
         ],
+        variants: {
+            "evening": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "guid": "000000015B56",
         "en-US": "Colosseo",
         "ja-JP": "COLOSSEO",
@@ -353,6 +399,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "evening": "972777519512068292",
+        },
         "en-US": "Dorado",
         "it-IT": "El Dorado",
         "ja-JP": "DORADO",
@@ -370,6 +420,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512064577",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -400,6 +453,9 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -428,6 +484,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "evening": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "en-US": "Eichenwalde",
         "ja-JP": "EICHENWALDE",
         "ko-KR": "아이헨발데",
@@ -444,6 +504,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Eichenwalde Halloween",
         "ja-JP": "EICHENWALDE （ハロウィン）",
         "ko-KR": "아이헨발데 할로윈",
@@ -456,6 +519,9 @@ const mapKw =
             "skirmish",
             "push"
         ],
+        variants: {
+            "default": "972777519512068154",
+        },
         "guid": "000000016D84",
         "en-US": "Esperança",
         "ja-JP": "ESPERANCA",
@@ -488,6 +554,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Hanamura",
         "ja-JP": "HANAMURA",
         "ko-KR": "하나무라",
@@ -504,6 +573,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Hanamura Winter",
         "es-ES": "Hanamura invierno",
         "es-MX": "Hanamura Invierno",
@@ -526,6 +598,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
         "en-US": "Havana",
         "de-DE": "Havanna",
         "es-ES": "La Habana",
@@ -548,6 +624,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
         "en-US": "Hollywood",
         "it-IT": "HOLLYWOOD",
         "ja-JP": "HOLLYWOOD",
@@ -564,6 +644,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Hollywood Halloween",
         "ja-JP": "HOLLYWOOD （ハロウィン）",
         "ko-KR": "할리우드 할로윈",
@@ -580,6 +663,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Horizon Lunar Colony",
         "de-DE": "Mondkolonie Horizon",
         "es-ES": "Colonia Lunar Horizon",
@@ -600,6 +686,10 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "evening": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "en-US": "Ilios",
         "it-IT": "Ilio",
         "ja-JP": "ILIOS",
@@ -617,6 +707,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": -0.41437,
@@ -645,6 +738,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 28.6
@@ -672,6 +768,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 1.00409,
@@ -716,6 +815,9 @@ const mapKw =
             "escort",
             "skirmish"
         ],
+        variants: {
+            "default": "972777519512068154",
+        },
         "en-US": "Junkertown",
         "ja-JP": "JUNKERTOWN",
         "ko-KR": "쓰레기촌",
@@ -729,6 +831,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "guid": "000000010D1A",
         "en-US": "Kanezaka",
         "ja-JP": "KANEZAKA",
@@ -746,6 +851,10 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "evening": "972777519512068292",
+        },
         "en-US": "King's Row",
         "fr-FR": "King’s Row",
         "ja-JP": "KING'S ROW",
@@ -763,6 +872,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "King's Row Winter",
         "es-ES": "King's Row invierno",
         "es-MX": "King's Row Invierno",
@@ -785,6 +897,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 0
@@ -812,6 +927,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 0
@@ -839,6 +957,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 0
@@ -866,6 +987,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 0
@@ -893,6 +1017,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 1
@@ -920,6 +1047,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "x": 1
@@ -944,6 +1074,10 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "dawn": "972777519512068197",
+        },
         "en-US": "Lijiang Tower",
         "es-ES": "Torre Lijiang",
         "es-MX": "Torre Lijiang",
@@ -963,6 +1097,9 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Lijiang Tower Lunar New Year",
         "de-DE": "Lijiang Tower Neujahr",
         "es-ES": "Torre Lijiang Año Nuevo Lunar",
@@ -983,6 +1120,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "guid": "000000010DFE",
         "en-US": "Malevento",
         "ja-JP": "MALEVENTO",
@@ -993,9 +1133,11 @@ const mapKw =
     },
     "midtown": {
         "gamemodes": [
-            "skirmish",
             "hybrid"
         ],
+        variants: {
+            "default": "972777519512068154",
+        },
         "guid": "00000001777A",
         "en-US": "Midtown",
         "ja-JP": "MIDTOWN",
@@ -1014,6 +1156,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512068153",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1039,6 +1184,10 @@ const mapKw =
             "control",
             "skirmish"
         ],
+        variants: {
+            "dawn": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "en-US": "Nepal",
         "fr-FR": "Népal",
         "ja-JP": "NEPAL",
@@ -1056,6 +1205,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1084,6 +1236,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1112,6 +1267,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1155,6 +1313,10 @@ const mapKw =
             "skirmish",
             "push"
         ],
+        variants: {
+            "dawn": "972777519512068197",
+            "morning": "972777519512068154",
+        },
         "guid": "000000015B54",
         "en-US": "New Queen Street",
         "ja-JP": "NEW QUEEN STREET",
@@ -1164,12 +1326,33 @@ const mapKw =
         "zh-CN": "新皇后街",
         "zh-TW": "新皇后街"
     },
+    "numbani": {
+        "guid": "0000000002EA",
+        "gamemodes": [
+            "hybrid",
+            "skirmish"
+        ],
+        variants: {
+            "default": "972777519512068154",
+        },
+        "en-US": "Numbani",
+        "ja-JP": "NUMBANI",
+        "ko-KR": "눔바니",
+        "ru-RU": "Нумбани",
+        "zh-CN": "努巴尼",
+        "zh-TW": "努巴尼"
+    },
     "oasis": {
         "guid": "0000000046D5",
         "gamemodes": [
             "control",
             "skirmish"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "evening": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "en-US": "Oasis",
         "it-IT": "Oasi",
         "ja-JP": "OASIS",
@@ -1188,6 +1371,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512068292",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 1.00002,
@@ -1216,6 +1402,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512068292",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": -1.00042,
@@ -1244,6 +1433,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512068292",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1268,6 +1460,9 @@ const mapKw =
             "skirmish",
             "hybrid"
         ],
+        variants: {
+            "default": "972777519512068154",
+        },
         "guid": "000000017763",
         "en-US": "Paraíso",
         "ja-JP": "PARAISO",
@@ -1285,6 +1480,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Paris",
         "es-MX": "París",
         "it-IT": "Parigi",
@@ -1302,6 +1500,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Petra",
         "ja-JP": "PETRA",
         "ko-KR": "페트라",
@@ -1314,6 +1515,9 @@ const mapKw =
         "gamemodes": [
             "practiceRange"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
         "es-ES": "Práctica de combate",
@@ -1334,6 +1538,9 @@ const mapKw =
             "escort",
             "skirmish"
         ],
+        variants: {
+            "default": "972777519512068154",
+        },
         "en-US": "Rialto",
         "ja-JP": "RIALTO",
         "ko-KR": "리알토",
@@ -1349,6 +1556,10 @@ const mapKw =
             "ffa",
             "tdm"
         ],
+        variants: {
+            "night": "972777519512068153",
+            "morning": "972777519512068154",
+        },
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
         "es-MX": "Ruta 66",
@@ -1360,6 +1571,29 @@ const mapKw =
         "ru-RU": "Шоссе 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
+    },
+    "shambaliMonastery": {
+        "gamemodes": [
+            "skirmish",
+            "escort"
+        ],
+        variants: {
+            "default": "972777519512068153",
+        },
+        "guid": "0000000189CE",
+        "en-US": "Shambali Monastery",
+        "de-DE": "Shambali-Kloster",
+        "es-ES": "Monasterio Shambali",
+        "es-MX": "Monasterio Shambali",
+        "fr-FR": "Monastère shambali",
+        "it-IT": "Monastero Shambali",
+        "ja-JP": "SHAMBALI MONASTERY",
+        "ko-KR": "샴발리 수도원",
+        "pl-PL": "Klasztor Szambala",
+        "pt-BR": "Monastério de Shambali",
+        "ru-RU": "Монастырь Шамбала",
+        "zh-CN": "香巴里寺院",
+        "zh-TW": "香巴里僧院"
     },
     "sydneyHarbourArena": {
         "onlyInOw1": true,
@@ -1407,6 +1641,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Temple of Anubis",
         "de-DE": "Tempel des Anubis",
         "es-ES": "Templo de Anubis",
@@ -1430,6 +1667,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "en-US": "Volskaya Industries",
         "es-ES": "Industrias Volskaya",
         "es-MX": "Industrias Volskaya",
@@ -1449,6 +1689,10 @@ const mapKw =
             "escort",
             "skirmish"
         ],
+        variants: {
+            "evening": "972777519512068292",
+            "morning": "972777519512068154",
+        },
         "en-US": "Watchpoint: Gibraltar",
         "es-ES": "Observatorio: Gibraltar",
         "es-MX": "Observatorio: Gibraltar",
@@ -1470,6 +1714,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512064577",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1499,6 +1746,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1528,6 +1778,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512064577",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1557,6 +1810,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512064580",
+        },
         "isWorkshopMap": true,
         "guid": "000000011F44",
         "en-US": "Workshop Green Screen",
@@ -1581,6 +1837,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512063901",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1610,6 +1869,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
+        variants: {
+            "default": "972777519512064579",
+        },
         "isSymmetrical": true,
         "symmetryAxis": {
             "a": 0,
@@ -1630,26 +1892,6 @@ const mapKw =
         "ru-RU": "Мастерская: остров ночь",
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
-    },
-    "shambaliMonastery": {
-        "gamemodes": [
-            "skirmish",
-            "escort"
-        ],
-        "guid": "0000000189CE",
-        "en-US": "Shambali Monastery",
-        "de-DE": "Shambali-Kloster",
-        "es-ES": "Monasterio Shambali",
-        "es-MX": "Monasterio Shambali",
-        "fr-FR": "Monastère shambali",
-        "it-IT": "Monastero Shambali",
-        "ja-JP": "SHAMBALI MONASTERY",
-        "ko-KR": "샴발리 수도원",
-        "pl-PL": "Klasztor Szambala",
-        "pt-BR": "Monastério de Shambali",
-        "ru-RU": "Монастырь Шамбала",
-        "zh-CN": "香巴里寺院",
-        "zh-TW": "香巴里僧院"
     }
 }
 //end-json

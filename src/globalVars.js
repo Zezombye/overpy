@@ -126,10 +126,6 @@ var decompilationLabelNumber;
 //Is reset at each action and rule condition.
 var operatorPrecedenceStack;
 
-//If current map is used, add the workaround for the map pasting bug.
-var isCurrentMapUsed;
-var disableMapDetectionFix;
-
 
 function resetGlobalVariables(language) {
 	rootPath = "";
@@ -173,8 +169,6 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
-	isCurrentMapUsed = false;
-	disableMapDetectionFix = false;
 	if (!IS_IN_BROWSER) {
 		evalVm = new VM({
 			timeout: 1000,
