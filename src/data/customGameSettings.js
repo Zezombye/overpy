@@ -3474,6 +3474,7 @@ const customGameSettingsSchema =
                         "sojourn",
                         "symmetra",
                         "torbjorn",
+                        "winston",
                         "zarya",
                         "zenyatta"
                     ],

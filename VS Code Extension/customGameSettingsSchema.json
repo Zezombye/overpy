@@ -5781,6 +5781,9 @@
                                 },
                                 "enableUlt": {
                                     "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -10376,6 +10379,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -14973,6 +14979,9 @@
                                 },
                                 "enableUlt": {
                                     "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
                                 }
                             }
                         },
@@ -19568,6 +19577,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 }
                             }
@@ -24305,6 +24317,9 @@
                             "maximum": 500
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         }
                     }
