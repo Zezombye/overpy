@@ -4231,7 +4231,6 @@ const customGameSettingsSchema =
             "mercy": {
                 "values": {
                     "weaponsEnabled": {
-                        "guid": "000000006017",
                         "values": {
                             "all": {
                                 "guid": "000000006019",
@@ -4283,6 +4282,7 @@ const customGameSettingsSchema =
                                 "zh-TW": "僅限天使光槍"
                             }
                         },
+                        "guid": "000000006017",
                         "en-US": "Weapons Enabled",
                         "de-DE": "Waffen aktiviert",
                         "es-ES": "Armas habilitadas",
@@ -4920,6 +4920,20 @@ const customGameSettingsSchema =
                                 "en-US": "Thorn Volley Only",
                             }
                         },
+                        "guid": "000000006017",
+                        "en-US": "Weapons Enabled",
+                        "de-DE": "Waffen aktiviert",
+                        "es-ES": "Armas habilitadas",
+                        "es-MX": "Armas habilitadas",
+                        "fr-FR": "Armes activées",
+                        "it-IT": "Armi abilitate",
+                        "ja-JP": "武器有効",
+                        "ko-KR": "무기 사용",
+                        "pl-PL": "Broń włączona",
+                        "pt-BR": "Armas habilitadas",
+                        "ru-RU": "Доступное оружие",
+                        "zh-CN": "可用武器",
+                        "zh-TW": "可使用武器"
                     }
                 }
             }
