@@ -18,8 +18,6 @@
 "use strict";
 
 astParsingFunctions["_&isCommunicatingSpray"] = function(content) {
-
-    warn("w_ow2_communicate_bug", "The function Player.isCommunicatingSpray() currently returns '0' and 'false' instead of false/true. It is possible to distinguish the values through string concatenation.")
     
     return content;
 }
