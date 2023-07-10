@@ -277,7 +277,7 @@ for (var unitTestFile of unitTestFiles) {
         if (outputFileContent !== output) {
             console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
 			console.error("Diff:")
-
+			
 			var diff = JsDiff.diffLines(outputFileContent, output);
 			for (var part of diff) {
 				if (part.added) {
