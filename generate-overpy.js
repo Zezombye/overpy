@@ -100,12 +100,6 @@ overpyFiles = [
 "compiler/functions/__yComponentOf__.js",
 "compiler/functions/__zComponentOf__.js",
 "compiler/functions/_&addToScore.js",
-"compiler/functions/_&communicate.js",
-"compiler/functions/_&isCommunicating.js",
-"compiler/functions/_&isCommunicatingAnything.js",
-"compiler/functions/_&isCommunicatingEmote.js",
-"compiler/functions/_&isCommunicatingSpray.js",
-"compiler/functions/_&isCommunicatingVoiceline.js",
 "compiler/functions/_&setStatusEffect.js",
 "compiler/functions/_&setUltCharge.js",
 "compiler/functions/abs.js",
@@ -283,7 +277,7 @@ for (var unitTestFile of unitTestFiles) {
         if (outputFileContent !== output) {
             console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
 			console.error("Diff:")
-			
+
 			var diff = JsDiff.diffLines(outputFileContent, output);
 			for (var part of diff) {
 				if (part.added) {
