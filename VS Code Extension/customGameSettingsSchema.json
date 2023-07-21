@@ -3295,10 +3295,15 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "ultKb%": {
+                                "a36GrenadeCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "maximum": 400
+                                    "maximum": 500
+                                },
+                                "a36GrenadeKb%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 300
                                 },
                                 "enableMelee": {
                                     "type": "boolean"
@@ -6181,9 +6186,6 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
-                                    "type": "boolean"
-                                },
-                                "enablePassive": {
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
@@ -7894,10 +7896,15 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "ultKb%": {
+                                "a36GrenadeCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "maximum": 400
+                                    "maximum": 500
+                                },
+                                "a36GrenadeKb%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 300
                                 },
                                 "enableMelee": {
                                     "type": "boolean"
@@ -10780,9 +10787,6 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
-                                    "type": "boolean"
-                                },
-                                "enablePassive": {
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
@@ -12493,10 +12497,15 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "ultKb%": {
+                                "a36GrenadeCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "maximum": 400
+                                    "maximum": 500
+                                },
+                                "a36GrenadeKb%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 300
                                 },
                                 "enableMelee": {
                                     "type": "boolean"
@@ -15379,9 +15388,6 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
-                                    "type": "boolean"
-                                },
-                                "enablePassive": {
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
@@ -17092,10 +17098,15 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "ultKb%": {
+                                "a36GrenadeCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
-                                    "maximum": 400
+                                    "maximum": 500
+                                },
+                                "a36GrenadeKb%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 300
                                 },
                                 "enableMelee": {
                                     "type": "boolean"
@@ -19978,9 +19989,6 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
-                                    "type": "boolean"
-                                },
-                                "enablePassive": {
                                     "type": "boolean"
                                 },
                                 "enableSecondaryFire": {
@@ -21832,10 +21840,15 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "ultKb%": {
+                        "a36GrenadeCooldown%": {
                             "type": "number",
                             "minimum": 0,
-                            "maximum": 400
+                            "maximum": 500
+                        },
+                        "a36GrenadeKb%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 300
                         },
                         "enableMelee": {
                             "type": "boolean"
@@ -24718,9 +24731,6 @@
                             "maximum": 500
                         },
                         "enableUlt": {
-                            "type": "boolean"
-                        },
-                        "enablePassive": {
                             "type": "boolean"
                         },
                         "enableSecondaryFire": {
