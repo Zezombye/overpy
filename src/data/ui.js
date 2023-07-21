@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -31,6 +31,8 @@ const ruleAttributesDisplayNamesKw =
         "pl-PL": "Zdarzenie",
         "pt-BR": "Evento",
         "ru-RU": "Событие",
+        "th-TH": "กิจกรรม",
+        "tr-TR": "Etkinlik",
         "zh-CN": "事件"
     },
     "eventPlayer": {
@@ -44,6 +46,7 @@ const ruleAttributesDisplayNamesKw =
         "pl-PL": "Gracz",
         "pt-BR": "Jogador",
         "ru-RU": "Игрок",
+        "tr-TR": "Oyuncu",
         "zh-CN": "玩家"
     },
     "eventTeam": {
@@ -57,6 +60,7 @@ const ruleAttributesDisplayNamesKw =
         "pl-PL": "Drużyna",
         "pt-BR": "Equipe",
         "ru-RU": "Команда",
+        "tr-TR": "Takım",
         "zh-CN": "队伍"
     },
     "subroutineName": {
@@ -69,6 +73,8 @@ const ruleAttributesDisplayNamesKw =
         "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "ru-RU": "Подпрограмма",
+        "th-TH": "ซับรูทีน",
+        "tr-TR": "Alt Yordam",
         "zh-CN": "子程序",
         "zh-TW": "子程序"
     }
@@ -89,6 +95,8 @@ const workshopUiKw =
         "pl-PL": "Działanie",
         "pt-BR": "Ação",
         "ru-RU": "Действие",
+        "th-TH": "การดำเนินการ",
+        "tr-TR": "Aksiyon",
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
@@ -103,6 +111,8 @@ const workshopUiKw =
         "pl-PL": "Działania",
         "pt-BR": "Ações",
         "ru-RU": "Действия",
+        "th-TH": "การดำเนินการ",
+        "tr-TR": "Eylemler",
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
@@ -119,6 +129,8 @@ const workshopUiKw =
         "pl-PL": "Stwórz działanie",
         "pt-BR": "Criar Ação",
         "ru-RU": "Создать действие",
+        "th-TH": "สร้างการดำเนินการ",
+        "tr-TR": "Eylem Oluştur",
         "zh-CN": "创建动作",
         "zh-TW": "建立動作"
     },
@@ -135,11 +147,13 @@ const workshopUiKw =
         "pl-PL": "Stwórz warunek",
         "pt-BR": "Criar Condição",
         "ru-RU": "Создать условие",
+        "th-TH": "สร้างเงื่อนไข",
+        "tr-TR": "Koşul Oluştur",
         "zh-CN": "创建条件",
         "zh-TW": "建立條件"
     },
     "cancel": {
-        "guid": "0000000076E9",
+        "guid": "000000007125",
         "en-US": "Cancel",
         "de-DE": "Abbrechen",
         "es-ES": "Cancelar",
@@ -151,6 +165,8 @@ const workshopUiKw =
         "pl-PL": "Anuluj",
         "pt-BR": "Cancelar",
         "ru-RU": "Отмена",
+        "th-TH": "ยกเลิก",
+        "tr-TR": "İptal",
         "zh-CN": "取消",
         "zh-TW": "取消"
     },
@@ -165,6 +181,8 @@ const workshopUiKw =
         "pl-PL": "Warunki",
         "pt-BR": "Condições",
         "ru-RU": "Условия",
+        "th-TH": "เงื่อนไข",
+        "tr-TR": "Koşullar",
         "zh-CN": "条件",
         "zh-TW": "條件"
     },
@@ -181,6 +199,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Występuje konflikt globalnej zmiennej „%1$s” z inną zmienną",
         "pt-BR": "Erro: Conflito da variável global '%1$s' com outra variável",
         "ru-RU": "Ошибка: обнаружен конфликт глобальной переменной '%1$s' с другой переменной",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรทั่วโลก \"%1$s\" ขัดแย้งกับตัวแปรอื่น",
+        "tr-TR": "Hata: '%1$s' küresel değişkeni, başka bir değişkenle çakışıyor",
         "zh-CN": "错误：全局变量“%1$s”与另一个变量冲突",
         "zh-TW": "錯誤：全域變數'%1$s'與其它變數相衝突"
     },
@@ -197,6 +217,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Występuje konflikt globalnej „%1$s” gracza z inną zmienną.",
         "pt-BR": "Erro: Conflito da variável de jogador '%1$s' com outra variável",
         "ru-RU": "Ошибка: обнаружен конфликт переменной игрока '%1$s' с другой переменной",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรผู้เล่น \"%1$s\" ขัดแย้งกับตัวแปรอื่น",
+        "tr-TR": "Hata: '%1$s' oyuncu değişkeni, başka bir değişkenle çakışıyor",
         "zh-CN": "错误：玩家变量“%1$s”与另一个变量冲突",
         "zh-TW": "錯誤：玩家變數'%1$s'與其它變數相衝突"
     },
@@ -213,6 +235,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Konflikt podprogramu „%1$s” z innym podprogramem",
         "pt-BR": "Erro: Sub-rotina '%1$s' está em conflito com outra",
         "ru-RU": "Ошибка: подпрограмма '%1$s' конфликтует с другой подпрограммой",
+        "th-TH": "ข้อผิดพลาด: ซับรูทีน '%1$s' ขัดแย้งกับซับรูทีนอื่น",
+        "tr-TR": "Hata: '%1$s' Alt Yordamı başka bir alt yordamla çakışıyor",
         "zh-CN": "错误：子程序“%1$s”与另一个子程序冲突",
         "zh-TW": "錯誤：子程序'%1$s'與其它子程序相衝突"
     },
@@ -229,6 +253,8 @@ const workshopUiKw =
         "pl-PL": "Usunąć (%1$s) |Rpldziałanie:działania:działań;?",
         "pt-BR": "Excluir (%1$s) |RplAção:Ações;?",
         "ru-RU": "Удалить (%1$s) |Rplдействие:действия:действий;?",
+        "th-TH": "ลบ (%1$s) การดำเนินการหรือไม่",
+        "tr-TR": "(%1$s) |RplEylem:Eylem; silinsin mi?",
         "zh-CN": "删除这(%1$s)个动作？",
         "zh-TW": "刪除這(%1$s)個動作？"
     },
@@ -245,6 +271,8 @@ const workshopUiKw =
         "pl-PL": "Usunąć (%1$s) |Rplwarunek:warunki:warunków;?",
         "pt-BR": "Excluir (%1$s) |RplCondição:Condições;?",
         "ru-RU": "Удалить (%1$s) |Rplусловие:условия:условий;?",
+        "th-TH": "ต้องการลบเงื่อนไข (%1$s) รายการไหม",
+        "tr-TR": "(%1$s) |RplKoşul:Koşul; Silinsin Mi?",
         "zh-CN": "删除这(%1$s)个条件？",
         "zh-TW": "刪除這(%1$s)個條件？"
     },
@@ -261,6 +289,8 @@ const workshopUiKw =
         "pl-PL": "Usunąć (%1$s) |Rplregułę:reguły:reguł;?",
         "pt-BR": "Excluir (%1$s) |RplRegra:Regras;?",
         "ru-RU": "Удалить (%1$s) |Rplправило:правила:правил;?",
+        "th-TH": "ต้องการลบกฎ (%1$s) รายการไหม",
+        "tr-TR": "(%1$s) |RplKural:Kural; Silinsin Mi?",
         "zh-CN": "删除这(%1$s)个规则？",
         "zh-TW": "刪除這(%1$s)個規則？"
     },
@@ -277,6 +307,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj działanie",
         "pt-BR": "Editar Ação",
         "ru-RU": "Изменить действие",
+        "th-TH": "แก้ไขการดำเนินการ",
+        "tr-TR": "Eylemi Düzenle",
         "zh-CN": "编辑动作",
         "zh-TW": "編輯動作"
     },
@@ -293,6 +325,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj komentarz",
         "pt-BR": "Editar comentário",
         "ru-RU": "Комментарий",
+        "th-TH": "แก้ไขความคิดเห็น",
+        "tr-TR": "Yorumu Düzenle",
         "zh-CN": "编辑注释",
         "zh-TW": "編輯註解"
     },
@@ -309,6 +343,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj warunek",
         "pt-BR": "Editar Condição",
         "ru-RU": "Изменить условие",
+        "th-TH": "แก้ไขเงื่อนไข",
+        "tr-TR": "Koşulu Düzenle",
         "zh-CN": "编辑条件",
         "zh-TW": "編輯條件"
     },
@@ -325,6 +361,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj rozszerzenia",
         "pt-BR": "Editar Extensões",
         "ru-RU": "Расширения",
+        "th-TH": "แก้ไขส่วนต่อขยาย",
+        "tr-TR": "Eklentileri Düzenle",
         "zh-CN": "编辑扩展",
         "zh-TW": "編輯擴充功能"
     },
@@ -341,6 +379,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj nazwy podprogramów",
         "pt-BR": "Editar nomes de sub-rotinas",
         "ru-RU": "Изменить имена подпрограмм",
+        "th-TH": "แก้ไขชื่อซับรูทีน",
+        "tr-TR": "Alt Yordam İsimlerini Düzenle",
         "zh-CN": "编辑子程序名称",
         "zh-TW": "編輯子程序命名"
     },
@@ -357,6 +397,8 @@ const workshopUiKw =
         "pl-PL": "Edytuj nazwy zmiennych",
         "pt-BR": "Editar Nomes de Variáveis",
         "ru-RU": "Изменить имена переменных",
+        "th-TH": "แก้ไขชื่อตัวแปร",
+        "tr-TR": "Değişken İsimlerini Düzenle",
         "zh-CN": "编辑变量名",
         "zh-TW": "編輯變數命名"
     },
@@ -373,6 +415,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna globalna (%1$s) wymaga nazwy",
         "pt-BR": "Erro: A variável global '%1$s' requer um nome",
         "ru-RU": "Ошибка: глобальной переменной '%1$s' требуется имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรทั่วโลก \"%1$s\" ต้องมีชื่อ",
+        "tr-TR": "Hata: '%1$s' küresel değişkeni için bir isim gerekiyor",
         "zh-CN": "错误：全局变量“%1$s“需要一个名称",
         "zh-TW": "錯誤：全域變數'%1$s'需要命名"
     },
@@ -389,6 +433,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna gracza (%1$s) wymaga nazwy",
         "pt-BR": "Erro: A variável de jogador '%1$s' requer um nome",
         "ru-RU": "Ошибка: переменной игрока '%1$s' требуется имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรผู้เล่น \"%1$s\" ต้องมีชื่อ",
+        "tr-TR": "Hata: '%1$s' oyuncu değişkeni için bir isim gerekiyor",
         "zh-CN": "错误：玩家变量“%1$s“需要一个名称",
         "zh-TW": "錯誤：玩家變數'%1$s'需要命名"
     },
@@ -405,6 +451,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Podprogram „%1$s” wymaga nazwy",
         "pt-BR": "Erro: Sub-rotina '%1$s' requer um nome",
         "ru-RU": "Ошибка: подпрограмме '%1$s' требуется имя",
+        "th-TH": "ข้อผิดพลาด: ซับรูทีน '%1$s' ต้องมีชื่อ",
+        "tr-TR": "Hata: '%1$s' Alt Yordamı için isim gerekiyor",
         "zh-CN": "错误：子程序“%1$s“需要一个名称",
         "zh-TW": "錯誤：子程序'%1$s'需要命名"
     },
@@ -421,6 +469,8 @@ const workshopUiKw =
         "pl-PL": "Dostępne punkty rozszerzeń",
         "pt-BR": "Pontos de Extensão Disponíveis",
         "ru-RU": "Доступные очки расширений",
+        "th-TH": "คะแนนส่วนต่อขยายที่ใช้ได้",
+        "tr-TR": "Eklenti Puanı Mevcut",
         "zh-CN": "可用扩展点数",
         "zh-TW": "可用的擴充點數"
     },
@@ -437,6 +487,8 @@ const workshopUiKw =
         "pl-PL": "Możesz zdobyć punkty rozszerzeń, usuwając miejsca dla graczy lub wyłączając wszystkie mapy niewarsztatowe.",
         "pt-BR": "Você pode receber Pontos de Extensão removendo Espaços de Jogador ou desativando todos os Mapas que não forem do Workshop",
         "ru-RU": "Чтобы получить очки расширений, уберите ячейки игроков или оставьте только поля боя из категории «Мастерская».",
+        "th-TH": "คุณสามารถรับคะแนนส่วนต่อขยายได้โดยการถอดช่องผู้เล่นออกหรือปิดใช้งานแผนที่ที่ไม่ใช่เวิร์คช็อปทั้งหมด",
+        "tr-TR": "Oyuncu Yuvası kaldırarak veya tüm Atölye dışı haritaları devre dışı bırakarak Eklenti Puanı kazanabilirsin",
         "zh-CN": "移除玩家栏位或禁用所有非地图工坊地图即可获得扩展点数",
         "zh-TW": "移除玩家欄位或關閉所有非工作坊地圖可獲得擴充點數"
     },
@@ -453,6 +505,8 @@ const workshopUiKw =
         "pl-PL": "Użyte punkty rozszerzeń",
         "pt-BR": "Pontos de Extensão Gastos",
         "ru-RU": "Потраченные очки расширений",
+        "th-TH": "คะแนนส่วนต่อขยายที่ใช้ไป",
+        "tr-TR": "Harcanan Eklenti Puanı",
         "zh-CN": "已用扩展点数",
         "zh-TW": "消耗的擴充點數"
     },
@@ -469,6 +523,8 @@ const workshopUiKw =
         "pl-PL": "Liczba użytych punktów rozszerzeń nie może przekroczyć dostępnych punktów rozszerzeń",
         "pt-BR": "Os Pontos de Extensão Gastos não podem exceder os Pontos de Extensão Disponíveis",
         "ru-RU": "Количество потраченных очков расширений не должно превышать количество доступных очков.",
+        "th-TH": "ไม่สามารถใช้คะแนนส่วนต่อขยายได้เกินจำนวนคะแนนส่วนต่อขยายที่มี",
+        "tr-TR": "Harcanan Eklenti Puanı, Mevcut Eklenti Puanını geçemez.",
         "zh-CN": "已用扩展点数不能超过可用扩展点数",
         "zh-TW": "消耗的擴充點數不可大於可用的擴充點數"
     },
@@ -485,6 +541,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna globalna (%1$s) zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: A variável global '%1$s' contém um nome inválido",
         "ru-RU": "Ошибка: глобальная переменная '%1$s' содержит некорректное имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรทั่วโลก \"%1$s\" มีชื่อที่ไม่ถูกต้อง",
+        "tr-TR": "Hata: '%1$s' küresel değişkeni, geçersiz bir isim içeriyor",
         "zh-CN": "错误：全局变量“%1$s”包含无效的名称",
         "zh-TW": "錯誤：全域變數'%1$s'包含無效命名"
     },
@@ -501,6 +559,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna gracza (%1$s) zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: A variável de jogador '%1$s' contém um nome inválido",
         "ru-RU": "Ошибка: переменная игрока '%1$s' содержит некорректное имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรผู้เล่น \"%1$s\" มีชื่อที่ไม่ถูกต้อง",
+        "tr-TR": "Hata: '%1$s' oyuncu değişkeni, geçersiz bir isim içeriyor",
         "zh-CN": "错误：玩家变量“%1$s”包含无效的名称",
         "zh-TW": "錯誤：玩家變數'%1$s'包含無效命名"
     },
@@ -517,6 +577,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Podprogram „%1$s” zawiera nieprawidłową nazwę",
         "pt-BR": "Erro: Sub-rotina '%1$s' contém nome inválido",
         "ru-RU": "Ошибка: подпрограмма '%1$s' содержит некорректное имя",
+        "th-TH": "ข้อผิดพลาด: ซับรูทีน '%1$s' มีชื่อที่ไม่ถูกต้อง",
+        "tr-TR": "Hata: '%1$s' Alt Yordamı'nın geçersiz bir ismi var",
         "zh-CN": "错误：子程序“%1$s”包含无效的名称",
         "zh-TW": "錯誤：子程序'%1$s'的命名無效"
     },
@@ -533,6 +595,8 @@ const workshopUiKw =
         "pl-PL": "Brak działań",
         "pt-BR": "Sem Ações",
         "ru-RU": "Нет действий",
+        "th-TH": "ไม่มีการดำเนินการ",
+        "tr-TR": "Eylem Yok",
         "zh-CN": "无动作",
         "zh-TW": "無動作"
     },
@@ -549,6 +613,8 @@ const workshopUiKw =
         "pl-PL": "Brak warunków",
         "pt-BR": "Sem Condições",
         "ru-RU": "Нет условий",
+        "th-TH": "ไม่มีเงื่อนไข",
+        "tr-TR": "Koşul Yok",
         "zh-CN": "无条件",
         "zh-TW": "無條件"
     },
@@ -565,6 +631,8 @@ const workshopUiKw =
         "pl-PL": "Brak reguł",
         "pt-BR": "Sem Regras",
         "ru-RU": "Нет правил",
+        "th-TH": "ไม่มีกฎ",
+        "tr-TR": "Kural Yok",
         "zh-CN": "无规则",
         "zh-TW": "無規則"
     },
@@ -581,6 +649,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Użyto zbyt wiele punktów rozszerzeń Warsztatu; usuń jedno lub więcej rozszerzeń.",
         "pt-BR": "Erro: Excesso de gastos de Pontos de Extensão do Workshop; remova uma ou mais Extensões.",
         "ru-RU": "Ошибка: потрачено слишком много очков расширений «Мастерской». Удалите одно или несколько расширений.",
+        "th-TH": "ข้อผิดพลาด: ใช้คะแนนส่วนต่อขยายเวิร์คช็อปมากเกินไป โปรดนำส่วนต่อขยายออกอย่างน้อยหนึ่งรายการ",
+        "tr-TR": "Hata: Çok fazla Atölye Eklenti Puanı harcandı. Lütfen bir veya daha fazla Eklentiyi kaldır.",
         "zh-CN": "错误：已用地图工坊扩展点数过多；请移除一项或多项扩展。",
         "zh-TW": "錯誤：消耗的工作坊擴充點數過多，請移除至少一個擴充"
     },
@@ -596,6 +666,8 @@ const workshopUiKw =
         "ko-KR": "확인",
         "pl-PL": "OK",
         "ru-RU": "ОК",
+        "th-TH": "ตกลง",
+        "tr-TR": "Tamam",
         "zh-CN": "确定",
         "zh-TW": "確認"
     },
@@ -612,6 +684,8 @@ const workshopUiKw =
         "pl-PL": "Przywróć domyślne",
         "pt-BR": "Restaurar Predefinições",
         "ru-RU": "По умолчанию",
+        "th-TH": "รีเซ็ตเป็นค่าเริ่มต้น",
+        "tr-TR": "Varsayılan Ayarlara Sıfırla",
         "zh-CN": "重设为默认",
         "zh-TW": "恢復為預設值"
     },
@@ -626,6 +700,8 @@ const workshopUiKw =
         "pl-PL": "Reguła %1$s",
         "pt-BR": "Regra %1$s",
         "ru-RU": "Правило %1$s",
+        "th-TH": "กฎ %1$s",
+        "tr-TR": "Kural %1$s",
         "zh-CN": "规则 %1$s"
     },
     "rules": {
@@ -640,6 +716,8 @@ const workshopUiKw =
         "pl-PL": "Reguły",
         "pt-BR": "Regras",
         "ru-RU": "Правила",
+        "th-TH": "กฎ",
+        "tr-TR": "Kurallar",
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
@@ -656,6 +734,8 @@ const workshopUiKw =
         "pl-PL": "Diagnostyka skryptu",
         "pt-BR": "Diagnóstico de script",
         "ru-RU": "Диагностика скрипта",
+        "th-TH": "การวินิจฉัยปัญหาสคริปต์",
+        "tr-TR": "Betik Tanılama",
         "zh-CN": "诊断脚本",
         "zh-TW": "腳本診斷分析"
     },
@@ -670,6 +750,8 @@ const workshopUiKw =
         "ja-JP": "設定",
         "pl-PL": "ustawienia",
         "pt-BR": "configurações",
+        "th-TH": "การตั้งค่า",
+        "tr-TR": "ayarlar",
         "zh-CN": "设置",
         "zh-TW": "設定"
     },
@@ -686,6 +768,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna globalna (%1$s) zawiera zbyt długą nazwę",
         "pt-BR": "Erro: A variável global '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: глобальная переменная '%1$s' содержит слишком длинное имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรทั่วโลก \"%1$s\" มีชื่อที่ยาวเกินไป",
+        "tr-TR": "Hata: '%1$s' küresel değişkeni, çok uzun bir isim içeriyor",
         "zh-CN": "错误：全局变量“%1$s”包含过长的名称",
         "zh-TW": "錯誤：全域變數'%1$s'包含過長的命名"
     },
@@ -702,6 +786,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Zmienna gracza (%1$s) zawiera zbyt długą nazwę",
         "pt-BR": "Erro: A variável de jogador '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: переменная игрока '%1$s' содержит слишком длинное имя",
+        "th-TH": "ข้อผิดพลาด: ตัวแปรผู้เล่น \"%1$s\" มีชื่อที่ยาวเกินไป",
+        "tr-TR": "Hata: '%1$s' oyuncu değişkeni, çok uzun bir isim içeriyor",
         "zh-CN": "错误：玩家变量“%1$s”包含过长的名称",
         "zh-TW": "錯誤：玩家變數'%1$s'包含過長的命名"
     },
@@ -718,6 +804,8 @@ const workshopUiKw =
         "pl-PL": "Błąd: Podprogram „%1$s” zawiera zbyt długą nazwę",
         "pt-BR": "Erro: Sub-rotina '%1$s' contém um nome muito longo",
         "ru-RU": "Ошибка: подпрограмма '%1$s' содержит слишком длинное имя",
+        "th-TH": "ข้อผิดพลาด: ซับรูทีน '%1$s' มีชื่อที่ยาวเกินไป",
+        "tr-TR": "Hata: '%1$s' Alt Yordamı'nın ismi çok uzun",
         "zh-CN": "错误：子程序“%1$s”包含过长的名称",
         "zh-TW": "錯誤：子程序'%1$s'包含過長的命名"
     },
@@ -734,6 +822,8 @@ const workshopUiKw =
         "pl-PL": "Łączna liczba elementów",
         "pt-BR": "Total de elementos",
         "ru-RU": "Всего элементов",
+        "th-TH": "จํานวนเอเลเมนต์ทั้งหมด",
+        "tr-TR": "Toplam Unsur Sayısı",
         "zh-CN": "总计元素数量",
         "zh-TW": "元件數量"
     },
@@ -750,6 +840,8 @@ const workshopUiKw =
         "pl-PL": "Do elementów zaliczają się reguły, warunki, działania i wartości (maksymalnie %1$s)",
         "pt-BR": "Elementos incluem regras, condições, ações e valores (até %1$s)",
         "ru-RU": "Элементы включают в себя правила, условия, действия и значения (вплоть до %1$s).",
+        "th-TH": "เอเลเมนต์ประกอบด้วยกฎ เงื่อนไข การดําเนินการ และค่า (สูงสุด %1$s)",
+        "tr-TR": "Unsurlara kurallar, koşullar, eylemler ve değerler dâhildir (en fazla maksimum %1$s)",
         "zh-CN": "元素包括规则、条件、行动和值（最多可有%1$s个）",
         "zh-TW": "元件包括規則、條件、動作和數值（最高為%1$s）"
     }

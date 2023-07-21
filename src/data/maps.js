@@ -36,8 +36,8 @@ const mapKw =
             "elimination",
             "freezethawElimination"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -48,6 +48,7 @@ const mapKw =
         "ja-JP": "AYUTTHAYA",
         "ko-KR": "아유타야",
         "ru-RU": "Аюттайя",
+        "th-TH": "อยุธยา",
         "zh-CN": "阿育陀耶",
         "zh-TW": "大城"
     },
@@ -56,8 +57,8 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
-            "default": "972777519512068153",
+        "variants": {
+            "default": "972777519512068153"
         },
         "guid": "000000010F5E",
         "en-US": "Antarctic Peninsula",
@@ -71,6 +72,8 @@ const mapKw =
         "pl-PL": "Półwysep Antarktyczny",
         "pt-BR": "Península Antártica",
         "ru-RU": "Антарктический полуостров",
+        "th-TH": "คาบสมุทรแอนตาร์กติก",
+        "tr-TR": "Antarktika Yarımadası",
         "zh-CN": "南极半岛",
         "zh-TW": "南極半島"
     },
@@ -83,8 +86,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -102,6 +105,8 @@ const mapKw =
         "pl-PL": "Czarny Las",
         "pt-BR": "Floresta Negra",
         "ru-RU": "Черный лес",
+        "th-TH": "หมู่บ้านแบล็คฟอเรสต์",
+        "tr-TR": "Kara Orman",
         "zh-CN": "黑森林",
         "zh-TW": "黑森林"
     },
@@ -116,8 +121,8 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -135,6 +140,8 @@ const mapKw =
         "pl-PL": "Czarny las zima",
         "pt-BR": "Floresta Negra Inverno",
         "ru-RU": "Черный лес зима",
+        "th-TH": "หมู่บ้านแบล็คฟอเรสต์ ฤดูหนาว",
+        "tr-TR": "Kara Orman Kış",
         "zh-CN": "圣诞节黑森林",
         "zh-TW": "黑森林（冬境）"
     },
@@ -147,13 +154,15 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "morning": "972777519512068154",
-            "overcast": "972777519512068194",
+            "overcast": "972777519512068194"
         },
         "en-US": "Blizzard World",
         "ja-JP": "BLIZZARD WORLD",
         "ko-KR": "블리자드 월드",
+        "th-TH": "บลิซซาร์ดเวิลด์",
+        "tr-TR": "Blizzard Dünyası",
         "zh-CN": "暴雪世界",
         "zh-TW": "暴雪樂園"
     },
@@ -166,8 +175,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Blizzard World Winter",
         "es-ES": "Blizzard World invierno",
@@ -179,6 +188,8 @@ const mapKw =
         "pl-PL": "Blizzard World Zima",
         "pt-BR": "Blizzard World Inverno",
         "ru-RU": "Blizzard World зима",
+        "th-TH": "บลิซซาร์ดเวิลด์ ฤดูหนาว",
+        "tr-TR": "Blizzard Dünyası Kış",
         "zh-CN": "圣诞节暴雪世界",
         "zh-TW": "暴雪樂園（冬境）"
     },
@@ -188,15 +199,16 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Busan",
         "ja-JP": "BUSAN",
         "ko-KR": "부산",
         "pl-PL": "Pusan",
         "ru-RU": "Пусан",
+        "th-TH": "ปูซาน",
         "zh-CN": "釜山",
         "zh-TW": "釜山"
     },
@@ -205,8 +217,8 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -223,6 +235,8 @@ const mapKw =
         "pl-PL": "Pusan: Centrum Księżycowy Nowy Rok",
         "pt-BR": "Centro de Busan Ano Novo Lunar",
         "ru-RU": "Центр Пусана Лунный Новый год",
+        "th-TH": " กลางเมืองปูซาน วันตรุษจีน",
+        "tr-TR": "Busan Kenti Ay Yeni Yılı",
         "zh-CN": "春节釜山城区",
         "zh-TW": "釜山市區（春節）"
     },
@@ -231,8 +245,8 @@ const mapKw =
         "gamemodes": [
             "ctf"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -249,6 +263,8 @@ const mapKw =
         "pl-PL": "Pusan: Sanktuarium Księżycowy Nowy Rok",
         "pt-BR": "Santuário de Busan Ano Novo Lunar",
         "ru-RU": "Святилище Пусана Лунный Новый год",
+        "th-TH": "สถานที่ศักดิ์สิทธิ์ปูซาน วันตรุษจีน",
+        "tr-TR": "Busan Mabedi Ay Yeni Yılı",
         "zh-CN": "春节釜山寺院",
         "zh-TW": "釜山寺院（春節）"
     },
@@ -301,8 +317,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -313,6 +329,8 @@ const mapKw =
         "ja-JP": "CASTILLO",
         "ko-KR": "카스티요",
         "ru-RU": "Кастильо",
+        "th-TH": "แคสติลโล",
+        "tr-TR": "Kastillo",
         "zh-CN": "城堡",
         "zh-TW": "城塞"
     },
@@ -323,14 +341,16 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Château Guillard",
         "es-ES": "Palacio Guillard",
         "ja-JP": "CHATEAU GUILLARD",
         "ko-KR": "샤토 기야르",
         "ru-RU": "Шато-Гийяр",
+        "th-TH": "คฤหาสน์กียา",
+        "tr-TR": "Guillard Şatosu",
         "zh-CN": "吉拉德堡",
         "zh-TW": "蓋亞爾城堡"
     },
@@ -341,8 +361,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Château Guillard Halloween",
         "es-ES": "Palacio Guillard Halloween",
@@ -350,6 +370,8 @@ const mapKw =
         "ko-KR": "샤토 기야르 할로윈",
         "pl-PL": "Château Guillard Halloweenowe",
         "ru-RU": "Шато-Гийяр Хеллоуин",
+        "th-TH": "คฤหาสน์กียา ฮาโลวีน",
+        "tr-TR": "Guillard Şatosu Cadılar Bayramı",
         "zh-CN": "万圣节吉拉德堡",
         "zh-TW": "蓋亞爾城堡（萬聖節）"
     },
@@ -358,9 +380,9 @@ const mapKw =
             "skirmish",
             "escort"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "guid": "00000001777C",
         "en-US": "Circuit Royal",
@@ -369,6 +391,7 @@ const mapKw =
         "ko-KR": "서킷 로얄",
         "pl-PL": "Circuit royal",
         "ru-RU": "Королевская трасса",
+        "th-TH": "เซอร์กิตรอยัล",
         "zh-CN": "皇家赛道",
         "zh-TW": "皇家賽道"
     },
@@ -377,9 +400,9 @@ const mapKw =
             "skirmish",
             "push"
         ],
-        variants: {
+        "variants": {
             "evening": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "guid": "000000015B56",
         "en-US": "Colosseo",
@@ -387,6 +410,7 @@ const mapKw =
         "ko-KR": "콜로세오",
         "pl-PL": "Koloseum",
         "ru-RU": "Колизей",
+        "th-TH": "โคลอสซิโอ",
         "zh-CN": "斗兽场",
         "zh-TW": "羅馬競技場"
     },
@@ -399,15 +423,16 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "evening": "972777519512068292",
+            "evening": "972777519512068292"
         },
         "en-US": "Dorado",
         "it-IT": "El Dorado",
         "ja-JP": "DORADO",
         "ko-KR": "도라도",
         "ru-RU": "Дорадо",
+        "th-TH": "โดราโด",
         "zh-CN": "多拉多",
         "zh-TW": "多拉多"
     },
@@ -420,8 +445,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512064577",
+        "variants": {
+            "default": "972777519512064577"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -439,6 +464,8 @@ const mapKw =
         "pl-PL": "Ekopunkt Antarktyda",
         "pt-BR": "Ecoponto: Antártica",
         "ru-RU": "Экостанция: Антарктика",
+        "th-TH": "อีโคพอยต์: แอนตาร์กติกา",
+        "tr-TR": "Ekonokta: Antarktika",
         "zh-CN": "生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站"
     },
@@ -453,8 +480,8 @@ const mapKw =
             "meisSnowballOffensive",
             "snowballFfa"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -472,6 +499,8 @@ const mapKw =
         "pl-PL": "Ekopunkt Antarktyda Zima",
         "pt-BR": "Ecoponto: Antártica Inverno",
         "ru-RU": "Экостанция: Антарктика зима",
+        "th-TH": "อีโคพอยต์: แอนตาร์กติกา ฤดูหนาว",
+        "tr-TR": "Ekonokta: Antarktika Kış",
         "zh-CN": "圣诞节生态监测站：南极洲",
         "zh-TW": "南極洲生態觀測站（冬境）"
     },
@@ -484,14 +513,15 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "evening": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Eichenwalde",
         "ja-JP": "EICHENWALDE",
         "ko-KR": "아이헨발데",
         "ru-RU": "Айхенвальд",
+        "th-TH": "ไอเค็นวอลด์",
         "zh-CN": "艾兴瓦尔德",
         "zh-TW": "愛西瓦德"
     },
@@ -504,13 +534,15 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Eichenwalde Halloween",
         "ja-JP": "EICHENWALDE （ハロウィン）",
         "ko-KR": "아이헨발데 할로윈",
         "ru-RU": "Айхенвальд Хеллоуин",
+        "th-TH": "ไอเค็นวอลด์ ฮาโลวีน",
+        "tr-TR": "Eichenwalde Cadılar Bayramı",
         "zh-CN": "万圣节艾兴瓦尔德",
         "zh-TW": "愛西瓦德（萬聖節）"
     },
@@ -519,14 +551,15 @@ const mapKw =
             "skirmish",
             "push"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "guid": "000000016D84",
         "en-US": "Esperança",
         "ja-JP": "ESPERANCA",
         "ko-KR": "이스페란사",
         "ru-RU": "Эсперанса",
+        "th-TH": "เอสเปรันซา",
         "zh-CN": "埃斯佩兰萨",
         "zh-TW": "希望之城"
     },
@@ -554,13 +587,14 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Hanamura",
         "ja-JP": "HANAMURA",
         "ko-KR": "하나무라",
         "ru-RU": "Ханамура",
+        "th-TH": "ฮานามุระ",
         "zh-CN": "花村",
         "zh-TW": "花村"
     },
@@ -573,8 +607,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Hanamura Winter",
         "es-ES": "Hanamura invierno",
@@ -586,6 +620,8 @@ const mapKw =
         "pl-PL": "Hanamura zima",
         "pt-BR": "Hanamura Inverno",
         "ru-RU": "Ханамура зима",
+        "th-TH": "ฮานามุระ ฤดูหนาว",
+        "tr-TR": "Hanamura Kış",
         "zh-CN": "圣诞节花村",
         "zh-TW": "花村（冬境）"
     },
@@ -598,9 +634,9 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Havana",
         "de-DE": "Havanna",
@@ -612,6 +648,7 @@ const mapKw =
         "ko-KR": "하바나",
         "pl-PL": "Hawana",
         "ru-RU": "Гавана",
+        "th-TH": "ฮาวานา",
         "zh-CN": "哈瓦那",
         "zh-TW": "哈瓦那"
     },
@@ -624,15 +661,16 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Hollywood",
         "it-IT": "HOLLYWOOD",
         "ja-JP": "HOLLYWOOD",
         "ko-KR": "할리우드",
         "ru-RU": "Голливуд",
+        "th-TH": "ฮอลลีวู้ด",
         "zh-CN": "好莱坞",
         "zh-TW": "好萊塢"
     },
@@ -644,13 +682,15 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Hollywood Halloween",
         "ja-JP": "HOLLYWOOD （ハロウィン）",
         "ko-KR": "할리우드 할로윈",
         "ru-RU": "Голливуд Хеллоуин",
+        "th-TH": "ฮอลลีวูด ฮาโลวีน",
+        "tr-TR": "Hollywood Cadılar Bayramı",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）"
     },
@@ -663,8 +703,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Horizon Lunar Colony",
         "de-DE": "Mondkolonie Horizon",
@@ -677,6 +717,8 @@ const mapKw =
         "pl-PL": "Kolonia księżycowa Horyzont",
         "pt-BR": "Colônia Lunar Horizon",
         "ru-RU": "Лунная колония «Горизонт»",
+        "th-TH": "อาณานิคมดวงจันทร์ฮอไรซัน",
+        "tr-TR": "Ufuk Ay Kolonisi",
         "zh-CN": "“地平线”月球基地",
         "zh-TW": "地平線月球殖民地"
     },
@@ -686,15 +728,17 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "evening": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Ilios",
         "it-IT": "Ilio",
         "ja-JP": "ILIOS",
         "ko-KR": "일리오스",
         "ru-RU": "Илиос",
+        "th-TH": "อิลิออส",
+        "tr-TR": "İlyos",
         "zh-CN": "伊利奥斯",
         "zh-TW": "伊利歐斯"
     },
@@ -707,8 +751,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -726,6 +770,8 @@ const mapKw =
         "pl-PL": "Ilios: Latarnia morska",
         "pt-BR": "Farol de Ilios",
         "ru-RU": "Илиос: маяк",
+        "th-TH": "ประภาคารอิลิโอส",
+        "tr-TR": "İlyos Deniz Feneri",
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔"
     },
@@ -738,8 +784,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -756,6 +802,8 @@ const mapKw =
         "pl-PL": "Ilios: Ruiny",
         "pt-BR": "Ruínas de Ilios",
         "ru-RU": "Илиос: развалины",
+        "th-TH": "ซากปรักหักพังอิลิโอส",
+        "tr-TR": "İlyos Harabeleri",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟"
     },
@@ -768,8 +816,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -787,6 +835,8 @@ const mapKw =
         "pl-PL": "Ilios: Studnia",
         "pt-BR": "Poço de Ilios",
         "ru-RU": "Илиос: колодец",
+        "th-TH": "บ่อน้ำอิลิโอส",
+        "tr-TR": "İlyos Kuyusu",
         "zh-CN": "伊利奥斯深井",
         "zh-TW": "伊利歐斯水井"
     },
@@ -806,6 +856,8 @@ const mapKw =
         "pl-PL": "Zemsta dr. Złomensteina",
         "pt-BR": "A vingança de Junkenstein",
         "ru-RU": "Месть Крысенштейна",
+        "th-TH": "การแก้แค้นของจังค์เค็นสไตน์",
+        "tr-TR": "Junkenstein'ın İntikamı",
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
@@ -815,13 +867,15 @@ const mapKw =
             "escort",
             "skirmish"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "en-US": "Junkertown",
         "ja-JP": "JUNKERTOWN",
         "ko-KR": "쓰레기촌",
         "ru-RU": "Джанкертаун",
+        "th-TH": "จังเกอร์ทาวน์",
+        "tr-TR": "Hurdaköy",
         "zh-CN": "渣客镇",
         "zh-TW": "垃圾鎮"
     },
@@ -831,14 +885,15 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "guid": "000000010D1A",
         "en-US": "Kanezaka",
         "ja-JP": "KANEZAKA",
         "ko-KR": "카네자카",
         "ru-RU": "Канедзака",
+        "th-TH": "คาเนะซากะ",
         "zh-CN": "铁坂",
         "zh-TW": "鐵坂"
     },
@@ -851,15 +906,17 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "evening": "972777519512068292",
+            "evening": "972777519512068292"
         },
         "en-US": "King's Row",
         "fr-FR": "King’s Row",
         "ja-JP": "KING'S ROW",
         "ko-KR": "왕의 길",
         "ru-RU": "Кингс Роу",
+        "th-TH": "คิงสโรว์",
+        "tr-TR": "Kral Yolu",
         "zh-CN": "国王大道",
         "zh-TW": "國王大道"
     },
@@ -872,8 +929,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "King's Row Winter",
         "es-ES": "King's Row invierno",
@@ -885,6 +942,8 @@ const mapKw =
         "pl-PL": "King's Row zima",
         "pt-BR": "King's Row Inverno",
         "ru-RU": "Кингс Роу зима",
+        "th-TH": "คิงสโรว์ ฤดูหนาว",
+        "tr-TR": "Kral Yolu Kış",
         "zh-CN": "圣诞节国王大道",
         "zh-TW": "國王大道（冬境）"
     },
@@ -897,8 +956,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -915,6 +974,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Centrum sterowania",
         "pt-BR": "Centro de Controle Lijiang",
         "ru-RU": "Командный центр Лицзян",
+        "th-TH": "ศูนย์ควบคุมลี่เจียง",
+        "tr-TR": "Lijiang Kontrol Merkezi",
         "zh-CN": "漓江塔控制中心",
         "zh-TW": "灕江天塔控制中心"
     },
@@ -927,8 +988,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -945,6 +1006,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Centrum sterowania Księżycowy Nowy Rok",
         "pt-BR": "Centro de Controle Lijiang Ano Novo Lunar",
         "ru-RU": "Лицзян: командный центр Лунный Новый год",
+        "th-TH": "ศูนย์ควบคุมลี่เจียง วันตรุษจีน",
+        "tr-TR": "Lijiang Kontrol Merkezi Ay Yeni Yılı",
         "zh-CN": "春节漓江塔控制中心",
         "zh-TW": "灕江控制中心（春節）"
     },
@@ -957,8 +1020,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -975,6 +1038,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Ogród",
         "pt-BR": "Jardim Lijiang",
         "ru-RU": "Сад Лицзян",
+        "th-TH": "สวนลี่เจียง",
+        "tr-TR": "Lijiang Bahçesi",
         "zh-CN": "漓江塔庭院",
         "zh-TW": "灕江花園"
     },
@@ -987,8 +1052,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1005,6 +1070,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Ogród Księżycowy Nowy Rok",
         "pt-BR": "Jardim Lijiang Ano Novo Lunar",
         "ru-RU": "Лицзян: сад Лунный Новый год",
+        "th-TH": "สวนลี่เจียง วันตรุษจีน",
+        "tr-TR": "Lijiang Bahçesi Ay Yeni Yılı",
         "zh-CN": "春节漓江塔庭院",
         "zh-TW": "灕江花園（春節）"
     },
@@ -1017,8 +1084,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1035,6 +1102,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Nocny bazar",
         "pt-BR": "Mercado Noturno de Lijiang",
         "ru-RU": "Ночной рынок Лицзян",
+        "th-TH": "ตลาดกลางคืนลี่เจียง",
+        "tr-TR": "Lijiang Gece Pazarı",
         "zh-CN": "漓江塔夜市",
         "zh-TW": "灕江夜市"
     },
@@ -1047,8 +1116,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1065,6 +1134,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang: Nocny bazar Księżycowy Nowy Rok",
         "pt-BR": "Mercado Noturno de Lijiang Ano Novo Lunar",
         "ru-RU": "Лицзян: ночной рынок Лунный Новый год",
+        "th-TH": "ตลาดกลางคืนลี่เจียง วันตรุษจีน",
+        "tr-TR": "Lijiang Gece Pazarı Ay Yeni Yılı",
         "zh-CN": "春节漓江塔夜市",
         "zh-TW": "灕江夜市（春節）"
     },
@@ -1074,9 +1145,9 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "dawn": "972777519512068197",
+            "dawn": "972777519512068197"
         },
         "en-US": "Lijiang Tower",
         "es-ES": "Torre Lijiang",
@@ -1088,6 +1159,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang",
         "pt-BR": "Torre Lijiang",
         "ru-RU": "Башня Лицзян",
+        "th-TH": "หอคอยลี่เจียง",
+        "tr-TR": "Lijiang Kulesi",
         "zh-CN": "漓江塔",
         "zh-TW": "灕江天塔"
     },
@@ -1097,8 +1170,8 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Lijiang Tower Lunar New Year",
         "de-DE": "Lijiang Tower Neujahr",
@@ -1111,6 +1184,8 @@ const mapKw =
         "pl-PL": "Wieża Lijiang Księżycowa",
         "pt-BR": "Torre Lijiang Ano Novo Lunar",
         "ru-RU": "Башня Лицзян Лунный Новый год",
+        "th-TH": "ลี่เจียงทาวเวอร์ วันตรุษจีน",
+        "tr-TR": "Lijiang Kulesi Ay Yeni Yılı",
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）"
     },
@@ -1120,14 +1195,15 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "guid": "000000010DFE",
         "en-US": "Malevento",
         "ja-JP": "MALEVENTO",
         "ko-KR": "말레벤토",
         "ru-RU": "Малевенто",
+        "th-TH": "มาเลเวนโต",
         "zh-CN": "马莱温多",
         "zh-TW": "馬勒馮托"
     },
@@ -1135,8 +1211,8 @@ const mapKw =
         "gamemodes": [
             "hybrid"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "guid": "00000001777A",
         "en-US": "Midtown",
@@ -1144,6 +1220,7 @@ const mapKw =
         "ko-KR": "미드타운",
         "pl-PL": "Dzielnica Midtown",
         "ru-RU": "Мидтаун",
+        "th-TH": "มิดทาวน์",
         "zh-CN": "中城",
         "zh-TW": "中城區"
     },
@@ -1156,8 +1233,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512068153",
+        "variants": {
+            "default": "972777519512068153"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1175,6 +1252,8 @@ const mapKw =
         "pl-PL": "Nekropolia",
         "pt-BR": "Necrópole",
         "ru-RU": "Некрополь",
+        "th-TH": "เนโครโปลิส",
+        "tr-TR": "Nekropol",
         "zh-CN": "墓园",
         "zh-TW": "墓室"
     },
@@ -1184,15 +1263,16 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "dawn": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Nepal",
         "fr-FR": "Népal",
         "ja-JP": "NEPAL",
         "ko-KR": "네팔",
         "ru-RU": "Непал",
+        "th-TH": "เนปาล",
         "zh-CN": "尼泊尔",
         "zh-TW": "尼泊爾"
     },
@@ -1205,8 +1285,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1224,6 +1304,8 @@ const mapKw =
         "pl-PL": "Nepal: Sanktuarium",
         "pt-BR": "Sacrário de Nepal",
         "ru-RU": "Непал: святилище",
+        "th-TH": "วิหารเนปาล",
+        "tr-TR": "Nepal Tapınağı",
         "zh-CN": "尼泊尔圣所",
         "zh-TW": "尼泊爾聖所"
     },
@@ -1236,8 +1318,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1255,6 +1337,8 @@ const mapKw =
         "pl-PL": "Nepal: Kapliczka",
         "pt-BR": "Templo de Nepal",
         "ru-RU": "Непал: алтарь",
+        "th-TH": "เทวสถานเนปาล",
+        "tr-TR": "Nepal Mabedi",
         "zh-CN": "尼泊尔圣坛",
         "zh-TW": "尼泊爾聖壇"
     },
@@ -1267,8 +1351,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1286,6 +1370,8 @@ const mapKw =
         "pl-PL": "Nepal: Wioska",
         "pt-BR": "Vilarejo de Nepal",
         "ru-RU": "Непал: деревня",
+        "th-TH": "หมู่บ้านเนปาล",
+        "tr-TR": "Nepal Kasabası",
         "zh-CN": "尼泊尔村庄",
         "zh-TW": "尼泊爾村落"
     },
@@ -1305,6 +1391,8 @@ const mapKw =
         "pl-PL": "Nepal: Wioska zima",
         "pt-BR": "Vilarejo de Nepal Inverno",
         "ru-RU": "Непал: деревня зима",
+        "th-TH": "หมู่บ้านเนปาล ฤดูหนาว",
+        "tr-TR": "Nepal Kasabası Kış",
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
     },
@@ -1313,9 +1401,9 @@ const mapKw =
             "skirmish",
             "push"
         ],
-        variants: {
+        "variants": {
             "dawn": "972777519512068197",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "guid": "000000015B54",
         "en-US": "New Queen Street",
@@ -1323,6 +1411,7 @@ const mapKw =
         "ko-KR": "뉴 퀸 스트리트",
         "pt-BR": "Nova Queen Street",
         "ru-RU": "Нью-Квин-стрит",
+        "th-TH": "นิวควีนสตรีท",
         "zh-CN": "新皇后街",
         "zh-TW": "新皇后街"
     },
@@ -1332,13 +1421,14 @@ const mapKw =
             "hybrid",
             "skirmish"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "en-US": "Numbani",
         "ja-JP": "NUMBANI",
         "ko-KR": "눔바니",
         "ru-RU": "Нумбани",
+        "th-TH": "นุมบานี",
         "zh-CN": "努巴尼",
         "zh-TW": "努巴尼"
     },
@@ -1348,10 +1438,10 @@ const mapKw =
             "control",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
             "evening": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Oasis",
         "it-IT": "Oasi",
@@ -1359,6 +1449,8 @@ const mapKw =
         "ko-KR": "오아시스",
         "pl-PL": "Oaza",
         "ru-RU": "Оазис",
+        "th-TH": "โอเอซิส",
+        "tr-TR": "Vaha",
         "zh-CN": "绿洲城",
         "zh-TW": "綠洲城"
     },
@@ -1371,8 +1463,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512068292",
+        "variants": {
+            "default": "972777519512068292"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1390,6 +1482,8 @@ const mapKw =
         "pl-PL": "Oaza: Centrum miasta",
         "pt-BR": "Centro da cidade de Oásis",
         "ru-RU": "Оазис: центр города",
+        "th-TH": "ใจกลางเมืองโอเอซิส",
+        "tr-TR": "Vaha Şehir Merkezi",
         "zh-CN": "绿洲城中心",
         "zh-TW": "綠洲城市都心"
     },
@@ -1402,8 +1496,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512068292",
+        "variants": {
+            "default": "972777519512068292"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1421,6 +1515,8 @@ const mapKw =
         "pl-PL": "Oaza: Ogrody",
         "pt-BR": "Jardins de Oásis",
         "ru-RU": "Оазис: сады",
+        "th-TH": "สวนโอเอซิส",
+        "tr-TR": "Vaha Bahçeleri",
         "zh-CN": "绿洲城花园",
         "zh-TW": "綠洲城公園"
     },
@@ -1433,8 +1529,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512068292",
+        "variants": {
+            "default": "972777519512068292"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1452,6 +1548,8 @@ const mapKw =
         "pl-PL": "Oaza: Uniwersytet",
         "pt-BR": "Universidade de Oásis",
         "ru-RU": "Оазис: университет",
+        "th-TH": "มหาวิทยาลัยโอเอซิส",
+        "tr-TR": "Vaha Üniversitesi",
         "zh-CN": "绿洲城大学",
         "zh-TW": "綠洲城大學"
     },
@@ -1460,14 +1558,15 @@ const mapKw =
             "skirmish",
             "hybrid"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "guid": "000000017763",
         "en-US": "Paraíso",
         "ja-JP": "PARAISO",
         "ko-KR": "파라이수",
         "ru-RU": "Параисо",
+        "th-TH": "พาไรโซ",
         "zh-CN": "帕拉伊苏",
         "zh-TW": "帕拉伊索"
     },
@@ -1480,8 +1579,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Paris",
         "es-MX": "París",
@@ -1500,13 +1599,14 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Petra",
         "ja-JP": "PETRA",
         "ko-KR": "페트라",
         "ru-RU": "Петра",
+        "th-TH": "เพทรา",
         "zh-CN": "佩特拉",
         "zh-TW": "佩特拉"
     },
@@ -1515,8 +1615,8 @@ const mapKw =
         "gamemodes": [
             "practiceRange"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Practice Range",
         "de-DE": "Trainingsbereich",
@@ -1529,6 +1629,8 @@ const mapKw =
         "pl-PL": "Obszar treningowy",
         "pt-BR": "Campo de Treinamento",
         "ru-RU": "УЧЕБНЫЙ ПОЛИГОН",
+        "th-TH": "สนามฝึกซ้อม",
+        "tr-TR": "Poligon",
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心"
     },
@@ -1538,8 +1640,8 @@ const mapKw =
             "escort",
             "skirmish"
         ],
-        variants: {
-            "default": "972777519512068154",
+        "variants": {
+            "default": "972777519512068154"
         },
         "en-US": "Rialto",
         "ja-JP": "RIALTO",
@@ -1556,9 +1658,9 @@ const mapKw =
             "ffa",
             "tdm"
         ],
-        variants: {
+        "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
@@ -1569,6 +1671,7 @@ const mapKw =
         "pl-PL": "Droga 66",
         "pt-BR": "Rota 66",
         "ru-RU": "Шоссе 66",
+        "th-TH": "รูต 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
     },
@@ -1577,8 +1680,8 @@ const mapKw =
             "skirmish",
             "escort"
         ],
-        variants: {
-            "default": "972777519512068153",
+        "variants": {
+            "default": "972777519512068153"
         },
         "guid": "0000000189CE",
         "en-US": "Shambali Monastery",
@@ -1592,6 +1695,8 @@ const mapKw =
         "pl-PL": "Klasztor Szambala",
         "pt-BR": "Monastério de Shambali",
         "ru-RU": "Монастырь Шамбала",
+        "th-TH": "อารามแชมบาลี",
+        "tr-TR": "Şambali Manastırı",
         "zh-CN": "香巴里寺院",
         "zh-TW": "香巴里僧院"
     },
@@ -1641,8 +1746,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Temple of Anubis",
         "de-DE": "Tempel des Anubis",
@@ -1655,6 +1760,8 @@ const mapKw =
         "pl-PL": "Świątynia Anubisa",
         "pt-BR": "Templo de Anúbis",
         "ru-RU": "Храм Анубиса",
+        "th-TH": "วิหารแห่งอนูบิส",
+        "tr-TR": "Anubis Tapınağı",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
     },
@@ -1667,8 +1774,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "en-US": "Volskaya Industries",
         "es-ES": "Industrias Volskaya",
@@ -1689,9 +1796,9 @@ const mapKw =
             "escort",
             "skirmish"
         ],
-        variants: {
+        "variants": {
             "evening": "972777519512068292",
-            "morning": "972777519512068154",
+            "morning": "972777519512068154"
         },
         "en-US": "Watchpoint: Gibraltar",
         "es-ES": "Observatorio: Gibraltar",
@@ -1703,6 +1810,8 @@ const mapKw =
         "pl-PL": "Posterunek: Gibraltar",
         "pt-BR": "Observatório: Gibraltar",
         "ru-RU": "Пост наблюдения: Гибралтар",
+        "th-TH": "วอตช์พอยต์: ยิบรอลตา",
+        "tr-TR": "Seyir Noktası: Cebelitarık",
         "zh-CN": "监测站：直布罗陀",
         "zh-TW": "捍衛者基地：直布羅陀"
     },
@@ -1714,8 +1823,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512064577",
+        "variants": {
+            "default": "972777519512064577"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1735,6 +1844,8 @@ const mapKw =
         "pl-PL": "Warsztat: Komnata",
         "pt-BR": "Câmara do Workshop",
         "ru-RU": "Мастерская: комната",
+        "th-TH": "ห้องทำงานเวิร์คช็อป",
+        "tr-TR": "Atölye Odası",
         "zh-CN": "地图工坊室内",
         "zh-TW": "工作坊房間"
     },
@@ -1746,8 +1857,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1767,6 +1878,8 @@ const mapKw =
         "pl-PL": "Warsztat: Przestwór",
         "pt-BR": "Expansão do Workshop",
         "ru-RU": "Мастерская: поле",
+        "th-TH": "การขยายเวิร์คช็อป",
+        "tr-TR": "Atölye Düzlüğü",
         "zh-CN": "地图工坊空地",
         "zh-TW": "工作坊延伸區域"
     },
@@ -1778,8 +1891,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512064577",
+        "variants": {
+            "default": "972777519512064577"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1799,6 +1912,8 @@ const mapKw =
         "pl-PL": "Warsztat: Przestwór noc",
         "pt-BR": "Expansão do Workshop Noite",
         "ru-RU": "Мастерская: поле ночь",
+        "th-TH": "พื้นที่กว้างของเวิร์คช็อป กลางคืน",
+        "tr-TR": "Atölye Düzlüğü Gece",
         "zh-CN": "地图工坊空地（夜间）",
         "zh-TW": "工作坊延伸區域（夜晚）"
     },
@@ -1810,8 +1925,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512064580",
+        "variants": {
+            "default": "972777519512064580"
         },
         "isWorkshopMap": true,
         "guid": "000000011F44",
@@ -1826,6 +1941,8 @@ const mapKw =
         "pl-PL": "Zielony ekran Warsztatu",
         "pt-BR": "Tela Verde do Workshop",
         "ru-RU": "Мастерская: зеленый экран",
+        "th-TH": "เวิร์คช็อปกรีนสกรีน",
+        "tr-TR": "Atölye Yeşil Perde",
         "zh-CN": "地图工坊绿幕",
         "zh-TW": "工作坊綠幕島"
     },
@@ -1837,8 +1954,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512063901",
+        "variants": {
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1858,6 +1975,8 @@ const mapKw =
         "pl-PL": "Warsztat: Wyspa",
         "pt-BR": "Ilha do Workshop",
         "ru-RU": "Мастерская: остров",
+        "th-TH": "เกาะเวิร์คช็อป",
+        "tr-TR": "Atölye Adası",
         "zh-CN": "地图工坊岛屿",
         "zh-TW": "工作坊島嶼"
     },
@@ -1869,8 +1988,8 @@ const mapKw =
             "bountyHunter",
             "tdm"
         ],
-        variants: {
-            "default": "972777519512064579",
+        "variants": {
+            "default": "972777519512064579"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1890,6 +2009,8 @@ const mapKw =
         "pl-PL": "Warsztat: Wyspa noc",
         "pt-BR": "Ilha do Workshop Noite",
         "ru-RU": "Мастерская: остров ночь",
+        "th-TH": "เกาะเวิร์คช็อป กลางคืน",
+        "tr-TR": "Atölye Adası Gece",
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
     }

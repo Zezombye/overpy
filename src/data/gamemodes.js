@@ -35,6 +35,8 @@ const gamemodeKw =
         "pl-PL": "Szturm",
         "pt-BR": "Ataque",
         "ru-RU": "Захват точек",
+        "th-TH": "จู่โจม",
+        "tr-TR": "Taarruz",
         "zh-CN": "攻防作战",
         "zh-TW": "佔領"
     },
@@ -52,6 +54,8 @@ const gamemodeKw =
         "pl-PL": "Łowca nagród",
         "pt-BR": "Caçador de Recompensas",
         "ru-RU": "Охота за головами",
+        "th-TH": "นักล่าค่าหัว",
+        "tr-TR": "Ödül Avcısı",
         "zh-CN": "赏金猎手",
         "zh-TW": "賞金獵人"
     },
@@ -68,6 +72,8 @@ const gamemodeKw =
         "pl-PL": "Kontrola",
         "pt-BR": "Controle",
         "ru-RU": "Контроль",
+        "th-TH": "ควบคุมพื้นที่",
+        "tr-TR": "Kontrol",
         "zh-CN": "占领要点",
         "zh-TW": "控制"
     },
@@ -86,6 +92,8 @@ const gamemodeKw =
         "pl-PL": "Zdobywanie flagi",
         "pt-BR": "Capture a Bandeira",
         "ru-RU": "Захват флага",
+        "th-TH": "ชิงธง",
+        "tr-TR": "Bayrak Kapmaca",
         "zh-CN": "勇夺锦旗",
         "zh-TW": "搶旗"
     },
@@ -104,6 +112,8 @@ const gamemodeKw =
         "pl-PL": "Eliminacja",
         "pt-BR": "Eliminação",
         "ru-RU": "Ликвидация",
+        "th-TH": "อิลิมิเนชัน",
+        "tr-TR": "Bertaraf",
         "zh-CN": "决斗先锋",
         "zh-TW": "鬥陣對決"
     },
@@ -122,6 +132,8 @@ const gamemodeKw =
         "pl-PL": "Eskorta",
         "pt-BR": "Escolta",
         "ru-RU": "Сопровождение",
+        "th-TH": "คุ้มกัน",
+        "tr-TR": "Koruma",
         "zh-CN": "运载目标",
         "zh-TW": "護送"
     },
@@ -136,6 +148,8 @@ const gamemodeKw =
         "ko-KR": "데스매치",
         "pt-BR": "Combate até a Morte",
         "ru-RU": "Схватка",
+        "th-TH": "เดธแมตช์",
+        "tr-TR": "Ölüm Maçı",
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
@@ -154,6 +168,8 @@ const gamemodeKw =
         "pl-PL": "Mroźna Eliminacja",
         "pt-BR": "Eliminação Descongelante",
         "ru-RU": "Ледяная ликвидация",
+        "th-TH": "ฟรีซธอว์อิลิมิเนชัน",
+        "tr-TR": "Dondur-Çözdür Bertaraf",
         "zh-CN": "融冰决斗",
         "zh-TW": "凍凍大作戰"
     },
@@ -171,6 +187,8 @@ const gamemodeKw =
         "pl-PL": "Hybryda",
         "pt-BR": "Híbrido",
         "ru-RU": "Гибридный режим",
+        "th-TH": "ไฮบริด",
+        "tr-TR": "Hibrit",
         "zh-CN": "攻击护送",
         "zh-TW": "混合"
     },
@@ -189,6 +207,8 @@ const gamemodeKw =
         "pl-PL": "Zemsta dr. Złomensteina",
         "pt-BR": "A vingança de Junkenstein",
         "ru-RU": "Месть Крысенштейна",
+        "th-TH": "การแก้แค้นของจังค์เค็นสไตน์",
+        "tr-TR": "Junkenstein'ın İntikamı",
         "zh-CN": "怪鼠复仇",
         "zh-TW": "鼠肯斯坦復仇記"
     },
@@ -223,6 +243,8 @@ const gamemodeKw =
         "pl-PL": "Śnieżkowa Ofensywa Mei",
         "pt-BR": "Ofensiva de Bola de Neve da Mei",
         "ru-RU": "Операция «Метелица»",
+        "th-TH": "ศึกบอลหิมะของเหมย",
+        "tr-TR": "Mei'nin Kar Topu Savaşı",
         "zh-CN": "雪球攻势",
         "zh-TW": "小美的雪球大作戰"
     },
@@ -241,6 +263,8 @@ const gamemodeKw =
         "pl-PL": "Obszar treningowy",
         "pt-BR": "Campo de Treinamento",
         "ru-RU": "УЧЕБНЫЙ ПОЛИГОН",
+        "th-TH": "สนามฝึกซ้อม",
+        "tr-TR": "Poligon",
         "zh-CN": "训练靶场",
         "zh-TW": "訓練中心"
     },
@@ -259,6 +283,8 @@ const gamemodeKw =
         "pl-PL": "Przepychanka",
         "pt-BR": "Avanço",
         "ru-RU": "Натиск",
+        "th-TH": "ดัน",
+        "tr-TR": "İttir",
         "zh-CN": "机动推进",
         "zh-TW": "推進"
     },
@@ -277,6 +303,8 @@ const gamemodeKw =
         "pl-PL": "Potyczka",
         "pt-BR": "Confronto",
         "ru-RU": "Разминка",
+        "th-TH": "โหมดปะทะเล็กน้อย",
+        "tr-TR": "Müsademe",
         "zh-CN": "突击模式",
         "zh-TW": "衝突戰"
     },
@@ -294,6 +322,8 @@ const gamemodeKw =
         "pl-PL": "Śnieżkowy Deathmatch",
         "pt-BR": "Combate até a Morte de Bola de Neve",
         "ru-RU": "Снежная схватка",
+        "th-TH": "สโนว์บอลเดธแมตช์",
+        "tr-TR": "Kar Topu Ölüm Maçı",
         "zh-CN": "雪球死斗",
         "zh-TW": "雪球死鬥大作戰"
     },
@@ -312,6 +342,8 @@ const gamemodeKw =
         "pl-PL": "Drużynowy Deathmatch",
         "pt-BR": "Combate até a Morte em Equipe",
         "ru-RU": "Командная схватка",
+        "th-TH": "เดธแมตช์ประเภททีม",
+        "tr-TR": "Takımlı Ölüm Maçı",
         "zh-CN": "团队死斗",
         "zh-TW": "團隊死鬥"
     },
@@ -330,6 +362,8 @@ const gamemodeKw =
         "pl-PL": "Polowanie na Yeti",
         "pt-BR": "Caça ao Yeti",
         "ru-RU": "Охота на йети",
+        "th-TH": "นักล่าเยติ",
+        "tr-TR": "Yeti Avcısı",
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
     }
