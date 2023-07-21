@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW"]
+var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "th-TH", "tr-TR", "zh-CN", "zh-TW"]
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
@@ -125,7 +125,7 @@ function addTranslations(content) {
         if (matchingGuids.length === 0) {
             throw new Error("No guid found for string '"+content["en-US"]+"'");
         } else if (matchingGuids.length > 1) {
-            throw new Error("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
+            console.warn("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
         }
         content.guid = matchingGuids[0];
     }
