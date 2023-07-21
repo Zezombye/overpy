@@ -3760,7 +3760,6 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
-                        "bastion",
                         "dva",
                         "pharah"
                     ],
@@ -3787,7 +3786,6 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
-                        "bastion",
                         "brigitte",
                         "dva",
                         "pharah",
