@@ -25,7 +25,6 @@ async function generateStringFiles() {
             }
         });
         sleep(5000)
-        
     }
 }
 
@@ -104,7 +103,7 @@ function iterateOnObject(content) {
             }
         }
     }
-    
+
     return content;
 }
 
@@ -138,7 +137,7 @@ function addTranslations(content) {
                 if (removeParentheses) {
                     elem.string = elem.string.replace(/[,\(\)\/]/g,"")
                 }
-                        
+
                 if (elem.string !== content["en-US"]) {
                     content[language] = elem.string;
                 }
