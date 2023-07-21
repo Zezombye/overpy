@@ -4027,7 +4027,7 @@ const customGameSettingsSchema =
             },
             "bastion": {
                 "values": {
-                    "ultKb%": {
+                    "a36GrenadeCooldown%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
@@ -4048,6 +4048,28 @@ const customGameSettingsSchema =
                         "tr-TR": "A-36 Taktiksel Bomba Dolum Süresi",
                         "zh-CN": "A-36战术榴弹冷却时间",
                         "zh-TW": "A-36戰術榴彈冷卻時間"
+                    },
+                    "a36GrenadeKb%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 300,
+                        "default": 100,
+                        "guid": "00000001BF9D",
+                        "en-US": "A-36 Tactical Grenade Knockback Scalar",
+                        "de-DE": "Taktische Granate A-36 – Rückstoß",
+                        "es-ES": "Progresión de repulsión de Granada táctica A-36",
+                        "es-MX": "Escala de repulsión de Granada táctica A-36",
+                        "fr-FR": "Recul de Grenade tactique A-36",
+                        "it-IT": "Granata Tattica A-36 - Intensità di respinta",
+                        "ja-JP": "A-36タクティカル・グレネード ノックバック・スカラー",
+                        "ko-KR": "A-36 전술 수류탄 밀쳐내기 수준 조정",
+                        "pl-PL": "Granat Taktyczny A-36 – skalowanie odrzucenia",
+                        "pt-BR": "Repulsão Escalar da Granada Tática A-36",
+                        "ru-RU": "Множитель отбрасывания «Тактической гранаты A-36»",
+                        "th-TH": "สเกลาร์กระเด็นถอยหลังของ A-36 แทคติคอลเกรเนด",
+                        "tr-TR": "A-36 Taktiksel Bomba Geri İtme Skaleri",
+                        "zh-CN": "A-36战术榴弹击退倍率",
+                        "zh-TW": "A-36戰術榴彈擊退距離"
                     }
                 }
             },
