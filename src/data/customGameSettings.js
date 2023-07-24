@@ -3503,7 +3503,6 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "exclude": [
-                        "bastion",
                         "lucio",
                         "soldier",
                         "hammond",

@@ -3376,6 +3376,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -7966,6 +7971,11 @@
                                 },
                                 "enableAbility1": {
                                     "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ultGen%": {
                                     "type": "number",
@@ -12558,6 +12568,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -17148,6 +17163,11 @@
                                 },
                                 "enableAbility1": {
                                     "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ultGen%": {
                                     "type": "number",
@@ -21880,6 +21900,11 @@
                         },
                         "enableAbility1": {
                             "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         },
                         "ultGen%": {
                             "type": "number",
