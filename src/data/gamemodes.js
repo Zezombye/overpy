@@ -153,6 +153,11 @@ const gamemodeKw =
         "zh-CN": "死斗",
         "zh-TW": "死鬥"
     },
+    "flashpoint": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Flashpoint"
+    },
     "freezethawElimination": {
         "defaultTeam1Players": 6,
         "defaultTeam2Players": 6,
