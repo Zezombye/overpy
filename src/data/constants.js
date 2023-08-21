@@ -26,6 +26,8 @@ const constantValues =
             "fr-FR": "Direction Taux et Vitesse maximum",
             "ja-JP": "方向、レート、最大の速さ",
             "pt-BR": "Direção Taxa e Velocidade Máx.",
+            "th-TH": "ทิศทาง อัตรา และความเร็วสูงสุด",
+            "tr-TR": "Yön Oran ve Azami Hız",
             "zh-CN": "方向，速率，及最大速度"
         },
         "NONE": {
@@ -35,6 +37,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         }
     },
@@ -46,6 +50,8 @@ const constantValues =
             "fr-FR": "Soutiens et cibles",
             "ja-JP": "アシスターとターゲット",
             "pt-BR": "Assistentes e Alvos",
+            "th-TH": "ผู้ช่วยเหลือและเป้าหมาย",
+            "tr-TR": "Asist Yapanlar ve Hedefler",
             "zh-CN": "助攻者和目标"
         },
         "NONE": {
@@ -55,6 +61,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         }
     },
@@ -70,6 +78,8 @@ const constantValues =
             "fr-FR": "Relancer la règle",
             "ja-JP": "ルールをやり直す",
             "pt-BR": "Regra de reinício",
+            "th-TH": "รีสตาร์ทกฎ",
+            "tr-TR": "Kuralı Yeniden Başlat",
             "zh-CN": "重新开始规则"
         },
         "NOOP": {
@@ -83,6 +93,8 @@ const constantValues =
             "fr-FR": "Ne rien faire",
             "ja-JP": "何もしない",
             "pt-BR": "Não fazer nada",
+            "th-TH": "ไม่ทำอะไร",
+            "tr-TR": "Hiçbir Şey Yapma",
             "zh-CN": "无动作"
         }
     },
@@ -98,6 +110,8 @@ const constantValues =
             "fr-FR": "Les barrières ennemies bloquent la ligne de vue",
             "ja-JP": "敵のバリアが射線を妨げる",
             "pt-BR": "Barreiras Inimigas Bloqueiam LdV",
+            "th-TH": "สิ่งกีดขวางศัตรูบล็อค LOS",
+            "tr-TR": "Düşman Bariyerleri Görüş Alanını Engeller",
             "zh-CN": "敌方屏障阻挡视线"
         },
         "BLOCKED_BY_ALL_BARRIERS": {
@@ -111,6 +125,8 @@ const constantValues =
             "fr-FR": "Toutes les barrières bloquent la ligne de vue",
             "ja-JP": "すべてのバリアが射線を妨げる",
             "pt-BR": "Todas as Barreiras Bloqueiam LdV",
+            "th-TH": "สิ่งกีดขวางทั้งหมดบล็อค LOS",
+            "tr-TR": "Tüm Bariyerler Görüş Alanını Engeller",
             "zh-CN": "所有屏障阻挡视线"
         },
         "PASS_THROUGH_BARRIERS": {
@@ -124,6 +140,8 @@ const constantValues =
             "fr-FR": "Les barrières ne bloquent pas la ligne de vue",
             "ja-JP": "バリアは射線を妨げない",
             "pt-BR": "Barreiras Não Bloqueiam LdV",
+            "th-TH": "สิ่งกีดขวางไม่ได้บล็อค LOS",
+            "tr-TR": "Bariyerler Görüş Alanını Engellemez",
             "zh-CN": "屏障不会阻挡视线"
         }
     },
@@ -135,6 +153,8 @@ const constantValues =
             "fr-FR": "Mauvais rayon",
             "ja-JP": "マイナス効果のビーム",
             "pt-BR": "Feixe Mau",
+            "th-TH": "ลําแสงที่ไม่ดี",
+            "tr-TR": "Kötü Işın",
             "zh-CN": "有害光束"
         },
         "GOOD": {
@@ -144,6 +164,8 @@ const constantValues =
             "fr-FR": "Bon rayon",
             "ja-JP": "プラス効果のビーム",
             "pt-BR": "Feixe Bom",
+            "th-TH": "ลําแสงที่ดี",
+            "tr-TR": "İyi Işın",
             "zh-CN": "有益光束"
         },
         "GRAPPLE": {
@@ -153,6 +175,8 @@ const constantValues =
             "fr-FR": "Rayon du grappin",
             "ja-JP": "グラップリング・ビーム",
             "pt-BR": "Feixe de Arpéu",
+            "th-TH": "แกรปเพิลบีม",
+            "tr-TR": "Kanca Işını",
             "zh-CN": "抓钩光束"
         },
         "BRIGITTE_FLAIL_CHAIN": {
@@ -166,6 +190,8 @@ const constantValues =
             "ja-JP": "ブリギッテのフレイルチェーン・ビーム",
             "pl-PL": "Brigitte – Trzaśnięcie – Wiązka",
             "pt-BR": "Feixe da Corrente do Mangual da Brigitte",
+            "th-TH": "ลําแสงของโซ่กระบองลูกตุ้มของบริกิตตา",
+            "tr-TR": "Brigitte Zincirli Gürz Işını",
             "zh-CN": "布丽吉塔连枷链光束"
         },
         "ECHO_FOCUSING": {
@@ -179,6 +205,8 @@ const constantValues =
             "ja-JP": "エコーの〈フォーカス・ビーム〉",
             "pl-PL": "Echo – Skupiona Wiązka",
             "pt-BR": "Feixe Concentrado da Echo",
+            "th-TH": "ลำแสงของโฟกัสซิงบีมของเอ็คโค่",
+            "tr-TR": "Echo Yoğun Işın",
             "zh-CN": "“回声”聚焦光线光束"
         },
         "JUNKRAT_TRAP_CHAIN": {
@@ -192,6 +220,8 @@ const constantValues =
             "ja-JP": "ジャンクラットのトラップチェーンのビーム",
             "pl-PL": "Złomiarz – Wiązka Potrzasku",
             "pt-BR": "Feixe da Corrente de Armadilha do Junkrat",
+            "th-TH": "ลําแสงของโซ่กับดักของจังค์แรต",
+            "tr-TR": "Junkrat Tuzak Zincir Işını",
             "zh-CN": "“狂鼠”陷阱链光束"
         },
         "MERCY_HEAL": {
@@ -205,6 +235,8 @@ const constantValues =
             "ja-JP": "マーシーの回復ビーム",
             "pl-PL": "Łaska – Wiązka lecząca",
             "pt-BR": "Feixe de Cura da Mercy",
+            "th-TH": "ลำแสงฮีลของเมอร์ซี่",
+            "tr-TR": "Mercy İyileştirme Işını",
             "zh-CN": "“天使”治疗光束"
         },
         "MERCY_BOOST": {
@@ -218,6 +250,8 @@ const constantValues =
             "ja-JP": "マーシーのブースト・ビーム",
             "pl-PL": "Łaska – Wiązka wzmacniająca",
             "pt-BR": "Feixe de Bônus da Mercy",
+            "th-TH": "ลำแสงบูสต์ของเมอร์ซี่",
+            "tr-TR": "Mercy Hasar Işını",
             "zh-CN": "“天使”强化光束"
         },
         "MOIRA_ORB_HEAL": {
@@ -231,6 +265,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・オーブ〉の回復ビーム",
             "pl-PL": "Moira – Wiązka leczenia od Kuli Biotycznej",
             "pt-BR": "Feixe do Orbe de Cura da Moira",
+            "th-TH": "ลําแสงของฮีลออร์บของมอยร่า",
+            "tr-TR": "Moira İyileştirme Işını - Küre",
             "zh-CN": "莫伊拉生化之球治疗光束"
         },
         "MOIRA_ORB_DAMAGE": {
@@ -244,6 +280,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・オーブ〉のダメージビーム",
             "pl-PL": "Moira – Wiązka obrażeń od Kuli Biotycznej",
             "pt-BR": "Feixe do Orbe de Dano da Moira",
+            "th-TH": "ลําแสงของดาเมจออร์บของมอยร่า",
+            "tr-TR": "Moira Hasar Işını - Küre",
             "zh-CN": "莫伊拉生化之球伤害光束"
         },
         "MOIRA_GRASP_CONNECTED": {
@@ -257,6 +295,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・グラスプ〉の接続ビーム",
             "pl-PL": "Moira – Wiązka łącząca Chwytu",
             "pt-BR": "Feixe Conectado do Punho da Moira",
+            "th-TH": "ลําแสงที่เชื่อมต่อมือจับของมอยร่า",
+            "tr-TR": "Moira Tutuş Bağlantı Işını",
             "zh-CN": "莫伊拉生化之触连接光束"
         },
         "MOIRA_COALESCENCE": {
@@ -270,6 +310,8 @@ const constantValues =
             "ja-JP": "モイラの〈コアレッセンス〉のビーム",
             "pl-PL": "Moira – Wiązka Koalescencji",
             "pt-BR": "Feixe da Coalescência da Moira",
+            "th-TH": "ลําแสงโคเอเลสเซนซ์ของมอยร่า",
+            "tr-TR": "Moira Kaynaşım Işını",
             "zh-CN": "莫伊拉聚合射线光束"
         },
         "ORISA_HALT_TENDRIL": {
@@ -283,6 +325,8 @@ const constantValues =
             "ja-JP": "オリーサの〈ストップ！〉の吸引ビーム",
             "pl-PL": "Orisa – Stać! – Wiązka",
             "pt-BR": "Feixe de Conexões de Parados da Orisa",
+            "th-TH": "ลําแสงของฮอลท์เทนดริลของโอริซา",
+            "tr-TR": "Orisa Dur! Bağlama Işını",
             "zh-CN": "奥丽莎站住别动连线光束"
         },
         "ORISA_AMPLIFIER": {
@@ -296,6 +340,8 @@ const constantValues =
             "ja-JP": "オリーサの〈アンプリファイア〉のビーム",
             "pl-PL": "Orisa – Wiązka Wzmocnienia",
             "pt-BR": "Feixe do Amplificador da Orisa",
+            "th-TH": "แอมพลิฟายเออร์บีมของโอริซา",
+            "tr-TR": "Orisa Amfi Işını",
             "zh-CN": "奥丽莎强化光束"
         },
         "SYMMETRA_PROJECTOR": {
@@ -309,6 +355,8 @@ const constantValues =
             "ja-JP": "シンメトラの〈プロジェクター〉のビーム",
             "pl-PL": "Symmetra – Projektor – Wiązka",
             "pt-BR": "Feixe Projetor da Symmetra",
+            "th-TH": "ลําแสงของปืนยิงของซิมเมตรา",
+            "tr-TR": "Symmetra Projektör Işını",
             "zh-CN": "“秩序之光”光子发射器光束"
         },
         "SYMMETRA_TURRET": {
@@ -322,6 +370,8 @@ const constantValues =
             "ja-JP": "シンメトラの〈タレット〉のビーム",
             "pl-PL": "Symmetra – Wieżyczka – Wiązka",
             "pt-BR": "Feixe de Torre da Symmetra",
+            "th-TH": "ลําแสงของป้อมยิงของซิมเมตรา",
+            "tr-TR": "Symmetra Taret Işını",
             "zh-CN": "“秩序之光”哨戒炮光束"
         },
         "TORBJORN_TURRET_SIGHT": {
@@ -335,6 +385,8 @@ const constantValues =
             "ja-JP": "トールビョーンの〈タレット〉の照準ビーム",
             "pl-PL": "Torbjörn – Wiązka pola widzenia Wieżyczki",
             "pt-BR": "Feixe de Visão de Torre do Torbjörn",
+            "th-TH": "ลำแสงของเป้าหมายป้อมยิงของทอร์บยอร์น",
+            "tr-TR": "Torbjörn Taret Görüş Işını",
             "zh-CN": "托比昂炮台视线光束"
         },
         "WINSTON_TESLA_CANNON": {
@@ -348,6 +400,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈テスラ・キャノン〉のビーム",
             "pl-PL": "Winston – Działo Tesli – Wiązka",
             "pt-BR": "Feixe do Canhão de Tesla do Winston",
+            "th-TH": "ลำแสงปืนใหญ่เทสลาของวินสตัน",
+            "tr-TR": "Winston Tesla Topu Işını",
             "zh-CN": "温斯顿特斯拉炮光束"
         },
         "ZARYA_PARTICLE": {
@@ -361,6 +415,8 @@ const constantValues =
             "ja-JP": "ザリアの〈パーティクル・キャノン〉のビーム",
             "pl-PL": "Zaria – Działo – Wiązka",
             "pt-BR": "Feixe de Partículas da Zarya",
+            "th-TH": "พาร์ติเคิลบีมของซาเรีย",
+            "tr-TR": "Zarya Parçacık Işını",
             "zh-CN": "查莉娅粒子光束"
         },
         "OMNIC_SLICER": {
@@ -374,6 +430,8 @@ const constantValues =
             "ja-JP": "オムニック・スライサーのビーム",
             "pl-PL": "Omniczny Siekacz – Wiązka",
             "pt-BR": "Feixe do Ômnico Dilacerador",
+            "th-TH": "ลำแสงของดาบของออมนิค",
+            "tr-TR": "Omnik Biçici Işını",
             "zh-CN": "智械切割者光束"
         }
     },
@@ -385,6 +443,8 @@ const constantValues =
             "fr-FR": "Capacité 1",
             "ja-JP": "アビリティ1",
             "pt-BR": "Habilidade 1",
+            "th-TH": "ความสามารถ 1",
+            "tr-TR": "1. Kabiliyet",
             "zh-CN": "技能1"
         },
         "ABILITY_2": {
@@ -394,6 +454,8 @@ const constantValues =
             "fr-FR": "Capacité 2",
             "ja-JP": "アビリティ2",
             "pt-BR": "Habilidade 2",
+            "th-TH": "ความสามารถ 2",
+            "tr-TR": "2. Kabiliyet",
             "zh-CN": "技能2"
         },
         "CROUCH": {
@@ -403,6 +465,8 @@ const constantValues =
             "fr-FR": "S’accroupir",
             "ja-JP": "しゃがみ",
             "pt-BR": "Agachar",
+            "th-TH": "หมอบ",
+            "tr-TR": "Çömel",
             "zh-CN": "蹲下"
         },
         "INTERACT": {
@@ -412,6 +476,8 @@ const constantValues =
             "fr-FR": "Interaction",
             "ja-JP": "インタラクト",
             "pt-BR": "Interagir",
+            "th-TH": "โต้ตอบ",
+            "tr-TR": "Etkileşim",
             "zh-CN": "互动"
         },
         "JUMP": {
@@ -421,6 +487,8 @@ const constantValues =
             "fr-FR": "Sauter",
             "ja-JP": "ジャンプ",
             "pt-BR": "Pular",
+            "th-TH": "กระโดด",
+            "tr-TR": "Zıpla",
             "zh-CN": "跳跃"
         },
         "MELEE": {
@@ -430,6 +498,8 @@ const constantValues =
             "fr-FR": "Mêlée",
             "ja-JP": "近接",
             "pt-BR": "Corpo a corpo",
+            "th-TH": "ระยะประชิด",
+            "tr-TR": "Yakın saldırı",
             "zh-CN": "近身攻击"
         },
         "PRIMARY_FIRE": {
@@ -439,6 +509,8 @@ const constantValues =
             "fr-FR": "Tir principal",
             "ja-JP": "メイン攻撃",
             "pt-BR": "Disparo Primário",
+            "th-TH": "การยิงรูปแบบหลัก",
+            "tr-TR": "Birincil Saldırı",
             "zh-CN": "主要攻击模式"
         },
         "RELOAD": {
@@ -448,6 +520,8 @@ const constantValues =
             "fr-FR": "Rechargement",
             "ja-JP": "リロード",
             "pt-BR": "Recarregar",
+            "th-TH": "โหลดใหม่",
+            "tr-TR": "Silah Doldur",
             "zh-CN": "装填"
         },
         "SECONDARY_FIRE": {
@@ -457,6 +531,8 @@ const constantValues =
             "fr-FR": "Tir secondaire",
             "ja-JP": "サブ攻撃",
             "pt-BR": "Disparo Secundário",
+            "th-TH": "การยิงรูปแบบรอง",
+            "tr-TR": "İkincil Saldırı",
             "zh-CN": "辅助攻击模式"
         },
         "ULTIMATE": {
@@ -466,6 +542,8 @@ const constantValues =
             "fr-FR": "Capacité ultime",
             "ja-JP": "アルティメット",
             "pt-BR": "Habilidade Suprema",
+            "th-TH": "อัลติเมท",
+            "tr-TR": "Ulti",
             "zh-CN": "终极技能"
         }
     },
@@ -482,6 +560,8 @@ const constantValues =
             "fr-FR": "Masquer derrière les surfaces",
             "ja-JP": "表面に対してクリップ",
             "pt-BR": "Cortar nas Superfícies",
+            "th-TH": "คลิปกระแทกพื้นผิว",
+            "tr-TR": "Yüzeylere Karşı Kırp",
             "zh-CN": "根据表面截取"
         },
         "NONE": {
@@ -495,6 +575,8 @@ const constantValues =
             "fr-FR": "Ne pas masquer",
             "ja-JP": "クリップしない",
             "pt-BR": "Não Cortar",
+            "th-TH": "ไม่ตัด",
+            "tr-TR": "Kırpma",
             "zh-CN": "不要截取"
         }
     },
@@ -509,6 +591,8 @@ const constantValues =
             "fr-FR": "Blanc",
             "ja-JP": "白",
             "pt-BR": "Branco",
+            "th-TH": "ขาว",
+            "tr-TR": "Beyaz",
             "zh-CN": "白色"
         },
         "AQUA": {
@@ -521,6 +605,8 @@ const constantValues =
             "fr-FR": "Cyan",
             "ja-JP": "アクア",
             "pt-BR": "Azul-piscina",
+            "th-TH": "น้ำทะเล",
+            "tr-TR": "İspirto Mavisi",
             "zh-CN": "水绿色"
         },
         "BLACK": {
@@ -533,6 +619,8 @@ const constantValues =
             "fr-FR": "Noir",
             "ja-JP": "ブラック",
             "pt-BR": "Preto",
+            "th-TH": "ดำ",
+            "tr-TR": "Siyah",
             "zh-CN": "黑色"
         },
         "BLUE": {
@@ -545,6 +633,8 @@ const constantValues =
             "fr-FR": "Bleu",
             "ja-JP": "青",
             "pt-BR": "Azul",
+            "th-TH": "ฟ้า",
+            "tr-TR": "Mavi",
             "zh-CN": "蓝色"
         },
         "GRAY": {
@@ -557,6 +647,8 @@ const constantValues =
             "fr-FR": "Gris",
             "ja-JP": "グレー",
             "pt-BR": "Cinza",
+            "th-TH": "เทา",
+            "tr-TR": "Gri",
             "zh-CN": "灰色"
         },
         "GREEN": {
@@ -569,6 +661,8 @@ const constantValues =
             "fr-FR": "Vert",
             "ja-JP": "緑",
             "pt-BR": "Verde",
+            "th-TH": "เขียว",
+            "tr-TR": "Yeşil",
             "zh-CN": "绿色"
         },
         "LIME_GREEN": {
@@ -581,6 +675,8 @@ const constantValues =
             "fr-FR": "Citron vert",
             "ja-JP": "ライムグリーン",
             "pt-BR": "Verde-limão",
+            "th-TH": "เขียวมะนาว",
+            "tr-TR": "Misket Limonu Yeşili",
             "zh-CN": "灰绿色"
         },
         "ORANGE": {
@@ -592,6 +688,8 @@ const constantValues =
             "es-MX": "Naranja",
             "ja-JP": "オレンジ",
             "pt-BR": "Laranja",
+            "th-TH": "ส้ม",
+            "tr-TR": "Turuncu",
             "zh-CN": "橙色"
         },
         "PURPLE": {
@@ -604,6 +702,8 @@ const constantValues =
             "fr-FR": "Violet",
             "ja-JP": "紫",
             "pt-BR": "Roxo",
+            "th-TH": "ม่วง",
+            "tr-TR": "Mor",
             "zh-CN": "亮紫色"
         },
         "RED": {
@@ -616,6 +716,8 @@ const constantValues =
             "fr-FR": "Rouge",
             "ja-JP": "赤",
             "pt-BR": "Vermelho",
+            "th-TH": "แดง",
+            "tr-TR": "Kırmızı",
             "zh-CN": "红色"
         },
         "ROSE": {
@@ -627,6 +729,8 @@ const constantValues =
             "es-MX": "Rosa",
             "ja-JP": "ローズ",
             "pt-BR": "Rosa",
+            "th-TH": "กุหลาบ",
+            "tr-TR": "Gül",
             "zh-CN": "玫红"
         },
         "SKY_BLUE": {
@@ -639,6 +743,8 @@ const constantValues =
             "fr-FR": "Bleu ciel",
             "ja-JP": "スカイブルー",
             "pt-BR": "Azul-celeste",
+            "th-TH": "สีฟ้าท้องฟ้า",
+            "tr-TR": "Gök Mavisi",
             "zh-CN": "天蓝色"
         },
         "TEAM_1": {
@@ -651,6 +757,8 @@ const constantValues =
             "fr-FR": "Équipe 1",
             "ja-JP": "チーム1",
             "pt-BR": "Equipe 1",
+            "th-TH": "ทีม 1",
+            "tr-TR": "1. Takım",
             "zh-CN": "队伍1"
         },
         "TEAM_2": {
@@ -663,6 +771,8 @@ const constantValues =
             "fr-FR": "Équipe 2",
             "ja-JP": "チーム2",
             "pt-BR": "Equipe 2",
+            "th-TH": "ทีม 2",
+            "tr-TR": "2. Takım",
             "zh-CN": "队伍2"
         },
         "TURQUOISE": {
@@ -674,6 +784,8 @@ const constantValues =
             "es-MX": "Turquesa",
             "ja-JP": "ターコイズ",
             "pt-BR": "Turquesa",
+            "th-TH": "สีฟ้าคราม",
+            "tr-TR": "Turkuaz",
             "zh-CN": "青绿色"
         },
         "VIOLET": {
@@ -686,6 +798,8 @@ const constantValues =
             "fr-FR": "Mauve",
             "ja-JP": "バイオレット",
             "pt-BR": "Violeta",
+            "th-TH": "ม่วง",
+            "tr-TR": "Menekşe",
             "zh-CN": "紫色"
         },
         "YELLOW": {
@@ -698,6 +812,8 @@ const constantValues =
             "fr-FR": "Jaune",
             "ja-JP": "黄色",
             "pt-BR": "Amarelo",
+            "th-TH": "เหลือง",
+            "tr-TR": "Sarı",
             "zh-CN": "黄色"
         }
     },
@@ -709,6 +825,8 @@ const constantValues =
             "fr-FR": "Bien reçu",
             "ja-JP": "了解",
             "pt-BR": "Reconhecer",
+            "th-TH": "รับทราบ",
+            "tr-TR": "Onaylama",
             "zh-CN": "收到"
         },
         "ATTACKING": {
@@ -718,6 +836,8 @@ const constantValues =
             "fr-FR": "J’attaque",
             "ja-JP": "攻撃中",
             "pt-BR": "Atacando",
+            "th-TH": "กำลังโจมตี",
+            "tr-TR": "Saldıran",
             "zh-CN": "正在进攻"
         },
         "COUNTDOWN": {
@@ -727,6 +847,8 @@ const constantValues =
             "fr-FR": "Compte à rebours",
             "ja-JP": "カウントダウン",
             "pt-BR": "Contagem Regressiva",
+            "th-TH": "นับถอยหลัง",
+            "tr-TR": "Geri Sayım",
             "zh-CN": "倒计时"
         },
         "DEFENDING": {
@@ -736,6 +858,8 @@ const constantValues =
             "fr-FR": "Je défends",
             "ja-JP": "防衛中",
             "pt-BR": "Defendendo",
+            "th-TH": "กำลังป้องกัน",
+            "tr-TR": "Savunmadayım",
             "zh-CN": "正在防守"
         },
         "EMOTE_DOWN": {
@@ -745,6 +869,8 @@ const constantValues =
             "fr-FR": "Emote bas",
             "ja-JP": "エモート下",
             "pt-BR": "Emote Abaixo",
+            "th-TH": "ท่าทางด้านล่าง",
+            "tr-TR": "Alt İfade",
             "zh-CN": "表情（下）"
         },
         "EMOTE_LEFT": {
@@ -754,6 +880,8 @@ const constantValues =
             "fr-FR": "Emote gauche",
             "ja-JP": "エモート左",
             "pt-BR": "Emote à Esquerda",
+            "th-TH": "ท่าทางซ้าย",
+            "tr-TR": "Sol İfade",
             "zh-CN": "表情（左）"
         },
         "EMOTE_RIGHT": {
@@ -763,6 +891,8 @@ const constantValues =
             "fr-FR": "Emote droite",
             "ja-JP": "エモート右",
             "pt-BR": "Emote à Direita",
+            "th-TH": "ท่าทางขวา",
+            "tr-TR": "Sağ İfade",
             "zh-CN": "表情（右）"
         },
         "EMOTE_UP": {
@@ -772,6 +902,8 @@ const constantValues =
             "fr-FR": "Emote haut",
             "ja-JP": "エモート上",
             "pt-BR": "Emote Acima",
+            "th-TH": "ท่าทางด้านบน",
+            "tr-TR": "Üst İfade",
             "zh-CN": "表情（上）"
         },
         "FALL_BACK": {
@@ -781,6 +913,8 @@ const constantValues =
             "fr-FR": "Repli",
             "ja-JP": "退却しよう",
             "pt-BR": "Recuar",
+            "th-TH": "ถอย",
+            "tr-TR": "Geri Çekil",
             "zh-CN": "撤退"
         },
         "GO": {
@@ -790,6 +924,8 @@ const constantValues =
             "fr-FR": "On y va",
             "ja-JP": "行け",
             "pt-BR": "Vai",
+            "th-TH": "ไป",
+            "tr-TR": "Hadi",
             "zh-CN": "前进"
         },
         "GOING_IN": {
@@ -799,6 +935,8 @@ const constantValues =
             "fr-FR": "J’y vais",
             "ja-JP": "突入する",
             "pt-BR": "Vou Avançar",
+            "th-TH": "จะบุกเข้าไป",
+            "tr-TR": "Giriyorum",
             "zh-CN": "我上了"
         },
         "GOODBYE": {
@@ -808,6 +946,8 @@ const constantValues =
             "fr-FR": "Au revoir",
             "ja-JP": "さようなら",
             "pt-BR": "Tchau",
+            "th-TH": "ลาก่อน",
+            "tr-TR": "Görüşürüz",
             "zh-CN": "再见"
         },
         "GROUP_UP": {
@@ -817,6 +957,8 @@ const constantValues =
             "fr-FR": "Regroupement",
             "ja-JP": "集合",
             "pt-BR": "Agrupem-se",
+            "th-TH": "รวมกลุ่ม",
+            "tr-TR": "Toplanma",
             "zh-CN": "集合"
         },
         "HELLO": {
@@ -826,6 +968,8 @@ const constantValues =
             "fr-FR": "Bonjour",
             "ja-JP": "こんにちは",
             "pt-BR": "Olá",
+            "th-TH": "ดีจ้า",
+            "tr-TR": "Merhaba",
             "zh-CN": "问候"
         },
         "INCOMING": {
@@ -835,6 +979,8 @@ const constantValues =
             "fr-FR": "En approche",
             "ja-JP": "敵接近中",
             "pt-BR": "Chegando",
+            "th-TH": "กำลังมา",
+            "tr-TR": "Yola Çıktı",
             "zh-CN": "敌人来袭"
         },
         "NEED_HEALING": {
@@ -844,6 +990,8 @@ const constantValues =
             "fr-FR": "Besoin de soins",
             "ja-JP": "回復が必要",
             "pt-BR": "Preciso de Cura",
+            "th-TH": "ต้องการฮีล",
+            "tr-TR": "Can Lazım",
             "zh-CN": "需要治疗"
         },
         "NEED_HELP": {
@@ -853,6 +1001,8 @@ const constantValues =
             "fr-FR": "À l’aide",
             "ja-JP": "手を貸して",
             "pt-BR": "Preciso de Ajuda",
+            "th-TH": "ช่วยหน่อย",
+            "tr-TR": "Yardım Lazım",
             "zh-CN": "需要帮助"
         },
         "NO": {
@@ -861,6 +1011,8 @@ const constantValues =
             "fr-FR": "Non",
             "ja-JP": "いいえ",
             "pt-BR": "Não",
+            "th-TH": "ไม่ใช่",
+            "tr-TR": "Hayır",
             "zh-CN": "不行"
         },
         "ON_MY_WAY": {
@@ -870,6 +1022,8 @@ const constantValues =
             "fr-FR": "J’arrive",
             "ja-JP": "今向かう",
             "pt-BR": "A Caminho",
+            "th-TH": "กำลังไป",
+            "tr-TR": "Yoldayım",
             "zh-CN": "正在赶来"
         },
         "PRESS_THE_ATTACK": {
@@ -879,6 +1033,8 @@ const constantValues =
             "fr-FR": "Poursuivons l’offensive",
             "ja-JP": "攻撃の手を緩めるな",
             "pt-BR": "Force o Ataque",
+            "th-TH": "เพรสเดอะแอทแทค",
+            "tr-TR": "Saldırıya Devam",
             "zh-CN": "继续攻击"
         },
         "PUSH_FORWARD": {
@@ -888,6 +1044,8 @@ const constantValues =
             "fr-FR": "En avant",
             "ja-JP": "前進しよう",
             "pt-BR": "Avançar",
+            "th-TH": "ดันเลย",
+            "tr-TR": "Bastır",
             "zh-CN": "推进"
         },
         "READY": {
@@ -897,6 +1055,8 @@ const constantValues =
             "fr-FR": "Prête",
             "ja-JP": "準備完了",
             "pt-BR": "Pronto",
+            "th-TH": "พร้อม",
+            "tr-TR": "Hazır",
             "zh-CN": "做好准备"
         },
         "SORRY": {
@@ -906,6 +1066,8 @@ const constantValues =
             "fr-FR": "Désolé",
             "ja-JP": "ごめん",
             "pt-BR": "Desculpe",
+            "th-TH": "ขอโทษ",
+            "tr-TR": "Kusura bakma",
             "zh-CN": "抱歉"
         },
         "SPRAY_DOWN": {
@@ -915,6 +1077,8 @@ const constantValues =
             "fr-FR": "Tag bas",
             "ja-JP": "スプレー下",
             "pt-BR": "Spray - Baixo",
+            "th-TH": "สเปรย์ล่าง",
+            "tr-TR": "Aşağı Doğru Grafiti",
             "zh-CN": "喷漆下"
         },
         "SPRAY_LEFT": {
@@ -924,6 +1088,8 @@ const constantValues =
             "fr-FR": "Tag gauche",
             "ja-JP": "スプレー左",
             "pt-BR": "Spray - Esquerda",
+            "th-TH": "สเปรย์ซ้าย",
+            "tr-TR": "Sola Doğru Grafiti",
             "zh-CN": "喷漆左"
         },
         "SPRAY_RIGHT": {
@@ -933,6 +1099,8 @@ const constantValues =
             "fr-FR": "Tag droite",
             "ja-JP": "スプレー右",
             "pt-BR": "Spray - Direita",
+            "th-TH": "สเปรย์ขวา",
+            "tr-TR": "Sağa Doğru Grafiti",
             "zh-CN": "喷漆右"
         },
         "SPRAY_UP": {
@@ -942,6 +1110,8 @@ const constantValues =
             "fr-FR": "Tag haut",
             "ja-JP": "スプレー上",
             "pt-BR": "Spray - Cima",
+            "th-TH": "สเปรย์ขึ้น",
+            "tr-TR": "Üste Doğru Grafiti",
             "zh-CN": "喷漆上"
         },
         "THANKS": {
@@ -951,6 +1121,8 @@ const constantValues =
             "fr-FR": "Merci",
             "ja-JP": "ありがとう",
             "pt-BR": "Obrigado",
+            "th-TH": "ขอบคุณ",
+            "tr-TR": "Sağ Ol",
             "zh-CN": "感谢"
         },
         "ULTIMATE_STATUS": {
@@ -960,6 +1132,8 @@ const constantValues =
             "fr-FR": "Statut de l’ulti",
             "ja-JP": "アルティメットの状態",
             "pt-BR": "Status da Suprema",
+            "th-TH": "สถานะอัลติเมท",
+            "tr-TR": "Ulti Durumu",
             "zh-CN": "终极技能状态"
         },
         "VOICE_LINE_DOWN": {
@@ -969,6 +1143,8 @@ const constantValues =
             "fr-FR": "Réplique bas",
             "ja-JP": "ボイス・ライン下",
             "pt-BR": "Fala Abaixo",
+            "th-TH": "เสียงพากย์ด้านล่าง",
+            "tr-TR": "Alt Replik",
             "zh-CN": "语音（下）"
         },
         "VOICE_LINE_LEFT": {
@@ -978,6 +1154,8 @@ const constantValues =
             "fr-FR": "Réplique gauche",
             "ja-JP": "ボイス・ライン左",
             "pt-BR": "Fala à Esquerda",
+            "th-TH": "เสียงพากย์ซ้าย",
+            "tr-TR": "Sol Replik",
             "zh-CN": "语音（左）"
         },
         "VOICE_LINE_RIGHT": {
@@ -987,6 +1165,8 @@ const constantValues =
             "fr-FR": "Réplique droite",
             "ja-JP": "ボイス・ライン右",
             "pt-BR": "Fala à Direita",
+            "th-TH": "เสียงพากย์ขวา",
+            "tr-TR": "Sağ Replik",
             "zh-CN": "语音（右）"
         },
         "VOICE_LINE_UP": {
@@ -996,6 +1176,8 @@ const constantValues =
             "fr-FR": "Réplique haut",
             "ja-JP": "ボイス・ライン上",
             "pt-BR": "Fala Acima",
+            "th-TH": "เสียงพากย์ด้านบน",
+            "tr-TR": "Üst Replik",
             "zh-CN": "语音（上）"
         },
         "WITH_YOU": {
@@ -1005,6 +1187,8 @@ const constantValues =
             "fr-FR": "Je te suis",
             "ja-JP": "ついていく",
             "pt-BR": "Com Você",
+            "th-TH": "ฉันไปด้วย",
+            "tr-TR": "Yanındayım",
             "zh-CN": "我跟着你"
         },
         "YES": {
@@ -1014,6 +1198,8 @@ const constantValues =
             "fr-FR": "Oui",
             "ja-JP": "はい",
             "pt-BR": "Sim",
+            "th-TH": "ใช่",
+            "tr-TR": "Evet",
             "zh-CN": "好的"
         },
         "YOURE_WELCOME": {
@@ -1023,6 +1209,8 @@ const constantValues =
             "fr-FR": "C’est tout naturel",
             "ja-JP": "どういたしまして",
             "pt-BR": "De Nada",
+            "th-TH": "ด้วยความยินดี",
+            "tr-TR": "Rica Ederim",
             "zh-CN": "不用谢"
         }
     },
@@ -1034,6 +1222,8 @@ const constantValues =
             "fr-FR": "Aucun",
             "ja-JP": "なし",
             "pt-BR": "Nenhuma",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "RECEIVERS_AND_DAMAGERS": {
@@ -1043,6 +1233,8 @@ const constantValues =
             "fr-FR": "Récepteurs et émetteurs de dégâts",
             "ja-JP": "レシーバーとダメージャー",
             "pt-BR": "Receptores e Danificadores",
+            "th-TH": "ตัวรับและผู้สร้างความเสียหาย",
+            "tr-TR": "Alıcılar ve Hasar Verenler",
             "zh-CN": "受伤害者和伤害者"
         },
         "RECEIVERS_DAMAGERS_AND_DMGPERCENT": {
@@ -1052,6 +1244,8 @@ const constantValues =
             "fr-FR": "Récepteurs de dégâts émetteurs de dégâts et pourcentage de dégâts",
             "ja-JP": "レシーバー、ダメージャー、ダメージのパーセンテージ",
             "pt-BR": "Receptores Danificadores e Porcentagem de Dano",
+            "th-TH": "ผู้รับ ความเสียหาย และเปอร์เซ็นต์ความเสียหาย",
+            "tr-TR": "Alıcılar Hasar Verenler ve Hasar Yüzdesi",
             "zh-CN": "受伤害者，伤害者及伤害百分比"
         }
     },
@@ -1063,6 +1257,8 @@ const constantValues =
             "fr-FR": "Mauvaise explosion",
             "ja-JP": "悪い爆発",
             "pt-BR": "Explosão Ruim",
+            "th-TH": "การระเบิดที่ไม่ดี",
+            "tr-TR": "Kötü Patlama",
             "zh-CN": "有害爆炸"
         },
         "BAD_PICKUP_EFFECT": {
@@ -1072,6 +1268,8 @@ const constantValues =
             "fr-FR": "Mauvais effet de ramassage",
             "ja-JP": "悪いピックアップ効果",
             "pt-BR": "Efeito de Coleta Ruim",
+            "th-TH": "เอฟเฟกต์เก็บที่ไม่ดี",
+            "tr-TR": "Kötü Kaldırma Efekti",
             "zh-CN": "有害选择效果 "
         },
         "BUFF_EXPLOSION_SOUND": {
@@ -1081,6 +1279,8 @@ const constantValues =
             "fr-FR": "Son d’explosion d’amélioration",
             "ja-JP": "爆発音（バフ）",
             "pt-BR": "Som de Explosão para Bônus",
+            "th-TH": "เพิ่มเสียงระเบิด",
+            "tr-TR": "Güçlendirme Patlama Sesi",
             "zh-CN": "状态爆炸声音"
         },
         "BUFF_IMPACT_SOUND": {
@@ -1090,6 +1290,8 @@ const constantValues =
             "fr-FR": "Son d’impact d’amélioration",
             "ja-JP": "衝撃音（バフ）",
             "pt-BR": "Som de Impacto para Bônus",
+            "th-TH": "เพิ่มเสียงกระทบ",
+            "tr-TR": "Güçlendirme Etki Sesi",
             "zh-CN": "正面状态施加声音"
         },
         "DEBUFF_IMPACT_SOUND": {
@@ -1099,6 +1301,8 @@ const constantValues =
             "fr-FR": "Son d’impact d’affaiblissement",
             "ja-JP": "衝撃音（デバフ）",
             "pt-BR": "Som de Impacto para Penalidade",
+            "th-TH": "ลดเสียงกระทบ",
+            "tr-TR": "Zayıflatma Etki Sesi",
             "zh-CN": "负面状态施加声音"
         },
         "EXPLOSION_SOUND": {
@@ -1108,6 +1312,8 @@ const constantValues =
             "fr-FR": "Son de l’explosion",
             "ja-JP": "爆発音",
             "pt-BR": "Som de Explosão",
+            "th-TH": "เสียงระเบิด",
+            "tr-TR": "Patlama Sesi",
             "zh-CN": "爆炸声音"
         },
         "GOOD_EXPLOSION": {
@@ -1117,6 +1323,8 @@ const constantValues =
             "fr-FR": "Bonne explosion",
             "ja-JP": "いい爆発",
             "pt-BR": "Explosão Boa",
+            "th-TH": "การระเบิดที่ดี",
+            "tr-TR": "İyi Patlama",
             "zh-CN": "有益爆炸"
         },
         "GOOD_PICKUP_EFFECT": {
@@ -1126,6 +1334,8 @@ const constantValues =
             "fr-FR": "Bon effet de ramassage",
             "ja-JP": "いいピックアップ効果",
             "pt-BR": "Efeito de Coleta Bom",
+            "th-TH": "เอฟเฟกต์เก็บที่ดี",
+            "tr-TR": "İyi Kaldırma Efekti",
             "zh-CN": "有益选择效果 "
         },
         "RING_EXPLOSION": {
@@ -1135,6 +1345,8 @@ const constantValues =
             "fr-FR": "Explosion concentrique",
             "ja-JP": "リングの爆発",
             "pt-BR": "Explosão em Anel",
+            "th-TH": "เล่นเสียงระเบิด",
+            "tr-TR": "Halka Patlaması",
             "zh-CN": "环状爆炸"
         },
         "RING_EXPLOSION_SOUND": {
@@ -1144,6 +1356,8 @@ const constantValues =
             "fr-FR": "Son d’explosion concentrique",
             "ja-JP": "爆発音（リング）",
             "pt-BR": "Som de Explosão para Anel",
+            "th-TH": "เล่นเสียงระเบิด",
+            "tr-TR": "Halka Patlama Sesi",
             "zh-CN": "环状爆炸声音"
         },
         "ANA_BIOTIC_GRENADE_INCREASED_HEALING_SOUND": {
@@ -1157,6 +1371,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の回復量増加音",
             "pl-PL": "Ana – Granat Biotyczny – Dźwięk zwiększonego leczenia",
             "pt-BR": "Som de Melhoria de Cura da Granada Biótica da Ana",
+            "th-TH": "เสียงการฮีลที่เพิ่มขึ้นของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba Artırılmış İyileştirme Sesi",
             "zh-CN": "安娜生物手雷增疗声音"
         },
         "ANA_BIOTIC_GRENAGE_NO_HEALING_SOUND": {
@@ -1170,6 +1386,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の回復不可の音",
             "pl-PL": "Ana – Granat Biotyczny – Dźwięk braku leczenia",
             "pt-BR": "Som de Bloqueio de Cura da Granada Biótica da Ana",
+            "th-TH": "เสียงไม่มีการฮีลของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba İyileştirme Yok Sesi",
             "zh-CN": "安娜生物手雷禁疗声音"
         },
         "ANA_SLEEPING_SOUND": {
@@ -1183,6 +1401,8 @@ const constantValues =
             "ja-JP": "アナの〈スリープ・ダーツ〉の音",
             "pl-PL": "Ana – Dźwięk uśpienia",
             "pt-BR": "Som de Dormindo da Ana",
+            "th-TH": "เสียงการหลับของอานา",
+            "tr-TR": "Ana Uyku Sesi",
             "zh-CN": "安娜麻醉镖声音"
         },
         "REAPER_WRAITH_FORM_SOUND": {
@@ -1196,6 +1416,8 @@ const constantValues =
             "ja-JP": "リーパーの〈レイス・フォーム〉の音",
             "pl-PL": "Żniwiarz – Postać Upiora – Dźwięk",
             "pt-BR": "Som da Forma Fantasma do Reaper",
+            "th-TH": "เสียงเรธฟอร์มของรีปเปอร์",
+            "tr-TR": "Reaper Tayf Formu Sesi",
             "zh-CN": "“死神”幽灵形态声音"
         },
         "SOMBRA_TRANSLOCATING_SOUND": {
@@ -1209,6 +1431,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の音",
             "pl-PL": "Sombra – Translokalizacja – Dźwięk",
             "pt-BR": "Som de Translocação da Sombra",
+            "th-TH": "เสียงโยกย้ายของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştirici Sesi",
             "zh-CN": "“黑影”位移传动声音"
         },
         "SOLDIER_SPRINT_START_SOUND": {
@@ -1222,6 +1446,8 @@ const constantValues =
             "ja-JP": "ソルジャー76の〈スプリント〉の開始音",
             "pl-PL": "Żołnierz-76 – Sprint – Dźwięk rozpoczęcia",
             "pt-BR": "Som de Início da Disparada do Soldado: 76",
+            "th-TH": "เสียงการสปรินท์ของโซลเยอร์: 76",
+            "tr-TR": "Soldier: 76 Depar Başlangıç Sesi",
             "zh-CN": "“士兵：76”疾跑开始声音"
         },
         "HEAL_TARGET_ACTIVE": {
@@ -1235,6 +1461,8 @@ const constantValues =
             "ja-JP": "ターゲット回復有効エフェクト",
             "pl-PL": "Leczenie – Aktywny efekt celu",
             "pt-BR": "Efeito Alvo de Cura Ativa",
+            "th-TH": "เอฟเฟกต์ที่ใช้อยู่ของฮีลเป้าหมาย",
+            "tr-TR": "Hedefteki Aktif İyileştirme Etkisi",
             "zh-CN": "治疗目标激活效果"
         },
         "SOMBRA_TRANSLOCATING_MATERIAL": {
@@ -1248,6 +1476,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の物質エフェクト",
             "pl-PL": "Sombra – Efekt Translokalizacji materiału",
             "pt-BR": "Efeito Translocação Material da Sombra",
+            "th-TH": "เอฟเฟกต์การโยกย้ายวัสดุของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştiren Materyal Efekti",
             "zh-CN": "“黑影”位移传动材料效果"
         },
         "MCCREE_FLASHBANG_STUNNED": {
@@ -1261,6 +1491,8 @@ const constantValues =
             "ja-JP": "キャスディの〈フラッシュバン〉のスタン・エフェクト",
             "pl-PL": "Cassidy – Efekt ogłuszenia Granatem Błyskowym",
             "pt-BR": "Efeito Atordoamento do Clarão do Cassidy",
+            "th-TH": "เอฟเฟกต์ถูกสตันของแฟลชแบงของแคสซิดี้",
+            "tr-TR": "Cassidy Flaş Bombası Sersemletme Efekti",
             "zh-CN": "卡西迪闪光弹击晕效果"
         },
         "SOMBRA_HACKED_STARTING": {
@@ -1274,6 +1506,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈ハック〉の開始エフェクト",
             "pl-PL": "Sombra – Efekt rozpoczęcia Hakowania",
             "pt-BR": "Efeito Início do Hackear da Sombra",
+            "th-TH": "เอฟเฟกต์เริ่มการแฮ็คของซอมบรา",
+            "tr-TR": "Sombra Hack Başlangıç Efekti",
             "zh-CN": "“黑影”黑客入侵完成开始效果"
         },
         "BRIGITTE_REPAIR_PACK_IMPACT": {
@@ -1287,6 +1521,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈リペア・パック〉の着弾エフェクト",
             "pl-PL": "Brigitte – Efekt trafienia Pakietu Regeneracyjnego",
             "pt-BR": "Efeito de Impacto do Kit de Reparos da Brigitte",
+            "th-TH": "เอฟเฟกต์ปะทะของรีแพร์แพ็คของบริกิตตา",
+            "tr-TR": "Brigitte Tamir Çantası Etki Efekti",
             "zh-CN": "布丽吉塔恢复包击中效果"
         },
         "BRIGITTE_REPAIR_PACK_ARMOR": {
@@ -1300,6 +1536,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈リペア・パック〉のアーマー・エフェクト",
             "pl-PL": "Brigitte – Efekt pancerza Pakietu Regeneracyjnego",
             "pt-BR": "Efeito de Armadura do Kit de Reparos da Brigitte",
+            "th-TH": "เอฟเฟกต์เกราะของรีแพร์แพ็คของบริกิตตา",
+            "tr-TR": "Brigitte Tamir Çantası Zırh Efekti",
             "zh-CN": "布丽吉塔恢复包护甲效果"
         },
         "BRIGITTE_WHIP_SHOT_HEAL_AREA": {
@@ -1313,6 +1551,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈ウィップ・ショット〉の回復エリア・エフェクト",
             "pl-PL": "Brigitte – Efekt leczenia obszarowego Trzaśnięcia",
             "pt-BR": "Efeito de Área da Cura do Disparo Açoitador da Brigitte",
+            "th-TH": "เอฟเฟกต์ฮีลพื้นที่ของวิปช็อตของบริกิตตา",
+            "tr-TR": "Brigitte Zincir Kamçı İyileştirme Alanı Efekti",
             "zh-CN": "布丽吉塔流星飞锤范围治疗效果"
         },
         "DVA_MICRO_MISSILES_EXPLOSION": {
@@ -1326,6 +1566,8 @@ const constantValues =
             "ja-JP": "D.Vaの〈マイクロ・ミサイル〉の爆発エフェクト",
             "pl-PL": "D.Va – Mikro-pociski – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão dos Micro Mísseis da Dva",
+            "th-TH": "เอฟเฟกต์ระเบิดของไมโครมิสไซล์ของดีว่า",
+            "tr-TR": "D.Va Mikrofüze Patlama Efekti",
             "zh-CN": "D.Va微型飞弹爆炸效果"
         },
         "DVA_SELF_DESTRUCT_EXPLOSION": {
@@ -1339,6 +1581,8 @@ const constantValues =
             "ja-JP": "D.Vaの〈自爆〉の爆発エフェクト",
             "pl-PL": "D.Va – Samozniszczenie – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão da Autodestruição da Dva",
+            "th-TH": "เอฟเฟกต์ระเบิดของเซลฟ์เดสทรัคของดีว่า",
+            "tr-TR": "D.Va Kendini İmha Patlama Efekti",
             "zh-CN": "D.Va自毁爆炸效果"
         },
         "ECHO_STICKY_BOMB_EXPLOSION": {
@@ -1352,6 +1596,8 @@ const constantValues =
             "ja-JP": "エコーの〈スティッキー・ボム〉の爆発エフェクト",
             "pl-PL": "Echo – Bomba Przyczepna – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão da Bomba Aderente da Echo",
+            "th-TH": "เอฟเฟกต์ระเบิดของสติ๊กกี้บอมบ์ของเอ็คโค่",
+            "tr-TR": "Echo Yapışkan Bomba Patlama Efekti",
             "zh-CN": "“回声”黏性炸弹爆炸效果"
         },
         "HANZO_SONIC_ARROW_INITIAL_PULSE": {
@@ -1365,6 +1611,8 @@ const constantValues =
             "ja-JP": "ハンゾーの〈鳴響矢水〉の第一波のエフェクト",
             "pl-PL": "Hanzo – Strzała Soniczna – Efekt wstępnego impulsu",
             "pt-BR": "Efeito do Pulso Inicial da Flecha Sônica do Hanzo",
+            "th-TH": "เอฟเฟกต์ความสะเทือนเริ่มต้นของโซนิกแอร์โรว์ของฮันโซ",
+            "tr-TR": "Hanzo Sonik Ok Başlangıç Pals Efekti",
             "zh-CN": "半藏音初始脉冲效果"
         },
         "LUCIO_SOUND_BARRIER_CAST": {
@@ -1378,6 +1626,8 @@ const constantValues =
             "ja-JP": "ルシオの〈サウンド・バリア〉の発動エフェクト",
             "pl-PL": "Lúcio – Bariera Dźwiękowa – Efekt użycia",
             "pt-BR": "Efeito de Lançamento da Barreira de Som do Lúcio",
+            "th-TH": "เอฟเฟกต์ร่ายซาวน์บาเรียของลูซิโอ",
+            "tr-TR": "Lúcio Ses Bariyeri Oluşturma Efekti",
             "zh-CN": "卢西奥音障施放效果"
         },
         "MOIRA_FADE_DISAPPEAR": {
@@ -1391,6 +1641,8 @@ const constantValues =
             "ja-JP": "モイラの〈フェード〉の消失エフェクト",
             "pl-PL": "Moira – Zniknięcie – Efekt zniknięcia",
             "pt-BR": "Efeito de Desaparição de Desvanecer da Moira",
+            "th-TH": "เอฟเฟกต์หายตัวของเฟดของมอยร่า",
+            "tr-TR": "Moira Kaybol Kaybolma Efekti",
             "zh-CN": "莫伊拉消散消失效果"
         },
         "MOIRA_FADE_REAPPEAR": {
@@ -1404,6 +1656,8 @@ const constantValues =
             "ja-JP": "モイラの〈フェード〉の再出現エフェクト",
             "pl-PL": "Moira – Zniknięcie – Efekt ponownego pojawienia się",
             "pt-BR": "Efeito de Reaparição de Desvanecer da Moira",
+            "th-TH": "เอฟเฟกต์ปรากฏตัวอีกครั้งของเฟดของมอยร่า",
+            "tr-TR": "Moira Kaybol Geri Gelme Efekti",
             "zh-CN": "莫伊拉消散重现效果"
         },
         "ORISA_HALT_IMPLOSION": {
@@ -1417,6 +1671,8 @@ const constantValues =
             "ja-JP": "オリーサの〈ストップ！〉の崩壊エフェクト",
             "pl-PL": "Orisa – Stać! – Efekt implozji",
             "pt-BR": "Efeito de Implosão de Parados da Orisa",
+            "th-TH": "เอฟเฟกต์ระเบิดภายในของฮอลท์ของโอริซา",
+            "tr-TR": "Orisa Dur! İç Patlama Efekti",
             "zh-CN": "奥丽莎站住别动内爆效果"
         },
         "SIGMA_HYPERSPHERE_IMPLOSION": {
@@ -1430,6 +1686,8 @@ const constantValues =
             "ja-JP": "シグマの〈ハイパースフィア〉の崩壊エフェクト",
             "pl-PL": "Sigma – Hipersfera – Efekt implozji",
             "pt-BR": "Efeito de Implosão da Hiperesfera do Sigma",
+            "th-TH": "เอฟเฟกต์ระเบิดภายในของไฮเพอร์สเฟียร์ของซิกม่า",
+            "tr-TR": "Sigma Hiperküre İç Patlama Efekti",
             "zh-CN": "“西格玛”超能之球内爆效果"
         },
         "SOMBRA_LOGO": {
@@ -1443,6 +1701,8 @@ const constantValues =
             "ja-JP": "ソンブラのロゴ・エフェクト",
             "pl-PL": "Sombra – Logo – Efekt",
             "pt-BR": "Efeito do Logo da Sombra",
+            "th-TH": "เอฟเฟกต์โลโก้ของซอมบรา",
+            "tr-TR": "Sombra Logo Efekti",
             "zh-CN": "“黑影”标志效果"
         },
         "SOMBRA_TRANSLOCATOR_DISAPPEAR": {
@@ -1456,6 +1716,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の消失エフェクト",
             "pl-PL": "Sombra – Translokator – Efekt zniknięcia",
             "pt-BR": "Efeito de Desaparecimento do Translocador da Sombra",
+            "th-TH": "เอฟเฟกต์หายตัวของทรานสโลเคเตอร์ของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştirici Kaybolma Efekti",
             "zh-CN": "“黑影”位移传动消失效果"
         },
         "SOMBRA_TRANSLOCATOR_REAPPEAR": {
@@ -1469,6 +1731,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の再出現エフェクト",
             "pl-PL": "Sombra – Translokator – Efekt ponownego pojawienia się",
             "pt-BR": "Efeito de Reaparição do Translocador da Sombra",
+            "th-TH": "เอฟเฟกต์ปรากฏตัวอีกครั้งของทรานสโลเคเตอร์ของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştirici Geri Gelme Efekti",
             "zh-CN": "“黑影”位移传动重现效果"
         },
         "SOMBRA_EMP_EXPLOSION_EFFECT": {
@@ -1482,6 +1746,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈EMP〉の爆発エフェクト",
             "pl-PL": "Sombra – EMP – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do PEM da Sombra",
+            "th-TH": "เอฟเฟกต์ระเบิดของ EMP ของซอมบรา",
+            "tr-TR": "Sombra EMP Patlama Efekti",
             "zh-CN": "“黑影”电磁脉冲爆炸效果"
         },
         "SYMMETRA_TELEPORTER_REAPPEAR": {
@@ -1495,6 +1761,8 @@ const constantValues =
             "ja-JP": "シンメトラの〈テレポーター〉の再出現エフェクト",
             "pl-PL": "Symmetra – Teleporter – Efekt ponownego pojawienia się",
             "pt-BR": "Efeito de Reaparição do Teletransportador da Symmetra",
+            "th-TH": "เอฟเฟกต์ปรากฏตัวอีกครั้งของเทเลพอร์ตของซิมเมตรา",
+            "tr-TR": "Symmetra Işınlayıcı Geri Gelme Efekti",
             "zh-CN": "“秩序之光”传送面板重现效果"
         },
         "TRACER_RECALL_DISAPPEAR": {
@@ -1508,6 +1776,8 @@ const constantValues =
             "ja-JP": "トレーサーの〈リコール〉の消失エフェクト",
             "pl-PL": "Smuga – Powrót – Efekt zniknięcia",
             "pt-BR": "Efeito de Desaparecimento da Recordação da Tracer",
+            "th-TH": "เอฟเฟกต์หายตัวของรีคอลของเทรเซอร์",
+            "tr-TR": "Tracer Geri Sarım Kaybolma Efekti",
             "zh-CN": "“猎空”闪回消失效果"
         },
         "TRACER_RECALL_REAPPEAR": {
@@ -1521,6 +1791,8 @@ const constantValues =
             "ja-JP": "トレーサーの〈リコール〉の再出現エフェクト",
             "pl-PL": "Smuga – Powrót – Efekt pojawienia się",
             "pt-BR": "Efeito de Reaparecimento da Recordação da Tracer",
+            "th-TH": "เอฟเฟกต์ปรากฏตัวอีกครั้งของรีคอลของเทรเซอร์",
+            "tr-TR": "Tracer Geri Sarım Belirme Efekti",
             "zh-CN": "“猎空“闪回重现效果"
         },
         "ZARYA_PARTICLE_CANNON_EXPLOSION": {
@@ -1534,6 +1806,8 @@ const constantValues =
             "ja-JP": "ザリアの〈パーティクル・キャノン〉の爆発エフェクト",
             "pl-PL": "Zaria – Działo Cząsteczkowe – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do Canhão de Partículas da Zarya",
+            "th-TH": "เอฟเฟกต์ระเบิดของพาร์ติเคิลแคนน่อนของซาเรีย",
+            "tr-TR": "Zarya Parçacık Topu Patlama Efekti",
             "zh-CN": "查莉娅粒子炮爆炸效果"
         },
         "ANA_BIOTIC_GRENADE_EXPLOSION_SOUND": {
@@ -1547,6 +1821,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の爆発音",
             "pl-PL": "Ana – Granat Biotyczny – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Granada Biótica da Ana",
+            "th-TH": "เสียงระเบิดของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba Patlama Sesi",
             "zh-CN": "安娜生物手雷爆炸声音"
         },
         "ASHE_DYNAMITE_EXPLOSION_SOUND": {
@@ -1560,6 +1836,8 @@ const constantValues =
             "ja-JP": "アッシュの〈ダイナマイト〉の爆発音",
             "pl-PL": "Ashe – Dynamit – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Dinamite da Ashe",
+            "th-TH": "เสียงระเบิดของไดนาไมต์ของแอช",
+            "tr-TR": "Ashe Dinamit Patlama Sesi",
             "zh-CN": "艾什延时雷管爆炸声音"
         },
         "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION_SOUND": {
@@ -1573,6 +1851,8 @@ const constantValues =
             "ja-JP": "バティストの〈バイオティック・ランチャー〉の爆発音",
             "pl-PL": "Baptiste – Miotacz Biotyczny – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Lançador Biótico do Baptiste",
+            "th-TH": "เสียงระเบิดของไบโอติกลันเชอร์ของบัปทิสต์",
+            "tr-TR": "Baptiste Biyotop Tüfeği Patlama Sesi",
             "zh-CN": "巴蒂斯特生化榴弹枪爆炸声音"
         },
         "BASTION_TANK_CANNON_EXPLOSION_SOUND": {
@@ -1586,6 +1866,8 @@ const constantValues =
             "ja-JP": "バスティオンのタンク・キャノンの爆発音",
             "pl-PL": "Bastion – Działko Czołgu – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão de Canhão do Bastion Tanque",
+            "th-TH": "เสียงระเบิดของแทงค์แคนนอนของแบสเชียน",
+            "tr-TR": "Bastion Tank Topu Patlama Sesi",
             "zh-CN": "“堡垒”坦克炮爆炸声音"
         },
         "BRIGITTE_WHIP_SHOT_HEAL_AREA_SOUND": {
@@ -1599,6 +1881,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈ウィップ・ショット〉の回復エリア音",
             "pl-PL": "Brigitte – Trzaśnięcie – Dźwięk leczenia obszarowego",
             "pt-BR": "Som da Área da Cura do Disparo Açoitador da Brigitte",
+            "th-TH": "บริกิตตาขว้างวิปช็อต Heal Area เสียง",
+            "tr-TR": "Brigitte Zincir Kamçı İyileştirme Alanı Sesi",
             "zh-CN": "布丽吉塔流星飞锤范围治疗声音"
         },
         "BRIGITTE_REPAIR_PACK_IMPACT_SOUND": {
@@ -1612,6 +1896,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈リペア・パック〉の着弾音",
             "pl-PL": "Brigitte – Pakiet Regeneracyjny – Dźwięk trafienia",
             "pt-BR": "Som de Impacto do Kit de Reparos da Brigitte",
+            "th-TH": "เสียงปะทะของรีแพร์แพ็คของบริกิตตา",
+            "tr-TR": "Brigitte Tamir Çantası Etki Sesi",
             "zh-CN": "布丽吉塔恢复包击中声音"
         },
         "BRIGITTE_REPAIR_PACK_ARMOR_SOUND": {
@@ -1625,6 +1911,8 @@ const constantValues =
             "ja-JP": "ブリギッテの〈リペア・パック〉のアーマーの音",
             "pl-PL": "Brigitte – Pakiet Regeneracyjny – Dźwięk pancerza",
             "pt-BR": "Som de Armadura do Kit de Reparos da Brigitte",
+            "th-TH": "เสียงเกราะของรีแพร์แพ็คของบริกิตตา",
+            "tr-TR": "Brigitte Tamir Çantası Zırh Sesi",
             "zh-CN": "布丽吉塔恢复包护甲声音"
         },
         "DVA_MICRO_MISSILES_EXPLOSION_SOUND": {
@@ -1638,6 +1926,8 @@ const constantValues =
             "ja-JP": "D.Vaの〈マイクロ・ミサイル〉の爆発音",
             "pl-PL": "D.Va – Mikro-pociski – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão dos Micro Mísseis da Dva",
+            "th-TH": "เสียงระเบิดของไมโครมิสไซล์ของดีว่า",
+            "tr-TR": "DVa Mikrofüze Patlama Sesi",
             "zh-CN": "D.Va微型飞弹爆炸声音"
         },
         "DVA_SELF_DESTRUCT_EXPLOSION_SOUND": {
@@ -1651,6 +1941,8 @@ const constantValues =
             "ja-JP": "D.Vaの〈自爆〉の爆発音",
             "pl-PL": "D.Va – Samozniszczenie – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Autodestruição da Dva",
+            "th-TH": "เสียงระเบิดของเซลฟ์เดสทรัคของดีว่า",
+            "tr-TR": "D.Va Kendini İmha Patlama Sesi",
             "zh-CN": "D.Va自毁爆炸声音"
         },
         "DOOMFIST_RISING_UPPERCUT_LEAP_SOUND": {
@@ -1664,6 +1956,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈ライジング・アッパーカット〉の跳躍音",
             "pl-PL": "Pięść Zagłady – Podbródkowy – Dźwięk skoku",
             "pt-BR": "Som de Pulo do Gancho Ascendente do Doomfist",
+            "th-TH": "เสียงกระโจนของไรซิงอัปเปอร์คัทของดูมฟิสต์",
+            "tr-TR": "Doomfist Arşa Aparkat Zıplama Sesi",
             "zh-CN": "“末日铁拳”上勾重拳跳跃声音"
         },
         "DOOMFIST_RISING_UPPERCUT_IMPACT_SOUND": {
@@ -1677,6 +1971,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈ライジング・アッパーカット〉の衝突音",
             "pl-PL": "Pięść Zagłady – Podbródkowy – Dźwięk trafienia",
             "pt-BR": "Som de Impacto do Gancho Ascendente do Doomfist",
+            "th-TH": "เสียงปะทะของไรซิงอัปเปอร์คัทของดูมฟิสต์",
+            "tr-TR": "Doomfist Arşa Aparkat Etki Sesi",
             "zh-CN": "“末日铁拳”上勾重拳击中声音"
         },
         "DOOMFIST_METEOR_STRIKE_IMPACT_SOUND": {
@@ -1690,6 +1986,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈メテオ・ストライク〉の衝突音",
             "pl-PL": "Pięść Zagłady – Meteor – Dźwięk trafienia",
             "pt-BR": "Som de Impacto do Impacto Meteoro do Doomfist",
+            "th-TH": "เสียงปะทะของมีทีออร์สไตรก์ของดูมฟิสต์",
+            "tr-TR": "Doomfist Meteor Vurgunu Etki Sesi",
             "zh-CN": "“末日铁拳”毁天灭地击中声音"
         },
         "ECHO_STICKY_BOMB_EXPLOSION_SOUND": {
@@ -1703,6 +2001,8 @@ const constantValues =
             "ja-JP": "エコーの〈スティッキー・ボム〉の爆発音",
             "pl-PL": "Echo – Bomba Przyczepna – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Bomba Aderente da Echo",
+            "th-TH": "เสียงระเบิดของสติ๊กกี้บอมบ์ของเอ็คโค่",
+            "tr-TR": "Echo Yapışkan Bomba Patlama Sesi",
             "zh-CN": "“回声”黏性炸弹爆炸声音"
         },
         "JUNKRAT_FRAG_LAUNCHER_EXPLOSION_SOUND": {
@@ -1716,6 +2016,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈フラグ・ランチャー〉の爆発音",
             "pl-PL": "Złomiarz – Granatnik – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Lançador de Granadas do Junkrat",
+            "th-TH": "เสียงระเบิดของแฟรกลันเชอร์ของจังค์แรต",
+            "tr-TR": "Junkrat Misketatar Patlama Sesi",
             "zh-CN": "“狂鼠”榴弹发射器爆炸声音"
         },
         "JUNKRAT_CONCUSSION_MINE_EXPLOSION_SOUND": {
@@ -1729,6 +2031,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈コンカッション・マイン〉の爆発音",
             "pl-PL": "Złomiarz – Mina Ogłuszająca – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Mina de Concussão do Junkrat",
+            "th-TH": "เสียงระเบิดของคอนคัสชันไมน์ของจังค์แรต",
+            "tr-TR": "Junkrat Sarsıntı Mayını Patlama Sesi",
             "zh-CN": "“狂鼠”震荡地雷爆炸声音"
         },
         "JUNKRAT_RIP_TIRE_EXPLOSION_SOUND": {
@@ -1742,6 +2046,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈RIPタイヤ〉の爆発音",
             "pl-PL": "Złomiarz – MordOpona – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Pneu da Morte do Junkrat",
+            "th-TH": "เสียงระเบิดของ RIP ไทร์ของจังค์แรต",
+            "tr-TR": "Junkrat Bas Gaza Patlama Sesi",
             "zh-CN": "“狂鼠”炸弹轮胎爆炸声音"
         },
         "HANZO_SONIC_ARROW_INITIAL_PULSE_SOUND": {
@@ -1755,6 +2061,8 @@ const constantValues =
             "ja-JP": "ハンゾーの〈鳴響矢水〉の第一波の音",
             "pl-PL": "Hanzo – Strzała Soniczna – Dźwięk wstępnego impulsu",
             "pt-BR": "Som do Pulso Inicial da Flecha Sônica do Hanzo",
+            "th-TH": "เสียงความสะเทือนเริ่มต้นของโซนิกแอร์โรว์ของฮันโซ",
+            "tr-TR": "Hanzo Sonik Ok Başlangıç Pals Sesi",
             "zh-CN": "半藏音初始脉冲声音"
         },
         "LUCIO_SOUND_BARRIER_CAST_SOUND": {
@@ -1768,6 +2076,8 @@ const constantValues =
             "ja-JP": "ルシオの〈サウンド・バリア〉の発動音",
             "pl-PL": "Lúcio – Bariera Dźwiękowa – Dźwięk użycia",
             "pt-BR": "Som de Ativação Barreira de Som do Lúcio",
+            "th-TH": "เสียงร่ายซาวน์บาเรียของลูซิโอ",
+            "tr-TR": "Lúcio Ses Bariyeri Oluşturma Sesi",
             "zh-CN": "卢西奥音障施放声音"
         },
         "MCCREE_FLASHBANG_EXPLOSION_SOUND": {
@@ -1781,6 +2091,8 @@ const constantValues =
             "ja-JP": "キャスディの〈フラッシュバン〉の爆発音",
             "pl-PL": "Cassidy – Granat Błyskowy – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Clarão do Cassidy",
+            "th-TH": "เสียงระเบิดของแฟลชแบงของแคสซิดี้",
+            "tr-TR": "Cassidy Flaş Bombası Patlama Sesi",
             "zh-CN": "卡西迪闪光弹爆炸声音"
         },
         "MOIRA_FADE_DISAPPEAR_SOUND": {
@@ -1794,6 +2106,8 @@ const constantValues =
             "ja-JP": "モイラの〈フェード〉の消失音",
             "pl-PL": "Moira – Zniknięcie – Dźwięk zniknięcia",
             "pt-BR": "Som de Desaparição do Desvanecer da Moira",
+            "th-TH": "เสียงหายตัวของเฟดของมอยร่า",
+            "tr-TR": "Moira Kaybol Kaybolma Sesi",
             "zh-CN": "莫伊拉消散消失声音"
         },
         "MOIRA_FADE_REAPPEAR_SOUND": {
@@ -1807,6 +2121,8 @@ const constantValues =
             "ja-JP": "モイラの〈フェード〉の再出現音",
             "pl-PL": "Moira – Zniknięcie – Dźwięk pojawienia się",
             "pt-BR": "Som de Reaparição do Desvanecer da Moira",
+            "th-TH": "เสียงปรากฏตัวอีกครั้งของเฟดของมอยร่า",
+            "tr-TR": "Moira Kaybol Geri Gelme Sesi",
             "zh-CN": "莫伊拉消散重现声音"
         },
         "ORISA_HALT_IMPLOSION_SOUND": {
@@ -1820,6 +2136,8 @@ const constantValues =
             "ja-JP": "オリーサの〈ストップ！〉の崩壊音",
             "pl-PL": "Orisa – Stać! – Dźwięk implozji",
             "pt-BR": "Som de Implosão de Parados da Orisa",
+            "th-TH": "เสียงระเบิดภายในของฮอลท์ของโอริซา",
+            "tr-TR": "Orisa Dur! İç Patlama Sesi",
             "zh-CN": "奥丽莎站住别动内爆声音"
         },
         "PHARAH_ROCKET_LAUNCHER_EXPLOSION_SOUND": {
@@ -1833,6 +2151,8 @@ const constantValues =
             "ja-JP": "ファラの〈ロケット・ランチャー〉の爆発音",
             "pl-PL": "Fara – Wyrzutnia Rakiet – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Lançador de Foguetes da Pharah",
+            "th-TH": "เสียงระเบิดของร็อกเกตลันเชอร์ของฟาราห์",
+            "tr-TR": "Pharah Roketatar Patlama Sesi",
             "zh-CN": "“法老之鹰”火箭发射器爆炸声音"
         },
         "PHARAH_CONCUSSIVE_BLAST_SOUND": {
@@ -1846,6 +2166,8 @@ const constantValues =
             "ja-JP": "ファラの〈コンカッシブ・ブラスト〉の音",
             "pl-PL": "Fara – Przytłaczający Strzał – Dźwięk wybuchu",
             "pt-BR": "Som de Explosão Concussiva da Pharah",
+            "th-TH": "เสียงคอนคัสซิฟบลาสต์ของฟาราห์",
+            "tr-TR": "Pharah Sarsıcı Patlama Sesi",
             "zh-CN": "“法老之鹰”震荡冲击声音"
         },
         "PHARAH_BARRAGE_EXPLOSION_SOUND": {
@@ -1859,6 +2181,8 @@ const constantValues =
             "ja-JP": "ファラの〈バレッジ〉の爆発音",
             "pl-PL": "Fara – Salwa – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão de Bombardeio da Pharah",
+            "th-TH": "เสียงระเบิดของบาร์ราจของฟาราห์",
+            "tr-TR": "Pharah Yaylım Patlama Sesi",
             "zh-CN": "“法老之鹰”火箭弹幕爆炸声音"
         },
         "REINHARDT_FIRE_STRIKE_TARGET_IMPACT_SOUND": {
@@ -1872,6 +2196,8 @@ const constantValues =
             "ja-JP": "ラインハルトの〈ファイア・ストライク〉のターゲット衝突音",
             "pl-PL": "Reinhardt – Ogniste Uderzenie – Dźwięk trafienia",
             "pt-BR": "Som de Impacto no Alvo do Tiro Flamejante do Reinhardt",
+            "th-TH": "เสียงปะทะเป้าหมายของไฟร์สไตรก์ของไรน์ฮาร์ด",
+            "tr-TR": "Reinhardt Ateş Dalgası Hedef Darbe Sesi",
             "zh-CN": "莱因哈特烈焰打击目标击中声音"
         },
         "SIGMA_HYPERSPHERE_IMPLOSION_SOUND": {
@@ -1885,6 +2211,8 @@ const constantValues =
             "ja-JP": "シグマの〈ハイパースフィア〉の崩壊音",
             "pl-PL": "Sigma – Hipersfera – Dźwięk implozji",
             "pt-BR": "Som de Implosão da Hiperesfera do Sigma",
+            "th-TH": "เสียงระเบิดภายในของไฮเพอร์สเฟียร์ของซิกม่า",
+            "tr-TR": "Sigma Hiperküre İç Patlama Sesi",
             "zh-CN": "“西格玛”超能之球内爆声音"
         },
         "SIGMA_ACCRETION_IMPACT_SOUND": {
@@ -1898,6 +2226,8 @@ const constantValues =
             "ja-JP": "シグマの〈アクリーション〉の衝突音",
             "pl-PL": "Sigma – Akrecja – Dźwięk trafienia",
             "pt-BR": "Som do Impacto de Acreção do Sigma",
+            "th-TH": "เสียงปะทะของอะครีชันของซิกม่า",
+            "tr-TR": "Sigma Yığılım Darbe Sesi",
             "zh-CN": "“西格玛”质量吸附击中声音"
         },
         "SOMBRA_LOGO_SOUND": {
@@ -1911,6 +2241,8 @@ const constantValues =
             "ja-JP": "ソンブラのロゴの音",
             "pl-PL": "Sombra – Logo – Dźwięk",
             "pt-BR": "Som do Logo da Sombra",
+            "th-TH": "เสียงโลโก้ของซอมบรา",
+            "tr-TR": "Sombra Logo Sesi",
             "zh-CN": "“黑影”标志声音"
         },
         "SOMBRA_TRANSLOCATOR_DISAPPEAR_SOUND": {
@@ -1924,6 +2256,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の消失音",
             "pl-PL": "Sombra – Translokator – Dźwięk zniknięcia",
             "pt-BR": "Som de Desaparecimento do Translocador da Sombra",
+            "th-TH": "เสียงหายตัวของทรานสโลเคเตอร์ของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştirici Kaybolma Sesi",
             "zh-CN": "“黑影”位移传动消失声音"
         },
         "SOMBRA_TRANSLOCATOR_REAPPEAR_SOUND": {
@@ -1937,6 +2271,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈トランズロケーター〉の再出現音",
             "pl-PL": "Sombra – Translokator – Dźwięk pojawienia się",
             "pt-BR": "Som de Reaparição do Translocador da Sombra",
+            "th-TH": "เสียงปรากฏตัวอีกครั้งของทรานสโลเคเตอร์ของซอมบรา",
+            "tr-TR": "Sombra Yer Değiştirici Geri Gelme Sesi",
             "zh-CN": "“黑影”位移传动重现声音"
         },
         "SOMBRA_EMP_EXPLOSION_SOUND": {
@@ -1950,6 +2286,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈EMP〉の爆発音",
             "pl-PL": "Sombra – EMP – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do PEM da Sombra",
+            "th-TH": "เสียงระเบิดของ EMP ของซอมบรา",
+            "tr-TR": "Sombra EMP Patlama Sesi",
             "zh-CN": "“黑影”电磁脉冲爆炸声音"
         },
         "SYMMETRA_TELEPORTER_REAPPEAR_SOUND": {
@@ -1963,6 +2301,8 @@ const constantValues =
             "ja-JP": "シンメトラの〈テレポーター〉の再出現音",
             "pl-PL": "Symmetra – Teleporter – Dźwięk pojawienia się",
             "pt-BR": "Som de Reaparição do Teletransportador da Symmetra",
+            "th-TH": "เสียงปรากฏตัวอีกครั้งของเทเลพอร์ตของซิมเมตรา",
+            "tr-TR": "Symmetra Işınlayıcı Geri Gelme Sesi",
             "zh-CN": "“秩序之光”传送面板重现声音"
         },
         "TRACER_RECALL_DISAPPEAR_SOUND": {
@@ -1976,6 +2316,8 @@ const constantValues =
             "ja-JP": "トレーサーの〈リコール〉の消失音",
             "pl-PL": "Smuga – Powrót – Dźwięk zniknięcia",
             "pt-BR": "Som de Desaparecimento da Recordação da Tracer",
+            "th-TH": "เสียงหายตัวของรีคอลของเทรเซอร์",
+            "tr-TR": "Tracer Geri Sarım Kaybolma Sesi",
             "zh-CN": "“猎空”闪回消失声音"
         },
         "TRACER_RECALL_REAPPEAR_SOUND": {
@@ -1989,6 +2331,8 @@ const constantValues =
             "ja-JP": "トレーサーの〈リコール〉の再出現音",
             "pl-PL": "Smuga – Powrót – Dźwięk pojawienia się",
             "pt-BR": "Som de Reaparição da Recordação da Tracer",
+            "th-TH": "เสียงปรากฏตัวอีกครั้งของรีคอลของเทรเซอร์",
+            "tr-TR": "Tracer Geri Sarım Geri Gelme Sesi",
             "zh-CN": "“猎空”闪回重现声音"
         },
         "WIDOWMAKER_VENOM_MINE_EXPLOSION_SOUND": {
@@ -2002,6 +2346,8 @@ const constantValues =
             "ja-JP": "ウィドウメイカーの〈ヴェノム・マイン〉の爆発音",
             "pl-PL": "Trupia Wdowa – Jadowita Mina – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão da Mina Venenosa da Widowmaker",
+            "th-TH": "เสียงระเบิดของเวนอมไมน์ของวิโดว์เมกเกอร์",
+            "tr-TR": "Widowmaker Zehirli Mayın Patlama Sesi",
             "zh-CN": "“黑百合”剧毒诡雷爆炸声音"
         },
         "WINSTON_JUMP_PACK_LANDING_SOUND": {
@@ -2015,6 +2361,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈ジャンプ・パック〉の着地音",
             "pl-PL": "Winston – Plecak Odrzutowy – Dźwięk lądowania",
             "pt-BR": "Som de Aterrisagem do Salto a Jato do Winston",
+            "th-TH": "เสียงลงสู่พื้นของจัมป์แพ็คของวินสตัน",
+            "tr-TR": "Winston Uzun Sıçrama Yere İniş Sesi",
             "zh-CN": "温斯顿喷射背包着陆声音"
         },
         "WRECKING_BALL_PILEDRIVER_IMPACT_SOUND": {
@@ -2028,6 +2376,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈パイルドライバー〉の衝突音",
             "pl-PL": "Burzyciel – Kafar – Dźwięk trafienia",
             "pt-BR": "Som de Impacto do Bate-estaca do Wrecking Ball",
+            "th-TH": "เสียงปะทะของไพล์ไดรเวอร์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Dalış Darbe Sesi",
             "zh-CN": "“破坏球”重力坠击击中声音"
         },
         "WRECKING_BALL_MINEFIELD_EXPLOSION_SOUND": {
@@ -2041,6 +2391,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈マインフィールド〉の爆発音",
             "pl-PL": "Burzyciel – Pole Minowe – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Campo Minado do Wrecking Ball",
+            "th-TH": "เสียงระเบิดของไมน์ฟีลด์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Mayın Tarlası Patlama Sesi",
             "zh-CN": "“破坏球”地雷禁区爆炸声音"
         },
         "ZARYA_PARTICLE_CANNON_EXPLOSION_SOUND": {
@@ -2054,6 +2406,8 @@ const constantValues =
             "ja-JP": "ザリアの〈パーティクル・キャノン〉の爆発音",
             "pl-PL": "Zaria – Działo Cząsteczkowe – Dźwięk eksplozji",
             "pt-BR": "Som de Explosão do Canhão de Partículas da Zarya",
+            "th-TH": "เสียงระเบิดของพาร์ติเคิลแคนน่อนของซาเรีย",
+            "tr-TR": "Zarya Parçacık Topu Patlama Sesi",
             "zh-CN": "查莉娅粒子炮爆炸声音"
         },
         "ANA_BIOTIC_GRENADE_EXPLOSION": {
@@ -2067,6 +2421,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の爆発エフェクト",
             "pl-PL": "Ana – Efekt eksplozji Granatu Biotycznego",
             "pt-BR": "Efeito de Explosão da Granada Biótica da Ana",
+            "th-TH": "เอฟเฟกต์ระเบิดของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba Patlama Efekti",
             "zh-CN": "安娜生物手雷爆炸效果"
         },
         "ASHE_DYNAMITE_EXPLOSION": {
@@ -2080,6 +2436,8 @@ const constantValues =
             "ja-JP": "アッシュの〈ダイナマイト〉の爆発エフェクト",
             "pl-PL": "Ashe – Efekt eksplozji Dynamitu",
             "pt-BR": "Efeito de Explosão da Dinamite da Ashe",
+            "th-TH": "เอฟเฟกต์ระเบิดของไดนาไมต์ของแอช",
+            "tr-TR": "Ashe Dinamit Patlama Efekti",
             "zh-CN": "艾什延时雷管爆炸效果"
         },
         "BAPTISTE_BIOTIC_LAUNCHER_EXPLOSION": {
@@ -2093,6 +2451,8 @@ const constantValues =
             "ja-JP": "バティストの〈バイオティック・ランチャー〉の爆発エフェクト",
             "pl-PL": "Baptiste – Efekt eksplozji Miotacza Biotycznego",
             "pt-BR": "Efeito de Explosão do Lançador Biótico do Baptiste",
+            "th-TH": "เอฟเฟกต์ระเบิดของไบโอติกลันเชอร์ของบัปทิสต์",
+            "tr-TR": "Baptiste Biyotop Tüfeği Patlama Efekti",
             "zh-CN": "巴蒂斯特生化榴弹枪爆炸效果"
         },
         "BASTION_TANK_CANNON_EXPLOSION": {
@@ -2106,6 +2466,8 @@ const constantValues =
             "ja-JP": "バスティオンのタンク・キャノンの爆発エフェクト",
             "pl-PL": "Bastion – Efekt eksplozji działa czołgu",
             "pt-BR": "Efeito de Explosão de Canhão do Bastion Tanque",
+            "th-TH": "เอฟเฟกต์ระเบิดของแทงค์แคนนอนของแบสเชียน",
+            "tr-TR": "Bastion Tank Topu Patlama Efekti",
             "zh-CN": "“堡垒”坦克炮爆炸效果"
         },
         "DOOMFIST_RISING_UPPERCUT_LEAP": {
@@ -2119,6 +2481,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈ライジング・アッパーカット〉の跳躍エフェクト",
             "pl-PL": "Pięść Zagłady – Podbródkowy – Efekt skoku",
             "pt-BR": "Efeito de Pulo do Gancho Ascendente do Doomfist",
+            "th-TH": "เอฟเฟกต์กระโจนของไรซิงอัปเปอร์คัทของดูมฟิสต์",
+            "tr-TR": "Doomfist Arşa Aparkat Sıçrama Efekti",
             "zh-CN": "“末日铁拳”上勾重拳跳跃效果"
         },
         "DOOMFIST_RISING_UPPERCUT_IMPACT": {
@@ -2132,6 +2496,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈ライジング・アッパーカット〉の衝突エフェクト",
             "pl-PL": "Pięść Zagłady – Podbródkowy – Efekt trafienia",
             "pt-BR": "Efeito de Impacto do Gancho Ascendente do Doomfist",
+            "th-TH": "เอฟเฟกต์ปะทะของไรซิงอัปเปอร์คัทของดูมฟิสต์",
+            "tr-TR": "Doomfist Arşa Aparkat Darbe Efekti",
             "zh-CN": "“末日铁拳”上勾重拳击中效果"
         },
         "DOOMFIST_METEOR_STRIKE_IMPACT": {
@@ -2145,6 +2511,8 @@ const constantValues =
             "ja-JP": "ドゥームフィストの〈メテオ・ストライク〉の衝突エフェクト",
             "pl-PL": "Pięść Zagłady – Meteor – Efekt trafienia",
             "pt-BR": "Efeito de Impacto do Impacto Meteoro do Doomfist",
+            "th-TH": "เอฟเฟกต์ปะทะของมีทีออร์สไตรก์ของดูมฟิสต์",
+            "tr-TR": "Doomfist Meteor Vurgunu Darbe Efekti",
             "zh-CN": "“末日铁拳”毁天灭地击中效果"
         },
         "JUNKRAT_FRAG_LAUNCHER_EXPLOSION": {
@@ -2158,6 +2526,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈フラグ・ランチャー〉の爆発エフェクト",
             "pl-PL": "Złomiarz – Granatnik – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do Lançador de Granadas do Junkrat",
+            "th-TH": "เอฟเฟกต์ระเบิดของแฟรกลันเชอร์ของจังค์แรต",
+            "tr-TR": "Junkrat Misketatar Patlama Efekti",
             "zh-CN": "“狂鼠”榴弹发射器爆炸效果"
         },
         "JUNKRAT_CONCUSSION_MINE_EXPLOSION": {
@@ -2171,6 +2541,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈コンカッション・マイン〉の爆発エフェクト",
             "pl-PL": "Złomiarz – Mina Ogłuszająca – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão da Mina de Concussão do Junkrat",
+            "th-TH": "เอฟเฟกต์ระเบิดของคอนคัสชันไมน์ของจังค์แรต",
+            "tr-TR": "Junkrat Sarsıntı Mayını Patlama Efekti",
             "zh-CN": "“狂鼠”震荡地雷爆炸效果"
         },
         "JUNKRAT_RIP_TIRE_EXPLOSION": {
@@ -2184,6 +2556,8 @@ const constantValues =
             "ja-JP": "ジャンクラットの〈RIPタイヤ〉の爆発エフェクト",
             "pl-PL": "Złomiarz – MordOpona – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do Pneu da Morte do Junkrat",
+            "th-TH": "เอฟเฟกต์ระเบิดของ RIP ไทร์ของจังค์แรต",
+            "tr-TR": "Junkrat Bas Gaza Patlama Efekti",
             "zh-CN": "“狂鼠”炸弹轮胎爆炸效果"
         },
         "MCCREE_FLASHBANG_EXPLOSION": {
@@ -2197,6 +2571,8 @@ const constantValues =
             "ja-JP": "キャスディの〈フラッシュバン〉の爆発エフェクト",
             "pl-PL": "Cassidy – Granat Błyskowy – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do Clarão do Cassidy",
+            "th-TH": "เอฟเฟกต์ระเบิดของแฟลชแบงของแคสซิดี้",
+            "tr-TR": "Cassidy Flaş Bombası Patlama Efekti",
             "zh-CN": "卡西迪闪光弹爆炸效果"
         },
         "PHARAH_ROCKET_LAUNCHER_EXPLOSION": {
@@ -2210,6 +2586,8 @@ const constantValues =
             "ja-JP": "ファラの〈ロケット・ランチャー〉の爆発エフェクト",
             "pl-PL": "Fara – Wyrzutnia Rakiet – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão do Lançador de Foguetes da Pharah",
+            "th-TH": "เอฟเฟกต์ระเบิดของร็อกเกตลันเชอร์ของฟาราห์",
+            "tr-TR": "Pharah Roketatar Patlama Efekti",
             "zh-CN": "“法老之鹰”火箭发射器爆炸效果"
         },
         "PHARAH_CONCUSSIVE_BLAST": {
@@ -2223,6 +2601,8 @@ const constantValues =
             "ja-JP": "ファラの〈コンカッシブ・ブラスト〉のエフェクト",
             "pl-PL": "Fara – Przytłaczający Strzał – Efekt wybuchu",
             "pt-BR": "Efeito da Explosão Concussiva da Pharah",
+            "th-TH": "เอฟเฟกต์คอนคัสซิฟบลาสต์ของฟาราห์",
+            "tr-TR": "Pharah Sarsıcı Patlama Efekti",
             "zh-CN": "“法老之鹰”震荡冲击效果"
         },
         "PHARAH_BARRAGE_EXPLOSION": {
@@ -2236,6 +2616,8 @@ const constantValues =
             "ja-JP": "ファラの〈バレッジ〉の爆発エフェクト",
             "pl-PL": "Fara – Salwa – Efekt eksplozji",
             "pt-BR": "Efeitos de Explosão do Bombardeio da Pharah",
+            "th-TH": "เอฟเฟกต์ระเบิดของบาร์ราจของฟาราห์",
+            "tr-TR": "Pharah Yaylım Patlama Efekti",
             "zh-CN": "“法老之鹰”火箭弹幕爆炸效果"
         },
         "REINHARDT_FIRE_STRIKE_TARGET_IMPACT": {
@@ -2249,6 +2631,8 @@ const constantValues =
             "ja-JP": "ラインハルトの〈ファイア・ストライク〉のターゲット衝突エフェクト",
             "pl-PL": "Reinhardt – Ogniste Uderzenie – Efekt trafienia",
             "pt-BR": "Efeito de Impacto no Alvo do Tiro Flamejante do Reinhardt",
+            "th-TH": "เอฟเฟกต์ปะทะเป้าหมายของไฟร์สไตรก์ของไรน์ฮาร์ด",
+            "tr-TR": "Reinhardt Ateş Dalgası Hedefe Darbe Efekti",
             "zh-CN": "莱因哈特烈焰打击目标击中效果"
         },
         "SIGMA_ACCRETION_IMPACT": {
@@ -2262,6 +2646,8 @@ const constantValues =
             "ja-JP": "シグマの〈アクリーション〉の衝突エフェクト",
             "pl-PL": "Sigma – Akrecja – Efekt trafienia",
             "pt-BR": "Efeito do Impacto de Acreção do Sigma",
+            "th-TH": "เอฟเฟกต์ปะทะของอะครีชันของซิกม่า",
+            "tr-TR": "Sigma Yığılım Darbe Efekti",
             "zh-CN": "“西格玛”质量吸附击中效果"
         },
         "WIDOWMAKER_VENOM_MINE_EXPLOSION": {
@@ -2275,6 +2661,8 @@ const constantValues =
             "ja-JP": "ウィドウメイカーの〈ヴェノム・マイン〉の爆発エフェクト",
             "pl-PL": "Trupia Wdowa – Jadowita Mina – Efekt eksplozji",
             "pt-BR": "Efeito de Explosão da Mina Venenosa da Widowmaker",
+            "th-TH": "เอฟเฟกต์ระเบิดของเวนอมไมน์ของวิโดว์เมกเกอร์",
+            "tr-TR": "Widowmaker Zehirli Mayın Patlama Efekti",
             "zh-CN": "“黑百合“剧毒诡雷爆炸效果"
         },
         "WINSTON_JUMP_PACK_LANDING": {
@@ -2288,6 +2676,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈ジャンプ・パック〉の着地エフェクト",
             "pl-PL": "Winston – Plecak Odrzutowy – Efekt lądowania",
             "pt-BR": "Efeito de Aterrisagem do Salto a Jato do Winston",
+            "th-TH": "เอฟเฟกต์ลงสู่พื้นของจัมป์แพ็คของวินสตัน",
+            "tr-TR": "Winston Uzun Sıçrama Yere İniş Efekti",
             "zh-CN": "温斯顿喷射背包着陆效果"
         },
         "WRECKING_BALL_PILEDRIVER_IMPACT": {
@@ -2301,6 +2691,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈パイルドライバー〉の衝突エフェクト",
             "pl-PL": "Burzyciel – Kafar – Efekt trafienia",
             "pt-BR": "Efeito de Impacto do Bate-estaca do Wrecking Ball",
+            "th-TH": "เอฟเฟกต์ปะทะของไพล์ไดรเวอร์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Dalış Darbe Efekti",
             "zh-CN": "“破坏球”重力坠击击中效果"
         },
         "WRECKING_BALL_MINEFIELD_EXPLOSION": {
@@ -2314,6 +2706,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈マインフィールド〉の爆発エフェクト",
             "pl-PL": "Burzyciel – Pole Minowe – Efekt eksplozji",
             "pt-BR": "Efeito do Campo Minado do Wrecking Ball",
+            "th-TH": "เอฟเฟกต์ระเบิดของไมน์ฟีลด์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Mayın Tarlası Patlama Efekti",
             "zh-CN": "“破坏球”地雷禁区爆炸效果"
         }
     },
@@ -2325,6 +2719,8 @@ const constantValues =
             "fr-FR": "Mauvaise aura",
             "ja-JP": "悪いオーラ",
             "pt-BR": "Aura Ruim",
+            "th-TH": "ออร่าที่ไม่ดี",
+            "tr-TR": "Kötü Aura",
             "zh-CN": "有害光环"
         },
         "BAD_AURA_SOUND": {
@@ -2334,6 +2730,8 @@ const constantValues =
             "fr-FR": "Son de mauvaise aura",
             "ja-JP": "悪いオーラ音",
             "pt-BR": "Som de Aura Ruim",
+            "th-TH": "เสียงออร่าไม่ดี",
+            "tr-TR": "Kötü Aura Sesi",
             "zh-CN": "负面光环音效"
         },
         "BEACON_SOUND": {
@@ -2343,6 +2741,8 @@ const constantValues =
             "fr-FR": "Son de balise",
             "ja-JP": "ビーコン音",
             "pt-BR": "Som de Sinalizador",
+            "th-TH": "เสียงไฟนำทาง",
+            "tr-TR": "İşaret Sesi",
             "zh-CN": "信标声音"
         },
         "CLOUD": {
@@ -2352,6 +2752,8 @@ const constantValues =
             "fr-FR": "Nuage",
             "ja-JP": "雲",
             "pt-BR": "Nuvem",
+            "th-TH": "เมฆ",
+            "tr-TR": "Bulut",
             "zh-CN": "云"
         },
         "DECAL_SOUND": {
@@ -2361,6 +2763,8 @@ const constantValues =
             "fr-FR": "Son de décal",
             "ja-JP": "デカール音",
             "pt-BR": "Som de Símbolo",
+            "th-TH": "เสียงรูปลอก",
+            "tr-TR": "Çıkarma Sesi",
             "zh-CN": "诱饵声音"
         },
         "ENERGY_SOUND": {
@@ -2370,6 +2774,8 @@ const constantValues =
             "fr-FR": "Son de l’énergie",
             "ja-JP": "エネルギー音",
             "pt-BR": "Som de Energia",
+            "th-TH": "เสียงพลังงาน",
+            "tr-TR": "Enerji Sesi",
             "zh-CN": "能量声音"
         },
         "GOOD_AURA": {
@@ -2379,6 +2785,8 @@ const constantValues =
             "fr-FR": "Bonne aura",
             "ja-JP": "いいオーラ",
             "pt-BR": "Aura Boa",
+            "th-TH": "ออร่าที่ดี",
+            "tr-TR": "İyi Aura",
             "zh-CN": "有益光环"
         },
         "GOOD_AURA_SOUND": {
@@ -2388,6 +2796,8 @@ const constantValues =
             "fr-FR": "Son de bonne aura",
             "ja-JP": "いいオーラ音",
             "pt-BR": "Som de Aura Boa",
+            "th-TH": "เสียงออร่าดี",
+            "tr-TR": "İyi Aura Sesi",
             "zh-CN": "有益光环声音"
         },
         "LIGHT_SHAFT": {
@@ -2397,6 +2807,8 @@ const constantValues =
             "fr-FR": "Puits de lumière",
             "ja-JP": "光の筋",
             "pt-BR": "Feixe de Luz",
+            "th-TH": "ลำแสง",
+            "tr-TR": "Işık Demeti",
             "zh-CN": "光柱"
         },
         "ORB": {
@@ -2406,6 +2818,8 @@ const constantValues =
             "fr-FR": "Orbe",
             "ja-JP": "オーブ",
             "pt-BR": "Orbe",
+            "th-TH": "ลูกแก้ว",
+            "tr-TR": "Küre",
             "zh-CN": "球"
         },
         "PICKUP_SOUND": {
@@ -2415,6 +2829,8 @@ const constantValues =
             "fr-FR": "Son de ramassage",
             "ja-JP": "ピックアップ音",
             "pt-BR": "Som de Coleta",
+            "th-TH": "เสียงเก็บ",
+            "tr-TR": "Kaldırma Sesi",
             "zh-CN": "拾取音效"
         },
         "RING": {
@@ -2424,6 +2840,8 @@ const constantValues =
             "fr-FR": "Anneau",
             "ja-JP": "リング",
             "pt-BR": "Anel",
+            "th-TH": "เล่นเสียง",
+            "tr-TR": "Halka",
             "zh-CN": "环"
         },
         "SMOKE_SOUND": {
@@ -2433,6 +2851,8 @@ const constantValues =
             "fr-FR": "Son de la fumée",
             "ja-JP": "スモーク音",
             "pt-BR": "Som de Fumaça",
+            "th-TH": "เสียงควัน",
+            "tr-TR": "Duman Sesi",
             "zh-CN": "烟雾声音"
         },
         "SPARKLES": {
@@ -2442,6 +2862,8 @@ const constantValues =
             "fr-FR": "Etincelles",
             "ja-JP": "スパークル",
             "pt-BR": "Faíscas",
+            "th-TH": "ประกายไฟ",
+            "tr-TR": "Pırıltı",
             "zh-CN": "火花"
         },
         "SPARKLES_SOUND": {
@@ -2451,6 +2873,8 @@ const constantValues =
             "fr-FR": "Son des étincelles",
             "ja-JP": "スパークル音",
             "pt-BR": "Som de Faíscas",
+            "th-TH": "เสียงประกายไฟ",
+            "tr-TR": "Pırıltı Sesi",
             "zh-CN": "火花声音"
         },
         "SPHERE": {
@@ -2460,6 +2884,8 @@ const constantValues =
             "fr-FR": "Sphère",
             "ja-JP": "球体",
             "pt-BR": "Esfera",
+            "th-TH": "ทรงกลม",
+            "tr-TR": "Küre",
             "zh-CN": "球体"
         },
         "ECHO_FOCUSING_BEAM_SOUND": {
@@ -2473,6 +2899,8 @@ const constantValues =
             "ja-JP": "エコーの〈フォーカス・ビーム〉の音",
             "pl-PL": "Echo – Skupiona Wiązka – Dźwięk",
             "pt-BR": "Som do Feixe Concentrado da Echo",
+            "th-TH": "เสียงโฟกัสซิงบีมของเอ็คโค่",
+            "tr-TR": "Echo Yoğun Işın Sesi",
             "zh-CN": "“回声”聚焦光线光束声音"
         },
         "JUNKRAT_TRAP_CHAIN_SOUND": {
@@ -2486,6 +2914,8 @@ const constantValues =
             "ja-JP": "ジャンクラットのトラップチェーン音",
             "pl-PL": "Złomiarz – Dźwięk Potrzasku",
             "pt-BR": "Som da Corrente de Armadilha do Junkrat",
+            "th-TH": "เสียงโซ่กับดักของจังค์แรต",
+            "tr-TR": "Junkrat Tuzak Zincir Sesi",
             "zh-CN": "“狂鼠”陷阱链声音"
         },
         "MERCY_HEAL_BEAM_SOUND": {
@@ -2499,6 +2929,8 @@ const constantValues =
             "ja-JP": "マーシーの回復ビーム音",
             "pl-PL": "Łaska – Dźwięk wiązki leczącej",
             "pt-BR": "Som do Feixe de Cura da Mercy",
+            "th-TH": "เสียงลำแสงฮีลของเมอร์ซี่",
+            "tr-TR": "Mercy İyileştirme Işını Sesi",
             "zh-CN": "“天使”治疗光束声音"
         },
         "MERCY_BOOST_BEAM_SOUND": {
@@ -2512,6 +2944,8 @@ const constantValues =
             "ja-JP": "マーシーのブースト・ビーム音",
             "pl-PL": "Łaska – Dźwięk wiązki wzmacniającej",
             "pt-BR": "Som do Feixe de Bônus da Mercy",
+            "th-TH": "เสียงลำแสงบูสต์ของเมอร์ซี่",
+            "tr-TR": "Mercy Hasar Işını Sesi",
             "zh-CN": "“天使”强化光束声音"
         },
         "MOIRA_GRASP_CONNECTED_SOUND": {
@@ -2525,6 +2959,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・グラスプ〉の接続音",
             "pl-PL": "Moira – Chwyt – Łączenie – Dźwięk",
             "pt-BR": "Som do Punho Conectado da Moira",
+            "th-TH": "เสียงการเชื่อมต่อมือจับของมอยร่า",
+            "tr-TR": "Moira Tutuş Bağlantı Sesi",
             "zh-CN": "莫伊拉生化之触连接声音"
         },
         "MOIRA_ORB_DAMAGE_SOUND": {
@@ -2538,6 +2974,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・オーブ〉のダメージ音",
             "pl-PL": "Moira – Kula – Dźwięk obrażeń",
             "pt-BR": "Som do Orbe de Dano da Moira",
+            "th-TH": "เสียงดาเมจออร์บของมอยร่า",
+            "tr-TR": "Moira Küre Hasar Sesi",
             "zh-CN": "莫伊拉生化之球伤害声音"
         },
         "MOIRA_ORB_HEAL_SOUND": {
@@ -2551,6 +2989,8 @@ const constantValues =
             "ja-JP": "モイラの〈バイオティック・オーブ〉の回復音",
             "pl-PL": "Moira – Kula – Dźwięk leczenia",
             "pt-BR": "Som do Orbe de Cura da Moira",
+            "th-TH": "เสียงฮีลออร์บของมอยร่า",
+            "tr-TR": "Moira Küre İyileştirme Sesi",
             "zh-CN": "莫伊拉生化之球治疗声音"
         },
         "MOIRA_COALESCENCE_SOUND": {
@@ -2564,6 +3004,8 @@ const constantValues =
             "ja-JP": "モイラの〈コアレッセンス〉の音",
             "pl-PL": "Moira – Koalescencja – Dźwięk",
             "pt-BR": "Som da Coalescência da Moira",
+            "th-TH": "เสียงโคเอเลสเซนซ์ของมอยร่า",
+            "tr-TR": "Moira Kaynaşım Sesi",
             "zh-CN": "莫伊拉聚合射线声音"
         },
         "ORISA_AMPLIFIER_SOUND": {
@@ -2577,6 +3019,8 @@ const constantValues =
             "ja-JP": "オリーサの増幅効果音",
             "pl-PL": "Orisa – Dźwięk Wzmocnienia",
             "pt-BR": "Som do Amplificador da Orisa",
+            "th-TH": "แอมพลิฟายเออร์ซาวด์ของโอริซา",
+            "tr-TR": "Orisa Amfi Sesi",
             "zh-CN": "奥丽莎强化声音"
         },
         "ORISA_HALT_TENDRIL_SOUND": {
@@ -2590,6 +3034,8 @@ const constantValues =
             "ja-JP": "オリーサの〈ストップ！〉の吸引音",
             "pl-PL": "Orisa – Dźwięk Stać!",
             "pt-BR": "Som das Conexões de Parados da Orisa",
+            "th-TH": "เสียงฮอลท์เทนดริลของโอริซา",
+            "tr-TR": "Orisa Dur! Bağlama Sesi",
             "zh-CN": "奥丽莎站住别动连线声音"
         },
         "SYMMETRA_PROJECTOR_SOUND": {
@@ -2603,6 +3049,8 @@ const constantValues =
             "ja-JP": "シンメトラの〈プロジェクター〉の音",
             "pl-PL": "Symmetra – Projektor – Dźwięk",
             "pt-BR": "Som do Projetor da Symmetra",
+            "th-TH": "เสียงโปรเจคเตอร์ของซิมเมตรา",
+            "tr-TR": "Symmetra Foton Projektörü Sesi",
             "zh-CN": "“秩序之光”光子发射器声音"
         },
         "WINSTON_TESLA_CANNON_SOUND": {
@@ -2616,6 +3064,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈テスラ・キャノン〉の音",
             "pl-PL": "Winston – Działo Tesli – Dźwięk",
             "pt-BR": "Som do Canhão de Tesla do Winston",
+            "th-TH": "เสียงปืนใหญ่เทสลาของวินสตัน",
+            "tr-TR": "Winston Tesla Topu Sesi",
             "zh-CN": "温斯顿特斯拉炮声音"
         },
         "ZARYA_PARTICLE_BEAM_SOUND": {
@@ -2629,6 +3079,8 @@ const constantValues =
             "ja-JP": "ザリアの〈パーティクル・キャノン〉の音",
             "pl-PL": "Zaria – Działo – Dźwięk wiązki",
             "pt-BR": "Som do Feixe de Partículas da Zarya",
+            "th-TH": "เสียงพาร์ติเคิลบีมของซาเรีย",
+            "tr-TR": "Zarya Parçacık Işını Sesi",
             "zh-CN": "查莉娅粒子光束声音"
         },
         "OMNIC_SLICER_BEAM_SOUND": {
@@ -2642,6 +3094,8 @@ const constantValues =
             "ja-JP": "オムニック・スライサーの音",
             "pl-PL": "Omniczny Siekacz – Dźwięk wiązki",
             "pt-BR": "Som do Feixe do Ômnico Dilacerador",
+            "th-TH": "เสียงดาบของออมนิค",
+            "tr-TR": "Omnik Biçici Işın Sesi",
             "zh-CN": "智械切割者光束声音"
         },
         "ANA_NANO_BOOSTED_SOUND": {
@@ -2655,6 +3109,8 @@ const constantValues =
             "ja-JP": "アナの〈ナノ・ブースト〉の音",
             "pl-PL": "Ana – Nano – Dźwięk wzmocnienia",
             "pt-BR": "Som do Estimulante da Ana",
+            "th-TH": "เสียงนาโนบูสต์ของอานา",
+            "tr-TR": "Ana Nano Takviye Sesi",
             "zh-CN": "安娜纳米激素强化声音"
         },
         "BAPTISTE_IMMORTALITY_FIELD_PROTECTED_SOUND": {
@@ -2668,6 +3124,8 @@ const constantValues =
             "ja-JP": "バティストの〈イモータリティ・フィールド〉の防護音",
             "pl-PL": "Baptiste – Pole Nieśmiertelności – Dźwięk ochrony",
             "pt-BR": "Som da Proteção do Campo de Imortalidade do Baptiste",
+            "th-TH": "เสียงได้รับการป้องกันของอิมอร์ทัลลิทีฟีลด์ของบัปทิสต์",
+            "tr-TR": "Baptiste Ölümsüzlük Sahası Koruma Sesi",
             "zh-CN": "巴蒂斯特维生力场保护声音"
         },
         "ECHO_CLONING_SOUND": {
@@ -2681,6 +3139,8 @@ const constantValues =
             "ja-JP": "エコーの〈コピー〉の音",
             "pl-PL": "Echo – Klonowanie – Dźwięk",
             "pt-BR": "Som de Clonagem da Echo",
+            "th-TH": "เสียงโคลนนิงของเอ็คโค่",
+            "tr-TR": "Echo Klonlama Sesi",
             "zh-CN": "“回声”复制声音"
         },
         "LUCIO_SOUND_BARRIER_PROTECTED_SOUND": {
@@ -2694,6 +3154,8 @@ const constantValues =
             "ja-JP": "ルシオの〈サウンド・バリア〉の防護音",
             "pl-PL": "Lúcio – Bariera Dźwiękowa – Dźwięk ochrony",
             "pt-BR": "Som da Proteção da Barreira de Som do Lúcio",
+            "th-TH": "เสียงได้รับการป้องกันของซาวน์บาเรียของลูซิโอ",
+            "tr-TR": "Lúcio Ses Bariyeri Koruma Sesi",
             "zh-CN": "卢西奥音障保护声音"
         },
         "MEI_FROZEN_SOUND": {
@@ -2707,6 +3169,8 @@ const constantValues =
             "ja-JP": "メイの凍結サウンド",
             "pl-PL": "Mei – Zamrożenie – Dźwięk",
             "pt-BR": "Som de Congelamento da Mei",
+            "th-TH": "เสียงแช่แข็งของเหมย",
+            "tr-TR": "Mei Donduruldu Sesi",
             "zh-CN": "美冰冻声音"
         },
         "MERCY_DAMAGE_BOOSTED_SOUND": {
@@ -2720,6 +3184,8 @@ const constantValues =
             "ja-JP": "マーシーのダメージ増加音",
             "pl-PL": "Łaska – Dźwięk zwiększania obrażeń",
             "pt-BR": "Som de Dano Aumentado da Mercy",
+            "th-TH": "เสียงดาเมจบูสต์ของของเมอร์ซี่",
+            "tr-TR": "Mercy Hasar Takviyesi Sesi",
             "zh-CN": "“天使”伤害强化声音"
         },
         "SIGMA_GRAVITIC_FLUX_TARGET_SOUND": {
@@ -2733,6 +3199,8 @@ const constantValues =
             "ja-JP": "シグマの〈グラビティ・フラックス〉のターゲット音",
             "pl-PL": "Sigma – Strumień Grawitacyjny – Dźwięk celu",
             "pt-BR": "Som de Alvo do Fluxo Gravitacional do Sigma",
+            "th-TH": "เสียงเป้าหมายของกราวิทิคฟลักซ์ของซิกม่า",
+            "tr-TR": "Sigma Çekimsel Sapma Hedef Sesi",
             "zh-CN": "“西格玛”引力乱流目标声音"
         },
         "SOMBRA_HACKING_SOUND": {
@@ -2746,6 +3214,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈ハック〉の音",
             "pl-PL": "Sombra – Hakowanie – Dźwięk",
             "pt-BR": "Som de Hack da Sombra",
+            "th-TH": "เสียงกำลังแฮ็คของซอมบรา",
+            "tr-TR": "Sombra Hack'leme Sesi",
             "zh-CN": "“黑影”黑客入侵进行声音"
         },
         "SOMBRA_HACKED_SOUND": {
@@ -2759,6 +3229,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈ハック〉の音",
             "pl-PL": "Sombra – Hakowanie – Dźwięk",
             "pt-BR": "Som de Hackeado pela Sombra",
+            "th-TH": "เสียงถูกแฮ็คของซอมบรา",
+            "tr-TR": "Sombra Hack'lendi Sesi",
             "zh-CN": "“黑影”黑客入侵完成声音"
         },
         "TORBJORN_OVERLOADING_SOUND": {
@@ -2772,6 +3244,8 @@ const constantValues =
             "ja-JP": "トールビョーンの〈オーバーロード〉の音",
             "pl-PL": "Torbjörn – Przepancerzony – Dźwięk",
             "pt-BR": "Som de Sobrecarga do Torbjörn",
+            "th-TH": "เสียงของโอเวอร์โหลดดิงของทอร์บยอร์น",
+            "tr-TR": "Torbjörn Yük Aşırtma Sesi",
             "zh-CN": "托比昂热力过载声音"
         },
         "WIDOWMAKER_VENOM_MINE_TARGET_SOUND": {
@@ -2785,6 +3259,8 @@ const constantValues =
             "ja-JP": "ウィドウメイカーの〈ヴェノム・マイン〉のターゲット音",
             "pl-PL": "Trupia Wdowa – Jadowita Mina – Dźwięk celu",
             "pt-BR": "Som de Alvo da Mina Venenosa da Widowmaker",
+            "th-TH": "เสียงเป้าหมายของเวนอมไมน์ของวิโดว์เมกเกอร์",
+            "tr-TR": "Widowmaker Zehirli Mayın Hedef Sesi",
             "zh-CN": "“黑百合“剧毒诡雷目标声音"
         },
         "WINSTON_TESLA_CANNON_TARGET_SOUND": {
@@ -2798,6 +3274,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈テスラ・キャノン〉のターゲット音",
             "pl-PL": "Winston – Działo Tesli – Dźwięk celu",
             "pt-BR": "Som de Alvo do Canhão de Tesla do Winston",
+            "th-TH": "เสียงเป้าหมายของปืนใหญ่เทสลาของวินสตัน",
+            "tr-TR": "Winston Tesla Topu Hedef Sesi",
             "zh-CN": "温斯顿特斯拉炮目标声音"
         },
         "WINSTON_PRIMAL_RAGE_SOUND": {
@@ -2811,6 +3289,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈プライマル・レイジ〉の音",
             "pl-PL": "Winston – Pierwotny Szał – Dźwięk",
             "pt-BR": "Som da Fúria Primata do Winston",
+            "th-TH": "เสียงของไพรมัลเรจของวินสตัน",
+            "tr-TR": "Winston İlkel Öfke Sesi",
             "zh-CN": "温斯顿原始暴怒声音"
         },
         "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET_SOUND": {
@@ -2824,6 +3304,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈アダプティブ・シールド〉のターゲット音",
             "pl-PL": "Burzyciel – Adaptabilne Osłony – Dźwięk celu",
             "pt-BR": "Som de Alvo do Escudo Adaptativo do Wrecking Ball",
+            "th-TH": "เสียงเป้าหมายของอะแดปทีฟชิลด์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Uyarlanır Kalkan Hedef Sesi",
             "zh-CN": "“破坏球”感应护盾目标声音"
         },
         "WRECKING_BALL_PILEDRIVER_FIRE_SOUND": {
@@ -2837,6 +3319,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈パイルドライバー〉の発動音",
             "pl-PL": "Burzyciel – Kafar – Dźwięk ognia",
             "pt-BR": "Som do Fogo de Bate-estaca do Wrecking Ball",
+            "th-TH": "เสียงไฟของไพล์ไดรเวอร์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Dalış Ateş Sesi",
             "zh-CN": "“破坏球”重力坠击火焰声音"
         },
         "ZENYATTA_ORB_OF_DISCORD_TARGET_SOUND": {
@@ -2850,6 +3334,8 @@ const constantValues =
             "ja-JP": "ゼニヤッタの〈不和のオーブ〉のターゲット音",
             "pl-PL": "Zenyatta – Kula Rozdarcia – Dźwięk celu",
             "pt-BR": "Som de Alvo do Orbe da Discórdia do Zenyatta",
+            "th-TH": "เสียงเป้าหมายของออร์บออฟดิสคอร์ดของเซ็นยัตตา",
+            "tr-TR": "Zenyatta Kaos Küresi Hedef Sesi",
             "zh-CN": "禅雅塔乱目标声音"
         },
         "HEAL_TARGET_ACTIVE": {
@@ -2863,6 +3349,8 @@ const constantValues =
             "ja-JP": "ターゲット回復有効エフェクト",
             "pl-PL": "Leczenie – Aktywny efekt celu",
             "pt-BR": "Efeito Alvo de Cura Ativa",
+            "th-TH": "เอฟเฟกต์ที่ใช้อยู่ของฮีลเป้าหมาย",
+            "tr-TR": "Hedefteki Aktif İyileştirme Etkisi",
             "zh-CN": "治疗目标激活效果"
         },
         "HEAL_TARGET": {
@@ -2876,6 +3364,8 @@ const constantValues =
             "ja-JP": "ターゲット回復エフェクト",
             "pl-PL": "Leczenie – Efekt celu",
             "pt-BR": "Efeito Alvo de Cura",
+            "th-TH": "เอฟเฟกต์ฮีลเป้าหมาย",
+            "tr-TR": "Hedefteki İyileştirme Etkisi",
             "zh-CN": "治疗目标效果"
         },
         "ANA_BIOTIC_GRENADE_INCREASED_HEALING": {
@@ -2889,6 +3379,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の回復量増加エフェクト",
             "pl-PL": "Ana – Granat Biotyczny – Efekt zwiększonego leczenia",
             "pt-BR": "Efeito de Melhoria de Cura da Granada Biótica da Ana",
+            "th-TH": "เอฟเฟกต์การฮีลที่เพิ่มขึ้นของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba Artırılmış İyileştirme Efekti",
             "zh-CN": "安娜生物手雷增疗效果"
         },
         "ANA_NANO_BOOSTED": {
@@ -2902,6 +3394,8 @@ const constantValues =
             "ja-JP": "アナの〈ナノ・ブースト〉のエフェクト",
             "pl-PL": "Ana – Nano – Efekt wzmocnienia",
             "pt-BR": "Efeito do Estimulante da Ana",
+            "th-TH": "เอฟเฟกต์นาโนบูสต์ของอานา",
+            "tr-TR": "Ana Nano Takviye Efekti",
             "zh-CN": "安娜纳米激素强化效果"
         },
         "BAPTISTE_IMMORTALITY_FIELD_PROTECTED": {
@@ -2915,6 +3409,8 @@ const constantValues =
             "ja-JP": "バティストの〈イモータリティ・フィールド〉の防護エフェクト",
             "pl-PL": "Baptiste – Efekt ochrony przez Pole Nieśmiertelności",
             "pt-BR": "Efeito Proteção do Campo de Imortalidade do Baptiste",
+            "th-TH": "เอฟเฟกต์ได้รับการป้องกันของอิมอร์ทัลลิทีฟีลด์ของบัปทิสต์",
+            "tr-TR": "Baptiste Ölümsüzlük Sahası Koruma Efekti",
             "zh-CN": "巴蒂斯特维生力场保护效果"
         },
         "ECHO_CLONING": {
@@ -2928,6 +3424,8 @@ const constantValues =
             "ja-JP": "エコーの〈コピー〉のエフェクト",
             "pl-PL": "Echo – Efekt klonowania",
             "pt-BR": "Efeito Clonagem da Echo",
+            "th-TH": "เอฟเฟกต์โคลนนิงของเอ็คโค่",
+            "tr-TR": "Echo Klonlama Efekti",
             "zh-CN": "“回声”复制效果"
         },
         "LUCIO_SOUND_BARRIER_PROTECTED": {
@@ -2941,6 +3439,8 @@ const constantValues =
             "ja-JP": "ルシオの〈サウンド・バリア〉のバリア・エフェクト",
             "pl-PL": "Lúcio – Efekt ochrony przez Barierę Dźwiękową",
             "pt-BR": "Efeito Proteção da Barreira de Som do Lúcio",
+            "th-TH": "เอฟเฟกต์ได้รับการป้องกันของซาวน์บาเรียของลูซิโอ",
+            "tr-TR": "Lúcio Ses Bariyeri Koruma Efekti",
             "zh-CN": "卢西奥音障保护效果"
         },
         "MERCY_DAMAGE_BOOSTED": {
@@ -2954,6 +3454,8 @@ const constantValues =
             "ja-JP": "マーシーのダメージ増加エフェクト",
             "pl-PL": "Łaska – Efekt zwiększania obrażeń",
             "pt-BR": "Efeito Dano Aumentado da Mercy",
+            "th-TH": "เอฟเฟกต์ดาเมจบูสต์ของของเมอร์ซี่",
+            "tr-TR": "Mercy Hasar Takviyesi Efekti",
             "zh-CN": "“天使”伤害强化效果"
         },
         "REAPER_WRAITH_FORM": {
@@ -2967,6 +3469,8 @@ const constantValues =
             "ja-JP": "リーパーの〈レイス・フォーム〉のエフェクト",
             "pl-PL": "Żniwiarz – Efekt Postaci Upiora",
             "pt-BR": "Efeito Forma Fantasma do Reaper",
+            "th-TH": "เอฟเฟกต์เรธฟอร์มของรีปเปอร์",
+            "tr-TR": "Reaper Tayf Formu Efekti",
             "zh-CN": "“死神”幽灵形态效果"
         },
         "SOLDIER_SPRINTING": {
@@ -2980,6 +3484,8 @@ const constantValues =
             "ja-JP": "ソルジャー76の〈スプリント〉のエフェクト",
             "pl-PL": "Żołnierz-76 – Efekt sprintu",
             "pt-BR": "Efeito Disparada do Soldado: 76",
+            "th-TH": "เอฟเฟกต์การสปรินท์ของโซลเยอร์: 76",
+            "tr-TR": "Soldier: 76 Depar Efekti",
             "zh-CN": "“士兵：76”疾跑效果"
         },
         "TORBJORN_OVERLOADING": {
@@ -2993,6 +3499,8 @@ const constantValues =
             "ja-JP": "トールビョーンの〈オーバーロード〉のエフェクト",
             "pl-PL": "Torbjörn – Efekt Przepancerzonego",
             "pt-BR": "Efeito Sobrecarga do Torbjörn",
+            "th-TH": "เอฟเฟกต์ของโอเวอร์โหลดดิงของทอร์บยอร์น",
+            "tr-TR": "Torbjörn Yük Aşırtma Efekti",
             "zh-CN": "托比昂热力过载效果"
         },
         "WINSTON_PRIMAL_RAGE": {
@@ -3007,6 +3515,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈プライマル・レイジ〉のエフェクト",
             "pl-PL": "Winston – Pierwotny Szał – Efekt",
             "pt-BR": "Efeito da Fúria Primata do Winston",
+            "th-TH": "เอฟเฟกต์ของไพรมัลเรจของวินสตัน",
+            "tr-TR": "Winston İlkel Öfke Efekti",
             "zh-CN": "温斯顿原始暴怒效果"
         },
         "WRECKING_BALL_ADAPTIVE_SHIELD_TARGET": {
@@ -3020,6 +3530,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈アダプティブ・シールド〉のターゲット・エフェクト",
             "pl-PL": "Burzyciel – Adaptabilne Osłony – Efekt celu",
             "pt-BR": "Efeito Alvo do Escudo Adaptativo do Wrecking Ball",
+            "th-TH": "เอฟเฟกต์เป้าหมายของอะแดปทีฟชิลด์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Uyarlanır Kalkan Hedef Efekti",
             "zh-CN": "“破坏球”感应护盾目标效果"
         },
         "WRECKING_BALL_PILEDRIVER_FIRE": {
@@ -3033,6 +3545,8 @@ const constantValues =
             "ja-JP": "レッキング・ボールの〈パイルドライバー〉の発動エフェクト",
             "pl-PL": "Burzyciel – Kafar – Efekt ognia",
             "pt-BR": "Efeito Fogo de Bate-estaca do Wrecking Ball",
+            "th-TH": "เอฟเฟกต์ไฟของไพล์ไดรเวอร์ของเร็กกิงบอล",
+            "tr-TR": "Wrecking Ball Dalış Ateş Efekti",
             "zh-CN": "“破坏球”重力坠击火焰效果"
         },
         "ANA_BIOTIC_GRENADE_NO_HEALING": {
@@ -3046,6 +3560,8 @@ const constantValues =
             "ja-JP": "アナの〈バイオティック・グレネード〉の回復不可のエフェクト",
             "pl-PL": "Ana – Granat Biotyczny – Efekt braku leczenia",
             "pt-BR": "Efeito de Bloqueio de Cura da Granada Biótica da Ana",
+            "th-TH": "เอฟเฟกต์ไม่มีการฮีลของไบโอติกเกรเนดของอานา",
+            "tr-TR": "Ana Biyotik Bomba İyileştirme Yok Efekti",
             "zh-CN": "安娜生物手雷禁疗效果"
         },
         "ANA_SLEEPING": {
@@ -3059,6 +3575,8 @@ const constantValues =
             "ja-JP": "アナの〈スリープ・ダーツ〉のエフェクト",
             "pl-PL": "Ana – Efekt uśpienia",
             "pt-BR": "Efeito de Dormindo da Ana",
+            "th-TH": "เอฟเฟกต์การหลับของอานา",
+            "tr-TR": "Ana Uyku Efekti",
             "zh-CN": "安娜麻醉镖效果"
         },
         "ASHE_DYNAMITE_BURNING_PARTICLE": {
@@ -3072,6 +3590,8 @@ const constantValues =
             "ja-JP": "アッシュの〈ダイナマイト〉の炎上粒子エフェクト",
             "pl-PL": "Ashe – Efekt cząsteczkowy płonięcia Dynamitu",
             "pt-BR": "Efeito Partículas Queimando da Dinamite da Ashe",
+            "th-TH": "เอฟเฟกต์การเผาไหม้อนุภาคของไดนาไมต์ของแอช",
+            "tr-TR": "Ashe Dinamit Yanıcı Parçacık Efekti",
             "zh-CN": "艾什延时雷管燃烧粒子效果"
         },
         "ASHE_DYNAMITE_BURNING_MATERIAL": {
@@ -3085,6 +3605,8 @@ const constantValues =
             "ja-JP": "アッシュの〈ダイナマイト〉の炎上エフェクト",
             "pl-PL": "Ashe – Efekt płonięcia materiału Dynamitu",
             "pt-BR": "Efeito Material Queimando da Dinamite da Ashe",
+            "th-TH": "เอฟเฟกต์การเผาไหม้วัสดุของไดนาไมต์ของแอช",
+            "tr-TR": "Ashe Dinamit Yanıcı Malzeme Efekti",
             "zh-CN": "艾什延时雷管燃烧材料效果"
         },
         "MCCREE_FLASHBANG_STUNNED": {
@@ -3098,6 +3620,8 @@ const constantValues =
             "ja-JP": "キャスディの〈フラッシュバン〉のスタン・エフェクト",
             "pl-PL": "Cassidy – Efekt ogłuszenia Granatem Błyskowym",
             "pt-BR": "Efeito Atordoamento do Clarão do Cassidy",
+            "th-TH": "เอฟเฟกต์ถูกสตันของแฟลชแบงของแคสซิดี้",
+            "tr-TR": "Cassidy Flaş Bombası Sersemletme Efekti",
             "zh-CN": "卡西迪闪光弹击晕效果"
         },
         "MEI_FROZEN": {
@@ -3111,6 +3635,8 @@ const constantValues =
             "ja-JP": "メイの凍結エフェクト",
             "pl-PL": "Mei – Efekt zamrożenia",
             "pt-BR": "Efeito Congelado da Mei",
+            "th-TH": "เอฟเฟกต์แช่แข็งของเหมย",
+            "tr-TR": "Mei Donma Efekti",
             "zh-CN": "美冰冻效果"
         },
         "SIGMA_GRAVITIC_FLUX_TARGET": {
@@ -3124,6 +3650,8 @@ const constantValues =
             "ja-JP": "シグマの〈グラビティ・フラックス〉のターゲット・エフェクト",
             "pl-PL": "Sigma – Efekt celu Strumienia Grawitacyjnego",
             "pt-BR": "Efeito Alvo do Fluxo Gravitacional do Sigma",
+            "th-TH": "เอฟเฟกต์เป้าหมายของกราวิทิคฟลักซ์ของซิกม่า",
+            "tr-TR": "Sigma Çekimsel Sapma Hedef Efekti",
             "zh-CN": "“西格玛”引力乱流目标效果"
         },
         "SOMBRA_HACKED_LOOPING": {
@@ -3137,6 +3665,8 @@ const constantValues =
             "ja-JP": "ソンブラの〈ハック〉のループエフェクト",
             "pl-PL": "Sombra – Efekt zapętlenia Hakowania",
             "pt-BR": "Efeito Loop do Hackear da Sombra",
+            "th-TH": "เอฟเฟกต์ลูปการแฮ็คของซอมบรา",
+            "tr-TR": "Sombra Hack Döngü Efekti",
             "zh-CN": "“黑影”黑客入侵完成循环效果"
         },
         "WIDOWMAKER_VENOM_MINE_TARGET": {
@@ -3150,6 +3680,8 @@ const constantValues =
             "ja-JP": "ウィドウメイカーの〈ヴェノム・マイン〉のターゲット・エフェクト",
             "pl-PL": "Trupia Wdowa – Jadowita Mina – Efekt celu",
             "pt-BR": "Efeito Alvo da Mina Venenosa da Widowmaker",
+            "th-TH": "เอฟเฟกต์เป้าหมายของเวนอมไมน์ของวิโดว์เมกเกอร์",
+            "tr-TR": "Widowmaker Zehirli Mayın Hedef Efekti",
             "zh-CN": "“黑百合”剧毒诡雷目标效果"
         },
         "WINSTON_TESLA_CANNON_TARGET": {
@@ -3163,6 +3695,8 @@ const constantValues =
             "ja-JP": "ウィンストンの〈テスラ・キャノン〉のターゲット・エフェクト",
             "pl-PL": "Winston – Działo Tesli – Efekt celu",
             "pt-BR": "Efeito Alvo do Canhão de Tesla do Winston",
+            "th-TH": "เอฟเฟกต์เป้าหมายของปืนใหญ่เทสลาของวินสตัน",
+            "tr-TR": "Winston Tesla Topu Hedef Efekti",
             "zh-CN": "温斯顿特斯拉炮目标效果"
         },
         "ZENYATTA_ORB_OF_DISCORD_TARGET": {
@@ -3176,6 +3710,8 @@ const constantValues =
             "ja-JP": "ゼニヤッタの〈不和のオーブ〉のターゲット・エフェクト",
             "pl-PL": "Zenyatta – Kula Rozdarcia – Efekt celu",
             "pt-BR": "Efeito Alvo do Orbe da Discórdia do Zenyatta",
+            "th-TH": "เอฟเฟกต์เป้าหมายของออร์บออฟดิสคอร์ดของเซ็นยัตตา",
+            "tr-TR": "Zenyatta Kaos Küresi Hedef Efekti",
             "zh-CN": "禅雅塔乱目标效果"
         }
     },
@@ -3186,6 +3722,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -3195,6 +3733,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "POSITION_AND_RADIUS": {
@@ -3204,6 +3744,8 @@ const constantValues =
             "fr-FR": "Position et Rayon",
             "ja-JP": "位置と範囲",
             "pt-BR": "Posição e Raio",
+            "th-TH": "ตำแหน่งและรัศมี",
+            "tr-TR": "Konum ve Yarıçap",
             "zh-CN": "位置和半径"
         },
         "POSITION_RADIUS_AND_COLOR": {
@@ -3213,6 +3755,8 @@ const constantValues =
             "fr-FR": "Position Rayon et Couleur",
             "ja-JP": "位置、半径、色",
             "pt-BR": "Posição Raio e Cor",
+            "th-TH": "ตำแหน่ง รัศมี และสี",
+            "tr-TR": "Konum Yarıçap ve Renk",
             "zh-CN": "位置，半径和颜色"
         },
         "VISIBILITY": {
@@ -3222,6 +3766,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -3231,6 +3777,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_POSITION_AND_RADIUS": {
@@ -3240,6 +3788,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Rayon",
             "ja-JP": "表示される相手、位置、範囲",
             "pt-BR": "Visível para Posição e Raio",
+            "th-TH": "มองเห็นได้ถึง ตําแหน่ง และรัศมี",
+            "tr-TR": "Görenler Konum ve Yarıçap",
             "zh-CN": "可见，位置和半径"
         },
         "VISIBILITY_POSITION_RADIUS_AND_COLOR": {
@@ -3249,6 +3799,8 @@ const constantValues =
             "fr-FR": "Visible pour Position Rayon et Couleur",
             "ja-JP": "表示される相手、位置、半径、色",
             "pt-BR": "Visível para Posição Raio e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ตำแหน่ง รัศมี และสี",
+            "tr-TR": "Görenler Konum Yarıçap ve Renk",
             "zh-CN": "可见，位置，半径和颜色"
         }
     },
@@ -3260,6 +3812,8 @@ const constantValues =
             "fr-FR": "Direction et Taux de rotation",
             "ja-JP": "方向と回転レート",
             "pt-BR": "Direção e Taxa de Giro",
+            "th-TH": "ทิศทางและอัตราการหัน",
+            "tr-TR": "Yön ve Dönüş Oranı",
             "zh-CN": "方向及角速率"
         },
         "NONE": {
@@ -3269,6 +3823,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         }
     },
@@ -3280,6 +3836,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Nenhum",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "全部禁用"
         },
         "RECEIVERS_AND_HEALERS": {
@@ -3289,6 +3847,8 @@ const constantValues =
             "fr-FR": "Récepteurs de soins et soigneurs",
             "ja-JP": "レシーバーとヒーラー",
             "pt-BR": "Receptores e Curandeiros",
+            "th-TH": "ผู้รับและฮีลเลอร์",
+            "tr-TR": "Alıcılar ve Şifacılar",
             "zh-CN": "受治疗者和治疗者"
         },
         "RECEIVERS_HEALERS_AND_HEALPERCENT": {
@@ -3298,6 +3858,8 @@ const constantValues =
             "fr-FR": "Récepteurs de soins soigneurs et pourcentage de soins",
             "ja-JP": "レシーバー、ヒーラー、回復量のパーセンテージ",
             "pt-BR": "Receptores Curandeiros e percentual de cura",
+            "th-TH": "ผู้รับ ฮีลเลอร์ และเปอร์เซ็นต์การฮีล",
+            "tr-TR": "Alıcılar Şifacılar ve İyileştirme Yüzdesi",
             "zh-CN": "受治疗者，治疗者及治疗百分比"
         }
     },
@@ -3309,6 +3871,8 @@ const constantValues =
             "fr-FR": "Vie",
             "ja-JP": "ライフ",
             "pt-BR": "Vida",
+            "th-TH": "พลังชีวิต",
+            "tr-TR": "Can",
             "zh-CN": "生命值"
         },
         "ARMOR": {
@@ -3319,6 +3883,8 @@ const constantValues =
             "it-IT": "Armatura",
             "ja-JP": "アーマー",
             "pt-BR": "Armadura",
+            "th-TH": "เกราะ",
+            "tr-TR": "Zırh",
             "zh-CN": "护甲"
         },
         "SHIELDS": {
@@ -3329,6 +3895,8 @@ const constantValues =
             "it-IT": "Scudi",
             "ja-JP": "シールド",
             "pt-BR": "Escudos",
+            "th-TH": "โล่",
+            "tr-TR": "Kalkanlar",
             "zh-CN": "护盾"
         }
     },
@@ -3344,6 +3912,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés tous",
             "ja-JP": "与ダメージ（全体）",
             "pt-BR": "Todo o dano causado",
+            "th-TH": "ความเสียหายที่สร้างทั้งหมด",
+            "tr-TR": "Verilen Toplam Hasar",
             "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
@@ -3353,6 +3923,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés aux écrans",
             "ja-JP": "バリア与ダメージ",
             "pt-BR": "Dano causado a barreiras",
+            "th-TH": "ความเสียหายต่อบาเรียที่สร้าง",
+            "tr-TR": "Verilen Bariyer Hasarı",
             "zh-CN": "对屏障造成伤害量"
         },
         "CRITICAL_HIT_ACCURACY": {
@@ -3362,6 +3934,8 @@ const constantValues =
             "fr-FR": "Précision des coups critiques",
             "ja-JP": "クリティカル・ヒット命中率",
             "pt-BR": "Precisão de golpes críticos",
+            "th-TH": "ความแม่นยำในการโจมตีคริติคอล",
+            "tr-TR": "Kritik Vuruş İsabetliliği",
             "zh-CN": "暴击命中率"
         },
         "CRITICAL_HITS": {
@@ -3371,6 +3945,8 @@ const constantValues =
             "fr-FR": "Coups critiques",
             "ja-JP": "クリティカル・ヒット",
             "pt-BR": "Golpes críticos",
+            "th-TH": "การโจมตีจุดตาย",
+            "tr-TR": "Kritik Vuruş",
             "zh-CN": "暴击"
         },
         "DAMAGE_BLOCKED": {
@@ -3380,6 +3956,8 @@ const constantValues =
             "fr-FR": "Dégâts bloqués",
             "ja-JP": "ブロックしたダメージ",
             "pt-BR": "Dano bloqueado",
+            "th-TH": "ความเสียหายที่ถูกบล็อค",
+            "tr-TR": "Engellenen Hasar",
             "zh-CN": "阻挡伤害量"
         },
         "DAMAGE_TAKEN": {
@@ -3389,6 +3967,8 @@ const constantValues =
             "fr-FR": "Dégâts subis",
             "ja-JP": "受けたダメージ",
             "pt-BR": "Dano recebido",
+            "th-TH": "ความเสียหายที่ได้รับ",
+            "tr-TR": "Alınan Hasar",
             "zh-CN": "承受伤害量"
         },
         "DEATHS": {
@@ -3398,6 +3978,8 @@ const constantValues =
             "fr-FR": "Morts",
             "ja-JP": "デス",
             "pt-BR": "Mortes",
+            "th-TH": "ตาย",
+            "tr-TR": "Ölüm",
             "zh-CN": "阵亡"
         },
         "DEFENSIVE_ASSISTS": {
@@ -3407,6 +3989,8 @@ const constantValues =
             "fr-FR": "Soutiens défensifs",
             "ja-JP": "防衛アシスト",
             "pt-BR": "Assistências defensivas",
+            "th-TH": "ช่วยเหลือขณะสนับสนุน",
+            "tr-TR": "Defansif Asist",
             "zh-CN": "协助防守"
         },
         "ELIMINATIONS": {
@@ -3416,6 +4000,8 @@ const constantValues =
             "fr-FR": "Éliminations",
             "ja-JP": "エリミネーション",
             "pt-BR": "Eliminações",
+            "th-TH": "การกำจัด",
+            "tr-TR": "Bertaraf",
             "zh-CN": "消灭"
         },
         "ENVIRONMENTAL_DEATHS": {
@@ -3425,6 +4011,8 @@ const constantValues =
             "fr-FR": "Morts dues à l’environnement",
             "ja-JP": "環境デス",
             "pt-BR": "Mortes no ambiente",
+            "th-TH": "ตายเพราะสภาพแวดล้อม",
+            "tr-TR": "Çevresel Ölüm",
             "zh-CN": "地形阵亡"
         },
         "ENVIRONMENTAL_KILLS": {
@@ -3434,6 +4022,8 @@ const constantValues =
             "fr-FR": "Victimes dues à l’environnement",
             "ja-JP": "環境キル",
             "pt-BR": "Abates no ambiente",
+            "th-TH": "ฆ่าด้วยสภาพแวดล้อม",
+            "tr-TR": "Çevresel Öldürüş",
             "zh-CN": "地形消灭"
         },
         "FINAL_BLOWS": {
@@ -3443,6 +4033,8 @@ const constantValues =
             "fr-FR": "Coups de grâce",
             "ja-JP": "ファイナル・ブロウ",
             "pt-BR": "Golpes finais",
+            "th-TH": "โจมตีสังหาร",
+            "tr-TR": "Son Vuruş",
             "zh-CN": "最后一击"
         },
         "HEALING_DEALT": {
@@ -3452,6 +4044,8 @@ const constantValues =
             "fr-FR": "Soins prodigués",
             "ja-JP": "回復（相手）",
             "pt-BR": "Cura concedida",
+            "th-TH": "การฮีลที่สร้าง",
+            "tr-TR": "Verilen İyileştirme",
             "zh-CN": "治疗量"
         },
         "HEALING_RECEIVED": {
@@ -3461,6 +4055,8 @@ const constantValues =
             "fr-FR": "Soins reçus",
             "ja-JP": "回復（自分）",
             "pt-BR": "Cura recebida",
+            "th-TH": "ฮีลที่ได้รับ",
+            "tr-TR": "Alınan İyileştirme",
             "zh-CN": "受到治疗量"
         },
         "HERO_DAMAGE_DEALT": {
@@ -3474,6 +4070,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés aux héros",
             "ja-JP": "ヒーロー与ダメージ",
             "pt-BR": "Dano causado a heróis",
+            "th-TH": "ความเสียหายที่สร้างต่อฮีโร่",
+            "tr-TR": "Verilen Kahraman Hasarı",
             "zh-CN": "对英雄造成伤害量"
         },
         "MULTIKILL_BEST": {
@@ -3484,6 +4082,8 @@ const constantValues =
             "it-IT": "Multikill - Best",
             "ja-JP": "最高マルチキル",
             "pt-BR": "Abates múltiplos - melhor",
+            "th-TH": "จำนวนสังหารหมู่ที่ดีที่สุด",
+            "tr-TR": "En İyi Çoklu Öldürme",
             "zh-CN": "最佳瞬间消灭"
         },
         "MULTIKILLS": {
@@ -3493,6 +4093,8 @@ const constantValues =
             "fr-FR": "Victimes simultanées",
             "ja-JP": "マルチキル",
             "pt-BR": "Abates múltiplos",
+            "th-TH": "สังหารหมู่",
+            "tr-TR": "Çoklu Öldürme",
             "zh-CN": "瞬间消灭"
         },
         "OBJECTIVE_KILLS": {
@@ -3502,6 +4104,8 @@ const constantValues =
             "fr-FR": "Victimes sur objectif",
             "ja-JP": "目標キル",
             "pt-BR": "Abates de objetivo",
+            "th-TH": "การฆ่าภายในเป้าหมาย",
+            "tr-TR": "Hedef Öldürüşleri",
             "zh-CN": "目标攻防消灭"
         },
         "OFFENSIVE_ASSISTS": {
@@ -3511,6 +4115,8 @@ const constantValues =
             "fr-FR": "Soutiens offensifs",
             "ja-JP": "攻撃アシスト",
             "pt-BR": "Assistências ofensivas",
+            "th-TH": "ช่วยเหลือขณะโจมตี",
+            "tr-TR": "Ofansif Asist",
             "zh-CN": "协助进攻"
         },
         "SCOPED_ACCURACY": {
@@ -3520,6 +4126,8 @@ const constantValues =
             "fr-FR": "Précision à la lunette",
             "ja-JP": "命中率（スコープ）",
             "pt-BR": "Precisão com mira telescópica",
+            "th-TH": "ความแม่นยำขณะส่องกล้อง",
+            "tr-TR": "Dürbünlü İsabetlilik",
             "zh-CN": "开镜命中率"
         },
         "SCOPED_CRITICAL_HIT_ACCURACY": {
@@ -3529,6 +4137,8 @@ const constantValues =
             "fr-FR": "Précision des coups critiques à la lunette",
             "ja-JP": "クリティカル・ヒット命中率（スコープ）",
             "pt-BR": "Precisão de golpes críticos com mira",
+            "th-TH": "ความแม่นยำการโจมตีคริติคอลขณะส่องกล่อง",
+            "tr-TR": "Dürbünlü Kritik Vuruş İsabetliliği",
             "zh-CN": "开镜暴击率"
         },
         "SCOPED_CRITICAL_HIT_KILLS": {
@@ -3538,6 +4148,8 @@ const constantValues =
             "fr-FR": "Victimes de coups critiques à la lunette",
             "ja-JP": "クリティカル・ヒット・キル（スコープ）",
             "pt-BR": "Abates por golpes críticos com mira telescópica",
+            "th-TH": "ฆ่าด้วยการโจมตีติคอลขณะส่องกล้อง",
+            "tr-TR": "Dürbünlü Kritik Vuruş Öldürüşü",
             "zh-CN": "开镜暴击消灭"
         },
         "SCOPED_CRITICAL_HITS": {
@@ -3547,6 +4159,8 @@ const constantValues =
             "fr-FR": "Coups critiques à la lunette",
             "ja-JP": "クリティカル・ヒット（スコープ）",
             "pt-BR": "Golpes críticos com mira telescópica",
+            "th-TH": "โจมตีคริติคอลขณะส่องกล้อง",
+            "tr-TR": "Dürbünlü Kritik Vuruş",
             "zh-CN": "开镜暴击"
         },
         "SCOPED_HITS": {
@@ -3556,6 +4170,8 @@ const constantValues =
             "fr-FR": "Tirs à la lunette réussis",
             "ja-JP": "命中（スコープ）",
             "pt-BR": "Acertos com mira telescópica",
+            "th-TH": "โจมตีขณะส่องกล้อง",
+            "tr-TR": "Dürbünlü İsabet",
             "zh-CN": "开镜命中"
         },
         "SCOPED_SHOTS": {
@@ -3565,6 +4181,8 @@ const constantValues =
             "fr-FR": "Tirs à la lunette",
             "ja-JP": "ショット（スコープ）",
             "pt-BR": "Tiros com mira telescópica",
+            "th-TH": "ยิงขณะส่องกล้อง",
+            "tr-TR": "Dürbünlü Atış",
             "zh-CN": "开镜射击"
         },
         "SELF_HEALING": {
@@ -3574,6 +4192,8 @@ const constantValues =
             "fr-FR": "Soins personnels",
             "ja-JP": "自己回復",
             "pt-BR": "Autocura",
+            "th-TH": "ฮีลตัวเอง",
+            "tr-TR": "Kendini İyileştirme",
             "zh-CN": "自我治疗量"
         },
         "SHOTS_FIRED": {
@@ -3583,6 +4203,8 @@ const constantValues =
             "fr-FR": "Tirs",
             "ja-JP": "発射したショット",
             "pt-BR": "Tiros disparados",
+            "th-TH": "ครั้งที่ยิง",
+            "tr-TR": "Yapılan Atış",
             "zh-CN": "射击次数"
         },
         "SHOTS_HIT": {
@@ -3592,6 +4214,8 @@ const constantValues =
             "fr-FR": "Tirs réussis",
             "ja-JP": "命中したショット",
             "pt-BR": "Tiros acertados",
+            "th-TH": "ครั้งที่ยิงโดน",
+            "tr-TR": "İsabetli Atış",
             "zh-CN": "射击命中"
         },
         "SHOTS_MISSED": {
@@ -3601,6 +4225,8 @@ const constantValues =
             "fr-FR": "Tirs manqués",
             "ja-JP": "外したショット",
             "pt-BR": "Tiros errados",
+            "th-TH": "ครั้งที่ยิงไม่โดน",
+            "tr-TR": "İsabetsiz Atışlar",
             "zh-CN": "射击未命中"
         },
         "SOLO_KILLS": {
@@ -3610,6 +4236,8 @@ const constantValues =
             "fr-FR": "Victimes en solo",
             "ja-JP": "単独キル",
             "pt-BR": "Abates individuais",
+            "th-TH": "ฆ่าแบบลุยเดี่ยว",
+            "tr-TR": "Tek Başına Öldürüş",
             "zh-CN": "单独消灭"
         },
         "ULTIMATES_EARNED": {
@@ -3619,6 +4247,8 @@ const constantValues =
             "fr-FR": "Capacités ultimes obtenues",
             "ja-JP": "アルティメット獲得",
             "pt-BR": "Supremas recebidas",
+            "th-TH": "อัลติเมทที่ได้รับ",
+            "tr-TR": "Kazanılan Ultiler",
             "zh-CN": "获得终极技能"
         },
         "ULTIMATES_USED": {
@@ -3628,6 +4258,8 @@ const constantValues =
             "fr-FR": "Capacités ultimes utilisées",
             "ja-JP": "アルティメット使用",
             "pt-BR": "Supremas lançadas",
+            "th-TH": "อัลติเมทที่ใช้",
+            "tr-TR": "Kullanılan Ultiler",
             "zh-CN": "使用终极技能"
         },
         "WEAPON_ACCURACY": {
@@ -3637,6 +4269,8 @@ const constantValues =
             "fr-FR": "Précision",
             "ja-JP": "武器命中率",
             "pt-BR": "Precisão da arma",
+            "th-TH": "ความแม่นยำในการใช้อาวุธ",
+            "tr-TR": "Silah İsabetliliği",
             "zh-CN": "武器命中率"
         }
     },
@@ -3648,6 +4282,8 @@ const constantValues =
             "fr-FR": "Gauche",
             "ja-JP": "左",
             "pt-BR": "Esquerda",
+            "th-TH": "ซ้าย",
+            "tr-TR": "Sol",
             "zh-CN": "左边"
         },
         "TOP": {
@@ -3657,6 +4293,8 @@ const constantValues =
             "fr-FR": "Haut",
             "ja-JP": "トップ",
             "pt-BR": "Topo",
+            "th-TH": "บน",
+            "tr-TR": "Zirve",
             "zh-CN": "顶部"
         },
         "RIGHT": {
@@ -3666,6 +4304,8 @@ const constantValues =
             "fr-FR": "Droite",
             "ja-JP": "右",
             "pt-BR": "Direita",
+            "th-TH": "ขวา",
+            "tr-TR": "Sağ",
             "zh-CN": "右边"
         }
     },
@@ -3678,6 +4318,8 @@ const constantValues =
             "ja-JP": "表示される相手、ソート順、文字列",
             "ko-KR": "Visible To Sort Order String",
             "pt-BR": "Visível para ordem de classificação e string",
+            "th-TH": "มองเห็นได้สำหรับ เรียงลําดับ และสตริง",
+            "tr-TR": "Görebilenler Sıralama Düzeni ve Dizgi",
             "zh-CN": "可见性，排序规则和字符串"
         },
         "COLOR": {
@@ -3686,6 +4328,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -3695,6 +4339,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "SORT_ORDER": {
@@ -3704,6 +4350,8 @@ const constantValues =
             "fr-FR": "Tri",
             "ja-JP": "ソート順",
             "pt-BR": "Ordem de Classificação",
+            "th-TH": "เรียงลําดับ",
+            "tr-TR": "Sıralama Düzeni",
             "zh-CN": "排序"
         },
         "SORT_ORDER_AND_COLOR": {
@@ -3713,6 +4361,8 @@ const constantValues =
             "fr-FR": "Tri et Couleur",
             "ja-JP": "ソート順、色",
             "pt-BR": "Ordem de Classificação e Cor",
+            "th-TH": "เรียงลําดับและสี",
+            "tr-TR": "Sıralama Düzeni ve Renk",
             "zh-CN": "排序规则和颜色"
         },
         "SORT_ORDER_AND_STRING": {
@@ -3722,6 +4372,8 @@ const constantValues =
             "fr-FR": "Tri et Chaîne de texte",
             "ja-JP": "ソート順、文字列",
             "pt-BR": "Ordem de classificação e string",
+            "th-TH": "เรียงลําดับและสตริง",
+            "tr-TR": "Sıralama Düzeni ve Dizgi",
             "zh-CN": "排序规则和字符串"
         },
         "SORT_ORDER_STRING_AND_COLOR": {
@@ -3731,6 +4383,8 @@ const constantValues =
             "fr-FR": "Tri Chaîne de texte et Couleur",
             "ja-JP": "ソート順、文字列、色",
             "pt-BR": "Ordem de Classificação String e Cor",
+            "th-TH": "เรียงลําดับ สตริง และสี",
+            "tr-TR": "Sıralama Düzeni Dizgi ve Renk",
             "zh-CN": "排序规则，字符串和颜色"
         },
         "STRING": {
@@ -3739,6 +4393,8 @@ const constantValues =
             "es-MX": "Cadena",
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
+            "th-TH": "สตริง",
+            "tr-TR": "Dizgi",
             "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
@@ -3749,6 +4405,8 @@ const constantValues =
             "it-IT": " String and Color",
             "ja-JP": "文字列、色",
             "pt-BR": "String e Cor",
+            "th-TH": "สตริงและสี",
+            "tr-TR": "Dizgi ve Renk",
             "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
@@ -3758,6 +4416,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -3767,6 +4427,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_SORT_ORDER": {
@@ -3776,6 +4438,8 @@ const constantValues =
             "fr-FR": "Visible pour et Tri",
             "ja-JP": "表示される相手、ソート順",
             "pt-BR": "Visível para e Ordem de Classificação",
+            "th-TH": "มองเห็นได้ถึงและเรียงลําดับ",
+            "tr-TR": "Görenler ve Sıralama Düzeni",
             "zh-CN": "可见性和排序"
         },
         "VISIBILITY_AND_STRING": {
@@ -3785,6 +4449,8 @@ const constantValues =
             "fr-FR": "Visible pour et Chaîne de texte",
             "ja-JP": "表示される相手、文字列",
             "pt-BR": "Visível para e String",
+            "th-TH": "มองเห็นได้สำหรับและสตริง",
+            "tr-TR": "Görenler ve Dizgi",
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_SORT_ORDER_AND_COLOR": {
@@ -3794,6 +4460,8 @@ const constantValues =
             "fr-FR": "Visible pour Tri et Couleur",
             "ja-JP": "表示される相手、ソート順、色",
             "pt-BR": "Visível para Ordem de Classificação e Cor",
+            "th-TH": "มองเห็นได้ถึง เรียงลําดับ และสี",
+            "tr-TR": "Görenler Sıralama Düzeni ve Renk",
             "zh-CN": "可见，排序规则和颜色"
         },
         "VISIBILITY_SORT_ORDER_STRING_AND_COLOR": {
@@ -3803,6 +4471,8 @@ const constantValues =
             "fr-FR": "Visible pour Tri Chaîne de texte et Couleur",
             "ja-JP": "表示される相手、ソート順、文字列、色",
             "pt-BR": "Visível para Ordem de Classificação String e Cor",
+            "th-TH": "มองเห็นได้ถึง เรียงลําดับ สตริง และสี",
+            "tr-TR": "Görenler Sıralama Düzeni Dizgi ve Renk",
             "zh-CN": "可见，排序规则，字符串和颜色"
         },
         "VISIBILITY_STRING_AND_COLOR": {
@@ -3812,6 +4482,8 @@ const constantValues =
             "fr-FR": "Visible pour Chaîne de texte et Couleur",
             "ja-JP": "表示される相手、文字列、色",
             "pt-BR": "Visível para String e Cor",
+            "th-TH": "มองเห็นได้สำหรับ สตริง และสี",
+            "tr-TR": "Görenler Dizgi ve Renk",
             "zh-CN": "可见，字符串和颜色"
         }
     },
@@ -3827,6 +4499,8 @@ const constantValues =
             "fr-FR": "Flèche bas",
             "ja-JP": "矢印:下",
             "pt-BR": "Seta: Baixo",
+            "th-TH": "ลูกศร: ลง",
+            "tr-TR": "Aşağı Ok",
             "zh-CN": "箭头：向下"
         },
         "ARROW_LEFT": {
@@ -3840,6 +4514,8 @@ const constantValues =
             "fr-FR": "Flèche gauche",
             "ja-JP": "矢印:左",
             "pt-BR": "Seta: Esquerda",
+            "th-TH": "ลูกศร: ซ้าย",
+            "tr-TR": "Sol Ok",
             "zh-CN": "箭头：向左"
         },
         "ARROW_RIGHT": {
@@ -3853,6 +4529,8 @@ const constantValues =
             "fr-FR": "Flèche droite",
             "ja-JP": "矢印:右",
             "pt-BR": "Seta: Direita",
+            "th-TH": "ลูกศร: ขวา",
+            "tr-TR": "Sağ Ok",
             "zh-CN": "箭头：向右"
         },
         "ARROW_UP": {
@@ -3866,6 +4544,8 @@ const constantValues =
             "fr-FR": "Flèche haut",
             "ja-JP": "矢印:上",
             "pt-BR": "Seta: Cima",
+            "th-TH": "ลูกศร: ขึ้น",
+            "tr-TR": "Yukarı Ok",
             "zh-CN": "箭头：向上"
         },
         "ASTERISK": {
@@ -3879,6 +4559,8 @@ const constantValues =
             "fr-FR": "Astérisque",
             "ja-JP": "アスタリスク",
             "pt-BR": "Asterisco",
+            "th-TH": "ดอกจัน",
+            "tr-TR": "Yıldız İşareti",
             "zh-CN": "星形"
         },
         "BOLT": {
@@ -3892,6 +4574,8 @@ const constantValues =
             "fr-FR": "Boulon",
             "ja-JP": "雷光の弓",
             "pt-BR": "Raio",
+            "th-TH": "สายฟ้า",
+            "tr-TR": "Şimşek",
             "zh-CN": "箭矢"
         },
         "CHECKMARK": {
@@ -3905,6 +4589,8 @@ const constantValues =
             "fr-FR": "Coche",
             "ja-JP": "チェックマーク",
             "pt-BR": "Marca de Verificação",
+            "th-TH": "เครื่องหมายถูก",
+            "tr-TR": "Onay İmi",
             "zh-CN": "对号"
         },
         "CIRCLE": {
@@ -3918,6 +4604,8 @@ const constantValues =
             "fr-FR": "Cercle",
             "ja-JP": "サークル",
             "pt-BR": "Círculo",
+            "th-TH": "วงกลม",
+            "tr-TR": "Yuvarlak",
             "zh-CN": "圆圈"
         },
         "CLUB": {
@@ -3931,6 +4619,8 @@ const constantValues =
             "fr-FR": "Trèfle",
             "ja-JP": "棍棒",
             "pt-BR": "Paus",
+            "th-TH": "ดอกจิก",
+            "tr-TR": "Sinek",
             "zh-CN": "梅花"
         },
         "DIAMOND": {
@@ -3944,6 +4634,8 @@ const constantValues =
             "fr-FR": "Carreau",
             "ja-JP": "ダイヤモンド",
             "pt-BR": "Ouros",
+            "th-TH": "ข้าวหลามตัด",
+            "tr-TR": "Karo",
             "zh-CN": "方块"
         },
         "DIZZY": {
@@ -3957,6 +4649,8 @@ const constantValues =
             "fr-FR": "Étourdi",
             "ja-JP": "めまい",
             "pt-BR": "Tonto",
+            "th-TH": "ตาลาย",
+            "tr-TR": "Baş Döndüren",
             "zh-CN": "晕眩"
         },
         "EXCLAMATION_MARK": {
@@ -3970,6 +4664,8 @@ const constantValues =
             "fr-FR": "Point d’exclamation",
             "ja-JP": "エクスクラメーションマーク",
             "pt-BR": "Ponto de Exclamação",
+            "th-TH": "เครื่องหมายตกใจ",
+            "tr-TR": "Ünlem İşareti",
             "zh-CN": "感叹号"
         },
         "EYE": {
@@ -3983,6 +4679,8 @@ const constantValues =
             "fr-FR": "Œil",
             "ja-JP": "眼差し",
             "pt-BR": "Olho",
+            "th-TH": "ตา",
+            "tr-TR": "Göz",
             "zh-CN": "眼睛"
         },
         "FIRE": {
@@ -3996,6 +4694,8 @@ const constantValues =
             "fr-FR": "Flamme",
             "ja-JP": "砲撃",
             "pt-BR": "Fogo",
+            "th-TH": "ยิง",
+            "tr-TR": "Ateş",
             "zh-CN": "火焰"
         },
         "FLAG": {
@@ -4009,6 +4709,8 @@ const constantValues =
             "fr-FR": "Drapeau",
             "ja-JP": "通報",
             "pt-BR": "Bandeira",
+            "th-TH": "ธง",
+            "tr-TR": "Bayrak",
             "zh-CN": "旗帜"
         },
         "HALO": {
@@ -4020,6 +4722,8 @@ const constantValues =
             "en-US": "Halo",
             "ja-JP": "光輪",
             "pt-BR": "Auréola",
+            "th-TH": "วงแหวน",
+            "tr-TR": "Hale",
             "zh-CN": "光晕"
         },
         "HAPPY": {
@@ -4033,6 +4737,8 @@ const constantValues =
             "fr-FR": "Smiley content",
             "ja-JP": "ハッピー",
             "pt-BR": "Feliz",
+            "th-TH": "สบาย",
+            "tr-TR": "Mutlu",
             "zh-CN": "高兴"
         },
         "HEART": {
@@ -4046,6 +4752,8 @@ const constantValues =
             "fr-FR": "Cœur",
             "ja-JP": "ハート",
             "pt-BR": "Copas",
+            "th-TH": "โพแดง",
+            "tr-TR": "Kupa",
             "zh-CN": "红桃"
         },
         "MOON": {
@@ -4059,6 +4767,8 @@ const constantValues =
             "fr-FR": "Lune",
             "ja-JP": "月",
             "pt-BR": "Lua",
+            "th-TH": "พระจันทร์",
+            "tr-TR": "Ay",
             "zh-CN": "满月"
         },
         "NO": {
@@ -4071,6 +4781,8 @@ const constantValues =
             "fr-FR": "Interdit",
             "ja-JP": "いいえ",
             "pt-BR": "Não",
+            "th-TH": "ไม่ใช่",
+            "tr-TR": "Hayır",
             "zh-CN": "拒绝"
         },
         "PLUS": {
@@ -4083,6 +4795,8 @@ const constantValues =
             "es-MX": "Signo de suma",
             "ja-JP": "プラス",
             "pt-BR": "Mais",
+            "th-TH": "บวก",
+            "tr-TR": "Artı",
             "zh-CN": "加号"
         },
         "POISON": {
@@ -4095,6 +4809,8 @@ const constantValues =
             "es-MX": "Veneno",
             "ja-JP": "ポイズン",
             "pt-BR": "Veneno",
+            "th-TH": "พิษ",
+            "tr-TR": "Zehir",
             "zh-CN": "剧毒"
         },
         "POISON_2": {
@@ -4107,6 +4823,8 @@ const constantValues =
             "es-MX": "Veneno 2",
             "ja-JP": "ポイズン2",
             "pt-BR": "Veneno 2",
+            "th-TH": "พิษ 2",
+            "tr-TR": "Zehir 2",
             "zh-CN": "剧毒2"
         },
         "QUESTION_MARK": {
@@ -4120,6 +4838,8 @@ const constantValues =
             "fr-FR": "Point d’interrogation",
             "ja-JP": "クエスチョンマーク",
             "pt-BR": "Ponto de Interrogação",
+            "th-TH": "เครื่องหมายคำถาม",
+            "tr-TR": "Soru İşareti",
             "zh-CN": "问号"
         },
         "RADIOACTIVE": {
@@ -4133,6 +4853,8 @@ const constantValues =
             "fr-FR": "Radioactif",
             "ja-JP": "レディオアクティブ",
             "pt-BR": "Radiativo",
+            "th-TH": "กัมมันตรังสี",
+            "tr-TR": "Radyoaktif",
             "zh-CN": "辐射"
         },
         "RECYCLE": {
@@ -4146,6 +4868,8 @@ const constantValues =
             "fr-FR": "Recyclage",
             "ja-JP": "リサイクル",
             "pt-BR": "Reciclagem",
+            "th-TH": "รีไซเคิล",
+            "tr-TR": "Geri Dönüşüm",
             "zh-CN": "回收"
         },
         "RING_THICK": {
@@ -4159,6 +4883,8 @@ const constantValues =
             "fr-FR": "Anneau épais",
             "ja-JP": "リング太",
             "pt-BR": "Anel Grosso",
+            "th-TH": "เล่นเสียงหนัก",
+            "tr-TR": "Kalın Halka",
             "zh-CN": "宽环"
         },
         "RING_THIN": {
@@ -4172,6 +4898,8 @@ const constantValues =
             "fr-FR": "Anneau fin",
             "ja-JP": "リング細",
             "pt-BR": "Anel Fino",
+            "th-TH": "เล่นเสียงเบา",
+            "tr-TR": "İnce Halka",
             "zh-CN": "细环"
         },
         "SAD": {
@@ -4185,6 +4913,8 @@ const constantValues =
             "fr-FR": "Smiley triste",
             "ja-JP": "サッド",
             "pt-BR": "Triste",
+            "th-TH": "เศร้า",
+            "tr-TR": "Üzgün",
             "zh-CN": "难过"
         },
         "SKULL": {
@@ -4198,6 +4928,8 @@ const constantValues =
             "fr-FR": "Crâne",
             "ja-JP": "スカル",
             "pt-BR": "Caveira",
+            "th-TH": "กะโหลก",
+            "tr-TR": "Kafatası",
             "zh-CN": "骷髅"
         },
         "SPADE": {
@@ -4211,6 +4943,8 @@ const constantValues =
             "fr-FR": "Pique",
             "ja-JP": "スペード",
             "pt-BR": "Espadas",
+            "th-TH": "โพดำ",
+            "tr-TR": "Maça",
             "zh-CN": "黑桃"
         },
         "SPIRAL": {
@@ -4224,6 +4958,8 @@ const constantValues =
             "fr-FR": "Spirale",
             "ja-JP": "螺旋を描く",
             "pt-BR": "Espiral",
+            "th-TH": "ก้นหอย",
+            "tr-TR": "Sarmal",
             "zh-CN": "螺旋"
         },
         "STOP": {
@@ -4236,6 +4972,8 @@ const constantValues =
             "es-MX": "Detener",
             "ja-JP": "停止",
             "pt-BR": "Parada",
+            "th-TH": "หยุด",
+            "tr-TR": "Dur",
             "zh-CN": "停止"
         },
         "TRASHCAN": {
@@ -4249,6 +4987,8 @@ const constantValues =
             "fr-FR": "Poubelle",
             "ja-JP": "ゴミ箱",
             "pt-BR": "Lata de Lixo",
+            "th-TH": "ถังขยะ",
+            "tr-TR": "Çöp Kutusu",
             "zh-CN": "垃圾箱"
         },
         "WARNING": {
@@ -4262,6 +5002,8 @@ const constantValues =
             "fr-FR": "Avertissement",
             "ja-JP": "警告",
             "pt-BR": "Aviso",
+            "th-TH": "คำเตือน",
+            "tr-TR": "Uyarı",
             "zh-CN": "警告"
         },
         "CROSS": {
@@ -4281,6 +5023,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -4290,6 +5034,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "POSITION": {
@@ -4298,6 +5044,8 @@ const constantValues =
             "es-MX": "Posición",
             "ja-JP": "位置",
             "pt-BR": "Posição",
+            "th-TH": "ตำแหน่ง",
+            "tr-TR": "Konum",
             "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
@@ -4307,6 +5055,8 @@ const constantValues =
             "fr-FR": "Position et Couleur",
             "ja-JP": "位置、色",
             "pt-BR": "Posição e Cor",
+            "th-TH": "ตำแหน่งและสี",
+            "tr-TR": "Konum ve Renk",
             "zh-CN": "位置和颜色"
         },
         "VISIBILITY": {
@@ -4316,6 +5066,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -4325,6 +5077,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
@@ -4334,6 +5088,8 @@ const constantValues =
             "fr-FR": "Visible pour et Position",
             "ja-JP": "表示される相手、位置",
             "pt-BR": "Visível para e Posição",
+            "th-TH": "มองเห็นได้ถึงและตําแหน่ง",
+            "tr-TR": "Görenler ve Konum",
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
@@ -4343,6 +5099,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Couleur",
             "ja-JP": "表示される相手、位置、色",
             "pt-BR": "Visível para Posição e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ตำแหน่ง และสี",
+            "tr-TR": "Görenler Konum ve Renk",
             "zh-CN": "可见，位置和颜色"
         }
     },
@@ -4358,6 +5116,8 @@ const constantValues =
             "fr-FR": "Annuler le mouvement contraire",
             "ja-JP": "逆モーションをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário",
+            "th-TH": "ยกเลิกการเคลื่อนที่แบบสวนทาง",
+            "tr-TR": "Zıt Hareketleri İptal Et",
             "zh-CN": "取消相反运动"
         },
         "CANCEL_CONTRARY_MOTION_XYZ": {
@@ -4371,6 +5131,8 @@ const constantValues =
             "fr-FR": "Annuler le mouvement contraire XYZ",
             "ja-JP": "逆モーションXYZをキャンセル",
             "pt-BR": "Cancelar Deslocamento Contrário XYZ",
+            "th-TH": "ยกเลิกการเคลื่อนที่แบบสวนทาง XYZ",
+            "tr-TR": "XYZ Zıt Hareketlerini İptal Et",
             "zh-CN": "取消相反运动XYZ"
         },
         "INCORPORATE_CONTRARY_MOTION": {
@@ -4384,6 +5146,8 @@ const constantValues =
             "fr-FR": "Incorporer un mouvement contraire",
             "ja-JP": "逆モーションを組み込む",
             "pt-BR": "Incorporar Deslocamento Contrário",
+            "th-TH": "รวมการเคลื่อนที่แบบสวนทาง",
+            "tr-TR": "Zıt Hareketleri Birleştir",
             "zh-CN": "合并相反运动"
         }
     },
@@ -4395,6 +5159,8 @@ const constantValues =
             "fr-FR": "Tous",
             "ja-JP": "すべて",
             "pt-BR": "Todos",
+            "th-TH": "ทั้งหมด",
+            "tr-TR": "Tümü",
             "zh-CN": "全部"
         },
         "ENEMIES": {
@@ -4404,6 +5170,8 @@ const constantValues =
             "fr-FR": "Ennemis",
             "ja-JP": "敵",
             "pt-BR": "Inimigos",
+            "th-TH": "ศัตรู",
+            "tr-TR": "Düşmanlar",
             "zh-CN": "敌人"
         },
         "NONE": {
@@ -4413,6 +5181,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         }
     },
@@ -4428,6 +5198,8 @@ const constantValues =
             "fr-FR": "Désactivé",
             "ja-JP": "OFF",
             "pt-BR": "Desligado",
+            "th-TH": "ปิด",
+            "tr-TR": "Kapalı",
             "zh-CN": "关闭"
         },
         "SURFACES": {
@@ -4440,6 +5212,8 @@ const constantValues =
             "es-MX": "Superficies",
             "ja-JP": "表面",
             "pt-BR": "Superfícies",
+            "th-TH": "พื้นผิว",
+            "tr-TR": "Yüzeyler",
             "zh-CN": "表面"
         },
         "SURFACES_AND_ALL_BARRIERS": {
@@ -4453,6 +5227,8 @@ const constantValues =
             "fr-FR": "Surfaces et toutes les barrières",
             "ja-JP": "表面とすべてのバリア",
             "pt-BR": "Superfícies e Todas as Barreiras",
+            "th-TH": "พื้นผิวและสิ่งกีดขวางทั้งหมด",
+            "tr-TR": "Yüzeyler ve Tüm Bariyerler",
             "zh-CN": "表面及全部屏障"
         },
         "SURFACES_AND_ENEMY_BARRIERS": {
@@ -4466,6 +5242,8 @@ const constantValues =
             "fr-FR": "Surfaces et barrières ennemies",
             "ja-JP": "表面と敵のバリア",
             "pt-BR": "Superfícies e Barreiras Inimigas",
+            "th-TH": "พื้นผิวและสิ่งกีดขวางศัตรู",
+            "tr-TR": "Yüzeyler ve Düşman Bariyerleri",
             "zh-CN": "表面及敌方屏障"
         }
     },
@@ -4481,6 +5259,8 @@ const constantValues =
             "fr-FR": "Par défaut",
             "ja-JP": "デフォルト",
             "pt-BR": "Padrão",
+            "th-TH": "เริ่มต้น",
+            "tr-TR": "Varsayılan",
             "zh-CN": "默认"
         },
         "OCCLUDED": {
@@ -4494,6 +5274,8 @@ const constantValues =
             "fr-FR": "Obstrué",
             "ja-JP": "オクルード",
             "pt-BR": "Ocultado",
+            "th-TH": "ถูกบดบัง",
+            "tr-TR": "Engelli",
             "zh-CN": "遮蔽"
         },
         "ALWAYS": {
@@ -4507,6 +5289,8 @@ const constantValues =
             "fr-FR": "Toujours",
             "ja-JP": "常時",
             "pt-BR": "Sempre",
+            "th-TH": "เสมอ",
+            "tr-TR": "Her Zaman",
             "zh-CN": "总是"
         }
     },
@@ -4517,6 +5301,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -4526,6 +5312,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "VALUES": {
@@ -4535,6 +5323,8 @@ const constantValues =
             "fr-FR": "Valeurs",
             "ja-JP": "値",
             "pt-BR": "Valores",
+            "th-TH": "ค่า",
+            "tr-TR": "Değerler",
             "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
@@ -4544,6 +5334,8 @@ const constantValues =
             "fr-FR": "Valeurs et Couleur",
             "ja-JP": "値、色",
             "pt-BR": "Valores e Cor",
+            "th-TH": "ค่าและสี",
+            "tr-TR": "Değerler ve Renk",
             "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
@@ -4553,6 +5345,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -4562,6 +5356,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_VALUES": {
@@ -4571,6 +5367,8 @@ const constantValues =
             "fr-FR": "Visible pour et Valeurs",
             "ja-JP": "表示される相手、値",
             "pt-BR": "Visível para e Valores",
+            "th-TH": "มองเห็นได้สำหรับและค่า",
+            "tr-TR": "Görenler ve Değerler",
             "zh-CN": "可见和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
@@ -4580,6 +5378,8 @@ const constantValues =
             "fr-FR": "Visible pour Valeurs et Couleur",
             "ja-JP": "表示される相手、値、色",
             "pt-BR": "Visível para Valores e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ค่า และสี",
+            "tr-TR": "Görenler Değerler ve Renk",
             "zh-CN": "可见，值和颜色"
         }
     },
@@ -4590,6 +5390,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -4599,6 +5401,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "POSITION": {
@@ -4607,6 +5411,8 @@ const constantValues =
             "es-MX": "Posición",
             "ja-JP": "位置",
             "pt-BR": "Posição",
+            "th-TH": "ตำแหน่ง",
+            "tr-TR": "Konum",
             "zh-CN": "位置"
         },
         "POSITION_AND_COLOR": {
@@ -4616,6 +5422,8 @@ const constantValues =
             "fr-FR": "Position et Couleur",
             "ja-JP": "位置、色",
             "pt-BR": "Posição e Cor",
+            "th-TH": "ตำแหน่งและสี",
+            "tr-TR": "Konum ve Renk",
             "zh-CN": "位置和颜色"
         },
         "POSITION_AND_VALUES": {
@@ -4625,6 +5433,8 @@ const constantValues =
             "fr-FR": "Position et Valeurs",
             "ja-JP": "位置、値",
             "pt-BR": "Posição e Valores",
+            "th-TH": "ตำแหน่งและค่า",
+            "tr-TR": "Konum ve Değerler",
             "zh-CN": "位置和值"
         },
         "POSITION_VALUES_AND_COLOR": {
@@ -4634,6 +5444,8 @@ const constantValues =
             "fr-FR": "Position Valeurs et Couleur",
             "ja-JP": "位置、値、色",
             "pt-BR": "Posição Valores e Cor",
+            "th-TH": "ตำแหน่ง ค่า และสี",
+            "tr-TR": "Konum Değerler ve Renk",
             "zh-CN": "位置，值和颜色"
         },
         "VALUES": {
@@ -4643,6 +5455,8 @@ const constantValues =
             "fr-FR": "Valeurs",
             "ja-JP": "値",
             "pt-BR": "Valores",
+            "th-TH": "ค่า",
+            "tr-TR": "Değerler",
             "zh-CN": "值"
         },
         "VALUES_AND_COLOR": {
@@ -4652,6 +5466,8 @@ const constantValues =
             "fr-FR": "Valeurs et Couleur",
             "ja-JP": "値、色",
             "pt-BR": "Valores e Cor",
+            "th-TH": "ค่าและสี",
+            "tr-TR": "Değerler ve Renk",
             "zh-CN": "值和颜色"
         },
         "VISIBILITY": {
@@ -4661,6 +5477,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -4670,6 +5488,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
@@ -4679,6 +5499,8 @@ const constantValues =
             "fr-FR": "Visible pour et Position",
             "ja-JP": "表示される相手、位置",
             "pt-BR": "Visível para e Posição",
+            "th-TH": "มองเห็นได้ถึงและตําแหน่ง",
+            "tr-TR": "Görenler ve Konum",
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_VALUES": {
@@ -4688,6 +5510,8 @@ const constantValues =
             "fr-FR": "Visible pour et Valeurs",
             "ja-JP": "表示される相手、値",
             "pt-BR": "Visível para e Valores",
+            "th-TH": "มองเห็นได้สำหรับและค่า",
+            "tr-TR": "Görenler ve Değerler",
             "zh-CN": "可见和值"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
@@ -4697,6 +5521,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Couleur",
             "ja-JP": "表示される相手、位置、色",
             "pt-BR": "Visível para Posição e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ตำแหน่ง และสี",
+            "tr-TR": "Görenler Konum ve Renk",
             "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_VALUES": {
@@ -4706,6 +5532,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Valeurs",
             "ja-JP": "表示される相手、位置、値",
             "pt-BR": "Visível para Posição e Valores",
+            "th-TH": "มองเห็นได้สำหรับ ตำแหน่ง และค่า",
+            "tr-TR": "Görenler Konum ve Değerler",
             "zh-CN": "可见，位置和值"
         },
         "VISIBILITY_VALUES_AND_COLOR": {
@@ -4715,6 +5543,8 @@ const constantValues =
             "fr-FR": "Visible pour Valeurs et Couleur",
             "ja-JP": "表示される相手、値、色",
             "pt-BR": "Visível para Valores e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ค่า และสี",
+            "tr-TR": "Görenler Değerler ve Renk",
             "zh-CN": "可见，值和颜色"
         },
         "VISIBILITY_POSITION_VALUES_AND_COLOR": {
@@ -4724,6 +5554,8 @@ const constantValues =
             "fr-FR": "Visible pour Position Valeurs et Couleur",
             "ja-JP": "表示される相手、位置、値、色",
             "pt-BR": "Visível para Posição Valores e Cor",
+            "th-TH": "มองเห็นได้ต่อ ตำแหน่ง ค่า และสี",
+            "tr-TR": "Görenler Konum ve Değer ve Renk",
             "zh-CN": "可见，位置，值和颜色"
         }
     },
@@ -4739,6 +5571,8 @@ const constantValues =
             "fr-FR": "Au joueur",
             "ja-JP": "対プレイヤー: ",
             "pt-BR": "Ao Jogador",
+            "th-TH": "ไปยังผู้เล่น",
+            "tr-TR": "Oyuncu'ya",
             "zh-CN": "至玩家"
         },
         "TO_WORLD": {
@@ -4752,6 +5586,8 @@ const constantValues =
             "fr-FR": "Au monde",
             "ja-JP": "対ワールド: ",
             "pt-BR": "Ao Mundo",
+            "th-TH": "ไปยังโลก",
+            "tr-TR": "Dünya'ya",
             "zh-CN": "至地图"
         }
     },
@@ -4767,6 +5603,8 @@ const constantValues =
             "fr-FR": "Visibilité par défaut",
             "ja-JP": "デフォルト表示",
             "pt-BR": "Visibilidade-padrão",
+            "th-TH": "การมองเห็นตามค่าเริ่มต้น",
+            "tr-TR": "Varsayılan Görünürlük",
             "zh-CN": "默认可见度"
         },
         "ALWAYS": {
@@ -4780,6 +5618,8 @@ const constantValues =
             "fr-FR": "Toujours visible",
             "ja-JP": "常に表示",
             "pt-BR": "Sempre Visível",
+            "th-TH": "มองเห็นเสมอ",
+            "tr-TR": "Her Zaman Görülebilir",
             "zh-CN": "始终可见"
         },
         "NEVER": {
@@ -4793,6 +5633,8 @@ const constantValues =
             "fr-FR": "Jamais visible",
             "ja-JP": "表示されない",
             "pt-BR": "Nunca Visível",
+            "th-TH": "มองไม่เห็นเลย",
+            "tr-TR": "Asla Görülemez",
             "zh-CN": "始终不可见"
         }
     },
@@ -4808,6 +5650,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés tous",
             "ja-JP": "与ダメージ（全体）",
             "pt-BR": "Todo o dano causado",
+            "th-TH": "ความเสียหายที่สร้างทั้งหมด",
+            "tr-TR": "Verilen Toplam Hasar",
             "zh-CN": "所有造成伤害量"
         },
         "BARRIER_DAMAGE_DEALT": {
@@ -4817,6 +5661,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés aux écrans",
             "ja-JP": "バリア与ダメージ",
             "pt-BR": "Dano causado a barreiras",
+            "th-TH": "ความเสียหายต่อบาเรียที่สร้าง",
+            "tr-TR": "Verilen Bariyer Hasarı",
             "zh-CN": "对屏障造成伤害量"
         },
         "DAMAGE_BLOCKED": {
@@ -4826,6 +5672,8 @@ const constantValues =
             "fr-FR": "Dégâts bloqués",
             "ja-JP": "ブロックしたダメージ",
             "pt-BR": "Dano bloqueado",
+            "th-TH": "ความเสียหายที่ถูกบล็อค",
+            "tr-TR": "Engellenen Hasar",
             "zh-CN": "阻挡伤害量"
         },
         "DAMAGE_TAKEN": {
@@ -4835,6 +5683,8 @@ const constantValues =
             "fr-FR": "Dégâts subis",
             "ja-JP": "受けたダメージ",
             "pt-BR": "Dano recebido",
+            "th-TH": "ความเสียหายที่ได้รับ",
+            "tr-TR": "Alınan Hasar",
             "zh-CN": "承受伤害量"
         },
         "DEATHS": {
@@ -4844,6 +5694,8 @@ const constantValues =
             "fr-FR": "Morts",
             "ja-JP": "デス",
             "pt-BR": "Mortes",
+            "th-TH": "ตาย",
+            "tr-TR": "Ölüm",
             "zh-CN": "阵亡"
         },
         "ELIMINATIONS": {
@@ -4853,6 +5705,8 @@ const constantValues =
             "fr-FR": "Éliminations",
             "ja-JP": "エリミネーション",
             "pt-BR": "Eliminações",
+            "th-TH": "การกำจัด",
+            "tr-TR": "Bertaraf",
             "zh-CN": "消灭"
         },
         "DEFENSIVE_ASSISTS": {
@@ -4862,6 +5716,8 @@ const constantValues =
             "fr-FR": "Soutiens défensifs",
             "ja-JP": "防衛アシスト",
             "pt-BR": "Assistências defensivas",
+            "th-TH": "ช่วยเหลือขณะสนับสนุน",
+            "tr-TR": "Defansif Asist",
             "zh-CN": "协助防守"
         },
         "FINAL_BLOWS": {
@@ -4871,6 +5727,8 @@ const constantValues =
             "fr-FR": "Coups de grâce",
             "ja-JP": "ファイナル・ブロウ",
             "pt-BR": "Golpes finais",
+            "th-TH": "โจมตีสังหาร",
+            "tr-TR": "Son Vuruş",
             "zh-CN": "最后一击"
         },
         "ENVIRONMENTAL_DEATHS": {
@@ -4880,6 +5738,8 @@ const constantValues =
             "fr-FR": "Morts dues à l’environnement",
             "ja-JP": "環境デス",
             "pt-BR": "Mortes no ambiente",
+            "th-TH": "ตายเพราะสภาพแวดล้อม",
+            "tr-TR": "Çevresel Ölüm",
             "zh-CN": "地形阵亡"
         },
         "ENVIRONMENTAL_KILLS": {
@@ -4889,6 +5749,8 @@ const constantValues =
             "fr-FR": "Victimes dues à l’environnement",
             "ja-JP": "環境キル",
             "pt-BR": "Abates no ambiente",
+            "th-TH": "ฆ่าด้วยสภาพแวดล้อม",
+            "tr-TR": "Çevresel Öldürüş",
             "zh-CN": "地形消灭"
         },
         "HERO_DAMAGE_DEALT": {
@@ -4902,6 +5764,8 @@ const constantValues =
             "fr-FR": "Dégâts infligés aux héros",
             "ja-JP": "ヒーロー与ダメージ",
             "pt-BR": "Dano causado a heróis",
+            "th-TH": "ความเสียหายที่สร้างต่อฮีโร่",
+            "tr-TR": "Verilen Kahraman Hasarı",
             "zh-CN": "对英雄造成伤害量"
         },
         "HEALING_DEALT": {
@@ -4911,6 +5775,8 @@ const constantValues =
             "fr-FR": "Soins prodigués",
             "ja-JP": "回復（相手）",
             "pt-BR": "Cura concedida",
+            "th-TH": "การฮีลที่สร้าง",
+            "tr-TR": "Verilen İyileştirme",
             "zh-CN": "治疗量"
         },
         "MULTIKILL_BEST": {
@@ -4921,6 +5787,8 @@ const constantValues =
             "it-IT": "Multikill - Best",
             "ja-JP": "最高マルチキル",
             "pt-BR": "Abates múltiplos - melhor",
+            "th-TH": "จำนวนสังหารหมู่ที่ดีที่สุด",
+            "tr-TR": "En İyi Çoklu Öldürme",
             "zh-CN": "最佳瞬间消灭"
         },
         "MULTIKILLS": {
@@ -4930,6 +5798,8 @@ const constantValues =
             "fr-FR": "Victimes simultanées",
             "ja-JP": "マルチキル",
             "pt-BR": "Abates múltiplos",
+            "th-TH": "สังหารหมู่",
+            "tr-TR": "Çoklu Öldürme",
             "zh-CN": "瞬间消灭"
         },
         "OBJECTIVE_KILLS": {
@@ -4939,6 +5809,8 @@ const constantValues =
             "fr-FR": "Victimes sur objectif",
             "ja-JP": "目標キル",
             "pt-BR": "Abates de objetivo",
+            "th-TH": "การฆ่าภายในเป้าหมาย",
+            "tr-TR": "Hedef Öldürüşleri",
             "zh-CN": "目标攻防消灭"
         },
         "OFFENSIVE_ASSISTS": {
@@ -4948,6 +5820,8 @@ const constantValues =
             "fr-FR": "Soutiens offensifs",
             "ja-JP": "攻撃アシスト",
             "pt-BR": "Assistências ofensivas",
+            "th-TH": "ช่วยเหลือขณะโจมตี",
+            "tr-TR": "Ofansif Asist",
             "zh-CN": "协助进攻"
         },
         "SOLO_KILLS": {
@@ -4957,6 +5831,8 @@ const constantValues =
             "fr-FR": "Victimes en solo",
             "ja-JP": "単独キル",
             "pt-BR": "Abates individuais",
+            "th-TH": "ฆ่าแบบลุยเดี่ยว",
+            "tr-TR": "Tek Başına Öldürüş",
             "zh-CN": "单独消灭"
         },
         "ULTIMATES_EARNED": {
@@ -4966,6 +5842,8 @@ const constantValues =
             "fr-FR": "Capacités ultimes obtenues",
             "ja-JP": "アルティメット獲得",
             "pt-BR": "Supremas recebidas",
+            "th-TH": "อัลติเมทที่ได้รับ",
+            "tr-TR": "Kazanılan Ultiler",
             "zh-CN": "获得终极技能"
         },
         "ULTIMATES_USED": {
@@ -4975,6 +5853,8 @@ const constantValues =
             "fr-FR": "Capacités ultimes utilisées",
             "ja-JP": "アルティメット使用",
             "pt-BR": "Supremas lançadas",
+            "th-TH": "อัลติเมทที่ใช้",
+            "tr-TR": "Kullanılan Ultiler",
             "zh-CN": "使用终极技能"
         },
         "WEAPON_ACCURACY": {
@@ -4984,6 +5864,8 @@ const constantValues =
             "fr-FR": "Précision",
             "ja-JP": "武器命中率",
             "pt-BR": "Precisão da arma",
+            "th-TH": "ความแม่นยำในการใช้อาวุธ",
+            "tr-TR": "Silah İsabetliliği",
             "zh-CN": "武器命中率"
         }
     },
@@ -4999,6 +5881,8 @@ const constantValues =
             "fr-FR": "Endormi",
             "ja-JP": "眠っている",
             "pt-BR": "Dormindo",
+            "th-TH": "ง่วง",
+            "tr-TR": "Uyuyor",
             "zh-CN": "沉睡"
         },
         "BURNING": {
@@ -5012,6 +5896,8 @@ const constantValues =
             "fr-FR": "Enflammé",
             "ja-JP": "燃焼中",
             "pt-BR": "Queimando",
+            "th-TH": "เผาไหม้",
+            "tr-TR": "Yakan",
             "zh-CN": "点燃"
         },
         "FROZEN": {
@@ -5025,6 +5911,8 @@ const constantValues =
             "fr-FR": "Gelé",
             "ja-JP": "凍っている",
             "pt-BR": "Congelado",
+            "th-TH": "แช่แข็ง",
+            "tr-TR": "Donan",
             "zh-CN": "冰冻"
         },
         "HACKED": {
@@ -5038,6 +5926,8 @@ const constantValues =
             "fr-FR": "Piraté",
             "ja-JP": "ハックされている",
             "pt-BR": "Hackeado",
+            "th-TH": "แฮ็คแล้ว",
+            "tr-TR": "Hack'lendi",
             "zh-CN": "被入侵"
         },
         "INVINCIBLE": {
@@ -5050,6 +5940,8 @@ const constantValues =
             "es-MX": "Invencible",
             "ja-JP": "無敵",
             "pt-BR": "Invencível",
+            "th-TH": "คงกระพัน",
+            "tr-TR": "Yok Edilemez",
             "zh-CN": "无敌"
         },
         "KNOCKED_DOWN": {
@@ -5063,6 +5955,8 @@ const constantValues =
             "fr-FR": "Renversé",
             "ja-JP": "ノックダウンされている",
             "pt-BR": "Nocauteado",
+            "th-TH": "ล้มแล้ว",
+            "tr-TR": "Düşürüldü",
             "zh-CN": "击倒"
         },
         "PHASED_OUT": {
@@ -5076,6 +5970,8 @@ const constantValues =
             "fr-FR": "Déphasé",
             "ja-JP": "フェーズアウト中",
             "pt-BR": "Intangível",
+            "th-TH": "เลิกใช้แล้ว",
+            "tr-TR": "Kademeli Azalan",
             "zh-CN": "相移"
         },
         "ROOTED": {
@@ -5089,6 +5985,8 @@ const constantValues =
             "fr-FR": "Immobilisé",
             "ja-JP": "固定されている",
             "pt-BR": "Enraizado",
+            "th-TH": "ราก",
+            "tr-TR": "Sabit",
             "zh-CN": "定身"
         },
         "STUNNED": {
@@ -5102,6 +6000,8 @@ const constantValues =
             "fr-FR": "Étourdi",
             "ja-JP": "スタンされている",
             "pt-BR": "Atordoado",
+            "th-TH": "ถูกสตัน",
+            "tr-TR": "Sersemletilen",
             "zh-CN": "击晕"
         },
         "UNKILLABLE": {
@@ -5115,6 +6015,8 @@ const constantValues =
             "fr-FR": "Intuable",
             "ja-JP": "キル不可",
             "pt-BR": "Imortal",
+            "th-TH": "ฆ่าไม่ตาย",
+            "tr-TR": "Öldürülemez",
             "zh-CN": "无法杀死"
         }
     },
@@ -5126,6 +6028,8 @@ const constantValues =
             "fr-FR": "Équipe 1",
             "ja-JP": "チーム1",
             "pt-BR": "Equipe 1",
+            "th-TH": "ทีม 1",
+            "tr-TR": "1. Takım",
             "zh-CN": "队伍1"
         },
         "2": {
@@ -5135,6 +6039,8 @@ const constantValues =
             "fr-FR": "Équipe 2",
             "ja-JP": "チーム2",
             "pt-BR": "Equipe 2",
+            "th-TH": "ทีม 2",
+            "tr-TR": "2. Takım",
             "zh-CN": "队伍2"
         },
         "ALL": {
@@ -5144,6 +6050,8 @@ const constantValues =
             "fr-FR": "Toutes les équipes",
             "ja-JP": "すべてのチーム",
             "pt-BR": "Todas as Equipes",
+            "th-TH": "ทุกทีม",
+            "tr-TR": "Tüm Takımlar",
             "zh-CN": "所有队伍"
         }
     },
@@ -5155,6 +6063,8 @@ const constantValues =
             "fr-FR": "Remplacer l’accélération existante",
             "ja-JP": "既存のスロットルと入れ替え",
             "pt-BR": "Substituir a aceleração existente",
+            "th-TH": "แทนที่คันบังคับที่มีอยู่",
+            "tr-TR": "Mevcut hızlandırmayı değiştir",
             "zh-CN": "替换现有阈值"
         },
         "ADD_TO_EXISTING": {
@@ -5164,6 +6074,8 @@ const constantValues =
             "fr-FR": "Ajouter à l’accélération existante",
             "ja-JP": "既存のスロットルに追加",
             "pt-BR": "Somar à aceleração existente",
+            "th-TH": "เพิ่มไปยังคันบังคับที่มีอยู่",
+            "tr-TR": "Mevcut hızlandırmaya ekle",
             "zh-CN": "添加至现有阈值"
         }
     },
@@ -5175,6 +6087,8 @@ const constantValues =
             "fr-FR": "Direction et ampleur",
             "ja-JP": "方向と変化の大きさ",
             "pt-BR": "Direção e Magnitude",
+            "th-TH": "ทิศทางและขนาด",
+            "tr-TR": "Yön ve Büyüklük",
             "zh-CN": "方向和幅度"
         },
         "NONE": {
@@ -5184,6 +6098,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Nenhum",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         }
     },
@@ -5198,6 +6114,8 @@ const constantValues =
             "es-MX": "Rotación",
             "ja-JP": "回転",
             "pt-BR": "Rotação",
+            "th-TH": "การหมุน",
+            "tr-TR": "Rotasyon",
             "zh-CN": "旋转"
         },
         "ROTATION_AND_TRANSLATION": {
@@ -5211,6 +6129,8 @@ const constantValues =
             "fr-FR": "Rotation et Translation",
             "ja-JP": "回転と平行移動",
             "pt-BR": "Rotação e Translação",
+            "th-TH": "การหมุนและการแปล",
+            "tr-TR": "Rotasyon ve Çeviri",
             "zh-CN": "旋转并转换"
         }
     },
@@ -5229,6 +6149,8 @@ const constantValues =
             "ja-JP": "「FALSE」の場合中止",
             "pl-PL": "Przerwij kiedy to fałsz",
             "pt-BR": "Anular Quando For Falso",
+            "th-TH": "ล้มเลิกเมื่อเป็นเท็จ",
+            "tr-TR": "Yanlış Olduğunda Yarıda Kes",
             "zh-CN": "当为“假”时中止"
         },
         "IGNORE_CONDITION": {
@@ -5245,6 +6167,8 @@ const constantValues =
             "ja-JP": "条件無視",
             "pl-PL": "Zignoruj warunek",
             "pt-BR": "Ignorar Condição",
+            "th-TH": "ละเว้นเงื่อนไข",
+            "tr-TR": "Koşulu Dikkate Alma",
             "zh-CN": "无视条件"
         },
         "RESTART_WHEN_TRUE": {
@@ -5261,6 +6185,8 @@ const constantValues =
             "ja-JP": "「TRUE」の場合リスタート",
             "pl-PL": "Zrestartuj kiedy to prawda",
             "pt-BR": "Reiniciar Quando For Verdadeiro",
+            "th-TH": "รีสตาร์ทเมื่อเป็นจริง",
+            "tr-TR": "Doğru Olduğunda Yeniden Başlat",
             "zh-CN": "当为“真”时重新开始"
         }
     },
@@ -5271,6 +6197,8 @@ const constantValues =
             "fr-FR": "Couleur",
             "ja-JP": "色",
             "pt-BR": "Cor",
+            "th-TH": "สี",
+            "tr-TR": "Renk",
             "zh-CN": "颜色"
         },
         "NONE": {
@@ -5280,6 +6208,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Ninguém",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "无"
         },
         "STRING": {
@@ -5288,6 +6218,8 @@ const constantValues =
             "es-MX": "Cadena",
             "fr-FR": "Chaîne de texte",
             "ja-JP": "文字列",
+            "th-TH": "สตริง",
+            "tr-TR": "Dizgi",
             "zh-CN": "字符串"
         },
         "STRING_AND_COLOR": {
@@ -5298,6 +6230,8 @@ const constantValues =
             "it-IT": " String and Color",
             "ja-JP": "文字列、色",
             "pt-BR": "String e Cor",
+            "th-TH": "สตริงและสี",
+            "tr-TR": "Dizgi ve Renk",
             "zh-CN": "字符串和颜色"
         },
         "VISIBILITY": {
@@ -5307,6 +6241,8 @@ const constantValues =
             "fr-FR": "Visible pour",
             "ja-JP": "目視可能: ",
             "pt-BR": "Visível para",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
             "zh-CN": "可见"
         },
         "VISIBILITY_AND_COLOR": {
@@ -5316,6 +6252,8 @@ const constantValues =
             "fr-FR": "Visible pour et Couleur",
             "ja-JP": "表示される相手、色",
             "pt-BR": "Visível para e Cor",
+            "th-TH": "มองเห็นได้สำหรับและสี",
+            "tr-TR": "Görenler ve Renk",
             "zh-CN": "可见和颜色"
         },
         "VISIBILITY_AND_POSITION": {
@@ -5325,6 +6263,8 @@ const constantValues =
             "fr-FR": "Visible pour et Position",
             "ja-JP": "表示される相手、位置",
             "pt-BR": "Visível para e Posição",
+            "th-TH": "มองเห็นได้ถึงและตําแหน่ง",
+            "tr-TR": "Görenler ve Konum",
             "zh-CN": "可见和位置"
         },
         "VISIBILITY_AND_STRING": {
@@ -5334,6 +6274,8 @@ const constantValues =
             "fr-FR": "Visible pour et Chaîne de texte",
             "ja-JP": "表示される相手、文字列",
             "pt-BR": "Visível para e String",
+            "th-TH": "มองเห็นได้สำหรับและสตริง",
+            "tr-TR": "Görenler ve Dizgi",
             "zh-CN": "可见和字符串"
         },
         "VISIBILITY_POSITION_AND_COLOR": {
@@ -5343,6 +6285,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Couleur",
             "ja-JP": "表示される相手、位置、色",
             "pt-BR": "Visível para Posição e Cor",
+            "th-TH": "มองเห็นได้สำหรับ ตำแหน่ง และสี",
+            "tr-TR": "Görenler Konum ve Renk",
             "zh-CN": "可见，位置和颜色"
         },
         "VISIBILITY_POSITION_AND_STRING": {
@@ -5352,6 +6296,8 @@ const constantValues =
             "fr-FR": "Visible pour Position et Chaîne de texte",
             "ja-JP": "表示される相手、位置、文字列",
             "pt-BR": "Visível para Posição e String",
+            "th-TH": "มองเห็นได้ถึง ตําแหน่ง และสตริง",
+            "tr-TR": "Görenler Konum ve Dizgi",
             "zh-CN": "可见，位置和字符串"
         },
         "VISIBILITY_STRING_AND_COLOR": {
@@ -5361,6 +6307,8 @@ const constantValues =
             "fr-FR": "Visible pour Chaîne de texte et Couleur",
             "ja-JP": "表示される相手、文字列、色",
             "pt-BR": "Visível para String e Cor",
+            "th-TH": "มองเห็นได้สำหรับ สตริง และสี",
+            "tr-TR": "Görenler Dizgi ve Renk",
             "zh-CN": "可见，字符串和颜色"
         },
         "VISIBILITY_POSITION_STRING_AND_COLOR": {
@@ -5370,6 +6318,8 @@ const constantValues =
             "fr-FR": "Visible pour Position Chaîne de texte et Couleur",
             "ja-JP": "表示される相手、位置、文字列、色",
             "pt-BR": "Visível para Posição String e Cor",
+            "th-TH": "มองเห็นได้ถึง ตําแหน่ง สตริง และสี",
+            "tr-TR": "Görenler Konum Dizgi ve Renk",
             "zh-CN": "可见，位置，字符串和颜色"
         }
     },
@@ -5381,6 +6331,8 @@ const constantValues =
             "fr-FR": "Destination et Taux",
             "ja-JP": "目的とレート",
             "pt-BR": "Destino e Taxa",
+            "th-TH": "ปลายทางและอัตรา",
+            "tr-TR": "Varış Noktası ve Oran",
             "zh-CN": "速率及最终值"
         },
         "NONE": {
@@ -5390,6 +6342,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Nenhuma",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "全部禁用"
         }
     },
@@ -5401,6 +6355,8 @@ const constantValues =
             "fr-FR": "Destination et Durée",
             "ja-JP": "目的と持続時間",
             "pt-BR": "Destino e Duração",
+            "th-TH": "ปลายทางและระยะเวลา",
+            "tr-TR": "Varış Noktası ve Süre",
             "zh-CN": "终点及持续时间"
         },
         "NONE": {
@@ -5410,6 +6366,8 @@ const constantValues =
             "fr-FR": "Aucune",
             "ja-JP": "なし",
             "pt-BR": "Nenhuma",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
             "zh-CN": "全部禁用"
         }
     },
@@ -5421,6 +6379,8 @@ const constantValues =
             "fr-FR": "Addition",
             "ja-JP": "追加",
             "pt-BR": "Adicionar",
+            "th-TH": "เพิ่ม",
+            "tr-TR": "Topla",
             "zh-CN": "加"
         },
         "__appendToArray__": {
@@ -5430,6 +6390,8 @@ const constantValues =
             "fr-FR": "Ajouter au tableau",
             "ja-JP": "配列に追加",
             "pt-BR": "Juntar à Matriz",
+            "th-TH": "เพิ่มเข้าในอาร์เรย์",
+            "tr-TR": "Dizine Ekle",
             "zh-CN": "添加至数组"
         },
         "__divide__": {
@@ -5439,6 +6401,8 @@ const constantValues =
             "fr-FR": "Division",
             "ja-JP": "割る",
             "pt-BR": "Dividir",
+            "th-TH": "หาร",
+            "tr-TR": "Böl",
             "zh-CN": "除"
         },
         "__max__": {
@@ -5448,6 +6412,8 @@ const constantValues =
             "fr-FR": "Maximum",
             "ja-JP": "最大",
             "pt-BR": "Máx.",
+            "th-TH": "สูงสุด",
+            "tr-TR": "Maks.",
             "zh-CN": "最大"
         },
         "__min__": {
@@ -5457,6 +6423,8 @@ const constantValues =
             "fr-FR": "Minimum",
             "ja-JP": "最小",
             "pt-BR": "Mín.",
+            "th-TH": "ต่ำสุด",
+            "tr-TR": "Min.",
             "zh-CN": "最小"
         },
         "__modulo__": {
@@ -5465,6 +6433,8 @@ const constantValues =
             "es-MX": "Módulo",
             "ja-JP": "剰余",
             "pt-BR": "Modular",
+            "th-TH": "โมดูโล",
+            "tr-TR": "Modülo",
             "zh-CN": "余数"
         },
         "__multiply__": {
@@ -5474,6 +6444,8 @@ const constantValues =
             "fr-FR": "Multiplication",
             "ja-JP": "掛ける",
             "pt-BR": "Multiplicar",
+            "th-TH": "คูณ",
+            "tr-TR": "Çarp",
             "zh-CN": "乘"
         },
         "__raiseToPower__": {
@@ -5483,6 +6455,8 @@ const constantValues =
             "fr-FR": "Élévation à une puissance ",
             "ja-JP": "冪乗",
             "pt-BR": "Elevar à Potência",
+            "th-TH": "เพิ่มไปเป็นพลัง",
+            "tr-TR": "Üssünü Al",
             "zh-CN": "乘方"
         },
         "__removeFromArrayByIndex__": {
@@ -5492,6 +6466,8 @@ const constantValues =
             "fr-FR": "Supprimer du tableau par index",
             "ja-JP": "インデックスを配列から削除",
             "pt-BR": "Remover da Matriz por Índice",
+            "th-TH": "นำออกจากอาร์เรย์ตามดัชนี",
+            "tr-TR": "İndeks Dizininden Kaldır",
             "zh-CN": "根据索引从数组中移除"
         },
         "__removeFromArrayByValue__": {
@@ -5501,6 +6477,8 @@ const constantValues =
             "fr-FR": "Supprimer du tableau par valeur",
             "ja-JP": "削除",
             "pt-BR": "Remover da Matriz por Valor",
+            "th-TH": "นำออกจากอาร์เรย์ตามค่า",
+            "tr-TR": "Değer Dizininden Kaldır",
             "zh-CN": "根据值从数组中移除"
         },
         "__subtract__": {
@@ -5510,6 +6488,8 @@ const constantValues =
             "fr-FR": "Soustraction",
             "ja-JP": "引く",
             "pt-BR": "Subtrair",
+            "th-TH": "ลบ",
+            "tr-TR": "Çıkar",
             "zh-CN": "减"
         }
     },
@@ -5541,6 +6521,8 @@ const constantValues =
             "fr-FR": "Au-dessus",
             "ja-JP": "上",
             "pt-BR": "Cima",
+            "th-TH": "ขึ้น",
+            "tr-TR": "At",
             "zh-CN": "上"
         },
         "__roundDown__": {
@@ -5550,6 +6532,8 @@ const constantValues =
             "fr-FR": "En dessous",
             "ja-JP": "下",
             "pt-BR": "Baixo",
+            "th-TH": "ลง",
+            "tr-TR": "Ekle",
             "zh-CN": "下"
         },
         "__roundToNearest__": {
@@ -5559,104 +6543,499 @@ const constantValues =
             "fr-FR": "Au plus près",
             "ja-JP": "最も近い数値へ",
             "pt-BR": "Ao Mais Próximo",
+            "th-TH": "ปักเป็นค่าใกล้ที่สุด",
+            "tr-TR": "En Yakına",
             "zh-CN": "至最近"
         }
     },
     "ModifyHealth": {
         "DAMAGE": {
+            "guid": "000000002A19",
             "en-US": "Damage",
+            "de-DE": "Schaden",
+            "es-ES": "Daño",
+            "es-MX": "Daño",
+            "fr-FR": "Dégâts",
+            "it-IT": "Attacco",
+            "ja-JP": "ダメージ",
+            "ko-KR": "공격",
+            "pl-PL": "Natarcie",
+            "pt-BR": "Dano",
+            "ru-RU": "Урон",
+            "th-TH": "สร้างความเสียหาย",
+            "tr-TR": "Hasar",
+            "zh-CN": "输出",
+            "zh-TW": "攻擊"
         },
         "HEAL": {
+            "guid": "000000007875",
             "en-US": "Heal",
+            "es-MX": "Sanar",
+            "fr-FR": "Soigner",
+            "ja-JP": "回復",
+            "pt-BR": "Cura",
+            "th-TH": "ฮีล",
+            "tr-TR": "İyileştir",
+            "zh-CN": "治疗"
         }
     },
     "Projectile": {
         "ORB": {
+            "guid": "00000001978B",
             "en-US": "Orb Projectile",
+            "es-MX": "Proyectil del Orbe",
+            "fr-FR": "Projectile d’Orbe",
+            "ja-JP": "オーブ投射物",
+            "ko-KR": "구형 투사체",
+            "pl-PL": "Pocisk typu kula",
+            "pt-BR": "Projétil Orbe",
+            "th-TH": "ลูกแก้วโพรเจกไทล์",
+            "tr-TR": "Küre Atılır Cisim",
+            "zh-CN": "球弹道",
+            "zh-TW": "珠狀拋射物"
         },
         "BAPTISTE_BIOTIC_LAUNCHER": {
+            "guid": "00000001A8DF",
             "en-US": "Baptiste Biotic Launcher",
+            "de-DE": "Baptistes Biotikwerfer",
+            "es-ES": "Lanzagranadas biótico de Baptiste",
+            "es-MX": "Disparador biótico de Baptiste",
+            "fr-FR": "Bio-lanceur de Baptiste",
+            "it-IT": "Lanciagranate Biotico di Baptiste",
+            "ja-JP": "バティストの〈バイオティック・ランチャー〉",
+            "ko-KR": "바티스트 생체탄 발사기",
+            "pl-PL": "Miotacz Biotyczny Baptiste’a",
+            "pt-BR": "Lançador Biótico do Baptiste",
+            "th-TH": "ไบโอติกลันเชอร์ของบัปทิสต์",
+            "tr-TR": "Baptiste Biyotop Tüfeği",
+            "zh-CN": "巴蒂斯特生化榴弹枪",
+            "zh-TW": "巴帝斯特生化發射器"
         },
         "BASTION_TACTICAL_GRENADE": {
+            "guid": "00000001A8E7",
             "en-US": "Bastion A-36 Tactical Grenade",
+            "de-DE": "Bastions Taktische Granate A-36",
+            "es-ES": "Granada táctica A-36 de Bastion",
+            "es-MX": "Granada táctica A-36 de Bastion",
+            "fr-FR": "Grenade tactique A-36 de Bastion",
+            "it-IT": "Granata Tattica A-36 di Bastion",
+            "ja-JP": "バスティオンの〈A-36タクティカル・グレネード〉",
+            "ko-KR": "바스티온 A-36 전술 수류탄",
+            "pl-PL": "Granat Taktyczny A-36 Bastiona",
+            "pt-BR": "Granada Tática A-36 do Bastion",
+            "th-TH": "A-36 แทคติคอลเกรเนดของแบสเชียน",
+            "tr-TR": "Bastion A-36 Taktiksel Bomba",
+            "zh-CN": "“堡垒”A-36战术榴弹",
+            "zh-TW": "壁壘機兵A-36戰術榴彈"
         },
         "ECHO_STICKY_BOMB": {
+            "guid": "00000001A8DA",
             "en-US": "Echo Sticky Bomb",
+            "de-DE": "Echos Haftbombe",
+            "es-ES": "Bombas lapa de Echo",
+            "es-MX": "Bomba pegajosa de Echo",
+            "fr-FR": "Bombe collante d’Écho",
+            "it-IT": "Bomba Adesiva di Echo",
+            "ja-JP": "エコーの〈スティッキー・ボム〉",
+            "ko-KR": "에코 점착 폭탄",
+            "pl-PL": "Bomba Przyczepna Echo",
+            "pt-BR": "Bomba Aderente da Echo",
+            "th-TH": "สติ๊กกี้บอมบ์ของเอ็คโค่",
+            "tr-TR": "Echo Yapışkan Bomba",
+            "zh-CN": "“回声”黏性炸弹",
+            "zh-TW": "迴音黏性炸彈"
         },
         "GENJI_SHURIKEN": {
+            "guid": "00000001A8E9",
             "en-US": "Genji Shuriken",
+            "de-DE": "Genjis Shuriken",
+            "es-ES": "Shuriken de Genji",
+            "es-MX": "Shuriken de Genji",
+            "fr-FR": "Shuriken de Genji",
+            "it-IT": "Shuriken di Genji",
+            "ja-JP": "ゲンジの〈手裏剣〉",
+            "ko-KR": "겐지 수리검",
+            "pl-PL": "Shuriken Genjiego",
+            "pt-BR": "Shuriken do Genji",
+            "th-TH": "ชูริเคนของเก็นจิ",
+            "tr-TR": "Genji Ninja Yıldızı",
+            "zh-CN": "源氏“镖”",
+            "zh-TW": "源氏手裏劍"
         },
         "LUCIO_SONIC_AMPLIFIER": {
+            "guid": "00000001A8E8",
             "en-US": "Lucio Sonic Amplifier",
+            "de-DE": "Lúcios Schallverstärker",
+            "es-ES": "Amplificador sónico de Lúcio",
+            "es-MX": "Amplificador sónico de Lúcio",
+            "fr-FR": "Ampli de Lúcio",
+            "it-IT": "Amplificatore Sonico di Lúcio",
+            "ja-JP": "ルシオの〈ソニック・アンプリファイア〉",
+            "ko-KR": "루시우 음파 증폭기",
+            "pl-PL": "Wzmacniacz Soniczny Lúcio",
+            "pt-BR": "Amplificador Sônico do Lúcio",
+            "th-TH": "โซนิกแอมพลิไฟเออร์ของลูซิโอ",
+            "tr-TR": "Lucio Sonik Amfi",
+            "zh-CN": "卢西奥音速扩音器",
+            "zh-TW": "路西歐音波槍"
         },
         "MEI_ICICLE": {
+            "guid": "00000001A8E2",
             "en-US": "Mei Icicle",
+            "de-DE": "Meis Eiszapfen",
+            "es-ES": "Carámbano de Mei",
+            "es-MX": "Carámbano de Mei",
+            "fr-FR": "Stalactite de Mei",
+            "it-IT": "Dardo di Ghiaccio di Mei",
+            "ja-JP": "メイのつらら",
+            "ko-KR": "메이 고드름",
+            "pl-PL": "Sopel Mei",
+            "pt-BR": "Pingente de Gelo da Mei",
+            "th-TH": "ไอซิคัลของเหมย",
+            "tr-TR": "Mei Buz Dişi",
+            "zh-CN": "美冰锥",
+            "zh-TW": "小美凍霜碎片"
         },
         "MERCY_CADUCEUS_BLASTER": {
+            "guid": "00000001A8E5",
             "en-US": "Mercy Caduceus Blaster",
+            "de-DE": "Mercys Caduceus-Pistole",
+            "es-ES": "Pistola caducea de Mercy",
+            "es-MX": "Bláster caduceo de Mercy",
+            "fr-FR": "Miséricorde d’Ange",
+            "it-IT": "Caduceo Punitivo di Mercy",
+            "ja-JP": "マーシーの〈カデュケウス・ブラスター〉",
+            "ko-KR": "메르시 카두세우스 블라스터",
+            "pl-PL": "Blaster Energetyczny Łaski",
+            "pt-BR": "Desintegrador de Caduceu da Mercy",
+            "th-TH": "คาดูเซียสบลาสเตอร์ของเมอร์ซี่",
+            "tr-TR": "Mercy Kadüse Tabancası",
+            "zh-CN": "“天使”天使冲击枪",
+            "zh-TW": "慈悲天使光槍"
         },
         "MOIRA_DAMAGE_ORB": {
+            "guid": "00000001A8D9",
             "en-US": "Moira Damage Orb",
+            "de-DE": "Moiras Schadenssphäre",
+            "es-ES": "Orbe de daño de Moira",
+            "es-MX": "Orbe de daño de Moira",
+            "fr-FR": "Orbe de dégâts de Moira",
+            "it-IT": "Globo di danneggiamento di Moira",
+            "ja-JP": "モイラの〈ダメージ・オーブ〉",
+            "ko-KR": "모이라 피해 구슬",
+            "pl-PL": "Kula obrażeń Moiry",
+            "pt-BR": "Orbe de Dano da Moira",
+            "th-TH": "ดาเมจออร์บของมอยร่า",
+            "tr-TR": "Moira Hasar Küresi",
+            "zh-CN": "莫伊拉伤害生化之球",
+            "zh-TW": "莫伊拉傷害球"
         },
         "MOIRA_HEAL_ORB": {
+            "guid": "00000001A8E0",
             "en-US": "Moira Heal Orb",
+            "de-DE": "Moiras Heilsphäre",
+            "es-ES": "Orbe de sanación de Moira",
+            "es-MX": "Orbe de sanación de Moira",
+            "fr-FR": "Orbe de soins de Moira",
+            "it-IT": "Globo di cura di Moira",
+            "ja-JP": "モイラの〈ヒール・オーブ〉",
+            "ko-KR": "모이라 치유 구슬",
+            "pl-PL": "Kula leczenia Moiry",
+            "pt-BR": "Orbe de Cura da Moira",
+            "th-TH": "ฮีลออร์บของมอยร่า",
+            "tr-TR": "Moira İyileştirme Küresi",
+            "zh-CN": "莫伊拉治疗生化之球",
+            "zh-TW": "莫伊拉治療球"
         },
         "ORISA_FUSION_DRIVER": {
+            "guid": "00000001A8DD",
             "en-US": "Orisa Fusion Driver",
+            "de-DE": "Orisas Fusionskanone",
+            "es-ES": "Ametralladora de fusión de Orisa",
+            "es-MX": "Controlador de fusión de Orisa",
+            "fr-FR": "Canon à fusion d’Orisa",
+            "it-IT": "Mitragliatrice a Fusione di Orisa",
+            "ja-JP": "オリーサの〈フュージョン・ドライバー〉",
+            "ko-KR": "오리사 융합 기관포",
+            "pl-PL": "Miotacz Fuzyjny Orisy",
+            "pt-BR": "Metralhadora de Fusão da Orisa",
+            "th-TH": "ฟิวชันไดรเวอร์ของโอริซา",
+            "tr-TR": "Orisa Füzyon Derleyici",
+            "zh-CN": "奥丽莎聚变驱动器",
+            "zh-TW": "歐瑞莎核融砲"
         },
         "PHARAH_ROCKET": {
+            "guid": "00000001978F",
             "en-US": "Pharah Rocket",
+            "de-DE": "Pharah-Rakete",
+            "es-ES": "Cohete de Pharah",
+            "es-MX": "Cohete de Pharah",
+            "fr-FR": "Roquette de Pharah",
+            "it-IT": "Razzo di Pharah",
+            "ja-JP": "ファラのロケット",
+            "ko-KR": "파라 로켓",
+            "pl-PL": "Rakiety Fary",
+            "pt-BR": "Foguete da Pharah",
+            "th-TH": "จรวดของฟาราห์",
+            "tr-TR": "Pharah Roketi",
+            "zh-CN": "“法老之鹰”火箭",
+            "zh-TW": "法拉火箭"
         },
         "REINHARDT_FIRE_STRIKE": {
+            "guid": "00000001A8DB",
             "en-US": "Reinhardt Fire Strike",
+            "de-DE": "Reinhardts Feuerschlag",
+            "es-ES": "Onda de fuego de Reinhardt",
+            "es-MX": "Ataque ígneo de Reinhardt",
+            "fr-FR": "Frappe de feu de Reinhardt",
+            "it-IT": "Dardo di Fuoco di Reinhardt",
+            "ja-JP": "ラインハルトの〈ファイア・ストライク〉",
+            "ko-KR": "라인하르트 화염 강타",
+            "pl-PL": "Ogniste Uderzenie Reinhardta",
+            "pt-BR": "Tiro Flamejante do Reinhardt",
+            "th-TH": "ไฟร์สไตรก์ของไรน์ฮาร์ด",
+            "tr-TR": "Reinhardt Ateş Dalgası",
+            "zh-CN": "莱因哈特烈焰打击",
+            "zh-TW": "萊因哈特烈焰擊"
         },
         "ROADHOG_SCRAP": {
+            "guid": "00000001A8E6",
             "en-US": "Roadhog Scrap",
+            "de-DE": "Roadhogs Schrott",
+            "es-ES": "Chatarrera de Roadhog",
+            "es-MX": "Chatarra de Roadhog",
+            "fr-FR": "Déferrailleur de Chopper",
+            "it-IT": "Rottami di Roadhog",
+            "ja-JP": "ロードホッグのスクラップ",
+            "ko-KR": "로드호그 고철",
+            "pl-PL": "Szmelc Wieprza",
+            "pt-BR": "Sucata do Roadhog",
+            "th-TH": "เศษเหล็กของโร้ดฮ็อก",
+            "tr-TR": "Roadhog Hurda",
+            "zh-CN": "“路霸”爆裂枪",
+            "zh-TW": "攔路豬廢鐵"
         },
         "ROADHOG_SCRAP_BALL": {
+            "guid": "00000001A8DC",
             "en-US": "Roadhog Scrap Ball",
+            "de-DE": "Roadhogs Schrottkugel",
+            "es-ES": "Bola de chatarra de Roadhog",
+            "es-MX": "Bola de chatarra de Roadhog",
+            "fr-FR": "Boule de ferraille de Chopper",
+            "it-IT": "Sfera di Rottami di Roadhog",
+            "ja-JP": "ロードホッグのスクラップ塊",
+            "ko-KR": "로드호그 고철 공",
+            "pl-PL": "Kula Szmelcu Wieprza",
+            "pt-BR": "Bola de Sucata do Roadhog",
+            "th-TH": "บอลเศษเหล็กของโร้ดฮ็อก",
+            "tr-TR": "Roadhog Hurda Topu",
+            "zh-CN": "“路霸”爆裂枪废铁球",
+            "zh-TW": "攔路豬廢鐵球"
         },
         "SIGMA_HYPERSPHERE": {
+            "guid": "00000001A8E1",
             "en-US": "Sigma Hypersphere",
+            "de-DE": "Sigmas Hypersphäre",
+            "es-ES": "Hiperesfera de Sigma",
+            "es-MX": "Hiperesfera de Sigma",
+            "fr-FR": "Hypersphère de Sigma",
+            "it-IT": "Ipersfera di Sigma",
+            "ja-JP": "シグマの〈ハイパースフィア〉",
+            "ko-KR": "시그마 초구체",
+            "pl-PL": "Hipersfera Sigmy",
+            "pt-BR": "Hiperesfera do Sigma",
+            "th-TH": "ไฮเพอร์สเฟียร์ของซิกม่า",
+            "tr-TR": "Sigma Hiperküre",
+            "zh-CN": "西格玛超能之球",
+            "zh-TW": "席格馬超維球體"
         },
         "SYMMETRA_PHOTON_PROJECTOR": {
+            "guid": "00000001A8D8",
             "en-US": "Symmetra Photon Projector",
+            "de-DE": "Symmetras Photonenprojektor",
+            "es-ES": "Proyector de fotones de Symmetra",
+            "es-MX": "Proyector de fotones de Symmetra",
+            "fr-FR": "Projecteur à photons de Symmetra",
+            "it-IT": "Proiettore Fotonico di Symmetra",
+            "ja-JP": "シンメトラの〈フォトン・プロジェクター〉",
+            "ko-KR": "시메트라 광자 발사기",
+            "pl-PL": "Projektor Fotonowy Symmetry",
+            "pt-BR": "Projetor de Fótons da Symmetra",
+            "th-TH": "โฟตอนโพรเจกเตอร์ของซิมเมตรา",
+            "tr-TR": "Symmetra Foton Projektörü",
+            "zh-CN": "“秩序之光”光子发射器",
+            "zh-TW": "辛梅塔光子投射器"
         },
         "RAMATTRA_RAVENOUS_VORTEX_SPHERE": {
+            "guid": "00000001A8E3",
             "en-US": "Ramattra Ravenous Vortex Sphere",
+            "de-DE": "Sphäre von Ramattras Gefräßigem Wirbel",
+            "es-ES": "Esfera de Vórtice voraz de Ramattra",
+            "es-MX": "Esfera de Vórtice voraz de Ramattra",
+            "fr-FR": "Sphère du Vortex vorace de Ramattra",
+            "it-IT": "Sfera Vortice Insaziabile di Ramattra",
+            "ja-JP": "ラマットラの〈貪欲な渦〉のスフィア",
+            "ko-KR": "라마트라 걸신들린 소용돌이 구체",
+            "pl-PL": "Kula Wściekłego Wiru Ramattry",
+            "pt-BR": "Esfera do Vórtice Devorador do Ramattra",
+            "th-TH": "แรฟเวอร์นัสวอร์เทกซ์สเฟียร์ของรามัตตรา",
+            "tr-TR": "Ramattra Tükeniş Girdabı Küresi",
+            "zh-CN": "拉玛刹吞噬漩涡能量球",
+            "zh-TW": "拉瑪塔貪婪漩渦球體"
         },
         "ZARYA_GRAVITON": {
+            "guid": "00000001A8DE",
             "en-US": "Zarya Graviton",
+            "de-DE": "Zaryas Gravitonbombe",
+            "es-ES": "Bomba de gravedad de Zarya",
+            "es-MX": "Gravitón de Zarya",
+            "fr-FR": "Orbe à gravitons de Zarya",
+            "it-IT": "Bomba Gravitonica di Zarya",
+            "ja-JP": "ザリアの〈グラビトン・サージ〉",
+            "ko-KR": "자리야 중력자",
+            "pl-PL": "Grawiton Zarii",
+            "pt-BR": "Gráviton da Zarya",
+            "th-TH": "กราวิตอนของซาเรีย",
+            "zh-CN": "查莉娅重力喷涌",
+            "zh-TW": "札莉雅引力彈"
         },
         "ZARYA_PARTICLE_CANNON": {
+            "guid": "00000001A8E4",
             "en-US": "Zarya Particle Cannon",
-        },
+            "de-DE": "Zaryas Partikelkanone",
+            "es-ES": "Cañón de partículas de Zarya",
+            "es-MX": "Cañón de partículas de Zarya",
+            "fr-FR": "Canon à particules de Zarya",
+            "it-IT": "Cannone a Particelle di Zarya",
+            "ja-JP": "ザリアの〈パーティクル・キャノン〉",
+            "ko-KR": "자리야 입자포",
+            "pl-PL": "Działo Cząsteczkowe Zarii",
+            "pt-BR": "Canhão de Partículas da Zarya",
+            "th-TH": "พาร์ติเคิลแคนน่อนของซาเรีย",
+            "tr-TR": "Zarya Parçacık Topu",
+            "zh-CN": "查莉娅粒子炮",
+            "zh-TW": "札莉雅粒子砲"
+        }
     },
     "ProjectileEffectReeval": {
         "VISIBILITY_POSITION_DIRECTION_AND_SIZE": {
+            "guid": "00000001AABD",
             "en-US": "Visible To Position Direction and Size",
+            "es-MX": "Visible para posición dirección y tamaño",
+            "fr-FR": "Visible pour Position Direction et Taille",
+            "ja-JP": "表示される相手、位置、方向、サイズ",
+            "pl-PL": "Visible To Position i Values",
+            "pt-BR": "Visível para Posição Direção e Tamanho",
+            "ru-RU": "Visible To Position Direction Size",
+            "th-TH": "มองเห็นได้ต่อ ตําแหน่ง ทิศทางและขนาด",
+            "tr-TR": "Görenler Konum Yön ve Boyut",
+            "zh-CN": "友善，位置，方向和大小",
+            "zh-TW": "顯示、位置、方向和尺寸"
         },
         "POSITION_DIRECTION_AND_SIZE": {
-            "en-US": "Position Direction And Size",
+            "guid": "00000001AABE",
+            "en-US": "Position Direction and Size",
+            "es-MX": "Posición dirección y tamaño",
+            "fr-FR": "Position Direction et Taille",
+            "ja-JP": "位置、方向、サイズ",
+            "pl-PL": "Position Direction i Size",
+            "pt-BR": "Posição Direção e Tamanho",
+            "ru-RU": "Position Direction Size",
+            "th-TH": "ตําแหน่ง ทิศทางและขนาด",
+            "tr-TR": "Konum Yön ve Boyut",
+            "zh-CN": "位置，方向和大小",
+            "zh-TW": "位置、方向和尺寸"
         },
         "VISIBILITY": {
+            "guid": "00000000B5F1",
             "en-US": "Visible To",
+            "es-ES": "Visible para",
+            "es-MX": "Visible para",
+            "fr-FR": "Visible pour",
+            "it-IT": "Visibile a",
+            "ja-JP": "目視可能: ",
+            "pl-PL": "Widzialne dla",
+            "pt-BR": "Visível para",
+            "ru-RU": "Видимо для",
+            "th-TH": "มองเห็นได้สำหรับ",
+            "tr-TR": "Görenler",
+            "zh-CN": "可见"
         },
         "NONE": {
+            "guid": "000000002C62",
             "en-US": "None",
+            "de-DE": "Keine",
+            "es-ES": "Ninguno",
+            "es-MX": "Ninguno",
+            "fr-FR": "Aucune",
+            "it-IT": "Nessuno",
+            "ja-JP": "なし",
+            "ko-KR": "없음",
+            "pl-PL": "Brak",
+            "pt-BR": "Nenhum",
+            "ru-RU": "Нет",
+            "th-TH": "ไม่มี",
+            "tr-TR": "Yok",
+            "zh-CN": "无",
+            "zh-TW": "無"
         },
         "VISIBILITY_FRIENDLINESS_POSITION_DIRECTION_AND_SIZE": {
-            "en-US": "Visible To Friendly To Position Direction And Size",
+            "guid": "00000001AABF",
+            "en-US": "Visible To Friendly To Position Direction and Size",
+            "es-MX": "Visible para amistoso para posición dirección y tamaño",
+            "fr-FR": "Visible pour Amical envers Position Direction et Taille",
+            "ja-JP": "表示される相手、味方判定の相手、位置、方向、サイズ",
+            "pl-PL": "Visible To Friendly To Position Direction i Size",
+            "pt-BR": "Visível para Aliado de Posição Direção e Tamanho",
+            "ru-RU": "Visible To Friendly To Position Direction Size",
+            "th-TH": "มองเห็นได้ต่อ เป็นมิตรกับ ตําแหน่ง ทิศทางและขนาด",
+            "tr-TR": "Görenler Dost Görenler Konum Yön ve Boyut",
+            "zh-CN": "可见，友善，位置，方向和大小",
+            "zh-TW": "顯示、友方對象、位置、方向和尺寸"
         },
         "FRIENDLINESS_POSITION_DIRECTION_AND_SIZE": {
-            "en-US": "Friendly To Position, Direction And Size",
+            "guid": "00000001AAC0",
+            "en-US": "Friendly To Position Direction and Size",
+            "es-MX": "Amistoso para posición dirección y tamaño",
+            "fr-FR": "Amical envers Position Direction et Taille",
+            "ja-JP": "味方判定の相手、位置、方向、サイズ",
+            "pl-PL": "Friendly To Position Direction i Size",
+            "pt-BR": "Aliado de Posição Direção e Tamanho",
+            "ru-RU": "Friendly To Position Direction Size",
+            "th-TH": "เป็นมิตรกับ ตําแหน่ง ทิศทางและขนาด",
+            "tr-TR": "Dost Görenler Konum Yön ve Boyut",
+            "zh-CN": "友善，位置，方向和大小",
+            "zh-TW": "友方對象、位置、方向和尺寸"
         },
         "VISIBILITY_AND_FRIENDLINESS": {
+            "guid": "00000001AAC1",
             "en-US": "Visible To Friendly To",
+            "es-MX": "Visible para y amistoso para",
+            "fr-FR": "Visible pour Amical envers",
+            "ja-JP": "表示される相手、味方判定の相手",
+            "pl-PL": "Visible To i Color",
+            "pt-BR": "Visível para Aliado de",
+            "th-TH": "มองเห็นได้ต่อ เป็นมิตรกับ",
+            "tr-TR": "Görenler Dost Görenler",
+            "zh-CN": "可见，友善",
+            "zh-TW": "顯示、友方對象"
         },
         "FRIENDLINESS": {
+            "guid": "00000001A9A9",
             "en-US": "Friendly To",
-        },
+            "es-ES": "Aliado para",
+            "es-MX": "Amistoso para",
+            "fr-FR": "Amical envers",
+            "it-IT": "Amichevole per",
+            "ja-JP": "味方判定の相手",
+            "pl-PL": "Przyjazny dla",
+            "pt-BR": "Aliado de",
+            "ru-RU": "Дружественно",
+            "th-TH": "เป็นมิตรกับ",
+            "tr-TR": "Dost Görenler",
+            "zh-CN": "友善",
+            "zh-TW": "友方對象"
+        }
     }
 }
 //end-json

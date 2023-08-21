@@ -1,23 +1,23 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-const heroKw = 
+const heroKw =
 //begin-json
 {
     "ana": {
@@ -35,6 +35,8 @@ const heroKw =
             "pl-PL": "Strzałka Usypiająca",
             "pt-BR": "Dardo Sonífero",
             "ru-RU": "Транквилизатор",
+            "th-TH": "สลีปดาร์ท",
+            "tr-TR": "Uyku İğnesi",
             "zh-CN": "麻醉镖",
             "zh-TW": "睡眠鏢"
         },
@@ -51,6 +53,8 @@ const heroKw =
             "pl-PL": "Granat Biotyczny",
             "pt-BR": "Granada Biótica",
             "ru-RU": "Биотическая граната",
+            "th-TH": "ไบโอติกเกรเนด",
+            "tr-TR": "Biyotik Bomba",
             "zh-CN": "生物手雷",
             "zh-TW": "生化手榴彈"
         },
@@ -67,6 +71,8 @@ const heroKw =
             "pl-PL": "Nanowzmocnienie",
             "pt-BR": "Estimulante",
             "ru-RU": "Стимулятор",
+            "th-TH": "นาโนบูสต์",
+            "tr-TR": "Nano Takviye",
             "zh-CN": "纳米激素",
             "zh-TW": "奈米強化"
         },
@@ -74,6 +80,7 @@ const heroKw =
         "ja-JP": "アナ",
         "ko-KR": "아나",
         "ru-RU": "Ана",
+        "th-TH": "อานา",
         "zh-CN": "安娜",
         "zh-TW": "安娜"
     },
@@ -92,6 +99,8 @@ const heroKw =
             "pl-PL": "Obrzyn",
             "pt-BR": "Escopeta",
             "ru-RU": "Обрез",
+            "th-TH": "โค้ชกัน",
+            "tr-TR": "Çifte Kırma",
             "zh-CN": "短筒猎枪",
             "zh-TW": "雙管散彈槍"
         },
@@ -107,6 +116,8 @@ const heroKw =
             "pl-PL": "Dynamit",
             "pt-BR": "Dinamite",
             "ru-RU": "Динамит",
+            "th-TH": "ไดนาไมต์",
+            "tr-TR": "Dinamit",
             "zh-CN": "延时雷管",
             "zh-TW": "炸藥"
         },
@@ -123,6 +134,7 @@ const heroKw =
         "ja-JP": "アッシュ",
         "ko-KR": "애쉬",
         "ru-RU": "Эш",
+        "th-TH": "แอช",
         "zh-CN": "艾什",
         "zh-TW": "艾西"
     },
@@ -141,6 +153,8 @@ const heroKw =
             "pl-PL": "Impuls Regeneracyjny",
             "pt-BR": "Pulso Regenerador",
             "ru-RU": "Стимулятор регенерации",
+            "th-TH": "รีเจนเนอเรทีฟเบิร์สต์",
+            "tr-TR": "Canlandırıcı Parlama",
             "zh-CN": "愈合冲击",
             "zh-TW": "癒傷波動"
         },
@@ -157,6 +171,8 @@ const heroKw =
             "pl-PL": "Pole Nieśmiertelności",
             "pt-BR": "Campo de Imortalidade",
             "ru-RU": "Поле бессмертия",
+            "th-TH": "อิมมอร์แทลิทีฟิลด์",
+            "tr-TR": "Ölümsüzlük Sahası",
             "zh-CN": "维生力场",
             "zh-TW": "維生力場"
         },
@@ -173,6 +189,8 @@ const heroKw =
             "pl-PL": "Matryca Wzmacniająca",
             "pt-BR": "Matriz Amplificadora",
             "ru-RU": "Усиливающая матрица",
+            "th-TH": "แอมพลิฟิเคชันแมทริกซ์",
+            "tr-TR": "Kuvvetlendirme Matrisi",
             "zh-CN": "增幅矩阵",
             "zh-TW": "增幅矩陣"
         },
@@ -180,6 +198,8 @@ const heroKw =
         "ja-JP": "バティスト",
         "ko-KR": "바티스트",
         "ru-RU": "Батист",
+        "th-TH": "บัปทิสต์",
+        "tr-TR": "<en>Baptiste<en>",
         "zh-CN": "巴蒂斯特",
         "zh-TW": "巴帝斯特"
     },
@@ -198,6 +218,8 @@ const heroKw =
             "pl-PL": "Granat Taktyczny A-36",
             "pt-BR": "Granada Tática A-36",
             "ru-RU": "Тактическая граната A-36",
+            "th-TH": "A-36 แทคติคอลเกรเนด",
+            "tr-TR": "A-36 Taktiksel Bomba",
             "zh-CN": "A-36战术榴弹",
             "zh-TW": "A-36戰術榴彈"
         },
@@ -214,6 +236,8 @@ const heroKw =
             "pl-PL": "Rekonfiguracja",
             "pt-BR": "Reconfigurar",
             "ru-RU": "Смена режима",
+            "th-TH": "รีคอนฟิเกอร์",
+            "tr-TR": "Yapılandırma",
             "zh-CN": "切换模式",
             "zh-TW": "切換模式"
         },
@@ -230,6 +254,8 @@ const heroKw =
             "pl-PL": "Konfiguracja: Czołg",
             "pt-BR": "Configuração: Tanque",
             "ru-RU": "Режим артиллерии",
+            "th-TH": "คอนฟิเกอเรชัน: อาร์ทิลเลอรี",
+            "tr-TR": "Biçim: Top Atışı",
             "zh-CN": "火炮模式",
             "zh-TW": "火砲模式"
         },
@@ -237,6 +263,8 @@ const heroKw =
         "ja-JP": "バスティオン",
         "ko-KR": "바스티온",
         "ru-RU": "Бастион",
+        "th-TH": "แบสเชียน",
+        "tr-TR": "<en>Bastion<en>",
         "zh-CN": "堡垒",
         "zh-TW": "壁壘機兵"
     },
@@ -255,6 +283,8 @@ const heroKw =
             "pl-PL": "Tarcza Osłonowa",
             "pt-BR": "Barreira de Escudo",
             "ru-RU": "Персональный барьер",
+            "th-TH": "บาเรียชิลด์",
+            "tr-TR": "Kalkan Bariyeri",
             "zh-CN": "屏障护盾",
             "zh-TW": "屏障防盾"
         },
@@ -271,6 +301,8 @@ const heroKw =
             "pl-PL": "Trzaśnięcie",
             "pt-BR": "Disparo Açoitador",
             "ru-RU": "Хлесткий удар",
+            "th-TH": "วิปช็อต",
+            "tr-TR": "Zincir Kamçı",
             "zh-CN": "流星飞锤",
             "zh-TW": "懲擊"
         },
@@ -287,6 +319,8 @@ const heroKw =
             "pl-PL": "Pakiet Regeneracyjny",
             "pt-BR": "Kit de Reparos",
             "ru-RU": "Ремкомплект",
+            "th-TH": "รีแพร์แพ็ค",
+            "tr-TR": "Tamir Çantası",
             "zh-CN": "恢复包",
             "zh-TW": "修復包"
         },
@@ -303,6 +337,8 @@ const heroKw =
             "pl-PL": "Rąbnięcie Tarczą",
             "pt-BR": "Golpe de Escudo",
             "ru-RU": "Удар щитом",
+            "th-TH": "ชิลด์แบช",
+            "tr-TR": "Kalkan Darbı",
             "zh-CN": "能量盾击",
             "zh-TW": "持盾衝鋒"
         },
@@ -319,6 +355,8 @@ const heroKw =
             "pl-PL": "Natchnienie",
             "pt-BR": "Reagrupar",
             "ru-RU": "Общий сбор",
+            "th-TH": "แรลลี่",
+            "tr-TR": "Sancaktar",
             "zh-CN": "集结号令",
             "zh-TW": "全軍集結"
         },
@@ -326,6 +364,8 @@ const heroKw =
         "ja-JP": "ブリギッテ",
         "ko-KR": "브리기테",
         "ru-RU": "Бригитта",
+        "th-TH": "บริกิตตา",
+        "tr-TR": "<en>Brigitte<en>",
         "zh-CN": "布丽吉塔",
         "zh-TW": "碧姬"
     },
@@ -344,6 +384,8 @@ const heroKw =
             "pl-PL": "Rakietowy Cios",
             "pt-BR": "Soco Foguete",
             "ru-RU": "Реактивный удар",
+            "th-TH": "ร็อกเกตพันช์",
+            "tr-TR": "Roket Yumruk",
             "zh-CN": "火箭重拳",
             "zh-TW": "火箭拳"
         },
@@ -360,6 +402,8 @@ const heroKw =
             "pl-PL": "Mocarny Blok",
             "pt-BR": "Bloqueio Energético",
             "ru-RU": "Мощный блок",
+            "th-TH": "พาวเวอร์บล็อค",
+            "tr-TR": "Ağır Ol",
             "zh-CN": "悍猛格挡",
             "zh-TW": "強力格擋"
         },
@@ -376,6 +420,8 @@ const heroKw =
             "pl-PL": "Fala Sejsmiczna",
             "pt-BR": "Abalo Sísmico",
             "ru-RU": "Дрожь земли",
+            "th-TH": "ไซสมิคสแลม",
+            "tr-TR": "Yer Titreten",
             "zh-CN": "裂地重拳",
             "zh-TW": "震地襲"
         },
@@ -392,6 +438,8 @@ const heroKw =
             "pl-PL": "Meteor",
             "pt-BR": "Impacto Meteoro",
             "ru-RU": "Удар метеора",
+            "th-TH": "มีทีออร์สไตรก์",
+            "tr-TR": "Meteor Vurgunu",
             "zh-CN": "毁天灭地",
             "zh-TW": "流星墜"
         },
@@ -400,6 +448,8 @@ const heroKw =
         "ko-KR": "둠피스트",
         "pl-PL": "Pięść Zagłady",
         "ru-RU": "Кулак Смерти",
+        "th-TH": "ดูมฟิสต์",
+        "tr-TR": "<en>Doomfist<en>",
         "zh-CN": "末日铁拳",
         "zh-TW": "毀滅拳王"
     },
@@ -418,6 +468,8 @@ const heroKw =
             "pl-PL": "Matryca Obronna",
             "pt-BR": "Matriz de Defesa",
             "ru-RU": "Защитная матрица",
+            "th-TH": "ดีเฟนซ์เมทริกซ์",
+            "tr-TR": "Savunma Matrisi",
             "zh-CN": "防御矩阵",
             "zh-TW": "防護力場"
         },
@@ -434,6 +486,8 @@ const heroKw =
             "pl-PL": "Dopalacze",
             "pt-BR": "Propulsores",
             "ru-RU": "Ускорители",
+            "th-TH": "บูสเตอร์",
+            "tr-TR": "İticiler",
             "zh-CN": "推进器",
             "zh-TW": "噴射推進"
         },
@@ -450,6 +504,8 @@ const heroKw =
             "pl-PL": "Mikro-pociski",
             "pt-BR": "Micromísseis",
             "ru-RU": "Микроракеты",
+            "th-TH": "ไมโครมิสไซล์",
+            "tr-TR": "Mikrofüze",
             "zh-CN": "微型飞弹",
             "zh-TW": "火箭匣艙"
         },
@@ -466,12 +522,15 @@ const heroKw =
             "pl-PL": "Samozniszczenie",
             "pt-BR": "Autodestruir",
             "ru-RU": "Самоуничтожение",
+            "th-TH": "เซลฟ์เดสตรัคต์",
+            "tr-TR": "Kendini İmha",
             "zh-CN": "自毁",
             "zh-TW": "自爆"
         },
         "en-US": "D.Va",
         "es-MX": "D.VA",
-        "it-IT": "D.VA"
+        "it-IT": "D.VA",
+        "th-TH": "ดีว่า"
     },
     "echo": {
         "secondaryFire": {
@@ -487,6 +546,8 @@ const heroKw =
             "pl-PL": "Bomby Przyczepne",
             "pt-BR": "Bombas Aderentes",
             "ru-RU": "Бомбы-липучки",
+            "th-TH": "สติกกี้บอมบ์",
+            "tr-TR": "Yapışkan Bomba",
             "zh-CN": "黏性炸弹",
             "zh-TW": "黏性炸彈"
         },
@@ -503,6 +564,8 @@ const heroKw =
             "pl-PL": "Lot",
             "pt-BR": "Voo",
             "ru-RU": "Полет",
+            "th-TH": "ไฟลท์",
+            "tr-TR": "Uçuş",
             "zh-CN": "飞行",
             "zh-TW": "飛空"
         },
@@ -519,6 +582,8 @@ const heroKw =
             "pl-PL": "Skupiona Wiązka",
             "pt-BR": "Feixe Concentrado",
             "ru-RU": "Направленный луч",
+            "th-TH": "โฟกัสซิงบีม",
+            "tr-TR": "Yoğun Işın",
             "zh-CN": "聚焦光线",
             "zh-TW": "聚能光束"
         },
@@ -535,6 +600,8 @@ const heroKw =
             "pl-PL": "Duplikacja",
             "pt-BR": "Duplicar",
             "ru-RU": "Дубликация",
+            "th-TH": "ดูพลิเคต",
+            "tr-TR": "Kopyala",
             "zh-CN": "人格复制",
             "zh-TW": "複製"
         },
@@ -551,6 +618,8 @@ const heroKw =
             "pl-PL": "Szybowanie",
             "pt-BR": "Planar",
             "ru-RU": "Планирование",
+            "th-TH": "ไกลด์",
+            "tr-TR": "Süzül",
             "zh-CN": "滑翔",
             "zh-TW": "滑翔"
         },
@@ -560,6 +629,7 @@ const heroKw =
         "ja-JP": "エコー",
         "ko-KR": "에코",
         "ru-RU": "Эхо",
+        "th-TH": "เอ็คโค่",
         "zh-CN": "回声",
         "zh-TW": "迴音"
     },
@@ -578,6 +648,8 @@ const heroKw =
             "pl-PL": "Szybkie Cięcie",
             "pt-BR": "Golpe Veloz",
             "ru-RU": "Молниеносный удар",
+            "th-TH": "สวิฟต์สไตรก์",
+            "tr-TR": "Çevik Kesik",
             "zh-CN": "影",
             "zh-TW": "迅影襲"
         },
@@ -594,6 +666,8 @@ const heroKw =
             "pl-PL": "Odbicie",
             "pt-BR": "Desviar",
             "ru-RU": "Отражение атак",
+            "th-TH": "ดีเฟลคต์",
+            "tr-TR": "Yansıtma",
             "zh-CN": "闪",
             "zh-TW": "招架"
         },
@@ -610,6 +684,8 @@ const heroKw =
             "pl-PL": "Smoczy Miecz",
             "pt-BR": "Lâmina do Dragão",
             "ru-RU": "Клинок дракона",
+            "th-TH": "ดราก้อนเบลด",
+            "tr-TR": "Ejder Kılıcı",
             "zh-CN": "斩",
             "zh-TW": "龍一文字"
         },
@@ -617,6 +693,8 @@ const heroKw =
         "ja-JP": "ゲンジ",
         "ko-KR": "겐지",
         "ru-RU": "Гэндзи",
+        "th-TH": "เก็นจิ",
+        "tr-TR": "<en>Genji<en>",
         "zh-CN": "源氏",
         "zh-TW": "源氏"
     },
@@ -635,6 +713,8 @@ const heroKw =
             "pl-PL": "Pazur",
             "pt-BR": "Garra",
             "ru-RU": "«Кошка»",
+            "th-TH": "แกรปปลิงคลอว์",
+            "tr-TR": "Asılma Kıskacı",
             "zh-CN": "工程抓钩",
             "zh-TW": "穩固爪鉤"
         },
@@ -651,6 +731,8 @@ const heroKw =
             "pl-PL": "Kulowrotek",
             "pt-BR": "Rolagem",
             "ru-RU": "Каток",
+            "th-TH": "โรล",
+            "tr-TR": "Yuvarlan",
             "zh-CN": "动力铁球",
             "zh-TW": "滾球形態"
         },
@@ -667,6 +749,8 @@ const heroKw =
             "pl-PL": "Adaptabilne Osłony",
             "pt-BR": "Escudo Adaptativo",
             "ru-RU": "Адаптивный щит",
+            "th-TH": "อะแดปทีฟชิลด์",
+            "tr-TR": "Uyarlanır Kalkan",
             "zh-CN": "感应护盾",
             "zh-TW": "自動調整型護盾"
         },
@@ -683,6 +767,8 @@ const heroKw =
             "pl-PL": "Kafar",
             "pt-BR": "Bate-estaca",
             "ru-RU": "Копер",
+            "th-TH": "ไพล์ไดรเวอร์",
+            "tr-TR": "Dalış",
             "zh-CN": "重力坠击",
             "zh-TW": "垂直打樁機"
         },
@@ -699,6 +785,8 @@ const heroKw =
             "pl-PL": "Pole Minowe",
             "pt-BR": "Campo Minado",
             "ru-RU": "Минное поле",
+            "th-TH": "ไมน์ฟิลด์",
+            "tr-TR": "Mayın Tarlası",
             "zh-CN": "地雷禁区",
             "zh-TW": "地雷陣"
         },
@@ -708,6 +796,8 @@ const heroKw =
         "ko-KR": "레킹볼",
         "pl-PL": "Burzyciel",
         "ru-RU": "Таран",
+        "th-TH": "เร็กกิงบอล",
+        "tr-TR": "<en>Wrecking Ball<en>",
         "zh-CN": "破坏球",
         "zh-TW": "火爆鋼球"
     },
@@ -726,6 +816,8 @@ const heroKw =
             "pl-PL": "Strzała Soniczna",
             "pt-BR": "Flecha Sônica",
             "ru-RU": "Звуковая стрела",
+            "th-TH": "โซนิกแอร์โรว์",
+            "tr-TR": "Sonik Ok",
             "zh-CN": "音",
             "zh-TW": "音波箭"
         },
@@ -742,6 +834,8 @@ const heroKw =
             "pl-PL": "Strzały Burzowe",
             "pt-BR": "Flechas da Tempestade",
             "ru-RU": "Шквал",
+            "th-TH": "สตอร์มแอร์โรว์",
+            "tr-TR": "Fırtına Okları",
             "zh-CN": "岚",
             "zh-TW": "暴風箭"
         },
@@ -758,6 +852,8 @@ const heroKw =
             "pl-PL": "Wypad",
             "pt-BR": "Salto",
             "ru-RU": "Выпад",
+            "th-TH": "ลันจ์",
+            "tr-TR": "Fırla",
             "zh-CN": "跃",
             "zh-TW": "突進跳躍"
         },
@@ -774,6 +870,8 @@ const heroKw =
             "pl-PL": "Smoczy Strzał",
             "pt-BR": "Golpe do Dragão",
             "ru-RU": "Удар дракона",
+            "th-TH": "ดราก้อนสไตรก์",
+            "tr-TR": "İkiz Ejder",
             "zh-CN": "竜",
             "zh-TW": "龍魂擊"
         },
@@ -781,6 +879,7 @@ const heroKw =
         "ja-JP": "ハンゾー",
         "ko-KR": "한조",
         "ru-RU": "Хандзо",
+        "th-TH": "ฮันโซ",
         "zh-CN": "半藏",
         "zh-TW": "半藏"
     },
@@ -798,6 +897,8 @@ const heroKw =
             "pl-PL": "Postrzępione Ostrze",
             "pt-BR": "Lâmina Serrilhada",
             "ru-RU": "Зазубренный клинок",
+            "th-TH": "แจ็กด์เบลด",
+            "tr-TR": "Dişli Bıçak",
             "zh-CN": "锯齿利刃",
             "zh-TW": "鋸刃"
         },
@@ -813,6 +914,8 @@ const heroKw =
             "pl-PL": "Rzeźnia",
             "pt-BR": "Carnificina",
             "ru-RU": "Карнаж",
+            "th-TH": "คาร์เนจ",
+            "tr-TR": "Kıyım",
             "zh-CN": "血斩",
             "zh-TW": "屠殺"
         },
@@ -829,6 +932,8 @@ const heroKw =
             "pl-PL": "Władczy Okrzyk",
             "pt-BR": "Grito de Guerra",
             "ru-RU": "Ободряющий клич",
+            "th-TH": "คอมมานดิงเชาท์",
+            "tr-TR": "Savaş Narası",
             "zh-CN": "命令怒吼",
             "zh-TW": "統率怒號"
         },
@@ -845,6 +950,8 @@ const heroKw =
             "pl-PL": "Rozwałka",
             "pt-BR": "Chacina",
             "ru-RU": "Буйство",
+            "th-TH": "แรมเพจ",
+            "tr-TR": "Gözükara",
             "zh-CN": "轰翻天",
             "zh-TW": "瘋狂殺戮"
         },
@@ -857,6 +964,7 @@ const heroKw =
         "pl-PL": "Królowa Junkertown",
         "pt-BR": "Rainha Junker",
         "ru-RU": "Королева Стервятников",
+        "th-TH": "จังเกอร์ควีน",
         "zh-CN": "渣客女王",
         "zh-TW": "垃圾鎮女王"
     },
@@ -875,6 +983,8 @@ const heroKw =
             "pl-PL": "Mina Ogłuszająca",
             "pt-BR": "Mina de Concussão",
             "ru-RU": "Фугасная мина",
+            "th-TH": "คอนคัสชันไมน์",
+            "tr-TR": "Sarsıntı Mayını",
             "zh-CN": "震荡地雷",
             "zh-TW": "震盪地雷"
         },
@@ -891,6 +1001,8 @@ const heroKw =
             "pl-PL": "Potrzask",
             "pt-BR": "Armadilha de Aço",
             "ru-RU": "Капкан",
+            "th-TH": "สตีลแทร็ป",
+            "tr-TR": "Çelik Kapan",
             "zh-CN": "捕兽夹",
             "zh-TW": "鋼鐵陷阱"
         },
@@ -907,6 +1019,8 @@ const heroKw =
             "pl-PL": "Mord-Opona",
             "pt-BR": "Pneu da Morte",
             "ru-RU": "Адская шина",
+            "th-TH": "ริปไทร์",
+            "tr-TR": "Bas Gaza",
             "zh-CN": "炸弹轮胎",
             "zh-TW": "地獄飛輪"
         },
@@ -916,6 +1030,7 @@ const heroKw =
         "ko-KR": "정크랫",
         "pl-PL": "Złomiarz",
         "ru-RU": "Крысавчик",
+        "th-TH": "จังค์แรต",
         "zh-CN": "狂鼠",
         "zh-TW": "炸彈鼠"
     },
@@ -933,6 +1048,8 @@ const heroKw =
             "pl-PL": "Raźny Ruch",
             "pt-BR": "Passo Rápido",
             "ru-RU": "Быстрый шаг",
+            "th-TH": "สวิฟต์สเต็ป",
+            "tr-TR": "Tek Adım",
             "zh-CN": "瞬",
             "zh-TW": "瞬影步"
         },
@@ -949,6 +1066,8 @@ const heroKw =
             "pl-PL": "Ochronne Suzu",
             "pt-BR": "Suzu de Proteção",
             "ru-RU": "Талисман защиты",
+            "th-TH": "โพรเทคชันซูซุ",
+            "tr-TR": "Suzu Zili",
             "zh-CN": "铃",
             "zh-TW": "祓除鈴"
         },
@@ -965,6 +1084,8 @@ const heroKw =
             "pl-PL": "Pęd Kitsune",
             "pt-BR": "Corrida da Kitsune",
             "ru-RU": "Рывок Кицунэ",
+            "th-TH": "คิตสึเนะรัช",
+            "tr-TR": "Atıl Kitsune",
             "zh-CN": "狐",
             "zh-TW": "御狐衝刺"
         },
@@ -973,6 +1094,8 @@ const heroKw =
         "ja-JP": "キリコ",
         "ko-KR": "키리코",
         "ru-RU": "Кирико",
+        "th-TH": "คิริโกะ",
+        "tr-TR": "<en>Kiriko<en>",
         "zh-CN": "雾子",
         "zh-TW": "霧子"
     },
@@ -991,6 +1114,8 @@ const heroKw =
             "pl-PL": "Fala Dźwiękowa",
             "pt-BR": "Onda Sonora",
             "ru-RU": "Звуковая волна",
+            "th-TH": "ซาวนด์เวฟ",
+            "tr-TR": "Ses Dalgası",
             "zh-CN": "音波",
             "zh-TW": "音浪衝擊"
         },
@@ -1005,6 +1130,8 @@ const heroKw =
             "pl-PL": "Przejście",
             "pt-BR": "Transição",
             "ru-RU": "Кроссфейд",
+            "th-TH": "ครอสเฟด",
+            "tr-TR": "Sonraki Parça",
             "zh-CN": "切歌",
             "zh-TW": "切換曲目"
         },
@@ -1021,6 +1148,8 @@ const heroKw =
             "pl-PL": "Potencjometr",
             "pt-BR": "Solta o Som",
             "ru-RU": "Громкость на полную!",
+            "th-TH": "แอมป์อิทอัพ",
+            "tr-TR": "Son Ses",
             "zh-CN": "强音",
             "zh-TW": "音量全開"
         },
@@ -1037,6 +1166,8 @@ const heroKw =
             "pl-PL": "Bariera Dźwiękowa",
             "pt-BR": "Barreira de Som",
             "ru-RU": "Звуковой барьер",
+            "th-TH": "ซาวน์บาเรีย",
+            "tr-TR": "Ses Bariyeri",
             "zh-CN": "音障",
             "zh-TW": "音波屏障"
         },
@@ -1044,6 +1175,8 @@ const heroKw =
         "ja-JP": "ルシオ",
         "ko-KR": "루시우",
         "ru-RU": "Лусио",
+        "th-TH": "ลูซิโอ",
+        "tr-TR": "<en>Lúcio<en>",
         "zh-CN": "卢西奥",
         "zh-TW": "路西歐"
     },
@@ -1062,6 +1195,8 @@ const heroKw =
             "pl-PL": "Przewrót Bojowy",
             "pt-BR": "Rolamento",
             "ru-RU": "Кувырок",
+            "th-TH": "คอมแบทโรล",
+            "tr-TR": "Düello Manevrası",
             "zh-CN": "战术翻滚",
             "zh-TW": "戰術翻滾"
         },
@@ -1078,6 +1213,8 @@ const heroKw =
             "pl-PL": "Granat Magnetyczny",
             "pt-BR": "Granada Magnética",
             "ru-RU": "Магнитная граната",
+            "th-TH": "แมกเนติกเกรเนด",
+            "tr-TR": "Manyetik Bomba",
             "zh-CN": "磁性手雷",
             "zh-TW": "磁吸榴彈"
         },
@@ -1094,6 +1231,8 @@ const heroKw =
             "pl-PL": "Przycelowanie",
             "pt-BR": "Tiro Certeiro",
             "ru-RU": "Меткий стрелок",
+            "th-TH": "เดดอาย",
+            "tr-TR": "Şahin Bakışlı",
             "zh-CN": "神射手",
             "zh-TW": "彈無虛發"
         },
@@ -1101,6 +1240,8 @@ const heroKw =
         "ja-JP": "キャスディ",
         "ko-KR": "캐서디",
         "ru-RU": "Кэссиди",
+        "th-TH": "แคสซิดี้",
+        "tr-TR": "<en>Cassidy<en>",
         "zh-CN": "卡西迪",
         "zh-TW": "卡西迪"
     },
@@ -1119,6 +1260,8 @@ const heroKw =
             "pl-PL": "Kriostaza",
             "pt-BR": "Congelamento Criogênico",
             "ru-RU": "Криостазис",
+            "th-TH": "ไคโรฟรีซ",
+            "tr-TR": "Kriyojenik",
             "zh-CN": "急冻",
             "zh-TW": "冰霜屏障"
         },
@@ -1135,6 +1278,8 @@ const heroKw =
             "pl-PL": "Ściana Lodu",
             "pt-BR": "Muralha de Gelo",
             "ru-RU": "Ледяная стена",
+            "th-TH": "ไอซ์วอล",
+            "tr-TR": "Buzdan Duvar",
             "zh-CN": "冰墙",
             "zh-TW": "冰牆"
         },
@@ -1149,6 +1294,8 @@ const heroKw =
             "pl-PL": "Zamieć",
             "pt-BR": "Nevasca",
             "ru-RU": "Вьюга",
+            "th-TH": "บลิซซาร์ด",
+            "tr-TR": "Kar Fırtınası",
             "zh-CN": "暴雪",
             "zh-TW": "暴風雪"
         },
@@ -1156,6 +1303,8 @@ const heroKw =
         "ja-JP": "メイ",
         "ko-KR": "메이",
         "ru-RU": "Мэй",
+        "th-TH": "เหมย",
+        "tr-TR": "<en>Mei<en>",
         "zh-CN": "美",
         "zh-TW": "小美"
     },
@@ -1174,6 +1323,8 @@ const heroKw =
             "pl-PL": "Anioł Stróż",
             "pt-BR": "Anjo da Guarda",
             "ru-RU": "Ангел-хранитель",
+            "th-TH": "การ์เดียนแองเจิล",
+            "tr-TR": "Koruyucu Melek",
             "zh-CN": "守护天使",
             "zh-TW": "守護天使"
         },
@@ -1190,23 +1341,28 @@ const heroKw =
             "pl-PL": "Wskrzeszenie",
             "pt-BR": "Ressurreição",
             "ru-RU": "Воскрешение",
+            "th-TH": "รีเซอร์เร็ก",
+            "tr-TR": "Diriltme",
             "zh-CN": "重生",
             "zh-TW": "復活"
         },
         "passive": {
-            "guid": "000000008764",
-            "en-US": "Regeneration",
-            "es-ES": "Regeneración",
-            "es-MX": "Regeneración",
-            "fr-FR": "Régénération",
-            "it-IT": "Rigenerazione",
-            "ja-JP": "リジェネレーション",
-            "ko-KR": "재생",
-            "pl-PL": "Regeneracja",
-            "pt-BR": "Regeneração",
-            "ru-RU": "Регенерация",
-            "zh-CN": "自动恢复",
-            "zh-TW": "再生"
+            "guid": "000000019EEE",
+            "en-US": "Sympathetic Recovery",
+            "de-DE": "Sympathische Erholung",
+            "es-ES": "Recuperación compasiva",
+            "es-MX": "Recuperación empática",
+            "fr-FR": "Guérison favorable",
+            "it-IT": "Recupero Solidale",
+            "ja-JP": "シンパセティック・リカバリー",
+            "ko-KR": "연민의 치유",
+            "pl-PL": "Leczenie Empatyczne",
+            "pt-BR": "Recuperação Solidária",
+            "ru-RU": "Симпатическое восстановление",
+            "th-TH": "ซิมพาแทติครีคัฟเวอรี่",
+            "tr-TR": "Özgecilik Şifası",
+            "zh-CN": "同情愈疗",
+            "zh-TW": "共鳴恢復"
         },
         "ultimate": {
             "guid": "000000006DAA",
@@ -1219,6 +1375,8 @@ const heroKw =
             "pl-PL": "Walkiria",
             "pt-BR": "Valquíria",
             "ru-RU": "Валькирия",
+            "th-TH": "วาลคิรี่",
+            "tr-TR": "Valkür",
             "zh-CN": "女武神",
             "zh-TW": "女武神"
         },
@@ -1228,6 +1386,7 @@ const heroKw =
         "ko-KR": "메르시",
         "pl-PL": "Łaska",
         "ru-RU": "Ангел",
+        "th-TH": "เมอร์ซี่",
         "zh-CN": "天使",
         "zh-TW": "慈悲"
     },
@@ -1246,6 +1405,8 @@ const heroKw =
             "pl-PL": "Zniknięcie",
             "pt-BR": "Desvanecer",
             "ru-RU": "Уход в тень",
+            "th-TH": "เฟด",
+            "tr-TR": "Kaybol",
             "zh-CN": "消散",
             "zh-TW": "消失"
         },
@@ -1262,6 +1423,8 @@ const heroKw =
             "pl-PL": "Kula Biotyczna",
             "pt-BR": "Orbe Biótica",
             "ru-RU": "Биотическая сфера",
+            "th-TH": "ไบโอติกออร์บ",
+            "tr-TR": "Biyotik Küre",
             "zh-CN": "生化之球",
             "zh-TW": "生化球"
         },
@@ -1277,6 +1440,8 @@ const heroKw =
             "pl-PL": "Koalescencja",
             "pt-BR": "Coalescência",
             "ru-RU": "Коалесценция",
+            "th-TH": "โคเอเลสเซนซ์",
+            "tr-TR": "Kaynaşım",
             "zh-CN": "聚合射线",
             "zh-TW": "聚合光束"
         },
@@ -1284,6 +1449,8 @@ const heroKw =
         "ja-JP": "モイラ",
         "ko-KR": "모이라",
         "ru-RU": "Мойра",
+        "th-TH": "มอยร่า",
+        "tr-TR": "<en>Moira<en>",
         "zh-CN": "莫伊拉",
         "zh-TW": "莫伊拉"
     },
@@ -1302,6 +1469,8 @@ const heroKw =
             "pl-PL": "Włócznia Energetyczna",
             "pt-BR": "Dardo Energético",
             "ru-RU": "Энергетическое копье",
+            "th-TH": "เอเนอจี้จาเวลิน",
+            "tr-TR": "Yüklü Cirit",
             "zh-CN": "能量标枪",
             "zh-TW": "能量標槍"
         },
@@ -1318,6 +1487,8 @@ const heroKw =
             "pl-PL": "Umocnienie",
             "pt-BR": "Fortificar",
             "ru-RU": "Защитное поле",
+            "th-TH": "ฟอร์ติฟาย",
+            "tr-TR": "Tahkim",
             "zh-CN": "强固防御",
             "zh-TW": "強化防禦"
         },
@@ -1334,6 +1505,8 @@ const heroKw =
             "pl-PL": "Obrót Włócznią",
             "pt-BR": "Giro do Dardo",
             "ru-RU": "Вращение копьем",
+            "th-TH": "จาเวลินสปิน",
+            "tr-TR": "Pervane Cirit",
             "zh-CN": "标枪旋击",
             "zh-TW": "迴旋標槍"
         },
@@ -1350,6 +1523,8 @@ const heroKw =
             "pl-PL": "Impuls Bojowy",
             "pt-BR": "Rompante Terrano",
             "ru-RU": "Встряска земли",
+            "th-TH": "เทอร์ราเซิร์จ",
+            "tr-TR": "Yerküre Rüzgârı",
             "zh-CN": "撼地猛刺",
             "zh-TW": "大地湧能"
         },
@@ -1357,6 +1532,8 @@ const heroKw =
         "ja-JP": "オリーサ",
         "ko-KR": "오리사",
         "ru-RU": "Ориса",
+        "th-TH": "โอริซา",
+        "tr-TR": "<en>Orisa<en>",
         "zh-CN": "奥丽莎",
         "zh-TW": "歐瑞莎"
     },
@@ -1375,6 +1552,8 @@ const heroKw =
             "pl-PL": "Zawiśnięcie",
             "pt-BR": "Suspensão a Jato",
             "ru-RU": "Парение",
+            "th-TH": "โฮเวอร์เจ็ท",
+            "tr-TR": "Uçuş Jeti",
             "zh-CN": "悬浮背包",
             "zh-TW": "滯空"
         },
@@ -1391,6 +1570,8 @@ const heroKw =
             "pl-PL": "Skok Odrzutowy",
             "pt-BR": "Salto Foguete",
             "ru-RU": "Реактивный ранец",
+            "th-TH": "จัมป์เจ็ท",
+            "tr-TR": "Havalanma",
             "zh-CN": "推进背包",
             "zh-TW": "跳躍噴射"
         },
@@ -1407,6 +1588,8 @@ const heroKw =
             "pl-PL": "Przytłaczający Strzał",
             "pt-BR": "Explosão Concussiva",
             "ru-RU": "Взрывная волна",
+            "th-TH": "คอนคัสซิฟบลาสต์",
+            "tr-TR": "Sarsıcı Patlama",
             "zh-CN": "震荡冲击",
             "zh-TW": "震盪爆破"
         },
@@ -1422,6 +1605,8 @@ const heroKw =
             "pl-PL": "Salwa",
             "pt-BR": "Bombardeio",
             "ru-RU": "Ракетный залп",
+            "th-TH": "บาร์ราจ",
+            "tr-TR": "Yaylım",
             "zh-CN": "火箭弹幕",
             "zh-TW": "火箭彈幕"
         },
@@ -1430,6 +1615,7 @@ const heroKw =
         "ko-KR": "파라",
         "pl-PL": "Fara",
         "ru-RU": "Фарра",
+        "th-TH": "ฟาราห์",
         "zh-CN": "法老之鹰",
         "zh-TW": "法拉"
     },
@@ -1448,6 +1634,8 @@ const heroKw =
             "pl-PL": "Postać Upiora",
             "pt-BR": "Forma Fantasma",
             "ru-RU": "Бестелесность",
+            "th-TH": "เรธฟอร์ม",
+            "tr-TR": "Tayf Formu",
             "zh-CN": "幽灵形态",
             "zh-TW": "亡靈形態"
         },
@@ -1464,6 +1652,8 @@ const heroKw =
             "pl-PL": "Krok w Cień",
             "pt-BR": "Passos das Sombras",
             "ru-RU": "Шаг сквозь тень",
+            "th-TH": "ชาโดว์สเต็ป",
+            "tr-TR": "Gölge Geçişi",
             "zh-CN": "暗影步",
             "zh-TW": "幽影傳送"
         },
@@ -1480,6 +1670,8 @@ const heroKw =
             "pl-PL": "Wirująca Śmierć",
             "pt-BR": "Desabrochar da Morte",
             "ru-RU": "Цветок смерти",
+            "th-TH": "เดธบลอสซัม",
+            "tr-TR": "Ölümsaçan",
             "zh-CN": "死亡绽放",
             "zh-TW": "死亡綻放"
         },
@@ -1489,6 +1681,7 @@ const heroKw =
         "ko-KR": "리퍼",
         "pl-PL": "Żniwiarz",
         "ru-RU": "Жнец",
+        "th-TH": "รีปเปอร์",
         "zh-CN": "死神",
         "zh-TW": "死神"
     },
@@ -1507,6 +1700,8 @@ const heroKw =
             "pl-PL": "Pole Osłonowe",
             "pt-BR": "Campo de Barreira",
             "ru-RU": "Энергетический барьер",
+            "th-TH": "บาเรียฟิลด์",
+            "tr-TR": "Bariyer Alanı",
             "zh-CN": "屏障力场",
             "zh-TW": "屏障力場"
         },
@@ -1522,6 +1717,8 @@ const heroKw =
             "pl-PL": "Szarża",
             "pt-BR": "Investida",
             "ru-RU": "Рывок",
+            "th-TH": "ชาร์จ",
+            "tr-TR": "Hücum",
             "zh-CN": "冲锋",
             "zh-TW": "衝鋒"
         },
@@ -1538,6 +1735,8 @@ const heroKw =
             "pl-PL": "Ogniste Uderzenie",
             "pt-BR": "Tiro Flamejante",
             "ru-RU": "Огненный удар",
+            "th-TH": "ไฟร์สไตรก์",
+            "tr-TR": "Ateş Dalgası",
             "zh-CN": "烈焰打击",
             "zh-TW": "烈焰擊"
         },
@@ -1554,6 +1753,8 @@ const heroKw =
             "pl-PL": "Zdruzgotanie",
             "pt-BR": "Abalo Terrestre",
             "ru-RU": "Землетрясение",
+            "th-TH": "เอิร์ทแชตเตอร์",
+            "tr-TR": "Dağdeviren",
             "zh-CN": "裂地猛击",
             "zh-TW": "地裂擊"
         },
@@ -1561,6 +1762,8 @@ const heroKw =
         "ja-JP": "ラインハルト",
         "ko-KR": "라인하르트",
         "ru-RU": "Райнхардт",
+        "th-TH": "ไรน์ฮาร์ด",
+        "tr-TR": "<en>Reinhardt<en>",
         "zh-CN": "莱因哈特",
         "zh-TW": "萊因哈特"
     },
@@ -1579,6 +1782,8 @@ const heroKw =
             "pl-PL": "Hak na Łańcuchu",
             "pt-BR": "Corrente de Gancho",
             "ru-RU": "Цепной крюк",
+            "th-TH": "เชนฮุค",
+            "tr-TR": "Zincir Kanca",
             "zh-CN": "链钩",
             "zh-TW": "鎖鍊鉤"
         },
@@ -1595,6 +1800,8 @@ const heroKw =
             "pl-PL": "Sztachnięcie",
             "pt-BR": "Pegando Fôlego",
             "ru-RU": "Передышка",
+            "th-TH": "เทคอะบรีเธอร์",
+            "tr-TR": "Bir Soluklan",
             "zh-CN": "呼吸器",
             "zh-TW": "吸了再上"
         },
@@ -1611,6 +1818,8 @@ const heroKw =
             "pl-PL": "Wieprznięcie",
             "pt-BR": "Cair Matando",
             "ru-RU": "Турбосвинство",
+            "th-TH": "โฮลฮ็อก",
+            "tr-TR": "Domuz Çevirme",
             "zh-CN": "鸡飞狗跳",
             "zh-TW": "火力全開"
         },
@@ -1620,6 +1829,7 @@ const heroKw =
         "ko-KR": "로드호그",
         "pl-PL": "Wieprzu",
         "ru-RU": "Турбосвин",
+        "th-TH": "โร้ดฮ็อก",
         "zh-CN": "路霸",
         "zh-TW": "攔路豬"
     },
@@ -1638,6 +1848,8 @@ const heroKw =
             "pl-PL": "Eksperymentalna Bariera",
             "pt-BR": "Barreira Experimental",
             "ru-RU": "Экспериментальный барьер",
+            "th-TH": "เอ็กซ์เพอริเมนทัลบาเรีย",
+            "tr-TR": "Deneysel Bariyer",
             "zh-CN": "实验屏障",
             "zh-TW": "實驗屏障"
         },
@@ -1654,6 +1866,8 @@ const heroKw =
             "pl-PL": "Chwyt Kinetyczny",
             "pt-BR": "Punho Cinético",
             "ru-RU": "Кинетический захват",
+            "th-TH": "คิเนติกแกรสป์",
+            "tr-TR": "Kinetik Yakalama",
             "zh-CN": "动能俘获",
             "zh-TW": "動能轉化"
         },
@@ -1670,6 +1884,8 @@ const heroKw =
             "pl-PL": "Akrecja",
             "pt-BR": "Acreção",
             "ru-RU": "Аккреция",
+            "th-TH": "อะครีชัน",
+            "tr-TR": "Yığılım",
             "zh-CN": "质量吸附",
             "zh-TW": "重力崩引"
         },
@@ -1686,6 +1902,8 @@ const heroKw =
             "pl-PL": "Strumień Grawitacyjny",
             "pt-BR": "Fluxo Gravitacional",
             "ru-RU": "Гравитационный колодец",
+            "th-TH": "กราวิทิคฟลักซ์",
+            "tr-TR": "Çekimsel Sapma",
             "zh-CN": "引力乱流",
             "zh-TW": "重力流"
         },
@@ -1693,6 +1911,8 @@ const heroKw =
         "ja-JP": "シグマ",
         "ko-KR": "시그마",
         "ru-RU": "Сигма",
+        "th-TH": "ซิกม่า",
+        "tr-TR": "<en>Sigma<en>",
         "zh-CN": "西格玛",
         "zh-TW": "席格馬"
     },
@@ -1710,6 +1930,8 @@ const heroKw =
             "pl-PL": "Alternatywny atak Karabinu Kinetycznego",
             "pt-BR": "Canhão Elétrico - Disparo alternativo",
             "ru-RU": "Дополнительный режим огня рельсотрона",
+            "th-TH": "อาวุธสำรองเรลกัน",
+            "tr-TR": "Raylı Tüfek Alternatif Ateşi",
             "zh-CN": "电磁炮辅助模式",
             "zh-TW": "磁軌槍次要攻擊"
         },
@@ -1726,6 +1948,8 @@ const heroKw =
             "pl-PL": "Superwślizg",
             "pt-BR": "Deslizada Enérgica",
             "ru-RU": "Суперподкат",
+            "th-TH": "พาวเวอร์สไลด์",
+            "tr-TR": "Roketli Manevra",
             "zh-CN": "机动滑铲",
             "zh-TW": "強力滑行"
         },
@@ -1742,6 +1966,8 @@ const heroKw =
             "pl-PL": "Strzał Zakłócający",
             "pt-BR": "Disparo Disruptivo",
             "ru-RU": "Дезинтегрирующий выстрел",
+            "th-TH": "ดิสรัปเตอร์ช็อต",
+            "tr-TR": "Ayakbağı Alanı",
             "zh-CN": "干扰弹",
             "zh-TW": "擾亂射擊"
         },
@@ -1756,6 +1982,8 @@ const heroKw =
             "pl-PL": "Przeciążenie",
             "pt-BR": "Sobrecarga",
             "ru-RU": "Разгон",
+            "th-TH": "โอเวอร์คล็อค",
+            "tr-TR": "Güç Aşırtma",
             "zh-CN": "机体超频",
             "zh-TW": "磁能超頻"
         },
@@ -1764,6 +1992,7 @@ const heroKw =
         "ja-JP": "ソジョーン",
         "ko-KR": "소전",
         "ru-RU": "Соджорн",
+        "th-TH": "โซเจิร์น",
         "zh-CN": "索杰恩",
         "zh-TW": "索潔恩"
     },
@@ -1782,6 +2011,8 @@ const heroKw =
             "pl-PL": "Rakiety Helix",
             "pt-BR": "Foguetes Hélix",
             "ru-RU": "Ракетный удар",
+            "th-TH": "ฮีลิกซ์ร็อกเกต",
+            "tr-TR": "Helezon Roketleri",
             "zh-CN": "螺旋飞弹",
             "zh-TW": "旋風火箭"
         },
@@ -1793,6 +2024,8 @@ const heroKw =
             "ko-KR": "질주",
             "pt-BR": "Disparada",
             "ru-RU": "Спринт",
+            "th-TH": "สปรินท์",
+            "tr-TR": "Depar",
             "zh-CN": "疾跑",
             "zh-TW": "衝刺"
         },
@@ -1809,6 +2042,8 @@ const heroKw =
             "pl-PL": "Pole Biotyczne",
             "pt-BR": "Campo Biótico",
             "ru-RU": "Биотическое поле",
+            "th-TH": "ไบโอติกฟิลด์",
+            "tr-TR": "Biyotik Alan",
             "zh-CN": "生物力场",
             "zh-TW": "生化力場"
         },
@@ -1825,6 +2060,8 @@ const heroKw =
             "pl-PL": "Wizjer Taktyczny",
             "pt-BR": "Visor Tático",
             "ru-RU": "Тактический визор",
+            "th-TH": "แทคติคอลไวเซอร์",
+            "tr-TR": "Taktiksel Takip",
             "zh-CN": "战术目镜",
             "zh-TW": "戰術鎖定"
         },
@@ -1838,6 +2075,8 @@ const heroKw =
         "pl-PL": "Żołnierz-76",
         "pt-BR": "Soldado: 76",
         "ru-RU": "Солдат-76",
+        "th-TH": "โซลเยอร์: 76",
+        "tr-TR": "<en>Soldier: 76<en>",
         "zh-CN": "士兵：76",
         "zh-TW": "士兵76"
     },
@@ -1856,6 +2095,7 @@ const heroKw =
             "pl-PL": "Hakowanie",
             "pt-BR": "Hackear",
             "ru-RU": "Взлом",
+            "th-TH": "แฮ็ค",
             "zh-CN": "黑客入侵",
             "zh-TW": "駭入"
         },
@@ -1872,6 +2112,8 @@ const heroKw =
             "pl-PL": "Ukrycie",
             "pt-BR": "Furtividade",
             "ru-RU": "Маскировка",
+            "th-TH": "สเตลท์",
+            "tr-TR": "Gizlilik",
             "zh-CN": "隐秘潜行",
             "zh-TW": "匿蹤"
         },
@@ -1888,6 +2130,8 @@ const heroKw =
             "pl-PL": "Translokator",
             "pt-BR": "Translocador",
             "ru-RU": "Транслокатор",
+            "th-TH": "ทรานสโลเคเตอร์",
+            "tr-TR": "Yer Değiştirici",
             "zh-CN": "位移传动",
             "zh-TW": "相位轉換器"
         },
@@ -1907,6 +2151,7 @@ const heroKw =
         "ja-JP": "ソンブラ",
         "ko-KR": "솜브라",
         "ru-RU": "Сомбра",
+        "th-TH": "ซอมบรา",
         "zh-CN": "黑影",
         "zh-TW": "駭影"
     },
@@ -1925,6 +2170,8 @@ const heroKw =
             "pl-PL": "Wieżyczka Strażnicza",
             "pt-BR": "Torre de Sentinela ",
             "ru-RU": "Защитная турель",
+            "th-TH": "เซนทรีเทอร์เร็ต",
+            "tr-TR": "Nöbetçi Taret",
             "zh-CN": "哨戒炮",
             "zh-TW": "哨戒塔"
         },
@@ -1939,6 +2186,8 @@ const heroKw =
             "ko-KR": "순간이동기",
             "pt-BR": "Teletransportador",
             "ru-RU": "Телепортер",
+            "th-TH": "เทเลพอร์ต",
+            "tr-TR": "Işınlayıcı",
             "zh-CN": "传送面板",
             "zh-TW": "傳送器"
         },
@@ -1955,6 +2204,8 @@ const heroKw =
             "pl-PL": "Bariera Fotonowa",
             "pt-BR": "Barreira de Fótons",
             "ru-RU": "Фотонный барьер",
+            "th-TH": "โฟตอนบาเรีย",
+            "tr-TR": "Foton Bariyeri",
             "zh-CN": "光子屏障",
             "zh-TW": "光子屏障"
         },
@@ -1962,6 +2213,7 @@ const heroKw =
         "ja-JP": "シンメトラ",
         "ko-KR": "시메트라",
         "ru-RU": "Симметра",
+        "th-TH": "ซิมเมตรา",
         "zh-CN": "秩序之光",
         "zh-TW": "辛梅塔"
     },
@@ -1980,6 +2232,8 @@ const heroKw =
             "pl-PL": "Rozstawienie Wieżyczki",
             "pt-BR": "Posicionar Torre",
             "ru-RU": "Установка турели",
+            "th-TH": "ดีพลอยเทอร์เร็ต",
+            "tr-TR": "Taret Kur",
             "zh-CN": "部署炮台",
             "zh-TW": "部署砲塔"
         },
@@ -1996,6 +2250,8 @@ const heroKw =
             "pl-PL": "Dopancerzenie",
             "pt-BR": "Sobrecarga",
             "ru-RU": "Перегрузка",
+            "th-TH": "โอเวอร์โหลด",
+            "tr-TR": "Yük Aşırtma",
             "zh-CN": "热力过载",
             "zh-TW": "超負荷"
         },
@@ -2012,6 +2268,8 @@ const heroKw =
             "pl-PL": "Przegrzanie",
             "pt-BR": "Núcleo Fundido",
             "ru-RU": "Перегрев",
+            "th-TH": "มอร์เทนคอร์",
+            "tr-TR": "Eriyik Çekirdek",
             "zh-CN": "熔火核心",
             "zh-TW": "爐心超載"
         },
@@ -2019,6 +2277,7 @@ const heroKw =
         "ja-JP": "トールビョーン",
         "ko-KR": "토르비욘",
         "ru-RU": "Торбьорн",
+        "th-TH": "ทอร์บยอร์น",
         "zh-CN": "托比昂",
         "zh-TW": "托比昂"
     },
@@ -2037,6 +2296,8 @@ const heroKw =
             "pl-PL": "Mignięcie",
             "pt-BR": "Teleportar",
             "ru-RU": "Скачок",
+            "th-TH": "บลิงค์",
+            "tr-TR": "Vın",
             "zh-CN": "闪现",
             "zh-TW": "閃現"
         },
@@ -2053,6 +2314,8 @@ const heroKw =
             "pl-PL": "Powrót",
             "pt-BR": "Recordação",
             "ru-RU": "Возврат",
+            "th-TH": "รีคอล",
+            "tr-TR": "Geri Sar",
             "zh-CN": "闪回",
             "zh-TW": "回溯"
         },
@@ -2069,6 +2332,8 @@ const heroKw =
             "pl-PL": "Bomba Pulsacyjna",
             "pt-BR": "Bomba Eletromagnética",
             "ru-RU": "Импульсная бомба",
+            "th-TH": "พัลส์บอมบ์",
+            "tr-TR": "Pals Bombası",
             "zh-CN": "脉冲炸弹",
             "zh-TW": "脈衝炸彈"
         },
@@ -2077,6 +2342,7 @@ const heroKw =
         "ko-KR": "트레이서",
         "pl-PL": "Smuga",
         "ru-RU": "Трейсер",
+        "th-TH": "เทรเซอร์",
         "zh-CN": "猎空",
         "zh-TW": "閃光"
     },
@@ -2095,6 +2361,8 @@ const heroKw =
             "pl-PL": "Kotwiczka",
             "pt-BR": "Arpéu",
             "ru-RU": "Крюк",
+            "th-TH": "แกรปปลิงฮุค",
+            "tr-TR": "Borda Kancası",
             "zh-CN": "抓钩",
             "zh-TW": "爪鉤"
         },
@@ -2111,6 +2379,8 @@ const heroKw =
             "pl-PL": "Jadowita Mina",
             "pt-BR": "Mina Venenosa",
             "ru-RU": "Ядовитая мина",
+            "th-TH": "เวนอมไมน์",
+            "tr-TR": "Zehirli Mayın",
             "zh-CN": "剧毒诡雷",
             "zh-TW": "劇毒地雷"
         },
@@ -2127,6 +2397,8 @@ const heroKw =
             "pl-PL": "Infrawizja",
             "pt-BR": "Visão Infravermelha",
             "ru-RU": "Инфразрение",
+            "th-TH": "อินฟราไซต์",
+            "tr-TR": "Öte Görüş",
             "zh-CN": "红外侦测",
             "zh-TW": "紅外線視野"
         },
@@ -2136,6 +2408,8 @@ const heroKw =
         "ko-KR": "위도우메이커",
         "pl-PL": "Trupia Wdowa",
         "ru-RU": "Роковая Вдова",
+        "th-TH": "วิโดว์เมกเกอร์",
+        "tr-TR": "<en>Widowmaker<en>",
         "zh-CN": "黑百合",
         "zh-TW": "奪命女"
     },
@@ -2154,6 +2428,8 @@ const heroKw =
             "pl-PL": "Plecak Odrzutowy",
             "pt-BR": "Salto a Jato",
             "ru-RU": "Прыжковый ранец",
+            "th-TH": "จัมป์แพ็ค",
+            "tr-TR": "Uzun Sıçrama",
             "zh-CN": "喷射背包",
             "zh-TW": "噴射跳躍"
         },
@@ -2170,6 +2446,8 @@ const heroKw =
             "pl-PL": "Emiter Osłony",
             "pt-BR": "Projetor de Barreira",
             "ru-RU": "Защитный купол",
+            "th-TH": "บาเรียโพรเจกเตอร์",
+            "tr-TR": "Bariyer Projektörü",
             "zh-CN": "屏障发射器",
             "zh-TW": "屏障產生器"
         },
@@ -2186,6 +2464,8 @@ const heroKw =
             "pl-PL": "Pierwotny Szał",
             "pt-BR": "Fúria Primata",
             "ru-RU": "Ярость зверя",
+            "th-TH": "ไพรมอลเรจ",
+            "tr-TR": "İlkel Öfke",
             "zh-CN": "原始暴怒",
             "zh-TW": "野性之怒"
         },
@@ -2193,6 +2473,8 @@ const heroKw =
         "ja-JP": "ウィンストン",
         "ko-KR": "윈스턴",
         "ru-RU": "Уинстон",
+        "th-TH": "วินสตัน",
+        "tr-TR": "<en>Winston<en>",
         "zh-CN": "温斯顿",
         "zh-TW": "溫斯頓"
     },
@@ -2211,6 +2493,8 @@ const heroKw =
             "pl-PL": "Bariera Cząsteczkowa",
             "pt-BR": "Barreira de Partículas",
             "ru-RU": "Защитный барьер",
+            "th-TH": "พาร์ติเคิลบาเรีย",
+            "tr-TR": "Parçacık Bariyeri",
             "zh-CN": "粒子屏障",
             "zh-TW": "粒子屏障"
         },
@@ -2227,6 +2511,8 @@ const heroKw =
             "pl-PL": "Bariera Projekcyjna",
             "pt-BR": "Barreira Projetada",
             "ru-RU": "Дистанционный барьер",
+            "th-TH": "โปรเจคบาเรีย",
+            "tr-TR": "Atımlı Bariyer",
             "zh-CN": "投射屏障",
             "zh-TW": "投射屏障"
         },
@@ -2243,6 +2529,8 @@ const heroKw =
             "pl-PL": "Uderzenie Grawitonowe",
             "pt-BR": "Surto de Grávitons",
             "ru-RU": "Гравитонный импульс",
+            "th-TH": "กราวิตอนเซิร์จ",
+            "tr-TR": "Kütleçekim",
             "zh-CN": "重力喷涌",
             "zh-TW": "引力彈"
         },
@@ -2251,6 +2539,7 @@ const heroKw =
         "ko-KR": "자리야",
         "pl-PL": "Zaria",
         "ru-RU": "Заря",
+        "th-TH": "ซาเรีย",
         "zh-CN": "查莉娅",
         "zh-TW": "札莉雅"
     },
@@ -2269,6 +2558,8 @@ const heroKw =
             "pl-PL": "Kula Harmonii",
             "pt-BR": "Orbe da Harmonia",
             "ru-RU": "Сфера гармонии",
+            "th-TH": "ออร์บออฟฮาร์โมนี่",
+            "tr-TR": "Ahenk Küresi",
             "zh-CN": "谐",
             "zh-TW": "和諧之珠"
         },
@@ -2285,6 +2576,8 @@ const heroKw =
             "pl-PL": "Kula Rozdarcia",
             "pt-BR": "Orbe da Discórdia",
             "ru-RU": "Сфера диссонанса",
+            "th-TH": "ออร์บออฟดิสคอร์ด",
+            "tr-TR": "Kaos Küresi",
             "zh-CN": "乱",
             "zh-TW": "紛亂之珠"
         },
@@ -2301,6 +2594,8 @@ const heroKw =
             "pl-PL": "Transcendencja",
             "pt-BR": "Transcendência",
             "ru-RU": "Трансцендентность",
+            "th-TH": "ทรานส์เซนเดนซ์",
+            "tr-TR": "Ermişlik",
             "zh-CN": "圣",
             "zh-TW": "超凡入聖"
         },
@@ -2308,6 +2603,7 @@ const heroKw =
         "ja-JP": "ゼニヤッタ",
         "ko-KR": "젠야타",
         "ru-RU": "Дзенъятта",
+        "th-TH": "เซ็นยัตตา",
         "zh-CN": "禅雅塔",
         "zh-TW": "禪亞塔"
     },
@@ -2325,6 +2621,8 @@ const heroKw =
             "pl-PL": "Bariera Otchłani Postać Omnika",
             "pt-BR": "Barreira do Vazio Forma Ômnica",
             "ru-RU": "Барьер пустоты форма омника",
+            "th-TH": "วอยด์บาเรีย ออมนิคฟอร์ม",
+            "tr-TR": "Hiçlik Duvarı Omnik Formu",
             "zh-CN": "虚空屏障（智械形态）",
             "zh-TW": "虛空屏障（智械形態）"
         },
@@ -2341,6 +2639,8 @@ const heroKw =
             "pl-PL": "Postać Nemezis",
             "pt-BR": "Forma Nêmesis",
             "ru-RU": "Форма Немезиды",
+            "th-TH": "เนเมซิสฟอร์ม",
+            "tr-TR": "Nemesis Formu",
             "zh-CN": "天罚形态",
             "zh-TW": "復仇形態"
         },
@@ -2357,6 +2657,8 @@ const heroKw =
             "pl-PL": "Wściekły Wir",
             "pt-BR": "Vórtice Devorador",
             "ru-RU": "Ненасытный вихрь",
+            "th-TH": "แรฟเวอร์นัสวอร์เทกซ์",
+            "tr-TR": "Tükeniş Girdabı",
             "zh-CN": "吞噬漩涡",
             "zh-TW": "貪婪漩渦"
         },
@@ -2372,6 +2674,8 @@ const heroKw =
             "pl-PL": "Anihilacja",
             "pt-BR": "Aniquilação",
             "ru-RU": "Аннигиляция",
+            "th-TH": "อันไนฮิเลชัน",
+            "tr-TR": "Cankıyım",
             "zh-CN": "诛",
             "zh-TW": "殲滅"
         },
@@ -2380,26 +2684,94 @@ const heroKw =
         "ja-JP": "ラマットラ",
         "ko-KR": "라마트라",
         "ru-RU": "Раматтра",
+        "th-TH": "รามัตตรา",
         "zh-CN": "拉玛刹",
         "zh-TW": "拉瑪塔"
     },
     "lifeweaver": {
-        "en-US": "Lifeweaver",
-        ability1: {
+        "ability1": {
+            "guid": "000000015256",
             "en-US": "Rejuvenating Dash",
+            "de-DE": "Regenerativer Spurt",
+            "es-ES": "Paso regenerador",
+            "es-MX": "Carrera revitalizante",
+            "fr-FR": "Élan régénérant",
+            "it-IT": "Scatto Rinvigorente",
+            "ja-JP": "若返りの風",
+            "ko-KR": "산들 걸음",
+            "pl-PL": "Ożywczy Pęd",
+            "pt-BR": "Investida Rejuvenescedora",
+            "ru-RU": "Рывок восстановления",
+            "th-TH": "รีจูวีเนติ้งแดช",
+            "tr-TR": "Gençleştiren Hamle",
+            "zh-CN": "回春疾行",
+            "zh-TW": "恢復衝刺"
         },
-        ability2: {
+        "ability2": {
+            "guid": "00000000EA95",
             "en-US": "Life Grip",
+            "de-DE": "Rettungsanker",
+            "es-ES": "Agarre vital",
+            "es-MX": "Agarre salvavidas",
+            "fr-FR": "Emprise salvatrice",
+            "it-IT": "Presa Vitale",
+            "ja-JP": "ライフグリップ",
+            "ko-KR": "구원의 손길",
+            "pl-PL": "Pomocna Dłoń",
+            "pt-BR": "Abraço Vital",
+            "ru-RU": "Хватка жизни",
+            "th-TH": "ไลฟ์กริป",
+            "tr-TR": "Can Halatı",
+            "zh-CN": "生命之握",
+            "zh-TW": "賦生之握"
         },
-        ultimate: {
+        "ultimate": {
+            "guid": "000000015272",
             "en-US": "Tree of Life",
-        },
-        passive: {
-            "en-US": "Parting Gift",
+            "de-DE": "Baum des Lebens",
+            "es-ES": "Árbol de vida",
+            "es-MX": "Árbol de la vida",
+            "fr-FR": "Arbre de vie",
+            "it-IT": "Albero della Vita",
+            "ja-JP": "命の樹",
+            "ko-KR": "생명의 나무",
+            "pl-PL": "Drzewo Życia",
+            "pt-BR": "Árvore da Vida",
+            "ru-RU": "Древо Жизни",
+            "th-TH": "ทรีออฟไลฟ์",
+            "tr-TR": "Şifa Ağacı",
+            "zh-CN": "生命之树",
+            "zh-TW": "生命之樹"
         },
         "secondaryFire": {
+            "guid": "00000000EB98",
             "en-US": "Petal Platform",
-        }
+            "de-DE": "Blütenplattform",
+            "es-ES": "Plataforma petaloide",
+            "es-MX": "Plataforma de pétalos",
+            "fr-FR": "Plateforme de pétales",
+            "it-IT": "Piattaforma di Petali",
+            "ja-JP": "ペタル・プラットフォーム",
+            "ko-KR": "연꽃 단상",
+            "pl-PL": "Platforma Płatkowa",
+            "pt-BR": "Plataforma de Pétalas",
+            "ru-RU": "Платформа-лепесток",
+            "th-TH": "เพตเทิลแพลตฟอร์ม",
+            "tr-TR": "Baş Tacı",
+            "zh-CN": "花瓣平台",
+            "zh-TW": "花瓣平台"
+        },
+        "guid": "00000000D4D3",
+        "en-US": "Lifeweaver",
+        "fr-FR": "Vital",
+        "ja-JP": "ライフウィーバー",
+        "ko-KR": "라이프위버",
+        "pl-PL": "Życiodawca",
+        "ru-RU": "Ткач Жизни",
+        "th-TH": "ไลฟ์วีเวอร์",
+        "tr-TR": "<en>Lifeweaver<en>",
+        "zh-CN": "生命之梭",
+        "zh-TW": "織命"
     }
 }
 //end-json

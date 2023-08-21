@@ -33,6 +33,8 @@ const customGameSettingsKw =
         "pl-PL": "Wyłączono",
         "pt-BR": "Desativada",
         "ru-RU": "Откл.",
+        "th-TH": "ปิดใช้งานแล้ว",
+        "tr-TR": "Devre Dışı",
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
@@ -49,6 +51,8 @@ const customGameSettingsKw =
         "pl-PL": "Tryb aktywny",
         "pt-BR": "Ativado",
         "ru-RU": "Вкл.",
+        "th-TH": "เปิดใช้งานแล้ว",
+        "tr-TR": "Etkin",
         "zh-CN": "启用",
         "zh-TW": "啟用"
     },
@@ -62,6 +66,8 @@ const customGameSettingsKw =
         "pl-PL": "Nie",
         "pt-BR": "Não",
         "ru-RU": "Нет",
+        "th-TH": "ไม่",
+        "tr-TR": "Hayır",
         "zh-CN": "否",
         "zh-TW": "否"
     },
@@ -77,6 +83,8 @@ const customGameSettingsKw =
         "pl-PL": "Wył.",
         "pt-BR": "Desligado",
         "ru-RU": "Откл.",
+        "th-TH": "ปิด",
+        "tr-TR": "Kapalı",
         "zh-CN": "关闭",
         "zh-TW": "關閉"
     },
@@ -92,6 +100,8 @@ const customGameSettingsKw =
         "pl-PL": "Wł.",
         "pt-BR": "Ligado",
         "ru-RU": "Вкл.",
+        "th-TH": "เปิด",
+        "tr-TR": "Açık",
         "zh-CN": "开启",
         "zh-TW": "開啟"
     },
@@ -107,6 +117,8 @@ const customGameSettingsKw =
         "pl-PL": "Drużyna 1",
         "pt-BR": "Equipe 1",
         "ru-RU": "Команда 1",
+        "th-TH": "ทีม 1",
+        "tr-TR": "1. Takım",
         "zh-CN": "队伍1",
         "zh-TW": "隊伍1"
     },
@@ -122,6 +134,8 @@ const customGameSettingsKw =
         "pl-PL": "Drużyna 2",
         "pt-BR": "Equipe 2",
         "ru-RU": "Команда 2",
+        "th-TH": "ทีม 2",
+        "tr-TR": "2. Takım",
         "zh-CN": "队伍2",
         "zh-TW": "隊伍2"
     },
@@ -138,6 +152,8 @@ const customGameSettingsKw =
         "pl-PL": "Tak",
         "pt-BR": "Sim",
         "ru-RU": "Да",
+        "th-TH": "ใช่",
+        "tr-TR": "Evet",
         "zh-CN": "是",
         "zh-TW": "是"
     }
@@ -157,6 +173,8 @@ const ruleKw =
         "ko-KR": "action",
         "pl-PL": "działania",
         "pt-BR": "ações",
+        "th-TH": "การดำเนินการ",
+        "tr-TR": "eylemler",
         "zh-CN": "动作",
         "zh-TW": "動作"
     },
@@ -170,6 +188,8 @@ const ruleKw =
         "ko-KR": "condition",
         "pl-PL": "warunki",
         "pt-BR": "condições",
+        "th-TH": "เงื่อนไข",
+        "tr-TR": "koşullar",
         "zh-CN": "条件",
         "zh-TW": "條件"
     },
@@ -183,6 +203,8 @@ const ruleKw =
         "ja-JP": "無効",
         "pl-PL": "wył.",
         "pt-BR": "desabilitado",
+        "th-TH": "ปิดใช้งานแล้ว",
+        "tr-TR": "devre dışı",
         "zh-CN": "禁用",
         "zh-TW": "停用"
     },
@@ -195,6 +217,8 @@ const ruleKw =
         "ja-JP": "イベント",
         "pl-PL": "zdarzenie",
         "pt-BR": "evento",
+        "th-TH": "เหตุการณ์",
+        "tr-TR": "etkinlik",
         "zh-CN": "事件",
         "zh-TW": "事件"
     },
@@ -205,6 +229,8 @@ const ruleKw =
         "it-IT": "globale",
         "ja-JP": "グローバル",
         "pl-PL": "globalne",
+        "th-TH": "สากล",
+        "tr-TR": "küresel",
         "zh-CN": "全局",
         "zh-TW": "全域"
     },
@@ -218,6 +244,8 @@ const ruleKw =
         "ja-JP": "プレイヤー",
         "pl-PL": "gracza",
         "pt-BR": "jogador",
+        "th-TH": "ผู้เล่น",
+        "tr-TR": "oyuncu",
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
@@ -231,6 +259,8 @@ const ruleKw =
         "ja-JP": "ルール",
         "pl-PL": "reguła",
         "pt-BR": "regra",
+        "th-TH": "กฎ",
+        "tr-TR": "kural",
         "zh-CN": "规则",
         "zh-TW": "規則"
     },
@@ -245,6 +275,8 @@ const ruleKw =
         "ja-JP": "設定",
         "pl-PL": "ustawienia",
         "pt-BR": "configurações",
+        "th-TH": "การตั้งค่า",
+        "tr-TR": "ayarlar",
         "zh-CN": "设置",
         "zh-TW": "設定"
     },
@@ -259,6 +291,8 @@ const ruleKw =
         "ja-JP": "サブルーチン",
         "pl-PL": "podprogramy",
         "pt-BR": "sub-rotinas",
+        "th-TH": "ซับรูทีน",
+        "tr-TR": "alt yordam",
         "zh-CN": "子程序"
     },
     "__variables__": {
@@ -269,6 +303,8 @@ const ruleKw =
         "ja-JP": "変数",
         "pl-PL": "zmienne",
         "pt-BR": "variáveis",
+        "th-TH": "ตัวแปร",
+        "tr-TR": "değişkenler",
         "zh-CN": "变量",
         "zh-TW": "變數"
     }
@@ -286,6 +322,8 @@ const eventKw =
         "fr-FR": "Toute la partie - Tout le monde",
         "ja-JP": "進行中 - グローバル",
         "pt-BR": "Em andamento - Global",
+        "th-TH": "ดำเนินอยู่ - ทั่วโลก",
+        "tr-TR": "Devam Eden - Küresel",
         "zh-CN": "持续 - 全局"
     },
     "eachPlayer": {
@@ -295,6 +333,8 @@ const eventKw =
         "fr-FR": "Toute la partie - Chaque joueur",
         "ja-JP": "進行中 - 各プレイヤー",
         "pt-BR": "Em andamento - Cada Jogador",
+        "th-TH": "ดำเนินอยู่ - ผู้เล่นแต่ละคน",
+        "tr-TR": "Devam Eden - Her Oyuncu",
         "zh-CN": "持续 - 每名玩家"
     },
     "playerDealtDamage": {
@@ -305,6 +345,8 @@ const eventKw =
         "ja-JP": "プレイヤーがダメージを与えた",
         "pt-BR": "Jogador Causou Dano",
         "ru-RU": "Player dealt damage",
+        "th-TH": "ผู้เล่นสร้างความเสียหายหลัก",
+        "tr-TR": "Oyuncu'nun Verdiği Hasar",
         "zh-CN": "玩家造成伤害"
     },
     "playerDealtFinalBlow": {
@@ -315,6 +357,8 @@ const eventKw =
         "ja-JP": "ファイナル・ブロウを獲得",
         "pt-BR": "Jogador Desferiu Golpe Final",
         "ru-RU": "Player dealt final blow",
+        "th-TH": "ผู้เล่นที่โจมตีสังหาร",
+        "tr-TR": "Oyuncu Son Vuruşu",
         "zh-CN": "玩家造成最后一击"
     },
     "playerDealtHealing": {
@@ -324,6 +368,8 @@ const eventKw =
         "fr-FR": "Un joueur a prodigué des soins",
         "ja-JP": "プレイヤーが回復を与えた",
         "pt-BR": "Jogador Realizou Cura",
+        "th-TH": "ผู้เล่นสร้างการฮีล",
+        "tr-TR": "Oyuncu İyileştirme Verdi",
         "zh-CN": "玩家造成治疗"
     },
     "playerDealtKnockback": {
@@ -334,6 +380,8 @@ const eventKw =
         "fr-FR": "Un joueur a infligé un recul",
         "ja-JP": "プレイヤーがノックバックを与えた",
         "pt-BR": "Jogador Causou Repulsão",
+        "th-TH": "ผู้เล่นที่สร้างการกระเด็นถอยหลัง",
+        "tr-TR": "Oyuncu'nun Verdiği Geri İtme",
         "zh-CN": "玩家造成击退"
     },
     "playerDied": {
@@ -343,6 +391,8 @@ const eventKw =
         "fr-FR": "Un joueur meurt",
         "ja-JP": "プレイヤーが倒れた",
         "pt-BR": "Jogador morreu",
+        "th-TH": "ผู้เล่นเสียชีวิต",
+        "tr-TR": "Oyuncu Öldü",
         "zh-CN": "玩家阵亡"
     },
     "playerEarnedElimination": {
@@ -353,6 +403,8 @@ const eventKw =
         "ja-JP": "プレイヤーがキルを獲得",
         "pt-BR": "Jogador Conseguiu Eliminação",
         "ru-RU": "Player earned elimination",
+        "th-TH": "ผู้เล่นได้รับการกำจัด",
+        "tr-TR": "Oyuncu Bertarafı",
         "zh-CN": "玩家参与消灭"
     },
     "playerJoined": {
@@ -362,6 +414,8 @@ const eventKw =
         "fr-FR": "Un joueur a rejoint la partie",
         "ja-JP": "プレイヤーがマッチに参加",
         "pt-BR": "Jogador Entrou na Partida",
+        "th-TH": "ผู้เล่นเข้าร่วมแมตช์",
+        "tr-TR": "Oyuncu Maça Katıldı",
         "zh-CN": "玩家加入比赛"
     },
     "playerLeft": {
@@ -371,6 +425,8 @@ const eventKw =
         "fr-FR": "Un joueur a quitté la partie",
         "ja-JP": "プレイヤーがマッチから離脱",
         "pt-BR": "Jogador Saiu da Partida",
+        "th-TH": "ผู้เล่นออกจากแมตช์",
+        "tr-TR": "Oyuncu Maçtan Ayrıldı",
         "zh-CN": "玩家离开比赛"
     },
     "playerReceivedHealing": {
@@ -380,6 +436,8 @@ const eventKw =
         "fr-FR": "Un joueur a reçu des soins",
         "ja-JP": "プレイヤーが回復を受けた",
         "pt-BR": "Jogador Recebeu Cura",
+        "th-TH": "ผู้เล่นได้รับการฮีล",
+        "tr-TR": "Oyuncu İyileştirme Aldı",
         "zh-CN": "玩家受到治疗"
     },
     "playerReceivedKnockback": {
@@ -390,6 +448,8 @@ const eventKw =
         "fr-FR": "Un joueur a reçu un recul",
         "ja-JP": "プレイヤーがノックバックを受けた",
         "pt-BR": "Jogador Recebeu Repulsão",
+        "th-TH": "ผู้เล่นที่ได้รับการกระเด็นถอยหลัง",
+        "tr-TR": "Oyuncu Geri İtme Aldı",
         "zh-CN": "玩家受到击退"
     },
     "playerTookDamage": {
@@ -400,6 +460,8 @@ const eventKw =
         "ja-JP": "プレイヤーがダメージを受けた",
         "pt-BR": "Jogador Recebeu Dano",
         "ru-RU": "Player took damage",
+        "th-TH": "ผู้เล่นได้รับความเสียหาย",
+        "tr-TR": "Oyuncu Hasar Aldı",
         "zh-CN": "玩家受到伤害"
     },
     "__subroutine__": {
@@ -410,6 +472,8 @@ const eventKw =
         "fr-FR": "Sous-programme",
         "ja-JP": "サブルーチン",
         "pt-BR": "Sub-rotina",
+        "th-TH": "ซับรูทีน",
+        "tr-TR": "Alt Yordam",
         "zh-CN": "子程序"
     }
 }
@@ -425,6 +489,8 @@ const eventTeamKw =
         "fr-FR": "Équipe 1",
         "ja-JP": "チーム1",
         "pt-BR": "Equipe 1",
+        "th-TH": "ทีม 1",
+        "tr-TR": "1. Takım",
         "zh-CN": "队伍1"
     },
     "2": {
@@ -434,6 +500,8 @@ const eventTeamKw =
         "fr-FR": "Équipe 2",
         "ja-JP": "チーム2",
         "pt-BR": "Equipe 2",
+        "th-TH": "ทีม 2",
+        "tr-TR": "2. Takım",
         "zh-CN": "队伍2"
     },
     "all": {
@@ -446,6 +514,8 @@ const eventTeamKw =
         "ja-JP": "すべて",
         "pl-PL": "Wszystkie",
         "pt-BR": "Todas",
+        "th-TH": "ทั้งหมด",
+        "tr-TR": "Tümü",
         "zh-CN": "双方"
     }
 }
@@ -463,6 +533,8 @@ const slotKw =
     "pl-PL": "Miejsce %1$s",
     "pt-BR": "Espaço %1$s",
     "ru-RU": "Ячейка %1$s",
+    "th-TH": "ช่อง %1$s",
+    "tr-TR": "%1$s. Yuva",
     "zh-CN": "栏位 %1$s"
 }
 //end-json
@@ -488,6 +560,8 @@ const eventPlayerKw =
         "pl-PL": "Wszystkie",
         "pt-BR": "Tudo",
         "ru-RU": "Все",
+        "th-TH": "ทั้งหมด",
+        "tr-TR": "Tümü",
         "zh-CN": "全部"
     }
 }

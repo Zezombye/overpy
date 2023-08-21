@@ -87,6 +87,8 @@ var normalStrKw =
         "pl-PL": "Zdolności",
         "pt-BR": "Habilidades",
         "ru-RU": "Способности",
+        "th-TH": "ความสามารถ",
+        "tr-TR": "Kabiliyetler",
         "zh-CN": "技能",
         "zh-TW": "技能"
     },
@@ -102,6 +104,8 @@ var normalStrKw =
         "pl-PL": "Zdolność",
         "pt-BR": "Habilidade",
         "ru-RU": "Способность",
+        "th-TH": "ความสามารถ",
+        "tr-TR": "Kabiliyet",
         "zh-CN": "技能",
         "zh-TW": "技能"
     },
@@ -117,6 +121,8 @@ var normalStrKw =
         "pl-PL": "Zdolność 1",
         "pt-BR": "Habilidade 1",
         "ru-RU": "Способность 1",
+        "th-TH": "ความสามารถ 1",
+        "tr-TR": "1. Kabiliyet",
         "zh-CN": "技能1",
         "zh-TW": "技能1"
     },
@@ -132,6 +138,8 @@ var normalStrKw =
         "pl-PL": "Zdolność 2",
         "pt-BR": "Habilidade 2",
         "ru-RU": "Способность 2",
+        "th-TH": "ความสามารถ 2",
+        "tr-TR": "2. Kabiliyet",
         "zh-CN": "技能2",
         "zh-TW": "技能2"
     },
@@ -146,6 +154,8 @@ var normalStrKw =
         "ja-JP": "注意",
         "pt-BR": "Alerta",
         "ru-RU": "Оповещение",
+        "th-TH": "เตือน",
+        "tr-TR": "Alarm",
         "zh-CN": "警报",
         "zh-TW": "警報"
     },
@@ -161,6 +171,8 @@ var normalStrKw =
         "pl-PL": "Żyje",
         "pt-BR": "Vivo",
         "ru-RU": "В живых",
+        "th-TH": "มีชีวิต",
+        "tr-TR": "Canlı",
         "zh-CN": "存活",
         "zh-TW": "生存"
     },
@@ -176,6 +188,8 @@ var normalStrKw =
         "pl-PL": "Sojusznicy",
         "pt-BR": "Aliados",
         "ru-RU": "Союзники",
+        "th-TH": "พันธมิตร",
+        "tr-TR": "Müttefikler",
         "zh-CN": "盟友",
         "zh-TW": "盟友"
     },
@@ -191,6 +205,8 @@ var normalStrKw =
         "pl-PL": "Sojusznik",
         "pt-BR": "Aliado",
         "ru-RU": "Союзник",
+        "th-TH": "พันธมิตร",
+        "tr-TR": "Müttefik",
         "zh-CN": "盟友",
         "zh-TW": "盟友"
     },
@@ -206,6 +222,8 @@ var normalStrKw =
         "pl-PL": "Amunicja",
         "pt-BR": "Munição",
         "ru-RU": "Боеприпасы",
+        "th-TH": "กระสุน",
+        "tr-TR": "Mühimmat",
         "zh-CN": "弹药",
         "zh-TW": "彈藥"
     },
@@ -220,6 +238,8 @@ var normalStrKw =
         "pl-PL": "Kąt",
         "pt-BR": "Ângulo",
         "ru-RU": "Угол",
+        "th-TH": "มุม",
+        "tr-TR": "Açı",
         "zh-CN": "角度",
         "zh-TW": "角度"
     },
@@ -235,6 +255,8 @@ var normalStrKw =
         "pl-PL": "Atakuj",
         "pt-BR": "Atacar",
         "ru-RU": "Атаковать",
+        "th-TH": "โจมตี",
+        "tr-TR": "Saldırı",
         "zh-CN": "进攻",
         "zh-TW": "攻擊"
     },
@@ -250,6 +272,8 @@ var normalStrKw =
         "pl-PL": "Zaatakowano",
         "pt-BR": "Atacado",
         "ru-RU": "Атакован",
+        "th-TH": "โจมตีแล้ว",
+        "tr-TR": "Saldırılan",
         "zh-CN": "已进攻",
         "zh-TW": "被攻擊"
     },
@@ -265,6 +289,8 @@ var normalStrKw =
         "pl-PL": "Atakowanie",
         "pt-BR": "Atacando",
         "ru-RU": "Атакует",
+        "th-TH": "กำลังโจมตี",
+        "tr-TR": "Saldıran",
         "zh-CN": "正在进攻",
         "zh-TW": "正在攻擊"
     },
@@ -280,6 +306,8 @@ var normalStrKw =
         "pl-PL": "Próba",
         "pt-BR": "Tentativa",
         "ru-RU": "Попытка",
+        "th-TH": "ความพยายาม",
+        "tr-TR": "Deneme",
         "zh-CN": "尝试",
         "zh-TW": "機會"
     },
@@ -295,6 +323,8 @@ var normalStrKw =
         "pl-PL": "Próby",
         "pt-BR": "Tentativas",
         "ru-RU": "Попытки",
+        "th-TH": "ความพยายาม",
+        "tr-TR": "Denemeler",
         "zh-CN": "尝试",
         "zh-TW": "機會"
     },
@@ -310,6 +340,8 @@ var normalStrKw =
         "pl-PL": "Średnio",
         "pt-BR": "Médio",
         "ru-RU": "В среднем",
+        "th-TH": "เฉลี่ย",
+        "tr-TR": "Ortalama",
         "zh-CN": "平均",
         "zh-TW": "平均"
     },
@@ -325,6 +357,8 @@ var normalStrKw =
         "pl-PL": "Uniknij",
         "pt-BR": "Evitar",
         "ru-RU": "Избегание",
+        "th-TH": "หลีกเลี่ยง",
+        "tr-TR": "Sakınma",
         "zh-CN": "躲避",
         "zh-TW": "避開"
     },
@@ -340,6 +374,8 @@ var normalStrKw =
         "pl-PL": "Uniknięto",
         "pt-BR": "Evitado",
         "ru-RU": "Избежал",
+        "th-TH": "หลีกเลี่ยงแล้ว",
+        "tr-TR": "Sakınılan",
         "zh-CN": "已躲避",
         "zh-TW": "被避開"
     },
@@ -355,6 +391,8 @@ var normalStrKw =
         "pl-PL": "Unikanie",
         "pt-BR": "Evitando",
         "ru-RU": "Избегает",
+        "th-TH": "กำลังหลีกเลี่ยง",
+        "tr-TR": "Sakınan",
         "zh-CN": "正在躲避",
         "zh-TW": "正在避開"
     },
@@ -370,6 +408,8 @@ var normalStrKw =
         "pl-PL": "Do tyłu",
         "pt-BR": "Para Trás",
         "ru-RU": "Назад",
+        "th-TH": "ย้อนหลัง",
+        "tr-TR": "Geri",
         "zh-CN": "后",
         "zh-TW": "後退"
     },
@@ -385,6 +425,8 @@ var normalStrKw =
         "pl-PL": "Źle",
         "pt-BR": "Ruim",
         "ru-RU": "Плохо",
+        "th-TH": "ไม่ดี",
+        "tr-TR": "Kötü",
         "zh-CN": "差",
         "zh-TW": "壞"
     },
@@ -400,6 +442,8 @@ var normalStrKw =
         "pl-PL": "Zawieś",
         "pt-BR": "Banir",
         "ru-RU": "Блокировка",
+        "th-TH": "แบน",
+        "tr-TR": "Engelle",
         "zh-CN": "屏蔽",
         "zh-TW": "禁止"
     },
@@ -415,6 +459,8 @@ var normalStrKw =
         "pl-PL": "Zawieszono",
         "pt-BR": "Banido",
         "ru-RU": "Заблокирован",
+        "th-TH": "แบนแล้ว",
+        "tr-TR": "Engellenen",
         "zh-CN": "已屏蔽",
         "zh-TW": "被禁止"
     },
@@ -430,6 +476,8 @@ var normalStrKw =
         "pl-PL": "Zawieszanie",
         "pt-BR": "Banindo",
         "ru-RU": "Блокирует",
+        "th-TH": "กำลังแบน",
+        "tr-TR": "Engelleyen",
         "zh-CN": "正在屏蔽",
         "zh-TW": "正在禁止"
     },
@@ -445,6 +493,8 @@ var normalStrKw =
         "pl-PL": "Najlepiej",
         "pt-BR": "O Melhor",
         "ru-RU": "Лучший",
+        "th-TH": "ดีที่สุด",
+        "tr-TR": "En İyi",
         "zh-CN": "最佳",
         "zh-TW": "最佳"
     },
@@ -460,6 +510,8 @@ var normalStrKw =
         "pl-PL": "Lepiej",
         "pt-BR": "Melhor",
         "ru-RU": "Лучше",
+        "th-TH": "ดีกว่า",
+        "tr-TR": "Daha İyi",
         "zh-CN": "优秀",
         "zh-TW": "較佳"
     },
@@ -475,6 +527,8 @@ var normalStrKw =
         "pl-PL": "Zakład",
         "pt-BR": "Aposta",
         "ru-RU": "Ставка",
+        "th-TH": "ประมูล",
+        "tr-TR": "Teklif",
         "zh-CN": "加注",
         "zh-TW": "競標"
     },
@@ -490,6 +544,8 @@ var normalStrKw =
         "pl-PL": "Zakłady",
         "pt-BR": "Apostas",
         "ru-RU": "Ставки",
+        "th-TH": "ประมูล",
+        "tr-TR": "Teklifler",
         "zh-CN": "加注",
         "zh-TW": "競標"
     },
@@ -505,6 +561,8 @@ var normalStrKw =
         "pl-PL": "Zablokuj",
         "pt-BR": "Bloquear",
         "ru-RU": "Блокировать",
+        "th-TH": "บล็อค",
+        "tr-TR": "Engelle",
         "zh-CN": "阻挡",
         "zh-TW": "阻擋"
     },
@@ -520,6 +578,8 @@ var normalStrKw =
         "pl-PL": "Zablokowano",
         "pt-BR": "Bloqueado",
         "ru-RU": "Заблокировал",
+        "th-TH": "บล็อคแล้ว",
+        "tr-TR": "Engellenen",
         "zh-CN": "已阻挡",
         "zh-TW": "被阻擋"
     },
@@ -535,6 +595,8 @@ var normalStrKw =
         "pl-PL": "Blokowanie",
         "pt-BR": "Bloqueando",
         "ru-RU": "Блокирует",
+        "th-TH": "กำลังบล็อค",
+        "tr-TR": "Engelleyen",
         "zh-CN": "正在阻挡",
         "zh-TW": "正在阻擋"
     },
@@ -549,6 +611,8 @@ var normalStrKw =
         "pl-PL": "Niebieski",
         "pt-BR": "Azul",
         "ru-RU": "Синий",
+        "th-TH": "ฟ้า",
+        "tr-TR": "Mavi",
         "zh-CN": "蓝色",
         "zh-TW": "藍"
     },
@@ -562,6 +626,7 @@ var normalStrKw =
         "pl-PL": "Premia",
         "pt-BR": "Bônus",
         "ru-RU": "Бонус",
+        "th-TH": "โบนัส",
         "zh-CN": "奖励",
         "zh-TW": "獎勵"
     },
@@ -577,6 +642,8 @@ var normalStrKw =
         "pl-PL": "Premie",
         "pt-BR": "Bônus",
         "ru-RU": "Бонусы",
+        "th-TH": "โบนัส",
+        "tr-TR": "Bonuslar",
         "zh-CN": "奖励",
         "zh-TW": "獎勵"
     },
@@ -588,6 +655,8 @@ var normalStrKw =
         "ja-JP": "ボス",
         "pt-BR": "Chefe",
         "ru-RU": "Босс",
+        "th-TH": "บอส",
+        "tr-TR": "Baş Düşman",
         "zh-CN": "首领",
         "zh-TW": "首領"
     },
@@ -603,6 +672,8 @@ var normalStrKw =
         "pl-PL": "Bossowie",
         "pt-BR": "Chefes",
         "ru-RU": "Боссы",
+        "th-TH": "บอส",
+        "tr-TR": "Baş Düşmanlar",
         "zh-CN": "首领",
         "zh-TW": "首領"
     },
@@ -618,6 +689,8 @@ var normalStrKw =
         "pl-PL": "Kupiono",
         "pt-BR": "Comprado",
         "ru-RU": "Куплен",
+        "th-TH": "ซื้อแล้ว",
+        "tr-TR": "Satın Alındı",
         "zh-CN": "已购买",
         "zh-TW": "已購買"
     },
@@ -633,6 +706,8 @@ var normalStrKw =
         "pl-PL": "Zbuduj",
         "pt-BR": "Construir",
         "ru-RU": "Строить",
+        "th-TH": "สร้าง",
+        "tr-TR": "Oluştur",
         "zh-CN": "建造",
         "zh-TW": "建造"
     },
@@ -648,6 +723,8 @@ var normalStrKw =
         "pl-PL": "Budowanie",
         "pt-BR": "Construindo",
         "ru-RU": "Строение",
+        "th-TH": "กำลังสร้าง",
+        "tr-TR": "Oluşturan",
         "zh-CN": "正在建造",
         "zh-TW": "正在建造"
     },
@@ -663,6 +740,8 @@ var normalStrKw =
         "pl-PL": "Zbudowano",
         "pt-BR": "Construído",
         "ru-RU": "Построен",
+        "th-TH": "สร้างแล้ว",
+        "tr-TR": "Kurulan",
         "zh-CN": "已建造",
         "zh-TW": "已建造"
     },
@@ -678,6 +757,8 @@ var normalStrKw =
         "pl-PL": "Spal",
         "pt-BR": "Queimar",
         "ru-RU": "Горение",
+        "th-TH": "เผาไหม้",
+        "tr-TR": "Yanma",
         "zh-CN": "点燃",
         "zh-TW": "燃燒"
     },
@@ -693,6 +774,8 @@ var normalStrKw =
         "pl-PL": "Palenie",
         "pt-BR": "Queimando",
         "ru-RU": "Горит",
+        "th-TH": "กำลังเผาไหม้",
+        "tr-TR": "Yakan",
         "zh-CN": "正在点燃",
         "zh-TW": "正在燃燒"
     },
@@ -708,6 +791,8 @@ var normalStrKw =
         "pl-PL": "Spalono",
         "pt-BR": "Queimado",
         "ru-RU": "Сгорел",
+        "th-TH": "เผาไหม้แล้ว",
+        "tr-TR": "Yanan",
         "zh-CN": "已点燃",
         "zh-TW": "受到燃燒"
     },
@@ -723,6 +808,8 @@ var normalStrKw =
         "pl-PL": "Kup",
         "pt-BR": "Comprar",
         "ru-RU": "Купить",
+        "th-TH": "ซื้อ",
+        "tr-TR": "Satın Al",
         "zh-CN": "购买",
         "zh-TW": "購買"
     },
@@ -738,6 +825,8 @@ var normalStrKw =
         "pl-PL": "Kupowanie",
         "pt-BR": "Comprando",
         "ru-RU": "Покупает",
+        "th-TH": "กำลังซื้อ",
+        "tr-TR": "Satın Alınıyor",
         "zh-CN": "正在购买",
         "zh-TW": "正在購買"
     },
@@ -753,6 +842,8 @@ var normalStrKw =
         "pl-PL": "Przejmij",
         "pt-BR": "Capturar",
         "ru-RU": "Захват",
+        "th-TH": "ยึดครอง",
+        "tr-TR": "Kap",
         "zh-CN": "夺取",
         "zh-TW": "捕捉"
     },
@@ -768,6 +859,8 @@ var normalStrKw =
         "pl-PL": "Przejęto",
         "pt-BR": "Capturado",
         "ru-RU": "Захвачен",
+        "th-TH": "ยึดได้",
+        "tr-TR": "Ele Geçirilen",
         "zh-CN": "已夺取",
         "zh-TW": "遭到捕捉"
     },
@@ -783,6 +876,8 @@ var normalStrKw =
         "pl-PL": "Przejmowanie",
         "pt-BR": "Capturando",
         "ru-RU": "Захватывает",
+        "th-TH": "กำลังยึด",
+        "tr-TR": "Ele Geçiren",
         "zh-CN": "正在夺取",
         "zh-TW": "正在捕捉"
     },
@@ -798,6 +893,8 @@ var normalStrKw =
         "pl-PL": "Uwaga",
         "pt-BR": "Perigo",
         "ru-RU": "Осторожно",
+        "th-TH": "คำเตือน",
+        "tr-TR": "Dikkat",
         "zh-CN": "危险",
         "zh-TW": "注意"
     },
@@ -813,6 +910,8 @@ var normalStrKw =
         "pl-PL": "Środek",
         "pt-BR": "Centro",
         "ru-RU": "Центр",
+        "th-TH": "ศูนย์กลาง",
+        "tr-TR": "Merkez",
         "zh-CN": "中",
         "zh-TW": "中央"
     },
@@ -828,6 +927,8 @@ var normalStrKw =
         "pl-PL": "Przyjmuję wyzwanie",
         "pt-BR": "Desafio Aceito",
         "ru-RU": "Вызов принят",
+        "th-TH": "ยอมรับการท้าทายแล้ว",
+        "tr-TR": "Hodri Meydan",
         "zh-CN": "接受挑战",
         "zh-TW": "接受挑戰"
     },
@@ -842,6 +943,8 @@ var normalStrKw =
         "pl-PL": "Charyzma",
         "pt-BR": "Carisma",
         "ru-RU": "Обаяние",
+        "th-TH": "ความมีเสน่ห์",
+        "tr-TR": "Karizma",
         "zh-CN": "魅力",
         "zh-TW": "魅力"
     },
@@ -857,6 +960,8 @@ var normalStrKw =
         "pl-PL": "Dogoń",
         "pt-BR": "Acompanhar",
         "ru-RU": "Преследовать",
+        "th-TH": "ไล่ตาม",
+        "tr-TR": "Kovala",
         "zh-CN": "追击",
         "zh-TW": "追逐"
     },
@@ -872,6 +977,8 @@ var normalStrKw =
         "pl-PL": "Dogoniono",
         "pt-BR": "Acompanhado",
         "ru-RU": "Преследовал",
+        "th-TH": "ไล่ตามแล้ว",
+        "tr-TR": "Kovalanan",
         "zh-CN": "已追击",
         "zh-TW": "被追逐"
     },
@@ -887,6 +994,8 @@ var normalStrKw =
         "pl-PL": "Gonienie",
         "pt-BR": "Acompanhando",
         "ru-RU": "Преследует",
+        "th-TH": "กำลังไล่ตาม",
+        "tr-TR": "Kovalayan",
         "zh-CN": "正在追击",
         "zh-TW": "正在追逐"
     },
@@ -900,6 +1009,8 @@ var normalStrKw =
         "pl-PL": "Punkt kontrolny",
         "pt-BR": "Ponto de Verificação",
         "ru-RU": "Контрольная точка",
+        "th-TH": "เช็คพอยต์",
+        "tr-TR": "Kontrol Noktası",
         "zh-CN": "检查点",
         "zh-TW": "檢查點"
     },
@@ -914,6 +1025,8 @@ var normalStrKw =
         "pl-PL": "Punkty kontrolne",
         "pt-BR": "Pontos de Verificação",
         "ru-RU": "Контрольные точки",
+        "th-TH": "เช็คพอยต์",
+        "tr-TR": "Kontrol Noktaları",
         "zh-CN": "检查点",
         "zh-TW": "檢查點"
     },
@@ -929,6 +1042,8 @@ var normalStrKw =
         "pl-PL": "Chmura",
         "pt-BR": "Nuvem",
         "ru-RU": "Облако",
+        "th-TH": "เมฆ",
+        "tr-TR": "Bulut",
         "zh-CN": "云朵",
         "zh-TW": "雲"
     },
@@ -944,6 +1059,8 @@ var normalStrKw =
         "pl-PL": "Chmury",
         "pt-BR": "Nuvens",
         "ru-RU": "Облака",
+        "th-TH": "เมฆ",
+        "tr-TR": "Bulut",
         "zh-CN": "云朵",
         "zh-TW": "雲"
     },
@@ -959,6 +1076,8 @@ var normalStrKw =
         "pl-PL": "Trefl",
         "pt-BR": "Paus",
         "ru-RU": "Трефы",
+        "th-TH": "ดอกจิก",
+        "tr-TR": "Sinek",
         "zh-CN": "梅花",
         "zh-TW": "梅花"
     },
@@ -974,6 +1093,8 @@ var normalStrKw =
         "pl-PL": "Trefl",
         "pt-BR": "Paus",
         "ru-RU": "Трефы",
+        "th-TH": "ดอกจิก",
+        "tr-TR": "Sinekler",
         "zh-CN": "梅花",
         "zh-TW": "梅花"
     },
@@ -984,6 +1105,8 @@ var normalStrKw =
         "ja-JP": "コンボ",
         "pl-PL": "Kombos",
         "ru-RU": "Комбо",
+        "th-TH": "คอมโบ",
+        "tr-TR": "Kombo",
         "zh-CN": "连击",
         "zh-TW": "連擊"
     },
@@ -999,6 +1122,8 @@ var normalStrKw =
         "pl-PL": "Dawać tutaj",
         "pt-BR": "Venha Aqui",
         "ru-RU": "Иди сюда",
+        "th-TH": "มานี่สิ",
+        "tr-TR": "Buraya",
         "zh-CN": "到这儿来",
         "zh-TW": "過來"
     },
@@ -1013,6 +1138,8 @@ var normalStrKw =
         "pl-PL": "Warunek",
         "pt-BR": "Condição",
         "ru-RU": "Условие",
+        "th-TH": "เงื่อนไข",
+        "tr-TR": "Koşul",
         "zh-CN": "条件",
         "zh-TW": "狀況"
     },
@@ -1028,6 +1155,8 @@ var normalStrKw =
         "pl-PL": "Gratulacje",
         "pt-BR": "Parabéns",
         "ru-RU": "Поздравляем",
+        "th-TH": "ยินดีด้วย",
+        "tr-TR": "Tebrikler",
         "zh-CN": "恭喜",
         "zh-TW": "恭喜"
     },
@@ -1043,6 +1172,8 @@ var normalStrKw =
         "pl-PL": "Połącz",
         "pt-BR": "Conectar",
         "ru-RU": "Подключиться",
+        "th-TH": "เชื่อมต่อ",
+        "tr-TR": "Bağla",
         "zh-CN": "连接",
         "zh-TW": "連接"
     },
@@ -1058,6 +1189,8 @@ var normalStrKw =
         "pl-PL": "Połączono",
         "pt-BR": "Conectado",
         "ru-RU": "Подключен",
+        "th-TH": "การเชื่อมต่อแล้ว",
+        "tr-TR": "Bağlı",
         "zh-CN": "已连接",
         "zh-TW": "獲得連接"
     },
@@ -1073,6 +1206,8 @@ var normalStrKw =
         "pl-PL": "Łączenie",
         "pt-BR": "Conectando",
         "ru-RU": "Подключается",
+        "th-TH": "กำลังเชื่อมต่อ",
+        "tr-TR": "Bağlı",
         "zh-CN": "正在连接",
         "zh-TW": "正在連接"
     },
@@ -1087,6 +1222,8 @@ var normalStrKw =
         "pl-PL": "Kondycja",
         "pt-BR": "Constituição",
         "ru-RU": "Телосложение",
+        "th-TH": "ความแข็งแกร่ง",
+        "tr-TR": "Dayanıklılık",
         "zh-CN": "建筑",
         "zh-TW": "體質"
     },
@@ -1102,6 +1239,8 @@ var normalStrKw =
         "pl-PL": "Punkt kontrolny",
         "pt-BR": "Ponto de Controle",
         "ru-RU": "Контрольная точка",
+        "th-TH": "จุดควบคุม",
+        "tr-TR": "Kontrol Noktası",
         "zh-CN": "控制点",
         "zh-TW": "控制點"
     },
@@ -1117,6 +1256,8 @@ var normalStrKw =
         "pl-PL": "Punkty kontrolne",
         "pt-BR": "Pontos de Controle",
         "ru-RU": "Контрольные точки",
+        "th-TH": "จุดควบคุม",
+        "tr-TR": "Kontrol Noktaları",
         "zh-CN": "控制点",
         "zh-TW": "控制點"
     },
@@ -1132,6 +1273,8 @@ var normalStrKw =
         "pl-PL": "Czas odnowienia",
         "pt-BR": "Tempo de Recarga",
         "ru-RU": "Время восстановления",
+        "th-TH": "คูลดาวน์",
+        "tr-TR": "Dolum Süresi",
         "zh-CN": "冷却时间",
         "zh-TW": "冷卻時間"
     },
@@ -1147,6 +1290,8 @@ var normalStrKw =
         "pl-PL": "Czasy odnowienia",
         "pt-BR": "Tempos de Recarga",
         "ru-RU": "Время восстановления способностей",
+        "th-TH": "คูลดาวน์",
+        "tr-TR": "Dolum Süresi",
         "zh-CN": "冷却时间",
         "zh-TW": "冷卻時間"
     },
@@ -1162,6 +1307,8 @@ var normalStrKw =
         "pl-PL": "Uszkodź",
         "pt-BR": "Corromper",
         "ru-RU": "Нарушить",
+        "th-TH": "ทำให้เสียหาย",
+        "tr-TR": "Boz",
         "zh-CN": "腐化",
         "zh-TW": "腐化"
     },
@@ -1177,6 +1324,8 @@ var normalStrKw =
         "pl-PL": "Uszkodzono",
         "pt-BR": "Corrompido",
         "ru-RU": "Нарушен",
+        "th-TH": "ทำให้เสียหายแล้ว",
+        "tr-TR": "Bozuk",
         "zh-CN": "已腐化",
         "zh-TW": "受到腐化"
     },
@@ -1192,6 +1341,8 @@ var normalStrKw =
         "pl-PL": "Uszkadzanie",
         "pt-BR": "Corrompendo",
         "ru-RU": "Нарушает",
+        "th-TH": "กำลังทำให้เสียหาย",
+        "tr-TR": "Bozan",
         "zh-CN": "正在腐化",
         "zh-TW": "正在腐化"
     },
@@ -1206,6 +1357,8 @@ var normalStrKw =
         "pl-PL": "Kredyt",
         "pt-BR": "Crédito",
         "ru-RU": "Кредит",
+        "th-TH": "เครดิต",
+        "tr-TR": "Pay",
         "zh-CN": "货币",
         "zh-TW": "次數"
     },
@@ -1220,6 +1373,8 @@ var normalStrKw =
         "pl-PL": "Kredyty",
         "pt-BR": "Créditos",
         "ru-RU": "Кредиты",
+        "th-TH": "เครดิต",
+        "tr-TR": "Paylar",
         "zh-CN": "货币",
         "zh-TW": "次數"
     },
@@ -1235,6 +1390,8 @@ var normalStrKw =
         "pl-PL": "Krytyczne",
         "pt-BR": "Crítico",
         "ru-RU": "Критический",
+        "th-TH": "คริติคอล",
+        "tr-TR": "Kritik",
         "zh-CN": "严重",
         "zh-TW": "致命"
     },
@@ -1250,6 +1407,8 @@ var normalStrKw =
         "pl-PL": "Kucnij",
         "pt-BR": "Agachar",
         "ru-RU": "Пригибаться",
+        "th-TH": "หมอบ",
+        "tr-TR": "Çömel",
         "zh-CN": "蹲下",
         "zh-TW": "蹲下"
     },
@@ -1265,6 +1424,8 @@ var normalStrKw =
         "pl-PL": "Kucnięto",
         "pt-BR": "Agachado",
         "ru-RU": "Пригнулся",
+        "th-TH": "หมอบแล้ว",
+        "tr-TR": "Çömelmiş",
         "zh-CN": "已蹲下",
         "zh-TW": "已蹲下"
     },
@@ -1280,6 +1441,8 @@ var normalStrKw =
         "pl-PL": "Kucanie",
         "pt-BR": "Agachando",
         "ru-RU": "Пригибается",
+        "th-TH": "กำลังหมอบ",
+        "tr-TR": "Çömelen",
         "zh-CN": "正在蹲下",
         "zh-TW": "正在蹲下"
     },
@@ -1295,6 +1458,8 @@ var normalStrKw =
         "pl-PL": "Bieżący",
         "pt-BR": "Atual",
         "ru-RU": "Текущий",
+        "th-TH": "ปัจจุบัน",
+        "tr-TR": "Mevcut",
         "zh-CN": "当前",
         "zh-TW": "目前"
     },
@@ -1310,6 +1475,8 @@ var normalStrKw =
         "pl-PL": "Bieżący sojusznicy",
         "pt-BR": "Aliados Atuais",
         "ru-RU": "Текущие союзники",
+        "th-TH": "พันธมิตรปัจจุบัน",
+        "tr-TR": "Mevcut Müttefikler",
         "zh-CN": "当前盟友",
         "zh-TW": "目前盟友"
     },
@@ -1325,6 +1492,8 @@ var normalStrKw =
         "pl-PL": "Bieżący sojusznik",
         "pt-BR": "Aliado Atual",
         "ru-RU": "Текущий союзник",
+        "th-TH": "พันธมิตรปัจจุบัน",
+        "tr-TR": "Mevcut Müttefik",
         "zh-CN": "当前盟友",
         "zh-TW": "目前盟友"
     },
@@ -1340,6 +1509,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca próba",
         "pt-BR": "Tentativa Atual",
         "ru-RU": "Текущая попытка",
+        "th-TH": "ความพยายามปัจจุบัน",
+        "tr-TR": "Mevcut Deneme",
         "zh-CN": "当前尝试",
         "zh-TW": "目前機會"
     },
@@ -1355,6 +1526,8 @@ var normalStrKw =
         "pl-PL": "Bieżący punkt kontrolny",
         "pt-BR": "Ponto de Verificação Atual",
         "ru-RU": "Текущая контрольная точка",
+        "th-TH": "เช็คพอยต์ปัจจุบัน",
+        "tr-TR": "Mevcut Kontrol Noktası",
         "zh-CN": "当前检查点",
         "zh-TW": "目前檢查點"
     },
@@ -1370,6 +1543,8 @@ var normalStrKw =
         "pl-PL": "Bieżący wrogowie",
         "pt-BR": "Inimigos Atuais",
         "ru-RU": "Текущие враги",
+        "th-TH": "ศัตรูปัจจุบัน",
+        "tr-TR": "Mevcut Düşmanlar",
         "zh-CN": "当前敌人",
         "zh-TW": "目前敵人"
     },
@@ -1385,6 +1560,8 @@ var normalStrKw =
         "pl-PL": "Bieżący wróg",
         "pt-BR": "Inimigo Atual",
         "ru-RU": "Текущий враг",
+        "th-TH": "ศัตรูปัจจุบัน",
+        "tr-TR": "Mevcut Düşman",
         "zh-CN": "当前敌人",
         "zh-TW": "目前敵人"
     },
@@ -1400,6 +1577,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca forma",
         "pt-BR": "Forma Atual",
         "ru-RU": "Текущая форма",
+        "th-TH": "รูปแบบปัจจุบัน",
+        "tr-TR": "Mevcut Biçim",
         "zh-CN": "当前形态",
         "zh-TW": "目前型態"
     },
@@ -1415,6 +1594,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca gra",
         "pt-BR": "Jogo Atual",
         "ru-RU": "Текущий матч",
+        "th-TH": "เกมปัจจุบัน",
+        "tr-TR": "Mevcut Oyun",
         "zh-CN": "当前游戏",
         "zh-TW": "目前遊戲"
     },
@@ -1430,6 +1611,8 @@ var normalStrKw =
         "pl-PL": "Bieżący bohater",
         "pt-BR": "Herói Atual",
         "ru-RU": "Текущий герой",
+        "th-TH": "ฮีโร่ปัจจุบัน",
+        "tr-TR": "Mevcut Kahraman",
         "zh-CN": "当前英雄",
         "zh-TW": "目前英雄"
     },
@@ -1445,6 +1628,8 @@ var normalStrKw =
         "pl-PL": "Bieżący bohaterowie",
         "pt-BR": "Heróis Atuais",
         "ru-RU": "Текущие герои",
+        "th-TH": "ฮีโร่ปัจจุบัน",
+        "tr-TR": "Mevcut Kahramanlar",
         "zh-CN": "当前英雄",
         "zh-TW": "目前英雄"
     },
@@ -1460,6 +1645,8 @@ var normalStrKw =
         "pl-PL": "Bieżący zakładnik",
         "pt-BR": "Refém Atual",
         "ru-RU": "Текущий заложник",
+        "th-TH": "ตัวประกันปัจจุบัน",
+        "tr-TR": "Mevcut Rehine",
         "zh-CN": "当前人质",
         "zh-TW": "目前人質"
     },
@@ -1475,6 +1662,8 @@ var normalStrKw =
         "pl-PL": "Bieżący zakładnicy",
         "pt-BR": "Reféns Atuais",
         "ru-RU": "Текущие заложники",
+        "th-TH": "ตัวประกันปัจจุบัน",
+        "tr-TR": "Mevcut Rehineler",
         "zh-CN": "当前人质",
         "zh-TW": "目前人質"
     },
@@ -1490,6 +1679,8 @@ var normalStrKw =
         "pl-PL": "Bieżący poziom",
         "pt-BR": "Nível Atual",
         "ru-RU": "Текущий уровень",
+        "th-TH": "เลเวลปัจจุบัน",
+        "tr-TR": "Mevcut Seviye",
         "zh-CN": "当前等级",
         "zh-TW": "目前等級"
     },
@@ -1505,6 +1696,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca misja",
         "pt-BR": "Missão Atual",
         "ru-RU": "Текущее задание",
+        "th-TH": "ภารกิจปัจจุบัน",
+        "tr-TR": "Mevcut Görev",
         "zh-CN": "当前任务",
         "zh-TW": "目前任務"
     },
@@ -1520,6 +1713,8 @@ var normalStrKw =
         "pl-PL": "Bieżący obiekt",
         "pt-BR": "Objeto Atual",
         "ru-RU": "Текущий объект",
+        "th-TH": "วัตถุปัจจุบัน",
+        "tr-TR": "Mevcut Nesne",
         "zh-CN": "当前对象",
         "zh-TW": "目前目標"
     },
@@ -1535,6 +1730,8 @@ var normalStrKw =
         "pl-PL": "Bieżące zadanie",
         "pt-BR": "Objetivo Atual",
         "ru-RU": "Текущая задача",
+        "th-TH": "เป้าหมายปัจจุบัน",
+        "tr-TR": "Mevcut Hedef",
         "zh-CN": "当前目标点",
         "zh-TW": "目前目標"
     },
@@ -1550,6 +1747,8 @@ var normalStrKw =
         "pl-PL": "Bieżące obiekty",
         "pt-BR": "Objetos Atuais",
         "ru-RU": "Текущие объекты",
+        "th-TH": "วัตถุปัจจุบัน",
+        "tr-TR": "Mevcut Nesneler",
         "zh-CN": "当前对象",
         "zh-TW": "目前目標"
     },
@@ -1565,6 +1764,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca faza",
         "pt-BR": "Fase Atual",
         "ru-RU": "Текущая фаза",
+        "th-TH": "เฟสปัจจุบัน",
+        "tr-TR": "Mevcut Safha",
         "zh-CN": "当前阶段",
         "zh-TW": "目前階段"
     },
@@ -1580,6 +1781,8 @@ var normalStrKw =
         "pl-PL": "Bieżący gracz",
         "pt-BR": "Jogador Atual",
         "ru-RU": "Текущий игрок",
+        "th-TH": "ผู้เล่นปัจจุบัน",
+        "tr-TR": "Mevcut Oyuncu",
         "zh-CN": "当前玩家",
         "zh-TW": "目前玩家"
     },
@@ -1595,6 +1798,8 @@ var normalStrKw =
         "pl-PL": "Bieżący gracze",
         "pt-BR": "Jogadores Atuais",
         "ru-RU": "Текущие игроки",
+        "th-TH": "ผู้เล่นปัจจุบัน",
+        "tr-TR": "Mevcut Oyuncular",
         "zh-CN": "当前玩家",
         "zh-TW": "目前玩家"
     },
@@ -1610,6 +1815,8 @@ var normalStrKw =
         "pl-PL": "Bieżąca runda",
         "pt-BR": "Rodada Atual",
         "ru-RU": "Текущий раунд",
+        "th-TH": "รอบปัจจุบัน",
+        "tr-TR": "Mevcut Tur",
         "zh-CN": "当前回合",
         "zh-TW": "目前回合"
     },
@@ -1625,6 +1832,8 @@ var normalStrKw =
         "pl-PL": "Bieżący cel",
         "pt-BR": "Alvo Atual",
         "ru-RU": "Текущая цель",
+        "th-TH": "เป้าปัจจุบัน",
+        "tr-TR": "Mevcut Hedef",
         "zh-CN": "当前目标",
         "zh-TW": "目前目標"
     },
@@ -1640,6 +1849,8 @@ var normalStrKw =
         "pl-PL": "Bieżące cele",
         "pt-BR": "Alvos Atuais",
         "ru-RU": "Текущие цели",
+        "th-TH": "เป้าปัจจุบัน",
+        "tr-TR": "Mevcut Hedefler",
         "zh-CN": "当前目标",
         "zh-TW": "目前目標"
     },
@@ -1655,6 +1866,8 @@ var normalStrKw =
         "pl-PL": "Bieżące ulepszenie",
         "pt-BR": "Melhoria Atual",
         "ru-RU": "Текущее улучшение",
+        "th-TH": "การอัพเกรดปัจจุบัน",
+        "tr-TR": "Mevcut Geliştirme",
         "zh-CN": "当前升级",
         "zh-TW": "目前升級"
     },
@@ -1670,6 +1883,8 @@ var normalStrKw =
         "pl-PL": "Zrań",
         "pt-BR": "Danificar",
         "ru-RU": "Наносить урон",
+        "th-TH": "สร้างความเสียหาย",
+        "tr-TR": "Hasar",
         "zh-CN": "伤害",
         "zh-TW": "攻擊"
     },
@@ -1685,6 +1900,8 @@ var normalStrKw =
         "pl-PL": "Zraniono",
         "pt-BR": "Danificado",
         "ru-RU": "Нанес урон",
+        "th-TH": "สร้างความเสียหายแล้ว",
+        "tr-TR": "Hasar Alan",
         "zh-CN": "已伤害",
         "zh-TW": "受到攻擊"
     },
@@ -1700,6 +1917,8 @@ var normalStrKw =
         "pl-PL": "Ranienie",
         "pt-BR": "Danificando",
         "ru-RU": "Наносит урон",
+        "th-TH": "กำลังสร้างความเสียหาย",
+        "tr-TR": "Hasar Veren",
         "zh-CN": "正在伤害",
         "zh-TW": "正在攻擊"
     },
@@ -1714,6 +1933,8 @@ var normalStrKw =
         "pl-PL": "Zagrożenie",
         "pt-BR": "Perigo",
         "ru-RU": "Опасность",
+        "th-TH": "อันตราย",
+        "tr-TR": "Tehlike",
         "zh-CN": "危险",
         "zh-TW": "危險"
     },
@@ -1729,6 +1950,8 @@ var normalStrKw =
         "pl-PL": "Martwy",
         "pt-BR": "Morto",
         "ru-RU": "Мертвый",
+        "th-TH": "ตายแล้ว",
+        "tr-TR": "Ölen",
         "zh-CN": "已死亡",
         "zh-TW": "死亡"
     },
@@ -1744,6 +1967,8 @@ var normalStrKw =
         "pl-PL": "Rozdaj",
         "pt-BR": "Dar",
         "ru-RU": "Нанести",
+        "th-TH": "จัดการ",
+        "tr-TR": "Ver",
         "zh-CN": "发牌",
         "zh-TW": "發牌"
     },
@@ -1759,6 +1984,8 @@ var normalStrKw =
         "pl-PL": "Rozdanie",
         "pt-BR": "Dando",
         "ru-RU": "Наносит",
+        "th-TH": "กำลังจัดการ",
+        "tr-TR": "Veren",
         "zh-CN": "正在发牌",
         "zh-TW": "發牌"
     },
@@ -1774,6 +2001,8 @@ var normalStrKw =
         "pl-PL": "Rozdano",
         "pt-BR": "Dada",
         "ru-RU": "Нанес",
+        "th-TH": "จัดการแล้ว",
+        "tr-TR": "Verilen",
         "zh-CN": "已发牌",
         "zh-TW": "發牌"
     },
@@ -1788,6 +2017,8 @@ var normalStrKw =
         "pl-PL": "Talia",
         "pt-BR": "Baralho",
         "ru-RU": "Колода",
+        "th-TH": "เครื่องเล่นเทป",
+        "tr-TR": "Deste",
         "zh-CN": "牌堆",
         "zh-TW": "牌庫"
     },
@@ -1802,6 +2033,8 @@ var normalStrKw =
         "pl-PL": "Talie",
         "pt-BR": "Baralhos",
         "ru-RU": "Колоды",
+        "th-TH": "เครื่องเล่นเทป",
+        "tr-TR": "Desteler",
         "zh-CN": "牌堆",
         "zh-TW": "牌庫"
     },
@@ -1817,6 +2050,8 @@ var normalStrKw =
         "pl-PL": "Przegrana",
         "pt-BR": "Derrota",
         "ru-RU": "Поражение",
+        "th-TH": "ชนะ",
+        "tr-TR": "Yenilgi",
         "zh-CN": "战败",
         "zh-TW": "落敗"
     },
@@ -1832,6 +2067,8 @@ var normalStrKw =
         "pl-PL": "Obroń",
         "pt-BR": "Defender",
         "ru-RU": "Оборонять",
+        "th-TH": "ป้องกัน",
+        "tr-TR": "Savun",
         "zh-CN": "防守",
         "zh-TW": "防守"
     },
@@ -1847,6 +2084,8 @@ var normalStrKw =
         "pl-PL": "Obroniono",
         "pt-BR": "Defendido",
         "ru-RU": "Оборонил",
+        "th-TH": "ป้องกันแล้ว",
+        "tr-TR": "Savunulan",
         "zh-CN": "已防守",
         "zh-TW": "受到防守"
     },
@@ -1862,6 +2101,8 @@ var normalStrKw =
         "pl-PL": "Bronienie",
         "pt-BR": "Defendendo",
         "ru-RU": "Обороняет",
+        "th-TH": "กำลังป้องกัน",
+        "tr-TR": "Savunan",
         "zh-CN": "正在防守",
         "zh-TW": "正在防守"
     },
@@ -1877,6 +2118,8 @@ var normalStrKw =
         "pl-PL": "Obrona",
         "pt-BR": "Defesa",
         "ru-RU": "Защита",
+        "th-TH": "การป้องกัน",
+        "tr-TR": "Savunma",
         "zh-CN": "防御",
         "zh-TW": "防禦"
     },
@@ -1892,6 +2135,8 @@ var normalStrKw =
         "pl-PL": "Dostarcz",
         "pt-BR": "Entregar",
         "ru-RU": "Доставить",
+        "th-TH": "ส่ง",
+        "tr-TR": "Teslim Et",
         "zh-CN": "送达",
         "zh-TW": "抵達"
     },
@@ -1907,6 +2152,8 @@ var normalStrKw =
         "pl-PL": "Dostarczono",
         "pt-BR": "Entregue",
         "ru-RU": "Доставил",
+        "th-TH": "ส่งแล้ว",
+        "tr-TR": "Teslim Edilen",
         "zh-CN": "已送达",
         "zh-TW": "已抵達"
     },
@@ -1922,6 +2169,8 @@ var normalStrKw =
         "pl-PL": "Dostarczanie",
         "pt-BR": "Entregando",
         "ru-RU": "Доставляет",
+        "th-TH": "กำลังส่ง",
+        "tr-TR": "Teslim Ediliyor",
         "zh-CN": "正在送达",
         "zh-TW": "正在抵達"
     },
@@ -1937,6 +2186,8 @@ var normalStrKw =
         "pl-PL": "Głębokość",
         "pt-BR": "Profundidade",
         "ru-RU": "Глубина",
+        "th-TH": "ความลึก",
+        "tr-TR": "Derinlik",
         "zh-CN": "深度",
         "zh-TW": "深度"
     },
@@ -1952,6 +2203,8 @@ var normalStrKw =
         "pl-PL": "Destabilizuj",
         "pt-BR": "Desestabilizar",
         "ru-RU": "Дестабилизировать",
+        "th-TH": "ทำให้ไม่เสถียร",
+        "tr-TR": "Etkisiz Hâle Getirme",
         "zh-CN": "干扰",
         "zh-TW": "動搖"
     },
@@ -1967,6 +2220,8 @@ var normalStrKw =
         "pl-PL": "Zdestabilizowano",
         "pt-BR": "Desestabilizado",
         "ru-RU": "Дестабилизировал",
+        "th-TH": "ทำให้ไม่เสถียรแล้ว",
+        "tr-TR": "Etkisiz Hâle Gelen",
         "zh-CN": "已干扰",
         "zh-TW": "受到動搖"
     },
@@ -1982,6 +2237,8 @@ var normalStrKw =
         "pl-PL": "Destablizowanie",
         "pt-BR": "Desestabilizando",
         "ru-RU": "Дестабилизирует",
+        "th-TH": "กำลังทำให้ไม่เสถียร",
+        "tr-TR": "Etkisiz Hâle Getiren",
         "zh-CN": "正在干扰",
         "zh-TW": "正在動搖"
     },
@@ -1997,6 +2254,8 @@ var normalStrKw =
         "pl-PL": "Zniszcz",
         "pt-BR": "Destruir",
         "ru-RU": "Уничтожить",
+        "th-TH": "ทำลาย",
+        "tr-TR": "Yok Et",
         "zh-CN": "摧毁",
         "zh-TW": "摧毀"
     },
@@ -2012,6 +2271,8 @@ var normalStrKw =
         "pl-PL": "Zniszczono",
         "pt-BR": "Destruído",
         "ru-RU": "Уничтожен",
+        "th-TH": "ทำลายแล้ว",
+        "tr-TR": "Yok Edilen",
         "zh-CN": "已摧毁",
         "zh-TW": "遭到摧毀"
     },
@@ -2027,6 +2288,8 @@ var normalStrKw =
         "pl-PL": "Niszczenie",
         "pt-BR": "Destruindo",
         "ru-RU": "Уничтожает",
+        "th-TH": "กำลังทำลาย",
+        "tr-TR": "Yok Eden",
         "zh-CN": "正在摧毁",
         "zh-TW": "正在摧毀"
     },
@@ -2042,6 +2305,8 @@ var normalStrKw =
         "pl-PL": "Wykryj",
         "pt-BR": "Detectar",
         "ru-RU": "Обнаружить",
+        "th-TH": "ตรวจจับ",
+        "tr-TR": "Algılama",
         "zh-CN": "探测",
         "zh-TW": "偵測"
     },
@@ -2057,6 +2322,8 @@ var normalStrKw =
         "pl-PL": "Wykryto",
         "pt-BR": "Detectado",
         "ru-RU": "Обнаружили",
+        "th-TH": "ตรวจพบ",
+        "tr-TR": "Algılandı",
         "zh-CN": "被探测",
         "zh-TW": "遭到偵測"
     },
@@ -2072,6 +2339,8 @@ var normalStrKw =
         "pl-PL": "Wykrywanie",
         "pt-BR": "Detectando",
         "ru-RU": "Обнаружение",
+        "th-TH": "กำลังตรวจจับ",
+        "tr-TR": "Algılayan",
         "zh-CN": "正在探测",
         "zh-TW": "正在偵測"
     },
@@ -2087,6 +2356,8 @@ var normalStrKw =
         "pl-PL": "Zręczność",
         "pt-BR": "Destreza",
         "ru-RU": "Ловкость",
+        "th-TH": "ความว่องไว",
+        "tr-TR": "Beceriklilik",
         "zh-CN": "灵巧",
         "zh-TW": "靈敏"
     },
@@ -2102,6 +2373,8 @@ var normalStrKw =
         "pl-PL": "Karo",
         "pt-BR": "Ouros",
         "ru-RU": "Бубны",
+        "th-TH": "ข้าวหลามตัด",
+        "tr-TR": "Karo",
         "zh-CN": "方块",
         "zh-TW": "方塊"
     },
@@ -2117,6 +2390,8 @@ var normalStrKw =
         "pl-PL": "Karo",
         "pt-BR": "Ouros",
         "ru-RU": "Бубны",
+        "th-TH": "ไดมอนด์",
+        "tr-TR": "Karolar",
         "zh-CN": "方块",
         "zh-TW": "方塊"
     },
@@ -2132,6 +2407,8 @@ var normalStrKw =
         "pl-PL": "Zgiń",
         "pt-BR": "Morrer",
         "ru-RU": "Умереть",
+        "th-TH": "ตาย",
+        "tr-TR": "Öl",
         "zh-CN": "死亡",
         "zh-TW": "死亡"
     },
@@ -2147,6 +2424,8 @@ var normalStrKw =
         "pl-PL": "Odrzuć",
         "pt-BR": "Descartar",
         "ru-RU": "Сбросить",
+        "th-TH": "ทิ้ง",
+        "tr-TR": "At",
         "zh-CN": "弃牌",
         "zh-TW": "棄牌"
     },
@@ -2162,6 +2441,8 @@ var normalStrKw =
         "pl-PL": "Odrzucono",
         "pt-BR": "Descartada",
         "ru-RU": "Сбросил",
+        "th-TH": "ทิ้งแล้ว",
+        "tr-TR": "Atılan",
         "zh-CN": "已弃牌",
         "zh-TW": "棄牌"
     },
@@ -2177,6 +2458,8 @@ var normalStrKw =
         "pl-PL": "Odrzucanie",
         "pt-BR": "Descartando",
         "ru-RU": "Сбрасывает",
+        "th-TH": "กำลังทิ้ง",
+        "tr-TR": "Atan",
         "zh-CN": "正在弃牌",
         "zh-TW": "棄牌"
     },
@@ -2192,6 +2475,8 @@ var normalStrKw =
         "pl-PL": "Rozłącz",
         "pt-BR": "Desconectar",
         "ru-RU": "Отключиться",
+        "th-TH": "ตัดการเชื่อมต่อ",
+        "tr-TR": "Bağlantıyı Kes",
         "zh-CN": "断开",
         "zh-TW": "中斷連接"
     },
@@ -2207,6 +2492,8 @@ var normalStrKw =
         "pl-PL": "Rozłączono",
         "pt-BR": "Desconectado",
         "ru-RU": "Отключен",
+        "th-TH": "ตัดการเชื่อมต่อแล้ว",
+        "tr-TR": "Bağlantı Kesildi",
         "zh-CN": "已断开",
         "zh-TW": "中斷連接"
     },
@@ -2222,6 +2509,8 @@ var normalStrKw =
         "pl-PL": "Rozłączanie",
         "pt-BR": "Desconectando",
         "ru-RU": "Отключается",
+        "th-TH": "กำลังตัดการเชื่อมต่อ",
+        "tr-TR": "Bağlantı Kesiliyor",
         "zh-CN": "正在断开",
         "zh-TW": "正在中斷連接"
     },
@@ -2236,6 +2525,8 @@ var normalStrKw =
         "pl-PL": "Odległość",
         "pt-BR": "Distância",
         "ru-RU": "Расстояние",
+        "th-TH": "ระยะทาง",
+        "tr-TR": "Mesafe",
         "zh-CN": "距离",
         "zh-TW": "距離"
     },
@@ -2250,6 +2541,8 @@ var normalStrKw =
         "pl-PL": "Odległości",
         "pt-BR": "Distâncias",
         "ru-RU": "Расстояния",
+        "th-TH": "ระยะทาง",
+        "tr-TR": "Mesafeler",
         "zh-CN": "距离",
         "zh-TW": "距離"
     },
@@ -2265,6 +2558,8 @@ var normalStrKw =
         "pl-PL": "Uskocz",
         "pt-BR": "Esquivar",
         "ru-RU": "Уклониться",
+        "th-TH": "หลบหลีก",
+        "tr-TR": "Atlat",
         "zh-CN": "躲闪",
         "zh-TW": "閃躲"
     },
@@ -2280,6 +2575,8 @@ var normalStrKw =
         "pl-PL": "Uskoczono",
         "pt-BR": "Esquivado",
         "ru-RU": "Уклонился",
+        "th-TH": "หลบหลีกแล้ว",
+        "tr-TR": "Atlatılan",
         "zh-CN": "已躲闪",
         "zh-TW": "遭到閃躲"
     },
@@ -2295,6 +2592,8 @@ var normalStrKw =
         "pl-PL": "Uskakiwanie",
         "pt-BR": "Esquivando",
         "ru-RU": "Уклоняется",
+        "th-TH": "กำลังหลบหลีก",
+        "tr-TR": "Atlatan",
         "zh-CN": "正在躲闪",
         "zh-TW": "正在閃躲"
     },
@@ -2310,6 +2609,8 @@ var normalStrKw =
         "pl-PL": "Kopuła",
         "pt-BR": "Domo",
         "ru-RU": "Купол",
+        "th-TH": "โดม",
+        "tr-TR": "Kubbe",
         "zh-CN": "罩子",
         "zh-TW": "穹頂"
     },
@@ -2325,6 +2626,8 @@ var normalStrKw =
         "pl-PL": "Kopuły",
         "pt-BR": "Domos",
         "ru-RU": "Купола",
+        "th-TH": "โดม",
+        "tr-TR": "Kubbe",
         "zh-CN": "罩子",
         "zh-TW": "穹頂"
     },
@@ -2340,6 +2643,8 @@ var normalStrKw =
         "pl-PL": "Dół",
         "pt-BR": "Baixo",
         "ru-RU": "Вниз",
+        "th-TH": "ด้านล่าง",
+        "tr-TR": "Ekle",
         "zh-CN": "下",
         "zh-TW": "下"
     },
@@ -2354,6 +2659,8 @@ var normalStrKw =
         "pl-PL": "Pobierz",
         "pt-BR": "Baixar",
         "ru-RU": "Загрузить",
+        "th-TH": "ดาวน์โหลด",
+        "tr-TR": "İndir",
         "zh-CN": "下载",
         "zh-TW": "下載"
     },
@@ -2369,6 +2676,8 @@ var normalStrKw =
         "pl-PL": "Pobrano",
         "pt-BR": "Baixado",
         "ru-RU": "Загрузил",
+        "th-TH": "ดาวน์โหลดแล้ว",
+        "tr-TR": "İndirilen",
         "zh-CN": "已下载",
         "zh-TW": "已下載"
     },
@@ -2384,6 +2693,8 @@ var normalStrKw =
         "pl-PL": "Pobieranie",
         "pt-BR": "Baixando",
         "ru-RU": "Загружает",
+        "th-TH": "กำลังดาวน์โหลด",
+        "tr-TR": "İndiren",
         "zh-CN": "正在下载",
         "zh-TW": "正在下載"
     },
@@ -2399,6 +2710,8 @@ var normalStrKw =
         "pl-PL": "Remis",
         "pt-BR": "Empate",
         "ru-RU": "Ничья",
+        "th-TH": "เสมอ",
+        "tr-TR": "Çek",
         "zh-CN": "平局",
         "zh-TW": "平手"
     },
@@ -2414,6 +2727,8 @@ var normalStrKw =
         "pl-PL": "Dobywanie",
         "pt-BR": "Comprando",
         "ru-RU": "Берет",
+        "th-TH": "กำลังดึง",
+        "tr-TR": "Çeken",
         "zh-CN": "正在抽牌",
         "zh-TW": "抽牌"
     },
@@ -2429,6 +2744,8 @@ var normalStrKw =
         "pl-PL": "Dobyto",
         "pt-BR": "Comprada",
         "ru-RU": "Взял",
+        "th-TH": "ดึงแล้ว",
+        "tr-TR": "Çekilen",
         "zh-CN": "已抽牌",
         "zh-TW": "抽牌"
     },
@@ -2444,6 +2761,8 @@ var normalStrKw =
         "pl-PL": "Upuść",
         "pt-BR": "Largar",
         "ru-RU": "Бросить",
+        "th-TH": "ตก",
+        "tr-TR": "Düş",
         "zh-CN": "掉落",
         "zh-TW": "掉落"
     },
@@ -2459,6 +2778,8 @@ var normalStrKw =
         "pl-PL": "Upuszczono",
         "pt-BR": "Largado",
         "ru-RU": "Бросил",
+        "th-TH": "ตกแล้ว",
+        "tr-TR": "Düşen",
         "zh-CN": "已掉落",
         "zh-TW": "已掉落"
     },
@@ -2474,6 +2795,8 @@ var normalStrKw =
         "pl-PL": "Upuszczanie",
         "pt-BR": "Largando",
         "ru-RU": "Бросает",
+        "th-TH": "กำลังตก",
+        "tr-TR": "Düşüren",
         "zh-CN": "正在掉落",
         "zh-TW": "正在掉落"
     },
@@ -2489,6 +2812,8 @@ var normalStrKw =
         "pl-PL": "Umiera",
         "pt-BR": "Morrendo",
         "ru-RU": "Умирает",
+        "th-TH": "กำลังตาย",
+        "tr-TR": "Ölen",
         "zh-CN": "正在死亡",
         "zh-TW": "正在死亡"
     },
@@ -2504,6 +2829,8 @@ var normalStrKw =
         "pl-PL": "Wschód",
         "pt-BR": "Leste",
         "ru-RU": "Восток",
+        "th-TH": "ตะวันออก",
+        "tr-TR": "Doğu",
         "zh-CN": "东",
         "zh-TW": "東"
     },
@@ -2519,6 +2846,8 @@ var normalStrKw =
         "pl-PL": "Eliminuj",
         "pt-BR": "Eliminar",
         "ru-RU": "Убить",
+        "th-TH": "กำจัด",
+        "tr-TR": "Bertaraf",
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
@@ -2534,6 +2863,8 @@ var normalStrKw =
         "pl-PL": "Wyeliminowano",
         "pt-BR": "Eliminado",
         "ru-RU": "Убит",
+        "th-TH": "กำจัดแล้ว",
+        "tr-TR": "Bertaraf Edilen",
         "zh-CN": "已消灭",
         "zh-TW": "遭到擊殺"
     },
@@ -2549,6 +2880,8 @@ var normalStrKw =
         "pl-PL": "Eliminowanie",
         "pt-BR": "Eliminando",
         "ru-RU": "Убивает",
+        "th-TH": "กำลังกำจัด",
+        "tr-TR": "Bertaraf Eden",
         "zh-CN": "正在消灭",
         "zh-TW": "正在擊殺"
     },
@@ -2564,6 +2897,8 @@ var normalStrKw =
         "pl-PL": "Likwidacja",
         "pt-BR": "Eliminação",
         "ru-RU": "Убийство",
+        "th-TH": "การกำจัด",
+        "tr-TR": "Bertaraf",
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
@@ -2579,6 +2914,8 @@ var normalStrKw =
         "pl-PL": "Likwidacje",
         "pt-BR": "Eliminações",
         "ru-RU": "Убийства",
+        "th-TH": "การกำจัด",
+        "tr-TR": "Bertaraf",
         "zh-CN": "消灭",
         "zh-TW": "擊殺"
     },
@@ -2594,6 +2931,8 @@ var normalStrKw =
         "pl-PL": "Wrogowie",
         "pt-BR": "Inimigos",
         "ru-RU": "Враги",
+        "th-TH": "ศัตรู",
+        "tr-TR": "Düşmanlar",
         "zh-CN": "敌人",
         "zh-TW": "敵人"
     },
@@ -2609,6 +2948,8 @@ var normalStrKw =
         "pl-PL": "Wróg",
         "pt-BR": "Inimigo",
         "ru-RU": "Враг",
+        "th-TH": "ศัตรู",
+        "tr-TR": "Düşman",
         "zh-CN": "敌人",
         "zh-TW": "敵人"
     },
@@ -2624,6 +2965,8 @@ var normalStrKw =
         "pl-PL": "Wejście",
         "pt-BR": "Entrada",
         "ru-RU": "Вход",
+        "th-TH": "ทางเข้า",
+        "tr-TR": "Giriş",
         "zh-CN": "进入",
         "zh-TW": "入口"
     },
@@ -2639,6 +2982,8 @@ var normalStrKw =
         "pl-PL": "Eskortuj",
         "pt-BR": "Escolta",
         "ru-RU": "Сопровождать",
+        "th-TH": "คุ้มกัน",
+        "tr-TR": "Koruma",
         "zh-CN": "护送",
         "zh-TW": "護送"
     },
@@ -2654,6 +2999,8 @@ var normalStrKw =
         "pl-PL": "Eskortowano",
         "pt-BR": "Escoltado",
         "ru-RU": "Сопроводил",
+        "th-TH": "คุ้มกันแล้ว",
+        "tr-TR": "Korunan",
         "zh-CN": "已护送",
         "zh-TW": "護送"
     },
@@ -2669,6 +3016,8 @@ var normalStrKw =
         "pl-PL": "Eskortowanie",
         "pt-BR": "Escoltando",
         "ru-RU": "Сопровождает",
+        "th-TH": "กำลังคุ้มกัน",
+        "tr-TR": "Koruyan",
         "zh-CN": "正在护送",
         "zh-TW": "正在護送"
     },
@@ -2683,6 +3032,8 @@ var normalStrKw =
         "pl-PL": "Doskonale",
         "pt-BR": "Excelente",
         "ru-RU": "Отлично",
+        "th-TH": "ยอดเยี่ยม",
+        "tr-TR": "Harika",
         "zh-CN": "优秀",
         "zh-TW": "優異"
     },
@@ -2698,6 +3049,8 @@ var normalStrKw =
         "pl-PL": "Wyjście",
         "pt-BR": "Saída",
         "ru-RU": "Выход",
+        "th-TH": "ทางออก",
+        "tr-TR": "Çıkış",
         "zh-CN": "离开",
         "zh-TW": "出口"
     },
@@ -2713,6 +3066,8 @@ var normalStrKw =
         "pl-PL": "Doświadczenie",
         "pt-BR": "Experiência",
         "ru-RU": "Опыт",
+        "th-TH": "ประสบการณ์",
+        "tr-TR": "Tecrübe",
         "zh-CN": "经验值",
         "zh-TW": "經驗值"
     },
@@ -2728,6 +3083,8 @@ var normalStrKw =
         "pl-PL": "Ekstremalnie",
         "pt-BR": "Extremo",
         "ru-RU": "Предельный",
+        "th-TH": "สุดขีด",
+        "tr-TR": "Ekstrem",
         "zh-CN": "极端",
         "zh-TW": "極致"
     },
@@ -2743,6 +3100,8 @@ var normalStrKw =
         "pl-PL": "Skieruj",
         "pt-BR": "Encarar",
         "ru-RU": "Смотреть на",
+        "th-TH": "หน้า",
+        "tr-TR": "Bak",
         "zh-CN": "面向",
         "zh-TW": "面向"
     },
@@ -2758,6 +3117,8 @@ var normalStrKw =
         "pl-PL": "Skierowano",
         "pt-BR": "Encara",
         "ru-RU": "Смотрит на",
+        "th-TH": "หน้า",
+        "tr-TR": "Bakıyor",
         "zh-CN": "面向",
         "zh-TW": "面向"
     },
@@ -2773,6 +3134,8 @@ var normalStrKw =
         "pl-PL": "Skierowanie",
         "pt-BR": "Encarando",
         "ru-RU": "Смотрит в сторону",
+        "th-TH": "การหันหน้า",
+        "tr-TR": "Konumlandırma",
         "zh-CN": "正在面向",
         "zh-TW": "面向"
     },
@@ -2788,6 +3151,8 @@ var normalStrKw =
         "pl-PL": "Nieudane",
         "pt-BR": "Falhou",
         "ru-RU": "Потерпел неудачу",
+        "th-TH": "ล้มเหลว",
+        "tr-TR": "Başarısız",
         "zh-CN": "已失败",
         "zh-TW": "失敗"
     },
@@ -2803,6 +3168,8 @@ var normalStrKw =
         "pl-PL": "Zawodzi",
         "pt-BR": "Falhando",
         "ru-RU": "Терпит неудачу",
+        "th-TH": "กำลังล้มเหลว",
+        "tr-TR": "Başarısız",
         "zh-CN": "即将失败",
         "zh-TW": "失敗"
     },
@@ -2818,6 +3185,8 @@ var normalStrKw =
         "pl-PL": "Porażka",
         "pt-BR": "Fracasso",
         "ru-RU": "Неудача",
+        "th-TH": "ความล้มเหลว",
+        "tr-TR": "Başarısızlık",
         "zh-CN": "失败",
         "zh-TW": "失敗"
     },
@@ -2833,6 +3202,8 @@ var normalStrKw =
         "pl-PL": "Upadnij",
         "pt-BR": "Cair",
         "ru-RU": "Упасть",
+        "th-TH": "ร่วง",
+        "tr-TR": "Düş",
         "zh-CN": "跌落",
         "zh-TW": "墜落"
     },
@@ -2848,6 +3219,8 @@ var normalStrKw =
         "pl-PL": "Upadnięto",
         "pt-BR": "Caído",
         "ru-RU": "Упал",
+        "th-TH": "ร่วงแล้ว",
+        "tr-TR": "Düşen",
         "zh-CN": "已跌落",
         "zh-TW": "已墜落"
     },
@@ -2863,6 +3236,8 @@ var normalStrKw =
         "pl-PL": "Upadanie",
         "pt-BR": "Caindo",
         "ru-RU": "Падает",
+        "th-TH": "กำลังร่วง",
+        "tr-TR": "Düşüren",
         "zh-CN": "正在跌落",
         "zh-TW": "正在墜落"
     },
@@ -2878,6 +3253,8 @@ var normalStrKw =
         "pl-PL": "Daleko",
         "pt-BR": "Longe",
         "ru-RU": "Далеко",
+        "th-TH": "ไกล",
+        "tr-TR": "Uzak",
         "zh-CN": "远",
         "zh-TW": "遠"
     },
@@ -2893,6 +3270,8 @@ var normalStrKw =
         "pl-PL": "Szybko",
         "pt-BR": "Rápido",
         "ru-RU": "Быстро",
+        "th-TH": "เร็ว",
+        "tr-TR": "Hızlı",
         "zh-CN": "快",
         "zh-TW": "快"
     },
@@ -2908,6 +3287,8 @@ var normalStrKw =
         "pl-PL": "Szybciej",
         "pt-BR": "Mais Rápido",
         "ru-RU": "Быстрее",
+        "th-TH": "เร็วกว่า",
+        "tr-TR": "Daha Hızlı",
         "zh-CN": "较快",
         "zh-TW": "較快"
     },
@@ -2923,6 +3304,8 @@ var normalStrKw =
         "pl-PL": "Najszybciej",
         "pt-BR": "O Mais Rápido",
         "ru-RU": "Очень быстро",
+        "th-TH": "เร็วที่สุด",
+        "tr-TR": "En Hızlı",
         "zh-CN": "最快",
         "zh-TW": "最快"
     },
@@ -2938,6 +3321,8 @@ var normalStrKw =
         "pl-PL": "Uskok",
         "pt-BR": "Falta",
         "ru-RU": "Дефект",
+        "th-TH": "ข้อบกพร่อง",
+        "tr-TR": "Hata",
         "zh-CN": "失误",
         "zh-TW": "錯誤"
     },
@@ -2953,6 +3338,8 @@ var normalStrKw =
         "pl-PL": "Uskoki",
         "pt-BR": "Faltas",
         "ru-RU": "Дефекты",
+        "th-TH": "ข้อบกพร่อง",
+        "tr-TR": "Hatalar",
         "zh-CN": "失误",
         "zh-TW": "錯誤"
     },
@@ -2964,6 +3351,8 @@ var normalStrKw =
         "ja-JP": "最終",
         "pl-PL": "Finalny",
         "ru-RU": "Конечный",
+        "th-TH": "สุดท้าย",
+        "tr-TR": "Son",
         "zh-CN": "最终",
         "zh-TW": "最終"
     },
@@ -2979,6 +3368,8 @@ var normalStrKw =
         "pl-PL": "Finalni sojusznicy",
         "pt-BR": "Aliados Finais",
         "ru-RU": "Конечные союзники",
+        "th-TH": "พันธมิตรสุดท้าย",
+        "tr-TR": "Son Müttefikler",
         "zh-CN": "最终盟友",
         "zh-TW": "最終盟友"
     },
@@ -2994,6 +3385,8 @@ var normalStrKw =
         "pl-PL": "Finalny sojusznik",
         "pt-BR": "Aliado Final",
         "ru-RU": "Конечный союзник",
+        "th-TH": "พันธมิตรสุดท้าย",
+        "tr-TR": "Son Müttefik",
         "zh-CN": "最终盟友",
         "zh-TW": "最終盟友"
     },
@@ -3009,6 +3402,8 @@ var normalStrKw =
         "pl-PL": "Finalna próba",
         "pt-BR": "Tentativa Final",
         "ru-RU": "Конечная попытка",
+        "th-TH": "ความพยายามครั้งสุดท้าย",
+        "tr-TR": "Son Deneme",
         "zh-CN": "最终尝试",
         "zh-TW": "最終機會"
     },
@@ -3024,6 +3419,8 @@ var normalStrKw =
         "pl-PL": "Finalny punkt kontrolny",
         "pt-BR": "Ponto de Verificação Final",
         "ru-RU": "Конечная контрольная точка",
+        "th-TH": "เช็คพอยต์สุดท้าย",
+        "tr-TR": "Son Kontrol Noktası",
         "zh-CN": "最终检查点",
         "zh-TW": "最終檢查點"
     },
@@ -3039,6 +3436,8 @@ var normalStrKw =
         "pl-PL": "Finalni wrogowie",
         "pt-BR": "Inimigos Finais",
         "ru-RU": "Конечные враги",
+        "th-TH": "ศัตรูสุดท้าย",
+        "tr-TR": "Son Düşmanlar",
         "zh-CN": "最终敌人",
         "zh-TW": "最終敵人"
     },
@@ -3054,6 +3453,8 @@ var normalStrKw =
         "pl-PL": "Finalny wróg",
         "pt-BR": "Inimigo Final",
         "ru-RU": "Конечный враг",
+        "th-TH": "ศัตรูสุดท้าย",
+        "tr-TR": "Son Düşman",
         "zh-CN": "最终敌人",
         "zh-TW": "最終敵人"
     },
@@ -3069,6 +3470,8 @@ var normalStrKw =
         "pl-PL": "Finalna postać",
         "pt-BR": "Forma Final",
         "ru-RU": "Конечная форма",
+        "th-TH": "ร่างสุดท้าย",
+        "tr-TR": "Son Biçim",
         "zh-CN": "最终形态",
         "zh-TW": "最終型態"
     },
@@ -3084,6 +3487,8 @@ var normalStrKw =
         "pl-PL": "Finalna gra",
         "pt-BR": "Jogo Final",
         "ru-RU": "Конечный матч",
+        "th-TH": "เกมสุดท้าย",
+        "tr-TR": "Son Oyun",
         "zh-CN": "最终游戏",
         "zh-TW": "最終遊戲"
     },
@@ -3099,6 +3504,8 @@ var normalStrKw =
         "pl-PL": "Finalny bohater",
         "pt-BR": "Herói Final",
         "ru-RU": "Конечный герой",
+        "th-TH": "ฮีโร่สุดท้าย",
+        "tr-TR": "Son Kahraman",
         "zh-CN": "最终英雄",
         "zh-TW": "最終英雄"
     },
@@ -3114,6 +3521,8 @@ var normalStrKw =
         "pl-PL": "Finalni bohaterowie",
         "pt-BR": "Heróis Finais",
         "ru-RU": "Конечные герои",
+        "th-TH": "ฮีโร่สุดท้าย",
+        "tr-TR": "Son Kahramanlar",
         "zh-CN": "最终英雄",
         "zh-TW": "最終英雄"
     },
@@ -3129,6 +3538,8 @@ var normalStrKw =
         "pl-PL": "Finalny zakładnik",
         "pt-BR": "Refém Final",
         "ru-RU": "Конечный заложник",
+        "th-TH": "ตัวประกันสุดท้าย",
+        "tr-TR": "Son Rehine",
         "zh-CN": "最终人质",
         "zh-TW": "最終人質"
     },
@@ -3144,6 +3555,8 @@ var normalStrKw =
         "pl-PL": "Finalni zakładnicy",
         "pt-BR": "Reféns Finais",
         "ru-RU": "Конечные заложники",
+        "th-TH": "ตัวประกันสุดท้าย",
+        "tr-TR": "Son Rehineler",
         "zh-CN": "最终人质",
         "zh-TW": "最終人質"
     },
@@ -3159,6 +3572,8 @@ var normalStrKw =
         "pl-PL": "Finalny element",
         "pt-BR": "Item Final",
         "ru-RU": "Конечный предмет",
+        "th-TH": "ไอเท็มสุดท้าย",
+        "tr-TR": "Son Eşya",
         "zh-CN": "最终物品",
         "zh-TW": "最終物品"
     },
@@ -3174,6 +3589,8 @@ var normalStrKw =
         "pl-PL": "Finalny poziom",
         "pt-BR": "Nível Final",
         "ru-RU": "Конечный уровень",
+        "th-TH": "เลเวลสุดท้าย",
+        "tr-TR": "Son Seviye",
         "zh-CN": "最终等级",
         "zh-TW": "最終等級"
     },
@@ -3189,6 +3606,8 @@ var normalStrKw =
         "pl-PL": "Finalna misja",
         "pt-BR": "Missão Final",
         "ru-RU": "Конечное задание",
+        "th-TH": "ภารกิจสุดท้าย",
+        "tr-TR": "Son Görev",
         "zh-CN": "最终任务",
         "zh-TW": "最終任務"
     },
@@ -3204,6 +3623,8 @@ var normalStrKw =
         "pl-PL": "Finalny obiekt",
         "pt-BR": "Objeto Final",
         "ru-RU": "Конечный объект",
+        "th-TH": "วัตถุสุดท้าย",
+        "tr-TR": "Son Nesne",
         "zh-CN": "最终对象",
         "zh-TW": "最終目標"
     },
@@ -3219,6 +3640,8 @@ var normalStrKw =
         "pl-PL": "Finalne zadanie",
         "pt-BR": "Objetivo Final",
         "ru-RU": "Конечная задача",
+        "th-TH": "เป้าหมายสุดท้าย",
+        "tr-TR": "Son Hedef",
         "zh-CN": "最终目标点",
         "zh-TW": "最終目標"
     },
@@ -3234,6 +3657,8 @@ var normalStrKw =
         "pl-PL": "Finalne obiekty",
         "pt-BR": "Objetos Finais",
         "ru-RU": "Конечные объекты",
+        "th-TH": "วัตถุสุดท้าย",
+        "tr-TR": "Son Nesneler",
         "zh-CN": "最终对象",
         "zh-TW": "最終目標"
     },
@@ -3249,6 +3674,8 @@ var normalStrKw =
         "pl-PL": "Finalna faza",
         "pt-BR": "Fase Final",
         "ru-RU": "Конечная фаза",
+        "th-TH": "เฟสสุดท้าย",
+        "tr-TR": "Son Safha",
         "zh-CN": "最终阶段",
         "zh-TW": "最終階段"
     },
@@ -3264,6 +3691,8 @@ var normalStrKw =
         "pl-PL": "Finalny gracz",
         "pt-BR": "Jogador Final",
         "ru-RU": "Конечный игрок",
+        "th-TH": "ผู้เล่นสุดท้าย",
+        "tr-TR": "Son Oyuncu",
         "zh-CN": "最终玩家",
         "zh-TW": "最終玩家"
     },
@@ -3279,6 +3708,8 @@ var normalStrKw =
         "pl-PL": "Finalni gracze",
         "pt-BR": "Jogadores Finais",
         "ru-RU": "Конечные игроки",
+        "th-TH": "ผู้เล่นสุดท้าย",
+        "tr-TR": "Son Oyuncular",
         "zh-CN": "最终玩家",
         "zh-TW": "最終玩家"
     },
@@ -3294,6 +3725,8 @@ var normalStrKw =
         "pl-PL": "Finalna runda",
         "pt-BR": "Rodada Final",
         "ru-RU": "Конечный раунд",
+        "th-TH": "รอบสุดท้าย",
+        "tr-TR": "Son Tur",
         "zh-CN": "最终回合",
         "zh-TW": "最終回合"
     },
@@ -3309,6 +3742,8 @@ var normalStrKw =
         "pl-PL": "Finalny cel",
         "pt-BR": "Alvo Final",
         "ru-RU": "Конечная цель",
+        "th-TH": "เป้าหมายสุดท้าย",
+        "tr-TR": "Son Hedef",
         "zh-CN": "最终目标",
         "zh-TW": "最終目標"
     },
@@ -3324,6 +3759,8 @@ var normalStrKw =
         "pl-PL": "Finalne cele",
         "pt-BR": "Alvos Finais",
         "ru-RU": "Конечные цели",
+        "th-TH": "เป้าหมายสุดท้าย",
+        "tr-TR": "Son Hedefler",
         "zh-CN": "最终目标",
         "zh-TW": "最終目標"
     },
@@ -3339,6 +3776,8 @@ var normalStrKw =
         "pl-PL": "Finalny czas",
         "pt-BR": "Tempo Final",
         "ru-RU": "Конечное время",
+        "th-TH": "เวลาสุดท้าย",
+        "tr-TR": "Son Zaman",
         "zh-CN": "最终时间",
         "zh-TW": "最終時間"
     },
@@ -3354,6 +3793,8 @@ var normalStrKw =
         "pl-PL": "Finalne ulepszenie",
         "pt-BR": "Melhoria Final",
         "ru-RU": "Конечное улучшение",
+        "th-TH": "การอัพเกรดสุดท้าย",
+        "tr-TR": "Son Geliştirme",
         "zh-CN": "最终升级",
         "zh-TW": "最終升級"
     },
@@ -3369,6 +3810,8 @@ var normalStrKw =
         "pl-PL": "Znajdź",
         "pt-BR": "Encontrar",
         "ru-RU": "Найти",
+        "th-TH": "หา",
+        "tr-TR": "Bulma",
         "zh-CN": "寻找",
         "zh-TW": "尋找"
     },
@@ -3384,6 +3827,8 @@ var normalStrKw =
         "pl-PL": "Znajdywanie",
         "pt-BR": "Encontrando",
         "ru-RU": "Находит",
+        "th-TH": "กำลังหา",
+        "tr-TR": "Bulan",
         "zh-CN": "正在寻找",
         "zh-TW": "正在尋找"
     },
@@ -3399,6 +3844,8 @@ var normalStrKw =
         "pl-PL": "Zakończ",
         "pt-BR": "Concluir",
         "ru-RU": "Завершать",
+        "th-TH": "เสร็จสิ้น",
+        "tr-TR": "Bitir",
         "zh-CN": "结束",
         "zh-TW": "完成"
     },
@@ -3414,6 +3861,8 @@ var normalStrKw =
         "pl-PL": "Zakończono",
         "pt-BR": "Concluído",
         "ru-RU": "Завершил",
+        "th-TH": "เสร็จสิ้นแล้ว",
+        "tr-TR": "Biten",
         "zh-CN": "已结束",
         "zh-TW": "已完成"
     },
@@ -3429,6 +3878,8 @@ var normalStrKw =
         "pl-PL": "Kończenie",
         "pt-BR": "Concluindo",
         "ru-RU": "Завершает",
+        "th-TH": "กำลังเสร็จสิ้น",
+        "tr-TR": "Bitiren",
         "zh-CN": "正在结束",
         "zh-TW": "正在完成"
     },
@@ -3444,6 +3895,8 @@ var normalStrKw =
         "pl-PL": "Poleciano",
         "pt-BR": "Em Voo",
         "ru-RU": "Улетел",
+        "th-TH": "บินแล้ว",
+        "tr-TR": "Uçurulan",
         "zh-CN": "已飞行",
         "zh-TW": "已飛行"
     },
@@ -3459,6 +3912,8 @@ var normalStrKw =
         "pl-PL": "Leć",
         "pt-BR": "Voar",
         "ru-RU": "Лететь",
+        "th-TH": "บิน",
+        "tr-TR": "Uç",
         "zh-CN": "飞行",
         "zh-TW": "飛行"
     },
@@ -3474,6 +3929,8 @@ var normalStrKw =
         "pl-PL": "Latanie",
         "pt-BR": "Voando",
         "ru-RU": "Летит",
+        "th-TH": "กำลังบิน",
+        "tr-TR": "Uçan",
         "zh-CN": "正在飞行",
         "zh-TW": "正在飛行"
     },
@@ -3489,6 +3946,8 @@ var normalStrKw =
         "pl-PL": "Złóż",
         "pt-BR": "Fugir",
         "ru-RU": "Сбросить",
+        "th-TH": "พับ",
+        "tr-TR": "Katla",
         "zh-CN": "收起",
         "zh-TW": "蓋牌"
     },
@@ -3504,6 +3963,8 @@ var normalStrKw =
         "pl-PL": "Złożono",
         "pt-BR": "Fugiu",
         "ru-RU": "Сбросил",
+        "th-TH": "พับแล้ว",
+        "tr-TR": "Katlanan",
         "zh-CN": "已收起",
         "zh-TW": "蓋牌"
     },
@@ -3519,6 +3980,8 @@ var normalStrKw =
         "pl-PL": "Składania",
         "pt-BR": "Fugindo",
         "ru-RU": "Сбрасывает",
+        "th-TH": "กำลังพับ",
+        "tr-TR": "Katlayan",
         "zh-CN": "正在收起",
         "zh-TW": "蓋牌"
     },
@@ -3533,6 +3996,8 @@ var normalStrKw =
         "pl-PL": "Forma",
         "pt-BR": "Forma",
         "ru-RU": "Форма",
+        "th-TH": "ร่าง",
+        "tr-TR": "Biçim",
         "zh-CN": "表格",
         "zh-TW": "型態"
     },
@@ -3548,6 +4013,8 @@ var normalStrKw =
         "pl-PL": "Formy",
         "pt-BR": "Formas",
         "ru-RU": "Формы",
+        "th-TH": "ร่าง",
+        "tr-TR": "Biçimler",
         "zh-CN": "表格",
         "zh-TW": "型態"
     },
@@ -3563,6 +4030,8 @@ var normalStrKw =
         "pl-PL": "Do przodu",
         "pt-BR": "Para a Frente",
         "ru-RU": "Вперед",
+        "th-TH": "ไปข้างหน้า",
+        "tr-TR": "İleri",
         "zh-CN": "前",
         "zh-TW": "前進"
     },
@@ -3578,6 +4047,8 @@ var normalStrKw =
         "pl-PL": "Znaleziono",
         "pt-BR": "Encontrado",
         "ru-RU": "Нашел",
+        "th-TH": "หาเจอ",
+        "tr-TR": "Bulunan",
         "zh-CN": "已找到",
         "zh-TW": "被發現"
     },
@@ -3593,6 +4064,8 @@ var normalStrKw =
         "pl-PL": "Zamroź",
         "pt-BR": "Congelar",
         "ru-RU": "Заморозить",
+        "th-TH": "แช่แข็ง",
+        "tr-TR": "Donma",
         "zh-CN": "冰冻",
         "zh-TW": "冰凍"
     },
@@ -3608,6 +4081,8 @@ var normalStrKw =
         "pl-PL": "Zamrażanie",
         "pt-BR": "Congelando",
         "ru-RU": "Замораживает",
+        "th-TH": "กำลังแช่แข็ง",
+        "tr-TR": "Buz Gibi",
         "zh-CN": "正在冰冻",
         "zh-TW": "正在冰凍"
     },
@@ -3623,6 +4098,8 @@ var normalStrKw =
         "pl-PL": "Zamrożono",
         "pt-BR": "Congelado",
         "ru-RU": "Заморозил",
+        "th-TH": "แช่แข็งแล้ว",
+        "tr-TR": "Donan",
         "zh-CN": "已冰冻",
         "zh-TW": "受到冰凍"
     },
@@ -3646,6 +4123,8 @@ var normalStrKw =
         "pl-PL": "Gra",
         "pt-BR": "Jogo",
         "ru-RU": "Матч",
+        "th-TH": "เกม",
+        "tr-TR": "Oyun",
         "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
@@ -3661,6 +4140,8 @@ var normalStrKw =
         "pl-PL": "Gry",
         "pt-BR": "Jogos",
         "ru-RU": "Матчи",
+        "th-TH": "เกม",
+        "tr-TR": "Oyunlar",
         "zh-CN": "游戏",
         "zh-TW": "遊戲"
     },
@@ -3676,6 +4157,8 @@ var normalStrKw =
         "pl-PL": "Przegrane gry",
         "pt-BR": "Jogos Perdidos",
         "ru-RU": "Проиграно матчей",
+        "th-TH": "เกมที่แพ้",
+        "tr-TR": "Kaybedilen Oyunlar",
         "zh-CN": "战败场数",
         "zh-TW": "敗場"
     },
@@ -3691,6 +4174,8 @@ var normalStrKw =
         "pl-PL": "Wygrane gry",
         "pt-BR": "Jogos Vencidos",
         "ru-RU": "Выиграно матчей",
+        "th-TH": "เกมที่ชนะ",
+        "tr-TR": "Kazanılan Oyunlar",
         "zh-CN": "胜利场数",
         "zh-TW": "勝場"
     },
@@ -3706,6 +4191,8 @@ var normalStrKw =
         "pl-PL": "Idź",
         "pt-BR": "Ir",
         "ru-RU": "Вперед",
+        "th-TH": "ไป",
+        "tr-TR": "Git",
         "zh-CN": "前往",
         "zh-TW": "前往"
     },
@@ -3722,6 +4209,8 @@ var normalStrKw =
         "pl-PL": "Wytyczna",
         "pt-BR": "Meta",
         "ru-RU": "Цель",
+        "th-TH": "ประตู",
+        "tr-TR": "Amaç",
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
@@ -3737,6 +4226,8 @@ var normalStrKw =
         "pl-PL": "Wytyczne",
         "pt-BR": "Metas",
         "ru-RU": "Голы",
+        "th-TH": "ประตู",
+        "tr-TR": "Gol",
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
@@ -3752,6 +4243,8 @@ var normalStrKw =
         "pl-PL": "Idzie",
         "pt-BR": "Indo",
         "ru-RU": "Идет",
+        "th-TH": "กำลังไป",
+        "tr-TR": "Giden",
         "zh-CN": "正在前往",
         "zh-TW": "正在前往"
     },
@@ -3767,6 +4260,8 @@ var normalStrKw =
         "pl-PL": "Dobrze",
         "pt-BR": "Bom",
         "ru-RU": "Хорошо",
+        "th-TH": "ดี",
+        "tr-TR": "İyi",
         "zh-CN": "好",
         "zh-TW": "好"
     },
@@ -3782,6 +4277,8 @@ var normalStrKw =
         "pl-PL": "Powodzenia",
         "pt-BR": "Boa Sorte",
         "ru-RU": "Удачи",
+        "th-TH": "โชคดีนะ",
+        "tr-TR": "Boş Şans",
         "zh-CN": "好运",
         "zh-TW": "祝好運"
     },
@@ -3797,6 +4294,8 @@ var normalStrKw =
         "pl-PL": "Na razie",
         "pt-BR": "Tchau",
         "ru-RU": "До свидания",
+        "th-TH": "ลาก่อน",
+        "tr-TR": "Görüşürüz",
         "zh-CN": "再见",
         "zh-TW": "再見"
     },
@@ -3812,6 +4311,8 @@ var normalStrKw =
         "pl-PL": "Zielony",
         "pt-BR": "Verde",
         "ru-RU": "Зеленый",
+        "th-TH": "เขียว",
+        "tr-TR": "Yeşil",
         "zh-CN": "绿色",
         "zh-TW": "綠"
     },
@@ -3827,6 +4328,8 @@ var normalStrKw =
         "pl-PL": "Winny",
         "pt-BR": "Culpado",
         "ru-RU": "Виновен",
+        "th-TH": "มีความผิด",
+        "tr-TR": "Suçlu",
         "zh-CN": "有罪",
         "zh-TW": "有罪"
     },
@@ -3842,6 +4345,7 @@ var normalStrKw =
         "pl-PL": "Zhakuj",
         "pt-BR": "Hackear",
         "ru-RU": "Взломать",
+        "th-TH": "แฮ็ค",
         "zh-CN": "入侵",
         "zh-TW": "駭入"
     },
@@ -3857,6 +4361,8 @@ var normalStrKw =
         "pl-PL": "Zhakowano",
         "pt-BR": "Hackeado",
         "ru-RU": "Взломал",
+        "th-TH": "แฮ็คแล้ว",
+        "tr-TR": "Hack'lendi",
         "zh-CN": "已入侵",
         "zh-TW": "被駭入"
     },
@@ -3872,6 +4378,8 @@ var normalStrKw =
         "pl-PL": "Hakowanie",
         "pt-BR": "Hackeando",
         "ru-RU": "Взламывает",
+        "th-TH": "กำลังแฮ็ค",
+        "tr-TR": "Hack'leyen",
         "zh-CN": "正在入侵",
         "zh-TW": "正在駭入"
     },
@@ -3886,6 +4394,8 @@ var normalStrKw =
         "pl-PL": "Dłoń",
         "pt-BR": "Mão",
         "ru-RU": "Рука",
+        "th-TH": "มือ",
+        "tr-TR": "El",
         "zh-CN": "手牌",
         "zh-TW": "手牌"
     },
@@ -3901,6 +4411,8 @@ var normalStrKw =
         "pl-PL": "Dłonie",
         "pt-BR": "Mãos",
         "ru-RU": "Руки",
+        "th-TH": "มือ",
+        "tr-TR": "El",
         "zh-CN": "手牌",
         "zh-TW": "手牌"
     },
@@ -3916,6 +4428,8 @@ var normalStrKw =
         "pl-PL": "Wylecz",
         "pt-BR": "Curar",
         "ru-RU": "Лечить",
+        "th-TH": "ฮีล",
+        "tr-TR": "İyileştir",
         "zh-CN": "治疗",
         "zh-TW": "治療"
     },
@@ -3931,6 +4445,8 @@ var normalStrKw =
         "pl-PL": "Wyleczono",
         "pt-BR": "Curado",
         "ru-RU": "Вылечен",
+        "th-TH": "ฮีลแล้ว",
+        "tr-TR": "İyileştirilen",
         "zh-CN": "已治疗",
         "zh-TW": "受到治療"
     },
@@ -3946,6 +4462,8 @@ var normalStrKw =
         "pl-PL": "Leczący",
         "pt-BR": "Curandeiro",
         "ru-RU": "Медик",
+        "th-TH": "ฮีลเลอร์",
+        "tr-TR": "Şifacı",
         "zh-CN": "治疗者",
         "zh-TW": "治療者"
     },
@@ -3961,6 +4479,8 @@ var normalStrKw =
         "pl-PL": "Leczący",
         "pt-BR": "Curandeiros",
         "ru-RU": "Медики",
+        "th-TH": "ฮีลเลอร์",
+        "tr-TR": "Şifacılar",
         "zh-CN": "治疗者",
         "zh-TW": "治療者"
     },
@@ -3976,6 +4496,8 @@ var normalStrKw =
         "pl-PL": "Leczenie",
         "pt-BR": "Curando",
         "ru-RU": "Лечит",
+        "th-TH": "กำลังฮีล",
+        "tr-TR": "İyileştirme",
         "zh-CN": "正在治疗",
         "zh-TW": "正在治療"
     },
@@ -3991,6 +4513,8 @@ var normalStrKw =
         "pl-PL": "Kier",
         "pt-BR": "Copas",
         "ru-RU": "Червы",
+        "th-TH": "โพแดง",
+        "tr-TR": "Kupa",
         "zh-CN": "红桃",
         "zh-TW": "紅心"
     },
@@ -4006,6 +4530,8 @@ var normalStrKw =
         "pl-PL": "Kier",
         "pt-BR": "Copas",
         "ru-RU": "Червы",
+        "th-TH": "โพแดง",
+        "tr-TR": "Kupa",
         "zh-CN": "心",
         "zh-TW": "紅心"
     },
@@ -4021,6 +4547,8 @@ var normalStrKw =
         "pl-PL": "Wysokość",
         "pt-BR": "Altura",
         "ru-RU": "Высота",
+        "th-TH": "ความสูง",
+        "tr-TR": "Yükseklik",
         "zh-CN": "高度",
         "zh-TW": "高度"
     },
@@ -4036,6 +4564,8 @@ var normalStrKw =
         "pl-PL": "Witaj",
         "pt-BR": "Olá",
         "ru-RU": "Привет",
+        "th-TH": "ดีจ้า",
+        "tr-TR": "Merhaba",
         "zh-CN": "问候",
         "zh-TW": "哈囉"
     },
@@ -4051,6 +4581,8 @@ var normalStrKw =
         "pl-PL": "Pomocy",
         "pt-BR": "Socorro",
         "ru-RU": "На помощь",
+        "th-TH": "ช่วยด้วย",
+        "tr-TR": "İmdat",
         "zh-CN": "求助",
         "zh-TW": "幫我"
     },
@@ -4066,6 +4598,8 @@ var normalStrKw =
         "pl-PL": "Tutaj",
         "pt-BR": "Aqui",
         "ru-RU": "Сюда",
+        "th-TH": "ที่นี่",
+        "tr-TR": "Burada",
         "zh-CN": "此处",
         "zh-TW": "這裡"
     },
@@ -4081,6 +4615,8 @@ var normalStrKw =
         "pl-PL": "Bohater",
         "pt-BR": "Herói",
         "ru-RU": "Герой",
+        "th-TH": "ฮีโร่",
+        "tr-TR": "Kahraman",
         "zh-CN": "英雄",
         "zh-TW": "英雄"
     },
@@ -4096,6 +4632,8 @@ var normalStrKw =
         "pl-PL": "Bohaterowie",
         "pt-BR": "Heróis",
         "ru-RU": "Герои",
+        "th-TH": "ฮีโร่",
+        "tr-TR": "Kahramanlar",
         "zh-CN": "英雄",
         "zh-TW": "英雄"
     },
@@ -4111,6 +4649,8 @@ var normalStrKw =
         "pl-PL": "Ukryto",
         "pt-BR": "Escondido",
         "ru-RU": "Скрытый",
+        "th-TH": "ซ่อนแล้ว",
+        "tr-TR": "Gizli",
         "zh-CN": "已隐藏",
         "zh-TW": "躲藏"
     },
@@ -4126,6 +4666,8 @@ var normalStrKw =
         "pl-PL": "Ukryj",
         "pt-BR": "Esconder",
         "ru-RU": "Скрыть",
+        "th-TH": "ซ่อน",
+        "tr-TR": "Gizle",
         "zh-CN": "隐藏",
         "zh-TW": "躲藏"
     },
@@ -4141,6 +4683,8 @@ var normalStrKw =
         "pl-PL": "Ukrywanie",
         "pt-BR": "Escondendo",
         "ru-RU": "Скрывается",
+        "th-TH": "กำลังซ่อน",
+        "tr-TR": "Gizleyen",
         "zh-CN": "正在隐藏",
         "zh-TW": "正在躲藏"
     },
@@ -4156,6 +4700,8 @@ var normalStrKw =
         "pl-PL": "Najwyższy wynik",
         "pt-BR": "Pontuação Máxima",
         "ru-RU": "Рекорд",
+        "th-TH": "คะแนนสูงสุด",
+        "tr-TR": "Yüksek Skor",
         "zh-CN": "最高得分",
         "zh-TW": "最高分"
     },
@@ -4171,6 +4717,8 @@ var normalStrKw =
         "pl-PL": "Najwyższe wyniki",
         "pt-BR": "Pontuações Máximas",
         "ru-RU": "Рекорды",
+        "th-TH": "คะแนนสูงสุด",
+        "tr-TR": "Yüksek Skor",
         "zh-CN": "最高得分",
         "zh-TW": "最高分"
     },
@@ -4186,6 +4734,8 @@ var normalStrKw =
         "pl-PL": "Uderz",
         "pt-BR": "Acertar",
         "ru-RU": "Попадание",
+        "th-TH": "โจมตี",
+        "tr-TR": "Vur",
         "zh-CN": "击中",
         "zh-TW": "擊中"
     },
@@ -4201,6 +4751,8 @@ var normalStrKw =
         "pl-PL": "Uderzanie",
         "pt-BR": "Acertando",
         "ru-RU": "Попадает",
+        "th-TH": "กำลังโจมตี",
+        "tr-TR": "Vuran",
         "zh-CN": "正在击中",
         "zh-TW": "擊中"
     },
@@ -4212,6 +4764,8 @@ var normalStrKw =
         "ja-JP": "ふーむ",
         "pl-PL": "Hm",
         "ru-RU": "Хм-м-м",
+        "th-TH": "อืมมม",
+        "tr-TR": "Hımm",
         "zh-CN": "嗯",
         "zh-TW": "嗯"
     },
@@ -4227,6 +4781,8 @@ var normalStrKw =
         "pl-PL": "Zakładnik",
         "pt-BR": "Refém",
         "ru-RU": "Заложник",
+        "th-TH": "ตัวประกัน",
+        "tr-TR": "Rehine",
         "zh-CN": "人质",
         "zh-TW": "人質"
     },
@@ -4242,6 +4798,8 @@ var normalStrKw =
         "pl-PL": "Zakładnicy",
         "pt-BR": "Reféns",
         "ru-RU": "Заложники",
+        "th-TH": "ตัวประกัน",
+        "tr-TR": "Rehineler",
         "zh-CN": "人质",
         "zh-TW": "人質"
     },
@@ -4257,6 +4815,8 @@ var normalStrKw =
         "pl-PL": "Hę",
         "pt-BR": "Hã",
         "ru-RU": "Хех",
+        "th-TH": "ฮะ",
+        "tr-TR": "Hah",
         "zh-CN": "哈",
         "zh-TW": "哼"
     },
@@ -4272,6 +4832,8 @@ var normalStrKw =
         "pl-PL": "Upoluj",
         "pt-BR": "Caçar",
         "ru-RU": "Охотиться",
+        "th-TH": "ล่า",
+        "tr-TR": "Avla",
         "zh-CN": "狩猎",
         "zh-TW": "狩獵"
     },
@@ -4287,6 +4849,8 @@ var normalStrKw =
         "pl-PL": "Upolowano",
         "pt-BR": "Caçado",
         "ru-RU": "Жертва",
+        "th-TH": "ล่าแล้ว",
+        "tr-TR": "Avlanan",
         "zh-CN": "已狩猎 ",
         "zh-TW": "遭到狩獵"
     },
@@ -4302,6 +4866,8 @@ var normalStrKw =
         "pl-PL": "Łowca",
         "pt-BR": "Caçador",
         "ru-RU": "Охотник",
+        "th-TH": "นักล่า",
+        "tr-TR": "Avcı",
         "zh-CN": "猎人",
         "zh-TW": "獵人"
     },
@@ -4317,6 +4883,8 @@ var normalStrKw =
         "pl-PL": "Łowcy",
         "pt-BR": "Caçadores",
         "ru-RU": "Охотники",
+        "th-TH": "นักล่า",
+        "tr-TR": "Avcılar",
         "zh-CN": "猎人",
         "zh-TW": "獵人"
     },
@@ -4332,6 +4900,8 @@ var normalStrKw =
         "pl-PL": "Polowanie",
         "pt-BR": "Caçando",
         "ru-RU": "Охотится",
+        "th-TH": "กำลังล่า",
+        "tr-TR": "Avlayan",
         "zh-CN": "正在狩猎",
         "zh-TW": "正在狩獵"
     },
@@ -4347,6 +4917,8 @@ var normalStrKw =
         "pl-PL": "Poddaję się",
         "pt-BR": "Desisto",
         "ru-RU": "Я сдаюсь",
+        "th-TH": "ฉันยอมแพ้",
+        "tr-TR": "Pes Ediyorum",
         "zh-CN": "我放弃了",
         "zh-TW": "放棄"
     },
@@ -4362,6 +4934,8 @@ var normalStrKw =
         "pl-PL": "Próbowałem",
         "pt-BR": "Eu Tentei",
         "ru-RU": "Попытка – не пытка",
+        "th-TH": "ฉันเหนื่อย",
+        "tr-TR": "Denedim Olmadı",
         "zh-CN": "我尽力了",
         "zh-TW": "努力了"
     },
@@ -4377,6 +4951,8 @@ var normalStrKw =
         "pl-PL": "W polu widzenia",
         "pt-BR": "Na Visão",
         "ru-RU": "В поле зрения",
+        "th-TH": "ในมุมมอง",
+        "tr-TR": "Görüntülenen",
         "zh-CN": "在视野中",
         "zh-TW": "在視野中"
     },
@@ -4392,6 +4968,8 @@ var normalStrKw =
         "pl-PL": "Dochód",
         "pt-BR": "A caminho",
         "ru-RU": "Доход",
+        "th-TH": "รายได้",
+        "tr-TR": "Gelir",
         "zh-CN": "收入",
         "zh-TW": "收入"
     },
@@ -4407,6 +4985,8 @@ var normalStrKw =
         "pl-PL": "Przychodzące",
         "pt-BR": "Chegando",
         "ru-RU": "Опасность",
+        "th-TH": "ขาเข้า",
+        "tr-TR": "Yola Çıktı",
         "zh-CN": "正在前来",
         "zh-TW": "來襲"
     },
@@ -4421,6 +5001,8 @@ var normalStrKw =
         "pl-PL": "Wstępne",
         "pt-BR": "Inicial",
         "ru-RU": "Начальный",
+        "th-TH": "แรกเริ่ม",
+        "tr-TR": "İlk",
         "zh-CN": "初始",
         "zh-TW": "初始"
     },
@@ -4436,6 +5018,8 @@ var normalStrKw =
         "pl-PL": "Wstępni sojusznicy",
         "pt-BR": "Aliados Iniciais",
         "ru-RU": "Начальные союзники",
+        "th-TH": "พันธมิตรเริ่มต้น",
+        "tr-TR": "Başlangıç Müttefikleri",
         "zh-CN": "初始盟友",
         "zh-TW": "初始盟友"
     },
@@ -4451,6 +5035,8 @@ var normalStrKw =
         "pl-PL": "Wstępny sojusznik",
         "pt-BR": "Aliado Inicial",
         "ru-RU": "Начальный союзник",
+        "th-TH": "พันธมิตรเริ่มต้น",
+        "tr-TR": "Başlangıç Müttefiki",
         "zh-CN": "初始盟友",
         "zh-TW": "初始盟友"
     },
@@ -4466,6 +5052,8 @@ var normalStrKw =
         "pl-PL": "Wstępna próba",
         "pt-BR": "Tentativa Inicial",
         "ru-RU": "Начальная попытка",
+        "th-TH": "ความพยายามเริ่มต้น",
+        "tr-TR": "Başlangıç Denemesi",
         "zh-CN": "初始尝试",
         "zh-TW": "初次機會"
     },
@@ -4481,6 +5069,8 @@ var normalStrKw =
         "pl-PL": "Wstępny punkt kontrolny",
         "pt-BR": "Ponto de Verificação Inicial",
         "ru-RU": "Начальная контрольная точка",
+        "th-TH": "เช็คพอยต์เริ่มต้น",
+        "tr-TR": "Başlangıç Kontrol Noktası",
         "zh-CN": "初始检查点",
         "zh-TW": "初始檢查點"
     },
@@ -4496,6 +5086,8 @@ var normalStrKw =
         "pl-PL": "Wstępni wrogowie",
         "pt-BR": "Inimigos Iniciais",
         "ru-RU": "Начальные враги",
+        "th-TH": "ศัตรูเริ่มต้น",
+        "tr-TR": "Başlangıç Düşmanları",
         "zh-CN": "初始敌人",
         "zh-TW": "初始敵人"
     },
@@ -4511,6 +5103,8 @@ var normalStrKw =
         "pl-PL": "Wstępny wróg",
         "pt-BR": "Inimigo Inicial",
         "ru-RU": "Начальный враг",
+        "th-TH": "ศัตรูเริ่มต้น",
+        "tr-TR": "Başlangıç Düşmanı",
         "zh-CN": "初始敌人",
         "zh-TW": "初始敵人"
     },
@@ -4526,6 +5120,8 @@ var normalStrKw =
         "pl-PL": "Wstępna forma",
         "pt-BR": "Forma Inicial",
         "ru-RU": "Начальная форма",
+        "th-TH": "ร่างแรก",
+        "tr-TR": "Başlangıç Biçimi",
         "zh-CN": "初始形态",
         "zh-TW": "初始型態"
     },
@@ -4541,6 +5137,8 @@ var normalStrKw =
         "pl-PL": "Wstępna gra",
         "pt-BR": "Jogo Inicial",
         "ru-RU": "Начальный матч",
+        "th-TH": "เกมเริ่มต้น",
+        "tr-TR": "Başlangıç Oyunu",
         "zh-CN": "初始游戏",
         "zh-TW": "初始遊戲"
     },
@@ -4556,6 +5154,8 @@ var normalStrKw =
         "pl-PL": "Wstępny bohater",
         "pt-BR": "Herói Inicial",
         "ru-RU": "Начальный герой",
+        "th-TH": "ฮีโร่แรกเริ่ม",
+        "tr-TR": "Başlangıç Kahramanı",
         "zh-CN": "初始英雄",
         "zh-TW": "初始英雄"
     },
@@ -4571,6 +5171,8 @@ var normalStrKw =
         "pl-PL": "Wstępni bohaterowie",
         "pt-BR": "Heróis Iniciais",
         "ru-RU": "Начальные герои",
+        "th-TH": "ฮีโร่เริ่มต้น",
+        "tr-TR": "Başlangıç Kahramanları",
         "zh-CN": "初始英雄",
         "zh-TW": "初始英雄"
     },
@@ -4586,6 +5188,8 @@ var normalStrKw =
         "pl-PL": "Wstępny zakładnik",
         "pt-BR": "Refém Inicial",
         "ru-RU": "Начальный заложник",
+        "th-TH": "ตัวประกันเริ่มต้น",
+        "tr-TR": "Başlangıç Rehinesi",
         "zh-CN": "初始人质",
         "zh-TW": "初始人質"
     },
@@ -4601,6 +5205,8 @@ var normalStrKw =
         "pl-PL": "Wstępny poziom",
         "pt-BR": "Nível Inicial",
         "ru-RU": "Начальный уровень",
+        "th-TH": "เลเวลเริ่มต้น",
+        "tr-TR": "Başlangıç Seviyesi",
         "zh-CN": "初始等级",
         "zh-TW": "初始等級"
     },
@@ -4616,6 +5222,8 @@ var normalStrKw =
         "pl-PL": "Wstępna misja",
         "pt-BR": "Missão Inicial",
         "ru-RU": "Начальное задание",
+        "th-TH": "ภารกิจเริ่มต้น",
+        "tr-TR": "Başlangıç Görevi",
         "zh-CN": "初始任务",
         "zh-TW": "初始任務"
     },
@@ -4631,6 +5239,8 @@ var normalStrKw =
         "pl-PL": "Wstępny obiekt",
         "pt-BR": "Objeto Inicial",
         "ru-RU": "Начальный объект",
+        "th-TH": "วัตถุเริ่มต้น",
+        "tr-TR": "Başlangıç Nesnesi",
         "zh-CN": "初始对象",
         "zh-TW": "初始目標"
     },
@@ -4646,6 +5256,8 @@ var normalStrKw =
         "pl-PL": "Wstępne zadanie",
         "pt-BR": "Objetivo Inicial",
         "ru-RU": "Начальная задача",
+        "th-TH": "เป้าหมายเริ่มต้น",
+        "tr-TR": "Başlangıç Hedefi",
         "zh-CN": "初始目标点",
         "zh-TW": "初始目標"
     },
@@ -4661,6 +5273,8 @@ var normalStrKw =
         "pl-PL": "Wstępne obiekty",
         "pt-BR": "Objetos Iniciais",
         "ru-RU": "Начальные объекты",
+        "th-TH": "วัตถุเริ่มต้น",
+        "tr-TR": "Başlangıç Nesneleri",
         "zh-CN": "初始对象",
         "zh-TW": "初始目標"
     },
@@ -4676,6 +5290,8 @@ var normalStrKw =
         "pl-PL": "Wstępna faza",
         "pt-BR": "Fase Inicial",
         "ru-RU": "Начальная фаза",
+        "th-TH": "เฟสเริ่มต้น",
+        "tr-TR": "Başlangıç Safhası",
         "zh-CN": "初始阶段",
         "zh-TW": "初始階段"
     },
@@ -4691,6 +5307,8 @@ var normalStrKw =
         "pl-PL": "Wstępny gracz",
         "pt-BR": "Jogador Inicial",
         "ru-RU": "Начальный игрок",
+        "th-TH": "ผู้เล่นเริ่มต้น",
+        "tr-TR": "Başlangıç Oyuncusu",
         "zh-CN": "初始玩家",
         "zh-TW": "初始玩家"
     },
@@ -4706,6 +5324,8 @@ var normalStrKw =
         "pl-PL": "Wstępni gracze",
         "pt-BR": "Jogadores Iniciais",
         "ru-RU": "Начальные игроки",
+        "th-TH": "ผู้เล่นเริ่มต้น",
+        "tr-TR": "Başlangıç Oyuncuları",
         "zh-CN": "初始玩家",
         "zh-TW": "初始玩家"
     },
@@ -4721,6 +5341,8 @@ var normalStrKw =
         "pl-PL": "Wstępna runda",
         "pt-BR": "Rodada Inicial",
         "ru-RU": "Начальный раунд",
+        "th-TH": "รอบเริ่มต้น",
+        "tr-TR": "Başlangıç Turu",
         "zh-CN": "初始回合",
         "zh-TW": "初始回合"
     },
@@ -4736,6 +5358,8 @@ var normalStrKw =
         "pl-PL": "Wstępny cel",
         "pt-BR": "Alvo Inicial",
         "ru-RU": "Начальная цель",
+        "th-TH": "เป้าหมายเริ่มต้น",
+        "tr-TR": "Başlangıç Hedefi",
         "zh-CN": "初始目标",
         "zh-TW": "初始目標"
     },
@@ -4751,6 +5375,8 @@ var normalStrKw =
         "pl-PL": "Wstępne cele",
         "pt-BR": "Alvos Iniciais",
         "ru-RU": "Начальные цели",
+        "th-TH": "เป้าหมายเริ่มต้น",
+        "tr-TR": "Başlangıç Hedefleri",
         "zh-CN": "初始目标",
         "zh-TW": "初始目標"
     },
@@ -4766,6 +5392,8 @@ var normalStrKw =
         "pl-PL": "Wstępne ulepszenie",
         "pt-BR": "Melhoria Inicial",
         "ru-RU": "Начальное улучшение",
+        "th-TH": "การอัพเกรดเริ่มต้น",
+        "tr-TR": "Başlangıç Yükseltmesi",
         "zh-CN": "初始升级",
         "zh-TW": "初始升級"
     },
@@ -4780,6 +5408,8 @@ var normalStrKw =
         "pl-PL": "Niewinny",
         "pt-BR": "Inocente",
         "ru-RU": "Невиновен",
+        "th-TH": "บริสุทธิ์",
+        "tr-TR": "Masum",
         "zh-CN": "无罪",
         "zh-TW": "無辜"
     },
@@ -4795,6 +5425,8 @@ var normalStrKw =
         "pl-PL": "Wewnątrz",
         "pt-BR": "Dentro",
         "ru-RU": "Внутри",
+        "th-TH": "ข้างใน",
+        "tr-TR": "İç",
         "zh-CN": "内",
         "zh-TW": "內部"
     },
@@ -4809,6 +5441,8 @@ var normalStrKw =
         "pl-PL": "Inteligencja",
         "pt-BR": "Inteligência",
         "ru-RU": "Интеллект",
+        "th-TH": "ความฉลาด",
+        "tr-TR": "Zekâ",
         "zh-CN": "智力",
         "zh-TW": "智力"
     },
@@ -4824,6 +5458,8 @@ var normalStrKw =
         "pl-PL": "Interakcja",
         "pt-BR": "Interagir",
         "ru-RU": "Взаимодействие",
+        "th-TH": "โต้ตอบ",
+        "tr-TR": "Etkileşim",
         "zh-CN": "互动",
         "zh-TW": "互動"
     },
@@ -4836,6 +5472,8 @@ var normalStrKw =
         "pl-PL": "Niewidzialne",
         "pt-BR": "Invisível",
         "ru-RU": "Невидимый",
+        "th-TH": "มองไม่เห็น",
+        "tr-TR": "Görünmez",
         "zh-CN": "不可见",
         "zh-TW": "隱形"
     },
@@ -4850,6 +5488,8 @@ var normalStrKw =
         "ja-JP": "アイテム",
         "pl-PL": "Element",
         "ru-RU": "Предмет",
+        "th-TH": "ไอเท็ม",
+        "tr-TR": "Eşya",
         "zh-CN": "物品",
         "zh-TW": "物品"
     },
@@ -4865,6 +5505,8 @@ var normalStrKw =
         "pl-PL": "Elementy",
         "pt-BR": "Itens",
         "ru-RU": "Предметы",
+        "th-TH": "ไอเท็ม",
+        "tr-TR": "Eşyalar",
         "zh-CN": "物品",
         "zh-TW": "物品"
     },
@@ -4880,6 +5522,8 @@ var normalStrKw =
         "pl-PL": "Dołącz",
         "pt-BR": "Entrar",
         "ru-RU": "Присоединиться",
+        "th-TH": "เข้าร่วม",
+        "tr-TR": "Katıl",
         "zh-CN": "加入",
         "zh-TW": "加入"
     },
@@ -4895,6 +5539,8 @@ var normalStrKw =
         "pl-PL": "Dołączono",
         "pt-BR": "Entrou",
         "ru-RU": "Присоединился",
+        "th-TH": "เข้าร่วมแล้ว",
+        "tr-TR": "Katılınan",
         "zh-CN": "已加入",
         "zh-TW": "已加入"
     },
@@ -4910,6 +5556,8 @@ var normalStrKw =
         "pl-PL": "Dołączanie",
         "pt-BR": "Entrando",
         "ru-RU": "Присоединяется",
+        "th-TH": "กำลังเข้าร่วม",
+        "tr-TR": "Katılan",
         "zh-CN": "正在加入",
         "zh-TW": "正在加入"
     },
@@ -4925,6 +5573,8 @@ var normalStrKw =
         "pl-PL": "Skocz",
         "pt-BR": "Pular",
         "ru-RU": "Прыгать",
+        "th-TH": "กระโดด",
+        "tr-TR": "Zıpla",
         "zh-CN": "跳跃",
         "zh-TW": "跳躍"
     },
@@ -4940,6 +5590,8 @@ var normalStrKw =
         "pl-PL": "Skakanie",
         "pt-BR": "Pulando",
         "ru-RU": "Прыгает",
+        "th-TH": "กำลังกระโดด",
+        "tr-TR": "Zıplayan",
         "zh-CN": "正在跳跃",
         "zh-TW": "正在跳躍"
     },
@@ -4954,6 +5606,8 @@ var normalStrKw =
         "pl-PL": "Zabójstwo",
         "pt-BR": "Abater",
         "ru-RU": "Убийство",
+        "th-TH": "ฆ่า",
+        "tr-TR": "Öldürme",
         "zh-CN": "击杀",
         "zh-TW": "擊殺"
     },
@@ -4968,6 +5622,8 @@ var normalStrKw =
         "pl-PL": "Zabójstwa",
         "pt-BR": "Abates",
         "ru-RU": "Убийства",
+        "th-TH": "ฆ่า",
+        "tr-TR": "Öldürüş",
         "zh-CN": "击杀",
         "zh-TW": "擊殺"
     },
@@ -4982,6 +5638,8 @@ var normalStrKw =
         "pl-PL": "Seria likwidacji",
         "pt-BR": "Série de Abates",
         "ru-RU": "Серия убийств",
+        "th-TH": "ฆ่าต่อเนื่อง",
+        "tr-TR": "Öldürüş Serisi",
         "zh-CN": "连杀",
         "zh-TW": "連殺"
     },
@@ -4996,6 +5654,8 @@ var normalStrKw =
         "pl-PL": "Serie likwidacji",
         "pt-BR": "Séries de Abates",
         "ru-RU": "Серии убийств",
+        "th-TH": "ฆ่าต่อเนื่อง",
+        "tr-TR": "Öldürüş Serisi",
         "zh-CN": "连杀",
         "zh-TW": "連殺"
     },
@@ -5010,6 +5670,8 @@ var normalStrKw =
         "pl-PL": "Lider",
         "pt-BR": "Líder",
         "ru-RU": "Лидер",
+        "th-TH": "ผู้นำ",
+        "tr-TR": "Lider",
         "zh-CN": "队长",
         "zh-TW": "領先者"
     },
@@ -5025,6 +5687,8 @@ var normalStrKw =
         "pl-PL": "Liderzy",
         "pt-BR": "Líderes",
         "ru-RU": "Лидеры",
+        "th-TH": "ผู้นำ",
+        "tr-TR": "Liderler",
         "zh-CN": "队长",
         "zh-TW": "領先者"
     },
@@ -5040,6 +5704,8 @@ var normalStrKw =
         "pl-PL": "Najmniej",
         "pt-BR": "O Menor",
         "ru-RU": "Меньше всего",
+        "th-TH": "น้อยที่สุด",
+        "tr-TR": "En Az",
         "zh-CN": "最少",
         "zh-TW": "最少"
     },
@@ -5055,6 +5721,8 @@ var normalStrKw =
         "pl-PL": "Lewo",
         "pt-BR": "Esquerda",
         "ru-RU": "Влево",
+        "th-TH": "ซ้าย",
+        "tr-TR": "Sol",
         "zh-CN": "左",
         "zh-TW": "左"
     },
@@ -5070,6 +5738,8 @@ var normalStrKw =
         "pl-PL": "Mniej",
         "pt-BR": "Menos",
         "ru-RU": "Меньше",
+        "th-TH": "น้อยกว่า",
+        "tr-TR": "Daha Az",
         "zh-CN": "更少",
         "zh-TW": "較少"
     },
@@ -5084,6 +5754,8 @@ var normalStrKw =
         "pl-PL": "Poziom",
         "pt-BR": "Nível",
         "ru-RU": "Уровень",
+        "th-TH": "เลเวล",
+        "tr-TR": "Seviye",
         "zh-CN": "等级",
         "zh-TW": "等級"
     },
@@ -5099,6 +5771,8 @@ var normalStrKw =
         "pl-PL": "Degradacja",
         "pt-BR": "Desceu de Nível",
         "ru-RU": "Понижение уровня",
+        "th-TH": "เลเวลลด",
+        "tr-TR": "Seviye Azalışı",
         "zh-CN": "等级下降",
         "zh-TW": "降級"
     },
@@ -5114,6 +5788,8 @@ var normalStrKw =
         "pl-PL": "Awans",
         "pt-BR": "Subiu de Nível",
         "ru-RU": "Новый уровень",
+        "th-TH": "เลเวลอัพ",
+        "tr-TR": "Seviye Atlama",
         "zh-CN": "等级提升",
         "zh-TW": "升級"
     },
@@ -5128,6 +5804,8 @@ var normalStrKw =
         "pl-PL": "Poziomy",
         "pt-BR": "Níveis",
         "ru-RU": "Уровни",
+        "th-TH": "เลเวล",
+        "tr-TR": "Seviyeler",
         "zh-CN": "等级",
         "zh-TW": "等級"
     },
@@ -5143,6 +5821,8 @@ var normalStrKw =
         "pl-PL": "Życie",
         "pt-BR": "Vida",
         "ru-RU": "Жизнь",
+        "th-TH": "ชีวิต",
+        "tr-TR": "Can",
         "zh-CN": "生命",
         "zh-TW": "生命"
     },
@@ -5158,6 +5838,8 @@ var normalStrKw =
         "pl-PL": "Ograniczone",
         "pt-BR": "Limitado",
         "ru-RU": "Ограничен",
+        "th-TH": "จํากัด",
+        "tr-TR": "Sınırlı",
         "zh-CN": "受限",
         "zh-TW": "有限制"
     },
@@ -5173,6 +5855,8 @@ var normalStrKw =
         "pl-PL": "Życia",
         "pt-BR": "Vidas",
         "ru-RU": "Жизни",
+        "th-TH": "ชีวิต",
+        "tr-TR": "Canlar",
         "zh-CN": "生命",
         "zh-TW": "生命"
     },
@@ -5188,6 +5872,8 @@ var normalStrKw =
         "pl-PL": "Wczytaj",
         "pt-BR": "Carregar",
         "ru-RU": "Загрузить",
+        "th-TH": "โหลด",
+        "tr-TR": "Yükle",
         "zh-CN": "读取",
         "zh-TW": "讀取"
     },
@@ -5203,6 +5889,8 @@ var normalStrKw =
         "pl-PL": "Wczytano",
         "pt-BR": "Carregado",
         "ru-RU": "Загружен",
+        "th-TH": "โหลดแล้ว",
+        "tr-TR": "Yüklendi",
         "zh-CN": "已读取",
         "zh-TW": "已讀取"
     },
@@ -5218,6 +5906,8 @@ var normalStrKw =
         "pl-PL": "Wczytywanie",
         "pt-BR": "Carregando",
         "ru-RU": "Загружает",
+        "th-TH": "กำลังโหลด",
+        "tr-TR": "Yükleniyor",
         "zh-CN": "正在读取",
         "zh-TW": "正在讀取"
     },
@@ -5233,6 +5923,8 @@ var normalStrKw =
         "pl-PL": "Lokalizacja",
         "pt-BR": "Local",
         "ru-RU": "Местоположение",
+        "th-TH": "สถานที่",
+        "tr-TR": "Konum",
         "zh-CN": "坐标",
         "zh-TW": "地點"
     },
@@ -5248,6 +5940,8 @@ var normalStrKw =
         "pl-PL": "Zablokuj",
         "pt-BR": "Bloquear",
         "ru-RU": "Закреплять",
+        "th-TH": "ล็อค",
+        "tr-TR": "Kilitle",
         "zh-CN": "锁定",
         "zh-TW": "鎖定"
     },
@@ -5263,7 +5957,9 @@ var normalStrKw =
         "pl-PL": "Zablokowano",
         "pt-BR": "Bloqueado",
         "ru-RU": "Закрепил",
-        "zh-CN": "已锁定",
+        "th-TH": "ล็อคแล้ว",
+        "tr-TR": "Kilitli",
+        "zh-CN": "未解锁",
         "zh-TW": "受到鎖定"
     },
     "Locking": {
@@ -5278,6 +5974,8 @@ var normalStrKw =
         "pl-PL": "Blokowanie",
         "pt-BR": "Bloqueando",
         "ru-RU": "Закрепляет",
+        "th-TH": "กำลังล็อค",
+        "tr-TR": "Kilitleyen",
         "zh-CN": "正在锁定",
         "zh-TW": "正在鎖定"
     },
@@ -5293,6 +5991,8 @@ var normalStrKw =
         "pl-PL": "Przegrany",
         "pt-BR": "Perdedor",
         "ru-RU": "Проигравший",
+        "th-TH": "ผู้แพ้",
+        "tr-TR": "Kaybeden",
         "zh-CN": "败者",
         "zh-TW": "輸家"
     },
@@ -5308,6 +6008,8 @@ var normalStrKw =
         "pl-PL": "Przegrani",
         "pt-BR": "Perdedores",
         "ru-RU": "Проигравшие",
+        "th-TH": "ผู้แพ้",
+        "tr-TR": "Kaybedenler",
         "zh-CN": "败者",
         "zh-TW": "輸家"
     },
@@ -5323,6 +6025,8 @@ var normalStrKw =
         "pl-PL": "Przegrana",
         "pt-BR": "Derrota",
         "ru-RU": "Поражение",
+        "th-TH": "แพ้",
+        "tr-TR": "Mağlubiyet",
         "zh-CN": "失败",
         "zh-TW": "落敗"
     },
@@ -5338,6 +6042,8 @@ var normalStrKw =
         "pl-PL": "Przegrane",
         "pt-BR": "Derrotas",
         "ru-RU": "Поражения",
+        "th-TH": "แพ้",
+        "tr-TR": "Mağlubiyet",
         "zh-CN": "失败",
         "zh-TW": "落敗"
     },
@@ -5352,6 +6058,8 @@ var normalStrKw =
         "ja-JP": "最大",
         "pt-BR": "Máx.",
         "ru-RU": "Макс.",
+        "th-TH": "สูงสุด",
+        "tr-TR": "Maks.",
         "zh-CN": "较大",
         "zh-TW": "最大"
     },
@@ -5366,6 +6074,8 @@ var normalStrKw =
         "pl-PL": "Łagodnie",
         "pt-BR": "Brando",
         "ru-RU": "Мягкий",
+        "th-TH": "น้อย",
+        "tr-TR": "Hafif",
         "zh-CN": "轻微",
         "zh-TW": "輕微"
     },
@@ -5380,6 +6090,8 @@ var normalStrKw =
         "ja-JP": "最小",
         "pt-BR": "Mín.",
         "ru-RU": "Мин.",
+        "th-TH": "ต่ำสุด",
+        "tr-TR": "Min.",
         "zh-CN": "较小",
         "zh-TW": "最小"
     },
@@ -5393,6 +6105,8 @@ var normalStrKw =
         "pl-PL": "Misja",
         "pt-BR": "Missão",
         "ru-RU": "Задание",
+        "th-TH": "ภารกิจ",
+        "tr-TR": "Görev",
         "zh-CN": "任务",
         "zh-TW": "任務"
     },
@@ -5408,6 +6122,8 @@ var normalStrKw =
         "pl-PL": "Misja przerwana",
         "pt-BR": "Missão Anulada",
         "ru-RU": "Задание отменено",
+        "th-TH": "ภารกิจถูกยกเลิก",
+        "tr-TR": "Görev İptal Edildi",
         "zh-CN": "放弃的任务",
         "zh-TW": "任務中止"
     },
@@ -5423,6 +6139,8 @@ var normalStrKw =
         "pl-PL": "Misja wykonana",
         "pt-BR": "Missão Cumprida",
         "ru-RU": "Задание выполнено",
+        "th-TH": "ภารกิจสำเร็จ",
+        "tr-TR": "Görev Başarılı",
         "zh-CN": "任务完成",
         "zh-TW": "任務完成"
     },
@@ -5438,6 +6156,8 @@ var normalStrKw =
         "pl-PL": "Misja nieudana",
         "pt-BR": "Missão Falhou",
         "ru-RU": "Задание провалено",
+        "th-TH": "ภารกิจล้มเหลว",
+        "tr-TR": "Görev Başarısız",
         "zh-CN": "失败的任务",
         "zh-TW": "任務失敗"
     },
@@ -5452,6 +6172,8 @@ var normalStrKw =
         "pl-PL": "Misje",
         "pt-BR": "Missões",
         "ru-RU": "Задания",
+        "th-TH": "ภารกิจ",
+        "tr-TR": "Görevler",
         "zh-CN": "任务",
         "zh-TW": "任務"
     },
@@ -5467,6 +6189,8 @@ var normalStrKw =
         "pl-PL": "Umiarkowanie",
         "pt-BR": "Moderado",
         "ru-RU": "Умеренный",
+        "th-TH": "ปานกลาง",
+        "tr-TR": "Makul",
         "zh-CN": "适中",
         "zh-TW": "中等"
     },
@@ -5482,6 +6206,8 @@ var normalStrKw =
         "pl-PL": "Pieniądze",
         "pt-BR": "Dinheiro",
         "ru-RU": "Деньги",
+        "th-TH": "เงิน",
+        "tr-TR": "Para",
         "zh-CN": "金钱",
         "zh-TW": "金錢"
     },
@@ -5496,6 +6222,8 @@ var normalStrKw =
         "pl-PL": "Potwór",
         "pt-BR": "Monstro",
         "ru-RU": "Монстр",
+        "th-TH": "สัตว์ประหลาด",
+        "tr-TR": "Canavar",
         "zh-CN": "怪物",
         "zh-TW": "怪物"
     },
@@ -5511,6 +6239,8 @@ var normalStrKw =
         "pl-PL": "Potwory",
         "pt-BR": "Monstros",
         "ru-RU": "Монстры",
+        "th-TH": "สัตว์ประหลาด",
+        "tr-TR": "Canavarlar",
         "zh-CN": "怪物",
         "zh-TW": "怪物"
     },
@@ -5526,6 +6256,8 @@ var normalStrKw =
         "pl-PL": "Więcej",
         "pt-BR": "Mais",
         "ru-RU": "Больше",
+        "th-TH": "มากกว่า",
+        "tr-TR": "Daha Fazla",
         "zh-CN": "更多",
         "zh-TW": "較多"
     },
@@ -5541,6 +6273,8 @@ var normalStrKw =
         "pl-PL": "Najwięcej",
         "pt-BR": "O Maior",
         "ru-RU": "Больше всего",
+        "th-TH": "มากที่สุด",
+        "tr-TR": "En Fazla",
         "zh-CN": "最多",
         "zh-TW": "最多"
     },
@@ -5556,6 +6290,8 @@ var normalStrKw =
         "pl-PL": "Mój błąd",
         "pt-BR": "Erro Meu",
         "ru-RU": "Моя ошибка",
+        "th-TH": "ความผิดพลาดของฉัน",
+        "tr-TR": "Pardon",
         "zh-CN": "我的错",
         "zh-TW": "是我不好"
     },
@@ -5571,6 +6307,8 @@ var normalStrKw =
         "pl-PL": "Blisko",
         "pt-BR": "Perto",
         "ru-RU": "Рядом",
+        "th-TH": "ใกล้",
+        "tr-TR": "Yakın",
         "zh-CN": "近",
         "zh-TW": "近"
     },
@@ -5586,6 +6324,8 @@ var normalStrKw =
         "pl-PL": "Nowy najwyższy wynik",
         "pt-BR": "Nova Pontuação Máxima",
         "ru-RU": "Новый рекорд",
+        "th-TH": "คะแนนสูงสุดใหม่",
+        "tr-TR": "Yeni Yüksek Skor",
         "zh-CN": "最新高分",
         "zh-TW": "全新最高分"
     },
@@ -5601,6 +6341,8 @@ var normalStrKw =
         "pl-PL": "Nowy rekord",
         "pt-BR": "Novo Recorde",
         "ru-RU": "Новая запись",
+        "th-TH": "สถิติใหม่",
+        "tr-TR": "Yeni Rekor",
         "zh-CN": "最新记录",
         "zh-TW": "全新紀錄"
     },
@@ -5616,6 +6358,8 @@ var normalStrKw =
         "pl-PL": "Dalej",
         "pt-BR": "Próximo",
         "ru-RU": "Следующий",
+        "th-TH": "ถัดไป",
+        "tr-TR": "Sıradaki",
         "zh-CN": "下一个",
         "zh-TW": "下一個"
     },
@@ -5631,6 +6375,8 @@ var normalStrKw =
         "pl-PL": "Następni sojusznicy",
         "pt-BR": "Próximos Aliados",
         "ru-RU": "Следующие союзники",
+        "th-TH": "พันธมิตรถัดไป",
+        "tr-TR": "Sıradaki Müttefikler",
         "zh-CN": "下一批盟友",
         "zh-TW": "下個盟友"
     },
@@ -5646,6 +6392,8 @@ var normalStrKw =
         "pl-PL": "Następny sojusznik",
         "pt-BR": "Próximo Aliado",
         "ru-RU": "Следующий союзник",
+        "th-TH": "พันธมิตรถัดไป",
+        "tr-TR": "Sıradaki Müttefik",
         "zh-CN": "下一个盟友",
         "zh-TW": "下個盟友"
     },
@@ -5661,6 +6409,8 @@ var normalStrKw =
         "pl-PL": "Następna próba",
         "pt-BR": "Próxima Tentativa",
         "ru-RU": "Следующая попытка",
+        "th-TH": "ความพยายามถัดไป",
+        "tr-TR": "Sonraki Deneme",
         "zh-CN": "下一次尝试",
         "zh-TW": "下次機會"
     },
@@ -5676,6 +6426,8 @@ var normalStrKw =
         "pl-PL": "Następny punkt kontrolny",
         "pt-BR": "Próximo Ponto de Verificação",
         "ru-RU": "Следующая контрольная точка",
+        "th-TH": "เช็คพอยต์ถัดไป",
+        "tr-TR": "Sonraki Kontrol Noktası",
         "zh-CN": "下一个检查点",
         "zh-TW": "下個檢查點"
     },
@@ -5691,6 +6443,8 @@ var normalStrKw =
         "pl-PL": "Następni wrogowie",
         "pt-BR": "Próximos Inimigos",
         "ru-RU": "Следующие враги",
+        "th-TH": "ศัตรูถัดไป",
+        "tr-TR": "Sonraki Düşmanlar",
         "zh-CN": "下一批敌人",
         "zh-TW": "下個敵人"
     },
@@ -5706,6 +6460,8 @@ var normalStrKw =
         "pl-PL": "Następny wróg",
         "pt-BR": "Próximo Inimigo",
         "ru-RU": "Следующий враг",
+        "th-TH": "ศัตรูถัดไป",
+        "tr-TR": "Sıradaki Düşman",
         "zh-CN": "下一个敌人",
         "zh-TW": "下個敵人"
     },
@@ -5721,6 +6477,8 @@ var normalStrKw =
         "pl-PL": "Następna forma",
         "pt-BR": "Próximo Forma",
         "ru-RU": "Следующая форма",
+        "th-TH": "ร่างถัดไป",
+        "tr-TR": "Sonraki Form",
         "zh-CN": "下一个表格",
         "zh-TW": "下個型態"
     },
@@ -5736,6 +6494,8 @@ var normalStrKw =
         "pl-PL": "Następna gra",
         "pt-BR": "Próximo Jogo",
         "ru-RU": "Следующий матч",
+        "th-TH": "เกมถัดไป",
+        "tr-TR": "Sonraki Oyun",
         "zh-CN": "下一个游戏",
         "zh-TW": "下場遊戲"
     },
@@ -5751,6 +6511,8 @@ var normalStrKw =
         "pl-PL": "Następny bohater",
         "pt-BR": "Próximo Herói",
         "ru-RU": "Следующий герой",
+        "th-TH": "ฮีโร่ถัดไป",
+        "tr-TR": "Sıradaki Kahraman",
         "zh-CN": "下一个英雄",
         "zh-TW": "下個英雄"
     },
@@ -5766,6 +6528,8 @@ var normalStrKw =
         "pl-PL": "Następni bohaterowie",
         "pt-BR": "Próximos Heróis",
         "ru-RU": "Следующие герои",
+        "th-TH": "ฮีโร่ถัดไป",
+        "tr-TR": "Sıradaki Kahramanlar",
         "zh-CN": "下一批英雄",
         "zh-TW": "下個英雄"
     },
@@ -5781,6 +6545,8 @@ var normalStrKw =
         "pl-PL": "Następny zakładnik",
         "pt-BR": "Próximo Refém",
         "ru-RU": "Следующий заложник",
+        "th-TH": "ตัวประกันถัดไป",
+        "tr-TR": "Sıradaki Rehine",
         "zh-CN": "下一个人质",
         "zh-TW": "下個人質"
     },
@@ -5796,6 +6562,8 @@ var normalStrKw =
         "pl-PL": "Następni zakładnicy",
         "pt-BR": "Próximos Reféns",
         "ru-RU": "Следующие заложники",
+        "th-TH": "ตัวประกันถัดไป",
+        "tr-TR": "Sıradaki Rehineler",
         "zh-CN": "下一批人质",
         "zh-TW": "下個人質"
     },
@@ -5811,6 +6579,8 @@ var normalStrKw =
         "pl-PL": "Następny poziom",
         "pt-BR": "Próximo Nível",
         "ru-RU": "Следующий уровень",
+        "th-TH": "เลเวลถัดไป",
+        "tr-TR": "Sonraki Seviye",
         "zh-CN": "下一个等级",
         "zh-TW": "下個等級"
     },
@@ -5826,6 +6596,8 @@ var normalStrKw =
         "pl-PL": "Następna misja",
         "pt-BR": "Próxima Missão",
         "ru-RU": "Следующее задание",
+        "th-TH": "ภารกิจถัดไป",
+        "tr-TR": "Sonraki Görev",
         "zh-CN": "下一个任务",
         "zh-TW": "下個任務"
     },
@@ -5841,6 +6613,8 @@ var normalStrKw =
         "pl-PL": "Następny obiekt",
         "pt-BR": "Próximo Objeto",
         "ru-RU": "Следующий объект",
+        "th-TH": "วัตถุถัดไป",
+        "tr-TR": "Sıradaki Nesne",
         "zh-CN": "下一批对象",
         "zh-TW": "下個目標"
     },
@@ -5856,6 +6630,8 @@ var normalStrKw =
         "pl-PL": "Następne zadanie",
         "pt-BR": "Próximo Objetivo",
         "ru-RU": "Следующая задача",
+        "th-TH": "เป้าหมายถัดไป",
+        "tr-TR": "Sıradaki Hedef",
         "zh-CN": "下一个目标点",
         "zh-TW": "下個目標"
     },
@@ -5871,6 +6647,8 @@ var normalStrKw =
         "pl-PL": "Następne obiekty",
         "pt-BR": "Próximos Objetos",
         "ru-RU": "Следующие объекты",
+        "th-TH": "วัตถุถัดไป",
+        "tr-TR": "Sıradaki Nesneler",
         "zh-CN": "下一个对象",
         "zh-TW": "下個目標"
     },
@@ -5886,6 +6664,8 @@ var normalStrKw =
         "pl-PL": "Następna faza",
         "pt-BR": "Próxima Fase",
         "ru-RU": "Следующая фаза",
+        "th-TH": "เฟสถัดไป",
+        "tr-TR": "Sonraki Safha",
         "zh-CN": "下一个阶段",
         "zh-TW": "下個階段"
     },
@@ -5901,6 +6681,8 @@ var normalStrKw =
         "pl-PL": "Następny gracz",
         "pt-BR": "Próximo Jogador",
         "ru-RU": "Следующий игрок",
+        "th-TH": "ผู้เล่นถัดไป",
+        "tr-TR": "Sıradaki Oyuncu",
         "zh-CN": "下一个玩家",
         "zh-TW": "下個玩家"
     },
@@ -5916,6 +6698,8 @@ var normalStrKw =
         "pl-PL": "Następni gracze",
         "pt-BR": "Próximos Jogadores",
         "ru-RU": "Следующие игроки",
+        "th-TH": "ผู้เล่นถัดไป",
+        "tr-TR": "Sıradaki Oyuncular",
         "zh-CN": "下一批玩家",
         "zh-TW": "下個玩家"
     },
@@ -5931,6 +6715,8 @@ var normalStrKw =
         "pl-PL": "Następna runda",
         "pt-BR": "Próxima Rodada",
         "ru-RU": "Следующий раунд",
+        "th-TH": "รอบถัดไป",
+        "tr-TR": "Sıradaki Tur",
         "zh-CN": "下一个回合",
         "zh-TW": "下個回合"
     },
@@ -5946,6 +6732,8 @@ var normalStrKw =
         "pl-PL": "Następny cel",
         "pt-BR": "Próximo Alvo",
         "ru-RU": "Следующая цель",
+        "th-TH": "เป้าถัดไป",
+        "tr-TR": "Sıradaki Hedef",
         "zh-CN": "下一个目标",
         "zh-TW": "下個目標"
     },
@@ -5961,6 +6749,8 @@ var normalStrKw =
         "pl-PL": "Następne cele",
         "pt-BR": "Próximos Alvos",
         "ru-RU": "Следующие цели",
+        "th-TH": "เป้าถัดไป",
+        "tr-TR": "Sıradaki Hedefler",
         "zh-CN": "下一批目标",
         "zh-TW": "下個目標"
     },
@@ -5976,6 +6766,8 @@ var normalStrKw =
         "pl-PL": "Następne ulepszenie",
         "pt-BR": "Próxima Melhoria",
         "ru-RU": "Следующее улучшение",
+        "th-TH": "การอัพเกรดถัดไป",
+        "tr-TR": "Sonraki Yükseltme",
         "zh-CN": "下一个升级 ",
         "zh-TW": "下個升級"
     },
@@ -5991,6 +6783,8 @@ var normalStrKw =
         "pl-PL": "Niezła próba",
         "pt-BR": "Bela Tentativa",
         "ru-RU": "Хорошая попытка",
+        "th-TH": "เกือบดีแล้ว",
+        "tr-TR": "Yemezler",
         "zh-CN": "表现不错",
         "zh-TW": "差一點"
     },
@@ -6003,6 +6797,8 @@ var normalStrKw =
         "pl-PL": "Nie",
         "pt-BR": "Não",
         "ru-RU": "Нет",
+        "th-TH": "ไม่ใช่",
+        "tr-TR": "Hayır",
         "zh-CN": "否",
         "zh-TW": "否"
     },
@@ -6018,6 +6814,8 @@ var normalStrKw =
         "pl-PL": "Nie, dzięki",
         "pt-BR": "Não, Obrigado",
         "ru-RU": "Нет, спасибо",
+        "th-TH": "ไม่ ขอบคุณ",
+        "tr-TR": "Yok Sağ Ol",
         "zh-CN": "不用了",
         "zh-TW": "不，謝謝"
     },
@@ -6033,6 +6831,8 @@ var normalStrKw =
         "pl-PL": "Brak",
         "pt-BR": "Nenhum",
         "ru-RU": "Нет",
+        "th-TH": "ไม่มี",
+        "tr-TR": "Yok",
         "zh-CN": "无",
         "zh-TW": "無"
     },
@@ -6043,6 +6843,7 @@ var normalStrKw =
         "ja-JP": "ノーマル",
         "pl-PL": "Normalne",
         "ru-RU": "Нормальный",
+        "th-TH": "ปกติ",
         "zh-CN": "普通",
         "zh-TW": "普通"
     },
@@ -6058,6 +6859,8 @@ var normalStrKw =
         "pl-PL": "Północ",
         "pt-BR": "Norte",
         "ru-RU": "Север",
+        "th-TH": "เหนือ",
+        "tr-TR": "Kuzey",
         "zh-CN": "北",
         "zh-TW": "北"
     },
@@ -6073,6 +6876,8 @@ var normalStrKw =
         "pl-PL": "Północny wschód",
         "pt-BR": "Nordeste",
         "ru-RU": "Северо-восток",
+        "th-TH": "ตะวันออกเฉียงเหนือ",
+        "tr-TR": "Kuzeydoğu",
         "zh-CN": "东北",
         "zh-TW": "東北"
     },
@@ -6088,6 +6893,8 @@ var normalStrKw =
         "pl-PL": "Północny zachód",
         "pt-BR": "Noroeste",
         "ru-RU": "Северо-запад",
+        "th-TH": "ตะวันตกเฉียงเหนือ",
+        "tr-TR": "Kuzeybatı",
         "zh-CN": "西北",
         "zh-TW": "西北"
     },
@@ -6103,6 +6910,8 @@ var normalStrKw =
         "pl-PL": "Nie dzisiaj",
         "pt-BR": "Hoje Não",
         "ru-RU": "Не сегодня",
+        "th-TH": "ไม่ใช่วันนี้",
+        "tr-TR": "Bugün Değil",
         "zh-CN": "算了吧",
         "zh-TW": "下次再說"
     },
@@ -6118,6 +6927,8 @@ var normalStrKw =
         "pl-PL": "Obiekt",
         "pt-BR": "Objeto",
         "ru-RU": "Объект",
+        "th-TH": "วัตถุ",
+        "tr-TR": "Nesne",
         "zh-CN": "对象",
         "zh-TW": "目標"
     },
@@ -6133,6 +6944,8 @@ var normalStrKw =
         "pl-PL": "Zadanie",
         "pt-BR": "Objetivo",
         "ru-RU": "Задача",
+        "th-TH": "เป้าหมาย",
+        "tr-TR": "Hedef",
         "zh-CN": "目标点",
         "zh-TW": "目標"
     },
@@ -6148,6 +6961,8 @@ var normalStrKw =
         "pl-PL": "Zadania",
         "pt-BR": "Objetivos",
         "ru-RU": "Задачи",
+        "th-TH": "เป้าหมาย",
+        "tr-TR": "Hedefler",
         "zh-CN": "目标点",
         "zh-TW": "目標"
     },
@@ -6163,6 +6978,8 @@ var normalStrKw =
         "pl-PL": "Obiekty",
         "pt-BR": "Objetos",
         "ru-RU": "Объекты",
+        "th-TH": "วัตถุ",
+        "tr-TR": "Nesneler",
         "zh-CN": "对象",
         "zh-TW": "目標"
     },
@@ -6178,6 +6995,8 @@ var normalStrKw =
         "pl-PL": "Zdobądź",
         "pt-BR": "Obter",
         "ru-RU": "Получить",
+        "th-TH": "ได้รับ",
+        "tr-TR": "Al",
         "zh-CN": "获取",
         "zh-TW": "取得"
     },
@@ -6193,6 +7012,8 @@ var normalStrKw =
         "pl-PL": "Zdobyto",
         "pt-BR": "Obtido",
         "ru-RU": "Получил",
+        "th-TH": "ได้รับแล้ว",
+        "tr-TR": "Alınan",
         "zh-CN": "已获取",
         "zh-TW": "取得"
     },
@@ -6208,6 +7029,8 @@ var normalStrKw =
         "pl-PL": "Zdobywanie",
         "pt-BR": "Obtendo",
         "ru-RU": "Получает",
+        "th-TH": "กำลังได้รับ",
+        "tr-TR": "Alan",
         "zh-CN": "正在获取",
         "zh-TW": "正在取得"
     },
@@ -6222,6 +7045,8 @@ var normalStrKw =
         "pl-PL": "Wył.",
         "pt-BR": "Desligado",
         "ru-RU": "Выкл.",
+        "th-TH": "ปิด",
+        "tr-TR": "Kapalı",
         "zh-CN": "关闭",
         "zh-TW": "關閉"
     },
@@ -6236,6 +7061,8 @@ var normalStrKw =
         "pl-PL": "Wł.",
         "pt-BR": "Ligado",
         "ru-RU": "Вкл.",
+        "th-TH": "เปิด",
+        "tr-TR": "Açık",
         "zh-CN": "开启",
         "zh-TW": "開啟"
     },
@@ -6251,6 +7078,8 @@ var normalStrKw =
         "pl-PL": "Uch",
         "pt-BR": "Uff",
         "ru-RU": "Ох",
+        "th-TH": "อ๊ะ",
+        "tr-TR": "Ayy",
         "zh-CN": "噢",
         "zh-TW": "噢"
     },
@@ -6266,6 +7095,8 @@ var normalStrKw =
         "pl-PL": "Ups",
         "pt-BR": "Ops",
         "ru-RU": "Упс",
+        "th-TH": "อุ๊ปส์",
+        "tr-TR": "Tüh",
         "zh-CN": "啊呀",
         "zh-TW": "哎呀"
     },
@@ -6279,6 +7110,8 @@ var normalStrKw =
         "pl-PL": "Optymalne",
         "pt-BR": "Ideal",
         "ru-RU": "Оптимальный",
+        "th-TH": "ตัวเลือกที่ดีสุด",
+        "tr-TR": "Standart",
         "zh-CN": "最佳",
         "zh-TW": "最佳"
     },
@@ -6294,6 +7127,8 @@ var normalStrKw =
         "pl-PL": "Zoptymalizuj",
         "pt-BR": "Otimizar",
         "ru-RU": "Оптимизировать",
+        "th-TH": "เพิ่มประสิทธิภาพ",
+        "tr-TR": "Optimize Et",
         "zh-CN": "优化",
         "zh-TW": "最佳化"
     },
@@ -6309,6 +7144,8 @@ var normalStrKw =
         "pl-PL": "Zoptymalizowano",
         "pt-BR": "Otimizado",
         "ru-RU": "Оптимизирован",
+        "th-TH": "เพิ่มประสิทธิภาพแล้ว",
+        "tr-TR": "Optimize Edilen",
         "zh-CN": "已优化",
         "zh-TW": "獲得最佳化"
     },
@@ -6324,6 +7161,8 @@ var normalStrKw =
         "pl-PL": "Optymalizowanie",
         "pt-BR": "Otimizando",
         "ru-RU": "Оптимизирует",
+        "th-TH": "กำลังเพิ่มประสิทธิภาพ",
+        "tr-TR": "Optimize Eden",
         "zh-CN": "正在优化",
         "zh-TW": "正在最佳化"
     },
@@ -6339,6 +7178,8 @@ var normalStrKw =
         "pl-PL": "Poza pole widzenia",
         "pt-BR": "Fora da Visão",
         "ru-RU": "Вне поля зрения",
+        "th-TH": "นอกมุมมอง",
+        "tr-TR": "Görüş Dışı",
         "zh-CN": "不在视野中",
         "zh-TW": "不在視野中"
     },
@@ -6354,6 +7195,8 @@ var normalStrKw =
         "pl-PL": "Wychodzące",
         "pt-BR": "Saindo",
         "ru-RU": "Исходящий",
+        "th-TH": "ขาออก",
+        "tr-TR": "Giden",
         "zh-CN": "正在远去",
         "zh-TW": "離開"
     },
@@ -6369,6 +7212,8 @@ var normalStrKw =
         "pl-PL": "Zewnątrz",
         "pt-BR": "Fora",
         "ru-RU": "Снаружи",
+        "th-TH": "ด้านนอก",
+        "tr-TR": "Dış",
         "zh-CN": "外",
         "zh-TW": "外部"
     },
@@ -6384,6 +7229,8 @@ var normalStrKw =
         "pl-PL": "Nad",
         "pt-BR": "Acima",
         "ru-RU": "Более",
+        "th-TH": "เหนือ",
+        "tr-TR": "Üst",
         "zh-CN": "上方",
         "zh-TW": "超過"
     },
@@ -6399,6 +7246,8 @@ var normalStrKw =
         "pl-PL": "Dogrywka",
         "pt-BR": "Prorrogação",
         "ru-RU": "Дополнительное время",
+        "th-TH": "ต่อเวลา",
+        "tr-TR": "Uzatma",
         "zh-CN": "加时",
         "zh-TW": "延長賽"
     },
@@ -6413,6 +7262,8 @@ var normalStrKw =
         "pl-PL": "Uczestnik",
         "pt-BR": "Participante",
         "ru-RU": "Участник",
+        "th-TH": "ผู้เข้าร่วม",
+        "tr-TR": "Katılımcı",
         "zh-CN": "参与者",
         "zh-TW": "參與者"
     },
@@ -6427,6 +7278,8 @@ var normalStrKw =
         "pl-PL": "Uczestnicy",
         "pt-BR": "Participantes",
         "ru-RU": "Участники",
+        "th-TH": "ผู้เข้าร่วม",
+        "tr-TR": "Katılımcılar",
         "zh-CN": "参与者",
         "zh-TW": "參與者"
     },
@@ -6442,6 +7295,8 @@ var normalStrKw =
         "pl-PL": "Ładunek",
         "pt-BR": "Carga",
         "ru-RU": "Груз",
+        "th-TH": "เพย์โหลด",
+        "tr-TR": "Navlun",
         "zh-CN": "运载目标",
         "zh-TW": "護送目標"
     },
@@ -6457,6 +7312,8 @@ var normalStrKw =
         "pl-PL": "Ładunki",
         "pt-BR": "Cargas",
         "ru-RU": "Грузы",
+        "th-TH": "เพย์โหลด",
+        "tr-TR": "Navlunlar",
         "zh-CN": "运载目标",
         "zh-TW": "護送目標"
     },
@@ -6470,6 +7327,8 @@ var normalStrKw =
         "pl-PL": "Faza",
         "pt-BR": "Fase",
         "ru-RU": "Фаза",
+        "th-TH": "เฟส",
+        "tr-TR": "Safha",
         "zh-CN": "阶段",
         "zh-TW": "階段"
     },
@@ -6484,6 +7343,8 @@ var normalStrKw =
         "pl-PL": "Fazy",
         "pt-BR": "Fases",
         "ru-RU": "Фазы",
+        "th-TH": "เฟส",
+        "tr-TR": "Safhalar",
         "zh-CN": "阶段",
         "zh-TW": "階段"
     },
@@ -6499,6 +7360,8 @@ var normalStrKw =
         "pl-PL": "Wybierz",
         "pt-BR": "Escolher",
         "ru-RU": "Поднять",
+        "th-TH": "หยิบ",
+        "tr-TR": "Al",
         "zh-CN": "选取",
         "zh-TW": "挑選"
     },
@@ -6514,6 +7377,8 @@ var normalStrKw =
         "pl-PL": "Wybrano",
         "pt-BR": "Escolhido",
         "ru-RU": "Поднял",
+        "th-TH": "หยิบแล้ว",
+        "tr-TR": "Alınan",
         "zh-CN": "已选取",
         "zh-TW": "受到挑選"
     },
@@ -6529,6 +7394,8 @@ var normalStrKw =
         "pl-PL": "Wybieranie",
         "pt-BR": "Escolhendo",
         "ru-RU": "Поднимает",
+        "th-TH": "กำลังหยิบ",
+        "tr-TR": "Alan",
         "zh-CN": "正在选取",
         "zh-TW": "正在挑選"
     },
@@ -6543,6 +7410,8 @@ var normalStrKw =
         "pl-PL": "Stosik",
         "pt-BR": "Bolo",
         "ru-RU": "Отбить",
+        "th-TH": "กอง",
+        "tr-TR": "Yığın",
         "zh-CN": "堆",
         "zh-TW": "牌堆"
     },
@@ -6557,6 +7426,8 @@ var normalStrKw =
         "pl-PL": "Stosiki",
         "pt-BR": "Bolos",
         "ru-RU": "Отбивает",
+        "th-TH": "กอง",
+        "tr-TR": "Yığınlar",
         "zh-CN": "堆",
         "zh-TW": "牌堆"
     },
@@ -6572,6 +7443,8 @@ var normalStrKw =
         "pl-PL": "Zagraj",
         "pt-BR": "Jogar",
         "ru-RU": "Разыграть",
+        "th-TH": "เล่น",
+        "tr-TR": "Oyna",
         "zh-CN": "打出",
         "zh-TW": "遊玩"
     },
@@ -6587,6 +7460,8 @@ var normalStrKw =
         "pl-PL": "Zagrano",
         "pt-BR": "Jogada",
         "ru-RU": "Разыграл",
+        "th-TH": "เล่นแล้ว",
+        "tr-TR": "Oynanan",
         "zh-CN": "已打出",
         "zh-TW": "遊玩"
     },
@@ -6602,6 +7477,8 @@ var normalStrKw =
         "pl-PL": "Gracz",
         "pt-BR": "Jogador",
         "ru-RU": "Игрок",
+        "th-TH": "ผู้เล่น",
+        "tr-TR": "Oyuncu",
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
@@ -6617,6 +7494,8 @@ var normalStrKw =
         "pl-PL": "Gracze",
         "pt-BR": "Jogadores",
         "ru-RU": "Игроки",
+        "th-TH": "ผู้เล่น",
+        "tr-TR": "Oyuncular",
         "zh-CN": "玩家",
         "zh-TW": "玩家"
     },
@@ -6632,6 +7511,8 @@ var normalStrKw =
         "pl-PL": "Zagranie",
         "pt-BR": "Jogando",
         "ru-RU": "Разыгрывает",
+        "th-TH": "กำลังเล่น",
+        "tr-TR": "Oynayan",
         "zh-CN": "正在打出",
         "zh-TW": "遊玩"
     },
@@ -6646,6 +7527,8 @@ var normalStrKw =
         "pl-PL": "Punkt",
         "pt-BR": "Ponto",
         "ru-RU": "Очко",
+        "th-TH": "คะแนน",
+        "tr-TR": "Puan",
         "zh-CN": "点",
         "zh-TW": "分"
     },
@@ -6660,6 +7543,8 @@ var normalStrKw =
         "pl-PL": "Punkty",
         "pt-BR": "Pontos",
         "ru-RU": "Очки",
+        "th-TH": "คะแนน",
+        "tr-TR": "Puan",
         "zh-CN": "点",
         "zh-TW": "分"
     },
@@ -6675,6 +7560,8 @@ var normalStrKw =
         "pl-PL": "Zdobyte punkty",
         "pt-BR": "Pontos Ganhos",
         "ru-RU": "Очков заработано",
+        "th-TH": "คะแนนที่ได้รับ",
+        "tr-TR": "Kazanılan Puanlar",
         "zh-CN": "获得分数",
         "zh-TW": "獲得的分數"
     },
@@ -6690,6 +7577,8 @@ var normalStrKw =
         "pl-PL": "Stracone punkty",
         "pt-BR": "Pontos Perdidos",
         "ru-RU": "Очков потеряно",
+        "th-TH": "คะแนนที่เสีย",
+        "tr-TR": "Kaybedilen Puanlar",
         "zh-CN": "失去分数",
         "zh-TW": "失去的點"
     },
@@ -6703,6 +7592,8 @@ var normalStrKw =
         "pl-PL": "Pozycja",
         "pt-BR": "Posição",
         "ru-RU": "Положение",
+        "th-TH": "ตำแหน่ง",
+        "tr-TR": "Konum",
         "zh-CN": "位置",
         "zh-TW": "位置"
     },
@@ -6718,6 +7609,8 @@ var normalStrKw =
         "pl-PL": "Moc",
         "pt-BR": "Poder",
         "ru-RU": "Энергия",
+        "th-TH": "พลัง",
+        "tr-TR": "Güç",
         "zh-CN": "能量",
         "zh-TW": "能量"
     },
@@ -6731,6 +7624,8 @@ var normalStrKw =
         "ja-JP": "パワーアップ",
         "pl-PL": "Doładowanie",
         "ru-RU": "Усиление",
+        "th-TH": "เพิ่มพลัง",
+        "tr-TR": "Güçlendirme",
         "zh-CN": "强化",
         "zh-TW": "強化"
     },
@@ -6744,6 +7639,8 @@ var normalStrKw =
         "ja-JP": "パワーアップ",
         "pl-PL": "Doładowania",
         "ru-RU": "Усиления",
+        "th-TH": "เพิ่มพลัง",
+        "tr-TR": "Güçlendirmeler",
         "zh-CN": "强化",
         "zh-TW": "強化"
     },
@@ -6759,6 +7656,8 @@ var normalStrKw =
         "pl-PL": "Cena",
         "pt-BR": "Preço",
         "ru-RU": "Цена",
+        "th-TH": "ราคา",
+        "tr-TR": "Fiyat",
         "zh-CN": "价格",
         "zh-TW": "價格"
     },
@@ -6774,6 +7673,8 @@ var normalStrKw =
         "pl-PL": "Atak podstawowy",
         "pt-BR": "Disparo Primário",
         "ru-RU": "Основной режим огня",
+        "th-TH": "การยิงรูปแบบหลัก",
+        "tr-TR": "Birincil Saldırı",
         "zh-CN": "主要攻击模式",
         "zh-TW": "主要攻擊"
     },
@@ -6788,6 +7689,8 @@ var normalStrKw =
         "pl-PL": "Pocisk",
         "pt-BR": "Projétil",
         "ru-RU": "Снаряд",
+        "th-TH": "โพรเจกไทล์",
+        "tr-TR": "Atılır Cisim",
         "zh-CN": "飞弹",
         "zh-TW": "拋射物"
     },
@@ -6802,6 +7705,8 @@ var normalStrKw =
         "pl-PL": "Pociski",
         "pt-BR": "Projéteis",
         "ru-RU": "Снаряды",
+        "th-TH": "โพรเจกไทล์",
+        "tr-TR": "Atılır Cisimler",
         "zh-CN": "飞弹",
         "zh-TW": "拋射物"
     },
@@ -6817,6 +7722,8 @@ var normalStrKw =
         "pl-PL": "Ochroń",
         "pt-BR": "Proteger",
         "ru-RU": "Защищать",
+        "th-TH": "ป้องกัน",
+        "tr-TR": "Koru",
         "zh-CN": "保护",
         "zh-TW": "保護"
     },
@@ -6832,6 +7739,8 @@ var normalStrKw =
         "pl-PL": "Ochroniono",
         "pt-BR": "Protegido",
         "ru-RU": "Защитил",
+        "th-TH": "ป้องกันแล้ว",
+        "tr-TR": "Korunan",
         "zh-CN": "已保护",
         "zh-TW": "受到保護"
     },
@@ -6847,6 +7756,8 @@ var normalStrKw =
         "pl-PL": "Chronienie",
         "pt-BR": "Protegendo",
         "ru-RU": "Защищает",
+        "th-TH": "กำลังป้องกัน",
+        "tr-TR": "Koruyan",
         "zh-CN": "正在保护",
         "zh-TW": "正在保護"
     },
@@ -6862,6 +7773,8 @@ var normalStrKw =
         "pl-PL": "Wyczyszczono",
         "pt-BR": "Purificado",
         "ru-RU": "Очистил",
+        "th-TH": "ทำให้บริสุทธิ์แล้ว",
+        "tr-TR": "Arındırılan",
         "zh-CN": "已净化",
         "zh-TW": "受到淨化"
     },
@@ -6877,6 +7790,8 @@ var normalStrKw =
         "pl-PL": "Wyczyść",
         "pt-BR": "Purificar",
         "ru-RU": "Очистить",
+        "th-TH": "ทำให้บริสุทธิ์",
+        "tr-TR": "Arındır",
         "zh-CN": "净化",
         "zh-TW": "淨化"
     },
@@ -6892,6 +7807,8 @@ var normalStrKw =
         "pl-PL": "Czyszczenie",
         "pt-BR": "Purificando",
         "ru-RU": "Очищает",
+        "th-TH": "กำลังทำให้บริสุทธิ์",
+        "tr-TR": "Temizleniyor",
         "zh-CN": "正在净化",
         "zh-TW": "正在淨化"
     },
@@ -6907,6 +7824,8 @@ var normalStrKw =
         "pl-PL": "Fioletowy",
         "pt-BR": "Roxo",
         "ru-RU": "Лиловый",
+        "th-TH": "ม่วง",
+        "tr-TR": "Mor",
         "zh-CN": "亮紫色",
         "zh-TW": "紫"
     },
@@ -6922,6 +7841,8 @@ var normalStrKw =
         "pl-PL": "Wznieś",
         "pt-BR": "Elevar",
         "ru-RU": "Поднять",
+        "th-TH": "ยกขึ้น",
+        "tr-TR": "Kaldır",
         "zh-CN": "复活",
         "zh-TW": "提高"
     },
@@ -6937,6 +7858,8 @@ var normalStrKw =
         "pl-PL": "Wzniesiono",
         "pt-BR": "Elevado",
         "ru-RU": "Поднял",
+        "th-TH": "ยกขึ้นแล้ว",
+        "tr-TR": "Kaldırılan",
         "zh-CN": "已复活",
         "zh-TW": "獲得提高"
     },
@@ -6952,6 +7875,8 @@ var normalStrKw =
         "pl-PL": "Wznoszenie",
         "pt-BR": "Elevando",
         "ru-RU": "Поднимает",
+        "th-TH": "กำลังยกขึ้น",
+        "tr-TR": "Kaldıran",
         "zh-CN": "正在复活",
         "zh-TW": "正在提高"
     },
@@ -6967,6 +7892,8 @@ var normalStrKw =
         "pl-PL": "Ranga",
         "pt-BR": "Ranque",
         "ru-RU": "Ранг",
+        "th-TH": "แรงค์",
+        "tr-TR": "Derece",
         "zh-CN": "排名",
         "zh-TW": "等級"
     },
@@ -6982,6 +7909,8 @@ var normalStrKw =
         "pl-PL": "Ranga A",
         "pt-BR": "Ranque A",
         "ru-RU": "Ранг A",
+        "th-TH": "แรงค์ A",
+        "tr-TR": "A Derecesi",
         "zh-CN": "等级 A",
         "zh-TW": "等級A"
     },
@@ -6997,6 +7926,8 @@ var normalStrKw =
         "pl-PL": "Ranga B",
         "pt-BR": "Ranque B",
         "ru-RU": "Ранг B",
+        "th-TH": "แรงค์ B",
+        "tr-TR": "B Derecesi",
         "zh-CN": "等级 B",
         "zh-TW": "等級B"
     },
@@ -7012,6 +7943,8 @@ var normalStrKw =
         "pl-PL": "Ranga C",
         "pt-BR": "Ranque C",
         "ru-RU": "Ранг C",
+        "th-TH": "แรงค์ C",
+        "tr-TR": "C Derecesi",
         "zh-CN": "等级 C",
         "zh-TW": "等級C"
     },
@@ -7027,6 +7960,8 @@ var normalStrKw =
         "pl-PL": "Ranga D",
         "pt-BR": "Ranque D",
         "ru-RU": "Ранг D",
+        "th-TH": "แรงค์ D",
+        "tr-TR": "D Derecesi",
         "zh-CN": "等级 D",
         "zh-TW": "等級D"
     },
@@ -7042,6 +7977,8 @@ var normalStrKw =
         "pl-PL": "Ranga E",
         "pt-BR": "Ranque E",
         "ru-RU": "Ранг E",
+        "th-TH": "แรงค์ E",
+        "tr-TR": "E Derecesi",
         "zh-CN": "等级 E",
         "zh-TW": "等級E"
     },
@@ -7057,6 +7994,8 @@ var normalStrKw =
         "pl-PL": "Ranga F",
         "pt-BR": "Ranque F",
         "ru-RU": "Ранг F",
+        "th-TH": "แรงค์ F",
+        "tr-TR": "F Derecesi",
         "zh-CN": "等级 F",
         "zh-TW": "等級F"
     },
@@ -7072,6 +8011,8 @@ var normalStrKw =
         "pl-PL": "Ranga S",
         "pt-BR": "Ranque S",
         "ru-RU": "Ранг S",
+        "th-TH": "แรงค์ S",
+        "tr-TR": "S Derecesi",
         "zh-CN": "等级 S",
         "zh-TW": "等級S"
     },
@@ -7087,6 +8028,8 @@ var normalStrKw =
         "pl-PL": "Sięgnij",
         "pt-BR": "Chegar",
         "ru-RU": "Достигнуть",
+        "th-TH": "ไปถึง",
+        "tr-TR": "Ulaş",
         "zh-CN": "前往",
         "zh-TW": "前往"
     },
@@ -7102,6 +8045,8 @@ var normalStrKw =
         "pl-PL": "Sięgnięto",
         "pt-BR": "Chegou",
         "ru-RU": "Достиг",
+        "th-TH": "ไปถึงแล้ว",
+        "tr-TR": "Ulaşıldı",
         "zh-CN": "已抵达",
         "zh-TW": "抵達"
     },
@@ -7117,6 +8062,8 @@ var normalStrKw =
         "pl-PL": "Sięganie",
         "pt-BR": "Chegando",
         "ru-RU": "Достигает",
+        "th-TH": "กำลังไปถึง",
+        "tr-TR": "Ulaşılıyor",
         "zh-CN": "正在前往",
         "zh-TW": "正在前往"
     },
@@ -7132,6 +8079,8 @@ var normalStrKw =
         "pl-PL": "Przygotuj",
         "pt-BR": "Pronto",
         "ru-RU": "Готов",
+        "th-TH": "พร้อม",
+        "tr-TR": "Hazır",
         "zh-CN": "就绪",
         "zh-TW": "就緒"
     },
@@ -7145,6 +8094,8 @@ var normalStrKw =
         "pl-PL": "Rekord",
         "pt-BR": "Recorde",
         "ru-RU": "Запись",
+        "th-TH": "บันทึก",
+        "tr-TR": "Rekor",
         "zh-CN": "记录",
         "zh-TW": "紀錄"
     },
@@ -7159,6 +8110,8 @@ var normalStrKw =
         "pl-PL": "Rekordy",
         "pt-BR": "Recordes",
         "ru-RU": "Записи",
+        "th-TH": "บันทึก",
+        "tr-TR": "Rekor",
         "zh-CN": "记录",
         "zh-TW": "紀錄"
     },
@@ -7174,6 +8127,8 @@ var normalStrKw =
         "pl-PL": "Zregeneruj",
         "pt-BR": "Recuperar",
         "ru-RU": "Восстановить",
+        "th-TH": "ฟื้นฟู",
+        "tr-TR": "İyileşme",
         "zh-CN": "恢复",
         "zh-TW": "恢復"
     },
@@ -7189,6 +8144,8 @@ var normalStrKw =
         "pl-PL": "Zregenerowano",
         "pt-BR": "Recuperado",
         "ru-RU": "Восстановил",
+        "th-TH": "ฟื้นฟูแล้ว",
+        "tr-TR": "İyileşen",
         "zh-CN": "已恢复",
         "zh-TW": "獲得恢復"
     },
@@ -7204,6 +8161,8 @@ var normalStrKw =
         "pl-PL": "Regeneracja",
         "pt-BR": "Recuperando",
         "ru-RU": "Восстанавливает",
+        "th-TH": "กำลังฟื้นฟู",
+        "tr-TR": "İyileştiren",
         "zh-CN": "正在恢复",
         "zh-TW": "正在恢復"
     },
@@ -7218,6 +8177,8 @@ var normalStrKw =
         "pl-PL": "Czerwony",
         "pt-BR": "Vermelho",
         "ru-RU": "Красный",
+        "th-TH": "แดง",
+        "tr-TR": "Kırmızı",
         "zh-CN": "红色",
         "zh-TW": "紅"
     },
@@ -7233,6 +8194,8 @@ var normalStrKw =
         "pl-PL": "Pozostań",
         "pt-BR": "Restam",
         "ru-RU": "Остаться",
+        "th-TH": "เหลือ",
+        "tr-TR": "Kal",
         "zh-CN": "剩余",
         "zh-TW": "剩餘"
     },
@@ -7248,6 +8211,8 @@ var normalStrKw =
         "pl-PL": "Pozostawanie",
         "pt-BR": "Restantes",
         "ru-RU": "Осталось",
+        "th-TH": "ที่เหลืออยู่",
+        "tr-TR": "Kalan",
         "zh-CN": "剩余",
         "zh-TW": "剩餘"
     },
@@ -7263,6 +8228,8 @@ var normalStrKw =
         "pl-PL": "Ratuj",
         "pt-BR": "Resgatar",
         "ru-RU": "Спасать",
+        "th-TH": "ช่วยเหลือ",
+        "tr-TR": "Kurtar",
         "zh-CN": "营救",
         "zh-TW": "救援"
     },
@@ -7278,6 +8245,8 @@ var normalStrKw =
         "pl-PL": "Uratowano",
         "pt-BR": "Resgatado",
         "ru-RU": "Спасен",
+        "th-TH": "ช่วยเหลือแล้ว",
+        "tr-TR": "Kurtarılan",
         "zh-CN": "已营救 ",
         "zh-TW": "獲得救援"
     },
@@ -7293,6 +8262,8 @@ var normalStrKw =
         "pl-PL": "Ratowanie",
         "pt-BR": "Resgatando",
         "ru-RU": "Спасает",
+        "th-TH": "กำลังช่วยเหลือ",
+        "tr-TR": "Kurtaran",
         "zh-CN": "正在营救",
         "zh-TW": "正在救援"
     },
@@ -7308,6 +8279,8 @@ var normalStrKw =
         "pl-PL": "Zasób systemowy",
         "pt-BR": "Recurso",
         "ru-RU": "Ресурс",
+        "th-TH": "ทรัพยากร",
+        "tr-TR": "Kaynak",
         "zh-CN": "资源",
         "zh-TW": "資源"
     },
@@ -7323,6 +8296,8 @@ var normalStrKw =
         "pl-PL": "Zasoby systemowe",
         "pt-BR": "Recursos",
         "ru-RU": "Ресурсы",
+        "th-TH": "ทรัพยากร",
+        "tr-TR": "Kaynaklar",
         "zh-CN": "资源",
         "zh-TW": "資源"
     },
@@ -7338,6 +8313,8 @@ var normalStrKw =
         "pl-PL": "Wskrześ",
         "pt-BR": "Ressuscitar",
         "ru-RU": "Воскресить",
+        "th-TH": "ชุบชีวิต",
+        "tr-TR": "Diriliş",
         "zh-CN": "复活",
         "zh-TW": "復活"
     },
@@ -7353,6 +8330,8 @@ var normalStrKw =
         "pl-PL": "Wskrzeszono",
         "pt-BR": "Ressuscitado",
         "ru-RU": "Воскресил",
+        "th-TH": "ชุบชีวิตแล้ว",
+        "tr-TR": "Canlandırılan",
         "zh-CN": "已复活",
         "zh-TW": "獲得復活"
     },
@@ -7368,6 +8347,8 @@ var normalStrKw =
         "pl-PL": "Wskrzeszanie",
         "pt-BR": "Ressuscitando",
         "ru-RU": "Воскрешает",
+        "th-TH": "กำลังชุบชีวิต",
+        "tr-TR": "Dirilten",
         "zh-CN": "正在复活",
         "zh-TW": "正在復活"
     },
@@ -7383,6 +8364,8 @@ var normalStrKw =
         "pl-PL": "Ujawnij",
         "pt-BR": "Revelar",
         "ru-RU": "Обнаруживать",
+        "th-TH": "เปิดเผย",
+        "tr-TR": "Gösterim",
         "zh-CN": "揭示",
         "zh-TW": "現身"
     },
@@ -7398,6 +8381,8 @@ var normalStrKw =
         "pl-PL": "Ujawniono",
         "pt-BR": "Revelado",
         "ru-RU": "Обнаружил",
+        "th-TH": "เปิดเผยแล้ว",
+        "tr-TR": "Gösterilen",
         "zh-CN": "已揭示",
         "zh-TW": "已現身"
     },
@@ -7413,6 +8398,8 @@ var normalStrKw =
         "pl-PL": "Ujawnianie",
         "pt-BR": "Revelando",
         "ru-RU": "Обнаруживает",
+        "th-TH": "กำลังเปิดเผย",
+        "tr-TR": "Gösteren",
         "zh-CN": "正在揭示",
         "zh-TW": "正在現身"
     },
@@ -7428,6 +8415,8 @@ var normalStrKw =
         "pl-PL": "Odwróć",
         "pt-BR": "Inverter",
         "ru-RU": "Перевернуть",
+        "th-TH": "กลับด้าน",
+        "tr-TR": "Ters Çevir",
         "zh-CN": "撤销",
         "zh-TW": "反轉"
     },
@@ -7443,6 +8432,8 @@ var normalStrKw =
         "pl-PL": "Odwrócono",
         "pt-BR": "Invertido",
         "ru-RU": "Перевернул",
+        "th-TH": "กลับด้านแล้ว",
+        "tr-TR": "Ters Çevrilen",
         "zh-CN": "已撤销",
         "zh-TW": "反轉"
     },
@@ -7458,6 +8449,8 @@ var normalStrKw =
         "pl-PL": "Odwracanie",
         "pt-BR": "Invertendo",
         "ru-RU": "Переворачивает",
+        "th-TH": "กำลังกลับด้าน",
+        "tr-TR": "Ters Çeviren",
         "zh-CN": "正在撤销",
         "zh-TW": "反轉"
     },
@@ -7473,6 +8466,8 @@ var normalStrKw =
         "pl-PL": "Prawo",
         "pt-BR": "Direita",
         "ru-RU": "Вправо",
+        "th-TH": "ขวา",
+        "tr-TR": "Sağ",
         "zh-CN": "右",
         "zh-TW": "右"
     },
@@ -7487,6 +8482,8 @@ var normalStrKw =
         "pl-PL": "Runda",
         "pt-BR": "Rodada",
         "ru-RU": "Раунд",
+        "th-TH": "รอบ",
+        "tr-TR": "Tur",
         "zh-CN": "回合",
         "zh-TW": "回合"
     },
@@ -7502,6 +8499,8 @@ var normalStrKw =
         "pl-PL": "Rundy",
         "pt-BR": "Rodadas",
         "ru-RU": "Раунды",
+        "th-TH": "รอบ",
+        "tr-TR": "Turlar",
         "zh-CN": "回合",
         "zh-TW": "回合"
     },
@@ -7517,6 +8516,8 @@ var normalStrKw =
         "pl-PL": "Przegrane rundy",
         "pt-BR": "Rodadas Perdidas",
         "ru-RU": "Проиграно раундов",
+        "th-TH": "รอบที่แพ้",
+        "tr-TR": "Kaybedilen Turlar",
         "zh-CN": "战败回合数",
         "zh-TW": "落敗回合"
     },
@@ -7532,6 +8533,8 @@ var normalStrKw =
         "pl-PL": "Wygrane rundy",
         "pt-BR": "Rodadas Vencidas",
         "ru-RU": "Выиграно раундов",
+        "th-TH": "รอบที่ชนะ",
+        "tr-TR": "Kazanılan Turlar",
         "zh-CN": "胜利回合数",
         "zh-TW": "獲勝回合"
     },
@@ -7547,6 +8550,8 @@ var normalStrKw =
         "pl-PL": "Biegnij",
         "pt-BR": "Correr",
         "ru-RU": "Бежать",
+        "th-TH": "วิ่ง",
+        "tr-TR": "Koş",
         "zh-CN": "运行",
         "zh-TW": "快跑"
     },
@@ -7562,6 +8567,8 @@ var normalStrKw =
         "pl-PL": "Biegnie",
         "pt-BR": "Correndo",
         "ru-RU": "Бежит",
+        "th-TH": "กำลังวิ่ง",
+        "tr-TR": "Koşan",
         "zh-CN": "正在运行",
         "zh-TW": "正在跑"
     },
@@ -7577,6 +8584,8 @@ var normalStrKw =
         "pl-PL": "Bezpieczne",
         "pt-BR": "Seguro",
         "ru-RU": "В безопасности",
+        "th-TH": "ปลอดภัย",
+        "tr-TR": "Güvenli",
         "zh-CN": "安全",
         "zh-TW": "安全"
     },
@@ -7592,6 +8601,8 @@ var normalStrKw =
         "pl-PL": "Zapisz",
         "pt-BR": "Salvar",
         "ru-RU": "Сохранить",
+        "th-TH": "บันทึก",
+        "tr-TR": "Kaydet",
         "zh-CN": "保存",
         "zh-TW": "儲存"
     },
@@ -7607,6 +8618,8 @@ var normalStrKw =
         "pl-PL": "Zapisano",
         "pt-BR": "Salvo",
         "ru-RU": "Сохранил",
+        "th-TH": "บันทึกแล้ว",
+        "tr-TR": "Kayıtlı",
         "zh-CN": "已保存",
         "zh-TW": "已儲存"
     },
@@ -7622,6 +8635,8 @@ var normalStrKw =
         "pl-PL": "Zapisywanie",
         "pt-BR": "Salvando",
         "ru-RU": "Сохраняет",
+        "th-TH": "กำลังบันทึก",
+        "tr-TR": "Kaydediliyor",
         "zh-CN": "正在保存",
         "zh-TW": "正在儲存"
     },
@@ -7637,6 +8652,8 @@ var normalStrKw =
         "pl-PL": "Wynik",
         "pt-BR": "Pontuação",
         "ru-RU": "Счет",
+        "th-TH": "คะแนน",
+        "tr-TR": "Skor",
         "zh-CN": "分数",
         "zh-TW": "分數"
     },
@@ -7652,6 +8669,8 @@ var normalStrKw =
         "pl-PL": "Wyniki",
         "pt-BR": "Pontuações",
         "ru-RU": "Счет",
+        "th-TH": "คะแนน",
+        "tr-TR": "Skor",
         "zh-CN": "分数",
         "zh-TW": "分數"
     },
@@ -7667,6 +8686,8 @@ var normalStrKw =
         "pl-PL": "Atak alternatywny",
         "pt-BR": "Disparo Secundário",
         "ru-RU": "Дополнительный режим огня",
+        "th-TH": "การยิงรูปแบบรอง",
+        "tr-TR": "İkincil Saldırı",
         "zh-CN": "辅助攻击模式",
         "zh-TW": "次要攻擊"
     },
@@ -7682,6 +8703,8 @@ var normalStrKw =
         "pl-PL": "Zabezpiecz",
         "pt-BR": "Tomar",
         "ru-RU": "Брать под контроль",
+        "th-TH": "รักษาความปลอดภัย",
+        "tr-TR": "Emniyete Al",
         "zh-CN": "保护",
         "zh-TW": "佔領"
     },
@@ -7697,6 +8720,8 @@ var normalStrKw =
         "pl-PL": "Zabezpieczono",
         "pt-BR": "Tomado",
         "ru-RU": "Взял под контроль",
+        "th-TH": "รักษาความปลอดภัยแล้ว",
+        "tr-TR": "Emniyete Alınan",
         "zh-CN": "已保护",
         "zh-TW": "遭到佔領"
     },
@@ -7712,6 +8737,8 @@ var normalStrKw =
         "pl-PL": "Zabezpieczanie",
         "pt-BR": "Tomando",
         "ru-RU": "Берет под контроль",
+        "th-TH": "กำลังรักษาความปลอดภัย",
+        "tr-TR": "Emniyete Alan",
         "zh-CN": "正在保护",
         "zh-TW": "正在佔領"
     },
@@ -7727,6 +8754,8 @@ var normalStrKw =
         "pl-PL": "Wybierz",
         "pt-BR": "Selecionar",
         "ru-RU": "Выбрать",
+        "th-TH": "เลือก",
+        "tr-TR": "Seç",
         "zh-CN": "选择",
         "zh-TW": "選擇"
     },
@@ -7742,6 +8771,8 @@ var normalStrKw =
         "pl-PL": "Wybrano",
         "pt-BR": "Seleção",
         "ru-RU": "Выбрал",
+        "th-TH": "เลือกแล้ว",
+        "tr-TR": "Seçilen",
         "zh-CN": "已选择",
         "zh-TW": "選取"
     },
@@ -7757,6 +8788,8 @@ var normalStrKw =
         "pl-PL": "Wybieranie",
         "pt-BR": "Selecionando",
         "ru-RU": "Выбирает",
+        "th-TH": "กำลังเลือก",
+        "tr-TR": "Seçen",
         "zh-CN": "正在选择",
         "zh-TW": "選取"
     },
@@ -7772,6 +8805,8 @@ var normalStrKw =
         "pl-PL": "Sprzedaj",
         "pt-BR": "Vender",
         "ru-RU": "Продать",
+        "th-TH": "ขาย",
+        "tr-TR": "Sat",
         "zh-CN": "出售",
         "zh-TW": "出售"
     },
@@ -7787,6 +8822,8 @@ var normalStrKw =
         "pl-PL": "Sprzedawanie",
         "pt-BR": "Vendendo",
         "ru-RU": "Продает",
+        "th-TH": "กำลังขาย",
+        "tr-TR": "Satan",
         "zh-CN": "正在出售",
         "zh-TW": "正在出售"
     },
@@ -7802,6 +8839,8 @@ var normalStrKw =
         "pl-PL": "Obciążenie serwera",
         "pt-BR": "Uso do Servidor",
         "ru-RU": "Загрузка сервера",
+        "th-TH": "เซิร์ฟเวอร์โหลด",
+        "tr-TR": "Sunucu Doluluğu",
         "zh-CN": "服务器负载",
         "zh-TW": "伺服器負載"
     },
@@ -7817,6 +8856,8 @@ var normalStrKw =
         "pl-PL": "Średnie obciążenie serwera",
         "pt-BR": "Média de Uso do Servidor",
         "ru-RU": "Средняя загрузка сервера",
+        "th-TH": "เซิร์ฟเวอร์โหลดเฉลี่ย",
+        "tr-TR": "Sunucu Doluluk Ortalaması",
         "zh-CN": "服务器负载平均值",
         "zh-TW": "伺服器平均負載"
     },
@@ -7832,6 +8873,8 @@ var normalStrKw =
         "pl-PL": "Szczytowe obciążenie serwera",
         "pt-BR": "Pico de Uso do Servidor",
         "ru-RU": "Пиковая загрузка сервера",
+        "th-TH": "เซิร์ฟเวอร์โหลดสูงสุด",
+        "tr-TR": "Sunucu Doluluk En Üst Noktası",
         "zh-CN": "服务器负载峰值",
         "zh-TW": "伺服器最高負載"
     },
@@ -7847,6 +8890,8 @@ var normalStrKw =
         "pl-PL": "Oddziel",
         "pt-BR": "Separar",
         "ru-RU": "Отсечь",
+        "th-TH": "ตัด",
+        "tr-TR": "Ayır",
         "zh-CN": "撕裂",
         "zh-TW": "截斷"
     },
@@ -7862,6 +8907,8 @@ var normalStrKw =
         "pl-PL": "Poważnie",
         "pt-BR": "Severo",
         "ru-RU": "Жесткий",
+        "th-TH": "รุนแรง",
+        "tr-TR": "Ciddi",
         "zh-CN": "严重",
         "zh-TW": "嚴重"
     },
@@ -7877,6 +8924,8 @@ var normalStrKw =
         "pl-PL": "Oddzielono",
         "pt-BR": "Separado",
         "ru-RU": "Отсек",
+        "th-TH": "รุนแรง",
+        "tr-TR": "Ayrılan",
         "zh-CN": "已撕裂",
         "zh-TW": "受到截斷"
     },
@@ -7892,6 +8941,8 @@ var normalStrKw =
         "pl-PL": "Oddzielanie",
         "pt-BR": "Separando",
         "ru-RU": "Отсекает",
+        "th-TH": "กำลังตัด",
+        "tr-TR": "Ayıran",
         "zh-CN": "正在撕裂",
         "zh-TW": "正在截斷"
     },
@@ -7906,6 +8957,8 @@ var normalStrKw =
         "pl-PL": "Sklep",
         "pt-BR": "Loja",
         "ru-RU": "Магазин",
+        "th-TH": "ร้านค้า",
+        "tr-TR": "Dükkân",
         "zh-CN": "商店",
         "zh-TW": "商店"
     },
@@ -7920,6 +8973,8 @@ var normalStrKw =
         "pl-PL": "Sklepy",
         "pt-BR": "Lojas",
         "ru-RU": "Магазины",
+        "th-TH": "ร้านค้า",
+        "tr-TR": "Dükkânlar",
         "zh-CN": "商店",
         "zh-TW": "商店"
     },
@@ -7935,6 +8990,8 @@ var normalStrKw =
         "pl-PL": "Przetasuj",
         "pt-BR": "Embaralhar",
         "ru-RU": "Замешать",
+        "th-TH": "สับเปลี่ยน",
+        "tr-TR": "Karıştır",
         "zh-CN": "洗牌",
         "zh-TW": "洗牌"
     },
@@ -7950,6 +9007,8 @@ var normalStrKw =
         "pl-PL": "Przetasowano",
         "pt-BR": "Embaralhado",
         "ru-RU": "Замешал",
+        "th-TH": "สับเปลี่ยนแล้ว",
+        "tr-TR": "Karıştırılan",
         "zh-CN": "已洗牌",
         "zh-TW": "洗牌"
     },
@@ -7965,6 +9024,8 @@ var normalStrKw =
         "pl-PL": "Zatop",
         "pt-BR": "Afundar",
         "ru-RU": "Тонуть",
+        "th-TH": "จม",
+        "tr-TR": "Batır",
         "zh-CN": "击沉",
         "zh-TW": "沉沒"
     },
@@ -7980,6 +9041,8 @@ var normalStrKw =
         "pl-PL": "Zatapianie",
         "pt-BR": "Afundando",
         "ru-RU": "Тонет",
+        "th-TH": "กำลังจม",
+        "tr-TR": "Batıran",
         "zh-CN": "正在击沉",
         "zh-TW": "正在沉沒"
     },
@@ -7995,6 +9058,8 @@ var normalStrKw =
         "pl-PL": "Pomiń",
         "pt-BR": "Passar",
         "ru-RU": "Пропустить",
+        "th-TH": "ข้าม",
+        "tr-TR": "Atla",
         "zh-CN": "跳过",
         "zh-TW": "跳過"
     },
@@ -8010,6 +9075,8 @@ var normalStrKw =
         "pl-PL": "Pominięto",
         "pt-BR": "Passou",
         "ru-RU": "Пропустил",
+        "th-TH": "ข้ามแล้ว",
+        "tr-TR": "Atlanan",
         "zh-CN": "已跳过",
         "zh-TW": "跳過"
     },
@@ -8025,6 +9092,8 @@ var normalStrKw =
         "pl-PL": "Pomijanie",
         "pt-BR": "Passando",
         "ru-RU": "Пропускает",
+        "th-TH": "กำลังข้าม",
+        "tr-TR": "Atlayan",
         "zh-CN": "正在跳过",
         "zh-TW": "跳過"
     },
@@ -8040,6 +9109,8 @@ var normalStrKw =
         "pl-PL": "Śpij",
         "pt-BR": "Dormir",
         "ru-RU": "Спать",
+        "th-TH": "หลับ",
+        "tr-TR": "Uyku",
         "zh-CN": "沉睡",
         "zh-TW": "睡眠"
     },
@@ -8055,6 +9126,8 @@ var normalStrKw =
         "pl-PL": "Spanie",
         "pt-BR": "Dormindo",
         "ru-RU": "Спит",
+        "th-TH": "กำลังหลับ",
+        "tr-TR": "Uyuyor",
         "zh-CN": "正在沉睡",
         "zh-TW": "正在睡眠"
     },
@@ -8070,6 +9143,8 @@ var normalStrKw =
         "pl-PL": "Spano",
         "pt-BR": "Adormecido",
         "ru-RU": "Усыплен",
+        "th-TH": "หลับแล้ว",
+        "tr-TR": "Uyutulan",
         "zh-CN": "已沉睡",
         "zh-TW": "已睡著"
     },
@@ -8085,6 +9160,8 @@ var normalStrKw =
         "pl-PL": "Wolno",
         "pt-BR": "Lento",
         "ru-RU": "Медленно",
+        "th-TH": "ช้า",
+        "tr-TR": "Yavaş",
         "zh-CN": "慢",
         "zh-TW": "慢"
     },
@@ -8100,6 +9177,8 @@ var normalStrKw =
         "pl-PL": "Wolniej",
         "pt-BR": "Mais Lento",
         "ru-RU": "Медленнее",
+        "th-TH": "ช้ากว่า",
+        "tr-TR": "Daha Yavaş",
         "zh-CN": "较慢",
         "zh-TW": "較慢"
     },
@@ -8115,6 +9194,8 @@ var normalStrKw =
         "pl-PL": "Najwolniej",
         "pt-BR": "O Mais Lento",
         "ru-RU": "Очень медленно",
+        "th-TH": "ช้าที่สุด",
+        "tr-TR": "En Yavaş",
         "zh-CN": "最慢",
         "zh-TW": "最慢"
     },
@@ -8130,6 +9211,8 @@ var normalStrKw =
         "pl-PL": "Sprzedano",
         "pt-BR": "Vendido",
         "ru-RU": "Продал",
+        "th-TH": "ขายแล้ว",
+        "tr-TR": "Satılan",
         "zh-CN": "已出售",
         "zh-TW": "遭到出售"
     },
@@ -8145,6 +9228,8 @@ var normalStrKw =
         "pl-PL": "Wybacz",
         "pt-BR": "Desculpe",
         "ru-RU": "Извини",
+        "th-TH": "ขอโทษ",
+        "tr-TR": "Kusura bakma",
         "zh-CN": "抱歉",
         "zh-TW": "抱歉"
     },
@@ -8160,6 +9245,8 @@ var normalStrKw =
         "pl-PL": "Południe",
         "pt-BR": "Sul",
         "ru-RU": "Юг",
+        "th-TH": "ใต้",
+        "tr-TR": "Güney",
         "zh-CN": "南",
         "zh-TW": "南"
     },
@@ -8175,6 +9262,8 @@ var normalStrKw =
         "pl-PL": "Południowy wschód",
         "pt-BR": "Sudeste",
         "ru-RU": "Юго-восток",
+        "th-TH": "ตะวันออกเฉียงใต้",
+        "tr-TR": "Güneydoğu",
         "zh-CN": "东南",
         "zh-TW": "東南"
     },
@@ -8190,6 +9279,8 @@ var normalStrKw =
         "pl-PL": "Południowy zachód",
         "pt-BR": "Sudoeste",
         "ru-RU": "Юго-запад",
+        "th-TH": "ตะวันตกเฉียงใต้",
+        "tr-TR": "Güneybatı",
         "zh-CN": "西南",
         "zh-TW": "西南"
     },
@@ -8205,6 +9296,8 @@ var normalStrKw =
         "pl-PL": "Pik",
         "pt-BR": "Espadas",
         "ru-RU": "Пики",
+        "th-TH": "โพดำ",
+        "tr-TR": "Maça",
         "zh-CN": "黑桃",
         "zh-TW": "黑桃"
     },
@@ -8220,6 +9313,8 @@ var normalStrKw =
         "pl-PL": "Pik",
         "pt-BR": "Espadas",
         "ru-RU": "Пики",
+        "th-TH": "โพดำ",
+        "tr-TR": "Maça",
         "zh-CN": "黑桃",
         "zh-TW": "黑桃"
     },
@@ -8235,6 +9330,8 @@ var normalStrKw =
         "pl-PL": "Iskry",
         "pt-BR": "Faíscas",
         "ru-RU": "Искры",
+        "th-TH": "ประกายไฟ",
+        "tr-TR": "Pırıltı",
         "zh-CN": "火花",
         "zh-TW": "火花"
     },
@@ -8250,6 +9347,8 @@ var normalStrKw =
         "pl-PL": "Odrodź",
         "pt-BR": "Surgir",
         "ru-RU": "Порождать",
+        "th-TH": "เกิด",
+        "tr-TR": "Doğ",
         "zh-CN": "孵化",
         "zh-TW": "重生"
     },
@@ -8265,6 +9364,8 @@ var normalStrKw =
         "pl-PL": "Odrodzono",
         "pt-BR": "Surgido",
         "ru-RU": "Породил",
+        "th-TH": "เกิดแล้ว",
+        "tr-TR": "Doğan",
         "zh-CN": "已孵化",
         "zh-TW": "得到重生"
     },
@@ -8280,6 +9381,8 @@ var normalStrKw =
         "pl-PL": "Odradzanie",
         "pt-BR": "Surgindo",
         "ru-RU": "Порождает",
+        "th-TH": "กำลังเกิด",
+        "tr-TR": "Doğan",
         "zh-CN": "正在孵化",
         "zh-TW": "正在重生"
     },
@@ -8295,6 +9398,8 @@ var normalStrKw =
         "pl-PL": "Szybkość",
         "pt-BR": "Velocidade",
         "ru-RU": "Скорость",
+        "th-TH": "ความเร็ว",
+        "tr-TR": "Hız",
         "zh-CN": "速度",
         "zh-TW": "速度"
     },
@@ -8310,6 +9415,8 @@ var normalStrKw =
         "pl-PL": "Szybkości",
         "pt-BR": "Velocidades",
         "ru-RU": "Скорости",
+        "th-TH": "ความเร็ว",
+        "tr-TR": "Hız",
         "zh-CN": "速度",
         "zh-TW": "速度"
     },
@@ -8325,6 +9432,8 @@ var normalStrKw =
         "pl-PL": "Sfera",
         "pt-BR": "Esfera",
         "ru-RU": "Сфера",
+        "th-TH": "ทรงกลม",
+        "tr-TR": "Küre",
         "zh-CN": "球体",
         "zh-TW": "球體"
     },
@@ -8340,6 +9449,8 @@ var normalStrKw =
         "pl-PL": "Sfery",
         "pt-BR": "Esferas",
         "ru-RU": "Сферы",
+        "th-TH": "ทรงกลม",
+        "tr-TR": "Küre",
         "zh-CN": "球形",
         "zh-TW": "球體"
     },
@@ -8355,6 +9466,8 @@ var normalStrKw =
         "pl-PL": "Ustabilizuj",
         "pt-BR": "Estabilizar",
         "ru-RU": "Стабилизировать",
+        "th-TH": "ทำให้เสถียร",
+        "tr-TR": "Dengeleme",
         "zh-CN": "稳定",
         "zh-TW": "穩定"
     },
@@ -8370,6 +9483,8 @@ var normalStrKw =
         "pl-PL": "Ustabilizowano",
         "pt-BR": "Estabilizado",
         "ru-RU": "Стабилизировал",
+        "th-TH": "ทำให้เสถียรแล้ว",
+        "tr-TR": "Dengede",
         "zh-CN": "已稳定",
         "zh-TW": "獲得穩定"
     },
@@ -8385,6 +9500,8 @@ var normalStrKw =
         "pl-PL": "Stabilizowanie",
         "pt-BR": "Estabilizando",
         "ru-RU": "Стабилизирует",
+        "th-TH": "กำลังทำให้เสถียร",
+        "tr-TR": "Dengeleyen",
         "zh-CN": "正在稳定",
         "zh-TW": "正在穩定"
     },
@@ -8399,6 +9516,8 @@ var normalStrKw =
         "pl-PL": "Stabilne",
         "pt-BR": "Estável",
         "ru-RU": "Стабильный",
+        "th-TH": "มั่นคง",
+        "tr-TR": "Dengeli",
         "zh-CN": "存放宠物",
         "zh-TW": "穩定"
     },
@@ -8414,6 +9533,8 @@ var normalStrKw =
         "pl-PL": "Gwiazdka",
         "pt-BR": "Estrela",
         "ru-RU": "Звезда",
+        "th-TH": "ดาว",
+        "tr-TR": "Yıldız",
         "zh-CN": "星星",
         "zh-TW": "星星"
     },
@@ -8429,6 +9550,8 @@ var normalStrKw =
         "pl-PL": "Gwiazdy",
         "pt-BR": "Estrelas",
         "ru-RU": "Звезды",
+        "th-TH": "ดาว",
+        "tr-TR": "Yıldızlar",
         "zh-CN": "群星",
         "zh-TW": "星星"
     },
@@ -8444,6 +9567,8 @@ var normalStrKw =
         "pl-PL": "Rozpocznij",
         "pt-BR": "Iniciar",
         "ru-RU": "Начинать",
+        "th-TH": "เริ่ม",
+        "tr-TR": "Başla",
         "zh-CN": "开始",
         "zh-TW": "開始"
     },
@@ -8459,6 +9584,8 @@ var normalStrKw =
         "pl-PL": "Rozpoczęto",
         "pt-BR": "Iniciado",
         "ru-RU": "Начал",
+        "th-TH": "เริ่มแล้ว",
+        "tr-TR": "Başlamış",
         "zh-CN": "已开始",
         "zh-TW": "已開始"
     },
@@ -8474,6 +9601,8 @@ var normalStrKw =
         "pl-PL": "Rozpoczynanie",
         "pt-BR": "Iniciando",
         "ru-RU": "Начинает",
+        "th-TH": "กำลังเริ่ม",
+        "tr-TR": "Başlayan",
         "zh-CN": "正在开始",
         "zh-TW": "正在開始"
     },
@@ -8486,6 +9615,8 @@ var normalStrKw =
         "it-IT": "Stato",
         "ja-JP": "ステータス",
         "ru-RU": "Статус",
+        "th-TH": "สถานะ",
+        "tr-TR": "Durum",
         "zh-CN": "状态",
         "zh-TW": "狀態"
     },
@@ -8501,6 +9632,8 @@ var normalStrKw =
         "pl-PL": "Zostań",
         "pt-BR": "Permanecer",
         "ru-RU": "Остаться",
+        "th-TH": "อยู่",
+        "tr-TR": "Bırakma",
         "zh-CN": "停止",
         "zh-TW": "不再要牌"
     },
@@ -8516,6 +9649,8 @@ var normalStrKw =
         "pl-PL": "Trzymaj się z dala",
         "pt-BR": "Fique Longe",
         "ru-RU": "Не подходи",
+        "th-TH": "อยู่ห่างๆ",
+        "tr-TR": "Git Başımdan",
         "zh-CN": "走开",
         "zh-TW": "走開"
     },
@@ -8531,6 +9666,8 @@ var normalStrKw =
         "pl-PL": "Pozostano",
         "pt-BR": "Permaneceu",
         "ru-RU": "Остался",
+        "th-TH": "อยู่แล้ว",
+        "tr-TR": "Bırakılan",
         "zh-CN": "已停止 ",
         "zh-TW": "不再要牌"
     },
@@ -8546,6 +9683,8 @@ var normalStrKw =
         "pl-PL": "Zostawanie",
         "pt-BR": "Permanecendo",
         "ru-RU": "Остается",
+        "th-TH": "กำลังอยู่",
+        "tr-TR": "Bırakan",
         "zh-CN": "正在停止",
         "zh-TW": "不再要牌"
     },
@@ -8561,6 +9700,8 @@ var normalStrKw =
         "pl-PL": "Zatrzymaj",
         "pt-BR": "Parar",
         "ru-RU": "Остановить",
+        "th-TH": "หยุด",
+        "tr-TR": "Dur",
         "zh-CN": "阻止",
         "zh-TW": "停止"
     },
@@ -8576,6 +9717,8 @@ var normalStrKw =
         "pl-PL": "Zatrzymano",
         "pt-BR": "Parado",
         "ru-RU": "Остановил",
+        "th-TH": "หยุดแล้ว",
+        "tr-TR": "Durdurulan",
         "zh-CN": "已阻止",
         "zh-TW": "已停止"
     },
@@ -8591,6 +9734,8 @@ var normalStrKw =
         "pl-PL": "Zatrzymywanie",
         "pt-BR": "Parando",
         "ru-RU": "Останавливает",
+        "th-TH": "กำลังหยุด",
+        "tr-TR": "Durduran",
         "zh-CN": "正在阻止",
         "zh-TW": "正在停止"
     },
@@ -8606,6 +9751,8 @@ var normalStrKw =
         "pl-PL": "Siła",
         "pt-BR": "Força",
         "ru-RU": "Сила",
+        "th-TH": "ความแข็งแกร่ง",
+        "tr-TR": "Kuvvet",
         "zh-CN": "力量",
         "zh-TW": "力量"
     },
@@ -8621,6 +9768,8 @@ var normalStrKw =
         "pl-PL": "Ogłusz",
         "pt-BR": "Atordoar",
         "ru-RU": "Оглушить",
+        "th-TH": "สตัน",
+        "tr-TR": "Sersemlet",
         "zh-CN": "击晕",
         "zh-TW": "擊昏"
     },
@@ -8636,6 +9785,8 @@ var normalStrKw =
         "pl-PL": "Ogłuszono",
         "pt-BR": "Atordoado",
         "ru-RU": "Оглушил",
+        "th-TH": "ถูกสตัน",
+        "tr-TR": "Sersemletilen",
         "zh-CN": "已击晕",
         "zh-TW": "遭到擊昏"
     },
@@ -8651,6 +9802,8 @@ var normalStrKw =
         "pl-PL": "Ogłuszanie",
         "pt-BR": "Atordoando",
         "ru-RU": "Оглушает",
+        "th-TH": "กำลังสตัน",
+        "tr-TR": "Sersemleten",
         "zh-CN": "正在击晕",
         "zh-TW": "正在擊昏"
     },
@@ -8665,6 +9818,8 @@ var normalStrKw =
         "pl-PL": "Nieoptymalne",
         "pt-BR": "Abaixo do Ideal",
         "ru-RU": "Неоптимальный",
+        "th-TH": "ไม่ใช่ตัวเลือกที่ดีสุด",
+        "tr-TR": "Standart Altı",
         "zh-CN": "次佳",
         "zh-TW": "次佳"
     },
@@ -8680,6 +9835,8 @@ var normalStrKw =
         "pl-PL": "Sukces",
         "pt-BR": "Sucesso",
         "ru-RU": "Успех",
+        "th-TH": "ความสําเร็จ",
+        "tr-TR": "Başarı",
         "zh-CN": "成功",
         "zh-TW": "成功"
     },
@@ -8695,6 +9852,8 @@ var normalStrKw =
         "pl-PL": "Decydujące starcie",
         "pt-BR": "Morte Súbita",
         "ru-RU": "Внезапная смерть",
+        "th-TH": "รอบตัดสินป้องกันการเสมอกัน",
+        "tr-TR": "Ani Ölüm",
         "zh-CN": "绝杀局",
         "zh-TW": "殊死戰"
     },
@@ -8710,6 +9869,8 @@ var normalStrKw =
         "pl-PL": "Zatopiono",
         "pt-BR": "Afundado",
         "ru-RU": "Погрузил",
+        "th-TH": "จมแล้ว",
+        "tr-TR": "Batan",
         "zh-CN": "已击沉",
         "zh-TW": "遭到沉沒"
     },
@@ -8725,6 +9886,8 @@ var normalStrKw =
         "pl-PL": "Super",
         "pt-BR": "Estupendo",
         "ru-RU": "Превосходно",
+        "th-TH": "สุดยอด",
+        "tr-TR": "Müthiş",
         "zh-CN": "强烈",
         "zh-TW": "非常"
     },
@@ -8740,6 +9903,8 @@ var normalStrKw =
         "pl-PL": "Przetrwaj",
         "pt-BR": "Sobreviver",
         "ru-RU": "Выживать",
+        "th-TH": "รอด",
+        "tr-TR": "Kurtul",
         "zh-CN": "生存",
         "zh-TW": "存活"
     },
@@ -8755,6 +9920,8 @@ var normalStrKw =
         "pl-PL": "Przetrwano",
         "pt-BR": "Sobreviveu",
         "ru-RU": "Выжил",
+        "th-TH": "รอดแล้ว",
+        "tr-TR": "Kurtulan",
         "zh-CN": "已生存",
         "zh-TW": "生還"
     },
@@ -8770,6 +9937,8 @@ var normalStrKw =
         "pl-PL": "Przetrwanie",
         "pt-BR": "Sobrevivendo",
         "ru-RU": "Выживает",
+        "th-TH": "กำลังเอาตัวรอด",
+        "tr-TR": "Kurtulan",
         "zh-CN": "正在生存",
         "zh-TW": "存活中"
     },
@@ -8785,6 +9954,8 @@ var normalStrKw =
         "pl-PL": "Cel",
         "pt-BR": "Alvo",
         "ru-RU": "Цель",
+        "th-TH": "เป้าหมาย",
+        "tr-TR": "Hedef",
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
@@ -8800,6 +9971,8 @@ var normalStrKw =
         "pl-PL": "Cele",
         "pt-BR": "Alvos",
         "ru-RU": "Цели",
+        "th-TH": "เป้าหมาย",
+        "tr-TR": "Hedefler",
         "zh-CN": "目标",
         "zh-TW": "目標"
     },
@@ -8814,6 +9987,8 @@ var normalStrKw =
         "pl-PL": "Drużyna",
         "pt-BR": "Equipe",
         "ru-RU": "Команда",
+        "th-TH": "ทีม",
+        "tr-TR": "Takım",
         "zh-CN": "队伍",
         "zh-TW": "隊伍"
     },
@@ -8829,6 +10004,8 @@ var normalStrKw =
         "pl-PL": "Członek drużyny",
         "pt-BR": "Aliado",
         "ru-RU": "Союзник",
+        "th-TH": "เพื่อนร่วมทีม",
+        "tr-TR": "Takım Arkadaşı",
         "zh-CN": "队友",
         "zh-TW": "隊友"
     },
@@ -8844,6 +10021,8 @@ var normalStrKw =
         "pl-PL": "Członkowie drużyny",
         "pt-BR": "Aliados",
         "ru-RU": "Союзники",
+        "th-TH": "เพื่อนร่วมทีม",
+        "tr-TR": "Takım Arkadaşı",
         "zh-CN": "队友",
         "zh-TW": "隊友"
     },
@@ -8858,6 +10037,8 @@ var normalStrKw =
         "pl-PL": "Drużyny",
         "pt-BR": "Equipes",
         "ru-RU": "Команды",
+        "th-TH": "ทีม",
+        "tr-TR": "Takımlar",
         "zh-CN": "队伍",
         "zh-TW": "隊伍"
     },
@@ -8871,6 +10052,8 @@ var normalStrKw =
         "pl-PL": "Okropnie",
         "pt-BR": "Terrível",
         "ru-RU": "Ужасно",
+        "th-TH": "ไม่ดีมากๆ",
+        "tr-TR": "Korkunç",
         "zh-CN": "极差",
         "zh-TW": "差"
     },
@@ -8886,6 +10069,8 @@ var normalStrKw =
         "pl-PL": "Dziękuję",
         "pt-BR": "Obrigado",
         "ru-RU": "Благодарю",
+        "th-TH": "ขอบคุณ",
+        "tr-TR": "Teşekkürler",
         "zh-CN": "衷心感谢",
         "zh-TW": "謝謝你"
     },
@@ -8901,6 +10086,8 @@ var normalStrKw =
         "pl-PL": "Dzięki",
         "pt-BR": "Valeu",
         "ru-RU": "Спасибо",
+        "th-TH": "ขอบคุณ",
+        "tr-TR": "Sağ Ol",
         "zh-CN": "感谢",
         "zh-TW": "謝謝"
     },
@@ -8916,6 +10103,8 @@ var normalStrKw =
         "pl-PL": "To było niesamowite",
         "pt-BR": "Essa Foi Demais",
         "ru-RU": "Это было потрясно",
+        "th-TH": "นั่นมันเยี่ยมไปเลย",
+        "tr-TR": "Muhteşemdi",
         "zh-CN": "太棒了",
         "zh-TW": "真厲害"
     },
@@ -8931,6 +10120,8 @@ var normalStrKw =
         "pl-PL": "Zagrożenie",
         "pt-BR": "Ameaça",
         "ru-RU": "Угроза",
+        "th-TH": "ภัยคุกคาม",
+        "tr-TR": "Tehdit",
         "zh-CN": "威胁",
         "zh-TW": "威脅"
     },
@@ -8946,6 +10137,8 @@ var normalStrKw =
         "pl-PL": "Poziom zagrożenia",
         "pt-BR": "Nível de Ameaça",
         "ru-RU": "Уровень угрозы",
+        "th-TH": "ระดับภัยคุกคาม",
+        "tr-TR": "Tehdit Seviyesi",
         "zh-CN": "威胁等级",
         "zh-TW": "威脅等級"
     },
@@ -8961,6 +10154,8 @@ var normalStrKw =
         "pl-PL": "Poziomy zagrożenia",
         "pt-BR": "Níveis de Ameaça",
         "ru-RU": "Уровни угрозы",
+        "th-TH": "ระดับภัยคุกคาม",
+        "tr-TR": "Tehdit Seviyeleri",
         "zh-CN": "威胁等级",
         "zh-TW": "威脅等級"
     },
@@ -8976,6 +10171,8 @@ var normalStrKw =
         "pl-PL": "Zagrożenia",
         "pt-BR": "Ameaças",
         "ru-RU": "Угрозы",
+        "th-TH": "ภัยคุกคาม",
+        "tr-TR": "Tehditler",
         "zh-CN": "威胁",
         "zh-TW": "威脅"
     },
@@ -8991,6 +10188,8 @@ var normalStrKw =
         "pl-PL": "Rozstrzygnięcie",
         "pt-BR": "Desempate",
         "ru-RU": "Тай-брейк",
+        "th-TH": "แมตช์ไทเบรก",
+        "tr-TR": "Uzatma",
         "zh-CN": "绝杀局",
         "zh-TW": "決勝賽局"
     },
@@ -9006,6 +10205,8 @@ var normalStrKw =
         "pl-PL": "Czas",
         "pt-BR": "Tempo",
         "ru-RU": "Время",
+        "th-TH": "เวลา",
+        "tr-TR": "Süre",
         "zh-CN": "时间",
         "zh-TW": "時間"
     },
@@ -9021,6 +10222,8 @@ var normalStrKw =
         "pl-PL": "Czasy",
         "pt-BR": "Tempos",
         "ru-RU": "Результаты",
+        "th-TH": "เวลา",
+        "tr-TR": "Süre",
         "zh-CN": "时间",
         "zh-TW": "時間"
     },
@@ -9032,6 +10235,8 @@ var normalStrKw =
         "ja-JP": "合計",
         "pl-PL": "Suma",
         "ru-RU": "Всего",
+        "th-TH": "ทั้งหมด",
+        "tr-TR": "Toplam",
         "zh-CN": "总计",
         "zh-TW": "總計"
     },
@@ -9047,6 +10252,8 @@ var normalStrKw =
         "pl-PL": "Wymień",
         "pt-BR": "Trocar",
         "ru-RU": "Торговать",
+        "th-TH": "แลกเปลี่ยน",
+        "tr-TR": "Alışveriş Yap",
         "zh-CN": "交易",
         "zh-TW": "交易"
     },
@@ -9062,6 +10269,8 @@ var normalStrKw =
         "pl-PL": "Wymieniono",
         "pt-BR": "Trocado",
         "ru-RU": "Провел торговлю",
+        "th-TH": "แลกเปลี่ยนแล้ว",
+        "tr-TR": "Alışveriş Yapılan",
         "zh-CN": "已交易",
         "zh-TW": "得到交易"
     },
@@ -9077,6 +10286,8 @@ var normalStrKw =
         "pl-PL": "Wymienianie",
         "pt-BR": "Trocando",
         "ru-RU": "Торгует",
+        "th-TH": "กำลังแลกเปลี่ยน",
+        "tr-TR": "Alışveriş Yapan",
         "zh-CN": "正在交易",
         "zh-TW": "正在交易"
     },
@@ -9092,6 +10303,8 @@ var normalStrKw =
         "pl-PL": "Zdrajca",
         "pt-BR": "Traidor",
         "ru-RU": "Предатель",
+        "th-TH": "คนทรยศ",
+        "tr-TR": "Hain",
         "zh-CN": "叛徒",
         "zh-TW": "叛徒"
     },
@@ -9107,6 +10320,8 @@ var normalStrKw =
         "pl-PL": "Zdrajcy",
         "pt-BR": "Traidores",
         "ru-RU": "Предатели",
+        "th-TH": "คนทรยศ",
+        "tr-TR": "Hainler",
         "zh-CN": "叛徒",
         "zh-TW": "叛徒"
     },
@@ -9122,6 +10337,8 @@ var normalStrKw =
         "pl-PL": "Transferuj",
         "pt-BR": "Transferir",
         "ru-RU": "Передавать",
+        "th-TH": "ถ่ายโอน",
+        "tr-TR": "Transfer Et",
         "zh-CN": "转移",
         "zh-TW": "轉移"
     },
@@ -9137,6 +10354,8 @@ var normalStrKw =
         "pl-PL": "Przetransferowano",
         "pt-BR": "Transferido",
         "ru-RU": "Передал",
+        "th-TH": "ถ่ายโอนแล้ว",
+        "tr-TR": "Transfer Edilen",
         "zh-CN": "已转移",
         "zh-TW": "受到轉移"
     },
@@ -9152,6 +10371,8 @@ var normalStrKw =
         "pl-PL": "Transferowanie",
         "pt-BR": "Transferindo",
         "ru-RU": "Передает",
+        "th-TH": "กำลังถ่ายโอน",
+        "tr-TR": "Transfer Eden",
         "zh-CN": "正在转移",
         "zh-TW": "正在轉移"
     },
@@ -9167,6 +10388,8 @@ var normalStrKw =
         "pl-PL": "Spróbuj ponownie",
         "pt-BR": "Tente de Novo",
         "ru-RU": "Еще раз",
+        "th-TH": "ลองอีกครั้ง",
+        "tr-TR": "Tekrar Dene",
         "zh-CN": "再来试试",
         "zh-TW": "再一次"
     },
@@ -9182,6 +10405,8 @@ var normalStrKw =
         "pl-PL": "Wieżyczka",
         "pt-BR": "Torre",
         "ru-RU": "Турель",
+        "th-TH": "ป้อมยิง",
+        "tr-TR": "Taret",
         "zh-CN": "炮台",
         "zh-TW": "砲塔"
     },
@@ -9197,6 +10422,8 @@ var normalStrKw =
         "pl-PL": "Wieżyczki",
         "pt-BR": "Torres",
         "ru-RU": "Турели",
+        "th-TH": "ป้อมยิง",
+        "tr-TR": "Taretler",
         "zh-CN": "炮台",
         "zh-TW": "砲塔"
     },
@@ -9210,6 +10437,8 @@ var normalStrKw =
         "ja-JP": "あー",
         "pl-PL": "Uch",
         "ru-RU": "Фу",
+        "th-TH": "ยี้",
+        "tr-TR": "Öf",
         "zh-CN": "呃",
         "zh-TW": "呃"
     },
@@ -9225,6 +10454,8 @@ var normalStrKw =
         "pl-PL": "Superzdolność",
         "pt-BR": "Habilidade Suprema",
         "ru-RU": "Суперспособность",
+        "th-TH": "อัลติเมท",
+        "tr-TR": "Ulti Kabiliyet",
         "zh-CN": "终极技能",
         "zh-TW": "絕招"
     },
@@ -9240,6 +10471,8 @@ var normalStrKw =
         "pl-PL": "Pod",
         "pt-BR": "Abaixo",
         "ru-RU": "Менее",
+        "th-TH": "ใต้",
+        "tr-TR": "Alt",
         "zh-CN": "下方",
         "zh-TW": "下"
     },
@@ -9255,6 +10488,8 @@ var normalStrKw =
         "pl-PL": "Nieznane",
         "pt-BR": "Desconhecido",
         "ru-RU": "Неизвестно",
+        "th-TH": "ไม่ทราบ",
+        "tr-TR": "Bilinmiyor",
         "zh-CN": "未知",
         "zh-TW": "未知"
     },
@@ -9270,6 +10505,8 @@ var normalStrKw =
         "pl-PL": "Nieograniczone",
         "pt-BR": "Ilimitado",
         "ru-RU": "Неограниченно",
+        "th-TH": "ไม่จํากัด",
+        "tr-TR": "Sınırsız",
         "zh-CN": "不受限",
         "zh-TW": "無限制"
     },
@@ -9285,6 +10522,8 @@ var normalStrKw =
         "pl-PL": "Odblokuj",
         "pt-BR": "Desbloquear",
         "ru-RU": "Разблокировать",
+        "th-TH": "ปลดล็อค",
+        "tr-TR": "Aç",
         "zh-CN": "解锁",
         "zh-TW": "解鎖"
     },
@@ -9300,6 +10539,8 @@ var normalStrKw =
         "pl-PL": "Odblokowano",
         "pt-BR": "Desbloqueado",
         "ru-RU": "Разблокировал",
+        "th-TH": "ปลดล็อคแล้ว",
+        "tr-TR": "Açıldı",
         "zh-CN": "已解锁",
         "zh-TW": "得到解鎖"
     },
@@ -9315,6 +10556,8 @@ var normalStrKw =
         "pl-PL": "Odblokowanie",
         "pt-BR": "Desbloqueando",
         "ru-RU": "Разблокирует",
+        "th-TH": "กำลังปลดล็อค",
+        "tr-TR": "Açan",
         "zh-CN": "正在解锁",
         "zh-TW": "正在解鎖"
     },
@@ -9330,6 +10573,8 @@ var normalStrKw =
         "pl-PL": "Niebezpieczne",
         "pt-BR": "Inseguro",
         "ru-RU": "Небезопасный",
+        "th-TH": "ไม่ปลอดภัย",
+        "tr-TR": "Güvensiz",
         "zh-CN": "不安全",
         "zh-TW": "不安全"
     },
@@ -9345,6 +10590,8 @@ var normalStrKw =
         "pl-PL": "Niestabilne",
         "pt-BR": "Instável",
         "ru-RU": "Нестабильный",
+        "th-TH": "ไม่มั่นคง",
+        "tr-TR": "Dengesiz",
         "zh-CN": "不稳定",
         "zh-TW": "不穩定"
     },
@@ -9360,6 +10607,8 @@ var normalStrKw =
         "pl-PL": "Góra",
         "pt-BR": "Cima",
         "ru-RU": "Вверх",
+        "th-TH": "ด้านบน",
+        "tr-TR": "At",
         "zh-CN": "上",
         "zh-TW": "上"
     },
@@ -9374,6 +10623,8 @@ var normalStrKw =
         "pl-PL": "Ulepszenie",
         "pt-BR": "Melhoria",
         "ru-RU": "Улучшение",
+        "th-TH": "อัพเกรด",
+        "tr-TR": "Geliştirme",
         "zh-CN": "升级",
         "zh-TW": "升級"
     },
@@ -9388,6 +10639,8 @@ var normalStrKw =
         "pl-PL": "Ulepszenia",
         "pt-BR": "Melhorias",
         "ru-RU": "Улучшения",
+        "th-TH": "อัพเกรด",
+        "tr-TR": "Geliştirmeler",
         "zh-CN": "升级",
         "zh-TW": "升級"
     },
@@ -9402,6 +10655,8 @@ var normalStrKw =
         "pl-PL": "Wyślij",
         "pt-BR": "Enviar",
         "ru-RU": "Загружать",
+        "th-TH": "อัพโหลด",
+        "tr-TR": "Yükle",
         "zh-CN": "上传",
         "zh-TW": "上傳"
     },
@@ -9417,6 +10672,8 @@ var normalStrKw =
         "pl-PL": "Wysłano",
         "pt-BR": "Enviado",
         "ru-RU": "Загружен",
+        "th-TH": "อัพโหลดแล้ว",
+        "tr-TR": "Yüklenen",
         "zh-CN": "已上传",
         "zh-TW": "已上傳"
     },
@@ -9432,6 +10689,8 @@ var normalStrKw =
         "pl-PL": "Wysyłanie",
         "pt-BR": "Enviando",
         "ru-RU": "Загружает",
+        "th-TH": "กำลังอัพโหลด",
+        "tr-TR": "Yükleyen",
         "zh-CN": "正在上传",
         "zh-TW": "正在上傳"
     },
@@ -9447,6 +10706,8 @@ var normalStrKw =
         "pl-PL": "Użyj Zdolności 1",
         "pt-BR": "Usar Habilidade 1",
         "ru-RU": "Использовать способность 1",
+        "th-TH": "ใช้ความสามารถ 1",
+        "tr-TR": "1. Kabiliyeti Kullan",
         "zh-CN": "使用技能 1",
         "zh-TW": "使用技能1"
     },
@@ -9462,6 +10723,8 @@ var normalStrKw =
         "pl-PL": "Użyj Zdolności 2",
         "pt-BR": "Usar Habilidade 2",
         "ru-RU": "Использовать способность 2",
+        "th-TH": "ใช้ความสามารถ 2",
+        "tr-TR": "2. Kabiliyeti Kullan",
         "zh-CN": "使用技能 2",
         "zh-TW": "使用技能2"
     },
@@ -9477,6 +10740,8 @@ var normalStrKw =
         "pl-PL": "Użyj Superzdolności",
         "pt-BR": "Usar Habilidade Suprema",
         "ru-RU": "Использовать суперспособность",
+        "th-TH": "ใช้อัลติเมท",
+        "tr-TR": "Ulti Kabiliyet'i Kullan",
         "zh-CN": "使用终极技能",
         "zh-TW": "使用絕招"
     },
@@ -9492,6 +10757,8 @@ var normalStrKw =
         "pl-PL": "Zwycięstwo",
         "pt-BR": "Vitória",
         "ru-RU": "Победа",
+        "th-TH": "ชัยชนะ",
+        "tr-TR": "Zafer",
         "zh-CN": "胜利",
         "zh-TW": "勝利"
     },
@@ -9504,6 +10771,8 @@ var normalStrKw =
         "pl-PL": "Widzialne",
         "pt-BR": "Visível",
         "ru-RU": "Видимый",
+        "th-TH": "มองเห็นได้",
+        "tr-TR": "Görülebilir",
         "zh-CN": "可见",
         "zh-TW": "可見"
     },
@@ -9517,6 +10786,8 @@ var normalStrKw =
         "pl-PL": "Wir",
         "pt-BR": "Vórtice",
         "ru-RU": "Воронка",
+        "th-TH": "กระแสน้ำวน",
+        "tr-TR": "Girdap",
         "zh-CN": "漩涡",
         "zh-TW": "旋渦"
     },
@@ -9532,6 +10803,8 @@ var normalStrKw =
         "pl-PL": "Wiry",
         "pt-BR": "Vórtices",
         "ru-RU": "Воронки",
+        "th-TH": "กระแสน้ำวน",
+        "tr-TR": "Girdap",
         "zh-CN": "漩涡",
         "zh-TW": "旋渦"
     },
@@ -9547,6 +10820,8 @@ var normalStrKw =
         "pl-PL": "Czekaj",
         "pt-BR": "Esperar",
         "ru-RU": "Ждать",
+        "th-TH": "รอ",
+        "tr-TR": "Bekle",
         "zh-CN": "等待",
         "zh-TW": "等待"
     },
@@ -9562,6 +10837,8 @@ var normalStrKw =
         "pl-PL": "Oczekiwanie",
         "pt-BR": "Aguardando",
         "ru-RU": "Ждет",
+        "th-TH": "กำลังรอ",
+        "tr-TR": "Bekleniyor",
         "zh-CN": "正在等待",
         "zh-TW": "正在等待"
     },
@@ -9577,6 +10854,8 @@ var normalStrKw =
         "pl-PL": "Ściana",
         "pt-BR": "Parede",
         "ru-RU": "Стена",
+        "th-TH": "กำแพง",
+        "tr-TR": "Duvar",
         "zh-CN": "墙壁",
         "zh-TW": "牆壁"
     },
@@ -9592,6 +10871,8 @@ var normalStrKw =
         "pl-PL": "Ściany",
         "pt-BR": "Paredes",
         "ru-RU": "Стены",
+        "th-TH": "กำแพง",
+        "tr-TR": "Duvar",
         "zh-CN": "墙壁",
         "zh-TW": "牆壁"
     },
@@ -9607,6 +10888,8 @@ var normalStrKw =
         "pl-PL": "Ostrzeżenie",
         "pt-BR": "Aviso",
         "ru-RU": "Предупреждение",
+        "th-TH": "คำเตือน",
+        "tr-TR": "Uyarı",
         "zh-CN": "警告",
         "zh-TW": "警告"
     },
@@ -9622,6 +10905,8 @@ var normalStrKw =
         "pl-PL": "Witaj",
         "pt-BR": "Bem-vindos",
         "ru-RU": "Добро пожаловать",
+        "th-TH": "ยินดีต้อนรับ",
+        "tr-TR": "Hoş Geldin",
         "zh-CN": "欢迎",
         "zh-TW": "歡迎"
     },
@@ -9637,6 +10922,8 @@ var normalStrKw =
         "pl-PL": "Niezłe zagranie",
         "pt-BR": "Boa Jogo",
         "ru-RU": "Неплохо сыграно",
+        "th-TH": "เล่นได้ดี",
+        "tr-TR": "İyi Oynadın",
         "zh-CN": "称赞",
         "zh-TW": "打得不錯"
     },
@@ -9652,6 +10939,8 @@ var normalStrKw =
         "pl-PL": "Zachód",
         "pt-BR": "Oeste",
         "ru-RU": "Запад",
+        "th-TH": "ตะวันตก",
+        "tr-TR": "Batı",
         "zh-CN": "西",
         "zh-TW": "西"
     },
@@ -9667,6 +10956,8 @@ var normalStrKw =
         "pl-PL": "Biały",
         "pt-BR": "Branco",
         "ru-RU": "Белый",
+        "th-TH": "ขาว",
+        "tr-TR": "Beyaz",
         "zh-CN": "白色",
         "zh-TW": "白"
     },
@@ -9681,6 +10972,8 @@ var normalStrKw =
         "pl-PL": "Dzicz",
         "pt-BR": "Curinga",
         "ru-RU": "Дикий",
+        "th-TH": "ป่า",
+        "tr-TR": "Joker",
         "zh-CN": "关键牌",
         "zh-TW": "關鍵牌"
     },
@@ -9697,6 +10990,8 @@ var normalStrKw =
         "pl-PL": "Wygrana: %1$s PD",
         "pt-BR": "Vitória: %1$s de EXP",
         "ru-RU": "Победа: %1$s ед. опыта",
+        "th-TH": "ชนะ: %1$s XP",
+        "tr-TR": "Galibiyet: %1$s TP",
         "zh-CN": "胜利：%1$s 经验",
         "zh-TW": "勝利：%1$s點經驗值"
     },
@@ -9712,6 +11007,8 @@ var normalStrKw =
         "pl-PL": "Wygrany",
         "pt-BR": "Vencedor",
         "ru-RU": "Победитель",
+        "th-TH": "ผู้ชนะ",
+        "tr-TR": "Kazanan",
         "zh-CN": "胜者",
         "zh-TW": "贏家"
     },
@@ -9727,6 +11024,8 @@ var normalStrKw =
         "pl-PL": "Wygrani",
         "pt-BR": "Vencedores",
         "ru-RU": "Победители",
+        "th-TH": "ผู้ชนะ",
+        "tr-TR": "Kazananlar",
         "zh-CN": "胜者",
         "zh-TW": "贏家"
     },
@@ -9742,6 +11041,8 @@ var normalStrKw =
         "pl-PL": "Wygrane",
         "pt-BR": "Vitórias",
         "ru-RU": "Победы",
+        "th-TH": "ชนะ",
+        "tr-TR": "Galibiyetler",
         "zh-CN": "胜利",
         "zh-TW": "勝利"
     },
@@ -9757,6 +11058,8 @@ var normalStrKw =
         "pl-PL": "Mądrość",
         "pt-BR": "Sabedoria",
         "ru-RU": "Мудрость",
+        "th-TH": "ปัญญา",
+        "tr-TR": "Bilgelik",
         "zh-CN": "感知",
         "zh-TW": "智慧"
     },
@@ -9772,6 +11075,8 @@ var normalStrKw =
         "pl-PL": "Gorzej",
         "pt-BR": "Pior",
         "ru-RU": "Хуже",
+        "th-TH": "แย่กว่า",
+        "tr-TR": "Daha Kötü",
         "zh-CN": "较差",
         "zh-TW": "較差"
     },
@@ -9787,6 +11092,8 @@ var normalStrKw =
         "pl-PL": "Najgorzej",
         "pt-BR": "O Pior",
         "ru-RU": "Худший",
+        "th-TH": "แย่ที่สุด",
+        "tr-TR": "En Kötüsü",
         "zh-CN": "最差",
         "zh-TW": "最差"
     },
@@ -9799,6 +11106,8 @@ var normalStrKw =
         "ja-JP": "感動",
         "pt-BR": "Uau",
         "ru-RU": "Ух ты!",
+        "th-TH": "ว้าว",
+        "tr-TR": "Vay Canına",
         "zh-CN": "哇哦",
         "zh-TW": "哇"
     },
@@ -9814,6 +11123,8 @@ var normalStrKw =
         "pl-PL": "Żółty",
         "pt-BR": "Amarelo",
         "ru-RU": "Желтый",
+        "th-TH": "เหลือง",
+        "tr-TR": "Sarı",
         "zh-CN": "黄色",
         "zh-TW": "黃"
     },
@@ -9829,6 +11140,8 @@ var normalStrKw =
         "pl-PL": "Tak",
         "pt-BR": "Sim",
         "ru-RU": "Да",
+        "th-TH": "ใช่",
+        "tr-TR": "Evet",
         "zh-CN": "是",
         "zh-TW": "是"
     },
@@ -9844,6 +11157,8 @@ var normalStrKw =
         "pl-PL": "Ty",
         "pt-BR": "Você",
         "ru-RU": "Вы",
+        "th-TH": "คุณ",
+        "tr-TR": "Sen",
         "zh-CN": "你",
         "zh-TW": "你"
     },
@@ -9859,6 +11174,8 @@ var normalStrKw =
         "pl-PL": "Przegrywasz",
         "pt-BR": "Você Perdeu",
         "ru-RU": "Вы проиграли",
+        "th-TH": "คุณแพ้",
+        "tr-TR": "Kaybettin",
         "zh-CN": "你失败了",
         "zh-TW": "你輸了"
     },
@@ -9874,6 +11191,8 @@ var normalStrKw =
         "pl-PL": "Wygrywasz",
         "pt-BR": "Você Venceu",
         "ru-RU": "Вы победили",
+        "th-TH": "คุณชนะ",
+        "tr-TR": "Kazandın",
         "zh-CN": "你胜利了",
         "zh-TW": "你贏了"
     },
@@ -9887,6 +11206,8 @@ var normalStrKw =
         "pl-PL": "Strefa",
         "pt-BR": "Zona",
         "ru-RU": "Зона",
+        "th-TH": "โซน",
+        "tr-TR": "Bölge",
         "zh-CN": "区域",
         "zh-TW": "範圍"
     },
@@ -9901,6 +11222,8 @@ var normalStrKw =
         "pl-PL": "Strefy",
         "pt-BR": "Zonas",
         "ru-RU": "Зоны",
+        "th-TH": "โซน",
+        "tr-TR": "Bölgeler",
         "zh-CN": "区域",
         "zh-TW": "範圍"
     }
@@ -9937,6 +11260,8 @@ var prefixStrKw =
         "pl-PL": "Runda {0}",
         "pt-BR": "Rodada {0}",
         "ru-RU": "{0}-й раунд",
+        "th-TH": "รอบที่ {0}",
+        "tr-TR": "{0}. Tur",
         "zh-CN": "第{0}回合",
         "zh-TW": "第{0}回合"
     }
@@ -9971,6 +11296,7 @@ var postfixStrKw =
         "en-US": "{0} m/s",
         "ja-JP": "{0}メートル/秒",
         "ru-RU": "{0} м/сек.",
+        "tr-TR": "{0} m/sn",
         "zh-CN": "{0} 米/秒",
         "zh-TW": "{0}公尺/秒"
     },
@@ -9986,6 +11312,8 @@ var postfixStrKw =
         "pl-PL": "{0} sek.",
         "pt-BR": "{0} s",
         "ru-RU": "{0} сек.",
+        "th-TH": "{0} วินาที",
+        "tr-TR": "{0} sn.",
         "zh-CN": "{0}秒",
         "zh-TW": "{0}秒"
     },
@@ -10016,7 +11344,8 @@ var postfixStrKw =
     "{0}%": {
         "guid": "00000000BFBC",
         "en-US": "{0}%",
-        "fr-FR": "{0} %"
+        "fr-FR": "{0} %",
+        "tr-TR": "%{0}"
     },
     "{0}:": {
         "guid": "00000000BA64",
@@ -10122,6 +11451,8 @@ var binaryStrKw =
         "pl-PL": "{0} i {1}",
         "pt-BR": "{0} e {1}",
         "ru-RU": "{0} и {1}",
+        "th-TH": "{0} และ {1}",
+        "tr-TR": "{0} ve {1}",
         "zh-CN": "{0}和{1}",
         "zh-TW": "{0}以及{1}"
     },
@@ -10133,6 +11464,7 @@ var binaryStrKw =
         "ja-JP": "{0}対{1}",
         "pt-BR": "{0} vs. {1}",
         "ru-RU": "{0} х {1}",
+        "tr-TR": "{0} / {1}",
         "zh-CN": "{0}对阵{1}"
     },
     "{0} {1}": {
@@ -10187,6 +11519,8 @@ var ternaryStrKw =
         "pl-PL": "{0}, {1} i {2}",
         "pt-BR": "{0}, {1} e {2}",
         "ru-RU": "{0}, {1} и {2}",
+        "th-TH": "{0}, {1}, และ {2}",
+        "tr-TR": "{0}, {1} ve {2}",
         "zh-CN": "{0}，{1}和{2}",
         "zh-TW": "{0}, {1}, 以及{2}"
     },
@@ -10202,6 +11536,8 @@ var ternaryStrKw =
         "pl-PL": "{0}: {1} i {2}",
         "pt-BR": "{0}: {1} e {2}",
         "ru-RU": "{0}: {1} и {2}",
+        "th-TH": "{0}: {1} และ {2}",
+        "tr-TR": "{0}: {1} ve {2}",
         "zh-CN": "{0}：{1}和{2}",
         "zh-TW": "{0}: {1} 以及{2}"
     }
