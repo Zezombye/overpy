@@ -1396,6 +1396,13 @@ const mapKw =
         "zh-CN": "圣诞节尼泊尔村庄",
         "zh-TW": "尼泊爾村落（冬境）"
     },
+    "newJunkCity": {
+        "gamemodes": [
+            "skirmish",
+            "flashpoint"
+        ],
+        "en-US": "New Junk City"
+    },
     "newQueenStreet": {
         "gamemodes": [
             "skirmish",
@@ -1699,6 +1706,13 @@ const mapKw =
         "tr-TR": "Şambali Manastırı",
         "zh-CN": "香巴里寺院",
         "zh-TW": "香巴里僧院"
+    },
+    "suravasa": {
+        "gamemodes": [
+            "skirmish",
+            "flashpoint"
+        ],
+        "en-US": "Suravasa"
     },
     "sydneyHarbourArena": {
         "onlyInOw1": true,

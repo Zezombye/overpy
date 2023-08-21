@@ -2760,6 +2760,150 @@ const customGameSettingsSchema =
                     }
                 }
             },
+            "flashpoint": {
+                "values": {
+                    "captureSpeed%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "000000005898",
+                        "en-US": "Capture Speed Modifier",
+                        "de-DE": "Eroberungsgeschwindigkeit",
+                        "es-ES": "Modificador de velocidad de captura",
+                        "es-MX": "Modificador de velocidad de captura",
+                        "fr-FR": "Modificateur de vitesse de capture",
+                        "it-IT": "Modificatore velocità di conquista del punto",
+                        "ja-JP": "確保速度補正",
+                        "ko-KR": "점령 속도 조정",
+                        "pl-PL": "Modyfikator czasu przejmowania",
+                        "pt-BR": "Modificador da velocidade de captura",
+                        "ru-RU": "Скорость захвата",
+                        "th-TH": "ตัวปรับความเร็วการยึด",
+                        "tr-TR": "Ele Geçirme Hızı Düzenleyici",
+                        "zh-CN": "占领速度",
+                        "zh-TW": "調整佔領速度"
+                    },
+                    "controlPointA": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Control Point A"
+                    },
+                    "controlPointB": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Control Point B"
+                    },
+                    "controlPointC": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Control Point C"
+                    },
+                    "controlPointD": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Control Point D"
+                    },
+                    "controlPointE": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Control Point E"
+                    },
+                    "enableCompetitiveRules": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000005897",
+                        "en-US": "Competitive Rules",
+                        "de-DE": "Ranglistenregeln",
+                        "es-ES": "Reglas competitivas",
+                        "es-MX": "Reglas de Modo Competitivo",
+                        "fr-FR": "Règles des parties compétitives",
+                        "it-IT": "Regole competitive",
+                        "ja-JP": "ライバル・マッチ ルール",
+                        "ko-KR": "경쟁전 규칙",
+                        "pl-PL": "Zasady trybu rywalizacji",
+                        "pt-BR": "Regras competitivas",
+                        "ru-RU": "Соревновательные правила",
+                        "th-TH": "กฎการแข่งขัน",
+                        "tr-TR": "Rekabetçi Kuralları",
+                        "zh-CN": "竞技比赛规则",
+                        "zh-TW": "競技對戰規則"
+                    },
+                    "firstActiveControlPoint": {
+                        "values": {
+                            "a": {
+                                "default": true,
+                                "en-US": "A"
+                            },
+                            "b": {
+                                "default": false,
+                                "en-US": "B"
+                            },
+                            "c": {
+                                "default": false,
+                                "en-US": "C"
+                            },
+                            "d": {
+                                "default": false,
+                                "en-US": "D"
+                            },
+                            "e": {
+                                "default": false,
+                                "en-US": "E"
+                            },
+                            "random": {
+                                "default": false,
+                                "en-US": "Random"
+                            }
+                        },
+                        "en-US": "First Active Control Point"
+                    },
+                    "scoreToWin": {
+                        "guid": "00000000632A",
+                        "values": "__int__",
+                        "min": 1,
+                        "max": 10,
+                        "default": 3,
+                        "en-US": "Score To Win",
+                        "de-DE": "Siegpunktzahl",
+                        "es-ES": "Puntuación para ganar",
+                        "es-MX": "Puntos para ganar",
+                        "fr-FR": "Score à atteindre pour gagner",
+                        "it-IT": "Punti necessari per vincere",
+                        "ja-JP": "勝利スコア",
+                        "ko-KR": "승점",
+                        "pl-PL": "Eliminacje potrzebne do wygranej",
+                        "pt-BR": "Pontuação para vencer",
+                        "ru-RU": "Очков для победы",
+                        "th-TH": "คะแนนเพื่อชัยชนะ",
+                        "tr-TR": "Kazanmak İçin Gereken Skor",
+                        "zh-CN": "获胜得分",
+                        "zh-TW": "獲勝分數"
+                    },
+                    "scoringSpeed%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "000000005899",
+                        "en-US": "Scoring Speed Modifier",
+                        "de-DE": "Punktanstiegsrate",
+                        "es-ES": "Modificador de velocidad de captura",
+                        "es-MX": "Modificador de velocidad de anotación",
+                        "fr-FR": "Vitesse de progression du pourcentage",
+                        "it-IT": "Modificatore velocità di incremento del punteggio",
+                        "ja-JP": "スコア・スピード スカラー",
+                        "ko-KR": "점수 획득 속도 조정",
+                        "pl-PL": "Modyfikator szybkości punktowania",
+                        "pt-BR": "Modificador da velocidade de pontuação",
+                        "ru-RU": "Скорость набора очков с объекта",
+                        "th-TH": "ตัวปรับความเร็วการทำคะแนน",
+                        "tr-TR": "Skor Hızı Düzenleyici",
+                        "zh-CN": "计分速度",
+                        "zh-TW": "進度累積速度"
+                    }
+                }
+            },
             "push": {
                 "values": {
                     "ts1WalkSpeedModifier%": {
