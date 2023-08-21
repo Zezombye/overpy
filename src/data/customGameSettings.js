@@ -3503,7 +3503,6 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "exclude": [
-                        "bastion",
                         "lucio",
                         "soldier",
                         "hammond",
@@ -3724,6 +3723,7 @@ const customGameSettingsSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
+                        "bastion",
                         "brigitte",
                         "doomfist",
                         "echo",
@@ -4025,29 +4025,7 @@ const customGameSettingsSchema =
             },
             "bastion": {
                 "values": {
-                    "a36GrenadeCooldown%": {
-                        "values": "__percent__",
-                        "min": 0,
-                        "max": 500,
-                        "default": 100,
-                        "guid": "00000001BF9E",
-                        "en-US": "A-36 Tactical Grenade Cooldown Time",
-                        "de-DE": "Taktische Granate A-36 – Abklingzeit",
-                        "es-ES": "Tiempo de reutilización de Granada táctica A-36",
-                        "es-MX": "Tiempo de reutilización de Granada táctica A-36",
-                        "fr-FR": "Temps de recharge de Grenade tactique A-36",
-                        "it-IT": "Granata Tattica A-36 - Tempo di recupero",
-                        "ja-JP": "A-36タクティカル・グレネード クールダウン時間",
-                        "ko-KR": "A-36 전술 수류탄 재사용 대기시간",
-                        "pl-PL": "Granat Taktyczny A-36 – czas odnowienia",
-                        "pt-BR": "Tempo de Recarga da Granada Tática A-36",
-                        "ru-RU": "Время восстановления «Тактической гранаты A-36»",
-                        "th-TH": "เวลาคูลดาวน์ A-36 แทคติคอลเกรเนด",
-                        "tr-TR": "A-36 Taktiksel Bomba Dolum Süresi",
-                        "zh-CN": "A-36战术榴弹冷却时间",
-                        "zh-TW": "A-36戰術榴彈冷卻時間"
-                    },
-                    "a36GrenadeKb%": {
+                    "secondaryFireKb%": {
                         "values": "__percent__",
                         "min": 25,
                         "max": 300,

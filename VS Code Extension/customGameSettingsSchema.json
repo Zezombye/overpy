@@ -3295,12 +3295,7 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "a36GrenadeCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
-                                },
-                                "a36GrenadeKb%": {
+                                "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
@@ -3381,6 +3376,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -3401,6 +3401,11 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 }
                             }
                         },
@@ -7886,12 +7891,7 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "a36GrenadeCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
-                                },
-                                "a36GrenadeKb%": {
+                                "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
@@ -7972,6 +7972,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -7992,6 +7997,11 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 }
                             }
                         },
@@ -12477,12 +12487,7 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "a36GrenadeCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
-                                },
-                                "a36GrenadeKb%": {
+                                "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
@@ -12563,6 +12568,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -12583,6 +12593,11 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 }
                             }
                         },
@@ -17068,12 +17083,7 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
-                                "a36GrenadeCooldown%": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 500
-                                },
-                                "a36GrenadeKb%": {
+                                "secondaryFireKb%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
@@ -17154,6 +17164,11 @@
                                 "enableAbility1": {
                                     "type": "boolean"
                                 },
+                                "ability1Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
                                 "ultGen%": {
                                     "type": "number",
                                     "minimum": 10,
@@ -17174,6 +17189,11 @@
                                 },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 }
                             }
                         },
@@ -21800,12 +21820,7 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "a36GrenadeCooldown%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 500
-                        },
-                        "a36GrenadeKb%": {
+                        "secondaryFireKb%": {
                             "type": "number",
                             "minimum": 25,
                             "maximum": 300
@@ -21886,6 +21901,11 @@
                         "enableAbility1": {
                             "type": "boolean"
                         },
+                        "ability1Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
                         "ultGen%": {
                             "type": "number",
                             "minimum": 10,
@@ -21906,6 +21926,11 @@
                         },
                         "enableSecondaryFire": {
                             "type": "boolean"
+                        },
+                        "secondaryFireCooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         }
                     }
                 },
