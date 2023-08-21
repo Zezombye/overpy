@@ -698,6 +698,18 @@ const heroKw =
         "zh-CN": "源氏",
         "zh-TW": "源氏"
     },
+    "illari": {
+        "ability1": {
+            "en-US": "Outburst"
+        },
+        "ability2": {
+            "en-US": "Healing Pylon"
+        },
+        "ultimate": {
+            "en-US": "Captive Sun"
+        },
+        "en-US": "Illari"
+    },
     "hammond": {
         "guid": "000000007269",
         "secondaryFire": {

@@ -3960,6 +3960,7 @@ const customGameSettingsSchema =
                     "include": [
                         "baptiste",
                         "genji",
+                        "illari",
                         "kiriko",
                         "mccree",
                         "mei",
@@ -4512,6 +4513,24 @@ const customGameSettingsSchema =
                         "tr-TR": "Fırtına Oku Miktarı",
                         "zh-CN": "“岚”数量",
                         "zh-TW": "暴風箭數量"
+                    }
+                }
+            },
+            "illari": {
+                "values": {
+                    "solarEnergyMax%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Solar Energy Maximum"
+                    },
+                    "solarEnergyRecharge%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Solar Energy Recharge Rate"
                     }
                 }
             },
