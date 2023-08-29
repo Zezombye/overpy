@@ -24,7 +24,7 @@
     "main": "./extension.js",
     "activationEvents": [
         "onLanguage:overpy",
-        "onCommand:extension.decompile"
+        "onCommand:overpy.decompile"
     ],
     "categories": [
         "Programming Languages"
@@ -119,7 +119,7 @@
         ],
         "commands": [
             {
-                "command": "extension.compile",
+                "command": "overpy.compile",
                 "title": "Compile (OverPy -> Workshop)",
                 "category": "OverPy",
                 "icon": {
@@ -128,7 +128,7 @@
                 }
             },
             {
-                "command": "extension.decompile",
+                "command": "overpy.decompile",
                 "title": "Decompile (Workshop -> OverPy)",
                 "category": "OverPy",
                 "icon": {
@@ -137,7 +137,7 @@
                 }
             },
             {
-                "command": "extension.insertTemplate",
+                "command": "overpy.insertTemplate",
                 "title": "Insert Template",
                 "category": "OverPy"
             }
@@ -146,7 +146,7 @@
             "editor/title": [
                 {
                     "when": "resourceLangId == overpy",
-                    "command": "extension.compile",
+                    "command": "overpy.compile",
                     "group": "navigation@6"
                 }
             ]
