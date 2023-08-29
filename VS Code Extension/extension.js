@@ -383,7 +383,7 @@ function activate(context) {
 
     vscode.workspace.onDidSaveTextDocument((document) => {
         if (document.languageId === "overpy" && document.uri.scheme === "file" && vscode.workspace.getConfiguration("overpy").compileOnSave && (!vscode.workspace.getConfiguration("overpy").onlySaveOnMainFile || !document.getText().startsWith("#!mainFile "))) {
-            vscode.commands.executeCommand("extension.compile");
+            vscode.commands.executeCommand("overpy.compile");
         }
     })
     
