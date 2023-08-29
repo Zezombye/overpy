@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -167,7 +167,7 @@ function refreshAutoComplete() {
             try {
                 description += "\n\nValue: `"+overpy.astToOpy(userEnums[e][enumMember])+"`"
             } catch (e) {}
-            
+
             constValues[e].items.push(makeCompItem(enumMember, {"description": description}));
         }
     }
@@ -194,7 +194,7 @@ refreshAutoComplete();
 
 function activate(context) {
 
-    vscode.commands.registerCommand('extension.insertTemplate', () => {
+    vscode.commands.registerCommand('overpy.insertTemplate', () => {
         try {
 
             var editor = vscode.window.activeTextEditor;
@@ -211,9 +211,9 @@ function activate(context) {
         }
     });
 
-    vscode.commands.registerCommand("extension.decompile", async () => {
+    vscode.commands.registerCommand("overpy.decompile", async () => {
         try {
-            
+
             var clipboardContent = await vscode.env.clipboard.readText();
             if (!clipboardContent) {
                 vscode.window.showErrorMessage("Error: Clipboard is empty. Copy to clipboard the workshop code you want to decompile.");
@@ -233,7 +233,7 @@ function activate(context) {
         }
     });
 
-    vscode.commands.registerCommand('extension.compile', () => {
+    vscode.commands.registerCommand('overpy.compile', () => {
         try {
 
             var rootPath = vscode.window.activeTextEditor.document.fileName;
@@ -315,7 +315,7 @@ function activate(context) {
             } catch (e) {
                 console.error(e);
             }
-            
+
         }
     }, '.', '@', '!', '&');
 
@@ -386,12 +386,12 @@ function activate(context) {
             vscode.commands.executeCommand("overpy.compile");
         }
     })
-    
+
     vscode.workspace.onDidOpenTextDocument((document) => {
         //console.log("opened text document");
         //console.log("add template on new file: "+ vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile);
         if (document.languageId === "overpy" && vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile && document.getText().length === 0) {
-            
+
             vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
                 editor.edit(editBuilder => {
                     editBuilder.insert(new vscode.Position(0, 0), overpyTemplate[0]);
@@ -502,7 +502,7 @@ function generateDocFromDoc(itemName, item) {
     if (doc === "__iconDescription__") {
         return new vscode.MarkdownString("![](file:///"+overpyExtensionPath+"/img/icons/"+itemName.toLowerCase()+".png) \n\n \n\n \n\n \n\n ")
     }
-    
+
     var result = "";
     var infoStr = "";
     var argStr = "";
@@ -534,7 +534,7 @@ function generateDocFromDoc(itemName, item) {
     if (infoStr) {
         result += "\n\n"+infoStr;
     }
-     
+
     if (result === "") {
         console.log("No documentation found for "+itemName);
         return "No documentation was found for this function.";
@@ -565,7 +565,7 @@ Hero | Ability 1 | Ability 2 | Ultimate
 }*/
 
 function generateSnippetFromDoc(itemName, item) {
-    
+
     if (itemName.startsWith('@')) {
         return new vscode.SnippetString(getSnippetForMetaRuleParam(itemName));
     }
@@ -590,7 +590,7 @@ function generateSnippetFromDoc(itemName, item) {
             return new vscode.SnippetString(itemName);
         }
     }
-    
+
 }
 
 function getSnippetForMetaRuleParam(param) {
@@ -651,7 +651,7 @@ function makeSignatureHelp(funcName, func) {
     } else if ("class" in func) {
         sigStr += func.class + ".";
     }
-    
+
     sigStr += funcName+"(";
 
     for (var i = 0; i < func.args.length; i++) {
@@ -672,7 +672,7 @@ function makeSignatureHelp(funcName, func) {
         sigStr += " -> "+overpy.typeToString(func.return);
         //throw new Error("Function '"+funcName+"' has no Return type");
     }
-    
+
     var sigInfo = new vscode.SignatureInformation(sigStr);
     sigInfo.parameters = paramInfo;
     var sigHelp = new vscode.SignatureHelp();
