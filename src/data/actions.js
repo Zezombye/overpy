@@ -1543,7 +1543,7 @@ const actionKw =
         "tr-TR": "Oyun Modu Oyun İçi Arayüz'ü Devre Dışı Bırak",
         "zh-CN": "隐藏游戏模式地图UI"
     },
-    "_&disableHeroHUD": {
+    "_&disableHeroHud": {
         "description": "Disables the Hero HUD for one or more players until reenabled.",
         "args": [
             {
