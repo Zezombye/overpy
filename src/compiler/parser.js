@@ -827,6 +827,8 @@ function parse(content, kwargs={}) {
         name = "_&disableEnvironmentCollision";
     } else if (name === "enableEnvironmentCollision") {
         name = "_&enableEnvironmentCollision";
+    } else if (name === "_&disableHeroHUD") {
+        name = "_&disableHeroHud";
     } else if (name === "enablePlayerCollision") {
         name = "_&enablePlayerCollision";
     } else if (name === "horizontalAngleFromDirection") {
@@ -1018,6 +1020,8 @@ function parseMember(object, member) {
             //old functions
             if (name === "setCamera") {
                 name = "startCamera";
+            } else if (name === "disableHeroHUD") {
+                name = "disableHeroHud";
             }
             return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
 		}
