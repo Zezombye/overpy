@@ -588,7 +588,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068154"
         },
         "en-US": "Hanamura",
         "ja-JP": "HANAMURA",
@@ -704,7 +704,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068154"
         },
         "en-US": "Horizon Lunar Colony",
         "de-DE": "Mondkolonie Horizon",
@@ -1587,7 +1587,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068292"
         },
         "en-US": "Paris",
         "es-MX": "París",
@@ -1761,7 +1761,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068154"
         },
         "en-US": "Temple of Anubis",
         "de-DE": "Tempel des Anubis",
@@ -1789,7 +1789,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068292"
         },
         "en-US": "Volskaya Industries",
         "es-ES": "Industrias Volskaya",
