@@ -275,6 +275,7 @@ a {
 </script>
 
 <script src="codemirror.min.js"></script>
+<script src="codemirror-persist-document-extension.js"></script>
 
 <script>
 
@@ -284,6 +285,7 @@ a {
 	const {LRLanguage, LanguageSupport, StreamLanguage, HighlightStyle, syntaxHighlighting, indentUnit, foldNodeProp, foldInside, indentNodeProp} = CM["@codemirror/language"]
 	const {styleTags, tags} = CM["@lezer/highlight"]
 	const {LRParser} = CM["@lezer/lr"]
+	const {persistDocument} = CM["@overpy/codemirror-persist-document"];
 
 	function getIndentForLine(state, line) {
 		const spaces = /^\s*/.exec(state.doc.lineAt(line).text)?.[0].length
@@ -458,34 +460,6 @@ a {
 	}
 
 	var overpyTextEditorView = new EditorView({
-		doc: `
-#!define GAMEMODE_CODE "14WON"
-
-#!define i18n() __script__("i18n.js")
-
-#!define getKeyboardSelectedKey() updateEveryTick((\\
-    [1,2,3,4,5,6,7,8,9,10][(floor((CURSOR_X-KEYBOARD_TOP_LEFT_X)/HORIZONTAL_KEY_DISTANCE))] if KEYBOARD_TOP_LEFT_Y <= CURSOR_Y and CURSOR_Y <= KEYBOARD_TOP_LEFT_Y+KEY_SIDE_LENGTH and (CURSOR_X-KEYBOARD_TOP_LEFT_X)%HORIZONTAL_KEY_DISTANCE <= HORIZONTAL_KEY_DISTANCE else\\
-     null\\
-) or [""])
-
-rule "GAME MEDKIT NERF":
-    @Event playerReceivedHealing
-    @Hero all
-    @Condition eventWasHealthPack and eventPlayer == hostPlayer
-
-    eventPlayer.setStatusEffect(null, Status.HACKED, 5)
-    eventPlayer.setMoveSpeed(75)
-	A = "owo\\nuwu\\x03\\uFFFE\\"f"
-	B = p'te\\zst'
-    wait(5) #comment, backslashed \\
-	C = 3
-	goto bruh
-    eventPlayer.setMoveSpeed(100) #comment 1
-	bruh:
-	qsdffd = -3.5
-    eventPlayer./*setStatusEffect(null, Status.HACKED, 5)
-    eventPlayer.*/setMoveSpeed(75)
-	` && "",
 		extensions: [
 			syntaxHighlighting(overpyHighlight),
 			StreamLanguage.define(overpyLanguage),
@@ -498,6 +472,7 @@ rule "GAME MEDKIT NERF":
           		{ key: "Enter", run: autoIndentOnEnter },
 			]),
 			basicSetup,
+			persistDocument("opyTextEditorDoc"),
 		],
 		parent: document.getElementById("cm-overpy-text")
 	})
