@@ -156,7 +156,8 @@ const mapKw =
         ],
         "variants": {
             "morning": "972777519512068154",
-            "overcast": "972777519512068194"
+            "overcast": "972777519512068194",
+            "night": "972777519512068153"
         },
         "en-US": "Blizzard World",
         "ja-JP": "BLIZZARD WORLD",
@@ -201,7 +202,8 @@ const mapKw =
         ],
         "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154"
+            "morning": "972777519512068154",
+            "overcast": "972777519512068194"
         },
         "en-US": "Busan",
         "ja-JP": "BUSAN",
@@ -446,7 +448,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512064577"
+            "default": "972777519512063901"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
@@ -1566,7 +1568,8 @@ const mapKw =
             "hybrid"
         ],
         "variants": {
-            "default": "972777519512068154"
+            "evening": "972777519512068292",
+            "morning": "972777519512068154"
         },
         "guid": "000000017763",
         "en-US": "Paraíso",
@@ -1607,7 +1610,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068154"
         },
         "en-US": "Petra",
         "ja-JP": "PETRA",
@@ -1648,7 +1651,8 @@ const mapKw =
             "skirmish"
         ],
         "variants": {
-            "default": "972777519512068154"
+            "evening": "972777519512068292",
+            "morning": "972777519512068154"
         },
         "en-US": "Rialto",
         "ja-JP": "RIALTO",
