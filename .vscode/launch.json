@@ -5,10 +5,28 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Generate OverPy Extension files",
+			"program": "${workspaceFolder}/generate-overpy.js",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},
+		{
 			"type": "chrome",
 			"request": "launch",
 			"name": "Open file in browser",
 			"file": "${file}"
+		},
+		{
+			"name": "Run Development version of OverPy",
+			"type": "extensionHost",
+			"request": "launch",
+			"runtimeExecutable": "${execPath}",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}/VS Code Extension"
+			]
 		}
 	]
 }
