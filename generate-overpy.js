@@ -457,9 +457,6 @@ for (var key in overpy.customGameSettingsSchema) {
 						"enum": Object.keys(overpy.heroKw),
 					}
 				}
-			} else if (hero === "general") {
-				overpy.customGameSettingsSchema[key].values[hero] = {"values": overpy.customGameSettingsSchema[key].values[hero]}
-				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
 			} else {
 				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
 			}
