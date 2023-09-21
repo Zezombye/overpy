@@ -250,7 +250,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -279,7 +280,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -1050,7 +1052,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -1106,7 +1109,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -1466,7 +1470,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -1495,7 +1500,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -2266,7 +2272,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -2322,7 +2329,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -3214,7 +3222,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -3342,7 +3351,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -3604,7 +3614,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -3746,7 +3757,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -3927,7 +3939,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -4070,7 +4083,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -4113,7 +4127,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -4256,7 +4271,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -4482,7 +4498,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -5210,7 +5227,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -7732,7 +7750,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -8491,7 +8510,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -9319,7 +9339,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -9348,7 +9369,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -9695,7 +9717,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -9723,7 +9746,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -9979,7 +10003,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -10008,7 +10033,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -10355,7 +10381,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -10383,7 +10410,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "evening",
+                                                                "morning"
                                                             ]
                                                         }
                                                     }
@@ -11068,7 +11096,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -11827,7 +11856,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "morning",
-                                                                "overcast"
+                                                                "overcast",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
