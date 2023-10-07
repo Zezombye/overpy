@@ -260,7 +260,8 @@ fs.writeFileSync("./FUNCTIONS.md", functionsMd);
 var oldcwd = process.cwd();
 var testsDir = process.cwd()+"/src/tests/";
 process.chdir(testsDir);
-var unitTestFiles = fs.readdirSync(testsDir);
+var unitTestFiles = fs.readdirSync(testsDir)
+	.filter((fileName) => fileName.endsWith("opy"));
 
 for (var unitTestFile of unitTestFiles) {
     if (fs.statSync(testsDir+unitTestFile).isDirectory()) {
@@ -405,8 +406,30 @@ for (var key in overpy.customGameSettingsSchema) {
 					jsonSchema.properties[key].properties[gamemode].properties[key2] = {
 						"type": "array",
 						"items": {
-							"type": "string",
-							"enum": validMaps,
+							"anyOf": [
+								{
+									"type": "string",
+									"enum": validMaps,
+								},
+								{
+									"type": "object",
+									"oneOf": validMaps.map((mapKey) => {
+										const map = overpy.mapKw[mapKey];
+										return {
+											"properties": {
+												[mapKey]: {
+													"type": "array",
+													"items": {
+														"type": "string",
+														"enum": map.variants ? Object.keys(map.variants) : []
+													}
+												}
+											},
+											"additionalProperties": false
+										}
+									})
+								}
+							]
 						}
 					};
 				} else {
@@ -434,9 +457,6 @@ for (var key in overpy.customGameSettingsSchema) {
 						"enum": Object.keys(overpy.heroKw),
 					}
 				}
-			} else if (hero === "general") {
-				overpy.customGameSettingsSchema[key].values[hero] = {"values": overpy.customGameSettingsSchema[key].values[hero]}
-				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
 			} else {
 				generateJsonSchema(jsonSchema.definitions.heroes.properties[hero], overpy.customGameSettingsSchema[key].values[hero])
 			}
