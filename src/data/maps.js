@@ -1672,7 +1672,8 @@ const mapKw =
         ],
         "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154"
+            "morning": "972777519512068154",
+            "overcast": "972777519512068194"
         },
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
