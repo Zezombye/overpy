@@ -2112,22 +2112,7 @@ const heroKw =
             "zh-TW": "駭入"
         },
         "ability1": {
-            "guid": "000000004712",
-            "en-US": "Stealth",
-            "de-DE": "Camouflage",
-            "es-ES": "Modo incógnito",
-            "es-MX": "Sigilo",
-            "fr-FR": "Furtivité",
-            "it-IT": "Occultamento",
-            "ja-JP": "ステルス",
-            "ko-KR": "은신",
-            "pl-PL": "Ukrycie",
-            "pt-BR": "Furtividade",
-            "ru-RU": "Маскировка",
-            "th-TH": "สเตลท์",
-            "tr-TR": "Gizlilik",
-            "zh-CN": "隐秘潜行",
-            "zh-TW": "匿蹤"
+            "en-US": "Virus"
         },
         "ability2": {
             "guid": "000000004700",
