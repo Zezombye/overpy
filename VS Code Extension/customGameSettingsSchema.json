@@ -168,6 +168,7 @@
                                             "practiceRange",
                                             "rialto",
                                             "route66",
+                                            "samoa",
                                             "shambaliMonastery",
                                             "suravasa",
                                             "sydneyHarbourArena",
@@ -856,7 +857,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "morning",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -1125,7 +1127,22 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -1388,6 +1405,7 @@
                                             "practiceRange",
                                             "rialto",
                                             "route66",
+                                            "samoa",
                                             "shambaliMonastery",
                                             "suravasa",
                                             "sydneyHarbourArena",
@@ -2076,7 +2094,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "morning",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -2345,7 +2364,22 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -2546,7 +2580,7 @@
                         "scoreToWin": {
                             "type": "integer",
                             "minimum": 1,
-                            "maximum": 10
+                            "maximum": 5000
                         },
                         "scoringSpeed%": {
                             "type": "number",
@@ -3194,7 +3228,8 @@
                                             "lijiangTower",
                                             "lijiangTowerLny",
                                             "nepal",
-                                            "oasis"
+                                            "oasis",
+                                            "samoa"
                                         ]
                                     },
                                     {
@@ -3299,6 +3334,20 @@
                                                                 "night",
                                                                 "evening",
                                                                 "morning"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -3323,7 +3372,8 @@
                                             "lijiangTower",
                                             "lijiangTowerLny",
                                             "nepal",
-                                            "oasis"
+                                            "oasis",
+                                            "samoa"
                                         ]
                                     },
                                     {
@@ -3428,6 +3478,20 @@
                                                                 "night",
                                                                 "evening",
                                                                 "morning"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -3630,7 +3694,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -3773,7 +3838,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -4055,7 +4121,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "morning",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -4243,7 +4310,8 @@
                                                         "items": {
                                                             "type": "string",
                                                             "enum": [
-                                                                "default"
+                                                                "morning",
+                                                                "night"
                                                             ]
                                                         }
                                                     }
@@ -8289,7 +8357,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -9049,7 +9118,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -9301,6 +9371,7 @@
                                             "paris",
                                             "rialto",
                                             "route66",
+                                            "samoa",
                                             "shambaliMonastery",
                                             "suravasa",
                                             "templeOfAnubis",
@@ -9762,7 +9833,22 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -9965,6 +10051,7 @@
                                             "paris",
                                             "rialto",
                                             "route66",
+                                            "samoa",
                                             "shambaliMonastery",
                                             "suravasa",
                                             "templeOfAnubis",
@@ -10426,7 +10513,22 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "samoa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "default"
                                                             ]
                                                         }
                                                     }
@@ -10891,6 +10993,217 @@
                                             {
                                                 "properties": {
                                                     "junkenstein": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "flashpoint": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "controlPointA": {
+                            "type": "boolean"
+                        },
+                        "controlPointB": {
+                            "type": "boolean"
+                        },
+                        "controlPointC": {
+                            "type": "boolean"
+                        },
+                        "controlPointD": {
+                            "type": "boolean"
+                        },
+                        "controlPointE": {
+                            "type": "boolean"
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "firstActiveControlPoint": {
+                            "type": "string",
+                            "enum": [
+                                "a",
+                                "b",
+                                "c",
+                                "d",
+                                "e",
+                                "random"
+                            ]
+                        },
+                        "scoreToWin": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 10
+                        },
+                        "scoringSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "newJunkCity",
+                                            "suravasa"
+                                        ]
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "newJunkCity": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "suravasa": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "newJunkCity",
+                                            "suravasa"
+                                        ]
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "newJunkCity": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "suravasa": {
                                                         "type": "array",
                                                         "items": {
                                                             "type": "string",
@@ -11635,7 +11948,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -12395,7 +12709,8 @@
                                                             "type": "string",
                                                             "enum": [
                                                                 "night",
-                                                                "morning"
+                                                                "morning",
+                                                                "overcast"
                                                             ]
                                                         }
                                                     }
@@ -12509,217 +12824,6 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
-                                                        }
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "flashpoint": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                        "captureSpeed%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "controlPointA": {
-                            "type": "boolean"
-                        },
-                        "controlPointB": {
-                            "type": "boolean"
-                        },
-                        "controlPointC": {
-                            "type": "boolean"
-                        },
-                        "controlPointD": {
-                            "type": "boolean"
-                        },
-                        "controlPointE": {
-                            "type": "boolean"
-                        },
-                        "enableCompetitiveRules": {
-                            "type": "boolean"
-                        },
-                        "firstActiveControlPoint": {
-                            "type": "string",
-                            "enum": [
-                                "a",
-                                "b",
-                                "c",
-                                "d",
-                                "e",
-                                "random"
-                            ]
-                        },
-                        "scoreToWin": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 10
-                        },
-                        "scoringSpeed%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableEnemyHealthBars": {
-                            "type": "boolean"
-                        },
-                        "gamemodeStartTrigger": {
-                            "type": "string",
-                            "enum": [
-                                "allSlotsFilled",
-                                "immediately",
-                                "manual"
-                            ]
-                        },
-                        "healthPackRespawnTime%": {
-                            "type": "number",
-                            "minimum": 10,
-                            "maximum": 500
-                        },
-                        "enableKillCam": {
-                            "type": "boolean"
-                        },
-                        "enableKillFeed": {
-                            "type": "boolean"
-                        },
-                        "enableSkins": {
-                            "type": "boolean"
-                        },
-                        "spawnHealthPacks": {
-                            "type": "string",
-                            "enum": [
-                                "modeDependent",
-                                "enabled",
-                                "disabled"
-                            ]
-                        },
-                        "enableHeroSwitching": {
-                            "type": "boolean"
-                        },
-                        "heroLimit": {
-                            "type": "string",
-                            "enum": [
-                                "off",
-                                "1PerTeam",
-                                "2PerTeam",
-                                "1PerGame",
-                                "2PerGame"
-                            ]
-                        },
-                        "roleLimit": {
-                            "type": "string",
-                            "enum": [
-                                "off",
-                                "2OfEachRolePerTeam",
-                                "1Tank2Offense2Support"
-                            ]
-                        },
-                        "enableRandomHeroes": {
-                            "type": "boolean"
-                        },
-                        "randomHeroRoleLimitPerTeam": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 6
-                        },
-                        "respawnTime%": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 100
-                        },
-                        "tankPassiveHealthBonus": {
-                            "type": "string",
-                            "enum": [
-                                "1Tank2Offense2Support",
-                                "alwaysEnabled",
-                                "disabled"
-                            ]
-                        },
-                        "disabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "newJunkCity",
-                                            "suravasa"
-                                        ]
-                                    },
-                                    {
-                                        "type": "object",
-                                        "oneOf": [
-                                            {
-                                                "properties": {
-                                                    "newJunkCity": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "string",
-                                                            "enum": []
-                                                        }
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            },
-                                            {
-                                                "properties": {
-                                                    "suravasa": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "string",
-                                                            "enum": []
-                                                        }
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        },
-                        "enabledMaps": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "newJunkCity",
-                                            "suravasa"
-                                        ]
-                                    },
-                                    {
-                                        "type": "object",
-                                        "oneOf": [
-                                            {
-                                                "properties": {
-                                                    "newJunkCity": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "string",
-                                                            "enum": []
-                                                        }
-                                                    }
-                                                },
-                                                "additionalProperties": false
-                                            },
-                                            {
-                                                "properties": {
-                                                    "suravasa": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "string",
-                                                            "enum": []
                                                         }
                                                     }
                                                 },
