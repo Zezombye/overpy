@@ -1214,7 +1214,8 @@ const mapKw =
             "hybrid"
         ],
         "variants": {
-            "default": "972777519512068154"
+            "morning": "972777519512068154",
+            "night": "972777519512068153"
         },
         "guid": "00000001777A",
         "en-US": "Midtown",
