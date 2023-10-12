@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -26,7 +26,7 @@ Busan Meka Base: 2.32074 * x - 274.76433
 
 */
 
-const mapKw = 
+const mapKw =
 //begin-json
 {
     "ayutthaya": {
@@ -1214,7 +1214,8 @@ const mapKw =
             "hybrid"
         ],
         "variants": {
-            "default": "972777519512068154"
+            "morning": "972777519512068154",
+            "night": "972777519512068153"
         },
         "guid": "00000001777A",
         "en-US": "Midtown",
@@ -1671,7 +1672,8 @@ const mapKw =
         ],
         "variants": {
             "night": "972777519512068153",
-            "morning": "972777519512068154"
+            "morning": "972777519512068154",
+            "overcast": "972777519512068194"
         },
         "en-US": "Route 66",
         "es-ES": "Ruta 66",
@@ -1685,6 +1687,16 @@ const mapKw =
         "th-TH": "รูต 66",
         "zh-CN": "66号公路",
         "zh-TW": "66號公路"
+    },
+    "samoa": {
+        "gamemodes": [
+            "control",
+            "skirmish"
+        ],
+        "variants": {
+            "default": "972777519512068154"
+        },
+        "en-US": "Samoa"
     },
     "shambaliMonastery": {
         "gamemodes": [
