@@ -707,7 +707,10 @@ function parse(content, kwargs={}) {
             return new Ast("__enumType__", Object.values(enumMembers[name]), [], "Type");
         } else if (builtInEnumNameToAstInfo[name]) {
             const astInfo = builtInEnumNameToAstInfo[name];
-            return new Ast("__enumType__", Object.keys(constantValues[astInfo.type]).map((key) => new Ast(key, [], [], astInfo.type)), [], "Type");
+            const values = Object.keys(constantValues[astInfo.type])
+                .filter((key) => key !== "description")
+                .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]))
+            return new Ast("__enumType__", values, [], "Type");
         }
         
         //Check for global variable
