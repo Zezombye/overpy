@@ -29,7 +29,7 @@ const opyFuncs = {
                 "type": "Type"
             }
         ],
-        "return": {"Array": "Object"}
+        "return": {Array: "Object"}
     },
     "all": {
         "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
