@@ -1,6 +1,8 @@
 variables {
     global:
         0: A
+        4: E
+        11: L
 }
 rule ("") {
     event {
