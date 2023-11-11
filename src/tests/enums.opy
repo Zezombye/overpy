@@ -18,3 +18,4 @@ rule "":
     A = GameStatus.DD #7
     A = Team.ZOMBIES #Team 1
     A = Team.1 #Team 1
+    L = len(GameStatus) # 6

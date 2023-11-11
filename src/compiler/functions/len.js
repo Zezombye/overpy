@@ -19,7 +19,9 @@
 
 astParsingFunctions.len = function(content) {
 
-    if (enableOptimization) {
+    if (content.args[0].name === "__enumType__") {
+        return new getAstForNumber(content.args[0].args.length);
+    } else if (enableOptimization) {
         if (content.args[0].name === "__array__") {
             return getAstForNumber(content.args[0].args.length);
         }

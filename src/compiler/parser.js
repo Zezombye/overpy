@@ -25,6 +25,33 @@ class WorkshopVar {
     }
 }
 
+const builtInEnumNameToAstInfo = {
+    "Hero": {
+        name: "__hero__",
+        type: "HeroLiteral"
+    },
+    "Map": {
+        name: "__map__",
+        type: "MapLiteral"
+    },
+    "Gamemode": {
+        name: "__gamemode__",
+        type: "GamemodeLiteral"
+    },
+    "Team": {
+        name: "__team__",
+        type: "TeamLiteral"
+    },
+    "Button": {
+        name: "__button__",
+        type: "ButtonLiteral"
+    },
+    "Color": {
+        name: "__color__",
+        type: "ColorLiteral"
+    }
+}
+
 function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
@@ -674,6 +701,14 @@ function parse(content, kwargs={}) {
             result.originalName = name;
             return result;
         }
+
+        //Check for enums
+        if (enumMembers[name]) {
+            return new Ast("__enumType__", Object.values(enumMembers[name]), [], "Type");
+        } else if (builtInEnumNameToAstInfo[name]) {
+            const astInfo = builtInEnumNameToAstInfo[name];
+            return new Ast("__enumType__", Object.keys(constantValues[astInfo.type]).map((key) => new Ast(key, [], [], astInfo.type)), [], "Type");
+        }
         
         //Check for global variable
         if (isVarName(name, true)) {
@@ -875,29 +910,12 @@ function parseMember(object, member) {
                 return enumMembers[object[0].text][name];
             }
 
-            //Check enums
+            //Check for enums
             if (Object.keys(constantValues).includes(object[0].text)) {
                 return new Ast(name, [], [], object[0].text);
-            
-            } else if (object[0].text === "Hero") {
-                return new Ast("__hero__", [new Ast(name, [], [], "HeroLiteral")])
-
-            } else if (object[0].text === "Map") {
-                return new Ast("__map__", [new Ast(name, [], [], "MapLiteral")])
-
-            } else if (object[0].text === "Gamemode") {
-                return new Ast("__gamemode__", [new Ast(name, [], [], "GamemodeLiteral")])
-
-            } else if (object[0].text === "Team") {
-                return new Ast("__team__", [new Ast(name, [], [], "TeamLiteral")])
-
-            } else if (object[0].text === "Button") {
-                return new Ast("__button__", [new Ast(name, [], [], "ButtonLiteral")])
-
-            } else if (object[0].text === "Color") {
-                return new Ast("__color__", [new Ast(name, [], [], "ColorLiteral")])
-
-
+            } else if (builtInEnumNameToAstInfo[object[0].text]) {
+                const astInfo = builtInEnumNameToAstInfo[object[0].text];
+                return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
             //Check the pseudo-enum "math"
             } else if (object[0].text === "Math") {
                 if (name === "PI") {
