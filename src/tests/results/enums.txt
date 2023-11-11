@@ -17,6 +17,10 @@ rule ("") {
         Set Global Variable(A, Team 1);
         "Team 1"
         Set Global Variable(A, Team 1);
+        "6"
+        Set Global Variable(L, 6);
+        "[1, 2, 6, 7, \"psqdoj\\\"fidqs\", Global.A]"
+        Set Global Variable(E, Array(1, 2, 6, 7, Custom String("psqdoj\"fidqs", Null, Null, Null), Global.A));
     }
 }
 
