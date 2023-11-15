@@ -104,6 +104,12 @@ const opyConstants = {
             "isConstant": true,
             return: "unsigned float",
         },
+        "FUCKTON_OF_SPACES": {
+            "description": "170 Em Spaces (U+2003). Add to the start or end of your HUD text to align them to the left or right respectively.",
+            "args": null,
+            "isConstant": true,
+            return: "string"
+        },
         "INFINITY": {
             "description": "The number infinity = 9999999999999999999.",
             "args": null,
