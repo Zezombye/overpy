@@ -1781,6 +1781,24 @@ const heroKw =
     },
     "roadhog": {
         "guid": "000000000054",
+        "secondaryFire": {
+            "guid": "00000000079B",
+            "en-US": "Take a Breather",
+            "de-DE": "Verschnaufpause",
+            "es-ES": "Inhalador",
+            "es-MX": "Toma un respiro",
+            "fr-FR": "Inhalateur",
+            "it-IT": "Boccata d'Aria",
+            "ja-JP": "テイク・ア・ブリーザー",
+            "ko-KR": "숨 돌리기",
+            "pl-PL": "Sztachnięcie",
+            "pt-BR": "Pegando Fôlego",
+            "ru-RU": "Передышка",
+            "th-TH": "เทคอะบรีเธอร์",
+            "tr-TR": "Bir Soluklan",
+            "zh-CN": "呼吸器",
+            "zh-TW": "吸了再上"
+        },
         "ability1": {
             "guid": "00000000079D",
             "en-US": "Chain Hook",
@@ -1800,22 +1818,7 @@ const heroKw =
             "zh-TW": "鎖鍊鉤"
         },
         "ability2": {
-            "guid": "00000000079B",
-            "en-US": "Take a Breather",
-            "de-DE": "Verschnaufpause",
-            "es-ES": "Inhalador",
-            "es-MX": "Toma un respiro",
-            "fr-FR": "Inhalateur",
-            "it-IT": "Boccata d'Aria",
-            "ja-JP": "テイク・ア・ブリーザー",
-            "ko-KR": "숨 돌리기",
-            "pl-PL": "Sztachnięcie",
-            "pt-BR": "Pegando Fôlego",
-            "ru-RU": "Передышка",
-            "th-TH": "เทคอะบรีเธอร์",
-            "tr-TR": "Bir Soluklan",
-            "zh-CN": "呼吸器",
-            "zh-TW": "吸了再上"
+            "en-US": "Pig Pen"
         },
         "ultimate": {
             "guid": "000000000795",
