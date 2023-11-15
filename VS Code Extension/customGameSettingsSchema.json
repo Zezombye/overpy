@@ -16473,6 +16473,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireMaximumTime%": {
                                     "type": "number",
                                     "minimum": 20,
@@ -21300,6 +21303,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireMaximumTime%": {
@@ -26131,6 +26137,9 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
                                 "secondaryFireMaximumTime%": {
                                     "type": "number",
                                     "minimum": 20,
@@ -30958,6 +30967,9 @@
                                     "maximum": 500
                                 },
                                 "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
                                 "secondaryFireMaximumTime%": {
@@ -35928,6 +35940,9 @@
                             "maximum": 500
                         },
                         "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
                             "type": "boolean"
                         },
                         "secondaryFireMaximumTime%": {
