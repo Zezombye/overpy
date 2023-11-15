@@ -20,6 +20,17 @@
 const opyFuncs = {
 //Functions
 
+    "_&toArray": {
+        "description": "Get an array of the values of an enum.",
+        "args": [
+            {
+                "name": "__enumType__",
+                "description": "The enum to take the values from.",
+                "type": "Type"
+            }
+        ],
+        "return": {Array: "Object"}
+    },
     "all": {
         "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
         "args": [

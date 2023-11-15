@@ -102,6 +102,7 @@ overpyFiles = [
 "compiler/functions/_&addToScore.js",
 "compiler/functions/_&setStatusEffect.js",
 "compiler/functions/_&setUltCharge.js",
+"compiler/functions/_&toArray.js",
 "compiler/functions/abs.js",
 "compiler/functions/acos.js",
 "compiler/functions/acosDeg.js",
