@@ -3905,6 +3905,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "include": [
                         "dva",
+                        "roadhog",
                         "pharah"
                     ],
                     "guid": "000000005B45",
@@ -3932,6 +3933,7 @@ const customGameSettingsSchema =
                     "include": [
                         "brigitte",
                         "dva",
+                        "roadhog",
                         "pharah",
                         "reinhardt",
                         "sigma"
@@ -3966,7 +3968,6 @@ const customGameSettingsSchema =
                         "mei",
                         "mercy",
                         "moira",
-                        "roadhog",
                         "sojourn",
                         "symmetra",
                         "torbjorn",
