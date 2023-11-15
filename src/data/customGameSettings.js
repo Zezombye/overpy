@@ -3850,6 +3850,7 @@ const customGameSettingsSchema =
                         "orisa",
                         "pharah",
                         "reinhardt",
+                        "roadhog",
                         "sigma",
                         "sojourn",
                         "soldier",
