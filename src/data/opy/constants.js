@@ -105,7 +105,7 @@ const opyConstants = {
             return: "unsigned float",
         },
         "FUCKTON_OF_SPACES": {
-            "description": "170 Em Spaces (U+2003). Add to the start or end of your HUD text to align them to the left or right respectively.",
+            "description": "170 Em Spaces (U+2003). Add this to the end of a HUD text ensure it is always aligned to the left.",
             "args": null,
             "isConstant": true,
             return: "string"
