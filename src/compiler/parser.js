@@ -916,7 +916,7 @@ function parseMember(object, member) {
                     return getAstForNumber(0.94965);
                 } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
                     return getAstForNumber(0.48);
-                } else if (name === "FUCKTON_OF_SPACES") {
+                } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
                     return new Ast("__customString__", [new Ast(" ".repeat(170), [], [], "CustomStringLiteral"), getAstForNull(), getAstForNull(), getAstForNull()]);
                 } else {
                     error("Unhandled member 'math."+name+"'");

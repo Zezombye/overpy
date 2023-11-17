@@ -110,6 +110,12 @@ const opyConstants = {
             "isConstant": true,
             return: "string"
         },
+        "LOTS_OF_SPACES": {
+            "description": "Alias for Math.FUCKTON_OF_SPACES.",
+            "args": null,
+            "isConstant": true,
+            return: "string"
+        },
         "INFINITY": {
             "description": "The number infinity = 9999999999999999999.",
             "args": null,
