@@ -20,3 +20,4 @@ rule "enums":
     I = Math.E
     J = Math.PI
     K = Color.BLUE
+    S = Math.FUCKTON_OF_SPACES

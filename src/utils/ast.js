@@ -295,3 +295,16 @@ function getAstForNullVector() {
 function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");
 }
+function getAstForCustomString(content, formatArgs = []) {
+    const [
+        arg1 = getAstForNull(),
+        arg2 = getAstForNull(),
+        arg3 = getAstForNull()
+    ] = formatArgs;
+    return new Ast("__customString__", [
+        new Ast(content, [], [], "CustomStringLiteral"),
+        arg1,
+        arg2,
+        arg3
+    ]);
+}

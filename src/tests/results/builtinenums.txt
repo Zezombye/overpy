@@ -11,6 +11,7 @@ variables {
         8: I
         9: J
         10: K
+        18: S
 }
 rule ("enums") {
     event {
@@ -37,6 +38,7 @@ rule ("enums") {
         Set Global Variable(I, 2.718281828459045);
         Set Global Variable(J, 3.141592653589793);
         Set Global Variable(K, Color(Blue));
+        Set Global Variable(S, Custom String("                                                                                                                                                                          ", Null, Null, Null));
     }
 }
 
