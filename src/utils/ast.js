@@ -158,12 +158,26 @@ function isDefinitelyTruthy(content) {
     return false;
 }
 
+function hasAstForRandomValue(a) {
+    if (["random.randint", "random.uniform", "random.choice", "random.shuffle"].includes(a.name)) {
+        return true;
+    }
+
+    for (const childAst of a.args) {
+        if (hasAstForRandomValue(childAst)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 //Returns true if the ASTs are the same tree (same names) and there is no function that can return a different value if called twice with the same arguments and context (such as a random function).
 function areAstsEqual(a, b) {
     if (a.name !== b.name) {
         return false;
     }
-    if (["random.randint", "random.uniform", "random.choice", "random.shuffle"].includes(a.name)) {
+    if (hasAstForRandomValue(a)) {
         return false;
     }
     if (a.args.length !== b.args.length) {

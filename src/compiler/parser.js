@@ -563,9 +563,20 @@ function parse(content, kwargs={}) {
                 "max=": "max",
             };
 
-            var variable = parse(operands[0]);
-            var value = parse(operands[1]);
-            return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
+            const variable = parse(operands[0]);
+            const opName = opToFuncMapping[operator];
+            const value = parse(operands[1]);
+
+            //Except any optimizations go out the window if there is random values involved.
+            if (hasAstForRandomValue(variable)) {
+                return new Ast("__modifyVar__", [
+                    variable,
+                    new Ast(opName, [], [], "__Operation__"),
+                    value,
+                ])
+            }
+
+            return new Ast("__assignTo__", [variable, new Ast(opName, [variable, value])]);
 
         } else if (["+", "-"].includes(operator)) {
             
