@@ -563,12 +563,12 @@ function parse(content, kwargs={}) {
                 "max=": "max",
             };
 
-            const variable = parse(operands[0]);
+            var variable = parse(operands[0]);
             const opName = opToFuncMapping[operator];
             const value = parse(operands[1]);
 
-            //Except any optimizations go out the window if there is random values involved.
-            if (hasAstForRandomValue(variable)) {
+            //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
+            if (areAstsEqual(variable, variable)) {
                 return new Ast("__modifyVar__", [
                     variable,
                     new Ast(opName, [], [], "__Operation__"),
