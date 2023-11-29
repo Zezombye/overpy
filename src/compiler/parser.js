@@ -564,8 +564,19 @@ function parse(content, kwargs={}) {
             };
 
             var variable = parse(operands[0]);
-            var value = parse(operands[1]);
-            return new Ast("__assignTo__", [variable, new Ast(opToFuncMapping[operator], [variable, value])]);
+            const opName = opToFuncMapping[operator];
+            const value = parse(operands[1]);
+
+            //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
+            if (areAstsEqual(variable, variable)) {
+                return new Ast("__modifyVar__", [
+                    variable,
+                    new Ast(opName, [], [], "__Operation__"),
+                    value,
+                ])
+            }
+
+            return new Ast("__assignTo__", [variable, new Ast(opName, [variable, value])]);
 
         } else if (["+", "-"].includes(operator)) {
             
