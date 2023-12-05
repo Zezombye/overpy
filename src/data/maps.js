@@ -58,7 +58,8 @@ const mapKw =
             "skirmish"
         ],
         "variants": {
-            "default": "972777519512068153"
+            "morning": "972777519512068154",
+            "night": "972777519512068153"
         },
         "guid": "000000010F5E",
         "en-US": "Antarctic Peninsula",
