@@ -3847,6 +3847,7 @@ const customGameSettingsSchema =
                         "echo",
                         "junkerQueen",
                         "lucio",
+                        "mauga",
                         "orisa",
                         "pharah",
                         "reinhardt",
@@ -4679,6 +4680,50 @@ const customGameSettingsSchema =
                         "tr-TR": "Ses Dalgası Geri İtme Skaleri",
                         "zh-CN": "音波击退倍率",
                         "zh-TW": "音浪衝擊擊退距離"
+                    }
+                }
+            },
+            "mauga": {
+                "values": {
+                    "enablePrimaryFire": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "en-US": "Incendiary Chaingun"
+                    },
+                    "primaryFireIgniteDamage": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Incendiary Chaingun Ignite Damage"
+                    },
+                    "primaryFireIgniteDuration": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Incendiary Chaingun Ignite Duration"
+                    },
+                    "primaryFireIgniteRate": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Incendiary Chaingun Ignite Rate"
+                    },
+                    "ability1Kb%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Overrun Knockback"
+                    },
+                    "ability2Healing%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Cardiac Overdrive Healing"
                     }
                 }
             },

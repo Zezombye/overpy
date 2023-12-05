@@ -1192,6 +1192,24 @@ const heroKw =
         "zh-CN": "卢西奥",
         "zh-TW": "路西歐"
     },
+    "mauga": {
+        "primaryFire": {
+            "en-US": "Incendiary Chaingun"
+        },
+        "secondaryFire": {
+            "en-US": "Volatile Chaingun"
+        },
+        "ability1": {
+            "en-US": "Overrun"
+        },
+        "ability2": {
+            "en-US": "Cardiac Overdrive"
+        },
+        "ultimate": {
+            "en-US": "Cage Fight"
+        },
+        "en-US": "Mauga"
+    },
     "mccree": {
         "guid": "00000000005C",
         "ability1": {
