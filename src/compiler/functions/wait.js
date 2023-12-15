@@ -19,7 +19,7 @@
 
 astParsingFunctions.wait = function(content) {
 
-    if (content.args[1].name === "__number__" && content.args[1].args[0].numvalue === 9999) {
+    if (content.args[0].name === "__number__" && content.args[0].args[0].numvalue === 9999) {
         warn("w_wait_9999", "wait(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.")
     }
     
