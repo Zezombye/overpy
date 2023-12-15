@@ -24,6 +24,9 @@ astParsingFunctions.waitUntil = function(content) {
         //Add a "== true" because nonzero numbers are not considered true
         //content.args[0] = new Ast("__equals__", [content.args[0], getAstForTrue()]);
     }
+    if (content.args[1].name === "__number__" && content.args[1].args[0].numvalue === 9999) {
+        warn("w_wait_9999", "waitUntil(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.")
+    }
     
     return content;
 }
