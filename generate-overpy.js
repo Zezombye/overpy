@@ -153,6 +153,7 @@ overpyFiles = [
 "compiler/functions/vect.js",
 "compiler/functions/vectorTowards.js",
 "compiler/functions/victim.js",
+"compiler/functions/wait.js",
 "compiler/functions/waitUntil.js",
 "compiler/tokenizer.js",
 "compiler/astParser.js",
