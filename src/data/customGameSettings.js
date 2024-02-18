@@ -3831,7 +3831,8 @@ const customGameSettingsSchema =
                     "default": "on",
                     "include": [
                         "mercy",
-                        "echo"
+                        "echo",
+                        "pharah"
                     ],
                     "en-US": "%1$s"
                 },
@@ -3876,6 +3877,7 @@ const customGameSettingsSchema =
                         "junkerQueen",
                         "lucio",
                         "orisa",
+                        "pharah",
                         "reinhardt",
                         "sigma",
                         "soldier",
@@ -3907,8 +3909,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "include": [
                         "dva",
-                        "roadhog",
-                        "pharah"
+                        "roadhog"
                     ],
                     "guid": "000000005B45",
                     "en-US": "%1$s Maximum Time",
@@ -3936,7 +3937,6 @@ const customGameSettingsSchema =
                         "brigitte",
                         "dva",
                         "roadhog",
-                        "pharah",
                         "reinhardt",
                         "sigma"
                     ],
@@ -5056,7 +5056,7 @@ const customGameSettingsSchema =
                         "zh-CN": "震荡冲击击退倍率",
                         "zh-TW": "震盪爆破擊退距離"
                     },
-                    "enableSecondaryFireUnlimitedFuel": {
+                    "enablePassiveUnlimitedFuel": {
                         "values": "__boolOnOff__",
                         "default": "off",
                         "guid": "000000005B51",
@@ -5076,7 +5076,7 @@ const customGameSettingsSchema =
                         "zh-CN": "悬浮背包无限燃料",
                         "zh-TW": "滯空無限燃料"
                     },
-                    "secondaryFireVerticalSpeed%": {
+                    "passiveVerticalSpeed%": {
                         "values": "__percent__",
                         "min": 25,
                         "max": 300,
@@ -5097,6 +5097,28 @@ const customGameSettingsSchema =
                         "tr-TR": "Uçuş Jeti Dikey Hız Skaleri",
                         "zh-CN": "悬浮背包垂直速度",
                         "zh-TW": "滯空垂直爬升速度"
+                    },
+                    "passiveMaximumTime%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "00000000631D",
+                        "en-US": "Hover Jets Maximum Time"
+                    },
+                    "passiveExtraFuel%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Hover Jets Extra Fuel Scalar"
+                    },
+                    "passiveRechargeRate%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Hover Jets Recharge Rate"
                     },
                     "ability1Acceleration%": {
                         "values": "__percent__",
@@ -5119,6 +5141,13 @@ const customGameSettingsSchema =
                         "tr-TR": "Zıplama Jeti İvme Skaleri",
                         "zh-CN": "推进背包加速",
                         "zh-TW": "跳躍噴射速度"
+                    },
+                    "ability1RefuelScalar": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Jump Jet Refuel Scalar"
                     },
                     "primaryFireKb%": {
                         "values": "__percent__",
