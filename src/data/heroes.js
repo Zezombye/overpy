@@ -1569,7 +1569,7 @@ const heroKw =
     },
     "pharah": {
         "guid": "000000000027",
-        "secondaryFire": {
+        "passive": {
             "guid": "0000000003B1",
             "en-US": "Hover Jets",
             "de-DE": "Schwebedüsen",
@@ -1586,6 +1586,9 @@ const heroKw =
             "tr-TR": "Uçuş Jeti",
             "zh-CN": "悬浮背包",
             "zh-TW": "滯空"
+        },
+        "secondaryFire": {
+            "en-US": "Jet Dash"
         },
         "ability1": {
             "guid": "0000000003AF",
