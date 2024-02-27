@@ -1,61 +1,61 @@
+const assert = require("assert");
 const fs = require("fs");
 
-var languages = ["en-US", "de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "th-TH", "tr-TR", "zh-CN", "zh-TW"]
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "C:\\Users\\Zezombye\\Downloads\\toolchain-release\\DataTool.exe"
-var overwatchPath = "C:\\Program Files\\Overwatch"
+var datatoolPath = "D:\\GR\\toolchain-release\\DataTool.exe"
+var overwatchPath = "D:\\GR\\Overwatch"
 var outputFolder = "strings"
-var guids = {};
+var guids;
+var guidToLocaleMap = new Map();
+var enUSToGuidMap = new Map();
 var removeParentheses = true;
 var fuzzyMatch = false;
 
 async function generateStringFiles() {
     const { execSync } = require('child_process');
-    for (var language of languages) {
-        var command = "\""+datatoolPath+"\" \""+overwatchPath+"\" Dump-strings -L="+language.replace("-", "")+" -T="+language.replace("-", "")+" > "+outputFolder+"/strings-"+language+".txt";
-        console.log("Executing command for language "+language);
-        console.log(command);
-        execSync(command, (err, stdout, stderr) => {
-            if (err) {
-                // node couldn't execute the command
-                console.log("Could not execute command")
-                return;
-            }
-        });
-        sleep(5000)
-    }
+
+    let command = '"'+datatoolPath+'" "'+overwatchPath+'" dump-all-locale-strings --out='+outputFolder+'/strings.json';
+    console.log("Extracting all locale strings with DataTool...");
+    execSync(command, (err, stdout, stderr) => {
+        if (err) {
+            console.log("DataTool failed with error:", err)
+            return;
+        }
+    });
 }
 
 function getGuids() {
-    for (var language of languages) {
-        var content = ""+fs.readFileSync(outputFolder+"/strings-"+language+".txt");
-        guids[language] = [];
-        content = content.replace(/\r\n/g, "\n");
-        for (var line of content.split("\n")) {
-            //console.log(line);
-            if (/^[\dA-F]{12}\.07C: /.test(line)) {
-                var guid = line.substring(0, line.indexOf("."));
-                var string = line.substring(line.indexOf(":")+2);
-                guids[language].push({
-                    guid: guid,
-                    string: string,
-                });
-            }
+    guids = JSON.parse(fs.readFileSync(outputFolder+"/strings.json"));
+
+    // Precompute some mappings to save time later at cost of space complexity
+    for (let guidGlob of Object.entries(guids)) {
+        let guid = guidGlob[0].split(".")[0];
+        guidToLocaleMap.set(guid, guidGlob[1]);
+
+        assert(Object.keys(guidGlob[1]).includes("enUS"), "enUS not found in guid "+guid);
+
+        let enUSKey = guidGlob[1]["enUS"];
+
+        if (enUSToGuidMap.has(enUSKey)) {
+            // console.debug("Duplicate enUS key found: "+enUSKey);
+            continue;
         }
+
+        enUSToGuidMap.set(guidGlob[1]["enUS"], guid);
     }
     //console.log(guids["en-US"]);
 }
 
 function replaceJsonObjectsInFile(path) {
     console.log("Processing "+path)
-    var content = ""+fs.readFileSync(path);
-    var result = "";
-    var currentJsonStr = "";
-    var isInJsonObject = false;
-    for (var line of content.split("\n")) {
-        if (line === "//end-json") {
+    let content = ""+fs.readFileSync(path);
+    let result = "";
+    let currentJsonStr = "";
+    let isInJsonObject = false;
+    for (let line of content.split(/\r?\n/g)) {
+        if (line.trim() === "//end-json") {
             isInJsonObject = false;
             tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
             result += JSON.stringify(tmpObj, null, 4)+"\n";
@@ -66,7 +66,7 @@ function replaceJsonObjectsInFile(path) {
         } else {
             currentJsonStr += line+"\n";
         }
-        if (line === "//begin-json") {
+        if (line.trim() === "//begin-json") {
             isInJsonObject = true;
         }
     }
@@ -109,46 +109,15 @@ function iterateOnObject(content) {
 
 function addTranslations(content) {
     if (!("guid" in content) || content.guid === "<unknown guid>") {
-        var matchingGuids = [];
-        for (var elem of guids["en-US"]) {
-            var guidStr = elem.string;
-            var contentStr = content["en-US"];
-            if (fuzzyMatch) {
-                guidStr = guidStr.replace(/[\.,;'\s()-]/g, "").toLowerCase();
-                contentStr = contentStr.replace(/[\.,;'\s()-]/g, "").toLowerCase();
-            }
-            if (guidStr === contentStr) {
-                matchingGuids.push(elem.guid);
-            }
-        }
-        if (matchingGuids.length === 0) {
-            throw new Error("No guid found for string '"+content["en-US"]+"'");
-        } else if (matchingGuids.length > 1) {
-            console.warn("Multiple guids found for string '"+content["en-US"]+"': "+JSON.stringify(matchingGuids));
-        }
-        content.guid = matchingGuids[0];
+        assert (Object.keys(content).includes("en-US"), "en-US not found in content: "+JSON.stringify(content));
+        content.guid = enUSToGuidMap.get(content["en-US"]);
     }
-    for (var language of languages) {
-        var isGuidFound = false;
-        delete content[language];
-        for (var elem of guids[language]) {
-            if (elem.guid === content.guid) {
-                elem.string = elem.string.replace(/%%/g, "%");
-                if (removeParentheses) {
-                    elem.string = elem.string.replace(/[,\(\)\/]/g,"")
-                }
 
-                if (elem.string !== content["en-US"]) {
-                    content[language] = elem.string;
-                }
-                isGuidFound = true;
-                break;
-            }
-        }
-        if (!isGuidFound) {
-            throw new Error("Did not find the guid '"+content.guid+"' for language '"+language+"'");
-        }
+    let guidGlob = guidToLocaleMap.get(content.guid);
+    for (let localeEntry of Object.entries(guidGlob)) {
+        content[dataToolLocaleToOverPyLocale(localeEntry[0])] = localeEntry[1];
     }
+
     return content;
 }
 
@@ -166,7 +135,7 @@ function normalizeName(content) {
 
 
 
-//generateStringFiles();
+// generateStringFiles();
 getGuids();
 replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
@@ -181,8 +150,12 @@ replaceJsonObjectsInFile(docFolder+"argnames.js");
 replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
 replaceJsonObjectsInFile(docFolder+"other.js");
 
-function sleep(ms){
-    return new Promise(resolve=>{
-        setTimeout(resolve,ms)
-    })
+/**
+ * Converts a locale from the DataTool format to the OverPy format.
+ * @param {string} locale The locale to convert (e.g. "enUS")
+ * @returns {string} The converted locale (e.g. "en-US")
+ */
+function dataToolLocaleToOverPyLocale(locale) {
+    let result = locale.match(/([a-z]+)([A-Z]+)/);
+    return result[1]+"-"+result[2];
 }
