@@ -10,6 +10,7 @@ var outputFolder = "strings"
 var guids;
 var guidToLocaleMap = new Map();
 var enUSToGuidMap = new Map();
+var enUSFuzzyToGuidMap = new Map();
 var removeParentheses = true;
 var fuzzyMatch = false;
 
@@ -27,6 +28,7 @@ async function generateStringFiles() {
 }
 
 function getGuids() {
+    console.log("Generating GUID mappings...");
     guids = JSON.parse(fs.readFileSync(outputFolder+"/strings.json"));
 
     // Precompute some mappings to save time later at cost of space complexity
@@ -44,6 +46,7 @@ function getGuids() {
         }
 
         enUSToGuidMap.set(guidGlob[1]["enUS"], guid);
+        enUSFuzzyToGuidMap.set(guidGlob[1]["enUS"].replace(/[\.,;'\s()-]/g, "").toLowerCase(), guid);
     }
     //console.log(guids["en-US"]);
 }
@@ -109,12 +112,24 @@ function iterateOnObject(content) {
 
 function addTranslations(content) {
     if (!("guid" in content) || content.guid === "<unknown guid>") {
-        assert (Object.keys(content).includes("en-US"), "en-US not found in content: "+JSON.stringify(content));
-        content.guid = enUSToGuidMap.get(content["en-US"]);
+        assert (Object.keys(content).includes("en-US"), "GUID-less content does not have an en-US key: "+JSON.stringify(content));
+
+        if (fuzzyMatch) {
+            content.guid = enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase());
+        } else {
+            content.guid = enUSToGuidMap.get(content["en-US"]);
+        }
+    }
+
+    if (content.guid == undefined) {
+        console.warn("GUID not found for content: "+JSON.stringify(content));
+        return content;
     }
 
     let guidGlob = guidToLocaleMap.get(content.guid);
     for (let localeEntry of Object.entries(guidGlob)) {
+        localeEntry[1] = localeEntry[1].replace(/%%/g, "%");
+        if (removeParentheses) localeEntry[1] = localeEntry[1].replace(/[,\(\)\/]/g,"");
         content[dataToolLocaleToOverPyLocale(localeEntry[0])] = localeEntry[1];
     }
 
