@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -77,7 +77,7 @@ function astRulesToWs(rules) {
         compiledRules.push(result);
     }
 
-    
+
     return compiledRules;
 
 }
@@ -96,7 +96,7 @@ function astRuleConditionToWs(condition) {
     if (!obfuscationSettings.obfuscateComments && condition.comment) {
         result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
     }
-    
+
     if (condition.type === "void") {
         fileStack = condition.fileStack;
         error("Expected a value, but got "+functionNameToString(condition)+" which is an action");
@@ -113,7 +113,7 @@ function astRuleConditionToWs(condition) {
                 if (condition.args[i].args.length > 0 && condition.args[i].name === "__number__") {
                     if (condition.args[i].args[0].numValue === 0) {
                         condition.args[i] = getAstForNull();
-        
+
                     } else if (condition.args[i].args[0].numValue === 1) {
                         if (["__lessThanOrEquals__", "__greaterThanOrEquals__", "__lessThan__", "__greaterThan__"].includes(condition.name)) {
                             condition.args[i] = getAstForTrue();
@@ -147,7 +147,7 @@ function astRuleConditionToWs(condition) {
         if (condition.name === "__not__") {
             nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
-            
+
         } else if (condition.type === "bool") {
             nbElements++;
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
@@ -343,7 +343,7 @@ function astToWs(content) {
                     } else if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
                         content.args[2] = getAstForTrue();
                     }
-    
+
                 }
             } else {
                 error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
@@ -436,7 +436,7 @@ function astToWs(content) {
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
 
     } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-      
+
 		if (content.name === "hudHeader") {
 			content.args.splice(2, 0, getAstForNull());
 			content.args.splice(3, 0, getAstForNull());
@@ -454,7 +454,7 @@ function astToWs(content) {
 			content.args.splice(7, 0, getAstForNull());
 		}
         content.name = "__hudText__";
-        
+
     } else if (content.name === "hudText") {
         content.name = "__hudText__";
 
@@ -528,7 +528,7 @@ function astToWs(content) {
         }
         result += ")";
     }
-    
+
     if (content.isDisabled === true) {
         result = tows("__disabled__", ruleKw)+" "+result;
     }
