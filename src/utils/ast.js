@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -158,8 +158,14 @@ function isDefinitelyTruthy(content) {
     return false;
 }
 
-//Returns true if the ASTs are the same tree (same names) and there is no function that can return a different value if called twice with the same arguments and context (such as a random function).
-function areAstsEqual(a, b) {
+/**
+ * Determines whether the two provided ASTs always evaluate to the same value.
+ * @param {Ast} a
+ * @param {Ast} b
+ * @remarks This function will check for random value functions, and will return false if any are found.
+ * @returns Whether AST A and AST B always evaluate to the same value.
+ */
+function areAstsAlwaysEqual(a, b) {
     if (a.name !== b.name) {
         return false;
     }
@@ -170,7 +176,7 @@ function areAstsEqual(a, b) {
         return false;
     }
     for (var i = 0; i < a.args.length; i++) {
-        if (!areAstsEqual(a.args[i], b.args[i])) {
+        if (!areAstsAlwaysEqual(a.args[i], b.args[i])) {
             return false;
         }
     }
