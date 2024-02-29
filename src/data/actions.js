@@ -59,7 +59,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -95,7 +98,10 @@ const actionKw =
                     "ru-RU": "Тип здоровья",
                     "th-TH": "ประเภทพลังชีวิต",
                     "tr-TR": "Can Türü",
-                    "zh-CN": "生命值类型"
+                    "zh-CN": "生命值类型",
+                    "de-DE": "Health Type",
+                    "ko-KR": "Health Type",
+                    "zh-TW": "Health Type"
                 }
             },
             {
@@ -130,8 +136,11 @@ const actionKw =
                     "pt-BR": "Vida Máxima",
                     "ru-RU": "Максимальный запас здоровья",
                     "th-TH": "พลังชีวิตสูงสุด",
-                    "tr-TR": "Azami Can",
-                    "zh-CN": "最大生命值"
+                    "tr-TR": "Maks. Can",
+                    "zh-CN": "最大生命值",
+                    "de-DE": "Max Health",
+                    "ko-KR": "Max Health",
+                    "zh-TW": "Max Health"
                 }
             },
             {
@@ -167,7 +176,10 @@ const actionKw =
                     "ru-RU": "Восполнение",
                     "th-TH": "ฟื้นฟูได้",
                     "tr-TR": "Yenilenebilir",
-                    "zh-CN": "可恢复"
+                    "zh-CN": "可恢复",
+                    "de-DE": "Recoverable",
+                    "ko-KR": "Recoverable",
+                    "zh-TW": "Recoverable"
                 }
             },
             {
@@ -203,7 +215,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -231,7 +246,14 @@ const actionKw =
         "pt-BR": "Adicionar Reserva de Vida para Jogador",
         "th-TH": "เพิ่มบ่อพลังชีวิตให้กับผู้เล่น",
         "tr-TR": "Oyuncu'ya Can Havuzu Ekle",
-        "zh-CN": "为玩家添加生命池"
+        "zh-CN": "为玩家添加生命池",
+        "de-DE": "Add Health Pool To Player",
+        "es-ES": "Add Health Pool To Player",
+        "it-IT": "Add Health Pool To Player",
+        "ko-KR": "Add Health Pool To Player",
+        "pl-PL": "Add Health Pool To Player",
+        "ru-RU": "Add Health Pool To Player",
+        "zh-TW": "Add Health Pool To Player"
     },
     "_&addToScore": {
         "description": "Modifies the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -274,7 +296,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -312,7 +337,10 @@ const actionKw =
                     "ru-RU": "Счет",
                     "th-TH": "คะแนน",
                     "tr-TR": "Skor",
-                    "zh-CN": "得分"
+                    "zh-CN": "得分",
+                    "de-DE": "Score",
+                    "ko-KR": "Score",
+                    "zh-TW": "Score"
                 }
             }
         ],
@@ -340,7 +368,14 @@ const actionKw =
         "pt-BR": "Modificar Pontuação do Jogador",
         "th-TH": "ปรับเปลี่ยนคะแนนผู้เล่น",
         "tr-TR": "Oyuncu Skoru'nu Düzenle",
-        "zh-CN": "修改玩家分数"
+        "zh-CN": "修改玩家分数",
+        "de-DE": "Modify Player Score",
+        "es-ES": "Modify Player Score",
+        "it-IT": "Modify Player Score",
+        "ko-KR": "Modify Player Score",
+        "pl-PL": "Modify Player Score",
+        "ru-RU": "Modify Player Score",
+        "zh-TW": "Modify Player Score"
     },
     "_&allowButton": {
         "description": "Undoes the effect of the disallow button action for one or more players.",
@@ -383,7 +418,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -418,7 +456,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -446,7 +488,14 @@ const actionKw =
         "pt-BR": "Permitir Botão",
         "th-TH": "อนุญาตปุ่ม",
         "tr-TR": "Düğmeye İzin Ver",
-        "zh-CN": "可用按钮"
+        "zh-CN": "可用按钮",
+        "de-DE": "Allow Button",
+        "es-ES": "Allow Button",
+        "it-IT": "Allow Button",
+        "ko-KR": "Allow Button",
+        "pl-PL": "Allow Button",
+        "ru-RU": "Allow Button",
+        "zh-TW": "Allow Button"
     },
     "_&applyImpulse": {
         "description": "Applies an instantaneous change in velocity to the movement of one or more players.",
@@ -489,7 +538,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -523,7 +575,12 @@ const actionKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             },
             {
@@ -559,7 +616,10 @@ const actionKw =
                     "ru-RU": "Скорость",
                     "th-TH": "ความเร็ว",
                     "tr-TR": "Hız",
-                    "zh-CN": "速度"
+                    "zh-CN": "速度",
+                    "de-DE": "Speed",
+                    "ko-KR": "Speed",
+                    "zh-TW": "Speed"
                 }
             },
             {
@@ -595,7 +655,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 }
             },
             {
@@ -631,7 +694,10 @@ const actionKw =
                     "ru-RU": "Движение",
                     "th-TH": "การเคลื่อนที่",
                     "tr-TR": "Hareket",
-                    "zh-CN": "运动"
+                    "zh-CN": "运动",
+                    "de-DE": "Motion",
+                    "ko-KR": "Motion",
+                    "zh-TW": "Motion"
                 }
             }
         ],
@@ -659,7 +725,14 @@ const actionKw =
         "pt-BR": "Aplicar Impulso",
         "th-TH": "ใช้พลังผลักดัน",
         "tr-TR": "İtiş Uygula",
-        "zh-CN": "施加推力"
+        "zh-CN": "施加推力",
+        "de-DE": "Apply Impulse",
+        "es-ES": "Apply Impulse",
+        "it-IT": "Apply Impulse",
+        "ko-KR": "Apply Impulse",
+        "pl-PL": "Apply Impulse",
+        "ru-RU": "Apply Impulse",
+        "zh-TW": "Apply Impulse"
     },
     "_&attachTo": {
         "description": "Attaches the player (the 'child') to another player (the 'parent'). Once attached, the child will be unable to move freely until detached or teleported away. Multiple children may be attached to the same parent, but not vice versa.",
@@ -697,7 +770,10 @@ const actionKw =
                     "ru-RU": "Ведомый",
                     "th-TH": "เด็ก",
                     "tr-TR": "Çocuk",
-                    "zh-CN": "子玩家"
+                    "zh-CN": "子玩家",
+                    "de-DE": "Child",
+                    "ko-KR": "Child",
+                    "zh-TW": "Child"
                 }
             },
             {
@@ -732,7 +808,11 @@ const actionKw =
                     "ru-RU": "Ведущий",
                     "th-TH": "ผู้ปกครอง",
                     "tr-TR": "Ebeveyn",
-                    "zh-CN": "父玩家"
+                    "zh-CN": "父玩家",
+                    "de-DE": "Parent",
+                    "fr-FR": "Parent",
+                    "ko-KR": "Parent",
+                    "zh-TW": "Parent"
                 }
             },
             {
@@ -769,7 +849,10 @@ const actionKw =
                     "ru-RU": "Смещение",
                     "th-TH": "ออฟเซ็ต",
                     "tr-TR": "Dengeleme",
-                    "zh-CN": "偏移"
+                    "zh-CN": "偏移",
+                    "de-DE": "Offset",
+                    "ko-KR": "Offset",
+                    "zh-TW": "Offset"
                 }
             }
         ],
@@ -797,7 +880,14 @@ const actionKw =
         "pt-BR": "Unir Jogadores",
         "th-TH": "แนบผู้เล่น",
         "tr-TR": "Oyuncuları Bağla",
-        "zh-CN": "绑定玩家"
+        "zh-CN": "绑定玩家",
+        "de-DE": "Attach Players",
+        "es-ES": "Attach Players",
+        "it-IT": "Attach Players",
+        "ko-KR": "Attach Players",
+        "pl-PL": "Attach Players",
+        "ru-RU": "Attach Players",
+        "zh-TW": "Attach Players"
     },
     "_&cancelPrimaryAction": {
         "description": "Cancels the active abilities for one or more players. Equivalent to a short stun.",
@@ -855,7 +945,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -868,7 +961,14 @@ const actionKw =
         "pt-BR": "Cancelar Ação Primária",
         "th-TH": "ยกเลิกการดําเนินการหลัก",
         "tr-TR": "Birincil Eylem'i İptal Et",
-        "zh-CN": "取消主要动作"
+        "zh-CN": "取消主要动作",
+        "de-DE": "Cancel Primary Action",
+        "es-ES": "Cancel Primary Action",
+        "it-IT": "Cancel Primary Action",
+        "ko-KR": "Cancel Primary Action",
+        "pl-PL": "Cancel Primary Action",
+        "ru-RU": "Cancel Primary Action",
+        "zh-TW": "Cancel Primary Action"
     },
     "_&clearStatusEffect": {
         "description": "Clears a status that was applied from a set status action from one or more players.",
@@ -911,7 +1011,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -945,7 +1048,12 @@ const actionKw =
                     "ru-RU": "Статус",
                     "th-TH": "สถานะ",
                     "tr-TR": "Durum",
-                    "zh-CN": "状态"
+                    "zh-CN": "状态",
+                    "de-DE": "Status",
+                    "ko-KR": "Status",
+                    "pl-PL": "Status",
+                    "pt-BR": "Status",
+                    "zh-TW": "Status"
                 }
             }
         ],
@@ -973,7 +1081,14 @@ const actionKw =
         "pt-BR": "Apagar Status",
         "th-TH": "ล้างสถานะ",
         "tr-TR": "Durumu Temizle",
-        "zh-CN": "清除状态"
+        "zh-CN": "清除状态",
+        "de-DE": "Clear Status",
+        "es-ES": "Clear Status",
+        "it-IT": "Clear Status",
+        "ko-KR": "Clear Status",
+        "pl-PL": "Clear Status",
+        "ru-RU": "Clear Status",
+        "zh-TW": "Clear Status"
     },
     "_&communicate": {
         "description": "Causes one or more players to use an emote, voice line, or other equipped communication.",
@@ -1016,7 +1131,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1051,7 +1169,11 @@ const actionKw =
                     "ru-RU": "Тип",
                     "th-TH": "ประเภท",
                     "tr-TR": "Tür",
-                    "zh-CN": "类型"
+                    "zh-CN": "类型",
+                    "de-DE": "Type",
+                    "fr-FR": "Type",
+                    "ko-KR": "Type",
+                    "zh-TW": "Type"
                 }
             }
         ],
@@ -1079,7 +1201,14 @@ const actionKw =
         "pt-BR": "Comunicar",
         "th-TH": "สื่อสาร",
         "tr-TR": "İletişim Kur",
-        "zh-CN": "交流"
+        "zh-CN": "交流",
+        "de-DE": "Communicate",
+        "es-ES": "Communicate",
+        "it-IT": "Communicate",
+        "ko-KR": "Communicate",
+        "pl-PL": "Communicate",
+        "ru-RU": "Communicate",
+        "zh-TW": "Communicate"
     },
     "_&detach": {
         "description": "Undoes the attachment caused by the 'attachTo' action for one or more players. These players will resume normal movement from their current position.",
@@ -1137,7 +1266,10 @@ const actionKw =
                     "ru-RU": "Ведомые",
                     "th-TH": "เด็ก",
                     "tr-TR": "Çocuklar",
-                    "zh-CN": "儿童"
+                    "zh-CN": "儿童",
+                    "de-DE": "Children",
+                    "ko-KR": "Children",
+                    "zh-TW": "Children"
                 }
             }
         ],
@@ -1150,7 +1282,14 @@ const actionKw =
         "pt-BR": "Separar Jogadores",
         "th-TH": "แยกผู้เล่น",
         "tr-TR": "Oyuncuyla Bağı Kopar",
-        "zh-CN": "解除绑定"
+        "zh-CN": "解除绑定",
+        "de-DE": "Detach Players",
+        "es-ES": "Detach Players",
+        "it-IT": "Detach Players",
+        "ko-KR": "Detach Players",
+        "pl-PL": "Detach Players",
+        "ru-RU": "Detach Players",
+        "zh-TW": "Detach Players"
     },
     "_&disableDeathSpectateAllPlayers": {
         "description": "Undoes the effect of the enable death spectate all players action for one or more players.",
@@ -1193,7 +1332,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1221,7 +1363,14 @@ const actionKw =
         "pt-BR": "Desativar Visualização de Todos os Jogadores na Morte",
         "th-TH": "ปิดใช้งานการชมระหว่างตายผู้เล่นทุกคน",
         "tr-TR": "Ölüyken Tüm Oyuncuları İzleme'yi Devre Dışı Bırak",
-        "zh-CN": "对所有玩家禁用死亡回放"
+        "zh-CN": "对所有玩家禁用死亡回放",
+        "de-DE": "Disable Death Spectate All Players",
+        "es-ES": "Disable Death Spectate All Players",
+        "it-IT": "Disable Death Spectate All Players",
+        "ko-KR": "Disable Death Spectate All Players",
+        "pl-PL": "Disable Death Spectate All Players",
+        "ru-RU": "Disable Death Spectate All Players",
+        "zh-TW": "Disable Death Spectate All Players"
     },
     "_&disableDeathSpectateTargetHud": {
         "description": "Undoes the effect of the enable death spectate target hud action for one or more players.",
@@ -1264,7 +1413,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1292,7 +1444,14 @@ const actionKw =
         "pt-BR": "Desativar HUD do Alvo de Visualização na Morte",
         "th-TH": "ปิดใช้งาน HUD การชมของเป้าหมายระหว่างตาย",
         "tr-TR": "Ölüyken İzlenilen Hedefin Ekran Göstergelerini Devre Dışı Bırak",
-        "zh-CN": "禁用死亡回放时目标的HUD"
+        "zh-CN": "禁用死亡回放时目标的HUD",
+        "de-DE": "Disable Death Spectate Target HUD",
+        "es-ES": "Disable Death Spectate Target HUD",
+        "it-IT": "Disable Death Spectate Target HUD",
+        "ko-KR": "Disable Death Spectate Target HUD",
+        "pl-PL": "Disable Death Spectate Target HUD",
+        "ru-RU": "Disable Death Spectate Target HUD",
+        "zh-TW": "Disable Death Spectate Target HUD"
     },
     "_&disableEnvironmentCollision": {
         "description": "Causes a player or players to stop colliding with the environment (walls, ceilings, certain objects, etc.)",
@@ -1335,7 +1494,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1371,7 +1533,10 @@ const actionKw =
                     "ru-RU": "Учитывать пол",
                     "th-TH": "รวมชั้น",
                     "tr-TR": "Zemini Dâhil Et",
-                    "zh-CN": "包括地面"
+                    "zh-CN": "包括地面",
+                    "de-DE": "Include Floors",
+                    "ko-KR": "Include Floors",
+                    "zh-TW": "Include Floors"
                 }
             }
         ],
@@ -1399,7 +1564,14 @@ const actionKw =
         "pt-BR": "Desabilitar Colisão de Movimento com Ambiente",
         "th-TH": "ปิดใช้งานการชนเวลาเคลื่อนที่กับสภาพแวดล้อม",
         "tr-TR": "Ortamla Hareket Çakışması'nı Devre Dışı Bırak",
-        "zh-CN": "取消与环境的移动碰撞"
+        "zh-CN": "取消与环境的移动碰撞",
+        "de-DE": "Disable Movement Collision With Environment",
+        "es-ES": "Disable Movement Collision With Environment",
+        "it-IT": "Disable Movement Collision With Environment",
+        "ko-KR": "Disable Movement Collision With Environment",
+        "pl-PL": "Disable Movement Collision With Environment",
+        "ru-RU": "Disable Movement Collision With Environment",
+        "zh-TW": "Disable Movement Collision With Environment"
     },
     "_&disableGamemodeHud": {
         "description": "Disables the game mode HUD for one or more players until reenabled.",
@@ -1442,7 +1614,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1470,7 +1645,14 @@ const actionKw =
         "pt-BR": "Desabilitar HUD de Modo de Jogo",
         "th-TH": "ปิดใช้งาน HUD โหมดเกม",
         "tr-TR": "Oyun Modu Ekran Göstergelerini Devre Dışı Bırak",
-        "zh-CN": "隐藏游戏模式HUD"
+        "zh-CN": "隐藏游戏模式HUD",
+        "de-DE": "Disable Game Mode HUD",
+        "es-ES": "Disable Game Mode HUD",
+        "it-IT": "Disable Game Mode HUD",
+        "ko-KR": "Disable Game Mode HUD",
+        "pl-PL": "Disable Game Mode HUD",
+        "ru-RU": "Disable Game Mode HUD",
+        "zh-TW": "Disable Game Mode HUD"
     },
     "_&disableGamemodeInWorldUi": {
         "description": "Disables the game mode In-World UI for one or more players until reenabled.",
@@ -1513,7 +1695,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1541,7 +1726,14 @@ const actionKw =
         "pt-BR": "Desabilitar IU no Mundo do Modo de Jogo",
         "th-TH": "เปิดใช้งาน UI ในโลกของโหมดเกม",
         "tr-TR": "Oyun Modu Oyun İçi Arayüz'ü Devre Dışı Bırak",
-        "zh-CN": "隐藏游戏模式地图UI"
+        "zh-CN": "隐藏游戏模式地图UI",
+        "de-DE": "Disable Game Mode In-World UI",
+        "es-ES": "Disable Game Mode In-World UI",
+        "it-IT": "Disable Game Mode In-World UI",
+        "ko-KR": "Disable Game Mode In-World UI",
+        "pl-PL": "Disable Game Mode In-World UI",
+        "ru-RU": "Disable Game Mode In-World UI",
+        "zh-TW": "Disable Game Mode In-World UI"
     },
     "_&disableHeroHud": {
         "description": "Disables the Hero HUD for one or more players until reenabled.",
@@ -1584,7 +1776,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1612,7 +1807,14 @@ const actionKw =
         "pt-BR": "Desabilitar HUD de Herói",
         "th-TH": "ปิดใช้งาน HUD ฮีโร่",
         "tr-TR": "Kahraman Ekran Göstergelerini Devre Dışı Bırak",
-        "zh-CN": "隐藏英雄HUD"
+        "zh-CN": "隐藏英雄HUD",
+        "de-DE": "Disable Hero HUD",
+        "es-ES": "Disable Hero HUD",
+        "it-IT": "Disable Hero HUD",
+        "ko-KR": "Disable Hero HUD",
+        "pl-PL": "Disable Hero HUD",
+        "ru-RU": "Disable Hero HUD",
+        "zh-TW": "Disable Hero HUD"
     },
     "_&disableKillFeed": {
         "description": "Disables the kill feed for one or more players until reenabled.",
@@ -1655,7 +1857,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1683,7 +1888,14 @@ const actionKw =
         "pt-BR": "Desabilitar Feed de Abates",
         "th-TH": "ปิดใช้งานบันทึกการฆ่า",
         "tr-TR": "Öldürme Bildirimi'ni Devre Dışı Bırak",
-        "zh-CN": "隐藏消灭提示"
+        "zh-CN": "隐藏消灭提示",
+        "de-DE": "Disable Kill Feed",
+        "es-ES": "Disable Kill Feed",
+        "it-IT": "Disable Kill Feed",
+        "ko-KR": "Disable Kill Feed",
+        "pl-PL": "Disable Kill Feed",
+        "ru-RU": "Disable Kill Feed",
+        "zh-TW": "Disable Kill Feed"
     },
     "_&disableMessages": {
         "description": "Disables messages for one or more players until reenabled.",
@@ -1726,7 +1938,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1754,7 +1969,14 @@ const actionKw =
         "pt-BR": "Desabilitar Mensagens",
         "th-TH": "ปิดใช้งานข้อความ",
         "tr-TR": "Mesajları Devre Dışı Bırak",
-        "zh-CN": "隐藏信息"
+        "zh-CN": "隐藏信息",
+        "de-DE": "Disable Messages",
+        "es-ES": "Disable Messages",
+        "it-IT": "Disable Messages",
+        "ko-KR": "Disable Messages",
+        "pl-PL": "Disable Messages",
+        "ru-RU": "Disable Messages",
+        "zh-TW": "Disable Messages"
     },
     "_&disableNameplatesFor": {
         "description": "Disables the nameplate on one or more viewed players from the perspective of one or more viewing players.",
@@ -1797,7 +2019,10 @@ const actionKw =
                     "ru-RU": "Наблюдаемые игроки",
                     "th-TH": "ผู้เล่นที่เห็น",
                     "tr-TR": "Görüntülenen Oyuncular",
-                    "zh-CN": "被观察的玩家"
+                    "zh-CN": "被观察的玩家",
+                    "de-DE": "Viewed Players",
+                    "ko-KR": "Viewed Players",
+                    "zh-TW": "Viewed Players"
                 }
             },
             {
@@ -1838,7 +2063,10 @@ const actionKw =
                     "ru-RU": "Наблюдающие игроки",
                     "th-TH": "ผู้เล่นที่กำลังดู",
                     "tr-TR": "Görüntüleyen Oyuncular",
-                    "zh-CN": "观察玩家"
+                    "zh-CN": "观察玩家",
+                    "de-DE": "Viewing Players",
+                    "ko-KR": "Viewing Players",
+                    "zh-TW": "Viewing Players"
                 }
             }
         ],
@@ -1866,7 +2094,14 @@ const actionKw =
         "pt-BR": "Desabilitar Nomes",
         "th-TH": "ปิดใช้งานป้ายชื่อ",
         "tr-TR": "İsimliği Devre Dışı Bırak",
-        "zh-CN": "隐藏姓名板"
+        "zh-CN": "隐藏姓名板",
+        "de-DE": "Disable Nameplates",
+        "es-ES": "Disable Nameplates",
+        "it-IT": "Disable Nameplates",
+        "ko-KR": "Disable Nameplates",
+        "pl-PL": "Disable Nameplates",
+        "ru-RU": "Disable Nameplates",
+        "zh-TW": "Disable Nameplates"
     },
     "_&disablePlayerCollision": {
         "description": "Causes a player or players to stop colliding with other Players.",
@@ -1909,7 +2144,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1937,7 +2175,14 @@ const actionKw =
         "pt-BR": "Desabilitar Colisão de Movimento com Jogadores",
         "th-TH": "ปิดใช้งานการชนเวลาเคลื่อนที่กับผู้เล่น",
         "tr-TR": "Oyuncularla Hareket Çakışması'nı Devre Dışı Bırak",
-        "zh-CN": "取消与玩家的移动碰撞"
+        "zh-CN": "取消与玩家的移动碰撞",
+        "de-DE": "Disable Movement Collision With Players",
+        "es-ES": "Disable Movement Collision With Players",
+        "it-IT": "Disable Movement Collision With Players",
+        "ko-KR": "Disable Movement Collision With Players",
+        "pl-PL": "Disable Movement Collision With Players",
+        "ru-RU": "Disable Movement Collision With Players",
+        "zh-TW": "Disable Movement Collision With Players"
     },
     "_&disableRespawn": {
         "description": "Disables automatic respawning for one or more players, only allowing respawning by scripting commands.",
@@ -1980,7 +2225,10 @@ const actionKw =
                     "ru-RU": "Игроки",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncular",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Players",
+                    "ko-KR": "Players",
+                    "zh-TW": "Players"
                 }
             }
         ],
@@ -2008,7 +2256,14 @@ const actionKw =
         "pt-BR": "Desativar Ressurgimento Integrado ao Modo de Jogo",
         "th-TH": "ปิดใช้งานการเกิดใหม่ในโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Yeniden Doğma'yı Devre Dışı Bırak",
-        "zh-CN": "关闭游戏预设复生模式"
+        "zh-CN": "关闭游戏预设复生模式",
+        "de-DE": "Disable Built-In Game Mode Respawning",
+        "es-ES": "Disable Built-In Game Mode Respawning",
+        "it-IT": "Disable Built-In Game Mode Respawning",
+        "ko-KR": "Disable Built-In Game Mode Respawning",
+        "pl-PL": "Disable Built-In Game Mode Respawning",
+        "ru-RU": "Disable Built-In Game Mode Respawning",
+        "zh-TW": "Disable Built-In Game Mode Respawning"
     },
     "_&disableScoreboard": {
         "description": "Disables the scoreboard for one or more players until reenabled.",
@@ -2051,7 +2306,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2079,7 +2337,14 @@ const actionKw =
         "pt-BR": "Desativar Placar",
         "th-TH": "ปิดใช้งานกระดานคะแนน",
         "tr-TR": "Skor Tablosu'nu Devre Dışı Bırak",
-        "zh-CN": "隐藏计分板"
+        "zh-CN": "隐藏计分板",
+        "de-DE": "Disable Scoreboard",
+        "es-ES": "Disable Scoreboard",
+        "it-IT": "Disable Scoreboard",
+        "ko-KR": "Disable Scoreboard",
+        "pl-PL": "Disable Scoreboard",
+        "ru-RU": "Disable Scoreboard",
+        "zh-TW": "Disable Scoreboard"
     },
     "_&disableTextChat": {
         "description": "Disables Text Chat for one or more Players until reenabled",
@@ -2122,7 +2387,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2150,7 +2418,14 @@ const actionKw =
         "pt-BR": "Desabilitar Bate-papo de Texto",
         "th-TH": "ปิดใช้งานการสนทนาด้วยข้อความ",
         "tr-TR": "Yazılı Sohbeti Devre Dışı Bırak",
-        "zh-CN": "禁用文字聊天"
+        "zh-CN": "禁用文字聊天",
+        "de-DE": "Disable Text Chat",
+        "es-ES": "Disable Text Chat",
+        "it-IT": "Disable Text Chat",
+        "ko-KR": "Disable Text Chat",
+        "pl-PL": "Disable Text Chat",
+        "ru-RU": "Disable Text Chat",
+        "zh-TW": "Disable Text Chat"
     },
     "_&disableVoiceChat": {
         "description": "Disables voice chat for one or more players until reenabled",
@@ -2193,7 +2468,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2229,7 +2507,10 @@ const actionKw =
                     "ru-RU": "Голосовой чат команды",
                     "th-TH": "แชตด้วยเสียงของทีม",
                     "tr-TR": "Takım Sesli Sohbeti",
-                    "zh-CN": "队伍语音聊天"
+                    "zh-CN": "队伍语音聊天",
+                    "de-DE": "Team Voice Chat",
+                    "ko-KR": "Team Voice Chat",
+                    "zh-TW": "Team Voice Chat"
                 }
             },
             {
@@ -2265,7 +2546,10 @@ const actionKw =
                     "ru-RU": "Голосовой чат матча",
                     "th-TH": "แชตด้วยเสียงของแมตช์",
                     "tr-TR": "Maç Sesli Sohbeti",
-                    "zh-CN": "比赛语音聊天"
+                    "zh-CN": "比赛语音聊天",
+                    "de-DE": "Match Voice Chat",
+                    "ko-KR": "Match Voice Chat",
+                    "zh-TW": "Match Voice Chat"
                 }
             },
             {
@@ -2301,7 +2585,10 @@ const actionKw =
                     "ru-RU": "Голосовой чат группы",
                     "th-TH": "แชตด้วยเสียงของกลุ่ม",
                     "tr-TR": "Sesli Grup Sohbeti",
-                    "zh-CN": "小队语音聊天"
+                    "zh-CN": "小队语音聊天",
+                    "de-DE": "Group Voice Chat",
+                    "ko-KR": "Group Voice Chat",
+                    "zh-TW": "Group Voice Chat"
                 }
             }
         ],
@@ -2326,10 +2613,17 @@ const actionKw =
         "es-MX": "Deshabilitar chat de voz",
         "fr-FR": "Désactiver la discussion audio",
         "ja-JP": "ボイスチャットを無効化",
-        "pt-BR": "Desabilitar Bate-papo de voz",
+        "pt-BR": "Desabilitar Bate-papo de Voz",
         "th-TH": "ปิดใช้งานแชตด้วยเสียง",
         "tr-TR": "Sesli Sohbeti Devre Dışı Bırak",
-        "zh-CN": "禁用语音聊天"
+        "zh-CN": "禁用语音聊天",
+        "de-DE": "Disable Voice Chat",
+        "es-ES": "Disable Voice Chat",
+        "it-IT": "Disable Voice Chat",
+        "ko-KR": "Disable Voice Chat",
+        "pl-PL": "Disable Voice Chat",
+        "ru-RU": "Disable Voice Chat",
+        "zh-TW": "Disable Voice Chat"
     },
     "_&disallowButton": {
         "description": "Disables a logical button for one or more players such that pressing it has no effect.",
@@ -2372,7 +2666,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2407,7 +2704,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -2435,7 +2736,14 @@ const actionKw =
         "pt-BR": "Proibir Botão",
         "th-TH": "ไม่อนุญาตปุ่ม",
         "tr-TR": "Düğmeye İzin Verme",
-        "zh-CN": "禁用按钮"
+        "zh-CN": "禁用按钮",
+        "de-DE": "Disallow Button",
+        "es-ES": "Disallow Button",
+        "it-IT": "Disallow Button",
+        "ko-KR": "Disallow Button",
+        "pl-PL": "Disallow Button",
+        "ru-RU": "Disallow Button",
+        "zh-TW": "Disallow Button"
     },
     "_&enableDeathSpectateAllPlayers": {
         "description": "Allows one or more players to spectate all players when dead, as opposed to only allies.",
@@ -2478,7 +2786,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2506,7 +2817,14 @@ const actionKw =
         "pt-BR": "Ativar Visualização de Todos os Jogadores na Morte",
         "th-TH": "เปิดใช้งานการชมระหว่างตายผู้เล่นทุกคน",
         "tr-TR": "Ölüyken Tüm Oyuncuları İzleme'yi Etkinleştir",
-        "zh-CN": "对所有玩家启用死亡回放"
+        "zh-CN": "对所有玩家启用死亡回放",
+        "de-DE": "Enable Death Spectate All Players",
+        "es-ES": "Enable Death Spectate All Players",
+        "it-IT": "Enable Death Spectate All Players",
+        "ko-KR": "Enable Death Spectate All Players",
+        "pl-PL": "Enable Death Spectate All Players",
+        "ru-RU": "Enable Death Spectate All Players",
+        "zh-TW": "Enable Death Spectate All Players"
     },
     "_&enableDeathSpectateTargetHud": {
         "description": "Causes one or more players to see their spectate target's hud instead of their own while death spectating.",
@@ -2549,7 +2867,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2577,7 +2898,14 @@ const actionKw =
         "pt-BR": "Ativar HUD do Alvo de Visualização na Morte",
         "th-TH": "เปิดใช้งาน HUD การชมของเป้าหมายระหว่างตาย",
         "tr-TR": "Ölüyken İzlenilen Hedefin Ekran Göstergelerini Etkinleştir",
-        "zh-CN": "启用死亡回放时目标的HUD"
+        "zh-CN": "启用死亡回放时目标的HUD",
+        "de-DE": "Enable Death Spectate Target HUD",
+        "es-ES": "Enable Death Spectate Target HUD",
+        "it-IT": "Enable Death Spectate Target HUD",
+        "ko-KR": "Enable Death Spectate Target HUD",
+        "pl-PL": "Enable Death Spectate Target HUD",
+        "ru-RU": "Enable Death Spectate Target HUD",
+        "zh-TW": "Enable Death Spectate Target HUD"
     },
     "_&enableEnvironmentCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Environment action for one or more players.",
@@ -2620,7 +2948,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2648,7 +2979,14 @@ const actionKw =
         "pt-BR": "Habilitar Colisão de Movimento com Ambiente",
         "th-TH": "เปิดใช้งานการชนเวลาเคลื่อนที่กับสภาพแวดล้อม",
         "tr-TR": "Ortamla Hareket Çakışması'nı Etkinleştir",
-        "zh-CN": "开启与环境的移动碰撞"
+        "zh-CN": "开启与环境的移动碰撞",
+        "de-DE": "Enable Movement Collision With Environment",
+        "es-ES": "Enable Movement Collision With Environment",
+        "it-IT": "Enable Movement Collision With Environment",
+        "ko-KR": "Enable Movement Collision With Environment",
+        "pl-PL": "Enable Movement Collision With Environment",
+        "ru-RU": "Enable Movement Collision With Environment",
+        "zh-TW": "Enable Movement Collision With Environment"
     },
     "_&enableGamemodeHud": {
         "description": "Undoes the effect of the Disable Game Mode HUD Action for one or more players.",
@@ -2691,7 +3029,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2719,7 +3060,14 @@ const actionKw =
         "pt-BR": "Habilitar HUD de Modo de Jogo",
         "th-TH": "เปิดใช้งาน HUD โหมดเกม",
         "tr-TR": "Oyun Modu Ekran Göstergelerini Etkinleştir",
-        "zh-CN": "显示游戏模式HUD"
+        "zh-CN": "显示游戏模式HUD",
+        "de-DE": "Enable Game Mode HUD",
+        "es-ES": "Enable Game Mode HUD",
+        "it-IT": "Enable Game Mode HUD",
+        "ko-KR": "Enable Game Mode HUD",
+        "pl-PL": "Enable Game Mode HUD",
+        "ru-RU": "Enable Game Mode HUD",
+        "zh-TW": "Enable Game Mode HUD"
     },
     "_&enableGamemodeInWorldUi": {
         "description": "Undoes the effect of the Disable Game Mode In-World UI Action for one or more players.",
@@ -2762,7 +3110,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2790,7 +3141,14 @@ const actionKw =
         "pt-BR": "Habilitar IU no Mundo do Modo de Jogo",
         "th-TH": "เปิดใช้งาน UI ในโลกของโหมดเกม",
         "tr-TR": "Oyun Modu Oyun İçi Arayüz'ü Etkinleştir",
-        "zh-CN": "显示游戏模式地图UI"
+        "zh-CN": "显示游戏模式地图UI",
+        "de-DE": "Enable Game Mode In-World UI",
+        "es-ES": "Enable Game Mode In-World UI",
+        "it-IT": "Enable Game Mode In-World UI",
+        "ko-KR": "Enable Game Mode In-World UI",
+        "pl-PL": "Enable Game Mode In-World UI",
+        "ru-RU": "Enable Game Mode In-World UI",
+        "zh-TW": "Enable Game Mode In-World UI"
     },
     "_&enableHeroHud": {
         "description": "Undoes the effect of the Disable Hero HUD Action for one or more players.",
@@ -2833,7 +3191,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2861,7 +3222,14 @@ const actionKw =
         "pt-BR": "Habilitar HUD de Herói",
         "th-TH": "เปิดใช้งาน HUD ฮีโร่",
         "tr-TR": "Kahraman Ekran Göstergelerini Etkinleştir",
-        "zh-CN": "显示英雄HUD"
+        "zh-CN": "显示英雄HUD",
+        "de-DE": "Enable Hero HUD",
+        "es-ES": "Enable Hero HUD",
+        "it-IT": "Enable Hero HUD",
+        "ko-KR": "Enable Hero HUD",
+        "pl-PL": "Enable Hero HUD",
+        "ru-RU": "Enable Hero HUD",
+        "zh-TW": "Enable Hero HUD"
     },
     "_&enableKillFeed": {
         "description": "Undoes the effect of the Disable Kill Feed Action for one or more players.",
@@ -2904,7 +3272,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2932,7 +3303,14 @@ const actionKw =
         "pt-BR": "Habilitar Feed de Abates",
         "th-TH": "เปิดใช้งานบันทึกการฆ่า",
         "tr-TR": "Öldürme Bildirimi'ni Etkinleştir",
-        "zh-CN": "显示消灭提示"
+        "zh-CN": "显示消灭提示",
+        "de-DE": "Enable Kill Feed",
+        "es-ES": "Enable Kill Feed",
+        "it-IT": "Enable Kill Feed",
+        "ko-KR": "Enable Kill Feed",
+        "pl-PL": "Enable Kill Feed",
+        "ru-RU": "Enable Kill Feed",
+        "zh-TW": "Enable Kill Feed"
     },
     "_&enableMessages": {
         "description": "Undoes the effect of the Disable Messages Action for one or more players.",
@@ -2975,7 +3353,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3003,7 +3384,14 @@ const actionKw =
         "pt-BR": "Habilitar Mensagens",
         "th-TH": "เปิดใช้งานข้อความ",
         "tr-TR": "Mesajları Etkinleştir",
-        "zh-CN": "显示信息"
+        "zh-CN": "显示信息",
+        "de-DE": "Enable Messages",
+        "es-ES": "Enable Messages",
+        "it-IT": "Enable Messages",
+        "ko-KR": "Enable Messages",
+        "pl-PL": "Enable Messages",
+        "ru-RU": "Enable Messages",
+        "zh-TW": "Enable Messages"
     },
     "_&enableNameplatesFor": {
         "description": "Undoes the effect of Disable Nameplates for one or more viewed players from the perspective of one or more viewing players.",
@@ -3046,7 +3434,10 @@ const actionKw =
                     "ru-RU": "Наблюдаемые игроки",
                     "th-TH": "ผู้เล่นที่เห็น",
                     "tr-TR": "Görüntülenen Oyuncular",
-                    "zh-CN": "被观察的玩家"
+                    "zh-CN": "被观察的玩家",
+                    "de-DE": "Viewed Players",
+                    "ko-KR": "Viewed Players",
+                    "zh-TW": "Viewed Players"
                 }
             },
             {
@@ -3087,7 +3478,10 @@ const actionKw =
                     "ru-RU": "Наблюдающие игроки",
                     "th-TH": "ผู้เล่นที่กำลังดู",
                     "tr-TR": "Görüntüleyen Oyuncular",
-                    "zh-CN": "观察玩家"
+                    "zh-CN": "观察玩家",
+                    "de-DE": "Viewing Players",
+                    "ko-KR": "Viewing Players",
+                    "zh-TW": "Viewing Players"
                 }
             }
         ],
@@ -3115,7 +3509,14 @@ const actionKw =
         "pt-BR": "Habilitar Nomes",
         "th-TH": "เปิดใช้งานป้ายชื่อ",
         "tr-TR": "İsimliği Etkinleştir",
-        "zh-CN": "显示姓名板"
+        "zh-CN": "显示姓名板",
+        "de-DE": "Enable Nameplates",
+        "es-ES": "Enable Nameplates",
+        "it-IT": "Enable Nameplates",
+        "ko-KR": "Enable Nameplates",
+        "pl-PL": "Enable Nameplates",
+        "ru-RU": "Enable Nameplates",
+        "zh-TW": "Enable Nameplates"
     },
     "_&enablePlayerCollision": {
         "description": "Undoes the effect of the Disable Movement Collision With Players action for one or more players.",
@@ -3158,7 +3559,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3186,7 +3590,14 @@ const actionKw =
         "pt-BR": "Habilitar Colisão de Movimento com Jogadores",
         "th-TH": "เปิดใช้งานการชนเวลาเคลื่อนที่กับผู้เล่น",
         "tr-TR": "Oyuncularla Hareket Çakışması'nı Etkinleştir",
-        "zh-CN": "开启与玩家的移动碰撞"
+        "zh-CN": "开启与玩家的移动碰撞",
+        "de-DE": "Enable Movement Collision With Players",
+        "es-ES": "Enable Movement Collision With Players",
+        "it-IT": "Enable Movement Collision With Players",
+        "ko-KR": "Enable Movement Collision With Players",
+        "pl-PL": "Enable Movement Collision With Players",
+        "ru-RU": "Enable Movement Collision With Players",
+        "zh-TW": "Enable Movement Collision With Players"
     },
     "_&enableRespawn": {
         "description": "Undoes the effect of the disable built-in game mode respawning action for one or more players.",
@@ -3229,7 +3640,10 @@ const actionKw =
                     "ru-RU": "Игроки",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncular",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Players",
+                    "ko-KR": "Players",
+                    "zh-TW": "Players"
                 }
             }
         ],
@@ -3257,7 +3671,14 @@ const actionKw =
         "pt-BR": "Ativar Ressurgimento Integrado ao Modo de Jogo",
         "th-TH": "เปิดใช้งานการเกิดใหม่ในโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Yeniden Doğma'yı Etkinleştir",
-        "zh-CN": "开启游戏预设复生模式"
+        "zh-CN": "开启游戏预设复生模式",
+        "de-DE": "Enable Built-In Game Mode Respawning",
+        "es-ES": "Enable Built-In Game Mode Respawning",
+        "it-IT": "Enable Built-In Game Mode Respawning",
+        "ko-KR": "Enable Built-In Game Mode Respawning",
+        "pl-PL": "Enable Built-In Game Mode Respawning",
+        "ru-RU": "Enable Built-In Game Mode Respawning",
+        "zh-TW": "Enable Built-In Game Mode Respawning"
     },
     "_&enableScoreboard": {
         "description": "Undoes the effect of the Disable Scoreboard Action for one or more players.",
@@ -3300,7 +3721,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3328,7 +3752,14 @@ const actionKw =
         "pt-BR": "Habilitar Placar",
         "th-TH": "เปิดใช้งานกระดานคะแนน",
         "tr-TR": "Skor Tablosu'nu Etkinleştir",
-        "zh-CN": "显示计分板"
+        "zh-CN": "显示计分板",
+        "de-DE": "Enable Scoreboard",
+        "es-ES": "Enable Scoreboard",
+        "it-IT": "Enable Scoreboard",
+        "ko-KR": "Enable Scoreboard",
+        "pl-PL": "Enable Scoreboard",
+        "ru-RU": "Enable Scoreboard",
+        "zh-TW": "Enable Scoreboard"
     },
     "_&enableTextChat": {
         "description": "Undoes the effect of the Disable Text Chat Action for one or more players.",
@@ -3371,7 +3802,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3399,7 +3833,14 @@ const actionKw =
         "pt-BR": "Habilitar Bate-papo de Texto",
         "th-TH": "เปิดใช้งานการสนทนาด้วยข้อความ",
         "tr-TR": "Yazılı Sohbeti Etkinleştir",
-        "zh-CN": "启用文字聊天"
+        "zh-CN": "启用文字聊天",
+        "de-DE": "Enable Text Chat",
+        "es-ES": "Enable Text Chat",
+        "it-IT": "Enable Text Chat",
+        "ko-KR": "Enable Text Chat",
+        "pl-PL": "Enable Text Chat",
+        "ru-RU": "Enable Text Chat",
+        "zh-TW": "Enable Text Chat"
     },
     "_&enableVoiceChat": {
         "description": "Undoes the effect of the Disable Voice Chat Action for one or more players.",
@@ -3442,7 +3883,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3470,7 +3914,14 @@ const actionKw =
         "pt-BR": "Habilitar Bate-papo de Voz",
         "th-TH": "เปิดใช้งานแชตด้วยเสียง",
         "tr-TR": "Sesli Sohbeti Aktifleştir",
-        "zh-CN": "启用语音聊天"
+        "zh-CN": "启用语音聊天",
+        "de-DE": "Enable Voice Chat",
+        "es-ES": "Enable Voice Chat",
+        "it-IT": "Enable Voice Chat",
+        "ko-KR": "Enable Voice Chat",
+        "pl-PL": "Enable Voice Chat",
+        "ru-RU": "Enable Voice Chat",
+        "zh-TW": "Enable Voice Chat"
     },
     "_&forceButtonPress": {
         "description": "Forces one or more players to press a button virtually for a single frame.",
@@ -3513,7 +3964,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -3548,7 +4002,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -3576,7 +4034,14 @@ const actionKw =
         "pt-BR": "Pressionar Botão",
         "th-TH": "กดปุ่ม",
         "tr-TR": "Düğmeye Bas",
-        "zh-CN": "按下按键"
+        "zh-CN": "按下按键",
+        "de-DE": "Press Button",
+        "es-ES": "Press Button",
+        "it-IT": "Press Button",
+        "ko-KR": "Press Button",
+        "pl-PL": "Press Button",
+        "ru-RU": "Press Button",
+        "zh-TW": "Press Button"
     },
     "_&preloadHero": {
         "description": "Preemptively loads the specified hero or heroes into memory using the skins of the specified player or players, available memory permitting. Useful whenever rapid hero changing is possible and the next hero is known.",
@@ -3619,7 +4084,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -3652,14 +4120,18 @@ const actionKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             }
         ],
@@ -3687,7 +4159,14 @@ const actionKw =
         "pt-BR": "Pré-carregar Herói",
         "th-TH": "โหลดฮีโร่ล่วงหน้า",
         "tr-TR": "Kahramanı Önceden Yükle",
-        "zh-CN": "预加载英雄"
+        "zh-CN": "预加载英雄",
+        "de-DE": "Preload Hero",
+        "es-ES": "Preload Hero",
+        "it-IT": "Preload Hero",
+        "ko-KR": "Preload Hero",
+        "pl-PL": "Preload Hero",
+        "ru-RU": "Preload Hero",
+        "zh-TW": "Preload Hero"
     },
     "_&removeAllHealthPools": {
         "description": "Removes all health pools that were added to a player or players via the Add Health Pool action.",
@@ -3730,7 +4209,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3758,7 +4240,14 @@ const actionKw =
         "pt-BR": "Remover Todas as Reservas de Vida de Jogador",
         "th-TH": "เอาบ่อพลังชีวิตทั้งหมดออกจากผู้เล่น",
         "tr-TR": "Oyuncu'nun Tüm Can Havuzlarını Kaldır",
-        "zh-CN": "移除玩家的所有生命值"
+        "zh-CN": "移除玩家的所有生命值",
+        "de-DE": "Remove All Health Pools From Player",
+        "es-ES": "Remove All Health Pools From Player",
+        "it-IT": "Remove All Health Pools From Player",
+        "ko-KR": "Remove All Health Pools From Player",
+        "pl-PL": "Remove All Health Pools From Player",
+        "ru-RU": "Remove All Health Pools From Player",
+        "zh-TW": "Remove All Health Pools From Player"
     },
     "_&resetHeroAvailability": {
         "description": "Restores the list of heroes available to one or more players to the list specified by the game settings. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -3801,7 +4290,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3829,7 +4321,14 @@ const actionKw =
         "pt-BR": "Redefinir Disponibilidade de Heróis para o Jogador",
         "th-TH": "รีเซ็ตฮีโร่ที่ใช้ได้ของผู้เล่น",
         "tr-TR": "Oyuncu'nun Kahraman Kullanılabilirliğini Sıfırla",
-        "zh-CN": "重置玩家英雄可选状态"
+        "zh-CN": "重置玩家英雄可选状态",
+        "de-DE": "Reset Player Hero Availability",
+        "es-ES": "Reset Player Hero Availability",
+        "it-IT": "Reset Player Hero Availability",
+        "ko-KR": "Reset Player Hero Availability",
+        "pl-PL": "Reset Player Hero Availability",
+        "ru-RU": "Reset Player Hero Availability",
+        "zh-TW": "Reset Player Hero Availability"
     },
     "_&respawn": {
         "description": "Respawns one or more players at an appropriate spawn location with full health, even if they were already alive.",
@@ -3872,7 +4371,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3900,7 +4402,14 @@ const actionKw =
         "pt-BR": "Ressurgir",
         "th-TH": "เกิดใหม่",
         "tr-TR": "Yeniden Doğ",
-        "zh-CN": "复生"
+        "zh-CN": "复生",
+        "de-DE": "Respawn",
+        "es-ES": "Respawn",
+        "it-IT": "Respawn",
+        "ko-KR": "Respawn",
+        "pl-PL": "Respawn",
+        "ru-RU": "Respawn",
+        "zh-TW": "Respawn"
     },
     "_&resurrect": {
         "guid": "000000007878",
@@ -3944,7 +4453,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3972,7 +4484,13 @@ const actionKw =
         "pt-BR": "Ressuscitar",
         "th-TH": "รีเซอร์เร็ก",
         "tr-TR": "Diriliş",
-        "zh-CN": "复活"
+        "zh-CN": "复活",
+        "de-DE": "Resurrect",
+        "it-IT": "Resurrect",
+        "ko-KR": "Resurrect",
+        "pl-PL": "Resurrect",
+        "ru-RU": "Resurrect",
+        "zh-TW": "Resurrect"
     },
     "_&setAbility1Enabled": {
         "description": "Enables or disables ability 1 for one or more players.",
@@ -4015,7 +4533,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4051,7 +4572,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -4079,7 +4603,14 @@ const actionKw =
         "pt-BR": "Definir Habilidade 1 como Ativada",
         "th-TH": "ตั้งค่าเปิดใช้งานความสามารถ 1",
         "tr-TR": "1. Kabiliyeti Etkinleştir",
-        "zh-CN": "设置启用技能 1"
+        "zh-CN": "设置启用技能 1",
+        "de-DE": "Set Ability 1 Enabled",
+        "es-ES": "Set Ability 1 Enabled",
+        "it-IT": "Set Ability 1 Enabled",
+        "ko-KR": "Set Ability 1 Enabled",
+        "pl-PL": "Set Ability 1 Enabled",
+        "ru-RU": "Set Ability 1 Enabled",
+        "zh-TW": "Set Ability 1 Enabled"
     },
     "_&setAbility2Enabled": {
         "description": "Enables or disables ability 2 for one or more players.",
@@ -4122,7 +4653,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4158,7 +4692,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -4186,7 +4723,14 @@ const actionKw =
         "pt-BR": "Definir Habilidade 2 como Ativada",
         "th-TH": "ตั้งค่าเปิดใช้งานความสามารถ 2",
         "tr-TR": "2. Kabiliyeti Etkinleştir",
-        "zh-CN": "设置启用技能 2"
+        "zh-CN": "设置启用技能 2",
+        "de-DE": "Set Ability 2 Enabled",
+        "es-ES": "Set Ability 2 Enabled",
+        "it-IT": "Set Ability 2 Enabled",
+        "ko-KR": "Set Ability 2 Enabled",
+        "pl-PL": "Set Ability 2 Enabled",
+        "ru-RU": "Set Ability 2 Enabled",
+        "zh-TW": "Set Ability 2 Enabled"
     },
     "_&setAbilityCharge": {
         "description": "Set the ability charge count for one or more players. Affects abilities such as Tracer's Blink, Junkrat's Mines, etc.",
@@ -4244,7 +4788,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4279,7 +4826,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             },
             {
@@ -4317,7 +4868,10 @@ const actionKw =
                     "ru-RU": "Количество зарядов",
                     "th-TH": "จำนวนชาร์จ",
                     "tr-TR": "Dolum Miktarı",
-                    "zh-CN": "充能计数"
+                    "zh-CN": "充能计数",
+                    "de-DE": "Charge Count",
+                    "ko-KR": "Charge Count",
+                    "zh-TW": "Charge Count"
                 }
             }
         ],
@@ -4330,7 +4884,14 @@ const actionKw =
         "pt-BR": "Definir Cargas de Habilidade",
         "th-TH": "ตั้งค่าชาร์จความสามารถ",
         "tr-TR": "Kabiliyet Dolum Oranı'nı Ayarla",
-        "zh-CN": "设置技能充能"
+        "zh-CN": "设置技能充能",
+        "de-DE": "Set Ability Charge",
+        "es-ES": "Set Ability Charge",
+        "it-IT": "Set Ability Charge",
+        "ko-KR": "Set Ability Charge",
+        "pl-PL": "Set Ability Charge",
+        "ru-RU": "Set Ability Charge",
+        "zh-TW": "Set Ability Charge"
     },
     "_&setAbilityCooldown": {
         "description": "Set the ability cooldown time for one or more players.",
@@ -4388,7 +4949,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4423,7 +4987,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             },
             {
@@ -4460,7 +5028,11 @@ const actionKw =
                     "ru-RU": "Время восстановления",
                     "th-TH": "คูลดาวน์",
                     "tr-TR": "Dolum Süresi",
-                    "zh-CN": "冷却时间"
+                    "zh-CN": "冷却时间",
+                    "de-DE": "Cooldown",
+                    "it-IT": "Cooldown",
+                    "ko-KR": "Cooldown",
+                    "zh-TW": "Cooldown"
                 }
             }
         ],
@@ -4473,7 +5045,14 @@ const actionKw =
         "pt-BR": "Definir Tempo de Recarga da Habilidade",
         "th-TH": "ตั้งค่าคูลดาวน์ความสามารถ",
         "tr-TR": "Kabiliyet Dolum Süresini Ayarla",
-        "zh-CN": "设置技能冷却"
+        "zh-CN": "设置技能冷却",
+        "de-DE": "Set Ability Cooldown",
+        "es-ES": "Set Ability Cooldown",
+        "it-IT": "Set Ability Cooldown",
+        "ko-KR": "Set Ability Cooldown",
+        "pl-PL": "Set Ability Cooldown",
+        "ru-RU": "Set Ability Cooldown",
+        "zh-TW": "Set Ability Cooldown"
     },
     "_&setAbilityResource": {
         "description": "Set the ability resource percentage for one or more players. Affects abilities such as Dva's Defense Matrix, Pharah's Hover Jets, etc.",
@@ -4531,7 +5110,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4566,7 +5148,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             },
             {
@@ -4604,7 +5190,10 @@ const actionKw =
                     "ru-RU": "Процент ресурса",
                     "th-TH": "เปอร์เซ็นต์ทรัพยากร",
                     "tr-TR": "Kaynak Yüzdesi",
-                    "zh-CN": "资源百分比"
+                    "zh-CN": "资源百分比",
+                    "de-DE": "Resource Percent",
+                    "ko-KR": "Resource Percent",
+                    "zh-TW": "Resource Percent"
                 }
             }
         ],
@@ -4617,7 +5206,14 @@ const actionKw =
         "pt-BR": "Definir Recurso de Habilidade",
         "th-TH": "ตั้งค่าทรัพยากรความสามารถ",
         "tr-TR": "Kabiliyet Kaynağı Ayarla",
-        "zh-CN": "设置技能资源"
+        "zh-CN": "设置技能资源",
+        "de-DE": "Set Ability Resource",
+        "es-ES": "Set Ability Resource",
+        "it-IT": "Set Ability Resource",
+        "ko-KR": "Set Ability Resource",
+        "pl-PL": "Set Ability Resource",
+        "ru-RU": "Set Ability Resource",
+        "zh-TW": "Set Ability Resource"
     },
     "_&setAimSpeed": {
         "description": "Sets the aim speed of one or more players to a percentage of their normal aim speed.",
@@ -4660,7 +5256,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4696,7 +5295,10 @@ const actionKw =
                     "ru-RU": "Процент скорости повторота",
                     "th-TH": "เปอร์เซ็นต์ความเร็วการหัน",
                     "tr-TR": "Dönüş Hızı Yüzdesi",
-                    "zh-CN": "转向速度百分比"
+                    "zh-CN": "转向速度百分比",
+                    "de-DE": "Turn Speed Percent",
+                    "ko-KR": "Turn Speed Percent",
+                    "zh-TW": "Turn Speed Percent"
                 }
             }
         ],
@@ -4724,7 +5326,14 @@ const actionKw =
         "pt-BR": "Definir Velocidade de Mira",
         "th-TH": "ตั้งค่าความเร็วในการเล็ง",
         "tr-TR": "Nişan Alma Hızı'nı Ayarla",
-        "zh-CN": "设置瞄准速度"
+        "zh-CN": "设置瞄准速度",
+        "de-DE": "Set Aim Speed",
+        "es-ES": "Set Aim Speed",
+        "it-IT": "Set Aim Speed",
+        "ko-KR": "Set Aim Speed",
+        "pl-PL": "Set Aim Speed",
+        "ru-RU": "Set Aim Speed",
+        "zh-TW": "Set Aim Speed"
     },
     "_&setAllowedHeroes": {
         "description": "Sets the list of heroes available to one or more players. If a player's current hero becomes unavailable, the player is forced to choose a different hero and respawn at an appropriate spawn location.",
@@ -4767,7 +5376,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4800,14 +5412,18 @@ const actionKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             }
         ],
@@ -4835,7 +5451,14 @@ const actionKw =
         "pt-BR": "Definir Heróis Permitidos para o Jogador",
         "th-TH": "ตั้งค่าฮีโร่ที่อนุญาตของผู้เล่น",
         "tr-TR": "Oyuncu'nun Seçebildiği Kahramanları Ayarla",
-        "zh-CN": "设置玩家可选的英雄"
+        "zh-CN": "设置玩家可选的英雄",
+        "de-DE": "Set Player Allowed Heroes",
+        "es-ES": "Set Player Allowed Heroes",
+        "it-IT": "Set Player Allowed Heroes",
+        "ko-KR": "Set Player Allowed Heroes",
+        "pl-PL": "Set Player Allowed Heroes",
+        "ru-RU": "Set Player Allowed Heroes",
+        "zh-TW": "Set Player Allowed Heroes"
     },
     "_&setAmmo": {
         "description": "Sets the ammo of one or more players.",
@@ -4878,7 +5501,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4916,7 +5542,10 @@ const actionKw =
                     "ru-RU": "Боекомплект",
                     "th-TH": "คลิป",
                     "tr-TR": "Şarjör",
-                    "zh-CN": "弹夹"
+                    "zh-CN": "弹夹",
+                    "de-DE": "Clip",
+                    "ko-KR": "Clip",
+                    "zh-TW": "Clip"
                 }
             },
             {
@@ -4950,7 +5579,14 @@ const actionKw =
                     "ja-JP": "弾薬数",
                     "pt-BR": "Munição",
                     "tr-TR": "Cephane",
-                    "zh-CN": "弹药"
+                    "zh-CN": "弹药",
+                    "de-DE": "Ammo",
+                    "it-IT": "Ammo",
+                    "ko-KR": "Ammo",
+                    "pl-PL": "Ammo",
+                    "ru-RU": "Ammo",
+                    "th-TH": "Ammo",
+                    "zh-TW": "Ammo"
                 }
             }
         ],
@@ -4978,7 +5614,14 @@ const actionKw =
         "pt-BR": "Definir Munição",
         "th-TH": "ตั้งค่ากระสุน",
         "tr-TR": "Cephaneyi Ayarla",
-        "zh-CN": "设置弹药"
+        "zh-CN": "设置弹药",
+        "de-DE": "Set Ammo",
+        "es-ES": "Set Ammo",
+        "it-IT": "Set Ammo",
+        "ko-KR": "Set Ammo",
+        "pl-PL": "Set Ammo",
+        "ru-RU": "Set Ammo",
+        "zh-TW": "Set Ammo"
     },
     "_&setCrouchEnabled": {
         "description": "Enables or disables crouch for one or more players.",
@@ -5021,7 +5664,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5057,7 +5703,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -5085,7 +5734,14 @@ const actionKw =
         "pt-BR": "Definir Agachar Ativado",
         "th-TH": "ตั้งค่าเปิดใช้งานการหมอบ",
         "tr-TR": "Çömel'i Etkinleştir",
-        "zh-CN": "设置启用蹲下"
+        "zh-CN": "设置启用蹲下",
+        "de-DE": "Set Crouch Enabled",
+        "es-ES": "Set Crouch Enabled",
+        "it-IT": "Set Crouch Enabled",
+        "ko-KR": "Set Crouch Enabled",
+        "pl-PL": "Set Crouch Enabled",
+        "ru-RU": "Set Crouch Enabled",
+        "zh-TW": "Set Crouch Enabled"
     },
     "_&setDamageDealt": {
         "description": "Sets the damage dealt of one or more players to a percentage of their raw damage dealt.",
@@ -5128,7 +5784,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5167,7 +5826,10 @@ const actionKw =
                     "ru-RU": "Процент нанесенного урона",
                     "th-TH": "เปอร์เซ็นต์ความเสียหายที่สร้าง",
                     "tr-TR": "Verilen Hasar Yüzdesi",
-                    "zh-CN": "造成伤害百分比"
+                    "zh-CN": "造成伤害百分比",
+                    "de-DE": "Damage Dealt Percent",
+                    "ko-KR": "Damage Dealt Percent",
+                    "zh-TW": "Damage Dealt Percent"
                 }
             }
         ],
@@ -5196,7 +5858,14 @@ const actionKw =
         "pt-BR": "Definir Dano Causado",
         "th-TH": "ตั้งค่าความเสียหายที่สร้าง",
         "tr-TR": "Verilen Hasar'ı Ayarla",
-        "zh-CN": "设置造成伤害"
+        "zh-CN": "设置造成伤害",
+        "de-DE": "Set Damage Dealt",
+        "es-ES": "Set Damage Dealt",
+        "it-IT": "Set Damage Dealt",
+        "ko-KR": "Set Damage Dealt",
+        "pl-PL": "Set Damage Dealt",
+        "ru-RU": "Set Damage Dealt",
+        "zh-TW": "Set Damage Dealt"
     },
     "_&setDamageReceived": {
         "description": "Sets the damage received of one or more players to a percentage of their raw damage received.",
@@ -5239,7 +5908,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5278,7 +5950,10 @@ const actionKw =
                     "ru-RU": "Процент полученного урона",
                     "th-TH": "เปอร์เซ็นต์ความเสียหายที่ได้รับ",
                     "tr-TR": "Alınan Hasar Yüzdesi",
-                    "zh-CN": "受到伤害百分比"
+                    "zh-CN": "受到伤害百分比",
+                    "de-DE": "Damage Received Percent",
+                    "ko-KR": "Damage Received Percent",
+                    "zh-TW": "Damage Received Percent"
                 }
             }
         ],
@@ -5307,7 +5982,14 @@ const actionKw =
         "pt-BR": "Definir Dano Recebido",
         "th-TH": "ตั้งค่าความเสียหายที่ได้รับ",
         "tr-TR": "Alınan Hasar'ı Ayarla",
-        "zh-CN": "设置受到伤害"
+        "zh-CN": "设置受到伤害",
+        "de-DE": "Set Damage Received",
+        "es-ES": "Set Damage Received",
+        "it-IT": "Set Damage Received",
+        "ko-KR": "Set Damage Received",
+        "pl-PL": "Set Damage Received",
+        "ru-RU": "Set Damage Received",
+        "zh-TW": "Set Damage Received"
     },
     "_&setEnvironmentalKillCreditor": {
         "description": "Sets the player who will receive credit if the specified target player or players die to the environment before landing on the ground.",
@@ -5350,7 +6032,10 @@ const actionKw =
                     "ru-RU": "Цель",
                     "th-TH": "เป้าหมาย",
                     "tr-TR": "Hedef",
-                    "zh-CN": "目标"
+                    "zh-CN": "目标",
+                    "de-DE": "Target",
+                    "ko-KR": "Target",
+                    "zh-TW": "Target"
                 }
             },
             {
@@ -5385,8 +6070,11 @@ const actionKw =
                     "pt-BR": "Jogador de Crédito de Ambiente",
                     "ru-RU": "Присуждение убийства с помощью окружения",
                     "th-TH": "ผู้เล่นที่ได้เครดิตจากสภาพแวดล้อม",
-                    "tr-TR": "Ortamdan Pay Alan Oyuncu",
-                    "zh-CN": "地形消灭者玩家"
+                    "tr-TR": "Ortam Kredi Oyuncusu",
+                    "zh-CN": "地形消灭者玩家",
+                    "de-DE": "Environment Credit Player",
+                    "ko-KR": "Environment Credit Player",
+                    "zh-TW": "Environment Credit Player"
                 }
             }
         ],
@@ -5413,8 +6101,15 @@ const actionKw =
         "ja-JP": "環境要因プレイヤーを設定",
         "pt-BR": "Definir Jogador de Crédito de Ambiente",
         "th-TH": "ตั้งค่าผู้เล่นที่ได้เครดิตจากสภาพแวดล้อม",
-        "tr-TR": "Ortamdan Pay Alan Oyuncuyu Ayarla",
-        "zh-CN": "设置地形消灭者玩家"
+        "tr-TR": "Ortam Kredi Oyuncusu Ayarla",
+        "zh-CN": "设置地形消灭者玩家",
+        "de-DE": "Set Environment Credit Player",
+        "es-ES": "Set Environment Credit Player",
+        "it-IT": "Set Environment Credit Player",
+        "ko-KR": "Set Environment Credit Player",
+        "pl-PL": "Set Environment Credit Player",
+        "ru-RU": "Set Environment Credit Player",
+        "zh-TW": "Set Environment Credit Player"
     },
     "_&setFacing": {
         "description": "Sets the facing of one or more players to the specified direction.",
@@ -5457,7 +6152,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5491,7 +6189,12 @@ const actionKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             },
             {
@@ -5527,7 +6230,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 }
             }
         ],
@@ -5555,7 +6261,14 @@ const actionKw =
         "pt-BR": "Definir Encarar",
         "th-TH": "ตั้งค่าการหันหน้า",
         "tr-TR": "Konumlandırma'yı Ayarla",
-        "zh-CN": "设置朝向"
+        "zh-CN": "设置朝向",
+        "de-DE": "Set Facing",
+        "es-ES": "Set Facing",
+        "it-IT": "Set Facing",
+        "ko-KR": "Set Facing",
+        "pl-PL": "Set Facing",
+        "ru-RU": "Set Facing",
+        "zh-TW": "Set Facing"
     },
     "_&setGravity": {
         "description": "Sets the movement gravity for one or more players to a percentage of regular movement gravity.",
@@ -5598,7 +6311,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5636,7 +6352,10 @@ const actionKw =
                     "ru-RU": "Процент силы гравитации",
                     "th-TH": "เปอร์เซ็นต์แรงโน้มถ่วง",
                     "tr-TR": "Yer Çekimi Yüzdesi",
-                    "zh-CN": "引力百分比"
+                    "zh-CN": "引力百分比",
+                    "de-DE": "Gravity Percent",
+                    "ko-KR": "Gravity Percent",
+                    "zh-TW": "Gravity Percent"
                 }
             }
         ],
@@ -5664,7 +6383,14 @@ const actionKw =
         "pt-BR": "Definir Gravidade",
         "th-TH": "ตั้งค่าแรงโน้มถ่วงต่ำ",
         "tr-TR": "Yer Çekimi'ni Ayarla",
-        "zh-CN": "设置引力"
+        "zh-CN": "设置引力",
+        "de-DE": "Set Gravity",
+        "es-ES": "Set Gravity",
+        "it-IT": "Set Gravity",
+        "ko-KR": "Set Gravity",
+        "pl-PL": "Set Gravity",
+        "ru-RU": "Set Gravity",
+        "zh-TW": "Set Gravity"
     },
     "_&setHealingDealt": {
         "description": "Sets the healing dealt of one or more players to a percentage of their raw healing dealt.",
@@ -5707,7 +6433,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5735,7 +6464,10 @@ const actionKw =
                     "ru-RU": "Процент исходящего исцеления",
                     "th-TH": "เปอร์เซ็นต์การฮีลที่สร้าง",
                     "tr-TR": "Verilen İyileştirme Yüzdesi",
-                    "zh-CN": "造成治疗百分比"
+                    "zh-CN": "造成治疗百分比",
+                    "de-DE": "Healing Dealt Percent",
+                    "ko-KR": "Healing Dealt Percent",
+                    "zh-TW": "Healing Dealt Percent"
                 }
             }
         ],
@@ -5764,7 +6496,14 @@ const actionKw =
         "pt-BR": "Definir Cura Realizada",
         "th-TH": "ตั้งค่าการฮีลที่สร้าง",
         "tr-TR": "Verilen İyileştirme'yi Ayarla",
-        "zh-CN": "设置造成治疗"
+        "zh-CN": "设置造成治疗",
+        "de-DE": "Set Healing Dealt",
+        "es-ES": "Set Healing Dealt",
+        "it-IT": "Set Healing Dealt",
+        "ko-KR": "Set Healing Dealt",
+        "pl-PL": "Set Healing Dealt",
+        "ru-RU": "Set Healing Dealt",
+        "zh-TW": "Set Healing Dealt"
     },
     "_&setHealingReceived": {
         "description": "Sets the healing received of one or more players to a percentage of their raw healing received.",
@@ -5807,7 +6546,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5843,7 +6585,10 @@ const actionKw =
                     "ru-RU": "Процент входящего исцеления",
                     "th-TH": "เปอร์เซ็นต์ฮีลที่ได้รับ",
                     "tr-TR": "Alınan İyileştirme Yüzdesi",
-                    "zh-CN": "受到治疗百分比"
+                    "zh-CN": "受到治疗百分比",
+                    "de-DE": "Healing Received Percent",
+                    "ko-KR": "Healing Received Percent",
+                    "zh-TW": "Healing Received Percent"
                 }
             }
         ],
@@ -5871,7 +6616,14 @@ const actionKw =
         "pt-BR": "Definir Cura Recebida",
         "th-TH": "ตั้งค่าฮีลที่ได้รับ",
         "tr-TR": "Alınan İyileştirme'yi Ayarla",
-        "zh-CN": "设置受到治疗"
+        "zh-CN": "设置受到治疗",
+        "de-DE": "Set Healing Received",
+        "es-ES": "Set Healing Received",
+        "it-IT": "Set Healing Received",
+        "ko-KR": "Set Healing Received",
+        "pl-PL": "Set Healing Received",
+        "ru-RU": "Set Healing Received",
+        "zh-TW": "Set Healing Received"
     },
     "_&setHealth": {
         "description": "Sets the health of a player or players without affecting stats or granting damage/healing credit. This action only has an effect on living players. (For dead players, use the Resurrect Player action instead.)",
@@ -5914,7 +6666,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -5950,7 +6705,10 @@ const actionKw =
                     "ru-RU": "Объем",
                     "th-TH": "ปริมาณ",
                     "tr-TR": "Miktar",
-                    "zh-CN": "伤害量"
+                    "zh-CN": "伤害量",
+                    "de-DE": "Amount",
+                    "ko-KR": "Amount",
+                    "zh-TW": "Amount"
                 }
             }
         ],
@@ -5978,7 +6736,14 @@ const actionKw =
         "pt-BR": "Definir Vida do Jogador",
         "th-TH": "ตั้งค่าพลังชีวิตของผู้เล่น",
         "tr-TR": "Oyuncu Canını Ayarla",
-        "zh-CN": "设置玩家生命值"
+        "zh-CN": "设置玩家生命值",
+        "de-DE": "Set Player Health",
+        "es-ES": "Set Player Health",
+        "it-IT": "Set Player Health",
+        "ko-KR": "Set Player Health",
+        "pl-PL": "Set Player Health",
+        "ru-RU": "Set Player Health",
+        "zh-TW": "Set Player Health"
     },
     "_&setInvisibility": {
         "description": "Causes one or more players to become invisible to either all other players or just enemies.",
@@ -6021,7 +6786,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6057,7 +6825,10 @@ const actionKw =
                     "ru-RU": "Невидимость для",
                     "th-TH": "มองไม่เห็นสำหรับ",
                     "tr-TR": "Görmeyenler",
-                    "zh-CN": "不可见"
+                    "zh-CN": "不可见",
+                    "de-DE": "Invisible To",
+                    "ko-KR": "Invisible To",
+                    "zh-TW": "Invisible To"
                 }
             }
         ],
@@ -6085,7 +6856,14 @@ const actionKw =
         "pt-BR": "Definir como Invisível",
         "th-TH": "ตั้งค่าการมองไม่เห็น",
         "tr-TR": "Görünmez Olarak Ayarla",
-        "zh-CN": "设置不可见"
+        "zh-CN": "设置不可见",
+        "de-DE": "Set Invisible",
+        "es-ES": "Set Invisible",
+        "it-IT": "Set Invisible",
+        "ko-KR": "Set Invisible",
+        "pl-PL": "Set Invisible",
+        "ru-RU": "Set Invisible",
+        "zh-TW": "Set Invisible"
     },
     "_&setJumpEnabled": {
         "description": "Enables or disables jump for one or more players.",
@@ -6128,7 +6906,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6164,7 +6945,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -6192,7 +6976,14 @@ const actionKw =
         "pt-BR": "Definir Pular Ativado",
         "th-TH": "ตั้งค่าเปิดใช้งานการกระโดด",
         "tr-TR": "Zıpla'yı Etkinleştir",
-        "zh-CN": "设置启用跳跃"
+        "zh-CN": "设置启用跳跃",
+        "de-DE": "Set Jump Enabled",
+        "es-ES": "Set Jump Enabled",
+        "it-IT": "Set Jump Enabled",
+        "ko-KR": "Set Jump Enabled",
+        "pl-PL": "Set Jump Enabled",
+        "ru-RU": "Set Jump Enabled",
+        "zh-TW": "Set Jump Enabled"
     },
     "_&setJumpVerticalSpeed": {
         "description": "Sets the jump vertical speed of one or more players to a percentage of their raw jump vertical speed.",
@@ -6235,7 +7026,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6271,7 +7065,10 @@ const actionKw =
                     "ru-RU": "Процент вертикальной скорости прыжка",
                     "th-TH": "เปอร์เซ็นต์ความเร็วการกระโดดแนวตั้ง",
                     "tr-TR": "Zıplama Jeti Dikey Hızı",
-                    "zh-CN": "垂直跳跃速度百分比"
+                    "zh-CN": "垂直跳跃速度百分比",
+                    "de-DE": "Jump Vertical Speed Percent",
+                    "ko-KR": "Jump Vertical Speed Percent",
+                    "zh-TW": "Jump Vertical Speed Percent"
                 }
             }
         ],
@@ -6299,7 +7096,14 @@ const actionKw =
         "pt-BR": "Definir Velocidade Vertical do Salto",
         "th-TH": "ตั้งค่าความเร็วการกระโดดแนวตั้ง",
         "tr-TR": "Zıplama Jeti Dikey Hızı'nı Ayarla",
-        "zh-CN": "设置跳跃垂直速度"
+        "zh-CN": "设置跳跃垂直速度",
+        "de-DE": "Set Jump Vertical Speed",
+        "es-ES": "Set Jump Vertical Speed",
+        "it-IT": "Set Jump Vertical Speed",
+        "ko-KR": "Set Jump Vertical Speed",
+        "pl-PL": "Set Jump Vertical Speed",
+        "ru-RU": "Set Jump Vertical Speed",
+        "zh-TW": "Set Jump Vertical Speed"
     },
     "_&setKnockbackDealt": {
         "description": "Sets the knockback dealt of one or more players to a percentage of their raw knockback dealt.",
@@ -6342,7 +7146,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6378,7 +7185,10 @@ const actionKw =
                     "ru-RU": "Процент произведенного отбрасывания",
                     "th-TH": "เปอร์เซ็นต์การกระเด็นถอยหลังที่สร้าง",
                     "tr-TR": "Verilen Geri İtme Yüzdesi",
-                    "zh-CN": "造成击退百分比"
+                    "zh-CN": "造成击退百分比",
+                    "de-DE": "Knockback Dealt Percent",
+                    "ko-KR": "Knockback Dealt Percent",
+                    "zh-TW": "Knockback Dealt Percent"
                 }
             }
         ],
@@ -6406,7 +7216,14 @@ const actionKw =
         "pt-BR": "Definir Repulsão Causada",
         "th-TH": "ตั้งค่าการกระเด็นถอยหลังที่สร้าง",
         "tr-TR": "Verilen Geri İtmeyi Ayarla",
-        "zh-CN": "设置造成的击退"
+        "zh-CN": "设置造成的击退",
+        "de-DE": "Set Knockback Dealt",
+        "es-ES": "Set Knockback Dealt",
+        "it-IT": "Set Knockback Dealt",
+        "ko-KR": "Set Knockback Dealt",
+        "pl-PL": "Set Knockback Dealt",
+        "ru-RU": "Set Knockback Dealt",
+        "zh-TW": "Set Knockback Dealt"
     },
     "_&setKnockbackReceived": {
         "description": "Sets the knockback received of one or more players to a percentage of their raw knockback received.",
@@ -6449,7 +7266,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6485,7 +7305,10 @@ const actionKw =
                     "ru-RU": "Процент получаемого отбрасывания",
                     "th-TH": "เปอร์เซ็นต์การกระเด็นถอยหลังที่ได้รับ",
                     "tr-TR": "Alınan Geri İtme Yüzdesi",
-                    "zh-CN": "受到击退百分比"
+                    "zh-CN": "受到击退百分比",
+                    "de-DE": "Knockback Received Percent",
+                    "ko-KR": "Knockback Received Percent",
+                    "zh-TW": "Knockback Received Percent"
                 }
             }
         ],
@@ -6513,7 +7336,14 @@ const actionKw =
         "pt-BR": "Definir Repulsão Recebida",
         "th-TH": "ตั้งค่าการกระเด็นถอยหลังที่ได้รับ",
         "tr-TR": "Alınan Geri İtmeyi Ayarla",
-        "zh-CN": "设置受到的击退"
+        "zh-CN": "设置受到的击退",
+        "de-DE": "Set Knockback Received",
+        "es-ES": "Set Knockback Received",
+        "it-IT": "Set Knockback Received",
+        "ko-KR": "Set Knockback Received",
+        "pl-PL": "Set Knockback Received",
+        "ru-RU": "Set Knockback Received",
+        "zh-TW": "Set Knockback Received"
     },
     "_&setMaxAmmo": {
         "description": "Sets the max ammo of one or more players.",
@@ -6556,7 +7386,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6594,7 +7427,10 @@ const actionKw =
                     "ru-RU": "Боекомплект",
                     "th-TH": "คลิป",
                     "tr-TR": "Şarjör",
-                    "zh-CN": "弹夹"
+                    "zh-CN": "弹夹",
+                    "de-DE": "Clip",
+                    "ko-KR": "Clip",
+                    "zh-TW": "Clip"
                 }
             },
             {
@@ -6628,7 +7464,14 @@ const actionKw =
                     "ja-JP": "弾薬数",
                     "pt-BR": "Munição",
                     "tr-TR": "Cephane",
-                    "zh-CN": "弹药"
+                    "zh-CN": "弹药",
+                    "de-DE": "Ammo",
+                    "it-IT": "Ammo",
+                    "ko-KR": "Ammo",
+                    "pl-PL": "Ammo",
+                    "ru-RU": "Ammo",
+                    "th-TH": "Ammo",
+                    "zh-TW": "Ammo"
                 }
             }
         ],
@@ -6655,8 +7498,15 @@ const actionKw =
         "ja-JP": "最大弾薬数を設定",
         "pt-BR": "Definir Munição Máxima",
         "th-TH": "ตั้งค่ากระสุนสูงสุด",
-        "tr-TR": "Azami Cephaneyi Ayarla",
-        "zh-CN": "设置最大弹药"
+        "tr-TR": "Maks. Cephaneyi Ayarla",
+        "zh-CN": "设置最大弹药",
+        "de-DE": "Set Max Ammo",
+        "es-ES": "Set Max Ammo",
+        "it-IT": "Set Max Ammo",
+        "ko-KR": "Set Max Ammo",
+        "pl-PL": "Set Max Ammo",
+        "ru-RU": "Set Max Ammo",
+        "zh-TW": "Set Max Ammo"
     },
     "_&setMaxHealth": {
         "description": "Sets the max health of one or more players as a percentage of their max health. This action will ensure that a player's current health will not exceed the new max health.",
@@ -6714,7 +7564,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6753,7 +7606,10 @@ const actionKw =
                     "ru-RU": "Процент здоровья",
                     "th-TH": "เปอร์เซ็นต์พลังชีวิต",
                     "tr-TR": "Can Yüzdesi",
-                    "zh-CN": "生命百分比"
+                    "zh-CN": "生命百分比",
+                    "de-DE": "Health Percent",
+                    "ko-KR": "Health Percent",
+                    "zh-TW": "Health Percent"
                 }
             }
         ],
@@ -6767,7 +7623,14 @@ const actionKw =
         "pt-BR": "Definir Vida Máxima",
         "th-TH": "ตั้งค่าพลังชีวิตสูงสุด",
         "tr-TR": "Maksimum Canı Ayarla",
-        "zh-CN": "设置最大生命值"
+        "zh-CN": "设置最大生命值",
+        "de-DE": "Set Max Health",
+        "es-ES": "Set Max Health",
+        "it-IT": "Set Max Health",
+        "ko-KR": "Set Max Health",
+        "pl-PL": "Set Max Health",
+        "ru-RU": "Set Max Health",
+        "zh-TW": "Set Max Health"
     },
     "_&setMeleeEnabled": {
         "description": "Enables or disables melee for one or more players.",
@@ -6810,7 +7673,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6846,7 +7712,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -6874,7 +7743,14 @@ const actionKw =
         "pt-BR": "Definir Corpo a Corpo Ativado",
         "th-TH": "ตั้งค่าการโจมตีระยะประชิดเป็นเปิดใช้งาน",
         "tr-TR": "Yakın Saldırı'yı Etkinleştir",
-        "zh-CN": "设置启用近战攻击"
+        "zh-CN": "设置启用近战攻击",
+        "de-DE": "Set Melee Enabled",
+        "es-ES": "Set Melee Enabled",
+        "it-IT": "Set Melee Enabled",
+        "ko-KR": "Set Melee Enabled",
+        "pl-PL": "Set Melee Enabled",
+        "ru-RU": "Set Melee Enabled",
+        "zh-TW": "Set Melee Enabled"
     },
     "_&setMoveSpeed": {
         "description": "Sets the move speed of one or more players to a percentage of their raw move speed.",
@@ -6917,7 +7793,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -6955,7 +7834,10 @@ const actionKw =
                     "ru-RU": "Процент скорости передвижения",
                     "th-TH": "เปอร์เซ็นต์ความเร็วในการเคลื่อนที่",
                     "tr-TR": "Hareket Hızı Yüzdesi",
-                    "zh-CN": "移动速度百分比"
+                    "zh-CN": "移动速度百分比",
+                    "de-DE": "Move Speed Percent",
+                    "ko-KR": "Move Speed Percent",
+                    "zh-TW": "Move Speed Percent"
                 }
             }
         ],
@@ -6983,7 +7865,14 @@ const actionKw =
         "pt-BR": "Definir Velocidade de Movimento",
         "th-TH": "ตั้งค่าความเร็วในการเคลื่อนที่",
         "tr-TR": "Hareket Hızı'nı Ayarla",
-        "zh-CN": "设置移动速度"
+        "zh-CN": "设置移动速度",
+        "de-DE": "Set Move Speed",
+        "es-ES": "Set Move Speed",
+        "it-IT": "Set Move Speed",
+        "ko-KR": "Set Move Speed",
+        "pl-PL": "Set Move Speed",
+        "ru-RU": "Set Move Speed",
+        "zh-TW": "Set Move Speed"
     },
     "_&setPrimaryFireEnabled": {
         "description": "Enables or disables primary fire for one or more players.",
@@ -7026,7 +7915,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7062,7 +7954,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -7090,7 +7985,14 @@ const actionKw =
         "pt-BR": "Definir Disparo Primário Ativado",
         "th-TH": "ตั้งค่าการยิงรูปแบบหลักเป็นเปิดใช้งาน",
         "tr-TR": "Birincil Saldırı'yı Etkinleştir",
-        "zh-CN": "设置主要攻击模式启用"
+        "zh-CN": "设置主要攻击模式启用",
+        "de-DE": "Set Primary Fire Enabled",
+        "es-ES": "Set Primary Fire Enabled",
+        "it-IT": "Set Primary Fire Enabled",
+        "ko-KR": "Set Primary Fire Enabled",
+        "pl-PL": "Set Primary Fire Enabled",
+        "ru-RU": "Set Primary Fire Enabled",
+        "zh-TW": "Set Primary Fire Enabled"
     },
     "_&setProjectileGravity": {
         "description": "Sets the projectile gravity for one or more players to a percentage of regular projectile gravity.",
@@ -7133,7 +8035,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7171,7 +8076,10 @@ const actionKw =
                     "ru-RU": "Процент гравитации для снарядов",
                     "th-TH": "เปอร์เซ็นต์แรงโน้มถ่วงของโพรเจกไทล์",
                     "tr-TR": "Atılır Cisim Yer Çekimi Yüzdesi",
-                    "zh-CN": "弹道引力百分比"
+                    "zh-CN": "弹道引力百分比",
+                    "de-DE": "Projectile Gravity Percent",
+                    "ko-KR": "Projectile Gravity Percent",
+                    "zh-TW": "Projectile Gravity Percent"
                 }
             }
         ],
@@ -7199,7 +8107,14 @@ const actionKw =
         "pt-BR": "Definir Gravidade de Projétil",
         "th-TH": "ตั้งค่าแรงโน้มถ่วงของโพรเจกไทล์",
         "tr-TR": "Atılır Cisim Yer Çekimi'ni Ayarla",
-        "zh-CN": "设置弹道引力"
+        "zh-CN": "设置弹道引力",
+        "de-DE": "Set Projectile Gravity",
+        "es-ES": "Set Projectile Gravity",
+        "it-IT": "Set Projectile Gravity",
+        "ko-KR": "Set Projectile Gravity",
+        "pl-PL": "Set Projectile Gravity",
+        "ru-RU": "Set Projectile Gravity",
+        "zh-TW": "Set Projectile Gravity"
     },
     "_&setProjectileSpeed": {
         "description": "Sets the projectile speed for one or more players to a percentage of projectile speed.",
@@ -7257,7 +8172,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7295,7 +8213,10 @@ const actionKw =
                     "ru-RU": "Процент скорости снарядов",
                     "th-TH": "เปอร์เซ็นต์ความเร็วของโพรเจกไทล์",
                     "tr-TR": "Atılır Cisim Hızı Yüzdesi",
-                    "zh-CN": "弹道速度百分比"
+                    "zh-CN": "弹道速度百分比",
+                    "de-DE": "Projectile Speed Percent",
+                    "ko-KR": "Projectile Speed Percent",
+                    "zh-TW": "Projectile Speed Percent"
                 }
             }
         ],
@@ -7308,7 +8229,14 @@ const actionKw =
         "pt-BR": "Definir Velocidade de Projétil",
         "th-TH": "ตั้งค่าความเร็วของโพรเจกไทล์",
         "tr-TR": "Atılır Cisim Hızı'nı Ayarla",
-        "zh-CN": "设置弹道速度"
+        "zh-CN": "设置弹道速度",
+        "de-DE": "Set Projectile Speed",
+        "es-ES": "Set Projectile Speed",
+        "it-IT": "Set Projectile Speed",
+        "ko-KR": "Set Projectile Speed",
+        "pl-PL": "Set Projectile Speed",
+        "ru-RU": "Set Projectile Speed",
+        "zh-TW": "Set Projectile Speed"
     },
     "_&setReloadEnabled": {
         "description": "Enables or disables Reload for one or more players.",
@@ -7351,7 +8279,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7387,7 +8318,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -7415,7 +8349,14 @@ const actionKw =
         "pt-BR": "Definir Recarregar Ativado",
         "th-TH": "ตั้งค่าการบรรจุกระสุนเป็นเปิดใช้งาน",
         "tr-TR": "Doldur'u Etkinleştir",
-        "zh-CN": "设置启用装填"
+        "zh-CN": "设置启用装填",
+        "de-DE": "Set Reload Enabled",
+        "es-ES": "Set Reload Enabled",
+        "it-IT": "Set Reload Enabled",
+        "ko-KR": "Set Reload Enabled",
+        "pl-PL": "Set Reload Enabled",
+        "ru-RU": "Set Reload Enabled",
+        "zh-TW": "Set Reload Enabled"
     },
     "_&setRespawnTime": {
         "description": "Sets the duration between death and respawn for one or more players. For players that are already dead when this action is executed, the change takes effect on their next death.",
@@ -7458,7 +8399,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7496,7 +8440,10 @@ const actionKw =
                     "ru-RU": "Время",
                     "th-TH": "เวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "时间"
+                    "zh-CN": "时间",
+                    "de-DE": "Time",
+                    "ko-KR": "Time",
+                    "zh-TW": "Time"
                 }
             }
         ],
@@ -7523,8 +8470,15 @@ const actionKw =
         "ja-JP": "最大リスポーン時間を設定",
         "pt-BR": "Definir Tempo Máximo de Ressurgimento",
         "th-TH": "ตั้งค่าเวลาเกิดใหม่สูงสุด",
-        "tr-TR": "Yeniden Doğma Azami Süresini Ayarla",
-        "zh-CN": "设置最大复生时间"
+        "tr-TR": "Yeniden Doğma Maks. Süresini Ayarla",
+        "zh-CN": "设置最大复生时间",
+        "de-DE": "Set Respawn Max Time",
+        "es-ES": "Set Respawn Max Time",
+        "it-IT": "Set Respawn Max Time",
+        "ko-KR": "Set Respawn Max Time",
+        "pl-PL": "Set Respawn Max Time",
+        "ru-RU": "Set Respawn Max Time",
+        "zh-TW": "Set Respawn Max Time"
     },
     "_&setScore": {
         "description": "Sets the score (kill count) of one or more players. This action only has an effect in free-for-all modes.",
@@ -7567,7 +8521,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7605,7 +8562,10 @@ const actionKw =
                     "ru-RU": "Счет",
                     "th-TH": "คะแนน",
                     "tr-TR": "Skor",
-                    "zh-CN": "得分"
+                    "zh-CN": "得分",
+                    "de-DE": "Score",
+                    "ko-KR": "Score",
+                    "zh-TW": "Score"
                 }
             }
         ],
@@ -7633,7 +8593,14 @@ const actionKw =
         "pt-BR": "Definir Pontuação do Jogador",
         "th-TH": "ตั้งค่าคะแนนของผู้เล่น",
         "tr-TR": "Oyuncu Skoru'nu Ayarla",
-        "zh-CN": "设置玩家分数"
+        "zh-CN": "设置玩家分数",
+        "de-DE": "Set Player Score",
+        "es-ES": "Set Player Score",
+        "it-IT": "Set Player Score",
+        "ko-KR": "Set Player Score",
+        "pl-PL": "Set Player Score",
+        "ru-RU": "Set Player Score",
+        "zh-TW": "Set Player Score"
     },
     "_&setSecondaryFireEnabled": {
         "description": "Enables or disables secondary fire for one or more players.",
@@ -7676,7 +8643,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7712,7 +8682,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -7740,7 +8713,14 @@ const actionKw =
         "pt-BR": "Definir Disparo Secundário Ativado",
         "th-TH": "ตั้งค่าการยิงรูปแบบรองเป็นเปิดใช้งาน",
         "tr-TR": "İkincil Saldırı'yı Etkinleştir",
-        "zh-CN": "设置辅助攻击模式启用"
+        "zh-CN": "设置辅助攻击模式启用",
+        "de-DE": "Set Secondary Fire Enabled",
+        "es-ES": "Set Secondary Fire Enabled",
+        "it-IT": "Set Secondary Fire Enabled",
+        "ko-KR": "Set Secondary Fire Enabled",
+        "pl-PL": "Set Secondary Fire Enabled",
+        "ru-RU": "Set Secondary Fire Enabled",
+        "zh-TW": "Set Secondary Fire Enabled"
     },
     "_&setStatusEffect": {
         "description": "Applies a status to one or more players. This status will remain in effect for the specified duration or until it is cleared by the clear status action.",
@@ -7783,7 +8763,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -7819,7 +8802,10 @@ const actionKw =
                     "ru-RU": "Содействующий",
                     "th-TH": "ผู้ช่วย",
                     "tr-TR": "Asistçi",
-                    "zh-CN": "助攻者"
+                    "zh-CN": "助攻者",
+                    "de-DE": "Assister",
+                    "ko-KR": "Assister",
+                    "zh-TW": "Assister"
                 }
             },
             {
@@ -7853,7 +8839,12 @@ const actionKw =
                     "ru-RU": "Статус",
                     "th-TH": "สถานะ",
                     "tr-TR": "Durum",
-                    "zh-CN": "状态"
+                    "zh-CN": "状态",
+                    "de-DE": "Status",
+                    "ko-KR": "Status",
+                    "pl-PL": "Status",
+                    "pt-BR": "Status",
+                    "zh-TW": "Status"
                 }
             },
             {
@@ -7891,7 +8882,10 @@ const actionKw =
                     "ru-RU": "Длительность",
                     "th-TH": "ระยะเวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "持续时间"
+                    "zh-CN": "持续时间",
+                    "de-DE": "Duration",
+                    "ko-KR": "Duration",
+                    "zh-TW": "Duration"
                 }
             }
         ],
@@ -7919,7 +8913,14 @@ const actionKw =
         "pt-BR": "Definir Status",
         "th-TH": "ตั้งค่าสถานะ",
         "tr-TR": "Durumu Ayarla",
-        "zh-CN": "设置状态"
+        "zh-CN": "设置状态",
+        "de-DE": "Set Status",
+        "es-ES": "Set Status",
+        "it-IT": "Set Status",
+        "ko-KR": "Set Status",
+        "pl-PL": "Set Status",
+        "ru-RU": "Set Status",
+        "zh-TW": "Set Status"
     },
     "_&setUltCharge": {
         "description": "Sets the ultimate charge for one or more players as a percentage of maximum charge.",
@@ -7962,7 +8963,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8000,7 +9004,10 @@ const actionKw =
                     "ru-RU": "Процент заряда",
                     "th-TH": "เปอร์เซ็นต์การชาร์จ",
                     "tr-TR": "Dolum Oranı Yüzdesi",
-                    "zh-CN": "充能百分比"
+                    "zh-CN": "充能百分比",
+                    "de-DE": "Charge Percent",
+                    "ko-KR": "Charge Percent",
+                    "zh-TW": "Charge Percent"
                 }
             }
         ],
@@ -8028,7 +9035,14 @@ const actionKw =
         "pt-BR": "Definir Carga da Suprema",
         "th-TH": "ตั้งค่าการชาร์จอัลติเมท",
         "tr-TR": "Ulti Dolum Oranı'nı Ayarla",
-        "zh-CN": "设置终极技能充能"
+        "zh-CN": "设置终极技能充能",
+        "de-DE": "Set Ultimate Charge",
+        "es-ES": "Set Ultimate Charge",
+        "it-IT": "Set Ultimate Charge",
+        "ko-KR": "Set Ultimate Charge",
+        "pl-PL": "Set Ultimate Charge",
+        "ru-RU": "Set Ultimate Charge",
+        "zh-TW": "Set Ultimate Charge"
     },
     "_&setUltEnabled": {
         "description": "Enables or disables the ultimate ability of one or more players.",
@@ -8071,7 +9085,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8107,7 +9124,10 @@ const actionKw =
                     "ru-RU": "Вкл.",
                     "th-TH": "เปิดใช้งานแล้ว",
                     "tr-TR": "Etkin",
-                    "zh-CN": "启用"
+                    "zh-CN": "启用",
+                    "de-DE": "Enabled",
+                    "ko-KR": "Enabled",
+                    "zh-TW": "Enabled"
                 }
             }
         ],
@@ -8135,7 +9155,14 @@ const actionKw =
         "pt-BR": "Definir Habilidade Suprema como Ativada",
         "th-TH": "ตั้งค่าเปิดใช้งานอัลติเมท",
         "tr-TR": "Ulti Kabiliyeti Etkinleştir",
-        "zh-CN": "设置启用终极技能"
+        "zh-CN": "设置启用终极技能",
+        "de-DE": "Set Ultimate Ability Enabled",
+        "es-ES": "Set Ultimate Ability Enabled",
+        "it-IT": "Set Ultimate Ability Enabled",
+        "ko-KR": "Set Ultimate Ability Enabled",
+        "pl-PL": "Set Ultimate Ability Enabled",
+        "ru-RU": "Set Ultimate Ability Enabled",
+        "zh-TW": "Set Ultimate Ability Enabled"
     },
     "_&setWeapon": {
         "description": "Sets the weapon of one or more players.",
@@ -8178,7 +9205,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8211,7 +9241,15 @@ const actionKw =
                     "ja-JP": "武器",
                     "pt-BR": "Arma",
                     "tr-TR": "Silah",
-                    "zh-CN": "武器"
+                    "zh-CN": "武器",
+                    "de-DE": "Weapon",
+                    "es-ES": "Weapon",
+                    "it-IT": "Weapon",
+                    "ko-KR": "Weapon",
+                    "pl-PL": "Weapon",
+                    "ru-RU": "Weapon",
+                    "th-TH": "Weapon",
+                    "zh-TW": "Weapon"
                 }
             }
         ],
@@ -8239,7 +9277,14 @@ const actionKw =
         "pt-BR": "Definir Arma",
         "th-TH": "ตั้งค่าอาวุธ",
         "tr-TR": "Silah Ayarla",
-        "zh-CN": "设置武器"
+        "zh-CN": "设置武器",
+        "de-DE": "Set Weapon",
+        "es-ES": "Set Weapon",
+        "it-IT": "Set Weapon",
+        "ko-KR": "Set Weapon",
+        "pl-PL": "Set Weapon",
+        "ru-RU": "Set Weapon",
+        "zh-TW": "Set Weapon"
     },
     "_&startAcceleration": {
         "description": "Starts accelerating one or more players in a specified direction.",
@@ -8282,7 +9327,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8316,7 +9364,12 @@ const actionKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             },
             {
@@ -8352,7 +9405,10 @@ const actionKw =
                     "ru-RU": "Шаг",
                     "th-TH": "อัตรา",
                     "tr-TR": "Oran",
-                    "zh-CN": "频率"
+                    "zh-CN": "频率",
+                    "de-DE": "Rate",
+                    "ko-KR": "Rate",
+                    "zh-TW": "Rate"
                 }
             },
             {
@@ -8387,8 +9443,11 @@ const actionKw =
                     "pt-BR": "Velocidade Máx.",
                     "ru-RU": "Максимальная скорость",
                     "th-TH": "ความเร็วสูงสุด",
-                    "tr-TR": "Azami Hız",
-                    "zh-CN": "最大速度"
+                    "tr-TR": "Maks. Hız",
+                    "zh-CN": "最大速度",
+                    "de-DE": "Max Speed",
+                    "ko-KR": "Max Speed",
+                    "zh-TW": "Max Speed"
                 }
             },
             {
@@ -8424,7 +9483,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 }
             },
             {
@@ -8460,7 +9522,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -8488,7 +9553,14 @@ const actionKw =
         "pt-BR": "Começar a Acelerar",
         "th-TH": "เริ่มเร่งความเร็ว",
         "tr-TR": "İvmelendirmeyi Başlat",
-        "zh-CN": "开始加速"
+        "zh-CN": "开始加速",
+        "de-DE": "Start Accelerating",
+        "es-ES": "Start Accelerating",
+        "it-IT": "Start Accelerating",
+        "ko-KR": "Start Accelerating",
+        "pl-PL": "Start Accelerating",
+        "ru-RU": "Start Accelerating",
+        "zh-TW": "Start Accelerating"
     },
     "_&startCamera": {
         "description": "Places your camera at a location, facing a direction.",
@@ -8531,7 +9603,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8567,7 +9642,10 @@ const actionKw =
                     "ru-RU": "Положение камеры",
                     "th-TH": "ตำแหน่งตา",
                     "tr-TR": "Göz Konumu",
-                    "zh-CN": "眼睛位置"
+                    "zh-CN": "眼睛位置",
+                    "de-DE": "Eye Position",
+                    "ko-KR": "Eye Position",
+                    "zh-TW": "Eye Position"
                 }
             },
             {
@@ -8603,7 +9681,10 @@ const actionKw =
                     "ru-RU": "Позиция в кадре",
                     "th-TH": "ดูที่ตำแหน่ง",
                     "tr-TR": "Konum'a bak",
-                    "zh-CN": "望向位置"
+                    "zh-CN": "望向位置",
+                    "de-DE": "Look at Position",
+                    "ko-KR": "Look at Position",
+                    "zh-TW": "Look at Position"
                 }
             },
             {
@@ -8639,7 +9720,10 @@ const actionKw =
                     "ru-RU": "Скорость перехода",
                     "th-TH": "ผสานความเร็ว",
                     "tr-TR": "Yumuşak Geçiş Hızı",
-                    "zh-CN": "转动速度"
+                    "zh-CN": "转动速度",
+                    "de-DE": "Blend Speed",
+                    "ko-KR": "Blend Speed",
+                    "zh-TW": "Blend Speed"
                 }
             }
         ],
@@ -8667,7 +9751,14 @@ const actionKw =
         "pt-BR": "Iniciar Câmera",
         "th-TH": "เริ่มกล้อง",
         "tr-TR": "Kamerayı Başlat",
-        "zh-CN": "开始镜头"
+        "zh-CN": "开始镜头",
+        "de-DE": "Start Camera",
+        "es-ES": "Start Camera",
+        "it-IT": "Start Camera",
+        "ko-KR": "Start Camera",
+        "pl-PL": "Start Camera",
+        "ru-RU": "Start Camera",
+        "zh-TW": "Start Camera"
     },
     "_&startDoT": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
@@ -8710,7 +9801,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8746,7 +9840,10 @@ const actionKw =
                     "ru-RU": "Источник урона",
                     "th-TH": "ผู้สร้างความเสียหาย",
                     "tr-TR": "Hasar Veren",
-                    "zh-CN": "伤害者"
+                    "zh-CN": "伤害者",
+                    "de-DE": "Damager",
+                    "ko-KR": "Damager",
+                    "zh-TW": "Damager"
                 }
             },
             {
@@ -8782,7 +9879,10 @@ const actionKw =
                     "ru-RU": "Длительность",
                     "th-TH": "ระยะเวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "持续时间"
+                    "zh-CN": "持续时间",
+                    "de-DE": "Duration",
+                    "ko-KR": "Duration",
+                    "zh-TW": "Duration"
                 }
             },
             {
@@ -8818,7 +9918,10 @@ const actionKw =
                     "ru-RU": "Урон в секунду",
                     "th-TH": "ความเสียหายต่อวินาที",
                     "tr-TR": "Saniye Başına Hasar",
-                    "zh-CN": "每秒伤害"
+                    "zh-CN": "每秒伤害",
+                    "de-DE": "Damage Per Second",
+                    "ko-KR": "Damage Per Second",
+                    "zh-TW": "Damage Per Second"
                 }
             }
         ],
@@ -8846,7 +9949,14 @@ const actionKw =
         "pt-BR": "Começar Dano ao Longo do Tempo",
         "th-TH": "เริ่มความเสียหายต่อเนื่อง",
         "tr-TR": "Zamanla Hasar'ı Başlat",
-        "zh-CN": "开始持续伤害"
+        "zh-CN": "开始持续伤害",
+        "de-DE": "Start Damage Over Time",
+        "es-ES": "Start Damage Over Time",
+        "it-IT": "Start Damage Over Time",
+        "ko-KR": "Start Damage Over Time",
+        "pl-PL": "Start Damage Over Time",
+        "ru-RU": "Start Damage Over Time",
+        "zh-TW": "Start Damage Over Time"
     },
     "_&startFacing": {
         "description": "Starts turning one or more players to face the specified direction.",
@@ -8889,7 +9999,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8923,7 +10036,12 @@ const actionKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             },
             {
@@ -8959,7 +10077,10 @@ const actionKw =
                     "ru-RU": "Скорость поворота",
                     "th-TH": "อัตราการหัน",
                     "tr-TR": "Dönüş Oranı",
-                    "zh-CN": "角速率"
+                    "zh-CN": "角速率",
+                    "de-DE": "Turn Rate",
+                    "ko-KR": "Turn Rate",
+                    "zh-TW": "Turn Rate"
                 }
             },
             {
@@ -8995,7 +10116,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 }
             },
             {
@@ -9031,7 +10155,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -9059,7 +10186,14 @@ const actionKw =
         "pt-BR": "Começar a Encarar",
         "th-TH": "เริ่มการหันหน้า",
         "tr-TR": "Konumlandırma'yı Başlat",
-        "zh-CN": "开始朝向"
+        "zh-CN": "开始朝向",
+        "de-DE": "Start Facing",
+        "es-ES": "Start Facing",
+        "it-IT": "Start Facing",
+        "ko-KR": "Start Facing",
+        "pl-PL": "Start Facing",
+        "ru-RU": "Start Facing",
+        "zh-TW": "Start Facing"
     },
     "_&startForcingButton": {
         "description": "Forces one or more players to hold a button virtually until stopped by the stop holding button action.",
@@ -9102,7 +10236,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -9137,7 +10274,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -9165,7 +10306,14 @@ const actionKw =
         "pt-BR": "Começar a Segurar Botão",
         "th-TH": "เริ่มกดปุ่มค้าง",
         "tr-TR": "Düğmeyi Basılı Tutmaya Başla",
-        "zh-CN": "开始按下按钮"
+        "zh-CN": "开始按下按钮",
+        "de-DE": "Start Holding Button",
+        "es-ES": "Start Holding Button",
+        "it-IT": "Start Holding Button",
+        "ko-KR": "Start Holding Button",
+        "pl-PL": "Start Holding Button",
+        "ru-RU": "Start Holding Button",
+        "zh-TW": "Start Holding Button"
     },
     "_&startForcingHero": {
         "description": "Starts forcing one or more players to be a specific hero and, if necessary, respawns them immediately in their current location. This will be the only hero available to the player or players until the stop forcing player to be hero action is executed.",
@@ -9208,7 +10356,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -9236,14 +10387,18 @@ const actionKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             }
         ],
@@ -9271,7 +10426,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Jogador a Ser o Herói",
         "th-TH": "เริ่มบังคับให้ผู้เล่นเป็นฮีโร่",
         "tr-TR": "Oyuncu'yu Kahraman Olmaya Zorlamayı Başlat",
-        "zh-CN": "开始强制玩家选择英雄"
+        "zh-CN": "开始强制玩家选择英雄",
+        "de-DE": "Start Forcing Player To Be Hero",
+        "es-ES": "Start Forcing Player To Be Hero",
+        "it-IT": "Start Forcing Player To Be Hero",
+        "ko-KR": "Start Forcing Player To Be Hero",
+        "pl-PL": "Start Forcing Player To Be Hero",
+        "ru-RU": "Start Forcing Player To Be Hero",
+        "zh-TW": "Start Forcing Player To Be Hero"
     },
     "_&startForcingName": {
         "description": "Starts forcing the name for the specified player or players (only works with AI and dummy bots).",
@@ -9329,7 +10491,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -9364,7 +10529,11 @@ const actionKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             }
         ],
@@ -9377,7 +10546,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Nome do Bot",
         "th-TH": "เริ่มบังคับชื่อบอตฝึกซ้อม",
         "tr-TR": "Zorla Eğitim Robotu İsmi Başlat",
-        "zh-CN": "开始为机器人强制设置名称"
+        "zh-CN": "开始为机器人强制设置名称",
+        "de-DE": "Start Forcing Dummy Bot Name",
+        "es-ES": "Start Forcing Dummy Bot Name",
+        "it-IT": "Start Forcing Dummy Bot Name",
+        "ko-KR": "Start Forcing Dummy Bot Name",
+        "pl-PL": "Start Forcing Dummy Bot Name",
+        "ru-RU": "Start Forcing Dummy Bot Name",
+        "zh-TW": "Start Forcing Dummy Bot Name"
     },
     "_&startForcingOutlineFor": {
         "description": "Starts forcing the visibility and color of the outlines of the specified viewed player or players from the perspective of one or more viewing players.",
@@ -9435,7 +10611,10 @@ const actionKw =
                     "ru-RU": "Наблюдаемые игроки",
                     "th-TH": "ผู้เล่นที่เห็น",
                     "tr-TR": "Görüntülenen Oyuncular",
-                    "zh-CN": "被观察的玩家"
+                    "zh-CN": "被观察的玩家",
+                    "de-DE": "Viewed Players",
+                    "ko-KR": "Viewed Players",
+                    "zh-TW": "Viewed Players"
                 }
             },
             {
@@ -9476,7 +10655,10 @@ const actionKw =
                     "ru-RU": "Наблюдающие игроки",
                     "th-TH": "ผู้เล่นที่กำลังดู",
                     "tr-TR": "Görüntüleyen Oyuncular",
-                    "zh-CN": "观察玩家"
+                    "zh-CN": "观察玩家",
+                    "de-DE": "Viewing Players",
+                    "ko-KR": "Viewing Players",
+                    "zh-TW": "Viewing Players"
                 }
             },
             {
@@ -9509,7 +10691,13 @@ const actionKw =
                     "ru-RU": "Видимость",
                     "th-TH": "มองเห็นได้",
                     "tr-TR": "Görülebilir",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible",
+                    "es-ES": "Visible",
+                    "es-MX": "Visible",
+                    "fr-FR": "Visible",
+                    "ko-KR": "Visible",
+                    "zh-TW": "Visible"
                 }
             },
             {
@@ -9539,7 +10727,16 @@ const actionKw =
                     "ja-JP": "色",
                     "pt-BR": "Cor",
                     "tr-TR": "Renk",
-                    "zh-CN": "颜色"
+                    "zh-CN": "颜色",
+                    "de-DE": "Color",
+                    "es-ES": "Color",
+                    "es-MX": "Color",
+                    "it-IT": "Color",
+                    "ko-KR": "Color",
+                    "pl-PL": "Color",
+                    "ru-RU": "Color",
+                    "th-TH": "Color",
+                    "zh-TW": "Color"
                 }
             },
             {
@@ -9571,7 +10768,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             }
         ],
@@ -9584,7 +10788,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Contornos de Jogador",
         "th-TH": "เริ่มบังคับร่างของผู้เล่น",
         "tr-TR": "Oyuncu Ana Hatlarını Zorlamayı Başlat",
-        "zh-CN": "开始强制设置玩家轮廓"
+        "zh-CN": "开始强制设置玩家轮廓",
+        "de-DE": "Start Forcing Player Outlines",
+        "es-ES": "Start Forcing Player Outlines",
+        "it-IT": "Start Forcing Player Outlines",
+        "ko-KR": "Start Forcing Player Outlines",
+        "pl-PL": "Start Forcing Player Outlines",
+        "ru-RU": "Start Forcing Player Outlines",
+        "zh-TW": "Start Forcing Player Outlines"
     },
     "_&startForcingPosition": {
         "description": "Starts forcing a player to be in a given position. If reevaluation is enabled, then the position is evaluated every frame, allowing the player to be moved around over time.",
@@ -9622,7 +10833,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -9658,7 +10872,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -9694,7 +10912,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -9722,7 +10943,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Posição do Jogador",
         "th-TH": "เริ่มบังคับตําแหน่งผู้เล่น",
         "tr-TR": "Oyuncu Konumunu Zorlamayı Başlat",
-        "zh-CN": "开始强制设置玩家位置"
+        "zh-CN": "开始强制设置玩家位置",
+        "de-DE": "Start Forcing Player Position",
+        "es-ES": "Start Forcing Player Position",
+        "it-IT": "Start Forcing Player Position",
+        "ko-KR": "Start Forcing Player Position",
+        "pl-PL": "Start Forcing Player Position",
+        "ru-RU": "Start Forcing Player Position",
+        "zh-TW": "Start Forcing Player Position"
     },
     "_&startForcingThrottle": {
         "description": "Defines minimum and maximum movement input values for one or more players, possibly forcing or preventing movement.",
@@ -9765,7 +10993,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -9803,7 +11034,10 @@ const actionKw =
                     "ru-RU": "Мин. вперед",
                     "th-TH": "ไปข้างหน้าน้อยที่สุด",
                     "tr-TR": "Min. İleri",
-                    "zh-CN": "向前最小"
+                    "zh-CN": "向前最小",
+                    "de-DE": "Min Forward",
+                    "ko-KR": "Min Forward",
+                    "zh-TW": "Min Forward"
                 }
             },
             {
@@ -9841,7 +11075,10 @@ const actionKw =
                     "ru-RU": "Макс. вперед",
                     "th-TH": "ไปข้างหน้ามากที่สุด",
                     "tr-TR": "Maks. İleri",
-                    "zh-CN": "向前最大"
+                    "zh-CN": "向前最大",
+                    "de-DE": "Max Forward",
+                    "ko-KR": "Max Forward",
+                    "zh-TW": "Max Forward"
                 }
             },
             {
@@ -9879,7 +11116,10 @@ const actionKw =
                     "ru-RU": "Мин. назад",
                     "th-TH": "ย้อนหลังน้อยที่สุด",
                     "tr-TR": "Min. Geri",
-                    "zh-CN": "向后最小"
+                    "zh-CN": "向后最小",
+                    "de-DE": "Min Backward",
+                    "ko-KR": "Min Backward",
+                    "zh-TW": "Min Backward"
                 }
             },
             {
@@ -9917,7 +11157,10 @@ const actionKw =
                     "ru-RU": "Макс. назад",
                     "th-TH": "ย้อนหลังมากที่สุด",
                     "tr-TR": "Maks. Geri",
-                    "zh-CN": "向后最大"
+                    "zh-CN": "向后最大",
+                    "de-DE": "Max Backward",
+                    "ko-KR": "Max Backward",
+                    "zh-TW": "Max Backward"
                 }
             },
             {
@@ -9955,7 +11198,10 @@ const actionKw =
                     "ru-RU": "Мин. в сторону",
                     "th-TH": "ไปด้านข้างน้อยที่สุด",
                     "tr-TR": "Min. Yana",
-                    "zh-CN": "侧向最小"
+                    "zh-CN": "侧向最小",
+                    "de-DE": "Min Sideways",
+                    "ko-KR": "Min Sideways",
+                    "zh-TW": "Min Sideways"
                 }
             },
             {
@@ -9993,7 +11239,10 @@ const actionKw =
                     "ru-RU": "Макс. в сторону",
                     "th-TH": "ไปด้านข้างมากที่สุด",
                     "tr-TR": "Maks. Yana",
-                    "zh-CN": "侧向最大"
+                    "zh-CN": "侧向最大",
+                    "de-DE": "Max Sideways",
+                    "ko-KR": "Max Sideways",
+                    "zh-TW": "Max Sideways"
                 }
             }
         ],
@@ -10021,7 +11270,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Aceleração",
         "th-TH": "เริ่มบังคับคันบังคับ",
         "tr-TR": "Hızlandırmayı Zorlamayı Başlat",
-        "zh-CN": "开始限制阈值"
+        "zh-CN": "开始限制阈值",
+        "de-DE": "Start Forcing Throttle",
+        "es-ES": "Start Forcing Throttle",
+        "it-IT": "Start Forcing Throttle",
+        "ko-KR": "Start Forcing Throttle",
+        "pl-PL": "Start Forcing Throttle",
+        "ru-RU": "Start Forcing Throttle",
+        "zh-TW": "Start Forcing Throttle"
     },
     "_&startGrantingAssistFor": {
         "description": "Starts granting assist credit toward to one or more assisters when one or more targets are eliminated. A reference to this assist modification can be obtained from the getLastAssistId() value. This action will fail if too many assists have been started.",
@@ -10079,7 +11335,10 @@ const actionKw =
                     "ru-RU": "Содействующие",
                     "th-TH": "ผู้ช่วยเหลือ",
                     "tr-TR": "Asistçiler",
-                    "zh-CN": "助攻者"
+                    "zh-CN": "助攻者",
+                    "de-DE": "Assisters",
+                    "ko-KR": "Assisters",
+                    "zh-TW": "Assisters"
                 }
             },
             {
@@ -10120,7 +11379,10 @@ const actionKw =
                     "ru-RU": "Цели",
                     "th-TH": "เป้าหมาย",
                     "tr-TR": "Hedefler",
-                    "zh-CN": "目标"
+                    "zh-CN": "目标",
+                    "de-DE": "Targets",
+                    "ko-KR": "Targets",
+                    "zh-TW": "Targets"
                 }
             },
             {
@@ -10156,7 +11418,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -10169,7 +11434,14 @@ const actionKw =
         "pt-BR": "Iniciar Assistência",
         "th-TH": "เริ่มการช่วย",
         "tr-TR": "Asist Başlat",
-        "zh-CN": "开始助攻"
+        "zh-CN": "开始助攻",
+        "de-DE": "Start Assist",
+        "es-ES": "Start Assist",
+        "it-IT": "Start Assist",
+        "ko-KR": "Start Assist",
+        "pl-PL": "Start Assist",
+        "ru-RU": "Start Assist",
+        "zh-TW": "Start Assist"
     },
     "_&startHoT": {
         "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
@@ -10212,7 +11484,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -10248,7 +11523,10 @@ const actionKw =
                     "ru-RU": "Источник исцеления",
                     "th-TH": "ฮีลเลอร์",
                     "tr-TR": "Şifacı",
-                    "zh-CN": "治疗者"
+                    "zh-CN": "治疗者",
+                    "de-DE": "Healer",
+                    "ko-KR": "Healer",
+                    "zh-TW": "Healer"
                 }
             },
             {
@@ -10284,7 +11562,10 @@ const actionKw =
                     "ru-RU": "Длительность",
                     "th-TH": "ระยะเวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "持续时间"
+                    "zh-CN": "持续时间",
+                    "de-DE": "Duration",
+                    "ko-KR": "Duration",
+                    "zh-TW": "Duration"
                 }
             },
             {
@@ -10320,7 +11601,10 @@ const actionKw =
                     "ru-RU": "Исцеление в секунду",
                     "th-TH": "การฮีลต่อวินาที",
                     "tr-TR": "Saniye Başına İyileştirme",
-                    "zh-CN": "每秒治疗"
+                    "zh-CN": "每秒治疗",
+                    "de-DE": "Healing Per Second",
+                    "ko-KR": "Healing Per Second",
+                    "zh-TW": "Healing Per Second"
                 }
             }
         ],
@@ -10348,7 +11632,14 @@ const actionKw =
         "pt-BR": "Começar Cura ao Longo do Tempo",
         "th-TH": "เริ่มฮีลต่อเนื่อง",
         "tr-TR": "Zamanla İyileştirme'yi Başlat",
-        "zh-CN": "开始持续治疗"
+        "zh-CN": "开始持续治疗",
+        "de-DE": "Start Heal Over Time",
+        "es-ES": "Start Heal Over Time",
+        "it-IT": "Start Heal Over Time",
+        "ko-KR": "Start Heal Over Time",
+        "pl-PL": "Start Heal Over Time",
+        "ru-RU": "Start Heal Over Time",
+        "zh-TW": "Start Heal Over Time"
     },
     "_&startModifyingVoicelinePitch": {
         "description": "Modifies the way hero voice lines sound for a player or players.",
@@ -10391,7 +11682,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -10428,7 +11722,10 @@ const actionKw =
                     "ru-RU": "Скалярное значение высоты звука",
                     "th-TH": "สเกลาร์น้ำเสียง",
                     "tr-TR": "Perde Skaleri",
-                    "zh-CN": "音调调整"
+                    "zh-CN": "音调调整",
+                    "de-DE": "Pitch Scalar",
+                    "ko-KR": "Pitch Scalar",
+                    "zh-TW": "Pitch Scalar"
                 }
             },
             {
@@ -10464,7 +11761,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -10492,7 +11792,14 @@ const actionKw =
         "pt-BR": "Começar a Modificar Falas de Herói",
         "th-TH": "เริ่มปรับเปลี่ยนประโยคคำพูดฮีโร่",
         "tr-TR": "Kahraman Repliklerini Düzenlemeye Başla",
-        "zh-CN": "开始修改英雄语音"
+        "zh-CN": "开始修改英雄语音",
+        "de-DE": "Start Modifying Hero Voice Lines",
+        "es-ES": "Start Modifying Hero Voice Lines",
+        "it-IT": "Start Modifying Hero Voice Lines",
+        "ko-KR": "Start Modifying Hero Voice Lines",
+        "pl-PL": "Start Modifying Hero Voice Lines",
+        "ru-RU": "Start Modifying Hero Voice Lines",
+        "zh-TW": "Start Modifying Hero Voice Lines"
     },
     "_&startScalingBarriers": {
         "description": "Starts modifying the size of barriers for a player or players.",
@@ -10535,7 +11842,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -10573,7 +11883,10 @@ const actionKw =
                     "ru-RU": "Масштаб",
                     "th-TH": "สเกล",
                     "tr-TR": "Ölçek",
-                    "zh-CN": "大小"
+                    "zh-CN": "大小",
+                    "de-DE": "Scale",
+                    "ko-KR": "Scale",
+                    "zh-TW": "Scale"
                 }
             },
             {
@@ -10609,7 +11922,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -10637,7 +11953,14 @@ const actionKw =
         "pt-BR": "Começar a Escalonar Barreiras",
         "th-TH": "เริ่มปรับขนาดสิ่งกีดขวาง",
         "tr-TR": "Bariyer Ölçeklendirme'yi Başlat",
-        "zh-CN": "开始调整障碍大小"
+        "zh-CN": "开始调整障碍大小",
+        "de-DE": "Start Scaling Barriers",
+        "es-ES": "Start Scaling Barriers",
+        "it-IT": "Start Scaling Barriers",
+        "ko-KR": "Start Scaling Barriers",
+        "pl-PL": "Start Scaling Barriers",
+        "ru-RU": "Start Scaling Barriers",
+        "zh-TW": "Start Scaling Barriers"
     },
     "_&startScalingSize": {
         "description": "Starts modifying the size of a player or players (including model, movement collision, hit detection, and certain abilities). Note that large players placed into complex environments will severely impact server load, so consider also applying the Disable Movement Collision With Environment action.",
@@ -10680,7 +12003,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -10718,7 +12044,10 @@ const actionKw =
                     "ru-RU": "Масштаб",
                     "th-TH": "สเกล",
                     "tr-TR": "Ölçek",
-                    "zh-CN": "大小"
+                    "zh-CN": "大小",
+                    "de-DE": "Scale",
+                    "ko-KR": "Scale",
+                    "zh-TW": "Scale"
                 }
             },
             {
@@ -10754,7 +12083,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -10782,7 +12114,14 @@ const actionKw =
         "pt-BR": "Começar a Escalonar Jogador",
         "th-TH": "เริ่มปรับขนาดผู้เล่น",
         "tr-TR": "Oyuncu Ölçeklendirme'yi Başlat",
-        "zh-CN": "开始调整玩家大小"
+        "zh-CN": "开始调整玩家大小",
+        "de-DE": "Start Scaling Player",
+        "es-ES": "Start Scaling Player",
+        "it-IT": "Start Scaling Player",
+        "ko-KR": "Start Scaling Player",
+        "pl-PL": "Start Scaling Player",
+        "ru-RU": "Start Scaling Player",
+        "zh-TW": "Start Scaling Player"
     },
     "_&startThrottleInDirection": {
         "description": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
@@ -10825,7 +12164,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -10859,7 +12201,12 @@ const actionKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             },
             {
@@ -10894,7 +12241,11 @@ const actionKw =
                     "ru-RU": "Сила",
                     "th-TH": "ขนาด",
                     "tr-TR": "Büyüklük",
-                    "zh-CN": "幅度"
+                    "zh-CN": "幅度",
+                    "de-DE": "Magnitude",
+                    "ko-KR": "Magnitude",
+                    "pt-BR": "Magnitude",
+                    "zh-TW": "Magnitude"
                 }
             },
             {
@@ -10930,7 +12281,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 }
             },
             {
@@ -10966,7 +12320,10 @@ const actionKw =
                     "ru-RU": "Поведение",
                     "th-TH": "พฤติกรรม",
                     "tr-TR": "Davranış",
-                    "zh-CN": "行为"
+                    "zh-CN": "行为",
+                    "de-DE": "Behavior",
+                    "ko-KR": "Behavior",
+                    "zh-TW": "Behavior"
                 }
             },
             {
@@ -11002,7 +12359,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -11030,7 +12390,14 @@ const actionKw =
         "pt-BR": "Iniciar Aceleração na Direção",
         "th-TH": "เริ่มคันบังคับในทิศทาง",
         "tr-TR": "Yöne Doğru Hızlandırma Başlat",
-        "zh-CN": "开始定向阈值"
+        "zh-CN": "开始定向阈值",
+        "de-DE": "Start Throttle In Direction",
+        "es-ES": "Start Throttle In Direction",
+        "it-IT": "Start Throttle In Direction",
+        "ko-KR": "Start Throttle In Direction",
+        "pl-PL": "Start Throttle In Direction",
+        "ru-RU": "Start Throttle In Direction",
+        "zh-TW": "Start Throttle In Direction"
     },
     "_&startTransformingThrottle": {
         "description": "Starts transforming (scaling and rotating) the throttle (directional input control) of a player or players. Cancels any existing start transforming throttle behavior.",
@@ -11073,7 +12440,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -11109,7 +12479,10 @@ const actionKw =
                     "ru-RU": "Значение по оси X",
                     "th-TH": "สเกลาร์แกน X",
                     "tr-TR": "X Ekseni Skaleri",
-                    "zh-CN": "X轴缩放"
+                    "zh-CN": "X轴缩放",
+                    "de-DE": "X Axis Scalar",
+                    "ko-KR": "X Axis Scalar",
+                    "zh-TW": "X Axis Scalar"
                 }
             },
             {
@@ -11145,7 +12518,10 @@ const actionKw =
                     "ru-RU": "Значение по оси Y",
                     "th-TH": "สเกลาร์แกน Y",
                     "tr-TR": "Y Ekseni Skaleri",
-                    "zh-CN": "Y轴缩放"
+                    "zh-CN": "Y轴缩放",
+                    "de-DE": "Y Axis Scalar",
+                    "ko-KR": "Y Axis Scalar",
+                    "zh-TW": "Y Axis Scalar"
                 }
             },
             {
@@ -11181,7 +12557,10 @@ const actionKw =
                     "ru-RU": "Относительное направление",
                     "th-TH": "ทิศทางสัมพัทธ์",
                     "tr-TR": "Göreceli Yön",
-                    "zh-CN": "相对方向"
+                    "zh-CN": "相对方向",
+                    "de-DE": "Relative Direction",
+                    "ko-KR": "Relative Direction",
+                    "zh-TW": "Relative Direction"
                 }
             }
         ],
@@ -11209,7 +12588,14 @@ const actionKw =
         "pt-BR": "Iniciar Transformação de Aceleração",
         "th-TH": "เริ่มแปลงคันบังคับ",
         "tr-TR": "Hızlanma Dönüştürmesi'ni Başlat",
-        "zh-CN": "开始转换阈值"
+        "zh-CN": "开始转换阈值",
+        "de-DE": "Start Transforming Throttle",
+        "es-ES": "Start Transforming Throttle",
+        "it-IT": "Start Transforming Throttle",
+        "ko-KR": "Start Transforming Throttle",
+        "pl-PL": "Start Transforming Throttle",
+        "ru-RU": "Start Transforming Throttle",
+        "zh-TW": "Start Transforming Throttle"
     },
     "_&stopAcceleration": {
         "description": "Stops the acceleration started by the start accelerating action for one or more players.",
@@ -11252,7 +12638,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11280,7 +12669,14 @@ const actionKw =
         "pt-BR": "Parar de Acelerar",
         "th-TH": "หยุดเร่งความเร็ว",
         "tr-TR": "İvmelendirmeyi Durdur",
-        "zh-CN": "停止加速"
+        "zh-CN": "停止加速",
+        "de-DE": "Stop Accelerating",
+        "es-ES": "Stop Accelerating",
+        "it-IT": "Stop Accelerating",
+        "ko-KR": "Stop Accelerating",
+        "pl-PL": "Stop Accelerating",
+        "ru-RU": "Stop Accelerating",
+        "zh-TW": "Stop Accelerating"
     },
     "_&stopAllDoT": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
@@ -11323,7 +12719,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11351,7 +12750,14 @@ const actionKw =
         "pt-BR": "Parar Todo o Dano ao Longo do Tempo",
         "th-TH": "หยุดความเสียหายต่อเนื่องทั้งหมด",
         "tr-TR": "Zamanla Hasarların Tümünü Durdur",
-        "zh-CN": "停止所有持续伤害"
+        "zh-CN": "停止所有持续伤害",
+        "de-DE": "Stop All Damage Over Time",
+        "es-ES": "Stop All Damage Over Time",
+        "it-IT": "Stop All Damage Over Time",
+        "ko-KR": "Stop All Damage Over Time",
+        "pl-PL": "Stop All Damage Over Time",
+        "ru-RU": "Stop All Damage Over Time",
+        "zh-TW": "Stop All Damage Over Time"
     },
     "_&stopAllHoT": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
@@ -11394,7 +12800,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11422,7 +12831,14 @@ const actionKw =
         "pt-BR": "Parar Toda a Cura ao Longo do Tempo",
         "th-TH": "หยุดฮีลต่อเนื่องทั้งหมด",
         "tr-TR": "Zamanla İyileştirmelerin Tümünü Durdur",
-        "zh-CN": "停止所有持续治疗"
+        "zh-CN": "停止所有持续治疗",
+        "de-DE": "Stop All Heal Over Time",
+        "es-ES": "Stop All Heal Over Time",
+        "it-IT": "Stop All Heal Over Time",
+        "ko-KR": "Stop All Heal Over Time",
+        "pl-PL": "Stop All Heal Over Time",
+        "ru-RU": "Stop All Heal Over Time",
+        "zh-TW": "Stop All Heal Over Time"
     },
     "_&stopCamera": {
         "description": "Restores the camera to the default view.",
@@ -11465,7 +12881,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11493,7 +12912,14 @@ const actionKw =
         "pt-BR": "Parar Câmera",
         "th-TH": "หยุดกล้อง",
         "tr-TR": "Kamerayı Durdur",
-        "zh-CN": "停止镜头"
+        "zh-CN": "停止镜头",
+        "de-DE": "Stop Camera",
+        "es-ES": "Stop Camera",
+        "it-IT": "Stop Camera",
+        "ko-KR": "Stop Camera",
+        "pl-PL": "Stop Camera",
+        "ru-RU": "Stop Camera",
+        "zh-TW": "Stop Camera"
     },
     "_&stopFacing": {
         "description": "Stops the turning started by the start facing action for one or more players.",
@@ -11536,7 +12962,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11564,7 +12993,14 @@ const actionKw =
         "pt-BR": "Parar de Encarar",
         "th-TH": "หยุดการหันหน้า",
         "tr-TR": "Konumlandırma'yı Durdur",
-        "zh-CN": "停止朝向"
+        "zh-CN": "停止朝向",
+        "de-DE": "Stop Facing",
+        "es-ES": "Stop Facing",
+        "it-IT": "Stop Facing",
+        "ko-KR": "Stop Facing",
+        "pl-PL": "Stop Facing",
+        "ru-RU": "Stop Facing",
+        "zh-TW": "Stop Facing"
     },
     "_&stopForcingButton": {
         "description": "Undoes the effect of the start holding button action for one or more players.",
@@ -11607,7 +13043,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -11642,7 +13081,11 @@ const actionKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -11670,7 +13113,14 @@ const actionKw =
         "pt-BR": "Parar de Segurar Botão",
         "th-TH": "หยุดกดปุ่มค้าง",
         "tr-TR": "Düğmeyi Basılı Tutmayı Bırak",
-        "zh-CN": "停止按下按钮"
+        "zh-CN": "停止按下按钮",
+        "de-DE": "Stop Holding Button",
+        "es-ES": "Stop Holding Button",
+        "it-IT": "Stop Holding Button",
+        "ko-KR": "Stop Holding Button",
+        "pl-PL": "Stop Holding Button",
+        "ru-RU": "Stop Holding Button",
+        "zh-TW": "Stop Holding Button"
     },
     "_&stopForcingCurrentHero": {
         "description": "Stops forcing one or more players to be a specific hero. This will not respawn the player or players, but it will restore their hero availability the next time they go to select a hero.",
@@ -11713,7 +13163,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11741,7 +13194,14 @@ const actionKw =
         "pt-BR": "Parar de Forçar Jogador a Ser o Herói",
         "th-TH": "หยุดบังคับให้ผู้เล่นเป็นฮีโร่",
         "tr-TR": "Oyuncu'yu Kahraman Olmaya Zorlamayı Bırak",
-        "zh-CN": "停止强制玩家选择英雄"
+        "zh-CN": "停止强制玩家选择英雄",
+        "de-DE": "Stop Forcing Player To Be Hero",
+        "es-ES": "Stop Forcing Player To Be Hero",
+        "it-IT": "Stop Forcing Player To Be Hero",
+        "ko-KR": "Stop Forcing Player To Be Hero",
+        "pl-PL": "Stop Forcing Player To Be Hero",
+        "ru-RU": "Stop Forcing Player To Be Hero",
+        "zh-TW": "Stop Forcing Player To Be Hero"
     },
     "_&stopForcingName": {
         "description": "Cancels the behavior of `startForcingName` for the specified player or players.",
@@ -11799,7 +13259,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11813,7 +13276,13 @@ const actionKw =
         "pt-BR": "Parar de Forçar Nome do Bot",
         "th-TH": "หยุดบังคับชื่อบอตฝึกซ้อม",
         "tr-TR": "Eğitim Robotu İsmi Zorlamayı Bırak",
-        "zh-CN": "停止为机器人强制设置名称"
+        "zh-CN": "停止为机器人强制设置名称",
+        "es-ES": "Stop Forcing Dummy Bot Name",
+        "it-IT": "Stop Forcing Dummy Bot Name",
+        "ko-KR": "Stop Forcing Dummy Bot Name",
+        "pl-PL": "Stop Forcing Dummy Bot Name",
+        "ru-RU": "Stop Forcing Dummy Bot Name",
+        "zh-TW": "Stop Forcing Dummy Bot Name"
     },
     "_&stopForcingOutlineFor": {
         "description": "Cancels the behavior of Start Forcing Player Outlines for the specified viewed player or players from the perspective of one or more viewing players.",
@@ -11856,7 +13325,10 @@ const actionKw =
                     "ru-RU": "Наблюдаемые игроки",
                     "th-TH": "ผู้เล่นที่เห็น",
                     "tr-TR": "Görüntülenen Oyuncular",
-                    "zh-CN": "被观察的玩家"
+                    "zh-CN": "被观察的玩家",
+                    "de-DE": "Viewed Players",
+                    "ko-KR": "Viewed Players",
+                    "zh-TW": "Viewed Players"
                 }
             },
             {
@@ -11897,7 +13369,10 @@ const actionKw =
                     "ru-RU": "Наблюдающие игроки",
                     "th-TH": "ผู้เล่นที่กำลังดู",
                     "tr-TR": "Görüntüleyen Oyuncular",
-                    "zh-CN": "观察玩家"
+                    "zh-CN": "观察玩家",
+                    "de-DE": "Viewing Players",
+                    "ko-KR": "Viewing Players",
+                    "zh-TW": "Viewing Players"
                 }
             }
         ],
@@ -11925,7 +13400,14 @@ const actionKw =
         "pt-BR": "Parar de Forçar Contornos de Jogador",
         "th-TH": "หยุดบังคับร่างของผู้เล่น",
         "tr-TR": "Oyuncu Ana Hatlarını Zorlamayı Bırak",
-        "zh-CN": "停止强制设置玩家轮廓"
+        "zh-CN": "停止强制设置玩家轮廓",
+        "de-DE": "Stop Forcing Player Outlines",
+        "es-ES": "Stop Forcing Player Outlines",
+        "it-IT": "Stop Forcing Player Outlines",
+        "ko-KR": "Stop Forcing Player Outlines",
+        "pl-PL": "Stop Forcing Player Outlines",
+        "ru-RU": "Stop Forcing Player Outlines",
+        "zh-TW": "Stop Forcing Player Outlines"
     },
     "_&stopForcingPosition": {
         "description": "Cancels the behavior of `startForcingPosition()` for the specified player or players. Regular movement will resume from the last forced position(s).",
@@ -11983,7 +13465,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -11996,7 +13481,14 @@ const actionKw =
         "pt-BR": "Parar de Forçar Posição do Jogador",
         "th-TH": "หยุดบังคับตําแหน่งผู้เล่น",
         "tr-TR": "Oyuncu Konumunu Zorlamayı Bırak",
-        "zh-CN": "停止强制设置玩家位置"
+        "zh-CN": "停止强制设置玩家位置",
+        "de-DE": "Stop Forcing Player Position",
+        "es-ES": "Stop Forcing Player Position",
+        "it-IT": "Stop Forcing Player Position",
+        "ko-KR": "Stop Forcing Player Position",
+        "pl-PL": "Stop Forcing Player Position",
+        "ru-RU": "Stop Forcing Player Position",
+        "zh-TW": "Stop Forcing Player Position"
     },
     "_&stopForcingThrottle": {
         "description": "Undoes the effect of the start forcing throttle action for one or more players.",
@@ -12039,7 +13531,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12067,7 +13562,14 @@ const actionKw =
         "pt-BR": "Parar de Forçar Aceleração",
         "th-TH": "หยุดบังคับคันบังคับ",
         "tr-TR": "Hızlandırmayı Zorlamayı Bırak",
-        "zh-CN": "停止限制阈值"
+        "zh-CN": "停止限制阈值",
+        "de-DE": "Stop Forcing Throttle",
+        "es-ES": "Stop Forcing Throttle",
+        "it-IT": "Stop Forcing Throttle",
+        "ko-KR": "Stop Forcing Throttle",
+        "pl-PL": "Stop Forcing Throttle",
+        "ru-RU": "Stop Forcing Throttle",
+        "zh-TW": "Stop Forcing Throttle"
     },
     "_&stopModifyingVoicelinePitch": {
         "description": "Undoes the effect of the Start Modifying Hero Voice Lines action for one or more players.",
@@ -12110,7 +13612,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12138,7 +13643,14 @@ const actionKw =
         "pt-BR": "Parar de Modificar Falas de Herói",
         "th-TH": "หยุดปรับเปลี่ยนประโยคคำพูดฮีโร่",
         "tr-TR": "Kahraman Repliklerini Düzenlemeyi Bırak",
-        "zh-CN": "停止修改英雄语音"
+        "zh-CN": "停止修改英雄语音",
+        "de-DE": "Stop Modifying Hero Voice Lines",
+        "es-ES": "Stop Modifying Hero Voice Lines",
+        "it-IT": "Stop Modifying Hero Voice Lines",
+        "ko-KR": "Stop Modifying Hero Voice Lines",
+        "pl-PL": "Stop Modifying Hero Voice Lines",
+        "ru-RU": "Stop Modifying Hero Voice Lines",
+        "zh-TW": "Stop Modifying Hero Voice Lines"
     },
     "_&stopScalingBarriers": {
         "description": "Stops overriding the size of the barriers of a Player or Players.",
@@ -12196,7 +13708,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12209,7 +13724,14 @@ const actionKw =
         "pt-BR": "Parar de Escalonar Barreiras",
         "th-TH": "หยุดปรับขนาดสิ่งกีดขวาง",
         "tr-TR": "Bariyer Ölçeklendirme'yi Durdur",
-        "zh-CN": "停止调整障碍大小"
+        "zh-CN": "停止调整障碍大小",
+        "de-DE": "Stop Scaling Barriers",
+        "es-ES": "Stop Scaling Barriers",
+        "it-IT": "Stop Scaling Barriers",
+        "ko-KR": "Stop Scaling Barriers",
+        "pl-PL": "Stop Scaling Barriers",
+        "ru-RU": "Stop Scaling Barriers",
+        "zh-TW": "Stop Scaling Barriers"
     },
     "_&stopScalingSize": {
         "description": "Stops overriding the size of a player or players.",
@@ -12252,7 +13774,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12280,7 +13805,14 @@ const actionKw =
         "pt-BR": "Parar de Escalonar Jogador",
         "th-TH": "หยุดปรับขนาดผู้เล่น",
         "tr-TR": "Oyuncu Ölçeklendirme'yi Durdur",
-        "zh-CN": "停止调整玩家大小"
+        "zh-CN": "停止调整玩家大小",
+        "de-DE": "Stop Scaling Player",
+        "es-ES": "Stop Scaling Player",
+        "it-IT": "Stop Scaling Player",
+        "ko-KR": "Stop Scaling Player",
+        "pl-PL": "Stop Scaling Player",
+        "ru-RU": "Stop Scaling Player",
+        "zh-TW": "Stop Scaling Player"
     },
     "_&stopThrottleInDirection": {
         "description": "Cancels the behavior caused by start throttle in direction.",
@@ -12323,7 +13855,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12351,7 +13886,14 @@ const actionKw =
         "pt-BR": "Parar Aceleração na Direção",
         "th-TH": "หยุดคันบังคับในทิศทาง",
         "tr-TR": "Yöne Doğru Hızlandırmayı Durdur",
-        "zh-CN": "停止定向阈值"
+        "zh-CN": "停止定向阈值",
+        "de-DE": "Stop Throttle In Direction",
+        "es-ES": "Stop Throttle In Direction",
+        "it-IT": "Stop Throttle In Direction",
+        "ko-KR": "Stop Throttle In Direction",
+        "pl-PL": "Stop Throttle In Direction",
+        "ru-RU": "Stop Throttle In Direction",
+        "zh-TW": "Stop Throttle In Direction"
     },
     "_&stopTransformingThrottle": {
         "description": "Stops the throttle transform started by start transforming throttle for one or more players.",
@@ -12394,7 +13936,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -12422,7 +13967,14 @@ const actionKw =
         "pt-BR": "Parar Transformação de Aceleração",
         "th-TH": "หยุดแปลงคันบังคับ",
         "tr-TR": "Hızlanma Dönüştürmesi'ni Durdur",
-        "zh-CN": "停止转换阈值"
+        "zh-CN": "停止转换阈值",
+        "de-DE": "Stop Transforming Throttle",
+        "es-ES": "Stop Transforming Throttle",
+        "it-IT": "Stop Transforming Throttle",
+        "ko-KR": "Stop Transforming Throttle",
+        "pl-PL": "Stop Transforming Throttle",
+        "ru-RU": "Stop Transforming Throttle",
+        "zh-TW": "Stop Transforming Throttle"
     },
     "_&teleport": {
         "guid": "00000000B9BA",
@@ -12466,7 +14018,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -12502,7 +14057,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             }
         ],
@@ -12529,7 +14088,14 @@ const actionKw =
         "pt-BR": "Teletransportar",
         "th-TH": "เทเลพอร์ต",
         "tr-TR": "Işınlan",
-        "zh-CN": "传送"
+        "zh-CN": "传送",
+        "de-DE": "Teleport",
+        "es-ES": "Teleport",
+        "it-IT": "Teleport",
+        "ko-KR": "Teleport",
+        "pl-PL": "Teleport",
+        "ru-RU": "Teleport",
+        "zh-TW": "Teleport"
     },
     "__abortIfConditionIsFalse__": {
         "description": "Stops execution of the action list if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
@@ -12558,7 +14124,14 @@ const actionKw =
         "pt-BR": "Anular se a Condição for Falsa",
         "th-TH": "เงื่อนไขยกเลิก If เป็น False",
         "tr-TR": "Koşul Yanlışsa Yarıda Kes",
-        "zh-CN": "如条件为“假”则中止"
+        "zh-CN": "如条件为“假”则中止",
+        "de-DE": "Abort If Condition Is False",
+        "es-ES": "Abort If Condition Is False",
+        "it-IT": "Abort If Condition Is False",
+        "ko-KR": "Abort If Condition Is False",
+        "pl-PL": "Abort If Condition Is False",
+        "ru-RU": "Abort If Condition Is False",
+        "zh-TW": "Abort If Condition Is False"
     },
     "__abortIfConditionIsTrue__": {
         "description": "Stops execution of the action list if all conditions in the condition list are true. If any are false, execution continues with the next action.",
@@ -12587,7 +14160,14 @@ const actionKw =
         "pt-BR": "Anular se a Condição for Verdadeira",
         "th-TH": "เงื่อนไขยกเลิก If เป็น True",
         "tr-TR": "Koşul Doğruysa Yarıda Kes",
-        "zh-CN": "如条件为“真”则中止"
+        "zh-CN": "如条件为“真”则中止",
+        "de-DE": "Abort If Condition Is True",
+        "es-ES": "Abort If Condition Is True",
+        "it-IT": "Abort If Condition Is True",
+        "ko-KR": "Abort If Condition Is True",
+        "pl-PL": "Abort If Condition Is True",
+        "ru-RU": "Abort If Condition Is True",
+        "zh-TW": "Abort If Condition Is True"
     },
     "__abortIf__": {
         "description": "Stops execution of the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -12623,7 +14203,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -12651,7 +14236,14 @@ const actionKw =
         "pt-BR": "Anular se",
         "th-TH": "ยกเลิก If",
         "tr-TR": "Yarıda Kes Eğer",
-        "zh-CN": "根据条件中止"
+        "zh-CN": "根据条件中止",
+        "de-DE": "Abort If",
+        "es-ES": "Abort If",
+        "it-IT": "Abort If",
+        "ko-KR": "Abort If",
+        "pl-PL": "Abort If",
+        "ru-RU": "Abort If",
+        "zh-TW": "Abort If"
     },
     "__callSubroutine__": {
         "description": "Pauses execution of the current rule and begins executing a subroutine rule (which is a rule with a subroutine event type). When the subroutine rule finishes, the original rule resumes execution. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -12685,9 +14277,14 @@ const actionKw =
                     "pl-PL": "Podprogram",
                     "pt-BR": "Sub-rotina",
                     "ru-RU": "Подпрограмма",
-                    "th-TH": "ซับรูทีน",
                     "tr-TR": "Alt Yordam",
-                    "zh-CN": "子程序"
+                    "zh-CN": "子程序",
+                    "de-DE": "Subroutine",
+                    "es-ES": "Subroutine",
+                    "it-IT": "Subroutine",
+                    "ko-KR": "Subroutine",
+                    "th-TH": "Subroutine",
+                    "zh-TW": "Subroutine"
                 }
             }
         ],
@@ -12713,9 +14310,16 @@ const actionKw =
         "fr-FR": "Sous-programme à appeler",
         "ja-JP": "サブルーチンの呼び出し",
         "pt-BR": "Chamar sub-rotina",
-        "th-TH": "เรียกซับรูทีน",
         "tr-TR": "Alt Yordam Getir",
-        "zh-CN": "调用子程序"
+        "zh-CN": "调用子程序",
+        "de-DE": "Call Subroutine",
+        "es-ES": "Call Subroutine",
+        "it-IT": "Call Subroutine",
+        "ko-KR": "Call Subroutine",
+        "pl-PL": "Call Subroutine",
+        "ru-RU": "Call Subroutine",
+        "th-TH": "Call Subroutine",
+        "zh-TW": "Call Subroutine"
     },
     "__chaseGlobalVariableAtRate__": {
         "description": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
@@ -12750,7 +14354,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -12788,7 +14398,11 @@ const actionKw =
                     "ru-RU": "Цель",
                     "th-TH": "ปลายทาง",
                     "tr-TR": "Varış Noktası",
-                    "zh-CN": "最终值"
+                    "zh-CN": "最终值",
+                    "de-DE": "Destination",
+                    "fr-FR": "Destination",
+                    "ko-KR": "Destination",
+                    "zh-TW": "Destination"
                 }
             },
             {
@@ -12824,7 +14438,10 @@ const actionKw =
                     "ru-RU": "Шаг",
                     "th-TH": "อัตรา",
                     "tr-TR": "Oran",
-                    "zh-CN": "频率"
+                    "zh-CN": "频率",
+                    "de-DE": "Rate",
+                    "ko-KR": "Rate",
+                    "zh-TW": "Rate"
                 }
             },
             {
@@ -12860,7 +14477,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -12888,7 +14508,14 @@ const actionKw =
         "pt-BR": "Acompanhar Variável Global na Medida",
         "th-TH": "ติดตามตัวแปรสากลในอัตรา",
         "tr-TR": "Belli Oranda Küresel Değişken'i Kovala",
-        "zh-CN": "追踪全局变量频率"
+        "zh-CN": "追踪全局变量频率",
+        "de-DE": "Chase Global Variable At Rate",
+        "es-ES": "Chase Global Variable At Rate",
+        "it-IT": "Chase Global Variable At Rate",
+        "ko-KR": "Chase Global Variable At Rate",
+        "pl-PL": "Chase Global Variable At Rate",
+        "ru-RU": "Chase Global Variable At Rate",
+        "zh-TW": "Chase Global Variable At Rate"
     },
     "__chaseGlobalVariableOverTime__": {
         "description": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
@@ -12923,7 +14550,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -12961,7 +14594,11 @@ const actionKw =
                     "ru-RU": "Цель",
                     "th-TH": "ปลายทาง",
                     "tr-TR": "Varış Noktası",
-                    "zh-CN": "最终值"
+                    "zh-CN": "最终值",
+                    "de-DE": "Destination",
+                    "fr-FR": "Destination",
+                    "ko-KR": "Destination",
+                    "zh-TW": "Destination"
                 }
             },
             {
@@ -12997,7 +14634,10 @@ const actionKw =
                     "ru-RU": "Длительность",
                     "th-TH": "ระยะเวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "持续时间"
+                    "zh-CN": "持续时间",
+                    "de-DE": "Duration",
+                    "ko-KR": "Duration",
+                    "zh-TW": "Duration"
                 }
             },
             {
@@ -13033,7 +14673,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -13061,7 +14704,14 @@ const actionKw =
         "pt-BR": "Acompanhar Variável Global ao Longo do Tempo",
         "th-TH": "ติดตามตัวแปรสากลเมื่อเวลาผ่านไป",
         "tr-TR": "Zamanla Küresel Değişken'i Kovala",
-        "zh-CN": "持续追踪全局变量"
+        "zh-CN": "持续追踪全局变量",
+        "de-DE": "Chase Global Variable Over Time",
+        "es-ES": "Chase Global Variable Over Time",
+        "it-IT": "Chase Global Variable Over Time",
+        "ko-KR": "Chase Global Variable Over Time",
+        "pl-PL": "Chase Global Variable Over Time",
+        "ru-RU": "Chase Global Variable Over Time",
+        "zh-TW": "Chase Global Variable Over Time"
     },
     "__chasePlayerVariableAtRate__": {
         "description": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
@@ -13104,7 +14754,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -13137,7 +14790,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -13175,7 +14834,11 @@ const actionKw =
                     "ru-RU": "Цель",
                     "th-TH": "ปลายทาง",
                     "tr-TR": "Varış Noktası",
-                    "zh-CN": "最终值"
+                    "zh-CN": "最终值",
+                    "de-DE": "Destination",
+                    "fr-FR": "Destination",
+                    "ko-KR": "Destination",
+                    "zh-TW": "Destination"
                 }
             },
             {
@@ -13211,7 +14874,10 @@ const actionKw =
                     "ru-RU": "Шаг",
                     "th-TH": "อัตรา",
                     "tr-TR": "Oran",
-                    "zh-CN": "频率"
+                    "zh-CN": "频率",
+                    "de-DE": "Rate",
+                    "ko-KR": "Rate",
+                    "zh-TW": "Rate"
                 }
             },
             {
@@ -13247,7 +14913,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -13275,7 +14944,14 @@ const actionKw =
         "pt-BR": "Acompanhar Variável de Jogador na Medida",
         "th-TH": "ติดตามตัวแปรผู้เล่นในอัตรา",
         "tr-TR": "Belli Oranda Oyuncu Değişkeni'ni İzle",
-        "zh-CN": "追踪玩家变量频率"
+        "zh-CN": "追踪玩家变量频率",
+        "de-DE": "Chase Player Variable At Rate",
+        "es-ES": "Chase Player Variable At Rate",
+        "it-IT": "Chase Player Variable At Rate",
+        "ko-KR": "Chase Player Variable At Rate",
+        "pl-PL": "Chase Player Variable At Rate",
+        "ru-RU": "Chase Player Variable At Rate",
+        "zh-TW": "Chase Player Variable At Rate"
     },
     "__chasePlayerVariableOverTime__": {
         "description": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
@@ -13318,7 +14994,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -13350,7 +15029,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -13388,7 +15073,11 @@ const actionKw =
                     "ru-RU": "Цель",
                     "th-TH": "ปลายทาง",
                     "tr-TR": "Varış Noktası",
-                    "zh-CN": "最终值"
+                    "zh-CN": "最终值",
+                    "de-DE": "Destination",
+                    "fr-FR": "Destination",
+                    "ko-KR": "Destination",
+                    "zh-TW": "Destination"
                 }
             },
             {
@@ -13424,7 +15113,10 @@ const actionKw =
                     "ru-RU": "Длительность",
                     "th-TH": "ระยะเวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "持续时间"
+                    "zh-CN": "持续时间",
+                    "de-DE": "Duration",
+                    "ko-KR": "Duration",
+                    "zh-TW": "Duration"
                 }
             },
             {
@@ -13460,7 +15152,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -13488,7 +15183,14 @@ const actionKw =
         "pt-BR": "Acompanhar Variável de Jogador ao Longo do Tempo",
         "th-TH": "ติดตามตัวแปรผู้เล่นเมื่อเวลาผ่านไป",
         "tr-TR": "Zamanla Oyuncu Değişkeni'ni Kovala",
-        "zh-CN": "持续追踪玩家变量"
+        "zh-CN": "持续追踪玩家变量",
+        "de-DE": "Chase Player Variable Over Time",
+        "es-ES": "Chase Player Variable Over Time",
+        "it-IT": "Chase Player Variable Over Time",
+        "ko-KR": "Chase Player Variable Over Time",
+        "pl-PL": "Chase Player Variable Over Time",
+        "ru-RU": "Chase Player Variable Over Time",
+        "zh-TW": "Chase Player Variable Over Time"
     },
     "__elif__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true and the previous If or Else If action's condition was false.",
@@ -13524,7 +15226,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -13549,8 +15256,17 @@ const actionKw =
         "es-MX": "Si no si",
         "fr-FR": "Sinon Si",
         "ja-JP": "ELSE IF",
-        "th-TH": "อื่นถ้า",
-        "tr-TR": "Başka Eğer"
+        "tr-TR": "Başka Eğer",
+        "de-DE": "Else If",
+        "es-ES": "Else If",
+        "it-IT": "Else If",
+        "ko-KR": "Else If",
+        "pl-PL": "Else If",
+        "pt-BR": "Else If",
+        "ru-RU": "Else If",
+        "th-TH": "Else If",
+        "zh-CN": "Else If",
+        "zh-TW": "Else If"
     },
     "__else__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the previous If or Else If action's condition was false.",
@@ -13576,8 +15292,17 @@ const actionKw =
         "es-MX": "Si no",
         "fr-FR": "Sinon",
         "ja-JP": "ELSE",
-        "th-TH": "อื่น",
-        "tr-TR": "Değilse"
+        "tr-TR": "Değilse",
+        "de-DE": "Else",
+        "es-ES": "Else",
+        "it-IT": "Else",
+        "ko-KR": "Else",
+        "pl-PL": "Else",
+        "pt-BR": "Else",
+        "ru-RU": "Else",
+        "th-TH": "Else",
+        "zh-CN": "Else",
+        "zh-TW": "Else"
     },
     "__end__": {
         "description": "Denotes the end of a series of actions started by an if, else if, else, while, or for action.",
@@ -13604,8 +15329,16 @@ const actionKw =
         "fr-FR": "Fin",
         "ja-JP": "END",
         "pt-BR": "Término",
-        "th-TH": "สิ้นสุด",
-        "tr-TR": "Son"
+        "tr-TR": "Son",
+        "de-DE": "End",
+        "es-ES": "End",
+        "it-IT": "End",
+        "ko-KR": "End",
+        "pl-PL": "End",
+        "ru-RU": "End",
+        "th-TH": "End",
+        "zh-CN": "End",
+        "zh-TW": "End"
     },
     "__forGlobalVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -13640,9 +15373,13 @@ const actionKw =
                     "ja-JP": "コントロール変数",
                     "pt-BR": "Variável de controle",
                     "ru-RU": "Управляющая переменная",
-                    "th-TH": "ตัวแปรควบคุม",
                     "tr-TR": "Kontrol Değişkeni",
-                    "zh-CN": "控制变量"
+                    "zh-CN": "控制变量",
+                    "de-DE": "Control Variable",
+                    "ko-KR": "Control Variable",
+                    "pl-PL": "Control Variable",
+                    "th-TH": "Control Variable",
+                    "zh-TW": "Control Variable"
                 }
             },
             {
@@ -13675,9 +15412,13 @@ const actionKw =
                     "ja-JP": "開始値",
                     "pt-BR": "Início do intervalo",
                     "ru-RU": "Начало диапазона",
-                    "th-TH": "เริ่มต้นช่วง",
                     "tr-TR": "Başlangıç Aralığı",
-                    "zh-CN": "起始值"
+                    "zh-CN": "起始值",
+                    "de-DE": "Range Start",
+                    "ko-KR": "Range Start",
+                    "pl-PL": "Range Start",
+                    "th-TH": "Range Start",
+                    "zh-TW": "Range Start"
                 }
             },
             {
@@ -13710,9 +15451,13 @@ const actionKw =
                     "ja-JP": "終了値",
                     "pt-BR": "Fim do intervalo",
                     "ru-RU": "Конец диапазона",
-                    "th-TH": "หยุดช่วง",
                     "tr-TR": "Durdurma Aralığı",
-                    "zh-CN": "终止值"
+                    "zh-CN": "终止值",
+                    "de-DE": "Range Stop",
+                    "ko-KR": "Range Stop",
+                    "pl-PL": "Range Stop",
+                    "th-TH": "Range Stop",
+                    "zh-TW": "Range Stop"
                 }
             },
             {
@@ -13745,9 +15490,13 @@ const actionKw =
                     "pl-PL": "Krok",
                     "pt-BR": "Etapa",
                     "ru-RU": "Шаг",
-                    "th-TH": "ขั้นตอน",
                     "tr-TR": "Adım",
-                    "zh-CN": "步长"
+                    "zh-CN": "步长",
+                    "de-DE": "Step",
+                    "it-IT": "Step",
+                    "ko-KR": "Step",
+                    "th-TH": "Step",
+                    "zh-TW": "Step"
                 }
             }
         ],
@@ -13773,9 +15522,16 @@ const actionKw =
         "fr-FR": "Pour variable globale",
         "ja-JP": "グローバル変数用",
         "pt-BR": "For variável global",
-        "th-TH": "สําหรับตัวแปรสากล",
         "tr-TR": "Küresel Değişken İçin",
-        "zh-CN": "For 全局变量"
+        "zh-CN": "For 全局变量",
+        "de-DE": "For Global Variable",
+        "es-ES": "For Global Variable",
+        "it-IT": "For Global Variable",
+        "ko-KR": "For Global Variable",
+        "pl-PL": "For Global Variable",
+        "ru-RU": "For Global Variable",
+        "th-TH": "For Global Variable",
+        "zh-TW": "For Global Variable"
     },
     "__forPlayerVariable__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop, modifying the control variable on each loop. The corresponding end action denotes the end of the loop. If the control variable reaches or passes the range stop value, then the loop exits, and execution jumps to the next action after the end action.",
@@ -13811,9 +15567,12 @@ const actionKw =
                     "pl-PL": "Kontroluj gracza",
                     "pt-BR": "Controlar jogador",
                     "ru-RU": "Контрольный игрок",
-                    "th-TH": "ผู้เล่นควบคุม",
                     "tr-TR": "Oyuncuyu Kontrol Et",
-                    "zh-CN": "控制玩家"
+                    "zh-CN": "控制玩家",
+                    "de-DE": "Control Player",
+                    "ko-KR": "Control Player",
+                    "th-TH": "Control Player",
+                    "zh-TW": "Control Player"
                 }
             },
             {
@@ -13846,9 +15605,13 @@ const actionKw =
                     "ja-JP": "コントロール変数",
                     "pt-BR": "Variável de controle",
                     "ru-RU": "Управляющая переменная",
-                    "th-TH": "ตัวแปรควบคุม",
                     "tr-TR": "Kontrol Değişkeni",
-                    "zh-CN": "控制变量"
+                    "zh-CN": "控制变量",
+                    "de-DE": "Control Variable",
+                    "ko-KR": "Control Variable",
+                    "pl-PL": "Control Variable",
+                    "th-TH": "Control Variable",
+                    "zh-TW": "Control Variable"
                 }
             },
             {
@@ -13881,9 +15644,13 @@ const actionKw =
                     "ja-JP": "開始値",
                     "pt-BR": "Início do intervalo",
                     "ru-RU": "Начало диапазона",
-                    "th-TH": "เริ่มต้นช่วง",
                     "tr-TR": "Başlangıç Aralığı",
-                    "zh-CN": "起始值"
+                    "zh-CN": "起始值",
+                    "de-DE": "Range Start",
+                    "ko-KR": "Range Start",
+                    "pl-PL": "Range Start",
+                    "th-TH": "Range Start",
+                    "zh-TW": "Range Start"
                 }
             },
             {
@@ -13916,9 +15683,13 @@ const actionKw =
                     "ja-JP": "終了値",
                     "pt-BR": "Fim do intervalo",
                     "ru-RU": "Конец диапазона",
-                    "th-TH": "หยุดช่วง",
                     "tr-TR": "Durdurma Aralığı",
-                    "zh-CN": "终止值"
+                    "zh-CN": "终止值",
+                    "de-DE": "Range Stop",
+                    "ko-KR": "Range Stop",
+                    "pl-PL": "Range Stop",
+                    "th-TH": "Range Stop",
+                    "zh-TW": "Range Stop"
                 }
             },
             {
@@ -13951,9 +15722,13 @@ const actionKw =
                     "pl-PL": "Krok",
                     "pt-BR": "Etapa",
                     "ru-RU": "Шаг",
-                    "th-TH": "ขั้นตอน",
                     "tr-TR": "Adım",
-                    "zh-CN": "步长"
+                    "zh-CN": "步长",
+                    "de-DE": "Step",
+                    "it-IT": "Step",
+                    "ko-KR": "Step",
+                    "th-TH": "Step",
+                    "zh-TW": "Step"
                 }
             }
         ],
@@ -13979,9 +15754,16 @@ const actionKw =
         "fr-FR": "Pour variable de joueur",
         "ja-JP": "プレイヤー変数用",
         "pt-BR": "For variável de jogador",
-        "th-TH": "สําหรับตัวแปรผู้เล่น",
         "tr-TR": "Oyuncu Değişkeni İçin",
-        "zh-CN": "For 玩家变量"
+        "zh-CN": "For 玩家变量",
+        "de-DE": "For Player Variable",
+        "es-ES": "For Player Variable",
+        "it-IT": "For Player Variable",
+        "ko-KR": "For Player Variable",
+        "pl-PL": "For Player Variable",
+        "ru-RU": "For Player Variable",
+        "th-TH": "For Player Variable",
+        "zh-TW": "For Player Variable"
     },
     "__hudText__": {
         "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.",
@@ -14020,7 +15802,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -14056,7 +15845,10 @@ const actionKw =
                     "ru-RU": "Заголовок",
                     "th-TH": "ส่วนหัว",
                     "tr-TR": "Başlık",
-                    "zh-CN": "标题"
+                    "zh-CN": "标题",
+                    "de-DE": "Header",
+                    "ko-KR": "Header",
+                    "zh-TW": "Header"
                 }
             },
             {
@@ -14092,7 +15884,10 @@ const actionKw =
                     "ru-RU": "Подзаголовок",
                     "th-TH": "หัวข้อย่อย",
                     "tr-TR": "Alt Başlık",
-                    "zh-CN": "子标题"
+                    "zh-CN": "子标题",
+                    "de-DE": "Subheader",
+                    "ko-KR": "Subheader",
+                    "zh-TW": "Subheader"
                 }
             },
             {
@@ -14128,7 +15923,10 @@ const actionKw =
                     "ru-RU": "Текст",
                     "th-TH": "ข้อความ",
                     "tr-TR": "Metin",
-                    "zh-CN": "文本"
+                    "zh-CN": "文本",
+                    "de-DE": "Text",
+                    "ko-KR": "Text",
+                    "zh-TW": "Text"
                 }
             },
             {
@@ -14164,7 +15962,10 @@ const actionKw =
                     "ru-RU": "Местоположение",
                     "th-TH": "สถานที่",
                     "tr-TR": "Konum",
-                    "zh-CN": "坐标"
+                    "zh-CN": "坐标",
+                    "de-DE": "Location",
+                    "ko-KR": "Location",
+                    "zh-TW": "Location"
                 }
             },
             {
@@ -14201,7 +16002,11 @@ const actionKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             },
             {
@@ -14237,7 +16042,10 @@ const actionKw =
                     "ru-RU": "Цвет заголовка",
                     "th-TH": "สีหัวข้อ",
                     "tr-TR": "Başlık Rengi",
-                    "zh-CN": "标题颜色"
+                    "zh-CN": "标题颜色",
+                    "de-DE": "Header Color",
+                    "ko-KR": "Header Color",
+                    "zh-TW": "Header Color"
                 }
             },
             {
@@ -14273,7 +16081,10 @@ const actionKw =
                     "ru-RU": "Цвет подзаголовка",
                     "th-TH": "สีหัวข้อย่อย",
                     "tr-TR": "Alt Başlık Rengi",
-                    "zh-CN": "子标题颜色"
+                    "zh-CN": "子标题颜色",
+                    "de-DE": "SubHeader Color",
+                    "ko-KR": "SubHeader Color",
+                    "zh-TW": "SubHeader Color"
                 }
             },
             {
@@ -14309,7 +16120,10 @@ const actionKw =
                     "ru-RU": "Цвет текста",
                     "th-TH": "สีข้อความ",
                     "tr-TR": "Metin Rengi",
-                    "zh-CN": "文本颜色"
+                    "zh-CN": "文本颜色",
+                    "de-DE": "Text Color",
+                    "ko-KR": "Text Color",
+                    "zh-TW": "Text Color"
                 }
             },
             {
@@ -14345,7 +16159,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             },
             {
@@ -14382,7 +16199,9 @@ const actionKw =
                     "ru-RU": "Внекомандные зрители",
                     "th-TH": "ผู้ชมที่ไม่มีทีม",
                     "tr-TR": "Takım Dışı İzleyiciler",
-                    "zh-CN": "无队伍观战者"
+                    "zh-CN": "无队伍观战者",
+                    "ko-KR": "Non-Team Spectators",
+                    "zh-TW": "Non-Team Spectators"
                 }
             }
         ],
@@ -14410,7 +16229,14 @@ const actionKw =
         "pt-BR": "Criar Texto de HUD",
         "th-TH": "สร้างข้อความ HUD",
         "tr-TR": "Ekran Göstergesi Metni Oluştur",
-        "zh-CN": "创建HUD文本"
+        "zh-CN": "创建HUD文本",
+        "de-DE": "Create HUD Text",
+        "es-ES": "Create HUD Text",
+        "it-IT": "Create HUD Text",
+        "ko-KR": "Create HUD Text",
+        "pl-PL": "Create HUD Text",
+        "ru-RU": "Create HUD Text",
+        "zh-TW": "Create HUD Text"
     },
     "__if__": {
         "description": "Denotes the beginning of a series of actions that will only execute if the specified condition is true.",
@@ -14446,7 +16272,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -14471,7 +16302,17 @@ const actionKw =
         "es-MX": "Si",
         "fr-FR": "Si",
         "ja-JP": "IF",
-        "tr-TR": "Eğer"
+        "tr-TR": "Eğer",
+        "de-DE": "If",
+        "es-ES": "If",
+        "it-IT": "If",
+        "ko-KR": "If",
+        "pl-PL": "If",
+        "pt-BR": "If",
+        "ru-RU": "If",
+        "th-TH": "If",
+        "zh-CN": "If",
+        "zh-TW": "If"
     },
     "__loopIfConditionIsFalse__": {
         "description": "Restarts the action list from the beginning if at least one condition in the condition list is false. If all conditions are true, execution continues with the next action.",
@@ -14500,7 +16341,14 @@ const actionKw =
         "pt-BR": "Gerar Loop se a Condição for Falsa",
         "th-TH": "เงื่อนไขลูป If เป็น False",
         "tr-TR": "Koşul Yanlışsa Döngü Oluştur",
-        "zh-CN": "如条件为“假”则循环"
+        "zh-CN": "如条件为“假”则循环",
+        "de-DE": "Loop If Condition Is False",
+        "es-ES": "Loop If Condition Is False",
+        "it-IT": "Loop If Condition Is False",
+        "ko-KR": "Loop If Condition Is False",
+        "pl-PL": "Loop If Condition Is False",
+        "ru-RU": "Loop If Condition Is False",
+        "zh-TW": "Loop If Condition Is False"
     },
     "__loopIfConditionIsTrue__": {
         "description": "Restarts the action list from the beginning if every condition in the condition list is true. If any are false, execution continues with the next action.",
@@ -14529,7 +16377,14 @@ const actionKw =
         "pt-BR": "Gerar Loop se a Condição for Verdadeira",
         "th-TH": "ลูปถ้าเงื่อนไขเป็นจริง",
         "tr-TR": "Koşul Doğru ise Döngü",
-        "zh-CN": "如条件为“真”则循环"
+        "zh-CN": "如条件为“真”则循环",
+        "de-DE": "Loop If Condition Is True",
+        "es-ES": "Loop If Condition Is True",
+        "it-IT": "Loop If Condition Is True",
+        "ko-KR": "Loop If Condition Is True",
+        "pl-PL": "Loop If Condition Is True",
+        "ru-RU": "Loop If Condition Is True",
+        "zh-TW": "Loop If Condition Is True"
     },
     "__loopIf__": {
         "description": "Restarts the action list from the beginning if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -14565,7 +16420,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -14593,7 +16453,14 @@ const actionKw =
         "pt-BR": "Gerar Loop se",
         "th-TH": "ลูป If",
         "tr-TR": "Döngü Oluştur Eğer",
-        "zh-CN": "根据条件循环"
+        "zh-CN": "根据条件循环",
+        "de-DE": "Loop If",
+        "es-ES": "Loop If",
+        "it-IT": "Loop If",
+        "ko-KR": "Loop If",
+        "pl-PL": "Loop If",
+        "ru-RU": "Loop If",
+        "zh-TW": "Loop If"
     },
     "__loop__": {
         "guid": "0000000078F5",
@@ -14622,7 +16489,14 @@ const actionKw =
         "pt-BR": "Gerar Loop",
         "th-TH": "ลูป",
         "tr-TR": "Döngü",
-        "zh-CN": "循环"
+        "zh-CN": "循环",
+        "de-DE": "Loop",
+        "es-ES": "Loop",
+        "it-IT": "Loop",
+        "ko-KR": "Loop",
+        "pl-PL": "Loop",
+        "ru-RU": "Loop",
+        "zh-TW": "Loop"
     },
     "__modifyGlobalVariableAtIndex__": {
         "description": "Modifies the value of a global variable at an index, which is a variable that belongs to the game itself.",
@@ -14657,7 +16531,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -14691,7 +16571,12 @@ const actionKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             },
             {
@@ -14727,7 +16612,10 @@ const actionKw =
                     "ru-RU": "Операция",
                     "th-TH": "การดำเนินการ",
                     "tr-TR": "Faaliyet",
-                    "zh-CN": "操作"
+                    "zh-CN": "操作",
+                    "de-DE": "Operation",
+                    "ko-KR": "Operation",
+                    "zh-TW": "Operation"
                 }
             },
             {
@@ -14765,7 +16653,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -14793,7 +16685,14 @@ const actionKw =
         "pt-BR": "Modificar Variável Global no Índice",
         "th-TH": "ปรับตัวแปรสากลในดัชนี",
         "tr-TR": "İndeksteki Küresel Değişken'i Değiştir",
-        "zh-CN": "在索引处修改全局变量"
+        "zh-CN": "在索引处修改全局变量",
+        "de-DE": "Modify Global Variable At Index",
+        "es-ES": "Modify Global Variable At Index",
+        "it-IT": "Modify Global Variable At Index",
+        "ko-KR": "Modify Global Variable At Index",
+        "pl-PL": "Modify Global Variable At Index",
+        "ru-RU": "Modify Global Variable At Index",
+        "zh-TW": "Modify Global Variable At Index"
     },
     "__modifyGlobalVariable__": {
         "description": "Modifies the value of a global variable, which is a variable that belongs to the game itself.",
@@ -14828,7 +16727,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -14864,7 +16769,10 @@ const actionKw =
                     "ru-RU": "Операция",
                     "th-TH": "การดำเนินการ",
                     "tr-TR": "Faaliyet",
-                    "zh-CN": "操作"
+                    "zh-CN": "操作",
+                    "de-DE": "Operation",
+                    "ko-KR": "Operation",
+                    "zh-TW": "Operation"
                 }
             },
             {
@@ -14902,7 +16810,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -14930,7 +16842,14 @@ const actionKw =
         "pt-BR": "Modificar Variável Global",
         "th-TH": "ปรับเปลี่ยนตัวแปรสากล",
         "tr-TR": "Küresel Değişken'i Değiştir",
-        "zh-CN": "修改全局变量"
+        "zh-CN": "修改全局变量",
+        "de-DE": "Modify Global Variable",
+        "es-ES": "Modify Global Variable",
+        "it-IT": "Modify Global Variable",
+        "ko-KR": "Modify Global Variable",
+        "pl-PL": "Modify Global Variable",
+        "ru-RU": "Modify Global Variable",
+        "zh-TW": "Modify Global Variable"
     },
     "__modifyPlayerVariableAtIndex__": {
         "description": "Modifies the value of a player variable at an index, which is a variable that belongs to a specific player.",
@@ -14973,7 +16892,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -15006,7 +16928,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15040,7 +16968,12 @@ const actionKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             },
             {
@@ -15076,7 +17009,10 @@ const actionKw =
                     "ru-RU": "Операция",
                     "th-TH": "การดำเนินการ",
                     "tr-TR": "Faaliyet",
-                    "zh-CN": "操作"
+                    "zh-CN": "操作",
+                    "de-DE": "Operation",
+                    "ko-KR": "Operation",
+                    "zh-TW": "Operation"
                 }
             },
             {
@@ -15114,7 +17050,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15142,7 +17082,14 @@ const actionKw =
         "pt-BR": "Modificar Variável de Jogador no Índice",
         "th-TH": "ปรับตัวแปรผู้เล่นในดัชนี",
         "tr-TR": "İndeksteki Oyuncu Değişkeni'ni Değiştir",
-        "zh-CN": "在索引处修改玩家变量"
+        "zh-CN": "在索引处修改玩家变量",
+        "de-DE": "Modify Player Variable At Index",
+        "es-ES": "Modify Player Variable At Index",
+        "it-IT": "Modify Player Variable At Index",
+        "ko-KR": "Modify Player Variable At Index",
+        "pl-PL": "Modify Player Variable At Index",
+        "ru-RU": "Modify Player Variable At Index",
+        "zh-TW": "Modify Player Variable At Index"
     },
     "__modifyPlayerVariable__": {
         "description": "Modifies the value of a player variable, which is a variable that belongs to a specific player.",
@@ -15185,7 +17132,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -15218,7 +17168,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15254,7 +17210,10 @@ const actionKw =
                     "ru-RU": "Операция",
                     "th-TH": "การดำเนินการ",
                     "tr-TR": "Faaliyet",
-                    "zh-CN": "操作"
+                    "zh-CN": "操作",
+                    "de-DE": "Operation",
+                    "ko-KR": "Operation",
+                    "zh-TW": "Operation"
                 }
             },
             {
@@ -15292,7 +17251,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15320,7 +17283,14 @@ const actionKw =
         "pt-BR": "Modificar Variável de Jogador",
         "th-TH": "ปรับเปลี่ยนตัวแปรผู้เล่น",
         "tr-TR": "Oyuncu Değişkeni'ni Değiştir",
-        "zh-CN": "修改玩家变量"
+        "zh-CN": "修改玩家变量",
+        "de-DE": "Modify Player Variable",
+        "es-ES": "Modify Player Variable",
+        "it-IT": "Modify Player Variable",
+        "ko-KR": "Modify Player Variable",
+        "pl-PL": "Modify Player Variable",
+        "ru-RU": "Modify Player Variable",
+        "zh-TW": "Modify Player Variable"
     },
     "__setGlobalVariableAtIndex__": {
         "description": "Finds or creates an array on a global variable, which is a variable that belongs to the game itself, then stores a value in the array at the specified index.",
@@ -15355,7 +17325,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15391,7 +17367,12 @@ const actionKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             },
             {
@@ -15429,7 +17410,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15457,7 +17442,14 @@ const actionKw =
         "pt-BR": "Definir Variável Global no Índice",
         "th-TH": "ตั้งค่าตัวแปรสากลที่ดัชนี",
         "tr-TR": "İndeksteki Küresel Değişken'i Ayarla",
-        "zh-CN": "在索引处设置全局变量"
+        "zh-CN": "在索引处设置全局变量",
+        "de-DE": "Set Global Variable At Index",
+        "es-ES": "Set Global Variable At Index",
+        "it-IT": "Set Global Variable At Index",
+        "ko-KR": "Set Global Variable At Index",
+        "pl-PL": "Set Global Variable At Index",
+        "ru-RU": "Set Global Variable At Index",
+        "zh-TW": "Set Global Variable At Index"
     },
     "__setGlobalVariable__": {
         "description": "Stores a value into a global variable, which is a variable that belongs to the game itself.",
@@ -15492,7 +17484,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15530,7 +17528,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15558,7 +17560,14 @@ const actionKw =
         "pt-BR": "Definir Variável Global",
         "th-TH": "ตั้งค่าตัวแปรสากล",
         "tr-TR": "Küresel Değişken'i Ayarla",
-        "zh-CN": "设置全局变量"
+        "zh-CN": "设置全局变量",
+        "de-DE": "Set Global Variable",
+        "es-ES": "Set Global Variable",
+        "it-IT": "Set Global Variable",
+        "ko-KR": "Set Global Variable",
+        "pl-PL": "Set Global Variable",
+        "ru-RU": "Set Global Variable",
+        "zh-TW": "Set Global Variable"
     },
     "__setPlayerVariableAtIndex__": {
         "description": "Finds or creates an array on a player variable, which is a variable that belongs to a specific player, then stores a value in the array at the specified index.",
@@ -15601,7 +17610,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -15634,7 +17646,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15670,7 +17688,12 @@ const actionKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             },
             {
@@ -15708,7 +17731,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15736,7 +17763,14 @@ const actionKw =
         "pt-BR": "Definir Variável de Jogador no Índice",
         "th-TH": "ตั้งค่าตัวแปรผู้เล่นที่ดัชนี",
         "tr-TR": "İndeksteki Oyuncu Değişkeni'ni Ayarla",
-        "zh-CN": "在索引处设置玩家变量"
+        "zh-CN": "在索引处设置玩家变量",
+        "de-DE": "Set Player Variable At Index",
+        "es-ES": "Set Player Variable At Index",
+        "it-IT": "Set Player Variable At Index",
+        "ko-KR": "Set Player Variable At Index",
+        "pl-PL": "Set Player Variable At Index",
+        "ru-RU": "Set Player Variable At Index",
+        "zh-TW": "Set Player Variable At Index"
     },
     "__setPlayerVariable__": {
         "description": "Stores a value into a player variable, which is a variable that belongs to a specific player.",
@@ -15779,7 +17813,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -15812,7 +17849,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             },
             {
@@ -15850,7 +17893,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15878,7 +17925,14 @@ const actionKw =
         "pt-BR": "Definir Variável de Jogador",
         "th-TH": "ตั้งค่าตัวแปรผู้เล่น",
         "tr-TR": "Oyuncu Değişkeni'ni Ayarla",
-        "zh-CN": "设置玩家变量"
+        "zh-CN": "设置玩家变量",
+        "de-DE": "Set Player Variable",
+        "es-ES": "Set Player Variable",
+        "it-IT": "Set Player Variable",
+        "ko-KR": "Set Player Variable",
+        "pl-PL": "Set Player Variable",
+        "ru-RU": "Set Player Variable",
+        "zh-TW": "Set Player Variable"
     },
     "__skipIf__": {
         "description": "Skips execution of a certain number of actions in the action list if this action's condition evaluates to true. If it does not, execution continues with the next action.",
@@ -15914,7 +17968,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             },
             {
@@ -15952,7 +18011,10 @@ const actionKw =
                     "ru-RU": "Количество действий",
                     "th-TH": "จํานวนการดําเนินการ",
                     "tr-TR": "Eylem Sayısı",
-                    "zh-CN": "动作数量"
+                    "zh-CN": "动作数量",
+                    "de-DE": "Number of Actions",
+                    "ko-KR": "Number of Actions",
+                    "zh-TW": "Number of Actions"
                 }
             }
         ],
@@ -15980,7 +18042,14 @@ const actionKw =
         "pt-BR": "Ignorar se",
         "th-TH": "ข้าม If",
         "tr-TR": "Atla Eğer",
-        "zh-CN": "根据条件跳过"
+        "zh-CN": "根据条件跳过",
+        "de-DE": "Skip If",
+        "es-ES": "Skip If",
+        "it-IT": "Skip If",
+        "ko-KR": "Skip If",
+        "pl-PL": "Skip If",
+        "ru-RU": "Skip If",
+        "zh-TW": "Skip If"
     },
     "__skip__": {
         "guid": "00000000BB01",
@@ -16021,7 +18090,10 @@ const actionKw =
                     "ru-RU": "Количество действий",
                     "th-TH": "จํานวนการดําเนินการ",
                     "tr-TR": "Eylem Sayısı",
-                    "zh-CN": "动作数量"
+                    "zh-CN": "动作数量",
+                    "de-DE": "Number of Actions",
+                    "ko-KR": "Number of Actions",
+                    "zh-TW": "Number of Actions"
                 }
             }
         ],
@@ -16048,7 +18120,14 @@ const actionKw =
         "pt-BR": "Ignorar",
         "th-TH": "ข้าม",
         "tr-TR": "Atla",
-        "zh-CN": "跳过"
+        "zh-CN": "跳过",
+        "de-DE": "Skip",
+        "es-ES": "Skip",
+        "it-IT": "Skip",
+        "ko-KR": "Skip",
+        "pl-PL": "Skip",
+        "ru-RU": "Skip",
+        "zh-TW": "Skip"
     },
     "__startRule__": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
@@ -16082,9 +18161,14 @@ const actionKw =
                     "pl-PL": "Podprogram",
                     "pt-BR": "Sub-rotina",
                     "ru-RU": "Подпрограмма",
-                    "th-TH": "ซับรูทีน",
                     "tr-TR": "Alt Yordam",
-                    "zh-CN": "子程序"
+                    "zh-CN": "子程序",
+                    "de-DE": "Subroutine",
+                    "es-ES": "Subroutine",
+                    "it-IT": "Subroutine",
+                    "ko-KR": "Subroutine",
+                    "th-TH": "Subroutine",
+                    "zh-TW": "Subroutine"
                 }
             },
             {
@@ -16117,9 +18201,13 @@ const actionKw =
                     "ja-JP": "既に実行中の場合",
                     "pt-BR": "Se já em execução",
                     "ru-RU": "Если уже выполняется",
-                    "th-TH": "หากดำเนินการอยู่แล้ว",
                     "tr-TR": "Zaten Yürütülüyorsa",
-                    "zh-CN": "是否正在执行"
+                    "zh-CN": "是否正在执行",
+                    "de-DE": "If Already Executing",
+                    "ko-KR": "If Already Executing",
+                    "pl-PL": "If Already Executing",
+                    "th-TH": "If Already Executing",
+                    "zh-TW": "If Already Executing"
                 }
             }
         ],
@@ -16145,9 +18233,16 @@ const actionKw =
         "fr-FR": "Lancer la règle",
         "ja-JP": "ルールを開始",
         "pt-BR": "Regra de início",
-        "th-TH": "เริ่มกฎ",
         "tr-TR": "Kuralı Başlat",
-        "zh-CN": "开始规则"
+        "zh-CN": "开始规则",
+        "de-DE": "Start Rule",
+        "es-ES": "Start Rule",
+        "it-IT": "Start Rule",
+        "ko-KR": "Start Rule",
+        "pl-PL": "Start Rule",
+        "ru-RU": "Start Rule",
+        "th-TH": "Start Rule",
+        "zh-TW": "Start Rule"
     },
     "__stopChasingGlobalVariable__": {
         "description": "Stops an in-progress chase of a global variable, leaving it at its current value.",
@@ -16182,7 +18277,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             }
         ],
@@ -16210,7 +18311,14 @@ const actionKw =
         "pt-BR": "Parar de Acompanhar Variável Global",
         "th-TH": "หยุดติดตามตัวแปรสากล",
         "tr-TR": "Küresel Değişken'i İzlemeyi Bırak",
-        "zh-CN": "停止追踪全局变量"
+        "zh-CN": "停止追踪全局变量",
+        "de-DE": "Stop Chasing Global Variable",
+        "es-ES": "Stop Chasing Global Variable",
+        "it-IT": "Stop Chasing Global Variable",
+        "ko-KR": "Stop Chasing Global Variable",
+        "pl-PL": "Stop Chasing Global Variable",
+        "ru-RU": "Stop Chasing Global Variable",
+        "zh-TW": "Stop Chasing Global Variable"
     },
     "__stopChasingPlayerVariable__": {
         "description": "Stops an in-progress chase of a player variable, leaving it at its current value.",
@@ -16253,7 +18361,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -16286,7 +18397,13 @@ const actionKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             }
         ],
@@ -16314,7 +18431,14 @@ const actionKw =
         "pt-BR": "Parar de Acompanhar Variável de Jogador",
         "th-TH": "หยุดติดตามตัวแปรผู้เล่น",
         "tr-TR": "Oyuncu Değişkeni'ni İzlemeyi Bırak",
-        "zh-CN": "停止追踪玩家变量"
+        "zh-CN": "停止追踪玩家变量",
+        "de-DE": "Stop Chasing Player Variable",
+        "es-ES": "Stop Chasing Player Variable",
+        "it-IT": "Stop Chasing Player Variable",
+        "ko-KR": "Stop Chasing Player Variable",
+        "pl-PL": "Stop Chasing Player Variable",
+        "ru-RU": "Stop Chasing Player Variable",
+        "zh-TW": "Stop Chasing Player Variable"
     },
     "__wait__": {
         "guid": "000000007872",
@@ -16355,7 +18479,10 @@ const actionKw =
                     "ru-RU": "Время",
                     "th-TH": "เวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "时间"
+                    "zh-CN": "时间",
+                    "de-DE": "Time",
+                    "ko-KR": "Time",
+                    "zh-TW": "Time"
                 }
             },
             {
@@ -16391,7 +18518,10 @@ const actionKw =
                     "ru-RU": "Поведение при ожидании",
                     "th-TH": "พฤติกรรมการรอ",
                     "tr-TR": "Bekleme",
-                    "zh-CN": "等待行为"
+                    "zh-CN": "等待行为",
+                    "de-DE": "Wait Behavior",
+                    "ko-KR": "Wait Behavior",
+                    "zh-TW": "Wait Behavior"
                 }
             }
         ],
@@ -16418,7 +18548,14 @@ const actionKw =
         "pt-BR": "Esperar",
         "th-TH": "รอ",
         "tr-TR": "Bekle",
-        "zh-CN": "等待"
+        "zh-CN": "等待",
+        "de-DE": "Wait",
+        "es-ES": "Wait",
+        "it-IT": "Wait",
+        "ko-KR": "Wait",
+        "pl-PL": "Wait",
+        "ru-RU": "Wait",
+        "zh-TW": "Wait"
     },
     "__while__": {
         "description": "Denotes the beginning of a series of actions that will execute in a loop as long as the specified condition is true. The next end action at the current level denotes the end of the loop. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end action.",
@@ -16454,7 +18591,12 @@ const actionKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -16479,8 +18621,17 @@ const actionKw =
         "es-MX": "Mientras",
         "fr-FR": "Tant que",
         "ja-JP": "WHILE",
-        "th-TH": "ขณะ",
-        "tr-TR": "İken"
+        "tr-TR": "İken",
+        "de-DE": "While",
+        "es-ES": "While",
+        "it-IT": "While",
+        "ko-KR": "While",
+        "pl-PL": "While",
+        "pt-BR": "While",
+        "ru-RU": "While",
+        "th-TH": "While",
+        "zh-CN": "While",
+        "zh-TW": "While"
     },
     "addToTeamScore": {
         "description": "Modifies the score of one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -16517,7 +18668,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -16555,7 +18710,10 @@ const actionKw =
                     "ru-RU": "Счет",
                     "th-TH": "คะแนน",
                     "tr-TR": "Skor",
-                    "zh-CN": "得分"
+                    "zh-CN": "得分",
+                    "de-DE": "Score",
+                    "ko-KR": "Score",
+                    "zh-TW": "Score"
                 }
             }
         ],
@@ -16583,7 +18741,14 @@ const actionKw =
         "pt-BR": "Modificar Pontuação da Equipe",
         "th-TH": "ปรับเปลี่ยนคะแนนของทีม",
         "tr-TR": "Takım Skoru'nu Değiştir",
-        "zh-CN": "修改队伍分数"
+        "zh-CN": "修改队伍分数",
+        "de-DE": "Modify Team Score",
+        "es-ES": "Modify Team Score",
+        "it-IT": "Modify Team Score",
+        "ko-KR": "Modify Team Score",
+        "pl-PL": "Modify Team Score",
+        "ru-RU": "Modify Team Score",
+        "zh-TW": "Modify Team Score"
     },
     "bigMessage": {
         "description": "Displays a large message above the reticle that is visible to specific players.",
@@ -16622,7 +18787,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -16659,7 +18831,10 @@ const actionKw =
                     "ru-RU": "Заголовок",
                     "th-TH": "ส่วนหัว",
                     "tr-TR": "Başlık",
-                    "zh-CN": "标题"
+                    "zh-CN": "标题",
+                    "de-DE": "Header",
+                    "ko-KR": "Header",
+                    "zh-TW": "Header"
                 }
             }
         ],
@@ -16687,7 +18862,14 @@ const actionKw =
         "pt-BR": "Mensagem Grande",
         "th-TH": "ข้อความขนาดใหญ่",
         "tr-TR": "Büyük Mesaj",
-        "zh-CN": "大字体信息"
+        "zh-CN": "大字体信息",
+        "de-DE": "Big Message",
+        "es-ES": "Big Message",
+        "it-IT": "Big Message",
+        "ko-KR": "Big Message",
+        "pl-PL": "Big Message",
+        "ru-RU": "Big Message",
+        "zh-TW": "Big Message"
     },
     "break": {
         "description": "Goes to the end of the innermost `switch` statement, or `do/while`, `while` or `for` loop.",
@@ -16713,9 +18895,17 @@ const actionKw =
         "fr-FR": "Arrêter",
         "ja-JP": "BREAK",
         "pt-BR": "Interromper",
-        "th-TH": "หยุดพัก",
         "tr-TR": "Kesme",
-        "zh-CN": "中断"
+        "zh-CN": "中断",
+        "de-DE": "Break",
+        "es-ES": "Break",
+        "es-MX": "Break",
+        "it-IT": "Break",
+        "ko-KR": "Break",
+        "pl-PL": "Break",
+        "ru-RU": "Break",
+        "th-TH": "Break",
+        "zh-TW": "Break"
     },
     "continue": {
         "description": "Goes back to the start of the innermost loop.",
@@ -16742,9 +18932,16 @@ const actionKw =
         "fr-FR": "Continuer",
         "ja-JP": "CONTINUE",
         "pt-BR": "Continuar",
-        "th-TH": "ดำเนินการต่อ",
         "tr-TR": "Devam Et",
-        "zh-CN": "继续"
+        "zh-CN": "继续",
+        "de-DE": "Continue",
+        "es-ES": "Continue",
+        "it-IT": "Continue",
+        "ko-KR": "Continue",
+        "pl-PL": "Continue",
+        "ru-RU": "Continue",
+        "th-TH": "Continue",
+        "zh-TW": "Continue"
     },
     "createBeam": {
         "description": "Creates an in-world beam effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -16783,7 +18980,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -16818,7 +19022,11 @@ const actionKw =
                     "ru-RU": "Тип",
                     "th-TH": "ประเภท",
                     "tr-TR": "Tür",
-                    "zh-CN": "类型"
+                    "zh-CN": "类型",
+                    "de-DE": "Type",
+                    "fr-FR": "Type",
+                    "ko-KR": "Type",
+                    "zh-TW": "Type"
                 }
             },
             {
@@ -16854,7 +19062,10 @@ const actionKw =
                     "ru-RU": "Начальная позиция",
                     "th-TH": "ตําแหน่งเริ่มต้น",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Position",
+                    "ko-KR": "Start Position",
+                    "zh-TW": "Start Position"
                 }
             },
             {
@@ -16890,7 +19101,10 @@ const actionKw =
                     "ru-RU": "Конечная позиция",
                     "th-TH": "ตําแหน่งสุดท้าย",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Position",
+                    "ko-KR": "End Position",
+                    "zh-TW": "End Position"
                 }
             },
             {
@@ -16920,7 +19134,16 @@ const actionKw =
                     "ja-JP": "色",
                     "pt-BR": "Cor",
                     "tr-TR": "Renk",
-                    "zh-CN": "颜色"
+                    "zh-CN": "颜色",
+                    "de-DE": "Color",
+                    "es-ES": "Color",
+                    "es-MX": "Color",
+                    "it-IT": "Color",
+                    "ko-KR": "Color",
+                    "pl-PL": "Color",
+                    "ru-RU": "Color",
+                    "th-TH": "Color",
+                    "zh-TW": "Color"
                 }
             },
             {
@@ -16956,7 +19179,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -16984,7 +19210,14 @@ const actionKw =
         "pt-BR": "Criar Efeito de Feixe",
         "th-TH": "สร้างเอฟเฟกต์ลำแสง",
         "tr-TR": "Işın Efekti Oluştur",
-        "zh-CN": "创建光束效果"
+        "zh-CN": "创建光束效果",
+        "de-DE": "Create Beam Effect",
+        "es-ES": "Create Beam Effect",
+        "it-IT": "Create Beam Effect",
+        "ko-KR": "Create Beam Effect",
+        "pl-PL": "Create Beam Effect",
+        "ru-RU": "Create Beam Effect",
+        "zh-TW": "Create Beam Effect"
     },
     "createDummy": {
         "description": "Adds a new bot to the specified slot on the specified team so long as the slot is available. This bot will only move, fire, or use abilities if executing workshop actions.",
@@ -17014,14 +19247,18 @@ const actionKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -17056,7 +19293,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -17092,7 +19333,12 @@ const actionKw =
                     "pt-BR": "Espaço",
                     "ru-RU": "Ячейка",
                     "tr-TR": "Yuva",
-                    "zh-CN": "栏位"
+                    "zh-CN": "栏位",
+                    "de-DE": "Slot",
+                    "it-IT": "Slot",
+                    "ko-KR": "Slot",
+                    "th-TH": "Slot",
+                    "zh-TW": "Slot"
                 }
             },
             {
@@ -17128,7 +19374,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -17165,7 +19415,10 @@ const actionKw =
                     "ru-RU": "Направление поворота",
                     "th-TH": "การหันหน้า",
                     "tr-TR": "Konumlandırma",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Facing",
+                    "ko-KR": "Facing",
+                    "zh-TW": "Facing"
                 }
             }
         ],
@@ -17193,7 +19446,14 @@ const actionKw =
         "pt-BR": "Criar Bot",
         "th-TH": "สร้างบอตฝึกซ้อม",
         "tr-TR": "Eğitim Robotu Oluştur",
-        "zh-CN": "生成机器人"
+        "zh-CN": "生成机器人",
+        "de-DE": "Create Dummy Bot",
+        "es-ES": "Create Dummy Bot",
+        "it-IT": "Create Dummy Bot",
+        "ko-KR": "Create Dummy Bot",
+        "pl-PL": "Create Dummy Bot",
+        "ru-RU": "Create Dummy Bot",
+        "zh-TW": "Create Dummy Bot"
     },
     "createEffect": {
         "description": "Creates an in-world effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -17232,7 +19492,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -17267,7 +19534,11 @@ const actionKw =
                     "ru-RU": "Тип",
                     "th-TH": "ประเภท",
                     "tr-TR": "Tür",
-                    "zh-CN": "类型"
+                    "zh-CN": "类型",
+                    "de-DE": "Type",
+                    "fr-FR": "Type",
+                    "ko-KR": "Type",
+                    "zh-TW": "Type"
                 }
             },
             {
@@ -17297,7 +19568,16 @@ const actionKw =
                     "ja-JP": "色",
                     "pt-BR": "Cor",
                     "tr-TR": "Renk",
-                    "zh-CN": "颜色"
+                    "zh-CN": "颜色",
+                    "de-DE": "Color",
+                    "es-ES": "Color",
+                    "es-MX": "Color",
+                    "it-IT": "Color",
+                    "ko-KR": "Color",
+                    "pl-PL": "Color",
+                    "ru-RU": "Color",
+                    "th-TH": "Color",
+                    "zh-TW": "Color"
                 }
             },
             {
@@ -17335,7 +19615,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -17372,7 +19656,11 @@ const actionKw =
                     "pt-BR": "Raio",
                     "ru-RU": "Радиус",
                     "tr-TR": "Yarıçap",
-                    "zh-CN": "半径"
+                    "zh-CN": "半径",
+                    "de-DE": "Radius",
+                    "ko-KR": "Radius",
+                    "th-TH": "Radius",
+                    "zh-TW": "Radius"
                 }
             },
             {
@@ -17408,7 +19696,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -17436,7 +19727,14 @@ const actionKw =
         "pt-BR": "Criar Efeito",
         "th-TH": "สร้างเอฟเฟกต์",
         "tr-TR": "Efekt Oluştur",
-        "zh-CN": "创建效果"
+        "zh-CN": "创建效果",
+        "de-DE": "Create Effect",
+        "es-ES": "Create Effect",
+        "it-IT": "Create Effect",
+        "ko-KR": "Create Effect",
+        "pl-PL": "Create Effect",
+        "ru-RU": "Create Effect",
+        "zh-TW": "Create Effect"
     },
     "createIcon": {
         "description": "Creates an in-world icon entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the getLastCreatedEntity() value. This action will fail if too many entities have been created.",
@@ -17490,7 +19788,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -17528,7 +19833,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -17566,7 +19875,8 @@ const actionKw =
                     "th-TH": "ไอคอน",
                     "tr-TR": "Simge",
                     "zh-CN": "图标",
-                    "zh-TW": "頭像"
+                    "zh-TW": "頭像",
+                    "de-DE": "Icon"
                 }
             },
             {
@@ -17602,7 +19912,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             },
             {
@@ -17638,7 +19951,10 @@ const actionKw =
                     "ru-RU": "Цвет значка",
                     "th-TH": "สีไอคอน",
                     "tr-TR": "Simge Rengi",
-                    "zh-CN": "图标颜色"
+                    "zh-CN": "图标颜色",
+                    "de-DE": "Icon Color",
+                    "ko-KR": "Icon Color",
+                    "zh-TW": "Icon Color"
                 }
             },
             {
@@ -17674,7 +19990,10 @@ const actionKw =
                     "ru-RU": "Показывать вне экрана",
                     "th-TH": "แสดงเมื่ออยู่นอกจอ",
                     "tr-TR": "Ekran Dışındayken Göster",
-                    "zh-CN": "离开屏幕后显示"
+                    "zh-CN": "离开屏幕后显示",
+                    "de-DE": "Show When Offscreen",
+                    "ko-KR": "Show When Offscreen",
+                    "zh-TW": "Show When Offscreen"
                 }
             }
         ],
@@ -17687,7 +20006,14 @@ const actionKw =
         "pt-BR": "Criar Ícone",
         "th-TH": "สร้างไอคอน",
         "tr-TR": "Simge Oluştur",
-        "zh-CN": "创建图标"
+        "zh-CN": "创建图标",
+        "de-DE": "Create Icon",
+        "es-ES": "Create Icon",
+        "it-IT": "Create Icon",
+        "ko-KR": "Create Icon",
+        "pl-PL": "Create Icon",
+        "ru-RU": "Create Icon",
+        "zh-TW": "Create Icon"
     },
     "createInWorldText": {
         "description": "Creates in-world text visible to specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
@@ -17741,7 +20067,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -17778,7 +20111,10 @@ const actionKw =
                     "ru-RU": "Заголовок",
                     "th-TH": "ส่วนหัว",
                     "tr-TR": "Başlık",
-                    "zh-CN": "标题"
+                    "zh-CN": "标题",
+                    "de-DE": "Header",
+                    "ko-KR": "Header",
+                    "zh-TW": "Header"
                 }
             },
             {
@@ -17817,7 +20153,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -17855,7 +20195,10 @@ const actionKw =
                     "ru-RU": "Масштаб",
                     "th-TH": "สเกล",
                     "tr-TR": "Ölçek",
-                    "zh-CN": "大小"
+                    "zh-CN": "大小",
+                    "de-DE": "Scale",
+                    "ko-KR": "Scale",
+                    "zh-TW": "Scale"
                 }
             },
             {
@@ -17891,7 +20234,10 @@ const actionKw =
                     "ru-RU": "Пересечение",
                     "th-TH": "การตัด",
                     "tr-TR": "Kırpılıyor",
-                    "zh-CN": "截取"
+                    "zh-CN": "截取",
+                    "de-DE": "Clipping",
+                    "ko-KR": "Clipping",
+                    "zh-TW": "Clipping"
                 }
             },
             {
@@ -17927,7 +20273,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             },
             {
@@ -17963,7 +20312,10 @@ const actionKw =
                     "ru-RU": "Цвет текста",
                     "th-TH": "สีข้อความ",
                     "tr-TR": "Metin Rengi",
-                    "zh-CN": "文本颜色"
+                    "zh-CN": "文本颜色",
+                    "de-DE": "Text Color",
+                    "ko-KR": "Text Color",
+                    "zh-TW": "Text Color"
                 }
             },
             {
@@ -18000,7 +20352,9 @@ const actionKw =
                     "ru-RU": "Внекомандные зрители",
                     "th-TH": "ผู้ชมที่ไม่มีทีม",
                     "tr-TR": "Takım Dışı İzleyiciler",
-                    "zh-CN": "无队伍观战者"
+                    "zh-CN": "无队伍观战者",
+                    "ko-KR": "Non-Team Spectators",
+                    "zh-TW": "Non-Team Spectators"
                 }
             }
         ],
@@ -18013,7 +20367,14 @@ const actionKw =
         "pt-BR": "Criar Texto no Mundo",
         "th-TH": "สร้างข้อความในโลก",
         "tr-TR": "Oyun İçi Metin Oluştur",
-        "zh-CN": "创建地图文本"
+        "zh-CN": "创建地图文本",
+        "de-DE": "Create In-World Text",
+        "es-ES": "Create In-World Text",
+        "it-IT": "Create In-World Text",
+        "ko-KR": "Create In-World Text",
+        "pl-PL": "Create In-World Text",
+        "ru-RU": "Create In-World Text",
+        "zh-TW": "Create In-World Text"
     },
     "createProgressBarInWorldText": {
         "description": "Creates a progress bar in-world text visible to the specific players at a specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() Value. This action will fail if too many text elements have been created.",
@@ -18067,7 +20428,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -18102,7 +20470,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -18138,7 +20510,10 @@ const actionKw =
                     "ru-RU": "Текст",
                     "th-TH": "ข้อความ",
                     "tr-TR": "Metin",
-                    "zh-CN": "文本"
+                    "zh-CN": "文本",
+                    "de-DE": "Text",
+                    "ko-KR": "Text",
+                    "zh-TW": "Text"
                 }
             },
             {
@@ -18176,7 +20551,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -18212,7 +20591,10 @@ const actionKw =
                     "ru-RU": "Масштаб",
                     "th-TH": "สเกล",
                     "tr-TR": "Ölçek",
-                    "zh-CN": "大小"
+                    "zh-CN": "大小",
+                    "de-DE": "Scale",
+                    "ko-KR": "Scale",
+                    "zh-TW": "Scale"
                 }
             },
             {
@@ -18248,7 +20630,10 @@ const actionKw =
                     "ru-RU": "Пересечение",
                     "th-TH": "การตัด",
                     "tr-TR": "Kırpılıyor",
-                    "zh-CN": "截取"
+                    "zh-CN": "截取",
+                    "de-DE": "Clipping",
+                    "ko-KR": "Clipping",
+                    "zh-TW": "Clipping"
                 }
             },
             {
@@ -18284,7 +20669,10 @@ const actionKw =
                     "ru-RU": "Цвет шкалы прогресса",
                     "th-TH": "สีแถบความคืบหน้า",
                     "tr-TR": "İlerleyiş Çubuğu Rengi",
-                    "zh-CN": "进度条颜色"
+                    "zh-CN": "进度条颜色",
+                    "de-DE": "Progress Bar Color",
+                    "ko-KR": "Progress Bar Color",
+                    "zh-TW": "Progress Bar Color"
                 }
             },
             {
@@ -18320,7 +20708,10 @@ const actionKw =
                     "ru-RU": "Цвет текста",
                     "th-TH": "สีข้อความ",
                     "tr-TR": "Metin Rengi",
-                    "zh-CN": "文本颜色"
+                    "zh-CN": "文本颜色",
+                    "de-DE": "Text Color",
+                    "ko-KR": "Text Color",
+                    "zh-TW": "Text Color"
                 }
             },
             {
@@ -18356,7 +20747,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             },
             {
@@ -18393,7 +20787,9 @@ const actionKw =
                     "ru-RU": "Внекомандные зрители",
                     "th-TH": "ผู้ชมที่ไม่มีทีม",
                     "tr-TR": "Takım Dışı İzleyiciler",
-                    "zh-CN": "无队伍观战者"
+                    "zh-CN": "无队伍观战者",
+                    "ko-KR": "Non-Team Spectators",
+                    "zh-TW": "Non-Team Spectators"
                 }
             }
         ],
@@ -18406,7 +20802,14 @@ const actionKw =
         "pt-BR": "Criar Texto de Barra de Progresso no Mundo",
         "th-TH": "สร้างข้อความในโลกของแถบความคืบหน้า",
         "tr-TR": "Oyun İçi İlerleyiş Çubuğu Metni Oluştur",
-        "zh-CN": "创建进度条地图文本"
+        "zh-CN": "创建进度条地图文本",
+        "de-DE": "Create Progress Bar In-World Text",
+        "es-ES": "Create Progress Bar In-World Text",
+        "it-IT": "Create Progress Bar In-World Text",
+        "ko-KR": "Create Progress Bar In-World Text",
+        "pl-PL": "Create Progress Bar In-World Text",
+        "ru-RU": "Create Progress Bar In-World Text",
+        "zh-TW": "Create Progress Bar In-World Text"
     },
     "damage": {
         "guid": "000000007876",
@@ -18450,7 +20853,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -18486,7 +20892,10 @@ const actionKw =
                     "ru-RU": "Источник урона",
                     "th-TH": "ผู้สร้างความเสียหาย",
                     "tr-TR": "Hasar Veren",
-                    "zh-CN": "伤害者"
+                    "zh-CN": "伤害者",
+                    "de-DE": "Damager",
+                    "ko-KR": "Damager",
+                    "zh-TW": "Damager"
                 }
             },
             {
@@ -18522,7 +20931,10 @@ const actionKw =
                     "ru-RU": "Объем",
                     "th-TH": "ปริมาณ",
                     "tr-TR": "Miktar",
-                    "zh-CN": "伤害量"
+                    "zh-CN": "伤害量",
+                    "de-DE": "Amount",
+                    "ko-KR": "Amount",
+                    "zh-TW": "Amount"
                 }
             }
         ],
@@ -18549,7 +20961,14 @@ const actionKw =
         "pt-BR": "Dano",
         "th-TH": "ความเสียหาย",
         "tr-TR": "Hasar",
-        "zh-CN": "伤害"
+        "zh-CN": "伤害",
+        "de-DE": "Damage",
+        "es-ES": "Damage",
+        "it-IT": "Damage",
+        "ko-KR": "Damage",
+        "pl-PL": "Damage",
+        "ru-RU": "Damage",
+        "zh-TW": "Damage"
     },
     "declareDraw": {
         "description": "Instantly ends the match in a draw. This action has no effect in free-for-all modes.",
@@ -18578,7 +20997,14 @@ const actionKw =
         "pt-BR": "Declarar Empate na Partida",
         "th-TH": "ประกาศแมตช์เสมอ",
         "tr-TR": "Maçta Beraberlik İlan Et",
-        "zh-CN": "宣布比赛为平局"
+        "zh-CN": "宣布比赛为平局",
+        "de-DE": "Declare Match Draw",
+        "es-ES": "Declare Match Draw",
+        "it-IT": "Declare Match Draw",
+        "ko-KR": "Declare Match Draw",
+        "pl-PL": "Declare Match Draw",
+        "ru-RU": "Declare Match Draw",
+        "zh-TW": "Declare Match Draw"
     },
     "declarePlayerVictory": {
         "description": "Instantly ends the match with the specific player as the winner. This action only has an effect in free-for-all modes.",
@@ -18616,7 +21042,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -18644,7 +21073,14 @@ const actionKw =
         "pt-BR": "Declarar Vitória do Jogador",
         "th-TH": "ประกาศชัยชนะของผู้เล่น",
         "tr-TR": "Oyuncu Zaferi İlan Et",
-        "zh-CN": "宣告玩家胜利"
+        "zh-CN": "宣告玩家胜利",
+        "de-DE": "Declare Player Victory",
+        "es-ES": "Declare Player Victory",
+        "it-IT": "Declare Player Victory",
+        "ko-KR": "Declare Player Victory",
+        "pl-PL": "Declare Player Victory",
+        "ru-RU": "Declare Player Victory",
+        "zh-TW": "Declare Player Victory"
     },
     "declareRoundDraw": {
         "description": "Declare a draw for the current round. This only works in the elimination game mode.",
@@ -18673,7 +21109,14 @@ const actionKw =
         "pt-BR": "Declarar Empate na Rodada",
         "th-TH": "ประกาศรอบที่เสมอ",
         "tr-TR": "Turda Beraberlik İlan Et",
-        "zh-CN": "宣布回合为平局"
+        "zh-CN": "宣布回合为平局",
+        "de-DE": "Declare Round Draw",
+        "es-ES": "Declare Round Draw",
+        "it-IT": "Declare Round Draw",
+        "ko-KR": "Declare Round Draw",
+        "pl-PL": "Declare Round Draw",
+        "ru-RU": "Declare Round Draw",
+        "zh-TW": "Declare Round Draw"
     },
     "declareRoundVictory": {
         "description": "Declare a team as the current round winner. This only works in the control and elimination game modes.",
@@ -18713,7 +21156,8 @@ const actionKw =
                     "ru-RU": "Команда-победитель раунда.",
                     "th-TH": "ทีมที่ชนะรอบ",
                     "tr-TR": "Turu kazanan takım",
-                    "zh-CN": "本回合获胜队伍"
+                    "zh-CN": "本回合获胜队伍",
+                    "zh-TW": "Round winning team"
                 }
             }
         ],
@@ -18741,7 +21185,14 @@ const actionKw =
         "pt-BR": "Declarar Vitória na Rodada",
         "th-TH": "ประกาศชัยชนะรอบ",
         "tr-TR": "Tur Zaferi İlan Et",
-        "zh-CN": "宣告回合胜利"
+        "zh-CN": "宣告回合胜利",
+        "de-DE": "Declare Round Victory",
+        "es-ES": "Declare Round Victory",
+        "it-IT": "Declare Round Victory",
+        "ko-KR": "Declare Round Victory",
+        "pl-PL": "Declare Round Victory",
+        "ru-RU": "Declare Round Victory",
+        "zh-TW": "Declare Round Victory"
     },
     "declareTeamVictory": {
         "description": "Instantly ends the match with the specified team as the winner. This action has no effect in free-for-all modes.",
@@ -18779,7 +21230,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -18807,7 +21262,14 @@ const actionKw =
         "pt-BR": "Declarar Vitória da Equipe",
         "th-TH": "ประกาศชัยชนะของทีม",
         "tr-TR": "Takım Zaferi İlan Et",
-        "zh-CN": "宣告队伍胜利"
+        "zh-CN": "宣告队伍胜利",
+        "de-DE": "Declare Team Victory",
+        "es-ES": "Declare Team Victory",
+        "it-IT": "Declare Team Victory",
+        "ko-KR": "Declare Team Victory",
+        "pl-PL": "Declare Team Victory",
+        "ru-RU": "Declare Team Victory",
+        "zh-TW": "Declare Team Victory"
     },
     "destroyAllDummies": {
         "description": "Removes all dummy bots from the match.",
@@ -18836,7 +21298,14 @@ const actionKw =
         "pt-BR": "Destruir Todos os Bots",
         "th-TH": "ทำลายบอทฝึกซ้อมทั้งหมด",
         "tr-TR": "Tüm Eğitim Robotlarını Yok Et",
-        "zh-CN": "移除所有机器人"
+        "zh-CN": "移除所有机器人",
+        "de-DE": "Destroy All Dummy Bots",
+        "es-ES": "Destroy All Dummy Bots",
+        "it-IT": "Destroy All Dummy Bots",
+        "ko-KR": "Destroy All Dummy Bots",
+        "pl-PL": "Destroy All Dummy Bots",
+        "ru-RU": "Destroy All Dummy Bots",
+        "zh-TW": "Destroy All Dummy Bots"
     },
     "destroyAllEffects": {
         "description": "Destroys all effect entities created by create effect or Create Beam Effect.",
@@ -18865,7 +21334,14 @@ const actionKw =
         "pt-BR": "Destruir Todos os Efeitos",
         "th-TH": "ทําลายเอฟเฟกต์ทั้งหมด",
         "tr-TR": "Tüm Efektleri Yok Et",
-        "zh-CN": "消除所有效果"
+        "zh-CN": "消除所有效果",
+        "de-DE": "Destroy All Effects",
+        "es-ES": "Destroy All Effects",
+        "it-IT": "Destroy All Effects",
+        "ko-KR": "Destroy All Effects",
+        "pl-PL": "Destroy All Effects",
+        "ru-RU": "Destroy All Effects",
+        "zh-TW": "Destroy All Effects"
     },
     "destroyAllHudTexts": {
         "description": "Destroys all hud texts that were created by the create hud text action.",
@@ -18894,7 +21370,14 @@ const actionKw =
         "pt-BR": "Destruir Todo o Texto de HUD",
         "th-TH": "ทำลายข้อความ HUD ทั้งหมด",
         "tr-TR": "Tüm Ekran Göstergeleri Metinlerini Yok Et",
-        "zh-CN": "消除所有HUD文本"
+        "zh-CN": "消除所有HUD文本",
+        "de-DE": "Destroy All HUD Text",
+        "es-ES": "Destroy All HUD Text",
+        "it-IT": "Destroy All HUD Text",
+        "ko-KR": "Destroy All HUD Text",
+        "pl-PL": "Destroy All HUD Text",
+        "ru-RU": "Destroy All HUD Text",
+        "zh-TW": "Destroy All HUD Text"
     },
     "destroyAllIcons": {
         "description": "Destroys all icon entities created by create icon.",
@@ -18923,7 +21406,14 @@ const actionKw =
         "pt-BR": "Destruir Todos os Ícones",
         "th-TH": "ทำลายไอคอนทั้งหมด",
         "tr-TR": "Tüm Simgeleri Yok Et",
-        "zh-CN": "消除所有图标"
+        "zh-CN": "消除所有图标",
+        "de-DE": "Destroy All Icons",
+        "es-ES": "Destroy All Icons",
+        "it-IT": "Destroy All Icons",
+        "ko-KR": "Destroy All Icons",
+        "pl-PL": "Destroy All Icons",
+        "ru-RU": "Destroy All Icons",
+        "zh-TW": "Destroy All Icons"
     },
     "destroyAllInWorldTexts": {
         "description": "Destroys all in-world text created by create in-world text.",
@@ -18952,7 +21442,14 @@ const actionKw =
         "pt-BR": "Destruir Todo o Texto no Mundo",
         "th-TH": "ทำลายข้อความในโลกทั้งหมด",
         "tr-TR": "Tüm Oyun İçi Metinleri Yok Et",
-        "zh-CN": "消除所有地图文本"
+        "zh-CN": "消除所有地图文本",
+        "de-DE": "Destroy All In-World Text",
+        "es-ES": "Destroy All In-World Text",
+        "it-IT": "Destroy All In-World Text",
+        "ko-KR": "Destroy All In-World Text",
+        "pl-PL": "Destroy All In-World Text",
+        "ru-RU": "Destroy All In-World Text",
+        "zh-TW": "Destroy All In-World Text"
     },
     "destroyAllProgressBarHuds": {
         "description": "Destroys all Progress Bar HUD text that were created by the Create Progress Bar HUD Text Action.",
@@ -18981,7 +21478,14 @@ const actionKw =
         "pt-BR": "Destruir Todos os Textos de HUD da Barra de Progresso",
         "th-TH": "ทำลายข้อความใน HUD ของแถบความคืบหน้าทั้งหมด",
         "tr-TR": "Tüm İlerleyiş Çubuğu Ekran Göstergesi Metinlerini Yok Et",
-        "zh-CN": "消除所有进度条HUD文本"
+        "zh-CN": "消除所有进度条HUD文本",
+        "de-DE": "Destroy All Progress Bar HUD Text",
+        "es-ES": "Destroy All Progress Bar HUD Text",
+        "it-IT": "Destroy All Progress Bar HUD Text",
+        "ko-KR": "Destroy All Progress Bar HUD Text",
+        "pl-PL": "Destroy All Progress Bar HUD Text",
+        "ru-RU": "Destroy All Progress Bar HUD Text",
+        "zh-TW": "Destroy All Progress Bar HUD Text"
     },
     "destroyAllProgressBarInWorldTexts": {
         "description": "Destroys all progress bar in-world texts that were created by the createProgressBarInWorldText() Action.",
@@ -19010,7 +21514,14 @@ const actionKw =
         "pt-BR": "Destruir Todos os Textos de Barra de Progresso no Mundo",
         "th-TH": "ทำลายข้อความในโลกของแถบความคืบหน้าทั้งหมด",
         "tr-TR": "Tüm Oyun İçi İlerleyiş Çubuğu Metinlerini Yok Et",
-        "zh-CN": "消除所有进度条地图文本"
+        "zh-CN": "消除所有进度条地图文本",
+        "de-DE": "Destroy All Progress Bar In-World Text",
+        "es-ES": "Destroy All Progress Bar In-World Text",
+        "it-IT": "Destroy All Progress Bar In-World Text",
+        "ko-KR": "Destroy All Progress Bar In-World Text",
+        "pl-PL": "Destroy All Progress Bar In-World Text",
+        "ru-RU": "Destroy All Progress Bar In-World Text",
+        "zh-TW": "Destroy All Progress Bar In-World Text"
     },
     "destroyDummy": {
         "description": "Removes the specified dummy bot from the match.",
@@ -19047,7 +21558,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -19083,7 +21598,12 @@ const actionKw =
                     "pt-BR": "Espaço",
                     "ru-RU": "Ячейка",
                     "tr-TR": "Yuva",
-                    "zh-CN": "栏位"
+                    "zh-CN": "栏位",
+                    "de-DE": "Slot",
+                    "it-IT": "Slot",
+                    "ko-KR": "Slot",
+                    "th-TH": "Slot",
+                    "zh-TW": "Slot"
                 }
             }
         ],
@@ -19111,7 +21631,14 @@ const actionKw =
         "pt-BR": "Destruir Bot",
         "th-TH": "ทำลายบอทฝึกซ้อม",
         "tr-TR": "Eğitim Robotunu Yok Et",
-        "zh-CN": "移除机器人"
+        "zh-CN": "移除机器人",
+        "de-DE": "Destroy Dummy Bot",
+        "es-ES": "Destroy Dummy Bot",
+        "it-IT": "Destroy Dummy Bot",
+        "ko-KR": "Destroy Dummy Bot",
+        "pl-PL": "Destroy Dummy Bot",
+        "ru-RU": "Destroy Dummy Bot",
+        "zh-TW": "Destroy Dummy Bot"
     },
     "destroyEffect": {
         "description": "Destroys an effect entity that was created by create effect or Create Beam Effect.",
@@ -19149,7 +21676,10 @@ const actionKw =
                     "ru-RU": "Объект",
                     "th-TH": "เอนทิตี",
                     "tr-TR": "Varlık",
-                    "zh-CN": "实体"
+                    "zh-CN": "实体",
+                    "de-DE": "Entity",
+                    "ko-KR": "Entity",
+                    "zh-TW": "Entity"
                 }
             }
         ],
@@ -19177,7 +21707,14 @@ const actionKw =
         "pt-BR": "Destruir Efeito",
         "th-TH": "ทําลายเอฟเฟกต์",
         "tr-TR": "Efekti Yok Et",
-        "zh-CN": "消除效果"
+        "zh-CN": "消除效果",
+        "de-DE": "Destroy Effect",
+        "es-ES": "Destroy Effect",
+        "it-IT": "Destroy Effect",
+        "ko-KR": "Destroy Effect",
+        "pl-PL": "Destroy Effect",
+        "ru-RU": "Destroy Effect",
+        "zh-TW": "Destroy Effect"
     },
     "destroyHudText": {
         "description": "Destroys hud text that was created by create hud text.",
@@ -19215,7 +21752,10 @@ const actionKw =
                     "ru-RU": "ID текста",
                     "th-TH": "ID ข้อความ",
                     "tr-TR": "Metin Kimliği",
-                    "zh-CN": "文本ID"
+                    "zh-CN": "文本ID",
+                    "de-DE": "Text ID",
+                    "ko-KR": "Text ID",
+                    "zh-TW": "Text ID"
                 }
             }
         ],
@@ -19243,7 +21783,14 @@ const actionKw =
         "pt-BR": "Destruir Texto de HUD",
         "th-TH": "ทำลายข้อความ HUD",
         "tr-TR": "Ekran Göstergeleri Metnini Yok Et",
-        "zh-CN": "消除HUD文本"
+        "zh-CN": "消除HUD文本",
+        "de-DE": "Destroy HUD Text",
+        "es-ES": "Destroy HUD Text",
+        "it-IT": "Destroy HUD Text",
+        "ko-KR": "Destroy HUD Text",
+        "pl-PL": "Destroy HUD Text",
+        "ru-RU": "Destroy HUD Text",
+        "zh-TW": "Destroy HUD Text"
     },
     "destroyIcon": {
         "description": "Destroys an icon entity that was created by create icon.",
@@ -19281,7 +21828,10 @@ const actionKw =
                     "ru-RU": "Объект",
                     "th-TH": "เอนทิตี",
                     "tr-TR": "Varlık",
-                    "zh-CN": "实体"
+                    "zh-CN": "实体",
+                    "de-DE": "Entity",
+                    "ko-KR": "Entity",
+                    "zh-TW": "Entity"
                 }
             }
         ],
@@ -19309,7 +21859,14 @@ const actionKw =
         "pt-BR": "Destruir Ícone",
         "th-TH": "ไอคอนทำลาย",
         "tr-TR": "Simgeyi Yok Et",
-        "zh-CN": "消除图标"
+        "zh-CN": "消除图标",
+        "de-DE": "Destroy Icon",
+        "es-ES": "Destroy Icon",
+        "it-IT": "Destroy Icon",
+        "ko-KR": "Destroy Icon",
+        "pl-PL": "Destroy Icon",
+        "ru-RU": "Destroy Icon",
+        "zh-TW": "Destroy Icon"
     },
     "destroyInWorldText": {
         "description": "Destroys in-world text that was created by create in-world text.",
@@ -19347,7 +21904,10 @@ const actionKw =
                     "ru-RU": "ID текста",
                     "th-TH": "ID ข้อความ",
                     "tr-TR": "Metin Kimliği",
-                    "zh-CN": "文本ID"
+                    "zh-CN": "文本ID",
+                    "de-DE": "Text ID",
+                    "ko-KR": "Text ID",
+                    "zh-TW": "Text ID"
                 }
             }
         ],
@@ -19375,7 +21935,14 @@ const actionKw =
         "pt-BR": "Destruir Texto no Mundo",
         "th-TH": "ทำลายข้อความในโลก",
         "tr-TR": "Oyun İçi Metni Yok Et",
-        "zh-CN": "消除地图文本"
+        "zh-CN": "消除地图文本",
+        "de-DE": "Destroy In-World Text",
+        "es-ES": "Destroy In-World Text",
+        "it-IT": "Destroy In-World Text",
+        "ko-KR": "Destroy In-World Text",
+        "pl-PL": "Destroy In-World Text",
+        "ru-RU": "Destroy In-World Text",
+        "zh-TW": "Destroy In-World Text"
     },
     "destroyProgressBarHud": {
         "description": "Destroys the progress bar HUD text that was created by progressBarHud().",
@@ -19428,7 +21995,10 @@ const actionKw =
                     "ru-RU": "ID текста",
                     "th-TH": "ID ข้อความ",
                     "tr-TR": "Metin Kimliği",
-                    "zh-CN": "文本ID"
+                    "zh-CN": "文本ID",
+                    "de-DE": "Text ID",
+                    "ko-KR": "Text ID",
+                    "zh-TW": "Text ID"
                 }
             }
         ],
@@ -19441,7 +22011,14 @@ const actionKw =
         "pt-BR": "Destruir Texto de HUD da Barra de Progresso",
         "th-TH": "ทำลายข้อความใน HUD ของแถบความคืบหน้า",
         "tr-TR": "İlerleyiş Çubuğu Ekran Göstergesi Metni'ni Yok Et",
-        "zh-CN": "消除进度条HUD文本"
+        "zh-CN": "消除进度条HUD文本",
+        "de-DE": "Destroy Progress Bar HUD Text",
+        "es-ES": "Destroy Progress Bar HUD Text",
+        "it-IT": "Destroy Progress Bar HUD Text",
+        "ko-KR": "Destroy Progress Bar HUD Text",
+        "pl-PL": "Destroy Progress Bar HUD Text",
+        "ru-RU": "Destroy Progress Bar HUD Text",
+        "zh-TW": "Destroy Progress Bar HUD Text"
     },
     "destroyProgressBarInWorldText": {
         "description": "Destroys the progress bar in-world text that was created by createProgressBarInWorldText().",
@@ -19494,7 +22071,10 @@ const actionKw =
                     "ru-RU": "ID текста",
                     "th-TH": "ID ข้อความ",
                     "tr-TR": "Metin Kimliği",
-                    "zh-CN": "文本ID"
+                    "zh-CN": "文本ID",
+                    "de-DE": "Text ID",
+                    "ko-KR": "Text ID",
+                    "zh-TW": "Text ID"
                 }
             }
         ],
@@ -19507,7 +22087,14 @@ const actionKw =
         "pt-BR": "Destruir Texto de Barra de Progresso no Mundo",
         "th-TH": "ทำลายข้อความในโลกของแถบความคืบหน้า",
         "tr-TR": "Oyun İçi İlerleyiş Çubuğu Metni'ni Yok Et",
-        "zh-CN": "消除进度条地图文本"
+        "zh-CN": "消除进度条地图文本",
+        "de-DE": "Destroy Progress Bar In-World Text",
+        "es-ES": "Destroy Progress Bar In-World Text",
+        "it-IT": "Destroy Progress Bar In-World Text",
+        "ko-KR": "Destroy Progress Bar In-World Text",
+        "pl-PL": "Destroy Progress Bar In-World Text",
+        "ru-RU": "Destroy Progress Bar In-World Text",
+        "zh-TW": "Destroy Progress Bar In-World Text"
     },
     "disableAnnouncer": {
         "description": "Disables game mode announcements from the announcer until reenabled or the match ends.",
@@ -19536,7 +22123,14 @@ const actionKw =
         "pt-BR": "Desativar Narração Integrada ao Modo de Jogo",
         "th-TH": "ปิดใช้งานผู้ประกาศโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Anonsçusunu Devre Dışı Bırak",
-        "zh-CN": "关闭游戏预设通告模式"
+        "zh-CN": "关闭游戏预设通告模式",
+        "de-DE": "Disable Built-In Game Mode Announcer",
+        "es-ES": "Disable Built-In Game Mode Announcer",
+        "it-IT": "Disable Built-In Game Mode Announcer",
+        "ko-KR": "Disable Built-In Game Mode Announcer",
+        "pl-PL": "Disable Built-In Game Mode Announcer",
+        "ru-RU": "Disable Built-In Game Mode Announcer",
+        "zh-TW": "Disable Built-In Game Mode Announcer"
     },
     "disableGamemodeCompletion": {
         "description": "Disables completion of the match from the game mode itself, only allowing the match to be completed by scripting commands.",
@@ -19565,7 +22159,14 @@ const actionKw =
         "pt-BR": "Desativar Conclusão Integrada ao Modo de Jogo",
         "th-TH": "ปิดใช้งานการจบโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Sonuçlandırma'yı Devre Dışı Bırak",
-        "zh-CN": "关闭游戏预设完成条件"
+        "zh-CN": "关闭游戏预设完成条件",
+        "de-DE": "Disable Built-In Game Mode Completion",
+        "es-ES": "Disable Built-In Game Mode Completion",
+        "it-IT": "Disable Built-In Game Mode Completion",
+        "ko-KR": "Disable Built-In Game Mode Completion",
+        "pl-PL": "Disable Built-In Game Mode Completion",
+        "ru-RU": "Disable Built-In Game Mode Completion",
+        "zh-TW": "Disable Built-In Game Mode Completion"
     },
     "disableInspector": {
         "description": "Causes the workshop inspector to stop recording new entries. This has the benefit of reducing your script's server load, particularly when modifying arrays.",
@@ -19594,7 +22195,14 @@ const actionKw =
         "pt-BR": "Desativar gravação do Inspetor",
         "th-TH": "ปิดใช้งานการบันทึกของตัวตรวจสอบ",
         "tr-TR": "Denetçi Kaydını Devre Dışı Bırak",
-        "zh-CN": "禁用查看器录制"
+        "zh-CN": "禁用查看器录制",
+        "de-DE": "Disable Inspector Recording",
+        "es-ES": "Disable Inspector Recording",
+        "it-IT": "Disable Inspector Recording",
+        "ko-KR": "Disable Inspector Recording",
+        "pl-PL": "Disable Inspector Recording",
+        "ru-RU": "Disable Inspector Recording",
+        "zh-TW": "Disable Inspector Recording"
     },
     "disableMusic": {
         "description": "Disables all game mode music until reenabled or the match ends.",
@@ -19623,7 +22231,14 @@ const actionKw =
         "pt-BR": "Desativar Música Integrada ao Modo de Jogo",
         "th-TH": "ปิดใช้งานเพลงโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Müziğini Devre Dışı Bırak",
-        "zh-CN": "关闭游戏预设音乐模式"
+        "zh-CN": "关闭游戏预设音乐模式",
+        "de-DE": "Disable Built-In Game Mode Music",
+        "es-ES": "Disable Built-In Game Mode Music",
+        "it-IT": "Disable Built-In Game Mode Music",
+        "ko-KR": "Disable Built-In Game Mode Music",
+        "pl-PL": "Disable Built-In Game Mode Music",
+        "ru-RU": "Disable Built-In Game Mode Music",
+        "zh-TW": "Disable Built-In Game Mode Music"
     },
     "disableScoring": {
         "description": "Disables changes to player and team scores from the game mode itself, only allowing scores to be changed by scripting commands.",
@@ -19652,7 +22267,14 @@ const actionKw =
         "pt-BR": "Desativar Pontuação Integrada ao Modo de Jogo",
         "th-TH": "ปิดใช้งานการให้คะแนนโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Puanlama'yı Devre Dışı Bırak",
-        "zh-CN": "关闭游戏预设计分模式"
+        "zh-CN": "关闭游戏预设计分模式",
+        "de-DE": "Disable Built-In Game Mode Scoring",
+        "es-ES": "Disable Built-In Game Mode Scoring",
+        "it-IT": "Disable Built-In Game Mode Scoring",
+        "ko-KR": "Disable Built-In Game Mode Scoring",
+        "pl-PL": "Disable Built-In Game Mode Scoring",
+        "ru-RU": "Disable Built-In Game Mode Scoring",
+        "zh-TW": "Disable Built-In Game Mode Scoring"
     },
     "enableAnnouncer": {
         "description": "Undoes the effect of the disable built-in game mode announcer action.",
@@ -19681,7 +22303,14 @@ const actionKw =
         "pt-BR": "Ativar Narração Integrada ao Modo de Jogo",
         "th-TH": "เปิดใช้งานผู้ประกาศโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Anonsçusunu Etkinleştir",
-        "zh-CN": "开启游戏预设通告模式"
+        "zh-CN": "开启游戏预设通告模式",
+        "de-DE": "Enable Built-In Game Mode Announcer",
+        "es-ES": "Enable Built-In Game Mode Announcer",
+        "it-IT": "Enable Built-In Game Mode Announcer",
+        "ko-KR": "Enable Built-In Game Mode Announcer",
+        "pl-PL": "Enable Built-In Game Mode Announcer",
+        "ru-RU": "Enable Built-In Game Mode Announcer",
+        "zh-TW": "Enable Built-In Game Mode Announcer"
     },
     "enableGamemodeCompletion": {
         "description": "Undoes the effect of the disable built-in game mode completion action.",
@@ -19710,7 +22339,14 @@ const actionKw =
         "pt-BR": "Ativar Conclusão Integrada ao Modo de Jogo",
         "th-TH": "เปิดใช้งานการจบโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Sonuçlandırma'yı Etkinleştir",
-        "zh-CN": "开启游戏预设完成条件"
+        "zh-CN": "开启游戏预设完成条件",
+        "de-DE": "Enable Built-In Game Mode Completion",
+        "es-ES": "Enable Built-In Game Mode Completion",
+        "it-IT": "Enable Built-In Game Mode Completion",
+        "ko-KR": "Enable Built-In Game Mode Completion",
+        "pl-PL": "Enable Built-In Game Mode Completion",
+        "ru-RU": "Enable Built-In Game Mode Completion",
+        "zh-TW": "Enable Built-In Game Mode Completion"
     },
     "enableInspector": {
         "description": "Causes the workshop inspector to resume recording new entries (in case it had been disabled earlier). Enabling recording at specific times may make it easier to debug problematic areas in your logic.",
@@ -19739,7 +22375,14 @@ const actionKw =
         "pt-BR": "Ativar gravação do Inspetor",
         "th-TH": "เปิดใช้งานการบันทึกของตัวตรวจสอบ",
         "tr-TR": "Denetçi Kaydını Etkinleştir",
-        "zh-CN": "启用查看器录制"
+        "zh-CN": "启用查看器录制",
+        "de-DE": "Enable Inspector Recording",
+        "es-ES": "Enable Inspector Recording",
+        "it-IT": "Enable Inspector Recording",
+        "ko-KR": "Enable Inspector Recording",
+        "pl-PL": "Enable Inspector Recording",
+        "ru-RU": "Enable Inspector Recording",
+        "zh-TW": "Enable Inspector Recording"
     },
     "enableMusic": {
         "description": "Undoes the effect of the disable built-in game mode music action.",
@@ -19768,7 +22411,14 @@ const actionKw =
         "pt-BR": "Ativar Música Integrada ao Modo de Jogo",
         "th-TH": "เปิดใช้งานเสียงเพลงโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Müziğini Etkinleştir",
-        "zh-CN": "开启游戏预设音乐模式"
+        "zh-CN": "开启游戏预设音乐模式",
+        "de-DE": "Enable Built-In Game Mode Music",
+        "es-ES": "Enable Built-In Game Mode Music",
+        "it-IT": "Enable Built-In Game Mode Music",
+        "ko-KR": "Enable Built-In Game Mode Music",
+        "pl-PL": "Enable Built-In Game Mode Music",
+        "ru-RU": "Enable Built-In Game Mode Music",
+        "zh-TW": "Enable Built-In Game Mode Music"
     },
     "enableScoring": {
         "description": "Undoes the effect of the disable built-in game mode scoring action.",
@@ -19797,7 +22447,14 @@ const actionKw =
         "pt-BR": "Ativar Pontuação Integrada ao Modo de Jogo",
         "th-TH": "เปิดใช้งานการให้คะแนนโหมดเกมในตัว",
         "tr-TR": "Dâhilî Oyun Modu Puanlama'yı Etkinleştir",
-        "zh-CN": "开启游戏预设计分模式"
+        "zh-CN": "开启游戏预设计分模式",
+        "de-DE": "Enable Built-In Game Mode Scoring",
+        "es-ES": "Enable Built-In Game Mode Scoring",
+        "it-IT": "Enable Built-In Game Mode Scoring",
+        "ko-KR": "Enable Built-In Game Mode Scoring",
+        "pl-PL": "Enable Built-In Game Mode Scoring",
+        "ru-RU": "Enable Built-In Game Mode Scoring",
+        "zh-TW": "Enable Built-In Game Mode Scoring"
     },
     "goToAssembleHeroes": {
         "description": "Returns the match to the assemble heroes phase of the game mode. Only works if the game is in progress.",
@@ -19826,7 +22483,14 @@ const actionKw =
         "pt-BR": "Ir para Escolher Heróis",
         "th-TH": "ไปที่รวมพลฮีโร่",
         "tr-TR": "Kahramanları Hazırla'ya Git",
-        "zh-CN": "前往集结英雄"
+        "zh-CN": "前往集结英雄",
+        "de-DE": "Go To Assemble Heroes",
+        "es-ES": "Go To Assemble Heroes",
+        "it-IT": "Go To Assemble Heroes",
+        "ko-KR": "Go To Assemble Heroes",
+        "pl-PL": "Go To Assemble Heroes",
+        "ru-RU": "Go To Assemble Heroes",
+        "zh-TW": "Go To Assemble Heroes"
     },
     "heal": {
         "guid": "000000007875",
@@ -19870,7 +22534,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -19906,7 +22573,10 @@ const actionKw =
                     "ru-RU": "Источник исцеления",
                     "th-TH": "ฮีลเลอร์",
                     "tr-TR": "Şifacı",
-                    "zh-CN": "治疗者"
+                    "zh-CN": "治疗者",
+                    "de-DE": "Healer",
+                    "ko-KR": "Healer",
+                    "zh-TW": "Healer"
                 }
             },
             {
@@ -19942,7 +22612,10 @@ const actionKw =
                     "ru-RU": "Объем",
                     "th-TH": "ปริมาณ",
                     "tr-TR": "Miktar",
-                    "zh-CN": "伤害量"
+                    "zh-CN": "伤害量",
+                    "de-DE": "Amount",
+                    "ko-KR": "Amount",
+                    "zh-TW": "Amount"
                 }
             }
         ],
@@ -19969,7 +22642,14 @@ const actionKw =
         "pt-BR": "Cura",
         "th-TH": "ฮีล",
         "tr-TR": "İyileştir",
-        "zh-CN": "治疗"
+        "zh-CN": "治疗",
+        "de-DE": "Heal",
+        "es-ES": "Heal",
+        "it-IT": "Heal",
+        "ko-KR": "Heal",
+        "pl-PL": "Heal",
+        "ru-RU": "Heal",
+        "zh-TW": "Heal"
     },
     "kill": {
         "guid": "000000007877",
@@ -20013,7 +22693,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -20049,7 +22732,10 @@ const actionKw =
                     "ru-RU": "Убийца",
                     "th-TH": "ผู้ฆ่า",
                     "tr-TR": "Öldüren",
-                    "zh-CN": "击杀者"
+                    "zh-CN": "击杀者",
+                    "de-DE": "Killer",
+                    "ko-KR": "Killer",
+                    "zh-TW": "Killer"
                 }
             }
         ],
@@ -20076,7 +22762,14 @@ const actionKw =
         "pt-BR": "Abater",
         "th-TH": "ฆ่า",
         "tr-TR": "Öldürme",
-        "zh-CN": "击杀"
+        "zh-CN": "击杀",
+        "de-DE": "Kill",
+        "es-ES": "Kill",
+        "it-IT": "Kill",
+        "ko-KR": "Kill",
+        "pl-PL": "Kill",
+        "ru-RU": "Kill",
+        "zh-TW": "Kill"
     },
     "moveToTeam": {
         "description": "Moves one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots.",
@@ -20119,7 +22812,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -20154,7 +22850,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -20188,7 +22888,12 @@ const actionKw =
                     "pt-BR": "Espaço",
                     "ru-RU": "Ячейка",
                     "tr-TR": "Yuva",
-                    "zh-CN": "栏位"
+                    "zh-CN": "栏位",
+                    "de-DE": "Slot",
+                    "it-IT": "Slot",
+                    "ko-KR": "Slot",
+                    "th-TH": "Slot",
+                    "zh-TW": "Slot"
                 }
             }
         ],
@@ -20216,7 +22921,14 @@ const actionKw =
         "pt-BR": "Mover Jogador para Equipe",
         "th-TH": "ย้ายผู้เล่นไปยังทีม",
         "tr-TR": "Oyuncu'yu Takıma Taşı",
-        "zh-CN": "调整玩家队伍"
+        "zh-CN": "调整玩家队伍",
+        "de-DE": "Move Player to Team",
+        "es-ES": "Move Player to Team",
+        "it-IT": "Move Player to Team",
+        "ko-KR": "Move Player to Team",
+        "pl-PL": "Move Player to Team",
+        "ru-RU": "Move Player to Team",
+        "zh-TW": "Move Player to Team"
     },
     "pauseMatchTime": {
         "description": "Pauses the match time. Players, objective logic, and game mode advancement criteria are unaffected by the pause.",
@@ -20245,7 +22957,14 @@ const actionKw =
         "pt-BR": "Pausar Tempo da Partida",
         "th-TH": "หยุดเวลาแมตช์ชั่วคราว",
         "tr-TR": "Maç Süresini Duraklat",
-        "zh-CN": "比赛时间暂停"
+        "zh-CN": "比赛时间暂停",
+        "de-DE": "Pause Match Time",
+        "es-ES": "Pause Match Time",
+        "it-IT": "Pause Match Time",
+        "ko-KR": "Pause Match Time",
+        "pl-PL": "Pause Match Time",
+        "ru-RU": "Pause Match Time",
+        "zh-TW": "Pause Match Time"
     },
     "playEffect": {
         "description": "Plays an effect at a position in the world. The lifetime of this effect is short, so it does not need to be updated or destroyed.",
@@ -20284,7 +23003,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -20319,7 +23045,11 @@ const actionKw =
                     "ru-RU": "Тип",
                     "th-TH": "ประเภท",
                     "tr-TR": "Tür",
-                    "zh-CN": "类型"
+                    "zh-CN": "类型",
+                    "de-DE": "Type",
+                    "fr-FR": "Type",
+                    "ko-KR": "Type",
+                    "zh-TW": "Type"
                 }
             },
             {
@@ -20349,7 +23079,16 @@ const actionKw =
                     "ja-JP": "色",
                     "pt-BR": "Cor",
                     "tr-TR": "Renk",
-                    "zh-CN": "颜色"
+                    "zh-CN": "颜色",
+                    "de-DE": "Color",
+                    "es-ES": "Color",
+                    "es-MX": "Color",
+                    "it-IT": "Color",
+                    "ko-KR": "Color",
+                    "pl-PL": "Color",
+                    "ru-RU": "Color",
+                    "th-TH": "Color",
+                    "zh-TW": "Color"
                 }
             },
             {
@@ -20384,7 +23123,11 @@ const actionKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             },
             {
@@ -20419,7 +23162,11 @@ const actionKw =
                     "pt-BR": "Raio",
                     "ru-RU": "Радиус",
                     "tr-TR": "Yarıçap",
-                    "zh-CN": "半径"
+                    "zh-CN": "半径",
+                    "de-DE": "Radius",
+                    "ko-KR": "Radius",
+                    "th-TH": "Radius",
+                    "zh-TW": "Radius"
                 }
             }
         ],
@@ -20447,7 +23194,14 @@ const actionKw =
         "pt-BR": "Reproduzir Efeito",
         "th-TH": "เอฟเฟกต์การเล่น",
         "tr-TR": "Efekt Yürüt",
-        "zh-CN": "播放效果"
+        "zh-CN": "播放效果",
+        "de-DE": "Play Effect",
+        "es-ES": "Play Effect",
+        "it-IT": "Play Effect",
+        "ko-KR": "Play Effect",
+        "pl-PL": "Play Effect",
+        "ru-RU": "Play Effect",
+        "zh-TW": "Play Effect"
     },
     "printLog": {
         "description": "Causes the workshop inspector to record a log entry.",
@@ -20485,7 +23239,10 @@ const actionKw =
                     "ru-RU": "Текст",
                     "th-TH": "ข้อความ",
                     "tr-TR": "Metin",
-                    "zh-CN": "文本"
+                    "zh-CN": "文本",
+                    "de-DE": "Text",
+                    "ko-KR": "Text",
+                    "zh-TW": "Text"
                 }
             }
         ],
@@ -20516,7 +23273,11 @@ const actionKw =
         "ru-RU": "Log to Inspector",
         "th-TH": "บันทึกไปยังเครื่องมือตรวจสอบ",
         "tr-TR": "Atölye Denetçisi'ne Kaydet",
-        "zh-CN": "记入查看器"
+        "zh-CN": "记入查看器",
+        "es-ES": "Log To Inspector",
+        "ko-KR": "Log To Inspector",
+        "pl-PL": "Log To Inspector",
+        "zh-TW": "Log To Inspector"
     },
     "progressBarHud": {
         "description": "Creates a progress bar HUD text visible to specified players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the getLastTextId() value. This action will fail if too many text elements have been created.",
@@ -20570,7 +23331,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -20605,7 +23373,11 @@ const actionKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -20641,7 +23413,10 @@ const actionKw =
                     "ru-RU": "Текст",
                     "th-TH": "ข้อความ",
                     "tr-TR": "Metin",
-                    "zh-CN": "文本"
+                    "zh-CN": "文本",
+                    "de-DE": "Text",
+                    "ko-KR": "Text",
+                    "zh-TW": "Text"
                 }
             },
             {
@@ -20677,7 +23452,10 @@ const actionKw =
                     "ru-RU": "Местоположение",
                     "th-TH": "สถานที่",
                     "tr-TR": "Konum",
-                    "zh-CN": "坐标"
+                    "zh-CN": "坐标",
+                    "de-DE": "Location",
+                    "ko-KR": "Location",
+                    "zh-TW": "Location"
                 }
             },
             {
@@ -20712,7 +23490,11 @@ const actionKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             },
             {
@@ -20748,7 +23530,10 @@ const actionKw =
                     "ru-RU": "Цвет шкалы прогресса",
                     "th-TH": "สีแถบความคืบหน้า",
                     "tr-TR": "İlerleyiş Çubuğu Rengi",
-                    "zh-CN": "进度条颜色"
+                    "zh-CN": "进度条颜色",
+                    "de-DE": "Progress Bar Color",
+                    "ko-KR": "Progress Bar Color",
+                    "zh-TW": "Progress Bar Color"
                 }
             },
             {
@@ -20784,7 +23569,10 @@ const actionKw =
                     "ru-RU": "Цвет текста",
                     "th-TH": "สีข้อความ",
                     "tr-TR": "Metin Rengi",
-                    "zh-CN": "文本颜色"
+                    "zh-CN": "文本颜色",
+                    "de-DE": "Text Color",
+                    "ko-KR": "Text Color",
+                    "zh-TW": "Text Color"
                 }
             },
             {
@@ -20820,7 +23608,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             },
             {
@@ -20857,7 +23648,9 @@ const actionKw =
                     "ru-RU": "Внекомандные зрители",
                     "th-TH": "ผู้ชมที่ไม่มีทีม",
                     "tr-TR": "Takım Dışı İzleyiciler",
-                    "zh-CN": "无队伍观战者"
+                    "zh-CN": "无队伍观战者",
+                    "ko-KR": "Non-Team Spectators",
+                    "zh-TW": "Non-Team Spectators"
                 }
             }
         ],
@@ -20870,7 +23663,14 @@ const actionKw =
         "pt-BR": "Criar Texto de HUD da Barra de Progresso",
         "th-TH": "สร้างข้อความ HUD แถบความคืบหน้า",
         "tr-TR": "İlerleyiş Çubuğu Ekran Göstergesi Metni Oluştur",
-        "zh-CN": "创建进度条HUD文本"
+        "zh-CN": "创建进度条HUD文本",
+        "de-DE": "Create Progress Bar HUD Text",
+        "es-ES": "Create Progress Bar HUD Text",
+        "it-IT": "Create Progress Bar HUD Text",
+        "ko-KR": "Create Progress Bar HUD Text",
+        "pl-PL": "Create Progress Bar HUD Text",
+        "ru-RU": "Create Progress Bar HUD Text",
+        "zh-TW": "Create Progress Bar HUD Text"
     },
     "removeFromGame": {
         "description": "Removes one or more players from the custom game. This action doesn't work on dummy bots.",
@@ -20913,7 +23713,10 @@ const actionKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -20941,7 +23744,14 @@ const actionKw =
         "pt-BR": "Remover Jogador",
         "th-TH": "ลบผู้เล่น",
         "tr-TR": "Oyuncuyu Kaldır",
-        "zh-CN": "移除玩家"
+        "zh-CN": "移除玩家",
+        "de-DE": "Remove Player",
+        "es-ES": "Remove Player",
+        "it-IT": "Remove Player",
+        "ko-KR": "Remove Player",
+        "pl-PL": "Remove Player",
+        "ru-RU": "Remove Player",
+        "zh-TW": "Remove Player"
     },
     "removeHealthPool": {
         "description": "Removes a health pool that was added via the Add Health Pool action.",
@@ -20979,7 +23789,10 @@ const actionKw =
                     "ru-RU": "ID запаса здоровья",
                     "th-TH": "ID บ่อพลังชีวิต",
                     "tr-TR": "Can Havuzu Kimliği",
-                    "zh-CN": "生命池ID"
+                    "zh-CN": "生命池ID",
+                    "de-DE": "Health Pool ID",
+                    "ko-KR": "Health Pool ID",
+                    "zh-TW": "Health Pool ID"
                 }
             }
         ],
@@ -21007,7 +23820,14 @@ const actionKw =
         "pt-BR": "Remover Reserva de Vida de Jogador",
         "th-TH": "นำบ่อพลังชีวิตออกจากผู้เล่น",
         "tr-TR": "Oyuncu'nun Can Havuzu'nu Kaldır",
-        "zh-CN": "移除玩家的生命池"
+        "zh-CN": "移除玩家的生命池",
+        "de-DE": "Remove Health Pool From Player",
+        "es-ES": "Remove Health Pool From Player",
+        "it-IT": "Remove Health Pool From Player",
+        "ko-KR": "Remove Health Pool From Player",
+        "pl-PL": "Remove Health Pool From Player",
+        "ru-RU": "Remove Health Pool From Player",
+        "zh-TW": "Remove Health Pool From Player"
     },
     "restartMatch": {
         "description": "Restarts the match. This action only has an effect after the match has existed for 30 seconds.",
@@ -21036,7 +23856,14 @@ const actionKw =
         "pt-BR": "Reiniciar Partida",
         "th-TH": "รีสตาร์ทแมตช์",
         "tr-TR": "Maçı Yeniden Başlat",
-        "zh-CN": "重新开始比赛"
+        "zh-CN": "重新开始比赛",
+        "de-DE": "Restart Match",
+        "es-ES": "Restart Match",
+        "it-IT": "Restart Match",
+        "ko-KR": "Restart Match",
+        "pl-PL": "Restart Match",
+        "ru-RU": "Restart Match",
+        "zh-TW": "Restart Match"
     },
     "return": {
         "description": "Stops execution of the action list.",
@@ -21065,7 +23892,14 @@ const actionKw =
         "pt-BR": "Anular",
         "th-TH": "ยกเลิก",
         "tr-TR": "Yarıda Kes",
-        "zh-CN": "中止"
+        "zh-CN": "中止",
+        "de-DE": "Abort",
+        "es-ES": "Abort",
+        "it-IT": "Abort",
+        "ko-KR": "Abort",
+        "pl-PL": "Abort",
+        "ru-RU": "Abort",
+        "zh-TW": "Abort"
     },
     "returnToLobby": {
         "description": "Returns the gamemode back to the custom game lobby.",
@@ -21141,7 +23975,10 @@ const actionKw =
                     "ru-RU": "Время",
                     "th-TH": "เวลา",
                     "tr-TR": "Süre",
-                    "zh-CN": "时间"
+                    "zh-CN": "时间",
+                    "de-DE": "Time",
+                    "ko-KR": "Time",
+                    "zh-TW": "Time"
                 }
             }
         ],
@@ -21169,7 +24006,14 @@ const actionKw =
         "pt-BR": "Definir Tempo da Partida",
         "th-TH": "ตั้งค่าเวลาแมตช์",
         "tr-TR": "Maç Süresini Ayarla",
-        "zh-CN": "设置比赛时间"
+        "zh-CN": "设置比赛时间",
+        "de-DE": "Set Match Time",
+        "es-ES": "Set Match Time",
+        "it-IT": "Set Match Time",
+        "ko-KR": "Set Match Time",
+        "pl-PL": "Set Match Time",
+        "ru-RU": "Set Match Time",
+        "zh-TW": "Set Match Time"
     },
     "setObjectiveDescription": {
         "description": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
@@ -21208,7 +24052,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -21245,7 +24096,10 @@ const actionKw =
                     "ru-RU": "Заголовок",
                     "th-TH": "ส่วนหัว",
                     "tr-TR": "Başlık",
-                    "zh-CN": "标题"
+                    "zh-CN": "标题",
+                    "de-DE": "Header",
+                    "ko-KR": "Header",
+                    "zh-TW": "Header"
                 }
             },
             {
@@ -21281,7 +24135,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -21309,7 +24166,14 @@ const actionKw =
         "pt-BR": "Definir Descrição do Objetivo",
         "th-TH": "ตั้งค่าคำอธิบายเป้าหมาย",
         "tr-TR": "Hedef Açıklamasını Ayarla",
-        "zh-CN": "设置目标点描述"
+        "zh-CN": "设置目标点描述",
+        "de-DE": "Set Objective Description",
+        "es-ES": "Set Objective Description",
+        "it-IT": "Set Objective Description",
+        "ko-KR": "Set Objective Description",
+        "pl-PL": "Set Objective Description",
+        "ru-RU": "Set Objective Description",
+        "zh-TW": "Set Objective Description"
     },
     "setSlowMotion": {
         "description": "Sets the simulation rate for the entire game, including all players, projectiles, effects, and game mode logic.",
@@ -21347,7 +24211,10 @@ const actionKw =
                     "ru-RU": "Процент скорости",
                     "th-TH": "เปอร์เซ็นต์ความเร็ว",
                     "tr-TR": "Hız Yüzdesi",
-                    "zh-CN": "速度百分比"
+                    "zh-CN": "速度百分比",
+                    "de-DE": "Speed Percent",
+                    "ko-KR": "Speed Percent",
+                    "zh-TW": "Speed Percent"
                 }
             }
         ],
@@ -21375,7 +24242,14 @@ const actionKw =
         "pt-BR": "Definir Câmera Lenta",
         "th-TH": "ตั้งค่าสโลว์โมชั่น",
         "tr-TR": "Yavaş Çekimi Ayarla",
-        "zh-CN": "设置慢动作"
+        "zh-CN": "设置慢动作",
+        "de-DE": "Set Slow Motion",
+        "es-ES": "Set Slow Motion",
+        "it-IT": "Set Slow Motion",
+        "ko-KR": "Set Slow Motion",
+        "pl-PL": "Set Slow Motion",
+        "ru-RU": "Set Slow Motion",
+        "zh-TW": "Set Slow Motion"
     },
     "setTeamScore": {
         "description": "Sets the score for one or both teams. This action has no effect in free-for-all modes or modes without a team score.",
@@ -21412,7 +24286,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -21450,7 +24328,10 @@ const actionKw =
                     "ru-RU": "Счет",
                     "th-TH": "คะแนน",
                     "tr-TR": "Skor",
-                    "zh-CN": "得分"
+                    "zh-CN": "得分",
+                    "de-DE": "Score",
+                    "ko-KR": "Score",
+                    "zh-TW": "Score"
                 }
             }
         ],
@@ -21478,7 +24359,14 @@ const actionKw =
         "pt-BR": "Definir Pontuação da Equipe",
         "th-TH": "ตั้งค่าคะแนนของทีม",
         "tr-TR": "Takım Skoru'nu Ayarla",
-        "zh-CN": "设置队伍分数"
+        "zh-CN": "设置队伍分数",
+        "de-DE": "Set Team Score",
+        "es-ES": "Set Team Score",
+        "it-IT": "Set Team Score",
+        "ko-KR": "Set Team Score",
+        "pl-PL": "Set Team Score",
+        "ru-RU": "Set Team Score",
+        "zh-TW": "Set Team Score"
     },
     "smallMessage": {
         "description": "Displays a small message beneath the reticle that is visible to specific players.",
@@ -21517,7 +24405,14 @@ const actionKw =
                     "pt-BR": "Visível para",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "es-ES": "Visible To",
+                    "it-IT": "Visible To",
+                    "ko-KR": "Visible To",
+                    "pl-PL": "Visible To",
+                    "ru-RU": "Visible To",
+                    "zh-TW": "Visible To"
                 }
             },
             {
@@ -21554,7 +24449,10 @@ const actionKw =
                     "ru-RU": "Заголовок",
                     "th-TH": "ส่วนหัว",
                     "tr-TR": "Başlık",
-                    "zh-CN": "标题"
+                    "zh-CN": "标题",
+                    "de-DE": "Header",
+                    "ko-KR": "Header",
+                    "zh-TW": "Header"
                 }
             }
         ],
@@ -21582,7 +24480,14 @@ const actionKw =
         "pt-BR": "Mensagem Pequena",
         "th-TH": "ข้อความขนาดเล็ก",
         "tr-TR": "Küçük Mesaj",
-        "zh-CN": "小字体信息"
+        "zh-CN": "小字体信息",
+        "de-DE": "Small Message",
+        "es-ES": "Small Message",
+        "it-IT": "Small Message",
+        "ko-KR": "Small Message",
+        "pl-PL": "Small Message",
+        "ru-RU": "Small Message",
+        "zh-TW": "Small Message"
     },
     "startDamageModification": {
         "description": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification id value. This action will fail if too many damage modifications have been started.",
@@ -21625,7 +24530,10 @@ const actionKw =
                     "ru-RU": "Получающие урон",
                     "th-TH": "ตัวรับ",
                     "tr-TR": "Alıcılar",
-                    "zh-CN": "受伤害者"
+                    "zh-CN": "受伤害者",
+                    "de-DE": "Receivers",
+                    "ko-KR": "Receivers",
+                    "zh-TW": "Receivers"
                 }
             },
             {
@@ -21666,7 +24574,10 @@ const actionKw =
                     "ru-RU": "Наносящие урон",
                     "th-TH": "ผู้สร้างความเสียหาย",
                     "tr-TR": "Hasar Verenler",
-                    "zh-CN": "伤害者"
+                    "zh-CN": "伤害者",
+                    "de-DE": "Damagers",
+                    "ko-KR": "Damagers",
+                    "zh-TW": "Damagers"
                 }
             },
             {
@@ -21702,7 +24613,10 @@ const actionKw =
                     "ru-RU": "Процент урона",
                     "th-TH": "เปอร์เซ็นต์ความเสียหาย",
                     "tr-TR": "Hasar Yüzdesi",
-                    "zh-CN": "伤害百分比"
+                    "zh-CN": "伤害百分比",
+                    "de-DE": "Damage Percent",
+                    "ko-KR": "Damage Percent",
+                    "zh-TW": "Damage Percent"
                 }
             },
             {
@@ -21738,7 +24652,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -21766,7 +24683,14 @@ const actionKw =
         "pt-BR": "Começar Modificação de Dano",
         "th-TH": "เริ่มการปรับความเสียหาย",
         "tr-TR": "Hasar Düzenlemesini Başlat",
-        "zh-CN": "开始伤害调整"
+        "zh-CN": "开始伤害调整",
+        "de-DE": "Start Damage Modification",
+        "es-ES": "Start Damage Modification",
+        "it-IT": "Start Damage Modification",
+        "ko-KR": "Start Damage Modification",
+        "pl-PL": "Start Damage Modification",
+        "ru-RU": "Start Damage Modification",
+        "zh-TW": "Start Damage Modification"
     },
     "startForcingSpawn": {
         "description": "Forces a team to spawn in a particular spawn room, regardless of the spawn room normally used by the game mode. This action only has an effect in assault, hybrid, and payload maps.",
@@ -21803,7 +24727,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -21840,7 +24768,10 @@ const actionKw =
                     "ru-RU": "Комната",
                     "th-TH": "ห้อง",
                     "tr-TR": "Oda",
-                    "zh-CN": "室内"
+                    "zh-CN": "室内",
+                    "de-DE": "Room",
+                    "ko-KR": "Room",
+                    "zh-TW": "Room"
                 }
             }
         ],
@@ -21868,7 +24799,14 @@ const actionKw =
         "pt-BR": "Começar a Forçar Sala de Ressurgimento",
         "th-TH": "เริ่มบังคับห้องเกิด",
         "tr-TR": "Başlangıç Odası'nı Zorlamayı Bırak",
-        "zh-CN": "开始强制重生室"
+        "zh-CN": "开始强制重生室",
+        "de-DE": "Start Forcing Spawn Room",
+        "es-ES": "Start Forcing Spawn Room",
+        "it-IT": "Start Forcing Spawn Room",
+        "ko-KR": "Start Forcing Spawn Room",
+        "pl-PL": "Start Forcing Spawn Room",
+        "ru-RU": "Start Forcing Spawn Room",
+        "zh-TW": "Start Forcing Spawn Room"
     },
     "startGamemode": {
         "description": "Starts the gamemode. This action doesn't have an effect if the game is already in progress.",
@@ -21897,7 +24835,14 @@ const actionKw =
         "pt-BR": "Iniciar Modo de Jogo",
         "th-TH": "เริ่มโหมดเกม",
         "tr-TR": "Oyun Modunu Başlat",
-        "zh-CN": "开始游戏模式"
+        "zh-CN": "开始游戏模式",
+        "de-DE": "Start Game Mode",
+        "es-ES": "Start Game Mode",
+        "it-IT": "Start Game Mode",
+        "ko-KR": "Start Game Mode",
+        "pl-PL": "Start Game Mode",
+        "ru-RU": "Start Game Mode",
+        "zh-TW": "Start Game Mode"
     },
     "startHealingModification": {
         "description": "Starts modifying how much healing one or more receivers will receive from one or more healers. A reference to this healing modification can be obtained from the last healing modification id value. This action will fail if too many healing modifications have been started.",
@@ -21940,7 +24885,10 @@ const actionKw =
                     "ru-RU": "Получающие урон",
                     "th-TH": "ตัวรับ",
                     "tr-TR": "Alıcılar",
-                    "zh-CN": "受伤害者"
+                    "zh-CN": "受伤害者",
+                    "de-DE": "Receivers",
+                    "ko-KR": "Receivers",
+                    "zh-TW": "Receivers"
                 }
             },
             {
@@ -21981,7 +24929,10 @@ const actionKw =
                     "ru-RU": "Источники исцеления",
                     "th-TH": "ฮีลเลอร์",
                     "tr-TR": "Şifacılar",
-                    "zh-CN": "治疗者"
+                    "zh-CN": "治疗者",
+                    "de-DE": "Healers",
+                    "ko-KR": "Healers",
+                    "zh-TW": "Healers"
                 }
             },
             {
@@ -22017,7 +24968,10 @@ const actionKw =
                     "ru-RU": "Процент исцеления",
                     "th-TH": "เปอร์เซ็นต์การฮีล",
                     "tr-TR": "İyileştirme Yüzdesi",
-                    "zh-CN": "治疗百分比"
+                    "zh-CN": "治疗百分比",
+                    "de-DE": "Healing Percent",
+                    "ko-KR": "Healing Percent",
+                    "zh-TW": "Healing Percent"
                 }
             },
             {
@@ -22053,7 +25007,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 }
             }
         ],
@@ -22081,7 +25038,14 @@ const actionKw =
         "pt-BR": "Começar modificação de cura",
         "th-TH": "เริ่มการปรับฮีล",
         "tr-TR": "İyileştirme Düzenlemesini Başlat",
-        "zh-CN": "开始治疗调整"
+        "zh-CN": "开始治疗调整",
+        "de-DE": "Start Healing Modification",
+        "es-ES": "Start Healing Modification",
+        "it-IT": "Start Healing Modification",
+        "ko-KR": "Start Healing Modification",
+        "pl-PL": "Start Healing Modification",
+        "ru-RU": "Start Healing Modification",
+        "zh-TW": "Start Healing Modification"
     },
     "stopAllAssists": {
         "description": "Stops all assists that were started using the Start Assist Action.",
@@ -22110,7 +25074,14 @@ const actionKw =
         "pt-BR": "Interromper Todas as Assistências",
         "th-TH": "หยุดการช่วยทั้งหมด",
         "tr-TR": "Tüm Asistleri Durdur",
-        "zh-CN": "停止所有助攻"
+        "zh-CN": "停止所有助攻",
+        "de-DE": "Stop All Assists",
+        "es-ES": "Stop All Assists",
+        "it-IT": "Stop All Assists",
+        "ko-KR": "Stop All Assists",
+        "pl-PL": "Stop All Assists",
+        "ru-RU": "Stop All Assists",
+        "zh-TW": "Stop All Assists"
     },
     "stopAllDamageModifications": {
         "description": "Stops all damage modifications that were started using the start damage modification action.",
@@ -22139,7 +25110,14 @@ const actionKw =
         "pt-BR": "Parar Todas as Modificações de Dano",
         "th-TH": "หยุดการปรับความเสียหายทั้งหมด",
         "tr-TR": "Tüm Hasar Düzenlemelerini Durdur",
-        "zh-CN": "停止所有伤害调整"
+        "zh-CN": "停止所有伤害调整",
+        "de-DE": "Stop All Damage Modifications",
+        "es-ES": "Stop All Damage Modifications",
+        "it-IT": "Stop All Damage Modifications",
+        "ko-KR": "Stop All Damage Modifications",
+        "pl-PL": "Stop All Damage Modifications",
+        "ru-RU": "Stop All Damage Modifications",
+        "zh-TW": "Stop All Damage Modifications"
     },
     "stopAllHealingModifications": {
         "description": "Stops all healing modifications that were started using the start healing modification action.",
@@ -22168,7 +25146,14 @@ const actionKw =
         "pt-BR": "Parar todas as modificações de cura",
         "th-TH": "หยุดการปรับฮีลทั้งหมด",
         "tr-TR": "Tüm İyileştirme Düzenlemelerini Durdur",
-        "zh-CN": "停止所有治疗调整"
+        "zh-CN": "停止所有治疗调整",
+        "de-DE": "Stop All Healing Modifications",
+        "es-ES": "Stop All Healing Modifications",
+        "it-IT": "Stop All Healing Modifications",
+        "ko-KR": "Stop All Healing Modifications",
+        "pl-PL": "Stop All Healing Modifications",
+        "ru-RU": "Stop All Healing Modifications",
+        "zh-TW": "Stop All Healing Modifications"
     },
     "stopAssist": {
         "description": "Stops an assist that was started by the Start Assist Action.",
@@ -22206,7 +25191,10 @@ const actionKw =
                     "ru-RU": "ID содействия",
                     "th-TH": "ID การช่วย",
                     "tr-TR": "Asist Kimliği",
-                    "zh-CN": "助攻ID"
+                    "zh-CN": "助攻ID",
+                    "de-DE": "Assist ID",
+                    "ko-KR": "Assist ID",
+                    "zh-TW": "Assist ID"
                 }
             }
         ],
@@ -22234,7 +25222,14 @@ const actionKw =
         "pt-BR": "Interromper Assistência",
         "th-TH": "หยุดการช่วย",
         "tr-TR": "Asisti Durdur",
-        "zh-CN": "停止助攻"
+        "zh-CN": "停止助攻",
+        "de-DE": "Stop Assist",
+        "es-ES": "Stop Assist",
+        "it-IT": "Stop Assist",
+        "ko-KR": "Stop Assist",
+        "pl-PL": "Stop Assist",
+        "ru-RU": "Stop Assist",
+        "zh-TW": "Stop Assist"
     },
     "stopDamageModification": {
         "description": "Stops a damage modification that was started by the start damage modification action.",
@@ -22271,7 +25266,11 @@ const actionKw =
                     "ru-RU": "Идентификатор изменения урона",
                     "th-TH": "ID การปรับความเสียหาย",
                     "tr-TR": "Hasar Düzenlemesi Kimliği",
-                    "zh-CN": "伤害调整ID"
+                    "zh-CN": "伤害调整ID",
+                    "de-DE": "Damage Modification ID",
+                    "es-ES": "Damage Modification ID",
+                    "ko-KR": "Damage Modification ID",
+                    "zh-TW": "Damage Modification ID"
                 }
             }
         ],
@@ -22299,7 +25298,14 @@ const actionKw =
         "pt-BR": "Parar Modificação de Dano",
         "th-TH": "หยุดการปรับความเสียหาย",
         "tr-TR": "Hasar Düzenlemesini Durdur",
-        "zh-CN": "停止伤害调整"
+        "zh-CN": "停止伤害调整",
+        "de-DE": "Stop Damage Modification",
+        "es-ES": "Stop Damage Modification",
+        "it-IT": "Stop Damage Modification",
+        "ko-KR": "Stop Damage Modification",
+        "pl-PL": "Stop Damage Modification",
+        "ru-RU": "Stop Damage Modification",
+        "zh-TW": "Stop Damage Modification"
     },
     "stopDoT": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
@@ -22337,7 +25343,10 @@ const actionKw =
                     "ru-RU": "ID периодического урона",
                     "th-TH": "ID ความเสียหายต่อเนื่อง",
                     "tr-TR": "Zamanla Hasar Kimliği",
-                    "zh-CN": "持续伤害ID"
+                    "zh-CN": "持续伤害ID",
+                    "de-DE": "Damage Over Time ID",
+                    "ko-KR": "Damage Over Time ID",
+                    "zh-TW": "Damage Over Time ID"
                 }
             }
         ],
@@ -22365,7 +25374,14 @@ const actionKw =
         "pt-BR": "Parar Dano ao Longo do Tempo",
         "th-TH": "หยุดความเสียหายต่อเนื่อง",
         "tr-TR": "Zamanla Hasar'ı Durdur",
-        "zh-CN": "停止持续伤害"
+        "zh-CN": "停止持续伤害",
+        "de-DE": "Stop Damage Over Time",
+        "es-ES": "Stop Damage Over Time",
+        "it-IT": "Stop Damage Over Time",
+        "ko-KR": "Stop Damage Over Time",
+        "pl-PL": "Stop Damage Over Time",
+        "ru-RU": "Stop Damage Over Time",
+        "zh-TW": "Stop Damage Over Time"
     },
     "stopForcingSpawn": {
         "description": "Undoes the effect of the start forcing spawn room action for the specified team.",
@@ -22402,7 +25418,11 @@ const actionKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -22430,7 +25450,14 @@ const actionKw =
         "pt-BR": "Parar de Forçar Sala de Ressurgimento",
         "th-TH": "หยุดบังคับห้องเกิด",
         "tr-TR": "Başlangıç Odası'nı Zorla",
-        "zh-CN": "停止强制重生室"
+        "zh-CN": "停止强制重生室",
+        "de-DE": "Stop Forcing Spawn Room",
+        "es-ES": "Stop Forcing Spawn Room",
+        "it-IT": "Stop Forcing Spawn Room",
+        "ko-KR": "Stop Forcing Spawn Room",
+        "pl-PL": "Stop Forcing Spawn Room",
+        "ru-RU": "Stop Forcing Spawn Room",
+        "zh-TW": "Stop Forcing Spawn Room"
     },
     "stopHealingModification": {
         "description": "Stops a healing modification that was started by the start healing modification action.",
@@ -22467,7 +25494,11 @@ const actionKw =
                     "ru-RU": "Идентификатор модификации исцеления",
                     "th-TH": "ID การปรับฮีล",
                     "tr-TR": "İyileştirme Düzenlemesi Kimliği",
-                    "zh-CN": "治疗调整ID"
+                    "zh-CN": "治疗调整ID",
+                    "de-DE": "Healing Modification ID",
+                    "es-ES": "Healing Modification ID",
+                    "ko-KR": "Healing Modification ID",
+                    "zh-TW": "Healing Modification ID"
                 }
             }
         ],
@@ -22495,7 +25526,14 @@ const actionKw =
         "pt-BR": "Parar modificação de cura",
         "th-TH": "หยุดการปรับฮีล",
         "tr-TR": "İyileştirme Düzenlemesini Durdur",
-        "zh-CN": "停止治疗调整"
+        "zh-CN": "停止治疗调整",
+        "de-DE": "Stop Healing Modification",
+        "es-ES": "Stop Healing Modification",
+        "it-IT": "Stop Healing Modification",
+        "ko-KR": "Stop Healing Modification",
+        "pl-PL": "Stop Healing Modification",
+        "ru-RU": "Stop Healing Modification",
+        "zh-TW": "Stop Healing Modification"
     },
     "stopHoT": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
@@ -22533,7 +25571,10 @@ const actionKw =
                     "ru-RU": "ID периодического исцеления",
                     "th-TH": "ID ฮีลต่อเนื่อง",
                     "tr-TR": "Zamanla İyileştirme Kimliği",
-                    "zh-CN": "持续治疗ID"
+                    "zh-CN": "持续治疗ID",
+                    "de-DE": "Heal Over Time ID",
+                    "ko-KR": "Heal Over Time ID",
+                    "zh-TW": "Heal Over Time ID"
                 }
             }
         ],
@@ -22561,7 +25602,14 @@ const actionKw =
         "pt-BR": "Parar Cura ao Longo do Tempo",
         "th-TH": "หยุดฮีลต่อเนื่อง",
         "tr-TR": "Zamanla İyileştirme'yi Durdur",
-        "zh-CN": "停止持续治疗"
+        "zh-CN": "停止持续治疗",
+        "de-DE": "Stop Heal Over Time",
+        "es-ES": "Stop Heal Over Time",
+        "it-IT": "Stop Heal Over Time",
+        "ko-KR": "Stop Heal Over Time",
+        "pl-PL": "Stop Heal Over Time",
+        "ru-RU": "Stop Heal Over Time",
+        "zh-TW": "Stop Heal Over Time"
     },
     "unpauseMatchTime": {
         "description": "Unpauses the match time.",
@@ -22590,7 +25638,14 @@ const actionKw =
         "pt-BR": "Retomar Tempo da Partida",
         "th-TH": "เลิกหยุดเวลาแมตช์ชั่วคราว",
         "tr-TR": "Maç Süresini Sürdür",
-        "zh-CN": "比赛时间继续"
+        "zh-CN": "比赛时间继续",
+        "de-DE": "Unpause Match Time",
+        "es-ES": "Unpause Match Time",
+        "it-IT": "Unpause Match Time",
+        "ko-KR": "Unpause Match Time",
+        "pl-PL": "Unpause Match Time",
+        "ru-RU": "Unpause Match Time",
+        "zh-TW": "Unpause Match Time"
     },
     "waitUntil": {
         "description": "Waits until the Continue Condition is true or Timeout seconds elapse. The rule conditions are ignored during this wait.",
@@ -22643,7 +25698,10 @@ const actionKw =
                     "ru-RU": "Условие продолжения",
                     "th-TH": "ดำเนินเงื่อนไขต่อ",
                     "tr-TR": "Koşulu Sürdür",
-                    "zh-CN": "继续条件"
+                    "zh-CN": "继续条件",
+                    "de-DE": "Continue Condition",
+                    "ko-KR": "Continue Condition",
+                    "zh-TW": "Continue Condition"
                 }
             },
             {
@@ -22679,7 +25737,10 @@ const actionKw =
                     "ru-RU": "Время ожидания",
                     "th-TH": "หมดเวลา",
                     "tr-TR": "Zaman Aşımı",
-                    "zh-CN": "超时"
+                    "zh-CN": "超时",
+                    "de-DE": "Timeout",
+                    "ko-KR": "Timeout",
+                    "zh-TW": "Timeout"
                 }
             }
         ],
@@ -22692,7 +25753,14 @@ const actionKw =
         "pt-BR": "Esperar até",
         "th-TH": "รอจนกว่า",
         "tr-TR": "Bekle:",
-        "zh-CN": "等待直到 "
+        "zh-CN": "等待直到 ",
+        "de-DE": "Wait Until",
+        "es-ES": "Wait Until",
+        "it-IT": "Wait Until",
+        "ko-KR": "Wait Until",
+        "pl-PL": "Wait Until",
+        "ru-RU": "Wait Until",
+        "zh-TW": "Wait Until"
     },
     "createProjectile": {
         "description": "Creates a projectile entity that either heals or damages players and player-owned entities. This action will fail if too many entities have been created.",
@@ -22716,7 +25784,9 @@ const actionKw =
                     "th-TH": "ประเภทโพรเจกไทล์",
                     "tr-TR": "Atılır Cisim Türü",
                     "zh-CN": "弹道类型",
-                    "zh-TW": "拋射物類型"
+                    "zh-TW": "拋射物類型",
+                    "de-DE": "Projectile Type",
+                    "ko-KR": "Projectile Type"
                 },
                 "type": "Projectile",
                 "default": "ORB",
@@ -22739,7 +25809,11 @@ const actionKw =
                     "pt-BR": "Jogador",
                     "ru-RU": "Игрок",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "th-TH": "Player",
+                    "zh-TW": "Player"
                 },
                 "type": [
                     "Player",
@@ -22768,7 +25842,10 @@ const actionKw =
                     "ru-RU": "Начальная позиция",
                     "th-TH": "ตําแหน่งเริ่มต้น",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Position",
+                    "ko-KR": "Start Position",
+                    "zh-TW": "Start Position"
                 },
                 "type": "Position",
                 "default": "null",
@@ -22791,7 +25868,11 @@ const actionKw =
                     "ru-RU": "Направление",
                     "th-TH": "ทิศทาง",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "zh-TW": "Direction"
                 },
                 "type": "Direction",
                 "default": "null",
@@ -22815,7 +25896,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 },
                 "type": "Relativity",
                 "default": "TO WORLD",
@@ -22840,7 +25924,9 @@ const actionKw =
                     "th-TH": "ปรับเปลี่ยนประเภทพลังชีวิต",
                     "tr-TR": "Can Türünü Değiştir",
                     "zh-CN": "修改生命效果类型",
-                    "zh-TW": "修改生命值類型"
+                    "zh-TW": "修改生命值類型",
+                    "de-DE": "Modify Health Type",
+                    "ko-KR": "Modify Health Type"
                 },
                 "type": "ModifyHealth",
                 "default": "DAMAGE",
@@ -22865,7 +25951,9 @@ const actionKw =
                     "th-TH": "ทีมที่ได้รับผลกระทบ",
                     "tr-TR": "Etkilenen Takım",
                     "zh-CN": "受影响的队伍",
-                    "zh-TW": "受影響的隊伍"
+                    "zh-TW": "受影響的隊伍",
+                    "de-DE": "Affected Team",
+                    "ko-KR": "Affected Team"
                 },
                 "type": "Team",
                 "default": "TEAM",
@@ -22889,7 +25977,10 @@ const actionKw =
                     "ru-RU": "Объем",
                     "th-TH": "ปริมาณ",
                     "tr-TR": "Miktar",
-                    "zh-CN": "伤害量"
+                    "zh-CN": "伤害量",
+                    "de-DE": "Amount",
+                    "ko-KR": "Amount",
+                    "zh-TW": "Amount"
                 },
                 "type": "unsigned float",
                 "default": "50",
@@ -22914,7 +26005,9 @@ const actionKw =
                     "th-TH": "สเกลาร์ปริมาณ",
                     "tr-TR": "Miktar Skaleri",
                     "zh-CN": "数值缩放",
-                    "zh-TW": "無方向性數值"
+                    "zh-TW": "無方向性數值",
+                    "de-DE": "Amount Scalar",
+                    "ko-KR": "Amount Scalar"
                 },
                 "type": "unsigned float",
                 "default": "1",
@@ -22939,7 +26032,9 @@ const actionKw =
                     "th-TH": "รัศมีระเบิด",
                     "tr-TR": "Patlama Yarıçapı",
                     "zh-CN": "爆炸范围",
-                    "zh-TW": "爆炸範圍"
+                    "zh-TW": "爆炸範圍",
+                    "de-DE": "Explosion Radius",
+                    "ko-KR": "Explosion Radius"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -22964,7 +26059,9 @@ const actionKw =
                     "th-TH": "เอฟเฟกต์ระเบิด",
                     "tr-TR": "Patlama Efekti",
                     "zh-CN": "爆炸效果",
-                    "zh-TW": "爆炸效果"
+                    "zh-TW": "爆炸效果",
+                    "de-DE": "Explosion Effect",
+                    "ko-KR": "Explosion Effect"
                 },
                 "type": "DynamicEffect",
                 "default": "BAD EXPLOSION",
@@ -22989,7 +26086,9 @@ const actionKw =
                     "th-TH": "เอฟเฟกต์เสียงระเบิด",
                     "tr-TR": "Patlama Ses Efektleri",
                     "zh-CN": "爆炸声音效果",
-                    "zh-TW": "爆炸音效"
+                    "zh-TW": "爆炸音效",
+                    "de-DE": "Explosion Sound Effect",
+                    "ko-KR": "Explosion Sound Effect"
                 },
                 "type": "DynamicEffect",
                 "default": "Explosion Sound",
@@ -23014,7 +26113,9 @@ const actionKw =
                     "th-TH": "ใหญ่กว่าปกติ",
                     "tr-TR": "Büyüklük",
                     "zh-CN": "尺寸增幅",
-                    "zh-TW": "過大"
+                    "zh-TW": "過大",
+                    "de-DE": "Oversize",
+                    "ko-KR": "Oversize"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23040,7 +26141,10 @@ const actionKw =
                     "ru-RU": "Скорость",
                     "th-TH": "ความเร็ว",
                     "tr-TR": "Hız",
-                    "zh-CN": "速度"
+                    "zh-CN": "速度",
+                    "de-DE": "Speed",
+                    "ko-KR": "Speed",
+                    "zh-TW": "Speed"
                 },
                 "type": "unsigned float",
                 "default": "10",
@@ -23059,7 +26163,7 @@ const actionKw =
                     "de-DE": "Lebenszeit",
                     "es-ES": "Historial",
                     "es-MX": "Permanente",
-                    "fr-FR": "Total",
+                    "fr-FR": "Permanent",
                     "it-IT": "Permanenti",
                     "ja-JP": "ライフタイム",
                     "ko-KR": "위업",
@@ -23096,7 +26200,9 @@ const actionKw =
                     "th-TH": "พลังผลักดัน",
                     "tr-TR": "İtiş Gücü",
                     "zh-CN": "推力",
-                    "zh-TW": "脈衝"
+                    "zh-TW": "脈衝",
+                    "de-DE": "Impulse",
+                    "ko-KR": "Impulse"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23121,7 +26227,9 @@ const actionKw =
                     "th-TH": "จํานวนการกระดอน",
                     "tr-TR": "Sekme Sayısı",
                     "zh-CN": "弹射次数",
-                    "zh-TW": "彈射計數"
+                    "zh-TW": "彈射計數",
+                    "de-DE": "Ricochet Count",
+                    "ko-KR": "Ricochet Count"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23148,7 +26256,9 @@ const actionKw =
                     "th-TH": "แรงโน้มถ่วง",
                     "tr-TR": "Yer Çekimi",
                     "zh-CN": "引力",
-                    "zh-TW": "重力"
+                    "zh-TW": "重力",
+                    "de-DE": "Gravity",
+                    "ko-KR": "Gravity"
                 },
                 "type": "float",
                 "default": "0",
@@ -23171,7 +26281,10 @@ const actionKw =
         "th-TH": "สร้างโพรเจกไทล์",
         "tr-TR": "Atılır Cisim Oluştur",
         "zh-CN": "创建弹道",
-        "zh-TW": "建立拋射物"
+        "zh-TW": "建立拋射物",
+        "de-DE": "Create Projectile",
+        "es-ES": "Create Projectile",
+        "it-IT": "Create Projectile"
     },
     "createHomingProjectile": {
         "description": "Creates a projectile entity that either heals or damages players and player-owned entities. The projectile follows the provided target with variable strength. This action will fail if too many entities have been created.",
@@ -23195,7 +26308,9 @@ const actionKw =
                     "th-TH": "ประเภทโพรเจกไทล์",
                     "tr-TR": "Atılır Cisim Türü",
                     "zh-CN": "弹道类型",
-                    "zh-TW": "拋射物類型"
+                    "zh-TW": "拋射物類型",
+                    "de-DE": "Projectile Type",
+                    "ko-KR": "Projectile Type"
                 },
                 "type": "Projectile",
                 "default": "ORB",
@@ -23218,7 +26333,11 @@ const actionKw =
                     "pt-BR": "Jogador",
                     "ru-RU": "Игрок",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "th-TH": "Player",
+                    "zh-TW": "Player"
                 },
                 "type": [
                     "Player",
@@ -23247,7 +26366,10 @@ const actionKw =
                     "ru-RU": "Начальная позиция",
                     "th-TH": "ตําแหน่งเริ่มต้น",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Position",
+                    "ko-KR": "Start Position",
+                    "zh-TW": "Start Position"
                 },
                 "type": "Position",
                 "default": "null",
@@ -23270,7 +26392,11 @@ const actionKw =
                     "ru-RU": "Направление",
                     "th-TH": "ทิศทาง",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "zh-TW": "Direction"
                 },
                 "type": "Direction",
                 "default": "null",
@@ -23294,7 +26420,10 @@ const actionKw =
                     "ru-RU": "Система координат",
                     "th-TH": "สัมพัทธ์",
                     "tr-TR": "Bağıl",
-                    "zh-CN": "相对"
+                    "zh-CN": "相对",
+                    "de-DE": "Relative",
+                    "ko-KR": "Relative",
+                    "zh-TW": "Relative"
                 },
                 "type": "Relativity",
                 "default": "TO WORLD",
@@ -23319,7 +26448,9 @@ const actionKw =
                     "th-TH": "ปรับเปลี่ยนประเภทพลังชีวิต",
                     "tr-TR": "Can Türünü Değiştir",
                     "zh-CN": "修改生命效果类型",
-                    "zh-TW": "修改生命值類型"
+                    "zh-TW": "修改生命值類型",
+                    "de-DE": "Modify Health Type",
+                    "ko-KR": "Modify Health Type"
                 },
                 "type": "ModifyHealth",
                 "default": "DAMAGE",
@@ -23344,7 +26475,9 @@ const actionKw =
                     "th-TH": "ทีมที่ได้รับผลกระทบ",
                     "tr-TR": "Etkilenen Takım",
                     "zh-CN": "受影响的队伍",
-                    "zh-TW": "受影響的隊伍"
+                    "zh-TW": "受影響的隊伍",
+                    "de-DE": "Affected Team",
+                    "ko-KR": "Affected Team"
                 },
                 "type": "Team",
                 "default": "TEAM",
@@ -23368,7 +26501,10 @@ const actionKw =
                     "ru-RU": "Объем",
                     "th-TH": "ปริมาณ",
                     "tr-TR": "Miktar",
-                    "zh-CN": "伤害量"
+                    "zh-CN": "伤害量",
+                    "de-DE": "Amount",
+                    "ko-KR": "Amount",
+                    "zh-TW": "Amount"
                 },
                 "type": "unsigned float",
                 "default": "50",
@@ -23393,7 +26529,9 @@ const actionKw =
                     "th-TH": "สเกลาร์ปริมาณ",
                     "tr-TR": "Miktar Skaleri",
                     "zh-CN": "数值缩放",
-                    "zh-TW": "無方向性數值"
+                    "zh-TW": "無方向性數值",
+                    "de-DE": "Amount Scalar",
+                    "ko-KR": "Amount Scalar"
                 },
                 "type": "unsigned float",
                 "default": "1",
@@ -23418,7 +26556,9 @@ const actionKw =
                     "th-TH": "รัศมีระเบิด",
                     "tr-TR": "Patlama Yarıçapı",
                     "zh-CN": "爆炸范围",
-                    "zh-TW": "爆炸範圍"
+                    "zh-TW": "爆炸範圍",
+                    "de-DE": "Explosion Radius",
+                    "ko-KR": "Explosion Radius"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23443,7 +26583,9 @@ const actionKw =
                     "th-TH": "เอฟเฟกต์ระเบิด",
                     "tr-TR": "Patlama Efekti",
                     "zh-CN": "爆炸效果",
-                    "zh-TW": "爆炸效果"
+                    "zh-TW": "爆炸效果",
+                    "de-DE": "Explosion Effect",
+                    "ko-KR": "Explosion Effect"
                 },
                 "type": "DynamicEffect",
                 "default": "BAD EXPLOSION",
@@ -23468,7 +26610,9 @@ const actionKw =
                     "th-TH": "เอฟเฟกต์เสียงระเบิด",
                     "tr-TR": "Patlama Ses Efektleri",
                     "zh-CN": "爆炸声音效果",
-                    "zh-TW": "爆炸音效"
+                    "zh-TW": "爆炸音效",
+                    "de-DE": "Explosion Sound Effect",
+                    "ko-KR": "Explosion Sound Effect"
                 },
                 "type": "DynamicEffect",
                 "default": "Explosion Sound",
@@ -23493,7 +26637,9 @@ const actionKw =
                     "th-TH": "ใหญ่กว่าปกติ",
                     "tr-TR": "Büyüklük",
                     "zh-CN": "尺寸增幅",
-                    "zh-TW": "過大"
+                    "zh-TW": "過大",
+                    "de-DE": "Oversize",
+                    "ko-KR": "Oversize"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23519,7 +26665,10 @@ const actionKw =
                     "ru-RU": "Скорость",
                     "th-TH": "ความเร็ว",
                     "tr-TR": "Hız",
-                    "zh-CN": "速度"
+                    "zh-CN": "速度",
+                    "de-DE": "Speed",
+                    "ko-KR": "Speed",
+                    "zh-TW": "Speed"
                 },
                 "type": "unsigned float",
                 "default": "10",
@@ -23538,7 +26687,7 @@ const actionKw =
                     "de-DE": "Lebenszeit",
                     "es-ES": "Historial",
                     "es-MX": "Permanente",
-                    "fr-FR": "Total",
+                    "fr-FR": "Permanent",
                     "it-IT": "Permanenti",
                     "ja-JP": "ライフタイム",
                     "ko-KR": "위업",
@@ -23575,7 +26724,9 @@ const actionKw =
                     "th-TH": "พลังผลักดัน",
                     "tr-TR": "İtiş Gücü",
                     "zh-CN": "推力",
-                    "zh-TW": "脈衝"
+                    "zh-TW": "脈衝",
+                    "de-DE": "Impulse",
+                    "ko-KR": "Impulse"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23600,7 +26751,9 @@ const actionKw =
                     "th-TH": "เป้าหมายนำวิถี",
                     "tr-TR": "Güdüm Hedefi",
                     "zh-CN": "追踪目标",
-                    "zh-TW": "自動導向目標"
+                    "zh-TW": "自動導向目標",
+                    "de-DE": "Homing Target",
+                    "ko-KR": "Homing Target"
                 },
                 "type": "Player",
                 "default": "null",
@@ -23625,7 +26778,9 @@ const actionKw =
                     "th-TH": "แรงนำวิถี",
                     "tr-TR": "Güdüm Kuvveti",
                     "zh-CN": "追踪强度",
-                    "zh-TW": "自動導向強度"
+                    "zh-TW": "自動導向強度",
+                    "de-DE": "Homing Strength",
+                    "ko-KR": "Homing Strength"
                 },
                 "type": "float",
                 "default": "0.5",
@@ -23648,7 +26803,12 @@ const actionKw =
         "th-TH": "สร้างโพรเจกไทล์นำวิถี",
         "tr-TR": "Güdümlü Atılır Cisim Oluştur",
         "zh-CN": "创建追踪弹道",
-        "zh-TW": "創造自動導向拋射物"
+        "zh-TW": "創造自動導向拋射物",
+        "de-DE": "Create Homing Projectile",
+        "es-ES": "Create Homing Projectile",
+        "it-IT": "Create Homing Projectile",
+        "ko-KR": "Create Homing Projectile",
+        "pl-PL": "Create Homing Projectile"
     },
     "createProjectileEffect": {
         "description": "Creates an in-world projectile effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
@@ -23671,7 +26831,10 @@ const actionKw =
                     "ru-RU": "Видимо для",
                     "th-TH": "มองเห็นได้สำหรับ",
                     "tr-TR": "Görenler",
-                    "zh-CN": "可见"
+                    "zh-CN": "可见",
+                    "de-DE": "Visible To",
+                    "ko-KR": "Visible To",
+                    "zh-TW": "Visible To"
                 },
                 "type": [
                     "Player",
@@ -23701,7 +26864,9 @@ const actionKw =
                     "th-TH": "ประเภทโพรเจกไทล์",
                     "tr-TR": "Atılır Cisim Türü",
                     "zh-CN": "弹道类型",
-                    "zh-TW": "拋射物類型"
+                    "zh-TW": "拋射物類型",
+                    "de-DE": "Projectile Type",
+                    "ko-KR": "Projectile Type"
                 },
                 "type": "Projectile",
                 "default": "ORB",
@@ -23726,7 +26891,9 @@ const actionKw =
                     "th-TH": "เป็นมิตรกับ",
                     "tr-TR": "Dost Görenler",
                     "zh-CN": "友善",
-                    "zh-TW": "友方對象"
+                    "zh-TW": "友方對象",
+                    "de-DE": "Friendly To",
+                    "ko-KR": "Friendly To"
                 },
                 "type": [
                     "Player",
@@ -23754,7 +26921,11 @@ const actionKw =
                     "ru-RU": "Позиция",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 },
                 "type": [
                     "Position",
@@ -23780,7 +26951,11 @@ const actionKw =
                     "ru-RU": "Направление",
                     "th-TH": "ทิศทาง",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "zh-TW": "Direction"
                 },
                 "type": "Direction",
                 "default": "vector",
@@ -23805,7 +26980,9 @@ const actionKw =
                     "th-TH": "ใหญ่กว่าปกติ",
                     "tr-TR": "Büyüklük",
                     "zh-CN": "尺寸增幅",
-                    "zh-TW": "過大"
+                    "zh-TW": "過大",
+                    "de-DE": "Oversize",
+                    "ko-KR": "Oversize"
                 },
                 "type": "unsigned float",
                 "default": "0",
@@ -23831,7 +27008,10 @@ const actionKw =
                     "ru-RU": "Пересчет",
                     "th-TH": "การประเมินใหม่",
                     "tr-TR": "Tekrar Değerlendirme",
-                    "zh-CN": "重新赋值"
+                    "zh-CN": "重新赋值",
+                    "de-DE": "Reevaluation",
+                    "ko-KR": "Reevaluation",
+                    "zh-TW": "Reevaluation"
                 },
                 "type": "ProjectileEffectReeval",
                 "default": "Visible To Position Direction And Size",
@@ -23853,7 +27033,11 @@ const actionKw =
         "th-TH": "สร้างเอฟเฟกต์โพรเจกไทล์",
         "tr-TR": "Atılır Cisim Efekti Oluştur",
         "zh-CN": "创建弹道效果",
-        "zh-TW": "創造拋射物效果"
+        "zh-TW": "創造拋射物效果",
+        "de-DE": "Create Projectile Effect",
+        "es-ES": "Create Projectile Effect",
+        "it-IT": "Create Projectile Effect",
+        "pl-PL": "Create Projectile Effect"
     }
 }
 //end-json

@@ -52,7 +52,15 @@ var valueFuncKw =
         "ja-JP": "後方",
         "pt-BR": "Para Trás",
         "tr-TR": "Geri",
-        "zh-CN": "后"
+        "zh-CN": "后",
+        "de-DE": "Backward",
+        "es-ES": "Backward",
+        "it-IT": "Backward",
+        "ko-KR": "Backward",
+        "pl-PL": "Backward",
+        "ru-RU": "Backward",
+        "th-TH": "Backward",
+        "zh-TW": "Backward"
     },
     "Vector.DOWN": {
         "guid": "00000000B119",
@@ -88,7 +96,15 @@ var valueFuncKw =
         "ja-JP": "下",
         "pt-BR": "Baixo",
         "tr-TR": "Ekle",
-        "zh-CN": "下"
+        "zh-CN": "下",
+        "de-DE": "Down",
+        "es-ES": "Down",
+        "it-IT": "Down",
+        "ko-KR": "Down",
+        "pl-PL": "Down",
+        "ru-RU": "Down",
+        "th-TH": "Down",
+        "zh-TW": "Down"
     },
     "Vector.FORWARD": {
         "guid": "00000000B11A",
@@ -124,7 +140,15 @@ var valueFuncKw =
         "ja-JP": "前方向",
         "pt-BR": "Para a Frente",
         "tr-TR": "İleri",
-        "zh-CN": "前"
+        "zh-CN": "前",
+        "de-DE": "Forward",
+        "es-ES": "Forward",
+        "it-IT": "Forward",
+        "ko-KR": "Forward",
+        "pl-PL": "Forward",
+        "ru-RU": "Forward",
+        "th-TH": "Forward",
+        "zh-TW": "Forward"
     },
     "Vector.LEFT": {
         "guid": "00000000B116",
@@ -160,7 +184,15 @@ var valueFuncKw =
         "ja-JP": "左",
         "pt-BR": "Esquerda",
         "tr-TR": "Sol",
-        "zh-CN": "左"
+        "zh-CN": "左",
+        "de-DE": "Left",
+        "es-ES": "Left",
+        "it-IT": "Left",
+        "ko-KR": "Left",
+        "pl-PL": "Left",
+        "ru-RU": "Left",
+        "th-TH": "Left",
+        "zh-TW": "Left"
     },
     "Vector.RIGHT": {
         "guid": "00000000B117",
@@ -196,7 +228,15 @@ var valueFuncKw =
         "ja-JP": "右",
         "pt-BR": "Direita",
         "tr-TR": "Sağ",
-        "zh-CN": "右"
+        "zh-CN": "右",
+        "de-DE": "Right",
+        "es-ES": "Right",
+        "it-IT": "Right",
+        "ko-KR": "Right",
+        "pl-PL": "Right",
+        "ru-RU": "Right",
+        "th-TH": "Right",
+        "zh-TW": "Right"
     },
     "Vector.UP": {
         "guid": "00000000B118",
@@ -232,7 +272,15 @@ var valueFuncKw =
         "ja-JP": "上",
         "pt-BR": "Cima",
         "tr-TR": "At",
-        "zh-CN": "上"
+        "zh-CN": "上",
+        "de-DE": "Up",
+        "es-ES": "Up",
+        "it-IT": "Up",
+        "ko-KR": "Up",
+        "pl-PL": "Up",
+        "ru-RU": "Up",
+        "th-TH": "Up",
+        "zh-TW": "Up"
     },
     "_&getAbilityCharge": {
         "description": "The ability charge count for a player associated by button.",
@@ -270,7 +318,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -305,7 +356,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -332,7 +387,15 @@ var valueFuncKw =
         "ja-JP": "アビリティのチャージ",
         "pt-BR": "Cargas de Habilidade",
         "tr-TR": "Kabiliyet Dolum Oranı",
-        "zh-CN": "技能充能"
+        "zh-CN": "技能充能",
+        "de-DE": "Ability Charge",
+        "es-ES": "Ability Charge",
+        "it-IT": "Ability Charge",
+        "ko-KR": "Ability Charge",
+        "pl-PL": "Ability Charge",
+        "ru-RU": "Ability Charge",
+        "th-TH": "Ability Charge",
+        "zh-TW": "Ability Charge"
     },
     "_&getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
@@ -370,7 +433,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -405,7 +471,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -432,7 +502,15 @@ var valueFuncKw =
         "ja-JP": "アビリティのクールダウン",
         "pt-BR": "Tempo de Recarga da Habilidade",
         "tr-TR": "Kabiliyet Dolum Süresi",
-        "zh-CN": "技能冷却时间"
+        "zh-CN": "技能冷却时间",
+        "de-DE": "Ability Cooldown",
+        "es-ES": "Ability Cooldown",
+        "it-IT": "Ability Cooldown",
+        "ko-KR": "Ability Cooldown",
+        "pl-PL": "Ability Cooldown",
+        "ru-RU": "Ability Cooldown",
+        "th-TH": "Ability Cooldown",
+        "zh-TW": "Ability Cooldown"
     },
     "_&getAbilityResource": {
         "description": "The ability resource percent for a player associated by button.",
@@ -470,7 +548,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -505,7 +586,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -532,7 +617,15 @@ var valueFuncKw =
         "ja-JP": "アビリティのリソース",
         "pt-BR": "Recurso de Habilidade",
         "tr-TR": "Kabiliyet Kaynağı",
-        "zh-CN": "技能资源"
+        "zh-CN": "技能资源",
+        "de-DE": "Ability Resource",
+        "es-ES": "Ability Resource",
+        "it-IT": "Ability Resource",
+        "ko-KR": "Ability Resource",
+        "pl-PL": "Ability Resource",
+        "ru-RU": "Ability Resource",
+        "th-TH": "Ability Resource",
+        "zh-TW": "Ability Resource"
     },
     "_&getAllowedHeroes": {
         "description": "The array of heroes from which the specified player is currently allowed to select.",
@@ -570,7 +663,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -600,7 +696,15 @@ var valueFuncKw =
         "ja-JP": "許可されたヒーロー",
         "pt-BR": "Heróis Permitidos",
         "tr-TR": "Seçilebilen Kahramanlar",
-        "zh-CN": "可用英雄"
+        "zh-CN": "可用英雄",
+        "de-DE": "Allowed Heroes",
+        "es-ES": "Allowed Heroes",
+        "it-IT": "Allowed Heroes",
+        "ko-KR": "Allowed Heroes",
+        "pl-PL": "Allowed Heroes",
+        "ru-RU": "Allowed Heroes",
+        "th-TH": "Allowed Heroes",
+        "zh-TW": "Allowed Heroes"
     },
     "_&getAltitude": {
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
@@ -638,7 +742,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -665,7 +772,15 @@ var valueFuncKw =
         "ja-JP": "高度: ",
         "pt-BR": "Altitude de",
         "tr-TR": "İrtifa",
-        "zh-CN": "高度"
+        "zh-CN": "高度",
+        "de-DE": "Altitude Of",
+        "es-ES": "Altitude Of",
+        "it-IT": "Altitude Of",
+        "ko-KR": "Altitude Of",
+        "pl-PL": "Altitude Of",
+        "ru-RU": "Altitude Of",
+        "th-TH": "Altitude Of",
+        "zh-TW": "Altitude Of"
     },
     "_&getAmmo": {
         "description": "The current ammo of a player.",
@@ -703,7 +818,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -741,7 +859,10 @@ var valueFuncKw =
                     "ru-RU": "Боекомплект",
                     "th-TH": "คลิป",
                     "tr-TR": "Şarjör",
-                    "zh-CN": "弹夹"
+                    "zh-CN": "弹夹",
+                    "de-DE": "Clip",
+                    "ko-KR": "Clip",
+                    "zh-TW": "Clip"
                 }
             }
         ],
@@ -769,7 +890,14 @@ var valueFuncKw =
         "ja-JP": "弾薬数",
         "pt-BR": "Munição",
         "tr-TR": "Cephane",
-        "zh-CN": "弹药"
+        "zh-CN": "弹药",
+        "de-DE": "Ammo",
+        "it-IT": "Ammo",
+        "ko-KR": "Ammo",
+        "pl-PL": "Ammo",
+        "ru-RU": "Ammo",
+        "th-TH": "Ammo",
+        "zh-TW": "Ammo"
     },
     "_&getCurrentHero": {
         "description": "The current hero of a player.",
@@ -807,7 +935,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -831,11 +962,19 @@ var valueFuncKw =
         },
         "en-US": "Hero Of",
         "es-MX": "Héroe de",
-        "fr-FR": "Héros de",
+        "fr-FR": "Héroïsme de",
         "ja-JP": "ヒーロー: ",
         "pt-BR": "Herói de",
         "tr-TR": "Kahraman",
-        "zh-CN": "所用英雄"
+        "zh-CN": "所用英雄",
+        "de-DE": "Hero Of",
+        "es-ES": "Hero Of",
+        "it-IT": "Hero Of",
+        "ko-KR": "Hero Of",
+        "pl-PL": "Hero Of",
+        "ru-RU": "Hero Of",
+        "th-TH": "Hero Of",
+        "zh-TW": "Hero Of"
     },
     "_&getCurrentWeapon": {
         "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
@@ -888,7 +1027,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -900,7 +1042,15 @@ var valueFuncKw =
         "ja-JP": "武器",
         "pt-BR": "Arma",
         "tr-TR": "Silah",
-        "zh-CN": "武器"
+        "zh-CN": "武器",
+        "de-DE": "Weapon",
+        "es-ES": "Weapon",
+        "it-IT": "Weapon",
+        "ko-KR": "Weapon",
+        "pl-PL": "Weapon",
+        "ru-RU": "Weapon",
+        "th-TH": "Weapon",
+        "zh-TW": "Weapon"
     },
     "_&getEyePosition": {
         "guid": "00000000C595",
@@ -939,7 +1089,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -967,7 +1120,14 @@ var valueFuncKw =
         "pt-BR": "Posição do Olho",
         "th-TH": "ตำแหน่งตา",
         "tr-TR": "Göz Konumu",
-        "zh-CN": "眼睛位置"
+        "zh-CN": "眼睛位置",
+        "de-DE": "Eye Position",
+        "es-ES": "Eye Position",
+        "it-IT": "Eye Position",
+        "ko-KR": "Eye Position",
+        "pl-PL": "Eye Position",
+        "ru-RU": "Eye Position",
+        "zh-TW": "Eye Position"
     },
     "_&getFacingDirection": {
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
@@ -1005,7 +1165,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1033,7 +1196,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤーが向いている方向: ",
         "pt-BR": "Direção Frontal de",
         "tr-TR": "Doğrultulduğu Yön",
-        "zh-CN": "面朝方向"
+        "zh-CN": "面朝方向",
+        "de-DE": "Facing Direction Of",
+        "es-ES": "Facing Direction Of",
+        "it-IT": "Facing Direction Of",
+        "ko-KR": "Facing Direction Of",
+        "pl-PL": "Facing Direction Of",
+        "ru-RU": "Facing Direction Of",
+        "th-TH": "Facing Direction Of",
+        "zh-TW": "Facing Direction Of"
     },
     "_&getHealth": {
         "guid": "0000000081C2",
@@ -1072,7 +1243,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1098,7 +1272,15 @@ var valueFuncKw =
         "ja-JP": "ライフ",
         "pt-BR": "Vida",
         "tr-TR": "Can",
-        "zh-CN": "生命值"
+        "zh-CN": "生命值",
+        "de-DE": "Health",
+        "es-ES": "Health",
+        "it-IT": "Health",
+        "ko-KR": "Health",
+        "pl-PL": "Health",
+        "ru-RU": "Health",
+        "th-TH": "Health",
+        "zh-TW": "Health"
     },
     "_&getHealthOfType": {
         "description": "The current health of the specified player, filtered by the given health type.",
@@ -1151,7 +1333,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1183,7 +1368,14 @@ var valueFuncKw =
                     "pt-BR": "Vida",
                     "th-TH": "พลังชีวิต",
                     "tr-TR": "Can",
-                    "zh-CN": "生命值"
+                    "zh-CN": "生命值",
+                    "de-DE": "Health",
+                    "es-ES": "Health",
+                    "it-IT": "Health",
+                    "ko-KR": "Health",
+                    "pl-PL": "Health",
+                    "ru-RU": "Health",
+                    "zh-TW": "Health"
                 }
             }
         ],
@@ -1196,7 +1388,14 @@ var valueFuncKw =
         "pt-BR": "Vida do Tipo",
         "th-TH": "พลังชีวิตของประเภท",
         "tr-TR": "Türe Göre Can",
-        "zh-CN": "类型的生命值"
+        "zh-CN": "类型的生命值",
+        "de-DE": "Health Of Type",
+        "es-ES": "Health Of Type",
+        "it-IT": "Health Of Type",
+        "ko-KR": "Health Of Type",
+        "pl-PL": "Health Of Type",
+        "ru-RU": "Health Of Type",
+        "zh-TW": "Health Of Type"
     },
     "_&getHeroOfDuplication": {
         "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
@@ -1234,7 +1433,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1263,7 +1465,14 @@ var valueFuncKw =
         "pt-BR": "Herói Sendo Duplicado",
         "th-TH": "ฮีโร่ที่กำลังถูกดูพลิเคต",
         "tr-TR": "Kopyalanan Kahraman",
-        "zh-CN": "正在复制的英雄"
+        "zh-CN": "正在复制的英雄",
+        "de-DE": "Hero Being Duplicated",
+        "es-ES": "Hero Being Duplicated",
+        "it-IT": "Hero Being Duplicated",
+        "ko-KR": "Hero Being Duplicated",
+        "pl-PL": "Hero Being Duplicated",
+        "ru-RU": "Hero Being Duplicated",
+        "zh-TW": "Hero Being Duplicated"
     },
     "_&getHeroStatistic": {
         "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
@@ -1301,7 +1510,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1329,14 +1541,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -1371,7 +1587,11 @@ var valueFuncKw =
                     "pt-BR": "Estatística",
                     "ru-RU": "Показатель",
                     "tr-TR": "İstatistik",
-                    "zh-CN": "数据"
+                    "zh-CN": "数据",
+                    "de-DE": "Stat",
+                    "ko-KR": "Stat",
+                    "th-TH": "Stat",
+                    "zh-TW": "Stat"
                 }
             }
         ],
@@ -1398,7 +1618,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤー・ヒーロー統計",
         "pt-BR": "Estatística de Herói do Jogador",
         "tr-TR": "Oyuncu Kahraman İstatistiği",
-        "zh-CN": "玩家英雄数据"
+        "zh-CN": "玩家英雄数据",
+        "de-DE": "Player Hero Stat",
+        "es-ES": "Player Hero Stat",
+        "it-IT": "Player Hero Stat",
+        "ko-KR": "Player Hero Stat",
+        "pl-PL": "Player Hero Stat",
+        "ru-RU": "Player Hero Stat",
+        "th-TH": "Player Hero Stat",
+        "zh-TW": "Player Hero Stat"
     },
     "_&getHorizontalFacingAngle": {
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
@@ -1436,7 +1664,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1463,7 +1694,15 @@ var valueFuncKw =
         "ja-JP": "対面水平角: ",
         "pt-BR": "Ângulo Horizontal Frontal de",
         "tr-TR": "Yatay Konumlandırma Açısı",
-        "zh-CN": "水平朝向角度"
+        "zh-CN": "水平朝向角度",
+        "de-DE": "Horizontal Facing Angle Of",
+        "es-ES": "Horizontal Facing Angle Of",
+        "it-IT": "Horizontal Facing Angle Of",
+        "ko-KR": "Horizontal Facing Angle Of",
+        "pl-PL": "Horizontal Facing Angle Of",
+        "ru-RU": "Horizontal Facing Angle Of",
+        "th-TH": "Horizontal Facing Angle Of",
+        "zh-TW": "Horizontal Facing Angle Of"
     },
     "_&getHorizontalSpeed": {
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
@@ -1501,7 +1740,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1528,7 +1770,15 @@ var valueFuncKw =
         "ja-JP": "水平速度: ",
         "pt-BR": "Velocidade Horizontal de",
         "tr-TR": "Yatay Hız",
-        "zh-CN": "水平速度"
+        "zh-CN": "水平速度",
+        "de-DE": "Horizontal Speed Of",
+        "es-ES": "Horizontal Speed Of",
+        "it-IT": "Horizontal Speed Of",
+        "ko-KR": "Horizontal Speed Of",
+        "pl-PL": "Horizontal Speed Of",
+        "ru-RU": "Horizontal Speed Of",
+        "th-TH": "Horizontal Speed Of",
+        "zh-TW": "Horizontal Speed Of"
     },
     "_&getMaxAmmo": {
         "description": "The current max ammo of a player.",
@@ -1566,7 +1816,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1604,7 +1857,10 @@ var valueFuncKw =
                     "ru-RU": "Боекомплект",
                     "th-TH": "คลิป",
                     "tr-TR": "Şarjör",
-                    "zh-CN": "弹夹"
+                    "zh-CN": "弹夹",
+                    "de-DE": "Clip",
+                    "ko-KR": "Clip",
+                    "zh-TW": "Clip"
                 }
             }
         ],
@@ -1631,8 +1887,15 @@ var valueFuncKw =
         "ja-JP": "最大弾薬数",
         "pt-BR": "Munição Máxima",
         "th-TH": "กระสุนสูงสุด",
-        "tr-TR": "Azami Cephane",
-        "zh-CN": "最大弹药量"
+        "tr-TR": "Maks. Cephane",
+        "zh-CN": "最大弹药量",
+        "de-DE": "Max Ammo",
+        "es-ES": "Max Ammo",
+        "it-IT": "Max Ammo",
+        "ko-KR": "Max Ammo",
+        "pl-PL": "Max Ammo",
+        "ru-RU": "Max Ammo",
+        "zh-TW": "Max Ammo"
     },
     "_&getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
@@ -1670,7 +1933,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1696,8 +1962,16 @@ var valueFuncKw =
         "fr-FR": "Points de vie maximum",
         "ja-JP": "最大ライフ",
         "pt-BR": "Vida Máxima",
-        "tr-TR": "Azami Can",
-        "zh-CN": "最大生命值"
+        "tr-TR": "Maks. Can",
+        "zh-CN": "最大生命值",
+        "de-DE": "Max Health",
+        "es-ES": "Max Health",
+        "it-IT": "Max Health",
+        "ko-KR": "Max Health",
+        "pl-PL": "Max Health",
+        "ru-RU": "Max Health",
+        "th-TH": "Max Health",
+        "zh-TW": "Max Health"
     },
     "_&getMaxHealthOfType": {
         "description": "The max health of the specified player, filtered by the given health type.",
@@ -1750,7 +2024,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -1782,7 +2059,14 @@ var valueFuncKw =
                     "pt-BR": "Vida",
                     "th-TH": "พลังชีวิต",
                     "tr-TR": "Can",
-                    "zh-CN": "生命值"
+                    "zh-CN": "生命值",
+                    "de-DE": "Health",
+                    "es-ES": "Health",
+                    "it-IT": "Health",
+                    "ko-KR": "Health",
+                    "pl-PL": "Health",
+                    "ru-RU": "Health",
+                    "zh-TW": "Health"
                 }
             }
         ],
@@ -1793,8 +2077,16 @@ var valueFuncKw =
         "fr-FR": "Points de vie maximum par type",
         "ja-JP": "タイプごとの最大ライフ",
         "pt-BR": "Vida Máxima do Tipo",
-        "tr-TR": "Türe Göre Azami Can",
-        "zh-CN": "类型的最大生命值"
+        "tr-TR": "Türe Göre Maks. Can",
+        "zh-CN": "类型的最大生命值",
+        "de-DE": "Max Health Of Type",
+        "es-ES": "Max Health Of Type",
+        "it-IT": "Max Health Of Type",
+        "ko-KR": "Max Health Of Type",
+        "pl-PL": "Max Health Of Type",
+        "ru-RU": "Max Health Of Type",
+        "th-TH": "Max Health Of Type",
+        "zh-TW": "Max Health Of Type"
     },
     "_&getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
@@ -1832,7 +2124,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1859,7 +2154,15 @@ var valueFuncKw =
         "ja-JP": "正規化ライフ",
         "pt-BR": "Vida Normalizada",
         "tr-TR": "Normalleştirilen Can",
-        "zh-CN": "标准化生命值"
+        "zh-CN": "标准化生命值",
+        "de-DE": "Normalized Health",
+        "es-ES": "Normalized Health",
+        "it-IT": "Normalized Health",
+        "ko-KR": "Normalized Health",
+        "pl-PL": "Normalized Health",
+        "ru-RU": "Normalized Health",
+        "th-TH": "Normalized Health",
+        "zh-TW": "Normalized Health"
     },
     "_&getNumberOfDeaths": {
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
@@ -1897,7 +2200,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1926,7 +2232,13 @@ var valueFuncKw =
         "ja-JP": "デス数",
         "pt-BR": "Número de Mortes",
         "tr-TR": "Ölüm Sayısı",
-        "zh-CN": "死亡数"
+        "zh-CN": "死亡数",
+        "es-ES": "Number Of Deaths",
+        "ko-KR": "Number Of Deaths",
+        "pl-PL": "Number Of Deaths",
+        "ru-RU": "Number Of Deaths",
+        "th-TH": "Number Of Deaths",
+        "zh-TW": "Number Of Deaths"
     },
     "_&getNumberOfElims": {
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
@@ -1964,7 +2276,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -1993,7 +2308,13 @@ var valueFuncKw =
         "ja-JP": "エリミネーション数",
         "pt-BR": "Número de Eliminações",
         "tr-TR": "Bertaraf Sayısı",
-        "zh-CN": "消灭数"
+        "zh-CN": "消灭数",
+        "es-ES": "Number Of Eliminations",
+        "ko-KR": "Number Of Eliminations",
+        "pl-PL": "Number Of Eliminations",
+        "ru-RU": "Number Of Eliminations",
+        "th-TH": "Number Of Eliminations",
+        "zh-TW": "Number Of Eliminations"
     },
     "_&getNumberOfFinalBlows": {
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
@@ -2031,7 +2352,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2060,7 +2384,13 @@ var valueFuncKw =
         "ja-JP": "ファイナル・ブロウ数",
         "pt-BR": "Número de Golpes Finais",
         "tr-TR": "Son Vuruş Sayısı",
-        "zh-CN": "最后一击数"
+        "zh-CN": "最后一击数",
+        "es-ES": "Number Of Final Blows",
+        "ko-KR": "Number Of Final Blows",
+        "pl-PL": "Number Of Final Blows",
+        "ru-RU": "Number Of Final Blows",
+        "th-TH": "Number Of Final Blows",
+        "zh-TW": "Number Of Final Blows"
     },
     "_&getPlayerClosestToReticle": {
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
@@ -2098,7 +2428,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2133,7 +2466,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -2160,7 +2497,15 @@ var valueFuncKw =
         "ja-JP": "照準に最も近いプレイヤー",
         "pt-BR": "Jogador Mais Próximo da Mira",
         "tr-TR": "Retiküle En Yakın Oyuncu",
-        "zh-CN": "距离准星最近的玩家"
+        "zh-CN": "距离准星最近的玩家",
+        "de-DE": "Player Closest To Reticle",
+        "es-ES": "Player Closest To Reticle",
+        "it-IT": "Player Closest To Reticle",
+        "ko-KR": "Player Closest To Reticle",
+        "pl-PL": "Player Closest To Reticle",
+        "ru-RU": "Player Closest To Reticle",
+        "th-TH": "Player Closest To Reticle",
+        "zh-TW": "Player Closest To Reticle"
     },
     "_&getPlayersInViewAngle": {
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
@@ -2198,7 +2543,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2233,7 +2581,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -2268,7 +2620,11 @@ var valueFuncKw =
                     "pt-BR": "Ângulo de Visão",
                     "ru-RU": "Угол обзора",
                     "tr-TR": "Görüş Açısı",
-                    "zh-CN": "视角"
+                    "zh-CN": "视角",
+                    "de-DE": "View Angle",
+                    "ko-KR": "View Angle",
+                    "th-TH": "View Angle",
+                    "zh-TW": "View Angle"
                 }
             }
         ],
@@ -2297,7 +2653,15 @@ var valueFuncKw =
         "ja-JP": "視角範囲内のプレイヤー",
         "pt-BR": "Jogadores no Ângulo de Visão",
         "tr-TR": "Oyuncuların Görüş Açısı",
-        "zh-CN": "视角中的玩家"
+        "zh-CN": "视角中的玩家",
+        "de-DE": "Players in View Angle",
+        "es-ES": "Players in View Angle",
+        "it-IT": "Players in View Angle",
+        "ko-KR": "Players in View Angle",
+        "pl-PL": "Players in View Angle",
+        "ru-RU": "Players in View Angle",
+        "th-TH": "Players in View Angle",
+        "zh-TW": "Players in View Angle"
     },
     "_&getPosition": {
         "description": "The current position of a player as a vector.",
@@ -2335,7 +2699,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2363,7 +2730,15 @@ var valueFuncKw =
         "ja-JP": "位置: ",
         "pt-BR": "Posição de",
         "tr-TR": "Konum",
-        "zh-CN": "所选位置"
+        "zh-CN": "所选位置",
+        "de-DE": "Position Of",
+        "es-ES": "Position Of",
+        "it-IT": "Position Of",
+        "ko-KR": "Position Of",
+        "pl-PL": "Position Of",
+        "ru-RU": "Position Of",
+        "th-TH": "Position Of",
+        "zh-TW": "Position Of"
     },
     "_&getScore": {
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
@@ -2401,7 +2776,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2428,7 +2806,15 @@ var valueFuncKw =
         "ja-JP": "スコア: ",
         "pt-BR": "Pontuação de",
         "tr-TR": "Skor",
-        "zh-CN": "分数"
+        "zh-CN": "分数",
+        "de-DE": "Score Of",
+        "es-ES": "Score Of",
+        "it-IT": "Score Of",
+        "ko-KR": "Score Of",
+        "pl-PL": "Score Of",
+        "ru-RU": "Score Of",
+        "th-TH": "Score Of",
+        "zh-TW": "Score Of"
     },
     "_&getSlot": {
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
@@ -2466,7 +2852,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2493,7 +2882,15 @@ var valueFuncKw =
         "ja-JP": "スロット: ",
         "pt-BR": "Espaço de",
         "tr-TR": "Yuvası",
-        "zh-CN": "栏位"
+        "zh-CN": "栏位",
+        "de-DE": "Slot Of",
+        "es-ES": "Slot Of",
+        "it-IT": "Slot Of",
+        "ko-KR": "Slot Of",
+        "pl-PL": "Slot Of",
+        "ru-RU": "Slot Of",
+        "th-TH": "Slot Of",
+        "zh-TW": "Slot Of"
     },
     "_&getSpeed": {
         "description": "The current speed of a player in meters per second.",
@@ -2531,7 +2928,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2558,7 +2958,15 @@ var valueFuncKw =
         "ja-JP": "速さ: ",
         "pt-BR": "Velocidade de",
         "tr-TR": "Hız",
-        "zh-CN": "速度"
+        "zh-CN": "速度",
+        "de-DE": "Speed Of",
+        "es-ES": "Speed Of",
+        "it-IT": "Speed Of",
+        "ko-KR": "Speed Of",
+        "pl-PL": "Speed Of",
+        "ru-RU": "Speed Of",
+        "th-TH": "Speed Of",
+        "zh-TW": "Speed Of"
     },
     "_&getSpeedInDirection": {
         "description": "The current speed of a player in a specific direction in meters per second.",
@@ -2596,7 +3004,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2630,7 +3041,12 @@ var valueFuncKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             }
         ],
@@ -2657,7 +3073,15 @@ var valueFuncKw =
         "ja-JP": "速さと方向: ",
         "pt-BR": "Velocidade de na Direção",
         "tr-TR": "Yön Hız",
-        "zh-CN": "指定方向速度"
+        "zh-CN": "指定方向速度",
+        "de-DE": "Speed Of In Direction",
+        "es-ES": "Speed Of In Direction",
+        "it-IT": "Speed Of In Direction",
+        "ko-KR": "Speed Of In Direction",
+        "pl-PL": "Speed Of In Direction",
+        "ru-RU": "Speed Of In Direction",
+        "th-TH": "Speed Of In Direction",
+        "zh-TW": "Speed Of In Direction"
     },
     "_&getStatistic": {
         "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
@@ -2695,7 +3119,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -2730,7 +3157,11 @@ var valueFuncKw =
                     "pt-BR": "Estatística",
                     "ru-RU": "Показатель",
                     "tr-TR": "İstatistik",
-                    "zh-CN": "数据"
+                    "zh-CN": "数据",
+                    "de-DE": "Stat",
+                    "ko-KR": "Stat",
+                    "th-TH": "Stat",
+                    "zh-TW": "Stat"
                 }
             }
         ],
@@ -2757,7 +3188,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤーの統計",
         "pt-BR": "Estatística de Jogador",
         "tr-TR": "Oyuncu İstatistiği",
-        "zh-CN": "玩家数据"
+        "zh-CN": "玩家数据",
+        "de-DE": "Player Stat",
+        "es-ES": "Player Stat",
+        "it-IT": "Player Stat",
+        "ko-KR": "Player Stat",
+        "pl-PL": "Player Stat",
+        "ru-RU": "Player Stat",
+        "th-TH": "Player Stat",
+        "zh-TW": "Player Stat"
     },
     "_&getTeam": {
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
@@ -2795,7 +3234,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2823,7 +3265,15 @@ var valueFuncKw =
         "ja-JP": "チーム: ",
         "pt-BR": "Equipe de",
         "tr-TR": "Takım",
-        "zh-CN": "所在队伍"
+        "zh-CN": "所在队伍",
+        "de-DE": "Team Of",
+        "es-ES": "Team Of",
+        "it-IT": "Team Of",
+        "ko-KR": "Team Of",
+        "pl-PL": "Team Of",
+        "ru-RU": "Team Of",
+        "th-TH": "Team Of",
+        "zh-TW": "Team Of"
     },
     "_&getThrottle": {
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
@@ -2861,7 +3311,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2889,7 +3342,15 @@ var valueFuncKw =
         "ja-JP": "スロットル: ",
         "pt-BR": "Aceleração de",
         "tr-TR": "Hızlanma:",
-        "zh-CN": "阈值"
+        "zh-CN": "阈值",
+        "de-DE": "Throttle Of",
+        "es-ES": "Throttle Of",
+        "it-IT": "Throttle Of",
+        "ko-KR": "Throttle Of",
+        "pl-PL": "Throttle Of",
+        "ru-RU": "Throttle Of",
+        "th-TH": "Throttle Of",
+        "zh-TW": "Throttle Of"
     },
     "_&getUltCharge": {
         "description": "The current ultimate ability charge percentage of a player.",
@@ -2927,7 +3388,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -2954,7 +3418,15 @@ var valueFuncKw =
         "ja-JP": "アルティメット・チャージのパーセンテージ",
         "pt-BR": "Percentual de Carga da Suprema",
         "tr-TR": "Ulti Dolum Oranı Yüzdesi",
-        "zh-CN": "终极技能充能百分比"
+        "zh-CN": "终极技能充能百分比",
+        "de-DE": "Ultimate Charge Percent",
+        "es-ES": "Ultimate Charge Percent",
+        "it-IT": "Ultimate Charge Percent",
+        "ko-KR": "Ultimate Charge Percent",
+        "pl-PL": "Ultimate Charge Percent",
+        "ru-RU": "Ultimate Charge Percent",
+        "th-TH": "Ultimate Charge Percent",
+        "zh-TW": "Ultimate Charge Percent"
     },
     "_&getVelocity": {
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
@@ -2992,7 +3464,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3020,7 +3495,15 @@ var valueFuncKw =
         "ja-JP": "速度: ",
         "pt-BR": "Rapidez de",
         "tr-TR": "Hız",
-        "zh-CN": "速率"
+        "zh-CN": "速率",
+        "de-DE": "Velocity Of",
+        "es-ES": "Velocity Of",
+        "it-IT": "Velocity Of",
+        "ko-KR": "Velocity Of",
+        "pl-PL": "Velocity Of",
+        "ru-RU": "Velocity Of",
+        "th-TH": "Velocity Of",
+        "zh-TW": "Velocity Of"
     },
     "_&getVerticalFacingAngle": {
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
@@ -3058,7 +3541,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3085,7 +3571,15 @@ var valueFuncKw =
         "ja-JP": "対面頂角: ",
         "pt-BR": "Ângulo Vertical Frontal de",
         "tr-TR": "Dikey Konumlandırma Açısı",
-        "zh-CN": "垂直朝向角度"
+        "zh-CN": "垂直朝向角度",
+        "de-DE": "Vertical Facing Angle Of",
+        "es-ES": "Vertical Facing Angle Of",
+        "it-IT": "Vertical Facing Angle Of",
+        "ko-KR": "Vertical Facing Angle Of",
+        "pl-PL": "Vertical Facing Angle Of",
+        "ru-RU": "Vertical Facing Angle Of",
+        "th-TH": "Vertical Facing Angle Of",
+        "zh-TW": "Vertical Facing Angle Of"
     },
     "_&getVerticalSpeed": {
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
@@ -3123,7 +3617,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3150,7 +3647,15 @@ var valueFuncKw =
         "ja-JP": "垂直速度: ",
         "pt-BR": "Velocidade Vertical de",
         "tr-TR": "Dikey Hız",
-        "zh-CN": "垂直速度"
+        "zh-CN": "垂直速度",
+        "de-DE": "Vertical Speed Of",
+        "es-ES": "Vertical Speed Of",
+        "it-IT": "Vertical Speed Of",
+        "ko-KR": "Vertical Speed Of",
+        "pl-PL": "Vertical Speed Of",
+        "ru-RU": "Vertical Speed Of",
+        "th-TH": "Vertical Speed Of",
+        "zh-TW": "Vertical Speed Of"
     },
     "_&hasSpawned": {
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
@@ -3188,7 +3693,10 @@ var valueFuncKw =
                     "ru-RU": "Объект",
                     "th-TH": "เอนทิตี",
                     "tr-TR": "Varlık",
-                    "zh-CN": "实体"
+                    "zh-CN": "实体",
+                    "de-DE": "Entity",
+                    "ko-KR": "Entity",
+                    "zh-TW": "Entity"
                 }
             }
         ],
@@ -3215,7 +3723,15 @@ var valueFuncKw =
         "ja-JP": "スポーンした",
         "pt-BR": "Surgiu",
         "tr-TR": "Doğdu",
-        "zh-CN": "已重生"
+        "zh-CN": "已重生",
+        "de-DE": "Has Spawned",
+        "es-ES": "Has Spawned",
+        "it-IT": "Has Spawned",
+        "ko-KR": "Has Spawned",
+        "pl-PL": "Has Spawned",
+        "ru-RU": "Has Spawned",
+        "th-TH": "Has Spawned",
+        "zh-TW": "Has Spawned"
     },
     "_&hasStatusEffect": {
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
@@ -3253,7 +3769,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -3287,7 +3806,12 @@ var valueFuncKw =
                     "ru-RU": "Статус",
                     "th-TH": "สถานะ",
                     "tr-TR": "Durum",
-                    "zh-CN": "状态"
+                    "zh-CN": "状态",
+                    "de-DE": "Status",
+                    "ko-KR": "Status",
+                    "pl-PL": "Status",
+                    "pt-BR": "Status",
+                    "zh-TW": "Status"
                 }
             }
         ],
@@ -3314,7 +3838,15 @@ var valueFuncKw =
         "ja-JP": "ステータスがある",
         "pt-BR": "Tem Status",
         "tr-TR": "Durumu Olan",
-        "zh-CN": "具有状态"
+        "zh-CN": "具有状态",
+        "de-DE": "Has Status",
+        "es-ES": "Has Status",
+        "it-IT": "Has Status",
+        "ko-KR": "Has Status",
+        "pl-PL": "Has Status",
+        "ru-RU": "Has Status",
+        "th-TH": "Has Status",
+        "zh-TW": "Has Status"
     },
     "_&isAlive": {
         "description": "Whether a player is alive.",
@@ -3352,7 +3884,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3379,7 +3914,15 @@ var valueFuncKw =
         "ja-JP": "生存している",
         "pt-BR": "É Vivo",
         "tr-TR": "Hayatta",
-        "zh-CN": "存活"
+        "zh-CN": "存活",
+        "de-DE": "Is Alive",
+        "es-ES": "Is Alive",
+        "it-IT": "Is Alive",
+        "ko-KR": "Is Alive",
+        "pl-PL": "Is Alive",
+        "ru-RU": "Is Alive",
+        "th-TH": "Is Alive",
+        "zh-TW": "Is Alive"
     },
     "_&isCommunicating": {
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.).",
@@ -3417,7 +3960,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -3452,7 +3998,11 @@ var valueFuncKw =
                     "ru-RU": "Тип",
                     "th-TH": "ประเภท",
                     "tr-TR": "Tür",
-                    "zh-CN": "类型"
+                    "zh-CN": "类型",
+                    "de-DE": "Type",
+                    "fr-FR": "Type",
+                    "ko-KR": "Type",
+                    "zh-TW": "Type"
                 }
             }
         ],
@@ -3479,7 +4029,15 @@ var valueFuncKw =
         "ja-JP": "コミュニケーションしている",
         "pt-BR": "É Comunicando",
         "tr-TR": "İletişim Kuruyor",
-        "zh-CN": "正在交流"
+        "zh-CN": "正在交流",
+        "de-DE": "Is Communicating",
+        "es-ES": "Is Communicating",
+        "it-IT": "Is Communicating",
+        "ko-KR": "Is Communicating",
+        "pl-PL": "Is Communicating",
+        "ru-RU": "Is Communicating",
+        "th-TH": "Is Communicating",
+        "zh-TW": "Is Communicating"
     },
     "_&isCommunicatingAnything": {
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.).",
@@ -3517,7 +4075,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3544,7 +4105,15 @@ var valueFuncKw =
         "ja-JP": "任意の方法でコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer",
         "tr-TR": "Herhangi Bir Şekilde İletişim Kuruyor",
-        "zh-CN": "正在与人交流"
+        "zh-CN": "正在与人交流",
+        "de-DE": "Is Communicating Any",
+        "es-ES": "Is Communicating Any",
+        "it-IT": "Is Communicating Any",
+        "ko-KR": "Is Communicating Any",
+        "pl-PL": "Is Communicating Any",
+        "ru-RU": "Is Communicating Any",
+        "th-TH": "Is Communicating Any",
+        "zh-TW": "Is Communicating Any"
     },
     "_&isCommunicatingEmote": {
         "description": "Whether a player is using an emote.",
@@ -3582,7 +4151,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3609,7 +4181,15 @@ var valueFuncKw =
         "ja-JP": "エモートでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Emote",
         "tr-TR": "İfadeyle İletişim Kuruyor",
-        "zh-CN": "正在使用表情交流"
+        "zh-CN": "正在使用表情交流",
+        "de-DE": "Is Communicating Any Emote",
+        "es-ES": "Is Communicating Any Emote",
+        "it-IT": "Is Communicating Any Emote",
+        "ko-KR": "Is Communicating Any Emote",
+        "pl-PL": "Is Communicating Any Emote",
+        "ru-RU": "Is Communicating Any Emote",
+        "th-TH": "Is Communicating Any Emote",
+        "zh-TW": "Is Communicating Any Emote"
     },
     "_&isCommunicatingSpray": {
         "description": "Whether a Player is using a spray.",
@@ -3647,7 +4227,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3674,7 +4257,15 @@ var valueFuncKw =
         "ja-JP": "スプレーでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Spray",
         "tr-TR": "Grafitiyle İletişim Kuruyor",
-        "zh-CN": "正在使用喷漆交流"
+        "zh-CN": "正在使用喷漆交流",
+        "de-DE": "Is Communicating Any Spray",
+        "es-ES": "Is Communicating Any Spray",
+        "it-IT": "Is Communicating Any Spray",
+        "ko-KR": "Is Communicating Any Spray",
+        "pl-PL": "Is Communicating Any Spray",
+        "ru-RU": "Is Communicating Any Spray",
+        "th-TH": "Is Communicating Any Spray",
+        "zh-TW": "Is Communicating Any Spray"
     },
     "_&isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
@@ -3712,7 +4303,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3739,7 +4333,15 @@ var valueFuncKw =
         "ja-JP": "ボイス・ラインでコミュニケーションしている",
         "pt-BR": "É Comunicando Qualquer Fala",
         "tr-TR": "Replikle İletişim Kuruyor",
-        "zh-CN": "正在使用语音交流"
+        "zh-CN": "正在使用语音交流",
+        "de-DE": "Is Communicating Any Voice line",
+        "es-ES": "Is Communicating Any Voice line",
+        "it-IT": "Is Communicating Any Voice line",
+        "ko-KR": "Is Communicating Any Voice line",
+        "pl-PL": "Is Communicating Any Voice line",
+        "ru-RU": "Is Communicating Any Voice line",
+        "th-TH": "Is Communicating Any Voice line",
+        "zh-TW": "Is Communicating Any Voice line"
     },
     "_&isCrouching": {
         "description": "Whether a player is crouching.",
@@ -3777,7 +4379,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3804,7 +4409,15 @@ var valueFuncKw =
         "ja-JP": "しゃがんでいる",
         "pt-BR": "É Agachado",
         "tr-TR": "Çömeliyor",
-        "zh-CN": "正在蹲下"
+        "zh-CN": "正在蹲下",
+        "de-DE": "Is Crouching",
+        "es-ES": "Is Crouching",
+        "it-IT": "Is Crouching",
+        "ko-KR": "Is Crouching",
+        "pl-PL": "Is Crouching",
+        "ru-RU": "Is Crouching",
+        "th-TH": "Is Crouching",
+        "zh-TW": "Is Crouching"
     },
     "_&isDead": {
         "description": "Whether a player is dead.",
@@ -3842,7 +4455,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3869,7 +4485,15 @@ var valueFuncKw =
         "ja-JP": "倒れている",
         "pt-BR": "É Morto",
         "tr-TR": "Öldü",
-        "zh-CN": "死亡"
+        "zh-CN": "死亡",
+        "de-DE": "Is Dead",
+        "es-ES": "Is Dead",
+        "it-IT": "Is Dead",
+        "ko-KR": "Is Dead",
+        "pl-PL": "Is Dead",
+        "ru-RU": "Is Dead",
+        "th-TH": "Is Dead",
+        "zh-TW": "Is Dead"
     },
     "_&isDummy": {
         "description": "Whether a player is a dummy bot.",
@@ -3907,7 +4531,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -3935,7 +4562,14 @@ var valueFuncKw =
         "pt-BR": "É Bot",
         "th-TH": "เป็นบอตฝึกซ้อม",
         "tr-TR": "Eğitim Robotu",
-        "zh-CN": "是否是机器人"
+        "zh-CN": "是否是机器人",
+        "de-DE": "Is Dummy Bot",
+        "es-ES": "Is Dummy Bot",
+        "it-IT": "Is Dummy Bot",
+        "ko-KR": "Is Dummy Bot",
+        "pl-PL": "Is Dummy Bot",
+        "ru-RU": "Is Dummy Bot",
+        "zh-TW": "Is Dummy Bot"
     },
     "_&isDuplicatingAHero": {
         "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
@@ -3973,7 +4607,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4001,7 +4638,14 @@ var valueFuncKw =
         "pt-BR": "Está Duplicando",
         "th-TH": "ถูกทำซ้ำอยู่",
         "tr-TR": "Kopyalıyor",
-        "zh-CN": "正在人格复制"
+        "zh-CN": "正在人格复制",
+        "de-DE": "Is Duplicating",
+        "es-ES": "Is Duplicating",
+        "it-IT": "Is Duplicating",
+        "ko-KR": "Is Duplicating",
+        "pl-PL": "Is Duplicating",
+        "ru-RU": "Is Duplicating",
+        "zh-TW": "Is Duplicating"
     },
     "_&isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
@@ -4039,7 +4683,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4066,7 +4713,15 @@ var valueFuncKw =
         "ja-JP": "メイン攻撃を使用中",
         "pt-BR": "É Disparo Primário",
         "tr-TR": "Birincil Saldırıyı Kullanıyor",
-        "zh-CN": "正在使用主要武器"
+        "zh-CN": "正在使用主要武器",
+        "de-DE": "Is Firing Primary",
+        "es-ES": "Is Firing Primary",
+        "it-IT": "Is Firing Primary",
+        "ko-KR": "Is Firing Primary",
+        "pl-PL": "Is Firing Primary",
+        "ru-RU": "Is Firing Primary",
+        "th-TH": "Is Firing Primary",
+        "zh-TW": "Is Firing Primary"
     },
     "_&isFiringSecondaryFire": {
         "description": "Whether the specified player's secondary weapon attack is being used.",
@@ -4104,7 +4759,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4131,7 +4789,15 @@ var valueFuncKw =
         "ja-JP": "サブ攻撃を使用中",
         "pt-BR": "É Disparo Secundário",
         "tr-TR": "İkincil Saldırıyı Kullanıyor",
-        "zh-CN": "正在使用辅助武器"
+        "zh-CN": "正在使用辅助武器",
+        "de-DE": "Is Firing Secondary",
+        "es-ES": "Is Firing Secondary",
+        "it-IT": "Is Firing Secondary",
+        "ko-KR": "Is Firing Secondary",
+        "pl-PL": "Is Firing Secondary",
+        "ru-RU": "Is Firing Secondary",
+        "th-TH": "Is Firing Secondary",
+        "zh-TW": "Is Firing Secondary"
     },
     "_&isHoldingButton": {
         "description": "Whether a player is holding a specific button.",
@@ -4169,7 +4835,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4204,7 +4873,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -4231,7 +4904,15 @@ var valueFuncKw =
         "ja-JP": "ボタンが長押しされている",
         "pt-BR": "É Botão Segurado",
         "tr-TR": "Basılı Tutulan Düğme",
-        "zh-CN": "按钮被按下"
+        "zh-CN": "按钮被按下",
+        "de-DE": "Is Button Held",
+        "es-ES": "Is Button Held",
+        "it-IT": "Is Button Held",
+        "ko-KR": "Is Button Held",
+        "pl-PL": "Is Button Held",
+        "ru-RU": "Is Button Held",
+        "th-TH": "Is Button Held",
+        "zh-TW": "Is Button Held"
     },
     "_&isInAir": {
         "description": "Whether a player is airborne.",
@@ -4269,7 +4950,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4296,7 +4980,15 @@ var valueFuncKw =
         "ja-JP": "空中にいる",
         "pt-BR": "É no Ar",
         "tr-TR": "Havada",
-        "zh-CN": "正在空中"
+        "zh-CN": "正在空中",
+        "de-DE": "Is In Air",
+        "es-ES": "Is In Air",
+        "it-IT": "Is In Air",
+        "ko-KR": "Is In Air",
+        "pl-PL": "Is In Air",
+        "ru-RU": "Is In Air",
+        "th-TH": "Is In Air",
+        "zh-TW": "Is In Air"
     },
     "_&isInAlternateForm": {
         "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
@@ -4349,7 +5041,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4362,7 +5057,14 @@ var valueFuncKw =
         "pt-BR": "Está em uma Forma Alternativa",
         "th-TH": "อยู่ในรูปแบบอื่น",
         "tr-TR": "Alternatif Bir Formda",
-        "zh-CN": "处于非初始状态"
+        "zh-CN": "处于非初始状态",
+        "de-DE": "Is In Alternate Form",
+        "es-ES": "Is In Alternate Form",
+        "it-IT": "Is In Alternate Form",
+        "ko-KR": "Is In Alternate Form",
+        "pl-PL": "Is In Alternate Form",
+        "ru-RU": "Is In Alternate Form",
+        "zh-TW": "Is In Alternate Form"
     },
     "_&isInSpawnRoom": {
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
@@ -4400,7 +5102,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4427,7 +5132,15 @@ var valueFuncKw =
         "ja-JP": "リスポーンエリアにいる",
         "pt-BR": "É Na Sala de Ressurgimento",
         "tr-TR": "Başlangıç Odası'nda",
-        "zh-CN": "在重生室中"
+        "zh-CN": "在重生室中",
+        "de-DE": "Is In Spawn Room",
+        "es-ES": "Is In Spawn Room",
+        "it-IT": "Is In Spawn Room",
+        "ko-KR": "Is In Spawn Room",
+        "pl-PL": "Is In Spawn Room",
+        "ru-RU": "Is In Spawn Room",
+        "th-TH": "Is In Spawn Room",
+        "zh-TW": "Is In Spawn Room"
     },
     "_&isInViewAngle": {
         "description": "Whether a location is within view of a player.",
@@ -4465,7 +5178,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -4501,7 +5217,10 @@ var valueFuncKw =
                     "ru-RU": "Местоположение",
                     "th-TH": "สถานที่",
                     "tr-TR": "Konum",
-                    "zh-CN": "坐标"
+                    "zh-CN": "坐标",
+                    "de-DE": "Location",
+                    "ko-KR": "Location",
+                    "zh-TW": "Location"
                 }
             },
             {
@@ -4536,7 +5255,11 @@ var valueFuncKw =
                     "pt-BR": "Ângulo de Visão",
                     "ru-RU": "Угол обзора",
                     "tr-TR": "Görüş Açısı",
-                    "zh-CN": "视角"
+                    "zh-CN": "视角",
+                    "de-DE": "View Angle",
+                    "ko-KR": "View Angle",
+                    "th-TH": "View Angle",
+                    "zh-TW": "View Angle"
                 }
             }
         ],
@@ -4563,7 +5286,15 @@ var valueFuncKw =
         "ja-JP": "視角範囲内",
         "pt-BR": "É No Ângulo de Visão",
         "tr-TR": "Görüş Açısında",
-        "zh-CN": "在视野内"
+        "zh-CN": "在视野内",
+        "de-DE": "Is In View Angle",
+        "es-ES": "Is In View Angle",
+        "it-IT": "Is In View Angle",
+        "ko-KR": "Is In View Angle",
+        "pl-PL": "Is In View Angle",
+        "ru-RU": "Is In View Angle",
+        "th-TH": "Is In View Angle",
+        "zh-TW": "Is In View Angle"
     },
     "_&isJumping": {
         "description": "Whether the specified player is jumping.",
@@ -4601,7 +5332,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4628,7 +5362,15 @@ var valueFuncKw =
         "ja-JP": "ジャンプ中",
         "pt-BR": "Está Pulando",
         "tr-TR": "Zıplıyor",
-        "zh-CN": "正在跳跃"
+        "zh-CN": "正在跳跃",
+        "de-DE": "Is Jumping",
+        "es-ES": "Is Jumping",
+        "it-IT": "Is Jumping",
+        "ko-KR": "Is Jumping",
+        "pl-PL": "Is Jumping",
+        "ru-RU": "Is Jumping",
+        "th-TH": "Is Jumping",
+        "zh-TW": "Is Jumping"
     },
     "_&isMeleeing": {
         "description": "Whether the specified player is meleeing.",
@@ -4666,7 +5408,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4693,7 +5438,15 @@ var valueFuncKw =
         "ja-JP": "近接攻撃中",
         "pt-BR": "Está Usando Corpo a Corpo",
         "tr-TR": "Yakın Saldırı Kullanıyor",
-        "zh-CN": "正在近战攻击"
+        "zh-CN": "正在近战攻击",
+        "de-DE": "Is Meleeing",
+        "es-ES": "Is Meleeing",
+        "it-IT": "Is Meleeing",
+        "ko-KR": "Is Meleeing",
+        "pl-PL": "Is Meleeing",
+        "ru-RU": "Is Meleeing",
+        "th-TH": "Is Meleeing",
+        "zh-TW": "Is Meleeing"
     },
     "_&isMoving": {
         "description": "Whether a player is moving (defined as having a non-zero current speed).",
@@ -4731,7 +5484,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4758,7 +5514,15 @@ var valueFuncKw =
         "ja-JP": "移動している",
         "pt-BR": "É Movimentando-se",
         "tr-TR": "Hareket Ediyor",
-        "zh-CN": "正在移动"
+        "zh-CN": "正在移动",
+        "de-DE": "Is Moving",
+        "es-ES": "Is Moving",
+        "it-IT": "Is Moving",
+        "ko-KR": "Is Moving",
+        "pl-PL": "Is Moving",
+        "ru-RU": "Is Moving",
+        "th-TH": "Is Moving",
+        "zh-TW": "Is Moving"
     },
     "_&isOnFire": {
         "description": "Whether a specific player's portrait is on fire.",
@@ -4796,7 +5560,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4823,7 +5590,15 @@ var valueFuncKw =
         "ja-JP": "ポートレートに炎エフェクトがついている",
         "pt-BR": "É Retrato Em Chamas",
         "tr-TR": "Alevli Portre",
-        "zh-CN": "头像火力全开"
+        "zh-CN": "头像火力全开",
+        "de-DE": "Is Portrait On Fire",
+        "es-ES": "Is Portrait On Fire",
+        "it-IT": "Is Portrait On Fire",
+        "ko-KR": "Is Portrait On Fire",
+        "pl-PL": "Is Portrait On Fire",
+        "ru-RU": "Is Portrait On Fire",
+        "th-TH": "Is Portrait On Fire",
+        "zh-TW": "Is Portrait On Fire"
     },
     "_&isOnGround": {
         "description": "Whether a player is on the ground (or other walkable surface).",
@@ -4861,7 +5636,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4888,7 +5666,15 @@ var valueFuncKw =
         "ja-JP": "地上にいる",
         "pt-BR": "É No Chão",
         "tr-TR": "Yerde",
-        "zh-CN": "在地面上"
+        "zh-CN": "在地面上",
+        "de-DE": "Is On Ground",
+        "es-ES": "Is On Ground",
+        "it-IT": "Is On Ground",
+        "ko-KR": "Is On Ground",
+        "pl-PL": "Is On Ground",
+        "ru-RU": "Is On Ground",
+        "th-TH": "Is On Ground",
+        "zh-TW": "Is On Ground"
     },
     "_&isOnObjective": {
         "description": "Whether a specific player is currently occupying a payload or capture point.",
@@ -4926,7 +5712,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -4953,7 +5742,15 @@ var valueFuncKw =
         "ja-JP": "目標にいる",
         "pt-BR": "É No Objetivo",
         "tr-TR": "Hedefte",
-        "zh-CN": "在目标点上"
+        "zh-CN": "在目标点上",
+        "de-DE": "Is On Objective",
+        "es-ES": "Is On Objective",
+        "it-IT": "Is On Objective",
+        "ko-KR": "Is On Objective",
+        "pl-PL": "Is On Objective",
+        "ru-RU": "Is On Objective",
+        "th-TH": "Is On Objective",
+        "zh-TW": "Is On Objective"
     },
     "_&isOnWall": {
         "description": "Whether a player is on a wall (climbing or riding).",
@@ -4991,7 +5788,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5018,7 +5818,15 @@ var valueFuncKw =
         "ja-JP": "壁の上にいる",
         "pt-BR": "É Na Parede",
         "tr-TR": "Duvarda",
-        "zh-CN": "在墙上"
+        "zh-CN": "在墙上",
+        "de-DE": "Is On Wall",
+        "es-ES": "Is On Wall",
+        "it-IT": "Is On Wall",
+        "ko-KR": "Is On Wall",
+        "pl-PL": "Is On Wall",
+        "ru-RU": "Is On Wall",
+        "th-TH": "Is On Wall",
+        "zh-TW": "Is On Wall"
     },
     "_&isReloading": {
         "description": "Whether the specified player is reloading.",
@@ -5056,7 +5864,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5083,7 +5894,15 @@ var valueFuncKw =
         "ja-JP": "リロード中",
         "pt-BR": "Está Recarregando",
         "tr-TR": "Dolduruyor",
-        "zh-CN": "正在装填"
+        "zh-CN": "正在装填",
+        "de-DE": "Is Reloading",
+        "es-ES": "Is Reloading",
+        "it-IT": "Is Reloading",
+        "ko-KR": "Is Reloading",
+        "pl-PL": "Is Reloading",
+        "ru-RU": "Is Reloading",
+        "th-TH": "Is Reloading",
+        "zh-TW": "Is Reloading"
     },
     "_&isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
@@ -5121,7 +5940,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5148,7 +5970,15 @@ var valueFuncKw =
         "ja-JP": "立っている",
         "pt-BR": "É Parado",
         "tr-TR": "Ayakta",
-        "zh-CN": "正在站立"
+        "zh-CN": "正在站立",
+        "de-DE": "Is Standing",
+        "es-ES": "Is Standing",
+        "it-IT": "Is Standing",
+        "ko-KR": "Is Standing",
+        "pl-PL": "Is Standing",
+        "ru-RU": "Is Standing",
+        "th-TH": "Is Standing",
+        "zh-TW": "Is Standing"
     },
     "_&isUsingAbility1": {
         "description": "Whether the specified player is using ability 1.",
@@ -5186,7 +6016,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5213,7 +6046,15 @@ var valueFuncKw =
         "ja-JP": "アビリティ1を使用",
         "pt-BR": "É Usando Habilidade 1",
         "tr-TR": "1. Kabiliyeti Kullanıyor",
-        "zh-CN": "正在使用技能 1"
+        "zh-CN": "正在使用技能 1",
+        "de-DE": "Is Using Ability 1",
+        "es-ES": "Is Using Ability 1",
+        "it-IT": "Is Using Ability 1",
+        "ko-KR": "Is Using Ability 1",
+        "pl-PL": "Is Using Ability 1",
+        "ru-RU": "Is Using Ability 1",
+        "th-TH": "Is Using Ability 1",
+        "zh-TW": "Is Using Ability 1"
     },
     "_&isUsingAbility2": {
         "description": "Whether the specified player is using ability 2.",
@@ -5251,7 +6092,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5278,7 +6122,15 @@ var valueFuncKw =
         "ja-JP": "アビリティ2を使用",
         "pt-BR": "É Usando Habilidade 2",
         "tr-TR": "2. Kabiliyeti Kullanıyor",
-        "zh-CN": "正在使用技能 2"
+        "zh-CN": "正在使用技能 2",
+        "de-DE": "Is Using Ability 2",
+        "es-ES": "Is Using Ability 2",
+        "it-IT": "Is Using Ability 2",
+        "ko-KR": "Is Using Ability 2",
+        "pl-PL": "Is Using Ability 2",
+        "ru-RU": "Is Using Ability 2",
+        "th-TH": "Is Using Ability 2",
+        "zh-TW": "Is Using Ability 2"
     },
     "_&isUsingUltimate": {
         "description": "Whether a player is using an ultimate ability.",
@@ -5316,7 +6168,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             }
         ],
@@ -5343,7 +6198,15 @@ var valueFuncKw =
         "ja-JP": "アルティメットを使用している",
         "pt-BR": "É Usando Suprema",
         "tr-TR": "Ulti Kullanıyor",
-        "zh-CN": "正在使用终极技能"
+        "zh-CN": "正在使用终极技能",
+        "de-DE": "Is Using Ultimate",
+        "es-ES": "Is Using Ultimate",
+        "it-IT": "Is Using Ultimate",
+        "ko-KR": "Is Using Ultimate",
+        "pl-PL": "Is Using Ultimate",
+        "ru-RU": "Is Using Ultimate",
+        "th-TH": "Is Using Ultimate",
+        "zh-TW": "Is Using Ultimate"
     },
     "__add__": {
         "guid": "00000000C408",
@@ -5385,7 +6248,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -5424,7 +6291,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -5455,7 +6326,14 @@ var valueFuncKw =
         "pt-BR": "Somar",
         "th-TH": "เพิ่ม",
         "tr-TR": "Topla",
-        "zh-CN": "加"
+        "zh-CN": "加",
+        "de-DE": "Add",
+        "es-ES": "Add",
+        "it-IT": "Add",
+        "ko-KR": "Add",
+        "pl-PL": "Add",
+        "ru-RU": "Add",
+        "zh-TW": "Add"
     },
     "__all__": {
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
@@ -5491,7 +6369,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -5525,7 +6408,12 @@ var valueFuncKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -5553,7 +6441,15 @@ var valueFuncKw =
         "ja-JP": "すべてに対して「TRUE」",
         "pt-BR": "É Verdadeiro para Todos",
         "tr-TR": "Tümü İçin Doğru",
-        "zh-CN": "对全部为“真”"
+        "zh-CN": "对全部为“真”",
+        "de-DE": "Is True For All",
+        "es-ES": "Is True For All",
+        "it-IT": "Is True For All",
+        "ko-KR": "Is True For All",
+        "pl-PL": "Is True For All",
+        "ru-RU": "Is True For All",
+        "th-TH": "Is True For All",
+        "zh-TW": "Is True For All"
     },
     "__and__": {
         "description": "Whether both of the two inputs are true (or equivalent to true).",
@@ -5590,7 +6486,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -5625,7 +6525,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -5653,7 +6557,15 @@ var valueFuncKw =
         "ja-JP": "AND",
         "pt-BR": "E",
         "tr-TR": "Ve",
-        "zh-CN": "与"
+        "zh-CN": "与",
+        "de-DE": "And",
+        "es-ES": "And",
+        "it-IT": "And",
+        "ko-KR": "And",
+        "pl-PL": "And",
+        "ru-RU": "And",
+        "th-TH": "And",
+        "zh-TW": "And"
     },
     "__any__": {
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
@@ -5689,7 +6601,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -5723,7 +6640,12 @@ var valueFuncKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -5751,7 +6673,15 @@ var valueFuncKw =
         "ja-JP": "いずれに対しても「TRUE」",
         "pt-BR": "É Verdadeiro para Qualquer",
         "tr-TR": "Her Değer İçin Doğru",
-        "zh-CN": "对任意为“真”"
+        "zh-CN": "对任意为“真”",
+        "de-DE": "Is True For Any",
+        "es-ES": "Is True For Any",
+        "it-IT": "Is True For Any",
+        "ko-KR": "Is True For Any",
+        "pl-PL": "Is True For Any",
+        "ru-RU": "Is True For Any",
+        "th-TH": "Is True For Any",
+        "zh-TW": "Is True For Any"
     },
     "__arrayContains__": {
         "description": "Whether the specified array contains the specified value.",
@@ -5787,7 +6717,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -5823,7 +6758,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -5851,7 +6790,15 @@ var valueFuncKw =
         "ja-JP": "含む配列",
         "pt-BR": "Matriz Contém",
         "tr-TR": "Dizin İçeriği",
-        "zh-CN": "数组包含"
+        "zh-CN": "数组包含",
+        "de-DE": "Array Contains",
+        "es-ES": "Array Contains",
+        "it-IT": "Array Contains",
+        "ko-KR": "Array Contains",
+        "pl-PL": "Array Contains",
+        "ru-RU": "Array Contains",
+        "th-TH": "Array Contains",
+        "zh-TW": "Array Contains"
     },
     "__arraySlice__": {
         "description": "A copy of the specified array containing only values from a specified index range.",
@@ -5889,7 +6836,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -5926,7 +6878,11 @@ var valueFuncKw =
                     "pt-BR": "Começar Índice",
                     "ru-RU": "Начальный индекс",
                     "tr-TR": "Başlangıç İndeksi",
-                    "zh-CN": "开始索引"
+                    "zh-CN": "开始索引",
+                    "de-DE": "Start Index",
+                    "ko-KR": "Start Index",
+                    "th-TH": "Start Index",
+                    "zh-TW": "Start Index"
                 }
             },
             {
@@ -5963,7 +6919,11 @@ var valueFuncKw =
                     "pt-BR": "Contagem",
                     "ru-RU": "Число",
                     "tr-TR": "Miktar",
-                    "zh-CN": "计数"
+                    "zh-CN": "计数",
+                    "de-DE": "Count",
+                    "ko-KR": "Count",
+                    "th-TH": "Count",
+                    "zh-TW": "Count"
                 }
             }
         ],
@@ -5993,7 +6953,15 @@ var valueFuncKw =
         "ja-JP": "配列のスライス",
         "pt-BR": "Fatia da Matriz",
         "tr-TR": "Dizin Kesiti",
-        "zh-CN": "数组分割"
+        "zh-CN": "数组分割",
+        "de-DE": "Array Slice",
+        "es-ES": "Array Slice",
+        "it-IT": "Array Slice",
+        "ko-KR": "Array Slice",
+        "pl-PL": "Array Slice",
+        "ru-RU": "Array Slice",
+        "th-TH": "Array Slice",
+        "zh-TW": "Array Slice"
     },
     "__array__": {
         "description": "An array constructed from the listed values.",
@@ -6002,7 +6970,21 @@ var valueFuncKw =
                 "name": "[0]",
                 "nameLocalized": {
                     "guid": "000000010BE1",
-                    "en-US": "[%1$s]"
+                    "en-US": "[%1$s]",
+                    "de-DE": "[%1$s]",
+                    "es-ES": "[%1$s]",
+                    "es-MX": "[%1$s]",
+                    "fr-FR": "[%1$s]",
+                    "it-IT": "[%1$s]",
+                    "ja-JP": "[%1$s]",
+                    "ko-KR": "[%1$s]",
+                    "pl-PL": "[%1$s]",
+                    "pt-BR": "[%1$s]",
+                    "ru-RU": "[%1$s]",
+                    "th-TH": "[%1$s]",
+                    "tr-TR": "[%1$s]",
+                    "zh-CN": "[%1$s]",
+                    "zh-TW": "[%1$s]"
                 },
                 "description": "The value that will be stored in the array at index [0].",
                 "type": [
@@ -6052,7 +7034,15 @@ var valueFuncKw =
         "ja-JP": "配列",
         "pt-BR": "Matriz",
         "tr-TR": "Dizin",
-        "zh-CN": "数组"
+        "zh-CN": "数组",
+        "de-DE": "Array",
+        "es-ES": "Array",
+        "it-IT": "Array",
+        "ko-KR": "Array",
+        "pl-PL": "Array",
+        "ru-RU": "Array",
+        "th-TH": "Array",
+        "zh-TW": "Array"
     },
     "__button__": {
         "description": "A button constant.",
@@ -6089,7 +7079,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -6118,7 +7112,15 @@ var valueFuncKw =
         "ja-JP": "ボタン",
         "pt-BR": "Botão",
         "tr-TR": "Düğme",
-        "zh-CN": "按钮"
+        "zh-CN": "按钮",
+        "de-DE": "Button",
+        "es-ES": "Button",
+        "it-IT": "Button",
+        "ko-KR": "Button",
+        "pl-PL": "Button",
+        "ru-RU": "Button",
+        "th-TH": "Button",
+        "zh-TW": "Button"
     },
     "__color__": {
         "description": "A Color Constant",
@@ -6150,7 +7152,16 @@ var valueFuncKw =
                     "ja-JP": "色",
                     "pt-BR": "Cor",
                     "tr-TR": "Renk",
-                    "zh-CN": "颜色"
+                    "zh-CN": "颜色",
+                    "de-DE": "Color",
+                    "es-ES": "Color",
+                    "es-MX": "Color",
+                    "it-IT": "Color",
+                    "ko-KR": "Color",
+                    "pl-PL": "Color",
+                    "ru-RU": "Color",
+                    "th-TH": "Color",
+                    "zh-TW": "Color"
                 }
             }
         ],
@@ -6178,7 +7189,16 @@ var valueFuncKw =
         "ja-JP": "色",
         "pt-BR": "Cor",
         "tr-TR": "Renk",
-        "zh-CN": "颜色"
+        "zh-CN": "颜色",
+        "de-DE": "Color",
+        "es-ES": "Color",
+        "es-MX": "Color",
+        "it-IT": "Color",
+        "ko-KR": "Color",
+        "pl-PL": "Color",
+        "ru-RU": "Color",
+        "th-TH": "Color",
+        "zh-TW": "Color"
     },
     "__compare__": {
         "description": "Whether the comparison of the two inputs is true.",
@@ -6218,7 +7238,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -6239,7 +7263,14 @@ var valueFuncKw =
                     "pt-BR": "Comparação",
                     "th-TH": "การเปรียบเทียบ",
                     "tr-TR": "Karşılaştırma",
-                    "zh-CN": "比较"
+                    "zh-CN": "比较",
+                    "de-DE": "Comparison",
+                    "es-ES": "Comparison",
+                    "it-IT": "Comparison",
+                    "ko-KR": "Comparison",
+                    "pl-PL": "Comparison",
+                    "ru-RU": "Comparison",
+                    "zh-TW": "Comparison"
                 }
             },
             {
@@ -6277,7 +7308,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -6305,7 +7340,15 @@ var valueFuncKw =
         "ja-JP": "COMPARE",
         "pt-BR": "Comparar",
         "tr-TR": "Karşılaştır",
-        "zh-CN": "比较"
+        "zh-CN": "比较",
+        "de-DE": "Compare",
+        "es-ES": "Compare",
+        "it-IT": "Compare",
+        "ko-KR": "Compare",
+        "pl-PL": "Compare",
+        "ru-RU": "Compare",
+        "th-TH": "Compare",
+        "zh-TW": "Compare"
     },
     "__concat__": {
         "guid": "00000000C41A",
@@ -6342,7 +7385,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -6383,7 +7431,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -6410,7 +7462,15 @@ var valueFuncKw =
         "ja-JP": "配列に追加",
         "pt-BR": "Juntar à Matriz",
         "tr-TR": "Dizine Ekle",
-        "zh-CN": "添加至数组"
+        "zh-CN": "添加至数组",
+        "de-DE": "Append To Array",
+        "es-ES": "Append To Array",
+        "it-IT": "Append To Array",
+        "ko-KR": "Append To Array",
+        "pl-PL": "Append To Array",
+        "ru-RU": "Append To Array",
+        "th-TH": "Append To Array",
+        "zh-TW": "Append To Array"
     },
     "__currentArrayElement__": {
         "description": "The current array element being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
@@ -6442,7 +7502,15 @@ var valueFuncKw =
         "ja-JP": "現在の配列の要素",
         "pt-BR": "Elemento da Matriz Atual",
         "tr-TR": "Mevcut Dizin Unsuru",
-        "zh-CN": "当前数组元素"
+        "zh-CN": "当前数组元素",
+        "de-DE": "Current Array Element",
+        "es-ES": "Current Array Element",
+        "it-IT": "Current Array Element",
+        "ko-KR": "Current Array Element",
+        "pl-PL": "Current Array Element",
+        "ru-RU": "Current Array Element",
+        "th-TH": "Current Array Element",
+        "zh-TW": "Current Array Element"
     },
     "__currentArrayIndex__": {
         "description": "The current array index being considered. Only meaningful during the evaluation of values such as filtered array and sorted array.",
@@ -6475,7 +7543,14 @@ var valueFuncKw =
         "pt-BR": "Índice da Matriz Atual",
         "th-TH": "ดัชนีอาร์เรย์ปัจจุบัน",
         "tr-TR": "Mevcut Dizin İndeksi",
-        "zh-CN": "当前数组索引"
+        "zh-CN": "当前数组索引",
+        "de-DE": "Current Array Index",
+        "es-ES": "Current Array Index",
+        "it-IT": "Current Array Index",
+        "ko-KR": "Current Array Index",
+        "pl-PL": "Current Array Index",
+        "ru-RU": "Current Array Index",
+        "zh-TW": "Current Array Index"
     },
     "__customString__": {
         "description": "ty magzie for adding that",
@@ -6515,7 +7590,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -6541,7 +7621,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF50",
-                    "en-US": "{0}"
+                    "en-US": "{0}",
+                    "de-DE": "{0}",
+                    "es-ES": "{0}",
+                    "es-MX": "{0}",
+                    "fr-FR": "{0}",
+                    "it-IT": "{0}",
+                    "ja-JP": "{0}",
+                    "ko-KR": "{0}",
+                    "pl-PL": "{0}",
+                    "pt-BR": "{0}",
+                    "ru-RU": "{0}",
+                    "th-TH": "{0}",
+                    "tr-TR": "{0}",
+                    "zh-CN": "{0}",
+                    "zh-TW": "{0}"
                 }
             },
             {
@@ -6567,7 +7661,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF53",
-                    "en-US": "{1}"
+                    "en-US": "{1}",
+                    "de-DE": "{1}",
+                    "es-ES": "{1}",
+                    "es-MX": "{1}",
+                    "fr-FR": "{1}",
+                    "it-IT": "{1}",
+                    "ja-JP": "{1}",
+                    "ko-KR": "{1}",
+                    "pl-PL": "{1}",
+                    "pt-BR": "{1}",
+                    "ru-RU": "{1}",
+                    "th-TH": "{1}",
+                    "tr-TR": "{1}",
+                    "zh-CN": "{1}",
+                    "zh-TW": "{1}"
                 }
             },
             {
@@ -6593,7 +7701,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF55",
-                    "en-US": "{2}"
+                    "en-US": "{2}",
+                    "de-DE": "{2}",
+                    "es-ES": "{2}",
+                    "es-MX": "{2}",
+                    "fr-FR": "{2}",
+                    "it-IT": "{2}",
+                    "ja-JP": "{2}",
+                    "ko-KR": "{2}",
+                    "pl-PL": "{2}",
+                    "pt-BR": "{2}",
+                    "ru-RU": "{2}",
+                    "th-TH": "{2}",
+                    "tr-TR": "{2}",
+                    "zh-CN": "{2}",
+                    "zh-TW": "{2}"
                 }
             }
         ],
@@ -6607,7 +7729,15 @@ var valueFuncKw =
         "ja-JP": "カスタムストリング",
         "pt-BR": "String Personalizada",
         "tr-TR": "Özel Dizgi",
-        "zh-CN": "自定义字符串"
+        "zh-CN": "自定义字符串",
+        "de-DE": "Custom String",
+        "es-ES": "Custom String",
+        "it-IT": "Custom String",
+        "ko-KR": "Custom String",
+        "pl-PL": "Custom String",
+        "ru-RU": "Custom String",
+        "th-TH": "Custom String",
+        "zh-TW": "Custom String"
     },
     "__divide__": {
         "guid": "00000000C40F",
@@ -6649,7 +7779,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -6687,7 +7821,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -6717,7 +7855,15 @@ var valueFuncKw =
         "ja-JP": "除算",
         "pt-BR": "Dividir",
         "tr-TR": "Böl",
-        "zh-CN": "除"
+        "zh-CN": "除",
+        "de-DE": "Divide",
+        "es-ES": "Divide",
+        "it-IT": "Divide",
+        "ko-KR": "Divide",
+        "pl-PL": "Divide",
+        "ru-RU": "Divide",
+        "th-TH": "Divide",
+        "zh-TW": "Divide"
     },
     "__emptyArray__": {
         "description": "An array with no elements.",
@@ -6746,7 +7892,15 @@ var valueFuncKw =
         "ja-JP": "空の配列",
         "pt-BR": "Matriz Vazia",
         "tr-TR": "Boş Dizin",
-        "zh-CN": "空数组"
+        "zh-CN": "空数组",
+        "de-DE": "Empty Array",
+        "es-ES": "Empty Array",
+        "it-IT": "Empty Array",
+        "ko-KR": "Empty Array",
+        "pl-PL": "Empty Array",
+        "ru-RU": "Empty Array",
+        "th-TH": "Empty Array",
+        "zh-TW": "Empty Array"
     },
     "__filteredArray__": {
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
@@ -6782,7 +7936,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -6816,7 +7975,12 @@ var valueFuncKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -6844,7 +8008,15 @@ var valueFuncKw =
         "ja-JP": "フィルタリングされた配列",
         "pt-BR": "Matriz Filtrada",
         "tr-TR": "Filtreli Dizin",
-        "zh-CN": "已过滤的数组"
+        "zh-CN": "已过滤的数组",
+        "de-DE": "Filtered Array",
+        "es-ES": "Filtered Array",
+        "it-IT": "Filtered Array",
+        "ko-KR": "Filtered Array",
+        "pl-PL": "Filtered Array",
+        "ru-RU": "Filtered Array",
+        "th-TH": "Filtered Array",
+        "zh-TW": "Filtered Array"
     },
     "__firstOf__": {
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
@@ -6880,7 +8052,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             }
         ],
@@ -6911,7 +8088,15 @@ var valueFuncKw =
         "ja-JP": "最初の値",
         "pt-BR": "Primeiro de",
         "tr-TR": "İlk",
-        "zh-CN": "首个"
+        "zh-CN": "首个",
+        "de-DE": "First Of",
+        "es-ES": "First Of",
+        "it-IT": "First Of",
+        "ko-KR": "First Of",
+        "pl-PL": "First Of",
+        "ru-RU": "First Of",
+        "th-TH": "First Of",
+        "zh-TW": "First Of"
     },
     "__gamemode__": {
         "guid": "00000000F161",
@@ -6945,7 +8130,15 @@ var valueFuncKw =
                     "ja-JP": "ゲーム・モード",
                     "pt-BR": "Modo de jogo",
                     "tr-TR": "Oyun Modu",
-                    "zh-CN": "游戏模式"
+                    "zh-CN": "游戏模式",
+                    "de-DE": "Game Mode",
+                    "es-ES": "Game Mode",
+                    "it-IT": "Game Mode",
+                    "ko-KR": "Game Mode",
+                    "pl-PL": "Game Mode",
+                    "ru-RU": "Game Mode",
+                    "th-TH": "Game Mode",
+                    "zh-TW": "Game Mode"
                 }
             }
         ],
@@ -6973,7 +8166,15 @@ var valueFuncKw =
         "ja-JP": "ゲーム・モード",
         "pt-BR": "Modo de jogo",
         "tr-TR": "Oyun Modu",
-        "zh-CN": "游戏模式"
+        "zh-CN": "游戏模式",
+        "de-DE": "Game Mode",
+        "es-ES": "Game Mode",
+        "it-IT": "Game Mode",
+        "ko-KR": "Game Mode",
+        "pl-PL": "Game Mode",
+        "ru-RU": "Game Mode",
+        "th-TH": "Game Mode",
+        "zh-TW": "Game Mode"
     },
     "__globalVar__": {
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
@@ -7008,7 +8209,13 @@ var valueFuncKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             }
         ],
@@ -7035,7 +8242,15 @@ var valueFuncKw =
         "ja-JP": "グローバル変数",
         "pt-BR": "Variável Global",
         "tr-TR": "Küresel Değişken",
-        "zh-CN": "全局变量"
+        "zh-CN": "全局变量",
+        "de-DE": "Global Variable",
+        "es-ES": "Global Variable",
+        "it-IT": "Global Variable",
+        "ko-KR": "Global Variable",
+        "pl-PL": "Global Variable",
+        "ru-RU": "Global Variable",
+        "th-TH": "Global Variable",
+        "zh-TW": "Global Variable"
     },
     "__global__": {
         "return": "GlobalVariable",
@@ -7047,7 +8262,15 @@ var valueFuncKw =
         "pl-PL": "Globalnie",
         "th-TH": "ทั่วโลก",
         "tr-TR": "Küresel",
-        "zh-CN": "全局"
+        "zh-CN": "全局",
+        "de-DE": "Global",
+        "es-ES": "Global",
+        "es-MX": "Global",
+        "fr-FR": "Global",
+        "ko-KR": "Global",
+        "pt-BR": "Global",
+        "ru-RU": "Global",
+        "zh-TW": "Global"
     },
     "__hero__": {
         "guid": "00000000ACAA",
@@ -7078,14 +8301,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             }
         ],
@@ -7109,11 +8336,19 @@ var valueFuncKw =
         },
         "en-US": "Hero",
         "es-MX": "Héroe",
-        "fr-FR": "Héros",
+        "fr-FR": "Personnage",
         "ja-JP": "ヒーロー",
         "pt-BR": "Herói",
         "tr-TR": "Kahraman",
-        "zh-CN": "英雄"
+        "zh-CN": "英雄",
+        "de-DE": "Hero",
+        "es-ES": "Hero",
+        "it-IT": "Hero",
+        "ko-KR": "Hero",
+        "pl-PL": "Hero",
+        "ru-RU": "Hero",
+        "th-TH": "Hero",
+        "zh-TW": "Hero"
     },
     "__ifThenElse__": {
         "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
@@ -7146,7 +8381,15 @@ var valueFuncKw =
                     "ja-JP": "IF",
                     "pl-PL": "Jeśli",
                     "ru-RU": "Если",
-                    "tr-TR": "Eğer"
+                    "tr-TR": "Eğer",
+                    "de-DE": "If",
+                    "es-ES": "If",
+                    "it-IT": "If",
+                    "ko-KR": "If",
+                    "pt-BR": "If",
+                    "th-TH": "If",
+                    "zh-CN": "If",
+                    "zh-TW": "If"
                 }
             },
             {
@@ -7180,7 +8423,16 @@ var valueFuncKw =
                     "ja-JP": "THEN",
                     "pl-PL": "Wtedy",
                     "ru-RU": "То",
-                    "tr-TR": "İse"
+                    "tr-TR": "İse",
+                    "de-DE": "Then",
+                    "es-ES": "Then",
+                    "es-MX": "Then",
+                    "it-IT": "Then",
+                    "ko-KR": "Then",
+                    "pt-BR": "Then",
+                    "th-TH": "Then",
+                    "zh-CN": "Then",
+                    "zh-TW": "Then"
                 }
             },
             {
@@ -7215,7 +8467,15 @@ var valueFuncKw =
                     "ja-JP": "ELSE",
                     "pl-PL": "Inaczej",
                     "ru-RU": "В противном случае",
-                    "tr-TR": "Değilse"
+                    "tr-TR": "Değilse",
+                    "de-DE": "Else",
+                    "es-ES": "Else",
+                    "it-IT": "Else",
+                    "ko-KR": "Else",
+                    "pt-BR": "Else",
+                    "th-TH": "Else",
+                    "zh-CN": "Else",
+                    "zh-TW": "Else"
                 }
             }
         ],
@@ -7243,7 +8503,18 @@ var valueFuncKw =
         "en-US": "If-Then-Else",
         "fr-FR": "Si-Alors-Sinon",
         "ja-JP": "IF-THEN-ELSE",
-        "tr-TR": "Eğer-İse-Değilse"
+        "tr-TR": "Eğer-İse-Değilse",
+        "de-DE": "If-Then-Else",
+        "es-ES": "If-Then-Else",
+        "es-MX": "If-Then-Else",
+        "it-IT": "If-Then-Else",
+        "ko-KR": "If-Then-Else",
+        "pl-PL": "If-Then-Else",
+        "pt-BR": "If-Then-Else",
+        "ru-RU": "If-Then-Else",
+        "th-TH": "If-Then-Else",
+        "zh-CN": "If-Then-Else",
+        "zh-TW": "If-Then-Else"
     },
     "__indexOfArrayValue__": {
         "description": "The index of a value within an array or -1 if no such value can be found.",
@@ -7281,7 +8552,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -7317,7 +8593,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -7345,7 +8625,15 @@ var valueFuncKw =
         "ja-JP": "配列値のインデックス",
         "pt-BR": "Índice do Valor da Matriz",
         "tr-TR": "Dizin Değeri İndeksi",
-        "zh-CN": "数组值的索引"
+        "zh-CN": "数组值的索引",
+        "de-DE": "Index Of Array Value",
+        "es-ES": "Index Of Array Value",
+        "it-IT": "Index Of Array Value",
+        "ko-KR": "Index Of Array Value",
+        "pl-PL": "Index Of Array Value",
+        "ru-RU": "Index Of Array Value",
+        "th-TH": "Index Of Array Value",
+        "zh-TW": "Index Of Array Value"
     },
     "__lastOf__": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
@@ -7381,7 +8669,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             }
         ],
@@ -7412,7 +8705,15 @@ var valueFuncKw =
         "ja-JP": "最後の値",
         "pt-BR": "Último de",
         "tr-TR": "Son",
-        "zh-CN": "最后"
+        "zh-CN": "最后",
+        "de-DE": "Last Of",
+        "es-ES": "Last Of",
+        "it-IT": "Last Of",
+        "ko-KR": "Last Of",
+        "pl-PL": "Last Of",
+        "ru-RU": "Last Of",
+        "th-TH": "Last Of",
+        "zh-TW": "Last Of"
     },
     "__localizedString__": {
         "guid": "00000000BA60",
@@ -7438,7 +8739,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -7464,7 +8770,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF50",
-                    "en-US": "{0}"
+                    "en-US": "{0}",
+                    "de-DE": "{0}",
+                    "es-ES": "{0}",
+                    "es-MX": "{0}",
+                    "fr-FR": "{0}",
+                    "it-IT": "{0}",
+                    "ja-JP": "{0}",
+                    "ko-KR": "{0}",
+                    "pl-PL": "{0}",
+                    "pt-BR": "{0}",
+                    "ru-RU": "{0}",
+                    "th-TH": "{0}",
+                    "tr-TR": "{0}",
+                    "zh-CN": "{0}",
+                    "zh-TW": "{0}"
                 }
             },
             {
@@ -7490,7 +8810,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF53",
-                    "en-US": "{1}"
+                    "en-US": "{1}",
+                    "de-DE": "{1}",
+                    "es-ES": "{1}",
+                    "es-MX": "{1}",
+                    "fr-FR": "{1}",
+                    "it-IT": "{1}",
+                    "ja-JP": "{1}",
+                    "ko-KR": "{1}",
+                    "pl-PL": "{1}",
+                    "pt-BR": "{1}",
+                    "ru-RU": "{1}",
+                    "th-TH": "{1}",
+                    "tr-TR": "{1}",
+                    "zh-CN": "{1}",
+                    "zh-TW": "{1}"
                 }
             },
             {
@@ -7516,7 +8850,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000BF55",
-                    "en-US": "{2}"
+                    "en-US": "{2}",
+                    "de-DE": "{2}",
+                    "es-ES": "{2}",
+                    "es-MX": "{2}",
+                    "fr-FR": "{2}",
+                    "it-IT": "{2}",
+                    "ja-JP": "{2}",
+                    "ko-KR": "{2}",
+                    "pl-PL": "{2}",
+                    "pt-BR": "{2}",
+                    "ru-RU": "{2}",
+                    "th-TH": "{2}",
+                    "tr-TR": "{2}",
+                    "zh-CN": "{2}",
+                    "zh-TW": "{2}"
                 }
             }
         ],
@@ -7543,7 +8891,16 @@ var valueFuncKw =
         "fr-FR": "Chaîne de texte",
         "ja-JP": "文字列",
         "tr-TR": "Dizgi",
-        "zh-CN": "字符串"
+        "zh-CN": "字符串",
+        "de-DE": "String",
+        "es-ES": "String",
+        "it-IT": "String",
+        "ko-KR": "String",
+        "pl-PL": "String",
+        "pt-BR": "String",
+        "ru-RU": "String",
+        "th-TH": "String",
+        "zh-TW": "String"
     },
     "__map__": {
         "guid": "00000000D415",
@@ -7577,7 +8934,15 @@ var valueFuncKw =
                     "ja-JP": "マップ",
                     "pt-BR": "Mapa",
                     "tr-TR": "Harita",
-                    "zh-CN": "地图"
+                    "zh-CN": "地图",
+                    "de-DE": "Map",
+                    "es-ES": "Map",
+                    "it-IT": "Map",
+                    "ko-KR": "Map",
+                    "pl-PL": "Map",
+                    "ru-RU": "Map",
+                    "th-TH": "Map",
+                    "zh-TW": "Map"
                 }
             }
         ],
@@ -7605,7 +8970,15 @@ var valueFuncKw =
         "ja-JP": "マップ",
         "pt-BR": "Mapa",
         "tr-TR": "Harita",
-        "zh-CN": "地图"
+        "zh-CN": "地图",
+        "de-DE": "Map",
+        "es-ES": "Map",
+        "it-IT": "Map",
+        "ko-KR": "Map",
+        "pl-PL": "Map",
+        "ru-RU": "Map",
+        "th-TH": "Map",
+        "zh-TW": "Map"
     },
     "__mappedArray__": {
         "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
@@ -7641,7 +9014,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -7675,7 +9053,12 @@ var valueFuncKw =
                     "pt-BR": "Condição",
                     "ru-RU": "Условие",
                     "tr-TR": "Koşul",
-                    "zh-CN": "条件"
+                    "zh-CN": "条件",
+                    "de-DE": "Condition",
+                    "fr-FR": "Condition",
+                    "ko-KR": "Condition",
+                    "th-TH": "Condition",
+                    "zh-TW": "Condition"
                 }
             }
         ],
@@ -7703,7 +9086,15 @@ var valueFuncKw =
         "ja-JP": "マッピングされた配列",
         "pt-BR": "Matriz Mapeada",
         "tr-TR": "Haritalanmış Dizin",
-        "zh-CN": "映射的数组"
+        "zh-CN": "映射的数组",
+        "de-DE": "Mapped Array",
+        "es-ES": "Mapped Array",
+        "it-IT": "Mapped Array",
+        "ko-KR": "Mapped Array",
+        "pl-PL": "Mapped Array",
+        "ru-RU": "Mapped Array",
+        "th-TH": "Mapped Array",
+        "zh-TW": "Mapped Array"
     },
     "__modulo__": {
         "guid": "00000000C410",
@@ -7742,7 +9133,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -7778,7 +9173,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -7804,7 +9203,16 @@ var valueFuncKw =
         "ja-JP": "剰余",
         "pt-BR": "Modular",
         "tr-TR": "Modülo",
-        "zh-CN": "余数"
+        "zh-CN": "余数",
+        "de-DE": "Modulo",
+        "es-ES": "Modulo",
+        "fr-FR": "Modulo",
+        "it-IT": "Modulo",
+        "ko-KR": "Modulo",
+        "pl-PL": "Modulo",
+        "ru-RU": "Modulo",
+        "th-TH": "Modulo",
+        "zh-TW": "Modulo"
     },
     "__multiply__": {
         "guid": "00000000C40D",
@@ -7845,7 +9253,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -7883,7 +9295,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -7913,7 +9329,15 @@ var valueFuncKw =
         "ja-JP": "乗算",
         "pt-BR": "Multiplicar",
         "tr-TR": "Çarp",
-        "zh-CN": "乘"
+        "zh-CN": "乘",
+        "de-DE": "Multiply",
+        "es-ES": "Multiply",
+        "it-IT": "Multiply",
+        "ko-KR": "Multiply",
+        "pl-PL": "Multiply",
+        "ru-RU": "Multiply",
+        "th-TH": "Multiply",
+        "zh-TW": "Multiply"
     },
     "__not__": {
         "guid": "00000000B275",
@@ -7951,7 +9375,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -7978,7 +9406,15 @@ var valueFuncKw =
         "ja-JP": "NOT",
         "pt-BR": "Não",
         "tr-TR": "Değil",
-        "zh-CN": "非"
+        "zh-CN": "非",
+        "de-DE": "Not",
+        "es-ES": "Not",
+        "it-IT": "Not",
+        "ko-KR": "Not",
+        "pl-PL": "Not",
+        "ru-RU": "Not",
+        "th-TH": "Not",
+        "zh-TW": "Not"
     },
     "__number__": {
         "args": [
@@ -7999,7 +9435,10 @@ var valueFuncKw =
                     "ru-RU": "Число",
                     "th-TH": "ตัวเลข",
                     "tr-TR": "Sayı",
-                    "zh-CN": "数字"
+                    "zh-CN": "数字",
+                    "de-DE": "Number",
+                    "ko-KR": "Number",
+                    "zh-TW": "Number"
                 },
                 "descriptionLocalized": {
                     "guid": "00000000BDF6",
@@ -8042,7 +9481,15 @@ var valueFuncKw =
         "ja-JP": "数値",
         "pt-BR": "Número",
         "tr-TR": "Sayı",
-        "zh-CN": "数字"
+        "zh-CN": "数字",
+        "de-DE": "Number",
+        "es-ES": "Number",
+        "it-IT": "Number",
+        "ko-KR": "Number",
+        "pl-PL": "Number",
+        "ru-RU": "Number",
+        "th-TH": "Number",
+        "zh-TW": "Number"
     },
     "__or__": {
         "guid": "00000000B274",
@@ -8080,7 +9527,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -8115,7 +9566,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -8142,7 +9597,15 @@ var valueFuncKw =
         "ja-JP": "OR",
         "pt-BR": "Ou",
         "tr-TR": "Veya",
-        "zh-CN": "或"
+        "zh-CN": "或",
+        "de-DE": "Or",
+        "es-ES": "Or",
+        "it-IT": "Or",
+        "ko-KR": "Or",
+        "pl-PL": "Or",
+        "ru-RU": "Or",
+        "th-TH": "Or",
+        "zh-TW": "Or"
     },
     "__playerVar__": {
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
@@ -8180,7 +9643,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -8213,7 +9679,13 @@ var valueFuncKw =
                     "ru-RU": "Переменная",
                     "th-TH": "ตัวแปร",
                     "tr-TR": "Değişken",
-                    "zh-CN": "变量"
+                    "zh-CN": "变量",
+                    "de-DE": "Variable",
+                    "es-ES": "Variable",
+                    "es-MX": "Variable",
+                    "fr-FR": "Variable",
+                    "ko-KR": "Variable",
+                    "zh-TW": "Variable"
                 }
             }
         ],
@@ -8240,7 +9712,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤー変数",
         "pt-BR": "Variável de Jogador",
         "tr-TR": "Oyuncu Değişkeni",
-        "zh-CN": "玩家变量"
+        "zh-CN": "玩家变量",
+        "de-DE": "Player Variable",
+        "es-ES": "Player Variable",
+        "it-IT": "Player Variable",
+        "ko-KR": "Player Variable",
+        "pl-PL": "Player Variable",
+        "ru-RU": "Player Variable",
+        "th-TH": "Player Variable",
+        "zh-TW": "Player Variable"
     },
     "__raiseToPower__": {
         "guid": "00000000C414",
@@ -8278,7 +9758,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -8313,7 +9797,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -8340,7 +9828,15 @@ var valueFuncKw =
         "ja-JP": "累乗",
         "pt-BR": "Elevar à Potência",
         "tr-TR": "Üssünü Al",
-        "zh-CN": "乘方"
+        "zh-CN": "乘方",
+        "de-DE": "Raise To Power",
+        "es-ES": "Raise To Power",
+        "it-IT": "Raise To Power",
+        "ko-KR": "Raise To Power",
+        "pl-PL": "Raise To Power",
+        "ru-RU": "Raise To Power",
+        "th-TH": "Raise To Power",
+        "zh-TW": "Raise To Power"
     },
     "__raycastHitNormal__": {
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
@@ -8377,7 +9873,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -8412,7 +9912,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             },
             {
@@ -8449,7 +9953,11 @@ var valueFuncKw =
                     "ru-RU": "Затрагиваемые игроки",
                     "th-TH": "ผู้เล่นที่จะรวม",
                     "tr-TR": "Dâhil Edilen Oyuncular",
-                    "zh-CN": "包括玩家"
+                    "zh-CN": "包括玩家",
+                    "de-DE": "Players to Include",
+                    "es-ES": "Players to Include",
+                    "ko-KR": "Players to Include",
+                    "zh-TW": "Players to Include"
                 }
             },
             {
@@ -8485,7 +9993,12 @@ var valueFuncKw =
                     "pt-BR": "Jogadores a Excluir",
                     "ru-RU": "Незатрагиваемые игроки",
                     "tr-TR": "Hariç Tutulan Oyuncular",
-                    "zh-CN": "不包括玩家"
+                    "zh-CN": "不包括玩家",
+                    "de-DE": "Players to Exclude",
+                    "es-ES": "Players to Exclude",
+                    "ko-KR": "Players to Exclude",
+                    "th-TH": "Players to Exclude",
+                    "zh-TW": "Players to Exclude"
                 }
             },
             {
@@ -8520,7 +10033,11 @@ var valueFuncKw =
                     "ru-RU": "Включать объекты, принадлежащие игроку",
                     "th-TH": "รวมวัตถุที่เป็นของผู้เล่น",
                     "tr-TR": "Oyuncuların nesnelerini dâhil et.",
-                    "zh-CN": "包括玩家拥有的物体"
+                    "zh-CN": "包括玩家拥有的物体",
+                    "de-DE": "Include player owned objects",
+                    "es-ES": "Include player owned objects",
+                    "ko-KR": "Include player owned objects",
+                    "zh-TW": "Include player owned objects"
                 }
             }
         ],
@@ -8548,7 +10065,15 @@ var valueFuncKw =
         "ja-JP": "レイ・キャストが当たった法線",
         "pt-BR": "Normal de Acerto do Lançamento de Raio",
         "tr-TR": "Işın Dökümü İsabet Normali",
-        "zh-CN": "射线命中法线"
+        "zh-CN": "射线命中法线",
+        "de-DE": "Ray Cast Hit Normal",
+        "es-ES": "Ray Cast Hit Normal",
+        "it-IT": "Ray Cast Hit Normal",
+        "ko-KR": "Ray Cast Hit Normal",
+        "pl-PL": "Ray Cast Hit Normal",
+        "ru-RU": "Ray Cast Hit Normal",
+        "th-TH": "Ray Cast Hit Normal",
+        "zh-TW": "Ray Cast Hit Normal"
     },
     "__raycastHitPlayer__": {
         "description": "The player hit by the ray cast (or null if no player is hit).",
@@ -8585,7 +10110,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -8620,7 +10149,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             },
             {
@@ -8657,7 +10190,11 @@ var valueFuncKw =
                     "ru-RU": "Затрагиваемые игроки",
                     "th-TH": "ผู้เล่นที่จะรวม",
                     "tr-TR": "Dâhil Edilen Oyuncular",
-                    "zh-CN": "包括玩家"
+                    "zh-CN": "包括玩家",
+                    "de-DE": "Players to Include",
+                    "es-ES": "Players to Include",
+                    "ko-KR": "Players to Include",
+                    "zh-TW": "Players to Include"
                 }
             },
             {
@@ -8693,7 +10230,12 @@ var valueFuncKw =
                     "pt-BR": "Jogadores a Excluir",
                     "ru-RU": "Незатрагиваемые игроки",
                     "tr-TR": "Hariç Tutulan Oyuncular",
-                    "zh-CN": "不包括玩家"
+                    "zh-CN": "不包括玩家",
+                    "de-DE": "Players to Exclude",
+                    "es-ES": "Players to Exclude",
+                    "ko-KR": "Players to Exclude",
+                    "th-TH": "Players to Exclude",
+                    "zh-TW": "Players to Exclude"
                 }
             },
             {
@@ -8728,7 +10270,11 @@ var valueFuncKw =
                     "ru-RU": "Включать объекты, принадлежащие игроку",
                     "th-TH": "รวมวัตถุที่เป็นของผู้เล่น",
                     "tr-TR": "Oyuncuların nesnelerini dâhil et.",
-                    "zh-CN": "包括玩家拥有的物体"
+                    "zh-CN": "包括玩家拥有的物体",
+                    "de-DE": "Include player owned objects",
+                    "es-ES": "Include player owned objects",
+                    "ko-KR": "Include player owned objects",
+                    "zh-TW": "Include player owned objects"
                 }
             }
         ],
@@ -8756,7 +10302,15 @@ var valueFuncKw =
         "ja-JP": "レイ・キャストが当たったプレイヤー",
         "pt-BR": "Jogador Atingido pelo Lançamento de Raio",
         "tr-TR": "Işın Dökümü Oyuncu İsabeti",
-        "zh-CN": "射线命中玩家"
+        "zh-CN": "射线命中玩家",
+        "de-DE": "Ray Cast Hit Player",
+        "es-ES": "Ray Cast Hit Player",
+        "it-IT": "Ray Cast Hit Player",
+        "ko-KR": "Ray Cast Hit Player",
+        "pl-PL": "Ray Cast Hit Player",
+        "ru-RU": "Ray Cast Hit Player",
+        "th-TH": "Ray Cast Hit Player",
+        "zh-TW": "Ray Cast Hit Player"
     },
     "__raycastHitPosition__": {
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
@@ -8793,7 +10347,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -8828,7 +10386,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             },
             {
@@ -8865,7 +10427,11 @@ var valueFuncKw =
                     "ru-RU": "Затрагиваемые игроки",
                     "th-TH": "ผู้เล่นที่จะรวม",
                     "tr-TR": "Dâhil Edilen Oyuncular",
-                    "zh-CN": "包括玩家"
+                    "zh-CN": "包括玩家",
+                    "de-DE": "Players to Include",
+                    "es-ES": "Players to Include",
+                    "ko-KR": "Players to Include",
+                    "zh-TW": "Players to Include"
                 }
             },
             {
@@ -8901,7 +10467,12 @@ var valueFuncKw =
                     "pt-BR": "Jogadores a Excluir",
                     "ru-RU": "Незатрагиваемые игроки",
                     "tr-TR": "Hariç Tutulan Oyuncular",
-                    "zh-CN": "不包括玩家"
+                    "zh-CN": "不包括玩家",
+                    "de-DE": "Players to Exclude",
+                    "es-ES": "Players to Exclude",
+                    "ko-KR": "Players to Exclude",
+                    "th-TH": "Players to Exclude",
+                    "zh-TW": "Players to Exclude"
                 }
             },
             {
@@ -8936,7 +10507,11 @@ var valueFuncKw =
                     "ru-RU": "Включать объекты, принадлежащие игроку",
                     "th-TH": "รวมวัตถุที่เป็นของผู้เล่น",
                     "tr-TR": "Oyuncuların nesnelerini dâhil et.",
-                    "zh-CN": "包括玩家拥有的物体"
+                    "zh-CN": "包括玩家拥有的物体",
+                    "de-DE": "Include player owned objects",
+                    "es-ES": "Include player owned objects",
+                    "ko-KR": "Include player owned objects",
+                    "zh-TW": "Include player owned objects"
                 }
             }
         ],
@@ -8964,7 +10539,15 @@ var valueFuncKw =
         "ja-JP": "レイ・キャストのヒット位置",
         "pt-BR": "Posição de Acerto do Lançamento de Raio",
         "tr-TR": "Işın Dökümü İsabet Konumu",
-        "zh-CN": "射线命中位置"
+        "zh-CN": "射线命中位置",
+        "de-DE": "Ray Cast Hit Position",
+        "es-ES": "Ray Cast Hit Position",
+        "it-IT": "Ray Cast Hit Position",
+        "ko-KR": "Ray Cast Hit Position",
+        "pl-PL": "Ray Cast Hit Position",
+        "ru-RU": "Ray Cast Hit Position",
+        "th-TH": "Ray Cast Hit Position",
+        "zh-TW": "Ray Cast Hit Position"
     },
     "__removeFromArray__": {
         "description": "A copy of an array with one or more values removed (if found).",
@@ -9000,7 +10583,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -9039,7 +10627,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -9067,7 +10659,15 @@ var valueFuncKw =
         "ja-JP": "配列から削除",
         "pt-BR": "Remover da Matriz",
         "tr-TR": "Dizinden Kaldır",
-        "zh-CN": "从数组中移除"
+        "zh-CN": "从数组中移除",
+        "de-DE": "Remove From Array",
+        "es-ES": "Remove From Array",
+        "it-IT": "Remove From Array",
+        "ko-KR": "Remove From Array",
+        "pl-PL": "Remove From Array",
+        "ru-RU": "Remove From Array",
+        "th-TH": "Remove From Array",
+        "zh-TW": "Remove From Array"
     },
     "__round__": {
         "description": "The integer to which the specified value rounds.",
@@ -9104,7 +10704,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -9140,7 +10744,10 @@ var valueFuncKw =
                     "ru-RU": "Тип округления",
                     "th-TH": "ประเภทการปัดเศษ",
                     "tr-TR": "Yuvarlama Türü",
-                    "zh-CN": "取整方式"
+                    "zh-CN": "取整方式",
+                    "de-DE": "Rounding Type",
+                    "ko-KR": "Rounding Type",
+                    "zh-TW": "Rounding Type"
                 }
             }
         ],
@@ -9168,7 +10775,15 @@ var valueFuncKw =
         "ja-JP": "整数への四捨五入",
         "pt-BR": "Arredondar para Inteiro",
         "tr-TR": "Tam Sayıya Yuvarla",
-        "zh-CN": "取整"
+        "zh-CN": "取整",
+        "de-DE": "Round To Integer",
+        "es-ES": "Round To Integer",
+        "it-IT": "Round To Integer",
+        "ko-KR": "Round To Integer",
+        "pl-PL": "Round To Integer",
+        "ru-RU": "Round To Integer",
+        "th-TH": "Round To Integer",
+        "zh-TW": "Round To Integer"
     },
     "__sortedArray__": {
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
@@ -9206,7 +10821,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -9241,7 +10861,11 @@ var valueFuncKw =
                     "pt-BR": "Ranque de Valor",
                     "ru-RU": "Ранг значения",
                     "tr-TR": "Değer Derecesi",
-                    "zh-CN": "数值排序"
+                    "zh-CN": "数值排序",
+                    "de-DE": "Value Rank",
+                    "ko-KR": "Value Rank",
+                    "th-TH": "Value Rank",
+                    "zh-TW": "Value Rank"
                 }
             }
         ],
@@ -9271,7 +10895,15 @@ var valueFuncKw =
         "ja-JP": "ソートされた配列",
         "pt-BR": "Matriz Ordenada",
         "tr-TR": "Sıralı Dizin",
-        "zh-CN": "已排序的数组"
+        "zh-CN": "已排序的数组",
+        "de-DE": "Sorted Array",
+        "es-ES": "Sorted Array",
+        "it-IT": "Sorted Array",
+        "ko-KR": "Sorted Array",
+        "pl-PL": "Sorted Array",
+        "ru-RU": "Sorted Array",
+        "th-TH": "Sorted Array",
+        "zh-TW": "Sorted Array"
     },
     "__strCharAt__": {
         "description": "The character found at a specified index of a String.",
@@ -9307,7 +10939,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -9341,7 +10978,12 @@ var valueFuncKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             }
         ],
@@ -9368,7 +11010,15 @@ var valueFuncKw =
         "ja-JP": "配列の文字",
         "pt-BR": "Caractere na String",
         "tr-TR": "Karakter Dizgide",
-        "zh-CN": "字符串中字符"
+        "zh-CN": "字符串中字符",
+        "de-DE": "Char In String",
+        "es-ES": "Char In String",
+        "it-IT": "Char In String",
+        "ko-KR": "Char In String",
+        "pl-PL": "Char In String",
+        "ru-RU": "Char In String",
+        "th-TH": "Char In String",
+        "zh-TW": "Char In String"
     },
     "__strIndex__": {
         "description": "The index of a character within a String or -1 if no such character can be found.",
@@ -9404,7 +11054,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -9439,7 +11094,11 @@ var valueFuncKw =
                     "pt-BR": "Caractere",
                     "ru-RU": "Символ",
                     "tr-TR": "Karakter",
-                    "zh-CN": "字符"
+                    "zh-CN": "字符",
+                    "de-DE": "Character",
+                    "ko-KR": "Character",
+                    "th-TH": "Character",
+                    "zh-TW": "Character"
                 }
             }
         ],
@@ -9466,7 +11125,15 @@ var valueFuncKw =
         "ja-JP": "文字列の文字のインデックス",
         "pt-BR": "Índice de Caractere de String",
         "tr-TR": "Dizgi Karakter İndeksi",
-        "zh-CN": "字符串字符索引"
+        "zh-CN": "字符串字符索引",
+        "de-DE": "Index Of String Char",
+        "es-ES": "Index Of String Char",
+        "it-IT": "Index Of String Char",
+        "ko-KR": "Index Of String Char",
+        "pl-PL": "Index Of String Char",
+        "ru-RU": "Index Of String Char",
+        "th-TH": "Index Of String Char",
+        "zh-TW": "Index Of String Char"
     },
     "__strReplace__": {
         "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
@@ -9502,7 +11169,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -9537,7 +11209,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "Шаблон",
                     "tr-TR": "Desen",
-                    "zh-CN": "模式"
+                    "zh-CN": "模式",
+                    "de-DE": "Pattern",
+                    "ko-KR": "Pattern",
+                    "th-TH": "Pattern",
+                    "zh-TW": "Pattern"
                 }
             },
             {
@@ -9572,7 +11248,11 @@ var valueFuncKw =
                     "pt-BR": "Substituição",
                     "ru-RU": "Замена",
                     "tr-TR": "Değiştirme",
-                    "zh-CN": "替换"
+                    "zh-CN": "替换",
+                    "de-DE": "Replacement",
+                    "ko-KR": "Replacement",
+                    "th-TH": "Replacement",
+                    "zh-TW": "Replacement"
                 }
             }
         ],
@@ -9599,7 +11279,15 @@ var valueFuncKw =
         "ja-JP": "文字列の置換",
         "pt-BR": "Substituição de String",
         "tr-TR": "Dizgi Değiştir",
-        "zh-CN": "字符串替换"
+        "zh-CN": "字符串替换",
+        "de-DE": "String Replace",
+        "es-ES": "String Replace",
+        "it-IT": "String Replace",
+        "ko-KR": "String Replace",
+        "pl-PL": "String Replace",
+        "ru-RU": "String Replace",
+        "th-TH": "String Replace",
+        "zh-TW": "String Replace"
     },
     "__strSplit__": {
         "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
@@ -9635,7 +11323,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -9669,7 +11362,12 @@ var valueFuncKw =
                     "pt-BR": "Separador",
                     "ru-RU": "Разделитель",
                     "tr-TR": "Ayırıcı",
-                    "zh-CN": "分隔符"
+                    "zh-CN": "分隔符",
+                    "de-DE": "Separator",
+                    "ko-KR": "Separator",
+                    "pl-PL": "Separator",
+                    "th-TH": "Separator",
+                    "zh-TW": "Separator"
                 }
             }
         ],
@@ -9698,7 +11396,15 @@ var valueFuncKw =
         "ja-JP": "文字列の分割",
         "pt-BR": "Divisão de String",
         "tr-TR": "Dizgiyi Ayır",
-        "zh-CN": "字符串分割"
+        "zh-CN": "字符串分割",
+        "de-DE": "String Split",
+        "es-ES": "String Split",
+        "it-IT": "String Split",
+        "ko-KR": "String Split",
+        "pl-PL": "String Split",
+        "ru-RU": "String Split",
+        "th-TH": "String Split",
+        "zh-TW": "String Split"
     },
     "__substring__": {
         "description": "The substring of the provided string.",
@@ -9749,7 +11455,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -9784,7 +11495,11 @@ var valueFuncKw =
                     "pt-BR": "Índice do Caractere Inicial",
                     "ru-RU": "Индекс первого символа",
                     "tr-TR": "Karakter İndeksini Başlat",
-                    "zh-CN": "开始字符索引"
+                    "zh-CN": "开始字符索引",
+                    "de-DE": "Start Character Index",
+                    "ko-KR": "Start Character Index",
+                    "th-TH": "Start Character Index",
+                    "zh-TW": "Start Character Index"
                 }
             },
             {
@@ -9815,7 +11530,15 @@ var valueFuncKw =
                     "ja-JP": "文字列の長さ",
                     "pt-BR": "Tamanho da String",
                     "tr-TR": "Dizgi Uzunluğu",
-                    "zh-CN": "字符串长度"
+                    "zh-CN": "字符串长度",
+                    "de-DE": "String Length",
+                    "es-ES": "String Length",
+                    "it-IT": "String Length",
+                    "ko-KR": "String Length",
+                    "pl-PL": "String Length",
+                    "ru-RU": "String Length",
+                    "th-TH": "String Length",
+                    "zh-TW": "String Length"
                 }
             }
         ],
@@ -9828,7 +11551,15 @@ var valueFuncKw =
         "ja-JP": "文字列の切り取り",
         "pt-BR": "Fatia da String",
         "tr-TR": "Dizgi Kesiti",
-        "zh-CN": "截取字符串"
+        "zh-CN": "截取字符串",
+        "de-DE": "String Slice",
+        "es-ES": "String Slice",
+        "it-IT": "String Slice",
+        "ko-KR": "String Slice",
+        "pl-PL": "String Slice",
+        "ru-RU": "String Slice",
+        "th-TH": "String Slice",
+        "zh-TW": "String Slice"
     },
     "__subtract__": {
         "guid": "00000000C40A",
@@ -9871,7 +11602,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -9910,7 +11645,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -9941,7 +11680,14 @@ var valueFuncKw =
         "pt-BR": "Subtrair",
         "th-TH": "ลบ",
         "tr-TR": "Çıkar",
-        "zh-CN": "减"
+        "zh-CN": "减",
+        "de-DE": "Subtract",
+        "es-ES": "Subtract",
+        "it-IT": "Subtract",
+        "ko-KR": "Subtract",
+        "pl-PL": "Subtract",
+        "ru-RU": "Subtract",
+        "zh-TW": "Subtract"
     },
     "__team__": {
         "descriptionLocalized": {
@@ -9992,7 +11738,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -10010,7 +11760,10 @@ var valueFuncKw =
         "ru-RU": "Команда",
         "th-TH": "ทีม",
         "tr-TR": "Takım",
-        "zh-CN": "队伍"
+        "zh-CN": "队伍",
+        "de-DE": "Team",
+        "ko-KR": "Team",
+        "zh-TW": "Team"
     },
     "__valueInArray__": {
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
@@ -10046,7 +11799,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             },
             {
@@ -10082,7 +11840,12 @@ var valueFuncKw =
                     "pt-BR": "Índice",
                     "ru-RU": "Индекс",
                     "tr-TR": "İndeks",
-                    "zh-CN": "索引"
+                    "zh-CN": "索引",
+                    "de-DE": "Index",
+                    "fr-FR": "Index",
+                    "ko-KR": "Index",
+                    "th-TH": "Index",
+                    "zh-TW": "Index"
                 }
             }
         ],
@@ -10113,7 +11876,15 @@ var valueFuncKw =
         "ja-JP": "配列内の値",
         "pt-BR": "Valor na Matriz",
         "tr-TR": "Dizindeki Değer",
-        "zh-CN": "数组中的值"
+        "zh-CN": "数组中的值",
+        "de-DE": "Value In Array",
+        "es-ES": "Value In Array",
+        "it-IT": "Value In Array",
+        "ko-KR": "Value In Array",
+        "pl-PL": "Value In Array",
+        "ru-RU": "Value In Array",
+        "th-TH": "Value In Array",
+        "zh-TW": "Value In Array"
     },
     "__workshopSettingCombo__": {
         "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
@@ -10149,7 +11920,11 @@ var valueFuncKw =
                     "pt-BR": "Categoria",
                     "ru-RU": "Категория",
                     "tr-TR": "Kategori",
-                    "zh-CN": "类别"
+                    "zh-CN": "类别",
+                    "de-DE": "Category",
+                    "ko-KR": "Category",
+                    "th-TH": "Category",
+                    "zh-TW": "Category"
                 }
             },
             {
@@ -10183,7 +11958,11 @@ var valueFuncKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             },
             {
@@ -10218,7 +11997,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "По умолчанию",
                     "tr-TR": "Varsayılan",
-                    "zh-CN": "默认"
+                    "zh-CN": "默认",
+                    "de-DE": "Default",
+                    "ko-KR": "Default",
+                    "th-TH": "Default",
+                    "zh-TW": "Default"
                 }
             },
             {
@@ -10254,7 +12037,12 @@ var valueFuncKw =
                     "pt-BR": "Opções",
                     "ru-RU": "Настройки",
                     "tr-TR": "Seçenekler",
-                    "zh-CN": "选项"
+                    "zh-CN": "选项",
+                    "de-DE": "Options",
+                    "fr-FR": "Options",
+                    "ko-KR": "Options",
+                    "th-TH": "Options",
+                    "zh-TW": "Options"
                 }
             },
             {
@@ -10289,7 +12077,11 @@ var valueFuncKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             }
         ],
@@ -10316,7 +12108,15 @@ var valueFuncKw =
         "ja-JP": "ワークショップ設定コンボ",
         "pt-BR": "Caixa de Combinação de Configurações do Workshop",
         "tr-TR": "Atölye Açılan Kutu Ayarı",
-        "zh-CN": "地图工坊设置组合"
+        "zh-CN": "地图工坊设置组合",
+        "de-DE": "Workshop Setting Combo",
+        "es-ES": "Workshop Setting Combo",
+        "it-IT": "Workshop Setting Combo",
+        "ko-KR": "Workshop Setting Combo",
+        "pl-PL": "Workshop Setting Combo",
+        "ru-RU": "Workshop Setting Combo",
+        "th-TH": "Workshop Setting Combo",
+        "zh-TW": "Workshop Setting Combo"
     },
     "__workshopSettingHero__": {
         "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
@@ -10367,7 +12167,11 @@ var valueFuncKw =
                     "pt-BR": "Categoria",
                     "ru-RU": "Категория",
                     "tr-TR": "Kategori",
-                    "zh-CN": "类别"
+                    "zh-CN": "类别",
+                    "de-DE": "Category",
+                    "ko-KR": "Category",
+                    "th-TH": "Category",
+                    "zh-TW": "Category"
                 }
             },
             {
@@ -10401,7 +12205,11 @@ var valueFuncKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             },
             {
@@ -10436,7 +12244,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "По умолчанию",
                     "tr-TR": "Varsayılan",
-                    "zh-CN": "默认"
+                    "zh-CN": "默认",
+                    "de-DE": "Default",
+                    "ko-KR": "Default",
+                    "th-TH": "Default",
+                    "zh-TW": "Default"
                 }
             },
             {
@@ -10471,7 +12283,11 @@ var valueFuncKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             }
         ],
@@ -10483,7 +12299,15 @@ var valueFuncKw =
         "ja-JP": "ワークショップ設定ヒーロー",
         "pt-BR": "Herói de Configuração do Workshop",
         "tr-TR": "Atölye Kahraman Ayarı",
-        "zh-CN": "地图工坊设置英雄"
+        "zh-CN": "地图工坊设置英雄",
+        "de-DE": "Workshop Setting Hero",
+        "es-ES": "Workshop Setting Hero",
+        "it-IT": "Workshop Setting Hero",
+        "ko-KR": "Workshop Setting Hero",
+        "pl-PL": "Workshop Setting Hero",
+        "ru-RU": "Workshop Setting Hero",
+        "th-TH": "Workshop Setting Hero",
+        "zh-TW": "Workshop Setting Hero"
     },
     "__workshopSettingInteger__": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
@@ -10519,7 +12343,11 @@ var valueFuncKw =
                     "pt-BR": "Categoria",
                     "ru-RU": "Категория",
                     "tr-TR": "Kategori",
-                    "zh-CN": "类别"
+                    "zh-CN": "类别",
+                    "de-DE": "Category",
+                    "ko-KR": "Category",
+                    "th-TH": "Category",
+                    "zh-TW": "Category"
                 }
             },
             {
@@ -10553,7 +12381,11 @@ var valueFuncKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             },
             {
@@ -10577,7 +12409,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "По умолчанию",
                     "tr-TR": "Varsayılan",
-                    "zh-CN": "默认"
+                    "zh-CN": "默认",
+                    "de-DE": "Default",
+                    "ko-KR": "Default",
+                    "th-TH": "Default",
+                    "zh-TW": "Default"
                 }
             },
             {
@@ -10600,7 +12436,12 @@ var valueFuncKw =
                     "pt-BR": "Mín.",
                     "ru-RU": "Мин.",
                     "tr-TR": "Min.",
-                    "zh-CN": "最小"
+                    "zh-CN": "最小",
+                    "de-DE": "Min",
+                    "it-IT": "Min",
+                    "ko-KR": "Min",
+                    "th-TH": "Min",
+                    "zh-TW": "Min"
                 }
             },
             {
@@ -10623,7 +12464,12 @@ var valueFuncKw =
                     "pt-BR": "Máx.",
                     "ru-RU": "Макс.",
                     "tr-TR": "Maks.",
-                    "zh-CN": "最大"
+                    "zh-CN": "最大",
+                    "de-DE": "Max",
+                    "it-IT": "Max",
+                    "ko-KR": "Max",
+                    "th-TH": "Max",
+                    "zh-TW": "Max"
                 }
             },
             {
@@ -10647,7 +12493,11 @@ var valueFuncKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             }
         ],
@@ -10675,7 +12525,15 @@ var valueFuncKw =
         "ja-JP": "ワークショップの設定（整数）",
         "pt-BR": "Inteiro de Configuração do Workshop",
         "tr-TR": "Atölye Ayarları Tam Sayısı",
-        "zh-CN": "地图工坊设置整数"
+        "zh-CN": "地图工坊设置整数",
+        "de-DE": "Workshop Setting Integer",
+        "es-ES": "Workshop Setting Integer",
+        "it-IT": "Workshop Setting Integer",
+        "ko-KR": "Workshop Setting Integer",
+        "pl-PL": "Workshop Setting Integer",
+        "ru-RU": "Workshop Setting Integer",
+        "th-TH": "Workshop Setting Integer",
+        "zh-TW": "Workshop Setting Integer"
     },
     "__workshopSettingReal__": {
         "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
@@ -10711,7 +12569,11 @@ var valueFuncKw =
                     "pt-BR": "Categoria",
                     "ru-RU": "Категория",
                     "tr-TR": "Kategori",
-                    "zh-CN": "类别"
+                    "zh-CN": "类别",
+                    "de-DE": "Category",
+                    "ko-KR": "Category",
+                    "th-TH": "Category",
+                    "zh-TW": "Category"
                 }
             },
             {
@@ -10745,7 +12607,11 @@ var valueFuncKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             },
             {
@@ -10769,7 +12635,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "По умолчанию",
                     "tr-TR": "Varsayılan",
-                    "zh-CN": "默认"
+                    "zh-CN": "默认",
+                    "de-DE": "Default",
+                    "ko-KR": "Default",
+                    "th-TH": "Default",
+                    "zh-TW": "Default"
                 }
             },
             {
@@ -10792,7 +12662,12 @@ var valueFuncKw =
                     "pt-BR": "Mín.",
                     "ru-RU": "Мин.",
                     "tr-TR": "Min.",
-                    "zh-CN": "最小"
+                    "zh-CN": "最小",
+                    "de-DE": "Min",
+                    "it-IT": "Min",
+                    "ko-KR": "Min",
+                    "th-TH": "Min",
+                    "zh-TW": "Min"
                 }
             },
             {
@@ -10815,7 +12690,12 @@ var valueFuncKw =
                     "pt-BR": "Máx.",
                     "ru-RU": "Макс.",
                     "tr-TR": "Maks.",
-                    "zh-CN": "最大"
+                    "zh-CN": "最大",
+                    "de-DE": "Max",
+                    "it-IT": "Max",
+                    "ko-KR": "Max",
+                    "th-TH": "Max",
+                    "zh-TW": "Max"
                 }
             },
             {
@@ -10839,7 +12719,11 @@ var valueFuncKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             }
         ],
@@ -10867,7 +12751,15 @@ var valueFuncKw =
         "ja-JP": "ワークショップの設定（実数）",
         "pt-BR": "Real de Configuração do Workshop",
         "tr-TR": "Atölye Ayarı Gerçek Sayısı",
-        "zh-CN": "地图工坊设置实数"
+        "zh-CN": "地图工坊设置实数",
+        "de-DE": "Workshop Setting Real",
+        "es-ES": "Workshop Setting Real",
+        "it-IT": "Workshop Setting Real",
+        "ko-KR": "Workshop Setting Real",
+        "pl-PL": "Workshop Setting Real",
+        "ru-RU": "Workshop Setting Real",
+        "th-TH": "Workshop Setting Real",
+        "zh-TW": "Workshop Setting Real"
     },
     "__workshopSettingToggle__": {
         "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
@@ -10903,7 +12795,11 @@ var valueFuncKw =
                     "pt-BR": "Categoria",
                     "ru-RU": "Категория",
                     "tr-TR": "Kategori",
-                    "zh-CN": "类别"
+                    "zh-CN": "类别",
+                    "de-DE": "Category",
+                    "ko-KR": "Category",
+                    "th-TH": "Category",
+                    "zh-TW": "Category"
                 }
             },
             {
@@ -10937,7 +12833,11 @@ var valueFuncKw =
                     "pt-BR": "Nome",
                     "ru-RU": "Название",
                     "tr-TR": "İsim",
-                    "zh-CN": "名称"
+                    "zh-CN": "名称",
+                    "de-DE": "Name",
+                    "ko-KR": "Name",
+                    "th-TH": "Name",
+                    "zh-TW": "Name"
                 }
             },
             {
@@ -10961,7 +12861,11 @@ var valueFuncKw =
                     "pt-BR": "Padrão",
                     "ru-RU": "По умолчанию",
                     "tr-TR": "Varsayılan",
-                    "zh-CN": "默认"
+                    "zh-CN": "默认",
+                    "de-DE": "Default",
+                    "ko-KR": "Default",
+                    "th-TH": "Default",
+                    "zh-TW": "Default"
                 }
             },
             {
@@ -10985,7 +12889,11 @@ var valueFuncKw =
                     "pt-BR": "Ordem de Classificação",
                     "ru-RU": "Порядок сортировки",
                     "tr-TR": "Sıralama Düzeni",
-                    "zh-CN": "排序"
+                    "zh-CN": "排序",
+                    "de-DE": "Sort Order",
+                    "ko-KR": "Sort Order",
+                    "th-TH": "Sort Order",
+                    "zh-TW": "Sort Order"
                 }
             }
         ],
@@ -11013,7 +12921,15 @@ var valueFuncKw =
         "ja-JP": "ワークショップの設定の切り替え",
         "pt-BR": "Alternar Configuração do Workshop",
         "tr-TR": "Atölye Ayarını AçKapat",
-        "zh-CN": "地图工坊设置开关"
+        "zh-CN": "地图工坊设置开关",
+        "de-DE": "Workshop Setting Toggle",
+        "es-ES": "Workshop Setting Toggle",
+        "it-IT": "Workshop Setting Toggle",
+        "ko-KR": "Workshop Setting Toggle",
+        "pl-PL": "Workshop Setting Toggle",
+        "ru-RU": "Workshop Setting Toggle",
+        "th-TH": "Workshop Setting Toggle",
+        "zh-TW": "Workshop Setting Toggle"
     },
     "__xComponentOf__": {
         "description": "The x component of the specified vector, usually representing a leftward amount.",
@@ -11050,7 +12966,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11078,7 +12998,15 @@ var valueFuncKw =
         "ja-JP": "X成分: ",
         "pt-BR": "Componente X de",
         "tr-TR": "X Bileşeni",
-        "zh-CN": "X方向分量"
+        "zh-CN": "X方向分量",
+        "de-DE": "X Component Of",
+        "es-ES": "X Component Of",
+        "it-IT": "X Component Of",
+        "ko-KR": "X Component Of",
+        "pl-PL": "X Component Of",
+        "ru-RU": "X Component Of",
+        "th-TH": "X Component Of",
+        "zh-TW": "X Component Of"
     },
     "__yComponentOf__": {
         "description": "The y component of the specified vector, usually representing an upward amount.",
@@ -11115,7 +13043,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11143,7 +13075,15 @@ var valueFuncKw =
         "ja-JP": "Y成分: ",
         "pt-BR": "Componente Y de",
         "tr-TR": "Y Bileşeni",
-        "zh-CN": "Y方向分量"
+        "zh-CN": "Y方向分量",
+        "de-DE": "Y Component Of",
+        "es-ES": "Y Component Of",
+        "it-IT": "Y Component Of",
+        "ko-KR": "Y Component Of",
+        "pl-PL": "Y Component Of",
+        "ru-RU": "Y Component Of",
+        "th-TH": "Y Component Of",
+        "zh-TW": "Y Component Of"
     },
     "__zComponentOf__": {
         "description": "The z component of the specified vector, usually representing a forward amount.",
@@ -11180,7 +13120,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11208,7 +13152,15 @@ var valueFuncKw =
         "ja-JP": "Z成分: ",
         "pt-BR": "Componente Z de",
         "tr-TR": "Z Bileşeni",
-        "zh-CN": "Z方向分量"
+        "zh-CN": "Z方向分量",
+        "de-DE": "Z Component Of",
+        "es-ES": "Z Component Of",
+        "it-IT": "Z Component Of",
+        "ko-KR": "Z Component Of",
+        "pl-PL": "Z Component Of",
+        "ru-RU": "Z Component Of",
+        "th-TH": "Z Component Of",
+        "zh-TW": "Z Component Of"
     },
     "abilityIconString": {
         "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
@@ -11238,14 +13190,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -11280,7 +13236,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -11309,7 +13269,15 @@ var valueFuncKw =
         "ja-JP": "アビリティアイコンストリング",
         "pt-BR": "String de Ícone de Habilidade",
         "tr-TR": "Kabiliyet Simgesi Dizgisi",
-        "zh-CN": "技能图标字符串"
+        "zh-CN": "技能图标字符串",
+        "de-DE": "Ability Icon String",
+        "es-ES": "Ability Icon String",
+        "it-IT": "Ability Icon String",
+        "ko-KR": "Ability Icon String",
+        "pl-PL": "Ability Icon String",
+        "ru-RU": "Ability Icon String",
+        "th-TH": "Ability Icon String",
+        "zh-TW": "Ability Icon String"
     },
     "abs": {
         "description": "The absolute value of the specified value.",
@@ -11346,7 +13314,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11375,7 +13347,14 @@ var valueFuncKw =
         "pt-BR": "Valor Absoluto",
         "th-TH": "ค่าสัมบูรณ์",
         "tr-TR": "Mutlak Değer",
-        "zh-CN": "绝对值"
+        "zh-CN": "绝对值",
+        "de-DE": "Absolute Value",
+        "es-ES": "Absolute Value",
+        "it-IT": "Absolute Value",
+        "ko-KR": "Absolute Value",
+        "pl-PL": "Absolute Value",
+        "ru-RU": "Absolute Value",
+        "zh-TW": "Absolute Value"
     },
     "acos": {
         "description": "Arccosine in radians of the specified value.",
@@ -11412,7 +13391,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11440,7 +13423,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのアークコサイン",
         "pt-BR": "Arco Cosseno em Radianos",
         "tr-TR": "Radyan Cinsinden Arkkosinüs",
-        "zh-CN": "以弧度为单位的反余弦值"
+        "zh-CN": "以弧度为单位的反余弦值",
+        "de-DE": "Arccosine In Radians",
+        "es-ES": "Arccosine In Radians",
+        "it-IT": "Arccosine In Radians",
+        "ko-KR": "Arccosine In Radians",
+        "pl-PL": "Arccosine In Radians",
+        "ru-RU": "Arccosine In Radians",
+        "th-TH": "Arccosine In Radians",
+        "zh-TW": "Arccosine In Radians"
     },
     "acosDeg": {
         "description": "Arccosine in degrees of the specified value.",
@@ -11477,7 +13468,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11505,7 +13500,15 @@ var valueFuncKw =
         "ja-JP": "度単位のアークコサイン",
         "pt-BR": "Arco Cosseno em Graus",
         "tr-TR": "Derece Cinsinden Arkkosinüs",
-        "zh-CN": "以角度为单位的反余弦值"
+        "zh-CN": "以角度为单位的反余弦值",
+        "de-DE": "Arccosine In Degrees",
+        "es-ES": "Arccosine In Degrees",
+        "it-IT": "Arccosine In Degrees",
+        "ko-KR": "Arccosine In Degrees",
+        "pl-PL": "Arccosine In Degrees",
+        "ru-RU": "Arccosine In Degrees",
+        "th-TH": "Arccosine In Degrees",
+        "zh-TW": "Arccosine In Degrees"
     },
     "angleBetweenVectors": {
         "description": "The angle in degrees between two directional vectors (no normalization required).",
@@ -11539,7 +13542,14 @@ var valueFuncKw =
                     "pt-BR": "Vetor",
                     "ru-RU": "Вектор",
                     "tr-TR": "Vektör",
-                    "zh-CN": "矢量"
+                    "zh-CN": "矢量",
+                    "de-DE": "Vector",
+                    "es-ES": "Vector",
+                    "es-MX": "Vector",
+                    "ko-KR": "Vector",
+                    "pl-PL": "Vector",
+                    "th-TH": "Vector",
+                    "zh-TW": "Vector"
                 }
             },
             {
@@ -11571,7 +13581,14 @@ var valueFuncKw =
                     "pt-BR": "Vetor",
                     "ru-RU": "Вектор",
                     "tr-TR": "Vektör",
-                    "zh-CN": "矢量"
+                    "zh-CN": "矢量",
+                    "de-DE": "Vector",
+                    "es-ES": "Vector",
+                    "es-MX": "Vector",
+                    "ko-KR": "Vector",
+                    "pl-PL": "Vector",
+                    "th-TH": "Vector",
+                    "zh-TW": "Vector"
                 }
             }
         ],
@@ -11599,7 +13616,15 @@ var valueFuncKw =
         "ja-JP": "ベクトル間角度",
         "pt-BR": "Ângulo entre Vetores",
         "tr-TR": "Vektörler Arasındaki Açı",
-        "zh-CN": "矢量间夹角"
+        "zh-CN": "矢量间夹角",
+        "de-DE": "Angle Between Vectors",
+        "es-ES": "Angle Between Vectors",
+        "it-IT": "Angle Between Vectors",
+        "ko-KR": "Angle Between Vectors",
+        "pl-PL": "Angle Between Vectors",
+        "ru-RU": "Angle Between Vectors",
+        "th-TH": "Angle Between Vectors",
+        "zh-TW": "Angle Between Vectors"
     },
     "angleDifference": {
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
@@ -11635,7 +13660,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             },
             {
@@ -11669,7 +13699,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -11697,7 +13732,15 @@ var valueFuncKw =
         "ja-JP": "角度差",
         "pt-BR": "Diferença de Ângulo",
         "tr-TR": "Açı Farkı",
-        "zh-CN": "角度差"
+        "zh-CN": "角度差",
+        "de-DE": "Angle Difference",
+        "es-ES": "Angle Difference",
+        "it-IT": "Angle Difference",
+        "ko-KR": "Angle Difference",
+        "pl-PL": "Angle Difference",
+        "ru-RU": "Angle Difference",
+        "th-TH": "Angle Difference",
+        "zh-TW": "Angle Difference"
     },
     "angleToDirection": {
         "description": "The unit-length direction vector corresponding to the specified angles.",
@@ -11734,7 +13777,11 @@ var valueFuncKw =
                     "pt-BR": "Ângulo Horizontal",
                     "ru-RU": "Горизонтальный угол",
                     "tr-TR": "Yatay Açı",
-                    "zh-CN": "水平角度"
+                    "zh-CN": "水平角度",
+                    "de-DE": "Horizontal Angle",
+                    "ko-KR": "Horizontal Angle",
+                    "th-TH": "Horizontal Angle",
+                    "zh-TW": "Horizontal Angle"
                 }
             },
             {
@@ -11769,7 +13816,11 @@ var valueFuncKw =
                     "pt-BR": "Ângulo Vertical",
                     "ru-RU": "Вертикальный угол",
                     "tr-TR": "Dikey Açı",
-                    "zh-CN": "垂直角度"
+                    "zh-CN": "垂直角度",
+                    "de-DE": "Vertical Angle",
+                    "ko-KR": "Vertical Angle",
+                    "th-TH": "Vertical Angle",
+                    "zh-TW": "Vertical Angle"
                 }
             }
         ],
@@ -11798,7 +13849,15 @@ var valueFuncKw =
         "ja-JP": "角度による方向",
         "pt-BR": "Direção a partir dos Ângulos",
         "tr-TR": "Açıların Yönü",
-        "zh-CN": "与此角度的相对方向"
+        "zh-CN": "与此角度的相对方向",
+        "de-DE": "Direction From Angles",
+        "es-ES": "Direction From Angles",
+        "it-IT": "Direction From Angles",
+        "ko-KR": "Direction From Angles",
+        "pl-PL": "Direction From Angles",
+        "ru-RU": "Direction From Angles",
+        "th-TH": "Direction From Angles",
+        "zh-TW": "Direction From Angles"
     },
     "asin": {
         "description": "Arcsine in radians of the specified value.",
@@ -11835,7 +13894,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11863,7 +13926,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのアークサイン",
         "pt-BR": "Arco Seno em Radianos",
         "tr-TR": "Radyan Cinsinden Arksinüs",
-        "zh-CN": "以弧度为单位的反正弦值"
+        "zh-CN": "以弧度为单位的反正弦值",
+        "de-DE": "Arcsine In Radians",
+        "es-ES": "Arcsine In Radians",
+        "it-IT": "Arcsine In Radians",
+        "ko-KR": "Arcsine In Radians",
+        "pl-PL": "Arcsine In Radians",
+        "ru-RU": "Arcsine In Radians",
+        "th-TH": "Arcsine In Radians",
+        "zh-TW": "Arcsine In Radians"
     },
     "asinDeg": {
         "description": "Arcsine in degrees of the specified value.",
@@ -11900,7 +13971,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -11928,7 +14003,15 @@ var valueFuncKw =
         "ja-JP": "度単位のアークサイン",
         "pt-BR": "Arco Seno em Graus",
         "tr-TR": "Derece Cinsinden Arksinüs",
-        "zh-CN": "以角度为单位的反正弦值"
+        "zh-CN": "以角度为单位的反正弦值",
+        "de-DE": "Arcsine In Degrees",
+        "es-ES": "Arcsine In Degrees",
+        "it-IT": "Arcsine In Degrees",
+        "ko-KR": "Arcsine In Degrees",
+        "pl-PL": "Arcsine In Degrees",
+        "ru-RU": "Arcsine In Degrees",
+        "th-TH": "Arcsine In Degrees",
+        "zh-TW": "Arcsine In Degrees"
     },
     "atan2": {
         "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
@@ -11964,7 +14047,12 @@ var valueFuncKw =
                     "pt-BR": "Numerador",
                     "ru-RU": "Числитель",
                     "tr-TR": "Pay",
-                    "zh-CN": "分子"
+                    "zh-CN": "分子",
+                    "de-DE": "Numerator",
+                    "ko-KR": "Numerator",
+                    "pl-PL": "Numerator",
+                    "th-TH": "Numerator",
+                    "zh-TW": "Numerator"
                 }
             },
             {
@@ -11998,7 +14086,12 @@ var valueFuncKw =
                     "pt-BR": "Denominador",
                     "ru-RU": "Знаменатель",
                     "tr-TR": "Payda",
-                    "zh-CN": "分母"
+                    "zh-CN": "分母",
+                    "de-DE": "Denominator",
+                    "ko-KR": "Denominator",
+                    "pl-PL": "Denominator",
+                    "th-TH": "Denominator",
+                    "zh-TW": "Denominator"
                 }
             }
         ],
@@ -12026,7 +14119,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのアークタンジェント",
         "pt-BR": "Arco Tangente em Radianos",
         "tr-TR": "Radyan Cinsinden Arktanjant",
-        "zh-CN": "以弧度为单位的反正切值"
+        "zh-CN": "以弧度为单位的反正切值",
+        "de-DE": "Arctangent In Radians",
+        "es-ES": "Arctangent In Radians",
+        "it-IT": "Arctangent In Radians",
+        "ko-KR": "Arctangent In Radians",
+        "pl-PL": "Arctangent In Radians",
+        "ru-RU": "Arctangent In Radians",
+        "th-TH": "Arctangent In Radians",
+        "zh-TW": "Arctangent In Radians"
     },
     "atan2Deg": {
         "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
@@ -12062,7 +14163,12 @@ var valueFuncKw =
                     "pt-BR": "Numerador",
                     "ru-RU": "Числитель",
                     "tr-TR": "Pay",
-                    "zh-CN": "分子"
+                    "zh-CN": "分子",
+                    "de-DE": "Numerator",
+                    "ko-KR": "Numerator",
+                    "pl-PL": "Numerator",
+                    "th-TH": "Numerator",
+                    "zh-TW": "Numerator"
                 }
             },
             {
@@ -12096,7 +14202,12 @@ var valueFuncKw =
                     "pt-BR": "Denominador",
                     "ru-RU": "Знаменатель",
                     "tr-TR": "Payda",
-                    "zh-CN": "分母"
+                    "zh-CN": "分母",
+                    "de-DE": "Denominator",
+                    "ko-KR": "Denominator",
+                    "pl-PL": "Denominator",
+                    "th-TH": "Denominator",
+                    "zh-TW": "Denominator"
                 }
             }
         ],
@@ -12124,7 +14235,15 @@ var valueFuncKw =
         "ja-JP": "度単位のアークタンジェント",
         "pt-BR": "Arco Tangente em Graus",
         "tr-TR": "Derece Cinsinden Arktanjant",
-        "zh-CN": "以角度为单位的反正切值"
+        "zh-CN": "以角度为单位的反正切值",
+        "de-DE": "Arctangent In Degrees",
+        "es-ES": "Arctangent In Degrees",
+        "it-IT": "Arctangent In Degrees",
+        "ko-KR": "Arctangent In Degrees",
+        "pl-PL": "Arctangent In Degrees",
+        "ru-RU": "Arctangent In Degrees",
+        "th-TH": "Arctangent In Degrees",
+        "zh-TW": "Arctangent In Degrees"
     },
     "attacker": {
         "guid": "00000000B32F",
@@ -12153,7 +14272,15 @@ var valueFuncKw =
         "ja-JP": "攻撃者",
         "pt-BR": "Atacante",
         "tr-TR": "Saldırgan",
-        "zh-CN": "攻击方"
+        "zh-CN": "攻击方",
+        "de-DE": "Attacker",
+        "es-ES": "Attacker",
+        "it-IT": "Attacker",
+        "ko-KR": "Attacker",
+        "pl-PL": "Attacker",
+        "ru-RU": "Attacker",
+        "th-TH": "Attacker",
+        "zh-TW": "Attacker"
     },
     "buttonString": {
         "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
@@ -12190,7 +14317,11 @@ var valueFuncKw =
                     "pt-BR": "Botão",
                     "ru-RU": "Кнопка",
                     "tr-TR": "Düğme",
-                    "zh-CN": "按钮"
+                    "zh-CN": "按钮",
+                    "de-DE": "Button",
+                    "ko-KR": "Button",
+                    "th-TH": "Button",
+                    "zh-TW": "Button"
                 }
             }
         ],
@@ -12220,7 +14351,14 @@ var valueFuncKw =
         "pt-BR": "String de Mapeamento de Entrada",
         "th-TH": "สตริงการผูกอินพุต",
         "tr-TR": "Girdi Ataması Dizgisi",
-        "zh-CN": "输入绑定字符串"
+        "zh-CN": "输入绑定字符串",
+        "de-DE": "Input Binding String",
+        "es-ES": "Input Binding String",
+        "it-IT": "Input Binding String",
+        "ko-KR": "Input Binding String",
+        "pl-PL": "Input Binding String",
+        "ru-RU": "Input Binding String",
+        "zh-TW": "Input Binding String"
     },
     "cos": {
         "description": "Cosine of the specified angle in radians.",
@@ -12256,7 +14394,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -12284,7 +14427,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのコサイン",
         "pt-BR": "Cosseno de Radianos",
         "tr-TR": "Radyan Cinsinden Kosinüs",
-        "zh-CN": "弧度的余弦值"
+        "zh-CN": "弧度的余弦值",
+        "de-DE": "Cosine From Radians",
+        "es-ES": "Cosine From Radians",
+        "it-IT": "Cosine From Radians",
+        "ko-KR": "Cosine From Radians",
+        "pl-PL": "Cosine From Radians",
+        "ru-RU": "Cosine From Radians",
+        "th-TH": "Cosine From Radians",
+        "zh-TW": "Cosine From Radians"
     },
     "cosDeg": {
         "description": "Cosine of the specified angle in degrees.",
@@ -12320,7 +14471,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -12349,7 +14505,14 @@ var valueFuncKw =
         "pt-BR": "Cosseno de Graus",
         "th-TH": "โคไซน์จากองศา",
         "tr-TR": "Derece Cinsinden Kosinüs",
-        "zh-CN": "角度的余弦值"
+        "zh-CN": "角度的余弦值",
+        "de-DE": "Cosine From Degrees",
+        "es-ES": "Cosine From Degrees",
+        "it-IT": "Cosine From Degrees",
+        "ko-KR": "Cosine From Degrees",
+        "pl-PL": "Cosine From Degrees",
+        "ru-RU": "Cosine From Degrees",
+        "zh-TW": "Cosine From Degrees"
     },
     "crossProduct": {
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
@@ -12386,7 +14549,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -12421,7 +14588,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -12451,7 +14622,14 @@ var valueFuncKw =
         "pt-BR": "Produto Vetorial",
         "th-TH": "ผลคูณไขว้",
         "tr-TR": "Çapraz Çarpım",
-        "zh-CN": "矢量积"
+        "zh-CN": "矢量积",
+        "de-DE": "Cross Product",
+        "es-ES": "Cross Product",
+        "it-IT": "Cross Product",
+        "ko-KR": "Cross Product",
+        "pl-PL": "Cross Product",
+        "ru-RU": "Cross Product",
+        "zh-TW": "Cross Product"
     },
     "directionTowards": {
         "description": "The unit-length direction vector from one position to another.",
@@ -12488,7 +14666,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -12523,7 +14705,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             }
         ],
@@ -12552,7 +14738,15 @@ var valueFuncKw =
         "ja-JP": "指す方向: ",
         "pt-BR": "Direção Rumo a",
         "tr-TR": "Hareket Yönü",
-        "zh-CN": "方向"
+        "zh-CN": "方向",
+        "de-DE": "Direction Towards",
+        "es-ES": "Direction Towards",
+        "it-IT": "Direction Towards",
+        "ko-KR": "Direction Towards",
+        "pl-PL": "Direction Towards",
+        "ru-RU": "Direction Towards",
+        "th-TH": "Direction Towards",
+        "zh-TW": "Direction Towards"
     },
     "distance": {
         "description": "The distance between two positions in meters.",
@@ -12589,7 +14783,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -12624,7 +14822,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             }
         ],
@@ -12652,7 +14854,15 @@ var valueFuncKw =
         "ja-JP": "二点間の距離",
         "pt-BR": "Distância entre",
         "tr-TR": "Aradaki Mesafe",
-        "zh-CN": "相距距离"
+        "zh-CN": "相距距离",
+        "de-DE": "Distance Between",
+        "es-ES": "Distance Between",
+        "it-IT": "Distance Between",
+        "ko-KR": "Distance Between",
+        "pl-PL": "Distance Between",
+        "ru-RU": "Distance Between",
+        "th-TH": "Distance Between",
+        "zh-TW": "Distance Between"
     },
     "dotProduct": {
         "description": "The dot product of the specified values.",
@@ -12689,7 +14899,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -12724,7 +14938,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -12753,7 +14971,14 @@ var valueFuncKw =
         "pt-BR": "Produto Escalar",
         "th-TH": "ผลคูณจุด",
         "tr-TR": "Nokta Çarpımı",
-        "zh-CN": "标量积"
+        "zh-CN": "标量积",
+        "de-DE": "Dot Product",
+        "es-ES": "Dot Product",
+        "it-IT": "Dot Product",
+        "ko-KR": "Dot Product",
+        "pl-PL": "Dot Product",
+        "ru-RU": "Dot Product",
+        "zh-TW": "Dot Product"
     },
     "entityExists": {
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
@@ -12794,7 +15019,10 @@ var valueFuncKw =
                     "ru-RU": "Объект",
                     "th-TH": "เอนทิตี",
                     "tr-TR": "Varlık",
-                    "zh-CN": "实体"
+                    "zh-CN": "实体",
+                    "de-DE": "Entity",
+                    "ko-KR": "Entity",
+                    "zh-TW": "Entity"
                 }
             }
         ],
@@ -12821,7 +15049,15 @@ var valueFuncKw =
         "ja-JP": "エンティティが存在している",
         "pt-BR": "Entidade Existe",
         "tr-TR": "Varlık Mevcut",
-        "zh-CN": "实体存在"
+        "zh-CN": "实体存在",
+        "de-DE": "Entity Exists",
+        "es-ES": "Entity Exists",
+        "it-IT": "Entity Exists",
+        "ko-KR": "Entity Exists",
+        "pl-PL": "Entity Exists",
+        "ru-RU": "Entity Exists",
+        "th-TH": "Entity Exists",
+        "zh-TW": "Entity Exists"
     },
     "evalOnce": {
         "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
@@ -12876,7 +15112,11 @@ var valueFuncKw =
                     "pt-BR": "Valor de Entrada",
                     "ru-RU": "Значение ввода",
                     "tr-TR": "Girdi Değeri",
-                    "zh-CN": "输入值"
+                    "zh-CN": "输入值",
+                    "de-DE": "Input Value",
+                    "ko-KR": "Input Value",
+                    "th-TH": "Input Value",
+                    "zh-TW": "Input Value"
                 }
             }
         ],
@@ -12892,7 +15132,15 @@ var valueFuncKw =
         "ja-JP": "一度だけ評価",
         "pt-BR": "Avaliar Uma Vez",
         "tr-TR": "Bir Kere Değerlendir",
-        "zh-CN": "单次赋值"
+        "zh-CN": "单次赋值",
+        "de-DE": "Evaluate Once",
+        "es-ES": "Evaluate Once",
+        "it-IT": "Evaluate Once",
+        "ko-KR": "Evaluate Once",
+        "pl-PL": "Evaluate Once",
+        "ru-RU": "Evaluate Once",
+        "th-TH": "Evaluate Once",
+        "zh-TW": "Evaluate Once"
     },
     "eventAbility": {
         "description": "The ability for the event currently being processed by this rule associated by button.",
@@ -12921,7 +15169,15 @@ var valueFuncKw =
         "ja-JP": "イベントアビリティ",
         "pt-BR": "Habilidade do Evento",
         "tr-TR": "Etkinlik Kabiliyeti",
-        "zh-CN": "事件技能"
+        "zh-CN": "事件技能",
+        "de-DE": "Event Ability",
+        "es-ES": "Event Ability",
+        "it-IT": "Event Ability",
+        "ko-KR": "Event Ability",
+        "pl-PL": "Event Ability",
+        "ru-RU": "Event Ability",
+        "th-TH": "Event Ability",
+        "zh-TW": "Event Ability"
     },
     "eventDamage": {
         "description": "The amount of damage received by the victim for the event currently being processed by this rule.",
@@ -12949,7 +15205,15 @@ var valueFuncKw =
         "ja-JP": "イベント・ダメージ",
         "pt-BR": "Dano do Evento",
         "tr-TR": "Etkinlik Hasarı",
-        "zh-CN": "事件伤害"
+        "zh-CN": "事件伤害",
+        "de-DE": "Event Damage",
+        "es-ES": "Event Damage",
+        "it-IT": "Event Damage",
+        "ko-KR": "Event Damage",
+        "pl-PL": "Event Damage",
+        "ru-RU": "Event Damage",
+        "th-TH": "Event Damage",
+        "zh-TW": "Event Damage"
     },
     "eventDirection": {
         "description": "The incoming direction for the event currently being processed by this rule.",
@@ -12978,7 +15242,15 @@ var valueFuncKw =
         "ja-JP": "イベント方向",
         "pt-BR": "Direção do Evento",
         "tr-TR": "Etkinlik Yönü",
-        "zh-CN": "事件方向"
+        "zh-CN": "事件方向",
+        "de-DE": "Event Direction",
+        "es-ES": "Event Direction",
+        "it-IT": "Event Direction",
+        "ko-KR": "Event Direction",
+        "pl-PL": "Event Direction",
+        "ru-RU": "Event Direction",
+        "th-TH": "Event Direction",
+        "zh-TW": "Event Direction"
     },
     "eventHealing": {
         "description": "The amount of healing received by the healee for the event currently being processed by this rule.",
@@ -13007,7 +15279,14 @@ var valueFuncKw =
         "pt-BR": "Cura no Evento",
         "th-TH": "การฮีลในอีเวนต์",
         "tr-TR": "Etkinlik İyileştirmesi",
-        "zh-CN": "事件治疗"
+        "zh-CN": "事件治疗",
+        "de-DE": "Event Healing",
+        "es-ES": "Event Healing",
+        "it-IT": "Event Healing",
+        "ko-KR": "Event Healing",
+        "pl-PL": "Event Healing",
+        "ru-RU": "Event Healing",
+        "zh-TW": "Event Healing"
     },
     "eventPlayer": {
         "description": "The player executing this rule, as specified by the event. May be the same as the attacker or victim.",
@@ -13036,7 +15315,15 @@ var valueFuncKw =
         "ja-JP": "イベント・プレイヤー",
         "pt-BR": "Jogador do Evento",
         "tr-TR": "Etkinlik Oyuncusu",
-        "zh-CN": "事件玩家"
+        "zh-CN": "事件玩家",
+        "de-DE": "Event Player",
+        "es-ES": "Event Player",
+        "it-IT": "Event Player",
+        "ko-KR": "Event Player",
+        "pl-PL": "Event Player",
+        "ru-RU": "Event Player",
+        "th-TH": "Event Player",
+        "zh-TW": "Event Player"
     },
     "eventWasCriticalHit": {
         "description": "Whether the damage was a critical hit (such as a headshot) for the event currently being processed by this rule.",
@@ -13064,7 +15351,15 @@ var valueFuncKw =
         "ja-JP": "イベントがクリティカル・ヒットだった",
         "pt-BR": "Evento foi Golpe Crítico",
         "tr-TR": "Etkinlik Kritik Vuruştu",
-        "zh-CN": "事件暴击"
+        "zh-CN": "事件暴击",
+        "de-DE": "Event Was Critical Hit",
+        "es-ES": "Event Was Critical Hit",
+        "it-IT": "Event Was Critical Hit",
+        "ko-KR": "Event Was Critical Hit",
+        "pl-PL": "Event Was Critical Hit",
+        "ru-RU": "Event Was Critical Hit",
+        "th-TH": "Event Was Critical Hit",
+        "zh-TW": "Event Was Critical Hit"
     },
     "eventWasEnvironment": {
         "description": "Whether the elimination was due to the environment for the event currently being processed by this rule.",
@@ -13092,7 +15387,15 @@ var valueFuncKw =
         "ja-JP": "イベントは環境だった",
         "pt-BR": "Evento foi Ambiente",
         "tr-TR": "Etkinlik Ortam",
-        "zh-CN": "事件为环境事件"
+        "zh-CN": "事件为环境事件",
+        "de-DE": "Event Was Environment",
+        "es-ES": "Event Was Environment",
+        "it-IT": "Event Was Environment",
+        "ko-KR": "Event Was Environment",
+        "pl-PL": "Event Was Environment",
+        "ru-RU": "Event Was Environment",
+        "th-TH": "Event Was Environment",
+        "zh-TW": "Event Was Environment"
     },
     "eventWasHealthPack": {
         "description": "Whether the healing was from a health pack for the event currently being processed by this rule.",
@@ -13120,7 +15423,15 @@ var valueFuncKw =
         "ja-JP": "ライフ・パックのイベントだった",
         "pt-BR": "Evento foi kit Médico",
         "tr-TR": "Etkinlik Sağlık Kiti",
-        "zh-CN": "事件为急救包"
+        "zh-CN": "事件为急救包",
+        "de-DE": "Event Was Health Pack",
+        "es-ES": "Event Was Health Pack",
+        "it-IT": "Event Was Health Pack",
+        "ko-KR": "Event Was Health Pack",
+        "pl-PL": "Event Was Health Pack",
+        "ru-RU": "Event Was Health Pack",
+        "th-TH": "Event Was Health Pack",
+        "zh-TW": "Event Was Health Pack"
     },
     "false": {
         "description": "The boolean value of false.",
@@ -13148,7 +15459,16 @@ var valueFuncKw =
         "fr-FR": "Faux",
         "th-TH": "เท็จ",
         "tr-TR": "Yanlış",
-        "zh-CN": "假"
+        "zh-CN": "假",
+        "de-DE": "False",
+        "es-ES": "False",
+        "it-IT": "False",
+        "ja-JP": "False",
+        "ko-KR": "False",
+        "pl-PL": "False",
+        "pt-BR": "False",
+        "ru-RU": "False",
+        "zh-TW": "False"
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
@@ -13217,7 +15537,15 @@ var valueFuncKw =
         "ja-JP": "サーバー負荷平均",
         "pt-BR": "Média de Uso do Servidor",
         "tr-TR": "Sunucu Doluluk Ortalaması",
-        "zh-CN": "服务器负载平均值"
+        "zh-CN": "服务器负载平均值",
+        "de-DE": "Server Load Average",
+        "es-ES": "Server Load Average",
+        "it-IT": "Server Load Average",
+        "ko-KR": "Server Load Average",
+        "pl-PL": "Server Load Average",
+        "ru-RU": "Server Load Average",
+        "th-TH": "Server Load Average",
+        "zh-TW": "Server Load Average"
     },
     "getCapturePercentage": {
         "description": "The current progress towards capture for the active control point (expressed as a percentage).",
@@ -13245,7 +15573,15 @@ var valueFuncKw =
         "ja-JP": "ポイント・キャプチャーのパーセンテージ",
         "pt-BR": "Percentual de Captura do Ponto",
         "tr-TR": "Nokta Ele Geçirme Yüzdesi",
-        "zh-CN": "目标点占领百分比"
+        "zh-CN": "目标点占领百分比",
+        "de-DE": "Point Capture Percentage",
+        "es-ES": "Point Capture Percentage",
+        "it-IT": "Point Capture Percentage",
+        "ko-KR": "Point Capture Percentage",
+        "pl-PL": "Point Capture Percentage",
+        "ru-RU": "Point Capture Percentage",
+        "th-TH": "Point Capture Percentage",
+        "zh-TW": "Point Capture Percentage"
     },
     "getClosestPlayer": {
         "description": "The player closest to a position, optionally restricted by team.",
@@ -13282,7 +15618,11 @@ var valueFuncKw =
                     "pt-BR": "Centro",
                     "ru-RU": "Центр",
                     "tr-TR": "Merkez",
-                    "zh-CN": "中间"
+                    "zh-CN": "中间",
+                    "de-DE": "Center",
+                    "ko-KR": "Center",
+                    "th-TH": "Center",
+                    "zh-TW": "Center"
                 }
             },
             {
@@ -13317,7 +15657,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13345,7 +15689,15 @@ var valueFuncKw =
         "ja-JP": "最も近いプレイヤー。基準: ",
         "pt-BR": "Jogador Mais Próximo a",
         "tr-TR": "En Yakın Oyuncu",
-        "zh-CN": "距离最近的玩家"
+        "zh-CN": "距离最近的玩家",
+        "de-DE": "Closest Player To",
+        "es-ES": "Closest Player To",
+        "it-IT": "Closest Player To",
+        "ko-KR": "Closest Player To",
+        "pl-PL": "Closest Player To",
+        "ru-RU": "Closest Player To",
+        "th-TH": "Closest Player To",
+        "zh-TW": "Closest Player To"
     },
     "getControlScorePercentage": {
         "description": "The score percentage for the specified team in control mode.",
@@ -13382,7 +15734,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13409,7 +15765,15 @@ var valueFuncKw =
         "ja-JP": "コントロール・モードのスコア・パーセンテージ",
         "pt-BR": "Percentual de Pontuação no Modo de Controle",
         "tr-TR": "Kontrol Modu Puanlama Yüzdesi",
-        "zh-CN": "占领要点模式得分百分比"
+        "zh-CN": "占领要点模式得分百分比",
+        "de-DE": "Control Mode Scoring Percentage",
+        "es-ES": "Control Mode Scoring Percentage",
+        "it-IT": "Control Mode Scoring Percentage",
+        "ko-KR": "Control Mode Scoring Percentage",
+        "pl-PL": "Control Mode Scoring Percentage",
+        "ru-RU": "Control Mode Scoring Percentage",
+        "th-TH": "Control Mode Scoring Percentage",
+        "zh-TW": "Control Mode Scoring Percentage"
     },
     "getControlScoringTeam": {
         "description": "The team that is currently accumulating score percentage in control mode. Results in all if neither team is accumulating score.",
@@ -13438,7 +15802,15 @@ var valueFuncKw =
         "ja-JP": "コントロール・モードの得点チーム",
         "pt-BR": "Equipe Pontuando no Modo de Controle",
         "tr-TR": "Kontrol Modu Puan Alan Takım",
-        "zh-CN": "占领要点模式正在得分的队伍"
+        "zh-CN": "占领要点模式正在得分的队伍",
+        "de-DE": "Control Mode Scoring Team",
+        "es-ES": "Control Mode Scoring Team",
+        "it-IT": "Control Mode Scoring Team",
+        "ko-KR": "Control Mode Scoring Team",
+        "pl-PL": "Control Mode Scoring Team",
+        "ru-RU": "Control Mode Scoring Team",
+        "th-TH": "Control Mode Scoring Team",
+        "zh-TW": "Control Mode Scoring Team"
     },
     "getCurrentGamemode": {
         "description": "The current game mode of the custom game.",
@@ -13468,7 +15840,15 @@ var valueFuncKw =
         "ja-JP": "現在のゲーム・モード",
         "pt-BR": "Modo de jogo atual",
         "tr-TR": "Mevcut Oyun Modu",
-        "zh-CN": "当前游戏模式"
+        "zh-CN": "当前游戏模式",
+        "de-DE": "Current Game Mode",
+        "es-ES": "Current Game Mode",
+        "it-IT": "Current Game Mode",
+        "ko-KR": "Current Game Mode",
+        "pl-PL": "Current Game Mode",
+        "ru-RU": "Current Game Mode",
+        "th-TH": "Current Game Mode",
+        "zh-TW": "Current Game Mode"
     },
     "getCurrentMap": {
         "guid": "00000000D418",
@@ -13498,7 +15878,15 @@ var valueFuncKw =
         "ja-JP": "現在のマップ",
         "pt-BR": "Mapa Atual",
         "tr-TR": "Mevcut Harita",
-        "zh-CN": "当前地图"
+        "zh-CN": "当前地图",
+        "de-DE": "Current Map",
+        "es-ES": "Current Map",
+        "it-IT": "Current Map",
+        "ko-KR": "Current Map",
+        "pl-PL": "Current Map",
+        "ru-RU": "Current Map",
+        "th-TH": "Current Map",
+        "zh-TW": "Current Map"
     },
     "getCurrentObjective": {
         "description": "The control point, payload checkpoint, or payload destination currently active (either 0, 1, or 2). Valid in assault, hybrid, escort, and control.",
@@ -13526,7 +15914,15 @@ var valueFuncKw =
         "ja-JP": "コントロール・モードのサブマップ番号",
         "pt-BR": "Índice do Objetivo",
         "tr-TR": "Hedef İndeksi",
-        "zh-CN": "对象索引"
+        "zh-CN": "对象索引",
+        "de-DE": "Objective Index",
+        "es-ES": "Objective Index",
+        "it-IT": "Objective Index",
+        "ko-KR": "Objective Index",
+        "pl-PL": "Objective Index",
+        "ru-RU": "Objective Index",
+        "th-TH": "Objective Index",
+        "zh-TW": "Objective Index"
     },
     "getDamageHeroes": {
         "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Mccree\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Ashe\n        15. Echo  \n        16. Kiriko  \n",
@@ -13560,7 +15956,13 @@ var valueFuncKw =
         "pt-BR": "Todos os Heróis de Dano",
         "th-TH": "ฮีโร่ความเสียหายทั้งหมด",
         "tr-TR": "Tüm Hasar Kahramanları",
-        "zh-CN": "所有输出英雄"
+        "zh-CN": "所有输出英雄",
+        "es-ES": "All Damage Heroes",
+        "it-IT": "All Damage Heroes",
+        "ko-KR": "All Damage Heroes",
+        "pl-PL": "All Damage Heroes",
+        "ru-RU": "All Damage Heroes",
+        "zh-TW": "All Damage Heroes"
     },
     "getDeadPlayers": {
         "description": "An array containing all dead players on a team or in the match.",
@@ -13597,7 +15999,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13627,7 +16033,15 @@ var valueFuncKw =
         "ja-JP": "倒れたプレイヤー全員",
         "pt-BR": "Todos os Jogadores Mortos",
         "tr-TR": "Tüm Ölü Oyuncular",
-        "zh-CN": "所有死亡玩家"
+        "zh-CN": "所有死亡玩家",
+        "de-DE": "All Dead Players",
+        "es-ES": "All Dead Players",
+        "it-IT": "All Dead Players",
+        "ko-KR": "All Dead Players",
+        "pl-PL": "All Dead Players",
+        "ru-RU": "All Dead Players",
+        "th-TH": "All Dead Players",
+        "zh-TW": "All Dead Players"
     },
     "getFarthestPlayer": {
         "description": "The player farthest from a position, optionally restricted by team.",
@@ -13664,7 +16078,11 @@ var valueFuncKw =
                     "pt-BR": "Centro",
                     "ru-RU": "Центр",
                     "tr-TR": "Merkez",
-                    "zh-CN": "中间"
+                    "zh-CN": "中间",
+                    "de-DE": "Center",
+                    "ko-KR": "Center",
+                    "th-TH": "Center",
+                    "zh-TW": "Center"
                 }
             },
             {
@@ -13699,7 +16117,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13727,7 +16149,15 @@ var valueFuncKw =
         "ja-JP": "最も遠いプレイヤー。基準: ",
         "pt-BR": "Jogador Mais Distante de",
         "tr-TR": "En Uzak Oyuncu",
-        "zh-CN": "距离最远的玩家"
+        "zh-CN": "距离最远的玩家",
+        "de-DE": "Farthest Player From",
+        "es-ES": "Farthest Player From",
+        "it-IT": "Farthest Player From",
+        "ko-KR": "Farthest Player From",
+        "pl-PL": "Farthest Player From",
+        "ru-RU": "Farthest Player From",
+        "th-TH": "Farthest Player From",
+        "zh-TW": "Farthest Player From"
     },
     "getFlagCarrier": {
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
@@ -13764,7 +16194,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13792,7 +16226,15 @@ var valueFuncKw =
         "ja-JP": "フラッグを運んでいる",
         "pt-BR": "Jogador Carregando a Bandeira",
         "tr-TR": "Oyuncu Bayrak Taşıyor",
-        "zh-CN": "携带旗帜的玩家"
+        "zh-CN": "携带旗帜的玩家",
+        "de-DE": "Player Carrying Flag",
+        "es-ES": "Player Carrying Flag",
+        "it-IT": "Player Carrying Flag",
+        "ko-KR": "Player Carrying Flag",
+        "pl-PL": "Player Carrying Flag",
+        "ru-RU": "Player Carrying Flag",
+        "th-TH": "Player Carrying Flag",
+        "zh-TW": "Player Carrying Flag"
     },
     "getFlagPosition": {
         "description": "The position of a specific team's flag in capture the flag.",
@@ -13829,7 +16271,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -13857,7 +16303,15 @@ var valueFuncKw =
         "ja-JP": "フラッグの位置",
         "pt-BR": "Posição da Bandeira",
         "tr-TR": "Bayrak Konumu",
-        "zh-CN": "旗帜位置"
+        "zh-CN": "旗帜位置",
+        "de-DE": "Flag Position",
+        "es-ES": "Flag Position",
+        "it-IT": "Flag Position",
+        "ko-KR": "Flag Position",
+        "pl-PL": "Flag Position",
+        "ru-RU": "Flag Position",
+        "th-TH": "Flag Position",
+        "zh-TW": "Flag Position"
     },
     "getLastAssistID": {
         "description": "An ID representing the most recent Start Assist Action that was executed by the Event Player (or executed at the Global level).",
@@ -13885,7 +16339,15 @@ var valueFuncKw =
         "ja-JP": "最新のアシストID",
         "pt-BR": "ID da Última Assistência",
         "tr-TR": "Son Asist Kimliği",
-        "zh-CN": "上一个助攻ID"
+        "zh-CN": "上一个助攻ID",
+        "de-DE": "Last Assist ID",
+        "es-ES": "Last Assist ID",
+        "it-IT": "Last Assist ID",
+        "ko-KR": "Last Assist ID",
+        "pl-PL": "Last Assist ID",
+        "ru-RU": "Last Assist ID",
+        "th-TH": "Last Assist ID",
+        "zh-TW": "Last Assist ID"
     },
     "getLastCreatedEntity": {
         "description": "A reference to the last effect, icon entity, or dummy bot created by the event player (or created at the global level).",
@@ -13914,7 +16376,15 @@ var valueFuncKw =
         "ja-JP": "最新のエンティティ",
         "pt-BR": "Entidade Criada por Último",
         "tr-TR": "Oluşturulan Son Varlık",
-        "zh-CN": "最后创建的实体"
+        "zh-CN": "最后创建的实体",
+        "de-DE": "Last Created Entity",
+        "es-ES": "Last Created Entity",
+        "it-IT": "Last Created Entity",
+        "ko-KR": "Last Created Entity",
+        "pl-PL": "Last Created Entity",
+        "ru-RU": "Last Created Entity",
+        "th-TH": "Last Created Entity",
+        "zh-TW": "Last Created Entity"
     },
     "getLastCreatedHealthPool": {
         "description": "An ID representing the most recent Add Health Pool action that was executed by the event player (or executed at the global level).",
@@ -13942,7 +16412,15 @@ var valueFuncKw =
         "ja-JP": "最新のライフプール",
         "pt-BR": "Última Reserva de Vida Criada",
         "tr-TR": "Oluşturulan Son Can Havuzu",
-        "zh-CN": "最后创建的生命池"
+        "zh-CN": "最后创建的生命池",
+        "de-DE": "Last Created Health Pool",
+        "es-ES": "Last Created Health Pool",
+        "it-IT": "Last Created Health Pool",
+        "ko-KR": "Last Created Health Pool",
+        "pl-PL": "Last Created Health Pool",
+        "ru-RU": "Last Created Health Pool",
+        "th-TH": "Last Created Health Pool",
+        "zh-TW": "Last Created Health Pool"
     },
     "getLastCreatedText": {
         "description": "A reference to the last piece of text created by the Event Player (or created at the Global level) via the Create HUD Text, Create In-World Text, Create Progress Bar HUD Text, or Create Progress Bar In-World Text Action.",
@@ -13970,7 +16448,15 @@ var valueFuncKw =
         "ja-JP": "最新のテキストID",
         "pt-BR": "ID de Texto Mais Recente",
         "tr-TR": "Son Metin Kimliği",
-        "zh-CN": "上一个文本ID"
+        "zh-CN": "上一个文本ID",
+        "de-DE": "Last Text ID",
+        "es-ES": "Last Text ID",
+        "it-IT": "Last Text ID",
+        "ko-KR": "Last Text ID",
+        "pl-PL": "Last Text ID",
+        "ru-RU": "Last Text ID",
+        "th-TH": "Last Text ID",
+        "zh-TW": "Last Text ID"
     },
     "getLastDamageModification": {
         "description": "An id representing the most recent start damage modification action that was executed by the event player (or executed at the global level).",
@@ -13998,7 +16484,15 @@ var valueFuncKw =
         "ja-JP": "最新のダメージ変更ID",
         "pt-BR": "ID de Modificação de Dano Mais Recente",
         "tr-TR": "Son Hasar Düzenlemesi Kimliği",
-        "zh-CN": "上一个伤害调整ID"
+        "zh-CN": "上一个伤害调整ID",
+        "de-DE": "Last Damage Modification ID",
+        "es-ES": "Last Damage Modification ID",
+        "it-IT": "Last Damage Modification ID",
+        "ko-KR": "Last Damage Modification ID",
+        "pl-PL": "Last Damage Modification ID",
+        "ru-RU": "Last Damage Modification ID",
+        "th-TH": "Last Damage Modification ID",
+        "zh-TW": "Last Damage Modification ID"
     },
     "getLastDoT": {
         "description": "An id representing the most recent damage over time action that was executed by the event player (or executed at the global level).",
@@ -14026,7 +16520,15 @@ var valueFuncKw =
         "ja-JP": "最新の継続ダメージID",
         "pt-BR": "ID de Dano ao Longo do Tempo Mais Recente",
         "tr-TR": "Zamanla Son Hasar Kimliği",
-        "zh-CN": "上一个持续伤害效果ID"
+        "zh-CN": "上一个持续伤害效果ID",
+        "de-DE": "Last Damage Over Time ID",
+        "es-ES": "Last Damage Over Time ID",
+        "it-IT": "Last Damage Over Time ID",
+        "ko-KR": "Last Damage Over Time ID",
+        "pl-PL": "Last Damage Over Time ID",
+        "ru-RU": "Last Damage Over Time ID",
+        "th-TH": "Last Damage Over Time ID",
+        "zh-TW": "Last Damage Over Time ID"
     },
     "getLastHealingModification": {
         "description": "An id representing the most recent start healing modification action that was executed by the event player (or executed at the global level).",
@@ -14054,7 +16556,15 @@ var valueFuncKw =
         "ja-JP": "最新回復変更ID",
         "pt-BR": "ID da última modificação de cura",
         "tr-TR": "Son İyileştirme Düzenlemesi Kimliği",
-        "zh-CN": "上一个治疗调整ID"
+        "zh-CN": "上一个治疗调整ID",
+        "de-DE": "Last Healing Modification ID",
+        "es-ES": "Last Healing Modification ID",
+        "it-IT": "Last Healing Modification ID",
+        "ko-KR": "Last Healing Modification ID",
+        "pl-PL": "Last Healing Modification ID",
+        "ru-RU": "Last Healing Modification ID",
+        "th-TH": "Last Healing Modification ID",
+        "zh-TW": "Last Healing Modification ID"
     },
     "getLastHoT": {
         "description": "An id representing the most recent heal over time action that was executed by the event player (or executed at the global level).",
@@ -14082,7 +16592,15 @@ var valueFuncKw =
         "ja-JP": "最新の継続回復ID",
         "pt-BR": "ID de Cura ao Longo do Tempo Mais Recente",
         "tr-TR": "Zamanla Son İyileştirme Kimliği",
-        "zh-CN": "上一个持续治疗效果ID"
+        "zh-CN": "上一个持续治疗效果ID",
+        "de-DE": "Last Heal Over Time ID",
+        "es-ES": "Last Heal Over Time ID",
+        "it-IT": "Last Heal Over Time ID",
+        "ko-KR": "Last Heal Over Time ID",
+        "pl-PL": "Last Heal Over Time ID",
+        "ru-RU": "Last Heal Over Time ID",
+        "th-TH": "Last Heal Over Time ID",
+        "zh-TW": "Last Heal Over Time ID"
     },
     "getLivingPlayers": {
         "description": "An array containing all living players on a team or in the match.",
@@ -14119,7 +16637,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14149,7 +16671,15 @@ var valueFuncKw =
         "ja-JP": "生存プレイヤー全員",
         "pt-BR": "Todos os Jogadores Vivos",
         "tr-TR": "Tüm Canlı Oyuncular",
-        "zh-CN": "所有存活玩家"
+        "zh-CN": "所有存活玩家",
+        "de-DE": "All Living Players",
+        "es-ES": "All Living Players",
+        "it-IT": "All Living Players",
+        "ko-KR": "All Living Players",
+        "pl-PL": "All Living Players",
+        "ru-RU": "All Living Players",
+        "th-TH": "All Living Players",
+        "zh-TW": "All Living Players"
     },
     "getMatchRound": {
         "description": "The current round of the match, counting up from 1.",
@@ -14177,7 +16707,15 @@ var valueFuncKw =
         "ja-JP": "マッチのラウンド",
         "pt-BR": "Rodada da Partida",
         "tr-TR": "Maç Turu",
-        "zh-CN": "比赛回合"
+        "zh-CN": "比赛回合",
+        "de-DE": "Match Round",
+        "es-ES": "Match Round",
+        "it-IT": "Match Round",
+        "ko-KR": "Match Round",
+        "pl-PL": "Match Round",
+        "ru-RU": "Match Round",
+        "th-TH": "Match Round",
+        "zh-TW": "Match Round"
     },
     "getMatchTime": {
         "description": "The amount of time in seconds remaining in the current game mode phase.",
@@ -14205,7 +16743,15 @@ var valueFuncKw =
         "ja-JP": "マッチ時間",
         "pt-BR": "Tempo da Partida",
         "tr-TR": "Maç Süresi",
-        "zh-CN": "比赛时间"
+        "zh-CN": "比赛时间",
+        "de-DE": "Match Time",
+        "es-ES": "Match Time",
+        "it-IT": "Match Time",
+        "ko-KR": "Match Time",
+        "pl-PL": "Match Time",
+        "ru-RU": "Match Time",
+        "th-TH": "Match Time",
+        "zh-TW": "Match Time"
     },
     "getNumberOfAssistIds": {
         "description": "The current number of Assist instances started from the Start Assist Action.",
@@ -14233,7 +16779,15 @@ var valueFuncKw =
         "ja-JP": "アシスト数",
         "pt-BR": "Contagem de Assistência",
         "tr-TR": "Asist Sayısı",
-        "zh-CN": "助攻数量"
+        "zh-CN": "助攻数量",
+        "de-DE": "Assist Count",
+        "es-ES": "Assist Count",
+        "it-IT": "Assist Count",
+        "ko-KR": "Assist Count",
+        "pl-PL": "Assist Count",
+        "ru-RU": "Assist Count",
+        "th-TH": "Assist Count",
+        "zh-TW": "Assist Count"
     },
     "getNumberOfDamageModificationIds": {
         "description": "The current number of Damage Modification instances started from the Start Damage Modification Action.",
@@ -14261,7 +16815,15 @@ var valueFuncKw =
         "ja-JP": "ダメージ変更数",
         "pt-BR": "Contagem de Modificação de Dano",
         "tr-TR": "Hasar Düzenlemesi Sayısı",
-        "zh-CN": "伤害调整数量"
+        "zh-CN": "伤害调整数量",
+        "de-DE": "Damage Modification Count",
+        "es-ES": "Damage Modification Count",
+        "it-IT": "Damage Modification Count",
+        "ko-KR": "Damage Modification Count",
+        "pl-PL": "Damage Modification Count",
+        "ru-RU": "Damage Modification Count",
+        "th-TH": "Damage Modification Count",
+        "zh-TW": "Damage Modification Count"
     },
     "getNumberOfDeadPlayers": {
         "description": "The number of dead players on a team or in the match.",
@@ -14298,7 +16860,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14327,7 +16893,13 @@ var valueFuncKw =
         "ja-JP": "倒れたプレイヤーの数",
         "pt-BR": "Número de Jogadores Mortos",
         "tr-TR": "Ölü Oyuncu Sayısı",
-        "zh-CN": "死亡玩家数量"
+        "zh-CN": "死亡玩家数量",
+        "es-ES": "Number Of Dead Players",
+        "ko-KR": "Number Of Dead Players",
+        "pl-PL": "Number Of Dead Players",
+        "ru-RU": "Number Of Dead Players",
+        "th-TH": "Number Of Dead Players",
+        "zh-TW": "Number Of Dead Players"
     },
     "getNumberOfDoTIds": {
         "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
@@ -14355,7 +16927,15 @@ var valueFuncKw =
         "ja-JP": "継続ダメージ数",
         "pt-BR": "Contagem de Dano ao Longo do Tempo",
         "tr-TR": "Zamanla Hasar Miktarı",
-        "zh-CN": "持续伤害数量"
+        "zh-CN": "持续伤害数量",
+        "de-DE": "Damage Over Time Count",
+        "es-ES": "Damage Over Time Count",
+        "it-IT": "Damage Over Time Count",
+        "ko-KR": "Damage Over Time Count",
+        "pl-PL": "Damage Over Time Count",
+        "ru-RU": "Damage Over Time Count",
+        "th-TH": "Damage Over Time Count",
+        "zh-TW": "Damage Over Time Count"
     },
     "getNumberOfEntityIds": {
         "description": "The current number of Entities created from the Create Effect, Create Beam Effect, or Create Icon Action.",
@@ -14383,7 +16963,15 @@ var valueFuncKw =
         "ja-JP": "エンティティ数",
         "pt-BR": "Contagem de Entidade",
         "tr-TR": "Varlık Sayısı",
-        "zh-CN": "实体数量"
+        "zh-CN": "实体数量",
+        "de-DE": "Entity Count",
+        "es-ES": "Entity Count",
+        "it-IT": "Entity Count",
+        "ko-KR": "Entity Count",
+        "pl-PL": "Entity Count",
+        "ru-RU": "Entity Count",
+        "th-TH": "Entity Count",
+        "zh-TW": "Entity Count"
     },
     "getNumberOfHealingModificationIds": {
         "description": "The current number of Healing Modification instances started from the Start Healing Modification Action.",
@@ -14411,7 +16999,15 @@ var valueFuncKw =
         "ja-JP": "回復変更数",
         "pt-BR": "Contagem de Modificação de Cura",
         "tr-TR": "İyileştirme Düzenlemesi Sayısı",
-        "zh-CN": "治疗调整数量"
+        "zh-CN": "治疗调整数量",
+        "de-DE": "Healing Modification Count",
+        "es-ES": "Healing Modification Count",
+        "it-IT": "Healing Modification Count",
+        "ko-KR": "Healing Modification Count",
+        "pl-PL": "Healing Modification Count",
+        "ru-RU": "Healing Modification Count",
+        "th-TH": "Healing Modification Count",
+        "zh-TW": "Healing Modification Count"
     },
     "getNumberOfHeroes": {
         "description": "The number of players playing a specific hero on a team or in the match.",
@@ -14441,14 +17037,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -14483,7 +17083,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14512,7 +17116,13 @@ var valueFuncKw =
         "ja-JP": "ヒーローの数",
         "pt-BR": "Número de Heróis",
         "tr-TR": "Kahraman Sayısı",
-        "zh-CN": "英雄数量"
+        "zh-CN": "英雄数量",
+        "es-ES": "Number Of Heroes",
+        "ko-KR": "Number Of Heroes",
+        "pl-PL": "Number Of Heroes",
+        "ru-RU": "Number Of Heroes",
+        "th-TH": "Number Of Heroes",
+        "zh-TW": "Number Of Heroes"
     },
     "getNumberOfHoTIds": {
         "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
@@ -14540,7 +17150,15 @@ var valueFuncKw =
         "ja-JP": "継続回復数",
         "pt-BR": "Contagem de Cura ao Longo do Tempo",
         "tr-TR": "Zamanla İyileştirme Sayısı",
-        "zh-CN": "持续治疗数量"
+        "zh-CN": "持续治疗数量",
+        "de-DE": "Heal Over Time Count",
+        "es-ES": "Heal Over Time Count",
+        "it-IT": "Heal Over Time Count",
+        "ko-KR": "Heal Over Time Count",
+        "pl-PL": "Heal Over Time Count",
+        "ru-RU": "Heal Over Time Count",
+        "th-TH": "Heal Over Time Count",
+        "zh-TW": "Heal Over Time Count"
     },
     "getNumberOfLivingPlayers": {
         "description": "The number of living players on a team or in the match.",
@@ -14577,7 +17195,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14606,7 +17228,13 @@ var valueFuncKw =
         "ja-JP": "生存プレイヤーの数",
         "pt-BR": "Número de Jogadores Vivos",
         "tr-TR": "Yaşayan Oyuncu Sayısı",
-        "zh-CN": "存活玩家数量"
+        "zh-CN": "存活玩家数量",
+        "es-ES": "Number Of Living Players",
+        "ko-KR": "Number Of Living Players",
+        "pl-PL": "Number Of Living Players",
+        "ru-RU": "Number Of Living Players",
+        "th-TH": "Number Of Living Players",
+        "zh-TW": "Number Of Living Players"
     },
     "getNumberOfPlayers": {
         "description": "The number of players on a team or in the match.",
@@ -14643,7 +17271,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14672,7 +17304,13 @@ var valueFuncKw =
         "ja-JP": "プレイヤーの数",
         "pt-BR": "Número de Jogadores",
         "tr-TR": "Oyuncu Sayısı",
-        "zh-CN": "玩家数量"
+        "zh-CN": "玩家数量",
+        "es-ES": "Number Of Players",
+        "ko-KR": "Number Of Players",
+        "pl-PL": "Number Of Players",
+        "ru-RU": "Number Of Players",
+        "th-TH": "Number Of Players",
+        "zh-TW": "Number Of Players"
     },
     "getNumberOfPlayersOnObjective": {
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
@@ -14709,7 +17347,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14738,7 +17380,13 @@ var valueFuncKw =
         "ja-JP": "目標を確保中のプレイヤーの数",
         "pt-BR": "Número de Jogadores no Objetivo",
         "tr-TR": "Hedef Üzerindeki Oyuncu Sayısı",
-        "zh-CN": "目标点上玩家数量"
+        "zh-CN": "目标点上玩家数量",
+        "es-ES": "Number Of Players On Objective",
+        "ko-KR": "Number Of Players On Objective",
+        "pl-PL": "Number Of Players On Objective",
+        "ru-RU": "Number Of Players On Objective",
+        "th-TH": "Number Of Players On Objective",
+        "zh-TW": "Number Of Players On Objective"
     },
     "getNumberOfSlots": {
         "description": "The number of slots on a team or in the match.",
@@ -14775,7 +17423,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14804,7 +17456,14 @@ var valueFuncKw =
         "ja-JP": "スロットの数",
         "pt-BR": "Número de Espaços",
         "tr-TR": "Yuva Sayısı",
-        "zh-CN": "栏位数量"
+        "zh-CN": "栏位数量",
+        "de-DE": "Number Of Slots",
+        "es-ES": "Number Of Slots",
+        "ko-KR": "Number Of Slots",
+        "pl-PL": "Number Of Slots",
+        "ru-RU": "Number Of Slots",
+        "th-TH": "Number Of Slots",
+        "zh-TW": "Number Of Slots"
     },
     "getNumberOfTextIds": {
         "description": "The current number of Text instances started from the Create HUD Text, Create In-World Text, Create Progress Bar HUD text, or Create Progress Bar In-World Text Action.",
@@ -14832,7 +17491,15 @@ var valueFuncKw =
         "ja-JP": "テキスト数",
         "pt-BR": "Contagem de Texto",
         "tr-TR": "Metin Sayısı",
-        "zh-CN": "文本数量"
+        "zh-CN": "文本数量",
+        "de-DE": "Text Count",
+        "es-ES": "Text Count",
+        "it-IT": "Text Count",
+        "ko-KR": "Text Count",
+        "pl-PL": "Text Count",
+        "ru-RU": "Text Count",
+        "th-TH": "Text Count",
+        "zh-TW": "Text Count"
     },
     "getObjectivePosition": {
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control.",
@@ -14872,7 +17539,10 @@ var valueFuncKw =
                     "ru-RU": "Число",
                     "th-TH": "ตัวเลข",
                     "tr-TR": "Sayı",
-                    "zh-CN": "数字"
+                    "zh-CN": "数字",
+                    "de-DE": "Number",
+                    "ko-KR": "Number",
+                    "zh-TW": "Number"
                 }
             }
         ],
@@ -14900,7 +17570,15 @@ var valueFuncKw =
         "ja-JP": "目標の位置",
         "pt-BR": "Posição do Objetivo",
         "tr-TR": "Hedef Konumu",
-        "zh-CN": "目标位置"
+        "zh-CN": "目标位置",
+        "de-DE": "Objective Position",
+        "es-ES": "Objective Position",
+        "it-IT": "Objective Position",
+        "ko-KR": "Objective Position",
+        "pl-PL": "Objective Position",
+        "ru-RU": "Objective Position",
+        "th-TH": "Objective Position",
+        "zh-TW": "Objective Position"
     },
     "getOppositeTeam": {
         "description": "The team opposite the specified team.",
@@ -14937,7 +17615,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -14966,7 +17648,15 @@ var valueFuncKw =
         "ja-JP": "相手チーム: ",
         "pt-BR": "Equipe Adversária de",
         "tr-TR": "Karşı Takımı",
-        "zh-CN": "对方队伍"
+        "zh-CN": "对方队伍",
+        "de-DE": "Opposite Team Of",
+        "es-ES": "Opposite Team Of",
+        "it-IT": "Opposite Team Of",
+        "ko-KR": "Opposite Team Of",
+        "pl-PL": "Opposite Team Of",
+        "ru-RU": "Opposite Team Of",
+        "th-TH": "Opposite Team Of",
+        "zh-TW": "Opposite Team Of"
     },
     "getPayloadPosition": {
         "description": "The position in the world of the active payload.",
@@ -14995,7 +17685,15 @@ var valueFuncKw =
         "ja-JP": "ペイロードの位置",
         "pt-BR": "Posição da Carga",
         "tr-TR": "Navlun Konumu",
-        "zh-CN": "运载目标位置"
+        "zh-CN": "运载目标位置",
+        "de-DE": "Payload Position",
+        "es-ES": "Payload Position",
+        "it-IT": "Payload Position",
+        "ko-KR": "Payload Position",
+        "pl-PL": "Payload Position",
+        "ru-RU": "Payload Position",
+        "th-TH": "Payload Position",
+        "zh-TW": "Payload Position"
     },
     "getPayloadProgressPercentage": {
         "description": "The current progress towards the destination for the active payload (expressed as a percentage).",
@@ -15023,7 +17721,15 @@ var valueFuncKw =
         "ja-JP": "ペイロード進行のパーセンテージ",
         "pt-BR": "Percentual de Progresso da Carga",
         "tr-TR": "Navlun İlerleyiş Yüzdesi",
-        "zh-CN": "运载目标进度百分比"
+        "zh-CN": "运载目标进度百分比",
+        "de-DE": "Payload Progress Percentage",
+        "es-ES": "Payload Progress Percentage",
+        "it-IT": "Payload Progress Percentage",
+        "ko-KR": "Payload Progress Percentage",
+        "pl-PL": "Payload Progress Percentage",
+        "ru-RU": "Payload Progress Percentage",
+        "th-TH": "Payload Progress Percentage",
+        "zh-TW": "Payload Progress Percentage"
     },
     "getPeakServerLoad": {
         "guid": "00000000C996",
@@ -15052,7 +17758,15 @@ var valueFuncKw =
         "ja-JP": "サーバー負荷ピーク",
         "pt-BR": "Pico de Uso do Servidor",
         "tr-TR": "Sunucu Doluluk En Üst Noktası",
-        "zh-CN": "服务器负载峰值"
+        "zh-CN": "服务器负载峰值",
+        "de-DE": "Server Load Peak",
+        "es-ES": "Server Load Peak",
+        "it-IT": "Server Load Peak",
+        "ko-KR": "Server Load Peak",
+        "pl-PL": "Server Load Peak",
+        "ru-RU": "Server Load Peak",
+        "th-TH": "Server Load Peak",
+        "zh-TW": "Server Load Peak"
     },
     "getPlayers": {
         "description": "An array containing all players on a team or in the match.",
@@ -15089,7 +17803,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15119,7 +17837,15 @@ var valueFuncKw =
         "ja-JP": "すべてのプレイヤー",
         "pt-BR": "Todos os Jogadores",
         "tr-TR": "Tüm Oyuncular",
-        "zh-CN": "所有玩家"
+        "zh-CN": "所有玩家",
+        "de-DE": "All Players",
+        "es-ES": "All Players",
+        "it-IT": "All Players",
+        "ko-KR": "All Players",
+        "pl-PL": "All Players",
+        "ru-RU": "All Players",
+        "th-TH": "All Players",
+        "zh-TW": "All Players"
     },
     "getPlayersInRadius": {
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
@@ -15156,7 +17882,11 @@ var valueFuncKw =
                     "pt-BR": "Centro",
                     "ru-RU": "Центр",
                     "tr-TR": "Merkez",
-                    "zh-CN": "中间"
+                    "zh-CN": "中间",
+                    "de-DE": "Center",
+                    "ko-KR": "Center",
+                    "th-TH": "Center",
+                    "zh-TW": "Center"
                 }
             },
             {
@@ -15191,7 +17921,11 @@ var valueFuncKw =
                     "pt-BR": "Raio",
                     "ru-RU": "Радиус",
                     "tr-TR": "Yarıçap",
-                    "zh-CN": "半径"
+                    "zh-CN": "半径",
+                    "de-DE": "Radius",
+                    "ko-KR": "Radius",
+                    "th-TH": "Radius",
+                    "zh-TW": "Radius"
                 }
             },
             {
@@ -15226,7 +17960,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             },
             {
@@ -15261,7 +17999,11 @@ var valueFuncKw =
                     "pt-BR": "Verificação de LdV",
                     "ru-RU": "Проверка видимости",
                     "tr-TR": "Görüş Alanı Kontrolü",
-                    "zh-CN": "视线检测"
+                    "zh-CN": "视线检测",
+                    "de-DE": "LOS Check",
+                    "ko-KR": "LOS Check",
+                    "th-TH": "LOS Check",
+                    "zh-TW": "LOS Check"
                 }
             }
         ],
@@ -15291,7 +18033,15 @@ var valueFuncKw =
         "ja-JP": "範囲内のプレイヤー",
         "pt-BR": "Jogadores no Raio",
         "tr-TR": "Yarıçap İçerisindeki Oyuncular",
-        "zh-CN": "范围内玩家"
+        "zh-CN": "范围内玩家",
+        "de-DE": "Players Within Radius",
+        "es-ES": "Players Within Radius",
+        "it-IT": "Players Within Radius",
+        "ko-KR": "Players Within Radius",
+        "pl-PL": "Players Within Radius",
+        "ru-RU": "Players Within Radius",
+        "th-TH": "Players Within Radius",
+        "zh-TW": "Players Within Radius"
     },
     "getPlayersInSlot": {
         "description": "The player or array of players who occupy a specific slot in the game.",
@@ -15329,7 +18079,12 @@ var valueFuncKw =
                     "pt-BR": "Espaço",
                     "ru-RU": "Ячейка",
                     "tr-TR": "Yuva",
-                    "zh-CN": "栏位"
+                    "zh-CN": "栏位",
+                    "de-DE": "Slot",
+                    "it-IT": "Slot",
+                    "ko-KR": "Slot",
+                    "th-TH": "Slot",
+                    "zh-TW": "Slot"
                 }
             },
             {
@@ -15364,7 +18119,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15397,7 +18156,15 @@ var valueFuncKw =
         "ja-JP": "スロットに入ったプレイヤー",
         "pt-BR": "Jogadores no Espaço",
         "tr-TR": "Yuvadaki Oyuncular",
-        "zh-CN": "此栏位的玩家"
+        "zh-CN": "此栏位的玩家",
+        "de-DE": "Players In Slot",
+        "es-ES": "Players In Slot",
+        "it-IT": "Players In Slot",
+        "ko-KR": "Players In Slot",
+        "pl-PL": "Players In Slot",
+        "ru-RU": "Players In Slot",
+        "th-TH": "Players In Slot",
+        "zh-TW": "Players In Slot"
     },
     "getPlayersNotOnObjective": {
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
@@ -15434,7 +18201,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15464,7 +18235,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤー全員が目標を確保中ではない",
         "pt-BR": "Todos os Jogadores Fora do Objetivo",
         "tr-TR": "Hedefte Olmayan Tüm Oyuncular",
-        "zh-CN": "所有目标点外玩家"
+        "zh-CN": "所有目标点外玩家",
+        "de-DE": "All Players Not On Objective",
+        "es-ES": "All Players Not On Objective",
+        "it-IT": "All Players Not On Objective",
+        "ko-KR": "All Players Not On Objective",
+        "pl-PL": "All Players Not On Objective",
+        "ru-RU": "All Players Not On Objective",
+        "th-TH": "All Players Not On Objective",
+        "zh-TW": "All Players Not On Objective"
     },
     "getPlayersOnHero": {
         "description": "The array of players playing a specific hero on a team or in the match.",
@@ -15494,14 +18273,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -15536,7 +18319,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15566,7 +18353,15 @@ var valueFuncKw =
         "ja-JP": "ヒーローを使用中のプレイヤー",
         "pt-BR": "Jogadores Usando o Herói",
         "tr-TR": "Kahramanları Oynayan Oyuncular",
-        "zh-CN": "选择英雄的玩家"
+        "zh-CN": "选择英雄的玩家",
+        "de-DE": "Players On Hero",
+        "es-ES": "Players On Hero",
+        "it-IT": "Players On Hero",
+        "ko-KR": "Players On Hero",
+        "pl-PL": "Players On Hero",
+        "ru-RU": "Players On Hero",
+        "th-TH": "Players On Hero",
+        "zh-TW": "Players On Hero"
     },
     "getPlayersOnObjective": {
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
@@ -15603,7 +18398,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15633,7 +18432,15 @@ var valueFuncKw =
         "ja-JP": "プレイヤー全員が目標を確保中",
         "pt-BR": "Todos os Jogadores no Objetivo",
         "tr-TR": "Hedefte Olan Tüm Oyuncular",
-        "zh-CN": "所有目标点内玩家"
+        "zh-CN": "所有目标点内玩家",
+        "de-DE": "All Players On Objective",
+        "es-ES": "All Players On Objective",
+        "it-IT": "All Players On Objective",
+        "ko-KR": "All Players On Objective",
+        "pl-PL": "All Players On Objective",
+        "ru-RU": "All Players On Objective",
+        "th-TH": "All Players On Objective",
+        "zh-TW": "All Players On Objective"
     },
     "getServerLoad": {
         "guid": "00000000C961",
@@ -15662,7 +18469,15 @@ var valueFuncKw =
         "ja-JP": "サーバー負荷",
         "pt-BR": "Uso do Servidor",
         "tr-TR": "Sunucu Doluluğu",
-        "zh-CN": "服务器负载"
+        "zh-CN": "服务器负载",
+        "de-DE": "Server Load",
+        "es-ES": "Server Load",
+        "it-IT": "Server Load",
+        "ko-KR": "Server Load",
+        "pl-PL": "Server Load",
+        "ru-RU": "Server Load",
+        "th-TH": "Server Load",
+        "zh-TW": "Server Load"
     },
     "getSpawnPoints": {
         "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
@@ -15699,7 +18514,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -15729,7 +18548,14 @@ var valueFuncKw =
         "pt-BR": "Pontos de Ressurgimento",
         "th-TH": "คะแนนการเกิด",
         "tr-TR": "Başlangıç Noktası",
-        "zh-CN": "重生点"
+        "zh-CN": "重生点",
+        "de-DE": "Spawn Points",
+        "es-ES": "Spawn Points",
+        "it-IT": "Spawn Points",
+        "ko-KR": "Spawn Points",
+        "pl-PL": "Spawn Points",
+        "ru-RU": "Spawn Points",
+        "zh-TW": "Spawn Points"
     },
     "getSupportHeroes": {
         "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        7. Kiriko\n",
@@ -15762,7 +18588,14 @@ var valueFuncKw =
         "ja-JP": "全サポートヒーロー",
         "pt-BR": "Todos os Heróis de Suporte",
         "tr-TR": "Tüm Destek Kahramanları",
-        "zh-CN": "所有支援英雄"
+        "zh-CN": "所有支援英雄",
+        "es-ES": "All Support Heroes",
+        "it-IT": "All Support Heroes",
+        "ko-KR": "All Support Heroes",
+        "pl-PL": "All Support Heroes",
+        "ru-RU": "All Support Heroes",
+        "th-TH": "All Support Heroes",
+        "zh-TW": "All Support Heroes"
     },
     "getTankHeroes": {
         "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Doomfist\n        6. Orisa\n        7. Hammond\n        8. Junker Queen\n        9. Sigma\n",
@@ -15795,7 +18628,14 @@ var valueFuncKw =
         "ja-JP": "全タンクヒーロー",
         "pt-BR": "Todos os Heróis de Tanque",
         "tr-TR": "Tüm Tank Kahramanları",
-        "zh-CN": "所有重装英雄"
+        "zh-CN": "所有重装英雄",
+        "es-ES": "All Tank Heroes",
+        "it-IT": "All Tank Heroes",
+        "ko-KR": "All Tank Heroes",
+        "pl-PL": "All Tank Heroes",
+        "ru-RU": "All Tank Heroes",
+        "th-TH": "All Tank Heroes",
+        "zh-TW": "All Tank Heroes"
     },
     "getTotalTimeElapsed": {
         "description": "The total time in seconds that have elapsed since the game instance was created (including setup time and transitions).",
@@ -15823,7 +18663,15 @@ var valueFuncKw =
         "ja-JP": "合計経過時間",
         "pt-BR": "Tempo Total Decorrido",
         "tr-TR": "Toplam Geçen Süre",
-        "zh-CN": "总计消耗时间"
+        "zh-CN": "总计消耗时间",
+        "de-DE": "Total Time Elapsed",
+        "es-ES": "Total Time Elapsed",
+        "it-IT": "Total Time Elapsed",
+        "ko-KR": "Total Time Elapsed",
+        "pl-PL": "Total Time Elapsed",
+        "ru-RU": "Total Time Elapsed",
+        "th-TH": "Total Time Elapsed",
+        "zh-TW": "Total Time Elapsed"
     },
     "healee": {
         "description": "The player that received the healing for the event currently being processed by this rule. May be the same as the healer or the event player.",
@@ -15851,7 +18699,15 @@ var valueFuncKw =
         "ja-JP": "回復対象",
         "pt-BR": "Curado",
         "tr-TR": "İyileşen",
-        "zh-CN": "受治疗者"
+        "zh-CN": "受治疗者",
+        "de-DE": "Healee",
+        "es-ES": "Healee",
+        "it-IT": "Healee",
+        "ko-KR": "Healee",
+        "pl-PL": "Healee",
+        "ru-RU": "Healee",
+        "th-TH": "Healee",
+        "zh-TW": "Healee"
     },
     "healer": {
         "guid": "00000000CC1A",
@@ -15879,7 +18735,15 @@ var valueFuncKw =
         "ja-JP": "ヒーラー",
         "pt-BR": "Curandeiro",
         "tr-TR": "Şifacı",
-        "zh-CN": "治疗者"
+        "zh-CN": "治疗者",
+        "de-DE": "Healer",
+        "es-ES": "Healer",
+        "it-IT": "Healer",
+        "ko-KR": "Healer",
+        "pl-PL": "Healer",
+        "ru-RU": "Healer",
+        "th-TH": "Healer",
+        "zh-TW": "Healer"
     },
     "heroIcon": {
         "description": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string).",
@@ -15916,7 +18780,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -15945,7 +18813,15 @@ var valueFuncKw =
         "ja-JP": "ヒーローアイコン文字列",
         "pt-BR": "String de Ícone de Herói",
         "tr-TR": "Kahraman Simge Dizgisi",
-        "zh-CN": "英雄图标字符串"
+        "zh-CN": "英雄图标字符串",
+        "de-DE": "Hero Icon String",
+        "es-ES": "Hero Icon String",
+        "it-IT": "Hero Icon String",
+        "ko-KR": "Hero Icon String",
+        "pl-PL": "Hero Icon String",
+        "ru-RU": "Hero Icon String",
+        "th-TH": "Hero Icon String",
+        "zh-TW": "Hero Icon String"
     },
     "horizontalAngleOfDirection": {
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
@@ -15981,7 +18857,12 @@ var valueFuncKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             }
         ],
@@ -16009,7 +18890,15 @@ var valueFuncKw =
         "ja-JP": "方向からの水平角",
         "pt-BR": "Ângulo Horizontal a partir da Direção",
         "tr-TR": "Yönden Yatay Açı",
-        "zh-CN": "与此方向的水平角度"
+        "zh-CN": "与此方向的水平角度",
+        "de-DE": "Horizontal Angle From Direction",
+        "es-ES": "Horizontal Angle From Direction",
+        "it-IT": "Horizontal Angle From Direction",
+        "ko-KR": "Horizontal Angle From Direction",
+        "pl-PL": "Horizontal Angle From Direction",
+        "ru-RU": "Horizontal Angle From Direction",
+        "th-TH": "Horizontal Angle From Direction",
+        "zh-TW": "Horizontal Angle From Direction"
     },
     "horizontalAngleTowards": {
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
@@ -16047,7 +18936,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -16082,7 +18974,11 @@ var valueFuncKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             }
         ],
@@ -16109,7 +19005,15 @@ var valueFuncKw =
         "ja-JP": "水平角の方向: ",
         "pt-BR": "Ângulo Horizontal Rumo a",
         "tr-TR": "Yatay Açı Yönü",
-        "zh-CN": "水平方向夹角"
+        "zh-CN": "水平方向夹角",
+        "de-DE": "Horizontal Angle Towards",
+        "es-ES": "Horizontal Angle Towards",
+        "it-IT": "Horizontal Angle Towards",
+        "ko-KR": "Horizontal Angle Towards",
+        "pl-PL": "Horizontal Angle Towards",
+        "ru-RU": "Horizontal Angle Towards",
+        "th-TH": "Horizontal Angle Towards",
+        "zh-TW": "Horizontal Angle Towards"
     },
     "hostPlayer": {
         "description": "The player that is currently the host of the custom game. This value will change if the current host player leaves the match.",
@@ -16137,7 +19041,15 @@ var valueFuncKw =
         "ja-JP": "ホスト・プレイヤー",
         "pt-BR": "Jogador Anfitrião",
         "tr-TR": "Kurucu Oyuncu",
-        "zh-CN": "主机玩家"
+        "zh-CN": "主机玩家",
+        "de-DE": "Host Player",
+        "es-ES": "Host Player",
+        "it-IT": "Host Player",
+        "ko-KR": "Host Player",
+        "pl-PL": "Host Player",
+        "ru-RU": "Host Player",
+        "th-TH": "Host Player",
+        "zh-TW": "Host Player"
     },
     "iconString": {
         "description": "Allows you to use an icon inside of a string (up to 4 per string).",
@@ -16177,7 +19089,8 @@ var valueFuncKw =
                     "th-TH": "ไอคอน",
                     "tr-TR": "Simge",
                     "zh-CN": "图标",
-                    "zh-TW": "頭像"
+                    "zh-TW": "頭像",
+                    "de-DE": "Icon"
                 }
             }
         ],
@@ -16206,7 +19119,15 @@ var valueFuncKw =
         "ja-JP": "アイコンストリング",
         "pt-BR": "String de Ícone",
         "tr-TR": "Simge Dizgisi",
-        "zh-CN": "图标字符串"
+        "zh-CN": "图标字符串",
+        "de-DE": "Icon String",
+        "es-ES": "Icon String",
+        "it-IT": "Icon String",
+        "ko-KR": "Icon String",
+        "pl-PL": "Icon String",
+        "ru-RU": "Icon String",
+        "th-TH": "Icon String",
+        "zh-TW": "Icon String"
     },
     "isAssemblingHeroes": {
         "description": "Whether the match is currently in its assemble heroes phase.",
@@ -16234,7 +19155,15 @@ var valueFuncKw =
         "ja-JP": "ヒーローを編成中",
         "pt-BR": "É Escolher Heróis",
         "tr-TR": "Kahramanlar Hazırlanıyor",
-        "zh-CN": "正在集结英雄"
+        "zh-CN": "正在集结英雄",
+        "de-DE": "Is Assembling Heroes",
+        "es-ES": "Is Assembling Heroes",
+        "it-IT": "Is Assembling Heroes",
+        "ko-KR": "Is Assembling Heroes",
+        "pl-PL": "Is Assembling Heroes",
+        "ru-RU": "Is Assembling Heroes",
+        "th-TH": "Is Assembling Heroes",
+        "zh-TW": "Is Assembling Heroes"
     },
     "isControlPointLocked": {
         "description": "Whether the point is locked in control mode.",
@@ -16262,7 +19191,15 @@ var valueFuncKw =
         "ja-JP": "コントロール・モードでポイントがロックされている",
         "pt-BR": "É Ponto Bloqueado do Modo de Controle",
         "tr-TR": "Kontrol Modu Noktası Kilitli",
-        "zh-CN": "占领要点模式占领点解锁"
+        "zh-CN": "占领要点模式占领点解锁",
+        "de-DE": "Is Control Mode Point Locked",
+        "es-ES": "Is Control Mode Point Locked",
+        "it-IT": "Is Control Mode Point Locked",
+        "ko-KR": "Is Control Mode Point Locked",
+        "pl-PL": "Is Control Mode Point Locked",
+        "ru-RU": "Is Control Mode Point Locked",
+        "th-TH": "Is Control Mode Point Locked",
+        "zh-TW": "Is Control Mode Point Locked"
     },
     "isFlagAtBase": {
         "description": "Whether a specific team's flag is at its base in capture the flag.",
@@ -16299,7 +19236,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -16326,7 +19267,15 @@ var valueFuncKw =
         "ja-JP": "フラッグが陣地にある",
         "pt-BR": "É Bandeira na Base",
         "tr-TR": "Bayrak Üste",
-        "zh-CN": "旗帜是否在基地中"
+        "zh-CN": "旗帜是否在基地中",
+        "de-DE": "Is Flag At Base",
+        "es-ES": "Is Flag At Base",
+        "it-IT": "Is Flag At Base",
+        "ko-KR": "Is Flag At Base",
+        "pl-PL": "Is Flag At Base",
+        "ru-RU": "Is Flag At Base",
+        "th-TH": "Is Flag At Base",
+        "zh-TW": "Is Flag At Base"
     },
     "isFlagBeingCarried": {
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
@@ -16363,7 +19312,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -16390,7 +19343,15 @@ var valueFuncKw =
         "ja-JP": "フラッグが運ばれている",
         "pt-BR": "É Bandeira Sendo Carregada",
         "tr-TR": "Bayrak Taşınıyor",
-        "zh-CN": "是否有人携带旗帜"
+        "zh-CN": "是否有人携带旗帜",
+        "de-DE": "Is Flag Being Carried",
+        "es-ES": "Is Flag Being Carried",
+        "it-IT": "Is Flag Being Carried",
+        "ko-KR": "Is Flag Being Carried",
+        "pl-PL": "Is Flag Being Carried",
+        "ru-RU": "Is Flag Being Carried",
+        "th-TH": "Is Flag Being Carried",
+        "zh-TW": "Is Flag Being Carried"
     },
     "isGameInProgress": {
         "description": "Whether the main phase of the match is in progress (during which time combat and scoring are allowed).",
@@ -16418,7 +19379,15 @@ var valueFuncKw =
         "ja-JP": "ゲームが進行中",
         "pt-BR": "É Jogo em Andamento",
         "tr-TR": "Oyun Devam Ediyor",
-        "zh-CN": "游戏正在进行中"
+        "zh-CN": "游戏正在进行中",
+        "de-DE": "Is Game In Progress",
+        "es-ES": "Is Game In Progress",
+        "it-IT": "Is Game In Progress",
+        "ko-KR": "Is Game In Progress",
+        "pl-PL": "Is Game In Progress",
+        "ru-RU": "Is Game In Progress",
+        "th-TH": "Is Game In Progress",
+        "zh-TW": "Is Game In Progress"
     },
     "isInLoS": {
         "description": "Whether two positions have line of sight with each other.",
@@ -16458,7 +19427,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -16496,7 +19469,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             },
             {
@@ -16531,7 +19508,11 @@ var valueFuncKw =
                     "pt-BR": "BARREIRAS",
                     "ru-RU": "БАРЬЕРЫ",
                     "tr-TR": "BARİYERLER",
-                    "zh-CN": "屏障"
+                    "zh-CN": "屏障",
+                    "de-DE": "BARRIERS",
+                    "ko-KR": "BARRIERS",
+                    "th-TH": "BARRIERS",
+                    "zh-TW": "BARRIERS"
                 }
             }
         ],
@@ -16558,7 +19539,15 @@ var valueFuncKw =
         "ja-JP": "射線が通っている",
         "pt-BR": "É Na Linha de Visão",
         "tr-TR": "Görüş Alanında",
-        "zh-CN": "在视线内"
+        "zh-CN": "在视线内",
+        "de-DE": "Is In Line of Sight",
+        "es-ES": "Is In Line of Sight",
+        "it-IT": "Is In Line of Sight",
+        "ko-KR": "Is In Line of Sight",
+        "pl-PL": "Is In Line of Sight",
+        "ru-RU": "Is In Line of Sight",
+        "th-TH": "Is In Line of Sight",
+        "zh-TW": "Is In Line of Sight"
     },
     "isInSetup": {
         "description": "Whether the match is currently in its setup phase.",
@@ -16586,7 +19575,15 @@ var valueFuncKw =
         "ja-JP": "セットアップ中",
         "pt-BR": "É em Organização",
         "tr-TR": "Kurulumda",
-        "zh-CN": "正在设置"
+        "zh-CN": "正在设置",
+        "de-DE": "Is In Setup",
+        "es-ES": "Is In Setup",
+        "it-IT": "Is In Setup",
+        "ko-KR": "Is In Setup",
+        "pl-PL": "Is In Setup",
+        "ru-RU": "Is In Setup",
+        "th-TH": "Is In Setup",
+        "zh-TW": "Is In Setup"
     },
     "isInSuddenDeath": {
         "description": "Whether the current game of capture the flag is in sudden death.",
@@ -16614,7 +19611,15 @@ var valueFuncKw =
         "ja-JP": "キャプチャー・ザ・フラッグ・モードがサドンデス中",
         "pt-BR": "É Modo CaB em Morte Súbita",
         "tr-TR": "Ani Ölüm'de Bayrak Kapmaca Modu",
-        "zh-CN": "在夺旗模式中开始绝杀局"
+        "zh-CN": "在夺旗模式中开始绝杀局",
+        "de-DE": "Is CTF Mode In Sudden Death",
+        "es-ES": "Is CTF Mode In Sudden Death",
+        "it-IT": "Is CTF Mode In Sudden Death",
+        "ko-KR": "Is CTF Mode In Sudden Death",
+        "pl-PL": "Is CTF Mode In Sudden Death",
+        "ru-RU": "Is CTF Mode In Sudden Death",
+        "th-TH": "Is CTF Mode In Sudden Death",
+        "zh-TW": "Is CTF Mode In Sudden Death"
     },
     "isMatchBetweenRounds": {
         "description": "Whether the match is between rounds.",
@@ -16642,7 +19647,15 @@ var valueFuncKw =
         "ja-JP": "ラウンドの間",
         "pt-BR": "É Entre Rodadas",
         "tr-TR": "Turlar Arasında",
-        "zh-CN": "处于回合之间"
+        "zh-CN": "处于回合之间",
+        "de-DE": "Is Between Rounds",
+        "es-ES": "Is Between Rounds",
+        "it-IT": "Is Between Rounds",
+        "ko-KR": "Is Between Rounds",
+        "pl-PL": "Is Between Rounds",
+        "ru-RU": "Is Between Rounds",
+        "th-TH": "Is Between Rounds",
+        "zh-TW": "Is Between Rounds"
     },
     "isMatchComplete": {
         "description": "Whether the match has finished.",
@@ -16670,7 +19683,15 @@ var valueFuncKw =
         "ja-JP": "マッチが完了している",
         "pt-BR": "É Partida Concluída",
         "tr-TR": "Maç Tamamlandı",
-        "zh-CN": "比赛结束"
+        "zh-CN": "比赛结束",
+        "de-DE": "Is Match Complete",
+        "es-ES": "Is Match Complete",
+        "it-IT": "Is Match Complete",
+        "ko-KR": "Is Match Complete",
+        "pl-PL": "Is Match Complete",
+        "ru-RU": "Is Match Complete",
+        "th-TH": "Is Match Complete",
+        "zh-TW": "Is Match Complete"
     },
     "isObjectiveComplete": {
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid.",
@@ -16710,7 +19731,10 @@ var valueFuncKw =
                     "ru-RU": "Число",
                     "th-TH": "ตัวเลข",
                     "tr-TR": "Sayı",
-                    "zh-CN": "数字"
+                    "zh-CN": "数字",
+                    "de-DE": "Number",
+                    "ko-KR": "Number",
+                    "zh-TW": "Number"
                 }
             }
         ],
@@ -16737,7 +19761,15 @@ var valueFuncKw =
         "ja-JP": "目標をクリアした",
         "pt-BR": "É Objetivo Concluído",
         "tr-TR": "Hedef Tamamlandı",
-        "zh-CN": "目标是否完成"
+        "zh-CN": "目标是否完成",
+        "de-DE": "Is Objective Complete",
+        "es-ES": "Is Objective Complete",
+        "it-IT": "Is Objective Complete",
+        "ko-KR": "Is Objective Complete",
+        "pl-PL": "Is Objective Complete",
+        "ru-RU": "Is Objective Complete",
+        "th-TH": "Is Objective Complete",
+        "zh-TW": "Is Objective Complete"
     },
     "isTeamOnDefense": {
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid.",
@@ -16774,7 +19806,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -16801,7 +19837,15 @@ var valueFuncKw =
         "ja-JP": "防衛側のチーム",
         "pt-BR": "É Equipe na Defensa",
         "tr-TR": "Takım Savunmada",
-        "zh-CN": "正在防守"
+        "zh-CN": "正在防守",
+        "de-DE": "Is Team On Defense",
+        "es-ES": "Is Team On Defense",
+        "it-IT": "Is Team On Defense",
+        "ko-KR": "Is Team On Defense",
+        "pl-PL": "Is Team On Defense",
+        "ru-RU": "Is Team On Defense",
+        "th-TH": "Is Team On Defense",
+        "zh-TW": "Is Team On Defense"
     },
     "isTeamOnOffense": {
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid.",
@@ -16838,7 +19882,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -16865,7 +19913,15 @@ var valueFuncKw =
         "ja-JP": "攻撃側のチーム",
         "pt-BR": "É Equipe no Ataque",
         "tr-TR": "Takım Hücumda",
-        "zh-CN": "作为进攻队伍"
+        "zh-CN": "作为进攻队伍",
+        "de-DE": "Is Team On Offense",
+        "es-ES": "Is Team On Offense",
+        "it-IT": "Is Team On Offense",
+        "ko-KR": "Is Team On Offense",
+        "pl-PL": "Is Team On Offense",
+        "ru-RU": "Is Team On Offense",
+        "th-TH": "Is Team On Offense",
+        "zh-TW": "Is Team On Offense"
     },
     "isWaitingForPlayers": {
         "description": "Whether the match is waiting for players to join before starting.",
@@ -16893,7 +19949,15 @@ var valueFuncKw =
         "ja-JP": "ほかのプレイヤーを待っている",
         "pt-BR": "É Aguardando Jogadores",
         "tr-TR": "Oyuncular Bekleniyor",
-        "zh-CN": "正在等待玩家"
+        "zh-CN": "正在等待玩家",
+        "de-DE": "Is Waiting For Players",
+        "es-ES": "Is Waiting For Players",
+        "it-IT": "Is Waiting For Players",
+        "ko-KR": "Is Waiting For Players",
+        "pl-PL": "Is Waiting For Players",
+        "ru-RU": "Is Waiting For Players",
+        "th-TH": "Is Waiting For Players",
+        "zh-TW": "Is Waiting For Players"
     },
     "len": {
         "description": "The number of elements in the specified array. For strings, use `strLen`.",
@@ -16944,7 +20008,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             }
         ],
@@ -16957,7 +20026,15 @@ var valueFuncKw =
         "ja-JP": "カウント: ",
         "pt-BR": "Contagem de",
         "tr-TR": "Miktar",
-        "zh-CN": "数量"
+        "zh-CN": "数量",
+        "de-DE": "Count Of",
+        "es-ES": "Count Of",
+        "it-IT": "Count Of",
+        "ko-KR": "Count Of",
+        "pl-PL": "Count Of",
+        "ru-RU": "Count Of",
+        "th-TH": "Count Of",
+        "zh-TW": "Count Of"
     },
     "localPlayer": {
         "description": "The player being controlled on the end user's computer. This value is different for each end user and thus can only be accessed in actions which affect visuals or the HUD. This value cannot be stored in variables.",
@@ -16985,7 +20062,15 @@ var valueFuncKw =
         "ja-JP": "ローカルプレイヤー",
         "pt-BR": "Jogador Local",
         "tr-TR": "Yerel Oyuncu",
-        "zh-CN": "本地玩家"
+        "zh-CN": "本地玩家",
+        "de-DE": "Local Player",
+        "es-ES": "Local Player",
+        "it-IT": "Local Player",
+        "ko-KR": "Local Player",
+        "pl-PL": "Local Player",
+        "ru-RU": "Local Player",
+        "th-TH": "Local Player",
+        "zh-TW": "Local Player"
     },
     "localVector": {
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
@@ -17022,7 +20107,11 @@ var valueFuncKw =
                     "pt-BR": "Vetor do Mundo",
                     "ru-RU": "Вектор в игровом мире",
                     "tr-TR": "Dünya Vektörü",
-                    "zh-CN": "地图矢量"
+                    "zh-CN": "地图矢量",
+                    "de-DE": "World Vector",
+                    "ko-KR": "World Vector",
+                    "th-TH": "World Vector",
+                    "zh-TW": "World Vector"
                 }
             },
             {
@@ -17057,7 +20146,11 @@ var valueFuncKw =
                     "pt-BR": "Jogador Relativo",
                     "ru-RU": "Игрок",
                     "tr-TR": "Bağıl Oyuncu",
-                    "zh-CN": "相对玩家"
+                    "zh-CN": "相对玩家",
+                    "de-DE": "Relative Player",
+                    "ko-KR": "Relative Player",
+                    "th-TH": "Relative Player",
+                    "zh-TW": "Relative Player"
                 }
             },
             {
@@ -17091,7 +20184,12 @@ var valueFuncKw =
                     "pt-BR": "Transformação",
                     "ru-RU": "Трансформация",
                     "tr-TR": "Dönüşüm",
-                    "zh-CN": "转换"
+                    "zh-CN": "转换",
+                    "de-DE": "Transformation",
+                    "fr-FR": "Transformation",
+                    "ko-KR": "Transformation",
+                    "th-TH": "Transformation",
+                    "zh-TW": "Transformation"
                 }
             }
         ],
@@ -17119,7 +20217,15 @@ var valueFuncKw =
         "ja-JP": "ローカルのベクトル: ",
         "pt-BR": "Vetor Local de",
         "tr-TR": "Yerel Vektör",
-        "zh-CN": "本地矢量"
+        "zh-CN": "本地矢量",
+        "de-DE": "Local Vector Of",
+        "es-ES": "Local Vector Of",
+        "it-IT": "Local Vector Of",
+        "ko-KR": "Local Vector Of",
+        "pl-PL": "Local Vector Of",
+        "ru-RU": "Local Vector Of",
+        "th-TH": "Local Vector Of",
+        "zh-TW": "Local Vector Of"
     },
     "magnitude": {
         "description": "The magnitude (length) of the specified vector",
@@ -17168,7 +20274,14 @@ var valueFuncKw =
                     "pt-BR": "Vetor",
                     "ru-RU": "Вектор",
                     "tr-TR": "Vektör",
-                    "zh-CN": "矢量"
+                    "zh-CN": "矢量",
+                    "de-DE": "Vector",
+                    "es-ES": "Vector",
+                    "es-MX": "Vector",
+                    "ko-KR": "Vector",
+                    "pl-PL": "Vector",
+                    "th-TH": "Vector",
+                    "zh-TW": "Vector"
                 }
             }
         ],
@@ -17182,7 +20295,14 @@ var valueFuncKw =
         "pt-BR": "Magnitude de",
         "th-TH": "ขนาดของ",
         "tr-TR": "Büyüklüğü",
-        "zh-CN": "幅值"
+        "zh-CN": "幅值",
+        "de-DE": "Magnitude Of",
+        "es-ES": "Magnitude Of",
+        "it-IT": "Magnitude Of",
+        "ko-KR": "Magnitude Of",
+        "pl-PL": "Magnitude Of",
+        "ru-RU": "Magnitude Of",
+        "zh-TW": "Magnitude Of"
     },
     "max": {
         "guid": "00000000C418",
@@ -17222,7 +20342,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -17259,7 +20383,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -17286,7 +20414,15 @@ var valueFuncKw =
         "ja-JP": "最大",
         "pt-BR": "Máx.",
         "tr-TR": "Maks.",
-        "zh-CN": "较大"
+        "zh-CN": "较大",
+        "de-DE": "Max",
+        "es-ES": "Max",
+        "it-IT": "Max",
+        "ko-KR": "Max",
+        "pl-PL": "Max",
+        "ru-RU": "Max",
+        "th-TH": "Max",
+        "zh-TW": "Max"
     },
     "min": {
         "guid": "00000000C416",
@@ -17326,7 +20462,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             },
             {
@@ -17363,7 +20503,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -17390,7 +20534,15 @@ var valueFuncKw =
         "ja-JP": "最小",
         "pt-BR": "Mín.",
         "tr-TR": "Min.",
-        "zh-CN": "较小"
+        "zh-CN": "较小",
+        "de-DE": "Min",
+        "es-ES": "Min",
+        "it-IT": "Min",
+        "ko-KR": "Min",
+        "pl-PL": "Min",
+        "ru-RU": "Min",
+        "th-TH": "Min",
+        "zh-TW": "Min"
     },
     "nearestWalkablePosition": {
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
@@ -17427,7 +20579,11 @@ var valueFuncKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             }
         ],
@@ -17456,7 +20612,14 @@ var valueFuncKw =
         "pt-BR": "Posição Transitável Mais Próxima",
         "th-TH": "ตำแหน่งที่เดินได้ที่ใกล้ที่สุด",
         "tr-TR": "Yürünebilir En Yakın Konum",
-        "zh-CN": "最近的可行走位置"
+        "zh-CN": "最近的可行走位置",
+        "de-DE": "Nearest Walkable Position",
+        "es-ES": "Nearest Walkable Position",
+        "it-IT": "Nearest Walkable Position",
+        "ko-KR": "Nearest Walkable Position",
+        "pl-PL": "Nearest Walkable Position",
+        "ru-RU": "Nearest Walkable Position",
+        "zh-TW": "Nearest Walkable Position"
     },
     "normalize": {
         "description": "The unit-length normalization of a vector.",
@@ -17490,7 +20653,14 @@ var valueFuncKw =
                     "pt-BR": "Vetor",
                     "ru-RU": "Вектор",
                     "tr-TR": "Vektör",
-                    "zh-CN": "矢量"
+                    "zh-CN": "矢量",
+                    "de-DE": "Vector",
+                    "es-ES": "Vector",
+                    "es-MX": "Vector",
+                    "ko-KR": "Vector",
+                    "pl-PL": "Vector",
+                    "th-TH": "Vector",
+                    "zh-TW": "Vector"
                 }
             }
         ],
@@ -17519,7 +20689,15 @@ var valueFuncKw =
         "ja-JP": "正規化",
         "pt-BR": "Normalizar",
         "tr-TR": "Normalleştir",
-        "zh-CN": "归一化"
+        "zh-CN": "归一化",
+        "de-DE": "Normalize",
+        "es-ES": "Normalize",
+        "it-IT": "Normalize",
+        "ko-KR": "Normalize",
+        "pl-PL": "Normalize",
+        "ru-RU": "Normalize",
+        "th-TH": "Normalize",
+        "zh-TW": "Normalize"
     },
     "null": {
         "description": "The absence of a player. Used when no player is desired for a particular input. Equivalent to the real number 0 for the purposes of comparison and debugging.",
@@ -17549,7 +20727,15 @@ var valueFuncKw =
         "ja-JP": "NULL",
         "pt-BR": "Nulo",
         "tr-TR": "Geçersiz",
-        "zh-CN": "空"
+        "zh-CN": "空",
+        "de-DE": "Null",
+        "es-ES": "Null",
+        "it-IT": "Null",
+        "ko-KR": "Null",
+        "pl-PL": "Null",
+        "ru-RU": "Null",
+        "th-TH": "Null",
+        "zh-TW": "Null"
     },
     "random.choice": {
         "description": "A random value from the specified array.",
@@ -17585,7 +20771,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             }
         ],
@@ -17615,7 +20806,15 @@ var valueFuncKw =
         "ja-JP": "配列内のランダムな値",
         "pt-BR": "Valor Aleatório na Matriz",
         "tr-TR": "Dizindeki Rastgele Bir Değer",
-        "zh-CN": "数组随机取值"
+        "zh-CN": "数组随机取值",
+        "de-DE": "Random Value In Array",
+        "es-ES": "Random Value In Array",
+        "it-IT": "Random Value In Array",
+        "ko-KR": "Random Value In Array",
+        "pl-PL": "Random Value In Array",
+        "ru-RU": "Random Value In Array",
+        "th-TH": "Random Value In Array",
+        "zh-TW": "Random Value In Array"
     },
     "random.randint": {
         "description": "A random integer between the specified min and max, inclusive.",
@@ -17653,7 +20852,12 @@ var valueFuncKw =
                     "pt-BR": "Mín.",
                     "ru-RU": "Мин.",
                     "tr-TR": "Min.",
-                    "zh-CN": "最小"
+                    "zh-CN": "最小",
+                    "de-DE": "Min",
+                    "it-IT": "Min",
+                    "ko-KR": "Min",
+                    "th-TH": "Min",
+                    "zh-TW": "Min"
                 }
             },
             {
@@ -17689,7 +20893,12 @@ var valueFuncKw =
                     "pt-BR": "Máx.",
                     "ru-RU": "Макс.",
                     "tr-TR": "Maks.",
-                    "zh-CN": "最大"
+                    "zh-CN": "最大",
+                    "de-DE": "Max",
+                    "it-IT": "Max",
+                    "ko-KR": "Max",
+                    "th-TH": "Max",
+                    "zh-TW": "Max"
                 }
             }
         ],
@@ -17716,7 +20925,15 @@ var valueFuncKw =
         "ja-JP": "ランダムな整数",
         "pt-BR": "Inteiro Aleatório",
         "tr-TR": "Rastgele Tam Sayı",
-        "zh-CN": "随机整数"
+        "zh-CN": "随机整数",
+        "de-DE": "Random Integer",
+        "es-ES": "Random Integer",
+        "it-IT": "Random Integer",
+        "ko-KR": "Random Integer",
+        "pl-PL": "Random Integer",
+        "ru-RU": "Random Integer",
+        "th-TH": "Random Integer",
+        "zh-TW": "Random Integer"
     },
     "random.shuffle": {
         "description": "A copy of the specified array with the values in a random order.",
@@ -17752,7 +20969,12 @@ var valueFuncKw =
                     "pt-BR": "Matriz",
                     "ru-RU": "Массив",
                     "tr-TR": "Dizin",
-                    "zh-CN": "数组"
+                    "zh-CN": "数组",
+                    "de-DE": "Array",
+                    "it-IT": "Array",
+                    "ko-KR": "Array",
+                    "th-TH": "Array",
+                    "zh-TW": "Array"
                 }
             }
         ],
@@ -17779,7 +21001,15 @@ var valueFuncKw =
         "ja-JP": "ランダム化された配列",
         "pt-BR": "Matriz Randomizada",
         "tr-TR": "Rastgele Dizin",
-        "zh-CN": "随机数组"
+        "zh-CN": "随机数组",
+        "de-DE": "Randomized Array",
+        "es-ES": "Randomized Array",
+        "it-IT": "Randomized Array",
+        "ko-KR": "Randomized Array",
+        "pl-PL": "Randomized Array",
+        "ru-RU": "Randomized Array",
+        "th-TH": "Randomized Array",
+        "zh-TW": "Randomized Array"
     },
     "random.uniform": {
         "description": "A random real number between the specified min and max.",
@@ -17815,7 +21045,12 @@ var valueFuncKw =
                     "pt-BR": "Mín.",
                     "ru-RU": "Мин.",
                     "tr-TR": "Min.",
-                    "zh-CN": "最小"
+                    "zh-CN": "最小",
+                    "de-DE": "Min",
+                    "it-IT": "Min",
+                    "ko-KR": "Min",
+                    "th-TH": "Min",
+                    "zh-TW": "Min"
                 }
             },
             {
@@ -17849,7 +21084,12 @@ var valueFuncKw =
                     "pt-BR": "Máx.",
                     "ru-RU": "Макс.",
                     "tr-TR": "Maks.",
-                    "zh-CN": "最大"
+                    "zh-CN": "最大",
+                    "de-DE": "Max",
+                    "it-IT": "Max",
+                    "ko-KR": "Max",
+                    "th-TH": "Max",
+                    "zh-TW": "Max"
                 }
             }
         ],
@@ -17876,7 +21116,15 @@ var valueFuncKw =
         "ja-JP": "ランダムな実数",
         "pt-BR": "Real Aleatório",
         "tr-TR": "Rastgele Gerçek Sayı",
-        "zh-CN": "随机实数"
+        "zh-CN": "随机实数",
+        "de-DE": "Random Real",
+        "es-ES": "Random Real",
+        "it-IT": "Random Real",
+        "ko-KR": "Random Real",
+        "pl-PL": "Random Real",
+        "ru-RU": "Random Real",
+        "th-TH": "Random Real",
+        "zh-TW": "Random Real"
     },
     "rgba": {
         "description": "A custom color with the specified red, green, blue and alpha values.",
@@ -17928,7 +21176,11 @@ var valueFuncKw =
                     "pt-BR": "Vermelho",
                     "ru-RU": "Красный",
                     "tr-TR": "Kırmızı",
-                    "zh-CN": "红色"
+                    "zh-CN": "红色",
+                    "de-DE": "Red",
+                    "ko-KR": "Red",
+                    "th-TH": "Red",
+                    "zh-TW": "Red"
                 }
             },
             {
@@ -17963,7 +21215,11 @@ var valueFuncKw =
                     "pt-BR": "Verde",
                     "ru-RU": "Зеленый",
                     "tr-TR": "Yeşil",
-                    "zh-CN": "绿色"
+                    "zh-CN": "绿色",
+                    "de-DE": "Green",
+                    "ko-KR": "Green",
+                    "th-TH": "Green",
+                    "zh-TW": "Green"
                 }
             },
             {
@@ -17998,7 +21254,11 @@ var valueFuncKw =
                     "pt-BR": "Azul",
                     "ru-RU": "Синий",
                     "tr-TR": "Mavi",
-                    "zh-CN": "蓝色"
+                    "zh-CN": "蓝色",
+                    "de-DE": "Blue",
+                    "ko-KR": "Blue",
+                    "th-TH": "Blue",
+                    "zh-TW": "Blue"
                 }
             },
             {
@@ -18032,7 +21292,12 @@ var valueFuncKw =
                     "pt-BR": "Alfa",
                     "ru-RU": "Альфа",
                     "tr-TR": "Alfa",
-                    "zh-CN": "不透明度"
+                    "zh-CN": "不透明度",
+                    "de-DE": "Alpha",
+                    "fr-FR": "Alpha",
+                    "ko-KR": "Alpha",
+                    "th-TH": "Alpha",
+                    "zh-TW": "Alpha"
                 }
             }
         ],
@@ -18046,7 +21311,15 @@ var valueFuncKw =
         "ja-JP": "カスタム・カラー",
         "pt-BR": "Cor Personalizada",
         "tr-TR": "Özel Renk",
-        "zh-CN": "自定义颜色"
+        "zh-CN": "自定义颜色",
+        "de-DE": "Custom Color",
+        "es-ES": "Custom Color",
+        "it-IT": "Custom Color",
+        "ko-KR": "Custom Color",
+        "pl-PL": "Custom Color",
+        "ru-RU": "Custom Color",
+        "th-TH": "Custom Color",
+        "zh-TW": "Custom Color"
     },
     "sin": {
         "description": "Sine of the specified angle in radians.",
@@ -18082,7 +21355,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -18110,7 +21388,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのサイン",
         "pt-BR": "Seno de Radianos",
         "tr-TR": "Radyan Cinsinden Sinüs",
-        "zh-CN": "弧度的正弦值"
+        "zh-CN": "弧度的正弦值",
+        "de-DE": "Sine From Radians",
+        "es-ES": "Sine From Radians",
+        "it-IT": "Sine From Radians",
+        "ko-KR": "Sine From Radians",
+        "pl-PL": "Sine From Radians",
+        "ru-RU": "Sine From Radians",
+        "th-TH": "Sine From Radians",
+        "zh-TW": "Sine From Radians"
     },
     "sinDeg": {
         "description": "Sine of the specified angle in degrees.",
@@ -18146,7 +21432,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -18174,7 +21465,15 @@ var valueFuncKw =
         "ja-JP": "度のサイン",
         "pt-BR": "Seno de Graus",
         "tr-TR": "Derece Cinsinden Sinüs",
-        "zh-CN": "角度的正弦值"
+        "zh-CN": "角度的正弦值",
+        "de-DE": "Sine From Degrees",
+        "es-ES": "Sine From Degrees",
+        "it-IT": "Sine From Degrees",
+        "ko-KR": "Sine From Degrees",
+        "pl-PL": "Sine From Degrees",
+        "ru-RU": "Sine From Degrees",
+        "th-TH": "Sine From Degrees",
+        "zh-TW": "Sine From Degrees"
     },
     "sqrt": {
         "description": "The square root of the specified value.",
@@ -18211,7 +21510,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -18240,7 +21543,14 @@ var valueFuncKw =
         "pt-BR": "Raiz Quadrada",
         "th-TH": "รากที่สอง",
         "tr-TR": "Karekök",
-        "zh-CN": "平方根"
+        "zh-CN": "平方根",
+        "de-DE": "Square Root",
+        "es-ES": "Square Root",
+        "it-IT": "Square Root",
+        "ko-KR": "Square Root",
+        "pl-PL": "Square Root",
+        "ru-RU": "Square Root",
+        "zh-TW": "Square Root"
     },
     "strContains": {
         "description": "Whether the specified string contains the specified substring.",
@@ -18291,7 +21601,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             },
             {
@@ -18325,7 +21640,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             }
         ],
@@ -18338,7 +21658,15 @@ var valueFuncKw =
         "ja-JP": "含む文字列",
         "pt-BR": "String Contém",
         "tr-TR": "Dizgi İçeriği",
-        "zh-CN": "字符串包含"
+        "zh-CN": "字符串包含",
+        "de-DE": "String Contains",
+        "es-ES": "String Contains",
+        "it-IT": "String Contains",
+        "ko-KR": "String Contains",
+        "pl-PL": "String Contains",
+        "ru-RU": "String Contains",
+        "th-TH": "String Contains",
+        "zh-TW": "String Contains"
     },
     "strLen": {
         "description": "The length in characters of the provided string.",
@@ -18389,7 +21717,12 @@ var valueFuncKw =
                     "pl-PL": "Ciąg",
                     "ru-RU": "Строка",
                     "tr-TR": "Dizgi",
-                    "zh-CN": "字符串"
+                    "zh-CN": "字符串",
+                    "de-DE": "String",
+                    "ko-KR": "String",
+                    "pt-BR": "String",
+                    "th-TH": "String",
+                    "zh-TW": "String"
                 }
             }
         ],
@@ -18402,7 +21735,15 @@ var valueFuncKw =
         "ja-JP": "文字列の長さ",
         "pt-BR": "Tamanho da String",
         "tr-TR": "Dizgi Uzunluğu",
-        "zh-CN": "字符串长度"
+        "zh-CN": "字符串长度",
+        "de-DE": "String Length",
+        "es-ES": "String Length",
+        "it-IT": "String Length",
+        "ko-KR": "String Length",
+        "pl-PL": "String Length",
+        "ru-RU": "String Length",
+        "th-TH": "String Length",
+        "zh-TW": "String Length"
     },
     "tan": {
         "description": "Tangent of the specified angle in radians.",
@@ -18438,7 +21779,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -18466,7 +21812,15 @@ var valueFuncKw =
         "ja-JP": "ラジアンのタンジェント",
         "pt-BR": "Tangente de Radianos",
         "tr-TR": "Radyan Cinsinden Tanjant",
-        "zh-CN": "弧度的正切值"
+        "zh-CN": "弧度的正切值",
+        "de-DE": "Tangent From Radians",
+        "es-ES": "Tangent From Radians",
+        "it-IT": "Tangent From Radians",
+        "ko-KR": "Tangent From Radians",
+        "pl-PL": "Tangent From Radians",
+        "ru-RU": "Tangent From Radians",
+        "th-TH": "Tangent From Radians",
+        "zh-TW": "Tangent From Radians"
     },
     "tanDeg": {
         "description": "Tangent of the specified angle in degrees.",
@@ -18502,7 +21856,12 @@ var valueFuncKw =
                     "pt-BR": "Ângulo",
                     "ru-RU": "Угол",
                     "tr-TR": "Açı",
-                    "zh-CN": "角度"
+                    "zh-CN": "角度",
+                    "de-DE": "Angle",
+                    "fr-FR": "Angle",
+                    "ko-KR": "Angle",
+                    "th-TH": "Angle",
+                    "zh-TW": "Angle"
                 }
             }
         ],
@@ -18530,7 +21889,15 @@ var valueFuncKw =
         "ja-JP": "度のタンジェント",
         "pt-BR": "Tangente de Graus",
         "tr-TR": "Derece Cinsinden Tanjant",
-        "zh-CN": "角度的正切值"
+        "zh-CN": "角度的正切值",
+        "de-DE": "Tangent From Degrees",
+        "es-ES": "Tangent From Degrees",
+        "it-IT": "Tangent From Degrees",
+        "ko-KR": "Tangent From Degrees",
+        "pl-PL": "Tangent From Degrees",
+        "ru-RU": "Tangent From Degrees",
+        "th-TH": "Tangent From Degrees",
+        "zh-TW": "Tangent From Degrees"
     },
     "teamHasHero": {
         "description": "Whether a specific hero is being played (either on a team or in the match).",
@@ -18560,14 +21927,18 @@ var valueFuncKw =
                     "en-US": "Hero",
                     "es-ES": "Héroe",
                     "es-MX": "Héroe",
-                    "fr-FR": "Héros",
+                    "fr-FR": "Personnage",
                     "it-IT": "Eroe",
                     "ja-JP": "ヒーロー",
                     "pl-PL": "Bohater",
                     "pt-BR": "Herói",
                     "ru-RU": "Герой",
                     "tr-TR": "Kahraman",
-                    "zh-CN": "英雄"
+                    "zh-CN": "英雄",
+                    "de-DE": "Hero",
+                    "ko-KR": "Hero",
+                    "th-TH": "Hero",
+                    "zh-TW": "Hero"
                 }
             },
             {
@@ -18602,7 +21973,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -18629,7 +22004,15 @@ var valueFuncKw =
         "ja-JP": "ヒーローがプレイされているか",
         "pt-BR": "É o Herói em Jogo",
         "tr-TR": "Oynanan Kahraman",
-        "zh-CN": "正在使用英雄"
+        "zh-CN": "正在使用英雄",
+        "de-DE": "Is Hero Being Played",
+        "es-ES": "Is Hero Being Played",
+        "it-IT": "Is Hero Being Played",
+        "ko-KR": "Is Hero Being Played",
+        "pl-PL": "Is Hero Being Played",
+        "ru-RU": "Is Hero Being Played",
+        "th-TH": "Is Hero Being Played",
+        "zh-TW": "Is Hero Being Played"
     },
     "teamScore": {
         "guid": "00000000B353",
@@ -18667,7 +22050,11 @@ var valueFuncKw =
                     "pt-BR": "Equipe",
                     "ru-RU": "Команда",
                     "tr-TR": "Takım",
-                    "zh-CN": "队伍"
+                    "zh-CN": "队伍",
+                    "de-DE": "Team",
+                    "ko-KR": "Team",
+                    "th-TH": "Team",
+                    "zh-TW": "Team"
                 }
             }
         ],
@@ -18693,7 +22080,15 @@ var valueFuncKw =
         "ja-JP": "チーム・スコア",
         "pt-BR": "Pontuação da Equipe",
         "tr-TR": "Takım Skoru",
-        "zh-CN": "团队得分"
+        "zh-CN": "团队得分",
+        "de-DE": "Team Score",
+        "es-ES": "Team Score",
+        "it-IT": "Team Score",
+        "ko-KR": "Team Score",
+        "pl-PL": "Team Score",
+        "ru-RU": "Team Score",
+        "th-TH": "Team Score",
+        "zh-TW": "Team Score"
     },
     "true": {
         "description": "The boolean value of true.",
@@ -18721,7 +22116,16 @@ var valueFuncKw =
         "fr-FR": "Vrai",
         "th-TH": "จริง",
         "tr-TR": "Doğru",
-        "zh-CN": "真"
+        "zh-CN": "真",
+        "de-DE": "True",
+        "es-ES": "True",
+        "it-IT": "True",
+        "ja-JP": "True",
+        "ko-KR": "True",
+        "pl-PL": "True",
+        "pt-BR": "True",
+        "ru-RU": "True",
+        "zh-TW": "True"
     },
     "updateEveryTick": {
         "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
@@ -18776,7 +22180,11 @@ var valueFuncKw =
                     "pt-BR": "Valor",
                     "ru-RU": "Значение",
                     "tr-TR": "Değer",
-                    "zh-CN": "值"
+                    "zh-CN": "值",
+                    "de-DE": "Value",
+                    "ko-KR": "Value",
+                    "th-TH": "Value",
+                    "zh-TW": "Value"
                 }
             }
         ],
@@ -18792,7 +22200,15 @@ var valueFuncKw =
         "ja-JP": "フレームごとに更新",
         "pt-BR": "Atualizar a Cada Quadro",
         "tr-TR": "Her Kareyi Güncelle",
-        "zh-CN": "逐帧更新"
+        "zh-CN": "逐帧更新",
+        "de-DE": "Update Every Frame",
+        "es-ES": "Update Every Frame",
+        "it-IT": "Update Every Frame",
+        "ko-KR": "Update Every Frame",
+        "pl-PL": "Update Every Frame",
+        "ru-RU": "Update Every Frame",
+        "th-TH": "Update Every Frame",
+        "zh-TW": "Update Every Frame"
     },
     "vect": {
         "guid": "00000000B0F1",
@@ -18822,7 +22238,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000B2CB",
-                    "en-US": "X"
+                    "en-US": "X",
+                    "de-DE": "X",
+                    "es-ES": "X",
+                    "es-MX": "X",
+                    "fr-FR": "X",
+                    "it-IT": "X",
+                    "ja-JP": "X",
+                    "ko-KR": "X",
+                    "pl-PL": "X",
+                    "pt-BR": "X",
+                    "ru-RU": "X",
+                    "th-TH": "X",
+                    "tr-TR": "X",
+                    "zh-CN": "X",
+                    "zh-TW": "X"
                 }
             },
             {
@@ -18849,7 +22279,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000B2CC",
-                    "en-US": "Y"
+                    "en-US": "Y",
+                    "de-DE": "Y",
+                    "es-ES": "Y",
+                    "es-MX": "Y",
+                    "fr-FR": "Y",
+                    "it-IT": "Y",
+                    "ja-JP": "Y",
+                    "ko-KR": "Y",
+                    "pl-PL": "Y",
+                    "pt-BR": "Y",
+                    "ru-RU": "Y",
+                    "th-TH": "Y",
+                    "tr-TR": "Y",
+                    "zh-CN": "Y",
+                    "zh-TW": "Y"
                 }
             },
             {
@@ -18876,7 +22320,21 @@ var valueFuncKw =
                 },
                 "nameLocalized": {
                     "guid": "00000000B2CD",
-                    "en-US": "Z"
+                    "en-US": "Z",
+                    "de-DE": "Z",
+                    "es-ES": "Z",
+                    "es-MX": "Z",
+                    "fr-FR": "Z",
+                    "it-IT": "Z",
+                    "ja-JP": "Z",
+                    "ko-KR": "Z",
+                    "pl-PL": "Z",
+                    "pt-BR": "Z",
+                    "ru-RU": "Z",
+                    "th-TH": "Z",
+                    "tr-TR": "Z",
+                    "zh-CN": "Z",
+                    "zh-TW": "Z"
                 }
             }
         ],
@@ -18903,7 +22361,16 @@ var valueFuncKw =
         "ja-JP": "ベクトル",
         "pt-BR": "Vetor",
         "tr-TR": "Vektör",
-        "zh-CN": "矢量"
+        "zh-CN": "矢量",
+        "de-DE": "Vector",
+        "es-ES": "Vector",
+        "es-MX": "Vector",
+        "it-IT": "Vector",
+        "ko-KR": "Vector",
+        "pl-PL": "Vector",
+        "ru-RU": "Vector",
+        "th-TH": "Vector",
+        "zh-TW": "Vector"
     },
     "vectorTowards": {
         "description": "The displacement vector from one position to another.",
@@ -18940,7 +22407,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Inicial",
                     "ru-RU": "Начальная позиция",
                     "tr-TR": "Başlangıç Konumu",
-                    "zh-CN": "开始位置"
+                    "zh-CN": "开始位置",
+                    "de-DE": "Start Pos",
+                    "ko-KR": "Start Pos",
+                    "th-TH": "Start Pos",
+                    "zh-TW": "Start Pos"
                 }
             },
             {
@@ -18975,7 +22446,11 @@ var valueFuncKw =
                     "pt-BR": "Pos. Final",
                     "ru-RU": "Конечная позиция",
                     "tr-TR": "Bitiş Konumu",
-                    "zh-CN": "结束位置"
+                    "zh-CN": "结束位置",
+                    "de-DE": "End Pos",
+                    "ko-KR": "End Pos",
+                    "th-TH": "End Pos",
+                    "zh-TW": "End Pos"
                 }
             }
         ],
@@ -19004,7 +22479,15 @@ var valueFuncKw =
         "ja-JP": "ベクトルの方向: ",
         "pt-BR": "Vetor Rumo a",
         "tr-TR": "Vektör Yönü",
-        "zh-CN": "向量"
+        "zh-CN": "向量",
+        "de-DE": "Vector Towards",
+        "es-ES": "Vector Towards",
+        "it-IT": "Vector Towards",
+        "ko-KR": "Vector Towards",
+        "pl-PL": "Vector Towards",
+        "ru-RU": "Vector Towards",
+        "th-TH": "Vector Towards",
+        "zh-TW": "Vector Towards"
     },
     "verticalAngleOfDirection": {
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
@@ -19040,7 +22523,12 @@ var valueFuncKw =
                     "pt-BR": "Direção",
                     "ru-RU": "Направление",
                     "tr-TR": "Yön",
-                    "zh-CN": "方向"
+                    "zh-CN": "方向",
+                    "de-DE": "Direction",
+                    "fr-FR": "Direction",
+                    "ko-KR": "Direction",
+                    "th-TH": "Direction",
+                    "zh-TW": "Direction"
                 }
             }
         ],
@@ -19068,7 +22556,15 @@ var valueFuncKw =
         "ja-JP": "方向からの頂角",
         "pt-BR": "Ângulo Vertical a partir da Direção",
         "tr-TR": "Yönden Dikey Açı",
-        "zh-CN": "与此方向的垂直角度"
+        "zh-CN": "与此方向的垂直角度",
+        "de-DE": "Vertical Angle From Direction",
+        "es-ES": "Vertical Angle From Direction",
+        "it-IT": "Vertical Angle From Direction",
+        "ko-KR": "Vertical Angle From Direction",
+        "pl-PL": "Vertical Angle From Direction",
+        "ru-RU": "Vertical Angle From Direction",
+        "th-TH": "Vertical Angle From Direction",
+        "zh-TW": "Vertical Angle From Direction"
     },
     "verticalAngleTowards": {
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
@@ -19106,7 +22602,10 @@ var valueFuncKw =
                     "ru-RU": "Игрок",
                     "th-TH": "ผู้เล่น",
                     "tr-TR": "Oyuncu",
-                    "zh-CN": "玩家"
+                    "zh-CN": "玩家",
+                    "de-DE": "Player",
+                    "ko-KR": "Player",
+                    "zh-TW": "Player"
                 }
             },
             {
@@ -19141,7 +22640,11 @@ var valueFuncKw =
                     "ru-RU": "Положение",
                     "th-TH": "ตำแหน่ง",
                     "tr-TR": "Konum",
-                    "zh-CN": "位置"
+                    "zh-CN": "位置",
+                    "de-DE": "Position",
+                    "fr-FR": "Position",
+                    "ko-KR": "Position",
+                    "zh-TW": "Position"
                 }
             }
         ],
@@ -19168,7 +22671,15 @@ var valueFuncKw =
         "ja-JP": "頂角の方向: ",
         "pt-BR": "Ângulo Vertical Rumo a",
         "tr-TR": "Dikey Açı Yönü",
-        "zh-CN": "垂直方向夹角"
+        "zh-CN": "垂直方向夹角",
+        "de-DE": "Vertical Angle Towards",
+        "es-ES": "Vertical Angle Towards",
+        "it-IT": "Vertical Angle Towards",
+        "ko-KR": "Vertical Angle Towards",
+        "pl-PL": "Vertical Angle Towards",
+        "ru-RU": "Vertical Angle Towards",
+        "th-TH": "Vertical Angle Towards",
+        "zh-TW": "Vertical Angle Towards"
     },
     "victim": {
         "guid": "00000000B330",
@@ -19197,7 +22708,15 @@ var valueFuncKw =
         "ja-JP": "犠牲者",
         "pt-BR": "Vítima",
         "tr-TR": "Kurban",
-        "zh-CN": "被攻击方"
+        "zh-CN": "被攻击方",
+        "de-DE": "Victim",
+        "es-ES": "Victim",
+        "it-IT": "Victim",
+        "ko-KR": "Victim",
+        "pl-PL": "Victim",
+        "ru-RU": "Victim",
+        "th-TH": "Victim",
+        "zh-TW": "Victim"
     },
     "worldVector": {
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
@@ -19234,7 +22753,11 @@ var valueFuncKw =
                     "pt-BR": "Vetor Local",
                     "ru-RU": "Локальный вектор",
                     "tr-TR": "Yerel Vektör",
-                    "zh-CN": "本地矢量"
+                    "zh-CN": "本地矢量",
+                    "de-DE": "Local Vector",
+                    "ko-KR": "Local Vector",
+                    "th-TH": "Local Vector",
+                    "zh-TW": "Local Vector"
                 }
             },
             {
@@ -19269,7 +22792,11 @@ var valueFuncKw =
                     "pt-BR": "Jogador Relativo",
                     "ru-RU": "Игрок",
                     "tr-TR": "Bağıl Oyuncu",
-                    "zh-CN": "相对玩家"
+                    "zh-CN": "相对玩家",
+                    "de-DE": "Relative Player",
+                    "ko-KR": "Relative Player",
+                    "th-TH": "Relative Player",
+                    "zh-TW": "Relative Player"
                 }
             },
             {
@@ -19303,7 +22830,12 @@ var valueFuncKw =
                     "pt-BR": "Transformação",
                     "ru-RU": "Трансформация",
                     "tr-TR": "Dönüşüm",
-                    "zh-CN": "转换"
+                    "zh-CN": "转换",
+                    "de-DE": "Transformation",
+                    "fr-FR": "Transformation",
+                    "ko-KR": "Transformation",
+                    "th-TH": "Transformation",
+                    "zh-TW": "Transformation"
                 }
             }
         ],
@@ -19331,7 +22863,15 @@ var valueFuncKw =
         "ja-JP": "ワールド座標のベクトル: ",
         "pt-BR": "Vetor do Mundo de",
         "tr-TR": "Dünya Vektörü",
-        "zh-CN": "地图矢量"
+        "zh-CN": "地图矢量",
+        "de-DE": "World Vector Of",
+        "es-ES": "World Vector Of",
+        "it-IT": "World Vector Of",
+        "ko-KR": "World Vector Of",
+        "pl-PL": "World Vector Of",
+        "ru-RU": "World Vector Of",
+        "th-TH": "World Vector Of",
+        "zh-TW": "World Vector Of"
     }
 }
 //end-json

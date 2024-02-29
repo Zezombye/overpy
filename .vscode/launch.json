@@ -14,6 +14,27 @@
 			"type": "node"
 		},
 		{
+			"name": "Generate translations (cached - does not require DataTool)",
+			"program": "${workspaceFolder}/generate-the-other-languages-doc.js",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		},
+		{
+			"name": "Generate translations (with DataTool)",
+			"program": "${workspaceFolder}/generate-the-other-languages-doc.js",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node",
+			"args": [
+				"--regenerateStringsFile"
+			]
+		},
+		{
 			"type": "chrome",
 			"request": "launch",
 			"name": "Open file in browser",

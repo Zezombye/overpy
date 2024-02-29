@@ -50,7 +50,15 @@ const mapKw =
         "ru-RU": "Аюттайя",
         "th-TH": "อยุธยา",
         "zh-CN": "阿育陀耶",
-        "zh-TW": "大城"
+        "zh-TW": "大城",
+        "de-DE": "Ayutthaya",
+        "es-ES": "Ayutthaya",
+        "es-MX": "Ayutthaya",
+        "fr-FR": "Ayutthaya",
+        "it-IT": "Ayutthaya",
+        "pl-PL": "Ayutthaya",
+        "pt-BR": "Ayutthaya",
+        "tr-TR": "Ayutthaya"
     },
     "antarcticPeninsula": {
         "gamemodes": [
@@ -166,7 +174,15 @@ const mapKw =
         "th-TH": "บลิซซาร์ดเวิลด์",
         "tr-TR": "Blizzard Dünyası",
         "zh-CN": "暴雪世界",
-        "zh-TW": "暴雪樂園"
+        "zh-TW": "暴雪樂園",
+        "de-DE": "Blizzard World",
+        "es-ES": "Blizzard World",
+        "es-MX": "Blizzard World",
+        "fr-FR": "Blizzard World",
+        "it-IT": "Blizzard World",
+        "pl-PL": "Blizzard World",
+        "pt-BR": "Blizzard World",
+        "ru-RU": "Blizzard World"
     },
     "blizzWorldWinter": {
         "guid": "00000000A933",
@@ -193,7 +209,8 @@ const mapKw =
         "th-TH": "บลิซซาร์ดเวิลด์ ฤดูหนาว",
         "tr-TR": "Blizzard Dünyası Kış",
         "zh-CN": "圣诞节暴雪世界",
-        "zh-TW": "暴雪樂園（冬境）"
+        "zh-TW": "暴雪樂園（冬境）",
+        "de-DE": "Blizzard World Winter"
     },
     "busan": {
         "guid": "000000006D90",
@@ -213,7 +230,14 @@ const mapKw =
         "ru-RU": "Пусан",
         "th-TH": "ปูซาน",
         "zh-CN": "釜山",
-        "zh-TW": "釜山"
+        "zh-TW": "釜山",
+        "de-DE": "Busan",
+        "es-ES": "Busan",
+        "es-MX": "Busan",
+        "fr-FR": "Busan",
+        "it-IT": "Busan",
+        "pt-BR": "Busan",
+        "tr-TR": "Busan"
     },
     "busanDowntownLny": {
         "guid": "00000000D2C9",
@@ -231,7 +255,7 @@ const mapKw =
         "de-DE": "Stadtzentrum von Busan Neujahr",
         "es-ES": "Centro de Busan Año Nuevo Lunar",
         "es-MX": "Centro de Busan Año Nuevo Lunar",
-        "fr-FR": "Busan - Centre-ville nouvel an lunaire",
+        "fr-FR": "Busan - Centre-ville Nouvel An lunaire",
         "it-IT": "Busan - Centro Capodanno Lunare",
         "ja-JP": "BUSAN DOWNTOWN 旧正月",
         "ko-KR": "부산 시내 설날",
@@ -259,7 +283,7 @@ const mapKw =
         "de-DE": "Tempel von Busan Neujahr",
         "es-ES": "Santuario de Busan Año Nuevo Lunar",
         "es-MX": "Santuario de Busan Año Nuevo Lunar",
-        "fr-FR": "Busan - Sanctuaire nouvel an lunaire",
+        "fr-FR": "Busan - Sanctuaire Nouvel An lunaire",
         "it-IT": "Busan - Santuario Capodanno Lunare",
         "ja-JP": "BUSAN SANCTUARY 旧正月",
         "ko-KR": "부산 사찰 설날",
@@ -335,7 +359,14 @@ const mapKw =
         "th-TH": "แคสติลโล",
         "tr-TR": "Kastillo",
         "zh-CN": "城堡",
-        "zh-TW": "城塞"
+        "zh-TW": "城塞",
+        "de-DE": "Castillo",
+        "es-ES": "Castillo",
+        "es-MX": "Castillo",
+        "fr-FR": "Castillo",
+        "it-IT": "Castillo",
+        "pl-PL": "Castillo",
+        "pt-BR": "Castillo"
     },
     "chateauGuillard": {
         "guid": "0000000069CA",
@@ -355,7 +386,13 @@ const mapKw =
         "th-TH": "คฤหาสน์กียา",
         "tr-TR": "Guillard Şatosu",
         "zh-CN": "吉拉德堡",
-        "zh-TW": "蓋亞爾城堡"
+        "zh-TW": "蓋亞爾城堡",
+        "de-DE": "Château Guillard",
+        "es-MX": "Château Guillard",
+        "fr-FR": "Château Guillard",
+        "it-IT": "Château Guillard",
+        "pl-PL": "Château Guillard",
+        "pt-BR": "Château Guillard"
     },
     "chateauGuillardHalloween": {
         "guid": "000000009FA4",
@@ -376,7 +413,12 @@ const mapKw =
         "th-TH": "คฤหาสน์กียา ฮาโลวีน",
         "tr-TR": "Guillard Şatosu Cadılar Bayramı",
         "zh-CN": "万圣节吉拉德堡",
-        "zh-TW": "蓋亞爾城堡（萬聖節）"
+        "zh-TW": "蓋亞爾城堡（萬聖節）",
+        "de-DE": "Château Guillard Halloween",
+        "es-MX": "Château Guillard Halloween",
+        "fr-FR": "Château Guillard Halloween",
+        "it-IT": "Château Guillard Halloween",
+        "pt-BR": "Château Guillard Halloween"
     },
     "circuitRoyal": {
         "gamemodes": [
@@ -396,7 +438,13 @@ const mapKw =
         "ru-RU": "Королевская трасса",
         "th-TH": "เซอร์กิตรอยัล",
         "zh-CN": "皇家赛道",
-        "zh-TW": "皇家賽道"
+        "zh-TW": "皇家賽道",
+        "de-DE": "Circuit Royal",
+        "es-ES": "Circuit Royal",
+        "es-MX": "Circuit Royal",
+        "it-IT": "Circuit Royal",
+        "pt-BR": "Circuit Royal",
+        "tr-TR": "Circuit Royal"
     },
     "colosseo": {
         "gamemodes": [
@@ -415,7 +463,14 @@ const mapKw =
         "ru-RU": "Колизей",
         "th-TH": "โคลอสซิโอ",
         "zh-CN": "斗兽场",
-        "zh-TW": "羅馬競技場"
+        "zh-TW": "羅馬競技場",
+        "de-DE": "Colosseo",
+        "es-ES": "Colosseo",
+        "es-MX": "Colosseo",
+        "fr-FR": "Colosseo",
+        "it-IT": "Colosseo",
+        "pt-BR": "Colosseo",
+        "tr-TR": "Colosseo"
     },
     "dorado": {
         "guid": "0000000008C1",
@@ -437,7 +492,14 @@ const mapKw =
         "ru-RU": "Дорадо",
         "th-TH": "โดราโด",
         "zh-CN": "多拉多",
-        "zh-TW": "多拉多"
+        "zh-TW": "多拉多",
+        "de-DE": "Dorado",
+        "es-ES": "Dorado",
+        "es-MX": "Dorado",
+        "fr-FR": "Dorado",
+        "pl-PL": "Dorado",
+        "pt-BR": "Dorado",
+        "tr-TR": "Dorado"
     },
     "ecopointAntarctica": {
         "guid": "0000000047D3",
@@ -526,7 +588,15 @@ const mapKw =
         "ru-RU": "Айхенвальд",
         "th-TH": "ไอเค็นวอลด์",
         "zh-CN": "艾兴瓦尔德",
-        "zh-TW": "愛西瓦德"
+        "zh-TW": "愛西瓦德",
+        "de-DE": "Eichenwalde",
+        "es-ES": "Eichenwalde",
+        "es-MX": "Eichenwalde",
+        "fr-FR": "Eichenwalde",
+        "it-IT": "Eichenwalde",
+        "pl-PL": "Eichenwalde",
+        "pt-BR": "Eichenwalde",
+        "tr-TR": "Eichenwalde"
     },
     "eichenwaldeHalloween": {
         "guid": "000000006E6B",
@@ -547,7 +617,14 @@ const mapKw =
         "th-TH": "ไอเค็นวอลด์ ฮาโลวีน",
         "tr-TR": "Eichenwalde Cadılar Bayramı",
         "zh-CN": "万圣节艾兴瓦尔德",
-        "zh-TW": "愛西瓦德（萬聖節）"
+        "zh-TW": "愛西瓦德（萬聖節）",
+        "de-DE": "Eichenwalde Halloween",
+        "es-ES": "Eichenwalde Halloween",
+        "es-MX": "Eichenwalde Halloween",
+        "fr-FR": "Eichenwalde Halloween",
+        "it-IT": "Eichenwalde Halloween",
+        "pl-PL": "Eichenwalde Halloween",
+        "pt-BR": "Eichenwalde Halloween"
     },
     "esperanca": {
         "gamemodes": [
@@ -564,7 +641,15 @@ const mapKw =
         "ru-RU": "Эсперанса",
         "th-TH": "เอสเปรันซา",
         "zh-CN": "埃斯佩兰萨",
-        "zh-TW": "希望之城"
+        "zh-TW": "希望之城",
+        "de-DE": "Esperança",
+        "es-ES": "Esperança",
+        "es-MX": "Esperança",
+        "fr-FR": "Esperança",
+        "it-IT": "Esperança",
+        "pl-PL": "Esperança",
+        "pt-BR": "Esperança",
+        "tr-TR": "Esperança"
     },
     "estadioDasRas": {
         "onlyInOw1": true,
@@ -599,7 +684,15 @@ const mapKw =
         "ru-RU": "Ханамура",
         "th-TH": "ฮานามุระ",
         "zh-CN": "花村",
-        "zh-TW": "花村"
+        "zh-TW": "花村",
+        "de-DE": "Hanamura",
+        "es-ES": "Hanamura",
+        "es-MX": "Hanamura",
+        "fr-FR": "Hanamura",
+        "it-IT": "Hanamura",
+        "pl-PL": "Hanamura",
+        "pt-BR": "Hanamura",
+        "tr-TR": "Hanamura"
     },
     "hanamuraWinter": {
         "guid": "000000005479",
@@ -626,7 +719,8 @@ const mapKw =
         "th-TH": "ฮานามุระ ฤดูหนาว",
         "tr-TR": "Hanamura Kış",
         "zh-CN": "圣诞节花村",
-        "zh-TW": "花村（冬境）"
+        "zh-TW": "花村（冬境）",
+        "de-DE": "Hanamura Winter"
     },
     "havana": {
         "guid": "00000000B8EA",
@@ -653,7 +747,9 @@ const mapKw =
         "ru-RU": "Гавана",
         "th-TH": "ฮาวานา",
         "zh-CN": "哈瓦那",
-        "zh-TW": "哈瓦那"
+        "zh-TW": "哈瓦那",
+        "pt-BR": "Havana",
+        "tr-TR": "Havana"
     },
     "hollywood": {
         "guid": "00000000053D",
@@ -675,7 +771,14 @@ const mapKw =
         "ru-RU": "Голливуд",
         "th-TH": "ฮอลลีวู้ด",
         "zh-CN": "好莱坞",
-        "zh-TW": "好萊塢"
+        "zh-TW": "好萊塢",
+        "de-DE": "Hollywood",
+        "es-ES": "Hollywood",
+        "es-MX": "Hollywood",
+        "fr-FR": "Hollywood",
+        "pl-PL": "Hollywood",
+        "pt-BR": "Hollywood",
+        "tr-TR": "Hollywood"
     },
     "hollywoodHalloween": {
         "guid": "000000004EE3",
@@ -695,7 +798,14 @@ const mapKw =
         "th-TH": "ฮอลลีวูด ฮาโลวีน",
         "tr-TR": "Hollywood Cadılar Bayramı",
         "zh-CN": "万圣节好莱坞",
-        "zh-TW": "好萊塢（萬聖節主題）"
+        "zh-TW": "好萊塢（萬聖節主題）",
+        "de-DE": "Hollywood Halloween",
+        "es-ES": "Hollywood Halloween",
+        "es-MX": "Hollywood Halloween",
+        "fr-FR": "Hollywood Halloween",
+        "it-IT": "Hollywood Halloween",
+        "pl-PL": "Hollywood Halloween",
+        "pt-BR": "Hollywood Halloween"
     },
     "horizonLunarColony": {
         "guid": "000000004EEE",
@@ -743,7 +853,13 @@ const mapKw =
         "th-TH": "อิลิออส",
         "tr-TR": "İlyos",
         "zh-CN": "伊利奥斯",
-        "zh-TW": "伊利歐斯"
+        "zh-TW": "伊利歐斯",
+        "de-DE": "Ilios",
+        "es-ES": "Ilios",
+        "es-MX": "Ilios",
+        "fr-FR": "Ilios",
+        "pl-PL": "Ilios",
+        "pt-BR": "Ilios"
     },
     "iliosLighthouse": {
         "guid": "000000005847",
@@ -880,7 +996,14 @@ const mapKw =
         "th-TH": "จังเกอร์ทาวน์",
         "tr-TR": "Hurdaköy",
         "zh-CN": "渣客镇",
-        "zh-TW": "垃圾鎮"
+        "zh-TW": "垃圾鎮",
+        "de-DE": "Junkertown",
+        "es-ES": "Junkertown",
+        "es-MX": "Junkertown",
+        "fr-FR": "Junkertown",
+        "it-IT": "Junkertown",
+        "pl-PL": "Junkertown",
+        "pt-BR": "Junkertown"
     },
     "kanezaka": {
         "gamemodes": [
@@ -898,7 +1021,15 @@ const mapKw =
         "ru-RU": "Канедзака",
         "th-TH": "คาเนะซากะ",
         "zh-CN": "铁坂",
-        "zh-TW": "鐵坂"
+        "zh-TW": "鐵坂",
+        "de-DE": "Kanezaka",
+        "es-ES": "Kanezaka",
+        "es-MX": "Kanezaka",
+        "fr-FR": "Kanezaka",
+        "it-IT": "Kanezaka",
+        "pl-PL": "Kanezaka",
+        "pt-BR": "Kanezaka",
+        "tr-TR": "Kanezaka"
     },
     "kingsRow": {
         "guid": "000000000133",
@@ -921,7 +1052,13 @@ const mapKw =
         "th-TH": "คิงสโรว์",
         "tr-TR": "Kral Yolu",
         "zh-CN": "国王大道",
-        "zh-TW": "國王大道"
+        "zh-TW": "國王大道",
+        "de-DE": "King's Row",
+        "es-ES": "King's Row",
+        "es-MX": "King's Row",
+        "it-IT": "King's Row",
+        "pl-PL": "King's Row",
+        "pt-BR": "King's Row"
     },
     "kingsRowWinter": {
         "guid": "00000000547A",
@@ -948,7 +1085,8 @@ const mapKw =
         "th-TH": "คิงสโรว์ ฤดูหนาว",
         "tr-TR": "Kral Yolu Kış",
         "zh-CN": "圣诞节国王大道",
-        "zh-TW": "國王大道（冬境）"
+        "zh-TW": "國王大道（冬境）",
+        "de-DE": "King's Row Winter"
     },
     "lijiangControlCenter": {
         "guid": "000000005724",
@@ -1002,7 +1140,7 @@ const mapKw =
         "de-DE": "Lijiang Tower – Kontrollzentrum Neujahr",
         "es-ES": "Centro de control de Lijiang Año Nuevo Lunar",
         "es-MX": "Centro de control de Lijiang Año Nuevo Lunar",
-        "fr-FR": "Lijiang - Centre de contrôle nouvel an lunaire",
+        "fr-FR": "Lijiang - Centre de contrôle Nouvel An lunaire",
         "it-IT": "Lijiang - Centro di Controllo Capodanno Lunare",
         "ja-JP": "LIJIANG CONTROL CENTER 旧正月",
         "ko-KR": "리장 관제 센터 설날",
@@ -1066,7 +1204,7 @@ const mapKw =
         "de-DE": "Lijiang Tower – Garten Neujahr",
         "es-ES": "Lijiang: Jardín Año Nuevo Lunar",
         "es-MX": "Jardín Lijiang Año Nuevo Lunar",
-        "fr-FR": "Lijiang - Jardin nouvel an lunaire",
+        "fr-FR": "Lijiang - Jardin Nouvel An lunaire",
         "it-IT": "Lijiang - Giardino Capodanno Lunare",
         "ja-JP": "LIJIANG GARDEN 旧正月",
         "ko-KR": "리장 정원 설날",
@@ -1130,7 +1268,7 @@ const mapKw =
         "de-DE": "Lijiang Tower – Nachtmarkt Neujahr",
         "es-ES": "Mercado nocturno de Lijiang Año Nuevo Lunar",
         "es-MX": "Mercado nocturno de Lijiang Año Nuevo Lunar",
-        "fr-FR": "Lijiang - Marché de nuit nouvel an lunaire",
+        "fr-FR": "Lijiang - Marché de nuit Nouvel An lunaire",
         "it-IT": "Lijiang - Mercato Notturno Capodanno Lunare",
         "ja-JP": "LIJIANG NIGHT MARKET 旧正月",
         "ko-KR": "리장 야시장 설날",
@@ -1165,7 +1303,8 @@ const mapKw =
         "th-TH": "หอคอยลี่เจียง",
         "tr-TR": "Lijiang Kulesi",
         "zh-CN": "漓江塔",
-        "zh-TW": "灕江天塔"
+        "zh-TW": "灕江天塔",
+        "de-DE": "Lijiang Tower"
     },
     "lijiangTowerLny": {
         "guid": "000000005A33",
@@ -1180,7 +1319,7 @@ const mapKw =
         "de-DE": "Lijiang Tower Neujahr",
         "es-ES": "Torre Lijiang Año Nuevo Lunar",
         "es-MX": "Torre Lijiang Año Nuevo Lunar",
-        "fr-FR": "Tour de Lijiang nouvel an lunaire",
+        "fr-FR": "Tour de Lijiang Nouvel An lunaire",
         "it-IT": "Torre di Lijiang Capodanno Lunare",
         "ja-JP": "LIJIANG TOWER 旧正月",
         "ko-KR": "리장 타워 설날",
@@ -1208,7 +1347,15 @@ const mapKw =
         "ru-RU": "Малевенто",
         "th-TH": "มาเลเวนโต",
         "zh-CN": "马莱温多",
-        "zh-TW": "馬勒馮托"
+        "zh-TW": "馬勒馮托",
+        "de-DE": "Malevento",
+        "es-ES": "Malevento",
+        "es-MX": "Malevento",
+        "fr-FR": "Malevento",
+        "it-IT": "Malevento",
+        "pl-PL": "Malevento",
+        "pt-BR": "Malevento",
+        "tr-TR": "Malevento"
     },
     "midtown": {
         "gamemodes": [
@@ -1226,7 +1373,14 @@ const mapKw =
         "ru-RU": "Мидтаун",
         "th-TH": "มิดทาวน์",
         "zh-CN": "中城",
-        "zh-TW": "中城區"
+        "zh-TW": "中城區",
+        "de-DE": "Midtown",
+        "es-ES": "Midtown",
+        "es-MX": "Midtown",
+        "fr-FR": "Midtown",
+        "it-IT": "Midtown",
+        "pt-BR": "Midtown",
+        "tr-TR": "Midtown"
     },
     "necropolis": {
         "guid": "0000000053FB",
@@ -1278,7 +1432,14 @@ const mapKw =
         "ru-RU": "Непал",
         "th-TH": "เนปาล",
         "zh-CN": "尼泊尔",
-        "zh-TW": "尼泊爾"
+        "zh-TW": "尼泊爾",
+        "de-DE": "Nepal",
+        "es-ES": "Nepal",
+        "es-MX": "Nepal",
+        "it-IT": "Nepal",
+        "pl-PL": "Nepal",
+        "pt-BR": "Nepal",
+        "tr-TR": "Nepal"
     },
     "nepalSanctum": {
         "guid": "0000000056BA",
@@ -1405,7 +1566,22 @@ const mapKw =
             "skirmish",
             "flashpoint"
         ],
-        "en-US": "New Junk City"
+        "guid": "000000014012",
+        "en-US": "New Junk City",
+        "ja-JP": "NEW JUNK CITY",
+        "ko-KR": "뉴 정크 시티",
+        "pl-PL": "Nowe Junk City",
+        "pt-BR": "Nova Junk City",
+        "ru-RU": "Нью-Джанк",
+        "th-TH": "นิวจังค์ซิตี้",
+        "zh-CN": "新渣客城",
+        "zh-TW": "新垃圾城",
+        "de-DE": "New Junk City",
+        "es-ES": "New Junk City",
+        "es-MX": "New Junk City",
+        "fr-FR": "New Junk City",
+        "it-IT": "New Junk City",
+        "tr-TR": "New Junk City"
     },
     "newQueenStreet": {
         "gamemodes": [
@@ -1424,7 +1600,14 @@ const mapKw =
         "ru-RU": "Нью-Квин-стрит",
         "th-TH": "นิวควีนสตรีท",
         "zh-CN": "新皇后街",
-        "zh-TW": "新皇后街"
+        "zh-TW": "新皇后街",
+        "de-DE": "New Queen Street",
+        "es-ES": "New Queen Street",
+        "es-MX": "New Queen Street",
+        "fr-FR": "New Queen Street",
+        "it-IT": "New Queen Street",
+        "pl-PL": "New Queen Street",
+        "tr-TR": "New Queen Street"
     },
     "numbani": {
         "guid": "0000000002EA",
@@ -1441,7 +1624,15 @@ const mapKw =
         "ru-RU": "Нумбани",
         "th-TH": "นุมบานี",
         "zh-CN": "努巴尼",
-        "zh-TW": "努巴尼"
+        "zh-TW": "努巴尼",
+        "de-DE": "Numbani",
+        "es-ES": "Numbani",
+        "es-MX": "Numbani",
+        "fr-FR": "Numbani",
+        "it-IT": "Numbani",
+        "pl-PL": "Numbani",
+        "pt-BR": "Numbani",
+        "tr-TR": "Numbani"
     },
     "oasis": {
         "guid": "0000000046D5",
@@ -1463,7 +1654,12 @@ const mapKw =
         "th-TH": "โอเอซิส",
         "tr-TR": "Vaha",
         "zh-CN": "绿洲城",
-        "zh-TW": "綠洲城"
+        "zh-TW": "綠洲城",
+        "de-DE": "Oasis",
+        "es-ES": "Oasis",
+        "es-MX": "Oasis",
+        "fr-FR": "Oasis",
+        "pt-BR": "Oasis"
     },
     "oasisCityCenter": {
         "guid": "000000005905",
@@ -1580,7 +1776,15 @@ const mapKw =
         "ru-RU": "Параисо",
         "th-TH": "พาไรโซ",
         "zh-CN": "帕拉伊苏",
-        "zh-TW": "帕拉伊索"
+        "zh-TW": "帕拉伊索",
+        "de-DE": "Paraíso",
+        "es-ES": "Paraíso",
+        "es-MX": "Paraíso",
+        "fr-FR": "Paraíso",
+        "it-IT": "Paraíso",
+        "pl-PL": "Paraíso",
+        "pt-BR": "Paraíso",
+        "tr-TR": "Paraíso"
     },
     "paris": {
         "guid": "00000000831E",
@@ -1601,8 +1805,14 @@ const mapKw =
         "ko-KR": "파리",
         "pl-PL": "Paryż",
         "ru-RU": "Париж",
+        "th-TH": "ปารีส",
         "zh-CN": "巴黎",
-        "zh-TW": "巴黎"
+        "zh-TW": "巴黎",
+        "de-DE": "Paris",
+        "es-ES": "Paris",
+        "fr-FR": "Paris",
+        "pt-BR": "Paris",
+        "tr-TR": "Paris"
     },
     "petra": {
         "guid": "0000000081CB",
@@ -1620,7 +1830,15 @@ const mapKw =
         "ru-RU": "Петра",
         "th-TH": "เพทรา",
         "zh-CN": "佩特拉",
-        "zh-TW": "佩特拉"
+        "zh-TW": "佩特拉",
+        "de-DE": "Petra",
+        "es-ES": "Petra",
+        "es-MX": "Petra",
+        "fr-FR": "Petra",
+        "it-IT": "Petra",
+        "pl-PL": "Petra",
+        "pt-BR": "Petra",
+        "tr-TR": "Petra"
     },
     "practiceRange": {
         "guid": "000000002BA1",
@@ -1660,8 +1878,17 @@ const mapKw =
         "ja-JP": "RIALTO",
         "ko-KR": "리알토",
         "ru-RU": "Риальто",
+        "th-TH": "ริอัลโท",
         "zh-CN": "里阿尔托",
-        "zh-TW": "里亞爾托"
+        "zh-TW": "里亞爾托",
+        "de-DE": "Rialto",
+        "es-ES": "Rialto",
+        "es-MX": "Rialto",
+        "fr-FR": "Rialto",
+        "it-IT": "Rialto",
+        "pl-PL": "Rialto",
+        "pt-BR": "Rialto",
+        "tr-TR": "Rialto"
     },
     "route66": {
         "guid": "0000000011D3",
@@ -1687,7 +1914,10 @@ const mapKw =
         "ru-RU": "Шоссе 66",
         "th-TH": "รูต 66",
         "zh-CN": "66号公路",
-        "zh-TW": "66號公路"
+        "zh-TW": "66號公路",
+        "de-DE": "Route 66",
+        "fr-FR": "Route 66",
+        "tr-TR": "Route 66"
     },
     "samoa": {
         "gamemodes": [
@@ -1697,7 +1927,22 @@ const mapKw =
         "variants": {
             "default": "972777519512068154"
         },
-        "en-US": "Samoa"
+        "guid": "00000001698C",
+        "en-US": "Samoa",
+        "ja-JP": "SAMOA",
+        "ko-KR": "사모아",
+        "ru-RU": "Самоа",
+        "th-TH": "ซามัว",
+        "zh-CN": "萨摩亚",
+        "zh-TW": "薩摩亞",
+        "de-DE": "Samoa",
+        "es-ES": "Samoa",
+        "es-MX": "Samoa",
+        "fr-FR": "Samoa",
+        "it-IT": "Samoa",
+        "pl-PL": "Samoa",
+        "pt-BR": "Samoa",
+        "tr-TR": "Samoa"
     },
     "shambaliMonastery": {
         "gamemodes": [
@@ -1729,7 +1974,22 @@ const mapKw =
             "skirmish",
             "flashpoint"
         ],
-        "en-US": "Suravasa"
+        "guid": "0000000125D2",
+        "en-US": "Suravasa",
+        "ja-JP": "SURAVASA",
+        "ko-KR": "수라바사",
+        "pl-PL": "Surawasa",
+        "ru-RU": "Сураваса",
+        "th-TH": "สุรวาส",
+        "zh-CN": "苏拉瓦萨",
+        "zh-TW": "蘇拉瓦薩",
+        "de-DE": "Suravasa",
+        "es-ES": "Suravasa",
+        "es-MX": "Suravasa",
+        "fr-FR": "Suravasa",
+        "it-IT": "Suravasa",
+        "pt-BR": "Suravasa",
+        "tr-TR": "Suravasa"
     },
     "sydneyHarbourArena": {
         "onlyInOw1": true,
@@ -1818,8 +2078,11 @@ const mapKw =
         "pl-PL": "Zakłady Volskaya Industries",
         "pt-BR": "Indústrias Volskaya",
         "ru-RU": "КБ Вольской",
+        "th-TH": "วอลสกาย่า อินดัสตรีส์",
+        "tr-TR": "Volskaya Endüstrileri",
         "zh-CN": "沃斯卡娅工业区",
-        "zh-TW": "伏斯凱亞工業"
+        "zh-TW": "伏斯凱亞工業",
+        "de-DE": "Volskaya Industries"
     },
     "watchpointGibraltar": {
         "guid": "0000000002E9",
@@ -1844,7 +2107,8 @@ const mapKw =
         "th-TH": "วอตช์พอยต์: ยิบรอลตา",
         "tr-TR": "Seyir Noktası: Cebelitarık",
         "zh-CN": "监测站：直布罗陀",
-        "zh-TW": "捍衛者基地：直布羅陀"
+        "zh-TW": "捍衛者基地：直布羅陀",
+        "de-DE": "Watchpoint: Gibraltar"
     },
     "workshopChamber": {
         "gamemodes": [
