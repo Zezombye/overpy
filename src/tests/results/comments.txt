@@ -20,7 +20,7 @@ rule ("comments") {
         Modify Global Variable(C, Add, True);
         "D++"
         Modify Global Variable(D, Add, True);
-        "nothing\nsome array"
+        "nothing\r\nsome array"
         Set Global Variable(A, Array(1, 2, 3));
     }
 }
