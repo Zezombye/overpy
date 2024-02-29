@@ -568,7 +568,7 @@ function parse(content, kwargs={}) {
             const value = parse(operands[1]);
 
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
-            if (areAstsAlwaysEqual(variable, variable)) { // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
+            if (!areAstsAlwaysEqual(variable, variable)) { // This is not a mistake: areAstsAlwaysEqual checks if its arguments are equal when called twice, which includes randomness.
                 return new Ast("__modifyVar__", [
                     variable,
                     new Ast(opName, [], [], "__Operation__"),

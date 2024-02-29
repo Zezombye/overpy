@@ -160,5 +160,6 @@ rule "ternaries":
     A = B if 0 != 0 else C if 0 != 0 else D #D
 
 rule "handling random values":
+    random.choice(getAllPlayers()).A += 0 #pass
     random.choice(getAllPlayers()).A += 1
     random.choice(getAllPlayers()).A max= B
