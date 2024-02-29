@@ -36,15 +36,15 @@ astParsingFunctions.__or__ = function(content) {
             return content.args[1];
         }
         //A or A -> A
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return content.args[0];
         }
         //A or not A -> true
-        if (content.args[1].name === "__not__" && areAstsEqual(content.args[0], content.args[1].args[0])) {
+        if (content.args[1].name === "__not__" && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
             return getAstForTrue();
         }
         //(not A) or A -> true
-        if (content.args[0].name === "__not__" && areAstsEqual(content.args[0].args[0], content.args[1])) {
+        if (content.args[0].name === "__not__" && areAstsAlwaysEqual(content.args[0].args[0], content.args[1])) {
             return getAstForTrue();
         }
     }

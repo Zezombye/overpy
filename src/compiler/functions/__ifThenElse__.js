@@ -29,7 +29,7 @@ astParsingFunctions.__ifThenElse__ = function(content) {
             return content.args[2];
         }
         //ifThenElse(A, B, B) -> B
-        if (areAstsEqual(content.args[1], content.args[2])) {
+        if (areAstsAlwaysEqual(content.args[1], content.args[2])) {
             return content.args[1];
         }
         //ifThenElse(not A, B, C) -> ifThenElse(A, C, B)

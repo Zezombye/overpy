@@ -158,8 +158,14 @@ function isDefinitelyTruthy(content) {
     return false;
 }
 
-//Returns true if the ASTs are the same tree (same names) and there is no function that can return a different value if called twice with the same arguments and context (such as a random function).
-function areAstsEqual(a, b) {
+/**
+ * Determines whether the two provided ASTs always evaluate to the same value.
+ * @param {Ast} a
+ * @param {Ast} b
+ * @remarks This function will check for random value functions, and will return false if any are found.
+ * @returns Whether AST A and AST B always evaluate to the same value.
+ */
+function areAstsAlwaysEqual(a, b) {
     if (a.name !== b.name) {
         return false;
     }
@@ -170,7 +176,7 @@ function areAstsEqual(a, b) {
         return false;
     }
     for (var i = 0; i < a.args.length; i++) {
-        if (!areAstsEqual(a.args[i], b.args[i])) {
+        if (!areAstsAlwaysEqual(a.args[i], b.args[i])) {
             return false;
         }
     }

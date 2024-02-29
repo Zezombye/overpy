@@ -25,7 +25,7 @@ astParsingFunctions.__greaterThan__ = function(content) {
             return getAstForBool(content.args[0].args[0].numValue > content.args[1].args[0].numValue);
         }
         //A > A -> false
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return getAstForFalse();
         }
     }

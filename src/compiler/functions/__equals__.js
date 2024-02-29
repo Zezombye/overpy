@@ -26,7 +26,7 @@ astParsingFunctions.__equals__ = function(content) {
         }
 
         //A == A -> true
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return getAstForTrue();
         }
 

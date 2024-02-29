@@ -42,7 +42,7 @@ astParsingFunctions.__add__ = function(content) {
         }
 
         //A+A -> 2*A
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return new Ast("__multiply__", [getAstFor2(), content.args[0]]);
         }
 

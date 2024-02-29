@@ -29,7 +29,7 @@ astParsingFunctions.__assignTo__ = function(content) {
             "__raiseToPower__",
             "min",
             "max",
-        ].includes(content.args[1].name) && areAstsEqual(content.args[0], content.args[1].args[0])) {
+        ].includes(content.args[1].name) && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
             var opName = content.args[1].name;
             if (opName === "min" || opName === "max") {
                 opName = "__"+opName+"__";
@@ -41,7 +41,7 @@ astParsingFunctions.__assignTo__ = function(content) {
             ]);
         }
 
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return getAstForUselessInstruction();
         }
     }

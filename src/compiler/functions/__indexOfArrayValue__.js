@@ -23,7 +23,7 @@ astParsingFunctions.__indexOfArrayValue__ = function(content) {
     /*if (enableOptimization) {
         if (content.args[0].name === "__array__") {
             for (var i = 0; i < content.args[0].args.length; i++) {
-                if (areAstsEqual(content.args[0].args[i], content.args[1])) {
+                if (areAstsAlwaysEqual(content.args[0].args[i], content.args[1])) {
                     return getAstForNumber(i);
                 }
             }

@@ -27,7 +27,7 @@ astParsingFunctions.__modulo__ = function(content) {
         }
 
         //A%A -> 0
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return getAstFor0();
         }
 

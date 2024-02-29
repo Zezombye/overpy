@@ -37,15 +37,15 @@ astParsingFunctions.__and__ = function(content) {
             return content.args[0];
         }
         //A and A -> A
-        if (areAstsEqual(content.args[0], content.args[1])) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return content.args[0];
         }
         //A and not A -> false
-        if (content.args[1].name === "__not__" && areAstsEqual(content.args[0], content.args[1].args[0])) {
+        if (content.args[1].name === "__not__" && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
             return getAstForFalse();
         }
         //(not A) and A -> false
-        if (content.args[0].name === "__not__" && areAstsEqual(content.args[0].args[0], content.args[1])) {
+        if (content.args[0].name === "__not__" && areAstsAlwaysEqual(content.args[0].args[0], content.args[1])) {
             return getAstForFalse();
         }
     }

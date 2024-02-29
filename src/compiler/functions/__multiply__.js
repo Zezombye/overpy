@@ -41,7 +41,7 @@ astParsingFunctions.__multiply__ = function(content) {
         }
 
         //A*A -> A**2 if A is unsigned
-        if (areAstsEqual(content.args[0], content.args[1]) && content.args[0].type !== "Value" && isTypeSuitable("unsigned float", content.args[0].type)) {
+        if (areAstsAlwaysEqual(content.args[0], content.args[1]) && content.args[0].type !== "Value" && isTypeSuitable("unsigned float", content.args[0].type)) {
             return new Ast("__raiseToPower__", [content.args[0], getAstFor2()]);
         }
 
