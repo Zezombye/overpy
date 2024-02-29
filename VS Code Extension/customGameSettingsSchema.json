@@ -16130,18 +16130,38 @@
                                     "minimum": 25,
                                     "maximum": 300
                                 },
-                                "enableSecondaryFireUnlimitedFuel": {
+                                "enablePassiveUnlimitedFuel": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireVerticalSpeed%": {
+                                "passiveVerticalSpeed%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "passiveMaximumTime%": {
+                                    "type": "number",
+                                    "minimum": 20,
+                                    "maximum": 500
+                                },
+                                "passiveExtraFuel%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 200
+                                },
+                                "passiveRechargeRate%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ability1Acceleration%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "ability1RefuelScalar": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 400
                                 },
                                 "primaryFireKb%": {
                                     "type": "number",
@@ -16247,15 +16267,13 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enablePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number",
-                                    "minimum": 20,
-                                    "maximum": 500
-                                },
-                                "secondaryFireRechargeRate%": {
+                                "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -21102,18 +21120,38 @@
                                     "minimum": 25,
                                     "maximum": 300
                                 },
-                                "enableSecondaryFireUnlimitedFuel": {
+                                "enablePassiveUnlimitedFuel": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireVerticalSpeed%": {
+                                "passiveVerticalSpeed%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "passiveMaximumTime%": {
+                                    "type": "number",
+                                    "minimum": 20,
+                                    "maximum": 500
+                                },
+                                "passiveExtraFuel%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 200
+                                },
+                                "passiveRechargeRate%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ability1Acceleration%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "ability1RefuelScalar": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 400
                                 },
                                 "primaryFireKb%": {
                                     "type": "number",
@@ -21219,15 +21257,13 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enablePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number",
-                                    "minimum": 20,
-                                    "maximum": 500
-                                },
-                                "secondaryFireRechargeRate%": {
+                                "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -26074,18 +26110,38 @@
                                     "minimum": 25,
                                     "maximum": 300
                                 },
-                                "enableSecondaryFireUnlimitedFuel": {
+                                "enablePassiveUnlimitedFuel": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireVerticalSpeed%": {
+                                "passiveVerticalSpeed%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "passiveMaximumTime%": {
+                                    "type": "number",
+                                    "minimum": 20,
+                                    "maximum": 500
+                                },
+                                "passiveExtraFuel%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 200
+                                },
+                                "passiveRechargeRate%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ability1Acceleration%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "ability1RefuelScalar": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 400
                                 },
                                 "primaryFireKb%": {
                                     "type": "number",
@@ -26191,15 +26247,13 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enablePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number",
-                                    "minimum": 20,
-                                    "maximum": 500
-                                },
-                                "secondaryFireRechargeRate%": {
+                                "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -31046,18 +31100,38 @@
                                     "minimum": 25,
                                     "maximum": 300
                                 },
-                                "enableSecondaryFireUnlimitedFuel": {
+                                "enablePassiveUnlimitedFuel": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireVerticalSpeed%": {
+                                "passiveVerticalSpeed%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "passiveMaximumTime%": {
+                                    "type": "number",
+                                    "minimum": 20,
+                                    "maximum": 500
+                                },
+                                "passiveExtraFuel%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 200
+                                },
+                                "passiveRechargeRate%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
                                 },
                                 "ability1Acceleration%": {
                                     "type": "number",
                                     "minimum": 25,
                                     "maximum": 300
+                                },
+                                "ability1RefuelScalar": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 400
                                 },
                                 "primaryFireKb%": {
                                     "type": "number",
@@ -31163,15 +31237,13 @@
                                 "enableUlt": {
                                     "type": "boolean"
                                 },
+                                "enablePassive": {
+                                    "type": "boolean"
+                                },
                                 "enableSecondaryFire": {
                                     "type": "boolean"
                                 },
-                                "secondaryFireMaximumTime%": {
-                                    "type": "number",
-                                    "minimum": 20,
-                                    "maximum": 500
-                                },
-                                "secondaryFireRechargeRate%": {
+                                "secondaryFireCooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -36159,18 +36231,38 @@
                             "minimum": 25,
                             "maximum": 300
                         },
-                        "enableSecondaryFireUnlimitedFuel": {
+                        "enablePassiveUnlimitedFuel": {
                             "type": "boolean"
                         },
-                        "secondaryFireVerticalSpeed%": {
+                        "passiveVerticalSpeed%": {
                             "type": "number",
                             "minimum": 25,
                             "maximum": 300
+                        },
+                        "passiveMaximumTime%": {
+                            "type": "number",
+                            "minimum": 20,
+                            "maximum": 500
+                        },
+                        "passiveExtraFuel%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 200
+                        },
+                        "passiveRechargeRate%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
                         },
                         "ability1Acceleration%": {
                             "type": "number",
                             "minimum": 25,
                             "maximum": 300
+                        },
+                        "ability1RefuelScalar": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 400
                         },
                         "primaryFireKb%": {
                             "type": "number",
@@ -36276,15 +36368,13 @@
                         "enableUlt": {
                             "type": "boolean"
                         },
+                        "enablePassive": {
+                            "type": "boolean"
+                        },
                         "enableSecondaryFire": {
                             "type": "boolean"
                         },
-                        "secondaryFireMaximumTime%": {
-                            "type": "number",
-                            "minimum": 20,
-                            "maximum": 500
-                        },
-                        "secondaryFireRechargeRate%": {
+                        "secondaryFireCooldown%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const JsDiff = require("diff");
 const UglifyJS = require("uglify-js");
- 
+
 //import overpy files
 overpyFiles = [
 
@@ -78,6 +78,7 @@ overpyFiles = [
 "compiler/functions/__lessThanOrEquals__.js",
 "compiler/functions/__map__.js",
 "compiler/functions/__mappedArray__.js",
+"compiler/functions/__modifyVar__.js",
 "compiler/functions/__modulo__.js",
 "compiler/functions/__multiply__.js",
 "compiler/functions/__negate__.js",
@@ -280,7 +281,7 @@ for (var unitTestFile of unitTestFiles) {
         if (outputFileContent !== output) {
             console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
 			console.error("Diff:")
-			
+
 			var diff = JsDiff.diffLines(outputFileContent, output);
 			for (var part of diff) {
 				if (part.added) {
