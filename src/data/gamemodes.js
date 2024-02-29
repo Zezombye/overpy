@@ -75,7 +75,9 @@ const gamemodeKw =
         "th-TH": "ควบคุมพื้นที่",
         "tr-TR": "Kontrol",
         "zh-CN": "占领要点",
-        "zh-TW": "控制"
+        "zh-TW": "控制",
+        "es-ES": "Control",
+        "es-MX": "Control"
     },
     "ctf": {
         "defaultTeam1Players": 6,
@@ -151,12 +153,30 @@ const gamemodeKw =
         "th-TH": "เดธแมตช์",
         "tr-TR": "Ölüm Maçı",
         "zh-CN": "死斗",
-        "zh-TW": "死鬥"
+        "zh-TW": "死鬥",
+        "de-DE": "Deathmatch",
+        "it-IT": "Deathmatch",
+        "pl-PL": "Deathmatch"
     },
     "flashpoint": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
-        "en-US": "Flashpoint"
+        "guid": "000000012628",
+        "en-US": "Flashpoint",
+        "es-ES": "Operación",
+        "es-MX": "Punto crítico",
+        "fr-FR": "Point chaud",
+        "it-IT": "Punto Critico",
+        "ja-JP": "フラッシュポイント",
+        "ko-KR": "플래시포인트",
+        "pl-PL": "Punkt Krytyczny",
+        "pt-BR": "Ponto de Tumulto",
+        "ru-RU": "Точка возгорания",
+        "th-TH": "แย่งชิงพื้นที่",
+        "tr-TR": "Akın Noktası",
+        "zh-CN": "闪点作战",
+        "zh-TW": "閃擊點",
+        "de-DE": "Flashpoint"
     },
     "freezethawElimination": {
         "defaultTeam1Players": 6,
@@ -195,7 +215,8 @@ const gamemodeKw =
         "th-TH": "ไฮบริด",
         "tr-TR": "Hibrit",
         "zh-CN": "攻击护送",
-        "zh-TW": "混合"
+        "zh-TW": "混合",
+        "de-DE": "Hybrid"
     },
     "junkenstein": {
         "defaultTeam1Players": 6,

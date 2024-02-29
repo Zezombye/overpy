@@ -50,7 +50,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Efeitos de Feixe",
                 "th-TH": "เอฟเฟกต์ลำแสง",
                 "tr-TR": "Işın Efektleri",
-                "zh-CN": "光束效果"
+                "zh-CN": "光束效果",
+                "it-IT": "Beam Effects",
+                "ko-KR": "Beam Effects",
+                "ru-RU": "Beam Effects",
+                "zh-TW": "Beam Effects"
             },
             "beamSounds": {
                 "points": 1,
@@ -80,7 +84,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Sons de Feixes",
                 "th-TH": "เสียงลำแสง",
                 "tr-TR": "Işın Sesleri",
-                "zh-CN": "光束声音"
+                "zh-CN": "光束声音",
+                "it-IT": "Beam Sounds",
+                "ko-KR": "Beam Sounds",
+                "ru-RU": "Beam Sounds",
+                "zh-TW": "Beam Sounds"
             },
             "buffAndDebuffSounds": {
                 "points": 2,
@@ -110,7 +118,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Sons de Melhorias e Penalidades",
                 "th-TH": "เสียงบัฟและดีบัฟ",
                 "tr-TR": "Güçlendirme ve Zayıflatma Sesleri",
-                "zh-CN": "增益效果和减益效果声音"
+                "zh-CN": "增益效果和减益效果声音",
+                "it-IT": "Buff and Debuff Sounds",
+                "ko-KR": "Buff and Debuff Sounds",
+                "ru-RU": "Buff and Debuff Sounds",
+                "zh-TW": "Buff and Debuff Sounds"
             },
             "buffStatusEffects": {
                 "points": 2,
@@ -140,7 +152,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Efeitos de Melhoria de Status",
                 "th-TH": "เอฟเฟกต์บัฟสถานะ",
                 "tr-TR": "Güçlendirme Durum Efektleri",
-                "zh-CN": "增益状态效果"
+                "zh-CN": "增益状态效果",
+                "it-IT": "Buff Status Effects",
+                "ko-KR": "Buff Status Effects",
+                "ru-RU": "Buff Status Effects",
+                "zh-TW": "Buff Status Effects"
             },
             "debuffStatusEffects": {
                 "points": 2,
@@ -170,7 +186,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Efeitos de Status Negativos",
                 "th-TH": "เอฟเฟกต์สถานะดีบัฟ",
                 "tr-TR": "Zayıflatma Durum Efektleri",
-                "zh-CN": "减益状态效果"
+                "zh-CN": "减益状态效果",
+                "it-IT": "Debuff Status Effects",
+                "ko-KR": "Debuff Status Effects",
+                "ru-RU": "Debuff Status Effects",
+                "zh-TW": "Debuff Status Effects"
             },
             "energyExplosionEffects": {
                 "points": 4,
@@ -200,7 +220,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Efeitos de Explosão de Energia",
                 "th-TH": "เอฟเฟกต์ระเบิดพลังงาน",
                 "tr-TR": "Enerji Patlama Efektleri",
-                "zh-CN": "能量爆炸效果"
+                "zh-CN": "能量爆炸效果",
+                "it-IT": "Energy Explosion Effects",
+                "ko-KR": "Energy Explosion Effects",
+                "ru-RU": "Energy Explosion Effects",
+                "zh-TW": "Energy Explosion Effects"
             },
             "explosionSounds": {
                 "points": 2,
@@ -230,7 +254,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Sons de Explosão",
                 "th-TH": "เสียงระเบิด",
                 "tr-TR": "Patlama Sesleri",
-                "zh-CN": "爆炸声音"
+                "zh-CN": "爆炸声音",
+                "it-IT": "Explosion Sounds",
+                "ko-KR": "Explosion Sounds",
+                "ru-RU": "Explosion Sounds",
+                "zh-TW": "Explosion Sounds"
             },
             "kineticExplosionEffects": {
                 "points": 4,
@@ -260,7 +288,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Efeitos de Explosões Cinéticas",
                 "th-TH": "เอฟเฟกต์ระเบิดพลังงานจลน์",
                 "tr-TR": "Kinetik Patlama Efektleri",
-                "zh-CN": "运动爆炸效果"
+                "zh-CN": "运动爆炸效果",
+                "it-IT": "Kinetic Explosion Effects",
+                "ko-KR": "Kinetic Explosion Effects",
+                "ru-RU": "Kinetic Explosion Effects",
+                "zh-TW": "Kinetic Explosion Effects"
             },
             "playMoreEffects": {
                 "points": 1,
@@ -290,7 +322,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Reproduzir Mais Efeitos",
                 "th-TH": "เล่นเอฟเฟกต์เพิ่มเติม",
                 "tr-TR": "Daha Fazla Efekt Oynat",
-                "zh-CN": "播放更多效果"
+                "zh-CN": "播放更多效果",
+                "it-IT": "Play More Effects",
+                "ko-KR": "Play More Effects",
+                "ru-RU": "Play More Effects",
+                "zh-TW": "Play More Effects"
             },
             "projectiles": {
                 "points": 4,
@@ -310,7 +346,9 @@ const customGameSettingsSchema =
                 "th-TH": "โพรเจกไทล์",
                 "tr-TR": "Atılır Cisimler",
                 "zh-CN": "飞弹",
-                "zh-TW": "拋射物"
+                "zh-TW": "拋射物",
+                "fr-FR": "Projectiles",
+                "ko-KR": "Projectiles"
             },
             "spawnMoreDummyBots": {
                 "points": 2,
@@ -340,7 +378,11 @@ const customGameSettingsSchema =
                 "pt-BR": "Gerar Mais Bots",
                 "th-TH": "เกิดบอทฝึกซ้อมเพิ่มเติม",
                 "tr-TR": "Daha Fazla Eğitim Robotu Ekle",
-                "zh-CN": "生成更多机器人"
+                "zh-CN": "生成更多机器人",
+                "it-IT": "Spawn More Dummy Bots",
+                "ko-KR": "Spawn More Dummy Bots",
+                "ru-RU": "Spawn More Dummy Bots",
+                "zh-TW": "Spawn More Dummy Bots"
             }
         },
         "guid": "000000012971",
@@ -354,7 +396,11 @@ const customGameSettingsSchema =
         "pt-BR": "extensões",
         "th-TH": "ส่วนต่อขยาย",
         "tr-TR": "eklentiler",
-        "zh-CN": "扩展"
+        "zh-CN": "扩展",
+        "fr-FR": "extensions",
+        "ko-KR": "extensions",
+        "ru-RU": "extensions",
+        "zh-TW": "extensions"
     },
     "gamemodes": {
         "values": {
@@ -397,7 +443,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Wszystkie miejsca zajęte",
                                 "pt-BR": "Todos os espaços preenchidos",
                                 "ru-RU": "Все места заполнены",
-                                "th-TH": "เต็มทุกช่องแล้ว",
+                                "th-TH": "เมื่อผู้เล่นครบแล้ว",
                                 "tr-TR": "Tüm Yuvalar Dolu",
                                 "zh-CN": "比赛人满后",
                                 "zh-TW": "等到人數全滿"
@@ -430,10 +476,13 @@ const customGameSettingsSchema =
                                 "ko-KR": "수동",
                                 "pl-PL": "Ręcznie",
                                 "ru-RU": "Вручную",
-                                "th-TH": "คู่มือ",
+                                "th-TH": "กดเริ่มเอง",
                                 "tr-TR": "Manuel",
                                 "zh-CN": "手动",
-                                "zh-TW": "手動"
+                                "zh-TW": "手動",
+                                "es-ES": "Manual",
+                                "es-MX": "Manual",
+                                "pt-BR": "Manual"
                             }
                         },
                         "guid": "000000005A10",
@@ -469,9 +518,9 @@ const customGameSettingsSchema =
                         "ko-KR": "생명력 팩 재생성 시간 조정",
                         "pl-PL": "Skalowanie czasu odświeżania apteczek",
                         "pt-BR": "Tempo escalar de ressurgimento dos implementos de vida",
-                        "ru-RU": "Время восстановления медкомплектов",
+                        "ru-RU": "Время восстановления аптечек",
                         "th-TH": "ตั้งเวลาเกิดของแพ็คพลังชีวิต",
-                        "tr-TR": "Sağlık Kiti Türeme Süre Skaleri",
+                        "tr-TR": "Sağlık Kiti Türeme Süresi Skaleri",
                         "zh-CN": "急救包刷新时间",
                         "zh-TW": "治療包重生時間"
                     },
@@ -492,7 +541,7 @@ const customGameSettingsSchema =
                         "ru-RU": "Повторы",
                         "th-TH": "มุมมองผู้สังหาร",
                         "tr-TR": "Öldürme Tekrarı",
-                        "zh-CN": "消灭镜头",
+                        "zh-CN": "阵亡镜头",
                         "zh-TW": "死亡重播"
                     },
                     "enableKillFeed": {
@@ -532,7 +581,8 @@ const customGameSettingsSchema =
                         "th-TH": "สกิน",
                         "tr-TR": "Görünümler",
                         "zh-CN": "皮肤",
-                        "zh-TW": "造型"
+                        "zh-TW": "造型",
+                        "de-DE": "Skins"
                     },
                     "spawnHealthPacks": {
                         "values": {
@@ -603,7 +653,7 @@ const customGameSettingsSchema =
                         "ko-KR": "생명력 팩 생성",
                         "pl-PL": "Odświeżanie apteczek",
                         "pt-BR": "Surgimento de kits médicos",
-                        "ru-RU": "Медкомплекты",
+                        "ru-RU": "Аптечки",
                         "th-TH": "การเกิดแพ็คพลังชีวิต",
                         "tr-TR": "Sağlık Kiti Türemesi",
                         "zh-CN": "急救包刷新",
@@ -624,7 +674,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Możliwość zmiany bohatera",
                         "pt-BR": "Permitir troca de heróis",
                         "ru-RU": "Смена героев",
-                        "th-TH": "อนุญาตให้สลับฮีโร่",
+                        "th-TH": "สามารถเปลี่ยนฮีโร่ได้",
                         "tr-TR": "Kahraman Değiştirmeye İzin Ver",
                         "zh-CN": "允许切换英雄",
                         "zh-TW": "允許更換英雄"
@@ -646,7 +696,8 @@ const customGameSettingsSchema =
                                 "th-TH": "ปิด",
                                 "tr-TR": "Kapalı",
                                 "zh-CN": "关闭",
-                                "zh-TW": "關閉"
+                                "zh-TW": "關閉",
+                                "it-IT": "Off"
                             },
                             "1PerTeam": {
                                 "default": true,
@@ -757,7 +808,8 @@ const customGameSettingsSchema =
                                 "th-TH": "ปิด",
                                 "tr-TR": "Kapalı",
                                 "zh-CN": "关闭",
-                                "zh-TW": "關閉"
+                                "zh-TW": "關閉",
+                                "it-IT": "Off"
                             },
                             "2OfEachRolePerTeam": {
                                 "guid": "000000002C63",
@@ -772,7 +824,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "2 z każdej roli na drużynę",
                                 "pt-BR": "2 de cada função por equipe",
                                 "ru-RU": "2 героя каждой роли на команду",
-                                "th-TH": "2 ของแต่ละตำแหน่งต่อทีม",
+                                "th-TH": "ตำแหน่งละ 2 คนต่อทีม",
                                 "tr-TR": "Takım Başına Her Rolden 2 Tane",
                                 "zh-CN": "每队同一职责最多2名",
                                 "zh-TW": "每隊同一角色類型最多2名"
@@ -828,7 +880,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Odradzanie jako losowy bohater",
                         "pt-BR": "Ressurgir como herói aleatório",
                         "ru-RU": "Случайный герой при возрождении",
-                        "th-TH": "เกิดใหม่เป็นฮีโร่แบบสุ่ม",
+                        "th-TH": "สุ่มเลือกฮีโร่เมื่อเกิดใหม่",
                         "tr-TR": "Rastgele Bir Kahraman Olarak Yeniden Doğ",
                         "zh-CN": "随机英雄复生",
                         "zh-TW": "重生時隨機更換英雄"
@@ -943,11 +995,11 @@ const customGameSettingsSchema =
                         "fr-FR": "Bonus de points de vie passif pour tank",
                         "it-IT": "Bonus alla salute dell'abilità passiva dei tank",
                         "ja-JP": "タンクのロール・パッシブ ライフ・ボーナス",
-                        "ko-KR": "돌격 역할 생명력 보너스 지속 효과",
+                        "ko-KR": "돌격 역할 생명력 보너스 지속 능력",
                         "pl-PL": "Premia do zdrowia za pasywną zdolność roli tanka",
                         "pt-BR": "Bônus de Vida Passivo da Função Tanque",
                         "ru-RU": "Пассивный бонус к здоровью танков",
-                        "th-TH": "โบนัสพลังชีวิตของตำแหน่งแทงค์",
+                        "th-TH": "โบนัสพลังชีวิตติดตัวของตำแหน่งแทงค์",
                         "tr-TR": "Tank Rolü Pasif Can Bonusu",
                         "zh-CN": "重装职责被动生命值加成",
                         "zh-TW": "肉盾角色類型被動生命值加成"
@@ -966,7 +1018,9 @@ const customGameSettingsSchema =
                         "th-TH": "แผนที่ที่ปิดใช้งานแล้ว",
                         "tr-TR": "kapalı haritalar",
                         "zh-CN": "禁用地图",
-                        "zh-TW": "停用的地圖"
+                        "zh-TW": "停用的地圖",
+                        "ko-KR": "disabled maps",
+                        "ru-RU": "disabled maps"
                     },
                     "enabledMaps": {
                         "guid": "000000010045",
@@ -982,7 +1036,9 @@ const customGameSettingsSchema =
                         "th-TH": "แผนที่ที่เปิดใช้งานแล้ว",
                         "tr-TR": "açık haritalar",
                         "zh-CN": "启用地图",
-                        "zh-TW": "啟用的地圖"
+                        "zh-TW": "啟用的地圖",
+                        "ko-KR": "enabled maps",
+                        "ru-RU": "enabled maps"
                     }
                 },
                 "en-US": "General",
@@ -997,7 +1053,9 @@ const customGameSettingsSchema =
                 "th-TH": "ทั่วไป",
                 "tr-TR": "Genel",
                 "zh-CN": "综合",
-                "zh-TW": "一般"
+                "zh-TW": "一般",
+                "es-ES": "General",
+                "es-MX": "General"
             },
             "assault": {
                 "values": {
@@ -1018,7 +1076,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator czasu przejmowania",
                         "pt-BR": "Modificador da velocidade de captura",
                         "ru-RU": "Скорость захвата",
-                        "th-TH": "ตัวปรับความเร็วการยึด",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
                         "tr-TR": "Ele Geçirme Hızı Düzenleyici",
                         "zh-CN": "占领速度",
                         "zh-TW": "調整佔領速度"
@@ -1064,7 +1122,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator czasu przejmowania",
                         "pt-BR": "Modificador da velocidade de captura",
                         "ru-RU": "Скорость захвата",
-                        "th-TH": "ตัวปรับความเร็วการยึด",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
                         "tr-TR": "Ele Geçirme Hızı Düzenleyici",
                         "zh-CN": "占领速度",
                         "zh-TW": "調整佔領速度"
@@ -1123,7 +1181,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Pierwszy",
                                 "pt-BR": "Primeiro",
                                 "ru-RU": "Первая",
-                                "th-TH": "ที่หนึ่ง",
+                                "th-TH": "พื้นที่แรก",
                                 "tr-TR": "İlk",
                                 "zh-CN": "第一",
                                 "zh-TW": "第一個區域"
@@ -1141,7 +1199,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Drugi",
                                 "pt-BR": "Segundo",
                                 "ru-RU": "Вторая",
-                                "th-TH": "ที่สอง",
+                                "th-TH": "พื้นที่สอง",
                                 "tr-TR": "İkinci",
                                 "zh-CN": "第二",
                                 "zh-TW": "第二個區域"
@@ -1159,7 +1217,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Trzeci",
                                 "pt-BR": "Terceiro",
                                 "ru-RU": "Третья",
-                                "th-TH": "ที่สาม",
+                                "th-TH": "พื้นที่สาม",
                                 "tr-TR": "Üçüncü",
                                 "zh-CN": "第三",
                                 "zh-TW": "第三個區域"
@@ -1177,7 +1235,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
                         "pt-BR": "Limitar pontos de controle válidos",
                         "ru-RU": "Ограничение контрольных точек",
-                        "th-TH": "จุดควมคุมที่มีแบบจำกัด",
+                        "th-TH": "พื้นที่ควบคุมที่ต้องการเล่น",
                         "tr-TR": "Geçerli Kontrol Noktalarını Sınırla",
                         "zh-CN": "有效控制点选择",
                         "zh-TW": "限制地圖控制點"
@@ -1221,7 +1279,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator szybkości punktowania",
                         "pt-BR": "Modificador da velocidade de pontuação",
                         "ru-RU": "Скорость набора очков с объекта",
-                        "th-TH": "ตัวปรับความเร็วการทำคะแนน",
+                        "th-TH": "ตัวปรับแต่งความเร็วการทำคะแนน",
                         "tr-TR": "Skor Hızı Düzenleyici",
                         "zh-CN": "计分速度",
                         "zh-TW": "進度累積速度"
@@ -1267,7 +1325,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator prędkości ładunku",
                         "pt-BR": "Modificador da velocidade da carga",
                         "ru-RU": "Скорость груза",
-                        "th-TH": "ตัวปรับความเร็วเพย์โหลด",
+                        "th-TH": "ตัวปรับแต่งความเร็วเพย์โหลด",
                         "tr-TR": "Navlun Hızı Düzenleyici",
                         "zh-CN": "运载目标速度",
                         "zh-TW": "調整護送目標移動速度"
@@ -1293,7 +1351,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator czasu przejmowania",
                         "pt-BR": "Modificador da velocidade de captura",
                         "ru-RU": "Скорость захвата",
-                        "th-TH": "ตัวปรับความเร็วการยึด",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
                         "tr-TR": "Ele Geçirme Hızı Düzenleyici",
                         "zh-CN": "占领速度",
                         "zh-TW": "調整佔領速度"
@@ -1335,7 +1393,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator prędkości ładunku",
                         "pt-BR": "Modificador da velocidade da carga",
                         "ru-RU": "Скорость груза",
-                        "th-TH": "ตัวปรับความเร็วเพย์โหลด",
+                        "th-TH": "ตัวปรับแต่งความเร็วเพย์โหลด",
                         "tr-TR": "Navlun Hızı Düzenleyici",
                         "zh-CN": "运载目标速度",
                         "zh-TW": "調整護送目標移動速度"
@@ -1513,7 +1571,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "th-TH": "เกิดใหม่ด้วยตัวเอง",
+                        "th-TH": "กดเกิดใหม่เอง",
                         "tr-TR": "Kendi Kendine Yeniden Doğma",
                         "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
@@ -1720,7 +1778,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas odnowienia flagi po zdobyciu",
                         "pt-BR": "Tempo de ressurgimento de pontuação de bandeira",
                         "ru-RU": "Появление флага после захвата",
-                        "th-TH": "เวลาเกิดใหม่ของคะแนนธง",
+                        "th-TH": "เวลาเกิดใหม่ของธงที่มีคะแนน",
                         "tr-TR": "Yakalanan Bayrağın Türeme Süresi",
                         "zh-CN": "得分后旗帜刷新时间",
                         "zh-TW": "旗幟重生時間"
@@ -1877,7 +1935,8 @@ const customGameSettingsSchema =
                                 "th-TH": "ปิด",
                                 "tr-TR": "Kapalı",
                                 "zh-CN": "关闭",
-                                "zh-TW": "關閉"
+                                "zh-TW": "關閉",
+                                "it-IT": "Off"
                             },
                             "afterRoundWon": {
                                 "guid": "000000005FE8",
@@ -1949,7 +2008,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Dowolny",
                                 "pt-BR": "Qualquer",
                                 "ru-RU": "Любой",
-                                "th-TH": "ใดๆ",
+                                "th-TH": "ไม่จำกัด",
                                 "tr-TR": "Hepsi",
                                 "zh-CN": "任意",
                                 "zh-TW": "任意選擇"
@@ -2004,7 +2063,7 @@ const customGameSettingsSchema =
                                 "pt-BR": "Aleatório espelhado",
                                 "ru-RU": "Случайно зеркально",
                                 "th-TH": "สุ่ม ฮีโร่เหมือนกัน",
-                                "tr-TR": "Rastgele Aynı",
+                                "tr-TR": "Rastgele Yansıtılmış",
                                 "zh-CN": "随机英雄（相同）",
                                 "zh-TW": "隨機的相同英雄"
                             }
@@ -2330,7 +2389,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "th-TH": "เกิดใหม่ด้วยตัวเอง",
+                        "th-TH": "กดเกิดใหม่เอง",
                         "tr-TR": "Kendi Kendine Yeniden Doğma",
                         "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
@@ -2437,7 +2496,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Pierwszy",
                                 "pt-BR": "Primeiro",
                                 "ru-RU": "Первая",
-                                "th-TH": "ที่หนึ่ง",
+                                "th-TH": "พื้นที่แรก",
                                 "tr-TR": "İlk",
                                 "zh-CN": "第一",
                                 "zh-TW": "第一個區域"
@@ -2455,7 +2514,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Drugi",
                                 "pt-BR": "Segundo",
                                 "ru-RU": "Вторая",
-                                "th-TH": "ที่สอง",
+                                "th-TH": "พื้นที่สอง",
                                 "tr-TR": "İkinci",
                                 "zh-CN": "第二",
                                 "zh-TW": "第二個區域"
@@ -2473,7 +2532,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Trzeci",
                                 "pt-BR": "Terceiro",
                                 "ru-RU": "Третья",
-                                "th-TH": "ที่สาม",
+                                "th-TH": "พื้นที่สาม",
                                 "tr-TR": "Üçüncü",
                                 "zh-CN": "第三",
                                 "zh-TW": "第三個區域"
@@ -2491,7 +2550,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
                         "pt-BR": "Limitar pontos de controle válidos",
                         "ru-RU": "Ограничение контрольных точек",
-                        "th-TH": "จุดควมคุมที่มีแบบจำกัด",
+                        "th-TH": "พื้นที่ควบคุมที่ต้องการเล่น",
                         "tr-TR": "Geçerli Kontrol Noktalarını Sınırla",
                         "zh-CN": "有效控制点选择",
                         "zh-TW": "限制地圖控制點"
@@ -2537,7 +2596,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Skalowanie czasu odświeżania botów treningowych",
                         "pt-BR": "Tempo escalar de ressurgimento de bots de treinamento",
                         "ru-RU": "Время возрождения тренировочных роботов",
-                        "th-TH": "สเกลาร์เวลาเกิดใหม่ของบอทฝึกซ้อม",
+                        "th-TH": "ตั้งเวลาเกิดใหม่ของบอทฝึกฝน",
                         "tr-TR": "Talim Robotu Yeniden Doğma Süre Skaleri",
                         "zh-CN": "训练机器人刷新时间",
                         "zh-TW": "訓練機器人重生時間"
@@ -2578,7 +2637,14 @@ const customGameSettingsSchema =
                                 "ru-RU": "БОЕЦ",
                                 "th-TH": "ปกติ",
                                 "zh-CN": "普通",
-                                "zh-TW": "普通"
+                                "zh-TW": "普通",
+                                "de-DE": "NORMAL",
+                                "es-ES": "NORMAL",
+                                "es-MX": "NORMAL",
+                                "fr-FR": "NORMAL",
+                                "ja-JP": "NORMAL",
+                                "pt-BR": "NORMAL",
+                                "tr-TR": "NORMAL"
                             },
                             "hard": {
                                 "guid": "0000000068CA",
@@ -2595,7 +2661,8 @@ const customGameSettingsSchema =
                                 "th-TH": "ยาก",
                                 "tr-TR": "ZOR",
                                 "zh-CN": "困难",
-                                "zh-TW": "困難"
+                                "zh-TW": "困難",
+                                "ja-JP": "HARD"
                             },
                             "expert": {
                                 "guid": "000000006CEA",
@@ -2611,7 +2678,9 @@ const customGameSettingsSchema =
                                 "th-TH": "เชี่ยวชาญ",
                                 "tr-TR": "UZMAN",
                                 "zh-CN": "专家",
-                                "zh-TW": "專家"
+                                "zh-TW": "專家",
+                                "fr-FR": "EXPERT",
+                                "ja-JP": "EXPERT"
                             },
                             "legendary": {
                                 "guid": "0000000068CE",
@@ -2628,7 +2697,8 @@ const customGameSettingsSchema =
                                 "th-TH": "ตำนาน",
                                 "tr-TR": "EFSANEVİ",
                                 "zh-CN": "传奇",
-                                "zh-TW": "傳奇"
+                                "zh-TW": "傳奇",
+                                "ja-JP": "LEGENDARY"
                             }
                         },
                         "guid": "000000006FB3",
@@ -2711,7 +2781,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator czasu przejmowania",
                         "pt-BR": "Modificador da velocidade de captura",
                         "ru-RU": "Скорость захвата",
-                        "th-TH": "ตัวปรับความเร็วการยึด",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
                         "tr-TR": "Ele Geçirme Hızı Düzenleyici",
                         "zh-CN": "占领速度",
                         "zh-TW": "調整佔領速度"
@@ -2719,27 +2789,102 @@ const customGameSettingsSchema =
                     "controlPointA": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Control Point A"
+                        "guid": "00000001C885",
+                        "en-US": "Control Point A",
+                        "de-DE": "Kontrollpunkt A",
+                        "es-ES": "Punto de control A",
+                        "es-MX": "Punto de control A",
+                        "fr-FR": "Point de contrôle A",
+                        "it-IT": "Punto di controllo A",
+                        "ja-JP": "コントロール・ポイントA",
+                        "ko-KR": "A 거점",
+                        "pl-PL": "Punkt kontrolny A",
+                        "pt-BR": "Ponto de Controle A",
+                        "ru-RU": "Объект A",
+                        "th-TH": "จุดควบคุม A",
+                        "tr-TR": "Kontrol Noktası A",
+                        "zh-CN": "控制点A",
+                        "zh-TW": "控制點A"
                     },
                     "controlPointB": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Control Point B"
+                        "guid": "00000001C886",
+                        "en-US": "Control Point B",
+                        "de-DE": "Kontrollpunkt B",
+                        "es-ES": "Punto de control B",
+                        "es-MX": "Punto de control B",
+                        "fr-FR": "Point de contrôle B",
+                        "it-IT": "Punto di controllo B",
+                        "ja-JP": "コントロール・ポイントB",
+                        "ko-KR": "B 거점",
+                        "pl-PL": "Punkt kontrolny B",
+                        "pt-BR": "Ponto de Controle B",
+                        "ru-RU": "Объект B",
+                        "th-TH": "จุดควบคุม B",
+                        "tr-TR": "Kontrol Noktası B",
+                        "zh-CN": "控制点B",
+                        "zh-TW": "控制點B"
                     },
                     "controlPointC": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Control Point C"
+                        "guid": "00000001C887",
+                        "en-US": "Control Point C",
+                        "de-DE": "Kontrollpunkt C",
+                        "es-ES": "Punto de control C",
+                        "es-MX": "Punto de control C",
+                        "fr-FR": "Point de contrôle C",
+                        "it-IT": "Punto di controllo C",
+                        "ja-JP": "コントロール・ポイントC",
+                        "ko-KR": "C 거점",
+                        "pl-PL": "Punkt kontrolny C",
+                        "pt-BR": "Ponto de Controle C",
+                        "ru-RU": "Объект C",
+                        "th-TH": "จุดควบคุม C",
+                        "tr-TR": "Kontrol Noktası C",
+                        "zh-CN": "控制点C",
+                        "zh-TW": "控制點C"
                     },
                     "controlPointD": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Control Point D"
+                        "guid": "00000001C888",
+                        "en-US": "Control Point D",
+                        "de-DE": "Kontrollpunkt D",
+                        "es-ES": "Punto de control D",
+                        "es-MX": "Punto de control D",
+                        "fr-FR": "Point de contrôle D",
+                        "it-IT": "Punto di controllo D",
+                        "ja-JP": "コントロール・ポイントD",
+                        "ko-KR": "D 거점",
+                        "pl-PL": "Punkt kontrolny D",
+                        "pt-BR": "Ponto de Controle D",
+                        "ru-RU": "Объект D",
+                        "th-TH": "จุดควบคุม D",
+                        "tr-TR": "Kontrol Noktası D",
+                        "zh-CN": "控制点D",
+                        "zh-TW": "控制點D"
                     },
                     "controlPointE": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Control Point E"
+                        "guid": "00000001C889",
+                        "en-US": "Control Point E",
+                        "de-DE": "Kontrollpunkt E",
+                        "es-ES": "Punto de control E",
+                        "es-MX": "Punto de control E",
+                        "fr-FR": "Point de contrôle E",
+                        "it-IT": "Punto di controllo E",
+                        "ja-JP": "コントロール・ポイントE",
+                        "ko-KR": "E 거점",
+                        "pl-PL": "Punkt kontrolny E",
+                        "pt-BR": "Ponto de Controle E",
+                        "ru-RU": "Объект E",
+                        "th-TH": "จุดควบคุม E",
+                        "tr-TR": "Kontrol Noktası E",
+                        "zh-CN": "控制点E",
+                        "zh-TW": "控制點E"
                     },
                     "enableCompetitiveRules": {
                         "values": "__boolOnOff__",
@@ -2765,30 +2910,135 @@ const customGameSettingsSchema =
                         "values": {
                             "a": {
                                 "default": true,
-                                "en-US": "A"
+                                "guid": "00000000025C",
+                                "en-US": "A",
+                                "fr-FR": "Q",
+                                "de-DE": "A",
+                                "es-ES": "A",
+                                "es-MX": "A",
+                                "it-IT": "A",
+                                "ja-JP": "A",
+                                "ko-KR": "A",
+                                "pl-PL": "A",
+                                "pt-BR": "A",
+                                "ru-RU": "A",
+                                "th-TH": "A",
+                                "tr-TR": "A",
+                                "zh-CN": "A",
+                                "zh-TW": "A"
                             },
                             "b": {
                                 "default": false,
-                                "en-US": "B"
+                                "guid": "00000000026C",
+                                "en-US": "B",
+                                "de-DE": "B",
+                                "es-ES": "B",
+                                "es-MX": "B",
+                                "fr-FR": "B",
+                                "it-IT": "B",
+                                "ja-JP": "B",
+                                "ko-KR": "B",
+                                "pl-PL": "B",
+                                "pt-BR": "B",
+                                "ru-RU": "B",
+                                "th-TH": "B",
+                                "tr-TR": "B",
+                                "zh-CN": "B",
+                                "zh-TW": "B"
                             },
                             "c": {
                                 "default": false,
-                                "en-US": "C"
+                                "guid": "00000000026D",
+                                "en-US": "C",
+                                "de-DE": "C",
+                                "es-ES": "C",
+                                "es-MX": "C",
+                                "fr-FR": "C",
+                                "it-IT": "C",
+                                "ja-JP": "C",
+                                "ko-KR": "C",
+                                "pl-PL": "C",
+                                "pt-BR": "C",
+                                "ru-RU": "C",
+                                "th-TH": "C",
+                                "tr-TR": "C",
+                                "zh-CN": "C",
+                                "zh-TW": "C"
                             },
                             "d": {
                                 "default": false,
-                                "en-US": "D"
+                                "guid": "00000000025E",
+                                "en-US": "D",
+                                "de-DE": "D",
+                                "es-ES": "D",
+                                "es-MX": "D",
+                                "fr-FR": "D",
+                                "it-IT": "D",
+                                "ja-JP": "D",
+                                "ko-KR": "D",
+                                "pl-PL": "D",
+                                "pt-BR": "D",
+                                "ru-RU": "D",
+                                "th-TH": "D",
+                                "tr-TR": "D",
+                                "zh-CN": "D",
+                                "zh-TW": "D"
                             },
                             "e": {
                                 "default": false,
-                                "en-US": "E"
+                                "guid": "00000000026E",
+                                "en-US": "E",
+                                "de-DE": "E",
+                                "es-ES": "E",
+                                "es-MX": "E",
+                                "fr-FR": "E",
+                                "it-IT": "E",
+                                "ja-JP": "E",
+                                "ko-KR": "E",
+                                "pl-PL": "E",
+                                "pt-BR": "E",
+                                "ru-RU": "E",
+                                "th-TH": "E",
+                                "tr-TR": "E",
+                                "zh-CN": "E",
+                                "zh-TW": "E"
                             },
                             "random": {
                                 "default": false,
-                                "en-US": "Random"
+                                "guid": "000000002C57",
+                                "en-US": "Random",
+                                "de-DE": "Zufällig",
+                                "es-ES": "Aleatorio",
+                                "es-MX": "Aleatorio",
+                                "fr-FR": "Aléatoire",
+                                "it-IT": "Casuale",
+                                "ja-JP": "ランダム",
+                                "ko-KR": "무작위",
+                                "pl-PL": "Losowo",
+                                "pt-BR": "Aleatório",
+                                "ru-RU": "Случайно",
+                                "th-TH": "สุ่ม",
+                                "tr-TR": "Rastgele",
+                                "zh-CN": "随机顺序",
+                                "zh-TW": "隨機"
                             }
                         },
-                        "en-US": "First Active Control Point"
+                        "guid": "00000001C88B",
+                        "en-US": "First Active Control Point",
+                        "de-DE": "Erster aktiver Kontrollpunkt",
+                        "es-ES": "Primer punto de control activo",
+                        "es-MX": "Primer punto de control activo",
+                        "fr-FR": "Premier point de contrôle actif",
+                        "it-IT": "Primo punto di controllo attivo",
+                        "ja-JP": "最初の有効なコントロール・ポイント",
+                        "ko-KR": "첫 번째 활성 거점",
+                        "pl-PL": "Pierwszy aktywny punkt kontrolny",
+                        "pt-BR": "Primeiro Ponto de Controle Ativo",
+                        "ru-RU": "Первый активный объект",
+                        "th-TH": "จุดควมคุมที่มีการทำงานจุดแรก",
+                        "tr-TR": "İlk Etkin Kontrol Noktası",
+                        "zh-CN": "首先激活的控制点",
+                        "zh-TW": "第一個開放的控制點"
                     },
                     "scoreToWin": {
                         "guid": "00000000632A",
@@ -2829,7 +3079,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Modyfikator szybkości punktowania",
                         "pt-BR": "Modificador da velocidade de pontuação",
                         "ru-RU": "Скорость набора очков с объекта",
-                        "th-TH": "ตัวปรับความเร็วการทำคะแนน",
+                        "th-TH": "ตัวปรับแต่งความเร็วการทำคะแนน",
                         "tr-TR": "Skor Hızı Düzenleyici",
                         "zh-CN": "计分速度",
                         "zh-TW": "進度累積速度"
@@ -2897,7 +3147,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Samoczynne odrodzenie",
                         "pt-BR": "Ressurgimento auto iniciado",
                         "ru-RU": "Возрождение вручную",
-                        "th-TH": "เกิดใหม่ด้วยตัวเอง",
+                        "th-TH": "กดเกิดใหม่เอง",
                         "tr-TR": "Kendi Kendine Yeniden Doğma",
                         "zh-CN": "主动复生",
                         "zh-TW": "按重生鍵復活"
@@ -2923,7 +3173,7 @@ const customGameSettingsSchema =
                         "pl-PL": "TS-1 – Mnożnik szybkości chodu",
                         "pt-BR": "Modificador de Velocidade de Caminhada do CT-1",
                         "ru-RU": "Модификатор скорости TS-1 при ходьбе",
-                        "th-TH": "TS-1 ตัวปรับความเร็วการเดิน",
+                        "th-TH": "TS-1 ตัวปรับแต่งความเร็วการเดิน",
                         "tr-TR": "TS-1 Yürüme Hızı Düzenleyici",
                         "zh-CN": "TS-1行走速度",
                         "zh-TW": "調整TS-1型移動速度"
@@ -2945,7 +3195,7 @@ const customGameSettingsSchema =
                         "pl-PL": "TS-1 – Mnożnik szybkości przepychania",
                         "pt-BR": "Modificador de Velocidade de Avanço do CT-1",
                         "ru-RU": "Модификатор скорости TS-1 при толкании",
-                        "th-TH": "TS-1 ตัวปรับความเร็วการดัน",
+                        "th-TH": "TS-1 ตัวปรับแต่งความเร็วการดัน",
                         "tr-TR": "TS-1 İttirme Hızı Düzenleyici",
                         "zh-CN": "TS-1推进速度",
                         "zh-TW": "調整TS-1型推進速度"
@@ -2985,7 +3235,10 @@ const customGameSettingsSchema =
         "th-TH": "โหมด",
         "tr-TR": "modlar",
         "zh-CN": "模式",
-        "zh-TW": "模式"
+        "zh-TW": "模式",
+        "fr-FR": "modes",
+        "ko-KR": "modes",
+        "ru-RU": "modes"
     },
     "heroes": {
         "teams": {
@@ -3003,7 +3256,9 @@ const customGameSettingsSchema =
                 "th-TH": "ทั่วไป",
                 "tr-TR": "Genel",
                 "zh-CN": "综合",
-                "zh-TW": "一般"
+                "zh-TW": "一般",
+                "es-ES": "General",
+                "es-MX": "General"
             },
             "team1": {
                 "guid": "000000002D71",
@@ -3020,7 +3275,8 @@ const customGameSettingsSchema =
                 "th-TH": "ทีม 1",
                 "tr-TR": "1. Takım",
                 "zh-CN": "队伍1",
-                "zh-TW": "隊伍1"
+                "zh-TW": "隊伍1",
+                "de-DE": "Team 1"
             },
             "team2": {
                 "guid": "000000002D72",
@@ -3037,7 +3293,8 @@ const customGameSettingsSchema =
                 "th-TH": "ทีม 2",
                 "tr-TR": "2. Takım",
                 "zh-CN": "队伍2",
-                "zh-TW": "隊伍2"
+                "zh-TW": "隊伍2",
+                "de-DE": "Team 2"
             },
             "ffa": {
                 "guid": "000000010051",
@@ -3052,7 +3309,7 @@ const customGameSettingsSchema =
                 "pl-PL": "Drużynowe FFA",
                 "pt-BR": "TCT em equipe",
                 "ru-RU": "Командный FFA",
-                "th-TH": " FFA แบบทีม",
+                "th-TH": "FFA แบบทีม",
                 "tr-TR": "Takımlı Her Şey Serbest",
                 "zh-CN": "团队混战",
                 "zh-TW": "隊伍自由混戰"
@@ -3143,7 +3400,7 @@ const customGameSettingsSchema =
                     "pl-PL": "Pasywne Ładowanie Superzdolności",
                     "pt-BR": "Geração de Supremo - Passiva",
                     "ru-RU": "Зарядка суперспособности пассивная",
-                    "th-TH": "การเพิ่มเกจอัลติเมท - พาสซีฟ",
+                    "th-TH": "การเพิ่มเกจอัลติเมท - ความสามารถติดตัว",
                     "tr-TR": "Ulti Dolumu - Pasif",
                     "zh-CN": "终极技能自动充能速度",
                     "zh-TW": "絕招自動蓄力速度"
@@ -3176,16 +3433,16 @@ const customGameSettingsSchema =
                     "guid": "000000005B4C",
                     "en-US": "Quick Melee",
                     "de-DE": "Nahkampfangriff",
-                    "es-ES": "Ataques rápidos cuerpo a cuerpo",
+                    "es-ES": "Cuerpo a cuerpo rápido",
                     "es-MX": "Cuerpo a cuerpo rápido",
                     "fr-FR": "Coup en mêlée",
-                    "it-IT": "Attacchi corpo a corpo",
+                    "it-IT": "Attacco corpo a corpo",
                     "ja-JP": "クイック近接攻撃",
                     "ko-KR": "빠른 근접 공격",
                     "pl-PL": "Szybki atak wręcz",
                     "pt-BR": "Corpo a corpo rápido",
-                    "ru-RU": "Быстрый удар",
-                    "th-TH": "ระยะประชิดแบบรวดเร็ว",
+                    "ru-RU": "Быстрая атака ближнего боя",
+                    "th-TH": "การโจมตีระยะประชิดแบบรวดเร็ว",
                     "tr-TR": "Yakın Darbe",
                     "zh-CN": "近身攻击",
                     "zh-TW": "快速近戰攻擊"
@@ -3597,7 +3854,7 @@ const customGameSettingsSchema =
                     "pl-PL": "Skalowanie rozmiaru magazynka",
                     "pt-BR": "Escala de tamanho do carregador",
                     "ru-RU": "Размер боекомплекта",
-                    "th-TH": "สเกลาร์ขนาดคลิปกระสุน",
+                    "th-TH": "ปรับปริมาณกระสุนในคลิป",
                     "tr-TR": "Şarjör Mermi Skaleri",
                     "zh-CN": "弹夹容量倍率",
                     "zh-TW": "彈匣大小"
@@ -3627,8 +3884,8 @@ const customGameSettingsSchema =
                     "pl-PL": "Brak wymogów amunicyjnych",
                     "pt-BR": "Sem requerimentos de munição",
                     "ru-RU": "Бесконечный боекомплект",
-                    "th-TH": "ไม่ต้องการกระสุน",
-                    "tr-TR": "Sınırsız Mühimmat",
+                    "th-TH": "ไม่จำกัดกระสุน",
+                    "tr-TR": "Sınırsız Cephane",
                     "zh-CN": "无需装弹",
                     "zh-TW": "無限彈藥"
                 }
@@ -3638,7 +3895,21 @@ const customGameSettingsSchema =
                     "guid": "000000013A5C",
                     "values": "__boolOnOff__",
                     "default": "on",
-                    "en-US": "%1$s"
+                    "en-US": "%1$s",
+                    "de-DE": "%1$s",
+                    "es-ES": "%1$s",
+                    "es-MX": "%1$s",
+                    "fr-FR": "%1$s",
+                    "it-IT": "%1$s",
+                    "ja-JP": "%1$s",
+                    "ko-KR": "%1$s",
+                    "pl-PL": "%1$s",
+                    "pt-BR": "%1$s",
+                    "ru-RU": "%1$s",
+                    "th-TH": "%1$s",
+                    "tr-TR": "%1$s",
+                    "zh-CN": "%1$s",
+                    "zh-TW": "%1$s"
                 },
                 "ability1Cooldown%": {
                     "guid": "000000005B84",
@@ -3675,7 +3946,21 @@ const customGameSettingsSchema =
                     "exclude": [
                         "bastion"
                     ],
-                    "en-US": "%1$s"
+                    "en-US": "%1$s",
+                    "de-DE": "%1$s",
+                    "es-ES": "%1$s",
+                    "es-MX": "%1$s",
+                    "fr-FR": "%1$s",
+                    "it-IT": "%1$s",
+                    "ja-JP": "%1$s",
+                    "ko-KR": "%1$s",
+                    "pl-PL": "%1$s",
+                    "pt-BR": "%1$s",
+                    "ru-RU": "%1$s",
+                    "th-TH": "%1$s",
+                    "tr-TR": "%1$s",
+                    "zh-CN": "%1$s",
+                    "zh-TW": "%1$s"
                 },
                 "ability2Cooldown%": {
                     "guid": "000000005B84",
@@ -3712,7 +3997,21 @@ const customGameSettingsSchema =
                         "hanzo",
                         "hammond"
                     ],
-                    "en-US": "%1$s"
+                    "en-US": "%1$s",
+                    "de-DE": "%1$s",
+                    "es-ES": "%1$s",
+                    "es-MX": "%1$s",
+                    "fr-FR": "%1$s",
+                    "it-IT": "%1$s",
+                    "ja-JP": "%1$s",
+                    "ko-KR": "%1$s",
+                    "pl-PL": "%1$s",
+                    "pt-BR": "%1$s",
+                    "ru-RU": "%1$s",
+                    "th-TH": "%1$s",
+                    "tr-TR": "%1$s",
+                    "zh-CN": "%1$s",
+                    "zh-TW": "%1$s"
                 },
                 "ability3Cooldown%": {
                     "guid": "000000005B84",
@@ -3800,7 +4099,7 @@ const customGameSettingsSchema =
                     "pl-PL": "Pasywne Ładowanie Superzdolności %1$s",
                     "pt-BR": "Geração de Supremo - Passiva %1$s",
                     "ru-RU": "Пассивная зарядка суперспособности %1$s",
-                    "th-TH": "การเพิ่มเกจอัลติเมท - พาสซีฟ %1$s",
+                    "th-TH": "การเพิ่มเกจอัลติเมท - ความสามารถติดตัว %1$s",
                     "tr-TR": "Ulti Dolumu - Pasif %1$s",
                     "zh-CN": "终极技能自动充能速度 %1$s",
                     "zh-TW": "%1$s的絕招自動蓄力速度"
@@ -3834,7 +4133,21 @@ const customGameSettingsSchema =
                         "echo",
                         "pharah"
                     ],
-                    "en-US": "%1$s"
+                    "en-US": "%1$s",
+                    "de-DE": "%1$s",
+                    "es-ES": "%1$s",
+                    "es-MX": "%1$s",
+                    "fr-FR": "%1$s",
+                    "it-IT": "%1$s",
+                    "ja-JP": "%1$s",
+                    "ko-KR": "%1$s",
+                    "pl-PL": "%1$s",
+                    "pt-BR": "%1$s",
+                    "ru-RU": "%1$s",
+                    "th-TH": "%1$s",
+                    "tr-TR": "%1$s",
+                    "zh-CN": "%1$s",
+                    "zh-TW": "%1$s"
                 },
                 "enableSecondaryFire": {
                     "guid": "000000013A5C",
@@ -3861,7 +4174,21 @@ const customGameSettingsSchema =
                         "ramattra",
                         "lifeweaver"
                     ],
-                    "en-US": "%1$s"
+                    "en-US": "%1$s",
+                    "de-DE": "%1$s",
+                    "es-ES": "%1$s",
+                    "es-MX": "%1$s",
+                    "fr-FR": "%1$s",
+                    "it-IT": "%1$s",
+                    "ja-JP": "%1$s",
+                    "ko-KR": "%1$s",
+                    "pl-PL": "%1$s",
+                    "pt-BR": "%1$s",
+                    "ru-RU": "%1$s",
+                    "th-TH": "%1$s",
+                    "tr-TR": "%1$s",
+                    "zh-CN": "%1$s",
+                    "zh-TW": "%1$s"
                 },
                 "secondaryFireCooldown%": {
                     "guid": "000000005B84",
@@ -3987,7 +4314,7 @@ const customGameSettingsSchema =
                     "ko-KR": "보조 발사",
                     "pl-PL": "Atak alternatywny",
                     "pt-BR": "Disparo secundário",
-                    "ru-RU": "Альтернативный режим огня",
+                    "ru-RU": "Дополнительный режим огня",
                     "th-TH": "การยิงรูปแบบรอง",
                     "tr-TR": "İkincil Saldırı",
                     "zh-CN": "辅助攻击模式",
@@ -4083,7 +4410,9 @@ const customGameSettingsSchema =
                 "th-TH": "ปิดใช้งานฮีโร่แล้ว",
                 "tr-TR": "devre dışı kahramanlar",
                 "zh-CN": "禁用英雄",
-                "zh-TW": "停用的英雄"
+                "zh-TW": "停用的英雄",
+                "ko-KR": "disabled heroes",
+                "ru-RU": "disabled heroes"
             },
             "enabledHeroes": {
                 "guid": "000000010053",
@@ -4099,7 +4428,9 @@ const customGameSettingsSchema =
                 "th-TH": "เปิดใช้งานฮีโร่แล้ว",
                 "tr-TR": "etkin kahramanlar",
                 "zh-CN": "启用英雄",
-                "zh-TW": "啟用的英雄"
+                "zh-TW": "啟用的英雄",
+                "ko-KR": "enabled heroes",
+                "ru-RU": "enabled heroes"
             },
             "ashe": {
                 "values": {
@@ -4437,7 +4768,7 @@ const customGameSettingsSchema =
                         "es-MX": "Escala de tiempo de regeneración de municiones",
                         "fr-FR": "Temps de recharge des munitions",
                         "it-IT": "Tempo di rigenerazione delle munizioni",
-                        "ja-JP": "弾薬リジェネ時間 スカラー",
+                        "ja-JP": "弾薬補充時間 スカラー",
                         "ko-KR": "탄약 재생성 시간 조정",
                         "pl-PL": "Skalowanie czasu regeneracji amunicji",
                         "pt-BR": "Tempo escalar da regeneração de munição.",
@@ -4526,14 +4857,44 @@ const customGameSettingsSchema =
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Solar Energy Maximum"
+                        "guid": "00000001DF67",
+                        "en-US": "Solar Energy Maximum",
+                        "de-DE": "Max. Solarenergie",
+                        "es-ES": "Energía solar máxima",
+                        "es-MX": "Energía solar máxima",
+                        "fr-FR": "Énergie solaire maximale",
+                        "it-IT": "Energia solare massima",
+                        "ja-JP": "最大ソーラーエネルギー",
+                        "ko-KR": "태양 에너지 최대 수치",
+                        "pl-PL": "Maksimum energii słonecznej",
+                        "pt-BR": "Energia Solar Máxima",
+                        "ru-RU": "Максимум солнечной энергии",
+                        "th-TH": "พลังงานโซลาร์สูงสุด",
+                        "tr-TR": "Maksimum Güneş Enerjisi",
+                        "zh-CN": "太阳能上限",
+                        "zh-TW": "太陽能量上限"
                     },
                     "solarEnergyRecharge%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Solar Energy Recharge Rate"
+                        "guid": "00000001DF66",
+                        "en-US": "Solar Energy Recharge Rate",
+                        "de-DE": "Aufladerate für Solarenergie",
+                        "es-ES": "Ritmo de recarga de energía solar",
+                        "es-MX": "Velocidad de recarga de energía solar",
+                        "fr-FR": "Vitesse de rechargement de l’énergie solaire",
+                        "it-IT": "Energia solare - Velocità di ricarica",
+                        "ja-JP": "ソーラーエネルギー リチャージ・レート",
+                        "ko-KR": "태양 에너지 충전률",
+                        "pl-PL": "Tempo doładowania energii słonecznej",
+                        "pt-BR": "Taxa de Recarga da Energia Solar",
+                        "ru-RU": "Скорость восстановления солнечной энергии",
+                        "th-TH": "อัตราการรีชาร์จพลังงานโซลาร์",
+                        "tr-TR": "Güneş Enerjisi Dolma Oranı",
+                        "zh-CN": "太阳能充能速度",
+                        "zh-TW": "太陽能量補充速度"
                     }
                 }
             },
@@ -4558,7 +4919,8 @@ const customGameSettingsSchema =
                         "th-TH": "สเกลาร์กระเด็นถอยหลังของแจ็กด์เบลด",
                         "tr-TR": "Dişli Bıçak Geri İtme Skaleri",
                         "zh-CN": "锯齿利刃击退倍率",
-                        "zh-TW": "鋸刃擊退距離"
+                        "zh-TW": "鋸刃擊退距離",
+                        "ko-KR": "Jagged Blade Knockback Scalar"
                     },
                     "secondaryFireRecallDelay%": {
                         "values": "__percent__",
@@ -4579,7 +4941,8 @@ const customGameSettingsSchema =
                         "th-TH": "ดีเลย์แจ็กด์เบลดก่อนรีคอลอัตโนมัติ",
                         "tr-TR": "Otomatik Geri Çağırma Öncesi Dişli Bıçak Gecikmesi",
                         "zh-CN": "锯齿利刃自动召回延迟",
-                        "zh-TW": "鋸刃自動召回前停留時間"
+                        "zh-TW": "鋸刃自動召回前停留時間",
+                        "ko-KR": "Jagged Blade Delay Before Automatic Recall"
                     }
                 }
             },
@@ -4688,42 +5051,132 @@ const customGameSettingsSchema =
                     "enablePrimaryFire": {
                         "values": "__boolOnOff__",
                         "default": "on",
-                        "en-US": "Incendiary Chaingun"
+                        "guid": "00000001EE91",
+                        "en-US": "Incendiary Chaingun",
+                        "de-DE": "Brand-Chain-Gun",
+                        "es-ES": "Cañón de cadena incendiario",
+                        "es-MX": "Cañón de cadena incendiario",
+                        "fr-FR": "Canon mitrailleur incendiaire",
+                        "it-IT": "Pistola a Catena Incendiaria",
+                        "ja-JP": "焼夷チェーンガン",
+                        "ko-KR": "화염 기관포",
+                        "pl-PL": "Zapalające Działko Wielolufowe",
+                        "pt-BR": "Metralhadora Incendiária",
+                        "ru-RU": "Поджигающий пулемет",
+                        "th-TH": "อินเซนเดียรี่เชนกัน",
+                        "tr-TR": "Tutuşturan Makineli",
+                        "zh-CN": "燃火链式机枪",
+                        "zh-TW": "燃焰機關槍"
                     },
                     "primaryFireIgniteDamage": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Incendiary Chaingun Ignite Damage"
+                        "guid": "00000001F623",
+                        "en-US": "Incendiary Chaingun Ignite Damage",
+                        "de-DE": "Brand-Chain-Gun Entzündungsschaden",
+                        "es-ES": "Daño de incineración de cañón de cadena incendiario",
+                        "es-MX": "Daño de incendio de Cañón de cadena incendiario",
+                        "fr-FR": "Dégâts d’inflammation du canon mitrailleur incendiaire",
+                        "it-IT": "Danni incendio Pistola a Catena Incendiaria",
+                        "ja-JP": "〈焼夷チェーンガン〉燃焼ダメージ",
+                        "ko-KR": "화염 기관포 점화 피해",
+                        "pl-PL": "Obrażenia od podpalania przez Zapalające Działko Wielolufowe",
+                        "pt-BR": "Dano de Ignição da Metralhadora Incendiária",
+                        "ru-RU": "Поджигающий пулемет: урон от поджога",
+                        "th-TH": "ความเสียหายติดไฟจากอินเซนเดียรี่เชนกัน",
+                        "tr-TR": "Tutuşturan Makineli Ateşe Verme Hasarı",
+                        "zh-CN": "燃火链式机枪点燃伤害",
+                        "zh-TW": "燃焰機關槍點燃傷害量"
                     },
                     "primaryFireIgniteDuration": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Incendiary Chaingun Ignite Duration"
+                        "guid": "00000001F622",
+                        "en-US": "Incendiary Chaingun Ignite Duration",
+                        "de-DE": "Brand-Chain-Gun Entzündungsdauer",
+                        "es-ES": "Duración de incineración de cañón de cadena incendiario",
+                        "es-MX": "Duración de incendio de Cañón de cadena incendiario",
+                        "fr-FR": "Durée d’inflammation du canon mitrailleur incendiaire",
+                        "it-IT": "Durata incendio Pistola a Catena Incendiaria",
+                        "ja-JP": "〈焼夷チェーンガン〉燃焼時間",
+                        "ko-KR": "화염 기관포 점화 지속 시간",
+                        "pl-PL": "Czas podpalenia od Zapalającego Działka Wielolufowego",
+                        "pt-BR": "Duração da Ignição da Metralhadora Incendiária",
+                        "ru-RU": "Поджигающий пулемет: время действия поджога",
+                        "th-TH": "ระยะเวลาติดไฟจากอินเซนเดียรี่เชนกัน",
+                        "tr-TR": "Tutuşturan Makineli Ateşe Verme Süresi",
+                        "zh-CN": "燃火链式机枪点燃持续时间",
+                        "zh-TW": "燃焰機關槍點燃持續時間"
                     },
                     "primaryFireIgniteRate": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Incendiary Chaingun Ignite Rate"
+                        "guid": "00000001F621",
+                        "en-US": "Incendiary Chaingun Ignite Rate",
+                        "de-DE": "Brand-Chain-Gun Entzündungsrate",
+                        "es-ES": "Velocidad de incineración de cañón de cadena incendiario",
+                        "es-MX": "Tasa de incendio de Cañón de cadena incendiario",
+                        "fr-FR": "Vitesse d’inflammation du canon mitrailleur incendiaire",
+                        "it-IT": "Frequenza incendio Pistola a Catena Incendiaria",
+                        "ja-JP": "〈焼夷チェーンガン〉燃焼率",
+                        "ko-KR": "화염 기관포 점화율",
+                        "pl-PL": "Tempo podpalania przez Zapalające Działko Wielolufowe",
+                        "pt-BR": "Taxa de Ignição da Metralhadora Incendiária",
+                        "ru-RU": "Поджигающий пулемет: скорость поджога",
+                        "th-TH": "อัตราการติดไฟจากอินเซนเดียรี่เชนกัน",
+                        "tr-TR": "Tutuşturan Makineli Ateşe Verme Oranı",
+                        "zh-CN": "燃火链式机枪点燃速度",
+                        "zh-TW": "燃焰機關槍點燃率"
                     },
                     "ability1Kb%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 300,
                         "default": 100,
-                        "en-US": "Overrun Knockback"
+                        "guid": "00000001F61A",
+                        "en-US": "Overrun Knockback",
+                        "de-DE": "Tackle-Rückstoß",
+                        "es-ES": "Repulsión con Arrollar",
+                        "es-MX": "Sobrescribir Embestida",
+                        "fr-FR": "Recul de Déferlement",
+                        "it-IT": "Respinte con Sovrastazione",
+                        "ja-JP": "オーバーラン・ノックバック",
+                        "ko-KR": "돌파로 밀쳐내기",
+                        "pl-PL": "Ignoruj Odrzucenie",
+                        "pt-BR": "Repulsão do Encurralar",
+                        "ru-RU": "Отбрасывание «Напором»",
+                        "th-TH": "กระเด็นถอยหลังด้วยโอเวอร์รัน",
+                        "tr-TR": "Aşım Geri İtişi",
+                        "zh-CN": "蛮力冲撞击退",
+                        "zh-TW": "暴走擊退"
                     },
                     "ability2Healing%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 400,
                         "default": 100,
-                        "en-US": "Cardiac Overdrive Healing"
+                        "guid": "00000001E400",
+                        "en-US": "Cardiac Overdrive Healing",
+                        "de-DE": "Heilung mit Overdrive",
+                        "es-ES": "Sanación con Sobreestimulación cardíaca",
+                        "es-MX": "Sanación de Sobrecarga cardíaca",
+                        "fr-FR": "Soins prodigués par Cent à l’heure",
+                        "it-IT": "Cure con Sovraccarico cardiaco",
+                        "ja-JP": "〈カーディアック・オーバードライブ〉回復量",
+                        "ko-KR": "터질 듯한 심장으로 치유",
+                        "pl-PL": "Leczenie Przeciążeniem Sercowym",
+                        "pt-BR": "Cura com Sobrecarga Cardíaca",
+                        "ru-RU": "Исцеление «Разгоном сердцебиения»",
+                        "th-TH": "การฮีลด้วยคาร์ดิแอคโอเวอร์ไดรฟ์",
+                        "tr-TR": "Taşikardi İyileştirmesi",
+                        "zh-CN": "心脏过载治疗量",
+                        "zh-TW": "心率超載治療量"
                     }
                 }
             },
@@ -4960,7 +5413,7 @@ const customGameSettingsSchema =
                         "pt-BR": "Escalar do dano máx. do Orbe Biótico",
                         "ru-RU": "Макс. количество урона от «Биотической сферы»",
                         "th-TH": "สเกลาร์ความเสียหายสูงสุดจากไบโอติกออร์บ",
-                        "tr-TR": "Biyotik Küre Maks Hasar Skaleri",
+                        "tr-TR": "Biyotik Küre Maksimum Hasar Skaleri",
                         "zh-CN": "生化之球伤害最大值",
                         "zh-TW": "生化球最大傷害值"
                     },
@@ -4982,7 +5435,7 @@ const customGameSettingsSchema =
                         "pt-BR": "Escalar da cura máx. do Orbe Biótico",
                         "ru-RU": "Макс. исцеление «Биотической сферой»",
                         "th-TH": "สเกลาร์การฮีลสูงสุดจากไบโอติกออร์บ",
-                        "tr-TR": "Biyotik Küre Maks İyileştirme Skaleri",
+                        "tr-TR": "Biyotik Küre Maksimum İyileştirme Skaleri",
                         "zh-CN": "生化之球治疗最大值",
                         "zh-TW": "生化球最大治療值"
                     },
@@ -5005,7 +5458,7 @@ const customGameSettingsSchema =
                         "ru-RU": "Макс. биотической энергии",
                         "th-TH": "พลังงานชีวภาพสูงสุด",
                         "tr-TR": "Maksimum Biyotik Enerji",
-                        "zh-CN": "最大生化能量值",
+                        "zh-CN": "生化能量上限",
                         "zh-TW": "生化能量上限"
                     },
                     "primaryFireRechargeRate%": {
@@ -5103,22 +5556,66 @@ const customGameSettingsSchema =
                         "min": 20,
                         "max": 500,
                         "default": 100,
-                        "guid": "00000000631D",
-                        "en-US": "Hover Jets Maximum Time"
+                        "guid": "00000000631B",
+                        "en-US": "Jump Jet Acceleration Scalar",
+                        "de-DE": "Senkrechtstarter – Beschleunigung",
+                        "es-ES": "Aceleración de Propulsores",
+                        "es-MX": "Escala de aceleración de Propulsor aéreo",
+                        "fr-FR": "Accélération des réacteurs",
+                        "it-IT": "Propulsori - Intensità di accelerazione",
+                        "ja-JP": "ジャンプ・ジェット 加速スカラー",
+                        "ko-KR": "점프 추진기 가속 조정",
+                        "pl-PL": "Skalowanie przyspieszenia Skok Odrzutowy",
+                        "pt-BR": "Aceleração escalar do Salto Foguete",
+                        "ru-RU": "Реактивный ранец: ускорение",
+                        "th-TH": "สเกลาร์การเร่งความเร็วของจัมป์เจ็ท",
+                        "tr-TR": "Zıplama Jeti İvme Skaleri",
+                        "zh-CN": "推进背包加速",
+                        "zh-TW": "跳躍噴射速度"
                     },
                     "passiveExtraFuel%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Hover Jets Extra Fuel Scalar"
+                        "en-US": "Hover Jets Extra Fuel Scalar",
+                        "guid": "00000002091B",
+                        "de-DE": "Schwebedüsen-Zusatztreibstoff",
+                        "es-ES": "Combustible adicional de Planeador",
+                        "es-MX": "Escalar de combustible adicional de Propulsores levitantes",
+                        "fr-FR": "Carburant supplémentaire des stabilisateurs",
+                        "it-IT": "Propulsori - Intensità carburante extra",
+                        "ja-JP": "ホバー・ジェット 追加燃料スカラー",
+                        "ko-KR": "호버 추진기 추가 연료 조정",
+                        "pl-PL": "Skalowanie dodatkowego paliwa Zawiśnięcia",
+                        "pt-BR": "Escalar do Combustível Adicional da Suspensão a Jato",
+                        "ru-RU": "Реактивный рывок: дополнительное топливо",
+                        "th-TH": "สเกลาร์เชื้อเพลิงพิเศษโฮเวอร์เจ็ท",
+                        "tr-TR": "Uçuş Jeti Fazladan Yakıt Skaleri",
+                        "zh-CN": "悬浮背包额外燃料倍率",
+                        "zh-TW": "滯空額外燃料量"
                     },
                     "passiveRechargeRate%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 500,
                         "default": 100,
-                        "en-US": "Hover Jets Recharge Rate"
+                        "en-US": "Hover Jets Recharge Rate",
+                        "guid": "000000005B52",
+                        "de-DE": "Schwebedüsen – Aufladungsrate",
+                        "es-ES": "Ritmo de recarga de Planeador",
+                        "es-MX": "Velocidad de recarga de los Propulsores levitantes",
+                        "fr-FR": "Vitesse de rechargement des stabilisateurs",
+                        "it-IT": "Propulsori - Velocità di ricarica",
+                        "ja-JP": "ホバー・ジェット リチャージ・レート",
+                        "ko-KR": "호버 추진기 충전율",
+                        "pl-PL": "Tempo doładowania Zawiśnięcia",
+                        "pt-BR": "Taxa de recarga da Suspensão a Jato",
+                        "ru-RU": "Скорость пополнения топлива",
+                        "th-TH": "อัตราการชาร์จโฮเวอร์เจ็ท",
+                        "tr-TR": "Uçuş Jeti Dolma Oranı",
+                        "zh-CN": "悬浮背包充能速度",
+                        "zh-TW": "滯空燃料補充速度"
                     },
                     "ability1Acceleration%": {
                         "values": "__percent__",
@@ -5147,7 +5644,22 @@ const customGameSettingsSchema =
                         "min": 0,
                         "max": 400,
                         "default": 100,
-                        "en-US": "Jump Jet Refuel Scalar"
+                        "en-US": "Jump Jet Refuel Scalar",
+                        "guid": "00000002091A",
+                        "de-DE": "Senkrechtstarter-Treibstoff",
+                        "es-ES": "Combustible recuperado con Propulsores",
+                        "es-MX": "Escalar de reabastecimiento de combustible de Propulsor aéreo",
+                        "fr-FR": "Plein des réacteurs",
+                        "it-IT": "Propulsori - Intensità di rifornimento",
+                        "ja-JP": "ジャンプ・ジェット 補給スカラー",
+                        "ko-KR": "점프 추진기 연료 충전 조정",
+                        "pl-PL": "Skalowanie uzupełniania paliwa Skoku Odrzutowego",
+                        "pt-BR": "Escalar da Recarga do Salto Foguete",
+                        "ru-RU": "Реактивный ранец: дозаправка",
+                        "th-TH": "สเกลาร์การเติมเชื้อเพลิงของจัมป์เจ็ท",
+                        "tr-TR": "Havalanma Yakıt Doldurma Skaleri",
+                        "zh-CN": "推进背包燃料补充倍率",
+                        "zh-TW": "跳躍噴射燃料補充量"
                     },
                     "primaryFireKb%": {
                         "values": "__percent__",
@@ -5239,7 +5751,7 @@ const customGameSettingsSchema =
                         "pt-BR": "Repulsão escalar do Martelo Propulsor",
                         "ru-RU": "Ракетный молот: сила отбрасывания",
                         "th-TH": "สเกลาร์กระเด็นถอยหลังของค้อนจรวด",
-                        "tr-TR": "Roket Balyoz Geri İtme Skaleri",
+                        "tr-TR": "Roket Çekiç Geri İtme Skaleri",
                         "zh-CN": "火箭重锤击退倍率",
                         "zh-TW": "火箭鎚擊退距離"
                     }
@@ -5382,7 +5894,7 @@ const customGameSettingsSchema =
                                 "pl-PL": "Tylko Nitownica",
                                 "pt-BR": "Apenas Pistola de Rebite",
                                 "ru-RU": "Только гвоздестрел",
-                                "th-TH": "ปืนยิงหมุดเท่านั้น",
+                                "th-TH": "รีเวทกันเท่านั้น",
                                 "tr-TR": "Yalnızca Perçin Tabancası",
                                 "zh-CN": "仅限铆钉枪",
                                 "zh-TW": "僅限鉚釘槍"
@@ -5619,7 +6131,7 @@ const customGameSettingsSchema =
                         "default": 100,
                         "guid": "00000001AB1E",
                         "en-US": "Rejuvenating Dash Healing",
-                        "de-DE": "Heilung mit Regenerativer Spurt",
+                        "de-DE": "Heilung mit Regenerativem Spurt",
                         "es-ES": "Sanación de Paso regenerador",
                         "es-MX": "Sanación de Carrera revitalizante",
                         "fr-FR": "Soins d’Élan régénérant",
@@ -5761,7 +6273,7 @@ const customGameSettingsSchema =
         "de-DE": "helden",
         "es-ES": "héroes",
         "es-MX": "héroes",
-        "fr-FR": "héros",
+        "fr-FR": "Personnages",
         "it-IT": "eroi",
         "ja-JP": "ヒーロー",
         "pl-PL": "bohaterowie",
@@ -5769,7 +6281,9 @@ const customGameSettingsSchema =
         "th-TH": "ฮีโร่",
         "tr-TR": "kahramanlar",
         "zh-CN": "英雄",
-        "zh-TW": "英雄"
+        "zh-TW": "英雄",
+        "ko-KR": "heroes",
+        "ru-RU": "heroes"
     },
     "lobby": {
         "values": {
@@ -5790,7 +6304,7 @@ const customGameSettingsSchema =
                         "pt-BR": "Depois de uma partida espelhada",
                         "ru-RU": "После зеркального матча",
                         "th-TH": "หลังจบมิเรอร์แมตช์",
-                        "tr-TR": "Aynaya Karşı Maçtan Sonra",
+                        "tr-TR": "Yansıtma Maçından Sonra\n\n",
                         "zh-CN": "攻防轮换后",
                         "zh-TW": "在地圖輪流攻防一次之後"
                     },
@@ -5863,7 +6377,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Nigdy",
                         "pt-BR": "Nunca",
                         "ru-RU": "Отключен",
-                        "th-TH": "ไม่เคย",
+                        "th-TH": "ไม่กลับ",
                         "tr-TR": "Asla",
                         "zh-CN": "从不",
                         "zh-TW": "從不"
@@ -5941,7 +6455,8 @@ const customGameSettingsSchema =
                         "th-TH": "ปิด",
                         "tr-TR": "Kapalı",
                         "zh-CN": "关闭",
-                        "zh-TW": "關閉"
+                        "zh-TW": "關閉",
+                        "it-IT": "Off"
                     },
                     "afterMirrorMatch": {
                         "guid": "000000002C54",
@@ -6034,8 +6549,8 @@ const customGameSettingsSchema =
                 "pl-PL": "Maksimum graczy: %1$s",
                 "pt-BR": "Máximo de jogadores de %1$s",
                 "ru-RU": "Максимум игроков команда %1$s",
-                "th-TH": "ผู้เล่นสูงสุด %1$s คน",
-                "tr-TR": "Azami %1$s Oyuncu",
+                "th-TH": "ผู้เล่นสูงสุดทีม %1$s",
+                "tr-TR": "Maks. %1$s Oyuncusu",
                 "zh-CN": "玩家上限 %1$s",
                 "zh-TW": "玩家上限%1$s人"
             },
@@ -6056,8 +6571,8 @@ const customGameSettingsSchema =
                 "pl-PL": "Maksimum graczy: %1$s",
                 "pt-BR": "Máximo de jogadores de %1$s",
                 "ru-RU": "Максимум игроков команда %1$s",
-                "th-TH": "ผู้เล่นสูงสุด %1$s คน",
-                "tr-TR": "Azami %1$s Oyuncu",
+                "th-TH": "ผู้เล่นสูงสุดทีม %1$s",
+                "tr-TR": "Maks. %1$s Oyuncusu",
                 "zh-CN": "玩家上限 %1$s",
                 "zh-TW": "玩家上限%1$s人"
             },
@@ -6079,7 +6594,7 @@ const customGameSettingsSchema =
                 "pt-BR": "Máximo de jogadores para TCT",
                 "ru-RU": "Максимум игроков FFA",
                 "th-TH": "ผู้เล่น FFA สูงสุด",
-                "tr-TR": "Azami Her Şey Serbest Oyuncusu",
+                "tr-TR": "Maks. Her Şey Serbest Oyuncusu",
                 "zh-CN": "自由混战人数上限",
                 "zh-TW": "自由混戰人數上限"
             },
@@ -6101,7 +6616,7 @@ const customGameSettingsSchema =
                 "pt-BR": "Máximo de espectadores",
                 "ru-RU": "Максимум зрителей",
                 "th-TH": "ผู้ชมสูงสุด",
-                "tr-TR": "Azami İzleyici",
+                "tr-TR": "Maks. İzleyici",
                 "zh-CN": "观战者人数上限",
                 "zh-TW": "觀戰人數上限"
             },
@@ -6162,7 +6677,7 @@ const customGameSettingsSchema =
                 "ja-JP": "マッチ・ボイスチャット",
                 "ko-KR": "경기 음성 대화",
                 "pl-PL": "Czat głosowy meczu",
-                "pt-BR": "Chat de voz da partida",
+                "pt-BR": "Bate-papo de Voz da Partida",
                 "ru-RU": "Голосовой чат матча",
                 "th-TH": "แชตด้วยเสียงของแมตช์",
                 "tr-TR": "Maç Sesli Sohbeti",
@@ -6222,7 +6737,11 @@ const customGameSettingsSchema =
                         "th-TH": "อาร์เจนตินา",
                         "tr-TR": "Arjantin",
                         "zh-CN": "阿根廷",
-                        "zh-TW": "阿根廷"
+                        "zh-TW": "阿根廷",
+                        "es-ES": "Argentina",
+                        "es-MX": "Argentina",
+                        "it-IT": "Argentina",
+                        "pt-BR": "Argentina"
                     },
                     "australia": {
                         "guid": "00000000AA69",
@@ -6236,7 +6755,11 @@ const customGameSettingsSchema =
                         "th-TH": "ออสเตรเลีย",
                         "tr-TR": "Avustralya",
                         "zh-CN": "澳大利亚",
-                        "zh-TW": "澳洲"
+                        "zh-TW": "澳洲",
+                        "es-ES": "Australia",
+                        "es-MX": "Australia",
+                        "it-IT": "Australia",
+                        "pl-PL": "Australia"
                     },
                     "australia2": {
                         "guid": "00000000AA64",
@@ -6250,7 +6773,11 @@ const customGameSettingsSchema =
                         "th-TH": "ออสเตรเลีย 2",
                         "tr-TR": "Avustralya 2",
                         "zh-CN": "澳大利亚 2",
-                        "zh-TW": "澳洲2"
+                        "zh-TW": "澳洲2",
+                        "es-ES": "Australia 2",
+                        "es-MX": "Australia 2",
+                        "it-IT": "Australia 2",
+                        "pl-PL": "Australia 2"
                     },
                     "australia3": {
                         "guid": "00000000AA65",
@@ -6264,7 +6791,11 @@ const customGameSettingsSchema =
                         "th-TH": "ออสเตรเลีย 3",
                         "tr-TR": "Avustralya 3",
                         "zh-CN": "澳大利亚 3",
-                        "zh-TW": "澳洲3"
+                        "zh-TW": "澳洲3",
+                        "es-ES": "Australia 3",
+                        "es-MX": "Australia 3",
+                        "it-IT": "Australia 3",
+                        "pl-PL": "Australia 3"
                     },
                     "bahrain": {
                         "guid": "00000000FB64",
@@ -6280,7 +6811,9 @@ const customGameSettingsSchema =
                         "th-TH": "บาห์เรน",
                         "tr-TR": "Bahreyn",
                         "zh-CN": "巴林",
-                        "zh-TW": "巴林"
+                        "zh-TW": "巴林",
+                        "de-DE": "Bahrain",
+                        "pt-BR": "Bahrain"
                     },
                     "brazil": {
                         "guid": "00000000AA6A",
@@ -6329,7 +6862,12 @@ const customGameSettingsSchema =
                         "th-TH": "ชิลี",
                         "tr-TR": "Şili",
                         "zh-CN": "智利",
-                        "zh-TW": "智利"
+                        "zh-TW": "智利",
+                        "de-DE": "Chile",
+                        "es-ES": "Chile",
+                        "es-MX": "Chile",
+                        "pl-PL": "Chile",
+                        "pt-BR": "Chile"
                     },
                     "chinaBeijing": {
                         "guid": "00000000AA70",
@@ -6346,7 +6884,8 @@ const customGameSettingsSchema =
                         "th-TH": "จีน - ปักกิ่ง",
                         "tr-TR": "Çin - Pekin",
                         "zh-CN": "中国北京",
-                        "zh-TW": "北京"
+                        "zh-TW": "北京",
+                        "es-MX": "China - Beijing"
                     },
                     "chinaHangzhou": {
                         "guid": "00000000AA5F",
@@ -6361,7 +6900,10 @@ const customGameSettingsSchema =
                         "th-TH": "จีน - หางโจว",
                         "tr-TR": "Çin - Hangzhou",
                         "zh-CN": "中国杭州",
-                        "zh-TW": "杭州"
+                        "zh-TW": "杭州",
+                        "es-ES": "China - Hangzhou",
+                        "es-MX": "China - Hangzhou",
+                        "pt-BR": "China - Hangzhou"
                     },
                     "chinaHangzhou2": {
                         "guid": "00000000AA60",
@@ -6376,7 +6918,10 @@ const customGameSettingsSchema =
                         "th-TH": "จีน - หางโจว 2",
                         "tr-TR": "Çin - Hangzhou 2",
                         "zh-CN": "中国杭州 2",
-                        "zh-TW": "杭州2"
+                        "zh-TW": "杭州2",
+                        "es-ES": "China - Hangzhou 2",
+                        "es-MX": "China - Hangzhou 2",
+                        "pt-BR": "China - Hangzhou 2"
                     },
                     "finland2": {
                         "guid": "0000000125E1",
@@ -6411,7 +6956,8 @@ const customGameSettingsSchema =
                         "th-TH": "ฝรั่งเศส",
                         "tr-TR": "Fransa",
                         "zh-CN": "法国",
-                        "zh-TW": "法國"
+                        "zh-TW": "法國",
+                        "fr-FR": "France"
                     },
                     "germany": {
                         "guid": "00000000AA6C",
@@ -6482,7 +7028,8 @@ const customGameSettingsSchema =
                         "th-TH": "ญี่ปุ่น",
                         "tr-TR": "Japonya",
                         "zh-CN": "日本",
-                        "zh-TW": "日本"
+                        "zh-TW": "日本",
+                        "de-DE": "Japan"
                     },
                     "japan2": {
                         "guid": "0000000125DE",
@@ -6499,7 +7046,8 @@ const customGameSettingsSchema =
                         "th-TH": "ญี่ปุ่น 2",
                         "tr-TR": "Japonya 2",
                         "zh-CN": "日本 2",
-                        "zh-TW": "日本2"
+                        "zh-TW": "日本2",
+                        "de-DE": "Japan 2"
                     },
                     "netherlands": {
                         "guid": "00000000AA5D",
@@ -6531,7 +7079,11 @@ const customGameSettingsSchema =
                         "ru-RU": "Перу",
                         "th-TH": "เปรู",
                         "zh-CN": "秘鲁",
-                        "zh-TW": "祕魯"
+                        "zh-TW": "祕魯",
+                        "de-DE": "Peru",
+                        "pl-PL": "Peru",
+                        "pt-BR": "Peru",
+                        "tr-TR": "Peru"
                     },
                     "singapore": {
                         "guid": "00000000AA68",
@@ -6543,12 +7095,13 @@ const customGameSettingsSchema =
                         "ja-JP": "シンガポール",
                         "ko-KR": "싱가포르",
                         "pl-PL": "Singapur",
-                        "pt-BR": "Cingapura",
+                        "pt-BR": "Singapura",
                         "ru-RU": "Сингапур",
                         "th-TH": "สิงคโปร์",
                         "tr-TR": "Singapur",
                         "zh-CN": "新加坡",
-                        "zh-TW": "新加坡"
+                        "zh-TW": "新加坡",
+                        "it-IT": "Singapore"
                     },
                     "singapore2": {
                         "guid": "0000000125DD",
@@ -6560,12 +7113,13 @@ const customGameSettingsSchema =
                         "ja-JP": "シンガポール2",
                         "ko-KR": "싱가폴 2",
                         "pl-PL": "Singapur 2",
-                        "pt-BR": "Cingapura 2",
+                        "pt-BR": "Singapura 2",
                         "ru-RU": "Сингапур 2",
                         "th-TH": "สิงคโปร์ 2",
                         "tr-TR": "Singapur 2",
                         "zh-CN": "新加坡 2",
-                        "zh-TW": "新加坡2"
+                        "zh-TW": "新加坡2",
+                        "it-IT": "Singapore 2"
                     },
                     "southKorea": {
                         "guid": "00000000AA61",
@@ -6634,7 +7188,10 @@ const customGameSettingsSchema =
                         "th-TH": "ไต้หวัน",
                         "tr-TR": "Tayvan",
                         "zh-CN": "中国台湾",
-                        "zh-TW": "台灣"
+                        "zh-TW": "台灣",
+                        "de-DE": "Taiwan",
+                        "it-IT": "Taiwan",
+                        "pt-BR": "Taiwan"
                     },
                     "taiwan2": {
                         "guid": "0000000125E2",
@@ -6649,7 +7206,10 @@ const customGameSettingsSchema =
                         "th-TH": "ไต้หวัน 2",
                         "tr-TR": "Tayvan 2",
                         "zh-CN": "中国台湾 2",
-                        "zh-TW": "台灣2"
+                        "zh-TW": "台灣2",
+                        "de-DE": "Taiwan 2",
+                        "it-IT": "Taiwan 2",
+                        "pt-BR": "Taiwan 2"
                     },
                     "usCentral": {
                         "guid": "00000000AA75",
@@ -6814,7 +7374,8 @@ const customGameSettingsSchema =
                 "ru-RU": "Минимальная задержка в миллисекундах",
                 "th-TH": "เวลาแฝงขั้นต่ำ มิลลิวินาที",
                 "tr-TR": "Minimum Gecikme milisaniye",
-                "zh-CN": "最低延迟（毫秒）"
+                "zh-CN": "最低延迟（毫秒）",
+                "zh-TW": "Minimum Latency milliseconds"
             }
         },
         "guid": "000000010031",
@@ -6828,7 +7389,11 @@ const customGameSettingsSchema =
         "th-TH": "ห้องเตรียมพร้อม",
         "tr-TR": "lobi",
         "zh-CN": "大厅",
-        "zh-TW": "大廳"
+        "zh-TW": "大廳",
+        "it-IT": "lobby",
+        "ko-KR": "lobby",
+        "pt-BR": "lobby",
+        "ru-RU": "lobby"
     },
     "main": {
         "values": {
@@ -6850,7 +7415,8 @@ const customGameSettingsSchema =
                 "th-TH": "คำอธิบาย",
                 "tr-TR": "Açıklama",
                 "zh-CN": "描述",
-                "zh-TW": "敘述"
+                "zh-TW": "敘述",
+                "fr-FR": "Description"
             },
             "modeName": {
                 "values": "__string__",
@@ -6887,7 +7453,9 @@ const customGameSettingsSchema =
         "th-TH": "หลัก",
         "tr-TR": "ana",
         "zh-CN": "主程序",
-        "zh-TW": "主要"
+        "zh-TW": "主要",
+        "ko-KR": "main",
+        "ru-RU": "main"
     },
     "workshop": {
         "guid": "0000000113B7",
@@ -6898,7 +7466,14 @@ const customGameSettingsSchema =
         "pl-PL": "warsztat",
         "th-TH": "เวิร์คช็อป",
         "tr-TR": "atölye",
-        "zh-CN": "地图工坊"
+        "zh-CN": "地图工坊",
+        "de-DE": "workshop",
+        "es-MX": "workshop",
+        "it-IT": "workshop",
+        "ko-KR": "workshop",
+        "pt-BR": "workshop",
+        "ru-RU": "workshop",
+        "zh-TW": "workshop"
     }
 }
 //end-json

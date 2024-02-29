@@ -81,8 +81,16 @@ const heroKw =
         "ko-KR": "아나",
         "ru-RU": "Ана",
         "th-TH": "อานา",
+        "tr-TR": "<en>Ana<en>",
         "zh-CN": "安娜",
-        "zh-TW": "安娜"
+        "zh-TW": "安娜",
+        "de-DE": "Ana",
+        "es-ES": "Ana",
+        "es-MX": "Ana",
+        "fr-FR": "Ana",
+        "it-IT": "Ana",
+        "pl-PL": "Ana",
+        "pt-BR": "Ana"
     },
     "ashe": {
         "guid": "00000000832E",
@@ -119,7 +127,8 @@ const heroKw =
             "th-TH": "ไดนาไมต์",
             "tr-TR": "Dinamit",
             "zh-CN": "延时雷管",
-            "zh-TW": "炸藥"
+            "zh-TW": "炸藥",
+            "fr-FR": "Dynamite"
         },
         "ultimate": {
             "guid": "000000008A5B",
@@ -128,7 +137,16 @@ const heroKw =
             "ja-JP": "B.O.B",
             "ru-RU": "БОБ",
             "zh-CN": "召唤鲍勃",
-            "zh-TW": "鮑伯"
+            "zh-TW": "鮑伯",
+            "de-DE": "B.O.B.",
+            "es-MX": "B.O.B.",
+            "fr-FR": "B.O.B.",
+            "it-IT": "B.O.B.",
+            "ko-KR": "B.O.B.",
+            "pl-PL": "B.O.B.",
+            "pt-BR": "B.O.B.",
+            "th-TH": "B.O.B.",
+            "tr-TR": "B.O.B."
         },
         "en-US": "Ashe",
         "ja-JP": "アッシュ",
@@ -136,7 +154,15 @@ const heroKw =
         "ru-RU": "Эш",
         "th-TH": "แอช",
         "zh-CN": "艾什",
-        "zh-TW": "艾西"
+        "zh-TW": "艾西",
+        "de-DE": "Ashe",
+        "es-ES": "Ashe",
+        "es-MX": "Ashe",
+        "fr-FR": "Ashe",
+        "it-IT": "Ashe",
+        "pl-PL": "Ashe",
+        "pt-BR": "Ashe",
+        "tr-TR": "Ashe"
     },
     "baptiste": {
         "guid": "000000009411",
@@ -189,7 +215,7 @@ const heroKw =
             "pl-PL": "Matryca Wzmacniająca",
             "pt-BR": "Matriz Amplificadora",
             "ru-RU": "Усиливающая матрица",
-            "th-TH": "แอมพลิฟิเคชันแมทริกซ์",
+            "th-TH": "แอมพลิฟิเคชันเมทริกซ์",
             "tr-TR": "Kuvvetlendirme Matrisi",
             "zh-CN": "增幅矩阵",
             "zh-TW": "增幅矩陣"
@@ -201,7 +227,14 @@ const heroKw =
         "th-TH": "บัปทิสต์",
         "tr-TR": "<en>Baptiste<en>",
         "zh-CN": "巴蒂斯特",
-        "zh-TW": "巴帝斯特"
+        "zh-TW": "巴帝斯特",
+        "de-DE": "Baptiste",
+        "es-ES": "Baptiste",
+        "es-MX": "Baptiste",
+        "fr-FR": "Baptiste",
+        "it-IT": "Baptiste",
+        "pl-PL": "Baptiste",
+        "pt-BR": "Baptiste"
     },
     "bastion": {
         "guid": "000000000023",
@@ -245,14 +278,14 @@ const heroKw =
             "guid": "0000000003C1",
             "en-US": "Configuration: Artillery",
             "de-DE": "Konfiguration: Panzer",
-            "es-ES": "Modo tanque",
+            "es-ES": "Modo artillería",
             "es-MX": "Configuración: tanque",
             "fr-FR": "Configuration : artillerie",
             "it-IT": "Assetto Carro Armato",
             "ja-JP": "砲台モード",
             "ko-KR": "설정: 포격",
             "pl-PL": "Konfiguracja: Czołg",
-            "pt-BR": "Configuração: Tanque",
+            "pt-BR": "Configuração: Artilharia",
             "ru-RU": "Режим артиллерии",
             "th-TH": "คอนฟิเกอเรชัน: อาร์ทิลเลอรี",
             "tr-TR": "Biçim: Top Atışı",
@@ -266,7 +299,14 @@ const heroKw =
         "th-TH": "แบสเชียน",
         "tr-TR": "<en>Bastion<en>",
         "zh-CN": "堡垒",
-        "zh-TW": "壁壘機兵"
+        "zh-TW": "壁壘機兵",
+        "de-DE": "Bastion",
+        "es-ES": "Bastion",
+        "es-MX": "Bastion",
+        "fr-FR": "Bastion",
+        "it-IT": "Bastion",
+        "pl-PL": "Bastion",
+        "pt-BR": "Bastion"
     },
     "brigitte": {
         "guid": "000000005D06",
@@ -367,7 +407,14 @@ const heroKw =
         "th-TH": "บริกิตตา",
         "tr-TR": "<en>Brigitte<en>",
         "zh-CN": "布丽吉塔",
-        "zh-TW": "碧姬"
+        "zh-TW": "碧姬",
+        "de-DE": "Brigitte",
+        "es-ES": "Brigitte",
+        "es-MX": "Brigitte",
+        "fr-FR": "Brigitte",
+        "it-IT": "Brigitte",
+        "pl-PL": "Brigitte",
+        "pt-BR": "Brigitte"
     },
     "doomfist": {
         "guid": "0000000015E5",
@@ -451,7 +498,13 @@ const heroKw =
         "th-TH": "ดูมฟิสต์",
         "tr-TR": "<en>Doomfist<en>",
         "zh-CN": "末日铁拳",
-        "zh-TW": "毀滅拳王"
+        "zh-TW": "毀滅拳王",
+        "de-DE": "Doomfist",
+        "es-ES": "Doomfist",
+        "es-MX": "Doomfist",
+        "fr-FR": "Doomfist",
+        "it-IT": "Doomfist",
+        "pt-BR": "Doomfist"
     },
     "dva": {
         "guid": "0000000002E2",
@@ -530,7 +583,18 @@ const heroKw =
         "en-US": "D.Va",
         "es-MX": "D.VA",
         "it-IT": "D.VA",
-        "th-TH": "ดีว่า"
+        "th-TH": "ดีว่า",
+        "de-DE": "D.Va",
+        "es-ES": "D.Va",
+        "fr-FR": "D.Va",
+        "ja-JP": "D.Va",
+        "ko-KR": "D.Va",
+        "pl-PL": "D.Va",
+        "pt-BR": "D.Va",
+        "ru-RU": "D.Va",
+        "tr-TR": "D.Va",
+        "zh-CN": "D.Va",
+        "zh-TW": "D.Va"
     },
     "echo": {
         "secondaryFire": {
@@ -631,7 +695,14 @@ const heroKw =
         "ru-RU": "Эхо",
         "th-TH": "เอ็คโค่",
         "zh-CN": "回声",
-        "zh-TW": "迴音"
+        "zh-TW": "迴音",
+        "de-DE": "Echo",
+        "es-ES": "Echo",
+        "es-MX": "Echo",
+        "it-IT": "Echo",
+        "pl-PL": "Echo",
+        "pt-BR": "Echo",
+        "tr-TR": "Echo"
     },
     "genji": {
         "guid": "000000000029",
@@ -696,19 +767,86 @@ const heroKw =
         "th-TH": "เก็นจิ",
         "tr-TR": "<en>Genji<en>",
         "zh-CN": "源氏",
-        "zh-TW": "源氏"
+        "zh-TW": "源氏",
+        "de-DE": "Genji",
+        "es-ES": "Genji",
+        "es-MX": "Genji",
+        "fr-FR": "Genji",
+        "it-IT": "Genji",
+        "pl-PL": "Genji",
+        "pt-BR": "Genji"
     },
     "illari": {
         "ability1": {
-            "en-US": "Outburst"
+            "guid": "000000016C8B",
+            "en-US": "Outburst",
+            "de-DE": "Ausbruch",
+            "es-ES": "Erupción",
+            "es-MX": "Estallido",
+            "fr-FR": "Éruption",
+            "it-IT": "Scoppio",
+            "ja-JP": "アウトバースト",
+            "ko-KR": "분출",
+            "pl-PL": "Rozbłysk",
+            "pt-BR": "Explosão",
+            "ru-RU": "Вспышка",
+            "th-TH": "เอาต์เบิร์สต์",
+            "tr-TR": "Gün Yüzü",
+            "zh-CN": "烈日冲击",
+            "zh-TW": "爆發"
         },
         "ability2": {
-            "en-US": "Healing Pylon"
+            "guid": "000000016C89",
+            "en-US": "Healing Pylon",
+            "de-DE": "Heilpylon",
+            "es-ES": "Helioterapia",
+            "es-MX": "Torre de sanación",
+            "fr-FR": "Pylône de soin",
+            "it-IT": "Torretta Curativa",
+            "ja-JP": "ヒーリング・パイロン",
+            "ko-KR": "치유의 태양석",
+            "pl-PL": "Pylon Leczący",
+            "pt-BR": "Obelisco de Cura",
+            "ru-RU": "Станция исцеления",
+            "th-TH": "ฮีลลิ่งไพลอน",
+            "tr-TR": "Dispanser",
+            "zh-CN": "治疗光塔",
+            "zh-TW": "治療塔"
         },
         "ultimate": {
-            "en-US": "Captive Sun"
+            "guid": "000000016C85",
+            "en-US": "Captive Sun",
+            "de-DE": "Gefangene Sonne",
+            "es-ES": "Sol cautivo",
+            "es-MX": "Sol cautivo",
+            "fr-FR": "Soleil accablant",
+            "it-IT": "Sole Imprigionato",
+            "ja-JP": "キャプティブ・サン",
+            "ko-KR": "태양 작렬",
+            "pl-PL": "Potęga Słońca",
+            "pt-BR": "Sol Aprisionado",
+            "ru-RU": "Пленное солнце",
+            "th-TH": "แคปทีฟซัน",
+            "tr-TR": "Tutsak Güneş",
+            "zh-CN": "桎梏灼日",
+            "zh-TW": "萬千烈陽"
         },
-        "en-US": "Illari"
+        "guid": "000000016C66",
+        "en-US": "Illari",
+        "ja-JP": "イラリー",
+        "ko-KR": "일리아리",
+        "ru-RU": "Иллари",
+        "th-TH": "อิลลารี",
+        "tr-TR": "<en>Illari<en>",
+        "zh-CN": "伊拉锐",
+        "zh-TW": "伊拉里",
+        "de-DE": "Illari",
+        "es-ES": "Illari",
+        "es-MX": "Illari",
+        "fr-FR": "Illari",
+        "it-IT": "Illari",
+        "pl-PL": "Illari",
+        "pt-BR": "Illari"
     },
     "hammond": {
         "guid": "000000007269",
@@ -780,7 +918,7 @@ const heroKw =
             "pt-BR": "Bate-estaca",
             "ru-RU": "Копер",
             "th-TH": "ไพล์ไดรเวอร์",
-            "tr-TR": "Dalış",
+            "tr-TR": "Smaç",
             "zh-CN": "重力坠击",
             "zh-TW": "垂直打樁機"
         },
@@ -811,7 +949,12 @@ const heroKw =
         "th-TH": "เร็กกิงบอล",
         "tr-TR": "<en>Wrecking Ball<en>",
         "zh-CN": "破坏球",
-        "zh-TW": "火爆鋼球"
+        "zh-TW": "火爆鋼球",
+        "de-DE": "Wrecking Ball",
+        "es-ES": "Wrecking Ball",
+        "es-MX": "Wrecking Ball",
+        "it-IT": "Wrecking Ball",
+        "pt-BR": "Wrecking Ball"
     },
     "hanzo": {
         "guid": "000000000021",
@@ -893,7 +1036,15 @@ const heroKw =
         "ru-RU": "Хандзо",
         "th-TH": "ฮันโซ",
         "zh-CN": "半藏",
-        "zh-TW": "半藏"
+        "zh-TW": "半藏",
+        "de-DE": "Hanzo",
+        "es-ES": "Hanzo",
+        "es-MX": "Hanzo",
+        "fr-FR": "Hanzo",
+        "it-IT": "Hanzo",
+        "pl-PL": "Hanzo",
+        "pt-BR": "Hanzo",
+        "tr-TR": "Hanzo"
     },
     "junkerQueen": {
         "secondaryFire": {
@@ -929,7 +1080,8 @@ const heroKw =
             "th-TH": "คาร์เนจ",
             "tr-TR": "Kıyım",
             "zh-CN": "血斩",
-            "zh-TW": "屠殺"
+            "zh-TW": "屠殺",
+            "fr-FR": "Carnage"
         },
         "ability1": {
             "guid": "00000000EA9C",
@@ -978,7 +1130,11 @@ const heroKw =
         "ru-RU": "Королева Стервятников",
         "th-TH": "จังเกอร์ควีน",
         "zh-CN": "渣客女王",
-        "zh-TW": "垃圾鎮女王"
+        "zh-TW": "垃圾鎮女王",
+        "de-DE": "Junker Queen",
+        "es-ES": "Junker Queen",
+        "es-MX": "Junker Queen",
+        "tr-TR": "Junker Queen"
     },
     "junkrat": {
         "guid": "0000000001AA",
@@ -1044,7 +1200,13 @@ const heroKw =
         "ru-RU": "Крысавчик",
         "th-TH": "จังค์แรต",
         "zh-CN": "狂鼠",
-        "zh-TW": "炸彈鼠"
+        "zh-TW": "炸彈鼠",
+        "de-DE": "Junkrat",
+        "es-ES": "Junkrat",
+        "es-MX": "Junkrat",
+        "it-IT": "Junkrat",
+        "pt-BR": "Junkrat",
+        "tr-TR": "Junkrat"
     },
     "kiriko": {
         "ability1": {
@@ -1109,7 +1271,14 @@ const heroKw =
         "th-TH": "คิริโกะ",
         "tr-TR": "<en>Kiriko<en>",
         "zh-CN": "雾子",
-        "zh-TW": "霧子"
+        "zh-TW": "霧子",
+        "de-DE": "Kiriko",
+        "es-ES": "Kiriko",
+        "es-MX": "Kiriko",
+        "fr-FR": "Kiriko",
+        "it-IT": "Kiriko",
+        "pl-PL": "Kiriko",
+        "pt-BR": "Kiriko"
     },
     "lucio": {
         "guid": "0000000002DA",
@@ -1145,7 +1314,9 @@ const heroKw =
             "th-TH": "ครอสเฟด",
             "tr-TR": "Sonraki Parça",
             "zh-CN": "切歌",
-            "zh-TW": "切換曲目"
+            "zh-TW": "切換曲目",
+            "de-DE": "Crossfade",
+            "fr-FR": "Crossfade"
         },
         "ability2": {
             "guid": "000000000D01",
@@ -1178,7 +1349,7 @@ const heroKw =
             "pl-PL": "Bariera Dźwiękowa",
             "pt-BR": "Barreira de Som",
             "ru-RU": "Звуковой барьер",
-            "th-TH": "ซาวน์บาเรีย",
+            "th-TH": "ซาวนด์บาเรีย",
             "tr-TR": "Ses Bariyeri",
             "zh-CN": "音障",
             "zh-TW": "音波屏障"
@@ -1190,25 +1361,122 @@ const heroKw =
         "th-TH": "ลูซิโอ",
         "tr-TR": "<en>Lúcio<en>",
         "zh-CN": "卢西奥",
-        "zh-TW": "路西歐"
+        "zh-TW": "路西歐",
+        "de-DE": "Lúcio",
+        "es-ES": "Lúcio",
+        "es-MX": "Lúcio",
+        "fr-FR": "Lúcio",
+        "it-IT": "Lúcio",
+        "pl-PL": "Lúcio",
+        "pt-BR": "Lúcio"
     },
     "mauga": {
         "primaryFire": {
-            "en-US": "Incendiary Chaingun"
+            "guid": "00000001EE91",
+            "en-US": "Incendiary Chaingun",
+            "de-DE": "Brand-Chain-Gun",
+            "es-ES": "Cañón de cadena incendiario",
+            "es-MX": "Cañón de cadena incendiario",
+            "fr-FR": "Canon mitrailleur incendiaire",
+            "it-IT": "Pistola a Catena Incendiaria",
+            "ja-JP": "焼夷チェーンガン",
+            "ko-KR": "화염 기관포",
+            "pl-PL": "Zapalające Działko Wielolufowe",
+            "pt-BR": "Metralhadora Incendiária",
+            "ru-RU": "Поджигающий пулемет",
+            "th-TH": "อินเซนเดียรี่เชนกัน",
+            "tr-TR": "Tutuşturan Makineli",
+            "zh-CN": "燃火链式机枪",
+            "zh-TW": "燃焰機關槍"
         },
         "secondaryFire": {
-            "en-US": "Volatile Chaingun"
+            "guid": "00000001EE90",
+            "en-US": "Volatile Chaingun",
+            "de-DE": "Explosive Chain Gun",
+            "es-ES": "Cañón de cadena volátil",
+            "es-MX": "Cañón de cadena volátil",
+            "fr-FR": "Canon mitrailleur explosif",
+            "it-IT": "Pistola a Catena Instabile",
+            "ja-JP": "ヴォラタイル・チェーンガン",
+            "ko-KR": "촉발 기관포",
+            "pl-PL": "Wybuchowe Działko Wielolufowe",
+            "pt-BR": "Metralhadora Volátil",
+            "ru-RU": "Взрывной пулемет",
+            "th-TH": "โวลาไทล์เชนกัน",
+            "tr-TR": "Amansız Makineli",
+            "zh-CN": "爆烈链式机枪",
+            "zh-TW": "火爆機關槍"
         },
         "ability1": {
-            "en-US": "Overrun"
+            "guid": "0000000151A3",
+            "en-US": "Overrun",
+            "de-DE": "Tackle",
+            "es-ES": "Arrollar",
+            "es-MX": "Embestida",
+            "fr-FR": "Déferlement",
+            "it-IT": "Sovrastazione",
+            "ja-JP": "オーバーラン",
+            "ko-KR": "돌파",
+            "pl-PL": "Taran",
+            "pt-BR": "Encurralar",
+            "ru-RU": "Напор",
+            "th-TH": "โอเวอร์รัน",
+            "tr-TR": "Aşım",
+            "zh-CN": "蛮力冲撞",
+            "zh-TW": "暴走"
         },
         "ability2": {
-            "en-US": "Cardiac Overdrive"
+            "guid": "0000000151A7",
+            "en-US": "Cardiac Overdrive",
+            "de-DE": "Overdrive",
+            "es-ES": "Sobreestimulación cardíaca",
+            "es-MX": "Sobrecarga cardíaca",
+            "fr-FR": "Cent à l’heure",
+            "it-IT": "Sovraccarico cardiaco",
+            "ja-JP": "カーディアック・オーバードライブ",
+            "ko-KR": "터질 듯한 심장",
+            "pl-PL": "Przeciążenie Sercowe",
+            "pt-BR": "Sobrecarga Cardíaca",
+            "ru-RU": "Разгон сердцебиения",
+            "th-TH": "คาร์ดิแอคโอเวอร์ไดรฟ์",
+            "tr-TR": "Taşikardi",
+            "zh-CN": "心脏过载",
+            "zh-TW": "心率超載"
         },
         "ultimate": {
-            "en-US": "Cage Fight"
+            "guid": "00000001519F",
+            "en-US": "Cage Fight",
+            "de-DE": "Käfigkampf",
+            "es-ES": "Mano a mano",
+            "es-MX": "Lucha en la jaula",
+            "fr-FR": "Combat en cage",
+            "it-IT": "Lotta in Gabbia",
+            "ja-JP": "ケージ・ファイト",
+            "ko-KR": "케이지 혈투",
+            "pl-PL": "Walka w Klatce",
+            "pt-BR": "Mano a Mano",
+            "ru-RU": "Бойня в клетке",
+            "th-TH": "เคจไฟท์",
+            "tr-TR": "Kafes Dövüşü",
+            "zh-CN": "笼中斗",
+            "zh-TW": "鐵籠戰"
         },
-        "en-US": "Mauga"
+        "guid": "00000000C77B",
+        "en-US": "Mauga",
+        "ja-JP": "マウガ",
+        "ko-KR": "마우가",
+        "ru-RU": "Мауга",
+        "th-TH": "มาวกา",
+        "zh-CN": "毛加",
+        "zh-TW": "莫加",
+        "de-DE": "Mauga",
+        "es-ES": "Mauga",
+        "es-MX": "Mauga",
+        "fr-FR": "Mauga",
+        "it-IT": "Mauga",
+        "pl-PL": "Mauga",
+        "pt-BR": "Mauga",
+        "tr-TR": "Mauga"
     },
     "mccree": {
         "guid": "00000000005C",
@@ -1262,7 +1530,7 @@ const heroKw =
             "pt-BR": "Tiro Certeiro",
             "ru-RU": "Меткий стрелок",
             "th-TH": "เดดอาย",
-            "tr-TR": "Şahin Bakışlı",
+            "tr-TR": "Şahin Göz",
             "zh-CN": "神射手",
             "zh-TW": "彈無虛發"
         },
@@ -1273,7 +1541,14 @@ const heroKw =
         "th-TH": "แคสซิดี้",
         "tr-TR": "<en>Cassidy<en>",
         "zh-CN": "卡西迪",
-        "zh-TW": "卡西迪"
+        "zh-TW": "卡西迪",
+        "de-DE": "Cassidy",
+        "es-ES": "Cassidy",
+        "es-MX": "Cassidy",
+        "fr-FR": "Cassidy",
+        "it-IT": "Cassidy",
+        "pl-PL": "Cassidy",
+        "pt-BR": "Cassidy"
     },
     "mei": {
         "guid": "00000000083A",
@@ -1327,7 +1602,9 @@ const heroKw =
             "th-TH": "บลิซซาร์ด",
             "tr-TR": "Kar Fırtınası",
             "zh-CN": "暴雪",
-            "zh-TW": "暴風雪"
+            "zh-TW": "暴風雪",
+            "de-DE": "Blizzard",
+            "fr-FR": "Blizzard"
         },
         "en-US": "Mei",
         "ja-JP": "メイ",
@@ -1336,7 +1613,14 @@ const heroKw =
         "th-TH": "เหมย",
         "tr-TR": "<en>Mei<en>",
         "zh-CN": "美",
-        "zh-TW": "小美"
+        "zh-TW": "小美",
+        "de-DE": "Mei",
+        "es-ES": "Mei",
+        "es-MX": "Mei",
+        "fr-FR": "Mei",
+        "it-IT": "Mei",
+        "pl-PL": "Mei",
+        "pt-BR": "Mei"
     },
     "mercy": {
         "guid": "000000000020",
@@ -1408,7 +1692,9 @@ const heroKw =
             "th-TH": "วาลคิรี่",
             "tr-TR": "Valkür",
             "zh-CN": "女武神",
-            "zh-TW": "女武神"
+            "zh-TW": "女武神",
+            "de-DE": "Valkyrie",
+            "fr-FR": "Valkyrie"
         },
         "en-US": "Mercy",
         "fr-FR": "Ange",
@@ -1418,7 +1704,13 @@ const heroKw =
         "ru-RU": "Ангел",
         "th-TH": "เมอร์ซี่",
         "zh-CN": "天使",
-        "zh-TW": "慈悲"
+        "zh-TW": "慈悲",
+        "de-DE": "Mercy",
+        "es-ES": "Mercy",
+        "es-MX": "Mercy",
+        "it-IT": "Mercy",
+        "pt-BR": "Mercy",
+        "tr-TR": "Mercy"
     },
     "moira": {
         "guid": "000000006339",
@@ -1473,7 +1765,8 @@ const heroKw =
             "th-TH": "โคเอเลสเซนซ์",
             "tr-TR": "Kaynaşım",
             "zh-CN": "聚合射线",
-            "zh-TW": "聚合光束"
+            "zh-TW": "聚合光束",
+            "fr-FR": "Coalescence"
         },
         "en-US": "Moira",
         "ja-JP": "モイラ",
@@ -1482,7 +1775,14 @@ const heroKw =
         "th-TH": "มอยร่า",
         "tr-TR": "<en>Moira<en>",
         "zh-CN": "莫伊拉",
-        "zh-TW": "莫伊拉"
+        "zh-TW": "莫伊拉",
+        "de-DE": "Moira",
+        "es-ES": "Moira",
+        "es-MX": "Moira",
+        "fr-FR": "Moira",
+        "it-IT": "Moira",
+        "pl-PL": "Moira",
+        "pt-BR": "Moira"
     },
     "orisa": {
         "guid": "000000002D21",
@@ -1565,7 +1865,14 @@ const heroKw =
         "th-TH": "โอริซา",
         "tr-TR": "<en>Orisa<en>",
         "zh-CN": "奥丽莎",
-        "zh-TW": "歐瑞莎"
+        "zh-TW": "歐瑞莎",
+        "de-DE": "Orisa",
+        "es-ES": "Orisa",
+        "es-MX": "Orisa",
+        "fr-FR": "Orisa",
+        "it-IT": "Orisa",
+        "pl-PL": "Orisa",
+        "pt-BR": "Orisa"
     },
     "pharah": {
         "guid": "000000000027",
@@ -1588,7 +1895,22 @@ const heroKw =
             "zh-TW": "滯空"
         },
         "secondaryFire": {
-            "en-US": "Jet Dash"
+            "guid": "00000001F839",
+            "en-US": "Jet Dash",
+            "de-DE": "Düsenstrahl",
+            "es-ES": "Impulso",
+            "es-MX": "Propulsores de impulso",
+            "fr-FR": "Élan propulseur",
+            "it-IT": "Scatto Jet",
+            "ja-JP": "ジェット・ダッシュ",
+            "ko-KR": "급속 추진",
+            "pl-PL": "Pęd",
+            "pt-BR": "Disparada a Jato",
+            "ru-RU": "Реактивный рывок",
+            "th-TH": "เจ็ทแดช",
+            "tr-TR": "Jet Hamle",
+            "zh-CN": "疾冲背包",
+            "zh-TW": "噴射衝刺"
         },
         "ability1": {
             "guid": "0000000003AF",
@@ -1641,7 +1963,8 @@ const heroKw =
             "th-TH": "บาร์ราจ",
             "tr-TR": "Yaylım",
             "zh-CN": "火箭弹幕",
-            "zh-TW": "火箭彈幕"
+            "zh-TW": "火箭彈幕",
+            "fr-FR": "Barrage"
         },
         "en-US": "Pharah",
         "ja-JP": "ファラ",
@@ -1650,7 +1973,14 @@ const heroKw =
         "ru-RU": "Фарра",
         "th-TH": "ฟาราห์",
         "zh-CN": "法老之鹰",
-        "zh-TW": "法拉"
+        "zh-TW": "法拉",
+        "de-DE": "Pharah",
+        "es-ES": "Pharah",
+        "es-MX": "Pharah",
+        "fr-FR": "Pharah",
+        "it-IT": "Pharah",
+        "pt-BR": "Pharah",
+        "tr-TR": "Pharah"
     },
     "reaper": {
         "guid": "000000000026",
@@ -1716,7 +2046,13 @@ const heroKw =
         "ru-RU": "Жнец",
         "th-TH": "รีปเปอร์",
         "zh-CN": "死神",
-        "zh-TW": "死神"
+        "zh-TW": "死神",
+        "de-DE": "Reaper",
+        "es-ES": "Reaper",
+        "es-MX": "Reaper",
+        "it-IT": "Reaper",
+        "pt-BR": "Reaper",
+        "tr-TR": "Reaper"
     },
     "reinhardt": {
         "guid": "000000000025",
@@ -1753,7 +2089,8 @@ const heroKw =
             "th-TH": "ชาร์จ",
             "tr-TR": "Hücum",
             "zh-CN": "冲锋",
-            "zh-TW": "衝鋒"
+            "zh-TW": "衝鋒",
+            "fr-FR": "Charge"
         },
         "ability2": {
             "guid": "0000000003EA",
@@ -1798,7 +2135,14 @@ const heroKw =
         "th-TH": "ไรน์ฮาร์ด",
         "tr-TR": "<en>Reinhardt<en>",
         "zh-CN": "莱因哈特",
-        "zh-TW": "萊因哈特"
+        "zh-TW": "萊因哈特",
+        "de-DE": "Reinhardt",
+        "es-ES": "Reinhardt",
+        "es-MX": "Reinhardt",
+        "fr-FR": "Reinhardt",
+        "it-IT": "Reinhardt",
+        "pl-PL": "Reinhardt",
+        "pt-BR": "Reinhardt"
     },
     "roadhog": {
         "guid": "000000000054",
@@ -1839,7 +2183,22 @@ const heroKw =
             "zh-TW": "鎖鍊鉤"
         },
         "ability2": {
-            "en-US": "Pig Pen"
+            "guid": "000000000799",
+            "en-US": "Pig Pen",
+            "de-DE": "Schweinestall",
+            "es-ES": "Cochiquera",
+            "es-MX": "Chiquero",
+            "fr-FR": "Porcherie",
+            "it-IT": "Porcile",
+            "ja-JP": "ピッグペン",
+            "ko-KR": "돼지우리",
+            "pl-PL": "Chlew",
+            "pt-BR": "Chiqueiro",
+            "ru-RU": "Загон для свиней",
+            "th-TH": "พิกเพ็น",
+            "tr-TR": "Domuz Kapanı",
+            "zh-CN": "拴猪圈",
+            "zh-TW": "豬圈陷阱"
         },
         "ultimate": {
             "guid": "000000000795",
@@ -1867,7 +2226,13 @@ const heroKw =
         "ru-RU": "Турбосвин",
         "th-TH": "โร้ดฮ็อก",
         "zh-CN": "路霸",
-        "zh-TW": "攔路豬"
+        "zh-TW": "攔路豬",
+        "de-DE": "Roadhog",
+        "es-ES": "Roadhog",
+        "es-MX": "Roadhog",
+        "it-IT": "Roadhog",
+        "pt-BR": "Roadhog",
+        "tr-TR": "Roadhog"
     },
     "sigma": {
         "guid": "000000009E9E",
@@ -1950,7 +2315,14 @@ const heroKw =
         "th-TH": "ซิกม่า",
         "tr-TR": "<en>Sigma<en>",
         "zh-CN": "西格玛",
-        "zh-TW": "席格馬"
+        "zh-TW": "席格馬",
+        "de-DE": "Sigma",
+        "es-ES": "Sigma",
+        "es-MX": "Sigma",
+        "fr-FR": "Sigma",
+        "it-IT": "Sigma",
+        "pl-PL": "Sigma",
+        "pt-BR": "Sigma"
     },
     "sojourn": {
         "secondaryFire": {
@@ -2021,7 +2393,9 @@ const heroKw =
             "th-TH": "โอเวอร์คล็อค",
             "tr-TR": "Güç Aşırtma",
             "zh-CN": "机体超频",
-            "zh-TW": "磁能超頻"
+            "zh-TW": "磁能超頻",
+            "es-MX": "Overclock",
+            "it-IT": "Overclock"
         },
         "guid": "000000016CFA",
         "en-US": "Sojourn",
@@ -2030,7 +2404,15 @@ const heroKw =
         "ru-RU": "Соджорн",
         "th-TH": "โซเจิร์น",
         "zh-CN": "索杰恩",
-        "zh-TW": "索潔恩"
+        "zh-TW": "索潔恩",
+        "de-DE": "Sojourn",
+        "es-ES": "Sojourn",
+        "es-MX": "Sojourn",
+        "fr-FR": "Sojourn",
+        "it-IT": "Sojourn",
+        "pl-PL": "Sojourn",
+        "pt-BR": "Sojourn",
+        "tr-TR": "Sojourn"
     },
     "soldier": {
         "guid": "000000000224",
@@ -2063,7 +2445,12 @@ const heroKw =
             "th-TH": "สปรินท์",
             "tr-TR": "Depar",
             "zh-CN": "疾跑",
-            "zh-TW": "衝刺"
+            "zh-TW": "衝刺",
+            "de-DE": "Sprint",
+            "es-ES": "Sprint",
+            "es-MX": "Sprint",
+            "fr-FR": "Sprint",
+            "pl-PL": "Sprint"
         },
         "ability2": {
             "guid": "000000000C87",
@@ -2114,7 +2501,8 @@ const heroKw =
         "th-TH": "โซลเยอร์: 76",
         "tr-TR": "<en>Soldier: 76<en>",
         "zh-CN": "士兵：76",
-        "zh-TW": "士兵76"
+        "zh-TW": "士兵76",
+        "de-DE": "Soldier: 76"
     },
     "sombra": {
         "guid": "0000000046F9",
@@ -2133,10 +2521,26 @@ const heroKw =
             "ru-RU": "Взлом",
             "th-TH": "แฮ็ค",
             "zh-CN": "黑客入侵",
-            "zh-TW": "駭入"
+            "zh-TW": "駭入",
+            "tr-TR": "Hack"
         },
         "ability1": {
-            "en-US": "Virus"
+            "guid": "000000004859",
+            "en-US": "Virus",
+            "ja-JP": "ウイルス",
+            "ko-KR": "바이러스",
+            "pl-PL": "Wirus",
+            "pt-BR": "Vírus",
+            "ru-RU": "Урания",
+            "th-TH": "ไวรัส",
+            "tr-TR": "Virüs",
+            "zh-CN": "病毒",
+            "zh-TW": "電腦病毒",
+            "de-DE": "Virus",
+            "es-ES": "Virus",
+            "es-MX": "Virus",
+            "fr-FR": "Virus",
+            "it-IT": "Virus"
         },
         "ability2": {
             "guid": "000000004700",
@@ -2166,7 +2570,13 @@ const heroKw =
             "pt-BR": "PEM",
             "ru-RU": "Импульс",
             "zh-CN": "电磁脉冲",
-            "zh-TW": "電磁脈衝波"
+            "zh-TW": "電磁脈衝波",
+            "de-DE": "EMP",
+            "it-IT": "EMP",
+            "ja-JP": "EMP",
+            "ko-KR": "EMP",
+            "th-TH": "EMP",
+            "tr-TR": "EMP"
         },
         "en-US": "Sombra",
         "ja-JP": "ソンブラ",
@@ -2174,7 +2584,15 @@ const heroKw =
         "ru-RU": "Сомбра",
         "th-TH": "ซอมบรา",
         "zh-CN": "黑影",
-        "zh-TW": "駭影"
+        "zh-TW": "駭影",
+        "de-DE": "Sombra",
+        "es-ES": "Sombra",
+        "es-MX": "Sombra",
+        "fr-FR": "Sombra",
+        "it-IT": "Sombra",
+        "pl-PL": "Sombra",
+        "pt-BR": "Sombra",
+        "tr-TR": "Sombra"
     },
     "symmetra": {
         "guid": "00000000002A",
@@ -2182,7 +2600,7 @@ const heroKw =
             "guid": "000000000406",
             "en-US": "Sentry Turret",
             "de-DE": "Selbstschussanlage",
-            "es-ES": "Torreta centinela",
+            "es-ES": "Torreta centinela\n",
             "es-MX": "Torreta centinela",
             "fr-FR": "Tourelle sentinelle",
             "it-IT": "Drone Sentinella",
@@ -2199,7 +2617,7 @@ const heroKw =
         "ability2": {
             "guid": "000000000404",
             "en-US": "Teleporter",
-            "es-ES": "Teletransportador",
+            "es-ES": "Teletransportador\n",
             "es-MX": "Transportador",
             "fr-FR": "Téléporteur",
             "it-IT": "Televarco",
@@ -2210,7 +2628,9 @@ const heroKw =
             "th-TH": "เทเลพอร์ต",
             "tr-TR": "Işınlayıcı",
             "zh-CN": "传送面板",
-            "zh-TW": "傳送器"
+            "zh-TW": "傳送器",
+            "de-DE": "Teleporter",
+            "pl-PL": "Teleporter"
         },
         "ultimate": {
             "guid": "000000005462",
@@ -2236,7 +2656,15 @@ const heroKw =
         "ru-RU": "Симметра",
         "th-TH": "ซิมเมตรา",
         "zh-CN": "秩序之光",
-        "zh-TW": "辛梅塔"
+        "zh-TW": "辛梅塔",
+        "de-DE": "Symmetra",
+        "es-ES": "Symmetra",
+        "es-MX": "Symmetra",
+        "fr-FR": "Symmetra",
+        "it-IT": "Symmetra",
+        "pl-PL": "Symmetra",
+        "pt-BR": "Symmetra",
+        "tr-TR": "Symmetra"
     },
     "torbjorn": {
         "guid": "000000000024",
@@ -2289,7 +2717,7 @@ const heroKw =
             "pl-PL": "Przegrzanie",
             "pt-BR": "Núcleo Fundido",
             "ru-RU": "Перегрев",
-            "th-TH": "มอร์เทนคอร์",
+            "th-TH": "โมลเท็นคอร์",
             "tr-TR": "Eriyik Çekirdek",
             "zh-CN": "熔火核心",
             "zh-TW": "爐心超載"
@@ -2300,7 +2728,15 @@ const heroKw =
         "ru-RU": "Торбьорн",
         "th-TH": "ทอร์บยอร์น",
         "zh-CN": "托比昂",
-        "zh-TW": "托比昂"
+        "zh-TW": "托比昂",
+        "de-DE": "Torbjörn",
+        "es-ES": "Torbjörn",
+        "es-MX": "Torbjörn",
+        "fr-FR": "Torbjörn",
+        "it-IT": "Torbjörn",
+        "pl-PL": "Torbjörn",
+        "pt-BR": "Torbjörn",
+        "tr-TR": "Torbjörn"
     },
     "tracer": {
         "guid": "00000000002B",
@@ -2308,7 +2744,7 @@ const heroKw =
             "guid": "000000000393",
             "en-US": "Blink",
             "de-DE": "Warp",
-            "es-ES": "Traslación",
+            "es-ES": "Traslación\n",
             "es-MX": "Traslación",
             "fr-FR": "Transfert",
             "it-IT": "Traslazione",
@@ -2326,7 +2762,7 @@ const heroKw =
             "guid": "000000000396",
             "en-US": "Recall",
             "de-DE": "Zeitschleife",
-            "es-ES": "Regresión",
+            "es-ES": "Regresión\n",
             "es-MX": "Regresión",
             "fr-FR": "Rappel",
             "it-IT": "Flashback",
@@ -2365,7 +2801,14 @@ const heroKw =
         "ru-RU": "Трейсер",
         "th-TH": "เทรเซอร์",
         "zh-CN": "猎空",
-        "zh-TW": "閃光"
+        "zh-TW": "閃光",
+        "de-DE": "Tracer",
+        "es-ES": "Tracer",
+        "es-MX": "Tracer",
+        "fr-FR": "Tracer",
+        "it-IT": "Tracer",
+        "pt-BR": "Tracer",
+        "tr-TR": "Tracer"
     },
     "widowmaker": {
         "guid": "00000000002C",
@@ -2373,7 +2816,7 @@ const heroKw =
             "guid": "0000000003E0",
             "en-US": "Grappling Hook",
             "de-DE": "Spinnenfaden",
-            "es-ES": "Gancho",
+            "es-ES": "Gancho\n",
             "es-MX": "Arpeo",
             "fr-FR": "Grappin",
             "it-IT": "Rampino",
@@ -2391,7 +2834,7 @@ const heroKw =
             "guid": "0000000003DE",
             "en-US": "Venom Mine",
             "de-DE": "Giftmine",
-            "es-ES": "Mina venenosa",
+            "es-ES": "Mina venenosa\n",
             "es-MX": "Mina venenosa",
             "fr-FR": "Mine venimeuse",
             "it-IT": "Mina Venefica",
@@ -2432,7 +2875,12 @@ const heroKw =
         "th-TH": "วิโดว์เมกเกอร์",
         "tr-TR": "<en>Widowmaker<en>",
         "zh-CN": "黑百合",
-        "zh-TW": "奪命女"
+        "zh-TW": "奪命女",
+        "de-DE": "Widowmaker",
+        "es-ES": "Widowmaker",
+        "es-MX": "Widowmaker",
+        "it-IT": "Widowmaker",
+        "pt-BR": "Widowmaker"
     },
     "winston": {
         "guid": "000000000028",
@@ -2440,7 +2888,7 @@ const heroKw =
             "guid": "0000000003F2",
             "en-US": "Jump Pack",
             "de-DE": "Sprungantrieb",
-            "es-ES": "Salto potenciado",
+            "es-ES": "Salto potenciado\n",
             "es-MX": "Propulsores",
             "fr-FR": "Propulseurs",
             "it-IT": "Ipersalto",
@@ -2458,7 +2906,7 @@ const heroKw =
             "guid": "0000000003F4",
             "en-US": "Barrier Projector",
             "de-DE": "Barrierenprojektor",
-            "es-ES": "Campo de fuerza",
+            "es-ES": "Campo de fuerza\n",
             "es-MX": "Proyector de barrera",
             "fr-FR": "Générateur d’écran",
             "it-IT": "Proiettore Difensivo",
@@ -2476,7 +2924,7 @@ const heroKw =
             "guid": "0000000003F0",
             "en-US": "Primal Rage",
             "de-DE": "Dschungelwut",
-            "es-ES": "Rabia primigenia",
+            "es-ES": "Rabia primigenia\n",
             "es-MX": "Ira primigenia",
             "fr-FR": "Rage primordiale",
             "it-IT": "Rabbia Primordiale",
@@ -2497,7 +2945,14 @@ const heroKw =
         "th-TH": "วินสตัน",
         "tr-TR": "<en>Winston<en>",
         "zh-CN": "温斯顿",
-        "zh-TW": "溫斯頓"
+        "zh-TW": "溫斯頓",
+        "de-DE": "Winston",
+        "es-ES": "Winston",
+        "es-MX": "Winston",
+        "fr-FR": "Winston",
+        "it-IT": "Winston",
+        "pl-PL": "Winston",
+        "pt-BR": "Winston"
     },
     "zarya": {
         "guid": "0000000001EB",
@@ -2562,7 +3017,14 @@ const heroKw =
         "ru-RU": "Заря",
         "th-TH": "ซาเรีย",
         "zh-CN": "查莉娅",
-        "zh-TW": "札莉雅"
+        "zh-TW": "札莉雅",
+        "de-DE": "Zarya",
+        "es-ES": "Zarya",
+        "es-MX": "Zarya",
+        "fr-FR": "Zarya",
+        "it-IT": "Zarya",
+        "pt-BR": "Zarya",
+        "tr-TR": "Zarya"
     },
     "zenyatta": {
         "guid": "000000000022",
@@ -2570,7 +3032,7 @@ const heroKw =
             "guid": "0000000003FC",
             "en-US": "Orb of Harmony",
             "de-DE": "Sphäre der Harmonie",
-            "es-ES": "Orbe de armonía",
+            "es-ES": "Orbe de armonía\n",
             "es-MX": "Orbe de armonía",
             "fr-FR": "Orbe d’harmonie",
             "it-IT": "Globo dell'Armonia",
@@ -2588,7 +3050,7 @@ const heroKw =
             "guid": "0000000003FE",
             "en-US": "Orb of Discord",
             "de-DE": "Sphäre der Zwietracht",
-            "es-ES": "Orbe de discordia",
+            "es-ES": "Orbe de discordia\n",
             "es-MX": "Orbe de discordancia",
             "fr-FR": "Orbe de discorde",
             "it-IT": "Globo della Discordia",
@@ -2606,7 +3068,7 @@ const heroKw =
             "guid": "0000000003F9",
             "en-US": "Transcendence",
             "de-DE": "Transzendenz",
-            "es-ES": "Trascendencia",
+            "es-ES": "Trascendencia\n",
             "es-MX": "Trascendencia",
             "fr-FR": "Transcendance",
             "it-IT": "Trascendenza",
@@ -2626,7 +3088,15 @@ const heroKw =
         "ru-RU": "Дзенъятта",
         "th-TH": "เซ็นยัตตา",
         "zh-CN": "禅雅塔",
-        "zh-TW": "禪亞塔"
+        "zh-TW": "禪亞塔",
+        "de-DE": "Zenyatta",
+        "es-ES": "Zenyatta",
+        "es-MX": "Zenyatta",
+        "fr-FR": "Zenyatta",
+        "it-IT": "Zenyatta",
+        "pl-PL": "Zenyatta",
+        "pt-BR": "Zenyatta",
+        "tr-TR": "Zenyatta"
     },
     "ramattra": {
         "secondaryFire": {
@@ -2643,7 +3113,7 @@ const heroKw =
             "pt-BR": "Barreira do Vazio Forma Ômnica",
             "ru-RU": "Барьер пустоты форма омника",
             "th-TH": "วอยด์บาเรีย ออมนิคฟอร์ม",
-            "tr-TR": "Hiçlik Duvarı Omnik Formu",
+            "tr-TR": "Hiçlik Duvarı Omnik Form",
             "zh-CN": "虚空屏障（智械形态）",
             "zh-TW": "虛空屏障（智械形態）"
         },
@@ -2698,7 +3168,8 @@ const heroKw =
             "th-TH": "อันไนฮิเลชัน",
             "tr-TR": "Cankıyım",
             "zh-CN": "诛",
-            "zh-TW": "殲滅"
+            "zh-TW": "殲滅",
+            "fr-FR": "Annihilation"
         },
         "guid": "00000000CD70",
         "en-US": "Ramattra",
@@ -2707,7 +3178,15 @@ const heroKw =
         "ru-RU": "Раматтра",
         "th-TH": "รามัตตรา",
         "zh-CN": "拉玛刹",
-        "zh-TW": "拉瑪塔"
+        "zh-TW": "拉瑪塔",
+        "de-DE": "Ramattra",
+        "es-ES": "Ramattra",
+        "es-MX": "Ramattra",
+        "fr-FR": "Ramattra",
+        "it-IT": "Ramattra",
+        "pl-PL": "Ramattra",
+        "pt-BR": "Ramattra",
+        "tr-TR": "Ramattra"
     },
     "lifeweaver": {
         "ability1": {
@@ -2724,7 +3203,7 @@ const heroKw =
             "pt-BR": "Investida Rejuvenescedora",
             "ru-RU": "Рывок восстановления",
             "th-TH": "รีจูวีเนติ้งแดช",
-            "tr-TR": "Gençleştiren Hamle",
+            "tr-TR": "Gençleştiren Koşu",
             "zh-CN": "回春疾行",
             "zh-TW": "恢復衝刺"
         },
@@ -2792,7 +3271,12 @@ const heroKw =
         "th-TH": "ไลฟ์วีเวอร์",
         "tr-TR": "<en>Lifeweaver<en>",
         "zh-CN": "生命之梭",
-        "zh-TW": "織命"
+        "zh-TW": "織命",
+        "de-DE": "Lifeweaver",
+        "es-ES": "Lifeweaver",
+        "es-MX": "Lifeweaver",
+        "it-IT": "Lifeweaver",
+        "pt-BR": "Lifeweaver"
     }
 }
 //end-json

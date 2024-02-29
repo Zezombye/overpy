@@ -33,7 +33,10 @@ const ruleAttributesDisplayNamesKw =
         "ru-RU": "Событие",
         "th-TH": "กิจกรรม",
         "tr-TR": "Etkinlik",
-        "zh-CN": "事件"
+        "zh-CN": "事件",
+        "de-DE": "Event",
+        "ko-KR": "Event",
+        "zh-TW": "Event"
     },
     "eventPlayer": {
         "guid": "00000000B25A",
@@ -47,7 +50,11 @@ const ruleAttributesDisplayNamesKw =
         "pt-BR": "Jogador",
         "ru-RU": "Игрок",
         "tr-TR": "Oyuncu",
-        "zh-CN": "玩家"
+        "zh-CN": "玩家",
+        "de-DE": "Player",
+        "ko-KR": "Player",
+        "th-TH": "Player",
+        "zh-TW": "Player"
     },
     "eventTeam": {
         "guid": "00000000B23A",
@@ -61,7 +68,11 @@ const ruleAttributesDisplayNamesKw =
         "pt-BR": "Equipe",
         "ru-RU": "Команда",
         "tr-TR": "Takım",
-        "zh-CN": "队伍"
+        "zh-CN": "队伍",
+        "de-DE": "Team",
+        "ko-KR": "Team",
+        "th-TH": "Team",
+        "zh-TW": "Team"
     },
     "subroutineName": {
         "guid": "00000000FEBE",
@@ -76,7 +87,10 @@ const ruleAttributesDisplayNamesKw =
         "th-TH": "ซับรูทีน",
         "tr-TR": "Alt Yordam",
         "zh-CN": "子程序",
-        "zh-TW": "子程序"
+        "zh-TW": "子程序",
+        "de-DE": "Subroutine",
+        "it-IT": "Subroutine",
+        "ko-KR": "Subroutine"
     }
 }
 //end-json
@@ -98,7 +112,9 @@ const workshopUiKw =
         "th-TH": "การดำเนินการ",
         "tr-TR": "Aksiyon",
         "zh-CN": "动作",
-        "zh-TW": "動作"
+        "zh-TW": "動作",
+        "fr-FR": "Action",
+        "ko-KR": "Action"
     },
     "actions": {
         "guid": "0000000077D4",
@@ -114,7 +130,9 @@ const workshopUiKw =
         "th-TH": "การดำเนินการ",
         "tr-TR": "Eylemler",
         "zh-CN": "动作",
-        "zh-TW": "動作"
+        "zh-TW": "動作",
+        "fr-FR": "Actions",
+        "ko-KR": "Actions"
     },
     "addAction": {
         "guid": "00000000BB39",
@@ -184,7 +202,9 @@ const workshopUiKw =
         "th-TH": "เงื่อนไข",
         "tr-TR": "Koşullar",
         "zh-CN": "条件",
-        "zh-TW": "條件"
+        "zh-TW": "條件",
+        "fr-FR": "Conditions",
+        "ko-KR": "Conditions"
     },
     "conflictingGlobalVarName": {
         "guid": "00000000EB21",
@@ -669,7 +689,8 @@ const workshopUiKw =
         "th-TH": "ตกลง",
         "tr-TR": "Tamam",
         "zh-CN": "确定",
-        "zh-TW": "確認"
+        "zh-TW": "確認",
+        "pt-BR": "Ok"
     },
     "resetToDefaults": {
         "guid": "000000012998",
@@ -702,7 +723,10 @@ const workshopUiKw =
         "ru-RU": "Правило %1$s",
         "th-TH": "กฎ %1$s",
         "tr-TR": "Kural %1$s",
-        "zh-CN": "规则 %1$s"
+        "zh-CN": "规则 %1$s",
+        "de-DE": "Rule %1$s",
+        "ko-KR": "Rule %1$s",
+        "zh-TW": "Rule %1$s"
     },
     "rules": {
         "guid": "00000000B98E",
@@ -719,7 +743,8 @@ const workshopUiKw =
         "th-TH": "กฎ",
         "tr-TR": "Kurallar",
         "zh-CN": "规则",
-        "zh-TW": "規則"
+        "zh-TW": "規則",
+        "ko-KR": "Rules"
     },
     "scriptDiagnostics": {
         "guid": "00000000F418",
@@ -753,7 +778,9 @@ const workshopUiKw =
         "th-TH": "การตั้งค่า",
         "tr-TR": "ayarlar",
         "zh-CN": "设置",
-        "zh-TW": "設定"
+        "zh-TW": "設定",
+        "ko-KR": "settings",
+        "ru-RU": "settings"
     },
     "tooLongGlobalVarName": {
         "guid": "00000000EB2F",
@@ -841,7 +868,7 @@ const workshopUiKw =
         "pt-BR": "Elementos incluem regras, condições, ações e valores (até %1$s)",
         "ru-RU": "Элементы включают в себя правила, условия, действия и значения (вплоть до %1$s).",
         "th-TH": "เอเลเมนต์ประกอบด้วยกฎ เงื่อนไข การดําเนินการ และค่า (สูงสุด %1$s)",
-        "tr-TR": "Unsurlara kurallar, koşullar, eylemler ve değerler dâhildir (en fazla maksimum %1$s)",
+        "tr-TR": "Unsurlara kurallar, koşullar, eylemler ve değerler dâhildir (maksimum %1$s)",
         "zh-CN": "元素包括规则、条件、行动和值（最多可有%1$s个）",
         "zh-TW": "元件包括規則、條件、動作和數值（最高為%1$s）"
     }

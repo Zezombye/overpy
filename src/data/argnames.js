@@ -1,22 +1,78 @@
 
-const argNamesKw = 
+const argNamesKw =
 //begin-json
 {
     "[0]": {
         "guid": "000000010BE1",
-        "en-US": "[%1$s]"
+        "en-US": "[%1$s]",
+        "de-DE": "[%1$s]",
+        "es-ES": "[%1$s]",
+        "es-MX": "[%1$s]",
+        "fr-FR": "[%1$s]",
+        "it-IT": "[%1$s]",
+        "ja-JP": "[%1$s]",
+        "ko-KR": "[%1$s]",
+        "pl-PL": "[%1$s]",
+        "pt-BR": "[%1$s]",
+        "ru-RU": "[%1$s]",
+        "th-TH": "[%1$s]",
+        "tr-TR": "[%1$s]",
+        "zh-CN": "[%1$s]",
+        "zh-TW": "[%1$s]"
     },
     "{0}": {
         "guid": "00000000BF50",
-        "en-US": "{0}"
+        "en-US": "{0}",
+        "de-DE": "{0}",
+        "es-ES": "{0}",
+        "es-MX": "{0}",
+        "fr-FR": "{0}",
+        "it-IT": "{0}",
+        "ja-JP": "{0}",
+        "ko-KR": "{0}",
+        "pl-PL": "{0}",
+        "pt-BR": "{0}",
+        "ru-RU": "{0}",
+        "th-TH": "{0}",
+        "tr-TR": "{0}",
+        "zh-CN": "{0}",
+        "zh-TW": "{0}"
     },
     "{1}": {
         "guid": "00000000BF53",
-        "en-US": "{1}"
+        "en-US": "{1}",
+        "de-DE": "{1}",
+        "es-ES": "{1}",
+        "es-MX": "{1}",
+        "fr-FR": "{1}",
+        "it-IT": "{1}",
+        "ja-JP": "{1}",
+        "ko-KR": "{1}",
+        "pl-PL": "{1}",
+        "pt-BR": "{1}",
+        "ru-RU": "{1}",
+        "th-TH": "{1}",
+        "tr-TR": "{1}",
+        "zh-CN": "{1}",
+        "zh-TW": "{1}"
     },
     "{2}": {
         "guid": "00000000BF55",
-        "en-US": "{2}"
+        "en-US": "{2}",
+        "de-DE": "{2}",
+        "es-ES": "{2}",
+        "es-MX": "{2}",
+        "fr-FR": "{2}",
+        "it-IT": "{2}",
+        "ja-JP": "{2}",
+        "ko-KR": "{2}",
+        "pl-PL": "{2}",
+        "pt-BR": "{2}",
+        "ru-RU": "{2}",
+        "th-TH": "{2}",
+        "tr-TR": "{2}",
+        "zh-CN": "{2}",
+        "zh-TW": "{2}"
     },
     "Alpha": {
         "guid": "000000011DA6",
@@ -29,7 +85,12 @@ const argNamesKw =
         "pt-BR": "Alfa",
         "ru-RU": "Альфа",
         "tr-TR": "Alfa",
-        "zh-CN": "不透明度"
+        "zh-CN": "不透明度",
+        "de-DE": "Alpha",
+        "fr-FR": "Alpha",
+        "ko-KR": "Alpha",
+        "th-TH": "Alpha",
+        "zh-TW": "Alpha"
     },
     "Ammo": {
         "guid": "0000000110E8",
@@ -40,7 +101,14 @@ const argNamesKw =
         "ja-JP": "弾薬数",
         "pt-BR": "Munição",
         "tr-TR": "Cephane",
-        "zh-CN": "弹药"
+        "zh-CN": "弹药",
+        "de-DE": "Ammo",
+        "it-IT": "Ammo",
+        "ko-KR": "Ammo",
+        "pl-PL": "Ammo",
+        "ru-RU": "Ammo",
+        "th-TH": "Ammo",
+        "zh-TW": "Ammo"
     },
     "Amount": {
         "guid": "00000000B22C",
@@ -55,7 +123,10 @@ const argNamesKw =
         "ru-RU": "Объем",
         "th-TH": "ปริมาณ",
         "tr-TR": "Miktar",
-        "zh-CN": "伤害量"
+        "zh-CN": "伤害量",
+        "de-DE": "Amount",
+        "ko-KR": "Amount",
+        "zh-TW": "Amount"
     },
     "Angle": {
         "guid": "00000000B283",
@@ -68,7 +139,12 @@ const argNamesKw =
         "pt-BR": "Ângulo",
         "ru-RU": "Угол",
         "tr-TR": "Açı",
-        "zh-CN": "角度"
+        "zh-CN": "角度",
+        "de-DE": "Angle",
+        "fr-FR": "Angle",
+        "ko-KR": "Angle",
+        "th-TH": "Angle",
+        "zh-TW": "Angle"
     },
     "Array": {
         "guid": "00000000B52C",
@@ -81,7 +157,12 @@ const argNamesKw =
         "pt-BR": "Matriz",
         "ru-RU": "Массив",
         "tr-TR": "Dizin",
-        "zh-CN": "数组"
+        "zh-CN": "数组",
+        "de-DE": "Array",
+        "it-IT": "Array",
+        "ko-KR": "Array",
+        "th-TH": "Array",
+        "zh-TW": "Array"
     },
     "Assist ID": {
         "guid": "0000000121FE",
@@ -96,7 +177,10 @@ const argNamesKw =
         "ru-RU": "ID содействия",
         "th-TH": "ID การช่วย",
         "tr-TR": "Asist Kimliği",
-        "zh-CN": "助攻ID"
+        "zh-CN": "助攻ID",
+        "de-DE": "Assist ID",
+        "ko-KR": "Assist ID",
+        "zh-TW": "Assist ID"
     },
     "Assister": {
         "guid": "00000000B58C",
@@ -111,7 +195,10 @@ const argNamesKw =
         "ru-RU": "Содействующий",
         "th-TH": "ผู้ช่วย",
         "tr-TR": "Asistçi",
-        "zh-CN": "助攻者"
+        "zh-CN": "助攻者",
+        "de-DE": "Assister",
+        "ko-KR": "Assister",
+        "zh-TW": "Assister"
     },
     "Assisters": {
         "guid": "000000012202",
@@ -126,7 +213,10 @@ const argNamesKw =
         "ru-RU": "Содействующие",
         "th-TH": "ผู้ช่วยเหลือ",
         "tr-TR": "Asistçiler",
-        "zh-CN": "助攻者"
+        "zh-CN": "助攻者",
+        "de-DE": "Assisters",
+        "ko-KR": "Assisters",
+        "zh-TW": "Assisters"
     },
     "Barriers": {
         "guid": "00000000B1F0",
@@ -140,7 +230,11 @@ const argNamesKw =
         "pt-BR": "BARREIRAS",
         "ru-RU": "БАРЬЕРЫ",
         "tr-TR": "BARİYERLER",
-        "zh-CN": "屏障"
+        "zh-CN": "屏障",
+        "de-DE": "BARRIERS",
+        "ko-KR": "BARRIERS",
+        "th-TH": "BARRIERS",
+        "zh-TW": "BARRIERS"
     },
     "Behavior": {
         "guid": "00000000CEB5",
@@ -155,7 +249,10 @@ const argNamesKw =
         "ru-RU": "Поведение",
         "th-TH": "พฤติกรรม",
         "tr-TR": "Davranış",
-        "zh-CN": "行为"
+        "zh-CN": "行为",
+        "de-DE": "Behavior",
+        "ko-KR": "Behavior",
+        "zh-TW": "Behavior"
     },
     "Blend Speed": {
         "guid": "00000000C3BB",
@@ -170,7 +267,10 @@ const argNamesKw =
         "ru-RU": "Скорость перехода",
         "th-TH": "ผสานความเร็ว",
         "tr-TR": "Yumuşak Geçiş Hızı",
-        "zh-CN": "转动速度"
+        "zh-CN": "转动速度",
+        "de-DE": "Blend Speed",
+        "ko-KR": "Blend Speed",
+        "zh-TW": "Blend Speed"
     },
     "Blue": {
         "guid": "000000011E41",
@@ -184,7 +284,11 @@ const argNamesKw =
         "pt-BR": "Azul",
         "ru-RU": "Синий",
         "tr-TR": "Mavi",
-        "zh-CN": "蓝色"
+        "zh-CN": "蓝色",
+        "de-DE": "Blue",
+        "ko-KR": "Blue",
+        "th-TH": "Blue",
+        "zh-TW": "Blue"
     },
     "Button": {
         "guid": "00000000B2F4",
@@ -198,7 +302,11 @@ const argNamesKw =
         "pt-BR": "Botão",
         "ru-RU": "Кнопка",
         "tr-TR": "Düğme",
-        "zh-CN": "按钮"
+        "zh-CN": "按钮",
+        "de-DE": "Button",
+        "ko-KR": "Button",
+        "th-TH": "Button",
+        "zh-TW": "Button"
     },
     "Category": {
         "guid": "00000001136F",
@@ -212,7 +320,11 @@ const argNamesKw =
         "pt-BR": "Categoria",
         "ru-RU": "Категория",
         "tr-TR": "Kategori",
-        "zh-CN": "类别"
+        "zh-CN": "类别",
+        "de-DE": "Category",
+        "ko-KR": "Category",
+        "th-TH": "Category",
+        "zh-TW": "Category"
     },
     "Center": {
         "guid": "00000000B232",
@@ -226,7 +338,11 @@ const argNamesKw =
         "pt-BR": "Centro",
         "ru-RU": "Центр",
         "tr-TR": "Merkez",
-        "zh-CN": "中间"
+        "zh-CN": "中间",
+        "de-DE": "Center",
+        "ko-KR": "Center",
+        "th-TH": "Center",
+        "zh-TW": "Center"
     },
     "Character": {
         "guid": "000000012D68",
@@ -240,7 +356,11 @@ const argNamesKw =
         "pt-BR": "Caractere",
         "ru-RU": "Символ",
         "tr-TR": "Karakter",
-        "zh-CN": "字符"
+        "zh-CN": "字符",
+        "de-DE": "Character",
+        "ko-KR": "Character",
+        "th-TH": "Character",
+        "zh-TW": "Character"
     },
     "Charge Count": {
         "guid": "000000011213",
@@ -255,7 +375,10 @@ const argNamesKw =
         "ru-RU": "Количество зарядов",
         "th-TH": "จำนวนชาร์จ",
         "tr-TR": "Dolum Miktarı",
-        "zh-CN": "充能计数"
+        "zh-CN": "充能计数",
+        "de-DE": "Charge Count",
+        "ko-KR": "Charge Count",
+        "zh-TW": "Charge Count"
     },
     "Charge Percent": {
         "guid": "00000000BB1D",
@@ -270,7 +393,10 @@ const argNamesKw =
         "ru-RU": "Процент заряда",
         "th-TH": "เปอร์เซ็นต์การชาร์จ",
         "tr-TR": "Dolum Oranı Yüzdesi",
-        "zh-CN": "充能百分比"
+        "zh-CN": "充能百分比",
+        "de-DE": "Charge Percent",
+        "ko-KR": "Charge Percent",
+        "zh-TW": "Charge Percent"
     },
     "Child": {
         "guid": "000000010E51",
@@ -285,7 +411,10 @@ const argNamesKw =
         "ru-RU": "Ведомый",
         "th-TH": "เด็ก",
         "tr-TR": "Çocuk",
-        "zh-CN": "子玩家"
+        "zh-CN": "子玩家",
+        "de-DE": "Child",
+        "ko-KR": "Child",
+        "zh-TW": "Child"
     },
     "Children": {
         "guid": "000000010E53",
@@ -300,7 +429,10 @@ const argNamesKw =
         "ru-RU": "Ведомые",
         "th-TH": "เด็ก",
         "tr-TR": "Çocuklar",
-        "zh-CN": "儿童"
+        "zh-CN": "儿童",
+        "de-DE": "Children",
+        "ko-KR": "Children",
+        "zh-TW": "Children"
     },
     "Clip": {
         "guid": "0000000110EE",
@@ -315,7 +447,10 @@ const argNamesKw =
         "ru-RU": "Боекомплект",
         "th-TH": "คลิป",
         "tr-TR": "Şarjör",
-        "zh-CN": "弹夹"
+        "zh-CN": "弹夹",
+        "de-DE": "Clip",
+        "ko-KR": "Clip",
+        "zh-TW": "Clip"
     },
     "Clipping": {
         "guid": "00000000BAF3",
@@ -330,7 +465,10 @@ const argNamesKw =
         "ru-RU": "Пересечение",
         "th-TH": "การตัด",
         "tr-TR": "Kırpılıyor",
-        "zh-CN": "截取"
+        "zh-CN": "截取",
+        "de-DE": "Clipping",
+        "ko-KR": "Clipping",
+        "zh-TW": "Clipping"
     },
     "Color": {
         "guid": "000000011D42",
@@ -339,7 +477,16 @@ const argNamesKw =
         "ja-JP": "色",
         "pt-BR": "Cor",
         "tr-TR": "Renk",
-        "zh-CN": "颜色"
+        "zh-CN": "颜色",
+        "de-DE": "Color",
+        "es-ES": "Color",
+        "es-MX": "Color",
+        "it-IT": "Color",
+        "ko-KR": "Color",
+        "pl-PL": "Color",
+        "ru-RU": "Color",
+        "th-TH": "Color",
+        "zh-TW": "Color"
     },
     "Comparison": {
         "guid": "0000000081C6",
@@ -350,7 +497,14 @@ const argNamesKw =
         "pt-BR": "Comparação",
         "th-TH": "การเปรียบเทียบ",
         "tr-TR": "Karşılaştırma",
-        "zh-CN": "比较"
+        "zh-CN": "比较",
+        "de-DE": "Comparison",
+        "es-ES": "Comparison",
+        "it-IT": "Comparison",
+        "ko-KR": "Comparison",
+        "pl-PL": "Comparison",
+        "ru-RU": "Comparison",
+        "zh-TW": "Comparison"
     },
     "Condition": {
         "guid": "00000000B5B8",
@@ -363,7 +517,12 @@ const argNamesKw =
         "pt-BR": "Condição",
         "ru-RU": "Условие",
         "tr-TR": "Koşul",
-        "zh-CN": "条件"
+        "zh-CN": "条件",
+        "de-DE": "Condition",
+        "fr-FR": "Condition",
+        "ko-KR": "Condition",
+        "th-TH": "Condition",
+        "zh-TW": "Condition"
     },
     "Continue Condition": {
         "guid": "0000000121C4",
@@ -378,7 +537,10 @@ const argNamesKw =
         "ru-RU": "Условие продолжения",
         "th-TH": "ดำเนินเงื่อนไขต่อ",
         "tr-TR": "Koşulu Sürdür",
-        "zh-CN": "继续条件"
+        "zh-CN": "继续条件",
+        "de-DE": "Continue Condition",
+        "ko-KR": "Continue Condition",
+        "zh-TW": "Continue Condition"
     },
     "Control Player": {
         "guid": "00000000FFD1",
@@ -391,9 +553,12 @@ const argNamesKw =
         "pl-PL": "Kontroluj gracza",
         "pt-BR": "Controlar jogador",
         "ru-RU": "Контрольный игрок",
-        "th-TH": "ผู้เล่นควบคุม",
         "tr-TR": "Oyuncuyu Kontrol Et",
-        "zh-CN": "控制玩家"
+        "zh-CN": "控制玩家",
+        "de-DE": "Control Player",
+        "ko-KR": "Control Player",
+        "th-TH": "Control Player",
+        "zh-TW": "Control Player"
     },
     "Control Variable": {
         "guid": "00000000FB42",
@@ -405,9 +570,13 @@ const argNamesKw =
         "ja-JP": "コントロール変数",
         "pt-BR": "Variável de controle",
         "ru-RU": "Управляющая переменная",
-        "th-TH": "ตัวแปรควบคุม",
         "tr-TR": "Kontrol Değişkeni",
-        "zh-CN": "控制变量"
+        "zh-CN": "控制变量",
+        "de-DE": "Control Variable",
+        "ko-KR": "Control Variable",
+        "pl-PL": "Control Variable",
+        "th-TH": "Control Variable",
+        "zh-TW": "Control Variable"
     },
     "Cooldown": {
         "guid": "0000000109BB",
@@ -421,7 +590,11 @@ const argNamesKw =
         "ru-RU": "Время восстановления",
         "th-TH": "คูลดาวน์",
         "tr-TR": "Dolum Süresi",
-        "zh-CN": "冷却时间"
+        "zh-CN": "冷却时间",
+        "de-DE": "Cooldown",
+        "it-IT": "Cooldown",
+        "ko-KR": "Cooldown",
+        "zh-TW": "Cooldown"
     },
     "Count": {
         "guid": "00000000B5A1",
@@ -435,7 +608,11 @@ const argNamesKw =
         "pt-BR": "Contagem",
         "ru-RU": "Число",
         "tr-TR": "Miktar",
-        "zh-CN": "计数"
+        "zh-CN": "计数",
+        "de-DE": "Count",
+        "ko-KR": "Count",
+        "th-TH": "Count",
+        "zh-TW": "Count"
     },
     "Damage Dealt Percent": {
         "guid": "00000000B9AC",
@@ -450,7 +627,10 @@ const argNamesKw =
         "ru-RU": "Процент нанесенного урона",
         "th-TH": "เปอร์เซ็นต์ความเสียหายที่สร้าง",
         "tr-TR": "Verilen Hasar Yüzdesi",
-        "zh-CN": "造成伤害百分比"
+        "zh-CN": "造成伤害百分比",
+        "de-DE": "Damage Dealt Percent",
+        "ko-KR": "Damage Dealt Percent",
+        "zh-TW": "Damage Dealt Percent"
     },
     "Damage Modification ID": {
         "guid": "00000000C64D",
@@ -464,7 +644,11 @@ const argNamesKw =
         "ru-RU": "Идентификатор изменения урона",
         "th-TH": "ID การปรับความเสียหาย",
         "tr-TR": "Hasar Düzenlemesi Kimliği",
-        "zh-CN": "伤害调整ID"
+        "zh-CN": "伤害调整ID",
+        "de-DE": "Damage Modification ID",
+        "es-ES": "Damage Modification ID",
+        "ko-KR": "Damage Modification ID",
+        "zh-TW": "Damage Modification ID"
     },
     "Damage Over Time ID": {
         "guid": "00000000B9CB",
@@ -479,7 +663,10 @@ const argNamesKw =
         "ru-RU": "ID периодического урона",
         "th-TH": "ID ความเสียหายต่อเนื่อง",
         "tr-TR": "Zamanla Hasar Kimliği",
-        "zh-CN": "持续伤害ID"
+        "zh-CN": "持续伤害ID",
+        "de-DE": "Damage Over Time ID",
+        "ko-KR": "Damage Over Time ID",
+        "zh-TW": "Damage Over Time ID"
     },
     "Damage Per Second": {
         "guid": "00000000B9C8",
@@ -494,7 +681,10 @@ const argNamesKw =
         "ru-RU": "Урон в секунду",
         "th-TH": "ความเสียหายต่อวินาที",
         "tr-TR": "Saniye Başına Hasar",
-        "zh-CN": "每秒伤害"
+        "zh-CN": "每秒伤害",
+        "de-DE": "Damage Per Second",
+        "ko-KR": "Damage Per Second",
+        "zh-TW": "Damage Per Second"
     },
     "Damage Percent": {
         "guid": "00000000C63C",
@@ -509,7 +699,10 @@ const argNamesKw =
         "ru-RU": "Процент урона",
         "th-TH": "เปอร์เซ็นต์ความเสียหาย",
         "tr-TR": "Hasar Yüzdesi",
-        "zh-CN": "伤害百分比"
+        "zh-CN": "伤害百分比",
+        "de-DE": "Damage Percent",
+        "ko-KR": "Damage Percent",
+        "zh-TW": "Damage Percent"
     },
     "Damage Received Percent": {
         "guid": "00000000B9AD",
@@ -524,7 +717,10 @@ const argNamesKw =
         "ru-RU": "Процент полученного урона",
         "th-TH": "เปอร์เซ็นต์ความเสียหายที่ได้รับ",
         "tr-TR": "Alınan Hasar Yüzdesi",
-        "zh-CN": "受到伤害百分比"
+        "zh-CN": "受到伤害百分比",
+        "de-DE": "Damage Received Percent",
+        "ko-KR": "Damage Received Percent",
+        "zh-TW": "Damage Received Percent"
     },
     "Damager": {
         "guid": "00000000B58F",
@@ -539,7 +735,10 @@ const argNamesKw =
         "ru-RU": "Источник урона",
         "th-TH": "ผู้สร้างความเสียหาย",
         "tr-TR": "Hasar Veren",
-        "zh-CN": "伤害者"
+        "zh-CN": "伤害者",
+        "de-DE": "Damager",
+        "ko-KR": "Damager",
+        "zh-TW": "Damager"
     },
     "Damagers": {
         "guid": "00000000C63D",
@@ -554,7 +753,10 @@ const argNamesKw =
         "ru-RU": "Наносящие урон",
         "th-TH": "ผู้สร้างความเสียหาย",
         "tr-TR": "Hasar Verenler",
-        "zh-CN": "伤害者"
+        "zh-CN": "伤害者",
+        "de-DE": "Damagers",
+        "ko-KR": "Damagers",
+        "zh-TW": "Damagers"
     },
     "Default": {
         "guid": "000000011372",
@@ -568,7 +770,11 @@ const argNamesKw =
         "pt-BR": "Padrão",
         "ru-RU": "По умолчанию",
         "tr-TR": "Varsayılan",
-        "zh-CN": "默认"
+        "zh-CN": "默认",
+        "de-DE": "Default",
+        "ko-KR": "Default",
+        "th-TH": "Default",
+        "zh-TW": "Default"
     },
     "Denominator": {
         "guid": "00000000C80D",
@@ -581,7 +787,12 @@ const argNamesKw =
         "pt-BR": "Denominador",
         "ru-RU": "Знаменатель",
         "tr-TR": "Payda",
-        "zh-CN": "分母"
+        "zh-CN": "分母",
+        "de-DE": "Denominator",
+        "ko-KR": "Denominator",
+        "pl-PL": "Denominator",
+        "th-TH": "Denominator",
+        "zh-TW": "Denominator"
     },
     "Destination": {
         "guid": "00000000B932",
@@ -595,7 +806,11 @@ const argNamesKw =
         "ru-RU": "Цель",
         "th-TH": "ปลายทาง",
         "tr-TR": "Varış Noktası",
-        "zh-CN": "最终值"
+        "zh-CN": "最终值",
+        "de-DE": "Destination",
+        "fr-FR": "Destination",
+        "ko-KR": "Destination",
+        "zh-TW": "Destination"
     },
     "Direction": {
         "guid": "00000000B25B",
@@ -608,7 +823,12 @@ const argNamesKw =
         "pt-BR": "Direção",
         "ru-RU": "Направление",
         "tr-TR": "Yön",
-        "zh-CN": "方向"
+        "zh-CN": "方向",
+        "de-DE": "Direction",
+        "fr-FR": "Direction",
+        "ko-KR": "Direction",
+        "th-TH": "Direction",
+        "zh-TW": "Direction"
     },
     "Group Voice Chat": {
         "guid": "000000012BC2",
@@ -623,7 +843,10 @@ const argNamesKw =
         "ru-RU": "Голосовой чат группы",
         "th-TH": "แชตด้วยเสียงของกลุ่ม",
         "tr-TR": "Sesli Grup Sohbeti",
-        "zh-CN": "小队语音聊天"
+        "zh-CN": "小队语音聊天",
+        "de-DE": "Group Voice Chat",
+        "ko-KR": "Group Voice Chat",
+        "zh-TW": "Group Voice Chat"
     },
     "Match Voice Chat": {
         "guid": "000000012BC0",
@@ -638,7 +861,10 @@ const argNamesKw =
         "ru-RU": "Голосовой чат матча",
         "th-TH": "แชตด้วยเสียงของแมตช์",
         "tr-TR": "Maç Sesli Sohbeti",
-        "zh-CN": "比赛语音聊天"
+        "zh-CN": "比赛语音聊天",
+        "de-DE": "Match Voice Chat",
+        "ko-KR": "Match Voice Chat",
+        "zh-TW": "Match Voice Chat"
     },
     "Team Voice Chat": {
         "guid": "000000012BBF",
@@ -653,7 +879,10 @@ const argNamesKw =
         "ru-RU": "Голосовой чат команды",
         "th-TH": "แชตด้วยเสียงของทีม",
         "tr-TR": "Takım Sesli Sohbeti",
-        "zh-CN": "队伍语音聊天"
+        "zh-CN": "队伍语音聊天",
+        "de-DE": "Team Voice Chat",
+        "ko-KR": "Team Voice Chat",
+        "zh-TW": "Team Voice Chat"
     },
     "Duration": {
         "guid": "00000000B589",
@@ -668,7 +897,10 @@ const argNamesKw =
         "ru-RU": "Длительность",
         "th-TH": "ระยะเวลา",
         "tr-TR": "Süre",
-        "zh-CN": "持续时间"
+        "zh-CN": "持续时间",
+        "de-DE": "Duration",
+        "ko-KR": "Duration",
+        "zh-TW": "Duration"
     },
     "Else": {
         "guid": "000000010BCD",
@@ -678,7 +910,15 @@ const argNamesKw =
         "ja-JP": "ELSE",
         "pl-PL": "Inaczej",
         "ru-RU": "В противном случае",
-        "tr-TR": "Değilse"
+        "tr-TR": "Değilse",
+        "de-DE": "Else",
+        "es-ES": "Else",
+        "it-IT": "Else",
+        "ko-KR": "Else",
+        "pt-BR": "Else",
+        "th-TH": "Else",
+        "zh-CN": "Else",
+        "zh-TW": "Else"
     },
     "Enabled": {
         "guid": "00000000B9B9",
@@ -693,7 +933,10 @@ const argNamesKw =
         "ru-RU": "Вкл.",
         "th-TH": "เปิดใช้งานแล้ว",
         "tr-TR": "Etkin",
-        "zh-CN": "启用"
+        "zh-CN": "启用",
+        "de-DE": "Enabled",
+        "ko-KR": "Enabled",
+        "zh-TW": "Enabled"
     },
     "End Pos": {
         "guid": "00000000B1E9",
@@ -707,7 +950,11 @@ const argNamesKw =
         "pt-BR": "Pos. Final",
         "ru-RU": "Конечная позиция",
         "tr-TR": "Bitiş Konumu",
-        "zh-CN": "结束位置"
+        "zh-CN": "结束位置",
+        "de-DE": "End Pos",
+        "ko-KR": "End Pos",
+        "th-TH": "End Pos",
+        "zh-TW": "End Pos"
     },
     "End Position": {
         "guid": "00000000CE83",
@@ -722,7 +969,10 @@ const argNamesKw =
         "ru-RU": "Конечная позиция",
         "th-TH": "ตําแหน่งสุดท้าย",
         "tr-TR": "Bitiş Konumu",
-        "zh-CN": "结束位置"
+        "zh-CN": "结束位置",
+        "de-DE": "End Position",
+        "ko-KR": "End Position",
+        "zh-TW": "End Position"
     },
     "Entity": {
         "guid": "00000000C194",
@@ -737,7 +987,10 @@ const argNamesKw =
         "ru-RU": "Объект",
         "th-TH": "เอนทิตี",
         "tr-TR": "Varlık",
-        "zh-CN": "实体"
+        "zh-CN": "实体",
+        "de-DE": "Entity",
+        "ko-KR": "Entity",
+        "zh-TW": "Entity"
     },
     "Environment Credit Player": {
         "guid": "000000011C0B",
@@ -751,8 +1004,11 @@ const argNamesKw =
         "pt-BR": "Jogador de Crédito de Ambiente",
         "ru-RU": "Присуждение убийства с помощью окружения",
         "th-TH": "ผู้เล่นที่ได้เครดิตจากสภาพแวดล้อม",
-        "tr-TR": "Ortamdan Pay Alan Oyuncu",
-        "zh-CN": "地形消灭者玩家"
+        "tr-TR": "Ortam Kredi Oyuncusu",
+        "zh-CN": "地形消灭者玩家",
+        "de-DE": "Environment Credit Player",
+        "ko-KR": "Environment Credit Player",
+        "zh-TW": "Environment Credit Player"
     },
     "Eye Position": {
         "guid": "00000000C397",
@@ -767,7 +1023,10 @@ const argNamesKw =
         "ru-RU": "Положение камеры",
         "th-TH": "ตำแหน่งตา",
         "tr-TR": "Göz Konumu",
-        "zh-CN": "眼睛位置"
+        "zh-CN": "眼睛位置",
+        "de-DE": "Eye Position",
+        "ko-KR": "Eye Position",
+        "zh-TW": "Eye Position"
     },
     "Facing": {
         "guid": "00000000CB0B",
@@ -782,7 +1041,10 @@ const argNamesKw =
         "ru-RU": "Направление поворота",
         "th-TH": "การหันหน้า",
         "tr-TR": "Konumlandırma",
-        "zh-CN": "方向"
+        "zh-CN": "方向",
+        "de-DE": "Facing",
+        "ko-KR": "Facing",
+        "zh-TW": "Facing"
     },
     "Game Mode": {
         "guid": "00000000F161",
@@ -792,7 +1054,15 @@ const argNamesKw =
         "ja-JP": "ゲーム・モード",
         "pt-BR": "Modo de jogo",
         "tr-TR": "Oyun Modu",
-        "zh-CN": "游戏模式"
+        "zh-CN": "游戏模式",
+        "de-DE": "Game Mode",
+        "es-ES": "Game Mode",
+        "it-IT": "Game Mode",
+        "ko-KR": "Game Mode",
+        "pl-PL": "Game Mode",
+        "ru-RU": "Game Mode",
+        "th-TH": "Game Mode",
+        "zh-TW": "Game Mode"
     },
     "Gravity Percent": {
         "guid": "00000000B99A",
@@ -807,7 +1077,10 @@ const argNamesKw =
         "ru-RU": "Процент силы гравитации",
         "th-TH": "เปอร์เซ็นต์แรงโน้มถ่วง",
         "tr-TR": "Yer Çekimi Yüzdesi",
-        "zh-CN": "引力百分比"
+        "zh-CN": "引力百分比",
+        "de-DE": "Gravity Percent",
+        "ko-KR": "Gravity Percent",
+        "zh-TW": "Gravity Percent"
     },
     "Green": {
         "guid": "000000011E3E",
@@ -821,7 +1094,11 @@ const argNamesKw =
         "pt-BR": "Verde",
         "ru-RU": "Зеленый",
         "tr-TR": "Yeşil",
-        "zh-CN": "绿色"
+        "zh-CN": "绿色",
+        "de-DE": "Green",
+        "ko-KR": "Green",
+        "th-TH": "Green",
+        "zh-TW": "Green"
     },
     "Header Color": {
         "guid": "00000000C2AB",
@@ -836,7 +1113,10 @@ const argNamesKw =
         "ru-RU": "Цвет заголовка",
         "th-TH": "สีหัวข้อ",
         "tr-TR": "Başlık Rengi",
-        "zh-CN": "标题颜色"
+        "zh-CN": "标题颜色",
+        "de-DE": "Header Color",
+        "ko-KR": "Header Color",
+        "zh-TW": "Header Color"
     },
     "Header": {
         "guid": "00000000BA89",
@@ -851,7 +1131,10 @@ const argNamesKw =
         "ru-RU": "Заголовок",
         "th-TH": "ส่วนหัว",
         "tr-TR": "Başlık",
-        "zh-CN": "标题"
+        "zh-CN": "标题",
+        "de-DE": "Header",
+        "ko-KR": "Header",
+        "zh-TW": "Header"
     },
     "Heal Over Time ID": {
         "guid": "00000000B9CC",
@@ -866,7 +1149,10 @@ const argNamesKw =
         "ru-RU": "ID периодического исцеления",
         "th-TH": "ID ฮีลต่อเนื่อง",
         "tr-TR": "Zamanla İyileştirme Kimliği",
-        "zh-CN": "持续治疗ID"
+        "zh-CN": "持续治疗ID",
+        "de-DE": "Heal Over Time ID",
+        "ko-KR": "Heal Over Time ID",
+        "zh-TW": "Heal Over Time ID"
     },
     "Healer": {
         "guid": "00000000B58E",
@@ -881,7 +1167,10 @@ const argNamesKw =
         "ru-RU": "Источник исцеления",
         "th-TH": "ฮีลเลอร์",
         "tr-TR": "Şifacı",
-        "zh-CN": "治疗者"
+        "zh-CN": "治疗者",
+        "de-DE": "Healer",
+        "ko-KR": "Healer",
+        "zh-TW": "Healer"
     },
     "Healers": {
         "guid": "00000000FD45",
@@ -896,7 +1185,10 @@ const argNamesKw =
         "ru-RU": "Источники исцеления",
         "th-TH": "ฮีลเลอร์",
         "tr-TR": "Şifacılar",
-        "zh-CN": "治疗者"
+        "zh-CN": "治疗者",
+        "de-DE": "Healers",
+        "ko-KR": "Healers",
+        "zh-TW": "Healers"
     },
     "Healing Dealt Percent": {
         "guid": "00000000B992",
@@ -911,7 +1203,10 @@ const argNamesKw =
         "ru-RU": "Процент исходящего исцеления",
         "th-TH": "เปอร์เซ็นต์การฮีลที่สร้าง",
         "tr-TR": "Verilen İyileştirme Yüzdesi",
-        "zh-CN": "造成治疗百分比"
+        "zh-CN": "造成治疗百分比",
+        "de-DE": "Healing Dealt Percent",
+        "ko-KR": "Healing Dealt Percent",
+        "zh-TW": "Healing Dealt Percent"
     },
     "Healing Modification ID": {
         "guid": "00000000FD39",
@@ -925,7 +1220,11 @@ const argNamesKw =
         "ru-RU": "Идентификатор модификации исцеления",
         "th-TH": "ID การปรับฮีล",
         "tr-TR": "İyileştirme Düzenlemesi Kimliği",
-        "zh-CN": "治疗调整ID"
+        "zh-CN": "治疗调整ID",
+        "de-DE": "Healing Modification ID",
+        "es-ES": "Healing Modification ID",
+        "ko-KR": "Healing Modification ID",
+        "zh-TW": "Healing Modification ID"
     },
     "Healing Per Second": {
         "guid": "00000000B9C9",
@@ -940,7 +1239,10 @@ const argNamesKw =
         "ru-RU": "Исцеление в секунду",
         "th-TH": "การฮีลต่อวินาที",
         "tr-TR": "Saniye Başına İyileştirme",
-        "zh-CN": "每秒治疗"
+        "zh-CN": "每秒治疗",
+        "de-DE": "Healing Per Second",
+        "ko-KR": "Healing Per Second",
+        "zh-TW": "Healing Per Second"
     },
     "Healing Percent": {
         "guid": "00000000FD47",
@@ -955,7 +1257,10 @@ const argNamesKw =
         "ru-RU": "Процент исцеления",
         "th-TH": "เปอร์เซ็นต์การฮีล",
         "tr-TR": "İyileştirme Yüzdesi",
-        "zh-CN": "治疗百分比"
+        "zh-CN": "治疗百分比",
+        "de-DE": "Healing Percent",
+        "ko-KR": "Healing Percent",
+        "zh-TW": "Healing Percent"
     },
     "Healing Received Percent": {
         "guid": "00000000B994",
@@ -970,7 +1275,10 @@ const argNamesKw =
         "ru-RU": "Процент входящего исцеления",
         "th-TH": "เปอร์เซ็นต์ฮีลที่ได้รับ",
         "tr-TR": "Alınan İyileştirme Yüzdesi",
-        "zh-CN": "受到治疗百分比"
+        "zh-CN": "受到治疗百分比",
+        "de-DE": "Healing Received Percent",
+        "ko-KR": "Healing Received Percent",
+        "zh-TW": "Healing Received Percent"
     },
     "Health Percent": {
         "guid": "00000000B22B",
@@ -985,7 +1293,10 @@ const argNamesKw =
         "ru-RU": "Процент здоровья",
         "th-TH": "เปอร์เซ็นต์พลังชีวิต",
         "tr-TR": "Can Yüzdesi",
-        "zh-CN": "生命百分比"
+        "zh-CN": "生命百分比",
+        "de-DE": "Health Percent",
+        "ko-KR": "Health Percent",
+        "zh-TW": "Health Percent"
     },
     "Health Type": {
         "guid": "000000011429",
@@ -1000,7 +1311,10 @@ const argNamesKw =
         "ru-RU": "Тип здоровья",
         "th-TH": "ประเภทพลังชีวิต",
         "tr-TR": "Can Türü",
-        "zh-CN": "生命值类型"
+        "zh-CN": "生命值类型",
+        "de-DE": "Health Type",
+        "ko-KR": "Health Type",
+        "zh-TW": "Health Type"
     },
     "Health": {
         "guid": "000000011449",
@@ -1011,21 +1325,32 @@ const argNamesKw =
         "pt-BR": "Vida",
         "th-TH": "พลังชีวิต",
         "tr-TR": "Can",
-        "zh-CN": "生命值"
+        "zh-CN": "生命值",
+        "de-DE": "Health",
+        "es-ES": "Health",
+        "it-IT": "Health",
+        "ko-KR": "Health",
+        "pl-PL": "Health",
+        "ru-RU": "Health",
+        "zh-TW": "Health"
     },
     "Hero": {
         "guid": "00000000B293",
         "en-US": "Hero",
         "es-ES": "Héroe",
         "es-MX": "Héroe",
-        "fr-FR": "Héros",
+        "fr-FR": "Personnage",
         "it-IT": "Eroe",
         "ja-JP": "ヒーロー",
         "pl-PL": "Bohater",
         "pt-BR": "Herói",
         "ru-RU": "Герой",
         "tr-TR": "Kahraman",
-        "zh-CN": "英雄"
+        "zh-CN": "英雄",
+        "de-DE": "Hero",
+        "ko-KR": "Hero",
+        "th-TH": "Hero",
+        "zh-TW": "Hero"
     },
     "Horizontal Angle": {
         "guid": "00000000BB2E",
@@ -1039,7 +1364,11 @@ const argNamesKw =
         "pt-BR": "Ângulo Horizontal",
         "ru-RU": "Горизонтальный угол",
         "tr-TR": "Yatay Açı",
-        "zh-CN": "水平角度"
+        "zh-CN": "水平角度",
+        "de-DE": "Horizontal Angle",
+        "ko-KR": "Horizontal Angle",
+        "th-TH": "Horizontal Angle",
+        "zh-TW": "Horizontal Angle"
     },
     "Icon Color": {
         "guid": "00000000C2F2",
@@ -1054,7 +1383,10 @@ const argNamesKw =
         "ru-RU": "Цвет значка",
         "th-TH": "สีไอคอน",
         "tr-TR": "Simge Rengi",
-        "zh-CN": "图标颜色"
+        "zh-CN": "图标颜色",
+        "de-DE": "Icon Color",
+        "ko-KR": "Icon Color",
+        "zh-TW": "Icon Color"
     },
     "Icon": {
         "guid": "00000000B61B",
@@ -1071,7 +1403,8 @@ const argNamesKw =
         "th-TH": "ไอคอน",
         "tr-TR": "Simge",
         "zh-CN": "图标",
-        "zh-TW": "頭像"
+        "zh-TW": "頭像",
+        "de-DE": "Icon"
     },
     "Health Pool ID": {
         "guid": "000000011437",
@@ -1086,7 +1419,10 @@ const argNamesKw =
         "ru-RU": "ID запаса здоровья",
         "th-TH": "ID บ่อพลังชีวิต",
         "tr-TR": "Can Havuzu Kimliği",
-        "zh-CN": "生命池ID"
+        "zh-CN": "生命池ID",
+        "de-DE": "Health Pool ID",
+        "ko-KR": "Health Pool ID",
+        "zh-TW": "Health Pool ID"
     },
     "If Already Executing": {
         "guid": "00000001002A",
@@ -1098,9 +1434,13 @@ const argNamesKw =
         "ja-JP": "既に実行中の場合",
         "pt-BR": "Se já em execução",
         "ru-RU": "Если уже выполняется",
-        "th-TH": "หากดำเนินการอยู่แล้ว",
         "tr-TR": "Zaten Yürütülüyorsa",
-        "zh-CN": "是否正在执行"
+        "zh-CN": "是否正在执行",
+        "de-DE": "If Already Executing",
+        "ko-KR": "If Already Executing",
+        "pl-PL": "If Already Executing",
+        "th-TH": "If Already Executing",
+        "zh-TW": "If Already Executing"
     },
     "If": {
         "guid": "000000010BC9",
@@ -1110,7 +1450,15 @@ const argNamesKw =
         "ja-JP": "IF",
         "pl-PL": "Jeśli",
         "ru-RU": "Если",
-        "tr-TR": "Eğer"
+        "tr-TR": "Eğer",
+        "de-DE": "If",
+        "es-ES": "If",
+        "it-IT": "If",
+        "ko-KR": "If",
+        "pt-BR": "If",
+        "th-TH": "If",
+        "zh-CN": "If",
+        "zh-TW": "If"
     },
     "Include Floors": {
         "guid": "000000011335",
@@ -1125,7 +1473,10 @@ const argNamesKw =
         "ru-RU": "Учитывать пол",
         "th-TH": "รวมชั้น",
         "tr-TR": "Zemini Dâhil Et",
-        "zh-CN": "包括地面"
+        "zh-CN": "包括地面",
+        "de-DE": "Include Floors",
+        "ko-KR": "Include Floors",
+        "zh-TW": "Include Floors"
     },
     "Include Player Owned Objects": {
         "guid": "00000000C5A7",
@@ -1139,7 +1490,11 @@ const argNamesKw =
         "ru-RU": "Включать объекты, принадлежащие игроку",
         "th-TH": "รวมวัตถุที่เป็นของผู้เล่น",
         "tr-TR": "Oyuncuların nesnelerini dâhil et.",
-        "zh-CN": "包括玩家拥有的物体"
+        "zh-CN": "包括玩家拥有的物体",
+        "de-DE": "Include player owned objects",
+        "es-ES": "Include player owned objects",
+        "ko-KR": "Include player owned objects",
+        "zh-TW": "Include player owned objects"
     },
     "Index": {
         "guid": "00000000B52B",
@@ -1152,7 +1507,12 @@ const argNamesKw =
         "pt-BR": "Índice",
         "ru-RU": "Индекс",
         "tr-TR": "İndeks",
-        "zh-CN": "索引"
+        "zh-CN": "索引",
+        "de-DE": "Index",
+        "fr-FR": "Index",
+        "ko-KR": "Index",
+        "th-TH": "Index",
+        "zh-TW": "Index"
     },
     "Input Value": {
         "guid": "00000001232E",
@@ -1166,7 +1526,11 @@ const argNamesKw =
         "pt-BR": "Valor de Entrada",
         "ru-RU": "Значение ввода",
         "tr-TR": "Girdi Değeri",
-        "zh-CN": "输入值"
+        "zh-CN": "输入值",
+        "de-DE": "Input Value",
+        "ko-KR": "Input Value",
+        "th-TH": "Input Value",
+        "zh-TW": "Input Value"
     },
     "Invisible To": {
         "guid": "00000000B9EE",
@@ -1181,7 +1545,10 @@ const argNamesKw =
         "ru-RU": "Невидимость для",
         "th-TH": "มองไม่เห็นสำหรับ",
         "tr-TR": "Görmeyenler",
-        "zh-CN": "不可见"
+        "zh-CN": "不可见",
+        "de-DE": "Invisible To",
+        "ko-KR": "Invisible To",
+        "zh-TW": "Invisible To"
     },
     "Is Recoverable": {
         "guid": "00000001142F",
@@ -1196,7 +1563,10 @@ const argNamesKw =
         "ru-RU": "Восполнение",
         "th-TH": "ฟื้นฟูได้",
         "tr-TR": "Yenilenebilir",
-        "zh-CN": "可恢复"
+        "zh-CN": "可恢复",
+        "de-DE": "Recoverable",
+        "ko-KR": "Recoverable",
+        "zh-TW": "Recoverable"
     },
     "Jump Vertical Speed Percent": {
         "guid": "000000011230",
@@ -1211,7 +1581,10 @@ const argNamesKw =
         "ru-RU": "Процент вертикальной скорости прыжка",
         "th-TH": "เปอร์เซ็นต์ความเร็วการกระโดดแนวตั้ง",
         "tr-TR": "Zıplama Jeti Dikey Hızı",
-        "zh-CN": "垂直跳跃速度百分比"
+        "zh-CN": "垂直跳跃速度百分比",
+        "de-DE": "Jump Vertical Speed Percent",
+        "ko-KR": "Jump Vertical Speed Percent",
+        "zh-TW": "Jump Vertical Speed Percent"
     },
     "Killer": {
         "guid": "00000000B590",
@@ -1226,7 +1599,10 @@ const argNamesKw =
         "ru-RU": "Убийца",
         "th-TH": "ผู้ฆ่า",
         "tr-TR": "Öldüren",
-        "zh-CN": "击杀者"
+        "zh-CN": "击杀者",
+        "de-DE": "Killer",
+        "ko-KR": "Killer",
+        "zh-TW": "Killer"
     },
     "Knockback Dealt Percent": {
         "guid": "000000011FAE",
@@ -1241,7 +1617,10 @@ const argNamesKw =
         "ru-RU": "Процент произведенного отбрасывания",
         "th-TH": "เปอร์เซ็นต์การกระเด็นถอยหลังที่สร้าง",
         "tr-TR": "Verilen Geri İtme Yüzdesi",
-        "zh-CN": "造成击退百分比"
+        "zh-CN": "造成击退百分比",
+        "de-DE": "Knockback Dealt Percent",
+        "ko-KR": "Knockback Dealt Percent",
+        "zh-TW": "Knockback Dealt Percent"
     },
     "Knockback Received Percent": {
         "guid": "000000011FB1",
@@ -1256,7 +1635,10 @@ const argNamesKw =
         "ru-RU": "Процент получаемого отбрасывания",
         "th-TH": "เปอร์เซ็นต์การกระเด็นถอยหลังที่ได้รับ",
         "tr-TR": "Alınan Geri İtme Yüzdesi",
-        "zh-CN": "受到击退百分比"
+        "zh-CN": "受到击退百分比",
+        "de-DE": "Knockback Received Percent",
+        "ko-KR": "Knockback Received Percent",
+        "zh-TW": "Knockback Received Percent"
     },
     "Local Vector": {
         "guid": "00000000B33F",
@@ -1270,7 +1652,11 @@ const argNamesKw =
         "pt-BR": "Vetor Local",
         "ru-RU": "Локальный вектор",
         "tr-TR": "Yerel Vektör",
-        "zh-CN": "本地矢量"
+        "zh-CN": "本地矢量",
+        "de-DE": "Local Vector",
+        "ko-KR": "Local Vector",
+        "th-TH": "Local Vector",
+        "zh-TW": "Local Vector"
     },
     "Location": {
         "guid": "00000000BAF9",
@@ -1285,7 +1671,10 @@ const argNamesKw =
         "ru-RU": "Местоположение",
         "th-TH": "สถานที่",
         "tr-TR": "Konum",
-        "zh-CN": "坐标"
+        "zh-CN": "坐标",
+        "de-DE": "Location",
+        "ko-KR": "Location",
+        "zh-TW": "Location"
     },
     "Look At Position": {
         "guid": "00000000C399",
@@ -1300,7 +1689,10 @@ const argNamesKw =
         "ru-RU": "Позиция в кадре",
         "th-TH": "ดูที่ตำแหน่ง",
         "tr-TR": "Konum'a bak",
-        "zh-CN": "望向位置"
+        "zh-CN": "望向位置",
+        "de-DE": "Look at Position",
+        "ko-KR": "Look at Position",
+        "zh-TW": "Look at Position"
     },
     "Los Check": {
         "guid": "00000000B1E6",
@@ -1314,7 +1706,11 @@ const argNamesKw =
         "pt-BR": "Verificação de LdV",
         "ru-RU": "Проверка видимости",
         "tr-TR": "Görüş Alanı Kontrolü",
-        "zh-CN": "视线检测"
+        "zh-CN": "视线检测",
+        "de-DE": "LOS Check",
+        "ko-KR": "LOS Check",
+        "th-TH": "LOS Check",
+        "zh-TW": "LOS Check"
     },
     "Magnitude": {
         "guid": "00000000CEAE",
@@ -1328,7 +1724,11 @@ const argNamesKw =
         "ru-RU": "Сила",
         "th-TH": "ขนาด",
         "tr-TR": "Büyüklük",
-        "zh-CN": "幅度"
+        "zh-CN": "幅度",
+        "de-DE": "Magnitude",
+        "ko-KR": "Magnitude",
+        "pt-BR": "Magnitude",
+        "zh-TW": "Magnitude"
     },
     "Map": {
         "guid": "00000000D415",
@@ -1338,7 +1738,15 @@ const argNamesKw =
         "ja-JP": "マップ",
         "pt-BR": "Mapa",
         "tr-TR": "Harita",
-        "zh-CN": "地图"
+        "zh-CN": "地图",
+        "de-DE": "Map",
+        "es-ES": "Map",
+        "it-IT": "Map",
+        "ko-KR": "Map",
+        "pl-PL": "Map",
+        "ru-RU": "Map",
+        "th-TH": "Map",
+        "zh-TW": "Map"
     },
     "Max Backward": {
         "guid": "00000000BB14",
@@ -1353,7 +1761,10 @@ const argNamesKw =
         "ru-RU": "Макс. назад",
         "th-TH": "ย้อนหลังมากที่สุด",
         "tr-TR": "Maks. Geri",
-        "zh-CN": "向后最大"
+        "zh-CN": "向后最大",
+        "de-DE": "Max Backward",
+        "ko-KR": "Max Backward",
+        "zh-TW": "Max Backward"
     },
     "Max Forward": {
         "guid": "00000000BB11",
@@ -1368,7 +1779,10 @@ const argNamesKw =
         "ru-RU": "Макс. вперед",
         "th-TH": "ไปข้างหน้ามากที่สุด",
         "tr-TR": "Maks. İleri",
-        "zh-CN": "向前最大"
+        "zh-CN": "向前最大",
+        "de-DE": "Max Forward",
+        "ko-KR": "Max Forward",
+        "zh-TW": "Max Forward"
     },
     "Max Health": {
         "guid": "00000001142D",
@@ -1382,8 +1796,11 @@ const argNamesKw =
         "pt-BR": "Vida Máxima",
         "ru-RU": "Максимальный запас здоровья",
         "th-TH": "พลังชีวิตสูงสุด",
-        "tr-TR": "Azami Can",
-        "zh-CN": "最大生命值"
+        "tr-TR": "Maks. Can",
+        "zh-CN": "最大生命值",
+        "de-DE": "Max Health",
+        "ko-KR": "Max Health",
+        "zh-TW": "Max Health"
     },
     "Max Sideways": {
         "guid": "00000000BB12",
@@ -1398,7 +1815,10 @@ const argNamesKw =
         "ru-RU": "Макс. в сторону",
         "th-TH": "ไปด้านข้างมากที่สุด",
         "tr-TR": "Maks. Yana",
-        "zh-CN": "侧向最大"
+        "zh-CN": "侧向最大",
+        "de-DE": "Max Sideways",
+        "ko-KR": "Max Sideways",
+        "zh-TW": "Max Sideways"
     },
     "Max Speed": {
         "guid": "00000000BB17",
@@ -1412,8 +1832,11 @@ const argNamesKw =
         "pt-BR": "Velocidade Máx.",
         "ru-RU": "Максимальная скорость",
         "th-TH": "ความเร็วสูงสุด",
-        "tr-TR": "Azami Hız",
-        "zh-CN": "最大速度"
+        "tr-TR": "Maks. Hız",
+        "zh-CN": "最大速度",
+        "de-DE": "Max Speed",
+        "ko-KR": "Max Speed",
+        "zh-TW": "Max Speed"
     },
     "Max": {
         "guid": "000000011379",
@@ -1426,7 +1849,12 @@ const argNamesKw =
         "pt-BR": "Máx.",
         "ru-RU": "Макс.",
         "tr-TR": "Maks.",
-        "zh-CN": "最大"
+        "zh-CN": "最大",
+        "de-DE": "Max",
+        "it-IT": "Max",
+        "ko-KR": "Max",
+        "th-TH": "Max",
+        "zh-TW": "Max"
     },
     "Min Backward": {
         "guid": "00000000BB15",
@@ -1441,7 +1869,10 @@ const argNamesKw =
         "ru-RU": "Мин. назад",
         "th-TH": "ย้อนหลังน้อยที่สุด",
         "tr-TR": "Min. Geri",
-        "zh-CN": "向后最小"
+        "zh-CN": "向后最小",
+        "de-DE": "Min Backward",
+        "ko-KR": "Min Backward",
+        "zh-TW": "Min Backward"
     },
     "Min Forward": {
         "guid": "00000000BB10",
@@ -1456,7 +1887,10 @@ const argNamesKw =
         "ru-RU": "Мин. вперед",
         "th-TH": "ไปข้างหน้าน้อยที่สุด",
         "tr-TR": "Min. İleri",
-        "zh-CN": "向前最小"
+        "zh-CN": "向前最小",
+        "de-DE": "Min Forward",
+        "ko-KR": "Min Forward",
+        "zh-TW": "Min Forward"
     },
     "Min Sideways": {
         "guid": "00000000BB13",
@@ -1471,7 +1905,10 @@ const argNamesKw =
         "ru-RU": "Мин. в сторону",
         "th-TH": "ไปด้านข้างน้อยที่สุด",
         "tr-TR": "Min. Yana",
-        "zh-CN": "侧向最小"
+        "zh-CN": "侧向最小",
+        "de-DE": "Min Sideways",
+        "ko-KR": "Min Sideways",
+        "zh-TW": "Min Sideways"
     },
     "Min": {
         "guid": "000000011377",
@@ -1484,7 +1921,12 @@ const argNamesKw =
         "pt-BR": "Mín.",
         "ru-RU": "Мин.",
         "tr-TR": "Min.",
-        "zh-CN": "最小"
+        "zh-CN": "最小",
+        "de-DE": "Min",
+        "it-IT": "Min",
+        "ko-KR": "Min",
+        "th-TH": "Min",
+        "zh-TW": "Min"
     },
     "Motion": {
         "guid": "00000000B522",
@@ -1499,7 +1941,10 @@ const argNamesKw =
         "ru-RU": "Движение",
         "th-TH": "การเคลื่อนที่",
         "tr-TR": "Hareket",
-        "zh-CN": "运动"
+        "zh-CN": "运动",
+        "de-DE": "Motion",
+        "ko-KR": "Motion",
+        "zh-TW": "Motion"
     },
     "Move Speed Percent": {
         "guid": "00000000B996",
@@ -1514,7 +1959,10 @@ const argNamesKw =
         "ru-RU": "Процент скорости передвижения",
         "th-TH": "เปอร์เซ็นต์ความเร็วในการเคลื่อนที่",
         "tr-TR": "Hareket Hızı Yüzdesi",
-        "zh-CN": "移动速度百分比"
+        "zh-CN": "移动速度百分比",
+        "de-DE": "Move Speed Percent",
+        "ko-KR": "Move Speed Percent",
+        "zh-TW": "Move Speed Percent"
     },
     "Name": {
         "guid": "000000011371",
@@ -1528,7 +1976,11 @@ const argNamesKw =
         "pt-BR": "Nome",
         "ru-RU": "Название",
         "tr-TR": "İsim",
-        "zh-CN": "名称"
+        "zh-CN": "名称",
+        "de-DE": "Name",
+        "ko-KR": "Name",
+        "th-TH": "Name",
+        "zh-TW": "Name"
     },
     "Non-Team Spectators": {
         "guid": "00000000CE58",
@@ -1544,7 +1996,9 @@ const argNamesKw =
         "ru-RU": "Внекомандные зрители",
         "th-TH": "ผู้ชมที่ไม่มีทีม",
         "tr-TR": "Takım Dışı İzleyiciler",
-        "zh-CN": "无队伍观战者"
+        "zh-CN": "无队伍观战者",
+        "ko-KR": "Non-Team Spectators",
+        "zh-TW": "Non-Team Spectators"
     },
     "Number Of Actions": {
         "guid": "00000000BB08",
@@ -1559,7 +2013,10 @@ const argNamesKw =
         "ru-RU": "Количество действий",
         "th-TH": "จํานวนการดําเนินการ",
         "tr-TR": "Eylem Sayısı",
-        "zh-CN": "动作数量"
+        "zh-CN": "动作数量",
+        "de-DE": "Number of Actions",
+        "ko-KR": "Number of Actions",
+        "zh-TW": "Number of Actions"
     },
     "Number": {
         "guid": "00000000B219",
@@ -1574,7 +2031,10 @@ const argNamesKw =
         "ru-RU": "Число",
         "th-TH": "ตัวเลข",
         "tr-TR": "Sayı",
-        "zh-CN": "数字"
+        "zh-CN": "数字",
+        "de-DE": "Number",
+        "ko-KR": "Number",
+        "zh-TW": "Number"
     },
     "Numerator": {
         "guid": "00000000C80C",
@@ -1587,7 +2047,12 @@ const argNamesKw =
         "pt-BR": "Numerador",
         "ru-RU": "Числитель",
         "tr-TR": "Pay",
-        "zh-CN": "分子"
+        "zh-CN": "分子",
+        "de-DE": "Numerator",
+        "ko-KR": "Numerator",
+        "pl-PL": "Numerator",
+        "th-TH": "Numerator",
+        "zh-TW": "Numerator"
     },
     "Offset": {
         "guid": "000000010E55",
@@ -1602,7 +2067,10 @@ const argNamesKw =
         "ru-RU": "Смещение",
         "th-TH": "ออฟเซ็ต",
         "tr-TR": "Dengeleme",
-        "zh-CN": "偏移"
+        "zh-CN": "偏移",
+        "de-DE": "Offset",
+        "ko-KR": "Offset",
+        "zh-TW": "Offset"
     },
     "Operation": {
         "guid": "00000000B16E",
@@ -1617,7 +2085,10 @@ const argNamesKw =
         "ru-RU": "Операция",
         "th-TH": "การดำเนินการ",
         "tr-TR": "Faaliyet",
-        "zh-CN": "操作"
+        "zh-CN": "操作",
+        "de-DE": "Operation",
+        "ko-KR": "Operation",
+        "zh-TW": "Operation"
     },
     "Options": {
         "guid": "000000011CC2",
@@ -1630,7 +2101,12 @@ const argNamesKw =
         "pt-BR": "Opções",
         "ru-RU": "Настройки",
         "tr-TR": "Seçenekler",
-        "zh-CN": "选项"
+        "zh-CN": "选项",
+        "de-DE": "Options",
+        "fr-FR": "Options",
+        "ko-KR": "Options",
+        "th-TH": "Options",
+        "zh-TW": "Options"
     },
     "Parent": {
         "guid": "000000010E50",
@@ -1644,7 +2120,11 @@ const argNamesKw =
         "ru-RU": "Ведущий",
         "th-TH": "ผู้ปกครอง",
         "tr-TR": "Ebeveyn",
-        "zh-CN": "父玩家"
+        "zh-CN": "父玩家",
+        "de-DE": "Parent",
+        "fr-FR": "Parent",
+        "ko-KR": "Parent",
+        "zh-TW": "Parent"
     },
     "Pattern": {
         "guid": "000000012D70",
@@ -1658,7 +2138,11 @@ const argNamesKw =
         "pt-BR": "Padrão",
         "ru-RU": "Шаблон",
         "tr-TR": "Desen",
-        "zh-CN": "模式"
+        "zh-CN": "模式",
+        "de-DE": "Pattern",
+        "ko-KR": "Pattern",
+        "th-TH": "Pattern",
+        "zh-TW": "Pattern"
     },
     "Pitch Scalar": {
         "guid": "0000000113C5",
@@ -1673,7 +2157,10 @@ const argNamesKw =
         "ru-RU": "Скалярное значение высоты звука",
         "th-TH": "สเกลาร์น้ำเสียง",
         "tr-TR": "Perde Skaleri",
-        "zh-CN": "音调调整"
+        "zh-CN": "音调调整",
+        "de-DE": "Pitch Scalar",
+        "ko-KR": "Pitch Scalar",
+        "zh-TW": "Pitch Scalar"
     },
     "Player": {
         "guid": "00000000B1F3",
@@ -1688,7 +2175,10 @@ const argNamesKw =
         "ru-RU": "Игрок",
         "th-TH": "ผู้เล่น",
         "tr-TR": "Oyuncu",
-        "zh-CN": "玩家"
+        "zh-CN": "玩家",
+        "de-DE": "Player",
+        "ko-KR": "Player",
+        "zh-TW": "Player"
     },
     "Players To Exclude": {
         "guid": "00000000C605",
@@ -1701,7 +2191,12 @@ const argNamesKw =
         "pt-BR": "Jogadores a Excluir",
         "ru-RU": "Незатрагиваемые игроки",
         "tr-TR": "Hariç Tutulan Oyuncular",
-        "zh-CN": "不包括玩家"
+        "zh-CN": "不包括玩家",
+        "de-DE": "Players to Exclude",
+        "es-ES": "Players to Exclude",
+        "ko-KR": "Players to Exclude",
+        "th-TH": "Players to Exclude",
+        "zh-TW": "Players to Exclude"
     },
     "Players To Include": {
         "guid": "00000000C5A6",
@@ -1715,7 +2210,11 @@ const argNamesKw =
         "ru-RU": "Затрагиваемые игроки",
         "th-TH": "ผู้เล่นที่จะรวม",
         "tr-TR": "Dâhil Edilen Oyuncular",
-        "zh-CN": "包括玩家"
+        "zh-CN": "包括玩家",
+        "de-DE": "Players to Include",
+        "es-ES": "Players to Include",
+        "ko-KR": "Players to Include",
+        "zh-TW": "Players to Include"
     },
     "Players": {
         "guid": "00000000B879",
@@ -1730,7 +2229,10 @@ const argNamesKw =
         "ru-RU": "Игроки",
         "th-TH": "ผู้เล่น",
         "tr-TR": "Oyuncular",
-        "zh-CN": "玩家"
+        "zh-CN": "玩家",
+        "de-DE": "Players",
+        "ko-KR": "Players",
+        "zh-TW": "Players"
     },
     "Position": {
         "guid": "00000000B218",
@@ -1744,7 +2246,11 @@ const argNamesKw =
         "ru-RU": "Положение",
         "th-TH": "ตำแหน่ง",
         "tr-TR": "Konum",
-        "zh-CN": "位置"
+        "zh-CN": "位置",
+        "de-DE": "Position",
+        "fr-FR": "Position",
+        "ko-KR": "Position",
+        "zh-TW": "Position"
     },
     "Progress Bar Color": {
         "guid": "0000000122EA",
@@ -1759,7 +2265,10 @@ const argNamesKw =
         "ru-RU": "Цвет шкалы прогресса",
         "th-TH": "สีแถบความคืบหน้า",
         "tr-TR": "İlerleyiş Çubuğu Rengi",
-        "zh-CN": "进度条颜色"
+        "zh-CN": "进度条颜色",
+        "de-DE": "Progress Bar Color",
+        "ko-KR": "Progress Bar Color",
+        "zh-TW": "Progress Bar Color"
     },
     "Projectile Gravity Percent": {
         "guid": "00000000B99C",
@@ -1774,7 +2283,10 @@ const argNamesKw =
         "ru-RU": "Процент гравитации для снарядов",
         "th-TH": "เปอร์เซ็นต์แรงโน้มถ่วงของโพรเจกไทล์",
         "tr-TR": "Atılır Cisim Yer Çekimi Yüzdesi",
-        "zh-CN": "弹道引力百分比"
+        "zh-CN": "弹道引力百分比",
+        "de-DE": "Projectile Gravity Percent",
+        "ko-KR": "Projectile Gravity Percent",
+        "zh-TW": "Projectile Gravity Percent"
     },
     "Projectile Speed Percent": {
         "guid": "00000000B99E",
@@ -1789,7 +2301,10 @@ const argNamesKw =
         "ru-RU": "Процент скорости снарядов",
         "th-TH": "เปอร์เซ็นต์ความเร็วของโพรเจกไทล์",
         "tr-TR": "Atılır Cisim Hızı Yüzdesi",
-        "zh-CN": "弹道速度百分比"
+        "zh-CN": "弹道速度百分比",
+        "de-DE": "Projectile Speed Percent",
+        "ko-KR": "Projectile Speed Percent",
+        "zh-TW": "Projectile Speed Percent"
     },
     "Radius": {
         "guid": "00000000B237",
@@ -1803,7 +2318,11 @@ const argNamesKw =
         "pt-BR": "Raio",
         "ru-RU": "Радиус",
         "tr-TR": "Yarıçap",
-        "zh-CN": "半径"
+        "zh-CN": "半径",
+        "de-DE": "Radius",
+        "ko-KR": "Radius",
+        "th-TH": "Radius",
+        "zh-TW": "Radius"
     },
     "Range Start": {
         "guid": "00000000FB47",
@@ -1815,9 +2334,13 @@ const argNamesKw =
         "ja-JP": "開始値",
         "pt-BR": "Início do intervalo",
         "ru-RU": "Начало диапазона",
-        "th-TH": "เริ่มต้นช่วง",
         "tr-TR": "Başlangıç Aralığı",
-        "zh-CN": "起始值"
+        "zh-CN": "起始值",
+        "de-DE": "Range Start",
+        "ko-KR": "Range Start",
+        "pl-PL": "Range Start",
+        "th-TH": "Range Start",
+        "zh-TW": "Range Start"
     },
     "Range Stop": {
         "guid": "00000000FB45",
@@ -1829,9 +2352,13 @@ const argNamesKw =
         "ja-JP": "終了値",
         "pt-BR": "Fim do intervalo",
         "ru-RU": "Конец диапазона",
-        "th-TH": "หยุดช่วง",
         "tr-TR": "Durdurma Aralığı",
-        "zh-CN": "终止值"
+        "zh-CN": "终止值",
+        "de-DE": "Range Stop",
+        "ko-KR": "Range Stop",
+        "pl-PL": "Range Stop",
+        "th-TH": "Range Stop",
+        "zh-TW": "Range Stop"
     },
     "Rate": {
         "guid": "00000000B844",
@@ -1846,7 +2373,10 @@ const argNamesKw =
         "ru-RU": "Шаг",
         "th-TH": "อัตรา",
         "tr-TR": "Oran",
-        "zh-CN": "频率"
+        "zh-CN": "频率",
+        "de-DE": "Rate",
+        "ko-KR": "Rate",
+        "zh-TW": "Rate"
     },
     "Receivers": {
         "guid": "00000000C641",
@@ -1861,7 +2391,10 @@ const argNamesKw =
         "ru-RU": "Получающие урон",
         "th-TH": "ตัวรับ",
         "tr-TR": "Alıcılar",
-        "zh-CN": "受伤害者"
+        "zh-CN": "受伤害者",
+        "de-DE": "Receivers",
+        "ko-KR": "Receivers",
+        "zh-TW": "Receivers"
     },
     "Red": {
         "guid": "000000011DA7",
@@ -1875,7 +2408,11 @@ const argNamesKw =
         "pt-BR": "Vermelho",
         "ru-RU": "Красный",
         "tr-TR": "Kırmızı",
-        "zh-CN": "红色"
+        "zh-CN": "红色",
+        "de-DE": "Red",
+        "ko-KR": "Red",
+        "th-TH": "Red",
+        "zh-TW": "Red"
     },
     "Reevaluate": {
         "guid": "000000010E87",
@@ -1890,7 +2427,10 @@ const argNamesKw =
         "ru-RU": "Пересчет",
         "th-TH": "การประเมินใหม่",
         "tr-TR": "Tekrar Değerlendirme",
-        "zh-CN": "重新赋值"
+        "zh-CN": "重新赋值",
+        "de-DE": "Reevaluation",
+        "ko-KR": "Reevaluation",
+        "zh-TW": "Reevaluation"
     },
     "Reevaluation": {
         "guid": "0000000113C9",
@@ -1905,7 +2445,10 @@ const argNamesKw =
         "ru-RU": "Пересчет",
         "th-TH": "การประเมินใหม่",
         "tr-TR": "Tekrar Değerlendirme",
-        "zh-CN": "重新赋值"
+        "zh-CN": "重新赋值",
+        "de-DE": "Reevaluation",
+        "ko-KR": "Reevaluation",
+        "zh-TW": "Reevaluation"
     },
     "Relative Direction": {
         "guid": "00000000CC2B",
@@ -1920,7 +2463,10 @@ const argNamesKw =
         "ru-RU": "Относительное направление",
         "th-TH": "ทิศทางสัมพัทธ์",
         "tr-TR": "Göreceli Yön",
-        "zh-CN": "相对方向"
+        "zh-CN": "相对方向",
+        "de-DE": "Relative Direction",
+        "ko-KR": "Relative Direction",
+        "zh-TW": "Relative Direction"
     },
     "Relative Player": {
         "guid": "00000000B340",
@@ -1934,7 +2480,11 @@ const argNamesKw =
         "pt-BR": "Jogador Relativo",
         "ru-RU": "Игрок",
         "tr-TR": "Bağıl Oyuncu",
-        "zh-CN": "相对玩家"
+        "zh-CN": "相对玩家",
+        "de-DE": "Relative Player",
+        "ko-KR": "Relative Player",
+        "th-TH": "Relative Player",
+        "zh-TW": "Relative Player"
     },
     "Relative": {
         "guid": "00000000B174",
@@ -1949,7 +2499,10 @@ const argNamesKw =
         "ru-RU": "Система координат",
         "th-TH": "สัมพัทธ์",
         "tr-TR": "Bağıl",
-        "zh-CN": "相对"
+        "zh-CN": "相对",
+        "de-DE": "Relative",
+        "ko-KR": "Relative",
+        "zh-TW": "Relative"
     },
     "Replacement": {
         "guid": "000000012D72",
@@ -1963,7 +2516,11 @@ const argNamesKw =
         "pt-BR": "Substituição",
         "ru-RU": "Замена",
         "tr-TR": "Değiştirme",
-        "zh-CN": "替换"
+        "zh-CN": "替换",
+        "de-DE": "Replacement",
+        "ko-KR": "Replacement",
+        "th-TH": "Replacement",
+        "zh-TW": "Replacement"
     },
     "Resource Percent": {
         "guid": "000000011214",
@@ -1978,7 +2535,10 @@ const argNamesKw =
         "ru-RU": "Процент ресурса",
         "th-TH": "เปอร์เซ็นต์ทรัพยากร",
         "tr-TR": "Kaynak Yüzdesi",
-        "zh-CN": "资源百分比"
+        "zh-CN": "资源百分比",
+        "de-DE": "Resource Percent",
+        "ko-KR": "Resource Percent",
+        "zh-TW": "Resource Percent"
     },
     "Room": {
         "guid": "00000000B578",
@@ -1993,7 +2553,10 @@ const argNamesKw =
         "ru-RU": "Комната",
         "th-TH": "ห้อง",
         "tr-TR": "Oda",
-        "zh-CN": "室内"
+        "zh-CN": "室内",
+        "de-DE": "Room",
+        "ko-KR": "Room",
+        "zh-TW": "Room"
     },
     "Round Winning Team": {
         "guid": "00000000BF95",
@@ -2010,7 +2573,8 @@ const argNamesKw =
         "ru-RU": "Команда-победитель раунда.",
         "th-TH": "ทีมที่ชนะรอบ",
         "tr-TR": "Turu kazanan takım",
-        "zh-CN": "本回合获胜队伍"
+        "zh-CN": "本回合获胜队伍",
+        "zh-TW": "Round winning team"
     },
     "Rounding Type": {
         "guid": "00000000C350",
@@ -2025,7 +2589,10 @@ const argNamesKw =
         "ru-RU": "Тип округления",
         "th-TH": "ประเภทการปัดเศษ",
         "tr-TR": "Yuvarlama Türü",
-        "zh-CN": "取整方式"
+        "zh-CN": "取整方式",
+        "de-DE": "Rounding Type",
+        "ko-KR": "Rounding Type",
+        "zh-TW": "Rounding Type"
     },
     "Scale": {
         "guid": "000000011310",
@@ -2040,7 +2607,10 @@ const argNamesKw =
         "ru-RU": "Масштаб",
         "th-TH": "สเกล",
         "tr-TR": "Ölçek",
-        "zh-CN": "大小"
+        "zh-CN": "大小",
+        "de-DE": "Scale",
+        "ko-KR": "Scale",
+        "zh-TW": "Scale"
     },
     "Score": {
         "guid": "00000000B22E",
@@ -2055,7 +2625,10 @@ const argNamesKw =
         "ru-RU": "Счет",
         "th-TH": "คะแนน",
         "tr-TR": "Skor",
-        "zh-CN": "得分"
+        "zh-CN": "得分",
+        "de-DE": "Score",
+        "ko-KR": "Score",
+        "zh-TW": "Score"
     },
     "Separator": {
         "guid": "000000012D6D",
@@ -2068,7 +2641,12 @@ const argNamesKw =
         "pt-BR": "Separador",
         "ru-RU": "Разделитель",
         "tr-TR": "Ayırıcı",
-        "zh-CN": "分隔符"
+        "zh-CN": "分隔符",
+        "de-DE": "Separator",
+        "ko-KR": "Separator",
+        "pl-PL": "Separator",
+        "th-TH": "Separator",
+        "zh-TW": "Separator"
     },
     "Show When Offscreen": {
         "guid": "00000000C374",
@@ -2083,7 +2661,10 @@ const argNamesKw =
         "ru-RU": "Показывать вне экрана",
         "th-TH": "แสดงเมื่ออยู่นอกจอ",
         "tr-TR": "Ekran Dışındayken Göster",
-        "zh-CN": "离开屏幕后显示"
+        "zh-CN": "离开屏幕后显示",
+        "de-DE": "Show When Offscreen",
+        "ko-KR": "Show When Offscreen",
+        "zh-TW": "Show When Offscreen"
     },
     "Slot": {
         "guid": "00000000B337",
@@ -2096,7 +2677,12 @@ const argNamesKw =
         "pt-BR": "Espaço",
         "ru-RU": "Ячейка",
         "tr-TR": "Yuva",
-        "zh-CN": "栏位"
+        "zh-CN": "栏位",
+        "de-DE": "Slot",
+        "it-IT": "Slot",
+        "ko-KR": "Slot",
+        "th-TH": "Slot",
+        "zh-TW": "Slot"
     },
     "Sort Order": {
         "guid": "000000011C94",
@@ -2110,7 +2696,11 @@ const argNamesKw =
         "pt-BR": "Ordem de Classificação",
         "ru-RU": "Порядок сортировки",
         "tr-TR": "Sıralama Düzeni",
-        "zh-CN": "排序"
+        "zh-CN": "排序",
+        "de-DE": "Sort Order",
+        "ko-KR": "Sort Order",
+        "th-TH": "Sort Order",
+        "zh-TW": "Sort Order"
     },
     "Spectators": {
         "guid": "00000000CE58",
@@ -2126,7 +2716,9 @@ const argNamesKw =
         "ru-RU": "Внекомандные зрители",
         "th-TH": "ผู้ชมที่ไม่มีทีม",
         "tr-TR": "Takım Dışı İzleyiciler",
-        "zh-CN": "无队伍观战者"
+        "zh-CN": "无队伍观战者",
+        "ko-KR": "Non-Team Spectators",
+        "zh-TW": "Non-Team Spectators"
     },
     "Speed Percent": {
         "guid": "00000000B9F3",
@@ -2141,7 +2733,10 @@ const argNamesKw =
         "ru-RU": "Процент скорости",
         "th-TH": "เปอร์เซ็นต์ความเร็ว",
         "tr-TR": "Hız Yüzdesi",
-        "zh-CN": "速度百分比"
+        "zh-CN": "速度百分比",
+        "de-DE": "Speed Percent",
+        "ko-KR": "Speed Percent",
+        "zh-TW": "Speed Percent"
     },
     "Speed": {
         "guid": "00000000B173",
@@ -2156,7 +2751,10 @@ const argNamesKw =
         "ru-RU": "Скорость",
         "th-TH": "ความเร็ว",
         "tr-TR": "Hız",
-        "zh-CN": "速度"
+        "zh-CN": "速度",
+        "de-DE": "Speed",
+        "ko-KR": "Speed",
+        "zh-TW": "Speed"
     },
     "Start Index": {
         "guid": "00000000B5A0",
@@ -2170,7 +2768,11 @@ const argNamesKw =
         "pt-BR": "Começar Índice",
         "ru-RU": "Начальный индекс",
         "tr-TR": "Başlangıç İndeksi",
-        "zh-CN": "开始索引"
+        "zh-CN": "开始索引",
+        "de-DE": "Start Index",
+        "ko-KR": "Start Index",
+        "th-TH": "Start Index",
+        "zh-TW": "Start Index"
     },
     "Start Pos": {
         "guid": "00000000B1E8",
@@ -2184,7 +2786,11 @@ const argNamesKw =
         "pt-BR": "Pos. Inicial",
         "ru-RU": "Начальная позиция",
         "tr-TR": "Başlangıç Konumu",
-        "zh-CN": "开始位置"
+        "zh-CN": "开始位置",
+        "de-DE": "Start Pos",
+        "ko-KR": "Start Pos",
+        "th-TH": "Start Pos",
+        "zh-TW": "Start Pos"
     },
     "Start Position": {
         "guid": "00000000CE82",
@@ -2199,7 +2805,10 @@ const argNamesKw =
         "ru-RU": "Начальная позиция",
         "th-TH": "ตําแหน่งเริ่มต้น",
         "tr-TR": "Başlangıç Konumu",
-        "zh-CN": "开始位置"
+        "zh-CN": "开始位置",
+        "de-DE": "Start Position",
+        "ko-KR": "Start Position",
+        "zh-TW": "Start Position"
     },
     "Stat": {
         "guid": "00000001250A",
@@ -2213,7 +2822,11 @@ const argNamesKw =
         "pt-BR": "Estatística",
         "ru-RU": "Показатель",
         "tr-TR": "İstatistik",
-        "zh-CN": "数据"
+        "zh-CN": "数据",
+        "de-DE": "Stat",
+        "ko-KR": "Stat",
+        "th-TH": "Stat",
+        "zh-TW": "Stat"
     },
     "Statistic": {
         "guid": "00000001250A",
@@ -2227,7 +2840,11 @@ const argNamesKw =
         "pt-BR": "Estatística",
         "ru-RU": "Показатель",
         "tr-TR": "İstatistik",
-        "zh-CN": "数据"
+        "zh-CN": "数据",
+        "de-DE": "Stat",
+        "ko-KR": "Stat",
+        "th-TH": "Stat",
+        "zh-TW": "Stat"
     },
     "Status": {
         "guid": "00000000B587",
@@ -2240,7 +2857,12 @@ const argNamesKw =
         "ru-RU": "Статус",
         "th-TH": "สถานะ",
         "tr-TR": "Durum",
-        "zh-CN": "状态"
+        "zh-CN": "状态",
+        "de-DE": "Status",
+        "ko-KR": "Status",
+        "pl-PL": "Status",
+        "pt-BR": "Status",
+        "zh-TW": "Status"
     },
     "Step": {
         "guid": "00000000FB40",
@@ -2252,9 +2874,13 @@ const argNamesKw =
         "pl-PL": "Krok",
         "pt-BR": "Etapa",
         "ru-RU": "Шаг",
-        "th-TH": "ขั้นตอน",
         "tr-TR": "Adım",
-        "zh-CN": "步长"
+        "zh-CN": "步长",
+        "de-DE": "Step",
+        "it-IT": "Step",
+        "ko-KR": "Step",
+        "th-TH": "Step",
+        "zh-TW": "Step"
     },
     "String": {
         "guid": "0000000124A4",
@@ -2267,7 +2893,12 @@ const argNamesKw =
         "pl-PL": "Ciąg",
         "ru-RU": "Строка",
         "tr-TR": "Dizgi",
-        "zh-CN": "字符串"
+        "zh-CN": "字符串",
+        "de-DE": "String",
+        "ko-KR": "String",
+        "pt-BR": "String",
+        "th-TH": "String",
+        "zh-TW": "String"
     },
     "SubHeader Color": {
         "guid": "00000000C2C1",
@@ -2282,7 +2913,10 @@ const argNamesKw =
         "ru-RU": "Цвет подзаголовка",
         "th-TH": "สีหัวข้อย่อย",
         "tr-TR": "Alt Başlık Rengi",
-        "zh-CN": "子标题颜色"
+        "zh-CN": "子标题颜色",
+        "de-DE": "SubHeader Color",
+        "ko-KR": "SubHeader Color",
+        "zh-TW": "SubHeader Color"
     },
     "SubHeader": {
         "guid": "00000000C202",
@@ -2297,7 +2931,10 @@ const argNamesKw =
         "ru-RU": "Подзаголовок",
         "th-TH": "หัวข้อย่อย",
         "tr-TR": "Alt Başlık",
-        "zh-CN": "子标题"
+        "zh-CN": "子标题",
+        "de-DE": "Subheader",
+        "ko-KR": "Subheader",
+        "zh-TW": "Subheader"
     },
     "Subroutine": {
         "guid": "00000001001F",
@@ -2308,9 +2945,14 @@ const argNamesKw =
         "pl-PL": "Podprogram",
         "pt-BR": "Sub-rotina",
         "ru-RU": "Подпрограмма",
-        "th-TH": "ซับรูทีน",
         "tr-TR": "Alt Yordam",
-        "zh-CN": "子程序"
+        "zh-CN": "子程序",
+        "de-DE": "Subroutine",
+        "es-ES": "Subroutine",
+        "it-IT": "Subroutine",
+        "ko-KR": "Subroutine",
+        "th-TH": "Subroutine",
+        "zh-TW": "Subroutine"
     },
     "Substring Length": {
         "guid": "0000000124A2",
@@ -2320,7 +2962,15 @@ const argNamesKw =
         "ja-JP": "文字列の長さ",
         "pt-BR": "Tamanho da String",
         "tr-TR": "Dizgi Uzunluğu",
-        "zh-CN": "字符串长度"
+        "zh-CN": "字符串长度",
+        "de-DE": "String Length",
+        "es-ES": "String Length",
+        "it-IT": "String Length",
+        "ko-KR": "String Length",
+        "pl-PL": "String Length",
+        "ru-RU": "String Length",
+        "th-TH": "String Length",
+        "zh-TW": "String Length"
     },
     "Substring Start Index": {
         "guid": "0000000124A9",
@@ -2334,7 +2984,11 @@ const argNamesKw =
         "pt-BR": "Índice do Caractere Inicial",
         "ru-RU": "Индекс первого символа",
         "tr-TR": "Karakter İndeksini Başlat",
-        "zh-CN": "开始字符索引"
+        "zh-CN": "开始字符索引",
+        "de-DE": "Start Character Index",
+        "ko-KR": "Start Character Index",
+        "th-TH": "Start Character Index",
+        "zh-TW": "Start Character Index"
     },
     "Substring": {
         "guid": "0000000124A4",
@@ -2347,7 +3001,12 @@ const argNamesKw =
         "pl-PL": "Ciąg",
         "ru-RU": "Строка",
         "tr-TR": "Dizgi",
-        "zh-CN": "字符串"
+        "zh-CN": "字符串",
+        "de-DE": "String",
+        "ko-KR": "String",
+        "pt-BR": "String",
+        "th-TH": "String",
+        "zh-TW": "String"
     },
     "Target": {
         "guid": "000000007801",
@@ -2362,7 +3021,10 @@ const argNamesKw =
         "ru-RU": "Цель",
         "th-TH": "เป้าหมาย",
         "tr-TR": "Hedef",
-        "zh-CN": "目标"
+        "zh-CN": "目标",
+        "de-DE": "Target",
+        "ko-KR": "Target",
+        "zh-TW": "Target"
     },
     "Targets": {
         "guid": "000000012204",
@@ -2377,7 +3039,10 @@ const argNamesKw =
         "ru-RU": "Цели",
         "th-TH": "เป้าหมาย",
         "tr-TR": "Hedefler",
-        "zh-CN": "目标"
+        "zh-CN": "目标",
+        "de-DE": "Targets",
+        "ko-KR": "Targets",
+        "zh-TW": "Targets"
     },
     "Team": {
         "guid": "00000000B238",
@@ -2391,7 +3056,11 @@ const argNamesKw =
         "pt-BR": "Equipe",
         "ru-RU": "Команда",
         "tr-TR": "Takım",
-        "zh-CN": "队伍"
+        "zh-CN": "队伍",
+        "de-DE": "Team",
+        "ko-KR": "Team",
+        "th-TH": "Team",
+        "zh-TW": "Team"
     },
     "Text Color": {
         "guid": "00000000C2C3",
@@ -2406,7 +3075,10 @@ const argNamesKw =
         "ru-RU": "Цвет текста",
         "th-TH": "สีข้อความ",
         "tr-TR": "Metin Rengi",
-        "zh-CN": "文本颜色"
+        "zh-CN": "文本颜色",
+        "de-DE": "Text Color",
+        "ko-KR": "Text Color",
+        "zh-TW": "Text Color"
     },
     "Text ID": {
         "guid": "00000000BD4C",
@@ -2421,7 +3093,10 @@ const argNamesKw =
         "ru-RU": "ID текста",
         "th-TH": "ID ข้อความ",
         "tr-TR": "Metin Kimliği",
-        "zh-CN": "文本ID"
+        "zh-CN": "文本ID",
+        "de-DE": "Text ID",
+        "ko-KR": "Text ID",
+        "zh-TW": "Text ID"
     },
     "Text": {
         "guid": "00000001244A",
@@ -2436,7 +3111,10 @@ const argNamesKw =
         "ru-RU": "Текст",
         "th-TH": "ข้อความ",
         "tr-TR": "Metin",
-        "zh-CN": "文本"
+        "zh-CN": "文本",
+        "de-DE": "Text",
+        "ko-KR": "Text",
+        "zh-TW": "Text"
     },
     "Then": {
         "guid": "000000010BCB",
@@ -2445,7 +3123,16 @@ const argNamesKw =
         "ja-JP": "THEN",
         "pl-PL": "Wtedy",
         "ru-RU": "То",
-        "tr-TR": "İse"
+        "tr-TR": "İse",
+        "de-DE": "Then",
+        "es-ES": "Then",
+        "es-MX": "Then",
+        "it-IT": "Then",
+        "ko-KR": "Then",
+        "pt-BR": "Then",
+        "th-TH": "Then",
+        "zh-CN": "Then",
+        "zh-TW": "Then"
     },
     "Time": {
         "guid": "00000000B19B",
@@ -2460,7 +3147,10 @@ const argNamesKw =
         "ru-RU": "Время",
         "th-TH": "เวลา",
         "tr-TR": "Süre",
-        "zh-CN": "时间"
+        "zh-CN": "时间",
+        "de-DE": "Time",
+        "ko-KR": "Time",
+        "zh-TW": "Time"
     },
     "Timeout": {
         "guid": "0000000121CB",
@@ -2475,7 +3165,10 @@ const argNamesKw =
         "ru-RU": "Время ожидания",
         "th-TH": "หมดเวลา",
         "tr-TR": "Zaman Aşımı",
-        "zh-CN": "超时"
+        "zh-CN": "超时",
+        "de-DE": "Timeout",
+        "ko-KR": "Timeout",
+        "zh-TW": "Timeout"
     },
     "Transformation": {
         "guid": "00000000B341",
@@ -2488,7 +3181,12 @@ const argNamesKw =
         "pt-BR": "Transformação",
         "ru-RU": "Трансформация",
         "tr-TR": "Dönüşüm",
-        "zh-CN": "转换"
+        "zh-CN": "转换",
+        "de-DE": "Transformation",
+        "fr-FR": "Transformation",
+        "ko-KR": "Transformation",
+        "th-TH": "Transformation",
+        "zh-TW": "Transformation"
     },
     "Turn Rate": {
         "guid": "00000000BB1E",
@@ -2503,7 +3201,10 @@ const argNamesKw =
         "ru-RU": "Скорость поворота",
         "th-TH": "อัตราการหัน",
         "tr-TR": "Dönüş Oranı",
-        "zh-CN": "角速率"
+        "zh-CN": "角速率",
+        "de-DE": "Turn Rate",
+        "ko-KR": "Turn Rate",
+        "zh-TW": "Turn Rate"
     },
     "Turn Speed Percent": {
         "guid": "00000000C367",
@@ -2518,7 +3219,10 @@ const argNamesKw =
         "ru-RU": "Процент скорости повторота",
         "th-TH": "เปอร์เซ็นต์ความเร็วการหัน",
         "tr-TR": "Dönüş Hızı Yüzdesi",
-        "zh-CN": "转向速度百分比"
+        "zh-CN": "转向速度百分比",
+        "de-DE": "Turn Speed Percent",
+        "ko-KR": "Turn Speed Percent",
+        "zh-TW": "Turn Speed Percent"
     },
     "Type": {
         "guid": "00000000B8B0",
@@ -2532,7 +3236,11 @@ const argNamesKw =
         "ru-RU": "Тип",
         "th-TH": "ประเภท",
         "tr-TR": "Tür",
-        "zh-CN": "类型"
+        "zh-CN": "类型",
+        "de-DE": "Type",
+        "fr-FR": "Type",
+        "ko-KR": "Type",
+        "zh-TW": "Type"
     },
     "Value Rank": {
         "guid": "00000000B5BF",
@@ -2546,7 +3254,11 @@ const argNamesKw =
         "pt-BR": "Ranque de Valor",
         "ru-RU": "Ранг значения",
         "tr-TR": "Değer Derecesi",
-        "zh-CN": "数值排序"
+        "zh-CN": "数值排序",
+        "de-DE": "Value Rank",
+        "ko-KR": "Value Rank",
+        "th-TH": "Value Rank",
+        "zh-TW": "Value Rank"
     },
     "Value": {
         "guid": "00000000C335",
@@ -2560,7 +3272,11 @@ const argNamesKw =
         "pt-BR": "Valor",
         "ru-RU": "Значение",
         "tr-TR": "Değer",
-        "zh-CN": "值"
+        "zh-CN": "值",
+        "de-DE": "Value",
+        "ko-KR": "Value",
+        "th-TH": "Value",
+        "zh-TW": "Value"
     },
     "Variable": {
         "guid": "00000000B228",
@@ -2572,7 +3288,13 @@ const argNamesKw =
         "ru-RU": "Переменная",
         "th-TH": "ตัวแปร",
         "tr-TR": "Değişken",
-        "zh-CN": "变量"
+        "zh-CN": "变量",
+        "de-DE": "Variable",
+        "es-ES": "Variable",
+        "es-MX": "Variable",
+        "fr-FR": "Variable",
+        "ko-KR": "Variable",
+        "zh-TW": "Variable"
     },
     "Vector": {
         "guid": "00000000C815",
@@ -2583,7 +3305,14 @@ const argNamesKw =
         "pt-BR": "Vetor",
         "ru-RU": "Вектор",
         "tr-TR": "Vektör",
-        "zh-CN": "矢量"
+        "zh-CN": "矢量",
+        "de-DE": "Vector",
+        "es-ES": "Vector",
+        "es-MX": "Vector",
+        "ko-KR": "Vector",
+        "pl-PL": "Vector",
+        "th-TH": "Vector",
+        "zh-TW": "Vector"
     },
     "Vertical Angle": {
         "guid": "00000000BB2F",
@@ -2597,7 +3326,11 @@ const argNamesKw =
         "pt-BR": "Ângulo Vertical",
         "ru-RU": "Вертикальный угол",
         "tr-TR": "Dikey Açı",
-        "zh-CN": "垂直角度"
+        "zh-CN": "垂直角度",
+        "de-DE": "Vertical Angle",
+        "ko-KR": "Vertical Angle",
+        "th-TH": "Vertical Angle",
+        "zh-TW": "Vertical Angle"
     },
     "View Angle": {
         "guid": "00000000BF80",
@@ -2611,7 +3344,11 @@ const argNamesKw =
         "pt-BR": "Ângulo de Visão",
         "ru-RU": "Угол обзора",
         "tr-TR": "Görüş Açısı",
-        "zh-CN": "视角"
+        "zh-CN": "视角",
+        "de-DE": "View Angle",
+        "ko-KR": "View Angle",
+        "th-TH": "View Angle",
+        "zh-TW": "View Angle"
     },
     "Viewed Players": {
         "guid": "00000001125D",
@@ -2626,7 +3363,10 @@ const argNamesKw =
         "ru-RU": "Наблюдаемые игроки",
         "th-TH": "ผู้เล่นที่เห็น",
         "tr-TR": "Görüntülenen Oyuncular",
-        "zh-CN": "被观察的玩家"
+        "zh-CN": "被观察的玩家",
+        "de-DE": "Viewed Players",
+        "ko-KR": "Viewed Players",
+        "zh-TW": "Viewed Players"
     },
     "Viewing Players": {
         "guid": "00000001125A",
@@ -2641,7 +3381,10 @@ const argNamesKw =
         "ru-RU": "Наблюдающие игроки",
         "th-TH": "ผู้เล่นที่กำลังดู",
         "tr-TR": "Görüntüleyen Oyuncular",
-        "zh-CN": "观察玩家"
+        "zh-CN": "观察玩家",
+        "de-DE": "Viewing Players",
+        "ko-KR": "Viewing Players",
+        "zh-TW": "Viewing Players"
     },
     "Visibility": {
         "guid": "00000000B8C4",
@@ -2652,7 +3395,14 @@ const argNamesKw =
         "pt-BR": "Visível para",
         "th-TH": "มองเห็นได้สำหรับ",
         "tr-TR": "Görenler",
-        "zh-CN": "可见"
+        "zh-CN": "可见",
+        "de-DE": "Visible To",
+        "es-ES": "Visible To",
+        "it-IT": "Visible To",
+        "ko-KR": "Visible To",
+        "pl-PL": "Visible To",
+        "ru-RU": "Visible To",
+        "zh-TW": "Visible To"
     },
     "Visible To": {
         "guid": "00000000B8C4",
@@ -2663,7 +3413,14 @@ const argNamesKw =
         "pt-BR": "Visível para",
         "th-TH": "มองเห็นได้สำหรับ",
         "tr-TR": "Görenler",
-        "zh-CN": "可见"
+        "zh-CN": "可见",
+        "de-DE": "Visible To",
+        "es-ES": "Visible To",
+        "it-IT": "Visible To",
+        "ko-KR": "Visible To",
+        "pl-PL": "Visible To",
+        "ru-RU": "Visible To",
+        "zh-TW": "Visible To"
     },
     "Visible": {
         "guid": "000000011301",
@@ -2675,7 +3432,13 @@ const argNamesKw =
         "ru-RU": "Видимость",
         "th-TH": "มองเห็นได้",
         "tr-TR": "Görülebilir",
-        "zh-CN": "可见"
+        "zh-CN": "可见",
+        "de-DE": "Visible",
+        "es-ES": "Visible",
+        "es-MX": "Visible",
+        "fr-FR": "Visible",
+        "ko-KR": "Visible",
+        "zh-TW": "Visible"
     },
     "Wait Behavior": {
         "guid": "00000000B22F",
@@ -2690,7 +3453,10 @@ const argNamesKw =
         "ru-RU": "Поведение при ожидании",
         "th-TH": "พฤติกรรมการรอ",
         "tr-TR": "Bekleme",
-        "zh-CN": "等待行为"
+        "zh-CN": "等待行为",
+        "de-DE": "Wait Behavior",
+        "ko-KR": "Wait Behavior",
+        "zh-TW": "Wait Behavior"
     },
     "Weapon": {
         "guid": "000000011059",
@@ -2700,7 +3466,15 @@ const argNamesKw =
         "ja-JP": "武器",
         "pt-BR": "Arma",
         "tr-TR": "Silah",
-        "zh-CN": "武器"
+        "zh-CN": "武器",
+        "de-DE": "Weapon",
+        "es-ES": "Weapon",
+        "it-IT": "Weapon",
+        "ko-KR": "Weapon",
+        "pl-PL": "Weapon",
+        "ru-RU": "Weapon",
+        "th-TH": "Weapon",
+        "zh-TW": "Weapon"
     },
     "World Vector": {
         "guid": "00000000B343",
@@ -2714,7 +3488,11 @@ const argNamesKw =
         "pt-BR": "Vetor do Mundo",
         "ru-RU": "Вектор в игровом мире",
         "tr-TR": "Dünya Vektörü",
-        "zh-CN": "地图矢量"
+        "zh-CN": "地图矢量",
+        "de-DE": "World Vector",
+        "ko-KR": "World Vector",
+        "th-TH": "World Vector",
+        "zh-TW": "World Vector"
     },
     "X Axis Scalar": {
         "guid": "00000000CC2D",
@@ -2729,11 +3507,28 @@ const argNamesKw =
         "ru-RU": "Значение по оси X",
         "th-TH": "สเกลาร์แกน X",
         "tr-TR": "X Ekseni Skaleri",
-        "zh-CN": "X轴缩放"
+        "zh-CN": "X轴缩放",
+        "de-DE": "X Axis Scalar",
+        "ko-KR": "X Axis Scalar",
+        "zh-TW": "X Axis Scalar"
     },
     "X": {
         "guid": "00000000B2CB",
-        "en-US": "X"
+        "en-US": "X",
+        "de-DE": "X",
+        "es-ES": "X",
+        "es-MX": "X",
+        "fr-FR": "X",
+        "it-IT": "X",
+        "ja-JP": "X",
+        "ko-KR": "X",
+        "pl-PL": "X",
+        "pt-BR": "X",
+        "ru-RU": "X",
+        "th-TH": "X",
+        "tr-TR": "X",
+        "zh-CN": "X",
+        "zh-TW": "X"
     },
     "Y Axis Scalar": {
         "guid": "00000000CC2E",
@@ -2748,15 +3543,46 @@ const argNamesKw =
         "ru-RU": "Значение по оси Y",
         "th-TH": "สเกลาร์แกน Y",
         "tr-TR": "Y Ekseni Skaleri",
-        "zh-CN": "Y轴缩放"
+        "zh-CN": "Y轴缩放",
+        "de-DE": "Y Axis Scalar",
+        "ko-KR": "Y Axis Scalar",
+        "zh-TW": "Y Axis Scalar"
     },
     "Y": {
         "guid": "00000000B2CC",
-        "en-US": "Y"
+        "en-US": "Y",
+        "de-DE": "Y",
+        "es-ES": "Y",
+        "es-MX": "Y",
+        "fr-FR": "Y",
+        "it-IT": "Y",
+        "ja-JP": "Y",
+        "ko-KR": "Y",
+        "pl-PL": "Y",
+        "pt-BR": "Y",
+        "ru-RU": "Y",
+        "th-TH": "Y",
+        "tr-TR": "Y",
+        "zh-CN": "Y",
+        "zh-TW": "Y"
     },
     "Z": {
         "guid": "00000000B2CD",
-        "en-US": "Z"
+        "en-US": "Z",
+        "de-DE": "Z",
+        "es-ES": "Z",
+        "es-MX": "Z",
+        "fr-FR": "Z",
+        "it-IT": "Z",
+        "ja-JP": "Z",
+        "ko-KR": "Z",
+        "pl-PL": "Z",
+        "pt-BR": "Z",
+        "ru-RU": "Z",
+        "th-TH": "Z",
+        "tr-TR": "Z",
+        "zh-CN": "Z",
+        "zh-TW": "Z"
     }
 }
 //end-json
