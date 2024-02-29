@@ -37,7 +37,7 @@ rule "add":
     A = 1+2 #3
     A = vect(B,C,D)+vect(1,2,3)
     A = vect(1,2,3)+vect(4,5,6) #vect(5,7,9)
-    
+
 rule "subtract":
     A = B-C
     A = B-C-D
@@ -103,7 +103,7 @@ rule "power":
     A = (-1)**B #0
     A = 2**3 #8
     A = (-2)**3 #0
-    
+
 rule "assignment":
     @Event eachPlayer
     A = B
@@ -158,3 +158,7 @@ rule "ternaries":
     A = B if C else B #B
     A = B if not C else D #if-then-else(C, D, B)
     A = B if 0 != 0 else C if 0 != 0 else D #D
+
+rule "handling random values":
+    random.choice(getAllPlayers()).A += 1
+    random.choice(getAllPlayers()).A max= B

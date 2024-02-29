@@ -318,3 +318,13 @@ rule ("ternaries") {
     }
 }
 
+rule ("handling random values") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Player Variable(Random Value In Array(All Players(All Teams)), A, Add((Random Value In Array(All Players(All Teams))).A, True));
+        Set Player Variable(Random Value In Array(All Players(All Teams)), A, Max((Random Value In Array(All Players(All Teams))).A, Global.B));
+    }
+}
+
