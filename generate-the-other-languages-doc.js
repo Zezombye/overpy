@@ -1,11 +1,13 @@
 const assert = require("assert");
 const fs = require("fs");
 
+require('dotenv').config();
+
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
 
-var datatoolPath = "D:\\GR\\toolchain-release\\DataTool.exe"
-var overwatchPath = "D:\\GR\\Overwatch"
+var datatoolPath = process.env.DATATOOL_PATH ?? "%USERPROFILE%\\toolchain-release\\DataTool.exe"
+var overwatchPath = process.env.OVERWATCH_PATH ?? "C:\\Program Files (x86)\\Overwatch"
 var outputFolder = "strings"
 var guids;
 var guidToLocaleMap = new Map();
