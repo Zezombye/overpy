@@ -78,6 +78,7 @@ overpyFiles = [
 "compiler/functions/__lessThanOrEquals__.js",
 "compiler/functions/__map__.js",
 "compiler/functions/__mappedArray__.js",
+"compiler/functions/__modifyVar__.js",
 "compiler/functions/__modulo__.js",
 "compiler/functions/__multiply__.js",
 "compiler/functions/__negate__.js",
