@@ -1,5 +1,6 @@
 const assert = require("assert");
 const fs = require("fs");
+const { parseArgs } = require("util");
 
 require('dotenv').config();
 
@@ -16,7 +17,16 @@ var enUSFuzzyToGuidMap = new Map();
 var removeParentheses = true;
 var fuzzyMatch = false;
 
-async function generateStringFiles() {
+const args = parseArgs({
+    options: {
+        "regenerateStringsFile": {
+            type: "boolean",
+            default: false
+        }
+    }
+})
+
+async function generateStringsFile() {
     const { execSync } = require('child_process');
 
     let command = '"'+datatoolPath+'" "'+overwatchPath+'" dump-all-locale-strings --out='+outputFolder+'/strings.json';
@@ -152,7 +162,7 @@ function normalizeName(content) {
 
 
 
-// generateStringFiles();
+if (args.values.regenerateStringsFile) generateStringsFile();
 getGuids();
 replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");
