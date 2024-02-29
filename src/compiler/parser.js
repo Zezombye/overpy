@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -58,18 +58,18 @@ function parseLines(lines) {
     var result = [];
     var currentComments = [];
 
-    
+
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].tokens.length === 0) {
             error("Received an empty line");
         }
         fileStack = lines[i].tokens[0].fileStack;
-        
+
         if (lines[i].tokens[0].text.startsWith("#")) {
             currentComments.push(lines[i].tokens[0].text.substring(1));
             continue;
         }
-        
+
         //Check for end of line comment
         if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
             currentComments.push(lines[i].tokens[lines[i].tokens.length-1].text.substring(1));
@@ -104,7 +104,7 @@ function parseLines(lines) {
 			} else {
 				addSubroutine(lines[i].tokens[1].text, index, false);
             }
-            
+
         } else if (lines[i].tokens[0].text === "settings") {
 
             try {
@@ -119,7 +119,7 @@ function parseLines(lines) {
                 error(e);
             }
             compileCustomGameSettings(customGameSettings);
-        
+
         } else if (lines[i].tokens[0].text.startsWith("@")) {
 
             if (["@Condition", "@Name", "@NewPage"].includes(lines[i].tokens[0].text)) {
@@ -202,7 +202,7 @@ function parseLines(lines) {
             if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {
                 args = [parse(lineMembers[0].slice(1))];
             }
-            
+
             var currentLineIndent = lines[i].indentLevel;
             var childrenLines = [];
 
@@ -213,8 +213,8 @@ function parseLines(lines) {
                 childrenLines.push(new LogicalLine(currentLineIndent+1, lineMembers[1]));
                 //console.log(JSON.stringify(childrenLines, null, 4));
             }
-            
-            
+
+
             //Get children lines
             var nextIndentLevel = null;
             var j = i+1;
@@ -311,7 +311,7 @@ function parseLines(lines) {
                 children = parseLines(childrenLines);
             }
 
-            
+
             //console.log("i = "+i+", j = "+j);
             //console.log("lines = \n"+lines.join("\n"));
             fileStack = lines[i].tokens[0].fileStack;
@@ -322,10 +322,10 @@ function parseLines(lines) {
             if (instructionRuleAttributes !== null) {
                 instruction.ruleAttributes = instructionRuleAttributes;
             }
-            
+
             result.push(instruction);
             i += j-i-1;
-    
+
         } else {
             var currentLineAst = parse(lines[i].tokens);
             if (currentComments !== []) {
@@ -335,7 +335,7 @@ function parseLines(lines) {
         }
         currentComments = [];
     }
-    
+
     //console.log(result);
     return result;
 }
@@ -362,11 +362,11 @@ function commentArrayToString(comments) {
 }
 
 function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMinus=false) {
-    
+
     var operatorFound = null;
     var operatorPosition = -1;
 	var bracketsLevel = 0;
-	
+
 	if (!rtlPrecedence) {
 		var start = tokens.length-1;
 		var end = -1;
@@ -376,20 +376,20 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
 		var end = tokens.length;
 		var step = 1;
 	}
-	
+
     //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
-	
+
 	for (var i = start; i != end; i+=step) {
 
 		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
             bracketsLevel += step;
-            
+
 		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
             bracketsLevel -= step;
-            
+
 		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
-            
-            if (allowUnaryPlusOrMinus 
+
+            if (allowUnaryPlusOrMinus
                     || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i-1].text) || tokens[i-1].text === "not" && tokens[i].text === "in"))
                     || i === 0 && tokens[i].text === "not"
             ) {
@@ -403,11 +403,11 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
             }
 		}
 	}
-	
+
 	if (bracketsLevel !== 0) {
 		error("Lexer broke (bracket level is "+bracketsLevel+")");
     }
-    
+
     return {
         operatorFound,
         operatorPosition,
@@ -421,10 +421,10 @@ function parse(content, kwargs={}) {
 	} else if (content.length === 0) {
 		error("Content is empty (missing operand or argument?)");
     }
-    
+
     fileStack = content[0].fileStack;
     debug("Parsing '"+dispTokens(content)+"'");
-    
+
     //Handle the "del" directive.
     if (content[0].text === "del") {
         return new Ast("__del__", [parse(content.slice(1))]);
@@ -455,7 +455,7 @@ function parse(content, kwargs={}) {
     if (content.length === 2 && content[1].text === ":") {
         return new Ast(content[0].text, [], [], "Label");
     }
-    
+
     //Check for ++/--.
     if (content.length > 2 && content[content.length-1].text === "+" && content[content.length-2].text === "+") {
         var op1 = parse(content.slice(0, content.length-2));
@@ -491,13 +491,13 @@ function parse(content, kwargs={}) {
         //The operator is present; parse it
         var operator = operatorCheck.operatorFound;
         var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition+1, content.length)];
-        
+
         if (operator === "=") {
             return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
-            
+
         } else if (operator === "if") {
             //"true if condition else false"
-            
+
             var trueExpr = parse(operands[0]);
             var elseOperands = splitTokens(operands[1], "else", false, false);
             if (elseOperands.length !== 2) {
@@ -515,12 +515,12 @@ function parse(content, kwargs={}) {
             return new Ast("__"+operator+"__", [op1, op2]);
 
         } else if (operator === "not") {
-            
+
             var op1 = parse(operands[1]);
             return new Ast("__not__", [op1]);
 
         } else if (operator === "in") {
-            
+
             var isNotInOperator = false;
             if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "not") {
                 isNotInOperator = true;
@@ -579,7 +579,7 @@ function parse(content, kwargs={}) {
             return new Ast("__assignTo__", [variable, new Ast(opName, [variable, value])]);
 
         } else if (["+", "-"].includes(operator)) {
-            
+
             if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
                 //unary plus/minus
                 if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "**") {
@@ -614,15 +614,15 @@ function parse(content, kwargs={}) {
         }
         error("Unhandled operator "+operator);
     }
-    		
+
 	//Parse array
 	if (content[content.length-1].text === ']') {
 		var bracketPos = getTokenBracketPos(content);
-		
+
 		if (bracketPos.length === 2 && bracketPos[0] === 0) {
             //It is a literal array such as [1,2,3] or [i for i in A if x].
             return parseLiteralArray(content);
-            
+
 		} else {
             var array = parse(content.slice(0, bracketPos[bracketPos.length-2]));
             var value = parse(content.slice(bracketPos[bracketPos.length-2]+1, content.length-1))
@@ -634,14 +634,14 @@ function parse(content, kwargs={}) {
 	if (content[0].text === "{") {
 		return parseDictionary(content);
 	}
-		
+
 	//Check for "." operator, which has the highest precedence.
 	//It must be parsed from right to left.
 	var operands = splitTokens(content, ".", false, true);
 	if (operands.length === 2) {
 		return parseMember(operands[0], operands[1]);
     }
-    
+
 	//Check for parentheses
 	if (content[0].text === '(') {
 		var bracketPos = getTokenBracketPos(content);
@@ -685,7 +685,7 @@ function parse(content, kwargs={}) {
         }
         return new Ast(string, [], [], stringType);
 	}
-	
+
 	//Parse args and name of function.
 	var name = content[0].text;
 	var args = null;
@@ -705,7 +705,7 @@ function parse(content, kwargs={}) {
             result.originalName = name;
             return result;
         }
-        
+
 		//Check for current array index variable name
 		if (currentArrayIndexName === name) {
             var result = new Ast("__currentArrayIndex__");
@@ -723,7 +723,7 @@ function parse(content, kwargs={}) {
                 .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]))
             return new Ast("__enumType__", values, [], "Type");
         }
-        
+
         //Check for global variable
         if (isVarName(name, true)) {
             return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
@@ -738,9 +738,9 @@ function parse(content, kwargs={}) {
 
 		return new Ast(name);
     }
-    
+
 	debug("args: "+args.map(x => "'"+dispTokens(x)+"'").join(", "));
-	
+
 	//Special functions
 
 	if (name === "async") {
@@ -752,19 +752,19 @@ function parse(content, kwargs={}) {
 		if (!isSubroutineName(subroutineArg)) {
 			error("Expected subroutine name as first argument");
         }
-        
+
         return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])])
 	}
-		
+
 	if (name === "chase") {
-		
+
 		if (args.length !== 4) {
 			error("Function 'chase' takes 4 arguments, received "+args.length);
         }
         if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
 			error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
         }
-        
+
         if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
             error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '"+dispTokens(args[3])+"'");
         }
@@ -778,7 +778,7 @@ function parse(content, kwargs={}) {
 
         return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
 	}
-	
+
 	if (name === "raycast") {
 
         if (args.length === 5) {
@@ -786,21 +786,21 @@ function parse(content, kwargs={}) {
             //console.log(args[2].length)
 			if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
 				args[2] = args[2].slice(2);
-            } 
+            }
             if (args[3].length >= 2 && (args[3][0].text === "exclude" || args[3][1].text === "=")) {
 				args[3] = args[3].slice(2);
-            } 
+            }
             if (args[4].length >= 2 && (args[4][0].text === "includePlayerObjects" || args[4][1].text === "=")) {
 				args[4] = args[4].slice(2);
             }
 
             return new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
-            
+
         } else {
 			error("Function 'raycast' takes 5 arguments, received "+args.length);
         }
     }
-    	
+
 	if (name === "sorted") {
 
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
@@ -836,7 +836,7 @@ function parse(content, kwargs={}) {
             } else {
                 error("Expected 1 or 3 tokens after 'lambda', but got "+(lambdaArgs.length-1));
             }
-            
+
             var sortedCondition = parse(lambdaArgs[1]);
             currentArrayElementName = null;
             currentArrayIndexName = null;
@@ -861,7 +861,7 @@ function parse(content, kwargs={}) {
         return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
 
-		
+
 	//Check for subroutine call
 	if (args.length === 0) {
         if (isSubroutineName(name)) {
@@ -883,15 +883,15 @@ function parse(content, kwargs={}) {
     } else if (name === "horizontalAngleFromDirection") {
         name = "horizontalAngleOfDirection";
     }
-    
-    
+
+
     return new Ast(name, args.map(x => parse(x)));
 }
 
 function parseMember(object, member) {
 
 	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
-	
+
     if (member.length === 0) {
         error("Expected tokens after '.'");
     }
@@ -915,7 +915,7 @@ function parseMember(object, member) {
 		if (["x", "y", "z"].includes(name)) {
             return new Ast(`__${name}ComponentOf__`, [parse(object)]);
 		}
-        
+
         if (object.length === 1) {
 
             //Check for member of a user-declared enum
@@ -953,7 +953,7 @@ function parseMember(object, member) {
                 } else {
                     error("Unhandled member 'math."+name+"'");
                 }
-            
+
             //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
                 return new Ast("Vector."+name);
@@ -974,7 +974,7 @@ function parseMember(object, member) {
         return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
 
 	} else {
-	
+
 		if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
             if (args.length !== 1) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
@@ -991,63 +991,63 @@ function parseMember(object, member) {
             };
 
             return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
-			
+
         } else if (name === "last") {
             if (args.length !== 0) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
             }
             return new Ast("__lastOf__", [parse(object)]);
-        
+
         } else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
-			
+
 		} else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
             if (args.length !== 0) {
                 error("Function '"+name+"' takes no argument, received "+args.length);
             }
             return new Ast("__"+name+"__", [parse(object)]);
-			
+
 		} else if (object[0].text === "random" && object.length === 1) {
 			if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {
                     error("Function 'random."+name+"' takes 2 arguments, received "+args.length);
                 }
                 return new Ast("random."+name, [parse(args[0]), parse(args[1])]);
-                
+
 			} else if (name === "shuffle" || name === "choice") {
                 if (args.length !== 1) {
                     error("Function 'random."+name+"' takes 1 argument, received "+args.length);
                 }
                 return new Ast("random."+name, [parse(args[0])]);
-                
+
 			} else {
 				error("Unhandled member 'random."+name+"'");
 			}
-			
+
 		} else if (name === "replace") {
             if (args.length !== 2) {
                 error("Function 'replace' takes 2 arguments, received "+args.length);
             }
 			return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
-			
+
 		} else if (name === "reverse") {
             if (args.length !== 0) {
                 error("Function '"+name+"' takes 1 argument, received "+args.length);
             }
             return new Ast("__reverse__", [parse(object)]);
-        
+
         } else if (name === "slice") {
             if (args.length !== 2) {
                 error("Function 'slice' takes 2 arguments, received "+args.length);
             }
 			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
-			
+
 		} else if (name === "substring") {
             if (args.length !== 2) {
                 error("Function 'substring' takes 2 arguments, received "+args.length);
             }
 			return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
-			
+
 		} else {
             //Assume it is a player function
 
@@ -1060,13 +1060,13 @@ function parseMember(object, member) {
             return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
 		}
 	}
-	
+
 	error("This shouldn't happen");
 }
 
 //Parses a literal array such as [1,2,3] or [i for i in x if cond].
 function parseLiteralArray(content) {
-		
+
 	if (content.length === 2) {
         return new Ast("__emptyArray__");
     }
@@ -1075,7 +1075,7 @@ function parseLiteralArray(content) {
     var forOperands = splitTokens(content.slice(1, content.length-1), "for");
     if (forOperands.length === 2) {
 
-        
+
         var inOperands = splitTokens(forOperands[1], "in", false);
         if (inOperands.length !== 2) {
             error("Expected 'in' after 'for'");
@@ -1105,11 +1105,11 @@ function parseLiteralArray(content) {
             currentArrayIndexName = null;
 
             return new Ast("__mappedArray__", [parse(inOperands[1]), parsedMappingFunction]);
-            
+
         } else if (ifOperands.length === 2) {
             //Filtered array
             //Expect something like "[a for x in y if z == 2]"
-            
+
 
             if (inOperands[0].length === 1) {
                 //It is the current array element name
@@ -1137,7 +1137,7 @@ function parseLiteralArray(content) {
             error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
         }
     } else if (forOperands.length === 1) {
-        
+
         //Literal array with only values ([1,2,3])
         var args = splitTokens(content.slice(1, content.length-1), ",");
         //Allow trailing comma
@@ -1149,9 +1149,9 @@ function parseLiteralArray(content) {
     } else {
         error("Expected 0 or 1 'for', but found "+(forOperands.length-1))
     }
-	
+
 	error("This shouldn't happen");
-	
+
 }
 
 //Parses a dictionary.
@@ -1162,7 +1162,7 @@ function parseDictionary(content) {
     if (elems[elems.length-1].length === 0) {
         elems.pop();
     }
-    
+
     var astElems = [];
     for (var elem of elems) {
         var keyValue = splitTokens(elem, ":");
