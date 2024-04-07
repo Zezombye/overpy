@@ -547,7 +547,7 @@ function resolveMacro(macro, args=[], indentLevel) {
             try {
 				result = safeEval(scriptContent);
 				if (!result && result !== 0) {
-					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded no result");
+					error("Script '"+getFilenameFromPath(macro.scriptPath)+"' yielded an invalid result.\nPlease note that your script should yield a string as the final result.");
 				}
 				result = result.toString();
             } catch (e) {

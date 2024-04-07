@@ -28,9 +28,11 @@ const PAGE_SIZE = 100;
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 var evalVm = null
-var VM = null
+var getQuickJS = null
+var getQuickJSSync = null
+var shouldInterruptAfterDeadline = null
 if (!IS_IN_BROWSER) {
-	({VM} = require('vm2'));
+	({getQuickJS, getQuickJSSync, shouldInterruptAfterDeadline} = require('quickjs-emscripten'));
 }
 
 //Compilation variables - are reset at each compilation.
@@ -169,13 +171,6 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
-	if (!IS_IN_BROWSER) {
-		evalVm = new VM({
-			timeout: 1000,
-			allowAsync: false,
-			sandbox: {}
-		});
-	}
 }
 
 //Other constants

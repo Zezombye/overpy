@@ -1,24 +1,40 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function compile(content, language="en-US", _rootPath="") {
-	
+async function compile(content, language="en-US", _rootPath="") {
+	// Need to wait for QuickJS to load
+	await getQuickJS().then((QuickJS) => {
+		evalVm = QuickJS.newContext();
+
+		// Reimplement `console.log` for use in debugging
+		const logHandle = evalVm.newFunction("log", (...args) => {
+			const nativeArgs = args.map(evalVm.dump);
+			console.log(...nativeArgs);
+		});
+
+		const consoleHandle = evalVm.newObject();
+		evalVm.setProp(consoleHandle, "log", logHandle);
+		evalVm.setProp(evalVm.global, "console", consoleHandle);
+		consoleHandle.dispose();
+		logHandle.dispose();
+	});
+
 	if (DEBUG_MODE) {
 		var t0 = performance.now();
 	}

@@ -233,14 +233,14 @@ function activate(context) {
         }
     });
 
-    vscode.commands.registerCommand('overpy.compile', () => {
+    vscode.commands.registerCommand('overpy.compile', async () => {
         try {
 
             var rootPath = vscode.window.activeTextEditor.document.fileName;
             rootPath = rootPath.replace(/\\/g, "/");
             rootPath = rootPath.substring(0, rootPath.lastIndexOf('/')+1);
 
-            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
+            var compiledText = await overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
             //console.log("encountered warnings:");
             //console.log(compiledText.encounteredWarnings);
             for (var warning of compiledText.encounteredWarnings) {

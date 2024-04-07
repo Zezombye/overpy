@@ -107,7 +107,8 @@ function safeEval(str) {
 	if (IS_IN_BROWSER) {
 		return eval(str);
 	} else {
-		return evalVm.run(str);
+		const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(str)))
+		return result;
 	}
 }
 
