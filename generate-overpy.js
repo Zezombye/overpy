@@ -234,10 +234,10 @@ Workshop function | OverPy function
 `;
 
 var allFunctions = Object.assign({}, overpy.actionKw, overpy.valueFuncKw);
-var normalFunctions = Object.keys(allFunctions).filter(x => !x.startsWith("_")).sort((a,b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
+var normalFunctions = Object.keys(allFunctions).filter(x => !x.startsWith("_")).sort((a, b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
 
 for (var func of normalFunctions) {
-	functionsMd += allFunctions[func]["en-US"]+" | "+func;
+	functionsMd += allFunctions[func]["en-US"] + " | " + func;
 	if (allFunctions[func].args !== null) {
 		functionsMd += "()";
 	}
@@ -256,9 +256,9 @@ Workshop function | OverPy function
 ----------------- | ---------------
 `
 
-var playerFunctions = Object.keys(allFunctions).filter(x => x.startsWith("_&")).sort((a,b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
+var playerFunctions = Object.keys(allFunctions).filter(x => x.startsWith("_&")).sort((a, b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
 for (var func of playerFunctions) {
-	functionsMd += allFunctions[func]["en-US"]+" | \\<player\\>."+func.substring(2)+"()";
+	functionsMd += allFunctions[func]["en-US"] + " | \\<player\\>." + func.substring(2) + "()";
 	functionsMd += "\n";
 }
 
@@ -266,45 +266,46 @@ fs.writeFileSync("./FUNCTIONS.md", functionsMd);
 
 //Run the unit tests
 var oldcwd = process.cwd();
-var testsDir = process.cwd()+"/src/tests/";
+var testsDir = process.cwd() + "/src/tests/";
 process.chdir(testsDir);
 var unitTestFiles = fs.readdirSync(testsDir)
 	.filter((fileName) => fileName.endsWith("opy"));
 
-for (var unitTestFile of unitTestFiles) {
-    if (fs.statSync(testsDir+unitTestFile).isDirectory()) {
-        continue;
-    }
-    console.log("Checking unit test '"+unitTestFile+"'");
-    var unitTestContent = fs.readFileSync(testsDir + unitTestFile).toString();
-    var output = overpy.compile(unitTestContent).result;
+for (let unitTestFile of unitTestFiles) {
+	if (fs.statSync(testsDir + unitTestFile).isDirectory()) {
+		continue;
+	}
+	console.log("Checking unit test '" + unitTestFile + "'");
+	let unitTestContent = fs.readFileSync(testsDir + unitTestFile).toString();
+	let output = await overpy.compile(unitTestContent);
+	output = output.result;
 
-    var outputFile = testsDir+"/results/"+unitTestFile.replace(".opy", ".txt");
+	let outputFile = testsDir + "/results/" + unitTestFile.replace(".opy", ".txt");
 
-    if (fs.existsSync(outputFile)) {
-        var outputFileContent = fs.readFileSync(outputFile).toString();
-        if (outputFileContent !== output) {
-            console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
+	if (fs.existsSync(outputFile)) {
+		let outputFileContent = fs.readFileSync(outputFile).toString();
+		if (outputFileContent !== output) {
+			console.error("Error: output for unit test '" + unitTestFile + "' did not match result");
 			console.error("Diff:")
 
-			var diff = JsDiff.diffLines(outputFileContent, output);
-			for (var part of diff) {
+			let diff = JsDiff.diffLines(outputFileContent, output);
+			for (let part of diff) {
 				if (part.added) {
 
 					console.error("------ADDED--------------");
-					console.error(part.value.split("\n").map(x => "+ "+x).join("\n"));
+					console.error(part.value.split("\n").map(x => "+ " + x).join("\n"));
 				} else if (part.removed) {
 					console.error("------REMOVED--------------");
-					console.error(part.value.split("\n").map(x => "- "+x).join("\n"));
+					console.error(part.value.split("\n").map(x => "- " + x).join("\n"));
 				}
 			}
 
-            process.exit();
-        }
-    } else {
-        console.log("Result for unit test '"+unitTestFile+"' does not exist, creating it.");
-        fs.writeFileSync(outputFile, output);
-    }
+			process.exit();
+		}
+	} else {
+		console.log("Result for unit test '" + unitTestFile + "' does not exist, creating it.");
+		fs.writeFileSync(outputFile, output);
+	}
 }
 
 process.chdir(oldcwd);
@@ -322,7 +323,7 @@ var jsonSchema = {
 function generateJsonSchema(json, settings) {
 	if (typeof settings === "object") {
 		if (!("values" in settings)) {
-			throw new Error("Object '"+settings["en-US"]+"' has no values");
+			throw new Error("Object '" + settings["en-US"] + "' has no values");
 		}
 		if (typeof settings.values === "object") {
 			//It is an enum if none of the objects have a "values" field.
@@ -374,13 +375,13 @@ function generateJsonSchema(json, settings) {
 				json.maximum = settings.max;
 			}
 		} else {
-			throw new Error("Unhandled type: "+settings.values)
+			throw new Error("Unhandled type: " + settings.values)
 		}
 		if (settings.description) {
 			json.description = settings.description;
 		}
 	} else {
-		throw new Error("Unhandled value : "+settings)
+		throw new Error("Unhandled value : " + settings)
 	}
 }
 
@@ -493,7 +494,7 @@ for (var key in overpy.customGameSettingsSchema) {
 	} else if (key === "extensions") {
 		//do not put this key into the schema
 	} else {
-		throw new Error("unknown key "+key);
+		throw new Error("unknown key " + key);
 	}
 }
 

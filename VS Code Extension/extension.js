@@ -67,7 +67,6 @@ rule "Display position":
 /**
  * @param {vscode.ExtensionContext} context
  */
-
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 const stringEntities = generateStringEntitiesDescription(JSON.parse(JSON.stringify(overpy.opyStringEntities)));
 

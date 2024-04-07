@@ -30,7 +30,7 @@
 
 </style>
 
-<script src="../../../VS Code Extension/overpy.js"></script>
+<script src="../../../VS Code Extension/overpy.mjs"></script>
 
 <script>
 
@@ -47,12 +47,12 @@
             }
         });
     }
-    
+
     function distance(a, b) {
         return Math.sqrt(Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2) + Math.pow(a.z-b.z, 2));
     }
 
-    
+
     var Graph = (function (undefined) {
 
         var extractKeys = function (obj) {
@@ -192,7 +192,7 @@
         try {
             var input = document.getElementById("input").value;
             var language = document.getElementById("languageInput").value;
-            var decompiled = decompileAllRules(input, language);            
+            var decompiled = decompileAllRules(input, language);
 
             var nodePositions = eval(decompiled.match(/nodePositions = (\[.*?\])\n/)[1]);
             var nodeConnections = eval(decompiled.match(/nodeConnections = (\[.*?\])\n/)[1]);
@@ -249,9 +249,9 @@
                 alphabet.push(String.fromCharCode(i));
             }
 
-            
+
             var graph = new Graph(map);
-            
+
             var data = [];
             for (var i = 0; i < nodePositions.length; i++) {
                 nodeData = []
@@ -302,7 +302,7 @@
 
             var generateForOverpy = document.getElementById("generateForOverpy").checked;
             var generateWholeGamemode = document.getElementById("generateWholeGamemode").checked;
-            
+
             if (generateWholeGamemode) {
                 var template = await fetch("https://raw.githubusercontent.com/Zezombye/overpy/master/modules/bots/example_gamemode.opy");
                 template = await template.text();
@@ -330,7 +330,7 @@
                 }
             }
 
-            
+
 
             document.getElementById("output").value = result;
 
