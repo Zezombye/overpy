@@ -1,174 +1,173 @@
-const fs = require("fs");
-const JsDiff = require("diff");
-const UglifyJS = require("uglify-js");
+import fs from "fs";
+import * as JsDiff from "diff";
+import { minify_sync } from "terser";
+import * as esbuild from "esbuild";
 
 //import overpy files
-overpyFiles = [
+let overpyFiles = [
+	"utils/other.js",
+	"data/opy/stringEntities.js",
+	"data/opy/constants.js",
+	"data/opy/modules.js",
+	"data/opy/internalFunctions.js",
+	"data/opy/functions.js",
+	"data/opy/keywords.js",
+	"data/opy/memberFunctions.js",
+	"data/actions.js",
+	"data/values.js",
+	"data/maps.js",
+	"data/heroes.js",
+	"data/gamemodes.js",
+	"data/constants.js",
+	"data/other.js",
+	"data/ui.js",
+	"data/customGameSettings.js",
+	"data/opy/preprocessing.js",
+	"data/opy/annotations.js",
+	"globalVars.js",
+	"utils/logging.js",
+	"utils/ast.js",
+	"utils/types.js",
+	"utils/compilation.js",
+	"utils/decompilation.js",
+	"utils/file.js",
+	"utils/optimization.js",
+	"utils/strings.js",
+	"utils/translation.js",
+	"utils/varNames.js",
+	"utils/tokens.js",
+	"decompiler/decompileTest.js",
+	"decompiler/workshopToAst.js",
+	"decompiler/astToOpy.js",
+	"decompiler/decompiler.js",
+	"compiler/obfuscation.js",
 
-
-"utils/other.js",
-"data/opy/stringEntities.js",
-"data/opy/constants.js",
-"data/opy/modules.js",
-"data/opy/internalFunctions.js",
-"data/opy/functions.js",
-"data/opy/keywords.js",
-"data/opy/memberFunctions.js",
-"data/actions.js",
-"data/values.js",
-"data/maps.js",
-"data/heroes.js",
-"data/gamemodes.js",
-"data/constants.js",
-"data/other.js",
-"data/ui.js",
-"data/customGameSettings.js",
-"data/opy/preprocessing.js",
-"data/opy/annotations.js",
-"globalVars.js",
-"utils/logging.js",
-"utils/ast.js",
-"utils/types.js",
-"utils/compilation.js",
-"utils/decompilation.js",
-"utils/file.js",
-"utils/optimization.js",
-"utils/strings.js",
-"utils/translation.js",
-"utils/varNames.js",
-"utils/tokens.js",
-"decompiler/decompileTest.js",
-"decompiler/workshopToAst.js",
-"decompiler/astToOpy.js",
-"decompiler/decompiler.js",
-"compiler/obfuscation.js",
-
-"compiler/functions/__add__.js",
-"compiler/functions/__and__.js",
-"compiler/functions/__append__.js",
-"compiler/functions/__array__.js",
-"compiler/functions/__arraySlice__.js",
-"compiler/functions/__assignTo__.js",
-"compiler/functions/__button__.js",
-"compiler/functions/__chaseAtRate__.js",
-"compiler/functions/__chaseOverTime__.js",
-"compiler/functions/__color__.js",
-"compiler/functions/__del__.js",
-"compiler/functions/__dict__.js",
-"compiler/functions/__distanceTo__.js",
-"compiler/functions/__divide__.js",
-"compiler/functions/__doWhile__.js",
-"compiler/functions/__elif__.js",
-"compiler/functions/__else__.js",
-"compiler/functions/__equals__.js",
-"compiler/functions/__for__.js",
-"compiler/functions/__format__.js",
-"compiler/functions/__filteredArray__.js",
-"compiler/functions/__gamemode__.js",
-"compiler/functions/__globalVar__.js",
-"compiler/functions/__greaterThan__.js",
-"compiler/functions/__greaterThanOrEquals__.js",
-"compiler/functions/__hero__.js",
-"compiler/functions/__if__.js",
-"compiler/functions/__ifThenElse__.js",
-"compiler/functions/__indexOfArrayValue__.js",
-"compiler/functions/__inequals__.js",
-"compiler/functions/__lastOf__.js",
-"compiler/functions/__lessThan__.js",
-"compiler/functions/__lessThanOrEquals__.js",
-"compiler/functions/__map__.js",
-"compiler/functions/__mappedArray__.js",
-"compiler/functions/__modifyVar__.js",
-"compiler/functions/__modulo__.js",
-"compiler/functions/__multiply__.js",
-"compiler/functions/__negate__.js",
-"compiler/functions/__number__.js",
-"compiler/functions/__not__.js",
-"compiler/functions/__or__.js",
-"compiler/functions/__playerVar__.js",
-"compiler/functions/__raiseToPower__.js",
-"compiler/functions/__remove__.js",
-"compiler/functions/__reverse__.js",
-"compiler/functions/__rule__.js",
-"compiler/functions/__skip__.js",
-"compiler/functions/__subtract__.js",
-"compiler/functions/__switch__.js",
-"compiler/functions/__team__.js",
-"compiler/functions/__valueInArray__.js",
-"compiler/functions/__wait__.js",
-"compiler/functions/__while__.js",
-"compiler/functions/__xComponentOf__.js",
-"compiler/functions/__yComponentOf__.js",
-"compiler/functions/__zComponentOf__.js",
-"compiler/functions/_&addToScore.js",
-"compiler/functions/_&setStatusEffect.js",
-"compiler/functions/_&setUltCharge.js",
-"compiler/functions/_&toArray.js",
-"compiler/functions/abs.js",
-"compiler/functions/acos.js",
-"compiler/functions/acosDeg.js",
-"compiler/functions/addToTeamScore.js",
-"compiler/functions/all.js",
-"compiler/functions/any.js",
-"compiler/functions/asin.js",
-"compiler/functions/asinDeg.js",
-"compiler/functions/atan2.js",
-"compiler/functions/atan2Deg.js",
-"compiler/functions/attacker.js",
-"compiler/functions/break.js",
-"compiler/functions/ceil.js",
-"compiler/functions/continue.js",
-"compiler/functions/cos.js",
-"compiler/functions/cosDeg.js",
-"compiler/functions/createBeam.js",
-"compiler/functions/createEffect.js",
-"compiler/functions/createWorkshopSetting.js",
-"compiler/functions/crossProduct.js",
-"compiler/functions/directionTowards.js",
-"compiler/functions/disableInspector.js",
-"compiler/functions/distance.js",
-"compiler/functions/dotProduct.js",
-"compiler/functions/enableInspector.js",
-"compiler/functions/eventPlayer.js",
-"compiler/functions/floor.js",
-"compiler/functions/getAllPlayers.js",
-"compiler/functions/getOppositeTeam.js",
-"compiler/functions/healer.js",
-"compiler/functions/healee.js",
-"compiler/functions/len.js",
-"compiler/functions/lineIntersectsSphere.js",
-"compiler/functions/log.js",
-"compiler/functions/max.js",
-"compiler/functions/min.js",
-"compiler/functions/normalize.js",
-"compiler/functions/playEffect.js",
-"compiler/functions/print.js",
-"compiler/functions/printLog.js",
-"compiler/functions/round.js",
-"compiler/functions/sin.js",
-"compiler/functions/sinDeg.js",
-"compiler/functions/sorted.js",
-"compiler/functions/sqrt.js",
-"compiler/functions/tan.js",
-"compiler/functions/tanDeg.js",
-"compiler/functions/vect.js",
-"compiler/functions/vectorTowards.js",
-"compiler/functions/victim.js",
-"compiler/functions/wait.js",
-"compiler/functions/waitUntil.js",
-"compiler/tokenizer.js",
-"compiler/astParser.js",
-"compiler/astToWorkshop.js",
-"compiler/parser.js",
-"compiler/compiler.js",
-"data/localizedStrings.js",
+	"compiler/functions/__add__.js",
+	"compiler/functions/__and__.js",
+	"compiler/functions/__append__.js",
+	"compiler/functions/__array__.js",
+	"compiler/functions/__arraySlice__.js",
+	"compiler/functions/__assignTo__.js",
+	"compiler/functions/__button__.js",
+	"compiler/functions/__chaseAtRate__.js",
+	"compiler/functions/__chaseOverTime__.js",
+	"compiler/functions/__color__.js",
+	"compiler/functions/__del__.js",
+	"compiler/functions/__dict__.js",
+	"compiler/functions/__distanceTo__.js",
+	"compiler/functions/__divide__.js",
+	"compiler/functions/__doWhile__.js",
+	"compiler/functions/__elif__.js",
+	"compiler/functions/__else__.js",
+	"compiler/functions/__equals__.js",
+	"compiler/functions/__for__.js",
+	"compiler/functions/__format__.js",
+	"compiler/functions/__filteredArray__.js",
+	"compiler/functions/__gamemode__.js",
+	"compiler/functions/__globalVar__.js",
+	"compiler/functions/__greaterThan__.js",
+	"compiler/functions/__greaterThanOrEquals__.js",
+	"compiler/functions/__hero__.js",
+	"compiler/functions/__if__.js",
+	"compiler/functions/__ifThenElse__.js",
+	"compiler/functions/__indexOfArrayValue__.js",
+	"compiler/functions/__inequals__.js",
+	"compiler/functions/__lastOf__.js",
+	"compiler/functions/__lessThan__.js",
+	"compiler/functions/__lessThanOrEquals__.js",
+	"compiler/functions/__map__.js",
+	"compiler/functions/__mappedArray__.js",
+	"compiler/functions/__modifyVar__.js",
+	"compiler/functions/__modulo__.js",
+	"compiler/functions/__multiply__.js",
+	"compiler/functions/__negate__.js",
+	"compiler/functions/__number__.js",
+	"compiler/functions/__not__.js",
+	"compiler/functions/__or__.js",
+	"compiler/functions/__playerVar__.js",
+	"compiler/functions/__raiseToPower__.js",
+	"compiler/functions/__remove__.js",
+	"compiler/functions/__reverse__.js",
+	"compiler/functions/__rule__.js",
+	"compiler/functions/__skip__.js",
+	"compiler/functions/__subtract__.js",
+	"compiler/functions/__switch__.js",
+	"compiler/functions/__team__.js",
+	"compiler/functions/__valueInArray__.js",
+	"compiler/functions/__wait__.js",
+	"compiler/functions/__while__.js",
+	"compiler/functions/__xComponentOf__.js",
+	"compiler/functions/__yComponentOf__.js",
+	"compiler/functions/__zComponentOf__.js",
+	"compiler/functions/_&addToScore.js",
+	"compiler/functions/_&setStatusEffect.js",
+	"compiler/functions/_&setUltCharge.js",
+	"compiler/functions/_&toArray.js",
+	"compiler/functions/abs.js",
+	"compiler/functions/acos.js",
+	"compiler/functions/acosDeg.js",
+	"compiler/functions/addToTeamScore.js",
+	"compiler/functions/all.js",
+	"compiler/functions/any.js",
+	"compiler/functions/asin.js",
+	"compiler/functions/asinDeg.js",
+	"compiler/functions/atan2.js",
+	"compiler/functions/atan2Deg.js",
+	"compiler/functions/attacker.js",
+	"compiler/functions/break.js",
+	"compiler/functions/ceil.js",
+	"compiler/functions/continue.js",
+	"compiler/functions/cos.js",
+	"compiler/functions/cosDeg.js",
+	"compiler/functions/createBeam.js",
+	"compiler/functions/createEffect.js",
+	"compiler/functions/createWorkshopSetting.js",
+	"compiler/functions/crossProduct.js",
+	"compiler/functions/directionTowards.js",
+	"compiler/functions/disableInspector.js",
+	"compiler/functions/distance.js",
+	"compiler/functions/dotProduct.js",
+	"compiler/functions/enableInspector.js",
+	"compiler/functions/eventPlayer.js",
+	"compiler/functions/floor.js",
+	"compiler/functions/getAllPlayers.js",
+	"compiler/functions/getOppositeTeam.js",
+	"compiler/functions/healer.js",
+	"compiler/functions/healee.js",
+	"compiler/functions/len.js",
+	"compiler/functions/lineIntersectsSphere.js",
+	"compiler/functions/log.js",
+	"compiler/functions/max.js",
+	"compiler/functions/min.js",
+	"compiler/functions/normalize.js",
+	"compiler/functions/playEffect.js",
+	"compiler/functions/print.js",
+	"compiler/functions/printLog.js",
+	"compiler/functions/round.js",
+	"compiler/functions/sin.js",
+	"compiler/functions/sinDeg.js",
+	"compiler/functions/sorted.js",
+	"compiler/functions/sqrt.js",
+	"compiler/functions/tan.js",
+	"compiler/functions/tanDeg.js",
+	"compiler/functions/vect.js",
+	"compiler/functions/vectorTowards.js",
+	"compiler/functions/victim.js",
+	"compiler/functions/wait.js",
+	"compiler/functions/waitUntil.js",
+	"compiler/tokenizer.js",
+	"compiler/astParser.js",
+	"compiler/astToWorkshop.js",
+	"compiler/parser.js",
+	"compiler/compiler.js",
+	"data/localizedStrings.js",
 
 
 ];
 
-var overpyCode = "";
-for (file of overpyFiles) {
-	overpyCode += fs.readFileSync(process.cwd()+"/src/"+file).toString()
+let overpyCode = "";
+for (let file of overpyFiles) {
+	overpyCode += fs.readFileSync(process.cwd() + "/src/" + file).toString()
 }
 
 overpyCode += `
@@ -207,16 +206,22 @@ if (typeof module !== "undefined") {
 }
 `
 
-fs.writeFileSync("./VS Code Extension/overpy.js", overpyCode);
+const overpyCJSCode = esbuild.transformSync(overpyCode)
+if (!overpyCJSCode.code) {
+	console.error("Failed to transpile OverPy's code!");
+	process.exit(1);
+}
+fs.writeFileSync("./VS Code Extension/overpy.js", overpyCJSCode.code);
 
-var minifiedCode = UglifyJS.minify(overpyCode).code;
-fs.writeFileSync("./VS Code Extension/overpy.min.js", minifiedCode);
+let minifyResult = minify_sync(overpyCJSCode.code).code;
+fs.writeFileSync("./VS Code Extension/overpy.min.js", minifyResult);
 
 //fs.writeFileSync("./bot/overpy.js", overpyCode);
 
 //Generate functions.md
 
-const overpy = require("./VS Code Extension/overpy.js");
+// const overpy = require("./VS Code Extension/overpy.js");
+const overpy = await import("./VS Code Extension/overpy.js");
 
 var functionsMd = `
 
@@ -229,10 +234,10 @@ Workshop function | OverPy function
 `;
 
 var allFunctions = Object.assign({}, overpy.actionKw, overpy.valueFuncKw);
-var normalFunctions = Object.keys(allFunctions).filter(x => !x.startsWith("_")).sort((a,b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
+var normalFunctions = Object.keys(allFunctions).filter(x => !x.startsWith("_")).sort((a, b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
 
 for (var func of normalFunctions) {
-	functionsMd += allFunctions[func]["en-US"]+" | "+func;
+	functionsMd += allFunctions[func]["en-US"] + " | " + func;
 	if (allFunctions[func].args !== null) {
 		functionsMd += "()";
 	}
@@ -251,9 +256,9 @@ Workshop function | OverPy function
 ----------------- | ---------------
 `
 
-var playerFunctions = Object.keys(allFunctions).filter(x => x.startsWith("_&")).sort((a,b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
+var playerFunctions = Object.keys(allFunctions).filter(x => x.startsWith("_&")).sort((a, b) => allFunctions[a]["en-US"].localeCompare(allFunctions[b]["en-US"]));
 for (var func of playerFunctions) {
-	functionsMd += allFunctions[func]["en-US"]+" | \\<player\\>."+func.substring(2)+"()";
+	functionsMd += allFunctions[func]["en-US"] + " | \\<player\\>." + func.substring(2) + "()";
 	functionsMd += "\n";
 }
 
@@ -261,45 +266,46 @@ fs.writeFileSync("./FUNCTIONS.md", functionsMd);
 
 //Run the unit tests
 var oldcwd = process.cwd();
-var testsDir = process.cwd()+"/src/tests/";
+var testsDir = process.cwd() + "/src/tests/";
 process.chdir(testsDir);
 var unitTestFiles = fs.readdirSync(testsDir)
 	.filter((fileName) => fileName.endsWith("opy"));
 
-for (var unitTestFile of unitTestFiles) {
-    if (fs.statSync(testsDir+unitTestFile).isDirectory()) {
-        continue;
-    }
-    console.log("Checking unit test '"+unitTestFile+"'");
-    var unitTestContent = fs.readFileSync(testsDir + unitTestFile).toString();
-    var output = overpy.compile(unitTestContent).result;
+for (let unitTestFile of unitTestFiles) {
+	if (fs.statSync(testsDir + unitTestFile).isDirectory()) {
+		continue;
+	}
+	console.log("Checking unit test '" + unitTestFile + "'");
+	let unitTestContent = fs.readFileSync(testsDir + unitTestFile).toString();
+	let output = await overpy.compile(unitTestContent);
+	output = output.result;
 
-    var outputFile = testsDir+"/results/"+unitTestFile.replace(".opy", ".txt");
+	let outputFile = testsDir + "/results/" + unitTestFile.replace(".opy", ".txt");
 
-    if (fs.existsSync(outputFile)) {
-        var outputFileContent = fs.readFileSync(outputFile).toString();
-        if (outputFileContent !== output) {
-            console.error("Error: output for unit test '"+unitTestFile+"' did not match result");
+	if (fs.existsSync(outputFile)) {
+		let outputFileContent = fs.readFileSync(outputFile).toString();
+		if (outputFileContent !== output) {
+			console.error("Error: output for unit test '" + unitTestFile + "' did not match result");
 			console.error("Diff:")
 
-			var diff = JsDiff.diffLines(outputFileContent, output);
-			for (var part of diff) {
+			let diff = JsDiff.diffLines(outputFileContent, output);
+			for (let part of diff) {
 				if (part.added) {
 
 					console.error("------ADDED--------------");
-					console.error(part.value.split("\n").map(x => "+ "+x).join("\n"));
+					console.error(part.value.split("\n").map(x => "+ " + x).join("\n"));
 				} else if (part.removed) {
 					console.error("------REMOVED--------------");
-					console.error(part.value.split("\n").map(x => "- "+x).join("\n"));
+					console.error(part.value.split("\n").map(x => "- " + x).join("\n"));
 				}
 			}
 
-            process.exit();
-        }
-    } else {
-        console.log("Result for unit test '"+unitTestFile+"' does not exist, creating it.");
-        fs.writeFileSync(outputFile, output);
-    }
+			process.exit();
+		}
+	} else {
+		console.log("Result for unit test '" + unitTestFile + "' does not exist, creating it.");
+		fs.writeFileSync(outputFile, output);
+	}
 }
 
 process.chdir(oldcwd);
@@ -317,7 +323,7 @@ var jsonSchema = {
 function generateJsonSchema(json, settings) {
 	if (typeof settings === "object") {
 		if (!("values" in settings)) {
-			throw new Error("Object '"+settings["en-US"]+"' has no values");
+			throw new Error("Object '" + settings["en-US"] + "' has no values");
 		}
 		if (typeof settings.values === "object") {
 			//It is an enum if none of the objects have a "values" field.
@@ -369,13 +375,13 @@ function generateJsonSchema(json, settings) {
 				json.maximum = settings.max;
 			}
 		} else {
-			throw new Error("Unhandled type: "+settings.values)
+			throw new Error("Unhandled type: " + settings.values)
 		}
 		if (settings.description) {
 			json.description = settings.description;
 		}
 	} else {
-		throw new Error("Unhandled value : "+settings)
+		throw new Error("Unhandled value : " + settings)
 	}
 }
 
@@ -488,7 +494,7 @@ for (var key in overpy.customGameSettingsSchema) {
 	} else if (key === "extensions") {
 		//do not put this key into the schema
 	} else {
-		throw new Error("unknown key "+key);
+		throw new Error("unknown key " + key);
 	}
 }
 

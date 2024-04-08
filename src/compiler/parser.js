@@ -110,9 +110,9 @@ function parseLines(lines) {
             try {
                 if (lines[i].tokens.length === 2) {
                     var path = getFilePaths(lines[i].tokens[1].text)[0];
-                    var customGameSettings = safeEval("("+getFileContent(path)+")");
+                    var customGameSettings = JSON.parse(safeEval("JSON.stringify("+getFileContent(path)+")"));
                 } else {
-                    var customGameSettings = safeEval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                    var customGameSettings = JSON.parse(safeEval("JSON.stringify("+lines[i].tokens.slice(1).map(x => x.text).join("")+")"));
 
                 }
             } catch (e) {

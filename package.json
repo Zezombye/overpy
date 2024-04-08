@@ -2,6 +2,10 @@
   "dependencies": {
     "diff": "^5.1.0",
     "dotenv": "^16.4.5",
-    "uglify-js": "^3.17.4"
+    "terser": "^5.30.3"
+  },
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "0.20.2"
   }
 }
