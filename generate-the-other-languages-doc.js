@@ -1,9 +1,8 @@
-import assert from "assert";
-import fs from "fs";
-import { parseArgs } from "util";
+const assert = require("assert");
+const fs = require("fs");
+const { parseArgs } = require("util");
 
-import dotenv from "dotenv";
-dotenv.config();
+require('dotenv').config();
 
 var docFolder = "./src/data/"
 var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
@@ -28,7 +27,7 @@ const args = parseArgs({
 })
 
 async function generateStringsFile() {
-    const { execSync } = await import('child_process');
+    const { execSync } = require('child_process');
 
     let command = '"'+datatoolPath+'" "'+overwatchPath+'" dump-all-locale-strings --out='+outputFolder+'/strings.json';
     console.log("Extracting all locale strings with DataTool...");
@@ -42,7 +41,7 @@ async function generateStringsFile() {
 
 function getGuids() {
     console.log("Generating GUID mappings...");
-    let guids = JSON.parse(fs.readFileSync(outputFolder+"/strings.json"));
+    guids = JSON.parse(fs.readFileSync(outputFolder+"/strings.json"));
 
     // Precompute some mappings to save time later at cost of space complexity
     for (let guidGlob of Object.entries(guids)) {
@@ -73,7 +72,7 @@ function replaceJsonObjectsInFile(path) {
     for (let line of content.split(/\r?\n/g)) {
         if (line.trim() === "//end-json") {
             isInJsonObject = false;
-            let tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
+            tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
             result += JSON.stringify(tmpObj, null, 4)+"\n";
             currentJsonStr = "";
         }
@@ -105,7 +104,6 @@ function iterateOnObject(content) {
         if (typeof content[key] === "object" && content[key] !== null) {
             //Skip the comparison operators as they must not be translated.
             if (key !== "__Operator__" && key !== "descriptionLocalized") {
-                let oldRemoveParentheses;
                 if (key === "nameLocalized" || key === "descriptionLocalized") {
                     oldRemoveParentheses = removeParentheses;
                     removeParentheses = false;
@@ -164,7 +162,7 @@ function normalizeName(content) {
 
 
 
-if (args.values.regenerateStringsFile) await generateStringsFile();
+if (args.values.regenerateStringsFile) generateStringsFile();
 getGuids();
 replaceJsonObjectsInFile(docFolder+"actions.js");
 replaceJsonObjectsInFile(docFolder+"values.js");

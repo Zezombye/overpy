@@ -1,40 +1,24 @@
-/*
+/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-async function compile(content, language="en-US", _rootPath="") {
-	// Need to wait for QuickJS to load
-	await getQuickJS().then((QuickJS) => {
-		evalVm = QuickJS.newContext();
-
-		// Reimplement `console.log` for use in debugging
-		const logHandle = evalVm.newFunction("log", (...args) => {
-			const nativeArgs = args.map(evalVm.dump);
-			console.log(...nativeArgs);
-		});
-
-		const consoleHandle = evalVm.newObject();
-		evalVm.setProp(consoleHandle, "log", logHandle);
-		evalVm.setProp(evalVm.global, "console", consoleHandle);
-		consoleHandle.dispose();
-		logHandle.dispose();
-	});
-
+function compile(content, language="en-US", _rootPath="") {
+	
 	if (DEBUG_MODE) {
 		var t0 = performance.now();
 	}
@@ -55,7 +39,7 @@ async function compile(content, language="en-US", _rootPath="") {
 		importedFiles.push(rootPath);
 	}
 
-
+	
     fileStack = [{
         "name": "<main>",
         "currentLineNb": 1,
@@ -70,10 +54,10 @@ async function compile(content, language="en-US", _rootPath="") {
 		addVariable("__obfuscationConstants__", true, 127);
 		//globalInitDirectives.push(obfuscationConstantsAst);
 	}
-
+	
 	var astRules = parseLines(lines);
 	astRules.unshift(...getInitDirectivesRules());
-
+	
 	if (DEBUG_MODE) {
 		for (var elem of astRules) {
 			console.log(astToString(elem));
@@ -87,8 +71,8 @@ async function compile(content, language="en-US", _rootPath="") {
 	for (var ext of activatedExtensions) {
 		spentExtensionPoints += customGameSettingsSchema.extensions.values[ext].points;
 	}
-
-
+	
+    
 	if (DEBUG_MODE) {
 		var t1 = performance.now();
 		console.log("Compilation time: "+(t1-t0)+"ms");
@@ -109,7 +93,7 @@ async function compile(content, language="en-US", _rootPath="") {
 }
 
 function compileRules(astRules) {
-
+	
     var parsedAstRules = parseAstRules(astRules);
 
 	if (DEBUG_MODE) {
@@ -194,7 +178,7 @@ function generateVariablesField() {
 			if (varNames.includes(variable.name)) {
 				error("Duplicate declaration of "+varType+" variable '"+variable.name+"'");
 			}
-
+			
 			if (outputVariables[variable.index] !== undefined) {
 				error("Duplicate use of index "+variable.index+" for "+varType+" variables '"+variable.name+"' and '"+outputVariables[variable.index]+"'");
 			}
@@ -210,7 +194,7 @@ function generateVariablesField() {
 		}
 
 		//console.log(outputVariables);
-
+		
 		for (var variable of unassignedVariables) {
 			var foundSpot = false;
 			for (var i = 0; i < 128; i++) {
@@ -271,7 +255,7 @@ function generateSubroutinesField() {
 		if (subNames.includes(subroutine.name)) {
 			error("Duplicate declaration of subroutine '"+subroutine.name+"'");
 		}
-
+		
 		if (outputSubroutines[subroutine.index] !== undefined) {
 			error("Duplicate use of index "+subroutine.index+" for subroutines '"+subroutine.name+"' and '"+outputSubroutines[subroutine.index]+"'");
 		}
@@ -316,7 +300,7 @@ function generateSubroutinesField() {
 	if (result) {
 		result = tows("__subroutines__", ruleKw)+" {\n" + result + "}\n";
 	}
-
+	
 	return result;
 
 }
@@ -330,7 +314,7 @@ function compileCustomGameSettings(customGameSettings) {
 	if (compiledCustomGameSettings !== "") {
 		error("Custom game settings have already been declared");
 	}
-
+	
 	var result = {};
 	if (!("gamemodes" in customGameSettings)) {
 		error("Custom game settings must specify a gamemode");
@@ -363,7 +347,7 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 					}
 				}
-
+				
 				if ("team2Slots" in customGameSettings["lobby"]) {
 					maxTeam2Slots = customGameSettings["lobby"]["team2Slots"]
 				} else {
@@ -376,7 +360,7 @@ function compileCustomGameSettings(customGameSettings) {
 						}
 					}
 				}
-
+				
 				if ("ffaSlots" in customGameSettings["lobby"]) {
 					maxFfaSlots = customGameSettings["lobby"]["ffaSlots"]
 				} else {
@@ -540,7 +524,7 @@ function compileCustomGameSettings(customGameSettings) {
 			error("Unknown key '"+key+"'");
 		}
 	}
-
+	
 	if (activatedExtensions.length > 0) {
 		activatedExtensions = [...new Set(activatedExtensions)];
 		result[tows("extensions", customGameSettingsSchema)] = activatedExtensions.map(x => tows(x, customGameSettingsSchema.extensions.values));

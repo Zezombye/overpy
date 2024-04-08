@@ -29,6 +29,9 @@
     "categories": [
         "Programming Languages"
     ],
+    "dependencies": {
+        "vm2": "3.9.18"
+    },
     "contributes": {
         "configuration": {
             "title": "OverPy",
@@ -154,8 +157,5 @@
                 "url": "./customGameSettingsSchema.json"
             }
         ]
-    },
-    "dependencies": {
-        "quickjs-emscripten": "^0.29.1"
     }
 }

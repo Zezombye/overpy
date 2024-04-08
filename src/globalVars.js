@@ -1,17 +1,17 @@
-/*
+/* 
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
+ * You should have received a copy of the GNU General Public License 
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -28,11 +28,9 @@ const PAGE_SIZE = 100;
 const IS_IN_BROWSER = (typeof window !== "undefined");
 const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 var evalVm = null
-var getQuickJS = null
-var getQuickJSSync = null
-var shouldInterruptAfterDeadline = null
+var VM = null
 if (!IS_IN_BROWSER) {
-	({getQuickJS, getQuickJSSync, shouldInterruptAfterDeadline} = require('quickjs-emscripten'));
+	({VM} = require('vm2'));
 }
 
 //Compilation variables - are reset at each compilation.
@@ -171,6 +169,13 @@ function resetGlobalVariables(language) {
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
+	if (!IS_IN_BROWSER) {
+		evalVm = new VM({
+			timeout: 1000,
+			allowAsync: false,
+			sandbox: {}
+		});
+	}
 }
 
 //Other constants
@@ -394,7 +399,7 @@ const typeTree = [
 	"TeamLiteral",
 	"ButtonLiteral",
 	"ColorLiteral",
-
+	
 	{"StringLiteral": [
 		"LocalizedStringLiteral",
 		{"CustomStringLiteral": [

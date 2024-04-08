@@ -67,6 +67,7 @@ rule "Display position":
 /**
  * @param {vscode.ExtensionContext} context
  */
+
 const funcDoc = JSON.parse(JSON.stringify(Object.assign({}, overpy.actionKw, overpy.valueFuncKw)));
 const stringEntities = generateStringEntitiesDescription(JSON.parse(JSON.stringify(overpy.opyStringEntities)));
 
@@ -232,14 +233,14 @@ function activate(context) {
         }
     });
 
-    vscode.commands.registerCommand('overpy.compile', async () => {
+    vscode.commands.registerCommand('overpy.compile', () => {
         try {
 
             var rootPath = vscode.window.activeTextEditor.document.fileName;
             rootPath = rootPath.replace(/\\/g, "/");
             rootPath = rootPath.substring(0, rootPath.lastIndexOf('/')+1);
 
-            var compiledText = await overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
+            var compiledText = overpy.compile(vscode.window.activeTextEditor.document.getText(), vscode.workspace.getConfiguration("overpy").workshopLanguage, rootPath);
             //console.log("encountered warnings:");
             //console.log(compiledText.encounteredWarnings);
             for (var warning of compiledText.encounteredWarnings) {
