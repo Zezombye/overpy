@@ -3485,7 +3485,8 @@ const customGameSettingsSchema =
                         "widowmaker",
                         "winston",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "venture"
                     ],
                     "guid": "000000007671",
                     "en-US": "Ultimate Duration",
@@ -3520,7 +3521,8 @@ const customGameSettingsSchema =
                         "widowmaker",
                         "winston",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "venture"
                     ],
                     "guid": "000000007672",
                     "en-US": "Infinite Ultimate Duration",
@@ -3740,6 +3742,7 @@ const customGameSettingsSchema =
                         "sojourn",
                         "soldier",
                         "symmetra",
+                        "venture",
                         "winston",
                         "zenyatta"
                     ],
@@ -3944,7 +3947,8 @@ const customGameSettingsSchema =
                     "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
-                        "bastion"
+                        "bastion",
+                        "venture"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -3970,6 +3974,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "exclude": [
                         "bastion",
+                        "venture",
                         "zenyatta"
                     ],
                     "en-US": "%1$s Cooldown Time",
@@ -4172,7 +4177,8 @@ const customGameSettingsSchema =
                         "sombra",
                         "hammond",
                         "ramattra",
-                        "lifeweaver"
+                        "lifeweaver",
+                        "venture"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -4211,7 +4217,8 @@ const customGameSettingsSchema =
                         "sombra",
                         "hammond",
                         "ramattra",
-                        "lifeweaver"
+                        "lifeweaver",
+                        "venture"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -6264,6 +6271,28 @@ const customGameSettingsSchema =
                         "tr-TR": "Silahlar Etkinleştirildi",
                         "zh-CN": "可用武器",
                         "zh-TW": "可使用武器"
+                    }
+                }
+            },
+            "venture": {
+                "values": {
+                    "ability1Duration%": {
+                        "en-US": "Burrow Duration Scalar",
+                        "guid": "000000020B47",
+                        "de-DE": "Graben – Dauer",
+                        "es-ES": "Duración de Enterrarse",
+                        "es-MX": "Escala de duración de Enterrarse",
+                        "fr-FR": "Durée d’Enfouissement",
+                        "it-IT": "Immersione - Durata",
+                        "ja-JP": "〈バロー〉持続時間スカラー",
+                        "ko-KR": "잠복 지속시간 조정",
+                        "pl-PL": "Skalowanie czasu działania Zagrzebania",
+                        "pt-BR": "Escalar da duração do Entocar",
+                        "ru-RU": "Длительность закапывания",
+                        "th-TH": "สเกลาร์ระยะเวลาเบอร์โรว์",
+                        "tr-TR": "Battıçıktı Süresi Skaleri",
+                        "zh-CN": "钻地持续时间",
+                        "zh-TW": "鑽地持續時間"
                     }
                 }
             }
