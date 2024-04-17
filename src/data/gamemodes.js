@@ -21,8 +21,8 @@ const gamemodeKw =
 //begin-json
 {
     "assault": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -80,8 +80,8 @@ const gamemodeKw =
         "zh-TW": "交鋒"
     },
     "control": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005839",
         "en-US": "Control",
         "de-DE": "Kontrolle",
@@ -100,8 +100,8 @@ const gamemodeKw =
         "es-MX": "Control"
     },
     "ctf": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -140,8 +140,8 @@ const gamemodeKw =
         "zh-TW": "鬥陣對決"
     },
     "escort": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -219,8 +219,8 @@ const gamemodeKw =
         "zh-TW": "凍凍大作戰"
     },
     "hybrid": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -335,8 +335,8 @@ const gamemodeKw =
         "zh-TW": "推進"
     },
     "skirmish": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -374,8 +374,8 @@ const gamemodeKw =
         "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 4,
+        "defaultTeam2Players": 4,
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",
