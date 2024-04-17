@@ -226,7 +226,7 @@ function activate(context) {
 
         } catch (e) {
             if (e instanceof Error) {
-                vscode.window.showErrorMessage("Error: "+e.message+", contact Zezombye about this");
+                vscode.window.showErrorMessage("Error: "+e.message+", contact CactusPuppy about this");
             } else {
                 console.error(e);
             }

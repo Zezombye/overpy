@@ -1269,10 +1269,10 @@ const workshopUiCustomKw = {
         "pt-BR": "Modo deve possuir configurações",
     },
     "contactZez": {
-        "en-US": "contact Zezombye about this",
-        "zh-CN": "此问题联系Zezombye",
-        "zh-TW": "此問題聯繫Zezombye",
-        "pt-BR": "contate Zezombye sobre isso",
+        "en-US": "contact CactusPuppy about this",
+        "zh-CN": "此问题联系CactusPuppy",
+        "zh-TW": "此問題聯繫CactusPuppy",
+        "pt-BR": "contate CactusPuppy sobre isso",
     },
     "successfullyImported": {
         "en-US": "Successfully imported!",
