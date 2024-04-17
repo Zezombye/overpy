@@ -722,6 +722,27 @@ const mapKw =
         "zh-TW": "花村（冬境）",
         "de-DE": "Hanamura Winter"
     },
+    "hanaoka": {
+        "guid": "00000001E681",
+        "gamemodes": [
+            "clash"
+        ],
+        "en-US": "Hanaoka",
+        "de-DE": "Hanaoka",
+        "es-ES": "Hanaoka",
+        "es-MX": "Hanaoka",
+        "fr-FR": "Hanaoka",
+        "it-IT": "Hanaoka",
+        "ja-JP": "HANAOKA",
+        "ko-KR": "하나오카",
+        "pl-PL": "Hanaoka",
+        "pt-BR": "Hanaoka",
+        "ru-RU": "Ханаока",
+        "th-TH": "ฮานาโอกะ",
+        "tr-TR": "Hanaoka",
+        "zh-CN": "花冈",
+        "zh-TW": "花岡"
+    },
     "havana": {
         "guid": "00000000B8EA",
         "gamemodes": [

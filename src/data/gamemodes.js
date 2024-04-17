@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -58,6 +58,26 @@ const gamemodeKw =
         "tr-TR": "Ödül Avcısı",
         "zh-CN": "赏金猎手",
         "zh-TW": "賞金獵人"
+    },
+    "clash": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Clash",
+        "guid": "00000001A04C",
+        "de-DE": "Clash",
+        "es-ES": "Contienda",
+        "es-MX": "Batalla",
+        "fr-FR": "Clash",
+        "it-IT": "Scontro",
+        "ja-JP": "クラッシュ",
+        "ko-KR": "격돌",
+        "pl-PL": "Starcie",
+        "pt-BR": "Embate",
+        "ru-RU": "Битва",
+        "th-TH": "ปะทะ",
+        "tr-TR": "Kapışma",
+        "zh-CN": "攻防阵线",
+        "zh-TW": "交鋒"
     },
     "control": {
         "defaultTeam1Players": 6,

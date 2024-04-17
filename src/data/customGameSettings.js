@@ -3221,6 +3221,52 @@ const customGameSettingsSchema =
                         "zh-TW": "競技對戰規則"
                     }
                 }
+            },
+            "clash": {
+                "values": {
+                    "captureSpeed%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 45,
+                        "guid": "000000005898",
+                        "en-US": "Capture Speed Modifier",
+                        "de-DE": "Eroberungsgeschwindigkeit",
+                        "es-ES": "Modificador de velocidad de captura",
+                        "es-MX": "Modificador de velocidad de captura",
+                        "fr-FR": "Modificateur de vitesse de capture",
+                        "it-IT": "Modificatore velocità di conquista del punto",
+                        "ja-JP": "確保速度補正",
+                        "ko-KR": "점령 속도 조정",
+                        "pl-PL": "Modyfikator czasu przejmowania",
+                        "pt-BR": "Modificador da velocidade de captura",
+                        "ru-RU": "Скорость захвата",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
+                        "tr-TR": "Ele Geçirme Hızı Düzenleyici",
+                        "zh-CN": "占领速度",
+                        "zh-TW": "調整佔領速度"
+                    },
+                    "enableCompetitiveRules": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000005897",
+                        "en-US": "Competitive Rules",
+                        "de-DE": "Ranglistenregeln",
+                        "es-ES": "Reglas competitivas",
+                        "es-MX": "Reglas de Modo Competitivo",
+                        "fr-FR": "Règles des parties compétitives",
+                        "it-IT": "Regole competitive",
+                        "ja-JP": "ライバル・マッチ ルール",
+                        "ko-KR": "경쟁전 규칙",
+                        "pl-PL": "Zasady trybu rywalizacji",
+                        "pt-BR": "Regras competitivas",
+                        "ru-RU": "Соревновательные правила",
+                        "th-TH": "กฎการแข่งขัน",
+                        "tr-TR": "Rekabetçi Kuralları",
+                        "zh-CN": "竞技比赛规则",
+                        "zh-TW": "競技對戰規則"
+                    },
+                }
             }
         },
         "guid": "000000010044",
@@ -6277,8 +6323,12 @@ const customGameSettingsSchema =
             "venture": {
                 "values": {
                     "ability1Duration%": {
-                        "en-US": "Burrow Duration Scalar",
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
                         "guid": "000000020B47",
+                        "en-US": "Burrow Duration Scalar",
                         "de-DE": "Graben – Dauer",
                         "es-ES": "Duración de Enterrarse",
                         "es-MX": "Escala de duración de Enterrarse",
