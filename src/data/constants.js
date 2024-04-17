@@ -2301,7 +2301,7 @@ const constantValues =
             "ja-JP": "ブリギッテの〈ウィップ・ショット〉の回復エリア・エフェクト",
             "pl-PL": "Brigitte – Efekt leczenia obszarowego Trzaśnięcia",
             "pt-BR": "Efeito de Área da Cura do Disparo Açoitador da Brigitte",
-            "th-TH": "เอฟเฟกต์ฮีลพื้นที่ของวิปช็อตของบริกิตตา",
+            "th-TH": "เอฟเฟกต์ฮีลเป็นพื้นที่วงกว้างของวิปช็อตของบริกิตตา",
             "tr-TR": "Brigitte Zincir Kamçı İyileştirme Alanı Efekti",
             "zh-CN": "布丽吉塔流星飞锤范围治疗效果",
             "it-IT": "Brigitte Whip Shot Heal Area Effect",

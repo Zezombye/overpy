@@ -11416,7 +11416,7 @@ var normalStrKw =
         "tr-TR": "Açan",
         "zh-CN": "正在解锁",
         "zh-TW": "正在解鎖",
-        "ko-KR": "Unlocking"
+        "ko-KR": "잠금 해제"
     },
     "Unsafe": {
         "guid": "00000000C13F",

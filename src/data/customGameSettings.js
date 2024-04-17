@@ -1270,7 +1270,7 @@ const customGameSettingsSchema =
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
-                        "es-ES": "Modificador de velocidad de captura",
+                        "es-ES": "Modificador de velocidad de anotación",
                         "es-MX": "Modificador de velocidad de anotación",
                         "fr-FR": "Vitesse de progression du pourcentage",
                         "it-IT": "Modificatore velocità di incremento del punteggio",
@@ -1890,7 +1890,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas wyboru bohaterów",
                         "pt-BR": "Tempo de seleção de heróis",
                         "ru-RU": "Время на выбор героев",
-                        "th-TH": "เวลาคัดเลือกฮีโร่",
+                        "th-TH": "ช่วงเวลาเลือกฮีโร่",
                         "tr-TR": "Kahraman Seçim Süresi",
                         "zh-CN": "选择英雄时间",
                         "zh-TW": "選擇英雄的時間限制"
@@ -2431,7 +2431,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej drużyna 1",
                         "pt-BR": "Pontuação para vencer da Equipe 1",
                         "ru-RU": "Очков для победы команды 1",
-                        "th-TH": "ทีม 1 คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะของทีม 1",
                         "tr-TR": "1. Takımın Kazanması İçin Gereken Skor",
                         "zh-CN": "队伍1获胜所需分数",
                         "zh-TW": "隊伍1獲勝分數"
@@ -2453,7 +2453,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej drużyna 2",
                         "pt-BR": "Pontuação para vencer da Equipe 2",
                         "ru-RU": "Очков для победы команды 2",
-                        "th-TH": "ทีม 2 คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะของทีม 2",
                         "tr-TR": "2. Takımın Kazanması İçin Gereken Skor",
                         "zh-CN": "队伍2获胜所需分数",
                         "zh-TW": "隊伍2獲勝分數"
@@ -3070,7 +3070,7 @@ const customGameSettingsSchema =
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
-                        "es-ES": "Modificador de velocidad de captura",
+                        "es-ES": "Modificador de velocidad de anotación",
                         "es-MX": "Modificador de velocidad de anotación",
                         "fr-FR": "Vitesse de progression du pourcentage",
                         "it-IT": "Modificatore velocità di incremento del punteggio",
@@ -3939,7 +3939,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility2": {
@@ -3990,7 +3990,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility3": {
@@ -4040,7 +4040,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "ultGen%": {
@@ -4233,7 +4233,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "secondaryFireMaximumTime%": {
@@ -7415,7 +7415,7 @@ const customGameSettingsSchema =
         "fr-FR": "salon",
         "ja-JP": "ロビー",
         "pl-PL": "poczekalnia",
-        "th-TH": "ห้องเตรียมพร้อม",
+        "th-TH": "ล็อบบี้",
         "tr-TR": "lobi",
         "zh-CN": "大厅",
         "zh-TW": "大廳",

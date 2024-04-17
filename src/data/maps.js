@@ -1784,7 +1784,7 @@ const mapKw =
         "it-IT": "Paraíso",
         "pl-PL": "Paraíso",
         "pt-BR": "Paraíso",
-        "tr-TR": "Paraíso"
+        "tr-TR": "<en>Paraíso<en>"
     },
     "paris": {
         "guid": "00000000831E",
@@ -2104,7 +2104,7 @@ const mapKw =
         "pl-PL": "Posterunek: Gibraltar",
         "pt-BR": "Observatório: Gibraltar",
         "ru-RU": "Пост наблюдения: Гибралтар",
-        "th-TH": "วอตช์พอยต์: ยิบรอลตา",
+        "th-TH": "วอตช์พอยต์: ยิบรอลตาร์",
         "tr-TR": "Seyir Noktası: Cebelitarık",
         "zh-CN": "监测站：直布罗陀",
         "zh-TW": "捍衛者基地：直布羅陀",
