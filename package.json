@@ -1,7 +1,177 @@
 {
-  "dependencies": {
-    "diff": "^5.1.0",
-    "dotenv": "^16.4.5",
-    "uglify-js": "^3.17.4"
-  }
+    "name": "overpy",
+    "publisher": "Zezombye",
+    "displayName": "OverPy",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Zezombye/overpy"
+    },
+    "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
+    "version": "7.0.2",
+    "readme": "README.md",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "icon": "img/overpy.png",
+    "keywords": [
+        "overpy",
+        "overwatch",
+        "workshop",
+        "ow",
+        "owws"
+    ],
+    "browser": "extension/extension.js",
+    "main": "extension/extension.js",
+    "activationEvents": [
+        "onLanguage:overpy",
+        "onCommand:overpy.decompile"
+    ],
+    "categories": [
+        "Programming Languages"
+    ],
+    "files": [
+        "extension/**"
+    ],
+    "contributes": {
+        "configuration": {
+            "title": "OverPy",
+            "properties": {
+                "overpy.workshopLanguage": {
+                    "type": "string",
+                    "description": "Specifies the language used for decompilation and compilation.",
+                    "default": "en-US",
+                    "enum": [
+                        "de-DE",
+                        "en-US",
+                        "es-ES",
+                        "es-MX",
+                        "fr-FR",
+                        "it-IT",
+                        "ja-JP",
+                        "ko-KR",
+                        "pl-PL",
+                        "pt-BR",
+                        "ru-RU",
+                        "zh-CN",
+                        "zh-TW"
+                    ],
+                    "enumDescriptions": [
+                        "German [de-DE]",
+                        "English [en-US]",
+                        "Spanish (Spain) [es-ES]",
+                        "Spanish (Mexico) [es-MX]",
+                        "French [fr-FR]",
+                        "Italian [it-IT]",
+                        "Japanese [ja-JP]",
+                        "Korean [ko-KR]",
+                        "Polish [pl-PL]",
+                        "Portugese (Brazil) [pt-BR]",
+                        "Russian [ru-RU]",
+                        "Chinese (Simplified) [zh-CN]",
+                        "Chinese (Traditional) [zh-TW]"
+                    ]
+                },
+                "overpy.compileOnSave": {
+                    "type": "boolean",
+                    "description": "Specifies whether to initiate a compilation on save.",
+                    "default": true
+                },
+                "overpy.onlySaveOnMainFile": {
+                    "type": "boolean",
+                    "description": "If \"Compile on save\" is enabled, only saves if the file is the main file (defined as not having a `#!mainFile` directive).",
+                    "default": false
+                },
+                "overpy.addTemplateOnNewFile": {
+                    "type": "boolean",
+                    "description": "Specifies whether to add a template when a new OverPy file is created. Warning: due to a bug (#196), the template will be inserted when a new file is saved to disk (as .opy file) for the first time.",
+                    "default": false
+                },
+                "overpy.showElementCountOnCompile": {
+                    "type": "boolean",
+                    "description": "Specifies whether to show the element count when a compilation is successful.",
+                    "default": true
+                }
+            }
+        },
+        "languages": [
+            {
+                "id": "overpy",
+                "aliases": [
+                    "OverPy",
+                    "overpy"
+                ],
+                "extensions": [
+                    ".opy"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "/img/overpy.ico",
+                    "dark": "/img/overpy.ico"
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "overpy",
+                "scopeName": "source.opy",
+                "path": "./syntaxes/overpy.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "overpy.compile",
+                "title": "Compile (OverPy -> Workshop)",
+                "category": "OverPy",
+                "icon": {
+                    "light": "/img/index.svg",
+                    "dark": "/img/index.svg"
+                }
+            },
+            {
+                "command": "overpy.decompile",
+                "title": "Decompile (Workshop -> OverPy)",
+                "category": "OverPy",
+                "icon": {
+                    "light": "/img/index.svg",
+                    "dark": "/img/index.svg"
+                }
+            },
+            {
+                "command": "overpy.insertTemplate",
+                "title": "Insert Template",
+                "category": "OverPy"
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "resourceLangId == overpy",
+                    "command": "overpy.compile",
+                    "group": "navigation@6"
+                }
+            ]
+        },
+        "jsonValidation": [
+            {
+                "fileMatch": "*.opy.json",
+                "url": "./customGameSettingsSchema.json"
+            }
+        ]
+    },
+    "dependencies": {
+        "diff": "^5.1.0",
+        "dotenv": "^16.4.5",
+        "quickjs-emscripten": "^0.29.1",
+        "terser": "^5.30.3"
+    },
+    "type": "module",
+    "devDependencies": {
+        "esbuild": "0.20.2"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./src/extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap",
+        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
+    }
 }
