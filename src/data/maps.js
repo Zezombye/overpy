@@ -511,7 +511,7 @@ const mapKw =
             "tdm"
         ],
         "variants": {
-            "default": "972777519512063901"
+            "default": "972777519512068154"
         },
         "isSymmetrical": true,
         "symmetryAxis": {
