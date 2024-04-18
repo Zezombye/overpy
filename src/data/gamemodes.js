@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -21,8 +21,8 @@ const gamemodeKw =
 //begin-json
 {
     "assault": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD59",
         "en-US": "Assault",
         "de-DE": "Angriff",
@@ -59,9 +59,29 @@ const gamemodeKw =
         "zh-CN": "赏金猎手",
         "zh-TW": "賞金獵人"
     },
+    "clash": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Clash",
+        "guid": "00000001A04C",
+        "de-DE": "Clash",
+        "es-ES": "Contienda",
+        "es-MX": "Batalla",
+        "fr-FR": "Clash",
+        "it-IT": "Scontro",
+        "ja-JP": "クラッシュ",
+        "ko-KR": "격돌",
+        "pl-PL": "Starcie",
+        "pt-BR": "Embate",
+        "ru-RU": "Битва",
+        "th-TH": "ปะทะ",
+        "tr-TR": "Kapışma",
+        "zh-CN": "攻防阵线",
+        "zh-TW": "交鋒"
+    },
     "control": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005839",
         "en-US": "Control",
         "de-DE": "Kontrolle",
@@ -80,8 +100,8 @@ const gamemodeKw =
         "es-MX": "Control"
     },
     "ctf": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005A56",
         "en-US": "Capture The Flag",
         "de-DE": "Flaggeneroberung",
@@ -120,8 +140,8 @@ const gamemodeKw =
         "zh-TW": "鬥陣對決"
     },
     "escort": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD5C",
         "en-US": "Escort",
         "de-DE": "Eskorte",
@@ -199,8 +219,8 @@ const gamemodeKw =
         "zh-TW": "凍凍大作戰"
     },
     "hybrid": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "00000000CD5A",
         "en-US": "Hybrid",
         "es-ES": "Híbrido",
@@ -315,8 +335,8 @@ const gamemodeKw =
         "zh-TW": "推進"
     },
     "skirmish": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
         "guid": "000000005A61",
         "en-US": "Skirmish",
         "de-DE": "Übungsgefecht",
@@ -354,8 +374,8 @@ const gamemodeKw =
         "zh-TW": "雪球死鬥大作戰"
     },
     "tdm": {
-        "defaultTeam1Players": 6,
-        "defaultTeam2Players": 6,
+        "defaultTeam1Players": 4,
+        "defaultTeam2Players": 4,
         "guid": "000000006854",
         "en-US": "Team Deathmatch",
         "de-DE": "Team-Deathmatch",

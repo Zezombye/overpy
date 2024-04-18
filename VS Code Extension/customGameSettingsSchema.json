@@ -126,6 +126,7 @@
                                             "estadioDasRas",
                                             "hanamura",
                                             "hanamuraWinter",
+                                            "hanaoka",
                                             "havana",
                                             "hollywood",
                                             "hollywoodHalloween",
@@ -535,6 +536,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "hanaoka": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -1364,6 +1377,7 @@
                                             "estadioDasRas",
                                             "hanamura",
                                             "hanamuraWinter",
+                                            "hanaoka",
                                             "havana",
                                             "hollywood",
                                             "hollywoodHalloween",
@@ -1773,6 +1787,18 @@
                                                             "enum": [
                                                                 "default"
                                                             ]
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            {
+                                                "properties": {
+                                                    "hanaoka": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
                                                         }
                                                     }
                                                 },
@@ -13064,6 +13090,155 @@
                         }
                     }
                 },
+                "clash": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "captureSpeed%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableCompetitiveRules": {
+                            "type": "boolean"
+                        },
+                        "enableEnemyHealthBars": {
+                            "type": "boolean"
+                        },
+                        "gamemodeStartTrigger": {
+                            "type": "string",
+                            "enum": [
+                                "allSlotsFilled",
+                                "immediately",
+                                "manual"
+                            ]
+                        },
+                        "healthPackRespawnTime%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableKillCam": {
+                            "type": "boolean"
+                        },
+                        "enableKillFeed": {
+                            "type": "boolean"
+                        },
+                        "enableSkins": {
+                            "type": "boolean"
+                        },
+                        "spawnHealthPacks": {
+                            "type": "string",
+                            "enum": [
+                                "modeDependent",
+                                "enabled",
+                                "disabled"
+                            ]
+                        },
+                        "enableHeroSwitching": {
+                            "type": "boolean"
+                        },
+                        "heroLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "1PerTeam",
+                                "2PerTeam",
+                                "1PerGame",
+                                "2PerGame"
+                            ]
+                        },
+                        "roleLimit": {
+                            "type": "string",
+                            "enum": [
+                                "off",
+                                "2OfEachRolePerTeam",
+                                "1Tank2Offense2Support"
+                            ]
+                        },
+                        "enableRandomHeroes": {
+                            "type": "boolean"
+                        },
+                        "randomHeroRoleLimitPerTeam": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 6
+                        },
+                        "respawnTime%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "tankPassiveHealthBonus": {
+                            "type": "string",
+                            "enum": [
+                                "1Tank2Offense2Support",
+                                "alwaysEnabled",
+                                "disabled"
+                            ]
+                        },
+                        "disabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "hanaoka"
+                                        ]
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "hanaoka": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "enabledMaps": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "hanaoka"
+                                        ]
+                                    },
+                                    {
+                                        "type": "object",
+                                        "oneOf": [
+                                            {
+                                                "properties": {
+                                                    "hanaoka": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": []
+                                                        }
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
                 "freezethawElimination": {
                     "type": "object",
                     "additionalProperties": false,
@@ -14178,7 +14353,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -14225,7 +14401,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -17527,6 +17704,124 @@
                                     "type": "boolean"
                                 },
                                 "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                }
+                            }
+                        },
+                        "venture": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "ability1Duration%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "ultDuration%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -19168,7 +19463,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -19215,7 +19511,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -22517,6 +22814,124 @@
                                     "type": "boolean"
                                 },
                                 "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                }
+                            }
+                        },
+                        "venture": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "ability1Duration%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "ultDuration%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -24158,7 +24573,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -24205,7 +24621,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -27507,6 +27924,124 @@
                                     "type": "boolean"
                                 },
                                 "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                }
+                            }
+                        },
+                        "venture": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "ability1Duration%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "ultDuration%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -29148,7 +29683,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -29195,7 +29731,8 @@
                                     "zarya",
                                     "zenyatta",
                                     "ramattra",
-                                    "lifeweaver"
+                                    "lifeweaver",
+                                    "venture"
                                 ]
                             }
                         },
@@ -32497,6 +33034,124 @@
                                     "type": "boolean"
                                 },
                                 "ability2Cooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "ultGen%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "combatUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "passiveUltGen%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableUlt": {
+                                    "type": "boolean"
+                                },
+                                "enableSecondaryFire": {
+                                    "type": "boolean"
+                                },
+                                "secondaryFireCooldown%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                }
+                            }
+                        },
+                        "venture": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "ability1Duration%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "enableMelee": {
+                                    "type": "boolean"
+                                },
+                                "enableSpawningWithUlt": {
+                                    "type": "boolean"
+                                },
+                                "ultDuration%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteUlt": {
+                                    "type": "boolean"
+                                },
+                                "damageDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "damageReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingDealt%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "healingReceived%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "health%": {
+                                    "type": "number",
+                                    "minimum": 10,
+                                    "maximum": 500
+                                },
+                                "jumpVerticalSpeed%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 800
+                                },
+                                "movementGravity%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 400
+                                },
+                                "movementSpeed%": {
+                                    "type": "number",
+                                    "minimum": 50,
+                                    "maximum": 300
+                                },
+                                "projectileSpeed%": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 500
+                                },
+                                "enableHeadshotsOnly": {
+                                    "type": "boolean"
+                                },
+                                "enablePrimaryFire": {
+                                    "type": "boolean"
+                                },
+                                "ammoClipSize%": {
+                                    "type": "number",
+                                    "minimum": 25,
+                                    "maximum": 500
+                                },
+                                "enableInfiniteAmmo": {
+                                    "type": "boolean"
+                                },
+                                "enableAbility1": {
+                                    "type": "boolean"
+                                },
+                                "ability1Cooldown%": {
                                     "type": "number",
                                     "minimum": 0,
                                     "maximum": 500
@@ -34279,7 +34934,8 @@
                             "zarya",
                             "zenyatta",
                             "ramattra",
-                            "lifeweaver"
+                            "lifeweaver",
+                            "venture"
                         ]
                     }
                 },
@@ -34326,7 +34982,8 @@
                             "zarya",
                             "zenyatta",
                             "ramattra",
-                            "lifeweaver"
+                            "lifeweaver",
+                            "venture"
                         ]
                     }
                 },
@@ -37628,6 +38285,124 @@
                             "type": "boolean"
                         },
                         "ability2Cooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "ultGen%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "combatUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "passiveUltGen%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableUlt": {
+                            "type": "boolean"
+                        },
+                        "enableSecondaryFire": {
+                            "type": "boolean"
+                        },
+                        "secondaryFireCooldown%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        }
+                    }
+                },
+                "venture": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "ability1Duration%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "enableMelee": {
+                            "type": "boolean"
+                        },
+                        "enableSpawningWithUlt": {
+                            "type": "boolean"
+                        },
+                        "ultDuration%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteUlt": {
+                            "type": "boolean"
+                        },
+                        "damageDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "damageReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingDealt%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "healingReceived%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "health%": {
+                            "type": "number",
+                            "minimum": 10,
+                            "maximum": 500
+                        },
+                        "jumpVerticalSpeed%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 800
+                        },
+                        "movementGravity%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 400
+                        },
+                        "movementSpeed%": {
+                            "type": "number",
+                            "minimum": 50,
+                            "maximum": 300
+                        },
+                        "projectileSpeed%": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 500
+                        },
+                        "enableHeadshotsOnly": {
+                            "type": "boolean"
+                        },
+                        "enablePrimaryFire": {
+                            "type": "boolean"
+                        },
+                        "ammoClipSize%": {
+                            "type": "number",
+                            "minimum": 25,
+                            "maximum": 500
+                        },
+                        "enableInfiniteAmmo": {
+                            "type": "boolean"
+                        },
+                        "enableAbility1": {
+                            "type": "boolean"
+                        },
+                        "ability1Cooldown%": {
                             "type": "number",
                             "minimum": 0,
                             "maximum": 500

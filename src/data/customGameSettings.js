@@ -1270,7 +1270,7 @@ const customGameSettingsSchema =
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
-                        "es-ES": "Modificador de velocidad de captura",
+                        "es-ES": "Modificador de velocidad de anotación",
                         "es-MX": "Modificador de velocidad de anotación",
                         "fr-FR": "Vitesse de progression du pourcentage",
                         "it-IT": "Modificatore velocità di incremento del punteggio",
@@ -1890,7 +1890,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Czas wyboru bohaterów",
                         "pt-BR": "Tempo de seleção de heróis",
                         "ru-RU": "Время на выбор героев",
-                        "th-TH": "เวลาคัดเลือกฮีโร่",
+                        "th-TH": "ช่วงเวลาเลือกฮีโร่",
                         "tr-TR": "Kahraman Seçim Süresi",
                         "zh-CN": "选择英雄时间",
                         "zh-TW": "選擇英雄的時間限制"
@@ -2431,7 +2431,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej drużyna 1",
                         "pt-BR": "Pontuação para vencer da Equipe 1",
                         "ru-RU": "Очков для победы команды 1",
-                        "th-TH": "ทีม 1 คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะของทีม 1",
                         "tr-TR": "1. Takımın Kazanması İçin Gereken Skor",
                         "zh-CN": "队伍1获胜所需分数",
                         "zh-TW": "隊伍1獲勝分數"
@@ -2453,7 +2453,7 @@ const customGameSettingsSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej drużyna 2",
                         "pt-BR": "Pontuação para vencer da Equipe 2",
                         "ru-RU": "Очков для победы команды 2",
-                        "th-TH": "ทีม 2 คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะของทีม 2",
                         "tr-TR": "2. Takımın Kazanması İçin Gereken Skor",
                         "zh-CN": "队伍2获胜所需分数",
                         "zh-TW": "隊伍2獲勝分數"
@@ -3070,7 +3070,7 @@ const customGameSettingsSchema =
                         "guid": "000000005899",
                         "en-US": "Scoring Speed Modifier",
                         "de-DE": "Punktanstiegsrate",
-                        "es-ES": "Modificador de velocidad de captura",
+                        "es-ES": "Modificador de velocidad de anotación",
                         "es-MX": "Modificador de velocidad de anotación",
                         "fr-FR": "Vitesse de progression du pourcentage",
                         "it-IT": "Modificatore velocità di incremento del punteggio",
@@ -3220,6 +3220,52 @@ const customGameSettingsSchema =
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
                     }
+                }
+            },
+            "clash": {
+                "values": {
+                    "captureSpeed%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 45,
+                        "guid": "000000005898",
+                        "en-US": "Capture Speed Modifier",
+                        "de-DE": "Eroberungsgeschwindigkeit",
+                        "es-ES": "Modificador de velocidad de captura",
+                        "es-MX": "Modificador de velocidad de captura",
+                        "fr-FR": "Modificateur de vitesse de capture",
+                        "it-IT": "Modificatore velocità di conquista del punto",
+                        "ja-JP": "確保速度補正",
+                        "ko-KR": "점령 속도 조정",
+                        "pl-PL": "Modyfikator czasu przejmowania",
+                        "pt-BR": "Modificador da velocidade de captura",
+                        "ru-RU": "Скорость захвата",
+                        "th-TH": "ตัวปรับแต่งความเร็วการยึดครอง",
+                        "tr-TR": "Ele Geçirme Hızı Düzenleyici",
+                        "zh-CN": "占领速度",
+                        "zh-TW": "調整佔領速度"
+                    },
+                    "enableCompetitiveRules": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000005897",
+                        "en-US": "Competitive Rules",
+                        "de-DE": "Ranglistenregeln",
+                        "es-ES": "Reglas competitivas",
+                        "es-MX": "Reglas de Modo Competitivo",
+                        "fr-FR": "Règles des parties compétitives",
+                        "it-IT": "Regole competitive",
+                        "ja-JP": "ライバル・マッチ ルール",
+                        "ko-KR": "경쟁전 규칙",
+                        "pl-PL": "Zasady trybu rywalizacji",
+                        "pt-BR": "Regras competitivas",
+                        "ru-RU": "Соревновательные правила",
+                        "th-TH": "กฎการแข่งขัน",
+                        "tr-TR": "Rekabetçi Kuralları",
+                        "zh-CN": "竞技比赛规则",
+                        "zh-TW": "競技對戰規則"
+                    },
                 }
             }
         },
@@ -3485,7 +3531,8 @@ const customGameSettingsSchema =
                         "widowmaker",
                         "winston",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "venture"
                     ],
                     "guid": "000000007671",
                     "en-US": "Ultimate Duration",
@@ -3520,7 +3567,8 @@ const customGameSettingsSchema =
                         "widowmaker",
                         "winston",
                         "hammond",
-                        "ramattra"
+                        "ramattra",
+                        "venture"
                     ],
                     "guid": "000000007672",
                     "en-US": "Infinite Ultimate Duration",
@@ -3740,6 +3788,7 @@ const customGameSettingsSchema =
                         "sojourn",
                         "soldier",
                         "symmetra",
+                        "venture",
                         "winston",
                         "zenyatta"
                     ],
@@ -3936,7 +3985,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility2": {
@@ -3944,7 +3993,8 @@ const customGameSettingsSchema =
                     "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
-                        "bastion"
+                        "bastion",
+                        "venture"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -3970,6 +4020,7 @@ const customGameSettingsSchema =
                     "default": 100,
                     "exclude": [
                         "bastion",
+                        "venture",
                         "zenyatta"
                     ],
                     "en-US": "%1$s Cooldown Time",
@@ -3985,7 +4036,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility3": {
@@ -4035,7 +4086,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "ultGen%": {
@@ -4172,7 +4223,8 @@ const customGameSettingsSchema =
                         "sombra",
                         "hammond",
                         "ramattra",
-                        "lifeweaver"
+                        "lifeweaver",
+                        "venture"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -4211,7 +4263,8 @@ const customGameSettingsSchema =
                         "sombra",
                         "hammond",
                         "ramattra",
-                        "lifeweaver"
+                        "lifeweaver",
+                        "venture"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -4226,7 +4279,7 @@ const customGameSettingsSchema =
                     "ru-RU": "Время восстановления: %1$s",
                     "th-TH": "%1$s เวลาคูลดาวน์",
                     "tr-TR": "%1$s Dolum Süresi",
-                    "zh-CN": "%1$s 冷却时间",
+                    "zh-CN": "%1$s冷却时间",
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "secondaryFireMaximumTime%": {
@@ -6266,6 +6319,32 @@ const customGameSettingsSchema =
                         "zh-TW": "可使用武器"
                     }
                 }
+            },
+            "venture": {
+                "values": {
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "000000020B47",
+                        "en-US": "Burrow Duration Scalar",
+                        "de-DE": "Graben – Dauer",
+                        "es-ES": "Duración de Enterrarse",
+                        "es-MX": "Escala de duración de Enterrarse",
+                        "fr-FR": "Durée d’Enfouissement",
+                        "it-IT": "Immersione - Durata",
+                        "ja-JP": "〈バロー〉持続時間スカラー",
+                        "ko-KR": "잠복 지속시간 조정",
+                        "pl-PL": "Skalowanie czasu działania Zagrzebania",
+                        "pt-BR": "Escalar da duração do Entocar",
+                        "ru-RU": "Длительность закапывания",
+                        "th-TH": "สเกลาร์ระยะเวลาเบอร์โรว์",
+                        "tr-TR": "Battıçıktı Süresi Skaleri",
+                        "zh-CN": "钻地持续时间",
+                        "zh-TW": "鑽地持續時間"
+                    }
+                }
             }
         },
         "guid": "000000010046",
@@ -7386,7 +7465,7 @@ const customGameSettingsSchema =
         "fr-FR": "salon",
         "ja-JP": "ロビー",
         "pl-PL": "poczekalnia",
-        "th-TH": "ห้องเตรียมพร้อม",
+        "th-TH": "ล็อบบี้",
         "tr-TR": "lobi",
         "zh-CN": "大厅",
         "zh-TW": "大廳",
