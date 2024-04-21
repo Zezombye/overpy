@@ -1,5 +1,6 @@
+import { LocalizableString } from "../types";
 
-const argNamesKw =
+export const argNamesKw: Record<string, LocalizableString> =
 //begin-json
 {
     "[0]": {

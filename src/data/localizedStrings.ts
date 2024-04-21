@@ -1,19 +1,21 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
+import { heroKw } from "./heroes"
 
 var emptyStrKw = {
     "": {
@@ -21,7 +23,7 @@ var emptyStrKw = {
     }
 }
 
-var normalStrKw = 
+var normalStrKw =
 //begin-json
 {
     "!": {
@@ -12141,7 +12143,7 @@ var normalStrKw =
 }
 //end-json
 
-var prefixStrKw = 
+var prefixStrKw =
 //begin-json
 {
     "#{0}": {
@@ -12237,7 +12239,7 @@ var prefixStrKw =
 }
 //end-json
 
-var postfixStrKw = 
+var postfixStrKw =
 //begin-json
 {
     "{0} ->": {
@@ -12495,7 +12497,7 @@ var postfixStrKw =
 }
 //end-json
 
-var binaryStrKw = 
+var binaryStrKw =
 //begin-json
 {
     "{0} != {1}": {
@@ -12861,7 +12863,7 @@ var binaryStrKw =
 }
 //end-json
 
-var ternaryStrKw = 
+var ternaryStrKw =
 //begin-json
 {
     "{0} - {1} - {2}": {
@@ -12957,7 +12959,7 @@ var ternaryStrKw =
 }
 //end-json
 
-var surroundStrKw = 
+var surroundStrKw =
 //begin-json
 {
     "({0})": {
@@ -13017,9 +13019,10 @@ var surroundStrKw =
 }
 //end-json
 
-var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw)
+/** @type { { [key: string]: { guid: string, [language: string]: string } } } */
+export var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw)
 
-var strTokens = [];
+var strTokens: string[] = [];
 
 //Generate string tokens
 //normal strings

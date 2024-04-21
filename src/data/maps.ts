@@ -17,7 +17,7 @@
 
 "use strict";
 
-/*
+/**
 Symmetry axes are denoted with z = a*x+b. If x is specified that means a formula such as x = 4.
 
 Ilios Ruins and Busan Downtown have several "centers" which make me believe the map could have a very slight deviation from the axis. The difference is measured in cm though.
@@ -25,8 +25,7 @@ Ilios Ruins and Busan Downtown have several "centers" which make me believe the 
 Busan Meka Base: 2.32074 * x - 274.76433
 
 */
-
-const mapKw =
+export const mapKw: Record<string, import("../types").Map> =
 //begin-json
 {
     "ayutthaya": {

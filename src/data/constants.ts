@@ -15,7 +15,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const constantValues =
+import { LocalizableString } from "../types";
+import { heroKw } from "../data/heroes";
+import { mapKw } from "../data/maps";
+import { gamemodeKw } from "../data/gamemodes";
+import { camelCaseToUpperCase } from "../utils/other";
+
+export const constantValues: Record<string, Record<string, LocalizableString & {
+    extension?: string,
+    description?: string,
+    descriptionLocalized?: LocalizableString,
+    red?: number, green?: number, blue?: number
+}> & { description?: string }> =
 //begin-json
 {
     "AccelReeval": {
@@ -1071,9 +1082,9 @@ const constantValues =
         },
         "TEAM_1": {
             "guid": "00000000B472",
-            "red": null,
-            "green": null,
-            "blue": null,
+            "red": undefined,
+            "green": undefined,
+            "blue": undefined,
             "en-US": "Team 1",
             "es-MX": "Equipo 1",
             "fr-FR": "Équipe 1",
@@ -1092,9 +1103,9 @@ const constantValues =
         },
         "TEAM_2": {
             "guid": "00000000B471",
-            "red": null,
-            "green": null,
-            "blue": null,
+            "red": undefined,
+            "green": undefined,
+            "blue": undefined,
             "en-US": "Team 2",
             "es-MX": "Equipo 2",
             "fr-FR": "Équipe 2",
@@ -10100,8 +10111,8 @@ constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateRee
 
 for (var key in constantValues) {
     if (key.endsWith("Literal")) {
-        constantValues[key]["description"] = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
+        constantValues[key].description = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
     } else {
-        constantValues[key]["description"] = "The built-in `"+key+"` enum.";
+        constantValues[key].description = "The built-in `"+key+"` enum.";
     }
 }

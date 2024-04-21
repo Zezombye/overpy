@@ -16,8 +16,16 @@
  */
 
 "use strict";
+// @ts-check
+import { customGameSettingsKw } from "./other";
+import { gamemodeKw } from "./gamemodes";
+import { heroKw } from "./heroes";
+import { LocalizableString, OWLanguage, Overwatch2Heroes } from "../types"
 
-const customGameSettingsSchema =
+/**
+ * The set of all custom game settings that can be configured
+ */
+export const customGameSettingsSchema: CustomGameSettingSchema =
 //begin-json
 {
     "extensions": {
@@ -7574,7 +7582,9 @@ for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
 //Add translations for each gamemode
 for (var gamemode of Object.keys(gamemodeKw)) {
     if (!(gamemode in customGameSettingsSchema.gamemodes.values)) {
-        customGameSettingsSchema.gamemodes.values[gamemode] = {};
+        Object.getOwnPropertyNames(customGameSettingsSchema.gamemodes.values[gamemode]).forEach((property) => {
+            delete customGameSettingsSchema.gamemodes.values[gamemode][property]
+        })
         customGameSettingsSchema.gamemodes.values[gamemode].values = {};
     }
     Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode])
@@ -7600,8 +7610,10 @@ for (var gamemode in customGameSettingsSchema.gamemodes.values) {
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values.general = {values: {}}
-customGameSettingsSchema.heroes.values.general.values = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__generalButNotEachHero__)
+customGameSettingsSchema.heroes.values["general"] = {values: {}}
+customGameSettingsSchema.heroes.values["general"].values = Object.assign({},
+    customGameSettingsSchema["heroes"].values["__generalAndEachHero__"],
+    customGameSettingsSchema.heroes.values["__generalButNotEachHero__"])
 
 //Generate settings for each hero
 for (var hero of Object.keys(heroKw)) {
@@ -7611,7 +7623,7 @@ for (var hero of Object.keys(heroKw)) {
         customGameSettingsSchema.heroes.values[hero].values = {};
     }
 
-    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values.__generalAndEachHero__, customGameSettingsSchema.heroes.values.__eachHero__)
+    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values["__generalAndEachHero__"], customGameSettingsSchema.heroes.values["__eachHero__"])
 
     for (var key of Object.keys(eachHero)) {
         if ("include" in eachHero[key] && eachHero[key].include.includes(hero)
@@ -7635,18 +7647,18 @@ for (var hero of Object.keys(heroKw)) {
                     var key2 = (lang in heroValue ? lang : "en-US")
 
                     if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%", "secondaryFireEnergyChargeRate%"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].secondaryFire[lang] || heroKw[hero].secondaryFire["en-US"])
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["secondaryFire"][lang] || heroKw[hero]["secondaryFire"]["en-US"])
 
                     } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability3[lang] || heroKw[hero].ability3["en-US"])
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["ability3"][lang] || heroKw[hero]["ability3"]["en-US"])
                     } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability2[lang] || heroKw[hero].ability2["en-US"])
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["ability2"][lang] || heroKw[hero]["ability2"]["en-US"])
                     } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ability1[lang] || heroKw[hero].ability1["en-US"])
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["ability1"][lang] || heroKw[hero]["ability1"]["en-US"])
                     } else if (["enablePassive"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].passive[lang] || heroKw[hero].passive["en-US"])
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["passive"][lang] || heroKw[hero]["passive"]["en-US"])
                     } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
-                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero].ultimate[lang] || heroKw[hero].ultimate["en-US"]);
+                        heroValue[lang] = heroValue[key2].replace("%1$s", heroKw[hero]["ultimate"][lang] || heroKw[hero]["ultimate"]["en-US"]);
                     }
                 }
             }
@@ -7656,6 +7668,84 @@ for (var hero of Object.keys(heroKw)) {
 
 //Apply extension
 
-delete customGameSettingsSchema.heroes.values.__generalAndEachHero__
-delete customGameSettingsSchema.heroes.values.__eachHero__
-delete customGameSettingsSchema.heroes.values.__generalButNotEachHero__
+delete customGameSettingsSchema.heroes.values["__generalAndEachHero__"]
+delete customGameSettingsSchema.heroes.values["__eachHero__"]
+delete customGameSettingsSchema.heroes.values["__generalButNotEachHero__"]
+
+/* ==== WORKSHOP EXTENSIONS ==== */
+
+export type WorkshopExtension = {
+    points: number,
+    descriptionLocalized?: LocalizableString
+} & Partial<LocalizableString>
+
+/* ==== CUSTOM GAME SETTINGS ==== */
+
+type CustomGameSetting_OnOff = {
+    values: "__boolOnOff__" | "__boolReverseOnOff__",
+    default: "on" | "off"
+}
+
+type CustomGameSetting_YesNo = {
+    values: "__boolYesNo__",
+    default: "yes" | "no"
+}
+
+type CustomGameSetting_EnableDisable = {
+    values: "__boolEnabled__",
+    default: "enabled" | "disabled"
+}
+
+type CustomGameSetting_Combo = {
+    values: Record<string, { default?: boolean } & Partial<LocalizableString>>
+}
+
+type CustomGameSetting_Percent = {
+    values: "__percent__" | "__int__" | "__float__",
+    min: number,
+    max: number,
+    default: number
+}
+
+export type CustomGameSetting = Partial<CustomGameSetting_OnOff | CustomGameSetting_YesNo | CustomGameSetting_EnableDisable | CustomGameSetting_Combo | CustomGameSetting_Percent> & Partial<LocalizableString>
+
+export type GameMode = {
+    values: {
+        [key: string]: CustomGameSetting
+    }
+} & Partial<LocalizableString>
+
+export type CustomGameSettingSchema = {
+    extensions: {
+        values: Record<string, WorkshopExtension>
+    } & Partial<LocalizableString>,
+    gamemodes: {
+        values: Record<string, GameMode>
+    } & Partial<LocalizableString>,
+    heroes: {
+        teams: Record<string, Partial<LocalizableString>>,
+        values: {
+            "__generalButNotEachHero__": Record<string, CustomGameSetting>,
+            "__generalAndEachHero__": Record<string, CustomGameSetting> & { [key: string]: { include?: string[], exclude?: string[] } },
+            "__eachHero__": Record<string, CustomGameSetting> & { [key: string]: { include?: string[], exclude?: string[] } },
+            disabledHeroes: LocalizableString,
+            enabledHeroes: LocalizableString,
+        } | {
+            [hero in Overwatch2Heroes]: {
+                values?: Record<string, CustomGameSetting>
+            }
+        }
+    } & Partial<LocalizableString>,
+    lobby: {
+        values: Record<string, CustomGameSetting & { description?: string, descriptionLocalized?: LocalizableString }>
+    } & Partial<LocalizableString>,
+    main: {
+        values: Record<string, LocalizableString & {
+            values: "__string__",
+            default: string
+            maxChars?: number,
+            maxBytes?: number
+        }>
+    } & LocalizableString,
+    workshop: LocalizableString
+}

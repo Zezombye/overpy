@@ -1,23 +1,31 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+// @ts-check
+import { actionKw } from "./actions";
+import { constantValues } from "./constants";
+import { opyFuncs } from "./opy/functions";
+import { opyInternalFuncs } from "./opy/internalFunctions";
+import { heroKw } from "./heroes";
+import { valueFuncKw } from "./values";
 
-const customGameSettingsKw =
+/** @type { { [key: string]: import("../types").LocalizableString } } */
+export const customGameSettingsKw =
 //begin-json
 {
     "__disabled__": {
@@ -167,7 +175,8 @@ const customGameSettingsKw =
 }
 //end-json
 
-const ruleKw = 
+/** @type { { [key: string]: import("../types").LocalizableString } } */
+export const ruleKw =
 //begin-json
 {
     "__actions__": {
@@ -353,8 +362,11 @@ const ruleKw =
 }
 //end-json
 
-//Event keywords
-const eventKw = 
+/**
+ * Event keywords
+ *
+ * @type { { [key: string]: import("../types").LocalizableString } }*/
+export const eventKw =
 //begin-json
 {
     "global": {
@@ -612,7 +624,8 @@ const eventKw =
 }
 //end-json
 
-const eventTeamKw = 
+/** @type { { [key: string]: import("../types").LocalizableString } } */
+export const eventTeamKw =
 //begin-json
 {
     "1": {
@@ -672,7 +685,8 @@ const eventTeamKw =
 }
 //end-json
 
-const slotKw = 
+/** @type {import("../types").LocalizableString} */
+const slotKw =
 //begin-json
 {
     "guid": "00000000C231",
@@ -693,7 +707,10 @@ const slotKw =
     "zh-TW": "Slot %1$s"
 }
 //end-json
-const eventSlotKw = {}
+/**
+ * @type { { [slotIndex: string]: import("../types").LocalizableString } }
+ */
+export const eventSlotKw = {}
 for (var i = 0; i < 12; i++) {
     eventSlotKw[i] = Object.assign({}, slotKw)
     for (var key of Object.keys(eventSlotKw[i])) {
@@ -701,7 +718,10 @@ for (var i = 0; i < 12; i++) {
     }
 }
 
-const eventPlayerKw = 
+/**
+ * @type { { [key: string]: import("../types").LocalizableString } }
+ */
+export const eventPlayerKw =
 //begin-json
 {
     "all": {
@@ -726,11 +746,15 @@ const eventPlayerKw =
 //end-json
 Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
-//A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
-//Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
-const notConstantFunctions = Object.keys(valueFuncKw).filter(x => !valueFuncKw[x].isConstant);
+/**
+ * A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
+ * Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
+ *
+ *
+*/
+export const notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
 
-var constantKw = {};
+export const constantKw = {};
 for (var constant of Object.keys(constantValues)) {
     for (var value of Object.keys(constantValues[constant])) {
         constantKw[constant+"."+value] = constantValues[constant][value];
@@ -738,9 +762,9 @@ for (var constant of Object.keys(constantValues)) {
 }
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-const valueKw = Object.assign({}, valueFuncKw, constantKw);
+export const valueKw = Object.assign({}, valueFuncKw, constantKw);
 
 
-const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+export const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
 
-const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
+export const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);

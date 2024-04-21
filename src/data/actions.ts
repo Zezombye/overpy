@@ -15,7 +15,27 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const actionKw =
+// @ts-check
+import type { LocalizableString, Argument } from "../types";
+
+export type Action = {
+    description: string,
+    args: Argument[] | null,
+    descriptionLocalized: LocalizableString,
+    return: string,
+    hasLiteralLimit?: boolean
+} & LocalizableString
+
+// export type Argument = {
+//     name: string,
+//     description: string,
+//     type: string | (string | { Array: string })[],
+//     default: string | number,
+//     descriptionLocalized: LocalizableString,
+//     nameLocalized: LocalizableString,
+// }
+
+export const actionKw: Record<string, Action> =
 //begin-json
 {
     "_&addHealthPool": {

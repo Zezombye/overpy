@@ -1,23 +1,29 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-const opyKeywords = {
+import { Argument } from "../../types";
+
+export const opyKeywords: Record<string, {
+    description: string,
+    args: Argument[] | null,
+    snippet?: string
+}> = {
 
 //Keywords
 
@@ -51,7 +57,7 @@ const opyKeywords = {
     },
     "do": {
         "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
-        "args": null
+        "args": null,
     },
     "elif": {
         "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
@@ -60,7 +66,7 @@ const opyKeywords = {
     },
     "else": {
         "description": `Denotes either:
-        
+
 - If an instruction, the beginning of a block that will only execute if the previous \`if\` or \`elif\` block's condition was false.
 
 - If a value, an inline "ternary" condition, such as \`A if B else C\`.`,
@@ -94,7 +100,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     },
     "for": {
         "description": `Denotes either:
-        
+
 - If an instruction, the beginning of a block that will execute in a loop, modifying the control variable on each loop. The instruction must be \`for <var> in range(start, stop, step):\` See also the \`range\` function.
 
 - If within a list comprehension, a filtered or mapped array, such as \`[i for i in x if x == 3]\`.`,
@@ -103,7 +109,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     },
     "if": {
         "description": `Denotes either:
-        
+
 - If an instruction, the beginning of a block that will only execute if the specified condition is true.
 
 - If a value, an inline "ternary" condition, such as \`A if B else C\`. The \`else\` must be specified.`,
@@ -111,6 +117,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "snippet": "if $0",
     },
     "in": {
+        "args": null,
         "description": "Whether comparing the first operand with any of the elements in the second operand returns true.\n\nFor example, `3 in [1,2,3]` will return true.\n\nBe aware that `3 in [1, true]` will return `true`, as 3 is truthy.\n\nTo check the presence of a string within another string, use `strContains`."
     },
     "int": {

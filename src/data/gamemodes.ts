@@ -17,7 +17,14 @@
 
 "use strict";
 
-const gamemodeKw =
+import { LocalizableString } from "../types";
+
+export const gamemodeKw: Record<string, LocalizableString & {
+    defaultTeam1Players?: number,
+    defaultTeam2Players?: number,
+    defaultFfaPlayers?: number,
+    onlyInOw1?: boolean
+}> =
 //begin-json
 {
     "assault": {

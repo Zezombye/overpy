@@ -1,4 +1,4 @@
-const colorKw = {
+export const colorKw: Record<string, { red: number, green: number, blue: number, alpha: number }> = {
     "white": {
         "red": 255,
         "green": 255,

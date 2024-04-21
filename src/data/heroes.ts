@@ -17,7 +17,14 @@
 
 "use strict";
 
-const heroKw =
+import { HeroData } from "../types";
+
+// @ts-check
+
+/**
+ * The list of all Overwatch 2 heroes.
+ */
+export const heroKw: Record<string, HeroData> =
 //begin-json
 {
     "ana": {
