@@ -1,19 +1,22 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+
+// @ts-check
+import { actionKw } from "../data/actions";
 
 var obfuscationMappings = {};
 for (var char of ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
@@ -38,7 +41,7 @@ ${tows("__rule__", ruleKw)}("") {
 	${tows("__actions__", ruleKw)} {
 		${tows("__abortIf__", actionKw)}(0.0000001);
 		${tows("__hudText__", actionKw)}(
-			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}), 
+			${tows("getPlayers", valueFuncKw)}(${tows("ALL", constantValues.TeamLiteral)}),
 			${tows("__valueInArray__", valueFuncKw)}(
 				${tows("__array__", valueFuncKw)}(
 					${tows("__customString__", valueFuncKw)}(" \n\n\n\n\n\n\n\nIt seems you have tampered with the gamemode!\nPlease consult with the creator before doing any unwanted m{0}", ${tows("__customString__", valueFuncKw)}("odifications.\n\nThe server will now crash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")),
@@ -49,15 +52,15 @@ ${tows("__rule__", ruleKw)}("") {
 					==,
 					${tows("__customString__", valueFuncKw)}("{0}", ${tows("__map__", valueFuncKw)}(${tows("BLACK_FOREST", constantValues.MapLiteral)}))
 				)
-			), 
-			${tows("null", valueFuncKw)}, 
-			${tows("null", valueFuncKw)}, 
-			${tows("TOP", constantValues.HudPosition)}, 
-			-99999999, 
-			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}), 
-			${tows("null", valueFuncKw)}, 
-			${tows("null", valueFuncKw)}, 
-			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)}, 
+			),
+			${tows("null", valueFuncKw)},
+			${tows("null", valueFuncKw)},
+			${tows("TOP", constantValues.HudPosition)},
+			-99999999,
+			${tows("__color__", valueFuncKw)}(${tows("RED", constantValues.ColorLiteral)}),
+			${tows("null", valueFuncKw)},
+			${tows("null", valueFuncKw)},
+			${tows("VISIBILITY_AND_STRING", constantValues.HudReeval)},
 			${tows("ALWAYS", constantValues.SpecVisibility)}
 		);
 	}
@@ -202,7 +205,7 @@ function obfuscateConstant(constantType, content) {
 	}
 
 	var result = new Ast("__valueInArray__", [
-		new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]), 
+		new Ast("__globalVar__", [new Ast("__obfuscationConstants__", [], [], "GlobalVariable")]),
 		obfuscatedNumberAst,
 	]);
 	result.doNotOptimize = true;

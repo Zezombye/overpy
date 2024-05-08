@@ -16,8 +16,10 @@
  */
 
 "use strict";
+// @ts-check
+import { actionKw } from "../data/actions";
 
-function astRulesToWs(rules) {
+export function astRulesToWs(rules) {
 
     var compiledRules = [];
 
@@ -162,7 +164,7 @@ function astRuleConditionToWs(condition) {
     return result;
 }
 
-function astActionToWs(action, nbTabs) {
+export function astActionToWs(action, nbTabs) {
 
     if (action.type === "Label") {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
@@ -437,22 +439,22 @@ function astToWs(content) {
 
     } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
 
-		if (content.name === "hudHeader") {
-			content.args.splice(2, 0, getAstForNull());
-			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(7, 0, getAstForNull());
-			content.args.splice(8, 0, getAstForNull());
-		} else if (content.name === "hudSubheader") {
-			content.args.splice(1, 0, getAstForNull());
-			content.args.splice(3, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForNull());
-			content.args.splice(8, 0, getAstForNull());
-		} else {
-			content.args.splice(1, 0, getAstForNull());
-			content.args.splice(2, 0, getAstForNull());
-			content.args.splice(6, 0, getAstForNull());
-			content.args.splice(7, 0, getAstForNull());
-		}
+        if (content.name === "hudHeader") {
+            content.args.splice(2, 0, getAstForNull());
+            content.args.splice(3, 0, getAstForNull());
+            content.args.splice(7, 0, getAstForNull());
+            content.args.splice(8, 0, getAstForNull());
+        } else if (content.name === "hudSubheader") {
+            content.args.splice(1, 0, getAstForNull());
+            content.args.splice(3, 0, getAstForNull());
+            content.args.splice(6, 0, getAstForNull());
+            content.args.splice(8, 0, getAstForNull());
+        } else {
+            content.args.splice(1, 0, getAstForNull());
+            content.args.splice(2, 0, getAstForNull());
+            content.args.splice(6, 0, getAstForNull());
+            content.args.splice(7, 0, getAstForNull());
+        }
         content.name = "__hudText__";
 
     } else if (content.name === "hudText") {

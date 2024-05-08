@@ -140,3 +140,9 @@ export type ReplaceableData = {
 }
 
 export type ReturnType = string | { Array: string } | { Direction: [string, string, string] }
+
+export type Type = string[] | string | Record<string, Type>;
+
+export type Token = {
+  text: string
+}

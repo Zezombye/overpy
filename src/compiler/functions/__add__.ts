@@ -1,3 +1,5 @@
+import { astParsingFunctions,  } from "../../globalVars.js";
+import { isTypeSuitable } from "../../utils/types.js";
 /*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.

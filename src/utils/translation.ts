@@ -1,25 +1,32 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-//Translates a keyword to the other language.
-function translate(keyword, toWorkshop, keywordObj, options={}) {
-	
+/**
+ * Translates a keyword to the other language.
+ * @param {string} keyword Keyword to translate
+ * @param {boolean} toWorkshop Whether to translate to Workshop output or Python output
+ * @param {Record<string, import("../types").Value>} keywordObj Mapping from keyword to value
+ * @param {Record<string, any>} options Additional options
+ * @returns {string} Translated keyword
+ */
+export function translate(keyword, toWorkshop, keywordObj, options={}) {
+
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
 		if (keywordObj !== stringKw) {
@@ -36,7 +43,7 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		}
 	}
 	debug("Translating keyword '"+keyword+"'");
-	
+
 	if (toWorkshop) {
 		try {
 			//Check number of arguments
@@ -55,7 +62,7 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 		} catch (e) {
 			//continue
 		}
-	
+
 	} else {
 
 		for (var key of Object.keys(keywordObj)) {
@@ -63,7 +70,7 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 			if (typeof keywordObj[key] !== "object") {
 				continue;
 			}
-			
+
 			if (currentLanguage in keywordObj[key]) {
 				var keywordComparing = keywordObj[key][currentLanguage];
 			} else {
@@ -84,17 +91,33 @@ function translate(keyword, toWorkshop, keywordObj, options={}) {
 				return result;
 			}
 		}
-		
+
 	}
-	
-	error("No match found for keyword '"+keyword+"'");	
+
+	error("No match found for keyword '"+keyword+"'");
+	return "";
 }
 
-function topy(keyword, keywordArray, options) {
+/**
+ * Translates an Overwatch Workshop keyword to OverPy
+ * @param {string} keyword Keyword to translate to OverPy code
+ * @param {Record<string, import("../types").Value>} keywordArray Record of all permissible keywords
+ * @param {Record<string, any>} options Additional options to pass to translations
+ * @returns {string}
+ */
+export function topy(keyword, keywordArray, options) {
 	return translate(keyword, false, keywordArray, options);
 }
-function tows(keyword, keywordArray, options) {
-	
+
+/**
+ * Translates OverPy tokens/strings to Workshop code
+ * @param {Object | string} keyword The keyword (either a token or a string) to translate to Workshop code
+ * @param {*} keywordArray Record of all permissible keywords
+ * @param {*} options Additional options to pass to translations
+ * @returns {string}
+ */
+export function tows(keyword, keywordArray, options) {
+
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
 		fileStack = keyword.fileStack;

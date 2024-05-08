@@ -16,15 +16,33 @@
  */
 
 "use strict";
+import { funcKw } from "../data/other";
+// @ts-check
+import { FileStackMember, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
+import { error, functionNameToString } from "./logging";
+import { type ReturnType } from "../types";
+import { isTypeSuitable } from "./types";
 
-class Ast {
+export class Ast {
+    name: string;
+    args: any[];
+    children: any[];
+    type: ReturnType | ReturnType[];
+    numValue?: number;
+    fileStack: FileStackMember[];
+    private argIndex = 0;
+    private childIndex = 0;
+    private wasParsed = false;
+    ruleAttributes: {
+        isDelimiter: boolean,
+        isDisabled: boolean,
+        name: string,
+        event: string
+    }
 
-    constructor(name, args, children, type) {
+    constructor(name: string, args?: any[], children?: any[], type?: any) {
         if (name === null || name === undefined) {
             error("Got no name for AST");
-        }
-        if (typeof name !== "string") {
-            error("Expected a string for AST name, but got '"+name+"' of type '"+typeof name+"'");
         }
         this.name = name;
         this.args = args ? args : [];
@@ -60,14 +78,11 @@ class Ast {
         }
         //console.log("Creating AST for '"+name+"', filestack = "+JSON.stringify(fileStack))
         this.fileStack = fileStack;
-        this.argIndex = 0;
-        this.childIndex = 0;
-        this.wasParsed = false;
     }
 }
 
 //Used for when the body of a control flow statement will never execute, such as "if false".
-function makeChildrenUseless(children) {
+export function makeChildrenUseless(children) {
 
     /*for (var i = 0; i < children.length; i++) {
         makeChildrenUseless(children[i].children);
@@ -118,7 +133,7 @@ function makeChildrenUseless(children) {
 
 //https://workshop.elohell.gg/wiki/bRQhecrRn/Data+type+comparisons/
 //Returns true if, when compared to "false", it returns true.
-function isDefinitelyFalsy(content) {
+export function isDefinitelyFalsy(content) {
     if (["__emptyArray__", "false", "null"].includes(content.name)) {
         return true;
     }
@@ -139,7 +154,7 @@ function isDefinitelyFalsy(content) {
 
 //Returns true if, when compared to "false", it returns false.
 //Not the exact opposite of isDefinitelyFalsy, as in most cases, we can't know either.
-function isDefinitelyTruthy(content) {
+export function isDefinitelyTruthy(content) {
     if (content.name === "true") {
         return true;
     }
@@ -165,7 +180,7 @@ function isDefinitelyTruthy(content) {
  * @remarks This function will check for random value functions, and will return false if any are found.
  * @returns Whether AST A and AST B always evaluate to the same value.
  */
-function areAstsAlwaysEqual(a, b) {
+export function areAstsAlwaysEqual(a, b) {
     if (a.name !== b.name) {
         return false;
     }
@@ -183,7 +198,7 @@ function areAstsAlwaysEqual(a, b) {
     return true;
 }
 
-function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
+export function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
     if (functionNames.includes(ast.name)) {
         if (errorOnTrue) {
@@ -213,46 +228,46 @@ function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
 
 
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
-function getAstFor0() {
+export function getAstFor0() {
     return new Ast("__number__", [new Ast("0", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstFor1() {
+export function getAstFor1() {
     return new Ast("__number__", [new Ast("1", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstForMinus1() {
+export function getAstForMinus1() {
     return new Ast("__number__", [new Ast("-1", [], [], "SignedIntLiteral")], [], "signed int");
 }
-function getAstFor2() {
+export function getAstFor2() {
     return new Ast("__number__", [new Ast("2", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstFor0_016() {
+export function getAstFor0_016() {
     return new Ast("__number__", [new Ast("0.016", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-function getAstFor0_001() {
+export function getAstFor0_001() {
     return new Ast("__number__", [new Ast("0.001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-function getAstFor0_0001() {
+export function getAstFor0_0001() {
     return new Ast("__number__", [new Ast("0.0001", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-function getAstFor255() {
+export function getAstFor255() {
     return new Ast("__number__", [new Ast("255", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstFor10000() {
+export function getAstFor10000() {
     return new Ast("__number__", [new Ast("10000", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstFor10Million() {
+export function getAstFor10Million() {
     return new Ast("__number__", [new Ast("10000000", [], [], "UnsignedIntLiteral")], [], "int");
 }
-function getAstForInfinity() {
+export function getAstForInfinity() {
     return new Ast("__number__", [new Ast("999999999999", [], [], "UnsignedIntLiteral")], [], "unsigned int");
 }
-function getAstForMinusInfinity() {
+export function getAstForMinusInfinity() {
     return new Ast("__number__", [new Ast("-999999999999", [], [], "SignedIntLiteral")], [], "signed int");
 }
-function getAstForE() {
+export function getAstForE() {
     return new Ast("__number__", [new Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-function getAstForNumber(nb) {
+export function getAstForNumber(nb) {
     if (typeof nb !== "number") {
         error("Expected a number, but got '"+nb+"' of type '"+typeof nb+"'");
     }
@@ -260,48 +275,48 @@ function getAstForNumber(nb) {
     type += " "+(Number.isInteger(nb) ? "int" : "float");
     return new Ast("__number__", [new Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed")+(Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
-function getAstForBool(bool) {
+export function getAstForBool(bool) {
     if (bool) {
         return getAstForTrue();
     } else {
         return getAstForFalse();
     }
 }
-function getAstForNull() {
+export function getAstForNull() {
     return new Ast("null", [], [], "Player");
 }
-function getAstForFalse() {
+export function getAstForFalse() {
     return new Ast("false", [], [], "bool");
 }
-function getAstForTrue() {
+export function getAstForTrue() {
     return new Ast("true", [], [], "bool");
 }
-function getAstForColorWhite() {
+export function getAstForColorWhite() {
     return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")], [], "Color");
 }
-function getAstForTeamAll() {
+export function getAstForTeamAll() {
     return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
 }
-function getAstForUselessInstruction() {
+export function getAstForUselessInstruction() {
     return new Ast("pass");
 }
-function getAstForEnd() {
+export function getAstForEnd() {
     return new Ast("__end__");
 }
-function getAstForEmptyArray() {
+export function getAstForEmptyArray() {
     return new Ast("__emptyArray__");
 }
-function getAstForNullVector() {
+export function getAstForNullVector() {
     return new Ast("vect", [
         getAstFor0(),
         getAstFor0(),
         getAstFor0(),
     ])
 }
-function getAstForCurrentArrayIndex() {
+export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");
 }
-function getAstForCustomString(content, formatArgs = []) {
+export function getAstForCustomString(content, formatArgs = []) {
     const [
         arg1 = getAstForNull(),
         arg2 = getAstForNull(),

@@ -52,7 +52,7 @@ const builtInEnumNameToAstInfo = {
     }
 }
 
-function parseLines(lines) {
+export function parseLines(lines) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];

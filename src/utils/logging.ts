@@ -1,29 +1,34 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+import { DEBUG_MODE, encounteredWarnings, fileStack, globalSuppressedWarnings, setFileStack, suppressedWarnings } from "../globalVars";
+import { tabLevel } from "./other";
+import { escapeString } from "./strings";
+import { dispTokens } from "./tokens";
+import { isTypeSuitable } from "./types";
 
 //Logging stuff
-function error(str, token) {
-	
+export function error(str: string, token?: any) {
+
 	if (token !== undefined && token.fileStack !== undefined) {
-		fileStack = token.fileStack;
+		setFileStack(token.fileStack);
 	}
-	
+
 	//var error = "ERROR: ";
 	var err = "";
 	err += str;
@@ -44,12 +49,12 @@ function error(str, token) {
 	} else {
 		err += "\n\t| <no filestack>";
 	}
-	
+
 	throw new Error(err);
 }
 
-function warn(warnType, message) {
-	
+export function warn(warnType: string, message: string) {
+
 	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
 		var warning = message+" ("+warnType+")";
 		if (fileStack) {
@@ -72,15 +77,9 @@ function warn(warnType, message) {
 	}
 }
 
-if (DEBUG_MODE) {
-	var debug = function(str) {
-		console.debug("DEBUG: "+str);
-	}
-} else {
-	var debug = function(str) {}
-}
+export const debug = (data: string) => { if (DEBUG_MODE) console.debug("DEBUG: "+ data) };
 
-function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
+export function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
 
 	var funcDisplayName = functionNameToString(content);
 	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
@@ -90,7 +89,7 @@ function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
 	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type)}'`;
 }
 
-function functionNameToString(content) {
+export function functionNameToString(content) {
 
 	if (typeof content === "string") {
 		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
@@ -120,7 +119,7 @@ function functionNameToString(content) {
 		//todo
 	}
 
-	var funcDisplayName = null;
+	let funcDisplayName: string;
 
 	if (content.name in funcToOperatorMapping) {
 		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
@@ -137,7 +136,7 @@ function functionNameToString(content) {
 	return funcDisplayName;
 }
 
-function typeToString(type) {
+export function typeToString(type) {
 	if (typeof type === "string") {
 		return type;
 	} else if (type instanceof Array) {
@@ -157,7 +156,7 @@ function typeToString(type) {
 	}
 }
 
-function nthOfNumber(nb) {
+export function nthOfNumber(nb: number) {
 	if (nb === 1) {
 		return "1st";
 	} else if (nb === 2) {
@@ -170,7 +169,7 @@ function nthOfNumber(nb) {
 }
 
 
-function astToString(ast, nbTabs=0) {
+export function astToString(ast, nbTabs=0) {
 	var result = "";
 	if (ast === undefined) {
 		return "__undefined__";

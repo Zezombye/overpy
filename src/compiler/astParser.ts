@@ -1,28 +1,35 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function parseAstRules(rules) {
+import { constantValues } from "../data/constants";
+import { funcKw } from "../data/other";
+import { fileStack, suppressedWarnings, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
+import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
+import { isTypeSuitable } from "../utils/types";
+import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE } from "../utils/ast";
 
-    var rulesResult = [];
+export function parseAstRules(rules) {
+
+    var rulesResult: Ast[] = [];
     for (var rule of rules) {
 
-        fileStack = rule.fileStack;
+        setFileStack(rule.fileStack);
 
         //Parse annotations
         var i = 0;
@@ -31,7 +38,7 @@ function parseAstRules(rules) {
             if (!rule.children[i].name.startsWith("@")) {
                 break;
             }
-            fileStack = rule.children[i].fileStack;
+            setFileStack(rule.children[i].fileStack);
 
             if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(rule.children[i].name)) {
                 const annotationToPropMap = {
@@ -63,7 +70,7 @@ function parseAstRules(rules) {
                 } else {
                     rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
                 }
-                
+
             } else if (rule.children[i].name === "@SuppressWarnings") {
 
                 if (rule.children[i].args.length < 1) {
@@ -117,8 +124,8 @@ function parseAstRules(rules) {
         }
         //Remove the annotations from the children
         rule.children = rule.children.slice(i);
-        fileStack = rule.fileStack;
-        
+        setFileStack(rule.fileStack);
+
 
         if (rule.name === "__rule__") {
 
@@ -137,7 +144,7 @@ function parseAstRules(rules) {
                     rule.ruleAttributes.eventPlayer = "all";
                 }
             }
-            
+
         } else if (rule.name === "__def__") {
             if (rule.ruleAttributes.event !== undefined) {
                 error("Cannot declare event for a subroutine");
@@ -157,12 +164,12 @@ function parseAstRules(rules) {
         } else {
             error("Unexpected function '"+rule.name+"' outside a rule");
         }
-        
-        currentRuleEvent = rule.ruleAttributes.event;
-        currentRuleLabels = [];
-        currentRuleLabelAccess = {};
-        currentRuleHasVariableGoto = false;
-        
+
+        setCurrentRuleEvent(rule.ruleAttributes.event);
+        resetCurrentRuleLabels();
+        clearRuleLabelAccess();
+        resetRuleHasVariableGoto();
+
         //Parse conditions now that we extracted the event (so we yield a proper error with event-related values)
         if (rule.ruleAttributes.conditions !== undefined) {
             for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
@@ -170,20 +177,20 @@ function parseAstRules(rules) {
                 rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i]
             }
         }
-        
+
         rulesResult.push(parseAst(rule));
     }
     return rulesResult;
 }
 
-function parseAst(content) {
+export function parseAst(content) {
 
     if (!(typeof content === "object")) {
         error("Content is not object: "+content);
     }
     //console.log(currentRuleLabels);
 
-    fileStack = content.fileStack;
+    setFileStack(content.fileStack);
     debug("Parsing AST of '"+content.name+"'");
 
     if (!(content.args instanceof Array)) {
@@ -201,7 +208,7 @@ function parseAst(content) {
     if (!["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
         if ([
             "IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral",
-            "GlobalVariable", "PlayerVariable", "Subroutine", 
+            "GlobalVariable", "PlayerVariable", "Subroutine",
             "HeroLiteral", "MapLiteral", "GamemodeLiteral", "TeamLiteral", "ButtonLiteral",
         ].concat(Object.keys(constantValues)).includes(content.type)) {
             return content;
@@ -229,7 +236,7 @@ function parseAst(content) {
             content.parent = tmpParent;
         }
     }
-    
+
     if (!(content.name in funcKw)) {
         error("Unknown function '"+content.name+"'");
     }
@@ -256,7 +263,7 @@ function parseAst(content) {
         if (content.args[0].args[0].name !== "range") {
             error("Expected the 'range' function for the 2nd operand of the 'in' operator, but got "+functionNameToString(content.args[0].args[1]));
         }
-        
+
         if (content.args[0].args[0].args.length < 1 || content.args[0].args[0].args.length > 3) {
             error("Function 'range' takes 1 to 3 arguments, received "+content.args[0].args[0].args.length);
         }
@@ -274,9 +281,9 @@ function parseAst(content) {
             content.args[0].args[0].args[2],
         ];
     } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-    
+
         if (content.args.length < 6 || content.args.length > 7) {
-            error("Function '"+content.name+"' takes 6 or 7 arguments, received "+content.args.length);
+            error("Function '"+content.name+"' takes 6 or 7 arguments, received " + content.args.length);
         }
         if (content.args.length === 6) {
             content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
@@ -284,21 +291,21 @@ function parseAst(content) {
 
     } else if (content.name === "hudText") {
         if (content.args.length < 10 || content.args.length > 11) {
-            error("Function '"+content.name+"' takes 10 or 11 arguments, received "+content.args.length);
+            error("Function '"+content.name+"' takes 10 or 11 arguments, received " + content.args.length);
         }
         if (content.args.length === 10) {
             content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
         }
     } else if (content.name === "log") {
         if (content.args.length < 1 || content.args.length > 2) {
-            error("Function '"+content.name+"' takes 1 or 2 arguments, received "+content.args.length);
+            error("Function '"+content.name+"' takes 1 or 2 arguments, received " + content.args.length);
         }
         if (content.args.length === 1) {
             content.args.push(getAstForE());
         }
     } else if (content.name === "rgb") {
         if (content.args.length !== 3) {
-            error("Function 'rgb' takes 3 arguments, received "+args.length);
+            error("Function 'rgb' takes 3 arguments, received "+ content.args.length);
         }
         content.args.push(getAstFor255());
         content.name = "rgba";
@@ -310,7 +317,7 @@ function parseAst(content) {
 
     } else if (content.name === "wait") {
         if (content.args.length > 2) {
-            error("Function 'wait' takes 0 to 2 arguments, received "+args.length);
+            error("Function 'wait' takes 0 to 2 arguments, received "+ content.args.length);
         }
         if (content.args.length === 0) {
             content.args.push(getAstFor0_016());
@@ -320,9 +327,9 @@ function parseAst(content) {
         }
         content.name = "__wait__";
     }
-    
+
     if (!["__format__", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
-        var nbExpectedArgs = (funcKw[content.name].args === null ? 0 : funcKw[content.name].args.length);
+        var nbExpectedArgs = (funcKw[content.name]?.args?.length ?? 0);
         if (content.args.length !== nbExpectedArgs) {
             error("Function '"+content.name+"' takes "+nbExpectedArgs+" arguments, received "+content.args.length);
         }
@@ -342,8 +349,8 @@ function parseAst(content) {
             error("Function '__format__' takes at least 1 argument, received "+content.args.length);
         }
         //Check types
-        if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[0].type)) {
-            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name].args[0].type, content.args[0]));
+        if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type ?? "", content.args[0].type)) {
+            warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]));
         }
         for (var i = 1; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name].args[1].type, content.args[i].type)) {
@@ -396,7 +403,7 @@ function parseAst(content) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
         ///console.log("parsing "+content.children[i].name);
-        var childComment = null;
+        var childComment;
         if (content.name === "__rule__") {
             var childComment = content.children[i].comment;
         }
@@ -413,7 +420,7 @@ function parseAst(content) {
         }
     }
 
-    fileStack = content.fileStack;
+    setFileStack(content.fileStack);
 
     //Optimize, and re-optimize if the function name changed
     var oldContentName = content.name;

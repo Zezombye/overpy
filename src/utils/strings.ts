@@ -1,23 +1,26 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function escapeBadWords(content) {
+import { error } from "./logging.js";
+import { opyStringEntities } from "../data/opy/stringEntities.js";
+
+export function escapeBadWords(content: string) {
 
 	//000000000057.07F
 	//000000000058.07F
@@ -59,12 +62,9 @@ function escapeBadWords(content) {
 	return content;
 }
 
-function unescapeString(content, tows) {
+export function unescapeString(content: string, tows: boolean) {
 	if (content.length < 2) {
 		error("Expected a string, but got '"+content+"'");
-	}
-	if (tows === undefined) {
-		error("tows must be defined, please report to Zezombye");
 	}
 	if (content.startsWith("'") && content.endsWith("'")) {
 		content = content.substring(1, content.length-1).replace(/\\'/g, "'");
@@ -142,7 +142,7 @@ function unescapeString(content, tows) {
 				}
 				result += String.fromCodePoint(opyStringEntities[entityName].codepoint);
 				i += entityName.length+1;
-			
+
 			} else {
 				error("Unknown escape sequence '\\"+content[i+1]+"'");
 			}
@@ -156,7 +156,7 @@ function unescapeString(content, tows) {
 	return result;
 }
 
-function escapeString(content, tows) {
+export function escapeString(content: string, tows: boolean) {
 	if (tows === undefined) {
 		error("tows must be defined, please report to Zezombye");
 	}
@@ -167,7 +167,7 @@ function escapeString(content, tows) {
 	return result;
 }
 
-function getUtf8Length(str){
+export function getUtf8Length(str: string){
 	//returns the char length of an utf8 string
 	var result = 0;
 	for (var i = 0; i < str.length; i++) {
@@ -181,7 +181,7 @@ function getUtf8Length(str){
 	return result;
 }
 
-function getUtf8ByteLength(str){
+export function getUtf8ByteLength(str: string){
 	// returns the byte length of an utf8 string
 	var s = str.length;
 	for (var i=str.length-1; i>=0; i--) {

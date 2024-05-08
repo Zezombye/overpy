@@ -1,23 +1,33 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-/*
+import { typeMatrix } from "../globalVars";
+import { Token, Type } from "../types";
+import { Ast } from "./ast";
+import { error } from "./logging";
+import { splitTokens } from "./tokens";
+
+/**
+ *
+ * @returns {boolean} Whether the `receivedType` is suitable to be used in places where `expectedType` is desired.
+ *
+ * @remarks
 A type is suitable if each type of the receivedType is suitable for any of the types in expectedType.
 Eg: ["unsigned float", "Vector"] is suitable for ["float", "Direction"].
 However ["float", "Vector"] is not suitable for ["float"].
@@ -28,7 +38,7 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 
 The special "Value" type is suitable for any child type of object or array.
 */
-function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
+export function isTypeSuitable(expectedType: Type, receivedType: Type, valueTypeIsSuitable=true): boolean {
 
     //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
 
@@ -80,7 +90,7 @@ function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
                 return expectedType === "Array";
 
             } else if (typeof expectedType === "object") {
-                
+
                 var expectedTypeName = Object.keys(expectedType)[0];
                 if (expectedTypeName === "Array") {
                     return isTypeSuitable(expectedType[expectedTypeName], receivedType[receivedTypeName]);
@@ -96,7 +106,7 @@ function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
                 return isTypeSuitable(expectedType, receivedTypeName) && receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
 
             } else if (typeof expectedType === "object") {
-                
+
                 var expectedTypeName = Object.keys(expectedType)[0];
                 if (expectedTypeName === "Array") {
                     //An vector cannot be suitable for a array
@@ -125,10 +135,11 @@ function isTypeSuitable(expectedType, receivedType, valueTypeIsSuitable=true) {
     }
 
     error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
-
+    return false;
 }
 
-function replaceType(type, matchReplacementObj) {
+/** @potentially_unused */
+function replaceType(type: Type, matchReplacementObj: Record<string, Type>): Type {
     if (typeof matchReplacementObj !== "object") {
         error("Expected type object but got '"+matchReplacementObj+"' of type '"+typeof matchReplacementObj+"'");
     }
@@ -140,20 +151,19 @@ function replaceType(type, matchReplacementObj) {
         }
     } else if (type instanceof Array) {
         return type.map(x => replaceType(x, matchReplacementObj));
-    } else {
+    } else if (typeof type === "object") {
         for (var key in type) {
             type[key] = replaceType(type[key], matchReplacementObj);
         }
         return type;
     }
-    error("This shouldn't happen");
 }
 
-function parseType(tokens) {
+function parseType(tokens: Token[]) {
     if (tokens.length === 0) {
         error("Content is empty (expected a type)");
     }
-    if (!tokens[0].text in Object.keys(typeMatrix)) {
+    if (!(tokens[0].text in Object.keys(typeMatrix))) {
         error("Expected a type, but got '"+tokens[0].text+"'");
     }
     if (tokens.length === 1) {
@@ -221,7 +231,7 @@ function parseType(tokens) {
         return new Ast(tokens[0].text, [getAstForNumber(min), getAstForNumber(max)], [], "Type");
     } else if (tokens[0].text === "enum") {
         var enumMembers = splitTokens(typeParams, ",", true);
-        
+
         if (enumMembers[enumMembers.length-1].length === 0) {
             enumMembers.pop()
         }
@@ -232,5 +242,5 @@ function parseType(tokens) {
     }
 
     error("This shouldn't happen");
-    
+
 }
