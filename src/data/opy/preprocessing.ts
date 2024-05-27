@@ -30,24 +30,6 @@ export const preprocessingDirectives: Record<string, {
         "description": "Same as the `#!define` directive, but tells the VS Code extension to include this macro in the member autocompletion.",
         "snippet": "defineMember $0",
     },
-    "obfuscate": {
-        "description":
-`Obfuscates the resulting code. This directive assumes all your code is in the overpy file, meaning you should not combine the generated code with code that is only in the workshop GUI.
-
-Usage of this directive will result in a size increase, and a very low performance decrease, but should not in any case alter how the existing code functions. (if it does, please report that as a bug)
-
-The following obfuscation methods are applied:
-
-- Rule filling: 2500 empty rules are inserted, making it impossible to view the gamemode within the workshop UI. It must be copy-pasted to be able to be edited (you can then apply various anti copy-paste integrity checks).
-- Name obfuscation: all rule titles and comments are removed, and all variable/subroutine names are replaced with a combination of capital i and lowercase L.
-- String obfuscation: characters in custom strings are replaced with special characters that display in Overwatch, but not text editors.
-- Constant obfuscation: some constants, such as heroes or maps, are replaced with other values that compute to the original value.
-- Inspector obfuscation: the inspector is disabled, and all inspector-related actions are removed.
-- Copy protection: the gamemode will break upon copying it via text. It is highly recommended to enable constant obfuscation to greatly strengthen this protection.
-
-To save elements, it is possible to specify methods to disable, by prefixing them with \`no\`. For example, \`#!obfuscate noRuleFilling noConstantObfuscation\` will disable rule filling and constant obfuscation, which is useful if the obfuscation adds too much elements.
-`
-    },
     "suppressWarnings": {
         "description": "Suppresses the specified warnings globally across the program. Warnings must be separated by a space.",
         "snippet": "suppressWarnings $0",

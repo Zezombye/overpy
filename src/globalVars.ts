@@ -25,18 +25,21 @@ import { camelCaseToUpperCase } from "./utils/other";
 import { QuickJSContext, getQuickJS } from "quickjs-emscripten";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
-import { Subroutine, Variable } from "./types";
+import { FileStackMember, OWLanguage, Subroutine, Variable } from "./types";
+import { Ast } from "./utils/ast";
 
 
 export var globalVariables: Variable[];
 export var playerVariables: Variable[];
 export var subroutines: Subroutine[];
-export var currentLanguage: string;
+export var currentLanguage: OWLanguage;
 
 export const ELEMENT_LIMIT = 32768;
 export const PAGE_SIZE = 100;
 //If it is in a browser then it is assumed to be in debug mode.
+// @ts-ignore
 export const IS_IN_BROWSER = (typeof window !== "undefined");
+// @ts-ignore
 export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 export var evalVm: QuickJSContext;
 
@@ -66,8 +69,10 @@ export const setRootPath = (path: string) => rootPath = path;
 
 //Global variables used to keep track of the name for the current array element/index.
 //Should be null at the beginning and end of each rule; if not, throws an error. (for compilation and decompilation)
-export var currentArrayElementName;
-export var currentArrayIndexName;
+export var currentArrayElementName: string;
+export const setCurrentArrayElementName = (name: string) => currentArrayElementName = name;
+export var currentArrayIndexName: string;
+export const setCurrentArrayIndexName = (name: string) => currentArrayIndexName = name;
 
 /**
  * Set at each rule, to check whether it is legal to use "eventPlayer" and related. */
@@ -89,28 +94,19 @@ export const clearRuleLabelAccess = () => currentRuleLabelAccess = {};
 export var currentRuleHasVariableGoto: boolean;
 export const resetRuleHasVariableGoto = () => currentRuleHasVariableGoto = false;
 
-/** Settings for whether to enable obfuscation techniques.
- */
-export var obfuscationSettings: {
-		obfuscateNames: boolean;
-		obfuscateComments: boolean;
-		obfuscateStrings: boolean;
-		obfuscateConstants: boolean;
-		obfuscateInspector: boolean;
-		ruleFilling: boolean;
-		copyProtection: boolean;
-	};
-
 //Optimization settings.
 export var enableOptimization: boolean;
+export const setOptimizationEnabled = (enabled: boolean) => enableOptimization = enabled;
 export var optimizeForSize: boolean;
+export const setOptimizationForSize = (size: boolean) => optimizeForSize = size;
 
 /** Contains all macros. */
-export var macros;
+export var macros: any[];
+export const resetMacros = () => macros = [];
 
-export var encounteredWarnings;
-export var suppressedWarnings;
-export var globalSuppressedWarnings;
+export var encounteredWarnings: string[];
+export var suppressedWarnings: string[];
+export var globalSuppressedWarnings: string[];
 
 /** A list of imported files, to prevent import loops.
  */
@@ -118,23 +114,23 @@ export var importedFiles: string[];
 
 export var disableUnusedVars: boolean;
 
-export var compiledCustomGameSettings;
+export var compiledCustomGameSettings: any;
 
-export type FileStackMember = { name: string, currentLineNb: number, currentColNb: number, remainingChars?: number }
-	| { rule: string, ruleNb: number, actionNb?: number, conditionNb?: number, representation?: string };
+
 /** The stack of the files (macros count as "files").
 */
-export var fileStack: FileStackMember[];
+export let fileStack: FileStackMember[];
 export const setFileStack = (newFileStack: FileStackMember[]) => fileStack = newFileStack;
 export const pushToFileStack = (newMember: FileStackMember) => fileStack.push(newMember);
 export const popFromFileStack = (): FileStackMember | undefined => fileStack.pop();
 
 /** An unique number for automatically generated labels. */
 export var uniqueNumber: number;
+export const incrementUniqueNumber = () => uniqueNumber++;
 
 //Initialization directives for global and player variables.
-export var globalInitDirectives = [];
-export var playerInitDirectives = [];
+export var globalInitDirectives: Ast[] = [];
+export var playerInitDirectives: Ast[] = [];
 
 /** Workshop setting names, as each name must be unique even if belonging to different categories. */
 export var workshopSettingNames: string[] = [];
@@ -143,20 +139,23 @@ export var workshopSettingNames: string[] = [];
 export var enumMembers = {};
 
 //Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
-export var replacementFor0;
-export var replacementFor1;
-export var replacementForTeam1;
+export var replacementFor0 = "";
+export const setReplacementFor0 = (replacement: string) => replacementFor0 = replacement;
+export var replacementFor1 = "";
+export const setReplacementFor1 = (replacement: string) => replacementFor1 = replacement;
+export var replacementForTeam1 = "";
+export const setReplacementForTeam1 = (replacement: string) => replacementForTeam1 = replacement;
 
 /** The number of elements the gamemode takes. */
-export var nbElements;
+export var nbElements: number;
 
 /** For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument. */
-export var nbHeroesInValue;
+export var nbHeroesInValue: number;
 
 /** The extensions that are activated in the current gamemode. */
-export var activatedExtensions;
+export var activatedExtensions: string[];
 /** The amount of available extension points. */
-export var availableExtensionPoints;
+export var availableExtensionPoints: number;
 
 //Decompilation variables
 
@@ -192,15 +191,6 @@ export function resetGlobalVariables(language: string) {
 	currentArrayIndexName = null;
 	currentLanguage = language;
 	currentRuleEvent = "";
-	obfuscationSettings = {
-		obfuscateNames: false,
-		obfuscateComments: false,
-		obfuscateStrings: false,
-		obfuscateConstants: false,
-		obfuscateInspector: false,
-		ruleFilling: false,
-		copyProtection: false,
-	}
 	macros = [];
 	fileStack = [];
 	decompilerGotos = [];
@@ -222,9 +212,9 @@ export function resetGlobalVariables(language: string) {
 	playerInitDirectives = [];
 	workshopSettingNames = [];
 	enumMembers = {};
-	replacementFor0 = null;
-	replacementFor1 = null;
-	replacementForTeam1 = null;
+	replacementFor0 = "";
+	replacementFor1 = "";
+	replacementForTeam1 = "";
 	nbElements = 0;
 	activatedExtensions = [];
 	availableExtensionPoints = 0;
@@ -383,7 +373,7 @@ workshopSettingWhitespace.sort();
 
 
 export const typeTree = [
-    {"Object": [
+	{"Object": [
 		"Player",
 		{"float": [
 			{"FloatLiteral": [
@@ -499,7 +489,4 @@ reservedNames.push(...Object.keys(typeMatrix));
 export const reservedMemberNames = ["x", "y", "z"];
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
-/**
- * @type { {[key: string]: (content: any) -> any} }
- */
-export var astParsingFunctions = {};
+export var astParsingFunctions: Record<string, (content: any) => any> = {};

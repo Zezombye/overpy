@@ -17,13 +17,23 @@
 
 "use strict";
 // @ts-check
-import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, obfuscationSettings, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack } from "../globalVars";
+import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { ruleKw, customGameSettingsKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
+import { Ast } from "../utils/ast";
+import { getFilePaths, getFileContent } from "../utils/file";
+import { astToString, warn, error } from "../utils/logging";
+import { tows } from "../utils/translation";
+import { parseAstRules } from "./astParser";
+import { astRulesToWs } from "./astToWorkshop";
+import { parseLines } from "./parser";
+import { tokenize } from "./tokenizer";
+import { addVariable } from "../utils/varNames";
+import { ScriptFileStackMember } from "../types";
 
 /**
  * @returns An object containing the compiled result along with
@@ -32,9 +42,7 @@ export async function compile(content: string, language = "en-US", _rootPath = "
 	// Need to wait for QuickJS to load
 	await createEvalVM();
 
-	if (DEBUG_MODE) {
-		var t0 = performance.now();
-	}
+	const t0 = performance.now();
 
 	resetGlobalVariables(language);
 	// rootPath = _rootPath;
@@ -42,9 +50,9 @@ export async function compile(content: string, language = "en-US", _rootPath = "
 
 	//Handle #!mainfile directive
 	if (content.startsWith("#!mainFile ")) {
-		var mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
+		let mainFilePath = (await getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n"))))[0];
 		setRootPath(mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1));
-		content = getFileContent(mainFilePath);
+		content = await getFileContent(mainFilePath);
 		if (DEBUG_MODE) {
 			console.log("content = ");
 			console.log(content);
@@ -59,17 +67,13 @@ export async function compile(content: string, language = "en-US", _rootPath = "
 		"currentLineNb": 1,
 		"currentColNb": 1,
 		"remainingChars": 99999999999, //does not matter
-	}]);
-	macros = [];
+		staticMember: true
+	} as ScriptFileStackMember]);
+	resetMacros();
 
-	var lines = tokenize(content);
+	var lines = await tokenize(content);
 
-	if (obfuscationSettings.obfuscateConstants) {
-		addVariable("__obfuscationConstants__", true, 127);
-		//globalInitDirectives.push(obfuscationConstantsAst);
-	}
-
-	var astRules = parseLines(lines);
+	var astRules = await parseLines(lines);
 	astRules.unshift(...getInitDirectivesRules());
 
 	if (DEBUG_MODE) {
@@ -117,13 +121,7 @@ function compileRules(astRules) {
 		console.log(parsedAstRules);
 	}
 
-	var compiledRules = astRulesToWs(parsedAstRules);
-
-	if (Object.keys(obfuscationSettings).some(x => obfuscationSettings[x])) {
-		compiledRules = addObfuscationRules(compiledRules);
-	} else {
-		compiledRules = compiledRules.join("");
-	}
+	var compiledRules = astRulesToWs(parsedAstRules).join("");
 
 	var result = compiledCustomGameSettings + generateVariablesField() + generateSubroutinesField() + compiledRules;
 
@@ -222,21 +220,11 @@ function generateVariablesField() {
 				error("More than 128 " + varType + " variables have been declared");
 			}
 		}
-		//console.log(outputVariables);
-		//console.log(obfuscatedVarNames);
-		//console.log(obfuscatedVarNumbers);
 
-		if (obfuscationSettings.obfuscateNames) {
-			var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e, i) => i));
-		}
 		var varTypeResult = "";
 		for (var i = 0; i < 128; i++) {
-			if (obfuscationSettings.obfuscateNames) {
-				varTypeResult += tabLevel(2) + obfuscatedVarNumbers[i] + ": " + obfuscatedVarNames[i] + "\n"
-			} else {
-				if (outputVariables[i] !== undefined) {
-					varTypeResult += tabLevel(2) + i + ": " + outputVariables[i] + "\n";
-				}
+			if (outputVariables[i] !== undefined) {
+				varTypeResult += tabLevel(2) + i + ": " + outputVariables[i] + "\n";
 			}
 		}
 		if (varTypeResult !== "") {
@@ -298,16 +286,9 @@ function generateSubroutinesField() {
 		}
 	}
 
-	if (obfuscationSettings.obfuscateNames) {
-		var obfuscatedVarNumbers = shuffleArray(Array(128).fill().map((e, i) => i));
-	}
 	for (var i = 0; i < 128; i++) {
-		if (obfuscationSettings.obfuscateNames) {
-			result += tabLevel(1) + obfuscatedVarNumbers[i] + ": " + obfuscatedVarNames[i] + "\n"
-		} else {
-			if (outputSubroutines[i] !== undefined) {
-				result += tabLevel(1) + i + ": " + outputSubroutines[i] + "\n";
-			}
+		if (outputSubroutines[i] !== undefined) {
+			result += tabLevel(1) + i + ": " + outputSubroutines[i] + "\n";
 		}
 	}
 
@@ -319,17 +300,12 @@ function generateSubroutinesField() {
 
 }
 
-function compileCustomGameSettings(customGameSettings) {
-
-	if (typeof customGameSettings !== "object" || customGameSettings === null) {
-		error("Expected an object for custom game settings");
-	}
-
+export function compileCustomGameSettings(customGameSettings: Record<string, any>) {
 	if (compiledCustomGameSettings !== "") {
 		error("Custom game settings have already been declared");
 	}
 
-	var result = {};
+	var result: Record<string, any> = {};
 	if (!("gamemodes" in customGameSettings)) {
 		error("Custom game settings must specify a gamemode");
 	}

@@ -17,11 +17,26 @@
 
 "use strict";
 
+import { setFileStack } from "../globalVars";
+import { Token } from "../types";
+import { Ast } from "../utils/ast";
+import { getFileContent, getFilePaths } from "../utils/file";
+import { debug, error } from "../utils/logging";
+import { safeEval } from "../utils/other";
+import { dispTokens, splitTokens } from "../utils/tokens";
+import { parseType } from "../utils/types";
+import { addSubroutine, addVariable } from "../utils/varNames";
+import { compileCustomGameSettings } from "./compiler";
+import { LogicalLine } from "./tokenizer";
+
 
 class WorkshopVar {
-    constructor(name, index) {
+    name: string;
+    index: number;
+
+    constructor(name: string, index: number) {
         this.name = name;
-        this.index = index === undefined ? null : index;
+        this.index = index === undefined ? -1 : index;
     }
 }
 
@@ -52,82 +67,99 @@ const builtInEnumNameToAstInfo = {
     }
 }
 
-export function parseLines(lines) {
+export async function parseLines(lines: LogicalLine[]) {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
     var result = [];
-    var currentComments = [];
+    let currentComments: string[] = [];
 
 
     for (var i = 0; i < lines.length; i++) {
-        if (lines[i].tokens.length === 0) {
+        let currentLine = lines[i];
+
+        if (currentLine.tokens.length === 0) {
             error("Received an empty line");
         }
-        fileStack = lines[i].tokens[0].fileStack;
+        setFileStack(currentLine.tokens[0].fileStack);
 
-        if (lines[i].tokens[0].text.startsWith("#")) {
-            currentComments.push(lines[i].tokens[0].text.substring(1));
+        if (currentLine.tokens[0].text.startsWith("#")) {
+            currentComments.push(currentLine.tokens[0].text.substring(1));
             continue;
         }
 
         //Check for end of line comment
-        if (lines[i].tokens.length > 0 && lines[i].tokens[lines[i].tokens.length-1].text.startsWith("#")) {
-            currentComments.push(lines[i].tokens[lines[i].tokens.length-1].text.substring(1));
-            lines[i].tokens.pop();
+        if (currentLine.tokens.length > 0 && currentLine.tokens[currentLine.tokens.length - 1].text.startsWith("#")) {
+            currentComments.push(currentLine.tokens[currentLine.tokens.length - 1].text.substring(1));
+            currentLine.tokens.pop();
         }
 
-        if (lines[i].tokens[0].text === "globalvar" || lines[i].tokens[0].text === "playervar" || lines[i].tokens[0].text === "subroutine") {
+        // Handle variable delacartions
+        if (currentLine.tokens[0].text === "globalvar"
+            || currentLine.tokens[0].text === "playervar"
+            || currentLine.tokens[0].text === "subroutine") {
 
             var initDirective = null;
             //Check for assignment
-            for (var j = 0; j < lines[i].tokens.length; j++) {
-                if (lines[i].tokens[j].text === "=") {
-                    initDirective = lines[i].tokens.slice(j+1);
-                    lines[i].tokens = lines[i].tokens.slice(0, j);
+            for (var j = 0; j < currentLine.tokens.length; j++) {
+                if (currentLine.tokens[j].text === "=") {
+                    initDirective = currentLine.tokens.slice(j + 1);
+                    currentLine.tokens = currentLine.tokens.slice(0, j);
                     //console.log("init directive : "+dispTokens(initDirective));
                     break;
                 }
             }
 
-			if (lines[i].tokens.length < 2 || lines[i].tokens.length > 3) {
-				error("Malformed "+lines[i].tokens[0].text+" declaration");
+            if (currentLine.tokens.length < 2 || currentLine.tokens.length > 3) {
+                error("Malformed " + currentLine.tokens[0].text + " declaration");
             }
-            if (lines[i].indentLevel !== 0) {
-                error(lines[i].tokens[0].text+" directive cannot be indented");
+            if (currentLine.indentLevel !== 0) {
+                error(currentLine.tokens[0].text + " directive cannot be indented");
             }
-			var index = lines[i].tokens.length > 2 ? lines[i].tokens[2].text : null
+            var index: number = currentLine.tokens.length > 2 ? Number.parseInt(currentLine.tokens[2].text) : -1;
+            if (Number.isNaN(index)) error("Invalid index for " + currentLine.tokens[0].text + " directive:" + currentLine.tokens[2].text);
 
-			if (lines[i].tokens[0].text === "globalvar") {
-				addVariable(lines[i].tokens[1].text, true, index, initDirective);
-			} else if (lines[i].tokens[0].text === "playervar") {
-				addVariable(lines[i].tokens[1].text, false, index, initDirective);
-			} else {
-				addSubroutine(lines[i].tokens[1].text, index, false);
+            if (currentLine.tokens[0].text === "globalvar") {
+                addVariable(currentLine.tokens[1].text, true, index, initDirective);
+            } else if (currentLine.tokens[0].text === "playervar") {
+                addVariable(currentLine.tokens[1].text, false, index, initDirective);
+            } else {
+                addSubroutine(currentLine.tokens[1].text, index, false);
             }
+            currentComments = [];
+            continue;
+        }
 
-        } else if (lines[i].tokens[0].text === "settings") {
-
+        // Handle custom game settings
+        if (currentLine.tokens[0].text === "settings") {
             try {
-                if (lines[i].tokens.length === 2) {
-                    var path = getFilePaths(lines[i].tokens[1].text)[0];
-                    var customGameSettings = safeEval("("+getFileContent(path)+")");
+                if (currentLine.tokens.length === 2) {
+                    var path = (await getFilePaths(currentLine.tokens[1].text))[0];
+                    var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + await getFileContent(path) + ")"));
                 } else {
-                    var customGameSettings = safeEval("("+lines[i].tokens.slice(1).map(x => x.text).join("")+")");
+                    var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + currentLine.tokens.slice(1).map(x => x.text).join("") + ")"));
 
                 }
+
+                // Check shape of custom game settings
+
             } catch (e) {
+                // @ts-ignore
                 error(e);
             }
             compileCustomGameSettings(customGameSettings);
+            currentComments = [];
+            continue;
+        }
 
-        } else if (lines[i].tokens[0].text.startsWith("@")) {
+        // Handle directives
+        if (currentLine.tokens[0].text.startsWith("@")) {
 
-            if (["@Condition", "@Name", "@NewPage"].includes(lines[i].tokens[0].text)) {
+            if (["@Condition", "@Name", "@NewPage"].includes(currentLine.tokens[0].text)) {
 
-                var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens[0].text === "@NewPage" && lines[i].tokens.length === 1 ? [] : [parse(lines[i].tokens.slice(1))], [], "__Annotation__");
+                var currentLineAst = new Ast(currentLine.tokens[0].text, currentLine.tokens[0].text === "@NewPage" && currentLine.tokens.length === 1 ? [] : [parse(currentLine.tokens.slice(1))], [], "__Annotation__");
 
             } else {
-                var currentLineAst = new Ast(lines[i].tokens[0].text, lines[i].tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
+                var currentLineAst = new Ast(currentLine.tokens[0].text, currentLine.tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
 
             }
             if (currentComments !== []) {
@@ -135,7 +167,7 @@ export function parseLines(lines) {
             }
             result.push(currentLineAst);
 
-        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(lines[i].tokens[0].text)) {
+        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(currentLine.tokens[0].text)) {
 
             var tokenToFuncMapping = {
                 "rule": "__rule__",
@@ -153,11 +185,11 @@ export function parseLines(lines) {
             }
 
 
-            var funcName = tokenToFuncMapping[lines[i].tokens[0].text];
+            var funcName = tokenToFuncMapping[currentLine.tokens[0].text];
             var args = [];
             var children = [];
             var instructionRuleAttributes = null;
-            var lineMembers = splitTokens(lines[i].tokens, ":", true);
+            var lineMembers = splitTokens(currentLine.tokens, ":", true);
             if (lineMembers.length === 1) {
                 error("Expected a ':' at the end of the line");
             }
@@ -188,7 +220,7 @@ export function parseLines(lines) {
                     for (var subroutine of subroutines) {
                         if (subroutine.name === instructionRuleAttributes.subroutineName) {
                             if (subroutine.isFromDefStatement) {
-                                error("Duplicate definition of subroutine '"+instructionRuleAttributes.subroutineName+"'");
+                                error("Duplicate definition of subroutine '" + instructionRuleAttributes.subroutineName + "'");
                             } else {
                                 break;
                             }
@@ -203,21 +235,21 @@ export function parseLines(lines) {
                 args = [parse(lineMembers[0].slice(1))];
             }
 
-            var currentLineIndent = lines[i].indentLevel;
+            var currentLineIndent = currentLine.indentLevel;
             var childrenLines = [];
 
             //Handle one-line children such as "if A: B++"
             if (lineMembers[1].length > 0) {
                 //console.log(JSON.stringify(lineMembers[1], null, 4));
                 //console.log(JSON.stringify(childrenLines, null, 4));
-                childrenLines.push(new LogicalLine(currentLineIndent+1, lineMembers[1]));
+                childrenLines.push(new LogicalLine(currentLineIndent + 1, lineMembers[1]));
                 //console.log(JSON.stringify(childrenLines, null, 4));
             }
 
 
             //Get children lines
             var nextIndentLevel = null;
-            var j = i+1;
+            var j = i + 1;
             for (; j < lines.length; j++) {
                 fileStack = lines[j].tokens[0].fileStack;
 
@@ -241,8 +273,8 @@ export function parseLines(lines) {
             if (funcName === "__doWhile__") {
                 //There should be a "while" matching the "do"
                 if (j < lines.length && lines[j].tokens[0].text === "while") {
-                    if (lines[j].tokens[lines[j].tokens.length-1].text.startsWith("#")) {
-                        currentComments.push(lines[j].tokens[lines[j].tokens.length-1].text.substring(1));
+                    if (lines[j].tokens[lines[j].tokens.length - 1].text.startsWith("#")) {
+                        currentComments.push(lines[j].tokens[lines[j].tokens.length - 1].text.substring(1));
                         lines[j].tokens.pop();
                     }
                     args = [parse(lines[j].tokens.slice(1))];
@@ -264,15 +296,15 @@ export function parseLines(lines) {
                         continue;
                     }
                     //Remove comments at end of lines
-                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text[0] === "#") {
-                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text[0] === "#") {
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length - 1);
                     }
-                    if (childrenLines[k].tokens[childrenLines[k].tokens.length-1].text !== ",") {
-                        if (k < childrenLines.length-1) {
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text !== ",") {
+                        if (k < childrenLines.length - 1) {
                             error("Expected ',' at the end of the line");
                         }
                     } else {
-                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length-1);
+                        childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length - 1);
                     }
                     var assignOperands = splitTokens(childrenLines[k].tokens, "=", false);
                     if (assignOperands.length === 1) {
@@ -281,22 +313,22 @@ export function parseLines(lines) {
                             enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else if (lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
-                            lastIntValue = -lastIntValue.args[0].args[0].numValue+1;
+                            lastIntValue = -lastIntValue.args[0].args[0].numValue + 1;
                             enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else {
                             console.log(lastIntValue)
-                            error("Cannot auto-increment enum member, as last value was "+functionNameToString(lastIntValue));
+                            error("Cannot auto-increment enum member, as last value was " + functionNameToString(lastIntValue));
                         }
                     } else {
                         var enumValue = parse(assignOperands[1]);
                         if (enumValue.name === "__number__") {
-                            lastIntValue = enumValue.args[0].numValue+1;
+                            lastIntValue = enumValue.args[0].numValue + 1;
                         } else {
 
                             //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
                             if (astContainsFunctions(enumValue, notConstantFunctions, false)) {
-                                warn("w_enum_constant", "The value of "+args[0].name+"."+childrenLines[k].tokens[0]+" seems to not be constant; it will be inlined and not stored.")
+                                warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.")
                             }
 
                             lastIntValue = enumValue;
@@ -305,7 +337,7 @@ export function parseLines(lines) {
                     }
                 }
                 //We do not care about enums in the AST
-                i += j-i-1;
+                i += j - i - 1;
                 continue;
             } else {
                 children = parseLines(childrenLines);
@@ -314,7 +346,7 @@ export function parseLines(lines) {
 
             //console.log("i = "+i+", j = "+j);
             //console.log("lines = \n"+lines.join("\n"));
-            fileStack = lines[i].tokens[0].fileStack;
+            fileStack = currentLine.tokens[0].fileStack;
             var instruction = new Ast(funcName, args, children);
             if (currentComments !== []) {
                 instruction.comment = commentArrayToString(currentComments);
@@ -324,10 +356,10 @@ export function parseLines(lines) {
             }
 
             result.push(instruction);
-            i += j-i-1;
+            i += j - i - 1;
 
         } else {
-            var currentLineAst = parse(lines[i].tokens);
+            var currentLineAst = parse(currentLine.tokens);
             if (currentComments !== []) {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
@@ -344,16 +376,16 @@ function commentArrayToString(comments) {
     if (comments.length === 0) {
         return "";
     }
-    var result = comments[comments.length-1];
+    var result = comments[comments.length - 1];
     var nbChars = getUtf8Length(result);
     if (nbChars > 256) {
         return result;
     }
-    for (var i = comments.length-2; i >= 0; i--) {
+    for (var i = comments.length - 2; i >= 0; i--) {
         var addedChars = getUtf8Length(comments[i]);
         if (nbChars + addedChars + 1 <= 256) {
-            result = comments[i]+"\n"+result;
-            nbChars += addedChars+1;
+            result = comments[i] + "\n" + result;
+            nbChars += addedChars + 1;
         } else {
             break;
         }
@@ -361,51 +393,51 @@ function commentArrayToString(comments) {
     return result;
 }
 
-function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMinus=false) {
+function getOperator(tokens, operators, rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
 
     var operatorFound = null;
     var operatorPosition = -1;
-	var bracketsLevel = 0;
+    var bracketsLevel = 0;
 
-	if (!rtlPrecedence) {
-		var start = tokens.length-1;
-		var end = -1;
-		var step = -1;
-	} else {
-		var start = 0;
-		var end = tokens.length;
-		var step = 1;
-	}
+    if (!rtlPrecedence) {
+        var start = tokens.length - 1;
+        var end = -1;
+        var step = -1;
+    } else {
+        var start = 0;
+        var end = tokens.length;
+        var step = 1;
+    }
 
     //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 
-	for (var i = start; i != end; i+=step) {
+    for (var i = start; i != end; i += step) {
 
-		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
+        if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
             bracketsLevel += step;
 
-		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
+        } else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
             bracketsLevel -= step;
 
-		} else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
+        } else if (bracketsLevel === 0 && operators.includes(tokens[i].text)) {
 
             if (allowUnaryPlusOrMinus
-                    || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i-1].text) || tokens[i-1].text === "not" && tokens[i].text === "in"))
-                    || i === 0 && tokens[i].text === "not"
+                || (i !== 0 && (!Object.keys(operatorPrecedence).includes(tokens[i - 1].text) || tokens[i - 1].text === "not" && tokens[i].text === "in"))
+                || i === 0 && tokens[i].text === "not"
             ) {
                 //Support "not in" operator
-                if (tokens[i].text === "not" && i < tokens.length-1 && tokens[i+1].text === "in") {
+                if (tokens[i].text === "not" && i < tokens.length - 1 && tokens[i + 1].text === "in") {
                     continue;
                 }
                 operatorFound = tokens[i].text;
                 operatorPosition = i;
                 break;
             }
-		}
-	}
+        }
+    }
 
-	if (bracketsLevel !== 0) {
-		error("Lexer broke (bracket level is "+bracketsLevel+")");
+    if (bracketsLevel !== 0) {
+        error("Lexer broke (bracket level is " + bracketsLevel + ")");
     }
 
     return {
@@ -414,16 +446,16 @@ function getOperator(tokens, operators, rtlPrecedence=false, allowUnaryPlusOrMin
     }
 }
 
-function parse(content, kwargs={}) {
+export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
-	if (content === undefined) {
-		error("Content is undefined");
-	} else if (content.length === 0) {
-		error("Content is empty (missing operand or argument?)");
+    if (content === undefined) {
+        error("Content is undefined");
+    } else if (content.length === 0) {
+        error("Content is empty (missing operand or argument?)");
     }
 
-    fileStack = content[0].fileStack;
-    debug("Parsing '"+dispTokens(content)+"'");
+    setFileStack(content[0].fileStack);
+    debug("Parsing '" + dispTokens(content) + "'");
 
     //Handle the "del" directive.
     if (content[0].text === "del") {
@@ -457,12 +489,12 @@ function parse(content, kwargs={}) {
     }
 
     //Check for ++/--.
-    if (content.length > 2 && content[content.length-1].text === "+" && content[content.length-2].text === "+") {
-        var op1 = parse(content.slice(0, content.length-2));
+    if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
+        var op1 = parse(content.slice(0, content.length - 2));
         return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])])
     }
-    if (content.length > 2 && content[content.length-1].text === "-" && content[content.length-2].text === "-") {
-        var op1 = parse(content.slice(0, content.length-2));
+    if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
+        var op1 = parse(content.slice(0, content.length - 2));
         return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])])
     }
 
@@ -490,7 +522,7 @@ function parse(content, kwargs={}) {
 
         //The operator is present; parse it
         var operator = operatorCheck.operatorFound;
-        var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition+1, content.length)];
+        var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + 1, content.length)];
 
         if (operator === "=") {
             return new Ast("__assignTo__", [parse(operands[0]), parse(operands[1])]);
@@ -512,7 +544,7 @@ function parse(content, kwargs={}) {
 
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
-            return new Ast("__"+operator+"__", [op1, op2]);
+            return new Ast("__" + operator + "__", [op1, op2]);
 
         } else if (operator === "not") {
 
@@ -522,7 +554,7 @@ function parse(content, kwargs={}) {
         } else if (operator === "in") {
 
             var isNotInOperator = false;
-            if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "not") {
+            if (operands[0].length > 1 && operands[0][operands[0].length - 1].text === "not") {
                 isNotInOperator = true;
                 operands[0].pop();
             }
@@ -582,7 +614,7 @@ function parse(content, kwargs={}) {
 
             if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
                 //unary plus/minus
-                if (operands[0].length > 1 && operands[0][operands[0].length-1].text === "**") {
+                if (operands[0].length > 1 && operands[0][operands[0].length - 1].text === "**") {
                     //In case of things like "A ** -B", go to the next operator (which will be **)
                     continue;
                 }
@@ -612,102 +644,102 @@ function parse(content, kwargs={}) {
             return new Ast(opToFuncMapping[operator], [op1, op2]);
 
         }
-        error("Unhandled operator "+operator);
+        error("Unhandled operator " + operator);
     }
 
-	//Parse array
-	if (content[content.length-1].text === ']') {
-		var bracketPos = getTokenBracketPos(content);
+    //Parse array
+    if (content[content.length - 1].text === ']') {
+        var bracketPos = getTokenBracketPos(content);
 
-		if (bracketPos.length === 2 && bracketPos[0] === 0) {
+        if (bracketPos.length === 2 && bracketPos[0] === 0) {
             //It is a literal array such as [1,2,3] or [i for i in A if x].
             return parseLiteralArray(content);
 
-		} else {
-            var array = parse(content.slice(0, bracketPos[bracketPos.length-2]));
-            var value = parse(content.slice(bracketPos[bracketPos.length-2]+1, content.length-1))
+        } else {
+            var array = parse(content.slice(0, bracketPos[bracketPos.length - 2]));
+            var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1))
             return new Ast("__valueInArray__", [array, value])
-		}
-	}
-
-	//Parse dictionary
-	if (content[0].text === "{") {
-		return parseDictionary(content);
-	}
-
-	//Check for "." operator, which has the highest precedence.
-	//It must be parsed from right to left.
-	var operands = splitTokens(content, ".", false, true);
-	if (operands.length === 2) {
-		return parseMember(operands[0], operands[1]);
+        }
     }
 
-	//Check for parentheses
-	if (content[0].text === '(') {
-		var bracketPos = getTokenBracketPos(content);
-		if (bracketPos.length === 2 && bracketPos[1] === content.length-1) {
+    //Parse dictionary
+    if (content[0].text === "{") {
+        return parseDictionary(content);
+    }
+
+    //Check for "." operator, which has the highest precedence.
+    //It must be parsed from right to left.
+    var operands = splitTokens(content, ".", false, true);
+    if (operands.length === 2) {
+        return parseMember(operands[0], operands[1]);
+    }
+
+    //Check for parentheses
+    if (content[0].text === '(') {
+        var bracketPos = getTokenBracketPos(content);
+        if (bracketPos.length === 2 && bracketPos[1] === content.length - 1) {
             //All the expression is in parentheses; just remove them
-            return parse(content.slice(1, content.length-1));
+            return parse(content.slice(1, content.length - 1));
 
         } else {
             error("Malformatted parentheses");
         }
-	}
+    }
 
-	//Check for strings
-	if (content[content.length-1].text.startsWith('"') || content[content.length-1].text.startsWith("'")) {
-		var stringType = "StringLiteral";
-		var string = "";
-		for (var i = content.length-1; i >= 0; i--) {
-			if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
-				string = unescapeString(content[i].text, true)+string;
+    //Check for strings
+    if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
+        var stringType = "StringLiteral";
+        var string = "";
+        for (var i = content.length - 1; i >= 0; i--) {
+            if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
+                string = unescapeString(content[i].text, true) + string;
 
-			} else {
-				if (i === 0) {
-					//string modifier?
-					if (content[0].text === "l") {
-						stringType = "LocalizedStringLiteral";
-					} else if (content[0].text === "b") {
-						stringType = "BigLettersStringLiteral";
-					} else if (content[0].text === "w") {
-						stringType = "FullwidthStringLiteral";
-					} else if (content[0].text === "p") {
-						stringType = "PlaintextStringLiteral";
-					} else if (content[0].text === "c") {
-						stringType = "CaseSensitiveStringLiteral";
-					} else {
-						error("Invalid string modifier '"+content[0].text+"', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
-					}
-				} else {
-					error("Expected string, but got '"+content[i].text+"'");
-				}
-			}
+            } else {
+                if (i === 0) {
+                    //string modifier?
+                    if (content[0].text === "l") {
+                        stringType = "LocalizedStringLiteral";
+                    } else if (content[0].text === "b") {
+                        stringType = "BigLettersStringLiteral";
+                    } else if (content[0].text === "w") {
+                        stringType = "FullwidthStringLiteral";
+                    } else if (content[0].text === "p") {
+                        stringType = "PlaintextStringLiteral";
+                    } else if (content[0].text === "c") {
+                        stringType = "CaseSensitiveStringLiteral";
+                    } else {
+                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
+                    }
+                } else {
+                    error("Expected string, but got '" + content[i].text + "'");
+                }
+            }
         }
         return new Ast(string, [], [], stringType);
-	}
+    }
 
-	//Parse args and name of function.
-	var name = content[0].text;
-	var args = null;
-	if (content.length > 1) {
-		if (content[1].text === '(') {
-			args = splitTokens(content.slice(2, content.length-1), ",");
-		} else {
-			error("Expected '(' after '"+name+"', but got '"+content[1].text+"'");
-		}
-	}
+    //Parse args and name of function.
+    var name = content[0].text;
+    var args = null;
+    if (content.length > 1) {
+        if (content[1].text === '(') {
+            args = splitTokens(content.slice(2, content.length - 1), ",");
+        } else {
+            error("Expected '(' after '" + name + "', but got '" + content[1].text + "'");
+        }
+    }
 
-	if (args === null) {
+    if (args === null) {
 
-		//Check for current array element variable name
-		if (currentArrayElementName === name) {
+        //Check for current array element variable name
+        if (currentArrayElementName === name) {
             var result = new Ast("__currentArrayElement__");
             result.originalName = name;
             return result;
         }
 
-		//Check for current array index variable name
-		if (currentArrayIndexName === name) {
+        //Check for current array index variable name
+        if (currentArrayIndexName === name) {
             var result = new Ast("__currentArrayIndex__");
             result.originalName = name;
             return result;
@@ -736,37 +768,37 @@ function parse(content, kwargs={}) {
             return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 
-		return new Ast(name);
+        return new Ast(name);
     }
 
-	debug("args: "+args.map(x => "'"+dispTokens(x)+"'").join(", "));
+    debug("args: " + args.map(x => "'" + dispTokens(x) + "'").join(", "));
 
-	//Special functions
+    //Special functions
 
-	if (name === "async") {
-		if (args.length != 2) {
-			error("Function 'async' takes 2 arguments, received "+args.length);
-		}
+    if (name === "async") {
+        if (args.length != 2) {
+            error("Function 'async' takes 2 arguments, received " + args.length);
+        }
         //Check if first arg is indeed a subroutine
         var subroutineArg = args[0][0].text;
-		if (!isSubroutineName(subroutineArg)) {
-			error("Expected subroutine name as first argument");
+        if (!isSubroutineName(subroutineArg)) {
+            error("Expected subroutine name as first argument");
         }
 
         return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])])
-	}
+    }
 
-	if (name === "chase") {
+    if (name === "chase") {
 
-		if (args.length !== 4) {
-			error("Function 'chase' takes 4 arguments, received "+args.length);
+        if (args.length !== 4) {
+            error("Function 'chase' takes 4 arguments, received " + args.length);
         }
         if ((args[2][0].text !== "rate" && args[2][0].text !== "duration") || args[2][1].text !== "=") {
-			error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
+            error("3rd argument of function 'chase' must be 'rate = xxxx' or 'duration = xxxx'");
         }
 
         if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
-            error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '"+dispTokens(args[3])+"'");
+            error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '" + dispTokens(args[3]) + "'");
         }
         if (args[2][0].text === "rate") {
             var funcName = "__chaseAtRate__";
@@ -777,40 +809,40 @@ function parse(content, kwargs={}) {
         }
 
         return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
-	}
+    }
 
-	if (name === "raycast") {
+    if (name === "raycast") {
 
         if (args.length === 5) {
             //console.log(args[2])
             //console.log(args[2].length)
-			if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
-				args[2] = args[2].slice(2);
+            if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
+                args[2] = args[2].slice(2);
             }
             if (args[3].length >= 2 && (args[3][0].text === "exclude" || args[3][1].text === "=")) {
-				args[3] = args[3].slice(2);
+                args[3] = args[3].slice(2);
             }
             if (args[4].length >= 2 && (args[4][0].text === "includePlayerObjects" || args[4][1].text === "=")) {
-				args[4] = args[4].slice(2);
+                args[4] = args[4].slice(2);
             }
 
             return new Ast("raycast", [parse(args[0]), parse(args[1]), parse(args[2]), parse(args[3]), parse(args[4])]);
 
         } else {
-			error("Function 'raycast' takes 5 arguments, received "+args.length);
+            error("Function 'raycast' takes 5 arguments, received " + args.length);
         }
     }
 
-	if (name === "sorted") {
+    if (name === "sorted") {
 
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
         if (args.length === 3) {
-            args[1].push({"text": ","});
+            args[1].push({ "text": "," });
             args[1].push(...args[2]);
-            args = args.slice(0,2);
+            args = args.slice(0, 2);
         }
 
-		if (args.length === 2) {
+        if (args.length === 2) {
             var lambdaArgs = splitTokens(args[1], ':');
             if (lambdaArgs.length !== 2) {
                 error("Syntax for sorted array condition is 'lambda x: condition(x)'");
@@ -829,12 +861,12 @@ function parse(content, kwargs={}) {
                 currentArrayIndexName = null;
             } else if (lambdaArgs[0].length === 4) {
                 if (lambdaArgs[0][2].text !== ",") {
-                    error("Expected ',' after '"+lambdaArgs[0][1].text+"', but found '"+lambdaArgs[0][2].text);
+                    error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text);
                 }
                 currentArrayElementName = lambdaArgs[0][1].text;
                 currentArrayIndexName = lambdaArgs[0][3].text;
             } else {
-                error("Expected 1 or 3 tokens after 'lambda', but got "+(lambdaArgs.length-1));
+                error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1));
             }
 
             var sortedCondition = parse(lambdaArgs[1]);
@@ -842,7 +874,7 @@ function parse(content, kwargs={}) {
             currentArrayIndexName = null;
 
         } else if (args.length !== 1) {
-            error("Function 'sorted' takes 1 or 2 arguments, received "+args.length);
+            error("Function 'sorted' takes 1 or 2 arguments, received " + args.length);
         }
         var astArgs = [parse(args[0])];
         if (args.length === 2) {
@@ -855,15 +887,15 @@ function parse(content, kwargs={}) {
 
     if (name === "createWorkshopSetting") {
         if (args.length !== 4 && args.length !== 5) {
-            error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received "+args.length);
+            error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received " + args.length);
         }
 
         return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map(x => parse(x))]);
     }
 
 
-	//Check for subroutine call
-	if (args.length === 0) {
+    //Check for subroutine call
+    if (args.length === 0) {
         if (isSubroutineName(name)) {
             return new Ast("__callSubroutine__", [new Ast(name, [], [], "Subroutine")]);
         }
@@ -890,31 +922,31 @@ function parse(content, kwargs={}) {
 
 function parseMember(object, member) {
 
-	debug("Parsing member '"+dispTokens(member)+"' of object '"+dispTokens(object)+"'");
+    debug("Parsing member '" + dispTokens(member) + "' of object '" + dispTokens(object) + "'");
 
     if (member.length === 0) {
         error("Expected tokens after '.'");
     }
 
-	var name = member[0].text;
-	//debug("name = "+name);
-	var args = null;
-	if (member.length > 1) {
-		if (member[1].text === '(') {
-            if (member[member.length-1].text !== ")") {
-                fileStack = member[member.length-1].fileStack;
-                error("Unexpected token '"+member[member.length-1].text+"'");
+    var name = member[0].text;
+    //debug("name = "+name);
+    var args = null;
+    if (member.length > 1) {
+        if (member[1].text === '(') {
+            if (member[member.length - 1].text !== ")") {
+                fileStack = member[member.length - 1].fileStack;
+                error("Unexpected token '" + member[member.length - 1].text + "'");
             }
-			args = splitTokens(member.slice(2, member.length-1), ",");
-		} else {
-			error("Expected '(' after '"+name+"', but got '"+member[1].text+"'");
-		}
-	}
+            args = splitTokens(member.slice(2, member.length - 1), ",");
+        } else {
+            error("Expected '(' after '" + name + "', but got '" + member[1].text + "'");
+        }
+    }
 
-	if (args === null) {
-		if (["x", "y", "z"].includes(name)) {
+    if (args === null) {
+        if (["x", "y", "z"].includes(name)) {
             return new Ast(`__${name}ComponentOf__`, [parse(object)]);
-		}
+        }
 
         if (object.length === 1) {
 
@@ -930,7 +962,7 @@ function parseMember(object, member) {
             } else if (builtInEnumNameToAstInfo[object[0].text]) {
                 const astInfo = builtInEnumNameToAstInfo[object[0].text];
                 return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
-            //Check the pseudo-enum "math"
+                //Check the pseudo-enum "math"
             } else if (object[0].text === "Math") {
                 if (name === "PI") {
                     return getAstForNumber(3.141592653589793);
@@ -951,33 +983,33 @@ function parseMember(object, member) {
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
                     return getAstForCustomString(" ".repeat(170));
                 } else {
-                    error("Unhandled member 'math."+name+"'");
+                    error("Unhandled member 'math." + name + "'");
                 }
 
-            //Check the pseudo-enum "Vector"
+                //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
-                return new Ast("Vector."+name);
+                return new Ast("Vector." + name);
 
-            //Check for number
+                //Check for number
             } else if (isNumber(object[0].text)) {
                 if (!isNumber(name)) {
-                    error("Expected a number after '.' but got '"+name+"'");
+                    error("Expected a number after '.' but got '" + name + "'");
                 }
-                return new Ast("__number__", [new Ast(object[0].text+"."+name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+                return new Ast("__number__", [new Ast(object[0].text + "." + name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
             }
         }
 
         //Should be a player variable.
         if (!isVarName(name, false)) {
-            error("Unknown member '"+name+"' of '"+dispTokens(object)+"'");
+            error("Unknown member '" + name + "' of '" + dispTokens(object) + "'");
         }
         return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
 
-	} else {
+    } else {
 
-		if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
+        if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
             if (args.length !== 1) {
-                error("Function '"+name+"' takes 1 argument, received "+args.length);
+                error("Function '" + name + "' takes 1 argument, received " + args.length);
             }
             var funcToInternalFuncMap = {
                 "append": "__append__",
@@ -994,61 +1026,61 @@ function parseMember(object, member) {
 
         } else if (name === "last") {
             if (args.length !== 0) {
-                error("Function '"+name+"' takes 1 argument, received "+args.length);
+                error("Function '" + name + "' takes 1 argument, received " + args.length);
             }
             return new Ast("__lastOf__", [parse(object)]);
 
         } else if (name === "format") {
             return new Ast("__format__", [parse(object)].concat(args.map(x => parse(x))));
 
-		} else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
+        } else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
             if (args.length !== 0) {
-                error("Function '"+name+"' takes no argument, received "+args.length);
+                error("Function '" + name + "' takes no argument, received " + args.length);
             }
-            return new Ast("__"+name+"__", [parse(object)]);
+            return new Ast("__" + name + "__", [parse(object)]);
 
-		} else if (object[0].text === "random" && object.length === 1) {
-			if (name === "randint" || name === "uniform") {
+        } else if (object[0].text === "random" && object.length === 1) {
+            if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {
-                    error("Function 'random."+name+"' takes 2 arguments, received "+args.length);
+                    error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
                 }
-                return new Ast("random."+name, [parse(args[0]), parse(args[1])]);
+                return new Ast("random." + name, [parse(args[0]), parse(args[1])]);
 
-			} else if (name === "shuffle" || name === "choice") {
+            } else if (name === "shuffle" || name === "choice") {
                 if (args.length !== 1) {
-                    error("Function 'random."+name+"' takes 1 argument, received "+args.length);
+                    error("Function 'random." + name + "' takes 1 argument, received " + args.length);
                 }
-                return new Ast("random."+name, [parse(args[0])]);
+                return new Ast("random." + name, [parse(args[0])]);
 
-			} else {
-				error("Unhandled member 'random."+name+"'");
-			}
-
-		} else if (name === "replace") {
-            if (args.length !== 2) {
-                error("Function 'replace' takes 2 arguments, received "+args.length);
+            } else {
+                error("Unhandled member 'random." + name + "'");
             }
-			return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
 
-		} else if (name === "reverse") {
+        } else if (name === "replace") {
+            if (args.length !== 2) {
+                error("Function 'replace' takes 2 arguments, received " + args.length);
+            }
+            return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
+
+        } else if (name === "reverse") {
             if (args.length !== 0) {
-                error("Function '"+name+"' takes 1 argument, received "+args.length);
+                error("Function '" + name + "' takes 1 argument, received " + args.length);
             }
             return new Ast("__reverse__", [parse(object)]);
 
         } else if (name === "slice") {
             if (args.length !== 2) {
-                error("Function 'slice' takes 2 arguments, received "+args.length);
+                error("Function 'slice' takes 2 arguments, received " + args.length);
             }
-			return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
+            return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
 
-		} else if (name === "substring") {
+        } else if (name === "substring") {
             if (args.length !== 2) {
-                error("Function 'substring' takes 2 arguments, received "+args.length);
+                error("Function 'substring' takes 2 arguments, received " + args.length);
             }
-			return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
+            return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
 
-		} else {
+        } else {
             //Assume it is a player function
 
             //old functions
@@ -1057,22 +1089,22 @@ function parseMember(object, member) {
             } else if (name === "disableHeroHUD") {
                 name = "disableHeroHud";
             }
-            return new Ast("_&"+name, [parse(object)].concat(args.map(x => parse(x))));
-		}
-	}
+            return new Ast("_&" + name, [parse(object)].concat(args.map(x => parse(x))));
+        }
+    }
 
-	error("This shouldn't happen");
+    error("This shouldn't happen");
 }
 
 //Parses a literal array such as [1,2,3] or [i for i in x if cond].
 function parseLiteralArray(content) {
 
-	if (content.length === 2) {
+    if (content.length === 2) {
         return new Ast("__emptyArray__");
     }
 
     //Check for "for" keyword
-    var forOperands = splitTokens(content.slice(1, content.length-1), "for");
+    var forOperands = splitTokens(content.slice(1, content.length - 1), "for");
     if (forOperands.length === 2) {
 
 
@@ -1093,12 +1125,12 @@ function parseLiteralArray(content) {
                 currentArrayIndexName = null;
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
-                    error("Malformed '[x for a, b in z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                    error("Malformed '[x for a, b in z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
                 currentArrayElementName = inOperands[0][0].text;
                 currentArrayIndexName = inOperands[0][2].text;
             } else {
-                error("Malformed '[x for y in z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
+                error("Malformed '[x for y in z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
             var parsedMappingFunction = parse(forOperands[0]);
             currentArrayElementName = null;
@@ -1117,15 +1149,15 @@ function parseLiteralArray(content) {
                 currentArrayIndexName = null;
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
-                    error("Malformed '[x for a,b in y if z]': expected ',' but found '"+inOperands[0][1].text+"'");
+                    error("Malformed '[x for a,b in y if z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
                 currentArrayElementName = inOperands[0][0].text;
                 currentArrayIndexName = inOperands[0][2].text;
             } else {
-                error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length "+inOperands[0].length+", expected 1 or 3");
+                error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
 
-            debug("Parsing 'a for x in y if z', a='"+forOperands[0]+"', x='"+inOperands[0]+"', y='"+ifOperands[0]+"', z='"+ifOperands[1]+"'");
+            debug("Parsing 'a for x in y if z', a='" + forOperands[0] + "', x='" + inOperands[0] + "', y='" + ifOperands[0] + "', z='" + ifOperands[1] + "'");
 
             var condition = parse(ifOperands[1]);
             var mappingFunction = parse(forOperands[0]);
@@ -1134,32 +1166,32 @@ function parseLiteralArray(content) {
 
             return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {
-            error("Expected 0 or 1 'if' after 'in', but found "+(ifOperands.length-1));
+            error("Expected 0 or 1 'if' after 'in', but found " + (ifOperands.length - 1));
         }
     } else if (forOperands.length === 1) {
 
         //Literal array with only values ([1,2,3])
-        var args = splitTokens(content.slice(1, content.length-1), ",");
+        var args = splitTokens(content.slice(1, content.length - 1), ",");
         //Allow trailing comma
-        if (args[args.length-1].length === 0) {
+        if (args[args.length - 1].length === 0) {
             args.pop()
         }
 
         return new Ast("__array__", args.map(x => parse(x)));
     } else {
-        error("Expected 0 or 1 'for', but found "+(forOperands.length-1))
+        error("Expected 0 or 1 'for', but found " + (forOperands.length - 1))
     }
 
-	error("This shouldn't happen");
+    error("This shouldn't happen");
 
 }
 
 //Parses a dictionary.
 function parseDictionary(content) {
-    content = content.slice(1, content.length-1);
+    content = content.slice(1, content.length - 1);
     var elems = splitTokens(content, ",");
     //support trailing comma
-    if (elems[elems.length-1].length === 0) {
+    if (elems[elems.length - 1].length === 0) {
         elems.pop();
     }
 
@@ -1167,7 +1199,7 @@ function parseDictionary(content) {
     for (var elem of elems) {
         var keyValue = splitTokens(elem, ":");
         if (keyValue.length !== 2) {
-            error("Expected a value of the form 'key: value' but got '"+dispTokens(elem)+"'");
+            error("Expected a value of the form 'key: value' but got '" + dispTokens(elem) + "'");
         }
         astElems.push(new Ast("__dictElem__", [parse(keyValue[0]), parse(keyValue[1])]));
     }

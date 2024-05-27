@@ -21,12 +21,15 @@ import { mapKw } from "../data/maps";
 import { gamemodeKw } from "../data/gamemodes";
 import { camelCaseToUpperCase } from "../utils/other";
 
-export const constantValues: Record<string, Record<string, LocalizableString & {
+export type Constant = LocalizableString & {
     extension?: string,
     description?: string,
     descriptionLocalized?: LocalizableString,
-    red?: number, green?: number, blue?: number
-}> & { description?: string }> =
+    red?: number, green?: number, blue?: number,
+    onlyInOw1?: boolean
+};
+
+export const constantValues: Record<string, { description?: string } &  Record<string, Constant>> =
 //begin-json
 {
     "AccelReeval": {

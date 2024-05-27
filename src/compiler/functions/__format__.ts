@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -104,7 +104,7 @@ function parseCustomString(str, formatArgs) {
 	if (!formatArgs) {
 		formatArgs = [];
     }
-    
+
     var isBigLetters = (str.type === "BigLettersStringLiteral");
     var isFullwidth = (str.type === "FullwidthStringLiteral");
     var isPlaintext = (str.type === "PlaintextStringLiteral");
@@ -145,9 +145,9 @@ function parseCustomString(str, formatArgs) {
 					tmpStr += char;
 				}
 			}
-	
+
 			content = tmpStr;
-			
+
 		} else if (isCaseSensitive) {
 			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
 			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
@@ -155,19 +155,7 @@ function parseCustomString(str, formatArgs) {
 				content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key])
 			}
 		}
-	
-		if (obfuscationSettings.obfuscateStrings && !isPlaintext) {
-			var tmpStr = "";
-			for (var char of content) {
-				if (char in obfuscationMappings) {
-					tmpStr += obfuscationMappings[char];
-				} else {
-					tmpStr += char;
-				}
-			}
-			content = tmpStr;
-        }
-        
+
 		return content;
 	}
 
@@ -243,7 +231,7 @@ function parseCustomString(str, formatArgs) {
 	//console.log(stringModifiers);
 
     return parseStringTokens(tokens, args);
-    
+
 }
 
 function parseStringTokens(tokens, args) {
@@ -282,14 +270,14 @@ function parseStringTokens(tokens, args) {
 			//console.log("numbers encountered=");
 			//console.log(numbersEncountered);
 			//debugger;
-	
+
 			//length check
 			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
 					|| tokens[i].type === "arg" && stringLength+"{0}".length > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
-	
+
 				var splitString = false;
 				if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
-	
+
 					var tokenText = [...tokens[i].text]
 					var tokenSliceLength = 0;
 					var sliceIndex = 0;
@@ -297,16 +285,16 @@ function parseStringTokens(tokens, args) {
 						tokenSliceLength += getUtf8Length(tokenText[j]+"");
 						sliceIndex++;
 					}
-	
+
 					result += tokenText.slice(0, sliceIndex).join("")
-	
+
 					tokens[i].text = tokenText.slice(sliceIndex).join("");
 					splitString = true;
-	
+
 				} else if (tokens[i].type === "arg" && tokens.length > i) {
 					splitString = true;
 				}
-	
+
 				if (splitString) {
 					result += "{"+currentNbIndex+"}";
 					if (currentNbIndex > 2) {
@@ -316,7 +304,7 @@ function parseStringTokens(tokens, args) {
 					break;
 				}
 			}
-	
+
 			if (tokens[i].type === "string") {
 				result += tokens[i].text;
 				stringLength += getUtf8Length(tokens[i].text);
@@ -342,13 +330,13 @@ function parseStringTokens(tokens, args) {
 						currentNbIndex++;
 					}
 					stringLength += "{0}".length;
-	
-	
+
+
 				}
 			}
 		}
 	}
-	
+
 
 	while (resultArgs.length < 3) {
 		resultArgs.push(getAstForNull());
@@ -370,7 +358,7 @@ function parseLocalizedString(content, formatArgs) {
 	while (formatArgs.length < 3) {
 		formatArgs.push(getAstForNull());
 	}
-	
+
 	return new Ast("__localizedString__", [content, ...formatArgs]);
-	
+
 }

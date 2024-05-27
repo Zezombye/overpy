@@ -17,15 +17,20 @@
 
 "use strict";
 
+import { stringKw } from "../data/localizedStrings";
+import { currentLanguage, fileStack, setFileStack } from "../globalVars";
+import { LocalizableString, Token, Value } from "../types";
+import { debug, error } from "./logging";
+
 /**
  * Translates a keyword to the other language.
- * @param {string} keyword Keyword to translate
- * @param {boolean} toWorkshop Whether to translate to Workshop output or Python output
- * @param {Record<string, import("../types").Value>} keywordObj Mapping from keyword to value
- * @param {Record<string, any>} options Additional options
- * @returns {string} Translated keyword
+ * @param keyword Keyword to translate
+ * @param toWorkshop Whether to translate to Workshop output or Python output
+ * @param keywordObj Mapping from keyword to value
+ * @param options Additional options
+ * @returns Translated keyword
  */
-export function translate(keyword, toWorkshop, keywordObj, options={}) {
+export function translate(keyword: string, toWorkshop: boolean, keywordObj: Record<string, LocalizableString | Value>, options: Record<string, any> = {}): string {
 
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
@@ -47,17 +52,19 @@ export function translate(keyword, toWorkshop, keywordObj, options={}) {
 	if (toWorkshop) {
 		try {
 			//Check number of arguments
-			if (options.nbArgs) {
-				if (keywordObj[keyword].args === null && options.nbArgs !== 0 || keywordObj[keyword].args.length !== options.nbArgs) {
-					error("Function '"+keyword+"' takes "+(keywordObj[keyword].args===null?0:keywordObj[keyword].args.length)+" arguments, received "+options.nbArgs);
+			if (options.nbArgs && "args" in keywordObj[keyword]) {
+				let value = keywordObj[keyword] as Value;
+				if (value.args === null && options.nbArgs !== 0 || (value.args?.length ?? -1) !== options.nbArgs) {
+					error("Function '"+keyword+"' takes "+(value.args===null?0:(value.args?.length ?? -1))+" arguments, received "+options.nbArgs);
+					return "";
 				}
 			}
 
 			//Fallback to "en-US" if no entry for this language
 			if (currentLanguage in keywordObj[keyword]) {
-				return keywordObj[keyword][currentLanguage];
+				return keywordObj[keyword][currentLanguage] ?? "";
 			} else {
-				return keywordObj[keyword]["en-US"];
+				return keywordObj[keyword]["en-US"] ?? "";
 			}
 		} catch (e) {
 			//continue
@@ -78,6 +85,7 @@ export function translate(keyword, toWorkshop, keywordObj, options={}) {
 			}
 			if (keywordComparing === undefined) {
 				error("No language found for '"+key+"'");
+				return "";
 			}
 			keywordComparing = keywordComparing.toLowerCase();
 			if (keywordObj !== stringKw) {
@@ -85,8 +93,11 @@ export function translate(keyword, toWorkshop, keywordObj, options={}) {
 			}
 			if (keywordComparing === keyword) {
 				var result = key;
-				if ("args" in keywordObj[key] && keywordObj[key].args !== null && keywordObj[key].args.length === 0) {
-					result += "()";
+				if ("args" in keywordObj[key]) {
+					let value = keywordObj[key] as Value;
+					if (value.args !== null && value.args.length === 0) {
+						result += "()";
+					}
 				}
 				return result;
 			}
@@ -100,27 +111,25 @@ export function translate(keyword, toWorkshop, keywordObj, options={}) {
 
 /**
  * Translates an Overwatch Workshop keyword to OverPy
- * @param {string} keyword Keyword to translate to OverPy code
- * @param {Record<string, import("../types").Value>} keywordArray Record of all permissible keywords
- * @param {Record<string, any>} options Additional options to pass to translations
- * @returns {string}
+ * @param keyword Keyword to translate to OverPy code
+ * @param keywordArray Record of all permissible keywords
+ * @param options Additional options to pass to translations
  */
-export function topy(keyword, keywordArray, options) {
+export function topy(keyword: string, keywordArray: Record<string, LocalizableString | Value>, options: Record<string, any>): string {
 	return translate(keyword, false, keywordArray, options);
 }
 
 /**
  * Translates OverPy tokens/strings to Workshop code
- * @param {Object | string} keyword The keyword (either a token or a string) to translate to Workshop code
- * @param {*} keywordArray Record of all permissible keywords
- * @param {*} options Additional options to pass to translations
- * @returns {string}
+ * @param keyword The keyword (either a token or a string) to translate to Workshop code
+ * @param keywordArray Record of all permissible keywords
+ * @param options Additional options to pass to translations
  */
-export function tows(keyword, keywordArray, options) {
+export function tows(keyword: Token | string, keywordArray: Record<string, LocalizableString | Value>, options: Record<string, string>={}): string {
 
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {
-		fileStack = keyword.fileStack;
+		setFileStack(keyword.fileStack);
 		return translate(keyword.text, true, keywordArray, options);
 	} else {
 		return translate(keyword, true, keywordArray, options);

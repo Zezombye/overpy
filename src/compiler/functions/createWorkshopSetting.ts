@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -87,12 +87,6 @@ function createSuitableWorkshopSettingString(str, isName) {
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
         error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
     }
-
-    //Replace "{", "}" and ":"
-    str.args[0].name = str.args[0].name
-        .replace(/\{/g, obfuscationMappings["{"])
-        .replace(/\}/g, obfuscationMappings["}"])
-        .replace(/:/g, obfuscationMappings[":"])
 
     //If string is blank, add U+2000 EN QUAD.
     if (!/\S/.test(str.args[0].name)) {

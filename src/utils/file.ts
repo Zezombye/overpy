@@ -22,12 +22,14 @@ import { debug, error, warn } from "./logging";
 import * as fs from "fs";
 import * as path from "path";
 import { unescapeString } from "./strings";
+import { FileType, workspace } from "vscode";
+import { URI } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
 	return path.parse(filename).base;
 }
 
-export function getFilePaths(pathStr: string) {
+export async function getFilePaths(pathStr: string): Promise<string[]> {
 	pathStr = pathStr.trim();
 	debug("path str = "+pathStr);
 	pathStr = unescapeString(pathStr, false);
@@ -42,29 +44,37 @@ export function getFilePaths(pathStr: string) {
 		pathStr = rootPath+pathStr;
 	}
 
-	if (fs.lstatSync(pathStr).isDirectory()) {
-		var matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
-		matchingFiles = matchingFiles.filter(f => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
+	let matchingFiles: string[] = [];
+	let resolvedFile = await workspace.fs.stat(URI.parse(pathStr));
+	if (resolvedFile.type & FileType.Directory) {
+		// matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
+		let resolvedFiles = await workspace.fs.readDirectory(URI.parse(pathStr));
+		matchingFiles = resolvedFiles.map(e => e[0]).filter(f => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
 		if (matchingFiles.length === 0) {
 			error("The directory '"+pathStr+"' does not have any .opy files.");
 		}
 	} else {
-		var matchingFiles = [pathStr];
+		matchingFiles = [pathStr];
 	}
 	return matchingFiles;
 }
 
-export function getFileContent(path: string) {
+const
+
+export async function getFileContent(path: string): Promise<string> {
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
 		warn("w_already_imported", "The file '"+path+"' was already imported and will not be imported again.");
 		return "";
 	}
 	try {
 		importedFiles.push(path);
-		return ""+fs.readFileSync(path)+"\n";
+		let resolvedFile = await workspace.fs.readFile(URI.parse(path));
+		let content = resolvedFile.toString();
+		return content +"\n";
 
 
 	} catch (e) {
+		// @ts-ignore
 		error(e);
 	}
 }

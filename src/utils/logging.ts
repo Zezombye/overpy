@@ -23,7 +23,7 @@ import { dispTokens } from "./tokens";
 import { isTypeSuitable } from "./types";
 
 //Logging stuff
-export function error(str: string, token?: any) {
+export function error(str: string, token?: any): never {
 
 	if (token !== undefined && token.fileStack !== undefined) {
 		setFileStack(token.fileStack);

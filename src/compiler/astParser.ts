@@ -23,8 +23,9 @@ import { fileStack, suppressedWarnings, currentRuleEvent, currentRuleLabels, cur
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE } from "../utils/ast";
+import { Argument, Value } from "../types";
 
-export function parseAstRules(rules) {
+export function parseAstRules(rules: Ast[]) {
 
     var rulesResult: Ast[] = [];
     for (var rule of rules) {
@@ -41,7 +42,7 @@ export function parseAstRules(rules) {
             setFileStack(rule.children[i].fileStack);
 
             if (["@Name", "@Event", "@Team", "@Slot", "@Hero"].includes(rule.children[i].name)) {
-                const annotationToPropMap = {
+                const annotationToPropMap: Record<string, {prop: string, display: string}> = {
                     "@Name": {prop: "name", display: "name"},
                     "@Event": {prop: "event", display: "event"},
                     "@Team": {prop: "eventTeam", display: "event team"},
@@ -183,11 +184,7 @@ export function parseAstRules(rules) {
     return rulesResult;
 }
 
-export function parseAst(content) {
-
-    if (!(typeof content === "object")) {
-        error("Content is not object: "+content);
-    }
+export function parseAst(content: Ast) {
     //console.log(currentRuleLabels);
 
     setFileStack(content.fileStack);
@@ -205,7 +202,7 @@ export function parseAst(content) {
     }
 
     //Skip if it's a literal, a type literal, or a constant
-    if (!["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
+    if (typeof content.type === "string" && !["Hero", "Map", "Gamemode", "Team", "Button", "Color"].includes(content.type)) {
         if ([
             "IntLiteral", "UnsignedIntLiteral", "SignedIntLiteral", "FloatLiteral", "UnsignedFloatLiteral", "SignedFloatLiteral",
             "GlobalVariable", "PlayerVariable", "Subroutine",
@@ -227,8 +224,8 @@ export function parseAst(content) {
 
     //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
     //Do not use isTypeSuitable as that can return true for "value".
-    if (["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
-        if (["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
+    if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
+        if (content.parent && ["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
             var tmpParent = content.parent;
@@ -353,27 +350,30 @@ export function parseAst(content) {
             warn("w_type_check", getTypeCheckFailedMessage(content, 0, funcKw[content.name]?.args?.[0].type, content.args[0]));
         }
         for (var i = 1; i < content.args.length; i++) {
-            if (!isTypeSuitable(funcKw[content.name].args[1].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[1].type, content.args[i]));
+            if (!isTypeSuitable(funcKw[content.name]?.args?.[1].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]));
             }
         }
 
     } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__") {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
-            if (!isTypeSuitable(funcKw[content.name].args[0].type, content.args[i].type)) {
-                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[0].type, content.args[i]));
+            if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
+                warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]));
             }
         }
     } else {
-        //Generic type check
-        for (var i = 0; i < content.args.length; i++) {
-            if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type)) {
-                //Throw an error for when a literal is expected
-                if (Object.keys(constantValues).includes(funcKw[content.name].args[i].type)) {
-                    error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
-                } else {
-                    //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+        if (funcKw[content.name].args !== null) {
+            let args = funcKw[content.name].args as Argument[];
+            //Generic type check
+            for (var i = 0; i < content.args.length; i++) {
+                if (!isTypeSuitable(args[i].type, args[i].type)) {
+                    //Throw an error for when a literal is expected
+                    if (Object.keys(constantValues).includes(args[i].type)) {
+                        error(getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]));
+                    } else {
+                        //warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+                    }
                 }
             }
         }
@@ -381,24 +381,24 @@ export function parseAst(content) {
 
     //Set expected type
     if (content.name !== "__rule__" && !content.parent) {
-        error("No parent found for '"+content.name+"', please report to Zezombye");
+        error("No parent found for '"+content.name+"', please report to CactusPuppy");
     }
-    if (content.name !== "__rule__" && content.parent.argIndex !== null) {
+    if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== null) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
-            content.expectedType = funcKw[content.parent.name].args[1].type;
+            content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
         } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
-            content.expectedType = funcKw[content.parent.name].args[0].type;
+            content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
         } else if (content.parent.name in funcKw) {
             //console.log(content);
-            content.expectedType = funcKw[content.parent.name].args[content.parent.argIndex].type;
+            content.expectedType = funcKw[content.parent.name].args?.[content.parent.argIndex].type ?? "__INVALID__";
         } else {
             error("Unknown parent name '"+content.parent.name+"'");
         }
     }
 
-    content.argIndex = null;
+    content.argIndex = -1;
     for (var i = 0; i < content.children.length; i++) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))

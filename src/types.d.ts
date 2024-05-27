@@ -144,5 +144,57 @@ export type ReturnType = string | { Array: string } | { Direction: [string, stri
 export type Type = string[] | string | Record<string, Type>;
 
 export type Token = {
-  text: string
+  text: string,
+  fileStack: FileStackMember[]
 }
+
+/**
+ * Represents one layer of the file stack.
+ * This is used to keep track of the current file and line number when an error occurs.
+ *
+ * @param name The file name.
+ * @param currentLineNb The current line number.
+ * @param currentColNb The current column number.
+ */
+export type BaseFileStackMember = {
+  name: string,
+  currentLineNb: number,
+  currentColNb: number,
+};
+
+export type ScriptFileStackMember = BaseFileStackMember & {
+  staticMember: true
+}
+
+export type MacroFileStackMember = BaseFileStackMember & {
+  staticMember: false,
+  remainingChars: number,
+	callNbChars: number,
+  callCols: number,
+  callLines: number
+}
+
+export type FileStackMember = ScriptFileStackMember | MacroFileStackMember;
+
+export type BaseMacroData = {
+  fileStack: FileStackMember[],
+  content: string,
+  isMember: boolean,
+  startingCol: number,
+  text: string,
+  name: string,
+  replacement: string
+};
+
+export type FunctionMacroData = BaseMacroData & {
+  isFunction: true,
+  args: string[]
+  isScript: boolean,
+  scriptPath: string;
+};
+
+export type NonFunctionMacroData = BaseMacroData & {
+  isFunction: false
+};
+
+export type MacroData = FunctionMacroData | NonFunctionMacroData;

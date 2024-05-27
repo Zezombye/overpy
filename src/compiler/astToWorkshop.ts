@@ -18,8 +18,19 @@
 "use strict";
 // @ts-check
 import { actionKw } from "../data/actions";
+import { constantValues } from "../data/constants";
+import { stringKw } from "../data/localizedStrings";
+import { eventKw, eventPlayerKw, eventTeamKw, funcKw, ruleKw, valueKw } from "../data/other";
+import { valueFuncKw } from "../data/values";
+import { currentLanguage, enableOptimization, fileStack, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1 } from "../globalVars";
+import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0 } from "../utils/ast";
+import { error, functionNameToString } from "../utils/logging";
+import { tabLevel } from "../utils/other";
+import { escapeBadWords, escapeString } from "../utils/strings";
+import { tows } from "../utils/translation";
+import { isTypeSuitable } from "../utils/types";
 
-export function astRulesToWs(rules) {
+export function astRulesToWs(rules: any[]) {
 
     var compiledRules = [];
 
@@ -35,11 +46,7 @@ export function astRulesToWs(rules) {
         }
 
         result += tows("__rule__", ruleKw)+" (";
-        if (obfuscationSettings.obfuscateNames) {
-            result += '""';
-        } else {
-            result += escapeBadWords(escapeString(rule.ruleAttributes.name, true));
-        }
+        result += escapeBadWords(escapeString(rule.ruleAttributes.name, true));
         result += ") {\n";
 
         //Rule event
@@ -95,9 +102,6 @@ function astRuleConditionToWs(condition) {
         "__greaterThan__": ">",
     }
     var result = "";
-    if (!obfuscationSettings.obfuscateComments && condition.comment) {
-        result += tabLevel(2)+escapeString(condition.comment.trim(), true)+"\n";
-    }
 
     if (condition.type === "void") {
         fileStack = condition.fileStack;
@@ -176,9 +180,6 @@ export function astActionToWs(action, nbTabs) {
     var result = "";
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
-    }
-    if (!obfuscationSettings.obfuscateComments && action.comment) {
-        result += tabLevel(nbTabs)+escapeString(action.comment.trim(), true)+"\n";
     }
     result += tabLevel(nbTabs)+astToWs(action)+";\n"
     for (var child of action.children) {

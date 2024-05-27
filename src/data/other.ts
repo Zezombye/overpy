@@ -18,14 +18,14 @@
 "use strict";
 // @ts-check
 import { actionKw } from "./actions";
-import { constantValues } from "./constants";
+import { Constant, constantValues } from "./constants";
 import { opyFuncs } from "./opy/functions";
 import { opyInternalFuncs } from "./opy/internalFunctions";
 import { heroKw } from "./heroes";
 import { valueFuncKw } from "./values";
+import { LocalizableString } from "../types";
 
-/** @type { { [key: string]: import("../types").LocalizableString } } */
-export const customGameSettingsKw =
+export const customGameSettingsKw: Record<string, LocalizableString> =
 //begin-json
 {
     "__disabled__": {
@@ -175,8 +175,7 @@ export const customGameSettingsKw =
 }
 //end-json
 
-/** @type { { [key: string]: import("../types").LocalizableString } } */
-export const ruleKw =
+export const ruleKw: Record<string, LocalizableString> =
 //begin-json
 {
     "__actions__": {
@@ -685,8 +684,7 @@ export const eventTeamKw =
 }
 //end-json
 
-/** @type {import("../types").LocalizableString} */
-const slotKw =
+const slotKw: LocalizableString =
 //begin-json
 {
     "guid": "00000000C231",
@@ -707,21 +705,15 @@ const slotKw =
     "zh-TW": "Slot %1$s"
 }
 //end-json
-/**
- * @type { { [slotIndex: string]: import("../types").LocalizableString } }
- */
-export const eventSlotKw = {}
+export const eventSlotKw: Record<string, LocalizableString> = {};
 for (var i = 0; i < 12; i++) {
     eventSlotKw[i] = Object.assign({}, slotKw)
-    for (var key of Object.keys(eventSlotKw[i])) {
-        eventSlotKw[i][key] = eventSlotKw[i][key].replace("%1$s", i);
+    for (var key of (Object.keys(eventSlotKw[i]) as Array<keyof LocalizableString>)) {
+        eventSlotKw[i][key] = eventSlotKw[i][key]?.replace("%1$s", i.toString());
     }
 }
 
-/**
- * @type { { [key: string]: import("../types").LocalizableString } }
- */
-export const eventPlayerKw =
+export const eventPlayerKw: Record<string, LocalizableString> =
 //begin-json
 {
     "all": {
@@ -754,7 +746,7 @@ Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 */
 export const notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
 
-export const constantKw = {};
+export const constantKw: Record<string, Constant> = {};
 for (var constant of Object.keys(constantValues)) {
     for (var value of Object.keys(constantValues[constant])) {
         constantKw[constant+"."+value] = constantValues[constant][value];

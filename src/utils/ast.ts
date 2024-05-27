@@ -30,15 +30,19 @@ export class Ast {
     type: ReturnType | ReturnType[];
     numValue?: number;
     fileStack: FileStackMember[];
-    private argIndex = 0;
-    private childIndex = 0;
-    private wasParsed = false;
+    argIndex = 0;
+    childIndex = 0;
+    wasParsed = false;
     ruleAttributes: {
         isDelimiter: boolean,
         isDisabled: boolean,
         name: string,
         event: string
-    }
+    } & Record<string, any> = {isDelimiter: false, isDisabled: false, name: "", event: ""};
+    doNotOptimize = false;
+    originalName?: string;
+    parent?: Ast;
+    expectedType?: ReturnType | ReturnType[];
 
     constructor(name: string, args?: any[], children?: any[], type?: any) {
         if (name === null || name === undefined) {
@@ -53,6 +57,7 @@ export class Ast {
                 this.type = funcKw[name].return;
             } else {
                 error("Unknown function name '"+name+"'");
+                this.type = "undefined";
             }
         } else {
             this.type = type;
@@ -82,7 +87,7 @@ export class Ast {
 }
 
 //Used for when the body of a control flow statement will never execute, such as "if false".
-export function makeChildrenUseless(children) {
+export function makeChildrenUseless(children: Ast[]) {
 
     /*for (var i = 0; i < children.length; i++) {
         makeChildrenUseless(children[i].children);

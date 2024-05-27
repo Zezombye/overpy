@@ -1,23 +1,26 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
+import { error } from "./logging";
+import { startsWithParenthesis } from "./other";
+
+export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 	var result = {};
 	if (!("invalidButAcceptedProperties" in options)) {
 		options.invalidButAcceptedProperties = {};
@@ -101,10 +104,10 @@ function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 
 		} else if (kwObj[keyName].values === "__int__") {
 			value = parseInt(value);
-			
+
 		} else if (kwObj[keyName].values === "__float__") {
 			value = parseFloat(value);
-			
+
 		} else if (["__boolYesNo__", "__boolOnOff__", "__boolEnabled__"].includes(kwObj[keyName].values)) {
 			value = topy(value, customGameSettingsKw);
 			if (["__yes__", "__enabled__", "__on__"].includes(value)) {
@@ -135,17 +138,17 @@ function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 }
 
 //Returns an array of workshop instructions (delimited by a semicolon).
-function splitInstructions(content) {
+export function splitInstructions(content: string): string[] {
 	return splitStrOnDelimiter(content, ';');
 }
 
 //Returns an array of arguments (delimited by a comma).
-function getArgs(content) {
+export function getArgs(content: string): string[] {
 	return splitStrOnDelimiter(content, ',').map(x => x.trim());
 }
 
 //Returns the prefix string (used for condition/action comments).
-function getPrefixString(content) {
+export function getPrefixString(content: string): string {
 	content = content.trim();
 	if (!content.startsWith('"')) {
 		error("Expected a string at the start of '"+content+"'");
@@ -168,24 +171,26 @@ function getPrefixString(content) {
 
 }
 
-//Returns an array of strings that are delimited by the given string(s).
-//The delimiter is only taken into account if it is not within parentheses and not within a string.
-//Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
-function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) {
-	
+/**
+ * Returns an array of strings that are delimited by the given string(s).
+ * The delimiter is only taken into account if it is not within parentheses and not within a string.
+ * Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
+*/
+export function splitStrOnDelimiter(content: string, delimiter: string, getAllMembers=true, rtl=false) {
+
 	content = content.trim();
 	var bracketPos = getBracketPositions(content);
 	var bracketPosCheckIndex = 0;
 	var delimiterPos = [-delimiter.length];
 	var currentPositionIsString = false;
 	var currentStrDelimiter = "";
-	
+
 	for (var i = 0; i < content.length; i++) {
 		//Check if the current index is in parentheses
 		if (bracketPosCheckIndex < bracketPos.length && i >= bracketPos[bracketPosCheckIndex]) {
 			i = bracketPos[bracketPosCheckIndex+1];
 			bracketPosCheckIndex += 2;
-			
+
 		} else if (!currentPositionIsString && content.charAt(i) == '"') {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
@@ -204,7 +209,7 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 	}
 	delimiterPos.push(content.length);
 
-	
+
 	var result = [];
 	for (var i = 0; i < delimiterPos.length-1; i++) {
 		var currentStr = content.substring(delimiterPos[i]+delimiter.length, delimiterPos[i+1]);
@@ -221,30 +226,30 @@ function splitStrOnDelimiter(content, delimiter, getAllMembers=true, rtl=false) 
 			result = [result[0], result.slice(1).join(delimiter)];
 		}
 	}
-	
+
 	return result;
 }
 
 function getOperatorInStr(content, operators, rtlPrecedence=false) {
-    
+
     var operatorFound = null;
     var operatorPosition = -1;
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
-		
+
 	//console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 
 	//console.log("Getting operators '"+operators.join(", ")+"' in '"+content+"'");
-	
+
 	outer_loop:
 	for (var i = 0; i < content.length; i++) {
 
 		if (!currentPositionIsString && (content[i] === '(' || content[i] === '[' || content[i] === '{')) {
             bracketsLevel++;
-            
+
 		} else if (!currentPositionIsString && (content[i] === ')' || content[i] === ']' || content[i] === '}')) {
             bracketsLevel--;
-            
+
 		} else if (content[i] == '"') {
 			currentPositionIsString = !currentPositionIsString;
 
@@ -265,13 +270,13 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 			}
 		}
 	}
-	
+
 	if (bracketsLevel !== 0) {
 		error("Decompiler broke (bracket level is "+bracketsLevel+")");
 	}
-	
+
 	//console.log("operator found: "+operatorFound+" at "+operatorPosition);
-    
+
     return {
         operatorFound,
         operatorPosition,
@@ -280,7 +285,7 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=false) {
+export function getBracketPositions(content: string, returnFirstPair=false, stringIncludesApos=false): number[] {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
@@ -313,37 +318,39 @@ function getBracketPositions(content, returnFirstPair=false, stringIncludesApos=
 	if (bracketsLevel > 0) {
 		error("Brackets level above 0! (missing closing bracket)");
 	}
-	
+
 	return bracketsPos;
 }
 
 
-//Gets the name of a function.
-function getName(content) {
-	
+/**
+ * Gets the name of a function.
+ */
+export function getName(content: string): string {
+
 	if (content === undefined) {
 		error("Trying to get name of undefined function");
 	}
-	
+
 	var bracketPos = getBracketPositions(content);
-	
+
 	if (bracketPos.length == 2) {
 		var name = content.substring(0, bracketPos[0]);
 	} else {
 		var name = content;
 	}
-	
+
 	return name.replace(/\s/g, "");
 }
 
 
 //Returns true if the function always returns a player array.
 function isPlayerArrayInstruction(content) {
-	
+
 	content = topy(getName(content), valueKw);
-	
+
 	debug("Checking if '"+content+"' is a player array instruction");
-	
+
 	var playerArrayInstructions = [
 		"getDeadPlayers",
 		"getLivingPlayers",
@@ -354,7 +361,7 @@ function isPlayerArrayInstruction(content) {
 		"getPlayersOnHero",
 		"getPlayersInRadius",
 	];
-	
+
 	if (playerArrayInstructions.indexOf(content) > -1) {
 		return true;
 	}

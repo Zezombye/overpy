@@ -1,23 +1,28 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function translateSubroutineToPy(content) {
+import { parse } from "../compiler/parser";
+import { defaultSubroutineNames, defaultVarNames, globalInitDirectives, globalVariables, playerInitDirectives, playerVariables, reservedMemberNames, reservedNames, reservedSubroutineNames, subroutines } from "../globalVars";
+import { Ast } from "./ast";
+import { error } from "./logging";
+
+export function translateSubroutineToPy(content: string): string {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, "subroutine");
 
@@ -29,17 +34,14 @@ function translateSubroutineToPy(content) {
 		return content;
 	} else {
 		error("Unknown subroutine '"+content+"'");
+		return "";
 	}
 }
 
-function translateSubroutineToWs(content) {
+export function translateSubroutineToWs(content: string): string {
 	for (var i = 0; i < subroutines.length; i++) {
 		if (subroutines[i].name === content) {
-			if (obfuscationSettings.obfuscateNames) {
-				return obfuscatedVarNames[i];
-			} else {
-				return content;
-			}
+			return content;
 		}
 	}
 
@@ -47,23 +49,12 @@ function translateSubroutineToWs(content) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default subroutine name
 		addSubroutine(content, defaultSubroutineNames.indexOf(content));
-		if (obfuscationSettings.obfuscateNames) {
-			for (var i = 0; i < defaultSubroutineNames.length; i++) {
-				if (defaultSubroutineNames[i].name === content) {
-					return obfuscatedVarNames[i];
-				}
-			}
-		} else {
-			return content;
-		}
+		return content;
 	}
 	error("Undeclared subroutine '"+content+"'");
 }
 
-function addSubroutine(content, index, isFromDefStatement) {
-	if (index === undefined) {
-		error("Index is undefined");
-	}
+export function addSubroutine(content: string, index: number, isFromDefStatement = false) {
 	if (reservedSubroutineNames.includes(content)) {
 		error("Subroutine name '"+content+"' is a built-in function or keyword");
 	}
@@ -74,9 +65,12 @@ function addSubroutine(content, index, isFromDefStatement) {
 	})
 }
 
-function translateNameToAvoidKeywords(content, nameType) {
+export function translateNameToAvoidKeywords(content: string, nameType: string) {
 	//modify the name
-	if (content.endsWith("_") || nameType === "globalvar" && reservedNames.includes(content) || nameType === "playervar" && reservedMemberNames.includes(content) || nameType === "subroutine" && reservedSubroutineNames.includes(content)) {
+	if (content.endsWith("_")
+		|| (nameType === "globalvar" && reservedNames.includes(content))
+		|| (nameType === "playervar" && reservedMemberNames.includes(content))
+		|| (nameType === "subroutine" && reservedSubroutineNames.includes(content))) {
 		content += "_";
 	}
 	if (!/[A-Za-z_]\w*/.test(content)) {
@@ -85,7 +79,7 @@ function translateNameToAvoidKeywords(content, nameType) {
 	return content;
 }
 
-function translateVarToPy(content, isGlobalVariable) {
+export function translateVarToPy(content: string, isGlobalVariable: boolean) {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, isGlobalVariable ? "globalvar" : "playervar");
 
@@ -102,43 +96,25 @@ function translateVarToPy(content, isGlobalVariable) {
 	}
 }
 
-function translateVarToWs(content, isGlobalVariable) {
+export function translateVarToWs(content: string, isGlobalVariable: boolean) {
 
 	var varArray = isGlobalVariable ? globalVariables : playerVariables;
 	for (var i = 0; i < varArray.length; i++) {
 		if (varArray[i].name === content) {
-			if (obfuscationSettings.obfuscateNames) {
-				return obfuscatedVarNames[i]
-			} else {
-				return content;
-			}
+			return content;
 		}
 	}
 	if (defaultVarNames.includes(content)) {
 		//Add the variable as it doesn't already exist (else it would've been caught by the for)
 		//However, only do this if it is a default variable name
 		addVariable(content, isGlobalVariable, defaultVarNames.indexOf(content));
-		if (obfuscationSettings.obfuscateNames) {
-			for (var i = 0; i < varArray.length; i++) {
-				if (varArray[i].name === content) {
-					return obfuscatedVarNames[i];
-				}
-			}
-		} else {
-			return content;
-		}
+		return content;
 	}
 	error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+content+"'");
 }
 
 //Adds a variable to the global/player variable arrays.
-function addVariable(content, isGlobalVariable, index, initValue=null) {
-	if (index === undefined) {
-		error("Index is undefined");
-	}
-	if (typeof index === "string") {
-		index = parseInt(index);
-	}
+export function addVariable(content: string, isGlobalVariable: boolean, index: number, initValue=null) {
 	if (isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
