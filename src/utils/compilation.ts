@@ -1,70 +1,84 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function compileCustomGameSettingsDict(dict, refDict) {
-	var result = {};
-	for (var key of Object.keys(dict)) {
-		var wsKey = tows(key, refDict);
+import { CustomGameSettingSchema } from "../data/customGameSettings";
+import { error } from "./logging";
+import { tows } from "./translation";
 
-		if (typeof refDict[key].values === "object") {
-			result[wsKey] = tows(dict[key], refDict[key].values);
+export function compileCustomGameSettingsDict(providedSettings: Record<string, any>, refDict: CustomGameSettingSchema) {
+	var result = {};
+	for (var key_ of Object.keys(providedSettings)) {
+		var wsKey = tows(key_, refDict);
+
+		if (!(key_ in refDict)) {
+			error("Unknown setting '"+key_+"'");
+		}
+		let key = key_ as keyof typeof refDict;
+		let refEntry = refDict[key];
+		if (!("values" in refEntry)) {
+			error("Setting '"+key+"' has no values");
+		}
+		let refValues = refEntry.values;
+
+		if (typeof refValues === "object") {
+			result[wsKey] = tows(providedSettings[key], refValues);
 
 		} else if (refDict[key].values === "__string__") {
 			if (refDict[key].maxChars) {
-				if (getUtf8Length(dict[key]) > refDict[key].maxChars) {
+				if (getUtf8Length(providedSettings[key]) > refDict[key].maxChars) {
 					error("String for '"+key+"' must not have more than "+refDict[key].maxChars+" chars");
 				}
 			} else if (refDict[key].maxBytes) {
-				if (getUtf8ByteLength(dict[key]) > refDict[key].maxBytes) {
+				if (getUtf8ByteLength(providedSettings[key]) > refDict[key].maxBytes) {
 					error("String for '"+key+"' must not have more than "+refDict[key].maxBytes+" bytes");
 				}
 			}
-			result[wsKey] = escapeBadWords(escapeString(dict[key], true));
+			result[wsKey] = escapeBadWords(escapeString(providedSettings[key], true));
 
 		} else if (refDict[key].values === "__percent__" || refDict[key].values === "__int__" || refDict[key].values === "__float__") {
-			if (dict[key] > refDict[key].max) {
+			if (providedSettings[key] > refDict[key].max) {
 				error("Value for '"+key+"' must not exceed "+refDict[key].max+"%");
 			}
-			if (dict[key] < refDict[key].min) {
+			if (providedSettings[key] < refDict[key].min) {
 				error("Value for '"+key+"' must be higher than "+refDict[key].min+"%");
 			}
 			if (refDict[key].values === "__int__") {
-				if (!Number.isInteger(dict[key])) {
+				if (!Number.isInteger(providedSettings[key])) {
 					error("Value for '"+key+"' must be an integer");
 				}
 			}
 			if (refDict[key].values === "__percent__") {
-				result[wsKey] = dict[key]+"%";
+				result[wsKey] = providedSettings[key]+"%";
 			} else {
-				result[wsKey] = dict[key];
+				result[wsKey] = providedSettings[key];
 			}
 
 		} else if (refDict[key].values === "__boolYesNo__") {
-			result[wsKey] = (dict[key] === true ? tows("__yes__", customGameSettingsKw) : tows("__no__", customGameSettingsKw));
+			result[wsKey] = (providedSettings[key] === true ? tows("__yes__", customGameSettingsKw) : tows("__no__", customGameSettingsKw));
 		} else if (refDict[key].values === "__boolEnabled__") {
-			result[wsKey] = (dict[key] === true ? tows("__enabled__", customGameSettingsKw) : tows("__disabled__", customGameSettingsKw));
+			result[wsKey] = (providedSettings[key] === true ? tows("__enabled__", customGameSettingsKw) : tows("__disabled__", customGameSettingsKw));
 		} else if (refDict[key].values === "__boolOnOff__") {
-			result[wsKey] = (dict[key] === true ? tows("__on__", customGameSettingsKw) : tows("__off__", customGameSettingsKw));
+			result[wsKey] = (providedSettings[key] === true ? tows("__on__", customGameSettingsKw) : tows("__off__", customGameSettingsKw));
 		} else if (refDict[key].values === "__boolReverseEnabled__") {
-			result[wsKey] = (dict[key] === true ? tows("__disabled__", customGameSettingsKw) : tows("__enabled__", customGameSettingsKw));
+			result[wsKey] = (providedSettings[key] === true ? tows("__disabled__", customGameSettingsKw) : tows("__enabled__", customGameSettingsKw));
 		} else if (refDict[key].values === "__boolReverseOnOff__") {
-			result[wsKey] = (dict[key] === true ? tows("__off__", customGameSettingsKw) : tows("__on__", customGameSettingsKw));
+			result[wsKey] = (providedSettings[key] === true ? tows("__off__", customGameSettingsKw) : tows("__on__", customGameSettingsKw));
 		} else {
 			error("Unknown value type "+refDict[key].values);
 		}

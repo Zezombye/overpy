@@ -36,7 +36,7 @@ import { addVariable } from "../utils/varNames";
 import { ScriptFileStackMember } from "../types";
 
 /**
- * @returns An object containing the compiled result along with
+ * @returns An object containing the compiled result along with associated metadata
  */
 export async function compile(content: string, language = "en-US", _rootPath = ""): Promise<string> {
 	// Need to wait for QuickJS to load
@@ -301,6 +301,10 @@ function generateSubroutinesField() {
 }
 
 export function compileCustomGameSettings(customGameSettings: Record<string, any>) {
+	if (typeof customGameSettings !== "object") {
+		error("Custom game settings must be an object");
+	}
+
 	if (compiledCustomGameSettings !== "") {
 		error("Custom game settings have already been declared");
 	}

@@ -19,23 +19,24 @@
 
 import { parse } from "../compiler/parser";
 import { defaultSubroutineNames, defaultVarNames, globalInitDirectives, globalVariables, playerInitDirectives, playerVariables, reservedMemberNames, reservedNames, reservedSubroutineNames, subroutines } from "../globalVars";
+import { Token } from "../types";
 import { Ast } from "./ast";
 import { error } from "./logging";
 
+/** Translates a subroutine name from Overwatch to its OverPy version */
 export function translateSubroutineToPy(content: string): string {
 	content = content.trim();
 	content = translateNameToAvoidKeywords(content, "subroutine");
 
 	if (subroutines.map(x => x.name).includes(content)) {
 		return content;
-	} else if (defaultSubroutineNames.includes(content)) {
+	}
+	if (defaultSubroutineNames.includes(content)) {
 		//Add the subroutine as it doesn't already exist (else it would've been caught by the first if)
 		addSubroutine(content, defaultSubroutineNames.indexOf(content));
 		return content;
-	} else {
-		error("Unknown subroutine '"+content+"'");
-		return "";
 	}
+	error("Unknown subroutine '"+content+"'");
 }
 
 export function translateSubroutineToWs(content: string): string {
@@ -65,18 +66,19 @@ export function addSubroutine(content: string, index: number, isFromDefStatement
 	})
 }
 
-export function translateNameToAvoidKeywords(content: string, nameType: string) {
+/** Transform an input name to a valid name which does not collide with other keywords. */
+export function translateNameToAvoidKeywords(initialName: string, nameType: string) {
 	//modify the name
-	if (content.endsWith("_")
-		|| (nameType === "globalvar" && reservedNames.includes(content))
-		|| (nameType === "playervar" && reservedMemberNames.includes(content))
-		|| (nameType === "subroutine" && reservedSubroutineNames.includes(content))) {
-		content += "_";
+	if (initialName.endsWith("_")
+		|| (nameType === "globalvar" && reservedNames.includes(initialName))
+		|| (nameType === "playervar" && reservedMemberNames.includes(initialName))
+		|| (nameType === "subroutine" && reservedSubroutineNames.includes(initialName))) {
+		initialName += "_";
 	}
-	if (!/[A-Za-z_]\w*/.test(content)) {
-		error("Unauthorized name for "+nameType+": '"+content+"'");
+	if (!/[A-Za-z_]\w*/.test(initialName)) {
+		error("Unauthorized name for "+nameType+": '"+initialName+"'");
 	}
-	return content;
+	return initialName;
 }
 
 export function translateVarToPy(content: string, isGlobalVariable: boolean) {
@@ -114,7 +116,7 @@ export function translateVarToWs(content: string, isGlobalVariable: boolean) {
 }
 
 //Adds a variable to the global/player variable arrays.
-export function addVariable(content: string, isGlobalVariable: boolean, index: number, initValue=null) {
+export function addVariable(content: string, isGlobalVariable: boolean, index: number, initValue: Token[] | null = null) {
 	if (isGlobalVariable && reservedNames.includes(content) || !isGlobalVariable && reservedMemberNames.includes(content)) {
 		error("Variable name '"+content+"' is a reserved word");
 	}
@@ -145,27 +147,27 @@ export function addVariable(content: string, isGlobalVariable: boolean, index: n
 	}
 }
 
-//Checks if the given name is a variable name
-function isVarName(content, checkForGlobalVar) {
+/** Checks if the given name is a variable name */
+export function isVarName(nameToCheck: string, checkForGlobalVar: boolean) {
 	var varArray = checkForGlobalVar ? globalVariables : playerVariables;
-	if (defaultVarNames.includes(content)) {
+	if (defaultVarNames.includes(nameToCheck)) {
 		return true;
 	}
 	for (var variable of varArray) {
-		if (variable.name === content) {
+		if (variable.name === nameToCheck) {
 			return true;
 		}
 	}
 	return false;
 }
 
-//Checks if the given name is a subroutine name
-function isSubroutineName(content) {
-	if (defaultSubroutineNames.includes(content)) {
+/* Checks if the given name is a subroutine name */
+export function isSubroutineName(nameToCheck: string) {
+	if (defaultSubroutineNames.includes(nameToCheck)) {
 		return true;
 	}
 	for (var subroutine of subroutines) {
-		if (subroutine.name === content) {
+		if (subroutine.name === nameToCheck) {
 			return true;
 		}
 	}

@@ -17,9 +17,10 @@
 
 "use strict";
 
+import { parse } from "../compiler/parser";
 import { typeMatrix } from "../globalVars";
 import { Token, Type } from "../types";
-import { Ast } from "./ast";
+import { Ast, getAstForNumber } from "./ast";
 import { error } from "./logging";
 import { splitTokens } from "./tokens";
 
@@ -38,9 +39,10 @@ Moreover, {Array: "Player"} is not suitable for "Array".
 
 The special "Value" type is suitable for any child type of object or array.
 */
-export function isTypeSuitable(expectedType: Type, receivedType: Type, valueTypeIsSuitable=true): boolean {
+export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type | Type[], valueTypeIsSuitable=true): boolean {
 
     //console.log("expected type = "+JSON.stringify(expectedType)+", received type = "+JSON.stringify(receivedType));
+    let receivedTypeName = typeof receivedType === "string" ? receivedType : Object.keys(receivedType)[0];
 
     if (receivedType instanceof Array) {
         //Check if each of the received type is valid for the expected type.
@@ -83,7 +85,6 @@ export function isTypeSuitable(expectedType: Type, receivedType: Type, valueType
             }
         }
     } else if (typeof receivedType === "object") {
-        var receivedTypeName = Object.keys(receivedType)[0];
         if (receivedTypeName === "Array") {
             if (typeof expectedType === "string") {
                 //The only string type that is suitable for an array is "Array".
@@ -135,10 +136,9 @@ export function isTypeSuitable(expectedType: Type, receivedType: Type, valueType
     }
 
     error("Unhandled expected type '"+JSON.stringify(expectedType)+"' or received type '"+JSON.stringify(receivedTypeName)+"'");
-    return false;
 }
 
-function parseType(tokens: Token[]) {
+export function parseType(tokens: Token[]): Ast {
     if (tokens.length === 0) {
         error("Content is empty (expected a type)");
     }
@@ -223,3 +223,5 @@ function parseType(tokens: Token[]) {
     error(`Failed to parse tokens ${JSON.stringify(tokens)} as type`);
 
 }
+
+
