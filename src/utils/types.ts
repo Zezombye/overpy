@@ -138,27 +138,6 @@ export function isTypeSuitable(expectedType: Type, receivedType: Type, valueType
     return false;
 }
 
-/** @potentially_unused */
-function replaceType(type: Type, matchReplacementObj: Record<string, Type>): Type {
-    if (typeof matchReplacementObj !== "object") {
-        error("Expected type object but got '"+matchReplacementObj+"' of type '"+typeof matchReplacementObj+"'");
-    }
-    if (typeof type === "string") {
-        if (type in matchReplacementObj) {
-            return matchReplacementObj[type];
-        } else {
-            return type;
-        }
-    } else if (type instanceof Array) {
-        return type.map(x => replaceType(x, matchReplacementObj));
-    } else if (typeof type === "object") {
-        for (var key in type) {
-            type[key] = replaceType(type[key], matchReplacementObj);
-        }
-        return type;
-    }
-}
-
 function parseType(tokens: Token[]) {
     if (tokens.length === 0) {
         error("Content is empty (expected a type)");
@@ -241,6 +220,6 @@ function parseType(tokens: Token[]) {
         return new Ast("__enumType__", enumMembers.map(x => parse(x)), [], "Type");
     }
 
-    error("This shouldn't happen");
+    error(`Failed to parse tokens ${JSON.stringify(tokens)} as type`);
 
 }
