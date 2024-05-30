@@ -20,8 +20,8 @@
         "ow",
         "owws"
     ],
-    "browser": "extension/extension.js",
-    "main": "extension/extension.js",
+    "browser": "out/extension.js",
+    "main": "out/extension.js",
     "activationEvents": [
         "onLanguage:overpy",
         "onCommand:overpy.decompile"
@@ -162,16 +162,26 @@
         "diff": "^5.1.0",
         "dotenv": "^16.4.5",
         "quickjs-emscripten": "^0.29.1",
-        "terser": "^5.30.3"
+        "terser": "^5.30.3",
+        "vscode-uri": "^3.0.8"
     },
-    "type": "module",
     "devDependencies": {
-        "esbuild": "0.20.2"
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.12.7",
+        "@types/vscode": "^1.88.0",
+        "@typescript-eslint/eslint-plugin": "^7.8.0",
+        "@typescript-eslint/parser": "^7.8.0",
+        "@vscode/test-cli": "^0.0.9",
+        "@vscode/test-electron": "^2.3.9",
+        "eslint": "^8.57.0",
+        "typescript": "^5.4.5"
     },
     "scripts": {
-        "vscode:prepublish": "npm run esbuild-base -- --minify",
-        "esbuild-base": "esbuild ./src/extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
-        "esbuild": "npm run esbuild-base -- --sourcemap",
-        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "vscode-test"
     }
 }
