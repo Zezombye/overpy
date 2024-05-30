@@ -24,7 +24,7 @@ export type Variable = {
 
 export type Subroutine = {
   name: string,
-  index: number,
+  index: number | null,
   isFromDefStatement: boolean
 }
 
@@ -141,7 +141,7 @@ export type ReplaceableData = {
 
 export type ReturnType = string | { Array: string } | { Direction: [string, string, string] }
 
-export type Type = string[] | string | {[key: string]: Type[]};
+export type Type = string[] | string | {[key: string]: string | Type[]};
 
 export type Token = {
   text: string,
