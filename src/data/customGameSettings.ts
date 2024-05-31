@@ -7678,19 +7678,19 @@ for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
                         let insert = heroKw[hero]["ability2"]?.[lang] ?? heroKw[hero]["ability2"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability3 in ${hero} ${lang}`);
+                        if (insert == undefined) error(`No valid value for ability2 in ${hero} ${lang}`);
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
                         let insert = heroKw[hero]["ability1"]?.[lang] ?? heroKw[hero]["ability1"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability3 in ${hero} ${lang}`);
+                        if (insert == undefined) error(`No valid value for ability1 in ${hero} ${lang}`);
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["enablePassive"].includes(key)) {
                         let insert = heroKw[hero]["passive"]?.[lang] ?? heroKw[hero]["passive"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability3 in ${hero} ${lang}`);
+                        if (insert == undefined) error(`No valid value for passive in ${hero} ${lang}`);
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
                         let insert = heroKw[hero]["ultimate"]?.[lang] ?? heroKw[hero]["ultimate"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability3 in ${hero} ${lang}`);
+                        if (insert == undefined) error(`No valid value for ultimate in ${hero} ${lang}`);
                         heroValue[lang] = value.replace("%1$s", insert);
                     }
                 }
