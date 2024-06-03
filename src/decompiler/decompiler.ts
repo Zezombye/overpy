@@ -1,21 +1,24 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+
+import { astActionsToOpy } from "./astToOpy";
+import { decompileConditions } from "./workshopToAst";
 
 //OverPy Decompiler (Workshop -> OverPy)
 
@@ -33,7 +36,7 @@ function decompileAllRules(content, language="en-US") {
 		return result;
 	}
 
-	var variableDeclarations = "";	
+	var variableDeclarations = "";
 	if (globalVariables.length > 0) {
 		globalVariables.sort((a,b) => a.index-b.index);
 		var globalVariableDeclarations = "";
@@ -72,7 +75,7 @@ function decompileAllRules(content, language="en-US") {
 		}
 	}
 	result += variableDeclarations + subroutineDeclarations;
-	
+
 	for (var rule of astRules) {
 		console.log(astToString(rule));
 	}
@@ -84,17 +87,17 @@ function decompileAllRules(content, language="en-US") {
 	}
 
 	result += opyRules;
-	
-		
+
+
 	return result;
-	
+
 }
 
 function decompileAllRulesToAst(content) {
 
 	content = content.trim();
 	var customGameSettings = "";
-	
+
 	//Some maps and gamemodes are removed in ow2, making eg "Map("
 	//Before anything else, we must replace these to parse brackets correctly
 	var mapConstFunction = tows("__map__", valueFuncKw);
@@ -110,7 +113,7 @@ function decompileAllRulesToAst(content) {
 	console.log(gamemodeConstFunction);
 
 	//console.log(content);
-	
+
 	var bracketPos = getBracketPositions(content);
 	if (bracketPos.length === 0) {
 		error("Content is not workshop code");
@@ -121,7 +124,7 @@ function decompileAllRulesToAst(content) {
 		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
 		content = content.substring(bracketPos[1]+1)
 	}
-	
+
 	if (activatedExtensions.length > 0) {
 		activatedExtensions = [...new Set(activatedExtensions)]
 	}
@@ -150,7 +153,7 @@ function decompileAllRulesToAst(content) {
 	debug("global vars: "+globalVariables);
 	debug("player vars: "+playerVariables);
 	debug("subroutines: "+subroutines);
-	
+
 	//Check if we are decompiling actions or conditions
 	if (content.startsWith(tows("__actions__", ruleKw))) {
 		return astActionsToOpy(decompileActions(content.substring(bracketPos[0], bracketPos[1]+1)));
@@ -158,12 +161,12 @@ function decompileAllRulesToAst(content) {
 	if (content.startsWith(tows("__conditions__", ruleKw))) {
 		return decompileConditions(content.substring(bracketPos[0], bracketPos[1]+1)).map(x => "@Condition "+astToOpy(x)).join("\n");
 	}
-	
+
 	bracketPos.unshift(-1);
 	//A rule looks like this:
 	//rule(title) {...}
 	//Therefore, each rule ends every 4th bracket position
-	
+
 	var astRules = [];
 
 	for (var i = 0; i < bracketPos.length-1; i += 4) {
@@ -187,7 +190,7 @@ function decompileCustomGameSettings(content) {
 	var objectStack = [];
 	var currentObject = null;
 	var depth = 0;
-	
+
 	function updateCurrentObject() {
 		currentObject = serialized;
 		for (var elem of objectStack) {
@@ -235,7 +238,7 @@ function decompileCustomGameSettings(content) {
 		} else if (opyCategory === "extensions") {
 			activatedExtensions = Object.keys(serialized[category]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
 			delete result[opyCategory];
-		
+
 		} else if (opyCategory === "gamemodes") {
 			for (var gamemode of Object.keys(serialized[category])) {
 				var isCurrentGamemodeDisabled = false;
@@ -257,7 +260,7 @@ function decompileCustomGameSettings(content) {
 						if (serialized[category][gamemode][property] === null) {
 							//empty object - is actually part of a dict
 							dict.push(property);
-	
+
 						} else {
 							//The only object in a gamemode should be disabled/enabled maps, which is an array
 							var opyPropName = topy(property, customGameSettingsSchema.gamemodes.values.general.values);
@@ -432,7 +435,7 @@ function decompileSubroutines(content) {
 	content = content.split("\n");
 	console.log(content);
 	for (var i = 0; i < content.length; i ++) {
-		
+
 		content[i] = content[i].trim();
 		if (content[i] === "") {
 			continue;

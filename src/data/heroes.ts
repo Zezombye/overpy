@@ -17,14 +17,14 @@
 
 "use strict";
 
-import { HeroData } from "../types";
+import { HeroData, Overwatch2Heroes } from "../types";
 
 // @ts-check
 
 /**
  * The list of all Overwatch 2 heroes.
  */
-export const heroKw: Record<string, HeroData> =
+export const heroKw: Record<Overwatch2Heroes, HeroData> =
 //begin-json
 {
     "ana": {
@@ -1485,6 +1485,7 @@ export const heroKw: Record<string, HeroData> =
         "pt-BR": "Mauga",
         "tr-TR": "Mauga"
     },
+    // @ts-ignore - Legacy entry for compatibility
     "mccree": {
         "guid": "00000000005C",
         "ability1": {

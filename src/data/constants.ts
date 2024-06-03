@@ -10099,7 +10099,7 @@ export const constantValues: Record<string, { description?: string } &  Record<s
 
 constantValues["HeroLiteral"] = {};
 for (var key of Object.keys(heroKw)) {
-    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key]
+    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw]
 }
 constantValues["MapLiteral"] = {};
 for (var key of Object.keys(mapKw)) {
