@@ -1,40 +1,52 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
-function astRulesToOpy(rules) {
+import { constantValues } from "../data/constants";
+import { stringKw } from "../data/localizedStrings";
+import { eventSlotKw, funcKw } from "../data/other";
+import { activatedExtensions, astOperatorPrecedence, currentArrayElementName, currentArrayIndexName, currentRuleHasVariableGoto, decompilationLabelNumber, decompilerGotos, decrementNbTabs, incrementDecompilationLabelNumber, incrementNbTabs, nbTabs, resetDecompilationLabelNumber, resetDecompilerGotos, resetRuleHasVariableGoto, setCurrentArrayElementName, setCurrentArrayIndexName, setNbTabs, setRuleHasVariableGoto } from "../globalVars";
+import { Ast, astContainsFunctions, getAstFor0 } from "../utils/ast";
+import { error, debug } from "../utils/logging";
+import { tabLevel } from "../utils/other";
+import { escapeString } from "../utils/strings";
+import { topy } from "../utils/translation";
+import { isTypeSuitable } from "../utils/types";
+import { isVarName } from "../utils/varNames";
+
+export function astRulesToOpy(rules: Ast[]) {
 
     var result = "";
 
     for (var rule of rules) {
         var decompiledRule = "";
         var decompiledRuleAttributes = "";
-        nbTabs = 1;
-        decompilationLabelNumber = 0;
-        currentRuleHasVariableGoto = false;
+        setNbTabs(1);
+        resetDecompilationLabelNumber();
+        resetRuleHasVariableGoto();
 
         if (rule.ruleAttributes.event === "__subroutine__") {
             decompiledRule += "def "+rule.ruleAttributes.subroutineName+"():\n";
             decompiledRuleAttributes += tabLevel(nbTabs)+"@Name "+escapeString(rule.ruleAttributes.name, false)+"\n";
         } else {
-                
+
             decompiledRule += "rule "+escapeString(rule.ruleAttributes.name, false)+":\n";
-            
+
             //Decompile the rule attributes
             if (rule.ruleAttributes.event !== "global") {
                 decompiledRuleAttributes += tabLevel(nbTabs)+"@Event "+rule.ruleAttributes.event+"\n";
@@ -50,7 +62,8 @@ function astRulesToOpy(rules) {
                 }
             }
             if (rule.ruleAttributes.conditions) {
-                for (var condition of rule.ruleAttributes.conditions) {
+                let conditions = rule.ruleAttributes.conditions as Ast[];
+                for (var condition of conditions) {
                     if (condition.comment) {
                         decompiledRuleAttributes += condition.comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
                     }
@@ -83,7 +96,7 @@ function astRulesToOpy(rules) {
 
 }
 
-function astActionsToOpy(actions) {
+export function astActionsToOpy(actions: Ast[]): string {
 
 
     var result = "";
@@ -92,8 +105,9 @@ function astActionsToOpy(actions) {
         //console.log(actions[i]);
         debug("Parsing AST of action '"+actions[i].name+"'");
 
-        if (actions[i].comment) {
-            result += actions[i].comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
+        let comment = actions[i].comment;
+        if (comment != undefined) {
+            result += comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
         }
         var decompiledAction = "";
         if (["__elif__", "__else__", "__while__", "__for__"].includes(actions[i].name) && !actions[i].isDisabled) {
@@ -164,7 +178,7 @@ function astActionsToOpy(actions) {
                 }
             }
         }
-        
+
         //Operator functions
         const funcToOpMapping = {
             "__add__": "+=",
@@ -199,11 +213,11 @@ function astActionsToOpy(actions) {
             }
             if ((actions[i].name === "__elif__" || actions[i].name === "__else__") && !actions[i].isDisabled) {
                 if (nbTabs > 1) {
-                    nbTabs--;
+                    decrementNbTabs();
                 }
             }
             tabLevelForThisAction = nbTabs;
-            decompiledAction = nameToKeywordMapping[actions[i].name];
+            decompiledAction = nameToKeywordMapping[actions[i].name as keyof typeof nameToKeywordMapping];
             if (actions[i].args.length > 0) {
                 decompiledAction += " "+astToOpy(actions[i].args[0]);
             }
@@ -221,18 +235,18 @@ function astActionsToOpy(actions) {
             }
             decompiledAction += ":";
             if (!actions[i].isDisabled) {
-                nbTabs++;
+                incrementNbTabs();
             }
         } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1)+"return";
-            
+
         } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if not RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
         } else if (actions[i].name === "__abortIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"return";
         } else if (actions[i].name === "__assignTo__") {
             decompiledAction = astToOpy(actions[i].args[0])+" = "+astToOpy(actions[i].args[1]);
-            
+
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name+"()";
 
@@ -250,7 +264,8 @@ function astActionsToOpy(actions) {
 
         } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
             if (nbTabs > 1) {
-                nbTabs--;
+                // nbTabs--;
+                decrementNbTabs();
             }
             continue;
 
@@ -274,7 +289,7 @@ function astActionsToOpy(actions) {
             decompiledAction += "if RULE_CONDITION:\n"+tabLevel(tabLevelForThisAction+1)+"goto RULE_START";
         } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
-                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name]+" "+astToOpy(actions[i].args[2]);
+                decompiledAction += astToOpy(actions[i].args[0])+" "+funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping]+" "+astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__min__") {
                 decompiledAction += astToOpy(actions[i].args[0])+" min= "+astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__max__") {
@@ -318,28 +333,28 @@ function astActionsToOpy(actions) {
         } else if (actions[i].name === "__skip__") {
             if (actions[i].args[0].name === "__number__") {
                 var labelName = "lbl_"+decompilationLabelNumber;
-                decompilationLabelNumber++;
+                incrementDecompilationLabelNumber();
                 decompiledAction += "goto "+labelName;
                 decompilerGotos.push({
                     remainingActions: actions[i].args[0].args[0].numValue,
                     label: labelName,
                 });
             } else {
-                currentRuleHasVariableGoto = true;
+                setRuleHasVariableGoto(true);
                 decompiledAction += "goto loc+"+astToOpy(actions[i].args[0]);
             }
         } else if (actions[i].name === "__skipIf__" && !currentRuleHasVariableGoto) {
             if (actions[i].args[1].name === "__number__") {
                 decompiledAction += "if "+astToOpy(actions[i].args[0])+":\n"+tabLevel(tabLevelForThisAction+1);
                 var labelName = "lbl_"+decompilationLabelNumber;
-                decompilationLabelNumber++;
+                incrementDecompilationLabelNumber();
                 decompiledAction += "goto "+labelName;
                 decompilerGotos.push({
                     remainingActions: actions[i].args[1].args[0].numValue,
                     label: labelName,
                 });
             } else {
-                currentRuleHasVariableGoto = true;
+                setRuleHasVariableGoto(true);
                 decompiledAction += "__skipIf__("+astToOpy(actions[i].args[0])+", "+astToOpy(actions[i].args[1])+")";
             }
 
@@ -359,10 +374,11 @@ function astActionsToOpy(actions) {
             }
 
             if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type][actions[i].args[1].name].extension) {
-                activatedExtensions.push(constantValues[actions[i].args[1].type][actions[i].args[1].name].extension)
+                let extensionName = constantValues[actions[i].args[1].type][actions[i].args[1].name].extension as string;
+                activatedExtensions.push(extensionName);
                 //console.log(activatedExtensions);
             }
-            
+
             if (actions[i].name.startsWith("_&")) {
                 var op1 = astToOpy(actions[i].args[0]);
                 if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
@@ -397,13 +413,13 @@ function astActionsToOpy(actions) {
     for (var j = 0; j < decompilerGotos.length; j++) {
         result += tabLevel(nbTabs)+decompilerGotos[j].label+":\n";
     }
-    decompilerGotos = [];
+    resetDecompilerGotos();
 
     return result;
 
 }
 
-function astToOpy(content) {
+export function astToOpy(content: Ast): string {
 
     debug("Parsing AST of '"+content.name+"'");
 
@@ -431,8 +447,8 @@ function astToOpy(content) {
         }
         return result+"."+content.args[1].name;
     }
-    
-    if (content.type in constantValues) {
+
+    if (typeof content.type !== "object" && content.type in constantValues) {
         if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral", "ColorLiteral"].includes(content.type)) {
             return content.type.replace(/Literal$/, "")+"."+content.name;
         } else if (["__ChaseTimeReeval__", "__ChaseRateReeval__"].includes(content.type)) {
@@ -452,7 +468,7 @@ function astToOpy(content) {
         "__raiseToPower__": "**",
         "__and__": "and",
         "__or__": "or",
-            
+
         "__equals__": "==",
         "__inequals__": "!=",
         "__lessThanOrEquals__": "<=",
@@ -466,11 +482,11 @@ function astToOpy(content) {
             op1 = "("+op1+")";
         }
         var op2 = astToOpy(content.args[1]);
-        
+
         if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] <= astOperatorPrecedence[content.name] - (content.name === "__raiseToPower__" ? 1 : 0)))) {
             op2 = "("+op2+")";
         }
-        return op1+" "+funcToOpMapping[content.name]+" "+op2;
+        return op1+" "+funcToOpMapping[content.name as keyof typeof funcToOpMapping]+" "+op2;
     }
 
     if (content.name === "__arrayContains__") {
@@ -479,7 +495,7 @@ function astToOpy(content) {
             op1 = "("+op1+")";
         }
         var op2 = astToOpy(content.args[1]);
-        
+
         if (astContainsFunctions(content.args[1], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name]))) {
             op2 = "("+op2+")";
         }
@@ -523,12 +539,12 @@ function astToOpy(content) {
         "__indexOfArrayValue__": "index",
     };
     if (content.name in internalFuncToFuncMap) {
-        
+
         var result = astToOpy(content.args[0]);
         if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
             result = "("+result+")";
         }
-        return result+"."+internalFuncToFuncMap[content.name]+"("+astToOpy(content.args[1])+")";
+        return result+"."+internalFuncToFuncMap[content.name as keyof typeof internalFuncToFuncMap]+"("+astToOpy(content.args[1])+")";
     }
 
     //Functions with a dot/index
@@ -575,7 +591,7 @@ function astToOpy(content) {
         if (content.name === "__lastOf__") {
             return result+".last()";
         }
-        if (content.name === "__valueInArray__") {        
+        if (content.name === "__valueInArray__") {
             return result+"["+astToOpy(content.args[1])+"]";
         }
         if (content.name === "__xComponentOf__") {
@@ -595,31 +611,31 @@ function astToOpy(content) {
         var opyArray = astToOpy(content.args[0]);
 
         //Determine the current array element / current array index name
-        currentArrayElementName = "";
+        setCurrentArrayElementName("");
         if (isTypeSuitable({"Array": "Player"}, content.args[0].type)) {
-            currentArrayElementName = "player";
+            setCurrentArrayElementName("player");
         } else {
-            currentArrayElementName = "i";
+            setCurrentArrayElementName("i");
         }
 
         if (astContainsFunctions(content.args[1], ["__currentArrayIndex__"]) && !astContainsFunctions(content.args[1], ["__currentArrayElement__"])
             && !(content.name === "__mappedArray__" && content.args[0].name === "__filteredArray__" && astContainsFunctions(content.args[0].args[1], ["__currentArrayElement__"]))) {
-            currentArrayElementName = "_";
+            setCurrentArrayElementName("_");
         }
 
         if (currentArrayElementName === "i") {
-            currentArrayIndexName = "idx";
+            setCurrentArrayIndexName("idx");
         } else {
-            currentArrayIndexName = "i";
+            setCurrentArrayIndexName("i");
         }
 
 
         while (isVarName(currentArrayElementName, true)) {
-            currentArrayElementName += "_";
+            setCurrentArrayElementName(currentArrayElementName + "_");
         }
-        
+
         while (isVarName(currentArrayIndexName, true)) {
-            currentArrayIndexName += "_";
+            setCurrentArrayIndexName(currentArrayIndexName + "_");
         }
 
 
@@ -684,21 +700,21 @@ function astToOpy(content) {
             result += ")";
         }
 
-        currentArrayElementName = null;
-        currentArrayIndexName = null;
+        setCurrentArrayElementName("");
+        setCurrentArrayIndexName("");
         return result;
     }
 
     if (content.name === "__currentArrayElement__") {
-        if (currentArrayElementName === null) {
-            error("currentArrayElementName is null");
+        if (currentArrayElementName === "") {
+            error("currentArrayElementName not set");
         }
         return currentArrayElementName;
     }
-    
+
     if (content.name === "__currentArrayIndex__") {
-        if (currentArrayIndexName === null) {
-            error("currentArrayIndexName is null");
+        if (currentArrayIndexName === "") {
+            error("currentArrayIndexName not set");
         }
         return currentArrayIndexName;
     }

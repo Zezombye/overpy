@@ -24,7 +24,7 @@ export type Variable = {
 
 export type Subroutine = {
   name: string,
-  index: number | null,
+  index: number,
   isFromDefStatement: boolean
 }
 
@@ -41,8 +41,8 @@ export type Value = {
   isConstant?: boolean,
   canBePutInBoolean?: boolean,
 } & {
-    [language in OWLanguage]?: string;
-  }
+  [language in OWLanguage]?: string;
+}
 
 export type Argument = {
   name: string,
@@ -156,17 +156,18 @@ export type Token = {
  * @param currentLineNb The current line number.
  * @param currentColNb The current column number.
  */
-export type BaseFileStackMember = {
+export type BaseNormalFileStackMember = {
   name: string,
   currentLineNb: number,
   currentColNb: number,
+  fileStackMemberType: "normal"
 };
 
-export type ScriptFileStackMember = BaseFileStackMember & {
+export type ScriptFileStackMember = BaseNormalFileStackMember & {
   staticMember: true
 }
 
-export type MacroFileStackMember = BaseFileStackMember & {
+export type MacroFileStackMember = BaseNormalFileStackMember & {
   staticMember: false,
   remainingChars: number,
   callNbChars: number,
@@ -174,7 +175,28 @@ export type MacroFileStackMember = BaseFileStackMember & {
   callLines: number
 }
 
-export type FileStackMember = ScriptFileStackMember | MacroFileStackMember;
+export type BaseWebUIFileStackMember = {
+  rule: string,
+  ruleNb: number,
+  fileStackMemberType: "webUI"
+}
+
+export type RuleWebUIFileStackMember = BaseWebUIFileStackMember & {
+  webUIType: "rule"
+}
+export type ConditionWebUIFileStackMember = BaseWebUIFileStackMember & {
+  webUIType: "condition",
+  conditionNb: number
+}
+
+export type ActionWebUIFileStackMember = BaseWebUIFileStackMember & {
+  webUIType: "action",
+  actionNb: number
+}
+
+export type WebUIFileStackMember = RuleWebUIFileStackMember | ConditionWebUIFileStackMember | ActionWebUIFileStackMember
+
+export type FileStackMember = ScriptFileStackMember | MacroFileStackMember | WebUIFileStackMember;
 
 export type BaseMacroData = {
   fileStack: FileStackMember[],

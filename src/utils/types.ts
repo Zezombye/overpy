@@ -102,9 +102,9 @@ export function isTypeSuitable(expectedType: Type | Type[], receivedType: Type |
                 }
             }
         } else if (["Vector", "Direction", "Position", "Velocity"].includes(receivedTypeName)) {
-            if (typeof expectedType === "string") {
+            if (typeof expectedType === "string" && typeof receivedType[receivedTypeName] !== "string") {
                 //The default type for vectors is float.
-                return isTypeSuitable(expectedType, receivedTypeName) && receivedType[receivedTypeName].every(x => isTypeSuitable("float", x));
+                return isTypeSuitable(expectedType, receivedTypeName) && (receivedType[receivedTypeName] as Type[]).every(x => isTypeSuitable("float", x));
 
             } else if (typeof expectedType === "object") {
 

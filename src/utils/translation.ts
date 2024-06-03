@@ -23,14 +23,14 @@ import { LocalizableString, Token, Value } from "../types";
 import { debug, error } from "./logging";
 
 /**
- * Translates a keyword to the other language.
+ * Translates a keyword to Workshop from OverPy or vice versa.
  * @param keyword Keyword to translate
  * @param toWorkshop Whether to translate to Workshop output or Python output
  * @param keywordObj Mapping from keyword to value
  * @param options Additional options
  * @returns Translated keyword
  */
-export function translate(keyword: string, toWorkshop: boolean, keywordObj: Record<string, LocalizableString | Value>, options: Record<string, any> = {}): string {
+export function translate(keyword: string, toWorkshop: boolean, keywordObj: Record<string, any>, options: Record<string, any> = {}): string {
 
 	if (!toWorkshop) {
 		keyword = keyword.toLowerCase();
@@ -115,7 +115,7 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
  * @param keywordArray Record of all permissible keywords
  * @param options Additional options to pass to translations
  */
-export function topy(keyword: string, keywordArray: Record<string, LocalizableString | Value>, options: Record<string, any>): string {
+export function topy(keyword: string, keywordArray: Record<string, any>, options: Record<string, any> = {}): string {
 	return translate(keyword, false, keywordArray, options);
 }
 
@@ -125,7 +125,7 @@ export function topy(keyword: string, keywordArray: Record<string, LocalizableSt
  * @param keywordArray Record of all permissible keywords
  * @param options Additional options to pass to translations
  */
-export function tows(keyword: Token | string, keywordArray: Record<string, LocalizableString | Value>, options: Record<string, string>={}): string {
+export function tows(keyword: Token | string, keywordArray: Record<string, any>, options: Record<string, string> = {}): string {
 
 	//Check if a token was passed, or a string
 	if (typeof keyword === "object") {

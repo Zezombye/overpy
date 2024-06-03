@@ -44,7 +44,7 @@ export function shuffleArray<T>(a: T[]): T[] {
     return a;
 }
 
-export function isNumber(x: unknown): x is number {
+export function isNumber(x: unknown) {
 	if ((""+x).trim() === "" || x === null) {
 		return false;
 	}

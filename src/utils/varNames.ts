@@ -55,13 +55,13 @@ export function translateSubroutineToWs(content: string): string {
 	error("Undeclared subroutine '"+content+"'");
 }
 
-export function addSubroutine(content: string, index: number, isFromDefStatement = false) {
+export function addSubroutine(content: string, index: number | null, isFromDefStatement = false) {
 	if (reservedSubroutineNames.includes(content)) {
 		error("Subroutine name '"+content+"' is a built-in function or keyword");
 	}
 	subroutines.push({
 		"name": content,
-		"index": index,
+		"index": index ?? subroutines.length,
 		"isFromDefStatement": isFromDefStatement,
 	})
 }

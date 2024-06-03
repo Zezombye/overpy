@@ -27,3 +27,4 @@ astParsingFunctions.__gamemode__ = function(content) {
     }
 
     return content;
+}

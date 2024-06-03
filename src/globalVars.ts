@@ -25,7 +25,7 @@ import { camelCaseToUpperCase } from "./utils/other";
 import { QuickJSContext, getQuickJS } from "quickjs-emscripten";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
-import { FileStackMember, OWLanguage, Subroutine, Variable } from "./types";
+import { FileStackMember, OWLanguage, Subroutine, Type, Variable } from "./types";
 import { Ast } from "./utils/ast";
 
 
@@ -93,6 +93,7 @@ export var currentRuleLabelAccess: Record<string, number>;
 export const clearRuleLabelAccess = () => currentRuleLabelAccess = {};
 export var currentRuleHasVariableGoto: boolean;
 export const resetRuleHasVariableGoto = () => currentRuleHasVariableGoto = false;
+export const setRuleHasVariableGoto = (value: boolean) => currentRuleHasVariableGoto = value;
 
 //Optimization settings.
 export var enableOptimization: boolean;
@@ -114,7 +115,8 @@ export var importedFiles: string[];
 
 export var disableUnusedVars: boolean;
 
-export var compiledCustomGameSettings: any;
+export var compiledCustomGameSettings: string;
+export const setCompiledCustomGameSettings = (settings: string) => compiledCustomGameSettings = settings;
 
 
 /** The stack of the files (macros count as "files").
@@ -136,7 +138,7 @@ export var playerInitDirectives: Ast[] = [];
 export var workshopSettingNames: string[] = [];
 
 /** User-declared enums. */
-export var enumMembers = {};
+export var enumMembers: Record<string, any> = {};
 
 //Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
 export var replacementFor0 = "";
@@ -148,14 +150,22 @@ export const setReplacementForTeam1 = (replacement: string) => replacementForTea
 
 /** The number of elements the gamemode takes. */
 export var nbElements: number;
+export const resetNbElements = () => nbElements = 0;
+export const incrementNbElements = (amount = 1) => nbElements += amount;
+export const decrementNbElements = (amount = 1) => nbElements -= amount;
 
 /** For the weird behavior where element count goes up by 1 for every 2 hero literals in the parameters of an action argument. */
 export var nbHeroesInValue: number;
+export const resetNbHeroesInValue = () => nbHeroesInValue = 0;
+export const incrementNbHeroesInValue = (amount = 1) => nbHeroesInValue += amount;
+export const decrementNbHeroesInValue = (amount = 1) => nbHeroesInValue -= amount;
 
 /** The extensions that are activated in the current gamemode. */
 export var activatedExtensions: string[];
+export const setActivatedExtensions = (extensions: string[]) => activatedExtensions = extensions;
 /** The amount of available extension points. */
 export var availableExtensionPoints: number;
+export const setAvailableExtensionPoints = (points: number) => availableExtensionPoints = points;
 
 //Decompilation variables
 
@@ -164,31 +174,38 @@ export var availableExtensionPoints: number;
   *
   * Is reset at each rule.
 */
-export var decompilerGotos;
+export var decompilerGotos: { remainingActions: number, label: string }[];
+export const resetDecompilerGotos = () => decompilerGotos = [];
 
 /** Global variable used for the number of tabs.
  *
  * Is reset at each rule.
 */
-export var nbTabs;
+export var nbTabs: number;
+export const resetNbTabs = () => nbTabs = 0;
+export const incrementNbTabs = () => nbTabs++;
+export const decrementNbTabs = () => nbTabs--;
+export const setNbTabs = (nb: number) => nbTabs = nb;
 
 /** Global variable used to mark the action number of the last loop in the rule.
  *
  * Is reset at each rule.
 */
-export var decompilationLabelNumber;
+export var decompilationLabelNumber: number;
+export const resetDecompilationLabelNumber = () => decompilationLabelNumber = 0;
+export const incrementDecompilationLabelNumber = () => decompilationLabelNumber++;
 
 /** Global variable used to keep track of operator precedence.
  *
  * Is reset at each action and rule condition.
 */
-export var operatorPrecedenceStack;
+export var operatorPrecedenceStack: Record<string, number>[];
 
 
-export function resetGlobalVariables(language: string) {
+export function resetGlobalVariables(language: OWLanguage) {
 	rootPath = "";
-	currentArrayElementName = null;
-	currentArrayIndexName = null;
+	currentArrayElementName = "";
+	currentArrayIndexName = "";
 	currentLanguage = language;
 	currentRuleEvent = "";
 	macros = [];
@@ -345,7 +362,7 @@ export const bigLettersMappings = {
 }
 
 //Fullwidth characters
-export var fullwidthMappings = {
+export var fullwidthMappings: Record<string, string> = {
 	" ": " ",
 	"¥": "￥",
 	"₩": "￦",
@@ -372,7 +389,7 @@ for (var chr of workshopSettingWhitespaceChars) {
 workshopSettingWhitespace.sort();
 
 
-export const typeTree = [
+export const typeTree: (string | Record<string, any>)[] = [
 	{"Object": [
 		"Player",
 		{"float": [
@@ -462,7 +479,7 @@ export const typeTree = [
 //For example, typeMatrix["float"] = ["float", "int", etc].
 export const typeMatrix: Record<string, string[]> = {};
 
-function fillTypeMatrix(tree) {
+function fillTypeMatrix(tree: string | Record<string, any>) {
 	if (typeof tree === "string") {
 		typeMatrix[tree] = [tree];
 
