@@ -17,28 +17,20 @@
 
 "use strict";
 
-import { setFileStack } from "../globalVars";
-import { Token } from "../types";
-import { Ast } from "../utils/ast";
+import { constantValues } from "../data/constants";
+import { notConstantFunctions } from "../data/other";
+import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setFileStack, subroutines } from "../globalVars";
+import { OWLanguage, Token } from "../types";
+import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber } from "../utils/ast";
 import { getFileContent, getFilePaths } from "../utils/file";
-import { debug, error } from "../utils/logging";
-import { safeEval } from "../utils/other";
-import { dispTokens, splitTokens } from "../utils/tokens";
+import { debug, error, functionNameToString, warn } from "../utils/logging";
+import { isNumber, safeEval } from "../utils/other";
+import { getUtf8Length, unescapeString } from "../utils/strings";
+import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
 import { parseType } from "../utils/types";
-import { addSubroutine, addVariable } from "../utils/varNames";
+import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../utils/varNames";
 import { compileCustomGameSettings } from "./compiler";
 import { LogicalLine } from "./tokenizer";
-
-
-class WorkshopVar {
-    name: string;
-    index: number;
-
-    constructor(name: string, index: number) {
-        this.name = name;
-        this.index = index === undefined ? -1 : index;
-    }
-}
 
 const builtInEnumNameToAstInfo = {
     "Hero": {
@@ -67,10 +59,10 @@ const builtInEnumNameToAstInfo = {
     }
 }
 
-export async function parseLines(lines: LogicalLine[]) {
+export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
 
     //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
-    var result = [];
+    var result: Ast[] = [];
     let currentComments: string[] = [];
 
 
@@ -140,7 +132,7 @@ export async function parseLines(lines: LogicalLine[]) {
 
                 }
 
-                // Check shape of custom game settings
+                // TODO: Check shape of custom game settings
 
             } catch (e) {
                 // @ts-ignore
@@ -162,7 +154,7 @@ export async function parseLines(lines: LogicalLine[]) {
                 var currentLineAst = new Ast(currentLine.tokens[0].text, currentLine.tokens.slice(1).map(x => new Ast(x.text, [], [], "__AnnotationArg__")), [], "__Annotation__");
 
             }
-            if (currentComments !== []) {
+            if (currentComments.length > 0) {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
@@ -185,10 +177,10 @@ export async function parseLines(lines: LogicalLine[]) {
             }
 
 
-            var funcName = tokenToFuncMapping[currentLine.tokens[0].text];
-            var args = [];
+            var funcName = tokenToFuncMapping[currentLine.tokens[0].text as keyof typeof tokenToFuncMapping];
+            var args: string[] | Ast[] = [];
             var children = [];
-            var instructionRuleAttributes = null;
+            var instructionRuleAttributes: null | Record<string, string> = null;
             var lineMembers = splitTokens(currentLine.tokens, ":", true);
             if (lineMembers.length === 1) {
                 error("Expected a ':' at the end of the line");
@@ -251,10 +243,10 @@ export async function parseLines(lines: LogicalLine[]) {
             var nextIndentLevel = null;
             var j = i + 1;
             for (; j < lines.length; j++) {
-                fileStack = lines[j].tokens[0].fileStack;
+                setFileStack(lines[j].tokens[0].fileStack);
 
                 //Ignore comments
-                if (!lines[j].tokens[0][0] !== "#") {
+                if (lines[j].tokens[0].text[0] !== "#") {
                     if (lines[j].indentLevel <= currentLineIndent) {
                         break;
                     } else if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
@@ -285,11 +277,15 @@ export async function parseLines(lines: LogicalLine[]) {
             }
 
             if (funcName === "__enum__") {
+                if (typeof args[0] === "string") {
+                    error("First argument for enum must be an instance of Ast, but got a string instead.");
+                }
+
                 //Implement our own mini-parser to not get "function does not exist" errors.
                 enumMembers[args[0].name] = {};
-                var lastIntValue = 0;
+                var lastIntValue: number | Ast = 0;
                 for (var k = 0; k < childrenLines.length; k++) {
-                    fileStack = childrenLines[k].tokens[0].fileStack;
+                    setFileStack(childrenLines[k].tokens[0].fileStack);
                     //console.log(childrenLines[k]);
                     //Skip comments
                     if (childrenLines[k].tokens[0].text[0] === "#") {
@@ -310,11 +306,11 @@ export async function parseLines(lines: LogicalLine[]) {
                     if (assignOperands.length === 1) {
                         //Enum member was not assigned a value
                         if (typeof lastIntValue === "number") {
-                            enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
+                            enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = getAstForNumber(lastIntValue);
                             lastIntValue++;
-                        } else if (lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
+                        } else if (lastIntValue instanceof Ast && lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
                             lastIntValue = -lastIntValue.args[0].args[0].numValue + 1;
-                            enumMembers[args[0].name][childrenLines[k].tokens[0]] = getAstForNumber(lastIntValue);
+                            enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else {
                             console.log(lastIntValue)
@@ -327,28 +323,28 @@ export async function parseLines(lines: LogicalLine[]) {
                         } else {
 
                             //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
-                            if (astContainsFunctions(enumValue, notConstantFunctions, false)) {
+                            if (astContainsFunctions(enumValue, notConstantFunctions.filter(v => ("en-US" as OWLanguage) in v).map(v => v["en-US"] as string), false)) {
                                 warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.")
                             }
 
                             lastIntValue = enumValue;
                         }
-                        enumMembers[args[0].name][childrenLines[k].tokens[0]] = enumValue;
+                        enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = enumValue;
                     }
                 }
                 //We do not care about enums in the AST
                 i += j - i - 1;
                 continue;
             } else {
-                children = parseLines(childrenLines);
+                children = await parseLines(childrenLines);
             }
 
 
             //console.log("i = "+i+", j = "+j);
             //console.log("lines = \n"+lines.join("\n"));
-            fileStack = currentLine.tokens[0].fileStack;
-            var instruction = new Ast(funcName, args, children);
-            if (currentComments !== []) {
+            setFileStack(currentLine.tokens[0].fileStack);
+            let instruction = new Ast(funcName, args, children);
+            if (currentComments.length > 0) {
                 instruction.comment = commentArrayToString(currentComments);
             }
             if (instructionRuleAttributes !== null) {
@@ -360,7 +356,7 @@ export async function parseLines(lines: LogicalLine[]) {
 
         } else {
             var currentLineAst = parse(currentLine.tokens);
-            if (currentComments !== []) {
+            if (currentComments.length > 0) {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
@@ -372,7 +368,7 @@ export async function parseLines(lines: LogicalLine[]) {
     return result;
 }
 
-function commentArrayToString(comments) {
+export function commentArrayToString(comments: string[]) {
     if (comments.length === 0) {
         return "";
     }
@@ -393,7 +389,7 @@ function commentArrayToString(comments) {
     return result;
 }
 
-function getOperator(tokens, operators, rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
+function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false, allowUnaryPlusOrMinus = false) {
 
     var operatorFound = null;
     var operatorPosition = -1;
@@ -570,7 +566,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
-            var opToFuncMapping = {
+            let opToFuncMapping = {
                 "==": "__equals__",
                 "!=": "__inequals__",
                 "<=": "__lessThanOrEquals__",
@@ -578,13 +574,13 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "<": "__lessThan__",
                 ">": "__greaterThan__",
             }
-            return new Ast(opToFuncMapping[operator], [op1, op2]);
+            return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
 
         } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
             //Actually de-optimize so we can keep the logic in one place.
             //Transform "A += 1" to "A = A + 1".
 
-            var opToFuncMapping = {
+            let opToFuncMapping = {
                 "+=": "__add__",
                 "-=": "__subtract__",
                 "*=": "__multiply__",
@@ -596,7 +592,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             };
 
             const variable = parse(operands[0]);
-            const opName = opToFuncMapping[operator];
+            const opName = opToFuncMapping[operator as keyof typeof opToFuncMapping];
             const value = parse(operands[1]);
 
             //Do not de-optimize if the variable is random. Else we get random.choice(A) += 1 transformed to random.choice(A) = random.choice(A) + 1.
@@ -633,7 +629,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         } else if (["/", "*", "%", "**"].includes(operator)) {
 
-            var opToFuncMapping = {
+            let opToFuncMapping = {
                 "/": "__divide__",
                 "*": "__multiply__",
                 "%": "__modulo__",
@@ -641,7 +637,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             }
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
-            return new Ast(opToFuncMapping[operator], [op1, op2]);
+            return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
 
         }
         error("Unhandled operator " + operator);
@@ -748,8 +744,8 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         //Check for enums
         if (enumMembers[name]) {
             return new Ast("__enumType__", Object.values(enumMembers[name]), [], "Type");
-        } else if (builtInEnumNameToAstInfo[name]) {
-            const astInfo = builtInEnumNameToAstInfo[name];
+        } else if (name in builtInEnumNameToAstInfo) {
+            const astInfo = builtInEnumNameToAstInfo[name as keyof typeof builtInEnumNameToAstInfo];
             const values = Object.keys(constantValues[astInfo.type])
                 .filter((key) => key !== "description")
                 .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]))
@@ -837,10 +833,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         //Lazy & dirty way of properly parsing "sorted(x, lambda a,b: z)" as the parser also splits on the comma on "lambda a,b".
         if (args.length === 3) {
-            args[1].push({ "text": "," });
+            args[1].push({ "text": ",", fileStack: [] });
             args[1].push(...args[2]);
             args = args.slice(0, 2);
         }
+
+        let sortedCondition: Ast | null = null;
 
         if (args.length === 2) {
             var lambdaArgs = splitTokens(args[1], ':');
@@ -857,27 +855,27 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 error("Expected 'lambda x' before ':'");
             }
             if (lambdaArgs[0].length === 2) {
-                currentArrayElementName = lambdaArgs[0][1].text;
-                currentArrayIndexName = null;
+                setCurrentArrayElementName(lambdaArgs[0][1].text);
+                setCurrentArrayIndexName("");
             } else if (lambdaArgs[0].length === 4) {
                 if (lambdaArgs[0][2].text !== ",") {
                     error("Expected ',' after '" + lambdaArgs[0][1].text + "', but found '" + lambdaArgs[0][2].text);
                 }
-                currentArrayElementName = lambdaArgs[0][1].text;
-                currentArrayIndexName = lambdaArgs[0][3].text;
+                setCurrentArrayElementName(lambdaArgs[0][1].text);
+                setCurrentArrayIndexName(lambdaArgs[0][3].text);
             } else {
                 error("Expected 1 or 3 tokens after 'lambda', but got " + (lambdaArgs.length - 1));
             }
 
-            var sortedCondition = parse(lambdaArgs[1]);
-            currentArrayElementName = null;
-            currentArrayIndexName = null;
+            sortedCondition = parse(lambdaArgs[1]);
+            setCurrentArrayElementName("");
+            setCurrentArrayIndexName("");
 
         } else if (args.length !== 1) {
             error("Function 'sorted' takes 1 or 2 arguments, received " + args.length);
         }
         var astArgs = [parse(args[0])];
-        if (args.length === 2) {
+        if (sortedCondition != null) {
             astArgs.push(sortedCondition);
         } else {
             astArgs.push(new Ast("__currentArrayElement__"));
@@ -920,7 +918,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     return new Ast(name, args.map(x => parse(x)));
 }
 
-function parseMember(object, member) {
+function parseMember(object: Token[], member: Token[]) {
 
     debug("Parsing member '" + dispTokens(member) + "' of object '" + dispTokens(object) + "'");
 
@@ -934,7 +932,7 @@ function parseMember(object, member) {
     if (member.length > 1) {
         if (member[1].text === '(') {
             if (member[member.length - 1].text !== ")") {
-                fileStack = member[member.length - 1].fileStack;
+                setFileStack(member[member.length - 1].fileStack);
                 error("Unexpected token '" + member[member.length - 1].text + "'");
             }
             args = splitTokens(member.slice(2, member.length - 1), ",");
@@ -959,8 +957,8 @@ function parseMember(object, member) {
             //Check for enums
             if (Object.keys(constantValues).includes(object[0].text)) {
                 return new Ast(name, [], [], object[0].text);
-            } else if (builtInEnumNameToAstInfo[object[0].text]) {
-                const astInfo = builtInEnumNameToAstInfo[object[0].text];
+            } else if (builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo]) {
+                const astInfo = builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo];
                 return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
                 //Check the pseudo-enum "math"
             } else if (object[0].text === "Math") {
@@ -1022,7 +1020,7 @@ function parseMember(object, member) {
                 "charAt": "__strCharAt__",
             };
 
-            return new Ast(funcToInternalFuncMap[name], [parse(object), parse(args[0])])
+            return new Ast(funcToInternalFuncMap[name as keyof typeof funcToInternalFuncMap], [parse(object), parse(args[0])])
 
         } else if (name === "last") {
             if (args.length !== 0) {
@@ -1097,7 +1095,7 @@ function parseMember(object, member) {
 }
 
 //Parses a literal array such as [1,2,3] or [i for i in x if cond].
-function parseLiteralArray(content) {
+function parseLiteralArray(content: Token[]) {
 
     if (content.length === 2) {
         return new Ast("__emptyArray__");
@@ -1118,23 +1116,23 @@ function parseLiteralArray(content) {
             //Expect something like "[x == y for x in z]"
             //Parse as the "mapped array" function.
             var inOperands = splitTokens(forOperands[1], "in", false);
-            var mappingFunction = forOperands[0];
+            let mappingFunction = forOperands[0];
             if (inOperands[0].length === 1) {
                 //It is the current array element name
-                currentArrayElementName = inOperands[0][0].text;
-                currentArrayIndexName = null;
+                setCurrentArrayElementName(inOperands[0][0].text);
+                setCurrentArrayIndexName("");
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
                     error("Malformed '[x for a, b in z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
-                currentArrayElementName = inOperands[0][0].text;
-                currentArrayIndexName = inOperands[0][2].text;
+                setCurrentArrayElementName(inOperands[0][0].text);
+                setCurrentArrayIndexName(inOperands[0][2].text);
             } else {
                 error("Malformed '[x for y in z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
             var parsedMappingFunction = parse(forOperands[0]);
-            currentArrayElementName = null;
-            currentArrayIndexName = null;
+            setCurrentArrayElementName("");
+            setCurrentArrayIndexName("");
 
             return new Ast("__mappedArray__", [parse(inOperands[1]), parsedMappingFunction]);
 
@@ -1145,14 +1143,14 @@ function parseLiteralArray(content) {
 
             if (inOperands[0].length === 1) {
                 //It is the current array element name
-                currentArrayElementName = inOperands[0][0].text;
-                currentArrayIndexName = null;
+                setCurrentArrayElementName(inOperands[0][0].text);
+                setCurrentArrayIndexName("");
             } else if (inOperands[0].length === 3) {
                 if (inOperands[0][1].text !== ",") {
                     error("Malformed '[x for a,b in y if z]': expected ',' but found '" + inOperands[0][1].text + "'");
                 }
-                currentArrayElementName = inOperands[0][0].text;
-                currentArrayIndexName = inOperands[0][2].text;
+                setCurrentArrayElementName(inOperands[0][0].text);
+                setCurrentArrayIndexName(inOperands[0][2].text);
             } else {
                 error("Malformed '[x for a,b in y if z]': 1st operand of 'in' has length " + inOperands[0].length + ", expected 1 or 3");
             }
@@ -1160,9 +1158,9 @@ function parseLiteralArray(content) {
             debug("Parsing 'a for x in y if z', a='" + forOperands[0] + "', x='" + inOperands[0] + "', y='" + ifOperands[0] + "', z='" + ifOperands[1] + "'");
 
             var condition = parse(ifOperands[1]);
-            var mappingFunction = parse(forOperands[0]);
-            currentArrayElementName = null;
-            currentArrayIndexName = null;
+            let mappingFunction = parse(forOperands[0]);
+            setCurrentArrayElementName("");
+            setCurrentArrayIndexName("");
 
             return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
         } else {
@@ -1187,7 +1185,7 @@ function parseLiteralArray(content) {
 }
 
 //Parses a dictionary.
-function parseDictionary(content) {
+function parseDictionary(content: Token[]) {
     content = content.slice(1, content.length - 1);
     var elems = splitTokens(content, ",");
     //support trailing comma
