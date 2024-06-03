@@ -17,6 +17,8 @@
 
 "use strict";
 import { DEBUG_MODE, encounteredWarnings, fileStack, globalSuppressedWarnings, setFileStack, suppressedWarnings } from "../globalVars";
+import { Type } from "../types";
+import { Ast } from "./ast";
 import { tabLevel } from "./other";
 import { escapeString } from "./strings";
 import { dispTokens } from "./tokens";
@@ -62,6 +64,7 @@ export function warn(warnType: string, message: string) {
 				fileStack.reverse();
 				for (var file of fileStack) {
 					if ("rule" in file) {
+						// @ts-ignore - I don't know where the properties this object has come from, and I don't care to find them
 						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "");
 					} else {
 						warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
@@ -79,17 +82,17 @@ export function warn(warnType: string, message: string) {
 
 export const debug = (data: string) => { if (DEBUG_MODE) console.debug("DEBUG: "+ data) };
 
-export function getTypeCheckFailedMessage(content, argNb, expectedType, received) {
+export function getTypeCheckFailedMessage(content: Ast, argNb: number, expectedType: Type, received: Ast) {
 
 	var funcDisplayName = functionNameToString(content);
 	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
 
 	var receivedFuncName = functionNameToString(received);
 
-	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type)}'`;
+	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type.toString())}'`;
 }
 
-export function functionNameToString(content) {
+export function functionNameToString(content: Ast) {
 
 	if (typeof content === "string") {
 		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
@@ -122,9 +125,9 @@ export function functionNameToString(content) {
 	let funcDisplayName: string;
 
 	if (content.name in funcToOperatorMapping) {
-		funcDisplayName = "operator "+funcToOperatorMapping[content.name];
+		funcDisplayName = "operator "+funcToOperatorMapping[content.name as keyof typeof funcToOperatorMapping];
 	} else if (content.name in funcToDisplayMapping) {
-		funcDisplayName = "function '"+funcToDisplayMapping[content.name]+"'";
+		funcDisplayName = "function '"+funcToDisplayMapping[content.name as keyof typeof funcToDisplayMapping]+"'";
 	} else if (isTypeSuitable("StringLiteral", content.type)) {
 		funcDisplayName = "string "+escapeString(content.name, false);
 	} else if (content.name === "__number__") {
@@ -136,17 +139,20 @@ export function functionNameToString(content) {
 	return funcDisplayName;
 }
 
-export function typeToString(type) {
+export function typeToString(type: Type): Type {
 	if (typeof type === "string") {
 		return type;
 	} else if (type instanceof Array) {
-		return type.map(x => typeToString(x)).join(" | ");
+		return type.map((x: string) => typeToString(x)).join(" | ");
 	} else if (typeof type === "object") {
 		if ("Array" in type) {
-			return typeToString(type["Array"])+"[]";
+			let value = type["Array"];
+			if (value instanceof Array) error("Can't pass an array to typeToString()");
+			return typeToString(value)+"[]";
 
 		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			return Object.keys(type)[0]+"["+type[Object.keys(type)[0]].map(x => typeToString(x)).join(", ")+"]";
+			if (!(type[Object.keys(type)[0]] instanceof Array)) error("Unexpected singular type when stringifying a vector type");
+			return Object.keys(type)[0] + "[" + (type[Object.keys(type)[0]] as Type[]).map(x => typeToString(x)).join(", ") + "]";
 
 		} else {
 			error("Could not display type '"+JSON.stringify(type)+"'");
@@ -169,7 +175,7 @@ export function nthOfNumber(nb: number) {
 }
 
 
-export function astToString(ast, nbTabs=0) {
+export function astToString(ast: Ast, nbTabs=0) {
 	var result = "";
 	if (ast === undefined) {
 		return "__undefined__";
