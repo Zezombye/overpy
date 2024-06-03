@@ -403,9 +403,9 @@ export function parseAst(content: Ast) {
         content.childIndex = i;
         //console.log("name = "+content.name+", childIndex = "+content.childIndex+", children = "+content.children.map(x => x.name).join(", "))
         ///console.log("parsing "+content.children[i].name);
-        var childComment;
+        let childComment: string | undefined = undefined;
         if (content.name === "__rule__") {
-            var childComment = content.children[i].comment;
+            childComment = content.children[i].comment;
         }
         content.children[i].parent = content;
 

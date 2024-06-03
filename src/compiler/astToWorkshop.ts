@@ -22,15 +22,17 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, funcKw, ruleKw, valueKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, enableOptimization, fileStack, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1 } from "../globalVars";
+import { currentLanguage, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setFileStack, setOptimizationEnabled } from "../globalVars";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0 } from "../utils/ast";
+import { trimNb } from "../utils/compilation";
 import { error, functionNameToString } from "../utils/logging";
 import { tabLevel } from "../utils/other";
 import { escapeBadWords, escapeString } from "../utils/strings";
 import { tows } from "../utils/translation";
 import { isTypeSuitable } from "../utils/types";
+import { translateSubroutineToWs, translateVarToWs } from "../utils/varNames";
 
-export function astRulesToWs(rules: any[]) {
+export function astRulesToWs(rules: Ast[]) {
 
     var compiledRules = [];
 
@@ -82,7 +84,7 @@ export function astRulesToWs(rules: any[]) {
         }
 
         result += "}\n\n";
-        nbElements++;
+        incrementNbElements();
         compiledRules.push(result);
     }
 
@@ -91,7 +93,7 @@ export function astRulesToWs(rules: any[]) {
 
 }
 
-function astRuleConditionToWs(condition) {
+function astRuleConditionToWs(condition: Ast) {
 
     var funcToOpMapping = {
         "__equals__": "==",
@@ -104,7 +106,7 @@ function astRuleConditionToWs(condition) {
     var result = "";
 
     if (condition.type === "void") {
-        fileStack = condition.fileStack;
+        setFileStack(condition.fileStack);
         error("Expected a value, but got "+functionNameToString(condition)+" which is an action");
     }
 
@@ -134,47 +136,52 @@ function astRuleConditionToWs(condition) {
         }
         for (var i = 0; i < condition.args.length; i++) {
             if (condition.args[i].type === "void") {
-                fileStack = condition.args[i].fileStack;
+                setFileStack(condition.args[i].fileStack);
                 error("Expected a value, but got "+functionNameToString(condition.args[i])+" which is an action");
             }
         }
-        nbHeroesInValue = 0;
+        resetNbHeroesInValue();
         result += tabLevel(2)+astToWs(condition.args[0]);
-        nbElements += Math.floor(nbHeroesInValue/2);
+        incrementNbElements(Math.floor(nbHeroesInValue/2));
 
-        result += " "+funcToOpMapping[condition.name]+" ";
+        result += " " + funcToOpMapping[condition.name as keyof typeof funcToOpMapping] + " ";
 
-        nbHeroesInValue = 0;
+        resetNbHeroesInValue();
         result += astToWs(condition.args[1])+";\n";
-        nbElements += Math.floor(nbHeroesInValue/2);
+        incrementNbElements(Math.floor(nbHeroesInValue/2));
 
     } else {
-        nbHeroesInValue = 0;
+        resetNbHeroesInValue();
+        incrementNbElements();
         if (condition.name === "__not__") {
-            nbElements++;
             result += tabLevel(2)+astToWs(condition.args[0])+" == "+tows("false", valueFuncKw)+";\n";
 
         } else if (condition.type === "bool") {
-            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" == "+tows("true", valueFuncKw)+";\n";
 
         } else {
-            nbElements++;
             result += tabLevel(2)+astToWs(condition)+" != "+tows("false", valueFuncKw)+";\n";
         }
-        nbElements += Math.floor(nbHeroesInValue/2);
+        incrementNbElements(Math.floor(nbHeroesInValue/2));
     }
-    nbElements += 1 - 2;
+    // nbElements += 1 - 2;
+    decrementNbElements();
     return result;
 }
 
-export function astActionToWs(action, nbTabs) {
-
+/**
+ * Converts an abstract syntax tree (Ast) action to a Workshop string representation.
+ *
+ * @param action - The abstract syntax tree action to convert.
+ * @param nbTabs - The number of tabs to use for indentation.
+ * @return The Workshop string representation of the action.
+ */
+export function astActionToWs(action: Ast, nbTabs: number) {
     if (action.type === "Label") {
         return tabLevel(nbTabs)+"//"+action.name+":\n";
     }
     if (action.type !== "void") {
-        fileStack = action.fileStack;
+        setFileStack(action.fileStack);
         error("Expected an action, but got "+functionNameToString(action)+" which is a value");
     }
     var result = "";
@@ -188,7 +195,7 @@ export function astActionToWs(action, nbTabs) {
     return result;
 }
 
-function astToWs(content) {
+function astToWs(content: Ast): string {
 
     var equalityFuncToOpMapping = {
         "__equals__": "==",
@@ -199,30 +206,30 @@ function astToWs(content) {
         "__greaterThan__": ">",
     }
 
-    fileStack = content.fileStack;
+    setFileStack(content.fileStack);
 
     if (content.type === "GlobalVariable") {
-        nbElements++;
+        incrementNbElements();
         return translateVarToWs(content.name, true);
 
     } else if (content.type === "PlayerVariable") {
-        nbElements++;
+        incrementNbElements();
         return translateVarToWs(content.name, false);
 
     } else if (content.type === "Subroutine") {
-        nbElements++;
+        incrementNbElements();
         return translateSubroutineToWs(content.name);
 
-    } else if (["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
-        nbElements++;
+    } else if (typeof content.type === "string" && ["CustomStringLiteral","FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+        incrementNbElements();
         return escapeString(content.name, true);
 
     } else if (content.type === "LocalizedStringLiteral") {
-        nbElements += 2;
+        incrementNbElements(2);
         return escapeString(tows(content.name, stringKw), true);
     }
 
-    var result = "";
+    let result = "";
     if (content.name === "__valueInArray__" && enableOptimization && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
         content = new Ast("__firstOf__", [content.args[0]]);
     }
@@ -230,7 +237,10 @@ function astToWs(content) {
     if (enableOptimization && optimizeForSize) {
         //Replace 0 by false/null, 1 by true, and null vector by null
         for (var i = 0; i < content.args.length; i++) {
-            var argInfo = content.name === "__array__" ? funcKw[content.name].args[0] : funcKw[content.name].args[i];
+            let argInfo = content.name === "__array__" ? funcKw[content.name].args?.[0] : funcKw[content.name].args?.[i];
+            if (argInfo === undefined) {
+                error("Could not find info about argument "+ (content.name === "__array__" ? 0 : i) +" of "+content.name);
+            }
             if (content.args[i].name === "__number__") {
                 if (argInfo.canReplace0ByFalse && content.args[i].args[0].numValue === 0) {
                     content.args[i] = getAstForFalse();
@@ -269,7 +279,11 @@ function astToWs(content) {
     //Do literal limit bypassing
     if (content.name in funcKw && funcKw[content.name].hasLiteralLimit) {
         for (var i = 0; i < content.args.length; i++) {
-            if (funcKw[content.name].args[i].literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > funcKw[content.name].args[i].literalMax) {
+            let literalMax = funcKw[content.name].args?.[i]?.literalMax;
+            if (literalMax === undefined) {
+                error("No literal max specified for argument "+ (content.name === "__array__" ? 0 : i) +" of "+content.name);
+            }
+            if (literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > literalMax) {
                 content.args[i] = new Ast("abs", [content.args[i]]);
             }
         }
@@ -277,7 +291,7 @@ function astToWs(content) {
 
     if (content.name in equalityFuncToOpMapping) {
         //Convert functions such as __equals__(1,2) to __compare__(1, ==, 2).
-        content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name], [], [], "__Operator__"));
+        content.args.splice(1, 0, new Ast(equalityFuncToOpMapping[content.name as keyof typeof equalityFuncToOpMapping], [], [], "__Operator__"));
         content.name = "__compare__";
 
     } else if (content.name === "__assignTo__" || content.name === "__modifyVar__") {
@@ -300,12 +314,13 @@ function astToWs(content) {
         }
         //Workaround for the japanese language bug where "add" and "append" are the same for the modify variable actions.
         if (content.name === "__modifyVar__" && content.args[1].name === "__add__" && currentLanguage === "ja-JP") {
-            var tmpEnableOptimization = enableOptimization;
-            enableOptimization = false;
+            let tmpEnableOptimization = enableOptimization;
+            setOptimizationEnabled(false);
             result += astToWs(content.args[0])+" += ";
-            enableOptimization = tmpEnableOptimization;
+            setOptimizationEnabled(tmpEnableOptimization);
             result += astToWs(content.args[2]);
-            nbElements += 1 - 3;
+            // nbElements += 1 - 3;
+            decrementNbElements(2);
             return result;
         }
 
@@ -385,7 +400,7 @@ function astToWs(content) {
             "__getHitPosition__": "__raycastHitPosition__",
             "__getPlayerHit__": "__raycastHitPlayer__",
             "__getNormal__": "__raycastHitNormal__",
-        }[content.name];
+        }[content.name as ("__getHitPosition__" | "__getPlayerHit__" | "__getNormal__")];
 
     } else if (content.name === "__for__") {
 
@@ -405,18 +420,18 @@ function astToWs(content) {
         content.name = newName;
 
     } else if (content.name === "__globalVar__") {
-        nbElements++;
+        incrementNbElements();
         return tows("__global__", valueKw)+"."+astToWs(content.args[0]);
     } else if (content.name === "__negate__") {
         content.name = "__multiply__";
         content.args = [getAstForMinus1(), content.args[0]];
 
     } else if (content.name === "__number__") {
-        nbElements += 2;
+        incrementNbElements(2);
         return trimNb(content.args[0].name);
 
     } else if (content.name === "__playerVar__") {
-        nbElements++;
+        incrementNbElements();
         return "("+astToWs(content.args[0])+")."+astToWs(content.args[1]);
     } else if (content.name === "__team__") {
         content.name = content.args[0].name;
@@ -499,9 +514,9 @@ function astToWs(content) {
         result += tows(content.name, actionKw);
     } else if (isTypeSuitable(["Object", "Array"], content.type)){
         result += tows(content.name, valueKw);
-    } else if (content.type in constantValues) {
+    } else if (typeof content.type !== "object" && content.type in constantValues) {
         if (content.type === "HeroLiteral") {
-            nbHeroesInValue++;
+            incrementNbHeroesInValue();
         }
         if (!(content.name in constantValues[content.type])) {
             error("Unknown "+content.type.replace("Literal", "").toLowerCase()+" '"+content.name+"'");
@@ -515,18 +530,18 @@ function astToWs(content) {
         result += "(";
         for (var i = 0; i < content.args.length; i++) {
             if (content.type === "void") {
-                nbHeroesInValue = 0;
+                resetNbHeroesInValue();
             }
             if (i > 0) {
                 result += ", ";
             }
             if (content.args[i].type === "void") {
-                fileStack = content.args[i].fileStack;
+                setFileStack(content.args[i].fileStack);
                 error("Expected a value, but got "+functionNameToString(content.args[i])+" which is an action");
             }
             result += astToWs(content.args[i]);
             if (content.type === "void") {
-                nbElements += Math.floor(nbHeroesInValue/2);
+                incrementNbElements(Math.floor(nbHeroesInValue/2));
             }
         }
         result += ")";
@@ -536,30 +551,34 @@ function astToWs(content) {
         result = tows("__disabled__", ruleKw)+" "+result;
     }
 
-    nbElements++;
+    incrementNbElements();
 
     //Apply workaround for booleans not accepting all functions such as Vector.UP
     //"First Of" keeps the truthyness of all functions (even those which return an array, as it takes the first element anyway)
     if (content.expectedType === "bool" && funcKw[content.name].canBePutInBoolean === false) {
         result = tows("__firstOf__", valueFuncKw)+"("+result+")";
-        nbElements++;
+        incrementNbElements();
     }
 
     //Actions remove elements for top-level values
     if (content.type === "void" && content.args !== null) {
-        nbElements -= content.args.length;
+        decrementNbElements(content.args.length);
     } else if (["__array__","evalOnce"].includes(content.name)) {
-        nbElements++;
+        incrementNbElements();
     } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
-        nbElements += 1 - 4; //remove elements because of number literals
+        // nbElements += 1 - 4; //remove elements because of number literals
+        decrementNbElements(3);
     } else if (["__workshopSettingToggle__", "__workshopSettingHero__"].includes(content.name)) {
-        nbElements++;
-        nbElements -= 1; //remove elements because of number literals
+        // For your consideration, the original code is:
+        // nbElements++;
+        // nbElements -= 1; //remove elements because of number literals
     } else if (["__workshopSettingCombo__"].includes(content.name)) {
-        nbElements++;
-        nbElements -= 2; //remove elements because of number literals
+        // For your consideration, the original code is:
+        // nbElements++;
+        // nbElements -= 2; //remove elements because of number literals
+        decrementNbElements();
     } else if (content.type === "TeamLiteral") {
-        nbElements++;
+        incrementNbElements();
     }
 
 
