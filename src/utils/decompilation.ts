@@ -17,11 +17,16 @@
 
 "use strict";
 
-import { error } from "./logging";
+import { customGameSettingsKw, valueKw } from "../data/other";
+import { currentLanguage } from "../globalVars";
+import { debug, error } from "./logging";
 import { startsWithParenthesis } from "./other";
+import { unescapeString } from "./strings";
+import { topy } from "./translation";
 
-export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
-	var result = {};
+// TODO: further restrict parameter types
+export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<string, any>, options: Record<string, any> = {}) {
+	var result: Record<string, string | number | boolean> = {};
 	if (!("invalidButAcceptedProperties" in options)) {
 		options.invalidButAcceptedProperties = {};
 	}
@@ -33,12 +38,12 @@ export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 
 		var keyName = null;
 		var value = null;
-		var objKeys = Object.keys(kwObj).sort(function(a,b) {
+		var objKeys = Object.keys(kwObj).sort(function (a, b) {
 			var locA = (currentLanguage in kwObj[a] ? kwObj[a][currentLanguage] : kwObj[a]["en-US"])
 			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
 			return locA.localeCompare(locB)
 		}).reverse()
-		var invalidButAcceptedPropertiesObjKeys = Object.keys(options.invalidButAcceptedProperties).sort(function(a,b) {
+		var invalidButAcceptedPropertiesObjKeys = Object.keys(options.invalidButAcceptedProperties).sort(function (a, b) {
 			var locA = (currentLanguage in options.invalidButAcceptedProperties[a] ? options.invalidButAcceptedProperties[a][currentLanguage] : options.invalidButAcceptedProperties[a]["en-US"])
 			var locB = (currentLanguage in options.invalidButAcceptedProperties[b] ? options.invalidButAcceptedProperties[b][currentLanguage] : options.invalidButAcceptedProperties[b]["en-US"])
 			return locA.localeCompare(locB)
@@ -76,13 +81,13 @@ export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 			}
 		}
 
-		if (keyName === null) {
-			error("No translation found for key of element '"+elem+"'");
+		if (keyName === null || value === null) {
+			error("No translation found for key of element '" + elem + "'");
 		}
 
 		if (!value.startsWith(":")) {
 			console.log(value);
-			error("Expected ':' after key in element '"+elem+"'");
+			error("Expected ':' after key in element '" + elem + "'");
 		}
 		value = value.substring(1).trim();
 
@@ -98,9 +103,9 @@ export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 
 		} else if (kwObj[keyName].values === "__percent__") {
 			if (!value.endsWith("%")) {
-				error("Expected a percentage for value of elem '"+elem+"'");
+				error("Expected a percentage for value of elem '" + elem + "'");
 			}
-			value = parseInt(value.substring(0, value.length-1));
+			value = parseInt(value.substring(0, value.length - 1));
 
 		} else if (kwObj[keyName].values === "__int__") {
 			value = parseInt(value);
@@ -115,7 +120,7 @@ export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
 				value = false;
 			} else {
-				error("Unknown value '"+value+"'");
+				error("Unknown value '" + value + "'");
 			}
 
 		} else if (["__boolReverseYesNo__", "__boolReverseOnOff__", "__boolReverseEnabled__"].includes(kwObj[keyName].values)) {
@@ -125,11 +130,11 @@ export function decompileCustomGameSettingsDict(dict, kwObj, options={}) {
 			} else if (["__no__", "__disabled__", "__off__"].includes(value)) {
 				value = true;
 			} else {
-				error("Unknown value '"+value+"'");
+				error("Unknown value '" + value + "'");
 			}
 
 		} else {
-			error("Unknown value type '"+kwObj[keyName].values+"' for '"+keyName+"'");
+			error("Unknown value type '" + kwObj[keyName].values + "' for '" + keyName + "'");
 		}
 
 		result[keyName] = value;
@@ -151,7 +156,7 @@ export function getArgs(content: string): string[] {
 export function getPrefixString(content: string): string {
 	content = content.trim();
 	if (!content.startsWith('"')) {
-		error("Expected a string at the start of '"+content+"'");
+		error("Expected a string at the start of '" + content + "'");
 	}
 	var i = 1;
 	var endOfStringFound = false;
@@ -165,7 +170,7 @@ export function getPrefixString(content: string): string {
 		}
 	}
 	if (!endOfStringFound) {
-		error("Could not find end of string for '"+content+"'");
+		error("Could not find end of string for '" + content + "'");
 	}
 	return content.substring(0, i);
 
@@ -176,7 +181,7 @@ export function getPrefixString(content: string): string {
  * The delimiter is only taken into account if it is not within parentheses and not within a string.
  * Example: "azer(1,2), reaz(',,,,')" will return ["azer(1,2)","reaz(',,,,')"] for a comma separator.
 */
-export function splitStrOnDelimiter(content: string, delimiter: string, getAllMembers=true, rtl=false) {
+export function splitStrOnDelimiter(content: string, delimiter: string, getAllMembers = true, rtl = false) {
 
 	content = content.trim();
 	var bracketPos = getBracketPositions(content);
@@ -188,7 +193,7 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 	for (var i = 0; i < content.length; i++) {
 		//Check if the current index is in parentheses
 		if (bracketPosCheckIndex < bracketPos.length && i >= bracketPos[bracketPosCheckIndex]) {
-			i = bracketPos[bracketPosCheckIndex+1];
+			i = bracketPos[bracketPosCheckIndex + 1];
 			bracketPosCheckIndex += 2;
 
 		} else if (!currentPositionIsString && content.charAt(i) == '"') {
@@ -200,7 +205,7 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 			i++;
 		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
 			//fix for baguette
-			if (currentLanguage === "fr-FR" && delimiter === "." && (content.substring(0, i).toLowerCase().endsWith("créer une i") || content.substring(0, i).toLowerCase().endsWith("créer une i.a") || content.substring(0, i).toLowerCase().endsWith("est une i") || content.substring(0, i).toLowerCase().endsWith("est une i.a") || content.substring(0, i).toLowerCase().endsWith("détruire une i") || content.substring(0, i).toLowerCase().endsWith("détruire une i.a") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i.a") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i.a")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i")|| content.substring(0, i).toLowerCase().endsWith("détruire toutes les i.a"))) {
+			if (currentLanguage === "fr-FR" && delimiter === "." && (content.substring(0, i).toLowerCase().endsWith("créer une i") || content.substring(0, i).toLowerCase().endsWith("créer une i.a") || content.substring(0, i).toLowerCase().endsWith("est une i") || content.substring(0, i).toLowerCase().endsWith("est une i.a") || content.substring(0, i).toLowerCase().endsWith("détruire une i") || content.substring(0, i).toLowerCase().endsWith("détruire une i.a") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("forcer le nom de l’i.a") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i") || content.substring(0, i).toLowerCase().endsWith("arrêter de forcer le nom de l’i.a") || content.substring(0, i).toLowerCase().endsWith("détruire toutes les i") || content.substring(0, i).toLowerCase().endsWith("détruire toutes les i.a"))) {
 				continue;
 			}
 			delimiterPos.push(i);
@@ -211,8 +216,8 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 
 
 	var result = [];
-	for (var i = 0; i < delimiterPos.length-1; i++) {
-		var currentStr = content.substring(delimiterPos[i]+delimiter.length, delimiterPos[i+1]);
+	for (var i = 0; i < delimiterPos.length - 1; i++) {
+		var currentStr = content.substring(delimiterPos[i] + delimiter.length, delimiterPos[i + 1]);
 		currentStr = currentStr.trim();
 		if (currentStr.length > 0) {
 			result.push(currentStr);
@@ -221,7 +226,7 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 
 	if (!getAllMembers && result.length > 2) {
 		if (rtl) {
-			result = [result.slice(0, result.length-1).join(delimiter), result[result.length-1]];
+			result = [result.slice(0, result.length - 1).join(delimiter), result[result.length - 1]];
 		} else {
 			result = [result[0], result.slice(1).join(delimiter)];
 		}
@@ -230,10 +235,10 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 	return result;
 }
 
-function getOperatorInStr(content, operators, rtlPrecedence=false) {
+export function getOperatorInStr(content: string, operators: string[], rtlPrecedence = false) {
 
-    var operatorFound = null;
-    var operatorPosition = -1;
+	var operatorFound = null;
+	var operatorPosition = -1;
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
 
@@ -245,10 +250,10 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 	for (var i = 0; i < content.length; i++) {
 
 		if (!currentPositionIsString && (content[i] === '(' || content[i] === '[' || content[i] === '{')) {
-            bracketsLevel++;
+			bracketsLevel++;
 
 		} else if (!currentPositionIsString && (content[i] === ')' || content[i] === ']' || content[i] === '}')) {
-            bracketsLevel--;
+			bracketsLevel--;
 
 		} else if (content[i] == '"') {
 			currentPositionIsString = !currentPositionIsString;
@@ -272,20 +277,20 @@ function getOperatorInStr(content, operators, rtlPrecedence=false) {
 	}
 
 	if (bracketsLevel !== 0) {
-		error("Decompiler broke (bracket level is "+bracketsLevel+")");
+		error("Decompiler broke (bracket level is " + bracketsLevel + ")");
 	}
 
 	//console.log("operator found: "+operatorFound+" at "+operatorPosition);
 
-    return {
-        operatorFound,
-        operatorPosition,
-    }
+	return {
+		operatorFound,
+		operatorPosition,
+	}
 }
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
-export function getBracketPositions(content: string, returnFirstPair=false, stringIncludesApos=false): number[] {
+export function getBracketPositions(content: string, returnFirstPair = false, stringIncludesApos = false): number[] {
 	var bracketsPos = []
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
@@ -344,12 +349,15 @@ export function getName(content: string): string {
 }
 
 
-//Returns true if the function always returns a player array.
-function isPlayerArrayInstruction(content) {
+/**
+ * Returns true if the function always returns a player array.
+ * @possibly_unused
+*/
+function isPlayerArrayInstruction(content: string) {
 
 	content = topy(getName(content), valueKw);
 
-	debug("Checking if '"+content+"' is a player array instruction");
+	debug("Checking if '" + content + "' is a player array instruction");
 
 	var playerArrayInstructions = [
 		"getDeadPlayers",
