@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros } from "../globalVars";
+import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -33,12 +33,25 @@ import { astRulesToWs } from "./astToWorkshop";
 import { parseLines } from "./parser";
 import { tokenize } from "./tokenizer";
 import { addVariable } from "../utils/varNames";
-import { ScriptFileStackMember } from "../types";
+import { OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
+import { compileCustomGameSettingsDict } from "../utils/compilation";
 
 /**
  * @returns An object containing the compiled result along with associated metadata
  */
-export async function compile(content: string, language = "en-US", _rootPath = ""): Promise<string> {
+export async function compile(content: string, language: OWLanguage = "en-US", _rootPath = ""): Promise<{
+	result: string,
+	macros: any[],
+	globalVariables: Variable[],
+	playerVariables: Variable[],
+	subroutines: Subroutine[],
+	encounteredWarnings: string[],
+	enumMembers: Record<string, any>,
+	nbElements: number,
+	activatedExtensions: string[],
+	spentExtensionPoints: number,
+	availableExtensionPoints: number,
+}> {
 	// Need to wait for QuickJS to load
 	await createEvalVM();
 
@@ -67,7 +80,8 @@ export async function compile(content: string, language = "en-US", _rootPath = "
 		"currentLineNb": 1,
 		"currentColNb": 1,
 		"remainingChars": 99999999999, //does not matter
-		staticMember: true
+		staticMember: true,
+		fileStackMemberType: "normal"
 	} as ScriptFileStackMember]);
 	resetMacros();
 
@@ -110,7 +124,7 @@ export async function compile(content: string, language = "en-US", _rootPath = "
 	};
 }
 
-function compileRules(astRules) {
+function compileRules(astRules: Ast[]) {
 
 	var parsedAstRules = parseAstRules(astRules);
 
@@ -140,7 +154,7 @@ function compileRules(astRules) {
 			warn("w_extension_points", "The extension points spent (" + spentExtensionPoints + ") are over the available points (" + availableExtensionPoints + ")");
 		}
 	} else {
-		availableExtensionPoints = -1;
+		setAvailableExtensionPoints(-1);
 	}
 
 	return result;
@@ -177,11 +191,11 @@ function generateVariablesField() {
 
 	for (var varType of ["global", "player"]) {
 		var outputVariables = Array(128);
-		var varNames = [];
+		var varNames: string[] = [];
 		var varList = varType === "global" ? globalVariables : playerVariables;
 		var unassignedVariables = [];
 
-		for (var variable of varList) {
+		for (let variable of varList) {
 			//check name
 			if (!/[A-Za-z_]\w*/.test(variable.name)) {
 				error("Unauthorized name for " + varType + " variable: '" + variable.name + "'");
@@ -198,7 +212,7 @@ function generateVariablesField() {
 			if (variable.index === undefined || variable.index === null) {
 				unassignedVariables.push(variable.name);
 			} else {
-				if (!isNumber(variable.index) || variable.index >= 128 || variable.index < 0) {
+				if (variable.index >= 128 || variable.index < 0) {
 					error("Invalid index '" + variable.index + "' for " + varType + " variable '" + variable.name + "', must be from 0 to 127");
 				}
 				outputVariables[variable.index] = variable.name;
@@ -207,7 +221,7 @@ function generateVariablesField() {
 
 		//console.log(outputVariables);
 
-		for (var variable of unassignedVariables) {
+		for (let variable of unassignedVariables) {
 			var foundSpot = false;
 			for (var i = 0; i < 128; i++) {
 				if (outputVariables[i] === undefined) {
@@ -245,10 +259,10 @@ function generateSubroutinesField() {
 	var result = "";
 
 	var outputSubroutines = Array(128);
-	var subNames = [];
+	var subNames: string[] = [];
 	var unassignedSubroutines = [];
 
-	for (var subroutine of subroutines) {
+	for (let subroutine of subroutines) {
 		//check name
 		if (!/[A-Za-z_]\w*/.test(subroutine.name)) {
 			error("Unauthorized name for subroutine: '" + subroutine.name + "'");
@@ -258,7 +272,7 @@ function generateSubroutinesField() {
 			error("Duplicate declaration of subroutine '" + subroutine.name + "'");
 		}
 
-		if (outputSubroutines[subroutine.index] !== undefined) {
+		if (subroutine.index != null && outputSubroutines[subroutine.index] !== undefined) {
 			error("Duplicate use of index " + subroutine.index + " for subroutines '" + subroutine.name + "' and '" + outputSubroutines[subroutine.index] + "'");
 		}
 		subNames.push(subroutine.name);
@@ -272,7 +286,7 @@ function generateSubroutinesField() {
 		}
 	}
 
-	for (var subroutine of unassignedSubroutines) {
+	for (let subroutine of unassignedSubroutines) {
 		var foundSpot = false;
 		for (var i = 0; i < 128; i++) {
 			if (outputSubroutines[i] === undefined) {
@@ -322,6 +336,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 			if (key === "lobby" && customGameSettings["lobby"].dataCenterPreference === "bestAvailable") {
 				delete customGameSettings["lobby"].dataCenterPreference;
 			}
+			// @ts-ignore - lobby/main settings in src/data/customGameSettings always have the correct schema
 			result[tows(key, customGameSettingsSchema)] = compileCustomGameSettingsDict(customGameSettings[key], customGameSettingsSchema[key].values);
 			if (key === "lobby") {
 
@@ -336,8 +351,9 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						if (!(gamemode in gamemodeKw)) {
 							continue;
 						}
-						if ("defaultTeam1Slots" in gamemodeKw[gamemode]) {
-							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeKw[gamemode].defaultTeam1Slots)
+						let gamemodeEntry = gamemodeKw[gamemode];
+						if ("defaultTeam1Slots" in gamemodeEntry) {
+							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeEntry.defaultTeam1Slots as number)
 						}
 					}
 				}
@@ -349,8 +365,9 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						if (!(gamemode in gamemodeKw)) {
 							continue;
 						}
-						if ("defaultTeam2Slots" in gamemodeKw[gamemode]) {
-							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeKw[gamemode].defaultTeam2Slots)
+						let gamemodeEntry = gamemodeKw[gamemode];
+						if ("defaultTeam2Slots" in gamemodeEntry) {
+							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeEntry.defaultTeam2Slots as number)
 						}
 					}
 				}
@@ -362,8 +379,9 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						if (!(gamemode in gamemodeKw)) {
 							continue;
 						}
-						if ("defaultFfaSlots" in gamemodeKw[gamemode]) {
-							maxFfaSlots = Math.max(maxFfaSlots, gamemodeKw[gamemode].defaultFfaSlots)
+						let gamemodeEntry = gamemodeKw[gamemode];
+						if ("defaultFfaSlots" in gamemodeEntry) {
+							maxFfaSlots = Math.max(maxFfaSlots, gamemodeEntry.defaultFfaSlots as number)
 						}
 					}
 				}
@@ -375,7 +393,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 				/*console.log(maxTeam1Slots)
 				console.log(maxTeam2Slots)
 				console.log(maxFfaSlots)*/
-				availableExtensionPoints += 4 * (12 - maxSlots);
+				setAvailableExtensionPoints(availableExtensionPoints + 4 * (12 - maxSlots));
 			}
 
 		} else if (key === "gamemodes") {
@@ -412,11 +430,12 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 							}
 							var mapName = Object.keys(map)[0]
 							var variants = []
+							let mapVariants = mapKw[mapName].variants ?? {};
 							for (var variant of map[mapName]) {
-								if (!(variant in mapKw[mapName].variants)) {
+								if (!(variant in mapVariants)) {
 									error("Unknown variant '" + variant + "' for map '" + mapName + "'");
 								}
-								variants.push(mapKw[mapName].variants[variant]);
+								variants.push(mapVariants[variant]);
 							}
 							encounteredMaps.push(mapName)
 							result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));
@@ -449,6 +468,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 					delete customGameSettings.gamemodes[gamemode][mapsKey];
 				}
 
+				// @ts-ignore - customGameSettingsSchema should always has the correct schema
 				Object.assign(result[wsGamemodes][wsGamemode], compileCustomGameSettingsDict(customGameSettings.gamemodes[gamemode], customGameSettingsSchema.gamemodes.values[gamemode].values));
 			}
 
@@ -473,17 +493,20 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 				}
 
 				if ("general" in customGameSettings.heroes[team]) {
+					// @ts-ignore - customGameSettingsSchema should always has the correct schema
 					Object.assign(result[wsHeroes][wsTeam], compileCustomGameSettingsDict(customGameSettings.heroes[team].general, customGameSettingsSchema.heroes.values.general.values));
 					delete customGameSettings.heroes[team].general;
 				}
 
-				for (var hero of Object.keys(customGameSettings.heroes[team])) {
+				for (let hero of Object.keys(customGameSettings.heroes[team])) {
 					var wsHero = tows(hero, heroKw);
 					for (var key of Object.keys(customGameSettings.heroes[team][hero])) {
+						// @ts-ignore
 						if (!(key in customGameSettingsSchema.heroes.values[hero].values)) {
 							error("'" + hero + "' has no property '" + key + "'");
 						}
 					}
+					// @ts-ignore
 					result[wsHeroes][wsTeam][wsHero] = compileCustomGameSettingsDict(customGameSettings.heroes[team][hero], customGameSettingsSchema.heroes.values[hero].values);
 				}
 
@@ -520,21 +543,21 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 	}
 
 	if (activatedExtensions.length > 0) {
-		activatedExtensions = [...new Set(activatedExtensions)];
+		setActivatedExtensions([...new Set(activatedExtensions)]);
 		result[tows("extensions", customGameSettingsSchema)] = activatedExtensions.map(x => tows(x, customGameSettingsSchema.extensions.values));
 	}
 	if (areOnlyWorkshopMapsEnabled) {
-		availableExtensionPoints += 16;
+		setAvailableExtensionPoints(availableExtensionPoints + 16);
 	}
 
 
-	nbTabs = 0;
-	function deserializeObject(obj) {
+	resetNbTabs();
+	function deserializeObject(obj: Record<string, any>) {
 		var result = "\n" + tabLevel(nbTabs, true) + "{\n";
-		nbTabs++;
+		incrementNbTabs();
 		for (var key of Object.keys(obj)) {
 			if (obj[key].constructor === Array) {
-				result += tabLevel(nbTabs, true) + key + "\n" + tabLevel(nbTabs, true) + "{\n" + obj[key].map(x => tabLevel(nbTabs + 1, true) + x + "\n").join("");
+				result += tabLevel(nbTabs, true) + key + "\n" + tabLevel(nbTabs, true) + "{\n" + obj[key].map((x: any) => tabLevel(nbTabs + 1, true) + x + "\n").join("");
 				result += tabLevel(nbTabs, true) + "}\n";
 			} else if (typeof obj[key] === "object" && obj[key] !== null) {
 				result += tabLevel(nbTabs, true) + key + deserializeObject(obj[key]) + "\n";
@@ -542,12 +565,12 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 				result += tabLevel(nbTabs, true) + key + ": " + obj[key] + "\n";
 			}
 		}
-		nbTabs--;
+		decrementNbTabs();
 		result += tabLevel(nbTabs, true) + "}";
 		return result;
 	}
 
-	compiledCustomGameSettings = tows("__settings__", ruleKw) + deserializeObject(result) + "\n";
+	setCompiledCustomGameSettings(tows("__settings__", ruleKw) + deserializeObject(result) + "\n");
 
 
 }
