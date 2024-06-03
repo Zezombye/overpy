@@ -40,7 +40,7 @@ export function error(str: string, token?: any): never {
 			fileStack.reverse();
 			for (var file of fileStack) {
 				if ("rule" in file) {
-					err += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+					err += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+("actionNb" in file ? ", action #"+file.actionNb : "conditionNb" in file ? ", condition #"+file.conditionNb : "");
 				} else {
 					err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
 				}
@@ -62,7 +62,7 @@ export function warn(warnType: string, message: string) {
 				fileStack.reverse();
 				for (var file of fileStack) {
 					if ("rule" in file) {
-						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "") + (file.representation ? ": \n"+file.representation : "");
+						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "");
 					} else {
 						warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
 					}

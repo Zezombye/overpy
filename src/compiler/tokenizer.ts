@@ -146,7 +146,8 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 			callLines,
 			currentLineNb: startingLine,
 			currentColNb: startingCol,
-			staticMember: false
+			staticMember: false,
+			fileStackMemberType: "normal"
 		});
 		//console.log(JSON.stringify(fileStack));
 	}
@@ -165,10 +166,16 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 	function moveCursor(amount: number) {
 		for (let j = 0; j < amount; j++) {
 			let currentFile = fileStack[fileStack.length - 1];
+			if (currentFile.fileStackMemberType === "webUI") {
+				error("WebUI file stack member not supported in this context (currentFile)");
+			}
 			if (!currentFile.staticMember && currentFile.remainingChars > 0) {
 				currentFile.remainingChars--;
 				if (currentFile.remainingChars === 0) {
 					let nextFile = fileStack[fileStack.length - 2];
+					if (nextFile.fileStackMemberType === "webUI") {
+						error("WebUI file stack member not supported in this context (nextFile)");
+					}
 					//debug("macro lines = "+macroLines+", macro cols = "+macroCols);
 					nextFile.currentLineNb += currentFile.callLines;
 					nextFile.currentColNb += currentFile.callLines - 1;
@@ -355,7 +362,8 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 						"currentLineNb": 1,
 						"currentColNb": 1,
 						"remainingChars": 99999999999, //does not matter
-						staticMember: true
+						staticMember: true,
+						fileStackMemberType: "normal"
 					} as ScriptFileStackMember);
 					let importedFileContent = await getFileContent(path);
 					result.push(...await tokenize(importedFileContent));
@@ -485,6 +493,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 						k = 0;
 						i--;
 						let currentFile = fileStack[fileStack.length - 1];
+						if (currentFile.fileStackMemberType !== "normal") error("Tokenizer: File stack member type is not normal");
 						if (currentFile.staticMember == false) currentFile.remainingChars++;
 						macroWasFound = true;
 					}
@@ -577,7 +586,8 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
 							name: name,
 							currentLineNb: lineNb,
 							currentColNb: colNb,
-							staticMember: true
+							staticMember: true,
+							fileStackMemberType: "normal"
 						})
 					}
 				}
