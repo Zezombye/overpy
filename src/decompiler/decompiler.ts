@@ -17,12 +17,25 @@
 
 "use strict";
 
-import { astActionsToOpy } from "./astToOpy";
-import { decompileConditions } from "./workshopToAst";
+import { customGameSettingsSchema } from "../data/customGameSettings";
+import { heroKw } from "../data/heroes";
+import { mapKw } from "../data/maps";
+import { customGameSettingsKw, ruleKw } from "../data/other";
+import { valueFuncKw } from "../data/values";
+import { resetGlobalVariables, globalVariables, defaultVarNames, playerVariables, subroutines, defaultSubroutineNames, activatedExtensions, setActivatedExtensions } from "../globalVars";
+import { OWLanguage, Overwatch2Heroes } from "../types";
+import { Ast } from "../utils/ast";
+import { decompileCustomGameSettingsDict, getBracketPositions } from "../utils/decompilation";
+import { astToString, debug, error } from "../utils/logging";
+import { isNumber } from "../utils/other";
+import { topy, tows } from "../utils/translation";
+import { addVariable, translateNameToAvoidKeywords, addSubroutine } from "../utils/varNames";
+import { astActionsToOpy, astRulesToOpy, astToOpy } from "./astToOpy";
+import { decompileActions, decompileConditions, decompileRuleToAst } from "./workshopToAst";
 
 //OverPy Decompiler (Workshop -> OverPy)
 
-function decompileAllRules(content, language="en-US") {
+export function decompileAllRules(content: string, language: OWLanguage="en-US") {
 
 	resetGlobalVariables(language);
 	var result = decompileAllRulesToAst(content);
@@ -30,6 +43,7 @@ function decompileAllRules(content, language="en-US") {
 	if (Array.isArray(result)) {
 		//decompiled rules
 		var astRules = result[1];
+		// result now holds the custom game settings
 		result = result[0];
 	} else {
 		//decompiled actions or conditions
@@ -93,7 +107,14 @@ function decompileAllRules(content, language="en-US") {
 
 }
 
-function decompileAllRulesToAst(content) {
+/**
+ * Decompiles all rules in the given content string to Abstract Syntax Trees (ASTs) or OverPy code.
+ *
+ * @param content - The content string to decompile.
+ * @return If the provided content is actions or conditions, returns the OverPy code in a string.
+ * Otherwise, returns an array with the first element being the custom game settings and the second element being the ASTs.
+ */
+function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
 
 	content = content.trim();
 	var customGameSettings = "";
@@ -126,7 +147,7 @@ function decompileAllRulesToAst(content) {
 	}
 
 	if (activatedExtensions.length > 0) {
-		activatedExtensions = [...new Set(activatedExtensions)]
+		setActivatedExtensions([...new Set(activatedExtensions)]);
 	}
 
 	content = content.trim();
@@ -179,16 +200,16 @@ function decompileAllRulesToAst(content) {
 	return [customGameSettings, astRules];
 }
 
-function decompileCustomGameSettings(content) {
+function decompileCustomGameSettings(content: string) {
 	console.log(content);
-	var result = {};
+	var result: Record<string, any> = {};
 	var wsDisabled = tows("__disabled__", ruleKw);
 
 	//Convert the settings to an object (without even translating).
-	var serialized = {};
+	var serialized: Record<string, any> = {};
 	var lines = content.split("\n").map(x => x.trim());
-	var objectStack = [];
-	var currentObject = null;
+	var objectStack: string[] = [];
+	var currentObject: Record<string, any> = {};
 	var depth = 0;
 
 	function updateCurrentObject() {
@@ -236,7 +257,7 @@ function decompileCustomGameSettings(content) {
 			result[opyCategory] = decompileCustomGameSettingsDict(Object.keys(serialized[category]), customGameSettingsSchema[opyCategory].values);
 
 		} else if (opyCategory === "extensions") {
-			activatedExtensions = Object.keys(serialized[category]).map(ext => topy(ext, customGameSettingsSchema.extensions.values));
+			setActivatedExtensions(Object.keys(serialized[category]).map(ext => topy(ext, customGameSettingsSchema.extensions.values)));
 			delete result[opyCategory];
 
 		} else if (opyCategory === "gamemodes") {
@@ -278,16 +299,16 @@ function decompileCustomGameSettings(content) {
 										error("Map '"+mapName+"' should have no variants")
 									}
 									for (var variant of variants) {
-										var variantName = Object.keys(mapKw[mapName].variants).filter(x => mapKw[mapName].variants[x] === variant);
+										var variantName = Object.keys(mapKw[mapName].variants as Record<string, string>).filter(x => (mapKw[mapName].variants as Record<string, string>)[x] === variant);
 										if (variantName.length === 0) {
 											error("Unknown variant '"+variant+"' for map '"+mapName+"'");
 										}
 										mapVariants.push(variantName[0])
 									}
-									if (mapVariants.length === Object.keys(mapKw[mapName].variants).length) {
+									if (mapVariants.length === Object.keys(mapKw[mapName].variants as Record<string, string>).length) {
 										result[opyCategory][opyGamemode][opyPropName].push(mapName)
 									} else {
-										var mapObj = {}
+										var mapObj: Record<string, string[]> = {}
 										mapObj[mapName] = mapVariants
 										result[opyCategory][opyGamemode][opyPropName].push(mapObj)
 									}
@@ -323,15 +344,25 @@ function decompileCustomGameSettings(content) {
 							}
 						} else {
 							//probably a hero
-							var opyHero = topy(property, heroKw);
+							let opyHero = topy(property, heroKw);
+							if (!(<any>Object).values(Overwatch2Heroes).includes(opyHero)) error("Unknown hero '"+opyHero+"'");
 							result[opyCategory][opyTeam][opyHero] = {};
-							Object.assign(result[opyCategory][opyTeam][opyHero], decompileCustomGameSettingsDict(Object.keys(serialized[category][team][property]), customGameSettingsSchema[opyCategory].values[opyHero].values, {invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general.values}))
+							let heroValues = customGameSettingsSchema[opyCategory].values[opyHero as Overwatch2Heroes]?.values;
+							if (heroValues === undefined) {
+								error("Hero '"+opyHero+"' has no values");
+							}
+							Object.assign(
+								result[opyCategory][opyTeam][opyHero],
+								decompileCustomGameSettingsDict(
+									Object.keys(serialized[category][team][property]),
+									heroValues,
+									{invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general?.values ?? error("No general values for heroes")}))
 						}
 					}
 				}
 
 				if (dict.length > 0) {
-					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general.values);
+					result[opyCategory][opyTeam].general = decompileCustomGameSettingsDict(dict, customGameSettingsSchema.heroes.values.general?.values ?? error("No general values for heroes"));
 				}
 			}
 		} else if (opyCategory === "workshop") {
@@ -348,12 +379,12 @@ function decompileCustomGameSettings(content) {
 				if (nextNewlineIndex < 0) {
 					error("Expected a newline, but found none, while parsing workshop settings");
 				}
-				var value = workshopSettings.substring(i, nextNewlineIndex).trim();
+				var value: any = workshopSettings.substring(i, nextNewlineIndex).trim();
 				if (isNumber(value)) {
 					value = parseFloat(value);
 				} else if (value.startsWith("[") && value.endsWith("]")) {
 					//workshop enum
-					value = [parseFloat(value.substring(1), value.substring(value.length-1))]
+					value = [parseFloat(value.substring(1))]
 				} else if (/e[\+\-]\d+:F3/.test(value)) {
 					//Copy bug for too high/low numbers
 					value = parseFloat("1"+value.substring(0, value.indexOf(":")));
@@ -384,30 +415,30 @@ function decompileCustomGameSettings(content) {
 	return "settings "+JSON.stringify(result, null, 4)+"\n\n";
 }
 
-function decompileVarNames(content) {
-	content = content.split(":");
+function decompileVarNames(content: string) {
+	let varNames = content.split(":");
 	var isInGlobalVars = true;
-	var currentVarIndex = undefined;
-	for (var i = 0; i < content.length; i++) {
-		content[i] = content[i].trim();
+	let currentVarIndex: number = 0;
+	for (var i = 0; i < varNames.length; i++) {
+		varNames[i] = varNames[i].trim();
 		if (i === 0) {
 			//First element is always a var type
-			if (content[i] === tows("__global__", ruleKw)) {
+			if (varNames[i] === tows("__global__", ruleKw)) {
 				isInGlobalVars = true;
-			} else if (content[i] === tows("__player__", ruleKw)) {
+			} else if (varNames[i] === tows("__player__", ruleKw)) {
 				isInGlobalVars = false;
 			} else {
-				error("Unrecognized var type '"+content[i]+"'");
+				error("Unrecognized var type '"+varNames[i]+"'");
 			}
 		} else {
-			if (content[i].search(/\s/) >= 0) {
-				var [first, ...rest] = content[i].split(/\s+/);
+			if (varNames[i].search(/\s/) >= 0) {
+				var [first, ...rest] = varNames[i].split(/\s+/);
 				var elems = [first, rest.join(" ")];
 				if (elems.length !== 2) {
-					error("Could not parse variables field: too many elements on '"+content[i]+"'");
+					error("Could not parse variables field: too many elements on '"+varNames[i]+"'");
 				}
 				addVariable(translateNameToAvoidKeywords(elems[0], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
-				if (!isNaN(elems[1])) {
+				if (!isNaN(+elems[1])) {
 					currentVarIndex = +elems[1];
 				} else {
 					if (elems[1] === tows("__global__", ruleKw)) {
@@ -419,10 +450,10 @@ function decompileVarNames(content) {
 					}
 				}
 			} else {
-				if (!isNaN(content[i])) {
-					currentVarIndex = +content[i];
-				} else if (i === content.length-1) {
-					addVariable(translateNameToAvoidKeywords(content[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
+				if (!isNaN(+varNames[i])) {
+					currentVarIndex = +varNames[i];
+				} else if (i === varNames.length-1) {
+					addVariable(translateNameToAvoidKeywords(varNames[i], isInGlobalVars ? "globalvar" : "playervar"), isInGlobalVars, currentVarIndex);
 				} else {
 					error("Could not parse variables field");
 				}
@@ -431,21 +462,21 @@ function decompileVarNames(content) {
 	}
 }
 
-function decompileSubroutines(content) {
-	content = content.split("\n");
-	console.log(content);
-	for (var i = 0; i < content.length; i ++) {
+function decompileSubroutines(content: string) {
+	let subroutineContent = content.split("\n");
+	console.log(subroutineContent);
+	for (var i = 0; i < subroutineContent.length; i ++) {
 
-		content[i] = content[i].trim();
-		if (content[i] === "") {
+		subroutineContent[i] = subroutineContent[i].trim();
+		if (subroutineContent[i] === "") {
 			continue;
 		}
 
-		if (content[i].split(":").length % 2 !== 0) {
-			error("Malformed subroutine field '"+content[i]+"'(expected 2 elements)");
+		if (subroutineContent[i].split(":").length % 2 !== 0) {
+			error("Malformed subroutine field '"+subroutineContent[i]+"'(expected 2 elements)");
 		}
-		var index = +content[i].split(":")[0].trim();
-		var subName = content[i].split(":")[1].trim();
+		var index = +subroutineContent[i].split(":")[0].trim();
+		var subName = subroutineContent[i].split(":")[1].trim();
 		if (isNaN(index)) {
 			error("Index '"+index+"' in subroutines field should be a number");
 		}
