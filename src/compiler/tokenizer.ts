@@ -52,7 +52,7 @@ export class LogicalLine {
 	}
 }
 
-class Token {
+export class Token {
 	text: string;
 	fileStack: FileStackMember[];
 
