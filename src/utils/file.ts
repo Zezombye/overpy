@@ -59,7 +59,6 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
 	return matchingFiles;
 }
 
-const
 
 export async function getFileContent(path: string): Promise<string> {
 	if (path.endsWith(".opy") && importedFiles.includes(path)) {
