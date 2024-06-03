@@ -18,33 +18,42 @@
 "use strict";
 import { funcKw } from "../data/other";
 // @ts-check
-import { FileStackMember, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
+import { currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
 import { error, functionNameToString } from "./logging";
-import { type ReturnType } from "../types";
+import { FileStackMember, type ReturnType } from "../types";
 import { isTypeSuitable } from "./types";
+
+export class RuleAttributes {
+    isDelimiter = false;
+    isDisabled = false;
+    name: string;
+    event: string;
+
+    constructor(name: string, event: string) {
+        this.name = name;
+        this.event = event;
+    }
+}
 
 export class Ast {
     name: string;
     args: any[];
-    children: any[];
+    children: Ast[];
     type: ReturnType | ReturnType[];
     numValue?: number;
     fileStack: FileStackMember[];
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
-    ruleAttributes: {
-        isDelimiter: boolean,
-        isDisabled: boolean,
-        name: string,
-        event: string
-    } & Record<string, any> = {isDelimiter: false, isDisabled: false, name: "", event: ""};
+    ruleAttributes: Record<string, any> = {isDelimiter: false, isDisabled: false, name: "", event: ""};
     doNotOptimize = false;
     originalName?: string;
     parent?: Ast;
     expectedType?: ReturnType | ReturnType[];
+    comment?: string;
+    isDisabled = false;
 
-    constructor(name: string, args?: any[], children?: any[], type?: any) {
+    constructor(name: string, args?: any[], children?: Ast[], type?: any) {
         if (name === null || name === undefined) {
             error("Got no name for AST");
         }
@@ -98,7 +107,7 @@ export function makeChildrenUseless(children: Ast[]) {
     var foundLabel = false;
 
     //Recursively check through the tree to see if there are labels that we must decrement the amount of references to.
-    function checkForDistanceTo(content) {
+    function checkForDistanceTo(content: Ast) {
         for (var arg of content.args) {
             if (arg.name === "__distanceTo__") {
                 currentRuleLabelAccess[arg.args[0].name]--;
@@ -108,7 +117,7 @@ export function makeChildrenUseless(children: Ast[]) {
         }
     }
 
-    function _makeChildrenUseless(children) {
+    function _makeChildrenUseless(children: Ast[]) {
         for (var i = 0; i < children.length; i++) {
             //Check if there is a label that is accessed at least once. If yes, then the actions below could still be executed; therefore, don't make them useless.
 
@@ -138,7 +147,7 @@ export function makeChildrenUseless(children: Ast[]) {
 
 //https://workshop.elohell.gg/wiki/bRQhecrRn/Data+type+comparisons/
 //Returns true if, when compared to "false", it returns true.
-export function isDefinitelyFalsy(content) {
+export function isDefinitelyFalsy(content: Ast) {
     if (["__emptyArray__", "false", "null"].includes(content.name)) {
         return true;
     }
@@ -159,7 +168,7 @@ export function isDefinitelyFalsy(content) {
 
 //Returns true if, when compared to "false", it returns false.
 //Not the exact opposite of isDefinitelyFalsy, as in most cases, we can't know either.
-export function isDefinitelyTruthy(content) {
+export function isDefinitelyTruthy(content: Ast): boolean {
     if (content.name === "true") {
         return true;
     }
@@ -185,7 +194,7 @@ export function isDefinitelyTruthy(content) {
  * @remarks This function will check for random value functions, and will return false if any are found.
  * @returns Whether AST A and AST B always evaluate to the same value.
  */
-export function areAstsAlwaysEqual(a, b) {
+export function areAstsAlwaysEqual(a: Ast, b: Ast) {
     if (a.name !== b.name) {
         return false;
     }
@@ -203,7 +212,7 @@ export function areAstsAlwaysEqual(a, b) {
     return true;
 }
 
-export function astContainsFunctions(ast, functionNames, errorOnTrue=false) {
+export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnTrue=false) {
 
     if (functionNames.includes(ast.name)) {
         if (errorOnTrue) {
@@ -272,15 +281,12 @@ export function getAstForMinusInfinity() {
 export function getAstForE() {
     return new Ast("__number__", [new Ast("2.718281828459045", [], [], "UnsignedFloatLiteral")], [], "unsigned float");
 }
-export function getAstForNumber(nb) {
-    if (typeof nb !== "number") {
-        error("Expected a number, but got '"+nb+"' of type '"+typeof nb+"'");
-    }
+export function getAstForNumber(nb: number) {
     var type = nb >= 0 ? "unsigned" : "signed";
     type += " "+(Number.isInteger(nb) ? "int" : "float");
     return new Ast("__number__", [new Ast(nb.toString(), [], [], (nb >= 0 ? "Unsigned" : "Signed")+(Number.isInteger(nb) ? "IntLiteral" : "FloatLiteral"))], [], type);
 }
-export function getAstForBool(bool) {
+export function getAstForBool(bool: boolean) {
     if (bool) {
         return getAstForTrue();
     } else {
@@ -321,7 +327,7 @@ export function getAstForNullVector() {
 export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");
 }
-export function getAstForCustomString(content, formatArgs = []) {
+export function getAstForCustomString(content: string, formatArgs = []) {
     const [
         arg1 = getAstForNull(),
         arg2 = getAstForNull(),
