@@ -1,21 +1,25 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+
+import { astParsingFunctions, fileStack, enableOptimization, setFileStack } from "../../globalVars";
+import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast } from "../../utils/ast";
+import { debug, error } from "../../utils/logging";
 
 astParsingFunctions.__rule__ = function(content) {
 
@@ -27,13 +31,13 @@ astParsingFunctions.__rule__ = function(content) {
     var hasMeaningfulInstructionBeenEncountered = false;
 
     //To check that there is no duplicate label.
-    var declaredLabels = [];
+    var declaredLabels: string[] = [];
 
-    function iterateOnRuleActions(children) {
+    function iterateOnRuleActions(children: Ast[]) {
         //Remove useless instructions and check for meaningful intructions.
 
         for (var i = 0; i < children.length; i++) {
-            fileStack = content.fileStack;
+            setFileStack(content.fileStack);
 
             //Check for a dynamic goto.
             if (children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__" || children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__") {
@@ -96,9 +100,9 @@ astParsingFunctions.__rule__ = function(content) {
 
     //console.log(astToString(content));
     //Now that we have removed all useless instructions, compute each __distanceTo__ function.
-    function resolveDistanceTo(content) {
+    function resolveDistanceTo(content: Ast) {
 
-        fileStack = content.fileStack;
+        setFileStack(content.fileStack);
 
         for (var i = 0; i < content.args.length; i++) {
             content.args[i] = resolveDistanceTo(content.args[i]);
@@ -113,7 +117,7 @@ astParsingFunctions.__rule__ = function(content) {
             var label = content.args[0].name;
             var foundLabel = false;
 
-            function computeDistanceTo(content) {
+            function computeDistanceTo(content: Ast) {
 
                 for (var i = content.childIndex; i < content.children.length; i++) {
                     if (content.children[i].type === "Label" && content.children[i].name === label) {
@@ -138,7 +142,7 @@ astParsingFunctions.__rule__ = function(content) {
                 if (root.type === "void") {
                     count--;
                 }
-                root = root.parent;
+                root = root.parent ?? error("Could not find root of tree while processing distance to label '"+label+"'");
             }
             count++; //account for "__rule__"
             count--; //account for the action in which the __distanceTo__ is

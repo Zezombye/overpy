@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { Token } from "../types";
+import { Token } from "../compiler/tokenizer";
 import { error } from "./logging";
 /**
  * Same as splitStrOnDelimiter but for a token list.

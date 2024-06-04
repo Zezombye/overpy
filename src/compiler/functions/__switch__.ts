@@ -1,21 +1,26 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+
+import { astParsingFunctions } from "../../globalVars";
+import { Ast, getAstForEnd, getAstFor1, getAstForTrue } from "../../utils/ast";
+import { error, functionNameToString } from "../../utils/logging";
+import { getUniqueNumber } from "../../utils/other";
 
 astParsingFunctions.__switch__ = function(content) {
 
@@ -75,6 +80,7 @@ astParsingFunctions.__switch__ = function(content) {
     for (var child of casesChildren) {
         child.parent = content.parent;
     }
+    if (content.parent === undefined) error("Parent is undefined in __switch__");
     content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
 
     var result = new Ast("__if__", [getAstForTrue()]);

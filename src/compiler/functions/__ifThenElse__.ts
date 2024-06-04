@@ -17,6 +17,9 @@
 
 "use strict";
 
+import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { isDefinitelyTruthy, isDefinitelyFalsy, areAstsAlwaysEqual } from "../../utils/ast";
+
 astParsingFunctions.__ifThenElse__ = function(content) {
 
     if (enableOptimization) {

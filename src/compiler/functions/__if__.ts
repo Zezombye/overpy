@@ -1,23 +1,28 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
+import { astParsingFunctions, currentRuleHasVariableGoto, enableOptimization, currentRuleEvent } from "../../globalVars";
+import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd } from "../../utils/ast";
+import { error } from "../../utils/logging";
+
 astParsingFunctions.__if__ = function(content) {
+    if (content.parent === undefined) error("'if' AST lacks parent");
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
@@ -42,7 +47,7 @@ astParsingFunctions.__if__ = function(content) {
             } else {
                 return new Ast("__abortIfConditionIsFalse__");
             }
-        } else {            
+        } else {
             error("Cannot use 'RULE_CONDITION' in that context");
         }
     }
@@ -50,11 +55,11 @@ astParsingFunctions.__if__ = function(content) {
     if (enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
         //but only if no relative goto, 1 child, and no else/elif after the if
-        if (content.children.length === 1 
+        if (content.children.length === 1
                 && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
                 && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
 
-            
+
             if (currentRuleHasVariableGoto) {
                 //Keep the child and add a "pass" for the "end"
                 content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
@@ -66,7 +71,7 @@ astParsingFunctions.__if__ = function(content) {
             if (isDefinitelyTruthy(content.args[0])) {
                 return content.children[0];
             }
-            
+
             if (content.children[0].name === "return") {
                 return new Ast("__abortIf__", [content.args[0]]);
             } else if (content.children[0].name === "__loop__") {
@@ -90,13 +95,13 @@ astParsingFunctions.__if__ = function(content) {
 
             var root = content;
             includeEnd = false;
-        
+
             while (root.name !== "__rule__") {
-                root = root.parent;
+                root = root.parent ?? error("Failed to find rule parent while moving up ancestor chain (starting at if)");
                 if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
                     includeEnd = true;
                     break;
-                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent.childIndex !== root.parent.children.length-1) {
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent && root.parent.childIndex !== root.parent.children.length-1) {
                     includeEnd = true;
                     break;
                 }

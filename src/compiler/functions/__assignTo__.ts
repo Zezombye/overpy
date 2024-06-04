@@ -17,6 +17,9 @@
 
 "use strict";
 
+import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { areAstsAlwaysEqual, Ast, getAstForUselessInstruction } from "../../utils/ast";
+
 astParsingFunctions.__assignTo__ = function(content) {
 
     if (enableOptimization) {

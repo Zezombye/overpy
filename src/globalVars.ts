@@ -15,6 +15,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* TODO: Refactor OverPy to instantiate compilation/decompilation state WITHIN the compile/decompile functions
+and remove the global variables, instead passing the state down via reference to an object within the compile/decompile closure.
+*/
+
 // @ts-check
 import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
@@ -329,7 +333,7 @@ for (var func in funcKw) {
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.
 //Let me know if you find any other such characters.
-export const bigLettersMappings = {
+export const bigLettersMappings: Record<string, string> = {
 	a: "Α",
 	A: "Α",
 	b: "Β",
@@ -506,4 +510,4 @@ reservedNames.push(...Object.keys(typeMatrix));
 export const reservedMemberNames = ["x", "y", "z"];
 
 //An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
-export var astParsingFunctions: Record<string, (content: any) => any> = {};
+export var astParsingFunctions: Record<string, (content: Ast) => Ast> = {};

@@ -1,21 +1,25 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
+
+import { astParsingFunctions, globalVariables, playerVariables, defaultVarNames } from "../../globalVars";
+import { error, functionNameToString, warn } from "../../utils/logging";
+import { addVariable } from "../../utils/varNames";
 
 astParsingFunctions.__globalVar__ = function(content) {
 
@@ -28,7 +32,7 @@ astParsingFunctions.__globalVar__ = function(content) {
         }
         contentParent = contentParent.parent;
     }
-    
+
     if (isInRuleCondition) {
         if (content.name === "__playerVar__") {
             var isGlobalVariable = false;
@@ -39,7 +43,7 @@ astParsingFunctions.__globalVar__ = function(content) {
         } else {
             error("Expected variable, but got "+functionNameToString(content));
         }
-    
+
         var varArray = isGlobalVariable ? globalVariables : playerVariables;
         var isFound = false;
         for (var variable of varArray) {
@@ -68,7 +72,7 @@ astParsingFunctions.__globalVar__ = function(content) {
             }
         }
     }
-    
+
 
     return content;
 }

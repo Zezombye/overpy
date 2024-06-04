@@ -20,7 +20,8 @@
 import { constantValues } from "../data/constants";
 import { notConstantFunctions } from "../data/other";
 import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setFileStack, subroutines } from "../globalVars";
-import { OWLanguage, Token } from "../types";
+import { OWLanguage } from "../types";
+import { Token } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber } from "../utils/ast";
 import { getFileContent, getFilePaths } from "../utils/file";
 import { debug, error, functionNameToString, warn } from "../utils/logging";

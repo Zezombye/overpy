@@ -17,7 +17,13 @@
 
 "use strict";
 
-astParsingFunctions.__format__ = function(content) {
+import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings } from "../../globalVars";
+import { Token } from "../../compiler/tokenizer";
+import { getAstForNull, Ast } from "../../utils/ast";
+import { error, warn } from "../../utils/logging";
+import { getUtf8Length } from "../../utils/strings";
+
+astParsingFunctions.__format__ = function (content) {
 
 	//Localized strings take one element more than custom strings.
 	//Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
@@ -56,17 +62,17 @@ astParsingFunctions.__format__ = function(content) {
 		content.args[0].type = "StringLiteral";
 	}
 
-    if (content.args[0].type === "LocalizedStringLiteral") {
-        return parseLocalizedString(content.args[0], content.args.slice(1));
-    } else {
+	if (content.args[0].type === "LocalizedStringLiteral") {
+		return parseLocalizedString(content.args[0], content.args.slice(1));
+	} else {
 		//console.log(content);
-        return parseCustomString(content.args[0], content.args.slice(1));
-    }
+		return parseCustomString(content.args[0], content.args.slice(1));
+	}
 
 }
 
 
-var caseSensitiveReplacements = {
+var caseSensitiveReplacements: Record<string, string> = {
 	"æ": "ӕ",
 	"nj": "ǌ",
 	" a ": " ａ ",
@@ -99,20 +105,20 @@ var caseSensitiveReplacements = {
 }
 
 //Parses a custom string.
-function parseCustomString(str, formatArgs) {
+function parseCustomString(str: Ast, formatArgs: Ast[]) {
 
 	if (!formatArgs) {
 		formatArgs = [];
-    }
+	}
 
-    var isBigLetters = (str.type === "BigLettersStringLiteral");
-    var isFullwidth = (str.type === "FullwidthStringLiteral");
-    var isPlaintext = (str.type === "PlaintextStringLiteral");
+	var isBigLetters = (str.type === "BigLettersStringLiteral");
+	var isFullwidth = (str.type === "FullwidthStringLiteral");
+	var isPlaintext = (str.type === "PlaintextStringLiteral");
 	var isCaseSensitive = (str.type === "CaseSensitiveStringLiteral");
 
 	var content = str.name;
 	//console.log(content);
-	var tokens = [];
+	var tokens: ({ text: string, type: "string" } | { index: number, type: "arg" })[] = [];
 	var numberIndex = 0;
 	var args = [];
 	var argsAreNumbered = null;
@@ -120,17 +126,17 @@ function parseCustomString(str, formatArgs) {
 
 	//Used to reorder args for easier optimization.
 	//Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
-	var numberMapping = {};
+	var numberMapping: Record<number, number> = {};
 	var containsNonFullwidthChar = false;
 
-	function applyStringModifiers(content) {
+	function applyStringModifiers(content: string) {
 
 		//If big letters, try to map letters until we get one
 		//We only need one letter to convert to big letters
 		if (isBigLetters && !isConvertedToBigLetters) {
 			for (var i = 0; i < content.length; i++) {
 				if (content[i] in bigLettersMappings) {
-					content = content.substring(0,i)+bigLettersMappings[content[i]]+content.substring(i+1);
+					content = content.substring(0, i) + bigLettersMappings[content[i]] + content.substring(i + 1);
 					isConvertedToBigLetters = true;
 					break;
 				}
@@ -170,7 +176,7 @@ function parseCustomString(str, formatArgs) {
 				});
 				content = content.substring(index);
 			}
-			var number = content.substring(1, content.indexOf("}"));
+			var number: string | number = content.substring(1, content.indexOf("}"));
 
 			//test for {}
 			if (number === "") {
@@ -196,7 +202,7 @@ function parseCustomString(str, formatArgs) {
 				index: numberMapping[number],
 				type: "arg"
 			});
-			content = content.substring(content.indexOf("}")+1);
+			content = content.substring(content.indexOf("}") + 1);
 
 		} else {
 
@@ -210,11 +216,11 @@ function parseCustomString(str, formatArgs) {
 
 	//Sort args if there was (potentially) a reordering
 	for (var key of Object.keys(numberMapping)) {
-		if (formatArgs[key]) {
-			args[numberMapping[key]] = formatArgs[key];
+		if (formatArgs[+key]) {
+			args[numberMapping[+key]] = formatArgs[+key];
 		} else {
 			console.log(numberMapping);
-			error("Too few arguments in format() function: expected "+(+key+1)+" but found "+formatArgs.length);
+			error("Too few arguments in format() function: expected " + (+key + 1) + " but found " + formatArgs.length);
 		}
 	}
 	//console.log("args = ");
@@ -224,22 +230,22 @@ function parseCustomString(str, formatArgs) {
 		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
 	}
 	if (isBigLetters && !isConvertedToBigLetters) {
-		error("Could not convert the string to big letters. The string must have one of the following chars: '"+Object.keys(bigLettersMappings).join("")+"'");
+		error("Could not convert the string to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
 	}
 
 	//console.log(tokens);
 	//console.log(stringModifiers);
 
-    return parseStringTokens(tokens, args);
+	return parseStringTokens(tokens, args);
 
 }
 
-function parseStringTokens(tokens, args) {
+function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: number, type: "arg" })[], args: Ast[]) {
 	var result = "";
-	var resultArgs = [];
-	var numbers = [];
-	var numbersEncountered = [];
-	var mappings = {};
+	var resultArgs: Ast[] = [];
+	var numbers: number[] = [];
+	var numbersEncountered: number[] = [];
+	var mappings: Record<number, number> = {};
 	var stringLength = 0;
 	var currentNbIndex = 0;
 
@@ -272,61 +278,74 @@ function parseStringTokens(tokens, args) {
 			//debugger;
 
 			//length check
-			if (tokens[i].type === "string" && stringLength+getUtf8Length(tokens[i].text) > 128-(i === tokens.length-1 ? 0 : "{0}".length)
-					|| tokens[i].type === "arg" && stringLength+"{0}".length > 128-(i === tokens.length-1 ? 0 : "{0}".length)) {
+			let token = tokens[i];
+			if (token.type === "string" && stringLength + getUtf8Length(token.text) > 128 - (i === tokens.length - 1 ? 0 : "{0}".length)
+				|| token.type === "arg" && stringLength + "{0}".length > 128 - (i === tokens.length - 1 ? 0 : "{0}".length)) {
 
 				var splitString = false;
-				if (tokens[i].type === "string" && (stringLength+getUtf8Length(tokens[i].text) > 128 || tokens.length > i)) {
+				if (token.type === "string" && (stringLength + getUtf8Length(token.text) > 128 || tokens.length > i)) {
 
-					var tokenText = [...tokens[i].text]
+					var tokenText = [...token.text]
 					var tokenSliceLength = 0;
 					var sliceIndex = 0;
-					for (var j = 0; stringLength+tokenSliceLength < 128-"{0}".length*2; j++) {
-						tokenSliceLength += getUtf8Length(tokenText[j]+"");
+					for (var j = 0; stringLength + tokenSliceLength < 128 - "{0}".length * 2; j++) {
+						tokenSliceLength += getUtf8Length(tokenText[j] + "");
 						sliceIndex++;
 					}
 
 					result += tokenText.slice(0, sliceIndex).join("")
 
-					tokens[i].text = tokenText.slice(sliceIndex).join("");
+					token.text = tokenText.slice(sliceIndex).join("");
 					splitString = true;
 
-				} else if (tokens[i].type === "arg" && tokens.length > i) {
+				} else if (token.type === "arg" && tokens.length > i) {
 					splitString = true;
 				}
 
 				if (splitString) {
-					result += "{"+currentNbIndex+"}";
+					result += "{" + currentNbIndex + "}";
 					if (currentNbIndex > 2) {
-						error("Custom string parser returned '{"+currentNbIndex+"}', please report to Zezombye")
+						error("Custom string parser returned '{" + currentNbIndex + "}', please report to Zezombye")
 					}
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
 					break;
 				}
 			}
 
-			if (tokens[i].type === "string") {
-				result += tokens[i].text;
-				stringLength += getUtf8Length(tokens[i].text);
+			if (token.type === "string") {
+				result += token.text;
+				stringLength += getUtf8Length(token.text);
 			} else {
-				if (numbersEncountered.length >= 2 && (numbers.length > 3 || i < tokens.length-1 && stringLength+(tokens[i+1].type === "string" ? getUtf8Length(tokens[i+1].text)+"{0}".length : "{0}".length) > 128)) {
+				// If we have encountered more than 2 numbers and we've either:
+				//   - got more than 3 numbers incoming, or
+				//   - the string would be too long with additional tokens incoming
+				// then we need to split the format string and continue extending
+				// the string in a nested custom string
+				if (numbersEncountered.length >= 2
+					&& (numbers.length > 3
+						|| (i < tokens.length - 1
+							&& stringLength
+								+ (tokens[i + 1].type === "string"
+									? getUtf8Length((tokens[i + 1] as { text: string }).text) + "{0}".length
+									: "{0}".length)
+								> 128))) {
 					//split
 					result += "{2}";
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
 					break;
 				} else {
-					if (!(tokens[i].index in mappings)) {
-						mappings[tokens[i].index] = numbersEncountered.length;
+					if (!(token.index in mappings)) {
+						mappings[token.index] = numbersEncountered.length;
 					}
-					if (!numbersEncountered.includes(tokens[i].index)) {
-						numbersEncountered.push(tokens[i].index);
-						resultArgs.push(args[tokens[i].index]);
+					if (!numbersEncountered.includes(token.index)) {
+						numbersEncountered.push(token.index);
+						resultArgs.push(args[token.index]);
 					}
-					result += "{"+mappings[tokens[i].index]+"}";
-					if (mappings[tokens[i].index] > 2) {
-						error("Custom string parser returned '{"+mappings[tokens[i].index]+"}', please report to Zezombye")
+					result += "{" + mappings[token.index] + "}";
+					if (mappings[token.index] > 2) {
+						error("Custom string parser returned '{" + mappings[token.index] + "}', please report to Zezombye")
 					}
-					if (mappings[tokens[i].index] === currentNbIndex) {
+					if (mappings[token.index] === currentNbIndex) {
 						currentNbIndex++;
 					}
 					stringLength += "{0}".length;
@@ -343,14 +362,14 @@ function parseStringTokens(tokens, args) {
 	}
 
 	if (resultArgs.length != 3) {
-		error("Custom string parser broke (string args length is "+resultArgs.length+"), please report to Zezombye");
+		error("Custom string parser broke (string args length is " + resultArgs.length + "), please report to Zezombye");
 	}
 
 	return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));
 }
 
 //Parses localized string
-function parseLocalizedString(content, formatArgs) {
+function parseLocalizedString(content: Ast, formatArgs: Ast[]) {
 
 	if (formatArgs.length > 3) {
 		error("A localized string cannot have more than 3 arguments in the 'format' function");

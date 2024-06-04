@@ -19,7 +19,8 @@
 
 import { stringKw } from "../data/localizedStrings";
 import { currentLanguage, fileStack, setFileStack } from "../globalVars";
-import { LocalizableString, Token, Value } from "../types";
+import { LocalizableString, Value } from "../types";
+import { Token } from "../compiler/tokenizer";
 import { debug, error } from "./logging";
 
 /**

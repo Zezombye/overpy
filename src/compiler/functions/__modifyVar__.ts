@@ -17,6 +17,9 @@
 
 "use strict";
 
+import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { getAstForUselessInstruction } from "../../utils/ast";
+
 astParsingFunctions.__modifyVar__ = function(content) {
     let opName = content.args[1].name;
     if (opName === "min" || opName === "max") {

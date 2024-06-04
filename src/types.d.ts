@@ -19,7 +19,10 @@ type OWLanguage = `${ow_languages}`;
 
 export type Variable = {
   "name": string,
-  "index": number
+  "index": number,
+  isChased?: boolean,
+  isUsedInForLoop?: boolean,
+  isUsedInRuleCondition?: boolean,
 }
 
 export type Subroutine = {
@@ -142,11 +145,6 @@ export type ReplaceableData = {
 export type ReturnType = string | { Array: string } | { Direction: [string, string, string] }
 
 export type Type = string[] | string | { [key: string]: string | Type[] };
-
-export type Token = {
-  text: string,
-  fileStack: FileStackMember[]
-}
 
 /**
  * Represents one layer of the file stack.

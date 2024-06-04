@@ -19,7 +19,7 @@
 
 import { parse } from "../compiler/parser";
 import { defaultSubroutineNames, defaultVarNames, globalInitDirectives, globalVariables, playerInitDirectives, playerVariables, reservedMemberNames, reservedNames, reservedSubroutineNames, subroutines } from "../globalVars";
-import { Token } from "../types";
+import { Token } from "../compiler/tokenizer";
 import { Ast } from "./ast";
 import { error } from "./logging";
 

@@ -19,7 +19,8 @@
 
 import { parse } from "../compiler/parser";
 import { typeMatrix } from "../globalVars";
-import { Token, Type } from "../types";
+import { Type } from "../types";
+import { Token } from "../compiler/tokenizer";
 import { Ast, getAstForNumber } from "./ast";
 import { error } from "./logging";
 import { splitTokens } from "./tokens";

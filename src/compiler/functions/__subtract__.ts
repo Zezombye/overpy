@@ -17,6 +17,11 @@
 
 "use strict";
 
+import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, Ast } from "../../utils/ast";
+import { warn, getTypeCheckFailedMessage } from "../../utils/logging";
+import { isTypeSuitable } from "../../utils/types";
+
 astParsingFunctions.__subtract__ = function(content) {
 
     //Check if we are subtracting both numbers, or both vectors.

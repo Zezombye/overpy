@@ -17,6 +17,8 @@
 
 "use strict";
 
+import { astParsingFunctions } from "../../globalVars";
+
 astParsingFunctions.__indexOfArrayValue__ = function(content) {
 
     //TODO: only do that for constants

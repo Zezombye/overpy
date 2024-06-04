@@ -18,7 +18,7 @@
 "use strict";
 // @ts-check
 
-import { currentRuleLabelAccess } from "../../globalVars";
+import { astParsingFunctions, currentRuleLabelAccess } from "../../globalVars";
 
 astParsingFunctions.__distanceTo__ = function(content) {
     //Increment the number of times this label is accessed.
@@ -27,7 +27,7 @@ astParsingFunctions.__distanceTo__ = function(content) {
     if (!(label in currentRuleLabelAccess)) {
         currentRuleLabelAccess[label] = 0;
     }
-    if (content.parent.name === "__skip__" || content.parent.name === "__skipIf__") {
+    if (content.parent?.name === "__skip__" || content.parent?.name === "__skipIf__") {
         currentRuleLabelAccess[label]++;
     }
     return content;
