@@ -17,13 +17,22 @@
 
 "use strict";
 
+import { funcKw } from "../../data/other";
+import { astParsingFunctions, fileStack, workshopSettingWhitespace, workshopSettingNames, setFileStack } from "../../globalVars";
+import { Ast, getAstForMinusInfinity, getAstForInfinity, getAstFor0 } from "../../utils/ast";
+import { error, getTypeCheckFailedMessage, functionNameToString } from "../../utils/logging";
+import { getUtf8Length } from "../../utils/strings";
+import { isTypeSuitable } from "../../utils/types";
+
 astParsingFunctions.createWorkshopSetting = function(content) {
+    let funcValueArgs = funcKw[content.name].args;
+    if (funcValueArgs == null) error("No arguments found for workshop setting: '" + content.name + "'");
 
     //Types are capital here as a type mismatch won't allow pasting
     for (var i = 0; i < content.args.length; i++) {
         if (i !== 1 && i !== 2) { //can't properly check the CustomStringLiteral type yet
-            if (!isTypeSuitable(funcKw[content.name].args[i].type, content.args[i].type, false)) {
-                error(getTypeCheckFailedMessage(content, i, funcKw[content.name].args[i].type, content.args[i]));
+            if (!isTypeSuitable(funcValueArgs[i].type, content.args[i].type, false)) {
+                error(getTypeCheckFailedMessage(content, i, funcValueArgs[i].type, content.args[i]));
             }
         }
     }
@@ -65,22 +74,24 @@ astParsingFunctions.createWorkshopSetting = function(content) {
         } else if (settingType.name === "float") {
             result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "__enumType__") {
-            result = new Ast("__workshopSettingCombo__", [settingCategory, settingName, settingDefault, new Ast("__array__", settingType.args.map(x => createSuitableWorkshopSettingString(x, false))), sortOrder]);
+            result = new Ast("__workshopSettingCombo__", [settingCategory, settingName, settingDefault, new Ast("__array__", settingType.args.map((x: Ast) => createSuitableWorkshopSettingString(x, false))), sortOrder]);
         } else {
             error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     }
 
     //Typecheck the default
-    if (!isTypeSuitable(funcKw[result.name].args[2].type, result.args[2].type, false)) {
-        error(getTypeCheckFailedMessage(result, i, funcKw[result.name].args[2].type, result.args[2]));
+    let expectedType = funcKw[result.name].args?.[2].type;
+    if (expectedType == undefined) error("Could not determine expected type for workshop setting '" + content.name + "'");
+    if (!isTypeSuitable(expectedType, result.args[2].type, false)) {
+        error(getTypeCheckFailedMessage(result, i, expectedType, result.args[2]));
     }
     return result;
 }
 
-function createSuitableWorkshopSettingString(str, isName) {
+function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
 
-    fileStack = str.fileStack;
+    setFileStack(str.fileStack);
     if (str.name !== "__customString__") {
         error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
     }

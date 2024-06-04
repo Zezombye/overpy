@@ -1,26 +1,32 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
 "use strict";
 
+import { astParsingFunctions } from "../../globalVars";
+import { Ast } from "../../utils/ast";
+import { error, warn } from "../../utils/logging";
+import { getUniqueNumber } from "../../utils/other";
+
 astParsingFunctions.break = function(content) {
 
     //Determine the innermost loop or switch
-    var innermostStructure = content.parent;
+    let innermostStructure = content.parent;
+    if (innermostStructure == undefined) error("immediate parent of break statement is undefined?");
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__switch__", "__doWhile__"].includes(innermostStructure.name)) {
             break;
@@ -30,6 +36,8 @@ astParsingFunctions.break = function(content) {
     }
 
     if (innermostStructure.name === "__doWhile__") {
+        if (innermostStructure.parent == undefined) error("Do/While loop has no parent?");
+
         //Place a label at the end
         var labelName = "__label_break_"+getUniqueNumber()+"__";
         var label = new Ast(labelName, [], [], "Label");
