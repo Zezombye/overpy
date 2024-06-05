@@ -272,7 +272,7 @@ function generateSubroutinesField() {
 			error("Duplicate declaration of subroutine '" + subroutine.name + "'");
 		}
 
-		if (subroutine.index != null && outputSubroutines[subroutine.index] !== undefined) {
+		if (outputSubroutines[subroutine.index] !== undefined) {
 			error("Duplicate use of index " + subroutine.index + " for subroutines '" + subroutine.name + "' and '" + outputSubroutines[subroutine.index] + "'");
 		}
 		subNames.push(subroutine.name);
@@ -345,7 +345,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 				var maxTeam2Slots = 0;
 				var maxFfaSlots = 0;
 				if ("team1Slots" in customGameSettings["lobby"]) {
-					maxTeam1Slots = customGameSettings["lobby"]["team1Slots"]
+					maxTeam1Slots = customGameSettings["lobby"]["team1Slots"];
 				} else {
 					for (var gamemode in customGameSettings.gamemodes) {
 						if (!(gamemode in gamemodeKw)) {
@@ -353,13 +353,13 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						}
 						let gamemodeEntry = gamemodeKw[gamemode];
 						if ("defaultTeam1Slots" in gamemodeEntry) {
-							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeEntry.defaultTeam1Slots as number)
+							maxTeam1Slots = Math.max(maxTeam1Slots, gamemodeEntry.defaultTeam1Slots as number);
 						}
 					}
 				}
 
 				if ("team2Slots" in customGameSettings["lobby"]) {
-					maxTeam2Slots = customGameSettings["lobby"]["team2Slots"]
+					maxTeam2Slots = customGameSettings["lobby"]["team2Slots"];
 				} else {
 					for (var gamemode in customGameSettings.gamemodes) {
 						if (!(gamemode in gamemodeKw)) {
@@ -367,13 +367,13 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						}
 						let gamemodeEntry = gamemodeKw[gamemode];
 						if ("defaultTeam2Slots" in gamemodeEntry) {
-							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeEntry.defaultTeam2Slots as number)
+							maxTeam2Slots = Math.max(maxTeam2Slots, gamemodeEntry.defaultTeam2Slots as number);
 						}
 					}
 				}
 
 				if ("ffaSlots" in customGameSettings["lobby"]) {
-					maxFfaSlots = customGameSettings["lobby"]["ffaSlots"]
+					maxFfaSlots = customGameSettings["lobby"]["ffaSlots"];
 				} else {
 					for (var gamemode in customGameSettings.gamemodes) {
 						if (!(gamemode in gamemodeKw)) {
@@ -381,12 +381,12 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 						}
 						let gamemodeEntry = gamemodeKw[gamemode];
 						if ("defaultFfaSlots" in gamemodeEntry) {
-							maxFfaSlots = Math.max(maxFfaSlots, gamemodeEntry.defaultFfaSlots as number)
+							maxFfaSlots = Math.max(maxFfaSlots, gamemodeEntry.defaultFfaSlots as number);
 						}
 					}
 				}
 
-				var maxSlots = Math.max(maxTeam1Slots + maxTeam2Slots, maxFfaSlots)
+				var maxSlots = Math.max(maxTeam1Slots + maxTeam2Slots, maxFfaSlots);
 				if (maxSlots > 12) {
 					error("The maximum number of slots cannot be over 12 (currently " + maxSlots + ")");
 				}
@@ -421,15 +421,15 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 					}
 					var mapsKey = "enabledMaps" in customGameSettings.gamemodes[gamemode] ? "enabledMaps" : "disabledMaps";
 					var wsMapsKey = tows(mapsKey, customGameSettingsSchema.gamemodes.values[gamemode].values);
-					var encounteredMaps = []
+					var encounteredMaps = [];
 					result[wsGamemodes][wsGamemode][wsMapsKey] = [];
 					for (var map of customGameSettings.gamemodes[gamemode][mapsKey]) {
 						if (typeof map === "object" && !Array.isArray(map)) {
 							if (Object.keys(map).length !== 1) {
 								error("Malformed map object, should only have 1 key");
 							}
-							var mapName = Object.keys(map)[0]
-							var variants = []
+							var mapName = Object.keys(map)[0];
+							var variants = [];
 							let mapVariants = mapKw[mapName].variants ?? {};
 							for (var variant of map[mapName]) {
 								if (!(variant in mapVariants)) {
@@ -437,7 +437,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 								}
 								variants.push(mapVariants[variant]);
 							}
-							encounteredMaps.push(mapName)
+							encounteredMaps.push(mapName);
 							result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(mapName, mapKw) + " " + variants.join(" "));
 
 
@@ -447,7 +447,7 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 							} else if (mapKw[map].onlyInOw1) {
 								error("The map '" + map + "' is not available in OW2");
 							}
-							encounteredMaps.push(map)
+							encounteredMaps.push(map);
 							result[wsGamemodes][wsGamemode][wsMapsKey].push(tows(map, mapKw));
 						}
 					}
@@ -525,14 +525,14 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
 					result[wsWorkshop][workshopSetting] = tows("__off__", customGameSettingsKw);
 				} else if (Array.isArray(customGameSettings.workshop[workshopSetting])) {
 					//Enum value
-					if (customGameSettings.workshop[workshopSetting].length != 1) {
+					if (customGameSettings.workshop[workshopSetting].length !== 1) {
 						error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "', must be of length 1");
 					}
 					result[wsWorkshop][workshopSetting] = "[" + customGameSettings.workshop[workshopSetting] + "]";
 				} else if (isNumber(customGameSettings.workshop[workshopSetting])) {
 					result[wsWorkshop][workshopSetting] = customGameSettings.workshop[workshopSetting];
 				} else if (customGameSettings.workshop[workshopSetting] in heroKw) {
-					result[wsWorkshop][workshopSetting] = tows(customGameSettings.workshop[workshopSetting], heroKw)
+					result[wsWorkshop][workshopSetting] = tows(customGameSettings.workshop[workshopSetting], heroKw);
 				} else {
 					error("Invalid value '" + customGameSettings.workshop[workshopSetting] + "' for workshop setting '" + workshopSetting + "'");
 				}

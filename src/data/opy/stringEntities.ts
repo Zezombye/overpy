@@ -289,4 +289,4 @@ export const opyStringEntities: Record<string, {
         codepoint: 0x303F,
         description: "A box containing an X.",
     },
-}
+};

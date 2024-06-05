@@ -37,4 +37,4 @@ astParsingFunctions.lineIntersectsSphere = function(content) {
         ]),
         content.args[3],
     ]);
-}
+};

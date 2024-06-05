@@ -102,7 +102,7 @@ function astRuleConditionToWs(condition: Ast) {
         "__greaterThanOrEquals__": ">=",
         "__lessThan__": "<",
         "__greaterThan__": ">",
-    }
+    };
     var result = "";
 
     if (condition.type === "void") {
@@ -130,7 +130,7 @@ function astRuleConditionToWs(condition: Ast) {
                         }
                     }
                 } else if (replacementForTeam1 !== null && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
-                    condition.args[i] = new Ast(replacementForTeam1)
+                    condition.args[i] = new Ast(replacementForTeam1);
                 }
             }
         }
@@ -188,7 +188,7 @@ export function astActionToWs(action: Ast, nbTabs: number) {
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
-    result += tabLevel(nbTabs)+astToWs(action)+";\n"
+    result += tabLevel(nbTabs)+astToWs(action)+";\n";
     for (var child of action.children) {
         result += astActionToWs(child, nbTabs+1);
     }
@@ -204,7 +204,7 @@ function astToWs(content: Ast): string {
         "__greaterThanOrEquals__": ">=",
         "__lessThan__": "<",
         "__greaterThan__": ">",
-    }
+    };
 
     setFileStack(content.fileStack);
 
@@ -271,7 +271,7 @@ function astToWs(content: Ast): string {
                     && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
             } else if (replacementForTeam1 !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
-                content.args[i] = new Ast(replacementForTeam1)
+                content.args[i] = new Ast(replacementForTeam1);
             }
         }
     }
@@ -364,11 +364,11 @@ function astToWs(content: Ast): string {
 
                 }
             } else {
-                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]))
+                error("Cannot modify or assign to "+functionNameToString(content.args[0].args[0]));
             }
 
         } else {
-            error("Cannot modify or assign to "+functionNameToString(content.args[0]))
+            error("Cannot modify or assign to "+functionNameToString(content.args[0]));
         }
         content.name = newName;
 

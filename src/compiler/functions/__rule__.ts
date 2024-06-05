@@ -153,7 +153,7 @@ astParsingFunctions.__rule__ = function(content) {
             }
 
             if (count < 0) {
-                error("Error while calculating distance to label '"+label+"': count is "+count)
+                error("Error while calculating distance to label '"+label+"': count is "+count);
             }
 
             return getAstForNumber(count);
@@ -196,4 +196,4 @@ astParsingFunctions.__rule__ = function(content) {
 
     return content;
 
-}
+};

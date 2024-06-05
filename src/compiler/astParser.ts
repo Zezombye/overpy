@@ -91,12 +91,12 @@ export function parseAstRules(rules: Ast[]) {
                 if (rule.children[i].args.length > 1) {
                     error("Annotation '@NewPage' takes at most 1 argument, received "+rule.children[i].args.length);
                 }
-                var fillerName = ""
+                var fillerName = "";
                 if (rule.children[i].args.length > 0) {
                     if (rule.children[i].args[0].type !== "StringLiteral") {
                         error("Expected a string as argument of '@NewPage'");
                     }
-                    fillerName = rule.children[i].args[0].name
+                    fillerName = rule.children[i].args[0].name;
                 }
                 while (rulesResult.filter(x => x.name === "__rule__").length % 100 !== 0 || rulesResult.filter(x => x.name === "__rule__").length === 0) {
                     var emptyRule = new Ast("__rule__");
@@ -105,7 +105,7 @@ export function parseAstRules(rules: Ast[]) {
                         isDisabled: fillerName === "",
                         name: fillerName,
                         event: "global",
-                    }
+                    };
                     rulesResult.push(emptyRule);
                 }
 
@@ -175,7 +175,7 @@ export function parseAstRules(rules: Ast[]) {
         if (rule.ruleAttributes.conditions !== undefined) {
             for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
                 rule.ruleAttributes.conditions[i] = parseAst(rule.ruleAttributes.conditions[i]);
-                rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i]
+                rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i];
             }
         }
 

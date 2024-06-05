@@ -24,4 +24,4 @@ astParsingFunctions.__skip__ = function(content) {
         setRuleHasVariableGoto(true);
     }
     return content;
-}
+};

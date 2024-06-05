@@ -161,7 +161,7 @@ export const opyConstants: Record<string, Record<string, {
         },
         description: "The `Math` enum.",
     },
-}
+};
 
 // for (var key in opyConstants) {
 //     opyConstants[key]["description"] = "The `"+key+"` enum.";

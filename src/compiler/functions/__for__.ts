@@ -23,7 +23,7 @@ import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
 
 astParsingFunctions.__for__ = function(content) {
-    if (content.parent === undefined) error("Attempted to use 'for' in a context with no parent.");
+    if (content.parent === undefined) {error("Attempted to use 'for' in a context with no parent.");}
 
     if (content.args[0].name === "__playerVar__") {
         var isGlobalVariable = false;
@@ -68,4 +68,4 @@ astParsingFunctions.__for__ = function(content) {
 
     return content;
 
-}
+};

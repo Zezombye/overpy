@@ -23,12 +23,12 @@ import { addVariable } from "../../utils/varNames";
 
 astParsingFunctions.__globalVar__ = function(content) {
 
-    var isInRuleCondition = false
+    var isInRuleCondition = false;
     var contentParent = content.parent;
     while (contentParent) {
         if (contentParent.name === "@Condition") {
-            isInRuleCondition = true
-            break
+            isInRuleCondition = true;
+            break;
         }
         contentParent = contentParent.parent;
     }
@@ -75,4 +75,4 @@ astParsingFunctions.__globalVar__ = function(content) {
 
 
     return content;
-}
+};

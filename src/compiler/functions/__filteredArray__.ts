@@ -71,4 +71,4 @@ astParsingFunctions.__filteredArray__ = function(content) {
         }
     }
     return content;
-}
+};

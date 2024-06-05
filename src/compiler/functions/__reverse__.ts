@@ -35,5 +35,5 @@ astParsingFunctions.__reverse__ = function(content) {
             getAstForMinus1(),
             getAstForCurrentArrayIndex(),
         ])
-    ])
-}
+    ]);
+};

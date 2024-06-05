@@ -29,4 +29,4 @@ astParsingFunctions.sin = function(content) {
     }
 
     return content;
-}
+};

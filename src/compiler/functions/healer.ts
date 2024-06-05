@@ -27,4 +27,4 @@ astParsingFunctions.healer = function(content) {
     }
 
     return content;
-}
+};

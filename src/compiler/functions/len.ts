@@ -54,4 +54,4 @@ astParsingFunctions.len = function(content) {
     }
 
     return content;
-}
+};

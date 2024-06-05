@@ -22,7 +22,7 @@ import { getAstForEnd } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 
 astParsingFunctions.__else__ = function(content) {
-    if (content.parent === undefined) error("Found 'else' with no parent");
+    if (content.parent === undefined) {error("Found 'else' with no parent");}
 
     //Check if the else is directly preceded by an elif/if/else.
     if (content.parent.childIndex === 0 || !["__if__", "__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
@@ -59,4 +59,4 @@ astParsingFunctions.__else__ = function(content) {
 
     return content;
 
-}
+};

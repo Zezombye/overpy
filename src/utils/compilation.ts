@@ -96,14 +96,14 @@ export function compileCustomGameSettingsDict(providedSettings: Record<string, a
  * trim all numbers to 15 decimal places.
  */
 export function trimNb(x: number | string) {
-	x = ""+x
+	x = ""+x;
 	var result = x;
 	if (result.indexOf('.') >= 0) {
 		result = result.substring(0,result.indexOf('.')+16);
 	}
 	//To not trim 1.2246467991473532e-16 into 1.2246467991473532.
 	//Thanks MagicMan for reporting this.
-	if (x.indexOf("e") >= 0 && result.indexOf("e") == -1) {
+	if (x.indexOf("e") >= 0 && result.indexOf("e") === -1) {
 		result += x.substring(x.indexOf("e"));
 	}
 	return result;

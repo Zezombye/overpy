@@ -30,4 +30,4 @@ astParsingFunctions.sqrt = function(content) {
     }
 
     return content;
-}
+};

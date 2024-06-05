@@ -89,4 +89,4 @@ export const colorKw: Record<string, { red: number, green: number, blue: number,
         "blue": 0,
         "alpha": 255,
     },
-}
+};

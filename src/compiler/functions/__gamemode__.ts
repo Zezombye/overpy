@@ -23,8 +23,8 @@ import { error } from "../../utils/logging";
 
 astParsingFunctions.__gamemode__ = function(content) {
     if (constantValues["GamemodeLiteral"][content.args[0].name].onlyInOw1) {
-        error("The gamemode '"+content.args[0].name+"' is not available in OW2")
+        error("The gamemode '"+content.args[0].name+"' is not available in OW2");
     }
 
     return content;
-}
+};

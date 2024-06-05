@@ -31,4 +31,4 @@ astParsingFunctions.createEffect = function(content) {
     }
 
     return content;
-}
+};

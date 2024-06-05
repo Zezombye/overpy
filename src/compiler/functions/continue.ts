@@ -26,7 +26,7 @@ astParsingFunctions.continue = function(content) {
 
     //Determine the innermost loop
     let innermostStructure = content.parent;
-    if (innermostStructure == undefined) error("continue has no parent?");
+    if (innermostStructure === undefined) {error("continue has no parent?");}
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__doWhile__"].includes(innermostStructure.name)) {
             break;
@@ -58,4 +58,4 @@ astParsingFunctions.continue = function(content) {
         //continues outside loops act like aborts
         return new Ast("return");
     }
-}
+};

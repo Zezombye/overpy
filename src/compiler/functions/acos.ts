@@ -29,4 +29,4 @@ astParsingFunctions.acos = function(content) {
     }
 
     return content;
-}
+};

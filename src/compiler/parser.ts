@@ -58,7 +58,7 @@ const builtInEnumNameToAstInfo = {
         name: "__color__",
         type: "ColorLiteral"
     }
-}
+};
 
 export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
 
@@ -109,7 +109,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
                 error(currentLine.tokens[0].text + " directive cannot be indented");
             }
             var index: number = currentLine.tokens.length > 2 ? Number.parseInt(currentLine.tokens[2].text) : -1;
-            if (Number.isNaN(index)) error("Invalid index for " + currentLine.tokens[0].text + " directive:" + currentLine.tokens[2].text);
+            if (Number.isNaN(index)) {error("Invalid index for " + currentLine.tokens[0].text + " directive:" + currentLine.tokens[2].text);}
 
             if (currentLine.tokens[0].text === "globalvar") {
                 addVariable(currentLine.tokens[1].text, true, index, initDirective);
@@ -175,7 +175,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
                 "switch": "__switch__",
                 "case": "__case__",
                 "default": "__default__",
-            }
+            };
 
 
             var funcName = tokenToFuncMapping[currentLine.tokens[0].text as keyof typeof tokenToFuncMapping];
@@ -314,7 +314,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
                             enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else {
-                            console.log(lastIntValue)
+                            console.log(lastIntValue);
                             error("Cannot auto-increment enum member, as last value was " + functionNameToString(lastIntValue));
                         }
                     } else {
@@ -325,7 +325,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
 
                             //Check that there are only constant functions, as to not mislead the programmer; enums are just macros in disguise
                             if (astContainsFunctions(enumValue, notConstantFunctions.filter(v => ("en-US" as OWLanguage) in v).map(v => v["en-US"] as string), false)) {
-                                warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.")
+                                warn("w_enum_constant", "The value of " + args[0].name + "." + childrenLines[k].tokens[0] + " seems to not be constant; it will be inlined and not stored.");
                             }
 
                             lastIntValue = enumValue;
@@ -408,7 +408,7 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
 
     //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 
-    for (var i = start; i != end; i += step) {
+    for (var i = start; i !== end; i += step) {
 
         if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
             bracketsLevel += step;
@@ -440,7 +440,7 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
     return {
         operatorFound,
         operatorPosition,
-    }
+    };
 }
 
 export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
@@ -470,7 +470,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 return new Ast("__loop__");
             }
             //The goto goes to a label.
-            return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])])
+            return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])]);
         } else {
             //The goto should be of the format "loc+XXX".
             if (content[1].text !== "loc" || content[2].text !== "+") {
@@ -488,11 +488,11 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Check for ++/--.
     if (content.length > 2 && content[content.length - 1].text === "+" && content[content.length - 2].text === "+") {
         var op1 = parse(content.slice(0, content.length - 2));
-        return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])])
+        return new Ast("__assignTo__", [op1, new Ast("__add__", [op1, getAstFor1()])]);
     }
     if (content.length > 2 && content[content.length - 1].text === "-" && content[content.length - 2].text === "-") {
         var op1 = parse(content.slice(0, content.length - 2));
-        return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])])
+        return new Ast("__assignTo__", [op1, new Ast("__subtract__", [op1, getAstFor1()])]);
     }
 
     //Parse operators, according to the operator precedence in operatorPrecedence.
@@ -574,7 +574,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 ">=": "__greaterThanOrEquals__",
                 "<": "__lessThan__",
                 ">": "__greaterThan__",
-            }
+            };
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
 
         } else if (["+=", "-=", "*=", "/=", "%=", "**=", "min=", "max="].includes(operator)) {
@@ -602,7 +602,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     variable,
                     new Ast(opName, [], [], "__Operation__"),
                     value,
-                ])
+                ]);
             }
 
             return new Ast("__assignTo__", [variable, new Ast(opName, [variable, value])]);
@@ -635,7 +635,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 "*": "__multiply__",
                 "%": "__modulo__",
                 "**": "__raiseToPower__",
-            }
+            };
             var op1 = parse(operands[0]);
             var op2 = parse(operands[1]);
             return new Ast(opToFuncMapping[operator as keyof typeof opToFuncMapping], [op1, op2]);
@@ -654,8 +654,8 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         } else {
             var array = parse(content.slice(0, bracketPos[bracketPos.length - 2]));
-            var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1))
-            return new Ast("__valueInArray__", [array, value])
+            var value = parse(content.slice(bracketPos[bracketPos.length - 2] + 1, content.length - 1));
+            return new Ast("__valueInArray__", [array, value]);
         }
     }
 
@@ -749,7 +749,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             const astInfo = builtInEnumNameToAstInfo[name as keyof typeof builtInEnumNameToAstInfo];
             const values = Object.keys(constantValues[astInfo.type])
                 .filter((key) => key !== "description")
-                .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]))
+                .map((key) => new Ast(astInfo.name, [new Ast(key, [], [], astInfo.type)]));
             return new Ast("__enumType__", values, [], "Type");
         }
 
@@ -773,7 +773,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Special functions
 
     if (name === "async") {
-        if (args.length != 2) {
+        if (args.length !== 2) {
             error("Function 'async' takes 2 arguments, received " + args.length);
         }
         //Check if first arg is indeed a subroutine
@@ -782,7 +782,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             error("Expected subroutine name as first argument");
         }
 
-        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])])
+        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
     }
 
     if (name === "chase") {
@@ -876,7 +876,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             error("Function 'sorted' takes 1 or 2 arguments, received " + args.length);
         }
         var astArgs = [parse(args[0])];
-        if (sortedCondition != null) {
+        if (sortedCondition !== null) {
             astArgs.push(sortedCondition);
         } else {
             astArgs.push(new Ast("__currentArrayElement__"));
@@ -1021,7 +1021,7 @@ function parseMember(object: Token[], member: Token[]) {
                 "charAt": "__strCharAt__",
             };
 
-            return new Ast(funcToInternalFuncMap[name as keyof typeof funcToInternalFuncMap], [parse(object), parse(args[0])])
+            return new Ast(funcToInternalFuncMap[name as keyof typeof funcToInternalFuncMap], [parse(object), parse(args[0])]);
 
         } else if (name === "last") {
             if (args.length !== 0) {
@@ -1173,12 +1173,12 @@ function parseLiteralArray(content: Token[]) {
         var args = splitTokens(content.slice(1, content.length - 1), ",");
         //Allow trailing comma
         if (args[args.length - 1].length === 0) {
-            args.pop()
+            args.pop();
         }
 
         return new Ast("__array__", args.map(x => parse(x)));
     } else {
-        error("Expected 0 or 1 'for', but found " + (forOperands.length - 1))
+        error("Expected 0 or 1 'for', but found " + (forOperands.length - 1));
     }
 
     error("This shouldn't happen");

@@ -29,4 +29,4 @@ astParsingFunctions.min = function(content) {
     }
 
     return content;
-}
+};

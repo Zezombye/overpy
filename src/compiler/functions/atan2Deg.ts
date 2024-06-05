@@ -29,4 +29,4 @@ astParsingFunctions.atan2Deg = function(content) {
     }
 
     return content;
-}
+};

@@ -18,14 +18,10 @@
 /* TODO: Refactor OverPy to instantiate compilation/decompilation state WITHIN the compile/decompile functions
 and remove the global variables, instead passing the state down via reference to an object within the compile/decompile closure.
 */
-
-// @ts-check
+"use strict";
 import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
-
-
-"use strict";
 import { QuickJSContext, getQuickJS } from "quickjs-emscripten";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
@@ -48,7 +44,7 @@ export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev"
 export var evalVm: QuickJSContext;
 
 export async function createEvalVM() {
-	let QuickJS = await getQuickJS()
+	let QuickJS = await getQuickJS();
 	evalVm = QuickJS.newContext();
 
 	// Reimplement `console.log` for use in debugging
@@ -293,7 +289,7 @@ export const astOperatorPrecedence: Record<string, number> = {
 	"__modulo__": 8,
 	"__negate__": 9,
 	"__raiseToPower__": 9,
-}
+};
 
 //Text that gets inserted on top of all js scripts.
 export const builtInJsFunctions = `
@@ -308,7 +304,7 @@ function vect(x,y,z) {
     });
 }
 
-export var Map = {${Object.keys(mapKw).map(x => camelCaseToUpperCase(x) + ":'Map."+camelCaseToUpperCase(x)+"'").join(",")}}
+export var Map = {${Object.keys(mapKw).map(x => `${camelCaseToUpperCase(x)}:'Map.${camelCaseToUpperCase(x)}'`).join(",")}}
 `;
 
 export const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
@@ -363,7 +359,7 @@ export const bigLettersMappings: Record<string, string> = {
 	z: "Ζ",
 	Z: "Ζ",
 	" ": "\u2028", //line separator
-}
+};
 
 //Fullwidth characters
 export var fullwidthMappings: Record<string, string> = {
@@ -375,7 +371,7 @@ export var fullwidthMappings: Record<string, string> = {
 	"¯": "￣",
 	"¬": "￢",
 	"¦": "￤",
-}
+};
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
 	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
 }
@@ -383,8 +379,8 @@ for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\
 //Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
 //These characters render as zero-width spaces in Overwatch.
 //For some reason, 0x0B and 0x0C aren't sorted according to their ascii value.
-export var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,/*0x0b,0x0c,*/0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d]
-export var workshopSettingWhitespace: string[] = []
+export var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,/*0x0b,0x0c,*/0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d];
+export var workshopSettingWhitespace: string[] = [];
 for (var chr of workshopSettingWhitespaceChars) {
 	workshopSettingWhitespace.push(String.fromCodePoint(chr));
 	workshopSettingWhitespace.push(String.fromCodePoint(0x1e, chr));

@@ -22,8 +22,8 @@ import { Ast } from "../../utils/ast";
 
 astParsingFunctions["_&toArray"] = function(content) {
     if (content.args[0].name === "__enumType__") {
-        return new Ast("__array__", content.args[0].args)
+        return new Ast("__array__", content.args[0].args);
     }
 
     return content;
-}
+};

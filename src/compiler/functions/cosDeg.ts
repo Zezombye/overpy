@@ -29,4 +29,4 @@ astParsingFunctions.cosDeg = function(content) {
     }
 
     return content;
-}
+};

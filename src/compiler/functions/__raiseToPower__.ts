@@ -58,4 +58,4 @@ astParsingFunctions.__raiseToPower__ = function(content) {
     }
 
     return content;
-}
+};

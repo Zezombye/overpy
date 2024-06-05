@@ -44,4 +44,4 @@ astParsingFunctions.__ifThenElse__ = function(content) {
         }
     }
     return content;
-}
+};

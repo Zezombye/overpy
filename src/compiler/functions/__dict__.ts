@@ -27,4 +27,4 @@ astParsingFunctions.__dict__ = function(content) {
     }
 
     return content;
-}
+};

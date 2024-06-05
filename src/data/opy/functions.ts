@@ -648,4 +648,4 @@ Examples of valid types:
         ],
         return: "void",
     },
-}
+};

@@ -106,7 +106,7 @@ export function astActionsToOpy(actions: Ast[]): string {
         debug("Parsing AST of action '"+actions[i].name+"'");
 
         let comment = actions[i].comment;
-        if (comment != undefined) {
+        if (comment !== undefined) {
             result += comment.split("\n").map(x => tabLevel(nbTabs)+"#"+x+"\n").join("");
         }
         var decompiledAction = "";
@@ -171,7 +171,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                                 ])
                             ]),
                         ])
-                    ])
+                    ]);
 
                 } else {
                     error("Unexpected name '"+actions[i].name+"'");
@@ -187,7 +187,7 @@ export function astActionsToOpy(actions: Ast[]): string {
             "__divide__": "/=",
             "__modulo__": "%=",
             "__raiseToPower__": "**=",
-        }
+        };
 
         //Check for labels
         for (var j = 0; j < decompilerGotos.length; j++) {
@@ -210,7 +210,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 "__else__": "else",
                 "__while__": "while",
                 "__for__": "for",
-            }
+            };
             if ((actions[i].name === "__elif__" || actions[i].name === "__else__") && !actions[i].isDisabled) {
                 if (nbTabs > 1) {
                     decrementNbTabs();
@@ -475,7 +475,7 @@ export function astToOpy(content: Ast): string {
         "__greaterThanOrEquals__": ">=",
         "__lessThan__": "<",
         "__greaterThan__": ">",
-    }
+    };
     if (content.name in funcToOpMapping) {
         var op1 = astToOpy(content.args[0]);
         if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence).filter(x => astOperatorPrecedence[x] < astOperatorPrecedence[content.name] + (content.name === "__raiseToPower__" ? 1 : 0)))) {
@@ -736,7 +736,7 @@ export function astToOpy(content: Ast): string {
         var result = "";
         if (content.name === "__localizedString__") {
             result += "l";
-            result += escapeString(topy(content.args[0].name, stringKw), false)
+            result += escapeString(topy(content.args[0].name, stringKw), false);
         } else {
             result += escapeString(content.args[0].name, false);
         }

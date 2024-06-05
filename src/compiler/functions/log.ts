@@ -44,4 +44,4 @@ astParsingFunctions.log = function(content) {
             astParsingFunctions.log(new Ast("log", [content.args[1]])),
         ]);
     }
-}
+};

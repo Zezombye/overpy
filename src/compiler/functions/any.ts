@@ -27,4 +27,4 @@ astParsingFunctions.any = function(content) {
     } else {
         return new Ast("__any__", [content.args[0], new Ast("__currentArrayElement__")]);
     }
-}
+};

@@ -41,4 +41,4 @@ astParsingFunctions.distance = function(content) {
     }
 
     return content;
-}
+};

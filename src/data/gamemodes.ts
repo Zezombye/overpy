@@ -420,5 +420,5 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
     }
-}
+};
 //end-json

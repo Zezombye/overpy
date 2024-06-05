@@ -215,9 +215,9 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 			return;
 		}
 		if (content.startsWith("#!extension")) {
-			var addedExtension = content.substring("#!extension".length).trim()
+			var addedExtension = content.substring("#!extension".length).trim();
 			if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
-				error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "))
+				error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
 			}
 			activatedExtensions.push(addedExtension);
 			return;
@@ -329,7 +329,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 				error("Brackets level below 0 (extraneous closing bracket)");
 			}
 			addToken(content[i]);
-			continue
+			continue;
 		}
 		if (content.startsWith("#!", i)) {
 			let j = i;
@@ -379,13 +379,13 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 		if (content[i] === '#') {
 			//Get to the end of the comment. Note: backslashes don't work to continue a line comment.
 			let j = i + 1;
-			for (; j < content.length && content[j] !== "\n"; j++);
+			for (; j < content.length && content[j] !== "\n"; j++){;}
 
 			//To facilitate parsing, do not add the comment if it is in parentheses, as it won't be used for action comments.
 			if (bracketsLevel !== 0) {
 				moveCursor(j - i - 1);
 			} else {
-				addToken(content.substring(i, j))
+				addToken(content.substring(i, j));
 			}
 			continue;
 		} else if (content.startsWith("/*", i)) {
@@ -442,7 +442,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 			//Get token
 			var j = i;
 			//Increases j as long as there are characters that can compose a word
-			for (; j < content.length && isVarChar(content[j]); j++);
+			for (; j < content.length && isVarChar(content[j]); j++){;}
 
 			//If j > i, then there was a word, instead of an operator
 			if (j > i) {
@@ -493,8 +493,8 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 						k = 0;
 						i--;
 						let currentFile = fileStack[fileStack.length - 1];
-						if (currentFile.fileStackMemberType !== "normal") error("Tokenizer: File stack member type is not normal");
-						if (currentFile.staticMember == false) currentFile.remainingChars++;
+						if (currentFile.fileStackMemberType !== "normal") {error("Tokenizer: File stack member type is not normal");}
+						if (currentFile.staticMember === false) {currentFile.remainingChars++;}
 						macroWasFound = true;
 					}
 				}
@@ -504,7 +504,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 					if ((content.substring(i, j) === "min" || content.substring(i, j) === "max") && content[i + "min".length] === '=') {
 						j++;
 					}
-					addToken(content.substring(i, j))
+					addToken(content.substring(i, j));
 				}
 			} else {
 
@@ -550,7 +550,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
 
 	if (macro.isFunction) {
 		//debug("Args: "+args);
-		if (args.length != macro.args.length) {
+		if (args.length !== macro.args.length) {
 			error("Wrong number of arguments for macro " + macro.name);
 		}
 
@@ -588,7 +588,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
 							currentColNb: colNb,
 							staticMember: true,
 							fileStackMemberType: "normal"
-						})
+						});
 					}
 				}
 				error(e);
@@ -600,7 +600,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
 
 			//Replace macro argument names with their values
 			for (var i = 0; i < macro.args.length; i++) {
-				result = result.replace(new RegExp("\\b" + macro.args[i] + "\\b", 'g'), args[i])
+				result = result.replace(new RegExp("\\b" + macro.args[i] + "\\b", 'g'), args[i]);
 			}
 
 			//debug("result 2 = "+result);
@@ -638,7 +638,7 @@ async function parseMacro(initialMacroData: { fileStack: FileStackMember[], cont
 		replacement: isFunctionMacro
 			? trimmedMacroContent.substring(bracketPos[1] + 1).trim()
 			: trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).trim(),
-	}
+	};
 
 
 

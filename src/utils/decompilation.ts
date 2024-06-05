@@ -39,15 +39,15 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
 		var keyName = null;
 		var value = null;
 		var objKeys = Object.keys(kwObj).sort(function (a, b) {
-			var locA = (currentLanguage in kwObj[a] ? kwObj[a][currentLanguage] : kwObj[a]["en-US"])
-			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"])
-			return locA.localeCompare(locB)
-		}).reverse()
+			var locA = (currentLanguage in kwObj[a] ? kwObj[a][currentLanguage] : kwObj[a]["en-US"]);
+			var locB = (currentLanguage in kwObj[b] ? kwObj[b][currentLanguage] : kwObj[b]["en-US"]);
+			return locA.localeCompare(locB);
+		}).reverse();
 		var invalidButAcceptedPropertiesObjKeys = Object.keys(options.invalidButAcceptedProperties).sort(function (a, b) {
-			var locA = (currentLanguage in options.invalidButAcceptedProperties[a] ? options.invalidButAcceptedProperties[a][currentLanguage] : options.invalidButAcceptedProperties[a]["en-US"])
-			var locB = (currentLanguage in options.invalidButAcceptedProperties[b] ? options.invalidButAcceptedProperties[b][currentLanguage] : options.invalidButAcceptedProperties[b]["en-US"])
-			return locA.localeCompare(locB)
-		}).reverse()
+			var locA = (currentLanguage in options.invalidButAcceptedProperties[a] ? options.invalidButAcceptedProperties[a][currentLanguage] : options.invalidButAcceptedProperties[a]["en-US"]);
+			var locB = (currentLanguage in options.invalidButAcceptedProperties[b] ? options.invalidButAcceptedProperties[b][currentLanguage] : options.invalidButAcceptedProperties[b]["en-US"]);
+			return locA.localeCompare(locB);
+		}).reverse();
 		//console.log(objKeys)
 		var isInvalidButAcceptedProperty = false;
 		for (var key of objKeys) {
@@ -196,12 +196,12 @@ export function splitStrOnDelimiter(content: string, delimiter: string, getAllMe
 			i = bracketPos[bracketPosCheckIndex + 1];
 			bracketPosCheckIndex += 2;
 
-		} else if (!currentPositionIsString && content.charAt(i) == '"') {
+		} else if (!currentPositionIsString && content.charAt(i) === '"') {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
 			currentPositionIsString = !currentPositionIsString;
-		} else if (content.charAt(i) == '\\') {
+		} else if (content.charAt(i) === '\\') {
 			i++;
 		} else if (!currentPositionIsString && content.startsWith(delimiter, i)) {
 			//fix for baguette
@@ -255,10 +255,10 @@ export function getOperatorInStr(content: string, operators: string[], rtlPreced
 		} else if (!currentPositionIsString && (content[i] === ')' || content[i] === ']' || content[i] === '}')) {
 			bracketsLevel--;
 
-		} else if (content[i] == '"') {
+		} else if (content[i] === '"') {
 			currentPositionIsString = !currentPositionIsString;
 
-		} else if (content[i] == '\\') {
+		} else if (content[i] === '\\') {
 			i++;
 
 		} else if (bracketsLevel === 0 && !currentPositionIsString) {
@@ -285,25 +285,25 @@ export function getOperatorInStr(content: string, operators: string[], rtlPreced
 	return {
 		operatorFound,
 		operatorPosition,
-	}
+	};
 }
 
 //This function returns the index of each first-level opening and closing brackets/parentheses.
 //Example: the string "3*(4*(')'))+(4*5)" will return [2, 10, 12, 16].
 export function getBracketPositions(content: string, returnFirstPair = false, stringIncludesApos = false): number[] {
-	var bracketsPos = []
+	var bracketsPos = [];
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
 	var currentStrDelimiter = "";
 	for (var i = 0; i < content.length; i++) {
 		if (!currentPositionIsString && startsWithParenthesis(content.substring(i))) {
 			bracketsLevel++;
-			if (bracketsLevel == 1) {
+			if (bracketsLevel === 1) {
 				bracketsPos.push(i);
 			}
-		} else if ((content.charAt(i) == ')' || content.charAt(i) == ']' || content.charAt(i) == '}') && !currentPositionIsString) {
+		} else if ((content.charAt(i) === ')' || content.charAt(i) === ']' || content.charAt(i) === '}') && !currentPositionIsString) {
 			bracketsLevel--;
-			if (bracketsLevel == 0) {
+			if (bracketsLevel === 0) {
 				bracketsPos.push(i);
 				if (returnFirstPair) {
 					break;
@@ -311,12 +311,12 @@ export function getBracketPositions(content: string, returnFirstPair = false, st
 			} else if (bracketsLevel < 0) {
 				error("Brackets level below 0! (missing opening bracket)");
 			}
-		} else if (!currentPositionIsString && (content.charAt(i) == '"' || (content.charAt(i) == '\'' && stringIncludesApos))) {
+		} else if (!currentPositionIsString && (content.charAt(i) === '"' || (content.charAt(i) === '\'' && stringIncludesApos))) {
 			currentPositionIsString = !currentPositionIsString;
 			currentStrDelimiter = content.charAt(i);
 		} else if (content.charAt(i) === currentStrDelimiter) {
 			currentPositionIsString = !currentPositionIsString;
-		} else if (content.charAt(i) == '\\') {
+		} else if (content.charAt(i) === '\\') {
 			i++;
 		}
 	}
@@ -339,7 +339,7 @@ export function getName(content: string): string {
 
 	var bracketPos = getBracketPositions(content);
 
-	if (bracketPos.length == 2) {
+	if (bracketPos.length === 2) {
 		var name = content.substring(0, bracketPos[0]);
 	} else {
 		var name = content;

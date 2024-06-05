@@ -2329,5 +2329,5 @@ export const mapKw: Record<string, import("../types").Map> =
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
     }
-}
+};
 //end-json

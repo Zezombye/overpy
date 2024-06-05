@@ -560,4 +560,4 @@ rule("lost")
 		Declare Team Victory(Team 1);
 	}
 }
-`
+`;

@@ -68,4 +68,4 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
 
     return content;
 
-}
+};

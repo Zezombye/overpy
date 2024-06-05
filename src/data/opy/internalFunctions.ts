@@ -470,4 +470,4 @@ export const opyInternalFuncs: Record<string, {
         ],
         return: "void",
     },
-}
+};

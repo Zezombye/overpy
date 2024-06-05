@@ -63,7 +63,7 @@ export function addSubroutine(content: string, index: number | null, isFromDefSt
 		"name": content,
 		"index": index ?? subroutines.length,
 		"isFromDefStatement": isFromDefStatement,
-	})
+	});
 }
 
 /** Transform an input name to a valid name which does not collide with other keywords. */

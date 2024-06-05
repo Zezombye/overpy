@@ -26,7 +26,7 @@ import { isTypeSuitable } from "../../utils/types";
 
 astParsingFunctions.createWorkshopSetting = function(content) {
     let funcValueArgs = funcKw[content.name].args;
-    if (funcValueArgs == null) error("No arguments found for workshop setting: '" + content.name + "'");
+    if (funcValueArgs === null) {error("No arguments found for workshop setting: '" + content.name + "'");}
 
     //Types are capital here as a type mismatch won't allow pasting
     for (var i = 0; i < content.args.length; i++) {
@@ -82,12 +82,12 @@ astParsingFunctions.createWorkshopSetting = function(content) {
 
     //Typecheck the default
     let expectedType = funcKw[result.name].args?.[2].type;
-    if (expectedType == undefined) error("Could not determine expected type for workshop setting '" + content.name + "'");
+    if (expectedType === undefined) {error("Could not determine expected type for workshop setting '" + content.name + "'");}
     if (!isTypeSuitable(expectedType, result.args[2].type, false)) {
         error(getTypeCheckFailedMessage(result, i, expectedType, result.args[2]));
     }
     return result;
-}
+};
 
 function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
 

@@ -3376,5 +3376,5 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "zh-CN": "探奇",
         "zh-TW": "無畏"
     }
-}
+};
 //end-json

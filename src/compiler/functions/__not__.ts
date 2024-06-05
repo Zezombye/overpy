@@ -45,4 +45,4 @@ astParsingFunctions.__not__ = function(content) {
         }
     }
     return content;
-}
+};

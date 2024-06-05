@@ -22,7 +22,7 @@ import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__if__ = function(content) {
-    if (content.parent === undefined) error("'if' AST lacks parent");
+    if (content.parent === undefined) {error("'if' AST lacks parent");}
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
     if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
@@ -114,4 +114,4 @@ astParsingFunctions.__if__ = function(content) {
 
     return content;
 
-}
+};

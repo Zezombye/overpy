@@ -213,7 +213,7 @@ export function parseType(tokens: Token[]): Ast {
         var enumMembers = splitTokens(typeParams, ",", true);
 
         if (enumMembers[enumMembers.length-1].length === 0) {
-            enumMembers.pop()
+            enumMembers.pop();
         }
         if (enumMembers.length === 0) {
             error("Cannot declare an enum without specifying values");

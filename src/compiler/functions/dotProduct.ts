@@ -42,4 +42,4 @@ astParsingFunctions.dotProduct = function(content) {
     }
 
     return content;
-}
+};

@@ -172,7 +172,7 @@ export const customGameSettingsKw: Record<string, LocalizableString> =
         "zh-CN": "是",
         "zh-TW": "是"
     }
-}
+};
 //end-json
 
 export const ruleKw: Record<string, LocalizableString> =
@@ -358,7 +358,7 @@ export const ruleKw: Record<string, LocalizableString> =
         "ko-KR": "variables",
         "ru-RU": "variables"
     }
-}
+};
 //end-json
 
 /**
@@ -620,7 +620,7 @@ export const eventKw =
         "ru-RU": "Subroutine",
         "zh-TW": "Subroutine"
     }
-}
+};
 //end-json
 
 /** @type { { [key: string]: import("../types").LocalizableString } } */
@@ -681,7 +681,7 @@ export const eventTeamKw =
         "ru-RU": "All",
         "zh-TW": "All"
     }
-}
+};
 //end-json
 
 const slotKw: LocalizableString =
@@ -703,11 +703,11 @@ const slotKw: LocalizableString =
     "it-IT": "Slot %1$s",
     "ko-KR": "Slot %1$s",
     "zh-TW": "Slot %1$s"
-}
+};
 //end-json
 export const eventSlotKw: Record<string, LocalizableString> = {};
 for (var i = 0; i < 12; i++) {
-    eventSlotKw[i] = Object.assign({}, slotKw)
+    eventSlotKw[i] = Object.assign({}, slotKw);
     for (var key of (Object.keys(eventSlotKw[i]) as Array<keyof LocalizableString>)) {
         eventSlotKw[i][key] = eventSlotKw[i][key]?.replace("%1$s", i.toString());
     }
@@ -734,7 +734,7 @@ export const eventPlayerKw: Record<string, LocalizableString> =
         "ko-KR": "All",
         "zh-TW": "All"
     }
-}
+};
 //end-json
 Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 

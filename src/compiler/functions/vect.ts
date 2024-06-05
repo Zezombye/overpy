@@ -47,4 +47,4 @@ astParsingFunctions.vect = function(content) {
     }
 
     return content;
-}
+};

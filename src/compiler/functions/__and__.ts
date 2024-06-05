@@ -53,4 +53,4 @@ astParsingFunctions.__and__ = function(content) {
         }
     }
     return content;
-}
+};

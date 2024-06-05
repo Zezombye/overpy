@@ -29,4 +29,4 @@ astParsingFunctions.cos = function(content) {
     }
 
     return content;
-}
+};

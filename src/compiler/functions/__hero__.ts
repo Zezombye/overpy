@@ -25,4 +25,4 @@ astParsingFunctions.__hero__ = function(content) {
     } else {
         return content;
     }
-}
+};

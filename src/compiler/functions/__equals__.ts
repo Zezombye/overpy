@@ -52,4 +52,4 @@ astParsingFunctions.__equals__ = function(content) {
         }
     }
     return content;
-}
+};

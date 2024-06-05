@@ -125,4 +125,4 @@ ${Object.keys(customGameSettingsSchema.extensions.values).map(x => "- `"+x+"` ("
 __extensionDescription__`,
         "snippet": "extension ${1|"+Object.keys(customGameSettingsSchema.extensions.values).join(",")+"|}",
     }
-}
+};

@@ -48,4 +48,4 @@ astParsingFunctions.crossProduct = function(content) {
     }
 
     return content;
-}
+};

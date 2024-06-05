@@ -42,9 +42,9 @@ astParsingFunctions.normalize = function(content) {
             return new Ast("directionTowards", [
                 content.args[0].args[0],
                 content.args[0].args[1],
-            ])
+            ]);
         }
     }
 
     return content;
-}
+};

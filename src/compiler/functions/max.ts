@@ -29,4 +29,4 @@ astParsingFunctions.max = function(content) {
     }
 
     return content;
-}
+};

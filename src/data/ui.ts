@@ -92,7 +92,7 @@ const ruleAttributesDisplayNamesKw =
         "it-IT": "Subroutine",
         "ko-KR": "Subroutine"
     }
-}
+};
 //end-json
 
 const workshopUiKw =
@@ -872,7 +872,7 @@ const workshopUiKw =
         "zh-CN": "元素包括规则、条件、行动和值（最多可有%1$s个）",
         "zh-TW": "元件包括規則、條件、動作和數值（最高為%1$s）"
     }
-}
+};
 //end-json
 
 const workshopUiCustomKw = {
@@ -1328,4 +1328,4 @@ const workshopUiCustomKw = {
         "zh-TW": "你沒擁有這個項目, 改動不會被保存.",
         "pt-BR": "Você não é dono(a) desse projeto, mudanças não serão salvas.",
     },
-}
+};

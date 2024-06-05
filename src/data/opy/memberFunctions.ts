@@ -249,4 +249,4 @@ const opyMemberFuncs: Record<string, {
         class: "Vector",
         return: "float",
     }
-}
+};

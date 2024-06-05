@@ -29,4 +29,4 @@ astParsingFunctions.tan = function(content) {
     }
 
     return content;
-}
+};

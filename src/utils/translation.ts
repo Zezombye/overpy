@@ -90,7 +90,7 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
 			}
 			keywordComparing = keywordComparing.toLowerCase();
 			if (keywordObj !== stringKw) {
-				keywordComparing = keywordComparing.replace(/\s/g, "")
+				keywordComparing = keywordComparing.replace(/\s/g, "");
 			}
 			if (keywordComparing === keyword) {
 				var result = key;

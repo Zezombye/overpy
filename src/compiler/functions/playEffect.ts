@@ -31,4 +31,4 @@ astParsingFunctions.playEffect = function(content) {
     }
 
     return content;
-}
+};

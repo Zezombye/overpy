@@ -44,4 +44,4 @@ astParsingFunctions.__arraySlice__ = function(content) {
     }
 
     return content;
-}
+};

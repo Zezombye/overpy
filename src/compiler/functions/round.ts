@@ -29,4 +29,4 @@ astParsingFunctions.round = function(content) {
     }
 
     return content;
-}
+};

@@ -45,4 +45,4 @@ astParsingFunctions.__modifyVar__ = function(content) {
     }
 
     return content;
-}
+};

@@ -25,7 +25,7 @@ astParsingFunctions.__append__ = function(content) {
         content.args[0],
         new Ast("__appendToArray__", [], [], "__Operation__"),
         content.args[1],
-    ])
+    ]);
     result.originalName = "__append__";
     return result;
-}
+};

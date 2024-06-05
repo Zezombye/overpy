@@ -31,4 +31,4 @@ astParsingFunctions.__distanceTo__ = function(content) {
         currentRuleLabelAccess[label]++;
     }
     return content;
-}
+};

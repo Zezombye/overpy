@@ -40,4 +40,4 @@ astParsingFunctions.getOppositeTeam = function(content) {
     }
 
     return content;
-}
+};

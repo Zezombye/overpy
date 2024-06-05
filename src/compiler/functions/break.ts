@@ -26,7 +26,7 @@ astParsingFunctions.break = function(content) {
 
     //Determine the innermost loop or switch
     let innermostStructure = content.parent;
-    if (innermostStructure == undefined) error("immediate parent of break statement is undefined?");
+    if (innermostStructure === undefined) {error("immediate parent of break statement is undefined?");}
     while (innermostStructure.parent !== undefined) {
         if (["__while__", "__for__", "__switch__", "__doWhile__"].includes(innermostStructure.name)) {
             break;
@@ -36,7 +36,7 @@ astParsingFunctions.break = function(content) {
     }
 
     if (innermostStructure.name === "__doWhile__") {
-        if (innermostStructure.parent == undefined) error("Do/While loop has no parent?");
+        if (innermostStructure.parent === undefined) {error("Do/While loop has no parent?");}
 
         //Place a label at the end
         var labelName = "__label_break_"+getUniqueNumber()+"__";
@@ -60,4 +60,4 @@ astParsingFunctions.break = function(content) {
         //breaks outside loops act like aborts
         return new Ast("return");
     }
-}
+};

@@ -43,10 +43,12 @@
 		{
 			"name": "Run Development version of OverPy",
 			"type": "extensionHost",
+			"preLaunchTask": "Compile",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}/VS Code Extension"
+				"--disable-extensions",
+				"--extensionDevelopmentPath=${workspaceFolder}"
 			]
 		}
 	]

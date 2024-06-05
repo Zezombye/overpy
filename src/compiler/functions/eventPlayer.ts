@@ -27,4 +27,4 @@ astParsingFunctions.eventPlayer = function(content) {
     }
 
     return content;
-}
+};

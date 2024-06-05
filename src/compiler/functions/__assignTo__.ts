@@ -50,4 +50,4 @@ astParsingFunctions.__assignTo__ = function(content) {
     }
 
     return content;
-}
+};

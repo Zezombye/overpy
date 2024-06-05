@@ -29,4 +29,4 @@ astParsingFunctions.asinDeg = function(content) {
     }
 
     return content;
-}
+};

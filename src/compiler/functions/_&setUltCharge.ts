@@ -29,4 +29,4 @@ astParsingFunctions["_&setUltCharge"] = function(content) {
     }
 
     return content;
-}
+};

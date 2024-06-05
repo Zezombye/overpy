@@ -80,10 +80,10 @@ astParsingFunctions.__switch__ = function(content) {
     for (var child of casesChildren) {
         child.parent = content.parent;
     }
-    if (content.parent === undefined) error("Parent is undefined in __switch__");
+    if (content.parent === undefined) {error("Parent is undefined in __switch__");}
     content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
 
     var result = new Ast("__if__", [getAstForTrue()]);
     result.doNotOptimize = true;
     return result;
-}
+};

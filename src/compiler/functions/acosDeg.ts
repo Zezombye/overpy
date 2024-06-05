@@ -29,4 +29,4 @@ astParsingFunctions.acosDeg = function(content) {
     }
 
     return content;
-}
+};

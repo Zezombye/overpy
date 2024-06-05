@@ -23,7 +23,7 @@ import { mapKw } from "../data/maps";
 import { customGameSettingsKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
 import { resetGlobalVariables, globalVariables, defaultVarNames, playerVariables, subroutines, defaultSubroutineNames, activatedExtensions, setActivatedExtensions } from "../globalVars";
-import { OWLanguage, Overwatch2Heroes } from "../types";
+import { OWLanguage, Overwatch2Heroes } from "../types.d";
 import { Ast } from "../utils/ast";
 import { decompileCustomGameSettingsDict, getBracketPositions } from "../utils/decompilation";
 import { astToString, debug, error } from "../utils/logging";
@@ -95,7 +95,7 @@ export function decompileAllRules(content: string, language: OWLanguage="en-US")
 	}
 	console.log(astRules);
 
-	var opyRules = astRulesToOpy(astRules)
+	var opyRules = astRulesToOpy(astRules);
 	if (activatedExtensions.length > 0) {
 		result += "#Activated extensions\n\n" + activatedExtensions.map(x => "#!extension "+x+"\n").join("")+"\n\n";
 	}
@@ -125,10 +125,10 @@ function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
 	var gamemodeConstFunction = tows("__gamemode__", valueFuncKw);
 
 	//This regex will sadly also replace instances in strings, but I doubt there are many.
-	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g")
-	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)")
-	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g")
-	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)")
+	var mapRegex = new RegExp("\\b"+mapConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g");
+	content = content.replace(mapRegex, mapConstFunction+"(__removed_from_ow2__)");
+	var gamemodeRegex = new RegExp("\\b"+gamemodeConstFunction+"\\(\\s*(?=[&\\-|=\\*,?;\\.:!])", "g");
+	content = content.replace(gamemodeRegex, gamemodeConstFunction+"(__removed_from_ow2__)");
 
 	console.log(gamemodeRegex);
 	console.log(gamemodeConstFunction);
@@ -143,7 +143,7 @@ function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
 	//Check for settings
 	if (content.startsWith(tows("__settings__", ruleKw))) {
 		customGameSettings += decompileCustomGameSettings(content.substring(bracketPos[0]+1, bracketPos[1]));
-		content = content.substring(bracketPos[1]+1)
+		content = content.substring(bracketPos[1]+1);
 	}
 
 	if (activatedExtensions.length > 0) {
@@ -156,7 +156,7 @@ function decompileAllRulesToAst(content: string): string | [string, Ast[]] {
 	//Check for variable names
 	if (content.startsWith(tows("__variables__", ruleKw))) {
 		decompileVarNames(content.substring(bracketPos[0]+1, bracketPos[1]));
-		content = content.substring(bracketPos[1]+1)
+		content = content.substring(bracketPos[1]+1);
 	}
 
 	content = content.trim();
@@ -294,38 +294,38 @@ function decompileCustomGameSettings(content: string) {
 								if (map.includes("972777")) {
 									var variants = [...map.matchAll(/\b972777\d+\b/g)].map(x => x[0]);
 									var mapName = topy(map.replace(/\b972777\d+\b/g, ""), mapKw);
-									var mapVariants = []
+									var mapVariants = [];
 									if (!("variants" in mapKw[mapName])) {
-										error("Map '"+mapName+"' should have no variants")
+										error("Map '"+mapName+"' should have no variants");
 									}
 									for (var variant of variants) {
 										var variantName = Object.keys(mapKw[mapName].variants as Record<string, string>).filter(x => (mapKw[mapName].variants as Record<string, string>)[x] === variant);
 										if (variantName.length === 0) {
 											error("Unknown variant '"+variant+"' for map '"+mapName+"'");
 										}
-										mapVariants.push(variantName[0])
+										mapVariants.push(variantName[0]);
 									}
 									if (mapVariants.length === Object.keys(mapKw[mapName].variants as Record<string, string>).length) {
-										result[opyCategory][opyGamemode][opyPropName].push(mapName)
+										result[opyCategory][opyGamemode][opyPropName].push(mapName);
 									} else {
-										var mapObj: Record<string, string[]> = {}
-										mapObj[mapName] = mapVariants
-										result[opyCategory][opyGamemode][opyPropName].push(mapObj)
+										var mapObj: Record<string, string[]> = {};
+										mapObj[mapName] = mapVariants;
+										result[opyCategory][opyGamemode][opyPropName].push(mapObj);
 									}
 								} else {
-									result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw))
+									result[opyCategory][opyGamemode][opyPropName].push(topy(map, mapKw));
 								}
 							}
 						}
 					}
 				}
 
-				Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values))
+				Object.assign(result[opyCategory][opyGamemode], decompileCustomGameSettingsDict(dict, customGameSettingsSchema[opyCategory].values[opyGamemode].values));
 			}
 
 		} else if (opyCategory === "heroes") {
 			for (var team of Object.keys(serialized[category])) {
-				var opyTeam = topy(team, customGameSettingsSchema[opyCategory].teams)
+				var opyTeam = topy(team, customGameSettingsSchema[opyCategory].teams);
 				result[opyCategory][opyTeam] = {};
 
 				var dict = [];
@@ -340,12 +340,12 @@ function decompileCustomGameSettings(content: string) {
 							var opyPropName = topy(property, customGameSettingsSchema.heroes.values);
 							result[opyCategory][opyTeam][opyPropName] = [];
 							for (var hero of Object.keys(serialized[category][team][property])) {
-								result[opyCategory][opyTeam][opyPropName].push(topy(hero, heroKw))
+								result[opyCategory][opyTeam][opyPropName].push(topy(hero, heroKw));
 							}
 						} else {
 							//probably a hero
 							let opyHero = topy(property, heroKw);
-							if (!(<any>Object).values(Overwatch2Heroes).includes(opyHero)) error("Unknown hero '"+opyHero+"'");
+							if (!(<any>Object).values(Overwatch2Heroes).includes(opyHero)) {error("Unknown hero '"+opyHero+"'");}
 							result[opyCategory][opyTeam][opyHero] = {};
 							let heroValues = customGameSettingsSchema[opyCategory].values[opyHero as Overwatch2Heroes]?.values;
 							if (heroValues === undefined) {
@@ -356,7 +356,7 @@ function decompileCustomGameSettings(content: string) {
 								decompileCustomGameSettingsDict(
 									Object.keys(serialized[category][team][property]),
 									heroValues,
-									{invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general?.values ?? error("No general values for heroes")}))
+									{invalidButAcceptedProperties: customGameSettingsSchema[opyCategory].values.general?.values ?? error("No general values for heroes")}));
 						}
 					}
 				}
@@ -384,7 +384,7 @@ function decompileCustomGameSettings(content: string) {
 					value = parseFloat(value);
 				} else if (value.startsWith("[") && value.endsWith("]")) {
 					//workshop enum
-					value = [parseFloat(value.substring(1))]
+					value = [parseFloat(value.substring(1))];
 				} else if (/e[\+\-]\d+:F3/.test(value)) {
 					//Copy bug for too high/low numbers
 					value = parseFloat("1"+value.substring(0, value.indexOf(":")));

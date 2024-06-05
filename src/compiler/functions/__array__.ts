@@ -29,4 +29,4 @@ astParsingFunctions.__array__ = function(content) {
     }
 
     return content;
-}
+};

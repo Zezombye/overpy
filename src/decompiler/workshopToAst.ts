@@ -41,7 +41,7 @@ export function decompileRuleToAst(content: string): Ast {
 	}
 
 	var bracketPos = getBracketPositions(content);
-	if (bracketPos.length != 4) {
+	if (bracketPos.length !== 4) {
 		error("Invalid rule (mismatched brackets): has " + bracketPos.length + " top-level brackets, should be 4");
 	}
 
@@ -146,7 +146,7 @@ export function decompileConditions(content: string) {
 		}
 
 		let astCondition = decompile(condition);
-		if (currentConditionComment != "") astCondition.comment = currentConditionComment;
+		if (currentConditionComment !== "") {astCondition.comment = currentConditionComment;}
 		astCondition.isDisabled = isCurrentConditionDisabled;
 		astConditions.push(astCondition);
 
@@ -186,7 +186,7 @@ export function decompileAction(content: string) {
 
 	var decompiledAction = decompile(content);
 	decompiledAction.isDisabled = isCurrentActionDisabled;
-	if (currentActionComment != "") decompiledAction.comment = currentActionComment;
+	if (currentActionComment !== "") {decompiledAction.comment = currentActionComment;}
 
 	return decompiledAction;
 }
@@ -227,7 +227,7 @@ export function decompile(content: string): Ast {
 		"/": "__divide__",
 		"%": "__modulo__",
 		"^": "__raiseToPower__",
-	}
+	};
 
 	const modifyOpToFuncMapping = {
 		"+=": "__add__",
@@ -236,7 +236,7 @@ export function decompile(content: string): Ast {
 		"/=": "__divide__",
 		"%=": "__modulo__",
 		"^=": "__raiseToPower__",
-	}
+	};
 
 	//Split on operators
 	for (var operatorGroup of wsOperators) {
@@ -251,12 +251,12 @@ export function decompile(content: string): Ast {
 			var operator = operatorCheck.operatorFound.trim();
 			debug("Handling operator '" + operator + "'");
 
-			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)]
+			var operands = [content.slice(0, operatorCheck.operatorPosition), content.slice(operatorCheck.operatorPosition + operatorCheck.operatorFound.length)];
 			if (operator in binaryOpToFuncMapping) {
 				return new Ast(binaryOpToFuncMapping[operator as keyof typeof binaryOpToFuncMapping], [decompile(operands[0]), decompile(operands[1])]);
 
 			} else if (operator in modifyOpToFuncMapping) {
-				return new Ast("__modifyVar__", [decompile(operands[0]), new Ast(modifyOpToFuncMapping[operator as keyof typeof modifyOpToFuncMapping], [], [], "__Operation__"), decompile(operands[1])])
+				return new Ast("__modifyVar__", [decompile(operands[0]), new Ast(modifyOpToFuncMapping[operator as keyof typeof modifyOpToFuncMapping], [], [], "__Operation__"), decompile(operands[1])]);
 
 			} else if (operator === "?") {
 				var elseOperands = splitStrOnDelimiter(operands[1], ":", false);
@@ -282,7 +282,7 @@ export function decompile(content: string): Ast {
 		return new Ast("__valueInArray__", [
 			decompile(content.substring(0, bracketPos[bracketPos.length - 2])),
 			decompile(content.substring(bracketPos[bracketPos.length - 2] + 1, bracketPos[bracketPos.length - 1])),
-		])
+		]);
 	}
 
 	//Check for the "." operator
@@ -307,11 +307,11 @@ export function decompile(content: string): Ast {
 	var bracketPos = getBracketPositions(content);
 
 
-	var hasArgs = false
-	if (bracketPos.length == 2) {
+	var hasArgs = false;
+	if (bracketPos.length === 2) {
 		hasArgs = true;
-	} else if (bracketPos.length != 0) {
-		error("Mismatched top-level brackets in action " + content + ": expected 0 or 2, found " + bracketPos.length)
+	} else if (bracketPos.length !== 0) {
+		error("Mismatched top-level brackets in action " + content + ": expected 0 or 2, found " + bracketPos.length);
 	}
 
 	//Check if the whole string is in parentheses
@@ -320,13 +320,13 @@ export function decompile(content: string): Ast {
 	}
 
 	//Check if there are empty parentheses
-	if (bracketPos.length == 2 && content.substring(bracketPos[0] + 1, bracketPos[1]).trim().length == 0) {
+	if (bracketPos.length === 2 && content.substring(bracketPos[0] + 1, bracketPos[1]).trim().length === 0) {
 		hasArgs = false;
 		content = content.substring(0, bracketPos[0]);
 	}
 
 	var name = "";
-	if (bracketPos.length == 2) {
+	if (bracketPos.length === 2) {
 		name = content.substring(0, bracketPos[0]);
 	} else {
 		name = content;
@@ -351,9 +351,9 @@ export function decompile(content: string): Ast {
 		//Is it a constant instead of a function?
 		name = topy(name.toLowerCase().replace(/\s/g, ""), constantKw);
 		if (name === "ColorLiteral.TEAM_1") {
-			name = "TeamLiteral.1"
+			name = "TeamLiteral.1";
 		} else if (name === "ColorLiteral.TEAM_2") {
-			name = "TeamLiteral.2"
+			name = "TeamLiteral.2";
 		}
 		var type = name.substring(0, name.indexOf("."));
 		var elem = name.substring(name.indexOf(".") + 1);
@@ -423,7 +423,7 @@ export function decompile(content: string): Ast {
 			">=": "__greaterThanOrEquals__",
 			"<": "__lessThan__",
 			">": "__greaterThan__",
-		}
+		};
 		if (!(args[1] in funcToOpMapping)) {
 			error("Unknown operator '" + args[1] + "'");
 		}
@@ -435,7 +435,7 @@ export function decompile(content: string): Ast {
 			decompile(args[1]),
 			decompile(args[2]),
 			decompile(args[3]),
-		])
+		]);
 	}
 	if (name === "__forPlayerVariable__") {
 		return new Ast("__for__", [
@@ -446,7 +446,7 @@ export function decompile(content: string): Ast {
 			decompile(args[2]),
 			decompile(args[3]),
 			decompile(args[4]),
-		])
+		]);
 	}
 	if (name === "__round__") {
 		return new Ast("__round__", [decompile(args[0]), new Ast(topy(args[1], constantValues.__Rounding__), [], [], "__Rounding__")]);

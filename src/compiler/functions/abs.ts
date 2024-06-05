@@ -29,4 +29,4 @@ astParsingFunctions.abs = function(content) {
     }
 
     return content;
-}
+};

@@ -29,4 +29,4 @@ astParsingFunctions.floor = function(content) {
     }
 
     return content;
-}
+};

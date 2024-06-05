@@ -29,4 +29,4 @@ astParsingFunctions.atan2 = function(content) {
     }
 
     return content;
-}
+};

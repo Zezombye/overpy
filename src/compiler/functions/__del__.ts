@@ -29,7 +29,7 @@ astParsingFunctions.__del__ = function(content) {
         content.args[0].args[0],
         new Ast("__removeFromArrayByIndex__", [], [], "__Operation__"),
         content.args[0].args[1],
-    ])
+    ]);
     result.originalName = "__del__";
     return result;
-}
+};

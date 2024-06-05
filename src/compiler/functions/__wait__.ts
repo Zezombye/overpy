@@ -30,4 +30,4 @@ astParsingFunctions.__wait__ = function(content) {
     }
 
     return content;
-}
+};

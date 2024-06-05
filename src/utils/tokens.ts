@@ -42,7 +42,7 @@ export function splitTokens(tokens: Token[], str: string, getAllTokens=true, rtl
 
 	//console.log("Splitting tokens '"+dispTokens(tokens)+"' on "+str);
 
-	for (var i = start; i != end; i+=step) {
+	for (var i = start; i !== end; i += step) {
 		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
 			bracketsLevel += step;
 		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {
@@ -81,14 +81,14 @@ export function splitTokens(tokens: Token[], str: string, getAllTokens=true, rtl
 
 //Same as getBracketPositions but for tokens.
 export function getTokenBracketPos(tokens: Token[], returnFirstPair=false) {
-	var bracketsPos: number[] = []
+	var bracketsPos: number[] = [];
 	var bracketsLevel = 0;
 	var currentPositionIsString = false;
 	var currentStrDelimiter = "";
 	for (var i = 0; i < tokens.length; i++) {
 		if (tokens[i].text === '(' || tokens[i].text === '[' || tokens[i].text === '{') {
 			bracketsLevel++;
-			if (bracketsLevel == 1) {
+			if (bracketsLevel === 1) {
 				bracketsPos.push(i);
 			}
 		} else if (tokens[i].text === ')' || tokens[i].text === ']' || tokens[i].text === '}') {

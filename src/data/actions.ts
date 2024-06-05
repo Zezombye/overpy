@@ -24,7 +24,7 @@ export type Action = {
     descriptionLocalized: LocalizableString,
     return: string,
     hasLiteralLimit?: boolean
-} & LocalizableString
+} & LocalizableString;
 
 // export type Argument = {
 //     name: string,
@@ -27059,5 +27059,5 @@ export const actionKw: Record<string, Action> =
         "it-IT": "Create Projectile Effect",
         "pl-PL": "Create Projectile Effect"
     }
-}
+};
 //end-json

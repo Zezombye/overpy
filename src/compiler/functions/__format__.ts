@@ -69,7 +69,7 @@ astParsingFunctions.__format__ = function (content) {
 		return parseCustomString(content.args[0], content.args.slice(1));
 	}
 
-}
+};
 
 
 var caseSensitiveReplacements: Record<string, string> = {
@@ -102,7 +102,7 @@ var caseSensitiveReplacements: Record<string, string> = {
 	"x": "ҳ",
 	"y": "ỵ",
 	"z": "ẓ",
-}
+};
 
 //Parses a custom string.
 function parseCustomString(str: Ast, formatArgs: Ast[]) {
@@ -155,10 +155,10 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 			content = tmpStr;
 
 		} else if (isCaseSensitive) {
-			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1")
-			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1")
+			content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1");
+			content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1");
 			for (var key of Object.keys(caseSensitiveReplacements)) {
-				content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key])
+				content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key]);
 			}
 		}
 
@@ -167,7 +167,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 
 	//Tokenize string
 	while (true) {
-		var index = content.search(/{\d*}/)
+		var index = content.search(/{\d*}/);
 		if (index >= 0) {
 			if (index > 0) {
 				tokens.push({
@@ -227,7 +227,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 	//console.log(args);
 
 	if (isFullwidth && containsNonFullwidthChar) {
-		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters")
+		warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters");
 	}
 	if (isBigLetters && !isConvertedToBigLetters) {
 		error("Could not convert the string to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
@@ -285,7 +285,7 @@ function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: 
 				var splitString = false;
 				if (token.type === "string" && (stringLength + getUtf8Length(token.text) > 128 || tokens.length > i)) {
 
-					var tokenText = [...token.text]
+					var tokenText = [...token.text];
 					var tokenSliceLength = 0;
 					var sliceIndex = 0;
 					for (var j = 0; stringLength + tokenSliceLength < 128 - "{0}".length * 2; j++) {
@@ -293,7 +293,7 @@ function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: 
 						sliceIndex++;
 					}
 
-					result += tokenText.slice(0, sliceIndex).join("")
+					result += tokenText.slice(0, sliceIndex).join("");
 
 					token.text = tokenText.slice(sliceIndex).join("");
 					splitString = true;
@@ -305,7 +305,7 @@ function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: 
 				if (splitString) {
 					result += "{" + currentNbIndex + "}";
 					if (currentNbIndex > 2) {
-						error("Custom string parser returned '{" + currentNbIndex + "}', please report to Zezombye")
+						error("Custom string parser returned '{" + currentNbIndex + "}', please report to Zezombye");
 					}
 					resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
 					break;
@@ -343,7 +343,7 @@ function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: 
 					}
 					result += "{" + mappings[token.index] + "}";
 					if (mappings[token.index] > 2) {
-						error("Custom string parser returned '{" + mappings[token.index] + "}', please report to Zezombye")
+						error("Custom string parser returned '{" + mappings[token.index] + "}', please report to Zezombye");
 					}
 					if (mappings[token.index] === currentNbIndex) {
 						currentNbIndex++;
@@ -361,7 +361,7 @@ function parseStringTokens(tokens: ({ text: string, type: "string" } | { index: 
 		resultArgs.push(getAstForNull());
 	}
 
-	if (resultArgs.length != 3) {
+	if (resultArgs.length !== 3) {
 		error("Custom string parser broke (string args length is " + resultArgs.length + "), please report to Zezombye");
 	}
 

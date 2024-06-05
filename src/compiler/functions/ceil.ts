@@ -29,4 +29,4 @@ astParsingFunctions.ceil = function(content) {
     }
 
     return content;
-}
+};

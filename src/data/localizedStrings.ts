@@ -15,13 +15,13 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { heroKw } from "./heroes"
+import { heroKw } from "./heroes";
 
 var emptyStrKw = {
     "": {
         "en-US": ""
     }
-}
+};
 
 var normalStrKw =
 //begin-json
@@ -12140,7 +12140,7 @@ var normalStrKw =
         "fr-FR": "Zones",
         "ko-KR": "Zones"
     }
-}
+};
 //end-json
 
 var prefixStrKw =
@@ -12236,7 +12236,7 @@ var prefixStrKw =
         "it-IT": "Round {0}",
         "ko-KR": "Round {0}"
     }
-}
+};
 //end-json
 
 var postfixStrKw =
@@ -12494,7 +12494,7 @@ var postfixStrKw =
         "tr-TR": "{0}???",
         "zh-TW": "{0}???"
     }
-}
+};
 //end-json
 
 var binaryStrKw =
@@ -12860,7 +12860,7 @@ var binaryStrKw =
         "zh-CN": "{0}:{1}",
         "zh-TW": "{0}:{1}"
     }
-}
+};
 //end-json
 
 var ternaryStrKw =
@@ -12956,7 +12956,7 @@ var ternaryStrKw =
         "zh-TW": "{0}: {1} 以及{2}",
         "ko-KR": "{0}: {1} and {2}"
     }
-}
+};
 //end-json
 
 var surroundStrKw =
@@ -13016,11 +13016,11 @@ var surroundStrKw =
         "zh-CN": "¿{0}?",
         "zh-TW": "¿{0}?"
     }
-}
+};
 //end-json
 
 /** @type { { [key: string]: { guid: string, [language: string]: string } } } */
-export var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw)
+export var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw);
 
 var strTokens: string[] = [];
 
@@ -13053,8 +13053,8 @@ for (var key of Object.keys(binaryStrKw)) {
 
 //surround strings
 for (var key of Object.keys(surroundStrKw)) {
-	strTokens.push(key[0].toLowerCase())
-	strTokens.push(key[key.length-1].toLowerCase())
+	strTokens.push(key[0].toLowerCase());
+	strTokens.push(key[key.length-1].toLowerCase());
 }
 
 //heroes

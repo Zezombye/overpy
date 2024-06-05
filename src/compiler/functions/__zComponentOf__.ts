@@ -28,4 +28,4 @@ astParsingFunctions.__zComponentOf__ = function(content) {
     }
 
     return content;
-}
+};

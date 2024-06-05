@@ -31,4 +31,4 @@ astParsingFunctions.createBeam = function(content) {
     }
 
     return content;
-}
+};

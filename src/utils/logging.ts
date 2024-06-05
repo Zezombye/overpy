@@ -80,7 +80,7 @@ export function warn(warnType: string, message: string) {
 	}
 }
 
-export const debug = (data: string) => { if (DEBUG_MODE) console.debug("DEBUG: "+ data) };
+export const debug = (data: string) => { if (DEBUG_MODE) {console.debug("DEBUG: "+ data);} };
 
 export function getTypeCheckFailedMessage(content: Ast, argNb: number, expectedType: Type, received: Ast) {
 
@@ -113,14 +113,14 @@ export function functionNameToString(content: Ast) {
 		"__raiseToPower__": "'**' or '**='",
 		"__subtract__": "'-' or '-='",
 		//todo
-	}
+	};
 
 	var funcToDisplayMapping = {
 		"__chaseAtRate__": "chase",
 		"__chaseOverTime__": "chase",
 		"__raycast__": "raycast",
 		//todo
-	}
+	};
 
 	let funcDisplayName: string;
 
@@ -147,11 +147,11 @@ export function typeToString(type: Type): Type {
 	} else if (typeof type === "object") {
 		if ("Array" in type) {
 			let value = type["Array"];
-			if (value instanceof Array) error("Can't pass an array to typeToString()");
+			if (value instanceof Array) {error("Can't pass an array to typeToString()");}
 			return typeToString(value)+"[]";
 
 		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			if (!(type[Object.keys(type)[0]] instanceof Array)) error("Unexpected singular type when stringifying a vector type");
+			if (!(type[Object.keys(type)[0]] instanceof Array)) {error("Unexpected singular type when stringifying a vector type");}
 			return Object.keys(type)[0] + "[" + (type[Object.keys(type)[0]] as Type[]).map(x => typeToString(x)).join(", ") + "]";
 
 		} else {

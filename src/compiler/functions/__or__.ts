@@ -52,4 +52,4 @@ astParsingFunctions.__or__ = function(content) {
         }
     }
     return content;
-}
+};

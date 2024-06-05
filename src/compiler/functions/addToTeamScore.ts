@@ -29,4 +29,4 @@ astParsingFunctions.addToTeamScore = function(content) {
     }
 
     return content;
-}
+};

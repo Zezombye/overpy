@@ -27,4 +27,4 @@ astParsingFunctions.victim = function(content) {
     }
 
     return content;
-}
+};

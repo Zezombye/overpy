@@ -22,7 +22,7 @@ import { isDefinitelyFalsy, getAstForUselessInstruction, isDefinitelyTruthy, Ast
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__doWhile__ = function(content) {
-    if (content.parent === undefined) error("Cannot use 'do while' without a parent context.");
+    if (content.parent === undefined) {error("Cannot use 'do while' without a parent context.");}
 
     if ((content.parent?.name !== "__rule__" && content.parent?.name !== "__def__" && content.parent?.name !== "__doWhile__")) {
         error("Do/While loops can only be at the beginning of a rule: parent is '" + content.parent.name + "' and childIndex is "+ content.parent.childIndex);
@@ -60,4 +60,4 @@ astParsingFunctions.__doWhile__ = function(content) {
     content.parent.children.splice(content.parent.childIndex+1, 0, ...content.children, loopFunc);
 
     return getAstForUselessInstruction();
-}
+};

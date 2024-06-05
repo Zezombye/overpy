@@ -53,4 +53,4 @@ astParsingFunctions.__inequals__ = function(content) {
         }
     }
     return content;
-}
+};

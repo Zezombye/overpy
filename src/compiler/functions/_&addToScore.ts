@@ -29,4 +29,4 @@ astParsingFunctions["_&addToScore"] = function(content) {
     }
 
     return content;
-}
+};

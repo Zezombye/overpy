@@ -33,4 +33,4 @@ astParsingFunctions.__lessThanOrEquals__ = function(content) {
         }
     }
     return content;
-}
+};

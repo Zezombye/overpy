@@ -20,7 +20,7 @@
 import { customGameSettingsKw } from "./other";
 import { gamemodeKw } from "./gamemodes";
 import { heroKw } from "./heroes";
-import { LocalizableString, OWLanguage, Overwatch2Heroes } from "../types"
+import { LocalizableString, OWLanguage, Overwatch2Heroes } from "../types";
 import { error } from "../utils/logging";
 
 /**
@@ -7563,7 +7563,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
         "ru-RU": "workshop",
         "zh-TW": "workshop"
     }
-}
+};
 //end-json
 
 const availableLanguages = ["de-DE", "es-ES", "es-MX", "fr-FR", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "zh-CN", "zh-TW", "en-US"];
@@ -7573,11 +7573,11 @@ for (var key of Object.keys(customGameSettingsSchema.lobby.values.team1Slots)) {
     if (availableLanguages.includes(key)) {
         let langKey = key as OWLanguage;
         let entry = customGameSettingsSchema.lobby.values.team1Slots[langKey];
-        if (entry == undefined) error(`${key} does not yield a valid team 1 slot entry`);
+        if (entry === undefined) {error(`${key} does not yield a valid team 1 slot entry`);}
         let value = customGameSettingsKw["__team1__" as keyof typeof customGameSettingsKw][langKey];
         // Fall back to enUS if the current language doesn't have an entry for Team 1 slots
-        if (value == undefined) value = customGameSettingsKw["__team1__"]["en-US"];
-        if (value == undefined) error(`No valid team 1 slot entry for ${langKey}`);
+        if (value === undefined) {value = customGameSettingsKw["__team1__"]["en-US"];}
+        if (value === undefined) {error(`No valid team 1 slot entry for ${langKey}`);}
         customGameSettingsSchema.lobby.values.team1Slots[langKey] = entry.replace("%1$s", value);
     }
 }
@@ -7585,11 +7585,11 @@ for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
     if (availableLanguages.includes(key)) {
         let langKey = key as OWLanguage;
         let entry = customGameSettingsSchema.lobby.values.team2Slots[langKey];
-        if (entry == undefined) error(`${key} does not yield a valid team 2 slot entry`);
+        if (entry === undefined) {error(`${key} does not yield a valid team 2 slot entry`);}
         let value = customGameSettingsKw["__team2__" as keyof typeof customGameSettingsKw][langKey];
         // Fall back to enUS if the current language doesn't have an entry for Team 2 slots
-        if (value == undefined) value = customGameSettingsKw["__team2__"]["en-US"];
-        if (value == undefined) error(`No valid team 2 slot entry for ${langKey}`);
+        if (value === undefined) {value = customGameSettingsKw["__team2__"]["en-US"];}
+        if (value === undefined) {error(`No valid team 2 slot entry for ${langKey}`);}
         customGameSettingsSchema.lobby.values.team2Slots[langKey] = entry.replace("%1$s", value);
     }
 }
@@ -7598,11 +7598,11 @@ for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
 for (var gamemode of Object.keys(gamemodeKw)) {
     if (!(gamemode in customGameSettingsSchema.gamemodes.values)) {
         Object.getOwnPropertyNames(customGameSettingsSchema.gamemodes.values[gamemode]).forEach((property) => {
-            delete customGameSettingsSchema.gamemodes.values[gamemode][property as keyof GameMode]
-        })
+            delete customGameSettingsSchema.gamemodes.values[gamemode][property as keyof GameMode];
+        });
         customGameSettingsSchema.gamemodes.values[gamemode].values = {};
     }
-    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode])
+    Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode]);
 }
 
 //Apply general settings to each gamemode... but not Elimination for some reason lmao
@@ -7625,10 +7625,10 @@ for (var gamemode in customGameSettingsSchema.gamemodes.values) {
 }
 
 //Generate settings for heroes.general
-customGameSettingsSchema.heroes.values["general"] = {values: {}}
+customGameSettingsSchema.heroes.values["general"] = {values: {}};
 customGameSettingsSchema.heroes.values["general"].values = Object.assign({},
     customGameSettingsSchema["heroes"].values["__generalAndEachHero__"],
-    customGameSettingsSchema.heroes.values["__generalButNotEachHero__"])
+    customGameSettingsSchema.heroes.values["__generalButNotEachHero__"]);
 
 //Generate settings for each hero
 for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
@@ -7639,15 +7639,15 @@ for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
         customGameSettingsSchema.heroes.values[hero].values = {};
     }
 
-    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values["__generalAndEachHero__"], customGameSettingsSchema.heroes.values["__eachHero__"])
+    var eachHero = Object.assign({}, customGameSettingsSchema.heroes.values["__generalAndEachHero__"], customGameSettingsSchema.heroes.values["__eachHero__"]);
 
     for (let key of Object.keys(eachHero)) {
         let heroSettings = eachHero[key];
-        if (("include" in heroSettings && heroSettings.include != undefined && heroSettings.include.includes(hero))
-                || "exclude" in heroSettings && heroSettings.exclude != undefined && !heroSettings.exclude.includes(hero)
+        if (("include" in heroSettings && heroSettings.include !== undefined && heroSettings.include.includes(hero))
+                || "exclude" in heroSettings && heroSettings.exclude !== undefined && !heroSettings.exclude.includes(hero)
                 || !("include" in heroSettings) && !("exclude" in heroSettings)) {
 
-            var destKey = (key === "enableGenericSecondaryFire" ? "enableSecondaryFire" : key)
+            var destKey = (key === "enableGenericSecondaryFire" ? "enableSecondaryFire" : key);
             // @ts-ignore
             customGameSettingsSchema.heroes.values[hero].values[destKey] = JSON.parse(JSON.stringify(heroSettings));
 
@@ -7666,31 +7666,31 @@ for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
                     let lang = lang_ as OWLanguage;
                     let langKey = (lang in heroValue ? lang : "en-US") as OWLanguage;
                     let value = heroValue[langKey];
-                    if (value == undefined) error(`No valid value for ${langKey} in ${hero} ${key}`);
+                    if (value === undefined) {error(`No valid value for ${langKey} in ${hero} ${key}`);}
 
                     if (["secondaryFireCooldown%", "enableSecondaryFire", "secondaryFireMaximumTime%", "secondaryFireRechargeRate%", "secondaryFireEnergyChargeRate%"].includes(key)) {
                         let insert = heroKw[hero]["secondaryFire"]?.[lang] ?? heroKw[hero]["secondaryFire"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for secondaryFire in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for secondaryFire in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["ability3Cooldown%", "enableAbility3"].includes(key)) {
                         let insert = heroKw[hero]["ability3"]?.[lang] ?? heroKw[hero]["ability3"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability3 in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for ability3 in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["ability2Cooldown%", "enableAbility2"].includes(key)) {
                         let insert = heroKw[hero]["ability2"]?.[lang] ?? heroKw[hero]["ability2"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability2 in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for ability2 in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["ability1Cooldown%", "enableAbility1"].includes(key)) {
                         let insert = heroKw[hero]["ability1"]?.[lang] ?? heroKw[hero]["ability1"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ability1 in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for ability1 in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["enablePassive"].includes(key)) {
                         let insert = heroKw[hero]["passive"]?.[lang] ?? heroKw[hero]["passive"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for passive in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for passive in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     } else if (["enableUlt", "ultGen%", "combatUltGen%", "passiveUltGen%"].includes(key)) {
                         let insert = heroKw[hero]["ultimate"]?.[lang] ?? heroKw[hero]["ultimate"]?.["en-US"];
-                        if (insert == undefined) error(`No valid value for ultimate in ${hero} ${lang}`);
+                        if (insert === undefined) {error(`No valid value for ultimate in ${hero} ${lang}`);}
                         heroValue[lang] = value.replace("%1$s", insert);
                     }
                 }
@@ -7701,52 +7701,52 @@ for (let hero of Object.keys(heroKw) as Overwatch2Heroes[]) {
 
 //Apply extension
 
-delete customGameSettingsSchema.heroes.values["__generalAndEachHero__"]
-delete customGameSettingsSchema.heroes.values["__eachHero__"]
-delete customGameSettingsSchema.heroes.values["__generalButNotEachHero__"]
+delete customGameSettingsSchema.heroes.values["__generalAndEachHero__"];
+delete customGameSettingsSchema.heroes.values["__eachHero__"];
+delete customGameSettingsSchema.heroes.values["__generalButNotEachHero__"];
 
 /* ==== WORKSHOP EXTENSIONS ==== */
 
 export type WorkshopExtension = {
     points: number,
     descriptionLocalized?: LocalizableString
-} & Partial<LocalizableString>
+} & Partial<LocalizableString>;
 
 /* ==== CUSTOM GAME SETTINGS ==== */
 
 type CustomGameSetting_OnOff = {
     values: "__boolOnOff__" | "__boolReverseOnOff__",
     default: "on" | "off"
-}
+};
 
 type CustomGameSetting_YesNo = {
     values: "__boolYesNo__",
     default: "yes" | "no"
-}
+};
 
 type CustomGameSetting_EnableDisable = {
     values: "__boolEnabled__",
     default: "enabled" | "disabled"
-}
+};
 
 type CustomGameSetting_Combo = {
     values: Record<string, { default?: boolean } & Partial<LocalizableString>>
-}
+};
 
 type CustomGameSetting_Percent = {
     values: "__percent__" | "__int__" | "__float__",
     min: number,
     max: number,
     default: number
-}
+};
 
-export type CustomGameSetting = Partial<CustomGameSetting_OnOff | CustomGameSetting_YesNo | CustomGameSetting_EnableDisable | CustomGameSetting_Combo | CustomGameSetting_Percent> & Partial<LocalizableString>
+export type CustomGameSetting = Partial<CustomGameSetting_OnOff | CustomGameSetting_YesNo | CustomGameSetting_EnableDisable | CustomGameSetting_Combo | CustomGameSetting_Percent> & Partial<LocalizableString>;
 
 export type GameMode = {
     values: {
         [key: string]: CustomGameSetting
     }
-} & Partial<LocalizableString>
+} & Partial<LocalizableString>;
 
 export type CustomGameSettingSchema = {
     extensions: {
@@ -7782,4 +7782,4 @@ export type CustomGameSettingSchema = {
         }>
     } & LocalizableString,
     workshop: LocalizableString
-}
+};

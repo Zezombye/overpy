@@ -35,4 +35,4 @@ astParsingFunctions.print = function(content) {
         new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"),
         new Ast("DEFAULT", [], [], "SpecVisibility"),
     ]);
-}
+};

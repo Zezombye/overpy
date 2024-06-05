@@ -43,4 +43,4 @@ astParsingFunctions.__modulo__ = function(content) {
     }
 
     return content;
-}
+};

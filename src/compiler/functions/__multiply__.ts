@@ -63,7 +63,7 @@ astParsingFunctions.__multiply__ = function(content) {
                     getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue),
                     getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue),
                     getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue),
-                ])
+                ]);
             }
         }
 
@@ -76,7 +76,7 @@ astParsingFunctions.__multiply__ = function(content) {
                 getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].args[0].numValue),
                 getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[1].args[0].numValue),
                 getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[2].args[0].numValue),
-            ])
+            ]);
         }
 
         //Check if we have vector * number.
@@ -88,11 +88,11 @@ astParsingFunctions.__multiply__ = function(content) {
                 getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].numValue),
                 getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[0].numValue),
                 getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[0].numValue),
-            ])
+            ]);
         }
 
     }
 
     return content;
 
-}
+};

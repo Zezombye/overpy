@@ -322,7 +322,7 @@ export function getAstForNullVector() {
         getAstFor0(),
         getAstFor0(),
         getAstFor0(),
-    ])
+    ]);
 }
 export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");

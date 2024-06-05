@@ -27,4 +27,4 @@ astParsingFunctions.attacker = function(content) {
     }
 
     return content;
-}
+};

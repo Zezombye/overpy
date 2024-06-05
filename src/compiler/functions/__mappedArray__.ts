@@ -29,4 +29,4 @@ astParsingFunctions.__mappedArray__ = function(content) {
         }
     }
     return content;
-}
+};

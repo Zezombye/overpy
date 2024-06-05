@@ -7,10 +7,10 @@
         "url": "https://github.com/Zezombye/overpy"
     },
     "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
-    "version": "7.0.2",
+    "version": "8.0.0",
     "readme": "README.md",
     "engines": {
-        "vscode": "^1.36.0"
+        "vscode": "^1.89.0"
     },
     "icon": "img/overpy.png",
     "keywords": [
@@ -20,12 +20,9 @@
         "ow",
         "owws"
     ],
+    "activationEvents": [],
     "browser": "out/extension.js",
     "main": "out/extension.js",
-    "activationEvents": [
-        "onLanguage:overpy",
-        "onCommand:overpy.decompile"
-    ],
     "categories": [
         "Programming Languages"
     ],
@@ -173,14 +170,22 @@
         "@typescript-eslint/parser": "^7.8.0",
         "@vscode/test-cli": "^0.0.9",
         "@vscode/test-electron": "^2.3.9",
+        "esbuild": "^0.21.4",
         "eslint": "^8.57.0",
+        "npm-run-all": "^4.1.5",
         "typescript": "^5.4.5"
     },
     "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
+        "vscode:prepublish": "npm run package",
+        "compile": "npm run check-types && npm run lint && node esbuild.js",
+        "watch": "npm-run-all -p watch:*",
+        "watch:esbuild": "node esbuild.js --watch",
+        "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+        "package": "npm run check-types && npm run lint && node esbuild.js --production",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "check-types": "tsc --noEmit",
         "lint": "eslint src --ext ts",
         "test": "vscode-test"
     }

@@ -29,7 +29,7 @@ export function camelCaseToUpperCase(str: string): string {
 //UPPER_CASE -> camelCase
 export function upperCaseToCamelCase(str: string): string {
 	var result = str.toLowerCase().replace(/(_\w)/g, x => x[1].toUpperCase());
-	result = result[0].toLowerCase()+result.substring(1)
+	result = result[0].toLowerCase()+result.substring(1);
 	return result;
 }
 
@@ -57,12 +57,12 @@ export function getFileStackCopy() {
 
 //Reverses the comparison operator.
 export function reverseOperator(content: string): string {
-	if (content === "==") return "!=";
-	else if (content === '!=') return "==";
-	else if (content === '<=') return ">";
-	else if (content === '>=') return "<";
-	else if (content === '<') return ">=";
-	else if (content === '>') return "<=";
+	if (content === "==") {return "!=";}
+	else if (content === '!=') {return "==";}
+	else if (content === '<=') {return ">";}
+	else if (content === '>=') {return "<";}
+	else if (content === '<') {return ">=";}
+	else if (content === '>') {return "<=";}
 	else {
 		error("Cannot reverse operator "+content);
 	}
@@ -83,7 +83,7 @@ export function tabLevel(nbTabs: number, useTabs=false): string {
 
 //Returns true if the given string starts with a parenthesis (or a bracket/curly bracket).
 export function startsWithParenthesis(content: string): boolean {
-	if (content[0] == '(' || content[0] == '[' || content[0] == '{') {
+	if (content[0] === '(' || content[0] === '[' || content[0] === '{') {
 		return true;
 	}
 	return false;
@@ -114,7 +114,7 @@ export function safeEval(script: string) {
 	if (IS_IN_BROWSER) {
 		return eval(script);
 	} else {
-		const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)))
+		const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
 		return result;
 	}
 }

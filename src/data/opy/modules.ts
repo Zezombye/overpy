@@ -94,7 +94,7 @@ const opyModules: Record<string, Record<string, {
             "return": "Array",
         },
     }
-}
+};
 
 for (var key in opyModules) {
     opyModules[key]["description"] = "The `"+key+"` module.";

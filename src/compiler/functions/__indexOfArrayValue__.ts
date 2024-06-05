@@ -33,4 +33,4 @@ astParsingFunctions.__indexOfArrayValue__ = function(content) {
     }*/
 
     return content;
-}
+};

@@ -29,4 +29,4 @@ astParsingFunctions["_&setStatusEffect"] = function(content) {
     }
 
     return content;
-}
+};

@@ -28,4 +28,4 @@ astParsingFunctions.__lastOf__ = function(content) {
     }
 
     return content;
-}
+};

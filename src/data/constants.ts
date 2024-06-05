@@ -29,7 +29,7 @@ export type Constant = LocalizableString & {
     onlyInOw1?: boolean
 };
 
-export const constantValues: Record<string, { description?: string } &  Record<string, Constant>> =
+export const constantValues: Record<string, { description?: string } & Record<string, Constant>> =
 //begin-json
 {
     "AccelReeval": {
@@ -10094,23 +10094,23 @@ export const constantValues: Record<string, { description?: string } &  Record<s
             "ko-KR": "Friendly To"
         }
     }
-}
+};
 //end-json
 
 constantValues["HeroLiteral"] = {};
 for (var key of Object.keys(heroKw)) {
-    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw]
+    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw];
 }
 constantValues["MapLiteral"] = {};
 for (var key of Object.keys(mapKw)) {
-    constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key]
+    constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key];
 }
 constantValues["GamemodeLiteral"] = {};
 for (var key of Object.keys(gamemodeKw)) {
-    constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key]
+    constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
 }
 
-constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"])
+constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"]);
 
 for (var key in constantValues) {
     if (key.endsWith("Literal")) {

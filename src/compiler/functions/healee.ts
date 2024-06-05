@@ -27,4 +27,4 @@ astParsingFunctions.healee = function(content) {
     }
 
     return content;
-}
+};

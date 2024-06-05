@@ -36,7 +36,7 @@ astParsingFunctions.__valueInArray__ = function(content) {
                     index
                 ])
             ])
-        ])
+        ]);
     }
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
@@ -58,4 +58,4 @@ astParsingFunctions.__valueInArray__ = function(content) {
     }
 
     return content;
-}
+};
