@@ -29,7 +29,7 @@ async function main() {
 			'src/extension.ts'
 		],
 		bundle: true,
-		format: 'iife',
+		format: 'cjs',
 		minify: production,
 		sourcemap: !production,
 		sourcesContent: false,
