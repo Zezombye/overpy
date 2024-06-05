@@ -7597,10 +7597,7 @@ for (var key of Object.keys(customGameSettingsSchema.lobby.values.team2Slots)) {
 //Add translations for each gamemode
 for (var gamemode of Object.keys(gamemodeKw)) {
     if (!(gamemode in customGameSettingsSchema.gamemodes.values)) {
-        Object.getOwnPropertyNames(customGameSettingsSchema.gamemodes.values[gamemode]).forEach((property) => {
-            delete customGameSettingsSchema.gamemodes.values[gamemode][property as keyof GameMode];
-        });
-        customGameSettingsSchema.gamemodes.values[gamemode].values = {};
+        customGameSettingsSchema.gamemodes.values[gamemode] = { "values": {} };
     }
     Object.assign(customGameSettingsSchema.gamemodes.values[gamemode], gamemodeKw[gamemode]);
 }
