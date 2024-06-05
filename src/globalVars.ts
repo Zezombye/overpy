@@ -389,7 +389,7 @@ for (var chr of workshopSettingWhitespaceChars) {
 workshopSettingWhitespace.sort();
 
 
-export const typeTree: (string | Record<string, any>)[] = [
+export let typeTree: (string | Record<string, any>)[] = [
 	{"Object": [
 		"Player",
 		{"float": [
@@ -473,7 +473,7 @@ export const typeTree: (string | Record<string, any>)[] = [
 	"Value",
 	"Raycast",
 
-].concat(Object.keys(constantValues));
+];
 
 //Which types are suitable for a given type.
 //For example, typeMatrix["float"] = ["float", "int", etc].

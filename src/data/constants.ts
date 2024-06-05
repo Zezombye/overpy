@@ -20,6 +20,7 @@ import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { gamemodeKw } from "../data/gamemodes";
 import { camelCaseToUpperCase } from "../utils/other";
+import { typeTree } from "../globalVars";
 
 export type Constant = LocalizableString & {
     extension?: string,
@@ -10119,3 +10120,6 @@ for (var key in constantValues) {
         constantValues[key].description = "The built-in `"+key+"` enum.";
     }
 }
+
+// Moved here from globalVars.ts due to build order issues
+typeTree.concat(Object.keys(constantValues));
