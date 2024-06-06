@@ -523,40 +523,45 @@ export let postLoadTasks: { task: (() => void), priority: number }[] = [];
  * before `data/constants.ts`, resulting in `constantValues` being undefined.
  */
 export function postInitialLoad() {
-  for (var func in funcKw) {
-    let funcArgs = funcKw[func].args;
-    if (funcArgs === null) {
-      reservedNames.push(func);
-    } else if (funcArgs.length === 0) {
-      reservedSubroutineNames.push(func);
-    }
-  }
-
-  typeTree.push(...Object.keys(constantValues));
-
-  function fillTypeMatrix(tree: string | Record<string, any>) {
-    if (typeof tree === "string") {
-      typeMatrix[tree] = [tree];
-
-    } else {
-      var type = Object.keys(tree)[0];
-      typeMatrix[type] = [type];
-      for (var child of tree[type]) {
-        fillTypeMatrix(child);
-        if (typeof child === "string") {
-          typeMatrix[type].push(...typeMatrix[child]);
-        } else {
-          typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+  postLoadTasks.push({
+    task: () => {
+      for (var func in funcKw) {
+        let funcArgs = funcKw[func].args;
+        if (funcArgs === null) {
+          reservedNames.push(func);
+        } else if (funcArgs.length === 0) {
+          reservedSubroutineNames.push(func);
         }
       }
-    }
-  }
-  for (let elem of typeTree) {
-    fillTypeMatrix(elem);
-  }
-  typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
-  reservedNames.push(...Object.keys(typeMatrix));
+      typeTree.push(...Object.keys(constantValues));
+
+      function fillTypeMatrix(tree: string | Record<string, any>) {
+        if (typeof tree === "string") {
+          typeMatrix[tree] = [tree];
+
+        } else {
+          var type = Object.keys(tree)[0];
+          typeMatrix[type] = [type];
+          for (var child of tree[type]) {
+            fillTypeMatrix(child);
+            if (typeof child === "string") {
+              typeMatrix[type].push(...typeMatrix[child]);
+            } else {
+              typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+            }
+          }
+        }
+      }
+      for (let elem of typeTree) {
+        fillTypeMatrix(elem);
+      }
+      typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+
+      reservedNames.push(...Object.keys(typeMatrix));
+    },
+    priority: 26
+  });
 
   postLoadTasks.sort(task => task.priority).forEach(task => task.task());
 }
