@@ -286,7 +286,7 @@ function astToWs(content: Ast): string {
         for (var i = 0; i < content.args.length; i++) {
             let literalMax = funcKw[content.name].args?.[i]?.literalMax;
             if (literalMax === undefined) {
-                error("No literal max specified for argument "+ (content.name === "__array__" ? 0 : i) +" of "+content.name);
+                continue;
             }
             if (literalMax > 0 && content.args[i].name === "__number__" && content.args[i].args[0].numValue > literalMax) {
                 content.args[i] = new Ast("abs", [content.args[i]]);
