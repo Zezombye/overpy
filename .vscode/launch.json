@@ -54,6 +54,17 @@
 				"${workspaceFolder}/**/*.(m|c|)js",
 				"!**/node_modules/**"
 			]
+		},
+		{
+			"name": "Run Production version of OverPy",
+			"type": "extensionHost",
+			"preLaunchTask": "Package",
+			"request": "launch",
+			"runtimeExecutable": "${execPath}",
+			"args": [
+				"--disable-extensions",
+				"--extensionDevelopmentPath=${workspaceFolder}"
+			]
 		}
 	]
 }

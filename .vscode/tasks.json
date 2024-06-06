@@ -13,6 +13,12 @@
         "reveal": "always",
         "panel": "shared"
       }
+    },
+    {
+      "label": "Package",
+      "type": "shell",
+      "command": "npm run package",
+      "group": "build"
     }
   ]
 }
