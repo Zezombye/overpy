@@ -1,7 +1,3 @@
-import { astParsingFunctions, enableOptimization,  } from "../../globalVars.js";
-import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast.js";
-import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
-import { isTypeSuitable } from "../../utils/types.js";
 /*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
@@ -20,6 +16,11 @@ import { isTypeSuitable } from "../../utils/types.js";
  */
 
 "use strict";
+
+import { astParsingFunctions, enableOptimization,  } from "../../globalVars.js";
+import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast.js";
+import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
+import { isTypeSuitable } from "../../utils/types.js";
 
 astParsingFunctions.__add__ = function(content) {
 
