@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 
 import { decompileAllRules } from "./decompiler/decompiler";
+import { compile } from "./compiler/compiler";
 import { postInitialLoad } from "./globalVars";
 import { OWLanguage, ow_languages } from "./types.d";
 
@@ -81,6 +82,42 @@ export function activate(context: vscode.ExtensionContext) {
         } catch (e) {
             if (e instanceof Error) {
                 vscode.window.showErrorMessage(`Error: ${e.message}, contact CactusPuppy about this.`);
+            } else {
+                console.error(e);
+            }
+        }
+    });
+
+    vscode.commands.registerCommand('overpy.compile', async () => {
+        try {
+            let activeEditor = vscode.window.activeTextEditor;
+            if (activeEditor === undefined) {
+                vscode.window.showErrorMessage("No active text editor tab found. Please open a new editor tab before re-running this command.");
+                return;
+            }
+            let rootPath = activeEditor.document.fileName;
+            rootPath = rootPath.replace(/\\/g, "/");
+            rootPath = rootPath.substring(0, rootPath.lastIndexOf('/') + 1);
+
+            const configuredLanguage = vscode.workspace.getConfiguration("overpy").workshopLanguage;
+            if (Object.values(ow_languages).includes(configuredLanguage) === false) {
+                vscode.window.showErrorMessage(`Configured OverPy language ${configuredLanguage} is not recognized as a supported language.`);
+                return;
+            }
+            const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage);
+            for (let warning of compileResult.encounteredWarnings) {
+                vscode.window.showWarningMessage(`Warning: ${warning}`);
+            }
+            vscode.env.clipboard.writeText(compileResult.result);
+
+            const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
+            vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
+
+            // TODO: update autocomplete
+        } catch (e) {
+            if (e instanceof Error) {
+                console.error(e);
+                vscode.window.showErrorMessage("Error: "+e.message);
             } else {
                 console.error(e);
             }
