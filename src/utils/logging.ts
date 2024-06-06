@@ -16,7 +16,7 @@
  */
 
 "use strict";
-import { DEBUG_MODE, encounteredWarnings, fileStack, globalSuppressedWarnings, setFileStack, suppressedWarnings } from "../globalVars";
+import { DEBUG_MODE, encounteredWarnings, fileStack, globallySuppressedWarningTypes, hiddenWarnings, setFileStack, suppressedWarningTypes } from "../globalVars";
 import { Type } from "../types";
 import { Ast } from "./ast";
 import { tabLevel } from "./other";
@@ -35,16 +35,16 @@ export function error(str: string, token?: any): never {
 	var err = "";
 	err += str;
 	if (token !== undefined) {
-		err += "'"+dispTokens(token)+"'";
+		err += "'" + dispTokens(token) + "'";
 	}
 	if (fileStack) {
 		if (fileStack.length !== 0) {
 			fileStack.reverse();
 			for (var file of fileStack) {
 				if ("rule" in file) {
-					err += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+("actionNb" in file ? ", action #"+file.actionNb : "conditionNb" in file ? ", condition #"+file.conditionNb : "");
+					err += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + ("actionNb" in file ? ", action #" + file.actionNb : "conditionNb" in file ? ", condition #" + file.conditionNb : "");
 				} else {
-					err += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
+					err += "\n\t| line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
 				}
 			}
 		}
@@ -56,28 +56,32 @@ export function error(str: string, token?: any): never {
 }
 
 export function warn(warnType: string, message: string) {
-
-	if (!suppressedWarnings.includes(warnType) && !globalSuppressedWarnings.includes(warnType) && warnType !== "w_type_check") {
-		var warning = message+" ("+warnType+")";
-		if (fileStack) {
-			if (fileStack.length !== 0) {
-				fileStack.reverse();
-				for (var file of fileStack) {
-					if ("rule" in file) {
-						// @ts-ignore - I don't know where the properties this object has come from, and I don't care to find them
-						warning += "\n------------------------------------------------------------------------------------\nat rule #"+file.ruleNb+" ('"+file.rule+"')"+(file.actionNb ? ", action #"+file.actionNb : file.conditionNb ? ", condition #"+file.conditionNb : "");
-					} else {
-						warning += "\n\t| line "+file.currentLineNb+", col "+file.currentColNb+", at "+file.name;
-					}
+	let warning = message + " (" + warnType + ")";
+	if (fileStack) {
+		if (fileStack.length !== 0) {
+			fileStack.reverse();
+			for (var file of fileStack) {
+				if ("rule" in file) {
+					// @ts-ignore - I don't know where the properties this object has come from, and I don't care to find them
+					warning += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + (file.actionNb ? ", action #" + file.actionNb : file.conditionNb ? ", condition #" + file.conditionNb : "");
+				} else {
+					warning += "\n\t| line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
 				}
 			}
-		} else {
-			warning += "\n\t| <no filestack>";
 		}
-		console.warn(warning);
-		//suppressedWarnings.push(warnType);
-		encounteredWarnings.push(warning);
+	} else {
+		warning += "\n\t| <no filestack>";
 	}
+
+	if (suppressedWarningTypes.includes(warnType)
+		|| globallySuppressedWarningTypes.includes(warnType)
+		|| warnType === "w_type_check") {
+		hiddenWarnings.push(warning);
+		return;
+	}
+
+	console.warn(warning);
+	encounteredWarnings.push(warning);
 }
 
 export const debug = (data: string) => { if (DEBUG_MODE) {console.debug("DEBUG: "+ data);} };

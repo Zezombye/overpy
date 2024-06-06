@@ -19,7 +19,7 @@
 
 import { constantValues } from "../data/constants";
 import { funcKw } from "../data/other";
-import { fileStack, suppressedWarnings, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
+import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE } from "../utils/ast";
@@ -187,7 +187,7 @@ export function parseAstRules(rules: Ast[]) {
                     error("Annotation '"+rule.children[i].name+"' takes at least 1 argument, received "+rule.children[i].args.length);
                 }
                 for (var arg of rule.children[i].args) {
-                    suppressedWarnings.push(arg.name);
+                    suppressedWarningTypes.push(arg.name);
                 }
 
             } else if (rule.children[i].name === "@Disabled") {

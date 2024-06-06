@@ -105,9 +105,17 @@ export const setOptimizationForSize = (size: boolean) => optimizeForSize = size;
 export var macros: any[];
 export const resetMacros = () => macros = [];
 
+/** All warnings encountered during this compilation run. */
 export var encounteredWarnings: string[];
-export var suppressedWarnings: string[];
-export var globalSuppressedWarnings: string[];
+/** All warnings encountered during this compilation run that were either suppressed or otherwise ignored. */
+export let hiddenWarnings: string[];
+/** A set of warning types that will not invoke a visible warning.
+ * Specified using the \@SuppressWarnings annotation, and applies to
+ * the current rule only.
+ */
+export var suppressedWarningTypes: string[];
+/** A set of warning types that will not invoke a visible warning */
+export var globallySuppressedWarningTypes: string[];
 
 /** A list of imported files, to prevent import loops.
  */
@@ -217,8 +225,9 @@ export function resetGlobalVariables(language: OWLanguage) {
   playerVariables = [];
   subroutines = [];
   encounteredWarnings = [];
-  suppressedWarnings = [];
-  globalSuppressedWarnings = [];
+  hiddenWarnings = [];
+  suppressedWarningTypes = [];
+  globallySuppressedWarningTypes = [];
   importedFiles = [];
   disableUnusedVars = false;
   compiledCustomGameSettings = "";

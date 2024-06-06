@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions } from "../globalVars";
+import { createEvalVM, setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -46,6 +46,7 @@ export async function compile(content: string, language: OWLanguage = "en-US", _
 	playerVariables: Variable[],
 	subroutines: Subroutine[],
 	encounteredWarnings: string[],
+	hiddenWarnings: string[],
 	enumMembers: Record<string, any>,
 	nbElements: number,
 	activatedExtensions: string[],
@@ -116,6 +117,7 @@ export async function compile(content: string, language: OWLanguage = "en-US", _
 		playerVariables: playerVariables,
 		subroutines: subroutines,
 		encounteredWarnings: encounteredWarnings,
+		hiddenWarnings: hiddenWarnings,
 		enumMembers: enumMembers,
 		nbElements: nbElements,
 		activatedExtensions: activatedExtensions,
