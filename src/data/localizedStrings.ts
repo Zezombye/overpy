@@ -13020,47 +13020,4 @@ var surroundStrKw =
 //end-json
 
 /** @type { { [key: string]: { guid: string, [language: string]: string } } } */
-export var stringKw = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw);
-
-var strTokens: string[] = [];
-
-//Generate string tokens
-//normal strings
-for (var key of Object.keys(normalStrKw)) {
-	strTokens.push(key.toLowerCase());
-}
-
-//prefix strings
-for (var key of Object.keys(prefixStrKw)) {
-	strTokens.push(key.substring(0, key.indexOf("{0}")).toLowerCase());
-}
-
-//postfix strings
-for (var key of Object.keys(postfixStrKw)) {
-	strTokens.push(key.substring("{0}".length).toLowerCase());
-}
-
-//ternary strings
-for (var key of Object.keys(ternaryStrKw)) {
-	strTokens.push(key.substring("{0}".length, key.indexOf("{1}")).toLowerCase());
-	strTokens.push(key.substring(key.indexOf("{1}")+"{1}".length, key.indexOf("{2}")).toLowerCase());
-}
-
-//binary strings
-for (var key of Object.keys(binaryStrKw)) {
-	strTokens.push(key.substring("{0}".length, key.indexOf("{1}")).toLowerCase());
-}
-
-//surround strings
-for (var key of Object.keys(surroundStrKw)) {
-	strTokens.push(key[0].toLowerCase());
-	strTokens.push(key[key.length-1].toLowerCase());
-}
-
-//heroes
-for (var key of Object.keys(heroKw)) {
-	strTokens.push(key.toLowerCase());
-}
-
-//Sort reverse alphabetical order for greediness
-strTokens = strTokens.sort().reverse();
+export var stringKw: { [key: string]: { guid: string, [language: string]: string } } = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw);
