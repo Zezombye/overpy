@@ -492,7 +492,7 @@ export function parseAst(content: Ast) {
     if (content.name !== "__rule__" && !content.parent) {
         error("No parent found for '"+content.name+"', please report to CactusPuppy");
     }
-    if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== null) {
+    if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
         } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
