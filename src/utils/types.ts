@@ -22,7 +22,7 @@ import { typeMatrix } from "../globalVars";
 import { Type } from "../types";
 import { Token } from "../compiler/tokenizer";
 import { Ast, getAstForNumber } from "./ast";
-import { error } from "./logging";
+import { error, warn } from "./logging";
 import { splitTokens } from "./tokens";
 
 /**
@@ -144,7 +144,10 @@ export function parseType(tokens: Token[]): Ast {
         error("Content is empty (expected a type)");
     }
     if (!Object.keys(typeMatrix).includes(tokens[0].text)) {
-        error("Expected a type, but got '"+tokens[0].text+"'");
+        // This used to be an error, but considering the above condition was previously
+        // bugged to never fire, and doing the correct checking actually results in
+        // Workshop setting enums
+        warn("w_type_check", "Expected a type, but got '"+tokens[0].text+"'");
     }
     if (tokens.length === 1) {
         return new Ast(tokens[0].text, [], [], "Type");
