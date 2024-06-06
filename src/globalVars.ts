@@ -473,6 +473,14 @@ export let typeTree: (string | Record<string, any>)[] = [
 export const typeMatrix: Record<string, string[]> = {};
 
 /**
+ * Allow other files to perform work after data has been loaded.
+ * Higher priorities are executed later.
+ *
+ * See {@link postInitialLoad} for more details
+ */
+export let postLoadTasks: { task: (() => void), priority: number }[] = [];
+
+/**
  * This function completes some work which we cannot do before all the files have been loaded
  * and their internal data logic run. Before, this was handled by simply having those data files
  * run before this file, but `esbuild` doesn't guarantee any specific bundle order.
@@ -482,40 +490,42 @@ export const typeMatrix: Record<string, string[]> = {};
  * before `data/constants.ts`, resulting in `constantValues` being undefined.
  */
 export function postInitialLoad() {
-	for (var func in funcKw) {
-		let funcArgs = funcKw[func].args;
-		if (funcArgs === null) {
-			reservedNames.push(func);
-		} else if (funcArgs.length === 0) {
-			reservedSubroutineNames.push(func);
-		}
-	}
+  for (var func in funcKw) {
+    let funcArgs = funcKw[func].args;
+    if (funcArgs === null) {
+      reservedNames.push(func);
+    } else if (funcArgs.length === 0) {
+      reservedSubroutineNames.push(func);
+    }
+  }
 
-	typeTree.push(...Object.keys(constantValues));
+  typeTree.push(...Object.keys(constantValues));
 
-	function fillTypeMatrix(tree: string | Record<string, any>) {
-		if (typeof tree === "string") {
-			typeMatrix[tree] = [tree];
+  function fillTypeMatrix(tree: string | Record<string, any>) {
+    if (typeof tree === "string") {
+      typeMatrix[tree] = [tree];
 
-		} else {
-			var type = Object.keys(tree)[0];
-			typeMatrix[type] = [type];
-			for (var child of tree[type]) {
-				fillTypeMatrix(child);
-				if (typeof child === "string") {
-					typeMatrix[type].push(...typeMatrix[child]);
-				} else {
-					typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
-				}
-			}
-		}
-	}
-	for (let elem of typeTree) {
-		fillTypeMatrix(elem);
-	}
-	typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+    } else {
+      var type = Object.keys(tree)[0];
+      typeMatrix[type] = [type];
+      for (var child of tree[type]) {
+        fillTypeMatrix(child);
+        if (typeof child === "string") {
+          typeMatrix[type].push(...typeMatrix[child]);
+        } else {
+          typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+        }
+      }
+    }
+  }
+  for (let elem of typeTree) {
+    fillTypeMatrix(elem);
+  }
+  typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
-	reservedNames.push(...Object.keys(typeMatrix));
+  reservedNames.push(...Object.keys(typeMatrix));
+
+  postLoadTasks.sort(task => task.priority).forEach(task => task.task());
 }
 
 export const reservedMemberNames = ["x", "y", "z"];

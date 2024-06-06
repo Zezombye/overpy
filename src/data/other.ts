@@ -17,13 +17,14 @@
 
 "use strict";
 // @ts-check
-import { actionKw } from "./actions";
+import { Action, actionKw } from "./actions";
 import { Constant, constantValues } from "./constants";
 import { opyFuncs } from "./opy/functions";
 import { opyInternalFuncs } from "./opy/internalFunctions";
 import { heroKw } from "./heroes";
 import { valueFuncKw } from "./values";
-import { LocalizableString } from "../types";
+import { LocalizableString, Value } from "../types";
+import { postLoadTasks } from "../globalVars";
 
 export const customGameSettingsKw: Record<string, LocalizableString> =
 //begin-json
@@ -736,27 +737,40 @@ export const eventPlayerKw: Record<string, LocalizableString> =
     }
 };
 //end-json
-Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
 /**
  * A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
  * Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
- *
- *
 */
-export const notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
+export let notConstantFunctions: Value[];
 
-export const constantKw: Record<string, Constant> = {};
-for (var constant of Object.keys(constantValues)) {
-    for (var value of Object.keys(constantValues[constant])) {
-        constantKw[constant+"."+value] = constantValues[constant][value];
-    }
-}
+export let constantKw: Record<string, Constant> = {};
+
 
 //A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-export const valueKw = Object.assign({}, valueFuncKw, constantKw);
+export let valueKw: Record<string, Value> & Record<string, Constant>;
 
+export let wsFuncKw: Record<string, Action> & Record<string, Value>;
 
-export const wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+export let funcKw: Record<string, Action> & Record<string, Value> & typeof opyInternalFuncs;
 
-export const funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
+postLoadTasks.push({
+    task: () => {
+        Object.assign(eventPlayerKw, eventSlotKw, heroKw);
+
+        notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
+
+        for (var constant of Object.keys(constantValues)) {
+            for (var value of Object.keys(constantValues[constant])) {
+                constantKw[constant+"."+value] = constantValues[constant][value];
+            }
+        }
+
+        valueKw = Object.assign({}, valueFuncKw, constantKw);
+
+        wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
+
+        funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
+    },
+    priority: 21
+});

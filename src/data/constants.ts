@@ -20,6 +20,7 @@ import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { gamemodeKw } from "../data/gamemodes";
 import { camelCaseToUpperCase } from "../utils/other";
+import { postLoadTasks } from "../globalVars";
 
 export type Constant = LocalizableString & {
     extension?: string,
@@ -10097,25 +10098,31 @@ export const constantValues: Record<string, { description?: string } & Record<st
 };
 //end-json
 
-constantValues["HeroLiteral"] = {};
-for (var key of Object.keys(heroKw)) {
-    constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw];
-}
-constantValues["MapLiteral"] = {};
-for (var key of Object.keys(mapKw)) {
-    constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key];
-}
-constantValues["GamemodeLiteral"] = {};
-for (var key of Object.keys(gamemodeKw)) {
-    constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
-}
+postLoadTasks.push({
+    task: () => {
+        constantValues["HeroLiteral"] = {};
+        for (var key of Object.keys(heroKw)) {
+            constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw];
+        }
+        constantValues["MapLiteral"] = {};
+        for (var key of Object.keys(mapKw)) {
+            constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key];
+        }
+        constantValues["GamemodeLiteral"] = {};
+        for (var key of Object.keys(gamemodeKw)) {
+            constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
+        }
 
-constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"]);
+        constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"]);
 
-for (var key in constantValues) {
-    if (key.endsWith("Literal")) {
-        constantValues[key].description = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
-    } else {
-        constantValues[key].description = "The built-in `"+key+"` enum.";
-    }
-}
+        for (var key in constantValues) {
+            if (key.endsWith("Literal")) {
+                constantValues[key].description = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
+            } else {
+                constantValues[key].description = "The built-in `"+key+"` enum.";
+            }
+        }
+    },
+    priority: 20
+});
+
