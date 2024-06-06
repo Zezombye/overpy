@@ -143,7 +143,7 @@ export function parseType(tokens: Token[]): Ast {
     if (tokens.length === 0) {
         error("Content is empty (expected a type)");
     }
-    if (!(tokens[0].text in Object.keys(typeMatrix))) {
+    if (!Object.keys(typeMatrix).includes(tokens[0].text)) {
         error("Expected a type, but got '"+tokens[0].text+"'");
     }
     if (tokens.length === 1) {
