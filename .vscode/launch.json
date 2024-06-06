@@ -49,6 +49,10 @@
 			"args": [
 				"--disable-extensions",
 				"--extensionDevelopmentPath=${workspaceFolder}"
+			],
+			"outFiles": [
+				"${workspaceFolder}/**/*.(m|c|)js",
+				"!**/node_modules/**"
 			]
 		}
 	]
