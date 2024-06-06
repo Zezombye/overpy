@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 
 import { decompileAllRules } from "./decompiler/decompiler";
+import { postInitialLoad } from "./globalVars";
 
 const overpyTemplate = `
 #OverPy starter pack
@@ -37,6 +38,8 @@ rule "Display position":
 `;
 
 export function activate(context: vscode.ExtensionContext) {
+    postInitialLoad();
+
     vscode.commands.registerCommand('overpy.insertTemplate', () => {
         try {
 

@@ -317,14 +317,7 @@ export const defaultSubroutineNames = Array(128).fill("").map((e,i)=>i).map(x =>
 //Names that cannot be used for global variables or subroutines.
 export const reservedNames = Object.keys(opyKeywords);
 export const reservedSubroutineNames = Object.keys(opyKeywords);
-for (var func in funcKw) {
-	let funcArgs = funcKw[func].args;
-	if (funcArgs === null) {
-		reservedNames.push(func);
-	} else if (funcArgs.length === 0) {
-		reservedSubroutineNames.push(func);
-	}
-}
+
 
 //Characters that are visually the same as normal ASCII characters (when uppercased), but make the string appear in "big letters" (the i18n font).
 //For now, only greek letters and the "line separator" character.
@@ -479,29 +472,51 @@ export let typeTree: (string | Record<string, any>)[] = [
 //For example, typeMatrix["float"] = ["float", "int", etc].
 export const typeMatrix: Record<string, string[]> = {};
 
-function fillTypeMatrix(tree: string | Record<string, any>) {
-	if (typeof tree === "string") {
-		typeMatrix[tree] = [tree];
+/**
+ * This function completes some work which we cannot do before all the files have been loaded
+ * and their internal data logic run. Before, this was handled by simply having those data files
+ * run before this file, but `esbuild` doesn't guarantee any specific bundle order.
+ *
+ * For example, we must wait for the `constantValues` to be populated by the `data/constants.ts` logic
+ * before we add to the typeTree and fill the typeMatrix, but by default esbuild will place `globalVars.ts`
+ * before `data/constants.ts`, resulting in `constantValues` being undefined.
+ */
+export function postInitialLoad() {
+	for (var func in funcKw) {
+		let funcArgs = funcKw[func].args;
+		if (funcArgs === null) {
+			reservedNames.push(func);
+		} else if (funcArgs.length === 0) {
+			reservedSubroutineNames.push(func);
+		}
+	}
 
-	} else {
-		var type = Object.keys(tree)[0];
-		typeMatrix[type] = [type];
-		for (var child of tree[type]) {
-			fillTypeMatrix(child);
-			if (typeof child === "string") {
-				typeMatrix[type].push(...typeMatrix[child]);
-			} else {
-				typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+	typeTree.push(...Object.keys(constantValues));
+
+	function fillTypeMatrix(tree: string | Record<string, any>) {
+		if (typeof tree === "string") {
+			typeMatrix[tree] = [tree];
+
+		} else {
+			var type = Object.keys(tree)[0];
+			typeMatrix[type] = [type];
+			for (var child of tree[type]) {
+				fillTypeMatrix(child);
+				if (typeof child === "string") {
+					typeMatrix[type].push(...typeMatrix[child]);
+				} else {
+					typeMatrix[type].push(...typeMatrix[Object.keys(child)[0]]);
+				}
 			}
 		}
 	}
-}
-for (var elem of typeTree) {
-	fillTypeMatrix(elem);
-}
-typeMatrix["Vector"].push("Direction", "Position", "Velocity");
+	for (let elem of typeTree) {
+		fillTypeMatrix(elem);
+	}
+	typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
-reservedNames.push(...Object.keys(typeMatrix));
+	reservedNames.push(...Object.keys(typeMatrix));
+}
 
 export const reservedMemberNames = ["x", "y", "z"];
 
