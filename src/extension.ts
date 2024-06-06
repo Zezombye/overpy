@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 
 import { decompileAllRules } from "./decompiler/decompiler";
 import { postInitialLoad } from "./globalVars";
+import { OWLanguage, ow_languages } from "./types.d";
 
 const overpyTemplate = `
 #OverPy starter pack
@@ -69,7 +70,12 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
 
-            let decompiledText = decompileAllRules(clipboardContent, vscode.workspace.getConfiguration("overpy").workshopLanguage);
+            const configuredLanguage = vscode.workspace.getConfiguration("overpy").workshopLanguage;
+            if (Object.values(ow_languages).includes(configuredLanguage) === false) {
+                vscode.window.showErrorMessage(`Configured OverPy language ${configuredLanguage} is not recognized as a supported language.`);
+                return;
+            }
+            let decompiledText = decompileAllRules(clipboardContent, configuredLanguage as OWLanguage);
             vscode.env.clipboard.writeText(decompiledText);
             vscode.window.showInformationMessage("Successfully decompiled! (Decompiled code copied into clipboard)");
         } catch (e) {

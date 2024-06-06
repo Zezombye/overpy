@@ -1,4 +1,4 @@
-export const enum ow_languages {
+export enum ow_languages {
   enUS = "en-US",
   esMX = "es-MX",
   frFR = "fr-FR",
