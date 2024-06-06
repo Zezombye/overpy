@@ -302,6 +302,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 			if (currentLine.tokens.length === 0) {
 				currentLine.indentLevel++;
 			}
+			continue;
 		}
 		if (content[i] === '\r') {
 			continue;
