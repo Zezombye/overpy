@@ -44,20 +44,20 @@ export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev"
 export var evalVm: QuickJSContext;
 
 export async function createEvalVM() {
-	let QuickJS = await getQuickJS();
-	evalVm = QuickJS.newContext();
+  let QuickJS = await getQuickJS();
+  evalVm = QuickJS.newContext();
 
-	// Reimplement `console.log` for use in debugging
-	const logHandle = evalVm.newFunction("log", (...args) => {
-		const nativeArgs = args.map(evalVm.dump);
-		console.log(...nativeArgs);
-	});
+  // Reimplement `console.log` for use in debugging
+  const logHandle = evalVm.newFunction("log", (...args) => {
+    const nativeArgs = args.map(evalVm.dump);
+    console.log(...nativeArgs);
+  });
 
-	const consoleHandle = evalVm.newObject();
-	evalVm.setProp(consoleHandle, "log", logHandle);
-	evalVm.setProp(evalVm.global, "console", consoleHandle);
-	consoleHandle.dispose();
-	logHandle.dispose();
+  const consoleHandle = evalVm.newObject();
+  evalVm.setProp(consoleHandle, "log", logHandle);
+  evalVm.setProp(evalVm.global, "console", consoleHandle);
+  consoleHandle.dispose();
+  logHandle.dispose();
 }
 
 //Compilation variables - are reset at each compilation.
@@ -203,92 +203,92 @@ export var operatorPrecedenceStack: Record<string, number>[];
 
 
 export function resetGlobalVariables(language: OWLanguage) {
-	rootPath = "";
-	currentArrayElementName = "";
-	currentArrayIndexName = "";
-	currentLanguage = language;
-	currentRuleEvent = "";
-	macros = [];
-	fileStack = [];
-	decompilerGotos = [];
-	nbTabs = 0;
-	operatorPrecedenceStack = [];
-	globalVariables = [];
-	playerVariables = [];
-	subroutines = [];
-	encounteredWarnings = [];
-	suppressedWarnings = [];
-	globalSuppressedWarnings = [];
-	importedFiles = [];
-	disableUnusedVars = false;
-	compiledCustomGameSettings = "";
-	enableOptimization = true;
-	optimizeForSize = false;
-	uniqueNumber = 1;
-	globalInitDirectives = [];
-	playerInitDirectives = [];
-	workshopSettingNames = [];
-	enumMembers = {};
-	replacementFor0 = "";
-	replacementFor1 = "";
-	replacementForTeam1 = "";
-	nbElements = 0;
-	activatedExtensions = [];
-	availableExtensionPoints = 0;
+  rootPath = "";
+  currentArrayElementName = "";
+  currentArrayIndexName = "";
+  currentLanguage = language;
+  currentRuleEvent = "";
+  macros = [];
+  fileStack = [];
+  decompilerGotos = [];
+  nbTabs = 0;
+  operatorPrecedenceStack = [];
+  globalVariables = [];
+  playerVariables = [];
+  subroutines = [];
+  encounteredWarnings = [];
+  suppressedWarnings = [];
+  globalSuppressedWarnings = [];
+  importedFiles = [];
+  disableUnusedVars = false;
+  compiledCustomGameSettings = "";
+  enableOptimization = true;
+  optimizeForSize = false;
+  uniqueNumber = 1;
+  globalInitDirectives = [];
+  playerInitDirectives = [];
+  workshopSettingNames = [];
+  enumMembers = {};
+  replacementFor0 = "";
+  replacementFor1 = "";
+  replacementForTeam1 = "";
+  nbElements = 0;
+  activatedExtensions = [];
+  availableExtensionPoints = 0;
 }
 
 //Other constants
 
 //Operator precedence, from lowest to highest.
 export const operatorPrecedence: Record<string, number> = {
-	"=": 1,
-	"+=": 1,
-	"-=": 1,
-	"*=": 1,
-	"/=": 1,
-	"%=": 1,
-	"**=": 1,
-	"min=": 1,
-	"max=": 1,
-	"if": 2,
-	"or": 3,
-	"and": 4,
-	"not": 5,
-	"in": 7,
-	"==": 7,
-	"!=": 7,
-	"<=": 7,
-	">=": 7,
-	">": 7,
-	"<": 7,
-	"+": 8,
-	"-": 8,
-	"*": 9,
-	"/": 9,
-	"%": 9,
-	//unary plus/minus: 10,
-	"**": 11,
+  "=": 1,
+  "+=": 1,
+  "-=": 1,
+  "*=": 1,
+  "/=": 1,
+  "%=": 1,
+  "**=": 1,
+  "min=": 1,
+  "max=": 1,
+  "if": 2,
+  "or": 3,
+  "and": 4,
+  "not": 5,
+  "in": 7,
+  "==": 7,
+  "!=": 7,
+  "<=": 7,
+  ">=": 7,
+  ">": 7,
+  "<": 7,
+  "+": 8,
+  "-": 8,
+  "*": 9,
+  "/": 9,
+  "%": 9,
+  //unary plus/minus: 10,
+  "**": 11,
 };
 
 export const astOperatorPrecedence: Record<string, number> = {
-	"__ifThenElse__": 2,
-	"__or__": 3,
-	"__and__": 4,
-	"__not__": 5,
-	"__arrayContains__": 6,
-	"__equals__": 6,
-	"__inequals__": 6,
-	"__lessThanOrEquals__": 6,
-	"__greaterThanOrEquals__": 6,
-	"__lessThan__": 6,
-	"__greaterThan__": 6,
-	"__add__": 7,
-	"__subtract__": 7,
-	"__multiply__": 8,
-	"__divide__": 8,
-	"__modulo__": 8,
-	"__negate__": 9,
-	"__raiseToPower__": 9,
+  "__ifThenElse__": 2,
+  "__or__": 3,
+  "__and__": 4,
+  "__not__": 5,
+  "__arrayContains__": 6,
+  "__equals__": 6,
+  "__inequals__": 6,
+  "__lessThanOrEquals__": 6,
+  "__greaterThanOrEquals__": 6,
+  "__lessThan__": 6,
+  "__greaterThan__": 6,
+  "__add__": 7,
+  "__subtract__": 7,
+  "__multiply__": 8,
+  "__divide__": 8,
+  "__modulo__": 8,
+  "__negate__": 9,
+  "__raiseToPower__": 9,
 };
 
 //Text that gets inserted on top of all js scripts.
@@ -312,7 +312,7 @@ export const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
 export const defaultVarNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ', 'CA', 'CB', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CJ', 'CK', 'CL', 'CM', 'CN', 'CO', 'CP', 'CQ', 'CR', 'CS', 'CT', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DA', 'DB', 'DC', 'DD', 'DE', 'DF', 'DG', 'DH', 'DI', 'DJ', 'DK', 'DL', 'DM', 'DN', 'DO', 'DP', 'DQ', 'DR', 'DS', 'DT', 'DU', 'DV', 'DW', 'DX'];
 
 //Sub0 to Sub127
-export const defaultSubroutineNames = Array(128).fill("").map((e,i)=>i).map(x => "Sub"+x);
+export const defaultSubroutineNames = Array(128).fill("").map((e, i) => i).map(x => "Sub" + x);
 
 //Names that cannot be used for global variables or subroutines.
 export const reservedNames = Object.keys(opyKeywords);
@@ -323,148 +323,172 @@ export const reservedSubroutineNames = Object.keys(opyKeywords);
 //For now, only greek letters and the "line separator" character.
 //Let me know if you find any other such characters.
 export const bigLettersMappings: Record<string, string> = {
-	a: "Α",
-	A: "Α",
-	b: "Β",
-	B: "Β",
-	e: "Ε",
-	E: "Ε",
-	h: "Η",
-	H: "Η",
-	i: "Ι",
-	I: "Ι",
-	k: "Κ",
-	K: "Κ",
-	m: "Μ",
-	M: "Μ",
-	n: "Ν",
-	N: "Ν",
-	o: "Ο",
-	O: "Ο",
-	p: "Ρ",
-	P: "Ρ",
-	t: "Τ",
-	T: "Τ",
-	x: "Χ",
-	X: "Χ",
-	y: "Υ",
-	Y: "Υ",
-	z: "Ζ",
-	Z: "Ζ",
-	" ": "\u2028", //line separator
+  a: "Α",
+  A: "Α",
+  b: "Β",
+  B: "Β",
+  e: "Ε",
+  E: "Ε",
+  h: "Η",
+  H: "Η",
+  i: "Ι",
+  I: "Ι",
+  k: "Κ",
+  K: "Κ",
+  m: "Μ",
+  M: "Μ",
+  n: "Ν",
+  N: "Ν",
+  o: "Ο",
+  O: "Ο",
+  p: "Ρ",
+  P: "Ρ",
+  t: "Τ",
+  T: "Τ",
+  x: "Χ",
+  X: "Χ",
+  y: "Υ",
+  Y: "Υ",
+  z: "Ζ",
+  Z: "Ζ",
+  " ": "\u2028", //line separator
 };
 
 //Fullwidth characters
 export var fullwidthMappings: Record<string, string> = {
-	" ": " ",
-	"¥": "￥",
-	"₩": "￦",
-	"¢": "￠",
-	"£": "￡",
-	"¯": "￣",
-	"¬": "￢",
-	"¦": "￤",
+  " ": " ",
+  "¥": "￥",
+  "₩": "￦",
+  "¢": "￠",
+  "£": "￡",
+  "¯": "￣",
+  "¬": "￢",
+  "¦": "￤",
 };
 for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
-	fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
+  fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0) + 0xFEE0);
 }
 
 //Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
 //These characters render as zero-width spaces in Overwatch.
 //For some reason, 0x0B and 0x0C aren't sorted according to their ascii value.
-export var workshopSettingWhitespaceChars = [0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,/*0x0b,0x0c,*/0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d];
+export var workshopSettingWhitespaceChars = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,/*0x0b,0x0c,*/0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d];
 export var workshopSettingWhitespace: string[] = [];
 for (var chr of workshopSettingWhitespaceChars) {
-	workshopSettingWhitespace.push(String.fromCodePoint(chr));
-	workshopSettingWhitespace.push(String.fromCodePoint(0x1e, chr));
-	workshopSettingWhitespace.push(String.fromCodePoint(0x1f, chr));
+  workshopSettingWhitespace.push(String.fromCodePoint(chr));
+  workshopSettingWhitespace.push(String.fromCodePoint(0x1e, chr));
+  workshopSettingWhitespace.push(String.fromCodePoint(0x1f, chr));
 }
 workshopSettingWhitespace.sort();
 
 
 export let typeTree: (string | Record<string, any>)[] = [
-	{"Object": [
-		"Player",
-		{"float": [
-			{"FloatLiteral": [
-				{"IntLiteral": [
-					"UnsignedIntLiteral",
-					"SignedIntLiteral",
-				]},
-				{"UnsignedFloatLiteral": [
-					"UnsignedIntLiteral",
-				]},
-				{"SignedFloatLiteral": [
-					"SignedIntLiteral",
-				]},
-			]},
-			{"unsigned float": [
-				"unsigned int",
-			]},
-			{"signed float": [
-				"signed int",
-			]},
-			{"int": [
-				{"IntLiteral": [
-					"UnsignedIntLiteral",
-					"SignedIntLiteral",
-				]},
-				"unsigned int",
-				"signed int",
-			]}
-		]},
-		{"bool": ["BoolLiteral"]},
-		"DamageModificationId",
-		"HealingModificationId",
-		"DotId",
-		"HotId",
-		"EntityId",
-		"TextId",
-		"HealthPoolId",
-		"AssistId",
-		"String",
-		{"Direction": ["Vector"]},
-		{"Position": ["Vector"]},
-		{"Velocity": ["Vector"]},
-		"Hero",
-		"Map",
-		"Team",
-		"Gamemode",
-		"Button",
-		"Color",
-	]},
-	"Array",
-	"void",
-	"Type",
+  {
+    "Object": [
+      "Player",
+      {
+        "float": [
+          {
+            "FloatLiteral": [
+              {
+                "IntLiteral": [
+                  "UnsignedIntLiteral",
+                  "SignedIntLiteral",
+                ]
+              },
+              {
+                "UnsignedFloatLiteral": [
+                  "UnsignedIntLiteral",
+                ]
+              },
+              {
+                "SignedFloatLiteral": [
+                  "SignedIntLiteral",
+                ]
+              },
+            ]
+          },
+          {
+            "unsigned float": [
+              "unsigned int",
+            ]
+          },
+          {
+            "signed float": [
+              "signed int",
+            ]
+          },
+          {
+            "int": [
+              {
+                "IntLiteral": [
+                  "UnsignedIntLiteral",
+                  "SignedIntLiteral",
+                ]
+              },
+              "unsigned int",
+              "signed int",
+            ]
+          }
+        ]
+      },
+      { "bool": ["BoolLiteral"] },
+      "DamageModificationId",
+      "HealingModificationId",
+      "DotId",
+      "HotId",
+      "EntityId",
+      "TextId",
+      "HealthPoolId",
+      "AssistId",
+      "String",
+      { "Direction": ["Vector"] },
+      { "Position": ["Vector"] },
+      { "Velocity": ["Vector"] },
+      "Hero",
+      "Map",
+      "Team",
+      "Gamemode",
+      "Button",
+      "Color",
+    ]
+  },
+  "Array",
+  "void",
+  "Type",
 
-	"Lambda",
-	"Label",
-	"DictElem",
-	"Raycast",
+  "Lambda",
+  "Label",
+  "DictElem",
+  "Raycast",
 
-	"Subroutine",
-	"GlobalVariable",
-	"PlayerVariable",
+  "Subroutine",
+  "GlobalVariable",
+  "PlayerVariable",
 
-	"HeroLiteral",
-	"MapLiteral",
-	"GamemodeLiteral",
-	"TeamLiteral",
-	"ButtonLiteral",
-	"ColorLiteral",
+  "HeroLiteral",
+  "MapLiteral",
+  "GamemodeLiteral",
+  "TeamLiteral",
+  "ButtonLiteral",
+  "ColorLiteral",
 
-	{"StringLiteral": [
-		"LocalizedStringLiteral",
-		{"CustomStringLiteral": [
-			"FullwidthStringLiteral",
-			"BigLettersStringLiteral",
-			"PlaintextStringLiteral",
-			"CaseSensitiveStringLiteral",
-		]}
-	]},
+  {
+    "StringLiteral": [
+      "LocalizedStringLiteral",
+      {
+        "CustomStringLiteral": [
+          "FullwidthStringLiteral",
+          "BigLettersStringLiteral",
+          "PlaintextStringLiteral",
+          "CaseSensitiveStringLiteral",
+        ]
+      }
+    ]
+  },
 
-	"Value",
-	"Raycast",
+  "Value",
+  "Raycast",
 
 ];
 

@@ -57,7 +57,6 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
 				let value = keywordObj[keyword] as Value;
 				if (value.args === null && options.nbArgs !== 0 || (value.args?.length ?? -1) !== options.nbArgs) {
 					error("Function '"+keyword+"' takes "+(value.args===null?0:(value.args?.length ?? -1))+" arguments, received "+options.nbArgs);
-					return "";
 				}
 			}
 
@@ -86,7 +85,6 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
 			}
 			if (keywordComparing === undefined) {
 				error("No language found for '"+key+"'");
-				return "";
 			}
 			keywordComparing = keywordComparing.toLowerCase();
 			if (keywordObj !== stringKw) {
@@ -107,7 +105,6 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
 	}
 
 	error("No match found for keyword '"+keyword+"'");
-	return "";
 }
 
 /**
