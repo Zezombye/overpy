@@ -84,22 +84,22 @@ export function warn(warnType: string, message: string) {
 	encounteredWarnings.push(warning);
 }
 
-export const debug = (data: string) => { if (DEBUG_MODE) {console.debug("DEBUG: "+ data);} };
+export const debug = (data: string) => { if (DEBUG_MODE) { console.debug("DEBUG: " + data); } };
 
 export function getTypeCheckFailedMessage(content: Ast, argNb: number, expectedType: Type, received: Ast) {
 
 	var funcDisplayName = functionNameToString(content);
-	var argKind = funcDisplayName.startsWith("operator ") ? "operand": "argument";
+	var argKind = funcDisplayName.startsWith("operator ") ? "operand" : "argument";
 
 	var receivedFuncName = functionNameToString(received);
 
-	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb+1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type.toString())}'`;
+	return `Expected type '${typeToString(expectedType)}' for the ${nthOfNumber(argNb + 1)} ${argKind} of ${funcDisplayName}, but got ${receivedFuncName} of type '${typeToString(received.type.toString())}'`;
 }
 
 export function functionNameToString(content: Ast) {
 
 	if (typeof content === "string") {
-		error("Expected an object for internal function 'functionNameToString' but got '"+content+"'");
+		error("Expected an object for internal function 'functionNameToString' but got '" + content + "'");
 	}
 
 	var funcToOperatorMapping = {
@@ -129,15 +129,15 @@ export function functionNameToString(content: Ast) {
 	let funcDisplayName: string;
 
 	if (content.name in funcToOperatorMapping) {
-		funcDisplayName = "operator "+funcToOperatorMapping[content.name as keyof typeof funcToOperatorMapping];
+		funcDisplayName = "operator " + funcToOperatorMapping[content.name as keyof typeof funcToOperatorMapping];
 	} else if (content.name in funcToDisplayMapping) {
-		funcDisplayName = "function '"+funcToDisplayMapping[content.name as keyof typeof funcToDisplayMapping]+"'";
+		funcDisplayName = "function '" + funcToDisplayMapping[content.name as keyof typeof funcToDisplayMapping] + "'";
 	} else if (isTypeSuitable("StringLiteral", content.type)) {
-		funcDisplayName = "string "+escapeString(content.name, false);
+		funcDisplayName = "string " + escapeString(content.name, false);
 	} else if (content.name === "__number__") {
-		funcDisplayName = "number '"+content.args[0].numValue+"'";
+		funcDisplayName = "number '" + content.args[0].numValue + "'";
 	} else {
-		funcDisplayName = "function '"+content.name+"'";
+		funcDisplayName = "function '" + content.name + "'";
 	}
 
 	return funcDisplayName;
@@ -151,18 +151,18 @@ export function typeToString(type: Type): Type {
 	} else if (typeof type === "object") {
 		if ("Array" in type) {
 			let value = type["Array"];
-			if (value instanceof Array) {error("Can't pass an array to typeToString()");}
-			return typeToString(value)+"[]";
+			if (value instanceof Array) { error("Can't pass an array to typeToString()"); }
+			return typeToString(value) + "[]";
 
 		} else if ("Vector" in type || "Direction" in type || "Position" in type || "Velocity" in type) {
-			if (!(type[Object.keys(type)[0]] instanceof Array)) {error("Unexpected singular type when stringifying a vector type");}
+			if (!(type[Object.keys(type)[0]] instanceof Array)) { error("Unexpected singular type when stringifying a vector type"); }
 			return Object.keys(type)[0] + "[" + (type[Object.keys(type)[0]] as Type[]).map(x => typeToString(x)).join(", ") + "]";
 
 		} else {
-			error("Could not display type '"+JSON.stringify(type)+"'");
+			error("Could not display type '" + JSON.stringify(type) + "'");
 		}
 	} else {
-		error("Could not display type '"+type+"'");
+		error("Could not display type '" + type + "'");
 	}
 }
 
@@ -174,12 +174,12 @@ export function nthOfNumber(nb: number) {
 	} else if (nb === 3) {
 		return "3rd";
 	} else {
-		return nb+"th";
+		return nb + "th";
 	}
 }
 
 
-export function astToString(ast: Ast, nbTabs=0) {
+export function astToString(ast: Ast, nbTabs = 0) {
 	var result = "";
 	if (ast === undefined) {
 		return "__undefined__";
@@ -189,16 +189,16 @@ export function astToString(ast: Ast, nbTabs=0) {
 		result += "(__undefined__)";
 
 	} else if (ast.args.length > 0) {
-		result += "(" + ast.args.map(x => astToString(x)).join(", ")+")";
+		result += "(" + ast.args.map(x => astToString(x)).join(", ") + ")";
 	}
 	if (ast.children === undefined) {
 		result += ":__undefined__";
 
 	} else if (ast.children.length > 0) {
-        result += ":\n";
-        for (var child of ast.children) {
-            result += tabLevel(nbTabs+1) + astToString(child, nbTabs+1)+"\n";
-        }
-    }
-    return result;
+		result += ":\n";
+		for (var child of ast.children) {
+			result += tabLevel(nbTabs + 1) + astToString(child, nbTabs + 1) + "\n";
+		}
+	}
+	return result;
 }
