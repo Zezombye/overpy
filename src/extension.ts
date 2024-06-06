@@ -123,4 +123,26 @@ export function activate(context: vscode.ExtensionContext) {
             }
         }
     });
+
+    vscode.workspace.onDidSaveTextDocument((document) => {
+        if (document.languageId === "overpy"
+            && document.uri.scheme === "file"
+            && vscode.workspace.getConfiguration("overpy").compileOnSave
+            && (!vscode.workspace.getConfiguration("overpy").onlySaveOnMainFile
+                || !document.getText().startsWith("#!mainFile "))) {
+            vscode.commands.executeCommand("overpy.compile");
+        }
+    });
+
+    vscode.workspace.onDidOpenTextDocument((document) => {
+        if (document.languageId === "overpy"
+            && vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile
+            && document.getText().length === 0) {
+            vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then(editor => {
+                editor.edit(editBuilder => {
+                    editBuilder.insert(new vscode.Position(0, 0), overpyTemplate[0]);
+                });
+            });
+        }
+    });
 }
