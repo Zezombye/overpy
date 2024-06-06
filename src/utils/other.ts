@@ -114,8 +114,9 @@ export function safeEval(script: string) {
 	if (IS_IN_BROWSER) {
 		return eval(script);
 	} else {
-		const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
-		return result;
+		// const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
+		// return result;
+		error("Javascript macros are temporarily disabled. Sorry about that!");
 	}
 }
 

@@ -124,12 +124,15 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
 
         // Handle custom game settings
         if (currentLine.tokens[0].text === "settings") {
+            let customGameSettings: any;
             try {
                 if (currentLine.tokens.length === 2) {
                     var path = (await getFilePaths(currentLine.tokens[1].text))[0];
-                    var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + await getFileContent(path) + ")"));
+                    // var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + await getFileContent(path) + ")"));
+                    customGameSettings = JSON.parse(await getFileContent(path));
                 } else {
-                    var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + currentLine.tokens.slice(1).map(x => x.text).join("") + ")"));
+                    // var customGameSettings = JSON.parse(safeEval("JSON.stringify(" + currentLine.tokens.slice(1).map(x => x.text).join("") + ")"));
+                    customGameSettings = JSON.parse(currentLine.tokens.slice(1).map(x => x.text).join(""));
 
                 }
 

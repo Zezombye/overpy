@@ -53,7 +53,7 @@ export async function compile(content: string, language: OWLanguage = "en-US", _
 	availableExtensionPoints: number,
 }> {
 	// Need to wait for QuickJS to load
-	await createEvalVM();
+	// await createEvalVM();
 
 	const t0 = performance.now();
 
