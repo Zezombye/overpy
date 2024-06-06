@@ -184,10 +184,15 @@ export function astActionToWs(action: Ast, nbTabs: number) {
         setFileStack(action.fileStack);
         error("Expected an action, but got "+functionNameToString(action)+" which is a value");
     }
-    var result = "";
+    let result = "";
     if (action.name === "pass" && !action.comment) {
         action.comment = "pass";
     }
+
+    if (action.comment) {
+        result += `${tabLevel(nbTabs)}${escapeString(action.comment.trim(), true)}\n`;
+    }
+
     result += tabLevel(nbTabs)+astToWs(action)+";\n";
     for (var child of action.children) {
         result += astActionToWs(child, nbTabs+1);
