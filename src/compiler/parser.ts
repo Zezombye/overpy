@@ -506,7 +506,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         var operatorsToCheck = Object.keys(operatorPrecedence).filter(x => operatorPrecedence[x] === precedence);
         //var allowUnary = (precedence === operatorPrecedence["not"]);
-        var allowUnary = false;
+        let allowUnary = false;
 
         //manually put the unary plus/minus
         if (precedence > operatorPrecedence["%"] && precedence < operatorPrecedence["**"]) {
