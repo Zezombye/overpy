@@ -211,7 +211,7 @@ function generateVariablesField() {
 				error("Duplicate use of index " + variable.index + " for " + varType + " variables '" + variable.name + "' and '" + outputVariables[variable.index] + "'");
 			}
 			varNames.push(variable.name);
-			if (variable.index === undefined || variable.index === null) {
+			if (variable.index === -1) {
 				unassignedVariables.push(variable.name);
 			} else {
 				if (variable.index >= 128 || variable.index < 0) {
