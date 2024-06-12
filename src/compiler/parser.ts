@@ -249,14 +249,13 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
             for (; j < lines.length; j++) {
                 setFileStack(lines[j].tokens[0].fileStack);
 
-                //Ignore comments
-                if (lines[j].tokens[0].text[0] !== "#") {
-                    if (lines[j].indentLevel <= currentLineIndent) {
-                        break;
-                    } else if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
-                        error("Indentation does not match any outer indentation level");
-                    }
+                if (lines[j].indentLevel <= currentLineIndent) {
+                    break;
                 }
+                if (lines[j].indentLevel > currentLineIndent && nextIndentLevel !== null && lines[j].indentLevel < nextIndentLevel) {
+                    error("Indentation does not match any outer indentation level");
+                }
+
                 if (nextIndentLevel = null) {
                     nextIndentLevel = lines[j].indentLevel;
                     if (childrenLines.length > 0) {
