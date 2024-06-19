@@ -490,7 +490,7 @@ export function parseAst(content: Ast) {
 
     //Set expected type
     if (content.name !== "__rule__" && !content.parent) {
-        error("No parent found for '"+content.name+"', please report to CactusPuppy");
+        error("No parent found for '"+content.name+"'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
