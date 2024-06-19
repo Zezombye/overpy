@@ -149,9 +149,7 @@ a {
 <script src="src/decompiler/workshopToAst.js"></script>
 <script src="src/decompiler/astToOpy.js"></script>
 <script src="src/decompiler/decompiler.js"></script>
-<script src="src/decompiler/tokenizer.js"></script>
 
-<script src="src/compiler/obfuscation.js"></script>
 <script src="src/compiler/functions/__add__.js"></script>
 <script src="src/compiler/functions/__and__.js"></script>
 <script src="src/compiler/functions/__append__.js"></script>
@@ -497,7 +495,7 @@ function demoDecompile() {
         str = decompileAllRules(document.getElementById("workshop-textarea").value, language);
 	} catch (e) {
 		console.log(e);
-		str = ""+e+", contact Zezombye about this";
+		str = ""+e+", contact CactusPuppy about this";
 	}
 	//document.getElementById("overpy-textarea").value = str;
 	overpyTextEditorView.dispatch({
