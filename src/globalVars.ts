@@ -25,7 +25,7 @@ import { camelCaseToUpperCase } from "./utils/other";
 import { QuickJSContext, getQuickJS } from "quickjs-emscripten";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
-import { FileStackMember, OWLanguage, Subroutine, Type, Variable } from "./types";
+import { FileStackMember, MacroData, OWLanguage, Subroutine, Type, Variable } from "./types";
 import { Ast } from "./utils/ast";
 
 
@@ -102,7 +102,7 @@ export var optimizeForSize: boolean;
 export const setOptimizationForSize = (size: boolean) => optimizeForSize = size;
 
 /** Contains all macros. */
-export var macros: any[];
+export var macros: MacroData[];
 export const resetMacros = () => macros = [];
 
 /** All warnings encountered during this compilation run. */
@@ -146,7 +146,7 @@ export var playerInitDirectives: Ast[] = [];
 export var workshopSettingNames: string[] = [];
 
 /** User-declared enums. */
-export var enumMembers: Record<string, any> = {};
+export var enumMembers: Record<string, Record<string, Ast>> = {};
 
 //Replacements for 0, 1, and Team.1. Those are functions that give exactly those values, and are able to be applied to all inputs. As such, they are not function dependent.
 export var replacementFor0 = "";

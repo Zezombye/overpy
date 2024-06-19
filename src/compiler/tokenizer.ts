@@ -21,7 +21,7 @@ import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "../utils/file";
 import { debug, error, warn } from "../utils/logging";
 import { getFileStackCopy, isVarChar, safeEval } from "../utils/other";
-import { FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
+import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
 
 export class Macro {
 	isFunction: boolean;
@@ -486,7 +486,13 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 							error("Replacement is undefined");
 						}
 
-						addFile(replacement.length, text.length, macroCols, macroLines, macros[k].name, macros[k].startingCol, macros[k].fileStack[macros[k].fileStack.length - 1].currentLineNb);
+						addFile(replacement.length,
+							text.length,
+							macroCols,
+							macroLines,
+							macros[k].name,
+							macros[k].startingCol,
+							(macros[k].fileStack[macros[k].fileStack.length - 1] as BaseNormalFileStackMember).currentLineNb);
 
 						//debug("Text: "+text);
 						//debug("Replacement: "+replacement);

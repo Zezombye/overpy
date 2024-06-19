@@ -19,12 +19,13 @@
 
 import { Argument, ReturnType } from "../../types";
 
-const opyModules: Record<string, Record<string, {
+export const opyModules: Record<string, Record<string, {
     description: string,
     args: Argument[],
     return: ReturnType | ReturnType[]
-}> & { description?: string }> = {
+}> & { description: string }> = {
 
+    // @ts-expect-error - description will be added later
     "random": {
         "randint": {
             "description": "A random integer between the specified min and max, inclusive.",

@@ -19,7 +19,7 @@
 
 import { Argument, ReturnType } from "../../types";
 
-const opyMemberFuncs: Record<string, {
+export const opyMemberFuncs: Record<string, {
     description: string,
     args: Argument[] | null,
     class: String,
@@ -31,7 +31,7 @@ const opyMemberFuncs: Record<string, {
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": ["Object", {Array: "Object"}],
+                "type": ["Object", { Array: "Object" }],
                 "default": "NUMBER"
             }
         ],
@@ -57,7 +57,7 @@ const opyMemberFuncs: Record<string, {
             {
                 "name": "VALUE",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
-                "type": ["Object", {Array: "Object"}],
+                "type": ["Object", { Array: "Object" }],
                 "default": "NUMBER"
             }
         ],
@@ -143,18 +143,18 @@ const opyMemberFuncs: Record<string, {
     "replace": {
         "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
         "args": [
-          {
-            "name": "Pattern",
-            "description": "The String pattern to be replaced.",
-            "type": "String",
-            "default": "Global Variable"
-          },
-          {
-            "name": "Replacement",
-            "description": "The String Value with which to replace the pattern String",
-            "type": "String",
-            "default": "Global Variable"
-          }
+            {
+                "name": "Pattern",
+                "description": "The String pattern to be replaced.",
+                "type": "String",
+                "default": "Global Variable"
+            },
+            {
+                "name": "Replacement",
+                "description": "The String Value with which to replace the pattern String",
+                "type": "String",
+                "default": "Global Variable"
+            }
         ],
         class: "String",
         return: "String",
@@ -187,12 +187,12 @@ const opyMemberFuncs: Record<string, {
     "split": {
         "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
         "args": [
-        {
-            "name": "Separator",
-            "description": "The separator String with which to split the String Value.",
-            "type": "String",
-            "default": "Global Variable"
-        }
+            {
+                "name": "Separator",
+                "description": "The separator String with which to split the String Value.",
+                "type": "String",
+                "default": "Global Variable"
+            }
         ],
         class: "String",
         return: {
@@ -202,35 +202,35 @@ const opyMemberFuncs: Record<string, {
     "strIndex": {
         "description": "The index of a character within a String or -1 if no such character can be found.",
         "args": [
-        {
-            "name": "Character",
-            "description": "The character for which to search",
-            "type": "String",
-            "default": "Global Variable"
-        }
+            {
+                "name": "Character",
+                "description": "The character for which to search",
+                "type": "String",
+                "default": "Global Variable"
+            }
         ],
         class: "String",
         return: "int",
     },
-	"substring": {
-		"description": "The substring of the provided string.",
-		"args": [
-			{
-				"name": "Substring Start Index",
-				"description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
-				"type": "unsigned int",
-				"default": 0
-			},
-			{
-				"name": "Substring Length",
-				"description": "Specifies the number of characters in the substring.",
-				"type": "unsigned int",
-				"default": 0
-			}
+    "substring": {
+        "description": "The substring of the provided string.",
+        "args": [
+            {
+                "name": "Substring Start Index",
+                "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
+                "type": "unsigned int",
+                "default": 0
+            },
+            {
+                "name": "Substring Length",
+                "description": "Specifies the number of characters in the substring.",
+                "type": "unsigned int",
+                "default": 0
+            }
         ],
         class: "String",
-		"return": "String",
-	},
+        "return": "String",
+    },
     "x": {
         description: "The x component of the specified vector, usually representing a leftward amount.",
         args: null,

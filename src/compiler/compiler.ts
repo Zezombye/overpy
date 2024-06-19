@@ -33,7 +33,7 @@ import { astRulesToWs } from "./astToWorkshop";
 import { parseLines } from "./parser";
 import { tokenize } from "./tokenizer";
 import { addVariable } from "../utils/varNames";
-import { OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
+import { MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
 import { compileCustomGameSettingsDict } from "../utils/compilation";
 
 /**
@@ -41,13 +41,13 @@ import { compileCustomGameSettingsDict } from "../utils/compilation";
  */
 export async function compile(content: string, language: OWLanguage = "en-US", _rootPath = ""): Promise<{
 	result: string,
-	macros: any[],
+	macros: MacroData[],
 	globalVariables: Variable[],
 	playerVariables: Variable[],
 	subroutines: Subroutine[],
 	encounteredWarnings: string[],
 	hiddenWarnings: string[],
-	enumMembers: Record<string, any>,
+	enumMembers: Record<string, Record<string, Ast>>,
 	nbElements: number,
 	activatedExtensions: string[],
 	spentExtensionPoints: number,
