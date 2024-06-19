@@ -15,6 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 import { LocalizableString } from "../types";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
@@ -30,9 +31,10 @@ export type Constant = LocalizableString & {
     onlyInOw1?: boolean
 };
 
-export const constantValues: Record<string, { description?: string } & Record<string, Constant>> =
+export const constantValues: Record<string, { description: string } & Record<string, Constant>> =
 //begin-json
 {
+    // @ts-expect-error - description will be added later
     "AccelReeval": {
         "DIRECTION_RATE_AND_MAX_SPEED": {
             "guid": "00000000BB1A",
@@ -71,6 +73,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "AssistReeval": {
         "ASSISTERS_AND_TARGETS": {
             "guid": "000000012206",
@@ -109,6 +112,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "AsyncBehavior": {
         "RESTART": {
             "guid": "000000010025",
@@ -155,6 +159,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Do Nothing"
         }
     },
+    // @ts-expect-error - description will be added later
     "BarrierLos": {
         "BLOCKED_BY_ENEMY_BARRIERS": {
             "guid": "00000000B1EE",
@@ -223,6 +228,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Barriers Do Not Block LOS"
         }
     },
+    // @ts-expect-error - description will be added later
     "Beam": {
         "BAD": {
             "guid": "00000000CE85",
@@ -602,6 +608,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Omnic Slicer Beam"
         }
     },
+    // @ts-expect-error - description will be added later
     "ButtonLiteral": {
         "ABILITY_1": {
             "guid": "00000000B179",
@@ -784,7 +791,9 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Ultimate"
         }
     },
+    // @ts-expect-error - description will be added later
     "ChaseReeval": {},
+    // @ts-expect-error - description will be added later
     "Clip": {
         "SURFACES": {
             "guid": "00000000BAF5",
@@ -831,6 +840,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Do Not Clip"
         }
     },
+    // @ts-expect-error - description will be added later
     "ColorLiteral": {
         "WHITE": {
             "guid": "00000000B93C",
@@ -1190,6 +1200,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Yellow"
         }
     },
+    // @ts-expect-error - description will be added later
     "Comms": {
         "ACKNOWLEDGE": {
             "guid": "00000000B9D5",
@@ -1840,6 +1851,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "You are Welcome"
         }
     },
+    // @ts-expect-error - description will be added later
     "DamageReeval": {
         "NONE": {
             "guid": "00000000C643",
@@ -1896,6 +1908,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Receivers Damagers and Damage Percent"
         }
     },
+    // @ts-expect-error - description will be added later
     "DynamicEffect": {
         "BAD_EXPLOSION": {
             "guid": "00000000BC1A",
@@ -3788,6 +3801,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Wrecking Ball Minefield Explosion Effect"
         }
     },
+    // @ts-expect-error - description will be added later
     "Effect": {
         "BAD_AURA": {
             "guid": "00000000BC17",
@@ -5123,6 +5137,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Zenyatta Orb of Discord Target Effect"
         }
     },
+    // @ts-expect-error - description will be added later
     "EffectReeval": {
         "COLOR": {
             "guid": "000000011E4A",
@@ -5269,6 +5284,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Position Radius and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "FacingReeval": {
         "DIRECTION_AND_TURN_RATE": {
             "guid": "00000000BB1F",
@@ -5307,6 +5323,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "HealingReeval": {
         "NONE": {
             "guid": "00000000FD25",
@@ -5363,6 +5380,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Receivers Healers and Healing Percent"
         }
     },
+    // @ts-expect-error - description will be added later
     "Health": {
         "NORMAL": {
             "guid": "000000011449",
@@ -5419,6 +5437,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Shields"
         }
     },
+    // @ts-expect-error - description will be added later
     "HeroStat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
@@ -6023,6 +6042,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Weapon Accuracy"
         }
     },
+    // @ts-expect-error - description will be added later
     "HudPosition": {
         "LEFT": {
             "guid": "00000000BAF6",
@@ -6079,6 +6099,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Right"
         }
     },
+    // @ts-expect-error - description will be added later
     "HudReeval": {
         "VISIBILITY_SORT_ORDER_AND_STRING": {
             "guid": "00000000FCA5",
@@ -6369,6 +6390,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To String and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "Icon": {
         "ARROW_DOWN": {
             "description": "__iconDescription__",
@@ -7163,6 +7185,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "X"
         }
     },
+    // @ts-expect-error - description will be added later
     "IconReeval": {
         "COLOR": {
             "guid": "000000011E4A",
@@ -7309,6 +7332,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Position and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
@@ -7377,6 +7401,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Incorporate Contrary Motion"
         }
     },
+    // @ts-expect-error - description will be added later
     "Invis": {
         "ALL": {
             "guid": "00000000B9EB",
@@ -7433,6 +7458,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "LosCheck": {
         "OFF": {
             "guid": "00000000B1E2",
@@ -7523,6 +7549,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Surfaces And Enemy Barriers"
         }
     },
+    // @ts-expect-error - description will be added later
     "OutlineVisibility": {
         "DEFAULT": {
             "description": "Outlines are visible based on the default game settings.",
@@ -7591,6 +7618,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Always"
         }
     },
+    // @ts-expect-error - description will be added later
     "ProgressHudReeval": {
         "COLOR": {
             "guid": "000000011E4A",
@@ -7737,6 +7765,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Values and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "ProgressWorldTextReeval": {
         "COLOR": {
             "guid": "000000011E4A",
@@ -8027,6 +8056,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Position Values and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "Relativity": {
         "TO_PLAYER": {
             "guid": "00000000B16F",
@@ -8073,6 +8103,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "To World"
         }
     },
+    // @ts-expect-error - description will be added later
     "SpecVisibility": {
         "DEFAULT": {
             "guid": "00000000CE55",
@@ -8141,6 +8172,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible Never"
         }
     },
+    // @ts-expect-error - description will be added later
     "Stat": {
         "DAMAGE_DEALT": {
             "guid": "0000000124B7",
@@ -8511,6 +8543,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Weapon Accuracy"
         }
     },
+    // @ts-expect-error - description will be added later
     "Status": {
         "ASLEEP": {
             "guid": "00000000B36A",
@@ -8733,6 +8766,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Unkillable"
         }
     },
+    // @ts-expect-error - description will be added later
     "TeamLiteral": {
         "1": {
             "guid": "00000000B472",
@@ -8789,6 +8823,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "All Teams"
         }
     },
+    // @ts-expect-error - description will be added later
     "Throttle": {
         "REPLACE_EXISTING": {
             "guid": "00000000CEB0",
@@ -8827,6 +8862,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Add to existing throttle"
         }
     },
+    // @ts-expect-error - description will be added later
     "ThrottleReeval": {
         "DIRECTION_AND_MAGNITUDE": {
             "guid": "00000000CEB3",
@@ -8865,6 +8901,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "Transform": {
         "ROTATION": {
             "guid": "00000000B33B",
@@ -8911,6 +8948,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Rotation And Translation"
         }
     },
+    // @ts-expect-error - description will be added later
     "Wait": {
         "ABORT_WHEN_FALSE": {
             "guid": "00000000787D",
@@ -8979,6 +9017,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Restart When True"
         }
     },
+    // @ts-expect-error - description will be added later
     "WorldTextReeval": {
         "COLOR": {
             "guid": "000000011E4A",
@@ -9197,6 +9236,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Position String and Color"
         }
     },
+    // @ts-expect-error - description will be added later
     "__ChaseRateReeval__": {
         "DESTINATION_AND_RATE": {
             "guid": "00000000B8CA",
@@ -9235,6 +9275,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "__ChaseTimeReeval__": {
         "DESTINATION_AND_DURATION": {
             "guid": "00000000C479",
@@ -9273,6 +9314,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
+    // @ts-expect-error - description will be added later
     "__Operation__": {
         "__add__": {
             "guid": "00000000B16D",
@@ -9473,6 +9515,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Subtract"
         }
     },
+    // @ts-expect-error - description will be added later
     "__Operator__": {
         "==": {
             "en-US": "=="
@@ -9493,6 +9536,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "en-US": ">"
         }
     },
+    // @ts-expect-error - description will be added later
     "__Rounding__": {
         "__roundUp__": {
             "guid": "00000000C34F",
@@ -9549,6 +9593,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "To Nearest"
         }
     },
+    // @ts-expect-error - description will be added later
     "ModifyHealth": {
         "DAMAGE": {
             "guid": "000000002A19",
@@ -9587,6 +9632,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Heal"
         }
     },
+    // @ts-expect-error - description will be added later
     "Projectile": {
         "ORB": {
             "guid": "00000001978B",
@@ -9949,6 +9995,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "ru-RU": "Zarya Particle Cannon"
         }
     },
+    // @ts-expect-error - description will be added later
     "ProjectileEffectReeval": {
         "VISIBILITY_POSITION_DIRECTION_AND_SIZE": {
             "guid": "00000001AABD",
@@ -10100,14 +10147,17 @@ export const constantValues: Record<string, { description?: string } & Record<st
 
 postLoadTasks.push({
     task: () => {
+        // @ts-ignore: we will fill in the description later in this task.
         constantValues["HeroLiteral"] = {};
         for (var key of Object.keys(heroKw)) {
             constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw];
         }
+        // @ts-ignore: we will fill in the description later in this task.
         constantValues["MapLiteral"] = {};
         for (var key of Object.keys(mapKw)) {
             constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key];
         }
+        // @ts-ignore: we will fill in the description later in this task.
         constantValues["GamemodeLiteral"] = {};
         for (var key of Object.keys(gamemodeKw)) {
             constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
