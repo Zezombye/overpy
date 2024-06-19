@@ -1,0 +1,95 @@
+
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <h1>OverPy Decompiler</h1>
+        <p>Note: if you have an error, you will need to reload the page.</p>
+        <textarea id="decompiler-input-text" placeholder="Copy paste your workshop code here"></textarea>
+        <br>
+        Language: <select id="language-select">
+            <option value="en-US">English (en-US)</option>
+            <option value="de-DE">German (de-DE)</option>
+            <option value="es-ES">Spanish (Spain) (es-ES)</option>
+            <option value="es-MX">Spanish (Mexico) (es-MX)</option>
+            <option value="fr-FR">French (fr-FR)</option>
+            <option value="it-IT">Italian (it-IT)</option>
+            <option value="ja-JP">Japanese (ja-JP)</option>
+            <option value="ko-KR">Korean (ko-KR)</option>
+            <option value="pl-PL">Polish (pl-PL)</option>
+            <option value="pt-BR">Portugese (Brazil) (pt-BR)</option>
+            <option value="ru-RU">Russian (ru-RU)</option>
+            <option value="zh-CN">Chinese (Simplified) (zh-CN)</option>
+            <option value="zh-TW">Chinese (Traditional) (zh-TW)</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" onclick="decompile()">Decompile</button>
+    </div>
+    
+
+    <style>
+        
+        body {
+            text-align: center;
+        }
+
+        div#wrapper {
+            text-align: center;
+            display: inline-block;
+            width: 650px;
+            height: 500px;
+        }
+
+        div#decompiler-input {
+            position: relative;
+            float: left;
+            width: 400px;
+            height: 450px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        textarea#decompiler-input-text {
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+
+        #button-container {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        body, textarea, input {
+            color: #CCCCCC;
+            background-color: #222222;
+            scrollbar-color: #CCCCCC #222222;
+        }
+
+        a {
+            color: lightblue;
+        }
+        
+    </style>
+
+    <script>
+    
+        function decompile() {
+
+            var workshopCode = document.getElementById("decompiler-input-text").value;
+            var languageSelect = document.getElementById("language-select");
+            var language = languageSelect.options[languageSelect.selectedIndex].value;
+
+            const vscode = acquireVsCodeApi();
+            vscode.postMessage({
+                content: workshopCode,
+                language: language,
+            });
+
+        }
+    
+    </script>
+</body>

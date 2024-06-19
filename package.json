@@ -27,7 +27,13 @@
         "Programming Languages"
     ],
     "files": [
-        "extension/**"
+        "img/**",
+        "out/",
+        "syntaxes/**",
+        "LICENSE",
+        "customGameSettingsSchema.json",
+        "language-configuration.json",
+        "decompilerui.html"
     ],
     "contributes": {
         "configuration": {
