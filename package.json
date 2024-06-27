@@ -164,8 +164,7 @@
     "dependencies": {
         "diff": "^5.1.0",
         "dotenv": "^16.4.5",
-        "quickjs-emscripten": "^0.29.1",
-        "terser": "^5.30.3",
+        "js-interpreter": "^5.1.2",
         "vscode-uri": "^3.0.8"
     },
     "devDependencies": {

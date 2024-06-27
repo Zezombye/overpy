@@ -22,7 +22,6 @@ and remove the global variables, instead passing the state down via reference to
 import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
-import { QuickJSContext, getQuickJS } from "quickjs-emscripten";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
 import { FileStackMember, MacroData, OWLanguage, Subroutine, Type, Variable } from "./types";
@@ -41,24 +40,7 @@ export const PAGE_SIZE = 100;
 export const IS_IN_BROWSER = (typeof window !== "undefined");
 // @ts-ignore
 export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
-export var evalVm: QuickJSContext;
 
-export async function createEvalVM() {
-  let QuickJS = await getQuickJS();
-  evalVm = QuickJS.newContext();
-
-  // Reimplement `console.log` for use in debugging
-  const logHandle = evalVm.newFunction("log", (...args) => {
-    const nativeArgs = args.map(evalVm.dump);
-    console.log(...nativeArgs);
-  });
-
-  const consoleHandle = evalVm.newObject();
-  evalVm.setProp(consoleHandle, "log", logHandle);
-  evalVm.setProp(evalVm.global, "console", consoleHandle);
-  consoleHandle.dispose();
-  logHandle.dispose();
-}
 
 //Compilation variables - are reset at each compilation.
 

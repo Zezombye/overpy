@@ -17,9 +17,13 @@
 
 "use strict";
 
-import { IS_IN_BROWSER, evalVm, fileStack, incrementUniqueNumber, uniqueNumber } from "../globalVars";
+import { IS_IN_BROWSER, fileStack, incrementUniqueNumber, uniqueNumber } from "../globalVars";
 import { error } from "./logging";
+// @ts-ignore - no declared types for Neil Fraser's js-interpreter
+import Interpreter from "js-interpreter";
 
+const MAX_SCRIPT_STEP_COUNT = 65_536;
+const MAX_SCRIPT_STACK_SIZE = 1_000_000;
 
 //camelCase -> UPPER_CASE
 export function camelCaseToUpperCase(str: string): string {
@@ -109,14 +113,75 @@ export function getUniqueNumber(): number {
 	return uniqueNumber;
 }
 
-//eval with VM if using node.js
+//eval with js-interpreter
 export function safeEval(script: string) {
-	if (IS_IN_BROWSER) {
-		return eval(script);
-	} else {
-		// const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
-		// return result;
-		error("Javascript macros are temporarily disabled. Sorry about that!");
+	// const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
+	// return result;
+	// Add some
+	const initFunc = function(interpreter: any, globalObject: any) {
+		const console = interpreter.nativeToPseudo({});
+		interpreter.setProperty(globalObject, "console", console);
+
+		const consoleLogWrapper = function(text: string) {
+			console.log(text);
+		};
+
+		interpreter.setProperty(console, "log",
+			interpreter.createNativeFunction(consoleLogWrapper));
+	};
+	const codeInterpreter = new Interpreter(script, initFunc);
+
+	let step = 0;
+	while (codeInterpreter.getStatus() === Interpreter.Status.STEP) {
+		codeInterpreter.step();
+
+		// Check stack size of the interpreter to check for memory bombs
+		if (roughValueMemoryBytes(codeInterpreter.getStateStack()) > MAX_SCRIPT_STACK_SIZE) {
+			error("Maximum stack size exceeded while executing JavaScript macro.");
+		}
+
+		++step;
+
+		// Check if maximum steps have been exceeded
+		if (step > MAX_SCRIPT_STEP_COUNT) {
+			error("Maximum step count exceeded while executing JavaScript macro.");
+		}
 	}
+
+	const scriptResult = codeInterpreter.value;
+	if (typeof scriptResult !== "string") {
+		error(`JavaScript macro returned value with type of ${typeof scriptResult}, expected string`);
+	}
+	return scriptResult;
+}
+
+function roughValueMemoryBytes(value: any) {
+	const measured = new Set();
+	let notMeasured = [value];
+	let bytes = 0;
+
+	while (notMeasured.length) {
+		const val = notMeasured.pop();
+		bytes += 8;  // Rough estimate of overhead per value.
+
+		const type = typeof val;
+		if (type === 'string' && !measured.has(val)) {
+			// Assume that the native JS environment has a string table
+			// and that each string is only counted once.
+			bytes += val.length * 2;
+			measured.add(val);
+		} else if (type === 'object' && val !== null && !measured.has(val)) {
+			const keys = Object.keys(val);
+			const vals = Object.values(val);
+			try {
+				notMeasured.push(...keys, ...vals);
+			} catch (_e) {
+				// Arguments too long.  Use much slower concat.
+				notMeasured = notMeasured.concat(keys, vals);
+			}
+			measured.add(val);
+		}
+	}
+	return bytes;
 }
 
