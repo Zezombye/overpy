@@ -23,7 +23,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { unescapeString } from "./strings";
 import { FileType, workspace } from "vscode";
-import { URI } from "vscode-uri";
+import { URI, Utils } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
 	return path.parse(filename).base;
@@ -45,11 +45,13 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
 	}
 
 	let matchingFiles: string[] = [];
-	let resolvedFile = await workspace.fs.stat(URI.parse(pathStr));
+	let resolvedFile = await workspace.fs.stat(URI.parse("file:///"+pathStr));
 	if (resolvedFile.type & FileType.Directory) {
 		// matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
-		let resolvedFiles = await workspace.fs.readDirectory(URI.parse(pathStr));
-		matchingFiles = resolvedFiles.map(e => e[0]).filter(f => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
+		let resolvedFiles = await workspace.fs.readDirectory(URI.parse("file:///"+pathStr));
+		matchingFiles = resolvedFiles
+			.filter(([fileName, fileType]) => fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File)
+			.map(([fileName, _]) => Utils.joinPath(URI.parse(pathStr), fileName).toString());
 		if (matchingFiles.length === 0) {
 			error("The directory '"+pathStr+"' does not have any .opy files.");
 		}
@@ -67,7 +69,7 @@ export async function getFileContent(path: string): Promise<string> {
 	}
 	try {
 		importedFiles.push(path);
-		let resolvedFile = await workspace.fs.readFile(URI.parse(path));
+		let resolvedFile = await workspace.fs.readFile(URI.parse("file:///"+path));
 		let content = resolvedFile.toString();
 		return content +"\n";
 

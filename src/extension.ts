@@ -105,7 +105,7 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showErrorMessage(`Configured OverPy language ${configuredLanguage} is not recognized as a supported language.`);
                 return;
             }
-            const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage);
+            const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage, rootPath);
             for (let warning of compileResult.encounteredWarnings) {
                 vscode.window.showWarningMessage(`Warning: ${warning}`);
             }
