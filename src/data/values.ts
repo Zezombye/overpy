@@ -22876,5 +22876,6 @@ export var valueFuncKw: {
         "th-TH": "World Vector Of",
         "zh-TW": "World Vector Of"
     }
-};
+}
 //end-json
+;

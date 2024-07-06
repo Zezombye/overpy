@@ -12140,8 +12140,9 @@ var normalStrKw =
         "fr-FR": "Zones",
         "ko-KR": "Zones"
     }
-};
+}
 //end-json
+;
 
 var prefixStrKw =
 //begin-json
@@ -12236,8 +12237,9 @@ var prefixStrKw =
         "it-IT": "Round {0}",
         "ko-KR": "Round {0}"
     }
-};
+}
 //end-json
+;
 
 var postfixStrKw =
 //begin-json
@@ -12494,8 +12496,9 @@ var postfixStrKw =
         "tr-TR": "{0}???",
         "zh-TW": "{0}???"
     }
-};
+}
 //end-json
+;
 
 var binaryStrKw =
 //begin-json
@@ -12860,8 +12863,9 @@ var binaryStrKw =
         "zh-CN": "{0}:{1}",
         "zh-TW": "{0}:{1}"
     }
-};
+}
 //end-json
+;
 
 var ternaryStrKw =
 //begin-json
@@ -12956,8 +12960,9 @@ var ternaryStrKw =
         "zh-TW": "{0}: {1} 以及{2}",
         "ko-KR": "{0}: {1} and {2}"
     }
-};
+}
 //end-json
+;
 
 var surroundStrKw =
 //begin-json
@@ -13016,8 +13021,9 @@ var surroundStrKw =
         "zh-CN": "¿{0}?",
         "zh-TW": "¿{0}?"
     }
-};
+}
 //end-json
+;
 
 /** @type { { [key: string]: { guid: string, [language: string]: string } } } */
 export var stringKw: { [key: string]: { guid: string, [language: string]: string } } = Object.assign({}, normalStrKw, prefixStrKw, postfixStrKw, binaryStrKw, ternaryStrKw, surroundStrKw, emptyStrKw);

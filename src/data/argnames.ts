@@ -3585,5 +3585,6 @@ export const argNamesKw: Record<string, LocalizableString> =
         "zh-CN": "Z",
         "zh-TW": "Z"
     }
-};
+}
 //end-json
+;

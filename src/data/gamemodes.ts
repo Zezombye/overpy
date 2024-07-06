@@ -77,7 +77,7 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "fr-FR": "Clash",
         "it-IT": "Scontro",
         "ja-JP": "クラッシュ",
-        "ko-KR": "격돌",
+        "ko-KR": "대격돌",
         "pl-PL": "Starcie",
         "pt-BR": "Embate",
         "ru-RU": "Битва",
@@ -239,7 +239,7 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "pl-PL": "Hybryda",
         "pt-BR": "Híbrido",
         "ru-RU": "Гибридный режим",
-        "th-TH": "ไฮบริด",
+        "th-TH": "ผสม",
         "tr-TR": "Hibrit",
         "zh-CN": "攻击护送",
         "zh-TW": "混合",
@@ -336,7 +336,7 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "pl-PL": "Przepychanka",
         "pt-BR": "Avanço",
         "ru-RU": "Натиск",
-        "th-TH": "ดัน",
+        "th-TH": "ดันของ",
         "tr-TR": "İttir",
         "zh-CN": "机动推进",
         "zh-TW": "推進"
@@ -420,5 +420,6 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "雪域狩猎",
         "zh-TW": "雪怪大作戰"
     }
-};
+}
 //end-json
+;

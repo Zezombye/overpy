@@ -1245,7 +1245,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
                         "pt-BR": "Limitar pontos de controle válidos",
                         "ru-RU": "Ограничение контрольных точек",
-                        "th-TH": "พื้นที่ควบคุมที่ต้องการเล่น",
+                        "th-TH": "จุดควบคุมที่ต้องการเล่น",
                         "tr-TR": "Geçerli Kontrol Noktalarını Sınırla",
                         "zh-CN": "有效控制点选择",
                         "zh-TW": "限制地圖控制點"
@@ -2357,7 +2357,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Wskrzeszenie przez Łaskę anuluje eliminacje",
                         "pt-BR": "A ressurreição da Mercy reverte os abates",
                         "ru-RU": "«Воскрешение» Ангела отменяет убийства",
-                        "th-TH": "ท่ารีเซอร์เร็กของเมอร์ซีเป็นการหักล้างการฆ่า",
+                        "th-TH": "ท่ารีเซอร์เร็กของเมอร์ซี่เป็นการหักล้างการฆ่า",
                         "tr-TR": "Mercy'nin Canlandırmaları Öldürmeleri Geçersiz Kılar",
                         "zh-CN": "“天使”重生抵消消灭次数",
                         "zh-TW": "慈悲復活會取消擊殺數"
@@ -2560,7 +2560,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Ogranicz prawidłowe punkty kontrolne",
                         "pt-BR": "Limitar pontos de controle válidos",
                         "ru-RU": "Ограничение контрольных точек",
-                        "th-TH": "พื้นที่ควบคุมที่ต้องการเล่น",
+                        "th-TH": "จุดควบคุมที่ต้องการเล่น",
                         "tr-TR": "Geçerli Kontrol Noktalarını Sınırla",
                         "zh-CN": "有效控制点选择",
                         "zh-TW": "限制地圖控制點"
@@ -3045,7 +3045,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Pierwszy aktywny punkt kontrolny",
                         "pt-BR": "Primeiro Ponto de Controle Ativo",
                         "ru-RU": "Первый активный объект",
-                        "th-TH": "จุดควมคุมที่มีการทำงานจุดแรก",
+                        "th-TH": "จุดควบคุมที่มีการทำงานจุดแรก",
                         "tr-TR": "İlk Etkin Kontrol Noktası",
                         "zh-CN": "首先激活的控制点",
                         "zh-TW": "第一個開放的控制點"
@@ -3275,7 +3275,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
-                    },
+                    }
                 }
             }
         },
@@ -3861,7 +3861,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "pl-PL": "Tylko strzały w głowę",
                     "pt-BR": "Receber apenas tiros na cabeça",
                     "ru-RU": "Получать только выстрелы в голову",
-                    "th-TH": "โดนเฮดช็อตเท่านั้น",
+                    "th-TH": "โดนยิงเข้าหัวเท่านั้น",
                     "tr-TR": "Yalnızca Kafadan Vuruş",
                     "zh-CN": "仅爆头有效",
                     "zh-TW": "僅限爆頭"
@@ -4724,7 +4724,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Autodestrukcja",
                         "pt-BR": "Repulsão escalar do Autodestruição",
                         "ru-RU": "Самоуничтожение: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของเซลฟ์ดิสทรัค",
+                        "th-TH": "สเกลาร์กระเด็นถอยหลังของเซลฟ์เดสตรัคต์",
                         "tr-TR": "Kendini İmha Geri İtme Skaleri",
                         "zh-CN": "自毁击退倍率",
                         "zh-TW": "自爆擊退距離"
@@ -5741,7 +5741,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Wyrzutnia Rakiet",
                         "pt-BR": "Repulsão escalar do Lançador de Foguetes",
                         "ru-RU": "Ракетомет: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของเครื่องยิงจรวด",
+                        "th-TH": "สเกลาร์กระเด็นถอยหลังของร็อกเกตลันเชอร์",
                         "tr-TR": "Roketatar Geri İtme Skaleri",
                         "zh-CN": "火箭发射器击退倍率",
                         "zh-TW": "火箭發射器擊退距離"
@@ -5813,7 +5813,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Młot Rakietowy",
                         "pt-BR": "Repulsão escalar do Martelo Propulsor",
                         "ru-RU": "Ракетный молот: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของค้อนจรวด",
+                        "th-TH": "สเกลาร์กระเด็นถอยหลังของร็อกเกตแฮมเมอร์",
                         "tr-TR": "Roket Çekiç Geri İtme Skaleri",
                         "zh-CN": "火箭重锤击退倍率",
                         "zh-TW": "火箭鎚擊退距離"
@@ -6768,7 +6768,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "pl-PL": "Czat głosowy meczu",
                 "pt-BR": "Bate-papo de Voz da Partida",
                 "ru-RU": "Голосовой чат матча",
-                "th-TH": "แชตด้วยเสียงของแมตช์",
+                "th-TH": "การสนทนาด้วยเสียงของแมตช์",
                 "tr-TR": "Maç Sesli Sohbeti",
                 "zh-CN": "比赛语音聊天",
                 "zh-TW": "對戰語音聊天"
@@ -7564,8 +7564,9 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
         "ru-RU": "workshop",
         "zh-TW": "workshop"
     }
-};
+}
 //end-json
+;
 
 postLoadTasks.push({
     task: () => {

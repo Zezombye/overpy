@@ -443,7 +443,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "es-MX": "Circuit Royal",
         "it-IT": "Circuit Royal",
         "pt-BR": "Circuit Royal",
-        "tr-TR": "Circuit Royal"
+        "tr-TR": "<en>Circuit Royal<en>"
     },
     "colosseo": {
         "gamemodes": [
@@ -460,7 +460,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "ko-KR": "콜로세오",
         "pl-PL": "Koloseum",
         "ru-RU": "Колизей",
-        "th-TH": "โคลอสซิโอ",
+        "th-TH": "โคลอสซีโอ",
         "zh-CN": "斗兽场",
         "zh-TW": "羅馬競技場",
         "de-DE": "Colosseo",
@@ -815,7 +815,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "ja-JP": "HOLLYWOOD （ハロウィン）",
         "ko-KR": "할리우드 할로윈",
         "ru-RU": "Голливуд Хеллоуин",
-        "th-TH": "ฮอลลีวูด ฮาโลวีน",
+        "th-TH": "ฮอลลีวู้ด ฮาโลวีน",
         "tr-TR": "Hollywood Cadılar Bayramı",
         "zh-CN": "万圣节好莱坞",
         "zh-TW": "好萊塢（萬聖節主題）",
@@ -909,7 +909,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "pl-PL": "Ilios: Latarnia morska",
         "pt-BR": "Farol de Ilios",
         "ru-RU": "Илиос: маяк",
-        "th-TH": "ประภาคารอิลิโอส",
+        "th-TH": "ประภาคารอิลิออส",
         "tr-TR": "İlyos Deniz Feneri",
         "zh-CN": "伊利奥斯灯塔",
         "zh-TW": "伊利歐斯燈塔"
@@ -941,7 +941,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "pl-PL": "Ilios: Ruiny",
         "pt-BR": "Ruínas de Ilios",
         "ru-RU": "Илиос: развалины",
-        "th-TH": "ซากปรักหักพังอิลิโอส",
+        "th-TH": "ซากปรักหักพังอิลิออส",
         "tr-TR": "İlyos Harabeleri",
         "zh-CN": "伊利奥斯废墟",
         "zh-TW": "伊利歐斯廢墟"
@@ -974,7 +974,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "pl-PL": "Ilios: Studnia",
         "pt-BR": "Poço de Ilios",
         "ru-RU": "Илиос: колодец",
-        "th-TH": "บ่อน้ำอิลิโอส",
+        "th-TH": "บ่อน้ำอิลิออส",
         "tr-TR": "İlyos Kuyusu",
         "zh-CN": "伊利奥斯深井",
         "zh-TW": "伊利歐斯水井"
@@ -1039,7 +1039,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "ja-JP": "KANEZAKA",
         "ko-KR": "카네자카",
         "ru-RU": "Канедзака",
-        "th-TH": "คาเนะซากะ",
+        "th-TH": "คาเนซากะ",
         "zh-CN": "铁坂",
         "zh-TW": "鐵坂",
         "de-DE": "Kanezaka",
@@ -1346,7 +1346,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "pl-PL": "Wieża Lijiang Księżycowa",
         "pt-BR": "Torre Lijiang Ano Novo Lunar",
         "ru-RU": "Башня Лицзян Лунный Новый год",
-        "th-TH": "ลี่เจียงทาวเวอร์ วันตรุษจีน",
+        "th-TH": "หอคอยลี่เจียง วันตรุษจีน",
         "tr-TR": "Lijiang Kulesi Ay Yeni Yılı",
         "zh-CN": "春节漓江塔",
         "zh-TW": "灕江天塔（春節）"
@@ -1400,7 +1400,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "fr-FR": "Midtown",
         "it-IT": "Midtown",
         "pt-BR": "Midtown",
-        "tr-TR": "Midtown"
+        "tr-TR": "<en>Midtown<en>"
     },
     "necropolis": {
         "guid": "0000000053FB",
@@ -1908,7 +1908,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "it-IT": "Rialto",
         "pl-PL": "Rialto",
         "pt-BR": "Rialto",
-        "tr-TR": "Rialto"
+        "tr-TR": "<en>Rialto<en>"
     },
     "route66": {
         "guid": "0000000011D3",
@@ -2329,5 +2329,6 @@ export const mapKw: Record<string, import("../types").Map> =
         "zh-CN": "地图工坊岛屿（夜间）",
         "zh-TW": "工作坊島嶼（夜晚）"
     }
-};
+}
 //end-json
+;

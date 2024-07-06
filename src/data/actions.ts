@@ -27059,5 +27059,6 @@ export const actionKw: Record<string, Action> =
         "it-IT": "Create Projectile Effect",
         "pl-PL": "Create Projectile Effect"
     }
-};
+}
 //end-json
+;
