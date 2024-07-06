@@ -2019,6 +2019,9 @@ export const mapKw: Record<string, import("../types").Map> =
             "skirmish",
             "flashpoint"
         ],
+        "variants": {
+            "default": "972777519512068154"
+        },
         "guid": "0000000125D2",
         "en-US": "Suravasa",
         "ja-JP": "SURAVASA",
