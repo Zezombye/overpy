@@ -31,7 +31,8 @@ export type Constant = LocalizableString & {
     onlyInOw1?: boolean
 };
 
-export const constantValues: Record<string, { description: string } & Record<string, Constant>> =
+export const constantValues =
+// @ts-ignore - descriptions will be added later
 //begin-json
 {
     "AccelReeval": {
@@ -10090,7 +10091,7 @@ export const constantValues: Record<string, { description: string } & Record<str
             "ko-KR": "Friendly To"
         }
     }
-}
+} as Record<string, { description: string } & Record<string, Constant>>
 //end-json
 ;
 
