@@ -61,6 +61,7 @@ export const defaultConstCompletionLists: Record<
   string,
   vscode.CompletionList
 > = {};
+export let constantValuesCompLists: Record<string, vscode.CompletionList> = {};
 let funcList: typeof funcDoc;
 export type OverpyModule = {
   class: string;
@@ -201,18 +202,17 @@ postLoadTasks.push({
         funcDoc[newKeyName].isMember = true;
         memberFuncList[newKeyName] = funcDoc[newKeyName];
       });
+
+    refreshAutoComplete();
   },
   priority: 1000,
 });
 
 export function refreshAutoComplete() {
-  constValues = { ...defaultConstValues };
+  constantValuesCompLists = { ...defaultConstCompletionLists };
   for (let userEnum in userEnums) {
     if (!(userEnum in constValues)) {
-      constValues[userEnum] = {
-        description: "A user-defined enum.",
-        items: [],
-      };
+      constantValuesCompLists[userEnum] = new vscode.CompletionList();
     }
 
     for (let userEnumMember in userEnums[userEnum]) {
@@ -221,16 +221,16 @@ export function refreshAutoComplete() {
         description += `\n\nValue: \`${astToOpy(userEnums[userEnum][userEnumMember] as Ast)}\``;
       } catch (e) {}
 
-      // @ts-expect-error - items exists
-      constValues[userEnum].items.push(
+      constantValuesCompLists[userEnum].items.push(
+        // @ts-expect-error - incomplete type should be okay
         makeCompItem(userEnumMember, { description: description }),
       );
     }
   }
 
   ["Beam", "Effect", "DynamicEffect"].forEach((constType) => {
-    constValues[constType] = structuredClone(constValues[constType]);
-    constValues[constType].items = defaultConstCompletionLists[
+    constantValuesCompLists[constType] = new vscode.CompletionList();
+    constantValuesCompLists[constType].items = defaultConstCompletionLists[
       constType
     ].items.filter(
       (item) =>
@@ -257,7 +257,7 @@ export function refreshAutoComplete() {
 
   defaultCompList = makeCompList({
     ...funcList,
-    ...constValues,
+    ...constantValuesCompLists,
     ...normalMacros,
     ...globalVariables,
     ...subroutines,
