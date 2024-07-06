@@ -1,17 +1,17 @@
-/* 
+/*
  * This file is part of OverPy (https://github.com/Zezombye/overpy).
  * Copyright (c) 2019 Zezombye.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU General Public License as published by  
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License 
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -68,7 +68,7 @@ settings
 	{
 		General
 		{
-			McCree
+			Cassidy
 			{
 				Ammunition Clip Size Scalar: 500%
 				Damage Dealt: 200%
@@ -417,7 +417,7 @@ rule("challenge 3")
 		Teleport(Host Player, Vector(20.510, 1.610, -68.870));
 		Set Facing(Host Player, Vector(-1, 0, 0), To World);
 		Big Message(Host Player, Custom String("Kill em all (hold rclick)!"));
-		Start Forcing Player To Be Hero(Host Player, Hero(McCree));
+		Start Forcing Player To Be Hero(Host Player, Hero(Cassidy));
 		Global.additionalTime = 10;
 		Call Subroutine(countdownTimer);
 		Set Secondary Fire Enabled(Host Player, True);
@@ -443,7 +443,7 @@ rule("challenge 3 stun")
 	conditions
 	{
 		Global.challenge == 3;
-		Hero Of(Host Player) == Hero(McCree);
+		Hero Of(Host Player) == Hero(Cassidy);
 	}
 
 	actions

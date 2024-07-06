@@ -15,7 +15,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 import { LocalizableString } from "../types";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
@@ -2225,7 +2224,7 @@ export const constantValues =
             "ru-RU": "Sombra Translocating Material Effect",
             "zh-TW": "Sombra Translocating Material Effect"
         },
-        "MCCREE_FLASHBANG_STUNNED": {
+        "CASSIDY_FLASHBANG_STUNNED": {
             "extension": "debuffStatusEffects",
             "guid": "000000012BE9",
             "en-US": "Cassidy Flashbang Stunned Effect",
@@ -2985,7 +2984,7 @@ export const constantValues =
             "ru-RU": "Lúcio Sound Barrier Cast Sound",
             "zh-TW": "Lúcio Sound Barrier Cast Sound"
         },
-        "MCCREE_FLASHBANG_EXPLOSION_SOUND": {
+        "CASSIDY_FLASHBANG_EXPLOSION_SOUND": {
             "extension": "explosionSounds",
             "guid": "000000012EC9",
             "en-US": "Cassidy Flashbang Explosion Sound",
@@ -3593,7 +3592,7 @@ export const constantValues =
             "ru-RU": "Junkrat RIP Tire Explosion Effect",
             "zh-TW": "Junkrat RIP Tire Explosion Effect"
         },
-        "MCCREE_FLASHBANG_EXPLOSION": {
+        "CASSIDY_FLASHBANG_EXPLOSION": {
             "extension": "kineticExplosionEffects",
             "guid": "000000012D3F",
             "en-US": "Cassidy Flashbang Explosion Effect",
@@ -4985,7 +4984,7 @@ export const constantValues =
             "ru-RU": "Ashe Dynamite Burning Material Effect",
             "zh-TW": "Ashe Dynamite Burning Material Effect"
         },
-        "MCCREE_FLASHBANG_STUNNED": {
+        "CASSIDY_FLASHBANG_STUNNED": {
             "extension": "debuffStatusEffects",
             "guid": "000000012BE9",
             "en-US": "Cassidy Flashbang Stunned Effect",
@@ -8686,9 +8685,9 @@ export const constantValues =
         },
         "STUNNED": {
             "guid": "00000000B565",
-            "description": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status.",
+            "description": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status.",
             "descriptionLocalized": {
-                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, McCree's flashbang causes this status."
+                "en-US": "The player cannot move, aim, or use weapons or abilities. For example, Cassidy's flashbang causes this status."
             },
             "en-US": "Stunned",
             "es-MX": "Aturdido",
