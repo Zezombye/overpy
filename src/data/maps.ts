@@ -1939,6 +1939,31 @@ export const mapKw: Record<string, import("../types").Map> =
         "fr-FR": "Route 66",
         "tr-TR": "Route 66"
     },
+    "runasapi": {
+        "gamemodes": [
+            "skirmish",
+            "push"
+        ],
+        "variants": {
+            "default": "972777519512068154"
+        },
+        "en-US": "Runasapi",
+        "guid": "000000017355",
+        "de-DE": "Runasapi",
+        "es-ES": "Runasapi",
+        "es-MX": "Runasapi",
+        "fr-FR": "Runasapi",
+        "it-IT": "Runasapi",
+        "ja-JP": "RUNASAPI",
+        "ko-KR": "루나사피",
+        "pl-PL": "Runasapi",
+        "pt-BR": "Runasapi",
+        "ru-RU": "Рунасапи",
+        "th-TH": "รูนาซาพี",
+        "tr-TR": "<en>Runasapi<en>",
+        "zh-CN": "鲁纳塞彼",
+        "zh-TW": "盧納薩庇"
+    },
     "samoa": {
         "gamemodes": [
             "control",
