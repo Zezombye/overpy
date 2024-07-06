@@ -127,12 +127,17 @@ postLoadTasks.push({
         .map(([key, constant]) => {
           if (!key.endsWith("Literal")) return [key, constant];
 
-          return Object.entries(constant as Record<string, Constant>)
-            .filter(([_, constantValue]) => !constantValue.onlyInOw1)
-            .map(([_, constantValue]) => [
-              key.substring(0, key.lastIndexOf("Literal")),
-              constantValue,
-            ]);
+          return [
+            key.substring(0, key.lastIndexOf("Literal")),
+            Object.fromEntries(
+              Object.entries(constant as Record<string, Constant>)
+                .filter(([_, constantValue]) => !constantValue.onlyInOw1)
+                .map(([constantKey, constantValue]) => [
+                  constantKey,
+                  constantValue,
+                ]),
+            ),
+          ];
         }),
     );
 
