@@ -275,7 +275,7 @@ function generateSubroutinesField() {
 			error("Duplicate use of index " + subroutine.index + " for subroutines '" + subroutine.name + "' and '" + outputSubroutines[subroutine.index] + "'");
 		}
 		subNames.push(subroutine.name);
-		if (subroutine.index === undefined || subroutine.index === null) {
+		if (subroutine.index === undefined || subroutine.index === -1) {
 			unassignedSubroutines.push(subroutine.name);
 		} else {
 			if (isNaN(subroutine.index) || subroutine.index >= 128 || subroutine.index < 0) {
