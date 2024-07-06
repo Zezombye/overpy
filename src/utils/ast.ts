@@ -66,7 +66,6 @@ export class Ast {
                 this.type = funcKw[name].return;
             } else {
                 error("Unknown function name '"+name+"'");
-                this.type = "undefined";
             }
         } else {
             this.type = type;

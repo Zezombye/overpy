@@ -22,6 +22,8 @@ import { error } from "./logging";
 // @ts-ignore - no declared types for Neil Fraser's js-interpreter
 import Interpreter from "js-interpreter";
 
+import { transform } from "@babel/standalone";
+
 const MAX_SCRIPT_STEP_COUNT = 65_536;
 const MAX_SCRIPT_STACK_SIZE = 1_000_000;
 
@@ -115,9 +117,17 @@ export function getUniqueNumber(): number {
 
 //eval with js-interpreter
 export function safeEval(script: string) {
-	// const result = evalVm.getString(evalVm.unwrapResult(evalVm.evalCode(script)));
-	// return result;
-	// Add some
+	// Transform code with Babel so that js-interpreter can understand
+	// more modern JavaScript syntax
+	const transformedScript = transform(script, {
+		presets: ["es2015"],
+		// TODO: Figure out how to support ES6+ polyfills
+		// plugins: [
+		// 	[require("babel-plugin-polyfill-es-shims").default, { "method": "usage-global" }]
+		// ],
+	}).code;
+
+	// Add some basic functions to the interpreter
 	const initFunc = function(interpreter: any, globalObject: any) {
 		const console = interpreter.nativeToPseudo({});
 		interpreter.setProperty(globalObject, "console", console);
@@ -129,7 +139,7 @@ export function safeEval(script: string) {
 		interpreter.setProperty(console, "log",
 			interpreter.createNativeFunction(consoleLogWrapper));
 	};
-	const codeInterpreter = new Interpreter(script, initFunc);
+	const codeInterpreter = new Interpreter(transformedScript, initFunc);
 
 	let step = 0;
 	while (codeInterpreter.getStatus() === Interpreter.Status.STEP) {

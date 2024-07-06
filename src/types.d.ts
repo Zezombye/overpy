@@ -197,6 +197,7 @@ export type WebUIFileStackMember = RuleWebUIFileStackMember | ConditionWebUIFile
 export type FileStackMember = ScriptFileStackMember | MacroFileStackMember | WebUIFileStackMember;
 
 export type BaseMacroData = {
+  isFunction: boolean,
   fileStack: FileStackMember[],
   content: string,
   isMember: boolean,
@@ -206,14 +207,14 @@ export type BaseMacroData = {
   replacement: string
 };
 
-export type FunctionMacroData = BaseMacroData & {
+export interface FunctionMacroData extends BaseMacroData {
   isFunction: true,
   args: string[]
   isScript: boolean,
   scriptPath: string;
 };
 
-export type NonFunctionMacroData = BaseMacroData & {
+export interface FunctionMacroData extends BaseMacroData {
   isFunction: false
 };
 

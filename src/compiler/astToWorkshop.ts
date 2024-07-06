@@ -125,11 +125,11 @@ function astRuleConditionToWs(condition: Ast) {
                     } else if (condition.args[i].args[0].numValue === 1) {
                         if (["__lessThanOrEquals__", "__greaterThanOrEquals__", "__lessThan__", "__greaterThan__"].includes(condition.name)) {
                             condition.args[i] = getAstForTrue();
-                        } else if (replacementFor1 !== null) {
+                        } else if (replacementFor1 !== "") {
                             condition.args[i] = new Ast(replacementFor1);
                         }
                     }
-                } else if (replacementForTeam1 !== null && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
+                } else if (replacementForTeam1 !== "" && condition.args[i].name === "__team__" && condition.args[i].args[0].name === "1") {
                     condition.args[i] = new Ast(replacementForTeam1);
                 }
             }
@@ -263,9 +263,9 @@ function astToWs(content: Ast): string {
                         "__workshopSettingHero__",
                         "__workshopSettingCombo__"
                     ].includes(content.name)) {
-                        if (content.args[i].args[0].numValue === 0 && replacementFor0 !== null) {
+                        if (content.args[i].args[0].numValue === 0 && replacementFor0 !== "") {
                             content.args[i] = new Ast(replacementFor0);
-                        } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== null) {
+                        } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== "") {
                             content.args[i] = new Ast(replacementFor1);
                         }
                     }
@@ -275,7 +275,7 @@ function astToWs(content: Ast): string {
                     && content.args[i].args[1].name === "__number__" && content.args[i].args[1].args[0].numValue === 0
                     && content.args[i].args[2].name === "__number__" && content.args[i].args[2].args[0].numValue === 0) {
                 content.args[i] = getAstForNull();
-            } else if (replacementForTeam1 !== null && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
+            } else if (replacementForTeam1 !== "" && content.args[i].name === "__team__" && content.args[i].args[0].name === "1") {
                 content.args[i] = new Ast(replacementForTeam1);
             }
         }

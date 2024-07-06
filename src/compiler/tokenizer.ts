@@ -372,7 +372,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 					moveCursor(j - i - 1);
 				}
 			} else {
-				parsePreprocessingDirective(preprocessingDirectiveContent);
+				await parsePreprocessingDirective(preprocessingDirectiveContent);
 				moveCursor(j - i - 1);
 			}
 			continue;
@@ -639,16 +639,13 @@ async function parseMacro(initialMacroData: { fileStack: FileStackMember[], cont
 			+ (isFunctionMacro
 					? bracketPos[1] + 1 + trimmedMacroContent.substring(bracketPos[1] + 1).search(/\S/) + 1
 					: trimmedMacroContent.indexOf(" ") + trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).search(/\S/) + 1),
-		isFunction: false,
+		isFunction: isFunctionMacro,
 		text: macroText,
 		name: isFunctionMacro ? trimmedMacroContent.substring(0, bracketPos[0]).trim() : macroText,
 		replacement: isFunctionMacro
 			? trimmedMacroContent.substring(bracketPos[1] + 1).trim()
 			: trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).trim(),
 	};
-
-
-
 
 
 	if (!macro.isFunction) {
