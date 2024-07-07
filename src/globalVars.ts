@@ -47,7 +47,7 @@ export const IS_IN_BROWSER = typeof window !== "undefined";
 export const DEBUG_MODE =
   // @ts-ignore
   IS_IN_BROWSER && window.location.host !== "vscode.dev";
-export const DEBUG_PROFILER = true;
+export const DEBUG_PROFILER = false;
 
 //Compilation variables - are reset at each compilation.
 
