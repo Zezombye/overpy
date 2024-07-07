@@ -7,7 +7,7 @@ import { opyModules } from "./data/opy/modules";
 import { opyStringEntities } from "./data/opy/stringEntities";
 import { valueFuncKw } from "./data/values";
 import { showOverPyExtensionError } from "./extension";
-import { enumMembers, postLoadTasks } from "./globalVars";
+import { DEBUG_MODE, enumMembers, postLoadTasks } from "./globalVars";
 import {
   Argument,
   Value,
@@ -405,7 +405,7 @@ function generateDocFromDoc(
   }
 
   if (result === "") {
-    console.log(`No documentation found for \`${itemName}\``);
+    if (DEBUG_MODE) console.log(`No documentation found for \`${itemName}\``);
     return new vscode.MarkdownString("<no documentation found>");
   }
 

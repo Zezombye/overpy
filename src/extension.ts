@@ -222,7 +222,7 @@ export function activate(context: vscode.ExtensionContext) {
             } else {
               var word = document.getText(range);
               if (word in constantValuesCompLists) {
-                console.log(constantValuesCompLists[word]);
+                // console.log(constantValuesCompLists[word]);
                 return constantValuesCompLists[word];
 
                 //do not return completion suggestions for number decimals
