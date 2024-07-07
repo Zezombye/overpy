@@ -1,5 +1,12 @@
 import * as vscode from "vscode";
 
+// ! NOTE: Import order matters here! The order of imports will determine
+// ! the order in which esbuild includes the files.
+// !
+// ! Yes, this sucks. Too bad!
+import { decompileAllRules } from "./decompiler/decompiler";
+import { compile } from "./compiler/compiler";
+import { postInitialLoad } from "./globalVars";
 import {
   allFuncList,
   constantValuesCompLists,
@@ -17,9 +24,6 @@ import {
   setSpentExtensionPoints,
   stringEntitiesCompList,
 } from "./autocomplete";
-import { compile } from "./compiler/compiler";
-import { decompileAllRules } from "./decompiler/decompiler";
-import { postInitialLoad } from "./globalVars";
 import { OWLanguage, ow_languages } from "./types.d";
 
 const overpyTemplate = `
