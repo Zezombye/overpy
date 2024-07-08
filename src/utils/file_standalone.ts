@@ -19,9 +19,9 @@
 
 import { rootPath, importedFiles } from "../globalVars";
 import { debug, error, warn } from "./logging";
+import fs from "fs";
 import * as path from "path";
 import { unescapeString } from "./strings";
-import { FileType, workspace } from "vscode";
 import { URI, Utils } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
@@ -44,18 +44,22 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
   }
 
   let matchingFiles: string[] = [];
-  let resolvedFile = await workspace.fs.stat(URI.file(pathStr));
-  if (resolvedFile.type & FileType.Directory) {
+  let resolvedFile = URI.file(pathStr);
+  if (
+    fs.existsSync(resolvedFile.path) &&
+    fs.statSync(resolvedFile.path).isDirectory()
+  ) {
     // matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
-    let resolvedFiles = await workspace.fs.readDirectory(URI.file(pathStr));
+    let resolvedFiles = fs.readdirSync(resolvedFile.fsPath, {
+      withFileTypes: true,
+    });
     matchingFiles = resolvedFiles
       .filter(
-        ([fileName, fileType]) =>
-          fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File,
+        (resolvedFile) =>
+          resolvedFile.isFile() &&
+          resolvedFile.name.toLowerCase().endsWith(".opy"),
       )
-      .map(([fileName, _]) =>
-        Utils.joinPath(URI.file(pathStr), fileName).toString(),
-      );
+      .map((file) => Utils.joinPath(URI.file(pathStr), file.name).toString());
     if (matchingFiles.length === 0) {
       error("The directory '" + pathStr + "' does not have any .opy files.");
     }
@@ -77,7 +81,7 @@ export async function getFileContent(path: string): Promise<string> {
   }
   try {
     importedFiles.push(path);
-    let resolvedFile = await workspace.fs.readFile(URI.file(path));
+    let resolvedFile = fs.readFileSync(URI.file(path).fsPath);
     let content = resolvedFile.toString();
     return content + "\n";
   } catch (e) {

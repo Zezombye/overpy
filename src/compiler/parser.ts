@@ -40,7 +40,7 @@ import {
   getAstForE,
   getAstForNumber,
 } from "../utils/ast";
-import { getFileContent, getFilePaths } from "../utils/file";
+import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
 import { getUtf8Length, unescapeString } from "../utils/strings";

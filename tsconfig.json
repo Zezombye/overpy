@@ -6,6 +6,9 @@
 		"lib": [
 			"ES2022"
 		],
+		"paths": {
+			"file_utils": ["./src/utils/file.ts", "./src/utils/file_standalone.ts"],
+		},
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"rootDir": "src",

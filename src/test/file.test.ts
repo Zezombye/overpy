@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import { getFilenameFromPath } from "../utils/file.js";
+import { getFilenameFromPath } from "file_utils";
 
 describe("getFilenameFromPath", () => {
   it("should return the filename from a given path", () => {

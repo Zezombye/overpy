@@ -164,7 +164,8 @@
   "dependencies": {
     "@babel/standalone": "^7.24.7",
     "babel-plugin-polyfill-es-shims": "^0.10.5",
-    "diff": "^5.1.0",
+    "colors": "^1.4.0",
+    "diff": "^5.2.0",
     "dotenv": "^16.4.5",
     "js-interpreter": "^5.1.2",
     "vscode-uri": "^3.0.8"
@@ -191,16 +192,17 @@
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "compile-standalone": "npm run check-types && npm run lint && node esbuild.standalone.js",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "package": "npm run check-types && npm run lint && node esbuild.js --production",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "pretest": "npm run compile-standalone",
     "check-types": "tsc --noEmit",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test",
+    "test": "node runTests.mjs",
     "prepare": "husky"
   },
   "lint-staged": {

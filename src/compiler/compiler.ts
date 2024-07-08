@@ -56,7 +56,7 @@ import { mapKw } from "../data/maps";
 import { ruleKw, customGameSettingsKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
 import { Ast } from "../utils/ast";
-import { getFilePaths, getFileContent } from "../utils/file";
+import { getFilePaths, getFileContent } from "file_utils";
 import { astToString, warn, error } from "../utils/logging";
 import { tows } from "../utils/translation";
 import { parseAstRules } from "./astParser";
