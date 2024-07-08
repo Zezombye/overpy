@@ -41,8 +41,13 @@ for (let file of opyFiles) {
     console.error(`Test ${file} failed:`);
     console.log("Differences found:");
     differences.forEach(diff => {
+      let diffString = diff.value;
+      if (diff.added) diffString = `+${diffString}`;
+      else if (diff.removed) diffString = `-${diffString}`;
+      else diffString = ` ${diffString}`;
+
       const color = diff.added ? "green" : diff.removed ? "red" : "grey";
-      process.stdout.write(colors[color](diff.value));
+      process.stdout.write(colors[color](diffString));
     });
     process.exit(1);
   }
