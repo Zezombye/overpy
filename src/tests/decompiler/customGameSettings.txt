@@ -1,59 +1,59 @@
 settings
 {
-	lobby
-	{
-		Allow Players Who Are In Queue: Yes
-		Match Voice Chat: Enabled
-		Max Team 1 Players: 1
-		Pause Game On Player Disconnect: Yes
-	}
+    lobby
+    {
+        Allow Players Who Are In Queue: Yes
+        Match Voice Chat: Enabled
+        Max Team 1 Players: 1
+        Pause Game On Player Disconnect: Yes
+    }
 
-	modes
-	{
-		Skirmish
-		{
-			Limit Valid Control Points: Fourth
-			Random Hero Role Limit Per Team: 3
+    modes
+    {
+        Skirmish
+        {
+            Limit Valid Control Points: Fourth
+            Random Hero Role Limit Per Team: 3
 
-			enabled maps
-			{
-				Workshop Chamber 972777519512064577
-			}
-		}
-	}
+            enabled maps
+            {
+                Workshop Chamber 972777519512064577
+            }
+        }
+    }
 
-	heroes
-	{
-		Team 1
-		{
-			enabled heroes
-			{
-				Baptiste
-			}
-		}
+    heroes
+    {
+        Team 1
+        {
+            enabled heroes
+            {
+                Baptiste
+            }
+        }
 
-		General
-		{
-			Ability Cooldown Time: 137%
+        General
+        {
+            Ability Cooldown Time: 137%
 
-			Baptiste
-			{
-				Immortality Field Cooldown Time: 215%
-				Regenerative Burst Cooldown Time: 60%
-			}
+            Baptiste
+            {
+                Immortality Field Cooldown Time: 215%
+                Regenerative Burst Cooldown Time: 60%
+            }
 
-			Pharah
-			{
-				Hover Jets Maximum Time: 300%
-			}
-		}
-	}
+            Pharah
+            {
+                Hover Jets Maximum Time: 300%
+            }
+        }
+    }
 }
 
 rule("Empty Rule")
 {
-	event
-	{
-		Ongoing - Global;
-	}
+    event
+    {
+        Ongoing - Global;
+    }
 }

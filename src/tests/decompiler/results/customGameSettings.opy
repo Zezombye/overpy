@@ -10,7 +10,7 @@ settings {
             "enabledMaps": [
                 "workshopChamber"
             ],
-            "setValidControlPoints": "third",
+            "setValidControlPoints": "fourth",
             "randomHeroRoleLimitPerTeam": 3
         }
     },

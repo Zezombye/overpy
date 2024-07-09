@@ -35,7 +35,8 @@ for (let file of opyFiles) {
     continue;
   }
   const expectedOutput = readFileSync(resultFilePath, "utf8");
-  const differences = diffLines(expectedOutput, compileResult);
+  // @ts-ignore
+  const differences = diffLines(expectedOutput, compileResult, { stripTrailingCr: true });
   const hasDifferences = differences.some(diff => diff.added || diff.removed);
 
   if (hasDifferences) {
@@ -82,7 +83,8 @@ for (let inputFile of decompilerFilesFiltered) {
     continue;
   }
   const expectedOutput = readFileSync(resultFilePath, "utf8");
-  const differences = diffLines(expectedOutput, decompileResult);
+  // @ts-ignore
+  const differences = diffLines(expectedOutput, decompileResult, { stripTrailingCr: true });
   const hasDifferences = differences.some(diff => diff.added || diff.removed);
 
   if (hasDifferences) {
@@ -100,3 +102,5 @@ for (let inputFile of decompilerFilesFiltered) {
     process.exit(1);
   }
 }
+
+console.log(colors.bold(colors.green("All tests passed")));

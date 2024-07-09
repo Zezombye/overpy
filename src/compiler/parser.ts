@@ -508,19 +508,18 @@ export function commentArrayToString(comments: string[]) {
   if (comments.length === 0) {
     return "";
   }
-  var result = comments[comments.length - 1];
+  var result = comments[comments.length - 1].trim();
   var nbChars = getUtf8Length(result);
   if (nbChars > 256) {
     return result;
   }
   for (var i = comments.length - 2; i >= 0; i--) {
-    var addedChars = getUtf8Length(comments[i]);
-    if (nbChars + addedChars + 1 <= 256) {
-      result = comments[i] + "\n" + result;
-      nbChars += addedChars + 1;
-    } else {
+    var addedChars = getUtf8Length(comments[i].trim());
+    if (nbChars + addedChars + 1 > 256) {
       break;
     }
+    result = comments[i].trim() + "\n" + result;
+    nbChars += addedChars + 1;
   }
   return result;
 }
