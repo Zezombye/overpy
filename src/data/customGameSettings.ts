@@ -5716,6 +5716,28 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-CN": "悬浮背包充能速度",
                         "zh-TW": "滯空燃料補充速度"
                     },
+                    "passiveMaxTime%": {
+                        "values": "__percent__",
+                        "min": 20,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Hover Jets Maximum Time",
+                        "guid": "000000005B53",
+                        "de-DE": "Schwebedüsen – Maximale Dauer",
+                        "es-ES": "Tiempo máximo de Planeador",
+                        "es-MX": "Tiempo máximo de los Propulsores levitantes",
+                        "fr-FR": "Durée maximale des stabilisateurs",
+                        "it-IT": "Propulsori - Tempo massimo",
+                        "ja-JP": "ホバー・ジェット 最大時間",
+                        "ko-KR": "호버 추진기 최대 시간",
+                        "pl-PL": "Maksymalny czas Zawiśnięcia",
+                        "pt-BR": "Tempo máximo da Suspensão a Jato",
+                        "ru-RU": "Макс. время парения",
+                        "th-TH": "เวลาสูงสุดของโฮเวอร์เจ็ท",
+                        "tr-TR": "Uçuş Jeti Maksimum Süre",
+                        "zh-CN": "悬浮背包最长时间",
+                        "zh-TW": "滯空時間上限"
+                    },
                     "ability1Acceleration%": {
                         "values": "__percent__",
                         "min": 25,
