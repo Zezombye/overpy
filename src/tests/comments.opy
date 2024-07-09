@@ -17,4 +17,3 @@ rule "comments":
     #some array
     A = [1,2/*,2.5*//**/,3]
 
-    

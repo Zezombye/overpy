@@ -1,7 +1,212 @@
 {
+  "name": "overpy",
+  "publisher": "Zezombye",
+  "displayName": "OverPy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zezombye/overpy"
+  },
+  "description": "High-level language for the Overwatch Workshop, with decompilation and compilation.",
+  "version": "8.0.0",
+  "readme": "README.md",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "icon": "img/overpy.png",
+  "keywords": [
+    "overpy",
+    "overwatch",
+    "workshop",
+    "ow",
+    "owws"
+  ],
+  "activationEvents": [],
+  "browser": "out/extension.js",
+  "main": "out/extension.js",
+  "categories": [
+    "Programming Languages"
+  ],
+  "files": [
+    "img/**",
+    "out/",
+    "syntaxes/**",
+    "LICENSE",
+    "customGameSettingsSchema.json",
+    "language-configuration.json",
+    "decompilerui.html"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "OverPy",
+      "properties": {
+        "overpy.workshopLanguage": {
+          "type": "string",
+          "description": "Specifies the language used for decompilation and compilation.",
+          "default": "en-US",
+          "enum": [
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "ru-RU",
+            "zh-CN",
+            "zh-TW"
+          ],
+          "enumDescriptions": [
+            "German [de-DE]",
+            "English [en-US]",
+            "Spanish (Spain) [es-ES]",
+            "Spanish (Mexico) [es-MX]",
+            "French [fr-FR]",
+            "Italian [it-IT]",
+            "Japanese [ja-JP]",
+            "Korean [ko-KR]",
+            "Polish [pl-PL]",
+            "Portugese (Brazil) [pt-BR]",
+            "Russian [ru-RU]",
+            "Chinese (Simplified) [zh-CN]",
+            "Chinese (Traditional) [zh-TW]"
+          ]
+        },
+        "overpy.compileOnSave": {
+          "type": "boolean",
+          "description": "Specifies whether to initiate a compilation on save.",
+          "default": true
+        },
+        "overpy.onlySaveOnMainFile": {
+          "type": "boolean",
+          "description": "If \"Compile on save\" is enabled, only saves if the file is the main file (defined as not having a `#!mainFile` directive).",
+          "default": false
+        },
+        "overpy.addTemplateOnNewFile": {
+          "type": "boolean",
+          "description": "Specifies whether to add a template when a new OverPy file is created. Warning: due to a bug (#196), the template will be inserted when a new file is saved to disk (as .opy file) for the first time.",
+          "default": false
+        },
+        "overpy.showElementCountOnCompile": {
+          "type": "boolean",
+          "description": "Specifies whether to show the element count when a compilation is successful.",
+          "default": true
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "overpy",
+        "aliases": [
+          "OverPy",
+          "overpy"
+        ],
+        "extensions": [
+          ".opy"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "/img/overpy.ico",
+          "dark": "/img/overpy.ico"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "overpy",
+        "scopeName": "source.opy",
+        "path": "./syntaxes/overpy.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "overpy.compile",
+        "title": "Compile (OverPy -> Workshop)",
+        "category": "OverPy",
+        "icon": {
+          "light": "/img/index.svg",
+          "dark": "/img/index.svg"
+        }
+      },
+      {
+        "command": "overpy.decompile",
+        "title": "Decompile (Workshop -> OverPy)",
+        "category": "OverPy",
+        "icon": {
+          "light": "/img/index.svg",
+          "dark": "/img/index.svg"
+        }
+      },
+      {
+        "command": "overpy.insertTemplate",
+        "title": "Insert Template",
+        "category": "OverPy"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == overpy",
+          "command": "overpy.compile",
+          "group": "navigation@6"
+        }
+      ]
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "*.opy.json",
+        "url": "./customGameSettingsSchema.json"
+      }
+    ]
+  },
   "dependencies": {
-    "diff": "^5.1.0",
+    "@babel/standalone": "^7.24.7",
+    "babel-plugin-polyfill-es-shims": "^0.10.5",
+    "colors": "^1.4.0",
+    "diff": "^5.2.0",
     "dotenv": "^16.4.5",
-    "uglify-js": "^3.17.4"
+    "js-interpreter": "^5.1.2",
+    "vscode-uri": "^3.0.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@types/babel__standalone": "^7.1.7",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.7",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9",
+    "esbuild": "^0.21.4",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.2",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "compile-standalone": "npm run check-types && npm run lint && node esbuild.standalone.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-standalone",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src --ext ts",
+    "test": "node runTests.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*.{js,ts}": "prettier --write"
   }
 }

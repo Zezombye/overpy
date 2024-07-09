@@ -4,12 +4,12 @@ const { parseArgs } = require("util");
 
 require('dotenv').config();
 
-var docFolder = "./src/data/"
-var docFiles = ["actions.js", "constants.js", "keywords.js", "stringKw.js", "values.js"]
+var docFolder = "./src/data/";
+var docFiles = ["actions.ts", "constants.ts", "keywords.ts", "stringKw.ts", "values.ts"];
 
-var datatoolPath = process.env.DATATOOL_PATH ?? "%USERPROFILE%\\toolchain-release\\DataTool.exe"
-var overwatchPath = process.env.OVERWATCH_PATH ?? "C:\\Program Files (x86)\\Overwatch"
-var outputFolder = "strings"
+var datatoolPath = process.env.DATATOOL_PATH ?? "%USERPROFILE%\\toolchain-release\\DataTool.exe";
+var overwatchPath = process.env.OVERWATCH_PATH ?? "C:\\Program Files (x86)\\Overwatch";
+var outputFolder = "strings";
 var guids;
 var guidToLocaleMap = new Map();
 var enUSToGuidMap = new Map();
@@ -24,7 +24,7 @@ const args = parseArgs({
             default: false
         }
     }
-})
+});
 
 async function generateStringsFile() {
     const { execSync } = require('child_process');
@@ -33,7 +33,7 @@ async function generateStringsFile() {
     console.log("Extracting all locale strings with DataTool...");
     execSync(command, (err, stdout, stderr) => {
         if (err) {
-            console.log("DataTool failed with error:", err)
+            console.log("DataTool failed with error:", err);
             return;
         }
     });
@@ -64,7 +64,7 @@ function getGuids() {
 }
 
 function replaceJsonObjectsInFile(path) {
-    console.log("Processing "+path)
+    console.log("Processing "+path);
     let content = ""+fs.readFileSync(path);
     let result = "";
     let currentJsonStr = "";
@@ -72,7 +72,7 @@ function replaceJsonObjectsInFile(path) {
     for (let line of content.split(/\r?\n/g)) {
         if (line.trim() === "//end-json") {
             isInJsonObject = false;
-            tmpObj = iterateOnObject(eval("("+currentJsonStr+")"))
+            tmpObj = iterateOnObject(eval("("+currentJsonStr+")"));
             result += JSON.stringify(tmpObj, null, 4)+"\n";
             currentJsonStr = "";
         }
@@ -133,7 +133,7 @@ function addTranslations(content) {
         }
     }
 
-    if (content.guid == undefined) {
+    if (content.guid === undefined) {
         console.warn("GUID not found for content: "+JSON.stringify(content));
         return content;
     }
@@ -164,18 +164,18 @@ function normalizeName(content) {
 
 if (args.values.regenerateStringsFile) generateStringsFile();
 getGuids();
-replaceJsonObjectsInFile(docFolder+"actions.js");
-replaceJsonObjectsInFile(docFolder+"values.js");
-replaceJsonObjectsInFile(docFolder+"constants.js");
-replaceJsonObjectsInFile(docFolder+"heroes.js");
-replaceJsonObjectsInFile(docFolder+"maps.js");
-replaceJsonObjectsInFile(docFolder+"gamemodes.js");
-replaceJsonObjectsInFile(docFolder+"customGameSettings.js");
+replaceJsonObjectsInFile(docFolder+"actions.ts");
+replaceJsonObjectsInFile(docFolder+"values.ts");
+replaceJsonObjectsInFile(docFolder+"constants.ts");
+replaceJsonObjectsInFile(docFolder+"heroes.ts");
+replaceJsonObjectsInFile(docFolder+"maps.ts");
+replaceJsonObjectsInFile(docFolder+"gamemodes.ts");
+replaceJsonObjectsInFile(docFolder+"customGameSettings.ts");
 removeParentheses = false;
-replaceJsonObjectsInFile(docFolder+"ui.js");
-replaceJsonObjectsInFile(docFolder+"argnames.js");
-replaceJsonObjectsInFile(docFolder+"localizedStrings.js");
-replaceJsonObjectsInFile(docFolder+"other.js");
+replaceJsonObjectsInFile(docFolder+"ui.ts");
+replaceJsonObjectsInFile(docFolder+"argnames.ts");
+replaceJsonObjectsInFile(docFolder+"localizedStrings.ts");
+replaceJsonObjectsInFile(docFolder+"other.ts");
 
 /**
  * Converts a locale from the DataTool format to the OverPy format.

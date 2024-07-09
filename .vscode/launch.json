@@ -43,10 +43,37 @@
 		{
 			"name": "Run Development version of OverPy",
 			"type": "extensionHost",
+			"preLaunchTask": "Compile",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}/VS Code Extension"
+				"--disable-extensions",
+				"--extensionDevelopmentPath=${workspaceFolder}"
+			],
+			"outFiles": [
+				"${workspaceFolder}/**/*.(m|c|)js",
+				"!**/node_modules/**"
+			]
+		},
+		{
+			"name": "Run Production version of OverPy",
+			"type": "extensionHost",
+			"preLaunchTask": "Package",
+			"request": "launch",
+			"runtimeExecutable": "${execPath}",
+			"args": [
+				"--disable-extensions",
+				"--extensionDevelopmentPath=${workspaceFolder}"
+			]
+		},
+		{
+			"name": "Run behavior tests on OverPy",
+			"preLaunchTask": "Compile Standalone",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceFolder}/runTests.mjs",
+			"skipFiles": [
+				"<node_internals>/**"
 			]
 		}
 	]
