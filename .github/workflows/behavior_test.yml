@@ -1,5 +1,9 @@
 name: OverPy Behavior Testing
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request: {}
 
 env:
   HUSKY: 0
