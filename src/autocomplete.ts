@@ -331,7 +331,6 @@ function makeCompItem(
       ? itemName.substring(0, itemName.length - 2)
       : itemName,
   );
-  //console.log("item name = "+itemName+", item = "+item);
   compItem.label = itemName.endsWith("()")
     ? itemName.substring(0, itemName.length - 2)
     : itemName;
@@ -451,10 +450,9 @@ function getSnippetForMetaRuleParam(param: string) {
   try {
     var ruleParam = metaRuleParams[param];
   } catch (e) {
-    console.log("Could not find param " + param);
+    if (DEBUG_MODE) console.log("Could not find param " + param);
     return param;
   }
-  //console.log(ruleParam);
   if (ruleParam.args && ruleParam.args.length > 0) {
     if (ruleParam.args[0].values) {
       result += " ${1|";
@@ -516,7 +514,6 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
           func.args[i].description,
         ),
       );
-      //console.log(func.args[i].name);
       sigStr += argName + ": " + getSuitableArgType(func.args[i].type);
       if (i < func.args.length - 1) {
         sigStr += ", ";

@@ -209,7 +209,6 @@ export function activate(context: vscode.ExtensionContext) {
     "overpy",
     {
       provideCompletionItems(document, position, token, context) {
-        //console.log(document.getText(document.getWordRangeAtPosition(position)));
         try {
           if (context.triggerCharacter === ".") {
             let range = document.getWordRangeAtPosition(
@@ -222,7 +221,6 @@ export function activate(context: vscode.ExtensionContext) {
             } else {
               var word = document.getText(range);
               if (word in constantValuesCompLists) {
-                // console.log(constantValuesCompLists[word]);
                 return constantValuesCompLists[word];
 
                 //do not return completion suggestions for number decimals
@@ -292,7 +290,6 @@ export function activate(context: vscode.ExtensionContext) {
           let i = -1;
           let isInString = false;
           let currentStringChar = "";
-          //console.log("Finding position");
           for (; i >= -position.character + 1; i--) {
             let currentChar = document.getText(
               new vscode.Range(
@@ -300,7 +297,6 @@ export function activate(context: vscode.ExtensionContext) {
                 position.translate(0, i),
               ),
             );
-            //console.log("char: "+currentChar+", is in string: "+isInString+", string char: "+currentStringChar);
             if (!isInString) {
               if (
                 currentChar === ")" ||
@@ -348,12 +344,7 @@ export function activate(context: vscode.ExtensionContext) {
             return;
           }
 
-          console.log(funcName);
           if (funcName in allFuncList) {
-            console.log(allFuncList[funcName]);
-            console.log(
-              "current arg for func " + funcName + " is " + currentArgNb,
-            );
             if (
               "sigHelp" in allFuncList[funcName] &&
               allFuncList[funcName].sigHelp !== null

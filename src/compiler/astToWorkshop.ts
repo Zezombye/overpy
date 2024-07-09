@@ -157,9 +157,6 @@ function astRuleConditionToWs(condition: Ast) {
     //Check for replacements
     if (enableOptimization && optimizeForSize) {
       for (var i = 0; i <= 1; i++) {
-        /*console.log(condition);
-                console.log(i);
-                console.log(condition.args[i].name);*/
         if (
           condition.args[i].args.length > 0 &&
           condition.args[i].name === "__number__"
@@ -356,8 +353,6 @@ function astToWs(content: Ast): string {
         ) {
           content.args[i] = getAstForTrue();
         } else {
-          //console.log(content.args[i].expectedType);
-          //if (!isTypeSuitable("FloatLiteral", content.args[i].expectedType)) {
           if (
             ![
               "__workshopSettingReal__",

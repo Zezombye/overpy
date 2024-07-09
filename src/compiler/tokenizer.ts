@@ -176,7 +176,6 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
       staticMember: false,
       fileStackMemberType: "normal",
     });
-    //console.log(JSON.stringify(fileStack));
   }
 
   function newLogicalLine() {
@@ -323,8 +322,6 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
   }
 
   for (i = 0; i < content.length; moveCursor(1)) {
-    //console.log(JSON.stringify(fileStack));
-
     if (content[i] === "\n") {
       //Only end the logical line if the newline is not within brackets.
       if (bracketsLevel === 0) {
@@ -608,11 +605,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
   }
 
   if (DEBUG_MODE) {
-    //console.log("macros = ");
-    //console.log(macros);
-    //console.log(rules);
     console.log(result.join("\n"));
-    //console.log(result);
   }
 
   return result;
@@ -784,8 +777,6 @@ async function parseMacro(initialMacroData: {
   if (!macro.text || !macro.replacement) {
     error("Expected a macro declaration (eg: #!define myVar A)");
   }
-
-  //console.log(macro);
 
   return macro;
 }

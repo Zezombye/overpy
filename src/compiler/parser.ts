@@ -83,7 +83,6 @@ const builtInEnumNameToAstInfo = {
 };
 
 export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
-  //console.log("Lines to ast: "+JSON.stringify(lines, null, 4));
   var result: Ast[] = [];
   let currentComments: string[] = [];
 
@@ -123,7 +122,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
         if (currentLine.tokens[j].text === "=") {
           initDirective = currentLine.tokens.slice(j + 1);
           currentLine.tokens = currentLine.tokens.slice(0, j);
-          //console.log("init directive : "+dispTokens(initDirective));
           break;
         }
       }
@@ -260,7 +258,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
       if (lineMembers.length === 1) {
         error("Expected a ':' at the end of the line");
       }
-      //console.log(lineMembers);
 
       if (funcName === "__rule__") {
         if (lineMembers[0].length !== 2) {
@@ -287,7 +284,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
         instructionRuleAttributes = {};
         instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
         if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
-          //console.log(subroutines)
           for (var subroutine of subroutines) {
             if (subroutine.name === instructionRuleAttributes.subroutineName) {
               if (subroutine.isFromDefStatement) {
@@ -324,12 +320,9 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
 
       //Handle one-line children such as "if A: B++"
       if (lineMembers[1].length > 0) {
-        //console.log(JSON.stringify(lineMembers[1], null, 4));
-        //console.log(JSON.stringify(childrenLines, null, 4));
         childrenLines.push(
           new LogicalLine(currentLineIndent + 1, lineMembers[1]),
         );
-        //console.log(JSON.stringify(childrenLines, null, 4));
       }
 
       //Get children lines
@@ -388,7 +381,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
         var lastIntValue: number | Ast = 0;
         for (var k = 0; k < childrenLines.length; k++) {
           setFileStack(childrenLines[k].tokens[0].fileStack);
-          //console.log(childrenLines[k]);
           //Skip comments
           if (childrenLines[k].tokens[0].text[0] === "#") {
             continue;
@@ -433,7 +425,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
                 getAstForNumber(lastIntValue);
               lastIntValue++;
             } else {
-              console.log(lastIntValue);
               error(
                 "Cannot auto-increment enum member, as last value was " +
                   functionNameToString(lastIntValue),
@@ -477,8 +468,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
         children = await parseLines(childrenLines);
       }
 
-      //console.log("i = "+i+", j = "+j);
-      //console.log("lines = \n"+lines.join("\n"));
       setFileStack(currentLine.tokens[0].fileStack);
       let instruction = new Ast(funcName, args, children);
       if (currentComments.length > 0) {
@@ -500,7 +489,6 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
     currentComments = [];
   }
 
-  //console.log(result);
   return result;
 }
 
@@ -543,8 +531,6 @@ function getOperator(
     var end = tokens.length;
     var step = 1;
   }
-
-  //console.log("Checking tokens '"+dispTokens(tokens)+"' for operator(s) "+JSON.stringify(operators));
 
   for (var i = start; i !== end; i += step) {
     if (
@@ -1049,8 +1035,6 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
   if (name === "raycast") {
     if (args.length === 5) {
-      //console.log(args[2])
-      //console.log(args[2].length)
       if (
         args[2].length >= 2 &&
         (args[2][0].text === "include" || args[2][1].text === "=")

@@ -175,9 +175,6 @@ function compileRules(astRules: Ast[]) {
   var parsedAstRules = parseAstRules(astRules);
 
   if (DEBUG_MODE) {
-    /*for (var elem of parsedAstRules) {
-			console.log(astToString(elem));
-		}*/
     console.log(parsedAstRules);
   }
 
@@ -312,8 +309,6 @@ function generateVariablesField() {
         outputVariables[variable.index] = variable.name;
       }
     }
-
-    //console.log(outputVariables);
 
     for (let variable of unassignedVariables) {
       var foundSpot = false;
@@ -525,9 +520,6 @@ export function compileCustomGameSettings(
               ")",
           );
         }
-        /*console.log(maxTeam1Slots)
-				console.log(maxTeam2Slots)
-				console.log(maxFfaSlots)*/
         setAvailableExtensionPoints(
           availableExtensionPoints + 4 * (12 - maxSlots),
         );
