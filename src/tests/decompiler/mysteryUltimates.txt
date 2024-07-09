@@ -1,0 +1,1439 @@
+settings
+{
+	main
+	{
+		Description: "Your ultimate is completely random! Every use of your ultimate grants you a random hero's ultimate instead."
+		Mode Name: "Mystery Ultimates"
+	}
+
+	modes
+	{
+		Control
+		{
+			Competitive Rules: On
+		}
+
+		Escort
+		{
+			Competitive Rules: On
+		}
+
+		Flashpoint
+		{
+			Competitive Rules: On
+		}
+
+		Hybrid
+		{
+			Competitive Rules: On
+		}
+
+		Push
+		{
+			Competitive Rules: On
+
+			disabled maps
+			{
+				Runasapi
+			}
+		}
+
+		General
+		{
+			Limit Roles: 1 Tank 2 Offense 2 Support
+		}
+	}
+}
+
+variables
+{
+	global:
+		0: SHOULD_RESET_HEROES_ON_DESPAWN
+		1: FORCE_NON_NATIVE_ULTIMATE
+		2: RANDOM_ULTIMATE_MATCHES_ROLE
+		3: SHOW_ULTIMATE_HERO
+		4: ENFORCE_ROLE_LOCK
+		5: DEBUG_MODE
+		6: DEBUG_MELEE_FOR_ULT_CHARGE
+		7: DEBUG_SHOULD_FORCE_ULTIMATE_HERO
+		8: DEBUG_ULTIMATE_HERO
+		9: DEBUG_LOG_EVENTS
+		10: DEBUG_SHOW_CURRENT_STATE
+		11: placeableUltimateHeroes
+		12: ability1AllowedHeroes
+		13: ability2AllowedHeroes
+		14: rainbowVector
+		15: IsInSlowMotion
+		16: ultimatePreparedPlayers
+		17: awaitingReturnPlayers
+		18: finalPriorityList
+		19: draftPriorityList
+		20: i
+		21: p
+
+	player:
+		0: trueHero
+		1: ultimateHero
+		2: eligibleHeroSwaps
+		3: extendedUltPercentLeft
+		4: ultCastStallDuration
+		5: extendedUltDuration
+		6: extendedUltTimer
+		7: hackAbilityLockout
+		8: ultimateState
+		9: preparingUltState
+		10: preparingUltEvent
+		11: ultimateEvent
+		12: pos
+		13: facing
+}
+
+subroutines
+{
+	0: ChooseNewUltimateHero
+	1: ProcessNewPriorityList
+	2: UltimateEventHandler
+	3: UltEventHandler_Normal
+	4: UltEventHandler_Preparing
+	5: RestoreTrueHeroAndReturnToNormal
+	6: OverwriteHeroSwapUltTransfer
+	7: UltEventHandler_Using
+	8: SetLingerDuration
+	9: UltEventHandler_Lingering
+	10: PreparingUltimateEventHandler
+	11: PreparingUltEventHandler_None
+	12: PreparingUltEventHandler_Switchi
+	13: SetStallDuration
+	14: PreparingUltEventHandler_Stallin
+	15: PreparingUltEventHandler_Activat
+	16: PreparingUltEventHandler_Casting
+}
+
+rule("Initial Global")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.SHOULD_RESET_HEROES_ON_DESPAWN = True;
+		Global.FORCE_NON_NATIVE_ULTIMATE = Workshop Setting Toggle(Custom String("Mystery Ultimates"), Custom String(
+			"Force Random Ultimate To Be Non-Native"), True, 0);
+		Global.RANDOM_ULTIMATE_MATCHES_ROLE = Workshop Setting Toggle(Custom String("Mystery Ultimates"), Custom String(
+			"Force Random Ultimate To Match Role"), False, 1);
+		Global.SHOW_ULTIMATE_HERO = Workshop Setting Toggle(Custom String("Mystery Ultimates"), Custom String(
+			"Show Randomized Ultimate Hero"), False, 3);
+		Global.ENFORCE_ROLE_LOCK = Workshop Setting Toggle(Custom String("Mystery Ultimates"), Custom String("Enforce Role Lock"), True,
+			4);
+		Global.DEBUG_MODE = Workshop Setting Toggle(Custom String(" DEBUG"), Custom String("Debug Mode Enabled"), False, -1);
+		Global.DEBUG_MELEE_FOR_ULT_CHARGE = Workshop Setting Toggle(Custom String(" DEBUG"), Custom String("Melee for 25% Ult Charge"),
+			False, 0);
+		Global.DEBUG_SHOULD_FORCE_ULTIMATE_HERO = Workshop Setting Toggle(Custom String(" DEBUG"), Custom String("Force Ultimate Hero"),
+			False, 1);
+		Global.DEBUG_ULTIMATE_HERO = Workshop Setting Hero(Custom String(" DEBUG"), Custom String("Ultimate Hero to Force"), Ana, 2);
+		Global.DEBUG_LOG_EVENTS = Workshop Setting Toggle(Custom String(" DEBUG"), Custom String(
+			"Log Events to Inspector (*doesn't need debug mode on)"), False, 3);
+		Global.DEBUG_SHOW_CURRENT_STATE = Workshop Setting Toggle(Custom String(" DEBUG"), Custom String("Show Current State"), False, 4);
+		Global.placeableUltimateHeroes = Array(Hero(Baptiste), Hero(Symmetra), Hero(Lifeweaver));
+		Global.ability1AllowedHeroes = Array(Hero(D.Va), Hero(Echo));
+		Global.ability2AllowedHeroes = Empty Array;
+		Global.rainbowVector = Left - Left;
+		Global.ultimatePreparedPlayers = Empty Array;
+		Global.awaitingReturnPlayers = Empty Array;
+	}
+}
+
+rule("Initial Player")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	actions
+	{
+		Event Player.hackAbilityLockout = 0;
+		Event Player.ultimateState = Custom String("NORMAL");
+		Event Player.preparingUltState = Custom String("NONE");
+		Event Player.preparingUltEvent = Custom String("NONE");
+		Event Player.ultimateEvent = Custom String("NONE");
+	}
+}
+
+rule("Global credit HUD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Create HUD Text(All Players(All Teams), Custom String(" Code: 12MET "), Custom String("{0} Mystery Ultimates", Icon String(
+			Question Mark)), Custom String("By CactusPuppy"), Right, -10, Color(Orange), Color(White), Custom Color(255, 255, 255, 128),
+			Visible To, Visible Always);
+		If(Global.DEBUG_MODE);
+			Create HUD Text(All Players(All Teams), Null, Custom String("DEBUG MODE ENABLED"), Null, Right, -9, Color(White), Custom Color(
+				X Component Of(Global.rainbowVector), Y Component Of(Global.rainbowVector), Z Component Of(Global.rainbowVector), 255), Color(
+				White), Visible To and Color, Default Visibility);
+		End;
+	}
+}
+
+rule("If not in DEBUG_MODE, disable inspector recording")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(!Global.DEBUG_MODE);
+			Disable Inspector Recording;
+		End;
+	}
+}
+
+rule("If should show current state, display it")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Global.DEBUG_SHOW_CURRENT_STATE == True;
+	}
+
+	actions
+	{
+		Create HUD Text(Event Player, Null, Custom String("Current State: {0}", Event Player.ultimateState), Null, Left, 0, Color(White),
+			Color(White), Color(White), Visible To and String, Visible Never);
+	}
+}
+
+rule("[wheelVisuals.del] Start chasing rainbowVector")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+	}
+
+	actions
+	{
+		Chase Global Variable At Rate(rainbowVector, Vector(Min(Max(Absolute Value(Total Time Elapsed * 900 % 765 - 382.500), 127.500),
+			255), Min(Max(Absolute Value((Total Time Elapsed * 900 + 255) % 765 - 382.500), 127.500), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 900 + 510) % 765 - 382.500), 127.500), 255)), 99999, Destination and Rate);
+	}
+}
+
+rule("Create randomized ultimate hero HUD")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.SHOW_ULTIMATE_HERO == True;
+	}
+
+	actions
+	{
+		Create In-World Text(Event Player.ultimateHero && Event Player.ultimateState == Custom String("NORMAL") && Ultimate Charge Percent(
+			Event Player) == 100 ? Event Player : Null, Custom String("{0}: {1}", Hero Icon String(Event Player.ultimateHero),
+			Ability Icon String(Event Player.ultimateHero, Button(Ultimate))), Update Every Frame(True * Eye Position(Event Player)
+			+ Empty Array * Cross Product(Facing Direction Of(Event Player), Direction From Angles(Horizontal Angle From Direction(
+			Facing Direction Of(Event Player)), Vertical Angle From Direction(Facing Direction Of(Event Player)) - 90))
+			+ -110 * Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(Event Player)),
+			Vertical Angle From Direction(Facing Direction Of(Event Player)) - 90) + 300 * Facing Direction Of(Event Player)), 4,
+			Do Not Clip, Visible To Position and String, Color(White), Visible Never);
+	}
+}
+
+rule("[SUB]: Choose a new ultimateHero")
+{
+	event
+	{
+		Subroutine;
+		ChooseNewUltimateHero;
+	}
+
+	actions
+	{
+		If(Global.DEBUG_MODE && Global.DEBUG_SHOULD_FORCE_ULTIMATE_HERO);
+			Event Player.ultimateHero = Global.DEBUG_ULTIMATE_HERO;
+		Else;
+			Event Player.eligibleHeroSwaps = All Heroes;
+			If(Global.RANDOM_ULTIMATE_MATCHES_ROLE);
+				If(Array Contains(All Tank Heroes, Hero Of(Event Player)));
+					Event Player.eligibleHeroSwaps = All Tank Heroes;
+				Else If(Array Contains(All Damage Heroes, Hero Of(Event Player)));
+					Event Player.eligibleHeroSwaps = All Damage Heroes;
+				Else If(Array Contains(All Support Heroes, Hero Of(Event Player)));
+					Event Player.eligibleHeroSwaps = All Support Heroes;
+				End;
+			End;
+			If(Global.FORCE_NON_NATIVE_ULTIMATE);
+				Modify Player Variable(Event Player, eligibleHeroSwaps, Remove From Array By Value, Hero Of(Event Player));
+			End;
+			Event Player.ultimateHero = Random Value In Array(Event Player.eligibleHeroSwaps);
+		End;
+		"If the ultimateHero matches their hero right now, then we can allow native ultimate.\nOtherwise, we need to disable the ultimate button."
+		If(Event Player.ultimateHero == Hero Of(Event Player));
+			If(Global.DEBUG_LOG_EVENTS);
+				If(!Global.DEBUG_MODE);
+					Enable Inspector Recording;
+				End;
+				Log To Inspector(Custom String("{0}{1}{2}", Custom String("{0}{1}{2}", Event Player, Custom String(" got native ult ("), Hero Of(
+					Event Player)), Custom String("). FORCE_NON_NATIVE_ULTIMATE: "), Global.FORCE_NON_NATIVE_ULTIMATE));
+				If(!Global.DEBUG_MODE);
+					Disable Inspector Recording;
+				End;
+			End;
+			Allow Button(Event Player, Button(Ultimate));
+		Else;
+			Disallow Button(Event Player, Button(Ultimate));
+		End;
+	}
+}
+
+rule("Track player's true hero")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Event Player.ultimateState == Custom String("NORMAL");
+		Event Player.trueHero != Hero Of(Event Player);
+	}
+
+	actions
+	{
+		Event Player.trueHero = Hero Of(Event Player);
+		"Prevent swapping to a different role"
+		If(Global.ENFORCE_ROLE_LOCK);
+			If(Array Contains(All Damage Heroes, Event Player.trueHero));
+				Set Player Allowed Heroes(Event Player, All Damage Heroes);
+			Else If(Array Contains(All Tank Heroes, Event Player.trueHero));
+				Set Player Allowed Heroes(Event Player, All Tank Heroes);
+			Else If(Array Contains(All Support Heroes, Event Player.trueHero));
+				Set Player Allowed Heroes(Event Player, All Support Heroes);
+			End;
+		End;
+		If(Hero Of(Event Player) == Event Player.ultimateHero);
+			If(Global.FORCE_NON_NATIVE_ULTIMATE);
+				Call Subroutine(ChooseNewUltimateHero);
+			Else;
+				Allow Button(Event Player, Button(Ultimate));
+			End;
+		Else;
+			Disallow Button(Event Player, Button(Ultimate));
+		End;
+	}
+}
+
+rule("Choose the next ultimate hero when the player enters NORMAL mode")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Event Player.ultimateState == Custom String("NORMAL");
+	}
+
+	actions
+	{
+		Call Subroutine(ChooseNewUltimateHero);
+	}
+}
+
+rule("If player used their native ultimate, choose a new ultimate hero after their ult is done")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		(Is Using Ultimate(Event Player) || Is Duplicating(Event Player)) == True;
+		Hero Of(Event Player) == Event Player.ultimateHero;
+	}
+
+	actions
+	{
+		Wait Until(!Is Using Ultimate(Event Player) && !Is Duplicating(Event Player), 1000000);
+		Call Subroutine(ChooseNewUltimateHero);
+	}
+}
+
+rule("[preloadPriority.del] Generate a new preload priority list and preload the right players")
+{
+	event
+	{
+		Subroutine;
+		ProcessNewPriorityList;
+	}
+
+	actions
+	{
+		"Generate the draft priority list"
+		Global.draftPriorityList = Empty Array;
+		Modify Global Variable(draftPriorityList, Append To Array, Global.ultimatePreparedPlayers);
+		Modify Global Variable(draftPriorityList, Append To Array, Global.awaitingReturnPlayers);
+		Global.draftPriorityList = Array Slice(Global.draftPriorityList, 0, 8);
+		"Remove preload for all players who are in the previous priority list but not in the new one"
+		For Global Variable(i, 0, Count Of(Global.finalPriorityList), 1);
+			If(Index Of Array Value(Global.draftPriorityList, Global.finalPriorityList[Global.i]) == -1);
+				Global.p = Global.finalPriorityList[Global.i];
+				Preload Hero(Global.p, Has Spawned(Global.p) ? Hero Of(Global.p) : Empty Array);
+			End;
+		End;
+		"Update the final priority list"
+		Global.finalPriorityList = Global.draftPriorityList;
+		"Preload all players who are in the final priority list"
+		For Global Variable(i, 0, Count Of(Global.finalPriorityList), 1);
+			"If player is in Ultimate state NORMAL, preload the ultimateHero.\nOtherwise, preload their trueHero."
+			Preload Hero(Global.finalPriorityList[Global.i], Global.finalPriorityList[Global.i].ultimateState == Custom String("NORMAL")
+				? Global.finalPriorityList[Global.i].ultimateHero : Global.finalPriorityList[Global.i].trueHero);
+		End;
+	}
+}
+
+rule("When player earns their ult, if ultimateHero is not their trueHero, add player to ultimatePreparedPlayers")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Event Player.ultimateState == Custom String("NORMAL");
+		Ultimate Charge Percent(Event Player) == 100;
+		Event Player.ultimateHero != Event Player.trueHero;
+	}
+
+	actions
+	{
+		Modify Global Variable(ultimatePreparedPlayers, Append To Array, Event Player);
+		Call Subroutine(ProcessNewPriorityList);
+	}
+}
+
+rule("[stateMachine.del] Handle event for NORMAL state")
+{
+	event
+	{
+		Subroutine;
+		UltEventHandler_Normal;
+	}
+
+	actions
+	{
+		Skip(Array(12, 0)[Index Of Array Value(Array(Custom String("ULT_ACTIVATION")), Event Player.ultimateEvent) + 1]);
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Start Forcing Player To Be Hero(Event Player, Event Player.ultimateHero);
+		Event Player.ultimateHero = False;
+		If(Array Contains(Global.ability1AllowedHeroes, Hero Of(Event Player)));
+			Allow Button(Event Player, Button(Ability 1));
+		End;
+		If(Array Contains(Global.ability2AllowedHeroes, Hero Of(Event Player)));
+			Allow Button(Event Player, Button(Ability 2));
+		End;
+		Allow Button(Event Player, Button(Ultimate));
+		Event Player.ultimateState = Custom String("PREPARING_ULT");
+	}
+}
+
+rule("[stateMachine.del] Prevent granting ult from hero transfer")
+{
+	event
+	{
+		Subroutine;
+		OverwriteHeroSwapUltTransfer;
+	}
+
+	actions
+	{
+		Wait Until(Ultimate Charge Percent(Event Player) > 0 || Is Dead(Event Player), 1);
+		Abort If(Is Dead(Event Player));
+		Set Ultimate Charge(Event Player, 0);
+	}
+}
+
+rule("[stateMachine.del] Restore the player's true hero and return to NORMAL state")
+{
+	event
+	{
+		Subroutine;
+		RestoreTrueHeroAndReturnToNormal;
+	}
+
+	actions
+	{
+		Allow Button(Event Player, Button(Ability 1));
+		Allow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Wait Until(Is Alive(Event Player) || !Has Spawned(Event Player), 1000000);
+		"If the player isn't spawned, we're most likely between rounds and need to just move them into the NORMAL state\nAnother rule will handle resetting their hero availablity [main.ostw]"
+		If(!Has Spawned(Event Player));
+			Modify Global Variable(awaitingReturnPlayers, Remove From Array By Value, Event Player);
+			Call Subroutine(ProcessNewPriorityList);
+			Event Player.ultimateState = Custom String("NORMAL");
+			Skip(9);
+		End;
+		Start Forcing Player To Be Hero(Event Player, Event Player.trueHero);
+		Wait Until(Hero Of(Event Player) == Event Player.trueHero, 1000000);
+		Set Ultimate Charge(Event Player, 0);
+		Start Rule(OverwriteHeroSwapUltTransfer, Do Nothing);
+		Stop Forcing Player To Be Hero(Event Player);
+		Modify Global Variable(awaitingReturnPlayers, Remove From Array By Value, Event Player);
+		Call Subroutine(ProcessNewPriorityList);
+		Event Player.ultimateState = Custom String("NORMAL");
+	}
+}
+
+rule("[stateMachine.del] Handle event for PREPARING_ULT state")
+{
+	event
+	{
+		Subroutine;
+		UltEventHandler_Preparing;
+	}
+
+	actions
+	{
+		Skip(Array(9, 0, 7)[Index Of Array Value(Array(Custom String("USED_ULTIMATE"), Custom String("DIED")), Event Player.ultimateEvent)
+			+ 1]);
+		Allow Button(Event Player, Button(Ability 1));
+		Allow Button(Event Player, Button(Ability 2));
+		If(!Is Duplicating(Event Player));
+			Disallow Button(Event Player, Button(Ultimate));
+		End;
+		Event Player.ultimateState = Custom String("USING_ULT");
+		Skip(2);
+		Event Player.ultimateState = Custom String("DEAD");
+		Start Rule(RestoreTrueHeroAndReturnToNormal, Do Nothing);
+	}
+}
+
+rule("[SUB]: Set linger duration")
+{
+	event
+	{
+		Subroutine;
+		SetLingerDuration;
+	}
+
+	actions
+	{
+		Event Player.extendedUltDuration = 0;
+		Skip(Array(17, 0, 2, 4, 6, 8, 10, 12, 14, 16)[Index Of Array Value(Array(Hero(Junker Queen), Hero(Wrecking Ball), Hero(Lifeweaver),
+			Hero(Tracer), Hero(Illari), Hero(Torbjörn), Hero(Hanzo), Hero(Bastion), Hero(Venture)), Hero Of(Event Player)) + 1]);
+		Event Player.extendedUltDuration = 5;
+		Skip(15);
+		Event Player.extendedUltDuration = 15;
+		Skip(13);
+		Event Player.extendedUltDuration = 15;
+		Skip(11);
+		Event Player.extendedUltDuration = 3;
+		Skip(9);
+		Event Player.extendedUltDuration = 5;
+		Skip(7);
+		Event Player.extendedUltDuration = 10;
+		Skip(5);
+		Event Player.extendedUltDuration = 10;
+		Skip(3);
+		Event Player.extendedUltDuration = 1;
+		Skip(1);
+		Event Player.extendedUltDuration = 1;
+	}
+}
+
+rule("[stateMachine.del] Handle event for USING_ULT state")
+{
+	event
+	{
+		Subroutine;
+		UltEventHandler_Using;
+	}
+
+	actions
+	{
+		Skip(Array(9, 0, 7)[Index Of Array Value(Array(Custom String("ULTIMATE_ENDED"), Custom String("DIED")), Event Player.ultimateEvent)
+			+ 1]);
+		Call Subroutine(SetLingerDuration);
+		If(Event Player.extendedUltDuration > 0);
+			Event Player.ultimateState = Custom String("LINGERING");
+			Skip(5);
+		End;
+		Start Rule(RestoreTrueHeroAndReturnToNormal, Do Nothing);
+		Skip(2);
+		Event Player.ultimateState = Custom String("DEAD");
+		Start Rule(RestoreTrueHeroAndReturnToNormal, Do Nothing);
+	}
+}
+
+rule("[stateMachine.del] Handle event for LINGERING state")
+{
+	event
+	{
+		Subroutine;
+		UltEventHandler_Lingering;
+	}
+
+	actions
+	{
+		Skip(Array(2, 0, 0)[Index Of Array Value(Array(Custom String("LINGER_EXPIRED"), Custom String("DIED")), Event Player.ultimateEvent)
+			+ 1]);
+		Disallow Button(Event Player, Button(Ultimate));
+		Start Rule(RestoreTrueHeroAndReturnToNormal, Do Nothing);
+	}
+}
+
+rule("[stateMachine.del] Dispatch event to handler based on ultimateState")
+{
+	event
+	{
+		Subroutine;
+		UltimateEventHandler;
+	}
+
+	actions
+	{
+		If(Global.DEBUG_LOG_EVENTS);
+			If(!Global.DEBUG_MODE);
+				Enable Inspector Recording;
+			End;
+			Log To Inspector(Custom String("{0}{1}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}",
+				Custom String("["), Event Player, Custom String("] Handling overall ult state event ")), Event Player.ultimateEvent,
+				Custom String(" in state ")), Event Player.ultimateState, Custom String(", on hero ")), Hero Of(Event Player)));
+			If(!Global.DEBUG_MODE);
+				Disable Inspector Recording;
+			End;
+		End;
+		Skip(Array(7, 0, 2, 4, 6)[Index Of Array Value(Array(Custom String("NORMAL"), Custom String("PREPARING_ULT"), Custom String(
+			"USING_ULT"), Custom String("LINGERING")), Event Player.ultimateState) + 1]);
+		Call Subroutine(UltEventHandler_Normal);
+		Skip(5);
+		Call Subroutine(UltEventHandler_Preparing);
+		Skip(3);
+		Call Subroutine(UltEventHandler_Using);
+		Skip(1);
+		Call Subroutine(UltEventHandler_Lingering);
+		If(Global.DEBUG_LOG_EVENTS);
+			If(!Global.DEBUG_MODE);
+				Enable Inspector Recording;
+			End;
+			Log To Inspector(Custom String("{0}{1}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}",
+				Custom String("["), Event Player, Custom String("] Finished handling overall ult state event ")), Event Player.ultimateEvent,
+				Custom String("; now in state ")), Event Player.ultimateState, Custom String(", on hero ")), Hero Of(Event Player)));
+			If(!Global.DEBUG_MODE);
+				Disable Inspector Recording;
+			End;
+		End;
+	}
+}
+
+rule("[stateMachine.del] Handle event for NONE state")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltEventHandler_None;
+	}
+
+	actions
+	{
+		Skip(Array(1, 0)[Index Of Array Value(Array(Custom String("STATE_ENTER")), Event Player.preparingUltEvent) + 1]);
+		Event Player.preparingUltState = Custom String("SWITCHING_HEROES");
+	}
+}
+
+rule("[SUB]: Set cast stall duration")
+{
+	event
+	{
+		Subroutine;
+		SetStallDuration;
+	}
+
+	actions
+	{
+		Event Player.ultCastStallDuration = 0;
+		Skip(Array(3, 0, 2)[Index Of Array Value(Array(Hero(D.Va), Hero(Zarya)), Hero Of(Event Player)) + 1]);
+		Event Player.ultCastStallDuration = 1.250;
+		Skip(1);
+		Event Player.ultCastStallDuration = 0.750;
+	}
+}
+
+rule("[stateMachine.del] Handle event for SWITCHING_HEROES state")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltEventHandler_Switchi;
+	}
+
+	actions
+	{
+		Skip(Array(14, 0, 10, 13)[Index Of Array Value(Array(Custom String("HERO_SWAPPED"), Custom String("USED_ULTIMATE"), Custom String(
+			"STATE_EXIT")), Event Player.preparingUltEvent) + 1]);
+		"Begin preloading the trueHero for when the player swaps back"
+		Modify Global Variable(ultimatePreparedPlayers, Remove From Array By Value, Event Player);
+		Modify Global Variable(awaitingReturnPlayers, Append To Array, Event Player);
+		Call Subroutine(ProcessNewPriorityList);
+		Call Subroutine(SetStallDuration);
+		If(Event Player.ultCastStallDuration > 0);
+			Event Player.preparingUltState = Custom String("STALLING");
+			Skip(7);
+		End;
+		Event Player.preparingUltState = Custom String("ACTIVATING_ULT");
+		Skip(4);
+		Event Player.ultimateEvent = Custom String("USED_ULTIMATE");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltState = Custom String("NONE");
+	}
+}
+
+rule("[stateMachine.del] Handle event for STALLING state")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltEventHandler_Stallin;
+	}
+
+	actions
+	{
+		Skip(Array(6, 0, 2, 5)[Index Of Array Value(Array(Custom String("STALL_EXPIRED"), Custom String("USED_ULTIMATE"), Custom String(
+			"STATE_EXIT")), Event Player.preparingUltEvent) + 1]);
+		Event Player.preparingUltState = Custom String("ACTIVATING_ULT");
+		Skip(4);
+		Event Player.ultimateEvent = Custom String("USED_ULTIMATE");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltState = Custom String("NONE");
+	}
+}
+
+rule("[stateMachine.del] Handle event for ACTIVATING_ULT state")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltEventHandler_Activat;
+	}
+
+	actions
+	{
+		Skip(Array(6, 0, 2, 5)[Index Of Array Value(Array(Custom String("PRESSED_ULTIMATE"), Custom String("USED_ULTIMATE"), Custom String(
+			"STATE_EXIT")), Event Player.preparingUltEvent) + 1]);
+		Event Player.preparingUltState = Custom String("CASTING_ULT");
+		Skip(4);
+		Event Player.ultimateEvent = Custom String("USED_ULTIMATE");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltState = Custom String("NONE");
+	}
+}
+
+rule("[stateMachine.del] Handle event for CASTING_ULT state")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltEventHandler_Casting;
+	}
+
+	actions
+	{
+		Skip(Array(6, 0, 2, 5)[Index Of Array Value(Array(Custom String("PRESSED_ULTIMATE_EXPIRED"), Custom String("USED_ULTIMATE"),
+			Custom String("STATE_EXIT")), Event Player.preparingUltEvent) + 1]);
+		Event Player.preparingUltState = Custom String("ACTIVATING_ULT");
+		Skip(4);
+		Event Player.ultimateEvent = Custom String("USED_ULTIMATE");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltState = Custom String("NONE");
+	}
+}
+
+rule("[stateMachine.del] Handle preparing ult event")
+{
+	event
+	{
+		Subroutine;
+		PreparingUltimateEventHandler;
+	}
+
+	actions
+	{
+		If(Global.DEBUG_LOG_EVENTS);
+			If(!Global.DEBUG_MODE);
+				Enable Inspector Recording;
+			End;
+			Log To Inspector(Custom String("{0}{1}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}",
+				Custom String("["), Event Player, Custom String("] Handling preparing ult state event ")), Event Player.preparingUltEvent,
+				Custom String(" in state ")), Event Player.preparingUltState, Custom String(", on hero ")), Hero Of(Event Player)));
+			If(!Global.DEBUG_MODE);
+				Disable Inspector Recording;
+			End;
+		End;
+		Skip(Array(9, 0, 2, 4, 6, 8)[Index Of Array Value(Array(Custom String("NONE"), Custom String("SWITCHING_HEROES"), Custom String(
+			"STALLING"), Custom String("ACTIVATING_ULT"), Custom String("CASTING_ULT")), Event Player.preparingUltState) + 1]);
+		Call Subroutine(PreparingUltEventHandler_None);
+		Skip(7);
+		Call Subroutine(PreparingUltEventHandler_Switchi);
+		Skip(5);
+		Call Subroutine(PreparingUltEventHandler_Stallin);
+		Skip(3);
+		Call Subroutine(PreparingUltEventHandler_Activat);
+		Skip(1);
+		Call Subroutine(PreparingUltEventHandler_Casting);
+		If(Global.DEBUG_LOG_EVENTS);
+			If(!Global.DEBUG_MODE);
+				Enable Inspector Recording;
+			End;
+			Log To Inspector(Custom String("{0}{1}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}", Custom String("{0}{1}{2}",
+				Custom String("["), Event Player, Custom String("] Finished handling preparing ult state event ")),
+				Event Player.preparingUltEvent, Custom String("; now in state ")), Event Player.preparingUltState, Custom String(
+				", on hero ")), Hero Of(Event Player)));
+			If(!Global.DEBUG_MODE);
+				Disable Inspector Recording;
+			End;
+		End;
+	}
+}
+
+rule("When the game is between rounds, issue a DIED event to knock all players out of their mystery ult")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Between Rounds == True;
+		!Is Match Complete == True;
+	}
+
+	actions
+	{
+		Wait Until(!Is Between Rounds, 1000000);
+		"Kick the player out of their mystery ult if they're still in it"
+		Abort If(Event Player.ultimateState == Custom String("NORMAL"));
+		Event Player.ultimateEvent = Custom String("DIED");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltEvent = Custom String("STATE_EXIT");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+	}
+}
+
+rule("If the player despawns for at least 0.25 seconds, reset their hero availability")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.SHOULD_RESET_HEROES_ON_DESPAWN == True;
+		!Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.250, Abort When False);
+		Stop Forcing Player To Be Hero(Event Player);
+		Reset Player Hero Availability(Event Player);
+	}
+}
+
+rule("DEBUG: When player melees, give them 25% ult charge")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Global.DEBUG_MELEE_FOR_ULT_CHARGE == True;
+		Is Button Held(Event Player, Button(Melee)) == True;
+	}
+
+	actions
+	{
+		Set Ultimate Charge(Event Player, Min(100, Ultimate Charge Percent(Event Player) + 25));
+	}
+}
+
+disabled rule("DEBUG: When player hits reload and crouch, toggle slow motion")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Is Button Held(Event Player, Button(Reload)) == True;
+		Is Button Held(Event Player, Button(Crouch)) == True;
+	}
+
+	actions
+	{
+		If(Global.IsInSlowMotion);
+			Set Slow Motion(100);
+		Else;
+			Set Slow Motion(10);
+		End;
+		Global.IsInSlowMotion = !Global.IsInSlowMotion;
+	}
+}
+
+rule("DEBUG: When player holds crouch for 2 seconds, swap their hero")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Is Button Held(Event Player, Button(Crouch)) == True;
+	}
+
+	actions
+	{
+		Wait(2, Abort When False);
+		Event Player.pos = Position Of(Event Player);
+		Event Player.facing = Facing Direction Of(Event Player);
+		Set Player Allowed Heroes(Event Player, Remove From Array(All Heroes, Hero Of(Event Player)));
+		Wait Until(!Has Spawned(Event Player), 1);
+		Reset Player Hero Availability(Event Player);
+		Wait Until(Has Spawned(Event Player), 1000000);
+		Teleport(Event Player, Event Player.pos);
+		Start Facing(Event Player, Event Player.facing, 1000, To World, None);
+		Wait Until(Angle Between Vectors(Facing Direction Of(Event Player), Event Player.facing) < 0.100, 1000000);
+		Stop Facing(Event Player);
+	}
+}
+
+disabled rule("DEBUG: Shorten assembling heroes in DEBUG_MODE")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Is Assembling Heroes == True;
+	}
+
+	actions
+	{
+		Wait(0.100, Abort When False);
+		Set Match Time(5);
+	}
+}
+
+rule("DEBUG: Say Goodbye to end round")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.DEBUG_MODE == True;
+		Is Communicating(Event Player, Goodbye) == True;
+	}
+
+	actions
+	{
+		Set Match Time(0);
+	}
+}
+
+rule("[trackAbilityLockout.del] When a player becomes hacked, start ability lockout timer")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Hacked) == True;
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, hackAbilityLockout);
+		"Ensure that we don't overwrite the EMP lockout duration"
+		If(Event Player.hackAbilityLockout < 1.500);
+			Event Player.hackAbilityLockout = 1.500;
+		End;
+		Chase Player Variable At Rate(Event Player, hackAbilityLockout, 0, 1, None);
+		"Handle cleansing"
+		Wait Until(!Has Status(Event Player, Hacked) || Event Player.hackAbilityLockout <= 0, 1000000);
+		Event Player.hackAbilityLockout = 0;
+		Stop Chasing Player Variable(Event Player, hackAbilityLockout);
+	}
+}
+
+rule("[trackAbilityLockout.del] When a player is hit by EMP, start ability lockout timer")
+{
+	event
+	{
+		Player Took Damage;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Hero Of(Attacker) == Hero(Sombra);
+		Event Ability == Button(Ultimate);
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, hackAbilityLockout);
+		Event Player.hackAbilityLockout = 3;
+		Chase Player Variable At Rate(Event Player, hackAbilityLockout, 0, 1, None);
+	}
+}
+
+rule("[trackAbilityLockout.del] When hackAbilityLockout reaches 0, stop chasing it")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.hackAbilityLockout <= 0;
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, hackAbilityLockout);
+	}
+}
+
+rule("[stateMachine.del] Perform actions when stalling is activated")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Event Player.preparingUltState == Custom String("STALLING");
+	}
+
+	actions
+	{
+		Skip(Array(3, 0)[Index Of Array Value(Array(Hero(D.Va)), Hero Of(Event Player)) + 1]);
+		Start Holding Button(Event Player, Button(Ability 1));
+		Wait(1, Ignore Condition);
+		Stop Holding Button(Event Player, Button(Ability 1));
+	}
+}
+
+rule("When the player presses their ult button in NORMAL mode, activate ult")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+		Event Player.ultimateState == Custom String("NORMAL");
+		Ultimate Charge Percent(Event Player) == 100;
+		Event Player.trueHero != Event Player.ultimateHero;
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+		Is True For Any(Array(Event Player.hackAbilityLockout > 0, Has Status(Event Player, Asleep), Has Status(Event Player, Frozen),
+			Has Status(Event Player, Knocked Down), Has Status(Event Player, Stunned)), Current Array Element) == False;
+	}
+
+	actions
+	{
+		Event Player.preparingUltEvent = Custom String("STATE_ENTER");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+		Event Player.ultimateEvent = Custom String("ULT_ACTIVATION");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+	}
+}
+
+rule("When the player is in the preparing ult state and they swap off their true hero, issue a hero swap event")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Event Player.preparingUltState == Custom String("SWITCHING_HEROES");
+		Hero Of(Event Player) != Event Player.trueHero;
+	}
+
+	actions
+	{
+		Event Player.preparingUltEvent = Custom String("HERO_SWAPPED");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+	}
+}
+
+rule("When player is stalling ult cast, wait for the duration then issue a stall expired event")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Event Player.preparingUltState == Custom String("STALLING");
+	}
+
+	actions
+	{
+		Wait(Event Player.ultCastStallDuration, Abort When False);
+		Event Player.preparingUltEvent = Custom String("STALL_EXPIRED");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+	}
+}
+
+rule("If player is placing ult doesn't have enough ult charge while casting, fill it up")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		(Event Player.preparingUltState == Custom String("ACTIVATING_ULT") || Event Player.preparingUltState == Custom String("STALLING"))
+			== True;
+		Ultimate Charge Percent(Event Player) < 100;
+		Ultimate Charge Percent(Event Player) > 0;
+	}
+
+	actions
+	{
+		Set Ultimate Charge(Event Player, 100);
+		Wait(0.050, Abort When False);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Continually attempt to use ult while in the preparing ult state and the player is in the activating ult state")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Event Player.preparingUltState != Custom String("STALLING");
+		Array Contains(Global.placeableUltimateHeroes, Hero Of(Event Player)) == False;
+		Ultimate Charge Percent(Event Player) == 100;
+	}
+
+	actions
+	{
+		Press Button(Event Player, Button(Ultimate));
+		Wait(0.050, Abort When False);
+		Loop If Condition Is True;
+	}
+}
+
+rule("When the player presses their ult button in the activating state, issue an ult_pressed event, then after a while, if we haven't exited the state, issue an ult_pressed_expired event")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Event Player.preparingUltState == Custom String("ACTIVATING_ULT");
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+		Ultimate Charge Percent(Event Player) == 0;
+	}
+
+	actions
+	{
+		Event Player.preparingUltEvent = Custom String("PRESSED_ULTIMATE");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+		Wait Until(Event Player.ultimateState != Custom String("PREPARING_ULT"), 1);
+		If(Event Player.ultimateState == Custom String("PREPARING_ULT"));
+			Event Player.preparingUltEvent = Custom String("PRESSED_ULTIMATE_EXPIRED");
+			Call Subroutine(PreparingUltimateEventHandler);
+			Event Player.preparingUltEvent = Custom String("NONE");
+		End;
+	}
+}
+
+rule("In the using ult state, if the player gains ult charge, set it back to 0")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Event Player.ultimateState == Custom String("USING_ULT") || Event Player.ultimateState == Custom String("LINGERING")) == True;
+		Ultimate Charge Percent(Event Player) > 0;
+		!Is Duplicating(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Ultimate Charge(Event Player, 0);
+		Wait(0.016, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("While attempting to cast ult, if player has an placeable ult and they cancel it, bring it back up")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Array Contains(Global.placeableUltimateHeroes, Hero Of(Event Player)) == True;
+		Is Button Held(Event Player, Button(Secondary Fire)) == True;
+	}
+
+	actions
+	{
+		Wait(0.250, Ignore Condition);
+		Press Button(Event Player, Button(Ultimate));
+	}
+}
+
+rule("While attempting to cast ult, if player has a placeable ult and they get hard CC'd, bring it back up when they are no longer afflicted")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		Array Contains(Global.placeableUltimateHeroes, Hero Of(Event Player)) == True;
+		Is True For Any(Array(Event Player.hackAbilityLockout > 0, Has Status(Event Player, Asleep), Has Status(Event Player, Frozen),
+			Has Status(Event Player, Knocked Down), Has Status(Event Player, Stunned)), Current Array Element) == True;
+	}
+
+	actions
+	{
+		Wait Until(Is True For Any(Array(Event Player.hackAbilityLockout > 0, Has Status(Event Player, Asleep), Has Status(Event Player,
+			Frozen), Has Status(Event Player, Knocked Down), Has Status(Event Player, Stunned)), Current Array Element) == False, 1000000);
+		Press Button(Event Player, Button(Ultimate));
+	}
+}
+
+rule("When the player dies, issue the appropriate events")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	actions
+	{
+		Event Player.ultimateEvent = Custom String("DIED");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+		Event Player.preparingUltEvent = Custom String("STATE_EXIT");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+	}
+}
+
+rule("When the player starts using ult, issue a USED_ULTIMATE event, then when they stop using it, issue a ULTIMATE_ENDED event")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("PREPARING_ULT");
+		(Is Using Ultimate(Event Player) || Is Duplicating(Event Player)) == True;
+	}
+
+	actions
+	{
+		Event Player.preparingUltEvent = Custom String("USED_ULTIMATE");
+		Call Subroutine(PreparingUltimateEventHandler);
+		Event Player.preparingUltEvent = Custom String("NONE");
+		Wait Until(!Is Using Ultimate(Event Player) && !Is Duplicating(Event Player), 1000000);
+		"Have to wait a bit for Kiriko because casting ult can cause IsUsingUltimate to go false for a short period of time"
+		If(Hero Of(Event Player) == Hero(Kiriko));
+			Wait Until(Is Using Ultimate(Event Player) || Is Duplicating(Event Player), 0.500);
+			Loop If(Is Using Ultimate(Event Player) || Is Duplicating(Event Player));
+		End;
+		Event Player.ultimateEvent = Custom String("ULTIMATE_ENDED");
+		Call Subroutine(UltimateEventHandler);
+		Event Player.ultimateEvent = Custom String("NONE");
+	}
+}
+
+rule("When the lingering state begins, start a timer")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.ultimateState == Custom String("LINGERING");
+	}
+
+	actions
+	{
+		Event Player.extendedUltPercentLeft = 100;
+		Chase Player Variable Over Time(Event Player, extendedUltPercentLeft, 0, Event Player.extendedUltDuration, None);
+		Create Progress Bar HUD Text(Event Player, Event Player.extendedUltPercentLeft, Custom String("Ultimate Hero Time Remaining"),
+			Left, -10, Custom Color(0, 234, 234, (Min(1, Max(0, (Event Player.extendedUltPercentLeft - 33) / 17)) + (1 - Min(1, Max(0, (
+			Event Player.extendedUltPercentLeft - 33) / 17))) * (Sine From Radians(Square Root(
+			Event Player.extendedUltDuration * Event Player.extendedUltPercentLeft * 18.850)) / 2 + 0.500)) * 223 + 32), Color(White),
+			Visible To Values and Color, Default Visibility);
+		Event Player.extendedUltTimer = Last Text ID;
+		Big Message(Event Player, Custom String("Returning to original hero in {0} seconds...", Event Player.extendedUltDuration));
+		Wait Until(Event Player.extendedUltPercentLeft == 0 || Event Player.ultimateState != Custom String("LINGERING"), 1000000);
+		If(Event Player.extendedUltPercentLeft > 0);
+			Event Player.extendedUltPercentLeft = 0;
+			Stop Chasing Player Variable(Event Player, extendedUltPercentLeft);
+		Else;
+			Event Player.ultimateEvent = Custom String("LINGER_EXPIRED");
+			Call Subroutine(UltimateEventHandler);
+			Event Player.ultimateEvent = Custom String("NONE");
+		End;
+		Destroy Progress Bar HUD Text(Event Player.extendedUltTimer);
+	}
+}
