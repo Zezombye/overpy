@@ -24,6 +24,8 @@ import { startsWithParenthesis } from "./other";
 import { unescapeString } from "./strings";
 import { topy } from "./translation";
 
+const SETTING_WITH_STRING_VALUE_REGEX = /^.+?(:)\s+".*"$/d;
+
 // TODO: further restrict parameter types
 export function decompileCustomGameSettingsDict(
   dict: string[],
@@ -39,6 +41,36 @@ export function decompileCustomGameSettingsDict(
     if (elem === "") {
       continue;
     }
+
+    // Some setting keys can contain colons, so we need to split on the last colon
+    let keyValueSplitLocation = elem.lastIndexOf(":");
+
+    if (keyValueSplitLocation === -1) {
+      error("No ':' found in element '" + elem + "'");
+    }
+
+    // Fix for string values that contain colons
+    if (SETTING_WITH_STRING_VALUE_REGEX.test(elem)) {
+      const match = SETTING_WITH_STRING_VALUE_REGEX.exec(elem);
+      if (match === null) {
+        error(
+          "Thought '" +
+            elem +
+            "' matched custom game setting string value regex, but it didn't. This shouldn't happen!",
+        );
+      }
+      if (match.indices === undefined) {
+        error(
+          "Failed to get indices for element '" +
+            elem +
+            "'. This shouldn't happen!",
+        );
+      }
+      keyValueSplitLocation = match.indices[1][0];
+    }
+
+    const potentialKey = elem.substring(0, keyValueSplitLocation).trim();
+    const potentialValue = elem.substring(keyValueSplitLocation + 1).trim();
 
     var keyName = null;
     var value = null;
