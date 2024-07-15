@@ -3,15 +3,15 @@ import Interpreter from "js-interpreter";
 
 // Add some basic functions to the interpreter
 const initFunc = function (interpreter: any, globalObject: any) {
-  const console = interpreter.nativeToPseudo({});
-  interpreter.setProperty(globalObject, "console", console);
+  const macroConsoleObject = interpreter.nativeToPseudo({});
+  interpreter.setProperty(globalObject, "console", macroConsoleObject);
 
   const consoleLogWrapper = function (text: string) {
     console.log(text);
   };
 
   interpreter.setProperty(
-    console,
+    macroConsoleObject,
     "log",
     interpreter.createNativeFunction(consoleLogWrapper),
   );
