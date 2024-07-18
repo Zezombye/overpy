@@ -106,19 +106,18 @@ export function decompileCustomGameSettingsDict(
     for (var key of objKeys) {
       if (currentLanguage in kwObj[key]) {
         if (
-          elem
-            .toLowerCase()
-            .startsWith(kwObj[key][currentLanguage].toLowerCase())
+          potentialKey.toLowerCase() ===
+          kwObj[key][currentLanguage].toLowerCase()
         ) {
           keyName = key;
-          value = elem.substring(kwObj[key][currentLanguage].length);
+          value = potentialValue;
           break;
         }
       } else if (
-        elem.toLowerCase().startsWith(kwObj[key]["en-US"].toLowerCase())
+        potentialKey.toLowerCase() === kwObj[key]["en-US"].toLowerCase()
       ) {
         keyName = key;
-        value = elem.substring(kwObj[key]["en-US"].length);
+        value = potentialValue;
         break;
       }
     }
@@ -159,14 +158,8 @@ export function decompileCustomGameSettingsDict(
     }
 
     if (keyName === null || value === null) {
-      error("No translation found for key of element '" + elem + "'");
+      error("No translation found for key of element '" + potentialKey + "'");
     }
-
-    if (!value.startsWith(":")) {
-      console.log(value);
-      error("Expected ':' after key in element '" + elem + "'");
-    }
-    value = value.substring(1).trim();
 
     if (isInvalidButAcceptedProperty) {
       continue;
