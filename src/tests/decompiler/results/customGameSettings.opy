@@ -28,6 +28,10 @@ settings {
             "pharah": {
                 "passiveMaxTime%": 300
             },
+            "roadhog": {
+                "secondaryFireCooldown%": 0,
+                "ultKb%": 200
+            },
             "general": {
                 "abilityCooldown%": 137
             }
