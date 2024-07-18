@@ -3571,6 +3571,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "doomfist",
                         "genji",
                         "junkrat",
+                        "mauga",
                         "moira",
                         "soldier",
                         "torbjorn",
