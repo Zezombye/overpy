@@ -4304,6 +4304,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "orisa",
                         "pharah",
                         "reinhardt",
+                        "roadhog",
                         "sigma",
                         "soldier",
                         "sombra",
