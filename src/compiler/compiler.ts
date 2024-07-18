@@ -72,6 +72,7 @@ import {
   Variable,
 } from "../types";
 import { compileCustomGameSettingsDict } from "../utils/compilation";
+import { reinitInterpreter } from "../jsInterpreter";
 
 /**
  * @returns An object containing the compiled result along with associated metadata
@@ -98,6 +99,7 @@ export async function compile(
 
   if (DEBUG_PROFILER) console.profile();
   resetGlobalVariables(language);
+  reinitInterpreter("");
   // rootPath = _rootPath;
   setRootPath(_rootPath);
 

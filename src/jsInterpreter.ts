@@ -16,4 +16,7 @@ const initFunc = function (interpreter: any, globalObject: any) {
     interpreter.createNativeFunction(consoleLogWrapper),
   );
 };
-export const JSInterpreter = new Interpreter("", initFunc);
+export let JSInterpreter = new Interpreter("", initFunc);
+export const reinitInterpreter = (code: string) => {
+  JSInterpreter = new Interpreter(code, initFunc);
+};
