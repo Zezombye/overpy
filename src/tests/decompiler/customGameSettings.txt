@@ -46,6 +46,12 @@ settings
             {
                 Hover Jets Maximum Time: 300%
             }
+
+            Roadhog
+            {
+                Take a Breather Cooldown Time: 0%
+                Whole Hog Knockback Scalar: 200%
+            }
         }
     }
 }
