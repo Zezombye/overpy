@@ -7420,7 +7420,7 @@ var normalStrKw =
         "ru-RU": "Нет",
         "th-TH": "ไม่มี",
         "tr-TR": "Yok",
-        "zh-CN": "无",
+        "zh-CN": "全部禁用",
         "zh-TW": "無",
         "ko-KR": "None"
     },
