@@ -845,12 +845,12 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "th-TH": "ขาว",
             "tr-TR": "Beyaz",
             "zh-CN": "白色",
-            "de-DE": "White",
-            "es-ES": "White",
+            "de-DE": "Weiß",
+            "es-ES": "Blanco",
             "it-IT": "White",
             "ko-KR": "White",
             "pl-PL": "White",
-            "ru-RU": "White",
+            "ru-RU": "Белый",
             "zh-TW": "White"
         },
         "AQUA": {

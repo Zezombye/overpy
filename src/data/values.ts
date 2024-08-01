@@ -1891,7 +1891,7 @@ export var valueFuncKw: {
         "pt-BR": "Munição Máxima",
         "th-TH": "กระสุนสูงสุด",
         "tr-TR": "Maks. Cephane",
-        "zh-CN": "最大弹药量",
+        "zh-CN": "最大弹药",
         "de-DE": "Max Ammo",
         "es-ES": "Max Ammo",
         "it-IT": "Max Ammo",

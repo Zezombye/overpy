@@ -1959,7 +1959,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "pl-PL": "Runasapi",
         "pt-BR": "Runasapi",
         "ru-RU": "Рунасапи",
-        "th-TH": "รูนาซาพี",
+        "th-TH": "รูนาซาปี",
         "tr-TR": "<en>Runasapi<en>",
         "zh-CN": "鲁纳塞彼",
         "zh-TW": "盧納薩庇"
