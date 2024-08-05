@@ -6310,7 +6310,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "ru-RU": "Дальность «Хватки жизни» и «Целебного цветка»",
                         "th-TH": "ระยะของไลฟ์กริปและบุปผาแห่งการเยียวยา",
                         "tr-TR": "Can Halatı ve Şifa Çiçekleri Menzili",
-                        "zh-CN": "生命之握和愈疗灵花范围",
+                        "zh-CN": "生命之握和愈疗灵花射程",
                         "zh-TW": "賦生之握和治療綻放範圍"
                     },
                     "weaponsEnabled": {
