@@ -415,7 +415,7 @@ export const eventKw =
         "ja-JP": "プレイヤーがダメージを与えた",
         "pt-BR": "Jogador Causou Dano",
         "ru-RU": "Player dealt damage",
-        "th-TH": "ผู้เล่นสร้างความเสียหายหลัก",
+        "th-TH": "ผู้เล่นสร้างความเสียหาย",
         "tr-TR": "Oyuncu'nun Verdiği Hasar",
         "zh-CN": "玩家造成伤害",
         "de-DE": "Player Dealt Damage",

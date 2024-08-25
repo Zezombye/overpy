@@ -11413,7 +11413,7 @@ var normalStrKw =
         "ja-JP": "アンロック中",
         "pl-PL": "Odblokowanie",
         "pt-BR": "Desbloqueando",
-        "ru-RU": "Разблокирует",
+        "ru-RU": "Активация",
         "th-TH": "กำลังปลดล็อค",
         "tr-TR": "Açan",
         "zh-CN": "正在解锁",
