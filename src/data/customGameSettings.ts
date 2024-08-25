@@ -3837,7 +3837,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "symmetra",
                         "venture",
                         "winston",
-                        "zenyatta"
+                        "zenyatta",
+                        "juno"
                     ],
                     "guid": "0000000058C1",
                     "en-US": "Projectile Gravity",
@@ -4229,7 +4230,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "include": [
                         "mercy",
                         "echo",
-                        "pharah"
+                        "pharah",
+                        "juno"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -6413,6 +6415,32 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Battıçıktı Süresi Skaleri",
                         "zh-CN": "钻地持续时间",
                         "zh-TW": "鑽地持續時間"
+                    }
+                }
+            },
+            "juno": {
+                "values": {
+                    "ability1Duration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "guid": "0000000212D3",
+                        "de-DE": "Gleitboost – Dauer",
+                        "en-US": "Glide Boost Duration Scalar",
+                        "es-ES": "Duración de Impulso de planeo",
+                        "es-MX": "Escala de duración de Potenciamiento de planeo",
+                        "fr-FR": "Durée de Vol plané",
+                        "it-IT": "Planata Potenziata - Durata",
+                        "ja-JP": "〈グライド・ブースト〉持続時間スカラー",
+                        "ko-KR": "글라이드 부스터 지속시간 조정",
+                        "pl-PL": "Skalowanie czasu działania Szybkiego Szybowania",
+                        "pt-BR": "Escalar da duração do Impulso de Planar",
+                        "ru-RU": "Усиление планирования",
+                        "th-TH": "สเกลาร์ระยะเวลาไกลด์บูสต์",
+                        "tr-TR": "Süzülme Desteği Süresi Skaleri",
+                        "zh-CN": "滑翔推进持续时间",
+                        "zh-TW": "滑翔加速持續時間"
                     }
                 }
             }
