@@ -4273,7 +4273,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "hammond",
                         "ramattra",
                         "lifeweaver",
-                        "venture"
+                        "venture",
+                        "juno"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -4314,7 +4315,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "hammond",
                         "ramattra",
                         "lifeweaver",
-                        "venture"
+                        "venture",
+                        "juno"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
