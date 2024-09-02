@@ -30,7 +30,7 @@
     "img/**",
     "out/*",
     "syntaxes/**",
-    "LICENSE",
+    "LICENSE{,.txt}",
     "customGameSettingsSchema.json",
     "language-configuration.json",
     "decompilerui.html"
