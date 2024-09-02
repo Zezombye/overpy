@@ -4273,7 +4273,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "hammond",
                         "ramattra",
                         "lifeweaver",
-                        "venture"
+                        "venture",
+                        "juno"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
