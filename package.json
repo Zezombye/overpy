@@ -28,7 +28,7 @@
   ],
   "files": [
     "img/**",
-    "out/",
+    "out/*",
     "syntaxes/**",
     "LICENSE",
     "customGameSettingsSchema.json",
