@@ -725,7 +725,7 @@ export const mapKw: Record<string, import("../types").Map> =
         "guid": "00000001E681",
         "gamemodes": [
             "clash",
-			"skirmish"
+            "skirmish"
         ],
         "en-US": "Hanaoka",
         "de-DE": "Hanaoka",
@@ -2105,27 +2105,27 @@ export const mapKw: Record<string, import("../types").Map> =
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
     },
-	"throneOfAnubis": {
+    "throneOfAnubis": {
         "guid": "00000001E8E4",
         "gamemodes": [
             "clash",
             "skirmish"
         ],
-		"en-US": "Throne of Anubis",
-		"de-DE": "Thron des Anubis",
-		"es-ES": "Trono de Anubis",
-		"es-MX": "Trono de Anubis",
-		"fr-FR": "Trône d’Anubis",
-		"it-IT": "Trono di Anubi",
-		"ja-JP": "THRONE OF ANUBIS",
-		"ko-KR": "아누비스의 왕좌",
-		"pl-PL": "Tron Anubisa",
-		"pt-BR": "Trono de Anúbis",
-		"ru-RU": "Трон Анубиса",
-		"th-TH": "บัลลังก์อนูบิส",
-		"tr-TR": "Anubis'in Tahtı",
-		"zh-CN": "阿努比斯王座",
-		"zh-TW": "阿努比斯的王座"
+        "en-US": "Throne of Anubis",
+        "de-DE": "Thron des Anubis",
+        "es-ES": "Trono de Anubis",
+        "es-MX": "Trono de Anubis",
+        "fr-FR": "Trône d’Anubis",
+        "it-IT": "Trono di Anubi",
+        "ja-JP": "THRONE OF ANUBIS",
+        "ko-KR": "아누비스의 왕좌",
+        "pl-PL": "Tron Anubisa",
+        "pt-BR": "Trono de Anúbis",
+        "ru-RU": "Трон Анубиса",
+        "th-TH": "บัลลังก์อนูบิส",
+        "tr-TR": "Anubis'in Tahtı",
+        "zh-CN": "阿努比斯王座",
+        "zh-TW": "阿努比斯的王座"
     },
     "volskaya": {
         "guid": "0000000002EB",
