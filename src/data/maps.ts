@@ -724,7 +724,8 @@ export const mapKw: Record<string, import("../types").Map> =
     "hanaoka": {
         "guid": "00000001E681",
         "gamemodes": [
-            "clash"
+            "clash",
+            "skirmish"
         ],
         "en-US": "Hanaoka",
         "de-DE": "Hanaoka",
@@ -1947,8 +1948,8 @@ export const mapKw: Record<string, import("../types").Map> =
         "variants": {
             "default": "972777519512068154"
         },
-        "en-US": "Runasapi",
         "guid": "000000017355",
+        "en-US": "Runasapi",
         "de-DE": "Runasapi",
         "es-ES": "Runasapi",
         "es-MX": "Runasapi",
@@ -2103,6 +2104,28 @@ export const mapKw: Record<string, import("../types").Map> =
         "tr-TR": "Anubis Tapınağı",
         "zh-CN": "阿努比斯神殿",
         "zh-TW": "阿努比斯神廟"
+    },
+    "throneOfAnubis": {
+        "guid": "00000001E8E4",
+        "gamemodes": [
+            "clash",
+            "skirmish"
+        ],
+        "en-US": "Throne of Anubis",
+        "de-DE": "Thron des Anubis",
+        "es-ES": "Trono de Anubis",
+        "es-MX": "Trono de Anubis",
+        "fr-FR": "Trône d’Anubis",
+        "it-IT": "Trono di Anubi",
+        "ja-JP": "THRONE OF ANUBIS",
+        "ko-KR": "아누비스의 왕좌",
+        "pl-PL": "Tron Anubisa",
+        "pt-BR": "Trono de Anúbis",
+        "ru-RU": "Трон Анубиса",
+        "th-TH": "บัลลังก์อนูบิส",
+        "tr-TR": "Anubis'in Tahtı",
+        "zh-CN": "阿努比斯王座",
+        "zh-TW": "阿努比斯的王座"
     },
     "volskaya": {
         "guid": "0000000002EB",
