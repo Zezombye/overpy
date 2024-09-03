@@ -48,7 +48,7 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
     if (resolvedFile.type & FileType.Directory) {
         // matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
         let resolvedFiles = await workspace.fs.readDirectory(URI.file(pathStr));
-        matchingFiles = resolvedFiles.filter(([fileName, fileType]) => fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File).map(([fileName, _]) => Utils.joinPath(URI.file(pathStr), fileName).toString());
+        matchingFiles = resolvedFiles.filter(([fileName, fileType]) => fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File).map(([fileName, _]) => pathStr + "/" + fileName);
         if (matchingFiles.length === 0) {
             error("The directory '" + pathStr + "' does not have any .opy files.");
         }

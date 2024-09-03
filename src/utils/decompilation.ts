@@ -19,7 +19,7 @@
 
 import { customGameSettingsKw, valueKw } from "../data/other";
 import { currentLanguage } from "../globalVars";
-import { debug, error } from "./logging";
+import { debug, warn, error } from "./logging";
 import { startsWithParenthesis } from "./other";
 import { unescapeString } from "./strings";
 import { topy } from "./translation";
@@ -122,6 +122,10 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
             value = unescapeString(value, false);
         } else if (kwObj[keyName].values === "__percent__") {
             if (!value.endsWith("%")) {
+                if (kwObj[keyName]["en-US"] === "Glide Boost Duration Scalar" && keyName === "ability1Duration%") {
+                    warn("w_dead_workshop", "Juno's 'Glide Boost Duration Scalar' cannot be copied from text settings and has been reset to defaults.");
+                    continue;
+                }
                 error("Expected a percentage for value of elem '" + elem + "'");
             }
             value = parseInt(value.substring(0, value.length - 1));

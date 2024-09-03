@@ -403,6 +403,10 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
                         error("The gamemode '" + gamemode + "' is not available in OW2");
                     }
                 }
+                if (["control", "escort", "flashpoint", "hybrid", "push"].includes(gamemode)) {
+                    warn("w_dead_workshop", "The gamemode '" + gamemode + "' cannot be enabled from pasted settings and has been removed from the settings.");
+                    continue;
+                }
                 var wsGamemode = tows(gamemode, customGameSettingsSchema.gamemodes.values);
                 var isGamemodeEnabled = true;
                 if ("enabled" in customGameSettings.gamemodes[gamemode] && customGameSettings.gamemodes[gamemode].enabled === false) {
