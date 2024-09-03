@@ -25,63 +25,51 @@ import { FileType, workspace } from "vscode";
 import { URI, Utils } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
-  return path.parse(filename).base;
+    return path.parse(filename).base;
 }
 
 export async function getFilePaths(pathStr: string): Promise<string[]> {
-  pathStr = pathStr.trim();
-  debug("path str = " + pathStr);
-  pathStr = unescapeString(pathStr, false);
+    pathStr = pathStr.trim();
+    debug("path str = " + pathStr);
+    pathStr = unescapeString(pathStr, false);
 
-  //convert backslashes to normal slashes
-  pathStr = pathStr.replace(/\\/g, "/");
-  debug("Path str is now '" + pathStr + "'");
+    //convert backslashes to normal slashes
+    pathStr = pathStr.replace(/\\/g, "/");
+    debug("Path str is now '" + pathStr + "'");
 
-  //Determine if the path is relative
-  if (!(pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr))) {
-    //relative path
-    pathStr = rootPath + pathStr;
-  }
-
-  let matchingFiles: string[] = [];
-  let resolvedFile = await workspace.fs.stat(URI.file(pathStr));
-  if (resolvedFile.type & FileType.Directory) {
-    // matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
-    let resolvedFiles = await workspace.fs.readDirectory(URI.file(pathStr));
-    matchingFiles = resolvedFiles
-      .filter(
-        ([fileName, fileType]) =>
-          fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File,
-      )
-      .map(([fileName, _]) =>
-        Utils.joinPath(URI.file(pathStr), fileName).toString(),
-      );
-    if (matchingFiles.length === 0) {
-      error("The directory '" + pathStr + "' does not have any .opy files.");
+    //Determine if the path is relative
+    if (!(pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr))) {
+        //relative path
+        pathStr = rootPath + pathStr;
     }
-  } else {
-    matchingFiles = [pathStr];
-  }
-  return matchingFiles;
+
+    let matchingFiles: string[] = [];
+    let resolvedFile = await workspace.fs.stat(URI.file(pathStr));
+    if (resolvedFile.type & FileType.Directory) {
+        // matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
+        let resolvedFiles = await workspace.fs.readDirectory(URI.file(pathStr));
+        matchingFiles = resolvedFiles.filter(([fileName, fileType]) => fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File).map(([fileName, _]) => Utils.joinPath(URI.file(pathStr), fileName).toString());
+        if (matchingFiles.length === 0) {
+            error("The directory '" + pathStr + "' does not have any .opy files.");
+        }
+    } else {
+        matchingFiles = [pathStr];
+    }
+    return matchingFiles;
 }
 
 export async function getFileContent(path: string): Promise<string> {
-  if (path.endsWith(".opy") && importedFiles.includes(path)) {
-    warn(
-      "w_already_imported",
-      "The file '" +
-        path +
-        "' was already imported and will not be imported again.",
-    );
-    return "";
-  }
-  try {
-    importedFiles.push(path);
-    let resolvedFile = await workspace.fs.readFile(URI.file(path));
-    let content = resolvedFile.toString();
-    return content + "\n";
-  } catch (e) {
-    // @ts-ignore
-    error(e);
-  }
+    if (path.endsWith(".opy") && importedFiles.includes(path)) {
+        warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
+        return "";
+    }
+    try {
+        importedFiles.push(path);
+        let resolvedFile = await workspace.fs.readFile(URI.file(path));
+        let content = resolvedFile.toString();
+        return content + "\n";
+    } catch (e) {
+        // @ts-ignore
+        error(e);
+    }
 }

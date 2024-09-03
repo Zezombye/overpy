@@ -21,8 +21,7 @@ import { astParsingFunctions, globalVariables, playerVariables, defaultVarNames 
 import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
 
-astParsingFunctions.__globalVar__ = function(content) {
-
+astParsingFunctions.__globalVar__ = function (content) {
     var isInRuleCondition = false;
     var contentParent = content.parent;
     while (contentParent) {
@@ -41,7 +40,7 @@ astParsingFunctions.__globalVar__ = function(content) {
             var isGlobalVariable = true;
             var varName = content.args[0].name;
         } else {
-            error("Expected variable, but got "+functionNameToString(content));
+            error("Expected variable, but got " + functionNameToString(content));
         }
 
         var varArray = isGlobalVariable ? globalVariables : playerVariables;
@@ -50,7 +49,7 @@ astParsingFunctions.__globalVar__ = function(content) {
             if (variable.name === varName) {
                 variable["isUsedInRuleCondition"] = true;
                 if (variable["isChased"]) {
-                    warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased.");
+                    warn("w_ow2_rule_condition_chase", "This rule condition will possibly not trigger properly due to a workshop bug, because the " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased.");
                 }
                 isFound = true;
                 break;
@@ -62,7 +61,7 @@ astParsingFunctions.__globalVar__ = function(content) {
                 //However, only do this if it is a default variable name
                 addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
             } else {
-                error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+varName+"'");
+                error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
             }
             for (var variable of varArray) {
                 if (variable.name === varName) {
@@ -72,7 +71,6 @@ astParsingFunctions.__globalVar__ = function(content) {
             }
         }
     }
-
 
     return content;
 };

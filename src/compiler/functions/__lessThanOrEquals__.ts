@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForBool, areAstsAlwaysEqual, getAstForTrue } from "../../utils/ast";
 
-astParsingFunctions.__lessThanOrEquals__ = function(content) {
-
+astParsingFunctions.__lessThanOrEquals__ = function (content) {
     if (enableOptimization) {
         //If both arguments are numbers, return their comparison.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {

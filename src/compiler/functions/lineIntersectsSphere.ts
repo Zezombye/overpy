@@ -20,21 +20,6 @@
 import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 
-astParsingFunctions.lineIntersectsSphere = function(content) {
-
-    return new Ast("__lessThanOrEquals__", [
-        new Ast("distance", [
-            new Ast("__add__", [
-                new Ast("__multiply__", [
-                    new Ast("distance", [
-                        content.args[0], content.args[2],
-                    ]),
-                    content.args[1],
-                ]),
-                content.args[0],
-            ]),
-            content.args[2],
-        ]),
-        content.args[3],
-    ]);
+astParsingFunctions.lineIntersectsSphere = function (content) {
+    return new Ast("__lessThanOrEquals__", [new Ast("distance", [new Ast("__add__", [new Ast("__multiply__", [new Ast("distance", [content.args[0], content.args[2]]), content.args[1]]), content.args[0]]), content.args[2]]), content.args[3]]);
 };

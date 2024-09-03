@@ -20,10 +20,10 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForUselessInstruction } from "../../utils/ast";
 
-astParsingFunctions.__modifyVar__ = function(content) {
+astParsingFunctions.__modifyVar__ = function (content) {
     let opName = content.args[1].name;
     if (opName === "min" || opName === "max") {
-        content.args[1].name = "__"+opName+"__";
+        content.args[1].name = "__" + opName + "__";
     }
 
     if (enableOptimization) {

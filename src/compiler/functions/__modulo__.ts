@@ -20,10 +20,8 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber, areAstsAlwaysEqual, getAstFor0 } from "../../utils/ast";
 
-astParsingFunctions.__modulo__ = function(content) {
-
+astParsingFunctions.__modulo__ = function (content) {
     if (enableOptimization) {
-
         //If both arguments are numbers, return their modulo.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             return getAstForNumber(content.args[0].args[0].numValue % Math.abs(content.args[1].args[0].numValue));
@@ -35,11 +33,9 @@ astParsingFunctions.__modulo__ = function(content) {
         }
 
         //A%0 = 0%A = 0
-        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0
-                || content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
             return getAstFor0();
         }
-
     }
 
     return content;

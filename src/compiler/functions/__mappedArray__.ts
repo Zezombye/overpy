@@ -19,10 +19,8 @@
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 
-astParsingFunctions.__mappedArray__ = function(content) {
-
+astParsingFunctions.__mappedArray__ = function (content) {
     if (enableOptimization) {
-
         //mapping to current array element -> do nothing to the array
         if (content.args[1].name === "__currentArrayElement__") {
             return content.args[0];

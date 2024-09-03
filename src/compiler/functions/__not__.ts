@@ -21,7 +21,7 @@ import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { isDefinitelyFalsy, getAstForTrue, isDefinitelyTruthy, getAstForFalse, Ast } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.__not__ = function(content) {
+astParsingFunctions.__not__ = function (content) {
     if (enableOptimization) {
         //not false -> true
         if (isDefinitelyFalsy(content.args[0])) {

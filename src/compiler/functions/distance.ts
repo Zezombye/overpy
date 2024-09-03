@@ -20,23 +20,10 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.distance = function(content) {
-
+astParsingFunctions.distance = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "vect"
-                && content.args[0].args[0].name === "__number__"
-                && content.args[0].args[1].name === "__number__"
-                && content.args[0].args[2].name === "__number__"
-            && content.args[1].name === "vect"
-                && content.args[1].args[0].name === "__number__"
-                && content.args[1].args[1].name === "__number__"
-                && content.args[1].args[2].name === "__number__") {
-
-            return getAstForNumber(Math.sqrt(
-                Math.pow(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue, 2)
-                + Math.pow(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue, 2)
-                + Math.pow(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue, 2)
-            ));
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
+            return getAstForNumber(Math.sqrt(Math.pow(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue, 2) + Math.pow(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue, 2) + Math.pow(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue, 2)));
         }
     }
 

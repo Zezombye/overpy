@@ -20,8 +20,7 @@
 import { astParsingFunctions } from "../../globalVars";
 import { warn } from "../../utils/logging";
 
-astParsingFunctions.wait = function(content) {
-
+astParsingFunctions.wait = function (content) {
     if (content.args[0].name === "__number__" && content.args[0].args[0].numvalue === 9999) {
         warn("w_wait_9999", "wait(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
     }

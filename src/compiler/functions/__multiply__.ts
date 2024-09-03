@@ -21,10 +21,8 @@ import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber, getAstFor0, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.__multiply__ = function(content) {
-
+astParsingFunctions.__multiply__ = function (content) {
     if (enableOptimization) {
-
         //If both arguments are numbers, return their product.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             return getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].numValue);
@@ -39,8 +37,7 @@ astParsingFunctions.__multiply__ = function(content) {
         }
 
         //A*0 = 0*A = 0
-        if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0
-                || content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0) {
+        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
             return getAstFor0();
         }
 
@@ -59,40 +56,20 @@ astParsingFunctions.__multiply__ = function(content) {
                 }
             }
             if (canBeOptimized) {
-                return new Ast("vect", [
-                    getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue),
-                    getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue),
-                    getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue),
-                ]);
+                return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
             }
         }
 
         //Check if we have number * vector.
-        if (content.args[0].name === "__number__" && content.args[1].name === "vect"
-                && content.args[1].args[0].name === "__number__"
-                && content.args[1].args[1].name === "__number__"
-                && content.args[1].args[2].name === "__number__") {
-            return new Ast("vect", [
-                getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].args[0].numValue),
-                getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[1].args[0].numValue),
-                getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[2].args[0].numValue),
-            ]);
+        if (content.args[0].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
+            return new Ast("vect", [getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[2].args[0].numValue)]);
         }
 
         //Check if we have vector * number.
-        if (content.args[0].name === "vect" && content.args[1].name === "__number__"
-                && content.args[0].args[0].name === "__number__"
-                && content.args[0].args[1].name === "__number__"
-                && content.args[0].args[2].name === "__number__") {
-            return new Ast("vect", [
-                getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].numValue),
-                getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[0].numValue),
-                getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[0].numValue),
-            ]);
+        if (content.args[0].name === "vect" && content.args[1].name === "__number__" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
+            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue * content.args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue * content.args[1].args[0].numValue)]);
         }
-
     }
 
     return content;
-
 };

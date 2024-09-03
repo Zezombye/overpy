@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForEmptyArray, Ast } from "../../utils/ast";
 
-astParsingFunctions.__arraySlice__ = function(content) {
-
+astParsingFunctions.__arraySlice__ = function (content) {
     if (enableOptimization) {
         var sliceStart = null;
         var sliceLength = null;
@@ -39,7 +38,7 @@ astParsingFunctions.__arraySlice__ = function(content) {
                 sliceLength += sliceStart;
                 sliceStart = 0;
             }
-            return new Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart+sliceLength));
+            return new Ast("__array__", content.args[0].args.slice(sliceStart, sliceStart + sliceLength));
         }
     }
 

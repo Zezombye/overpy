@@ -21,15 +21,16 @@ import { astParsingFunctions, currentRuleHasVariableGoto, enableOptimization, cu
 import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.__if__ = function(content) {
-    if (content.parent === undefined) {error("'if' AST lacks parent");}
+astParsingFunctions.__if__ = function (content) {
+    if (content.parent === undefined) {
+        error("'if' AST lacks parent");
+    }
 
     //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
-    if (content.args[0].name === "RULE_CONDITION" || content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {
-
+    if (content.args[0].name === "RULE_CONDITION" || (content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION")) {
         if (currentRuleHasVariableGoto) {
             //Keep the child and add a "pass" for the "end"
-            content.parent.children.splice(content.parent.childIndex+1, 0, content.args[0].name === "RULE_CONDITION" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, content.args[0].name === "RULE_CONDITION" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
         }
 
         if (content.children.length !== 1) {
@@ -55,14 +56,10 @@ astParsingFunctions.__if__ = function(content) {
     if (enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
         //but only if no relative goto, 1 child, and no else/elif after the if
-        if (content.children.length === 1
-                && (content.parent.childIndex === content.parent.children.length-1 || content.parent.children[content.parent.childIndex+1].name !== "__elif__" && content.parent.children[content.parent.childIndex+1].name !== "__else__")
-                && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
-
-
+        if (content.children.length === 1 && (content.parent.childIndex === content.parent.children.length - 1 || (content.parent.children[content.parent.childIndex + 1].name !== "__elif__" && content.parent.children[content.parent.childIndex + 1].name !== "__else__")) && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
             if (currentRuleHasVariableGoto) {
                 //Keep the child and add a "pass" for the "end"
-                content.parent.children.splice(content.parent.childIndex+1, 0, content.children[0], getAstForUselessInstruction());
+                content.parent.children.splice(content.parent.childIndex + 1, 0, content.children[0], getAstForUselessInstruction());
             }
 
             if (isDefinitelyFalsy(content.args[0])) {
@@ -88,11 +85,10 @@ astParsingFunctions.__if__ = function(content) {
     }
 
     //Add the "end" function.
-    if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
+    if (content.parent.childIndex === content.parent.children.length - 1 || (content.parent.childIndex < content.parent.children.length - 1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex + 1].name))) {
         //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
-
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length - 1) {
             var root = content;
             includeEnd = false;
 
@@ -101,17 +97,16 @@ astParsingFunctions.__if__ = function(content) {
                 if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
                     includeEnd = true;
                     break;
-                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent && root.parent.childIndex !== root.parent.children.length-1) {
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent && root.parent.childIndex !== root.parent.children.length - 1) {
                     includeEnd = true;
                     break;
                 }
             }
         }
         if (includeEnd) {
-            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
         }
     }
 
     return content;
-
 };

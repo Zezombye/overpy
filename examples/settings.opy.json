@@ -1,64 +1,50 @@
 {
-	"main": {
-			"modeName": "A mode you probably know about"
-	},
-	"lobby": {
-			"allowPlayersInQueue": true,
-			"mapRotation": "afterGame",
-			"ffaSlots": 8,
-			"spectatorSlots": 12,
-			"returnToLobby": "never",
-			"swapTeamsAfterMatch": false
-	},
-	"gamemodes": {
-			"ffa": {
-					"scoreToWin": 30,
-					"enabledMaps": [
-							{"dorado": ["night"]},
-							{"eichenwalde": ["morning"]},
-							{"hollywood": ["morning"]},
-							{"blizzWorld": ["overcast"]},
-							"lijiangControlCenter",
-							"blackForestWinter",
-							"ecopointAntarctica",
-							"chateauGuillard",
-							"malevento",
-							"petra",
-							"kanezaka"
-					]
-			},
-			"general": {
-					"enableHeroSwitching": false,
-					"enableEnemyHealthBars": false,
-					"gamemodeStartTrigger": "immediately",
-					"enableKillCam": false,
-					"respawnTime%": 0,
-					"enableSelfInitiatedRespawn": false,
-					"spawnHealthPacks": "disabled"
-			}
-	},
-	"heroes": {
-			"allTeams": {
-					"ana": {
-							"enableAbility2": false,
-							"ability1Cooldown%": 20,
-							"combatUltGen%": 0,
-							"passiveUltGen%": 0
-					},
-					"bastion": {
-							"enableInfiniteUlt": true,
-							"enableSpawningWithUlt": true,
-							"ultDuration%": 500
-					},
-					"enabledHeroes": [
-							"ana"
-					],
-					"general": {
-							"enableInfiniteUlt": true,
-							"ultGen%": 10,
-							"combatUltGen%": 0,
-							"passiveUltGen%": 0
-					}
-			}
-	}
+    "main": {
+        "modeName": "A mode you probably know about"
+    },
+    "lobby": {
+        "allowPlayersInQueue": true,
+        "mapRotation": "afterGame",
+        "ffaSlots": 8,
+        "spectatorSlots": 12,
+        "returnToLobby": "never",
+        "swapTeamsAfterMatch": false
+    },
+    "gamemodes": {
+        "ffa": {
+            "scoreToWin": 30,
+            "enabledMaps": [{ "dorado": ["night"] }, { "eichenwalde": ["morning"] }, { "hollywood": ["morning"] }, { "blizzWorld": ["overcast"] }, "lijiangControlCenter", "blackForestWinter", "ecopointAntarctica", "chateauGuillard", "malevento", "petra", "kanezaka"]
+        },
+        "general": {
+            "enableHeroSwitching": false,
+            "enableEnemyHealthBars": false,
+            "gamemodeStartTrigger": "immediately",
+            "enableKillCam": false,
+            "respawnTime%": 0,
+            "enableSelfInitiatedRespawn": false,
+            "spawnHealthPacks": "disabled"
+        }
+    },
+    "heroes": {
+        "allTeams": {
+            "ana": {
+                "enableAbility2": false,
+                "ability1Cooldown%": 20,
+                "combatUltGen%": 0,
+                "passiveUltGen%": 0
+            },
+            "bastion": {
+                "enableInfiniteUlt": true,
+                "enableSpawningWithUlt": true,
+                "ultDuration%": 500
+            },
+            "enabledHeroes": ["ana"],
+            "general": {
+                "enableInfiniteUlt": true,
+                "ultGen%": 10,
+                "combatUltGen%": 0,
+                "passiveUltGen%": 0
+            }
+        }
+    }
 }

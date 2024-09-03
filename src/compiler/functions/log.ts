@@ -20,28 +20,15 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber, Ast, getAstFor10000, getAstFor0_0001, getAstFor1 } from "../../utils/ast";
 
-astParsingFunctions.log = function(content) {
-
+astParsingFunctions.log = function (content) {
     //log(x) = (10000 * (x ** (0.0001) - 1))
     if (content.args.length === 1) {
         //log(e) = 1
         if (enableOptimization && content.args[0].name === "__number__") {
             return getAstForNumber(Math.log(content.args[0].args[0].numValue));
         }
-        return new Ast("__multiply__", [
-            getAstFor10000(),
-            new Ast("__subtract__", [
-                new Ast("__raiseToPower__", [
-                    content.args[0],
-                    getAstFor0_0001(),
-                ]),
-                getAstFor1(),
-            ])
-        ]);
+        return new Ast("__multiply__", [getAstFor10000(), new Ast("__subtract__", [new Ast("__raiseToPower__", [content.args[0], getAstFor0_0001()]), getAstFor1()])]);
     } else {
-        return new Ast("__divide__", [
-            astParsingFunctions.log(new Ast("log", [content.args[0]])),
-            astParsingFunctions.log(new Ast("log", [content.args[1]])),
-        ]);
+        return new Ast("__divide__", [astParsingFunctions.log(new Ast("log", [content.args[0]])), astParsingFunctions.log(new Ast("log", [content.args[1]]))]);
     }
 };

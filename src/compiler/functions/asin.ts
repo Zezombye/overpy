@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.asin = function(content) {
-
+astParsingFunctions.asin = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
             return getAstForNumber(Math.asin(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))));

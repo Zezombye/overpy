@@ -21,12 +21,13 @@ import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForEnd, isDefinitelyFalsy, makeChildrenUseless } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.__while__ = function(content) {
-    if (content.parent === undefined) {error("__while__'s parent is undefined");}
+astParsingFunctions.__while__ = function (content) {
+    if (content.parent === undefined) {
+        error("__while__'s parent is undefined");
+    }
 
     //Add the "end" function.
-    content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
-
+    content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
 
     if (enableOptimization) {
         //if false -> make the children useless
@@ -36,5 +37,4 @@ astParsingFunctions.__while__ = function(content) {
     }
 
     return content;
-
 };

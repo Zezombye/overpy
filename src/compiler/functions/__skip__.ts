@@ -19,7 +19,7 @@
 
 import { astParsingFunctions, currentRuleHasVariableGoto, setRuleHasVariableGoto } from "../../globalVars";
 
-astParsingFunctions.__skip__ = function(content) {
+astParsingFunctions.__skip__ = function (content) {
     if (content.args[0].name !== "__distanceTo__") {
         setRuleHasVariableGoto(true);
     }

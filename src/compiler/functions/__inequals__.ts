@@ -18,67 +18,36 @@
 "use strict";
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import {
-  getAstForBool,
-  areAstsAlwaysEqual,
-  getAstForFalse,
-  isDefinitelyFalsy,
-  Ast,
-} from "../../utils/ast";
+import { getAstForBool, areAstsAlwaysEqual, getAstForFalse, isDefinitelyFalsy, Ast } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
 astParsingFunctions.__inequals__ = function (content) {
-  if (enableOptimization) {
-    //If both arguments are numbers, return their comparison.
-    if (
-      content.args[0].name === "__number__" &&
-      content.args[1].name === "__number__"
-    ) {
-      return getAstForBool(
-        content.args[0].args[0].numValue !== content.args[1].args[0].numValue,
-      );
-    }
+    if (enableOptimization) {
+        //If both arguments are numbers, return their comparison.
+        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
+            return getAstForBool(content.args[0].args[0].numValue !== content.args[1].args[0].numValue);
+        }
 
-    //A != A -> true
-    if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-      return getAstForFalse();
-    }
+        //A != A -> true
+        if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
+            return getAstForFalse();
+        }
 
-    //A != falsy -> A if A is bool or if bool is expected
-    if (
-      isDefinitelyFalsy(content.args[1]) &&
-      isTypeSuitable(
-        "bool",
-        content.args[0].type,
-        false,
-      ) /*|| isTypeSuitable("bool", content.expectedType)*/
-    ) {
-      return content.args[0];
-    }
-    if (
-      isDefinitelyFalsy(content.args[0]) &&
-      isTypeSuitable(
-        "bool",
-        content.args[1].type,
-        false,
-      ) /*|| isTypeSuitable("bool", content.expectedType)*/
-    ) {
-      return content.args[1];
-    }
+        //A != falsy -> A if A is bool or if bool is expected
+        if (isDefinitelyFalsy(content.args[1]) && isTypeSuitable("bool", content.args[0].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/) {
+            return content.args[0];
+        }
+        if (isDefinitelyFalsy(content.args[0]) && isTypeSuitable("bool", content.args[1].type, false) /*|| isTypeSuitable("bool", content.expectedType)*/) {
+            return content.args[1];
+        }
 
-    //A != true -> not A if A is bool
-    if (
-      content.args[1].name === "true" &&
-      isTypeSuitable("bool", content.args[0].type, false)
-    ) {
-      return new Ast("__not__", [content.args[0]]);
+        //A != true -> not A if A is bool
+        if (content.args[1].name === "true" && isTypeSuitable("bool", content.args[0].type, false)) {
+            return new Ast("__not__", [content.args[0]]);
+        }
+        if (content.args[0].name === "true" && isTypeSuitable("bool", content.args[1].type, false)) {
+            return new Ast("__not__", [content.args[1]]);
+        }
     }
-    if (
-      content.args[0].name === "true" &&
-      isTypeSuitable("bool", content.args[1].type, false)
-    ) {
-      return new Ast("__not__", [content.args[1]]);
-    }
-  }
-  return content;
+    return content;
 };

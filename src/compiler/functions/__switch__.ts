@@ -22,8 +22,7 @@ import { Ast, getAstForEnd, getAstFor1, getAstForTrue } from "../../utils/ast";
 import { error, functionNameToString } from "../../utils/logging";
 import { getUniqueNumber } from "../../utils/other";
 
-astParsingFunctions.__switch__ = function(content) {
-
+astParsingFunctions.__switch__ = function (content) {
     var switchCaseArgs = [];
 
     //A flattened array of all children of cases, plus any labels (either literal labels, or labels made from case/default statements).
@@ -35,22 +34,22 @@ astParsingFunctions.__switch__ = function(content) {
     //Check if we have only cases or defaults
     for (var child of content.children) {
         if (child.name === "__case__") {
-            casesChildren.push(new Ast("__label_switch_"+switchNb+"_"+switchCaseArgs.length+"__", [], [], "Label"));
+            casesChildren.push(new Ast("__label_switch_" + switchNb + "_" + switchCaseArgs.length + "__", [], [], "Label"));
             casesChildren.push(...child.children);
             switchCaseArgs.push(child.args[0]);
         } else if (child.name === "__default__") {
-            casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
+            casesChildren.push(new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
             casesChildren.push(...child.children);
             hasDefault = true;
         } else if (child.type === "Label") {
             casesChildren.push(child);
         } else {
-            error("Expected a 'case' or 'default' instruction but got "+functionNameToString(child));
+            error("Expected a 'case' or 'default' instruction but got " + functionNameToString(child));
         }
     }
 
     if (!hasDefault) {
-        casesChildren.push(new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label"));
+        casesChildren.push(new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label"));
     }
 
     casesChildren.push(getAstForEnd());
@@ -58,30 +57,21 @@ astParsingFunctions.__switch__ = function(content) {
     //Build the cases arg array
     //[caseOffsets][[caseValues].index(switchValue)+1]
     var caseOffsets = [];
-    caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_default__", [], [], "Label")]));
+    caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_" + switchNb + "_default__", [], [], "Label")]));
     for (var i = 0; i < switchCaseArgs.length; i++) {
-        caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_"+switchNb+"_"+i+"__", [], [], "Label")]));
+        caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_" + switchNb + "_" + i + "__", [], [], "Label")]));
     }
 
-    casesChildren.unshift(new Ast("__skip__", [
-        new Ast("__valueInArray__", [
-            new Ast("__array__", caseOffsets),
-            new Ast("__add__", [
-                getAstFor1(),
-                new Ast("__indexOfArrayValue__", [
-                    new Ast("__array__", switchCaseArgs),
-                    content.args[0],
-                ])
-            ])
-        ])
-    ]));
+    casesChildren.unshift(new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast("__indexOfArrayValue__", [new Ast("__array__", switchCaseArgs), content.args[0]])])])]));
 
     //Insert the children of the cases in the parent
     for (var child of casesChildren) {
         child.parent = content.parent;
     }
-    if (content.parent === undefined) {error("Parent is undefined in __switch__");}
-    content.parent.children.splice(content.parent.childIndex+1, 0, ...casesChildren);
+    if (content.parent === undefined) {
+        error("Parent is undefined in __switch__");
+    }
+    content.parent.children.splice(content.parent.childIndex + 1, 0, ...casesChildren);
 
     var result = new Ast("__if__", [getAstForTrue()]);
     result.doNotOptimize = true;

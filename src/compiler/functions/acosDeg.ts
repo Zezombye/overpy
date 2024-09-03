@@ -20,11 +20,10 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.acosDeg = function(content) {
-
+astParsingFunctions.acosDeg = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
-            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue)))*(Math.PI/180));
+            return getAstForNumber(Math.acos(Math.max(-1, Math.min(1, content.args[0].args[0].numValue))) * (Math.PI / 180));
         }
     }
 

@@ -24,13 +24,16 @@ import { error, getTypeCheckFailedMessage, functionNameToString } from "../../ut
 import { getUtf8Length } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.createWorkshopSetting = function(content) {
+astParsingFunctions.createWorkshopSetting = function (content) {
     let funcValueArgs = funcKw[content.name].args;
-    if (funcValueArgs === null) {error("No arguments found for workshop setting: '" + content.name + "'");}
+    if (funcValueArgs === null) {
+        error("No arguments found for workshop setting: '" + content.name + "'");
+    }
 
     //Types are capital here as a type mismatch won't allow pasting
     for (var i = 0; i < content.args.length; i++) {
-        if (i !== 1 && i !== 2) { //can't properly check the CustomStringLiteral type yet
+        if (i !== 1 && i !== 2) {
+            //can't properly check the CustomStringLiteral type yet
             if (!isTypeSuitable(funcValueArgs[i].type, content.args[i].type, false)) {
                 error(getTypeCheckFailedMessage(content, i, funcValueArgs[i].type, content.args[i]));
             }
@@ -46,7 +49,6 @@ astParsingFunctions.createWorkshopSetting = function(content) {
 
     settingCategory = createSuitableWorkshopSettingString(settingCategory, false);
     settingName = createSuitableWorkshopSettingString(settingName, true);
-
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
@@ -66,7 +68,7 @@ astParsingFunctions.createWorkshopSetting = function(content) {
         } else if (settingType.name === "Hero") {
             result = new Ast("__workshopSettingHero__", [settingCategory, settingName, settingDefault, sortOrder]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
+            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     } else {
         if (settingType.name === "int") {
@@ -74,15 +76,26 @@ astParsingFunctions.createWorkshopSetting = function(content) {
         } else if (settingType.name === "float") {
             result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "__enumType__") {
-            result = new Ast("__workshopSettingCombo__", [settingCategory, settingName, settingDefault, new Ast("__array__", settingType.args.map((x: Ast) => createSuitableWorkshopSettingString(x, false))), sortOrder]);
+            result = new Ast("__workshopSettingCombo__", [
+                settingCategory,
+                settingName,
+                settingDefault,
+                new Ast(
+                    "__array__",
+                    settingType.args.map((x: Ast) => createSuitableWorkshopSettingString(x, false)),
+                ),
+                sortOrder,
+            ]);
         } else {
-            error("Invalid type '"+settingType.name+"' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
+            error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     }
 
     //Typecheck the default
     let expectedType = funcKw[result.name].args?.[2].type;
-    if (expectedType === undefined) {error("Could not determine expected type for workshop setting '" + content.name + "'");}
+    if (expectedType === undefined) {
+        error("Could not determine expected type for workshop setting '" + content.name + "'");
+    }
     if (!isTypeSuitable(expectedType, result.args[2].type, false)) {
         error(getTypeCheckFailedMessage(result, i, expectedType, result.args[2]));
     }
@@ -90,10 +103,9 @@ astParsingFunctions.createWorkshopSetting = function(content) {
 };
 
 function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
-
     setFileStack(str.fileStack);
     if (str.name !== "__customString__") {
-        error("Expected a custom string literal for workshop setting, but got '"+functionNameToString(str)+"'");
+        error("Expected a custom string literal for workshop setting, but got '" + functionNameToString(str) + "'");
     }
     if (str.args[1].name !== "null" || str.args[2].name !== "null" || str.args[3].name !== "null") {
         error("Workshop setting strings cannot contain formatting arguments or be longer than 128 characters");
@@ -116,7 +128,7 @@ function createSuitableWorkshopSettingString(str: Ast, isName: boolean) {
 
     //Strings have a max of 128 chars, and must be literals
     if (getUtf8Length(str.args[0].name) > 128) {
-        error("String '"+str.args[0].name+"' was pushed over the 128 characters limit due to OverPy modifications (is now "+getUtf8Length(str.args[0].name)+" characters long)");
+        error("String '" + str.args[0].name + "' was pushed over the 128 characters limit due to OverPy modifications (is now " + getUtf8Length(str.args[0].name) + " characters long)");
     }
 
     if (workshopSettingNames.length > 128) {

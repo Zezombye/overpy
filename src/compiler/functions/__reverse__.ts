@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { Ast, getAstForMinus1, getAstForCurrentArrayIndex } from "../../utils/ast";
 
-astParsingFunctions.__reverse__ = function(content) {
-
+astParsingFunctions.__reverse__ = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__array__") {
             content.args[0].args.reverse();
@@ -29,11 +28,5 @@ astParsingFunctions.__reverse__ = function(content) {
         }
     }
 
-    return new Ast("__sortedArray__", [
-        content.args[0],
-        new Ast("__multiply__", [
-            getAstForMinus1(),
-            getAstForCurrentArrayIndex(),
-        ])
-    ]);
+    return new Ast("__sortedArray__", [content.args[0], new Ast("__multiply__", [getAstForMinus1(), getAstForCurrentArrayIndex()])]);
 };

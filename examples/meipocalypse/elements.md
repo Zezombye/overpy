@@ -1,5 +1,4 @@
-
 Texts:
 
-- 32 (hero unlocks)
-- 
+-   32 (hero unlocks)
+-

@@ -20,8 +20,7 @@
 import { astParsingFunctions } from "../../globalVars";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.__dict__ = function(content) {
-
+astParsingFunctions.__dict__ = function (content) {
     if (content.parent?.name !== "__valueInArray__") {
         error("Cannot use a dictionary without accessing it");
     }

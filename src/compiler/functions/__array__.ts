@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForEmptyArray } from "../../utils/ast";
 
-astParsingFunctions.__array__ = function(content) {
-
+astParsingFunctions.__array__ = function (content) {
     if (enableOptimization) {
         if (content.args.length === 0) {
             return getAstForEmptyArray();

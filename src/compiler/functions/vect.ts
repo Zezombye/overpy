@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 
-astParsingFunctions.vect = function(content) {
-
+astParsingFunctions.vect = function (content) {
     if (enableOptimization) {
         //Check for each of the 6 vector constants
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__" && content.args[2].name === "__number__") {

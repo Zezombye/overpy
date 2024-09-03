@@ -21,8 +21,7 @@ import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForBool, areAstsAlwaysEqual, getAstForTrue, isDefinitelyFalsy, Ast } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.__equals__ = function(content) {
-
+astParsingFunctions.__equals__ = function (content) {
     if (enableOptimization) {
         //If both arguments are numbers, return their comparison.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {

@@ -22,8 +22,7 @@ import { getAstForNumber, areAstsAlwaysEqual, getAstFor0, Ast } from "../../util
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.__subtract__ = function(content) {
-
+astParsingFunctions.__subtract__ = function (content) {
     //Check if we are subtracting both numbers, or both vectors.
     //If not, throw a type warning.
     if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
@@ -32,7 +31,6 @@ astParsingFunctions.__subtract__ = function(content) {
     }
 
     if (enableOptimization) {
-
         //If both arguments are numbers, return their subtraction.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             return getAstForNumber(content.args[0].args[0].numValue - content.args[1].args[0].numValue);
@@ -58,16 +56,10 @@ astParsingFunctions.__subtract__ = function(content) {
                 }
             }
             if (canBeOptimized) {
-                return new Ast("vect", [
-                    getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue),
-                    getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue),
-                    getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue),
-                ]);
+                return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue - content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue - content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue - content.args[1].args[2].args[0].numValue)]);
             }
         }
-
     }
 
     return content;
-
 };

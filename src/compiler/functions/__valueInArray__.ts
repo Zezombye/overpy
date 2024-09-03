@@ -21,26 +21,16 @@ import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { Ast, getAstForFalse, getAstForNull } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.__valueInArray__ = function(content) {
-
+astParsingFunctions.__valueInArray__ = function (content) {
     if (content.args[0].name === "__dict__") {
         var dictKeys = content.args[0].args.map((x: Ast) => x.args[0]);
         var dictValues = content.args[0].args.map((x: Ast) => x.args[1]);
         var index = content.args[1];
-        return new Ast("__valueInArray__", [
-            new Ast("__array__", dictValues),
-            new Ast("max", [
-                getAstForFalse(),
-                new Ast("__indexOfArrayValue__", [
-                    new Ast("__array__", dictKeys),
-                    index
-                ])
-            ])
-        ]);
+        return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast("max", [getAstForFalse(), new Ast("__indexOfArrayValue__", [new Ast("__array__", dictKeys), index])])]);
     }
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {
-        error("Cannot access the negative index '"+content.args[1].args[0].numValue+"' of an array");
+        error("Cannot access the negative index '" + content.args[1].args[0].numValue + "' of an array");
     }
 
     if (enableOptimization) {

@@ -17,235 +17,178 @@
 
 "use strict";
 
-import {
-  astParsingFunctions,
-  fileStack,
-  enableOptimization,
-  setFileStack,
-} from "../../globalVars";
-import {
-  getAstForUselessInstruction,
-  getAstForNumber,
-  isDefinitelyFalsy,
-  isDefinitelyTruthy,
-  Ast,
-} from "../../utils/ast";
+import { astParsingFunctions, fileStack, enableOptimization, setFileStack } from "../../globalVars";
+import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast } from "../../utils/ast";
 import { debug, error } from "../../utils/logging";
 
 astParsingFunctions.__rule__ = function (content) {
-  //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
-  var isRelativeGotoEncountered = false;
+    //Iterate forward on each action, then remove all useless instructions, unless a relative goto is encountered.
+    var isRelativeGotoEncountered = false;
 
-  //Check if an instruction other than a control flow statement has been encountered.
-  var hasMeaningfulInstructionBeenEncountered = false;
+    //Check if an instruction other than a control flow statement has been encountered.
+    var hasMeaningfulInstructionBeenEncountered = false;
 
-  //To check that there is no duplicate label.
-  var declaredLabels: string[] = [];
+    //To check that there is no duplicate label.
+    var declaredLabels: string[] = [];
 
-  function iterateOnRuleActions(children: Ast[]) {
-    //Remove useless instructions and check for meaningful intructions.
+    function iterateOnRuleActions(children: Ast[]) {
+        //Remove useless instructions and check for meaningful intructions.
 
-    for (var i = 0; i < children.length; i++) {
-      setFileStack(content.fileStack);
+        for (var i = 0; i < children.length; i++) {
+            setFileStack(content.fileStack);
 
-      //Check for a dynamic goto.
-      if (
-        (children[i].name === "__skip__" &&
-          children[i].args[0].name !== "__distanceTo__") ||
-        (children[i].name === "__skipIf__" &&
-          children[i].args[1].name !== "__distanceTo__")
-      ) {
-        isRelativeGotoEncountered = true;
-      }
+            //Check for a dynamic goto.
+            if ((children[i].name === "__skip__" && children[i].args[0].name !== "__distanceTo__") || (children[i].name === "__skipIf__" && children[i].args[1].name !== "__distanceTo__")) {
+                isRelativeGotoEncountered = true;
+            }
 
-      //Check that the label isn't already declared.
-      if (content.type === "Label") {
-        if (declaredLabels.includes(content.name)) {
-          error(
-            "Label '" + content.name + "' is already declared in this rule",
-          );
+            //Check that the label isn't already declared.
+            if (content.type === "Label") {
+                if (declaredLabels.includes(content.name)) {
+                    error("Label '" + content.name + "' is already declared in this rule");
+                }
+                declaredLabels.push(content.name);
+            }
+
+            //Check if the instruction is meaningful.
+            if (
+                !hasMeaningfulInstructionBeenEncountered &&
+                ![
+                    "__abortIf__",
+                    "__abortIfConditionIsFalse__",
+                    "__abortIfConditionIsTrue__",
+                    "break",
+                    "continue",
+                    "__else__",
+                    "__elif__",
+                    "__end__",
+                    //"__for__",
+                    //"__forGlobalVariable__",
+                    //"__forPlayerVariable__",
+                    "__if__",
+                    "__loop__",
+                    "__loopIf__",
+                    "__loopIfConditionIsFalse__",
+                    "__loopIfConditionIsTrue__",
+                    "pass",
+                    "return",
+                    "__skip__",
+                    "__skipIf__",
+                    //"__wait__",
+                    "__while__",
+                ].includes(children[i].name) &&
+                children[i].type !== "Label" &&
+                !(children[i].name === "__wait__" && content.ruleAttributes.event !== "__subroutine__")
+            ) {
+                debug("meaningful instruction :" + children[i].name);
+                hasMeaningfulInstructionBeenEncountered = true;
+            }
+
+            iterateOnRuleActions(children[i].children);
+
+            //Remove useless instructions, if no relative goto has been encountered.
+            if (!isRelativeGotoEncountered && children[i].name === "pass") {
+                children.splice(i, 1);
+                i--;
+            }
         }
-        declaredLabels.push(content.name);
-      }
-
-      //Check if the instruction is meaningful.
-      if (
-        !hasMeaningfulInstructionBeenEncountered &&
-        ![
-          "__abortIf__",
-          "__abortIfConditionIsFalse__",
-          "__abortIfConditionIsTrue__",
-          "break",
-          "continue",
-          "__else__",
-          "__elif__",
-          "__end__",
-          //"__for__",
-          //"__forGlobalVariable__",
-          //"__forPlayerVariable__",
-          "__if__",
-          "__loop__",
-          "__loopIf__",
-          "__loopIfConditionIsFalse__",
-          "__loopIfConditionIsTrue__",
-          "pass",
-          "return",
-          "__skip__",
-          "__skipIf__",
-          //"__wait__",
-          "__while__",
-        ].includes(children[i].name) &&
-        children[i].type !== "Label" &&
-        !(
-          children[i].name === "__wait__" &&
-          content.ruleAttributes.event !== "__subroutine__"
-        )
-      ) {
-        debug("meaningful instruction :" + children[i].name);
-        hasMeaningfulInstructionBeenEncountered = true;
-      }
-
-      iterateOnRuleActions(children[i].children);
-
-      //Remove useless instructions, if no relative goto has been encountered.
-      if (!isRelativeGotoEncountered && children[i].name === "pass") {
-        children.splice(i, 1);
-        i--;
-      }
     }
-  }
-  if (enableOptimization) {
-    iterateOnRuleActions(content.children);
-  }
-
-  if (
-    enableOptimization &&
-    !hasMeaningfulInstructionBeenEncountered &&
-    !content.ruleAttributes.isDelimiter
-  ) {
-    return getAstForUselessInstruction();
-  }
-
-  //Now that we have removed all useless instructions, compute each __distanceTo__ function.
-  function resolveDistanceTo(content: Ast) {
-    setFileStack(content.fileStack);
-
-    for (var i = 0; i < content.args.length; i++) {
-      content.args[i] = resolveDistanceTo(content.args[i]);
+    if (enableOptimization) {
+        iterateOnRuleActions(content.children);
     }
-    for (var i = 0; i < content.children.length; i++) {
-      content.childIndex = i;
-      content.children[i] = resolveDistanceTo(content.children[i]);
-    }
-    content.childIndex = 0;
-    if (content.name === "__distanceTo__") {
-      var count = 0;
-      var label = content.args[0].name;
-      var foundLabel = false;
 
-      function computeDistanceTo(content: Ast) {
-        for (var i = content.childIndex; i < content.children.length; i++) {
-          if (
-            content.children[i].type === "Label" &&
-            content.children[i].name === label
-          ) {
-            foundLabel = true;
-          }
-          computeDistanceTo(content.children[i]);
-          if (content.children[i].type !== "Label") {
-            debug(
-              "Increasing distanceTo count for label " +
-                label +
-                ": function '" +
-                content.children[i].name +
-                "'",
-            );
-            count++;
-          }
-          if (foundLabel) {
-            break;
-          }
+    if (enableOptimization && !hasMeaningfulInstructionBeenEncountered && !content.ruleAttributes.isDelimiter) {
+        return getAstForUselessInstruction();
+    }
+
+    //Now that we have removed all useless instructions, compute each __distanceTo__ function.
+    function resolveDistanceTo(content: Ast) {
+        setFileStack(content.fileStack);
+
+        for (var i = 0; i < content.args.length; i++) {
+            content.args[i] = resolveDistanceTo(content.args[i]);
         }
-      }
-
-      //Get the root of the tree.
-      //Remove 1 from the count each time, because the parents will get counted in the count.
-      var root = content;
-      while (root.name !== "__rule__") {
-        if (root.type === "void") {
-          count--;
+        for (var i = 0; i < content.children.length; i++) {
+            content.childIndex = i;
+            content.children[i] = resolveDistanceTo(content.children[i]);
         }
-        root =
-          root.parent ??
-          error(
-            "Could not find root of tree while processing distance to label '" +
-              label +
-              "'",
-          );
-      }
-      count++; //account for "__rule__"
-      count--; //account for the action in which the __distanceTo__ is
+        content.childIndex = 0;
+        if (content.name === "__distanceTo__") {
+            var count = 0;
+            var label = content.args[0].name;
+            var foundLabel = false;
 
-      computeDistanceTo(root);
-      if (!foundLabel) {
-        error("Could not find label '" + label + "'");
-      }
+            function computeDistanceTo(content: Ast) {
+                for (var i = content.childIndex; i < content.children.length; i++) {
+                    if (content.children[i].type === "Label" && content.children[i].name === label) {
+                        foundLabel = true;
+                    }
+                    computeDistanceTo(content.children[i]);
+                    if (content.children[i].type !== "Label") {
+                        debug("Increasing distanceTo count for label " + label + ": function '" + content.children[i].name + "'");
+                        count++;
+                    }
+                    if (foundLabel) {
+                        break;
+                    }
+                }
+            }
 
-      if (count < 0) {
-        error(
-          "Error while calculating distance to label '" +
-            label +
-            "': count is " +
-            count,
-        );
-      }
+            //Get the root of the tree.
+            //Remove 1 from the count each time, because the parents will get counted in the count.
+            var root = content;
+            while (root.name !== "__rule__") {
+                if (root.type === "void") {
+                    count--;
+                }
+                root = root.parent ?? error("Could not find root of tree while processing distance to label '" + label + "'");
+            }
+            count++; //account for "__rule__"
+            count--; //account for the action in which the __distanceTo__ is
 
-      return getAstForNumber(count);
-    } else {
-      //optimize out skip(0)
-      if (enableOptimization) {
-        if (
-          (content.name === "__skip__" &&
-            content.args[0].name === "__number__" &&
-            content.args[0].args[0].numValue === 0) ||
-          (content.name === "__skipIf__" &&
-            content.args[1].name === "__number__" &&
-            content.args[1].args[0].numValue === 0)
-        ) {
-          return getAstForUselessInstruction();
+            computeDistanceTo(root);
+            if (!foundLabel) {
+                error("Could not find label '" + label + "'");
+            }
+
+            if (count < 0) {
+                error("Error while calculating distance to label '" + label + "': count is " + count);
+            }
+
+            return getAstForNumber(count);
+        } else {
+            //optimize out skip(0)
+            if (enableOptimization) {
+                if ((content.name === "__skip__" && content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.name === "__skipIf__" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
+                    return getAstForUselessInstruction();
+                }
+            }
+            return content;
         }
-      }
-      return content;
     }
-  }
 
-  resolveDistanceTo(content);
+    resolveDistanceTo(content);
 
-  //Optimize rule conditions
-  if (enableOptimization && content.ruleAttributes.conditions) {
-    for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
-      if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
-        debug("rule has false condition");
-        if (!content.ruleAttributes.isDelimiter) {
-          return getAstForUselessInstruction();
+    //Optimize rule conditions
+    if (enableOptimization && content.ruleAttributes.conditions) {
+        for (var i = 0; i < content.ruleAttributes.conditions.length; i++) {
+            if (isDefinitelyFalsy(content.ruleAttributes.conditions[i])) {
+                debug("rule has false condition");
+                if (!content.ruleAttributes.isDelimiter) {
+                    return getAstForUselessInstruction();
+                }
+            } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
+                content.ruleAttributes.conditions.splice(i, 1);
+                i--;
+            } else if (content.ruleAttributes.conditions[i].name === "__and__") {
+                //insert the 2nd argument of "and" into the array
+                content.ruleAttributes.conditions.splice(i + 1, 0, content.ruleAttributes.conditions[i].args[1]);
+                //replace by 1st argument of "and"
+                content.ruleAttributes.conditions[i] = content.ruleAttributes.conditions[i].args[0];
+                i--;
+            }
         }
-      } else if (isDefinitelyTruthy(content.ruleAttributes.conditions[i])) {
-        content.ruleAttributes.conditions.splice(i, 1);
-        i--;
-      } else if (content.ruleAttributes.conditions[i].name === "__and__") {
-        //insert the 2nd argument of "and" into the array
-        content.ruleAttributes.conditions.splice(
-          i + 1,
-          0,
-          content.ruleAttributes.conditions[i].args[1],
-        );
-        //replace by 1st argument of "and"
-        content.ruleAttributes.conditions[i] =
-          content.ruleAttributes.conditions[i].args[0];
-        i--;
-      }
     }
-  }
 
-  return content;
+    return content;
 };

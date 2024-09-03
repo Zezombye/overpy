@@ -32,79 +32,74 @@ import { debug, error } from "./logging";
  * @returns Translated keyword
  */
 export function translate(keyword: string, toWorkshop: boolean, keywordObj: Record<string, any>, options: Record<string, any> = {}): string {
+    if (!toWorkshop) {
+        keyword = keyword.toLowerCase();
+        if (keywordObj !== stringKw) {
+            keyword = keyword.replace(/\s/g, "");
+        }
+        if (keyword === "mccree") {
+            keyword = "cassidy";
+        } else if (keyword === "mccreeflashbangstunnedeffect") {
+            keyword = "cassidyflashbangstunnedeffect";
+        } else if (keyword === "mccreeflashbangexplosionsound") {
+            keyword = "cassidyflashbangexplosionsound";
+        } else if (keyword === "mccreeflashbangexplosioneffect") {
+            keyword = "cassidyflashbangexplosioneffect";
+        }
+    }
+    debug("Translating keyword '" + keyword + "'");
 
-	if (!toWorkshop) {
-		keyword = keyword.toLowerCase();
-		if (keywordObj !== stringKw) {
-			keyword = keyword.replace(/\s/g, "");
-		}
-		if (keyword === "mccree") {
-			keyword = "cassidy";
-		} else if (keyword === "mccreeflashbangstunnedeffect") {
-			keyword = "cassidyflashbangstunnedeffect";
-		} else if (keyword === "mccreeflashbangexplosionsound") {
-			keyword = "cassidyflashbangexplosionsound";
-		} else if (keyword === "mccreeflashbangexplosioneffect") {
-			keyword = "cassidyflashbangexplosioneffect";
-		}
-	}
-	debug("Translating keyword '"+keyword+"'");
+    if (toWorkshop) {
+        try {
+            //Check number of arguments
+            if (options.nbArgs && "args" in keywordObj[keyword]) {
+                let value = keywordObj[keyword] as Value;
+                if ((value.args === null && options.nbArgs !== 0) || (value.args?.length ?? -1) !== options.nbArgs) {
+                    error("Function '" + keyword + "' takes " + (value.args === null ? 0 : value.args?.length ?? -1) + " arguments, received " + options.nbArgs);
+                }
+            }
 
-	if (toWorkshop) {
-		try {
-			//Check number of arguments
-			if (options.nbArgs && "args" in keywordObj[keyword]) {
-				let value = keywordObj[keyword] as Value;
-				if (value.args === null && options.nbArgs !== 0 || (value.args?.length ?? -1) !== options.nbArgs) {
-					error("Function '"+keyword+"' takes "+(value.args===null?0:(value.args?.length ?? -1))+" arguments, received "+options.nbArgs);
-				}
-			}
+            //Fallback to "en-US" if no entry for this language
+            if (currentLanguage in keywordObj[keyword]) {
+                return keywordObj[keyword][currentLanguage] ?? "";
+            } else {
+                return keywordObj[keyword]["en-US"] ?? "";
+            }
+        } catch (e) {
+            //continue
+        }
+    } else {
+        for (var key of Object.keys(keywordObj)) {
+            if (typeof keywordObj[key] !== "object") {
+                continue;
+            }
 
-			//Fallback to "en-US" if no entry for this language
-			if (currentLanguage in keywordObj[keyword]) {
-				return keywordObj[keyword][currentLanguage] ?? "";
-			} else {
-				return keywordObj[keyword]["en-US"] ?? "";
-			}
-		} catch (e) {
-			//continue
-		}
+            if (currentLanguage in keywordObj[key]) {
+                var keywordComparing = keywordObj[key][currentLanguage];
+            } else {
+                var keywordComparing = keywordObj[key]["en-US"];
+            }
+            if (keywordComparing === undefined) {
+                error("No language found for '" + key + "'");
+            }
+            keywordComparing = keywordComparing.toLowerCase();
+            if (keywordObj !== stringKw) {
+                keywordComparing = keywordComparing.replace(/\s/g, "");
+            }
+            if (keywordComparing === keyword) {
+                var result = key;
+                if ("args" in keywordObj[key]) {
+                    let value = keywordObj[key] as Value;
+                    if (value.args !== null && value.args.length === 0) {
+                        result += "()";
+                    }
+                }
+                return result;
+            }
+        }
+    }
 
-	} else {
-
-		for (var key of Object.keys(keywordObj)) {
-
-			if (typeof keywordObj[key] !== "object") {
-				continue;
-			}
-
-			if (currentLanguage in keywordObj[key]) {
-				var keywordComparing = keywordObj[key][currentLanguage];
-			} else {
-				var keywordComparing = keywordObj[key]["en-US"];
-			}
-			if (keywordComparing === undefined) {
-				error("No language found for '"+key+"'");
-			}
-			keywordComparing = keywordComparing.toLowerCase();
-			if (keywordObj !== stringKw) {
-				keywordComparing = keywordComparing.replace(/\s/g, "");
-			}
-			if (keywordComparing === keyword) {
-				var result = key;
-				if ("args" in keywordObj[key]) {
-					let value = keywordObj[key] as Value;
-					if (value.args !== null && value.args.length === 0) {
-						result += "()";
-					}
-				}
-				return result;
-			}
-		}
-
-	}
-
-	error("No match found for keyword '"+keyword+"'");
+    error("No match found for keyword '" + keyword + "'");
 }
 
 /**
@@ -114,7 +109,7 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
  * @param options Additional options to pass to translations
  */
 export function topy(keyword: string, keywordArray: Record<string, any>, options: Record<string, any> = {}): string {
-	return translate(keyword, false, keywordArray, options);
+    return translate(keyword, false, keywordArray, options);
 }
 
 /**
@@ -124,12 +119,11 @@ export function topy(keyword: string, keywordArray: Record<string, any>, options
  * @param options Additional options to pass to translations
  */
 export function tows(keyword: Token | string, keywordArray: Record<string, any>, options: Record<string, string> = {}): string {
-
-	//Check if a token was passed, or a string
-	if (typeof keyword === "object") {
-		setFileStack(keyword.fileStack);
-		return translate(keyword.text, true, keywordArray, options);
-	} else {
-		return translate(keyword, true, keywordArray, options);
-	}
+    //Check if a token was passed, or a string
+    if (typeof keyword === "object") {
+        setFileStack(keyword.fileStack);
+        return translate(keyword.text, true, keywordArray, options);
+    } else {
+        return translate(keyword, true, keywordArray, options);
+    }
 }

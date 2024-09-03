@@ -20,29 +20,16 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNullVector, Ast, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.normalize = function(content) {
-
+astParsingFunctions.normalize = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "vect"
-                && content.args[0].args[0].name === "__number__"
-                && content.args[0].args[1].name === "__number__"
-                && content.args[0].args[2].name === "__number__") {
-
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
             var magnitude = Math.sqrt(Math.pow(content.args[0].args[0].args[0].numValue, 2) + Math.pow(content.args[0].args[1].args[0].numValue, 2) + Math.pow(content.args[0].args[2].args[0].numValue, 2));
             if (magnitude === 0) {
                 return getAstForNullVector();
             }
-            return new Ast("vect", [
-                getAstForNumber(content.args[0].args[0].args[0].numValue / magnitude),
-                getAstForNumber(content.args[0].args[1].args[0].numValue / magnitude),
-                getAstForNumber(content.args[0].args[2].args[0].numValue / magnitude),
-            ]);
-
+            return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue / magnitude), getAstForNumber(content.args[0].args[1].args[0].numValue / magnitude), getAstForNumber(content.args[0].args[2].args[0].numValue / magnitude)]);
         } else if (content.args[0].name === "vectorTowards") {
-            return new Ast("directionTowards", [
-                content.args[0].args[0],
-                content.args[0].args[1],
-            ]);
+            return new Ast("directionTowards", [content.args[0].args[0], content.args[0].args[1]]);
         }
     }
 

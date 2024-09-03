@@ -21,15 +21,11 @@ import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 import { error, functionNameToString } from "../../utils/logging";
 
-astParsingFunctions.__del__ = function(content) {
+astParsingFunctions.__del__ = function (content) {
     if (content.args[0].name !== "__valueInArray__") {
-        error("Expected an array access for the 'del' operator, but got "+functionNameToString(content.args[0]));
+        error("Expected an array access for the 'del' operator, but got " + functionNameToString(content.args[0]));
     }
-    var result = new Ast("__modifyVar__", [
-        content.args[0].args[0],
-        new Ast("__removeFromArrayByIndex__", [], [], "__Operation__"),
-        content.args[0].args[1],
-    ]);
+    var result = new Ast("__modifyVar__", [content.args[0].args[0], new Ast("__removeFromArrayByIndex__", [], [], "__Operation__"), content.args[0].args[1]]);
     result.originalName = "__del__";
     return result;
 };

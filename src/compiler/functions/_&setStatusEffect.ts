@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForUselessInstruction } from "../../utils/ast";
 
-astParsingFunctions["_&setStatusEffect"] = function(content) {
-
+astParsingFunctions["_&setStatusEffect"] = function (content) {
     if (enableOptimization) {
         if (content.args[2].name === "__number__" && content.args[0].args[0].numValue === 0) {
             return getAstForUselessInstruction();

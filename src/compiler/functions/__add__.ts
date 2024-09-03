@@ -17,13 +17,12 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization,  } from "../../globalVars.js";
+import { astParsingFunctions, enableOptimization } from "../../globalVars.js";
 import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast.js";
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
 import { isTypeSuitable } from "../../utils/types.js";
 
-astParsingFunctions.__add__ = function(content) {
-
+astParsingFunctions.__add__ = function (content) {
     //Check if we are adding both numbers, or both vectors.
     //If not, throw a type warning.
     if (!isTypeSuitable(content.args[0].type, content.args[1].type) && !isTypeSuitable(content.args[1].type, content.args[0].type)) {
@@ -32,7 +31,6 @@ astParsingFunctions.__add__ = function(content) {
     }
 
     if (enableOptimization) {
-
         //If both arguments are numbers, return their addition.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
             return getAstForNumber(content.args[0].args[0].numValue + content.args[1].args[0].numValue);
@@ -61,16 +59,10 @@ astParsingFunctions.__add__ = function(content) {
                 }
             }
             if (canBeOptimized) {
-                return new Ast("vect", [
-                    getAstForNumber(content.args[0].args[0].args[0].numValue + content.args[1].args[0].args[0].numValue),
-                    getAstForNumber(content.args[0].args[1].args[0].numValue + content.args[1].args[1].args[0].numValue),
-                    getAstForNumber(content.args[0].args[2].args[0].numValue + content.args[1].args[2].args[0].numValue),
-                ]);
+                return new Ast("vect", [getAstForNumber(content.args[0].args[0].args[0].numValue + content.args[1].args[0].args[0].numValue), getAstForNumber(content.args[0].args[1].args[0].numValue + content.args[1].args[1].args[0].numValue), getAstForNumber(content.args[0].args[2].args[0].numValue + content.args[1].args[2].args[0].numValue)]);
             }
         }
-
     }
 
     return content;
-
 };

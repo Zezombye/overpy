@@ -1,166 +1,185 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "OverPy",
-	"patterns": [
-		{
-			"include": "#classes"
-		},{
-			"include": "#comments"
-		},{
-			"include": "#multiline-comments"
-		},{
-			"include": "#keywords"
-		},{
-			"include": "#functions"
-		},{
-			"include": "#labels"
-		},{
-			"include": "#strings"
-		},{
-			"include": "#apos-strings"
-		},{
-			"include": "#macros"
-		},{
-			"include": "#invalid"
-		},{
-			"include": "#numbers"
-		},{
-			"include": "#enums"
-		},{
-			"include": "#string-modifiers"
-		}
-	],
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "OverPy",
+    "patterns": [
+        {
+            "include": "#classes"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#multiline-comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#labels"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#apos-strings"
+        },
+        {
+            "include": "#macros"
+        },
+        {
+            "include": "#invalid"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#enums"
+        },
+        {
+            "include": "#string-modifiers"
+        }
+    ],
 
-	"repository": {
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.overpy",
-					"match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\\b"
-				},{
-					"name": "keyword.other.overpy",
-					"match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
-				},{
-					"name": "variable.other",
-					"match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
-				},{
-					"name": "string.regexp",
-					"match": "\\@\\w+\\b"
-				},{
-					"name": "punctuation.definition.list.begin.markdown",
-					"match": "(?<=\\@Event )\\w+\\b"
-				},{
-					"name": "punctuation.definition.list.begin.markdown",
-					"match": "(?<=\\@Team )\\w+\\b"
-				},{
-					"name": "punctuation.definition.list.begin.markdown",
-					"match": "(?<=\\@Slot )\\w+\\b"
-				},{
-					"name": "punctuation.definition.list.begin.markdown",
-					"match": "(?<=\\@Hero )\\w+\\b"
-				}
-			]
-		},
-		"numbers": {
-			"patterns": [
-				{
-					"name": "constant.numeric",
-					"match": "\\b[+-]?(\\d*\\.)?\\d+\\b"
-				}
-			]
-		},
-		"labels": {
-			"patterns": [
-				{
-					"name": "support.class",
-					"match": "^[ \\t]*(?!(do|else|elif))[A-Za-z\\d_]+(?=:)"
-				},{
-					"name": "support.class",
-					"match": "(?<=goto )[A-Za-z\\d_]+"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.overpy",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.overpy",
-					"match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
-				}
-			]
-		},
-		"apos-strings": {
-			"name": "string.quoted.double.overpy",
-			"begin": "'",
-			"end": "'",
-			"patterns": [
-				{
-					"name": "constant.character.escape.overpy",
-					"match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
-				}
-			]
-		},
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.number-sign",
-					"match": "#[^!].*$"
-				}
-			]
-		},
-		"macros": {
-			"name": "constant.language",
-			"begin": "#!",
-			"end": "(?<!\\\\)\\n"
-			
-		},
-		"multiline-comments": {
-			"name": "comment.line",
-			"begin": "\\/\\*",
-			"end": "\\*\\/"
-		},
-		"invalid": {
-			"patterns": [
-				{
-					"name": "invalid.illegal",
-					"match": "\\b(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|import)\\b"
-				}
-			]
-		},
-		"enums": {
-			"patterns": [
-				{
-					"name": "variable.other.enummember",
-					"match": "\\b[A-Z_\\d]+\\b"
-				}
-			]
-		},
-		"functions": {
-			"patterns": [
-				{
-					"name": "entity.name.function",
-					"match": "\\b\\w+(?=\\()"
-				}
-			]
-		},
-		"classes": {
-			"patterns": [
-				{
-					"name": "constant.character.escape",
-					"match": "\\b[A-Z][a-z_]\\w*\\b"
-				}
-			]
-		},
-		"string-modifiers": {
-			"patterns": [
-				{
-					"name": "variable.other",
-					"match": "\\b[a-z]+(?=[\"'])"
-				}
-			]
-		}
-	},
-	"scopeName": "source.opy"
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.overpy",
+                    "match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\\b"
+                },
+                {
+                    "name": "keyword.other.overpy",
+                    "match": "\\b(and|or|not|in)\\b|((\\+|\\-|\\*\\*|\\/|\\%|\\*|<|>)=?)|(\\=)|\\.|((min|max|\\!)\\=)"
+                },
+                {
+                    "name": "variable.other",
+                    "match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
+                },
+                {
+                    "name": "string.regexp",
+                    "match": "\\@\\w+\\b"
+                },
+                {
+                    "name": "punctuation.definition.list.begin.markdown",
+                    "match": "(?<=\\@Event )\\w+\\b"
+                },
+                {
+                    "name": "punctuation.definition.list.begin.markdown",
+                    "match": "(?<=\\@Team )\\w+\\b"
+                },
+                {
+                    "name": "punctuation.definition.list.begin.markdown",
+                    "match": "(?<=\\@Slot )\\w+\\b"
+                },
+                {
+                    "name": "punctuation.definition.list.begin.markdown",
+                    "match": "(?<=\\@Hero )\\w+\\b"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "match": "\\b[+-]?(\\d*\\.)?\\d+\\b"
+                }
+            ]
+        },
+        "labels": {
+            "patterns": [
+                {
+                    "name": "support.class",
+                    "match": "^[ \\t]*(?!(do|else|elif))[A-Za-z\\d_]+(?=:)"
+                },
+                {
+                    "name": "support.class",
+                    "match": "(?<=goto )[A-Za-z\\d_]+"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.overpy",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.overpy",
+                    "match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
+                }
+            ]
+        },
+        "apos-strings": {
+            "name": "string.quoted.double.overpy",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.overpy",
+                    "match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign",
+                    "match": "#[^!].*$"
+                }
+            ]
+        },
+        "macros": {
+            "name": "constant.language",
+            "begin": "#!",
+            "end": "(?<!\\\\)\\n"
+        },
+        "multiline-comments": {
+            "name": "comment.line",
+            "begin": "\\/\\*",
+            "end": "\\*\\/"
+        },
+        "invalid": {
+            "patterns": [
+                {
+                    "name": "invalid.illegal",
+                    "match": "\\b(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|import)\\b"
+                }
+            ]
+        },
+        "enums": {
+            "patterns": [
+                {
+                    "name": "variable.other.enummember",
+                    "match": "\\b[A-Z_\\d]+\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function",
+                    "match": "\\b\\w+(?=\\()"
+                }
+            ]
+        },
+        "classes": {
+            "patterns": [
+                {
+                    "name": "constant.character.escape",
+                    "match": "\\b[A-Z][a-z_]\\w*\\b"
+                }
+            ]
+        },
+        "string-modifiers": {
+            "patterns": [
+                {
+                    "name": "variable.other",
+                    "match": "\\b[a-z]+(?=[\"'])"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.opy"
 }

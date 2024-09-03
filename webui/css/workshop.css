@@ -1,4 +1,3 @@
-
 :root {
     --rule-color: white;
     --rule-color-muted: rgb(141, 141, 141);
@@ -129,7 +128,6 @@
     src: url("../fonts/chinese\ traditional/AR UDJingXiHeiTC MD v1.00.ttf");
 }
 
-
 .font-blizzglobal {
     font-family: "BlizzardGlobal";
 }
@@ -141,37 +139,46 @@
     font-style: italic;
 }
 
-.ko-KR .font-futurano2d, .ko-KR.font-futurano2d {
+.ko-KR .font-futurano2d,
+.ko-KR.font-futurano2d {
     font-family: "YoonBlackfit", "BlizzardGlobal";
 }
-.ko-KR .font-bignoodle, .ko-KR.font-bignoodle {
+.ko-KR .font-bignoodle,
+.ko-KR.font-bignoodle {
     font-family: "Koverwatch", "BlizzardGlobal";
     font-style: italic;
 }
 
-.ja-JP .font-blizzglobal, .ja-JP.font-blizzglobal {
+.ja-JP .font-blizzglobal,
+.ja-JP.font-blizzglobal {
     font-family: "BlizzardGlobalJap";
 }
-.ja-JP .font-futurano2d, .ja-JP.font-futurano2d {
+.ja-JP .font-futurano2d,
+.ja-JP.font-futurano2d {
     font-family: "UdTypos512", "BlizzardGlobalJap";
 }
-.ja-JP .font-bignoodle, .ja-JP.font-bignoodle {
+.ja-JP .font-bignoodle,
+.ja-JP.font-bignoodle {
     font-family: "DfSoGei", "BlizzardGlobalJap";
     font-style: italic;
 }
 
-.zh-CN .font-futurano2d, .zh-CN.font-futurano2d {
+.zh-CN .font-futurano2d,
+.zh-CN.font-futurano2d {
     font-family: "ArUdjingX95", "BlizzardGlobal";
 }
-.zh-CN .font-bignoodle, .zh-CN.font-bignoodle {
+.zh-CN .font-bignoodle,
+.zh-CN.font-bignoodle {
     font-family: "ArCrystalHei", "BlizzardGlobal";
     font-style: italic;
 }
 
-.zh-TW .font-futurano2d, .zh-TW.font-futurano2d {
+.zh-TW .font-futurano2d,
+.zh-TW.font-futurano2d {
     font-family: "ArUdjing", "BlizzardGlobal";
 }
-.zh-TW .font-bignoodle, .zh-TW.font-bignoodle {
+.zh-TW .font-bignoodle,
+.zh-TW.font-bignoodle {
     font-family: "ArHei", "BlizzardGlobal";
     font-style: italic;
 }
@@ -180,9 +187,10 @@
     box-sizing: border-box;
 }
 
-body, textarea {
+body,
+textarea {
     background-color: #222222;
-    scrollbar-color: #CCCCCC #222222;
+    scrollbar-color: #cccccc #222222;
     text-transform: uppercase;
 }
 
@@ -195,7 +203,6 @@ body {
 }
 
 #app-wrapper-wrapper {
-
     background-size: cover;
 }
 
@@ -244,7 +251,8 @@ body {
     align-items: center;
 }
 
-.rule-collapse-button, .rule-expand-button {
+.rule-collapse-button,
+.rule-expand-button {
     margin-top: 3px;
     margin-left: 1px;
 }
@@ -279,7 +287,8 @@ body {
     margin-right: 9px;
 }
 
-.rule-title:hover, .rule-title:focus {
+.rule-title:hover,
+.rule-title:focus {
     background-color: var(--text-field-bg-focused);
 }
 
@@ -408,7 +417,8 @@ input[type="checkbox"] {
     height: 100%;
 }
 
-.vs__search, vs__search:focus {
+.vs__search,
+vs__search:focus {
     padding: 0px !important;
     margin: 0px !important;
     font-family: inherit;
@@ -427,7 +437,8 @@ input[type="checkbox"] {
     background-color: var(--dropdown-bg-color-hover);
 }
 
-.conditions-header, .actions-header {
+.conditions-header,
+.actions-header {
     text-transform: uppercase;
     border-bottom: 3px solid var(--separator-bar-color);
     font-size: var(--dropdown-font-size);
@@ -459,8 +470,8 @@ input[type="checkbox"] {
     padding-top: 4px;
 }
 
-.conditions, .actions {
-
+.conditions,
+.actions {
     width: 50%;
     display: inline-block;
 }
@@ -477,7 +488,8 @@ input[type="checkbox"] {
     flex-wrap: wrap;
 }
 
-.conditions-buttons, .actions-buttons {
+.conditions-buttons,
+.actions-buttons {
     display: flex;
 }
 
@@ -495,7 +507,8 @@ input[type="checkbox"] {
     margin-bottom: 1.5px;
 }
 
-.button-action-condition #button-move-up, .button-action-condition #button-move-down {
+.button-action-condition #button-move-up,
+.button-action-condition #button-move-down {
     height: 16.5px;
     width: 35px;
 }
@@ -590,7 +603,7 @@ input[type="checkbox"] {
 }
 
 .comment {
-    display:block;
+    display: block;
     width: 100%;
     padding-top: 15px;
     padding-left: 15px;
@@ -601,14 +614,20 @@ input[type="checkbox"] {
     font-size: 15px;
 }
 
-
 .code-and-checkbox {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-#ast-edit, #variables-edit-screen, #subroutines-edit-screen, #extensions-edit-screen, #metrics-screen, #info-screen, #settings-screen, #import-screen {
+#ast-edit,
+#variables-edit-screen,
+#subroutines-edit-screen,
+#extensions-edit-screen,
+#metrics-screen,
+#info-screen,
+#settings-screen,
+#import-screen {
     z-index: 9999;
     position: fixed;
     top: 0px;
@@ -622,7 +641,8 @@ input[type="checkbox"] {
     background-color: var(--background-dim);
 }
 
-#edit-title, .variables-edit-title {
+#edit-title,
+.variables-edit-title {
     text-align: center;
     color: var(--title-color);
     width: 100%;
@@ -637,7 +657,6 @@ input[type="checkbox"] {
     width: 100%;
     padding-left: 4px;
     padding-right: 4px;
-
 }
 
 textarea {
@@ -655,22 +674,28 @@ textarea {
     text-transform: none;
 }
 
-.rule-title:hover, .rule-title:focus, textarea:focus {
+.rule-title:hover,
+.rule-title:focus,
+textarea:focus {
     background-color: var(--text-field-bg-focused);
 }
 
-.rule-title:focus, textarea:focus {
+.rule-title:focus,
+textarea:focus {
     outline: var(--text-field-bg-focused) solid 2px;
 }
 
-#edit-background, .variables-background {
+#edit-background,
+.variables-background {
     padding-top: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
     max-height: 100%;
 }
 
-#edit-background, .variables-background, .window-background {
+#edit-background,
+.variables-background,
+.window-background {
     display: grid;
     grid-template-rows: auto;
     width: 100%;
@@ -750,7 +775,7 @@ textarea {
 
 .number-input {
     background-color: var(--label-background-color);
-    width: 100%
+    width: 100%;
 }
 
 input[type="number"] {
@@ -793,7 +818,9 @@ input[type="number"]:focus {
     border-color: white;
 }
 
-.array-add, .array-remove, .array-up-down {
+.array-add,
+.array-remove,
+.array-up-down {
     margin-right: 4px;
 }
 
@@ -840,7 +867,8 @@ input[type="number"]:focus {
     font-size: 30px;
 }
 
-.cancel-button, .ok-button {
+.cancel-button,
+.ok-button {
     color: var(--title-color);
     text-transform: uppercase;
     border-radius: 2px;
@@ -883,7 +911,24 @@ button:hover {
     text-align: center;
     color: var(--title-color);
     /*background-color: var(--delete-title-background);*/
-    text-shadow: 0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red,0 0 10px red;
+    text-shadow:
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red,
+        0 0 10px red;
     font-size: 45px;
     padding-bottom: 70px;
     padding-top: 30px;
@@ -956,7 +1001,8 @@ button:hover {
     color: var(--text-field-color);
     margin-right: 7px;
 }
-.variables-edit-field:hover, .variables-edit-field:focus {
+.variables-edit-field:hover,
+.variables-edit-field:focus {
     background-color: var(--text-field-bg-focused);
 }
 
@@ -1060,7 +1106,6 @@ button:hover {
     display: flex;
     align-items: center;
     text-align: center;
-
 }
 
 .extension-title {
@@ -1202,7 +1247,8 @@ button:hover {
     margin-top: 5px;
 }
 
-.cgs-content .cgs-content, .cgs-values {
+.cgs-content .cgs-content,
+.cgs-values {
     padding-left: 42px;
 }
 

@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { isDefinitelyFalsy, isDefinitelyTruthy, areAstsAlwaysEqual, getAstForFalse } from "../../utils/ast";
 
-astParsingFunctions.__and__ = function(content) {
-
+astParsingFunctions.__and__ = function (content) {
     if (enableOptimization) {
         //false and A -> false
         if (isDefinitelyFalsy(content.args[0])) {

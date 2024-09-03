@@ -19,11 +19,10 @@
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 
-astParsingFunctions.__lastOf__ = function(content) {
-
+astParsingFunctions.__lastOf__ = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__array__" && content.args[0].args.length > 0) {
-            return content.args[0].args[content.args[0].args.length-1];
+            return content.args[0].args[content.args[0].args.length - 1];
         }
     }
 

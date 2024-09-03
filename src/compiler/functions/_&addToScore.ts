@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForUselessInstruction } from "../../utils/ast";
 
-astParsingFunctions["_&addToScore"] = function(content) {
-
+astParsingFunctions["_&addToScore"] = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) {
             return getAstForUselessInstruction();

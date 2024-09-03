@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.sqrt = function(content) {
-
+astParsingFunctions.sqrt = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__number__") {
             //Use ||0 to return 0 in case of NaN (if the number is negative)

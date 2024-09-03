@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber, getAstFor0, Ast } from "../../utils/ast";
 
-astParsingFunctions.len = function(content) {
-
+astParsingFunctions.len = function (content) {
     if (content.args[0].name === "__enumType__") {
         return getAstForNumber(content.args[0].args.length);
     } else if (enableOptimization) {

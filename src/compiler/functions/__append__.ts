@@ -20,12 +20,8 @@
 import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 
-astParsingFunctions.__append__ = function(content) {
-    var result = new Ast("__modifyVar__", [
-        content.args[0],
-        new Ast("__appendToArray__", [], [], "__Operation__"),
-        content.args[1],
-    ]);
+astParsingFunctions.__append__ = function (content) {
+    var result = new Ast("__modifyVar__", [content.args[0], new Ast("__appendToArray__", [], [], "__Operation__"), content.args[1]]);
     result.originalName = "__append__";
     return result;
 };

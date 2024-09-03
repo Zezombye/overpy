@@ -20,18 +20,9 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { Ast, getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.crossProduct = function(content) {
-
+astParsingFunctions.crossProduct = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "vect"
-                && content.args[0].args[0].name === "__number__"
-                && content.args[0].args[1].name === "__number__"
-                && content.args[0].args[2].name === "__number__"
-            && content.args[1].name === "vect"
-                && content.args[1].args[0].name === "__number__"
-                && content.args[1].args[1].name === "__number__"
-                && content.args[1].args[2].name === "__number__") {
-
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
             var Ax = content.args[0].args[0].args[0].numValue;
             var Ay = content.args[0].args[1].args[0].numValue;
             var Az = content.args[0].args[2].args[0].numValue;
@@ -39,11 +30,7 @@ astParsingFunctions.crossProduct = function(content) {
             var By = content.args[1].args[1].args[0].numValue;
             var Bz = content.args[1].args[2].args[0].numValue;
 
-            return new Ast("vect", [
-                getAstForNumber(Ay*Bz - Az*By),
-                getAstForNumber(Az*Bx - Ax*Bz),
-                getAstForNumber(Ax*By - Ay*Bx),
-            ]);
+            return new Ast("vect", [getAstForNumber(Ay * Bz - Az * By), getAstForNumber(Az * Bx - Ax * Bz), getAstForNumber(Ax * By - Ay * Bx)]);
         }
     }
 

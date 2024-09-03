@@ -19,8 +19,7 @@
 
 import { astParsingFunctions } from "../../globalVars";
 
-astParsingFunctions.__indexOfArrayValue__ = function(content) {
-
+astParsingFunctions.__indexOfArrayValue__ = function (content) {
     //TODO: only do that for constants
     /*if (enableOptimization) {
         if (content.args[0].name === "__array__") {

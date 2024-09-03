@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.getOppositeTeam = function(content) {
-
+astParsingFunctions.getOppositeTeam = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "__team__") {
             if (content.args[0].args[0].name === "1") {
@@ -34,7 +33,7 @@ astParsingFunctions.getOppositeTeam = function(content) {
                 //content.args[0].args[0].name = "ALL";
                 return content.args[0];
             } else {
-                error("Unknown team '"+content.args[0].args[0].name+"'");
+                error("Unknown team '" + content.args[0].args[0].name + "'");
             }
         }
     }

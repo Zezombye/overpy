@@ -21,9 +21,9 @@ import { constantValues } from "../../data/constants";
 import { astParsingFunctions } from "../../globalVars";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.__map__ = function(content) {
+astParsingFunctions.__map__ = function (content) {
     if (content.args[0].name in constantValues.MapLiteral && constantValues["MapLiteral"][content.args[0].name].onlyInOw1) {
-        error("The map '"+content.args[0].name+"' is not available in OW2");
+        error("The map '" + content.args[0].name + "' is not available in OW2");
     }
 
     return content;

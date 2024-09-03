@@ -21,8 +21,7 @@ import { astParsingFunctions } from "../../globalVars";
 import { warn } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.waitUntil = function(content) {
-
+astParsingFunctions.waitUntil = function (content) {
     if (!isTypeSuitable("bool", content.args[0].type, false)) {
         warn("w_wait_until", "Wait Until does not consider non-zero numbers as true, which might cause unwanted behavior. It is recommended to explicitly compare to true.");
         //Add a "== true" because nonzero numbers are not considered true

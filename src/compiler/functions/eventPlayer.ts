@@ -20,8 +20,7 @@
 import { astParsingFunctions, currentRuleEvent } from "../../globalVars";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.eventPlayer = function(content) {
-
+astParsingFunctions.eventPlayer = function (content) {
     if (currentRuleEvent === "global") {
         error("Cannot use 'eventPlayer' with rule event 'global'");
     }

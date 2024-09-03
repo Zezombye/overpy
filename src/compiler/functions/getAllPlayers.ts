@@ -20,6 +20,6 @@
 import { astParsingFunctions } from "../../globalVars";
 import { Ast, getAstForTeamAll } from "../../utils/ast";
 
-astParsingFunctions.getAllPlayers = function(content) {
+astParsingFunctions.getAllPlayers = function (content) {
     return new Ast("getPlayers", [getAstForTeamAll()]);
 };

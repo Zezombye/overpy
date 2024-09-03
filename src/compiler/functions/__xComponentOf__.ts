@@ -19,8 +19,7 @@
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 
-astParsingFunctions.__xComponentOf__ = function(content) {
-
+astParsingFunctions.__xComponentOf__ = function (content) {
     if (enableOptimization) {
         if (content.args[0].name === "vect") {
             return content.args[0].args[0];

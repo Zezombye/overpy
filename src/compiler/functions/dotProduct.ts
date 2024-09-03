@@ -20,24 +20,11 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.dotProduct = function(content) {
-
+astParsingFunctions.dotProduct = function (content) {
     if (enableOptimization) {
-        if (content.args[0].name === "vect"
-                && content.args[0].args[0].name === "__number__"
-                && content.args[0].args[1].name === "__number__"
-                && content.args[0].args[2].name === "__number__"
-            && content.args[1].name === "vect"
-                && content.args[1].args[0].name === "__number__"
-                && content.args[1].args[1].name === "__number__"
-                && content.args[1].args[2].name === "__number__") {
-
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__" && content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[1].name === "__number__" && content.args[1].args[2].name === "__number__") {
             //dot product(A,B) = A.x*B.x + A.y+B.y + A.z+B.z
-            return getAstForNumber(
-                content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue
-                + content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue
-                + content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue
-            );
+            return getAstForNumber(content.args[0].args[0].args[0].numValue * content.args[1].args[0].args[0].numValue + content.args[0].args[1].args[0].numValue * content.args[1].args[1].args[0].numValue + content.args[0].args[2].args[0].numValue * content.args[1].args[2].args[0].numValue);
         }
     }
 

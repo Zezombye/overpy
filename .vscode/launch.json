@@ -1,80 +1,61 @@
 {
-	// Use IntelliSense to learn about possible attributes.
-	// Hover to view descriptions of existing attributes.
-	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Generate OverPy Extension files",
-			"program": "${workspaceFolder}/generate-overpy.js",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"type": "node"
-		},
-		{
-			"name": "Generate translations (cached - does not require DataTool)",
-			"program": "${workspaceFolder}/generate-the-other-languages-doc.js",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"type": "node"
-		},
-		{
-			"name": "Generate translations (with DataTool)",
-			"program": "${workspaceFolder}/generate-the-other-languages-doc.js",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"type": "node",
-			"args": [
-				"--regenerateStringsFile"
-			]
-		},
-		{
-			"type": "chrome",
-			"request": "launch",
-			"name": "Open file in browser",
-			"file": "${file}"
-		},
-		{
-			"name": "Run Development version of OverPy",
-			"type": "extensionHost",
-			"preLaunchTask": "Compile",
-			"request": "launch",
-			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--disable-extensions",
-				"--extensionDevelopmentPath=${workspaceFolder}"
-			],
-			"outFiles": [
-				"${workspaceFolder}/**/*.(m|c|)js",
-				"!**/node_modules/**"
-			]
-		},
-		{
-			"name": "Run Production version of OverPy",
-			"type": "extensionHost",
-			"preLaunchTask": "Package",
-			"request": "launch",
-			"runtimeExecutable": "${execPath}",
-			"args": [
-				"--disable-extensions",
-				"--extensionDevelopmentPath=${workspaceFolder}"
-			]
-		},
-		{
-			"name": "Run behavior tests on OverPy",
-			"preLaunchTask": "Compile Standalone",
-			"type": "node",
-			"request": "launch",
-			"program": "${workspaceFolder}/runTests.mjs",
-			"skipFiles": [
-				"<node_internals>/**"
-			]
-		}
-	]
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Generate OverPy Extension files",
+            "program": "${workspaceFolder}/generate-overpy.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
+            "name": "Generate translations (cached - does not require DataTool)",
+            "program": "${workspaceFolder}/generate-the-other-languages-doc.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
+        },
+        {
+            "name": "Generate translations (with DataTool)",
+            "program": "${workspaceFolder}/generate-the-other-languages-doc.js",
+            "request": "launch",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node",
+            "args": ["--regenerateStringsFile"]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open file in browser",
+            "file": "${file}"
+        },
+        {
+            "name": "Run Development version of OverPy",
+            "type": "extensionHost",
+            "preLaunchTask": "Compile",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
+            "outFiles": ["${workspaceFolder}/**/*.(m|c|)js", "!**/node_modules/**"]
+        },
+        {
+            "name": "Run Production version of OverPy",
+            "type": "extensionHost",
+            "preLaunchTask": "Package",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"]
+        },
+        {
+            "name": "Run behavior tests on OverPy",
+            "preLaunchTask": "Compile Standalone",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/runTests.mjs",
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
 }

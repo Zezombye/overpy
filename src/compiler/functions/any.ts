@@ -20,8 +20,7 @@
 import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 
-astParsingFunctions.any = function(content) {
-
+astParsingFunctions.any = function (content) {
     if (content.args[0].name === "__mappedArray__") {
         return new Ast("__any__", [content.args[0].args[0], content.args[0].args[1]]);
     } else {

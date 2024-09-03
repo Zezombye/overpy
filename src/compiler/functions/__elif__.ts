@@ -21,23 +21,24 @@ import { astParsingFunctions, enableOptimization, currentRuleEvent } from "../..
 import { getAstForEnd } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 
-astParsingFunctions.__elif__ = function(content) {
-    if (content.parent === undefined) {error("Found 'elif' in a context without a parent");}
+astParsingFunctions.__elif__ = function (content) {
+    if (content.parent === undefined) {
+        error("Found 'elif' in a context without a parent");
+    }
 
     //Check if the elif is directly preceded by an elif/if/else.
-    if (content.parent.childIndex === 0 || !["__elif__", "__if__", "__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+    if (content.parent.childIndex === 0 || !["__elif__", "__if__", "__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
         error("Found 'elif', but no 'if' or 'elif' before it");
     }
-    if (["__else__"].includes(content.parent.children[content.parent.childIndex-1].name)) {
+    if (["__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
         warn("w_lone_elif", "Found 'elif' directly after an 'else'");
     }
 
     //Add the "end" function.
-    if (content.parent.childIndex === content.parent.children.length-1 || content.parent.childIndex < content.parent.children.length-1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex+1].name)) {
+    if (content.parent.childIndex === content.parent.children.length - 1 || (content.parent.childIndex < content.parent.children.length - 1 && !["__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex + 1].name))) {
         //Optimization: do not include "end" if the "if" is at the end of the chain, but doesn't include a while/for loop as parent and is not in a subroutine.
         var includeEnd = true;
-        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length-1) {
-
+        if (enableOptimization && currentRuleEvent !== "__subroutine__" && content.parent.childIndex === content.parent.children.length - 1) {
             var root = content;
             includeEnd = false;
 
@@ -46,17 +47,16 @@ astParsingFunctions.__elif__ = function(content) {
                 if (root.name === "__while__" || root.name === "__for__" || root.name === "__doWhile__") {
                     includeEnd = true;
                     break;
-                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent && root.parent.childIndex !== root.parent.children.length-1) {
+                } else if (["__if__", "__elif__", "__else__"].includes(root.name) && root.parent && root.parent.childIndex !== root.parent.children.length - 1) {
                     includeEnd = true;
                     break;
                 }
             }
         }
         if (includeEnd) {
-            content.parent.children.splice(content.parent.childIndex+1, 0, getAstForEnd());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
         }
     }
 
     return content;
-
 };

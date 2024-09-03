@@ -21,9 +21,8 @@ import { astParsingFunctions, globalVariables, playerVariables, defaultVarNames 
 import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
 
-astParsingFunctions.__chaseAtRate__ = function(content) {
+astParsingFunctions.__chaseAtRate__ = function (content) {
     //Warning: this function is duplicated with __chaseOverTime__.
-
 
     if (content.args[0].name === "__playerVar__") {
         var isGlobalVariable = false;
@@ -32,19 +31,19 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
         var isGlobalVariable = true;
         var varName = content.args[0].args[0].name;
     } else {
-        error("Expected variable for 1st argument of function 'chase', but got "+functionNameToString(content.args[0]));
+        error("Expected variable for 1st argument of function 'chase', but got " + functionNameToString(content.args[0]));
     }
 
-	var varArray = isGlobalVariable ? globalVariables : playerVariables;
+    var varArray = isGlobalVariable ? globalVariables : playerVariables;
     var isFound = false;
-	for (var variable of varArray) {
-		if (variable.name === varName) {
+    for (var variable of varArray) {
+        if (variable.name === varName) {
             variable["isChased"] = true;
             if (variable["isUsedInForLoop"]) {
-                warn("w_chased_var_in_for", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a for loop, making the for loop not run.");
+                warn("w_chased_var_in_for", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a for loop, making the for loop not run.");
             }
             if (variable["isUsedInRuleCondition"]) {
-                warn("w_ow2_rule_condition_chase", "The "+(isGlobalVariable?"global":"player")+" variable '"+varName+"' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.");
+                warn("w_ow2_rule_condition_chase", "The " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "' is chased, but also used in a rule condition, making the rule condition possibly not trigger properly due to a workshop bug.");
             }
             isFound = true;
             break;
@@ -56,7 +55,7 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
             //However, only do this if it is a default variable name
             addVariable(varName, isGlobalVariable, defaultVarNames.indexOf(varName));
         } else {
-            error("Undeclared "+(isGlobalVariable ? "global" : "player")+" variable '"+varName+"'");
+            error("Undeclared " + (isGlobalVariable ? "global" : "player") + " variable '" + varName + "'");
         }
         for (var variable of varArray) {
             if (variable.name === varName) {
@@ -67,5 +66,4 @@ astParsingFunctions.__chaseAtRate__ = function(content) {
     }
 
     return content;
-
 };

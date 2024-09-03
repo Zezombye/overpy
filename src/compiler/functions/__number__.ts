@@ -19,7 +19,7 @@
 
 import { astParsingFunctions } from "../../globalVars";
 
-astParsingFunctions.__number__ = function(content) {
+astParsingFunctions.__number__ = function (content) {
     content.type = content.args[0].type;
     return content;
 };

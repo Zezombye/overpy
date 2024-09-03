@@ -20,8 +20,7 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { getAstForNumber, Ast } from "../../utils/ast";
 
-astParsingFunctions.__negate__ = function(content) {
-
+astParsingFunctions.__negate__ = function (content) {
     if (enableOptimization) {
         if (["__multiply__", "__divide__"].includes(content.args[0].name)) {
             //Apply the negate on a number if that number is literal.
@@ -29,34 +28,22 @@ astParsingFunctions.__negate__ = function(content) {
             if (content.args[0].args[0].name === "__number__") {
                 content.args[0].args[0] = getAstForNumber(-content.args[0].args[0].numValue);
                 return content.args[0];
-
             } else if (content.args[0].args[1].name === "__number__") {
                 content.args[1].args[0] = getAstForNumber(-content.args[1].args[0].numValue);
                 return content.args[0];
             }
-
         } else if (content.args[0].name === "__modulo__" && content.args[0].args[0].name === "__number__") {
             content.args[0].args[0] = getAstForNumber(-content.args[0].args[0].numValue);
             return content.args[0];
-
         } else if (content.args[0].name === "__negate__") {
             //Negating twice is equivalent to null.
             return content.args[0].args[0];
-
         } else if (content.args[0].name === "__number__") {
             return getAstForNumber(-content.args[0].args[0].numValue);
-
         } else if (content.args[0].name === "vect") {
-        //Check if both arguments are vectors containing numbers.
-            if (content.args[0].args[0].name === "__number__"
-                    && content.args[0].args[1].name === "__number__"
-                    && content.args[0].args[2].name === "__number__" ) {
-
-                return new Ast("vect", [
-                    getAstForNumber(-content.args[0].args[0].args[0].numValue),
-                    getAstForNumber(-content.args[0].args[1].args[0].numValue),
-                    getAstForNumber(-content.args[0].args[2].args[0].numValue),
-                ]);
+            //Check if both arguments are vectors containing numbers.
+            if (content.args[0].args[0].name === "__number__" && content.args[0].args[1].name === "__number__" && content.args[0].args[2].name === "__number__") {
+                return new Ast("vect", [getAstForNumber(-content.args[0].args[0].args[0].numValue), getAstForNumber(-content.args[0].args[1].args[0].numValue), getAstForNumber(-content.args[0].args[2].args[0].numValue)]);
             }
         }
     }

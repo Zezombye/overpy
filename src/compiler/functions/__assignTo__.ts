@@ -20,28 +20,14 @@
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { areAstsAlwaysEqual, Ast, getAstForUselessInstruction } from "../../utils/ast";
 
-astParsingFunctions.__assignTo__ = function(content) {
-
+astParsingFunctions.__assignTo__ = function (content) {
     if (enableOptimization) {
-        if ([
-            "__add__",
-            "__subtract__",
-            "__multiply__",
-            "__divide__",
-            "__modulo__",
-            "__raiseToPower__",
-            "min",
-            "max",
-        ].includes(content.args[1].name) && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
+        if (["__add__", "__subtract__", "__multiply__", "__divide__", "__modulo__", "__raiseToPower__", "min", "max"].includes(content.args[1].name) && areAstsAlwaysEqual(content.args[0], content.args[1].args[0])) {
             var opName = content.args[1].name;
             if (opName === "min" || opName === "max") {
-                opName = "__"+opName+"__";
+                opName = "__" + opName + "__";
             }
-            return new Ast("__modifyVar__", [
-                content.args[0],
-                new Ast(opName, [], [], "__Operation__"),
-                content.args[1].args[1],
-            ]);
+            return new Ast("__modifyVar__", [content.args[0], new Ast(opName, [], [], "__Operation__"), content.args[1].args[1]]);
         }
 
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {

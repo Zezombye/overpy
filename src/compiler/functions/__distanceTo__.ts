@@ -20,7 +20,7 @@
 
 import { astParsingFunctions, currentRuleLabelAccess } from "../../globalVars";
 
-astParsingFunctions.__distanceTo__ = function(content) {
+astParsingFunctions.__distanceTo__ = function (content) {
     //Increment the number of times this label is accessed.
     /** @type {string} */
     var label = content.args[0].name;
