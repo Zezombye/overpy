@@ -21,6 +21,14 @@ settings
 			}
 			Capture Speed Modifier: 60%
 		}
+		Escort
+		{
+			enabled maps
+			{
+				Dorado
+			}
+			Payload Speed Modifier: 200%
+		}
 		General
 		{
 			Game Mode Start: Manual

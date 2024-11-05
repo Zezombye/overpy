@@ -32,8 +32,7 @@
         "syntaxes/**",
         "LICENSE{,.txt}",
         "customGameSettingsSchema.json",
-        "language-configuration.json",
-        "decompilerui.html"
+        "language-configuration.json"
     ],
     "contributes": {
         "configuration": {
