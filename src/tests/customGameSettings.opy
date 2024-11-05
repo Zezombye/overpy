@@ -16,6 +16,12 @@ settings {
             ],
             "captureSpeed%": 60
         },
+        "escort": {
+            "enabledMaps": [
+                "dorado"
+            ],
+            "payloadSpeed%": 200
+        },
         "general": {
             "gamemodeStartTrigger": "manual",
             "heroLimit": "off",
