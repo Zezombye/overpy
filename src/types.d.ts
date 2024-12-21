@@ -90,6 +90,7 @@ export enum Overwatch2Heroes {
     echo = "echo",
     genji = "genji",
     hanzo = "hanzo",
+    hazard = "hazard",
     illari = "illari",
     junkerQueen = "junkerQueen",
     junkrat = "junkrat",

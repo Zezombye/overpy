@@ -42,7 +42,7 @@ export const customGameSettingsKw: Record<string, LocalizableString> =
         "pl-PL": "Wyłączono",
         "pt-BR": "Desativada",
         "ru-RU": "Откл.",
-        "th-TH": "ปิดใช้งานแล้ว",
+        "th-TH": "ปิดใช้งาน",
         "tr-TR": "Devre Dışı",
         "zh-CN": "禁用",
         "zh-TW": "停用"
@@ -226,7 +226,7 @@ export const ruleKw: Record<string, LocalizableString> =
         "ja-JP": "無効",
         "pl-PL": "wył.",
         "pt-BR": "desabilitado",
-        "th-TH": "ปิดใช้งานแล้ว",
+        "th-TH": "ปิดใช้งาน",
         "tr-TR": "devre dışı",
         "zh-CN": "禁用",
         "zh-TW": "停用",

@@ -529,7 +529,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu odświeżania apteczek",
                         "pt-BR": "Tempo escalar de ressurgimento dos implementos de vida",
                         "ru-RU": "Время восстановления аптечек",
-                        "th-TH": "ตั้งเวลาเกิดของแพ็คพลังชีวิต",
+                        "th-TH": "ปรับเวลาเกิดใหม่เกิดของแพ็คพลังชีวิต",
                         "tr-TR": "Sağlık Kiti Türeme Süresi Skaleri",
                         "zh-CN": "急救包刷新时间",
                         "zh-TW": "治療包重生時間"
@@ -646,7 +646,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "pl-PL": "Wył.",
                                 "pt-BR": "Desabilitado",
                                 "ru-RU": "Откл.",
-                                "th-TH": "ปิดใช้งานแล้ว",
+                                "th-TH": "ปิดใช้งาน",
                                 "tr-TR": "Devre Dışı",
                                 "zh-CN": "禁用",
                                 "zh-TW": "停用"
@@ -677,7 +677,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "de-DE": "Heldenwechsel zulassen",
                         "es-ES": "Permitir cambio de héroes",
                         "es-MX": "Permitir cambio de héroe",
-                        "fr-FR": "Changement de héros",
+                        "fr-FR": "Changement de personnage",
                         "it-IT": "Consenti cambio eroe",
                         "ja-JP": "ヒーロー変更許可",
                         "ko-KR": "영웅 변경 허용",
@@ -788,7 +788,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "de-DE": "Heldenbegrenzung",
                         "es-ES": "Límite de héroes",
                         "es-MX": "Límite de héroes",
-                        "fr-FR": "Limite de héros",
+                        "fr-FR": "Limite de personnages",
                         "it-IT": "Limite eroi",
                         "ja-JP": "ヒーロー制限",
                         "ko-KR": "영웅 제한",
@@ -851,7 +851,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "ko-KR": "돌격 담당 1명 공격 담당 2명 지원 담당 2명",
                                 "pl-PL": "1 tank 2 postaci natarcia i 2 wsparcie",
                                 "pt-BR": "1 Tanque 2 Ofensivos 2 Suportes",
-                                "ru-RU": "1 танк 2 бойца 2 героя поддержки",
+                                "ru-RU": "1 танк 2 урон 2 поддержка",
                                 "th-TH": "1 แทงค์ 2 สร้างความเสียหาย 2 สนับสนุน",
                                 "tr-TR": "1 Tank 2 Saldırı 2 Destek",
                                 "zh-CN": "1重装，2输出，2支援",
@@ -870,7 +870,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Ograniczenie ról",
                         "pt-BR": "Limite de função",
                         "ru-RU": "Ограничение ролей",
-                        "th-TH": "จํากัดตำแหน่ง",
+                        "th-TH": "จำกัดตำแหน่ง",
                         "tr-TR": "Rolleri Sınırla",
                         "zh-CN": "职责限制",
                         "zh-TW": "角色類型限制"
@@ -883,7 +883,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "de-DE": "Zufälliger Held nach Tod",
                         "es-ES": "Reaparece con un héroe aleatorio",
                         "es-MX": "Reaparecer como héroe aleatorio",
-                        "fr-FR": "Réapparition en héros aléatoire",
+                        "fr-FR": "Réapparition en personnage aléatoire",
                         "it-IT": "Resurrezione come eroe casuale",
                         "ja-JP": "ランダムなヒーローでリスポーン",
                         "ko-KR": "무작위 영웅으로 부활",
@@ -912,7 +912,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Limit ról losowych bohaterów na drużynę",
                         "pt-BR": "Limite de função de Herói Aleatório por equipe",
                         "ru-RU": "Ограничение случайных героев по ролям для каждой команды",
-                        "th-TH": "จํากัดตำแหน่งฮีโร่แบบสุ่มต่อทีม",
+                        "th-TH": "จำกัดตำแหน่งฮีโร่แบบสุ่มต่อทีม",
                         "tr-TR": "Takım Başına Rastgele Kahraman Rol Sınırı",
                         "zh-CN": "每队随机限定英雄职责",
                         "zh-TW": "隊伍隨機英雄角色限制"
@@ -934,7 +934,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Współczynnik skalowania czasu oczekiwania na odrodzenie",
                         "pt-BR": "Tempo escalar de ressurgimento",
                         "ru-RU": "Время возрождения",
-                        "th-TH": "สเกลาร์เวลาเกิดใหม่",
+                        "th-TH": "ปรับเวลาเกิดใหม่เกิดใหม่",
                         "tr-TR": "Yeniden Doğma Süre Skaleri",
                         "zh-CN": "复生时间",
                         "zh-TW": "重生時間"
@@ -954,7 +954,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "ko-KR": "돌격 담당 1명 공격 담당 2명 지원 담당 2명",
                                 "pl-PL": "1 tank 2 postaci natarcia i 2 wsparcie",
                                 "pt-BR": "1 Tanque 2 Ofensivos 2 Suportes",
-                                "ru-RU": "1 танк 2 бойца 2 героя поддержки",
+                                "ru-RU": "1 танк 2 урон 2 поддержка",
                                 "th-TH": "1 แทงค์ 2 สร้างความเสียหาย 2 สนับสนุน",
                                 "tr-TR": "1 Tank 2 Saldırı 2 Destek",
                                 "zh-CN": "1重装，2输出，2支援",
@@ -1561,7 +1561,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej",
                         "pt-BR": "Pontuação para vencer",
                         "ru-RU": "Очков для победы",
-                        "th-TH": "คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะ",
                         "tr-TR": "Kazanmak İçin Gereken Skor",
                         "zh-CN": "获胜得分",
                         "zh-TW": "獲勝分數"
@@ -1997,7 +1997,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Ogranicz poprzednio wykorzystanych bohaterów",
                         "pt-BR": "Restringir heróis usados anteriormente",
                         "ru-RU": "Запрет ранее выбранных героев",
-                        "th-TH": "จํากัดฮีโร่ที่ใช้ก่อนหน้านี้",
+                        "th-TH": "จำกัดฮีโร่ที่ใช้ก่อนหน้านี้",
                         "tr-TR": "Önceden Kullanılan Kahramanları Kısıtla",
                         "zh-CN": "锁定使用过的英雄",
                         "zh-TW": "禁用先前用過的英雄"
@@ -2036,7 +2036,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                                 "pl-PL": "Ograniczenie",
                                 "pt-BR": "Limitado",
                                 "ru-RU": "С ограничениями",
-                                "th-TH": "จํากัด",
+                                "th-TH": "จำกัด",
                                 "tr-TR": "Sınırlı",
                                 "zh-CN": "限定",
                                 "zh-TW": "限定選擇"
@@ -2176,7 +2176,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "de-DE": "Eingeschränkte Auswahl",
                         "es-ES": "Selección limitada",
                         "es-MX": "Grupo de selección limitada",
-                        "fr-FR": "Catalogue limité de héros",
+                        "fr-FR": "Catalogue limité de personnages",
                         "it-IT": "Scelta limitata",
                         "ja-JP": "選択プール限定",
                         "ko-KR": "선택 폭 제한",
@@ -2379,7 +2379,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej",
                         "pt-BR": "Pontuação para vencer",
                         "ru-RU": "Очков для победы",
-                        "th-TH": "คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะ",
                         "tr-TR": "Kazanmak İçin Gereken Skor",
                         "zh-CN": "获胜得分",
                         "zh-TW": "獲勝分數"
@@ -2419,7 +2419,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej brak balansu",
                         "pt-BR": "Pontuação para vencer da equipe desbalanceada",
                         "ru-RU": "Разное количество очков для победы",
-                        "th-TH": "คะแนนเพื่อชัยชนะของทีมที่ไม่สมดุล",
+                        "th-TH": "คะแนนที่จะชนะของทีมที่ไม่สมดุล",
                         "tr-TR": "Takımın Kazanması İçin Gereken Skor Dengesiz",
                         "zh-CN": "双方队伍获胜得分差异",
                         "zh-TW": "隊伍各自設定獲勝分數"
@@ -2642,7 +2642,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu odświeżania botów treningowych",
                         "pt-BR": "Tempo escalar de ressurgimento de bots de treinamento",
                         "ru-RU": "Время возрождения тренировочных роботов",
-                        "th-TH": "ตั้งเวลาเกิดใหม่ของบอทฝึกฝน",
+                        "th-TH": "ปรับเวลาเกิดใหม่เกิดใหม่ของบอทฝึกฝน",
                         "tr-TR": "Talim Robotu Yeniden Doğma Süre Skaleri",
                         "zh-CN": "训练机器人刷新时间",
                         "zh-TW": "訓練機器人重生時間"
@@ -2781,7 +2781,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Współczynnik skalowania wytrzymałości wrót",
                         "pt-BR": "Escalar da vida da porta",
                         "ru-RU": "Прочность ворот",
-                        "th-TH": "สเกลาร์ค่าพลังชีวิตประตู",
+                        "th-TH": "ปรับค่าพลังชีวิตประตู",
                         "tr-TR": "Kapı Sağlamlık Skaleri",
                         "zh-CN": "大门生命值",
                         "zh-TW": "大門生命值"
@@ -3103,7 +3103,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej",
                         "pt-BR": "Pontuação para vencer",
                         "ru-RU": "Очков для победы",
-                        "th-TH": "คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะ",
                         "tr-TR": "Kazanmak İçin Gereken Skor",
                         "zh-CN": "获胜得分",
                         "zh-TW": "獲勝分數"
@@ -3173,7 +3173,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Eliminacje potrzebne do wygranej",
                         "pt-BR": "Pontuação para vencer",
                         "ru-RU": "Очков для победы",
-                        "th-TH": "คะแนนเพื่อชัยชนะ",
+                        "th-TH": "คะแนนที่จะชนะ",
                         "tr-TR": "Kazanmak İçin Gereken Skor",
                         "zh-CN": "获胜得分",
                         "zh-TW": "獲勝分數"
@@ -3805,7 +3805,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "pl-PL": "Szybkość ruchu",
                     "pt-BR": "Velocidade de movimento",
                     "ru-RU": "Скорость передвижения",
-                    "th-TH": "ความเร็วการเคลื่อนที่",
+                    "th-TH": "ความเร็วในการเคลื่อนที่",
                     "tr-TR": "Hareket Hızı",
                     "zh-CN": "移动速度",
                     "zh-TW": "移動速度"
@@ -3879,7 +3879,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "pl-PL": "Prędkość pocisków",
                     "pt-BR": "Velocidade do projétil",
                     "ru-RU": "Скорость снарядов",
-                    "th-TH": "ความเร็วของโพรเจกไทล์",
+                    "th-TH": "ความเร็วโพรเจกไทล์",
                     "tr-TR": "Mermi Hızı",
                     "zh-CN": "弹道速度",
                     "zh-TW": "子彈移動速度"
@@ -3985,11 +3985,31 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "tr-TR": "Sınırsız Cephane",
                     "zh-CN": "无需装弹",
                     "zh-TW": "無限彈藥"
+                },
+                "passiveHealthRegen": {
+                    "values": "__boolOnOff__",
+                    "default": "on",
+                    "en-US": "Passive Health Regeneration",
+                    "guid": "000000024034",
+                    "de-DE": "Passive TP-Regeneration",
+                    "es-ES": "Regeneración de salud pasiva",
+                    "es-MX": "Regeneración de salud pasiva",
+                    "fr-FR": "Régénération de points de vie passive",
+                    "it-IT": "Rigenerazione salute passiva",
+                    "ja-JP": "自己回復パッシブ",
+                    "ko-KR": "생명력 지속 재생",
+                    "pl-PL": "Pasywna regeneracja zdrowia",
+                    "pt-BR": "Regeneração de Vida Passiva",
+                    "ru-RU": "Пассивное восстановление здоровья",
+                    "th-TH": "การฟื้นฟูพลังชีวิตที่เป็นความสามารถติดตัว",
+                    "tr-TR": "Pasif Can Yenileme",
+                    "zh-CN": "被动生命值恢复",
+                    "zh-TW": "生命值再生被動技能"
                 }
             },
             "__eachHero__": {
                 "enableAbility1": {
-                    "guid": "000000013A5C",
+                    "guid": "000000008669",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "en-US": "%1$s",
@@ -3999,7 +4019,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "fr-FR": "%1$s",
                     "it-IT": "%1$s",
                     "ja-JP": "%1$s",
-                    "ko-KR": "%1$s",
+                    "ko-KR": "%1$s회",
                     "pl-PL": "%1$s",
                     "pt-BR": "%1$s",
                     "ru-RU": "%1$s",
@@ -4037,7 +4057,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility2": {
-                    "guid": "000000013A5C",
+                    "guid": "000000008669",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "exclude": [
@@ -4051,7 +4071,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "fr-FR": "%1$s",
                     "it-IT": "%1$s",
                     "ja-JP": "%1$s",
-                    "ko-KR": "%1$s",
+                    "ko-KR": "%1$s회",
                     "pl-PL": "%1$s",
                     "pt-BR": "%1$s",
                     "ru-RU": "%1$s",
@@ -4088,7 +4108,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "zh-TW": "%1$s的冷卻時間"
                 },
                 "enableAbility3": {
-                    "guid": "000000013A5C",
+                    "guid": "000000008669",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
@@ -4103,7 +4123,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "fr-FR": "%1$s",
                     "it-IT": "%1$s",
                     "ja-JP": "%1$s",
-                    "ko-KR": "%1$s",
+                    "ko-KR": "%1$s회",
                     "pl-PL": "%1$s",
                     "pt-BR": "%1$s",
                     "ru-RU": "%1$s",
@@ -4224,7 +4244,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "zh-TW": "%1$s（絕招）"
                 },
                 "enablePassive": {
-                    "guid": "000000013A5C",
+                    "guid": "000000008669",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
@@ -4240,7 +4260,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "fr-FR": "%1$s",
                     "it-IT": "%1$s",
                     "ja-JP": "%1$s",
-                    "ko-KR": "%1$s",
+                    "ko-KR": "%1$s회",
                     "pl-PL": "%1$s",
                     "pt-BR": "%1$s",
                     "ru-RU": "%1$s",
@@ -4250,7 +4270,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "zh-TW": "%1$s"
                 },
                 "enableSecondaryFire": {
-                    "guid": "000000013A5C",
+                    "guid": "000000008669",
                     "values": "__boolOnOff__",
                     "default": "on",
                     "include": [
@@ -4283,7 +4303,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "fr-FR": "%1$s",
                     "it-IT": "%1$s",
                     "ja-JP": "%1$s",
-                    "ko-KR": "%1$s",
+                    "ko-KR": "%1$s회",
                     "pl-PL": "%1$s",
                     "pt-BR": "%1$s",
                     "ru-RU": "%1$s",
@@ -4556,7 +4576,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia przez Obrzyn Wróg",
                         "pt-BR": "Repulsão Escalar da Arma de Técnico inimigo",
                         "ru-RU": "Сила отбрасывания «Обрезом» враг",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของโค้ชกัน ศัตรู",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของโค้ชกัน ศัตรู",
                         "tr-TR": "Çifte Kırma Geri İtme Skaleri Düşmanda",
                         "zh-CN": "双筒猎枪击退距离（敌方）",
                         "zh-TW": "雙管散彈槍擊退距離（敵人）"
@@ -4578,7 +4598,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia przez Obrzyn Własne",
                         "pt-BR": "Repulsão Escalar da Arma de Técnico este herói",
                         "ru-RU": "Сила отбрасывания «Обрезом» на себя",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของโค้ชกัน ของตัวเอง",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของโค้ชกัน ของตัวเอง",
                         "tr-TR": "Çifte Kırma Geri İtme Skaleri Kendinde",
                         "zh-CN": "双筒猎枪击退距离（自身）",
                         "zh-TW": "雙管散彈槍擊退距離（自己）"
@@ -4600,7 +4620,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu spalania lontu Dynamitu",
                         "pt-BR": "Tempo Escalar do Pavio de Dinamite",
                         "ru-RU": "Время горения фитиля у «Динамита»",
-                        "th-TH": "สเกลาร์เวลาเกิดใหม่ของไดนาไมต์ฟิวส์",
+                        "th-TH": "ปรับเวลาจุดระเบิดใหม่ของไดนาไมต์",
                         "tr-TR": "Dinamit Fünyesi Süre Skaleri",
                         "zh-CN": "延时雷管引爆时间",
                         "zh-TW": "炸藥引爆時間"
@@ -4626,7 +4646,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Granat Taktyczny A-36 – skalowanie odrzucenia",
                         "pt-BR": "Repulsão Escalar da Granada Tática A-36",
                         "ru-RU": "Множитель отбрасывания «Тактической гранаты A-36»",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของ A-36 แทคติคอลเกรเนด",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของ A-36 แทคติคอลเกรเนด",
                         "tr-TR": "A-36 Taktiksel Bomba Geri İtme Skaleri",
                         "zh-CN": "A-36战术榴弹击退倍率",
                         "zh-TW": "A-36戰術榴彈擊退距離"
@@ -4674,7 +4694,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Rąbnięcie Tarczą",
                         "pt-BR": "Escalar de Repulsão do Golpe de Escudo",
                         "ru-RU": "Удар щитом: сила отбрасывания",
-                        "th-TH": "สเกลลาร์กระเด็นถอยหลังของชิลด์แบช",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของชิลด์แบช",
                         "tr-TR": "Kalkan Darbı Geri İtme Skaleri",
                         "zh-CN": "能量盾击击退距离",
                         "zh-TW": "持盾衝鋒擊退距離"
@@ -4696,7 +4716,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Trzaśnięcie",
                         "pt-BR": "Escalar de Repulsão do Disparo Açoitador",
                         "ru-RU": "Хлесткий удар: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของวิปช็อต",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของวิปช็อต",
                         "tr-TR": "Gürz Kırbaç Geri İtme Skaleri",
                         "zh-CN": "流星飞锤击退距离",
                         "zh-TW": "懲擊擊退距離"
@@ -4722,7 +4742,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Dopalacze",
                         "pt-BR": "Repulsão escalar dos Propulsores",
                         "ru-RU": "Ускорители: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของบูสเตอร์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของบูสเตอร์",
                         "tr-TR": "İtici Geri İtme Skaleri",
                         "zh-CN": "推进器击退倍率",
                         "zh-TW": "噴射推進擊退距離"
@@ -4744,7 +4764,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Wezwanie Mecha",
                         "pt-BR": "Repulsão escalar do Chamar Mecha",
                         "ru-RU": "Вызов мехи: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของคอลเมค",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของคอลเมค",
                         "tr-TR": "Meka Çağrısı Geri İtme Skaleri",
                         "zh-CN": "呼叫机甲击退倍率",
                         "zh-TW": "空投機甲擊退距離"
@@ -4766,7 +4786,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Autodestrukcja",
                         "pt-BR": "Repulsão escalar do Autodestruição",
                         "ru-RU": "Самоуничтожение: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของเซลฟ์เดสตรัคต์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของเซลฟ์เดสตรัคต์",
                         "tr-TR": "Kendini İmha Geri İtme Skaleri",
                         "zh-CN": "自毁击退倍率",
                         "zh-TW": "自爆擊退距離"
@@ -4834,7 +4854,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Rakietowy Cios",
                         "pt-BR": "Repulsão escalar do Soco Foguete",
                         "ru-RU": "Реактивный удар: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของร็อกเกตพันช์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของร็อกเกตพันช์",
                         "tr-TR": "Roket Yumruk Geri İtme Skaleri",
                         "zh-CN": "火箭重拳击退倍率",
                         "zh-TW": "火箭拳擊退距離"
@@ -4856,7 +4876,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Meteor",
                         "pt-BR": "Repulsão escalar do Impacto Meteoro",
                         "ru-RU": "Удар метеора: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของมีทีออร์สไตรก์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของมีทีออร์สไตรก์",
                         "tr-TR": "Meteor Vurgunu Geri İtme Skaleri",
                         "zh-CN": "毁天灭地击退倍率",
                         "zh-TW": "流星墜擊退距離"
@@ -4878,7 +4898,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu regeneracji amunicji",
                         "pt-BR": "Tempo escalar da regeneração de munição.",
                         "ru-RU": "Время восстановления боекомплекта",
-                        "th-TH": "ตั้งเวลาฟื้นฟูกระสุน",
+                        "th-TH": "ปรับเวลาฟื้นฟูกระสุน",
                         "tr-TR": "Mühimmat Yenileme Süre Skaleri",
                         "zh-CN": "弹药恢复时间速率",
                         "zh-TW": "彈藥自動裝填時間"
@@ -4926,7 +4946,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odległości Wypadu",
                         "pt-BR": "Distância Escalar do Salto",
                         "ru-RU": "Дистанция «Выпада»",
-                        "th-TH": "สเกลาร์ระยะลันจ์",
+                        "th-TH": "ปรับระยะลันจ์",
                         "tr-TR": "Fırlama Mesafe Skaleri",
                         "zh-CN": "“跃”距离设置",
                         "zh-TW": "突進跳躍距離"
@@ -5021,7 +5041,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Postrzępione Ostrze – Skalowanie odrzucenia",
                         "pt-BR": "Repulsão escalar da Lâmina Serrilhada",
                         "ru-RU": "Множитель отбрасывания «Зазубренного клинка»",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของแจ็กด์เบลด",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของแจ็กด์เบลด",
                         "tr-TR": "Dişli Bıçak Geri İtme Skaleri",
                         "zh-CN": "锯齿利刃击退倍率",
                         "zh-TW": "鋸刃擊退距離",
@@ -5070,7 +5090,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Mina Ogłuszająca",
                         "pt-BR": "Repulsão escalar da Mina de Concussão",
                         "ru-RU": "Фугасная мина: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของคอนคัสชันไมน์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของคอนคัสชันไมน์",
                         "tr-TR": "Sarsıntı Mayını Geri İtme Skaleri",
                         "zh-CN": "震荡地雷击退倍率",
                         "zh-TW": "震盪地雷擊退距離"
@@ -5092,7 +5112,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Granatnik",
                         "pt-BR": "Repulsão escalar do Lançador de Granadas",
                         "ru-RU": "Гранатомет: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของแฟรกลันเชอร์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของแฟรกลันเชอร์",
                         "tr-TR": "Misketatar Geri İtme Skaleri",
                         "zh-CN": "榴弹发射器击退倍率",
                         "zh-TW": "爆彈槍擊退距離"
@@ -5118,7 +5138,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odległości Raźnego Ruchu",
                         "pt-BR": "Distância Escalar do Passo Rápido",
                         "ru-RU": "Быстрый шаг: множитель дистанции",
-                        "th-TH": "สเกลาร์ระยะสวิฟต์สเต็ป",
+                        "th-TH": "ปรับระยะสวิฟต์สเต็ป",
                         "tr-TR": "Tek Adım Mesafe Skaleri",
                         "zh-CN": "“瞬”距离倍率",
                         "zh-TW": "瞬影步距離"
@@ -5144,7 +5164,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Fala Dźwiękowa",
                         "pt-BR": "Repulsão escalar da Onda Sonora",
                         "ru-RU": "Звуковая волна: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของซาวนด์เวฟ",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของซาวนด์เวฟ",
                         "tr-TR": "Ses Dalgası Geri İtme Skaleri",
                         "zh-CN": "音波击退倍率",
                         "zh-TW": "音浪衝擊擊退距離"
@@ -5278,7 +5298,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Leczenie Przeciążeniem Sercowym",
                         "pt-BR": "Cura com Sobrecarga Cardíaca",
                         "ru-RU": "Исцеление «Разгоном сердцебиения»",
-                        "th-TH": "การฮีลด้วยคาร์ดิแอคโอเวอร์ไดรฟ์",
+                        "th-TH": "การฮีลจากคาร์ดิแอคโอเวอร์ไดรฟ์",
                         "tr-TR": "Taşikardi İyileştirmesi",
                         "zh-CN": "心脏过载治疗量",
                         "zh-TW": "心率超載治療量"
@@ -5326,7 +5346,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Zamieć Skalowanie tempa zamrażania",
                         "pt-BR": "Escalar da taxa de congelamento da Nevasca",
                         "ru-RU": "Скорость заморозки «Вьюгой»",
-                        "th-TH": "สเกลาร์อัตราที่บลิซซาร์ดจะแช่แข็ง",
+                        "th-TH": "ปรับอัตราที่บลิซซาร์ดจะแช่แข็ง",
                         "tr-TR": "Kar Fırtınası Donma Skaleri",
                         "zh-CN": "暴雪冰冻敌人的速度",
                         "zh-TW": "暴風雪冰凍敵人的速度"
@@ -5368,7 +5388,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Uzbrojenie Skalowanie czasu zamrożenia",
                         "pt-BR": "Escalar da duração do congelamento da arma",
                         "ru-RU": "Длительность заморозки бластером",
-                        "th-TH": "สเกลาร์ระยะเวลาการแช่แข็งด้วยอาวุธ",
+                        "th-TH": "ปรับระยะเวลาการแช่แข็งด้วยอาวุธ",
                         "tr-TR": "Silahla Dondurma Süre Skaleri",
                         "zh-CN": "冰霜枪冰冻敌人的时长",
                         "zh-TW": "冷凍槍凍結敵人的時間長短"
@@ -5412,7 +5432,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Uzbrojenie Skalowanie tempa zamrażania",
                         "pt-BR": "Escalar da taxa de congelamento da arma",
                         "ru-RU": "Скорость заморозки бластером",
-                        "th-TH": "สเกลาร์อัตราที่อาวุธจะแช่แข็ง",
+                        "th-TH": "ปรับอัตราที่อาวุธจะแช่แข็ง",
                         "tr-TR": "Silah Dondurma Oranı Skaleri",
                         "zh-CN": "冰霜枪冰冻敌人的速度",
                         "zh-TW": "冷凍槍冰凍敵人的速度"
@@ -5517,7 +5537,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie maksimum obrażeń od Kuli Biotycznej",
                         "pt-BR": "Escalar do dano máx. do Orbe Biótico",
                         "ru-RU": "Макс. количество урона от «Биотической сферы»",
-                        "th-TH": "สเกลาร์ความเสียหายสูงสุดจากไบโอติกออร์บ",
+                        "th-TH": "ปรับความเสียหายสูงสุดจากไบโอติกออร์บ",
                         "tr-TR": "Biyotik Küre Maksimum Hasar Skaleri",
                         "zh-CN": "生化之球伤害最大值",
                         "zh-TW": "生化球最大傷害值"
@@ -5539,7 +5559,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie maksimum leczenia przez Kulę Biotyczną",
                         "pt-BR": "Escalar da cura máx. do Orbe Biótico",
                         "ru-RU": "Макс. исцеление «Биотической сферой»",
-                        "th-TH": "สเกลาร์การฮีลสูงสุดจากไบโอติกออร์บ",
+                        "th-TH": "ปรับการฮีลสูงสุดจากไบโอติกออร์บ",
                         "tr-TR": "Biyotik Küre Maksimum İyileştirme Skaleri",
                         "zh-CN": "生化之球治疗最大值",
                         "zh-TW": "生化球最大治療值"
@@ -5580,7 +5600,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "it-IT": "Energia biotica - Velocità di ricarica",
                         "ja-JP": "バイオティック・エネルギー リチャージ・レート",
                         "ko-KR": "생체 에너지 충전률",
-                        "pl-PL": "Tempo odnawiania energii biotycznej",
+                        "pl-PL": "Tempo doładowania energii biotycznej",
                         "pt-BR": "Taxa de recarga da energia biótica",
                         "ru-RU": "Скорость восполнения биотической энергии",
                         "th-TH": "อัตราการรีชาร์จพลังงานชีวภาพ",
@@ -5609,7 +5629,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Przytłaczający Strzał",
                         "pt-BR": "Repulsão escalar da Explosão Concussiva",
                         "ru-RU": "Взрывная волна: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของคอนคัสซิฟบลาสต์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของคอนคัสซิฟบลาสต์",
                         "tr-TR": "Sarsıcı Patlama Geri İtme Skaleri",
                         "zh-CN": "震荡冲击击退倍率",
                         "zh-TW": "震盪爆破擊退距離"
@@ -5651,7 +5671,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie szybkości wzlotu przy Zawiśnięciu",
                         "pt-BR": "Aceleração escalar vertical da Suspensão a Jato",
                         "ru-RU": "Парение: вертикальная скорость",
-                        "th-TH": "สเกลาร์ความเร็วแนวตั้งของโฮเวอร์เจ็ท",
+                        "th-TH": "ปรับความเร็วแนวตั้งของโฮเวอร์เจ็ท",
                         "tr-TR": "Uçuş Jeti Dikey Hız Skaleri",
                         "zh-CN": "悬浮背包垂直速度",
                         "zh-TW": "滯空垂直爬升速度"
@@ -5673,7 +5693,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie przyspieszenia Skok Odrzutowy",
                         "pt-BR": "Aceleração escalar do Salto Foguete",
                         "ru-RU": "Реактивный ранец: ускорение",
-                        "th-TH": "สเกลาร์การเร่งความเร็วของจัมป์เจ็ท",
+                        "th-TH": "ปรับการเร่งความเร็วของจัมป์เจ็ท",
                         "tr-TR": "Zıplama Jeti İvme Skaleri",
                         "zh-CN": "推进背包加速",
                         "zh-TW": "跳躍噴射速度"
@@ -5695,7 +5715,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie dodatkowego paliwa Zawiśnięcia",
                         "pt-BR": "Escalar do Combustível Adicional da Suspensão a Jato",
                         "ru-RU": "Реактивный рывок: дополнительное топливо",
-                        "th-TH": "สเกลาร์เชื้อเพลิงพิเศษโฮเวอร์เจ็ท",
+                        "th-TH": "ปรับเชื้อเพลิงพิเศษโฮเวอร์เจ็ท",
                         "tr-TR": "Uçuş Jeti Fazladan Yakıt Skaleri",
                         "zh-CN": "悬浮背包额外燃料倍率",
                         "zh-TW": "滯空額外燃料量"
@@ -5761,7 +5781,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie przyspieszenia Skok Odrzutowy",
                         "pt-BR": "Aceleração escalar do Salto Foguete",
                         "ru-RU": "Реактивный ранец: ускорение",
-                        "th-TH": "สเกลาร์การเร่งความเร็วของจัมป์เจ็ท",
+                        "th-TH": "ปรับการเร่งความเร็วของจัมป์เจ็ท",
                         "tr-TR": "Zıplama Jeti İvme Skaleri",
                         "zh-CN": "推进背包加速",
                         "zh-TW": "跳躍噴射速度"
@@ -5783,7 +5803,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie uzupełniania paliwa Skoku Odrzutowego",
                         "pt-BR": "Escalar da Recarga do Salto Foguete",
                         "ru-RU": "Реактивный ранец: дозаправка",
-                        "th-TH": "สเกลาร์การเติมเชื้อเพลิงของจัมป์เจ็ท",
+                        "th-TH": "ปรับการเติมเชื้อเพลิงของจัมป์เจ็ท",
                         "tr-TR": "Havalanma Yakıt Doldurma Skaleri",
                         "zh-CN": "推进背包燃料补充倍率",
                         "zh-TW": "跳躍噴射燃料補充量"
@@ -5805,7 +5825,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Wyrzutnia Rakiet",
                         "pt-BR": "Repulsão escalar do Lançador de Foguetes",
                         "ru-RU": "Ракетомет: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของร็อกเกตลันเชอร์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของร็อกเกตลันเชอร์",
                         "tr-TR": "Roketatar Geri İtme Skaleri",
                         "zh-CN": "火箭发射器击退倍率",
                         "zh-TW": "火箭發射器擊退距離"
@@ -5855,7 +5875,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Szarża",
                         "pt-BR": "Repulsão escalar da Investida",
                         "ru-RU": "Рывок: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของชาร์จ",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของชาร์จ",
                         "tr-TR": "Hücum Geri İtme Skaleri",
                         "zh-CN": "冲锋击退倍率",
                         "zh-TW": "衝鋒擊退距離"
@@ -5877,7 +5897,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Młot Rakietowy",
                         "pt-BR": "Repulsão escalar do Martelo Propulsor",
                         "ru-RU": "Ракетный молот: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของร็อกเกตแฮมเมอร์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของร็อกเกตแฮมเมอร์",
                         "tr-TR": "Roket Çekiç Geri İtme Skaleri",
                         "zh-CN": "火箭重锤击退倍率",
                         "zh-TW": "火箭鎚擊退距離"
@@ -5903,7 +5923,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Wieprznięcie",
                         "pt-BR": "Repulsão escalar do Cair Matando",
                         "ru-RU": "Турбосвинство: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของโฮลฮ็อก",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของโฮลฮ็อก",
                         "tr-TR": "Domuz Çevirme Geri İtme Skaleri",
                         "zh-CN": "鸡飞狗跳击退倍率",
                         "zh-TW": "火力全開擊退距離"
@@ -5929,7 +5949,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Akrecja",
                         "pt-BR": "Repulsão escalar de Acreção",
                         "ru-RU": "Аккреция: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของอะครีชัน",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของอะครีชัน",
                         "tr-TR": "Yığılım Geri İtme Skaleri",
                         "zh-CN": "质量吸附击退距离",
                         "zh-TW": "重力崩引擊退距離"
@@ -5955,7 +5975,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Rakiety Helix",
                         "pt-BR": "Repulsão escalar dos Foguetes Hélix",
                         "ru-RU": "Ракетный удар: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของฮีลิกซ์ร็อกเกต",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของฮีลิกซ์ร็อกเกต",
                         "tr-TR": "Helezon Roket Geri İtme Skaleri",
                         "zh-CN": "螺旋飞弹击退倍率",
                         "zh-TW": "旋風火箭擊退距離"
@@ -5981,7 +6001,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu działania Przeciążenia",
                         "pt-BR": "Escalar da duração da Sobrecarga",
                         "ru-RU": "Длительность перегрузки",
-                        "th-TH": "สเกลาร์ระยะเวลาโอเวอร์โหลด",
+                        "th-TH": "ปรับระยะเวลาโอเวอร์โหลด",
                         "tr-TR": "Yük Aşırtma Süresi Skaleri",
                         "zh-CN": "热力过载持续时间",
                         "zh-TW": "超負荷持續時間"
@@ -6082,7 +6102,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie przyspieszenia Plecak Odrzutowy",
                         "pt-BR": "Aceleração escalar do Salto a Jato",
                         "ru-RU": "Прыжковый ранец: ускорение",
-                        "th-TH": "สเกลาร์การเร่งความเร็วของจัมป์แพ็ค",
+                        "th-TH": "ปรับการเร่งความเร็วของจัมป์แพ็ค",
                         "tr-TR": "Uzun Sıçrama İvme Skaleri",
                         "zh-CN": "喷射背包加速",
                         "zh-TW": "噴射跳躍速度"
@@ -6104,7 +6124,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Plecak Odrzutowy",
                         "pt-BR": "Repulsão escalar do Salto a Jato",
                         "ru-RU": "Прыжковый ранец: сила отбрасывания",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของจัมป์แพ็ค",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของจัมป์แพ็ค",
                         "tr-TR": "Uzun Sıçrama Geri İtme Skaleri",
                         "zh-CN": "喷射背包击退倍率",
                         "zh-TW": "噴射跳躍擊退距離"
@@ -6126,7 +6146,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Pierwotny Szał",
                         "pt-BR": "Repulsão escalar da Fúria Primata corpo a corpo",
                         "ru-RU": "Ярость зверя: сила отбрасывания ударами",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของการโจมตีระยะประชิดด้วยไพรมอลเรจ",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของการโจมตีระยะประชิดด้วยไพรมอลเรจ",
                         "tr-TR": "İlkel Öfke Yakın Saldırı Geri İtme Skaleri",
                         "zh-CN": "原始暴怒近身攻击击退倍率",
                         "zh-TW": "野性之怒近戰擊退距離"
@@ -6172,7 +6192,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Pazur",
                         "pt-BR": "Repulsão escalar da Garra",
                         "ru-RU": "«Кошка»: сила отбрасывания",
-                        "th-TH": "สเกลการกระเด็นถอยหลังของแกรปปลิงคลอว์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของแกรปปลิงคลอว์",
                         "tr-TR": "Asılma Kıskacı Geri İtme Skaleri",
                         "zh-CN": "工程抓钩击退距离",
                         "zh-TW": "穩固爪鉤擊退距離"
@@ -6194,7 +6214,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Pole Minowe",
                         "pt-BR": "Repulsão escalar do Campo Minado",
                         "ru-RU": "Минное поле: сила отбрасывания",
-                        "th-TH": "สเกลการกระเด็นถอยหลังของไมน์ฟิลด์",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของไมน์ฟิลด์",
                         "tr-TR": "Mayın Tarlası Geri İtme Skaleri",
                         "zh-CN": "地雷禁区击退距离",
                         "zh-TW": "地雷陣擊退距離"
@@ -6220,7 +6240,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie odrzucenia Działo Cząsteczkowe",
                         "pt-BR": "Repulsão escalar do Canhão de Partículas secundário",
                         "ru-RU": "Лучевая пушка: сила отбрасывания взрывом",
-                        "th-TH": "สเกลาร์กระเด็นถอยหลังของปืนใหญ่อนุภาครอง",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของปืนใหญ่อนุภาครอง",
                         "tr-TR": "İkincil Parçacık Topu Geri İtme Skaleri",
                         "zh-CN": "粒子炮辅助攻击击退倍率",
                         "zh-TW": "粒子砲次要攻擊擊退距離"
@@ -6268,7 +6288,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Leczenie Ożywczym Pędem",
                         "pt-BR": "Cura da Investida Rejuvenescedora",
                         "ru-RU": "Исцеление «Рывком восстановления»",
-                        "th-TH": "การฮีลด้วยรีจูวีเนติ้งแดช",
+                        "th-TH": "การฮีลจากรีจูวีเนติ้งแดช",
                         "tr-TR": "Gençleştiren Koşu İyileştirmesi",
                         "zh-CN": "回春疾行治疗量",
                         "zh-TW": "恢復衝刺治療"
@@ -6413,7 +6433,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu działania Zagrzebania",
                         "pt-BR": "Escalar da duração do Entocar",
                         "ru-RU": "Длительность закапывания",
-                        "th-TH": "สเกลาร์ระยะเวลาเบอร์โรว์",
+                        "th-TH": "ปรับระยะเวลาเบอร์โรว์",
                         "tr-TR": "Battıçıktı Süresi Skaleri",
                         "zh-CN": "钻地持续时间",
                         "zh-TW": "鑽地持續時間"
@@ -6439,10 +6459,42 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "pl-PL": "Skalowanie czasu działania Szybkiego Szybowania",
                         "pt-BR": "Escalar da duração do Impulso de Planar",
                         "ru-RU": "Усиление планирования",
-                        "th-TH": "สเกลาร์ระยะเวลาไกลด์บูสต์",
+                        "th-TH": "ปรับระยะเวลาไกลด์บูสต์",
                         "tr-TR": "Süzülme Desteği Süresi Skaleri",
                         "zh-CN": "滑翔推进持续时间",
                         "zh-TW": "滑翔加速持續時間"
+                    }
+                }
+            },
+            "hazard": {
+                "values": {
+                    "ability2Health%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Jagged Wall Health Scalar"
+                    },
+                    "secondaryFireCost%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Spike Guard Resource Cost Scalar"
+                    },
+                    "secondaryFireRegen%": {
+                        "values": "__percent__",
+                        "min": 25,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Spike Guard Resource Regeneration Scalar"
+                    },
+                    "ability1Distance%": {
+                        "values": "__percent__",
+                        "min": 100,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Violent Leap Distance Scalar"
                     }
                 }
             }
@@ -6858,7 +6910,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                 "pl-PL": "Czat głosowy meczu",
                 "pt-BR": "Bate-papo de Voz da Partida",
                 "ru-RU": "Голосовой чат матча",
-                "th-TH": "การสนทนาด้วยเสียงของแมตช์",
+                "th-TH": "การสนทนาด้วยเสียงในแมตช์",
                 "tr-TR": "Maç Sesli Sohbeti",
                 "zh-CN": "比赛语音聊天",
                 "zh-TW": "對戰語音聊天"
