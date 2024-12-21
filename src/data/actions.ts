@@ -26191,7 +26191,7 @@ export const actionKw: Record<string, Action> =
                     "pt-BR": "Desde o começo",
                     "ru-RU": "Все",
                     "th-TH": "ประจำโปรไฟล์",
-                    "tr-TR": "Daimi",
+                    "tr-TR": "Daimî",
                     "zh-CN": "生涯",
                     "zh-TW": "生涯"
                 },
@@ -26715,7 +26715,7 @@ export const actionKw: Record<string, Action> =
                     "pt-BR": "Desde o começo",
                     "ru-RU": "Все",
                     "th-TH": "ประจำโปรไฟล์",
-                    "tr-TR": "Daimi",
+                    "tr-TR": "Daimî",
                     "zh-CN": "生涯",
                     "zh-TW": "生涯"
                 },

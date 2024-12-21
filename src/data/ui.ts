@@ -850,7 +850,7 @@ const workshopUiKw =
         "pl-PL": "Łączna liczba elementów",
         "pt-BR": "Total de elementos",
         "ru-RU": "Всего элементов",
-        "th-TH": "จํานวนเอเลเมนต์ทั้งหมด",
+        "th-TH": "จำนวนเอเลเมนต์ทั้งหมด",
         "tr-TR": "Toplam Unsur Sayısı",
         "zh-CN": "总计元素数量",
         "zh-TW": "元件數量"
@@ -868,7 +868,7 @@ const workshopUiKw =
         "pl-PL": "Do elementów zaliczają się reguły, warunki, działania i wartości (maksymalnie %1$s)",
         "pt-BR": "Elementos incluem regras, condições, ações e valores (até %1$s)",
         "ru-RU": "Элементы включают в себя правила, условия, действия и значения (вплоть до %1$s).",
-        "th-TH": "เอเลเมนต์ประกอบด้วยกฎ เงื่อนไข การดําเนินการ และค่า (สูงสุด %1$s)",
+        "th-TH": "เอเลเมนต์ประกอบด้วยกฎ เงื่อนไข การดำเนินการ และค่า (สูงสุด %1$s)",
         "tr-TR": "Unsurlara kurallar, koşullar, eylemler ve değerler dâhildir (maksimum %1$s)",
         "zh-CN": "元素包括规则、条件、行动和值（最多可有%1$s个）",
         "zh-TW": "元件包括規則、條件、動作和數值（最高為%1$s）"
