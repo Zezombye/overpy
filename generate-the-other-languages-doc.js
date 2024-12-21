@@ -148,6 +148,21 @@ function addTranslations(content) {
     }
 
     let guidGlob = guidToLocaleMap.get(content.guid);
+    if (!guidGlob) {
+        console.warn(`GUID ${content.guid} for ${JSON.stringify(content)} appears to have become invalid! Attempting to rectify by finding the GUID again...`);
+        if (fuzzyMatch) {
+            content.guid = enUSFuzzyToGuidMap.get(content["en-US"].replace(/[\.,;'\s()-]/g, "").toLowerCase());
+        } else {
+            content.guid = enUSToGuidMap.get(content["en-US"]);
+        }
+        guidGlob = guidToLocaleMap.get(content.guid);
+
+        if (!guidGlob) {
+            console.error(`No valid GUID found for content ${JSON.stringify(content)}`);
+            return content;
+        }
+        console.log(`New GUID found: ${content.guid}, proceeding...`);
+    }
     for (let localeEntry of Object.entries(guidGlob)) {
         localeEntry[1] = localeEntry[1].replace(/%%/g, "%");
         if (removeParentheses) localeEntry[1] = localeEntry[1].replace(/[,\(\)\/]/g, "");
