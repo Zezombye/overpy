@@ -17,7 +17,8 @@
         "@typescript-eslint/semi": "warn",
         "curly": ["warn", "multi-line"],
         "eqeqeq": ["warn", "always", { "null": "ignore" }],
-        "no-throw-literal": "warn"
+        "no-throw-literal": "warn",
+        "indent": ["warn", 4]
     },
     "ignorePatterns": ["out", "dist", "**/*.d.ts"]
 }
