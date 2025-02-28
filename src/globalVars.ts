@@ -293,8 +293,8 @@ function vect(x,y,z) {
 }
 
 var Map = {${Object.keys(mapKw)
-    .map((x) => `${camelCaseToUpperCase(x)}:'Map.${camelCaseToUpperCase(x)}'`)
-    .join(",")}}
+        .map((x) => `${camelCaseToUpperCase(x)}:'Map.${camelCaseToUpperCase(x)}'`)
+        .join(",")}}
 `;
 
 export const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
