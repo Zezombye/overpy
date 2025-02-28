@@ -1572,7 +1572,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
             "pl-PL": "Kriostaza",
             "pt-BR": "Congelamento Criogênico",
             "ru-RU": "Криостазис",
-            "th-TH": "ไคโรฟรีซ",
+            "th-TH": "ไครโอฟรีซ",
             "tr-TR": "Kriyojenik",
             "zh-CN": "急冻",
             "zh-TW": "冰霜屏障"

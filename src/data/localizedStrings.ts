@@ -9708,7 +9708,7 @@ var normalStrKw =
         "zh-CN": "商店",
         "zh-TW": "商店",
         "de-DE": "Shop",
-        "ko-KR": "Shop"
+        "ko-KR": "상점"
     },
     "Shops": {
         "guid": "00000000CA0D",
