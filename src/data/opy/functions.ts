@@ -551,31 +551,31 @@ Examples of valid types:
         ],
         return: "Raycast",
     },
-	"rgb": {
-		"description": "A custom color with the specified red, green, and blue values.",
-		"args": [
-			{
-				"name": "Red",
-				"description": "The red component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			},
-			{
-				"name": "Green",
-				"description": "The green component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			},
-			{
-				"name": "Blue",
-				"description": "The blue component of a color, from 0 to 255.",
-				"type": "unsigned int",
-				"default": 255
-			}
-		],
+    "rgb": {
+        "description": "A custom color with the specified red, green, and blue values.",
+        "args": [
+            {
+                "name": "Red",
+                "description": "The red component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            },
+            {
+                "name": "Green",
+                "description": "The green component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            },
+            {
+                "name": "Blue",
+                "description": "The blue component of a color, from 0 to 255.",
+                "type": "unsigned int",
+                "default": 255
+            }
+        ],
         "isConstant": true,
-		"return": "Color",
-	},
+        "return": "Color",
+    },
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
         "args": [

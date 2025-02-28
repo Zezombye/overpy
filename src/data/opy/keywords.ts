@@ -25,7 +25,7 @@ export const opyKeywords: Record<string, {
     snippet?: string
 }> = {
 
-//Keywords
+    //Keywords
 
     "and": {
         "description": "Whether both of the two operands are true (or equivalent to true). Does short-circuiting.",

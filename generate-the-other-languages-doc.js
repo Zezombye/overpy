@@ -186,6 +186,10 @@ function normalizeName(content) {
 
 if (args.values.regenerateStringsFile) generateStringsFile();
 getGuids();
+// Sanity check: If guids is empty or the locale mappings are empty,
+// something has gone terribly wrong and the script should abort.
+assert(Object.entries(guids).length > 0, "No GUIDs extracted via DataTool or strings.json is not valid JSON");
+assert(guidToLocaleMap.size > 0, "GUID Locale Map failed to generate correctly");
 replaceJsonObjectsInFile(docFolder + "actions.ts");
 replaceJsonObjectsInFile(docFolder + "values.ts");
 replaceJsonObjectsInFile(docFolder + "constants.ts");
