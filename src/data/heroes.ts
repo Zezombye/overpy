@@ -1572,7 +1572,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
             "pl-PL": "Kriostaza",
             "pt-BR": "Congelamento Criogênico",
             "ru-RU": "Криостазис",
-            "th-TH": "ไคโรฟรีซ",
+            "th-TH": "ไครโอฟรีซ",
             "tr-TR": "Kriyojenik",
             "zh-CN": "急冻",
             "zh-TW": "冰霜屏障"
@@ -3591,7 +3591,23 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
             "tr-TR": "Sağanak",
             "zh-CN": "千针雨",
             "zh-TW": "狂暴針雨"
-        }
+        },
+        "en-US": "Hazard",
+        "guid": "00000001B136",
+        "de-DE": "Hazard",
+        "es-ES": "Hazard",
+        "es-MX": "Hazard",
+        "fr-FR": "Danger",
+        "it-IT": "Hazard",
+        "ja-JP": "ハザード",
+        "ko-KR": "해저드",
+        "pl-PL": "Ryzyk",
+        "pt-BR": "Hazard",
+        "ru-RU": "Азарт",
+        "th-TH": "ฮาซาร์ด",
+        "tr-TR": "Hazard",
+        "zh-CN": "骇灾",
+        "zh-TW": "災害"
     }
 }
 //end-json

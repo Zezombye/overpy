@@ -1110,6 +1110,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     }
                 }
             },
@@ -1156,6 +1176,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     },
                     "setValidControlPoints": {
                         "values": {
@@ -1318,6 +1358,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
                     },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "payloadSpeed%": {
                         "values": "__percent__",
                         "min": 10,
@@ -1385,6 +1445,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     },
                     "payloadSpeed%": {
                         "values": "__percent__",
@@ -1455,6 +1535,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Ödül Hedefi olarak Öldürme başına Ödül Artışı",
                         "zh-CN": "狩猎目标每次消灭赏金加值",
                         "zh-TW": "成為懸賞目標時每次擊殺提高的賞金"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     },
                     "nbBountyTargets": {
                         "values": "__int__",
@@ -1629,6 +1729,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Hasar Alındığında Bayrak Etkileşimi Bölünür",
                         "zh-CN": "受到伤害打断夺旗",
                         "zh-TW": "受到傷害會中斷奪旗"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     },
                     "flagCarrierAbilities": {
                         "values": {
@@ -1883,6 +2003,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "elimination": {
                 "values": {
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "heroSelectionTime": {
                         "values": "__int__",
                         "min": 20,
@@ -2320,6 +2460,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "tdm": {
                 "values": {
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "gameLengthInMn": {
                         "guid": "00000000617D",
                         "values": "__int__",
@@ -2472,6 +2632,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "skirmish": {
                 "values": {
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "setValidControlPoints": {
                         "values": {
                             "all": {
@@ -2605,6 +2785,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "practiceRange": {
                 "values": {
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "spawnTrainingBots": {
                         "values": "__boolOnOff__",
                         "default": "on",
@@ -2952,6 +3152,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
                     },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "firstActiveControlPoint": {
                         "values": {
                             "a": {
@@ -3134,6 +3354,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "ffa": {
                 "values": {
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "off",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
+                    },
                     "gameLengthInMn": {
                         "guid": "00000000632C",
                         "values": "__int__",
@@ -3265,6 +3505,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     }
                 }
             },
@@ -3311,6 +3571,26 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Rekabetçi Kuralları",
                         "zh-CN": "竞技比赛规则",
                         "zh-TW": "競技對戰規則"
+                    },
+                    "enablePerks": {
+                        "values": "__boolOnOff__",
+                        "default": "on",
+                        "guid": "000000025AEF",
+                        "en-US": "Enable Perks",
+                        "de-DE": "Boni aktivieren",
+                        "es-ES": "Habilitar ventajas",
+                        "es-MX": "Habilitar ventajas",
+                        "fr-FR": "Activer les bonus",
+                        "it-IT": "Attiva vantaggi",
+                        "ja-JP": "パークを有効にする",
+                        "ko-KR": "특전 활성화",
+                        "pl-PL": "Włącz atuty",
+                        "pt-BR": "Habilitar Aprimoramentos",
+                        "ru-RU": "Активировать таланты",
+                        "th-TH": "เปิดใช้งานพลังเสริม",
+                        "tr-TR": "Avantajları Etkinleştir",
+                        "zh-CN": "启用威能",
+                        "zh-TW": "啟用特殊能力"
                     }
                 }
             }
@@ -3838,7 +4118,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "venture",
                         "winston",
                         "zenyatta",
-                        "juno"
+                        "juno",
+                        "hazard"
                     ],
                     "guid": "0000000058C1",
                     "en-US": "Projectile Gravity",
@@ -3937,7 +4218,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "moira",
                         "reinhardt",
                         "sojourn",
-                        "sigma"
+                        "sigma",
+                        "hazard"
                     ],
                     "guid": "000000005ECC",
                     "en-US": "Ammunition Clip Size Scalar",
@@ -6468,33 +6750,111 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             },
             "hazard": {
                 "values": {
+                    "ability2Kb%": {
+                        "en-US": "Jagged Wall Knockback Scalar",
+                        "guid": "00000002356E",
+                        "de-DE": "Zackenwall – Rückstoß",
+                        "es-ES": "Repulsión de Muro afilado",
+                        "es-MX": "Escala de derribos de Muro de púas",
+                        "fr-FR": "Recul de Mur dentelé",
+                        "it-IT": "Muro Spinato - Intensità di respinta",
+                        "ja-JP": "ジャギー・ウォール・ノックバック・スカラー",
+                        "ko-KR": "가시벽 밀쳐내기 수준 조정",
+                        "pl-PL": "Skalowanie odrzucenia przez Kolczastą Ścianę",
+                        "pt-BR": "Repulsão Escalar da Barreira Espinhosa",
+                        "ru-RU": "Зубчатая стена: сила отбрасывания",
+                        "th-TH": "ปรับการกระเด็นถอยหลังของแจ็กด์วอลล์",
+                        "tr-TR": "Dişli Duvar Geri İtme Skaleri",
+                        "zh-CN": "尖刺墙击退倍率",
+                        "zh-TW": "鋸齒牆擊退距離"
+                    },
                     "ability2Health%": {
                         "values": "__percent__",
                         "min": 25,
                         "max": 400,
                         "default": 100,
-                        "en-US": "Jagged Wall Health Scalar"
+                        "en-US": "Jagged Wall Health Scalar",
+                        "guid": "00000002356D",
+                        "de-DE": "Zackenwall – Trefferpunkte",
+                        "es-ES": "Salud de Muro afilado",
+                        "es-MX": "Escala de salud de Muro de púas",
+                        "fr-FR": "Points de vie de Mur dentelé",
+                        "it-IT": "Muro Spinato - Quantità di salute",
+                        "ja-JP": "ジャギー・ウォール・ライフ・スカラー",
+                        "ko-KR": "가시벽 내구도 조정",
+                        "pl-PL": "Skalowanie wytrzymałości Kolczastej Ściany",
+                        "pt-BR": "Vida Escalar da Barreira Espinhosa",
+                        "ru-RU": "Зубчатая стена: множитель прочности",
+                        "th-TH": "ปรับพลังชีวิตของแจ็กด์วอลล์",
+                        "tr-TR": "Dişli Duvar Can Skaleri",
+                        "zh-CN": "尖刺墙生命值倍率",
+                        "zh-TW": "鋸齒牆生命值"
                     },
                     "secondaryFireCost%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Spike Guard Resource Cost Scalar"
+                        "en-US": "Spike Guard Resource Cost Scalar",
+                        "guid": "000000023571",
+                        "de-DE": "Stachelschutz – Ressourcenkosten",
+                        "es-ES": "Coste de recursos de Protección de púas",
+                        "es-MX": "Escala de costo de recursos de Protección de púas",
+                        "fr-FR": "Coût en ressources de Garde hérissée",
+                        "it-IT": "Guardia Affilata - Costo delle risorse",
+                        "ja-JP": "スパイク・ガード・リソースコスト・スカラー",
+                        "ko-KR": "날카로운 저항 자원 소모량 조정",
+                        "pl-PL": "Skalowanie kosztu Kolcoobrony",
+                        "pt-BR": "Custo Escalar de Recurso da Defesa Ouriçada",
+                        "ru-RU": "Шипастая оборона: множитель затрат ресурсов",
+                        "th-TH": "ปรับค่าทรัพยากรของสไปค์การ์ด",
+                        "tr-TR": "Emniyet Dikeni Kaynak Maliyeti Skaleri",
+                        "zh-CN": "尖刺护体资源消耗倍率",
+                        "zh-TW": "尖刺防禦資源消耗量"
                     },
                     "secondaryFireRegen%": {
                         "values": "__percent__",
                         "min": 25,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Spike Guard Resource Regeneration Scalar"
+                        "en-US": "Spike Guard Resource Regeneration Scalar",
+                        "guid": "000000023574",
+                        "de-DE": "Stachelschutz – Regenerierte Ressourcen",
+                        "es-ES": "Regeneración de recursos de Protección de púas",
+                        "es-MX": "Escala de regeneración de recursos de Protección de púas",
+                        "fr-FR": "Régénération de ressources de Garde hérissée",
+                        "it-IT": "Guardia Affilata - Tempo di rigenerazione delle risorse",
+                        "ja-JP": "スパイク・ガード・リソース回復スカラー",
+                        "ko-KR": "날카로운 저항 자원 재생 조정",
+                        "pl-PL": "Skalowanie regeneracji zasobów Kolcoobrony",
+                        "pt-BR": "Regeneração Escalar de Recurso da Defesa Ouriçada",
+                        "ru-RU": "Шипастая оборона: множитель регенерации ресурсов",
+                        "th-TH": "ปรับการฟื้นฟูทรัพยากรของสไปค์การ์ด",
+                        "tr-TR": "Emniyet Dikeni Kaynak Yenileme Skaleri",
+                        "zh-CN": "尖刺护体资源恢复倍率",
+                        "zh-TW": "尖刺防禦資源恢復量"
                     },
                     "ability1Distance%": {
                         "values": "__percent__",
                         "min": 100,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Violent Leap Distance Scalar"
+                        "en-US": "Violent Leap Distance Scalar",
+                        "guid": "00000002356B",
+                        "de-DE": "Sturzsprung – Distanz",
+                        "es-ES": "Distancia de Salto violento",
+                        "es-MX": "Escala de distancia de Salto violento",
+                        "fr-FR": "Distance de Saut violent",
+                        "it-IT": "Balzo Furioso - Distanza percorsa",
+                        "ja-JP": "バイオレント・リープ距離スカラー",
+                        "ko-KR": "덤벼들기 거리 조정",
+                        "pl-PL": "Skalowanie odległości Gwałtownego Skoku",
+                        "pt-BR": "Distância Escalar do Salto Brutal",
+                        "ru-RU": "Жестокий наскок: множитель дистанции",
+                        "th-TH": "ปรับระยะไวโอเลนท์ลีพ",
+                        "tr-TR": "Haşin Atlayış Mesafe Skaleri",
+                        "zh-CN": "狂跃距离倍率",
+                        "zh-TW": "猛躍距離"
                     }
                 }
             }
