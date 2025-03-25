@@ -92,7 +92,7 @@
             "patterns": [
                 {
                     "name": "support.class",
-                    "match": "^[ \\t]*(?!(do|else|elif))[A-Za-z\\d_]+(?=:)"
+                    "match": "^[ \\t]*(?!(do|else|elif|default))[A-Za-z\\d_]+(?=:)"
                 },
                 {
                     "name": "support.class",
