@@ -19,6 +19,7 @@
 
 import { astParsingFunctions, enableOptimization, optimizeForSize } from "../../globalVars";
 import { getAstFor0 } from "../../utils/ast";
+import { warn } from "../../utils/logging";
 
 astParsingFunctions.__wait__ = function (content) {
     if (enableOptimization && optimizeForSize) {
@@ -26,6 +27,10 @@ astParsingFunctions.__wait__ = function (content) {
             //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.
             content.args[0] = getAstFor0();
         }
+    }
+
+    if (content.args[0].name === "__number__" && content.args[0].args[0].numValue === 9999) {
+        warn("w_wait_9999", "wait(9999) is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
     }
 
     return content;
