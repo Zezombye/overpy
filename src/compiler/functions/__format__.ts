@@ -129,7 +129,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     //Tokenize string
     while (true) {
         var fieldIndex = content.search(/{\d*}/);
-        var tagIndex = content.search(/<fg\s*#?[0-9a-fA-F]{1,8}>|<tx\s*[0-9a-fA-F]+>|<\/fg>/i);
+        var tagIndex = content.search(/<fg|<tx|<\/fg>/i);
         if (fieldIndex >= 0 && (fieldIndex < tagIndex || tagIndex < 0)) {
             if (fieldIndex > 0) {
                 tokens.push({
@@ -183,7 +183,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                     type: "holygrail",
                 });
             }
-            if (content.toLowerCase().startsWith("<tx")) {
+            if (content.match(/^<tx\s*0*C[0-9a-fA-F]+>/i)) {
                 if (!content.match(/^<tx\s*0*C[0-9a-fA-F]{14}>/i)) {
                     warn("w_malformatted_tx", "Malformatted <tx> tag: '" + content.substring(0, content.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
                 }
