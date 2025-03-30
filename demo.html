@@ -68,7 +68,7 @@
     </head>
     <body>
         <center>
-            <a href="https://github.com/Zezombye/overpy"><h1>OverPy v6 language demo by Zezombye</h1></a>
+            <a href="https://github.com/Zezombye/overpy"><h1>OverPy v8 language demo by Zezombye</h1></a>
             <p>
                 <a href="https://github.com/Zezombye/overpy/blob/master/FUNCTIONS.md">Function documentation</a> | <button onclick="demoAddText();">Add example text</button> | Language:
                 <select id="languageInput">
@@ -111,164 +111,7 @@
             </div>
         </center>
 
-        <script src="src/utils/other.js"></script>
-
-        <script src="src/data/opy/stringEntities.js"></script>
-        <script src="src/data/opy/constants.js"></script>
-        <script src="src/data/opy/modules.js"></script>
-        <script src="src/data/opy/internalFunctions.js"></script>
-        <script src="src/data/opy/functions.js"></script>
-        <script src="src/data/opy/keywords.js"></script>
-        <script src="src/data/opy/memberFunctions.js"></script>
-        <script src="src/data/actions.js"></script>
-        <script src="src/data/values.js"></script>
-        <script src="src/data/maps.js"></script>
-        <script src="src/data/heroes.js"></script>
-        <script src="src/data/gamemodes.js"></script>
-        <script src="src/data/constants.js"></script>
-        <script src="src/data/other.js"></script>
-        <script src="src/data/customGameSettings.js"></script>
-        <script src="src/data/opy/preprocessing.js"></script>
-        <script src="src/data/opy/annotations.js"></script>
-
-        <script src="src/globalVars.js"></script>
-
-        <script src="src/utils/logging.js"></script>
-        <script src="src/utils/ast.js"></script>
-        <script src="src/utils/types.js"></script>
-        <script src="src/utils/compilation.js"></script>
-        <script src="src/utils/decompilation.js"></script>
-        <script src="src/utils/file.js"></script>
-        <script src="src/utils/optimization.js"></script>
-        <script src="src/utils/strings.js"></script>
-        <script src="src/utils/translation.js"></script>
-        <script src="src/utils/varNames.js"></script>
-        <script src="src/utils/tokens.js"></script>
-
-        <script src="src/decompiler/decompileTest.js"></script>
-        <script src="src/decompiler/workshopToAst.js"></script>
-        <script src="src/decompiler/astToOpy.js"></script>
-        <script src="src/decompiler/decompiler.js"></script>
-
-        <script src="src/compiler/functions/__add__.js"></script>
-        <script src="src/compiler/functions/__and__.js"></script>
-        <script src="src/compiler/functions/__append__.js"></script>
-        <script src="src/compiler/functions/__array__.js"></script>
-        <script src="src/compiler/functions/__arraySlice__.js"></script>
-        <script src="src/compiler/functions/__assignTo__.js"></script>
-        <script src="src/compiler/functions/__button__.js"></script>
-        <script src="src/compiler/functions/__chaseAtRate__.js"></script>
-        <script src="src/compiler/functions/__chaseOverTime__.js"></script>
-        <script src="src/compiler/functions/__color__.js"></script>
-        <script src="src/compiler/functions/__del__.js"></script>
-        <script src="src/compiler/functions/__dict__.js"></script>
-        <script src="src/compiler/functions/__distanceTo__.js"></script>
-        <script src="src/compiler/functions/__divide__.js"></script>
-        <script src="src/compiler/functions/__doWhile__.js"></script>
-        <script src="src/compiler/functions/__elif__.js"></script>
-        <script src="src/compiler/functions/__else__.js"></script>
-        <script src="src/compiler/functions/__equals__.js"></script>
-        <script src="src/compiler/functions/__for__.js"></script>
-        <script src="src/compiler/functions/__format__.js"></script>
-        <script src="src/compiler/functions/__filteredArray__.js"></script>
-        <script src="src/compiler/functions/__gamemode__.js"></script>
-        <script src="src/compiler/functions/__globalVar__.js"></script>
-        <script src="src/compiler/functions/__greaterThan__.js"></script>
-        <script src="src/compiler/functions/__greaterThanOrEquals__.js"></script>
-        <script src="src/compiler/functions/__hero__.js"></script>
-        <script src="src/compiler/functions/__if__.js"></script>
-        <script src="src/compiler/functions/__ifThenElse__.js"></script>
-        <script src="src/compiler/functions/__indexOfArrayValue__.js"></script>
-        <script src="src/compiler/functions/__inequals__.js"></script>
-        <script src="src/compiler/functions/__lastOf__.js"></script>
-        <script src="src/compiler/functions/__lessThan__.js"></script>
-        <script src="src/compiler/functions/__lessThanOrEquals__.js"></script>
-        <script src="src/compiler/functions/__map__.js"></script>
-        <script src="src/compiler/functions/__mappedArray__.js"></script>
-        <script src="src/compiler/functions/__modulo__.js"></script>
-        <script src="src/compiler/functions/__multiply__.js"></script>
-        <script src="src/compiler/functions/__negate__.js"></script>
-        <script src="src/compiler/functions/__number__.js"></script>
-        <script src="src/compiler/functions/__not__.js"></script>
-        <script src="src/compiler/functions/__or__.js"></script>
-        <script src="src/compiler/functions/__playerVar__.js"></script>
-        <script src="src/compiler/functions/__raiseToPower__.js"></script>
-        <script src="src/compiler/functions/__remove__.js"></script>
-        <script src="src/compiler/functions/__reverse__.js"></script>
-        <script src="src/compiler/functions/__rule__.js"></script>
-        <script src="src/compiler/functions/__skip__.js"></script>
-        <script src="src/compiler/functions/__subtract__.js"></script>
-        <script src="src/compiler/functions/__switch__.js"></script>
-        <script src="src/compiler/functions/__team__.js"></script>
-        <script src="src/compiler/functions/__valueInArray__.js"></script>
-        <script src="src/compiler/functions/__wait__.js"></script>
-        <script src="src/compiler/functions/__while__.js"></script>
-        <script src="src/compiler/functions/__xComponentOf__.js"></script>
-        <script src="src/compiler/functions/__yComponentOf__.js"></script>
-        <script src="src/compiler/functions/__zComponentOf__.js"></script>
-        <script src="src/compiler/functions/_&addToScore.js"></script>
-        <script src="src/compiler/functions/_&setStatusEffect.js"></script>
-        <script src="src/compiler/functions/_&setUltCharge.js"></script>
-        <script src="src/compiler/functions/_&toArray.js"></script>
-        <script src="src/compiler/functions/abs.js"></script>
-        <script src="src/compiler/functions/acos.js"></script>
-        <script src="src/compiler/functions/acosDeg.js"></script>
-        <script src="src/compiler/functions/addToTeamScore.js"></script>
-        <script src="src/compiler/functions/all.js"></script>
-        <script src="src/compiler/functions/any.js"></script>
-        <script src="src/compiler/functions/asin.js"></script>
-        <script src="src/compiler/functions/asinDeg.js"></script>
-        <script src="src/compiler/functions/attacker.js"></script>
-        <script src="src/compiler/functions/atan2.js"></script>
-        <script src="src/compiler/functions/atan2Deg.js"></script>
-        <script src="src/compiler/functions/break.js"></script>
-        <script src="src/compiler/functions/ceil.js"></script>
-        <script src="src/compiler/functions/continue.js"></script>
-        <script src="src/compiler/functions/cos.js"></script>
-        <script src="src/compiler/functions/cosDeg.js"></script>
-        <script src="src/compiler/functions/createBeam.js"></script>
-        <script src="src/compiler/functions/createEffect.js"></script>
-        <script src="src/compiler/functions/createWorkshopSetting.js"></script>
-        <script src="src/compiler/functions/crossProduct.js"></script>
-        <script src="src/compiler/functions/directionTowards.js"></script>
-        <script src="src/compiler/functions/disableInspector.js"></script>
-        <script src="src/compiler/functions/distance.js"></script>
-        <script src="src/compiler/functions/dotProduct.js"></script>
-        <script src="src/compiler/functions/enableInspector.js"></script>
-        <script src="src/compiler/functions/eventPlayer.js"></script>
-        <script src="src/compiler/functions/floor.js"></script>
-        <script src="src/compiler/functions/getAllPlayers.js"></script>
-        <script src="src/compiler/functions/getCurrentMap.js"></script>
-        <script src="src/compiler/functions/getOppositeTeam.js"></script>
-        <script src="src/compiler/functions/healee.js"></script>
-        <script src="src/compiler/functions/healer.js"></script>
-        <script src="src/compiler/functions/len.js"></script>
-        <script src="src/compiler/functions/lineIntersectsSphere.js"></script>
-        <script src="src/compiler/functions/log.js"></script>
-        <script src="src/compiler/functions/max.js"></script>
-        <script src="src/compiler/functions/min.js"></script>
-        <script src="src/compiler/functions/normalize.js"></script>
-        <script src="src/compiler/functions/playEffect.js"></script>
-        <script src="src/compiler/functions/print.js"></script>
-        <script src="src/compiler/functions/printLog.js"></script>
-        <script src="src/compiler/functions/round.js"></script>
-        <script src="src/compiler/functions/sin.js"></script>
-        <script src="src/compiler/functions/sinDeg.js"></script>
-        <script src="src/compiler/functions/sorted.js"></script>
-        <script src="src/compiler/functions/sqrt.js"></script>
-        <script src="src/compiler/functions/tan.js"></script>
-        <script src="src/compiler/functions/tanDeg.js"></script>
-        <script src="src/compiler/functions/vect.js"></script>
-        <script src="src/compiler/functions/vectorTowards.js"></script>
-        <script src="src/compiler/functions/victim.js"></script>
-        <script src="src/compiler/functions/wait.js"></script>
-        <script src="src/compiler/functions/waitUntil.js"></script>
-        <script src="src/compiler/tokenizer.js"></script>
-        <script src="src/compiler/astParser.js"></script>
-        <script src="src/compiler/astToWorkshop.js"></script>
-        <script src="src/compiler/parser.js"></script>
-        <script src="src/compiler/compiler.js"></script>
-        <script src="src/data/localizedStrings.js"></script>
+        <script src="out/overpy_standalone.js"></script>
 
         <script></script>
 
@@ -486,11 +329,12 @@
                 });
             }
 
-            function demoCompile() {
+            async function demoCompile() {
                 var str = "";
                 var language = document.getElementById("languageInput").value;
                 try {
-                    compilationResult = compile(overpyTextEditorView.state.doc.toString(), language);
+                    compilationResult = await compile(overpyTextEditorView.state.doc.toString(), language);
+                    console.log(compilationResult);
                     str += "//Elements: " + compilationResult.nbElements + "\n";
                     if (compilationResult.activatedExtensions.length > 0) {
                         str += "//Extension points: " + compilationResult.spentExtensionPoints + "/" + (compilationResult.availableExtensionPoints < 0 ? "unknown" : compilationResult.availableExtensionPoints) + "\n";

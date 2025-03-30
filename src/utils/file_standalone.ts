@@ -19,16 +19,26 @@
 
 import { rootPath, importedFiles } from "../globalVars";
 import { debug, error, warn } from "./logging";
-import fs from "fs";
-import * as path from "path";
 import { unescapeString } from "./strings";
 import { URI, Utils } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
+    var path;
+    try {
+        path = require("path");
+    } catch (e) {
+        error("Cannot import files in browsers (path not found)");
+    }
     return path.parse(filename).base;
 }
 
 export async function getFilePaths(pathStr: string): Promise<string[]> {
+    var fs;
+    try {
+        fs = require("fs");
+    } catch (e) {
+        error("Cannot import files in browsers (fs not found)");
+    }
     pathStr = pathStr.trim();
     debug("path str = " + pathStr);
     pathStr = unescapeString(pathStr, false);
@@ -50,7 +60,7 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
         let resolvedFiles = fs.readdirSync(resolvedFile.fsPath, {
             withFileTypes: true,
         });
-        matchingFiles = resolvedFiles.filter((resolvedFile) => resolvedFile.isFile() && resolvedFile.name.toLowerCase().endsWith(".opy")).map((file) => Utils.joinPath(URI.file(pathStr), file.name).toString());
+        matchingFiles = resolvedFiles.filter((resolvedFile: any) => resolvedFile.isFile() && resolvedFile.name.toLowerCase().endsWith(".opy")).map((file: any) => Utils.joinPath(URI.file(pathStr), file.name).toString());
         if (matchingFiles.length === 0) {
             error("The directory '" + pathStr + "' does not have any .opy files.");
         }
@@ -61,6 +71,12 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
 }
 
 export async function getFileContent(path: string): Promise<string> {
+    var fs;
+    try {
+        fs = require("fs");
+    } catch (e) {
+        error("Cannot import files in browsers (fs not found)");
+    }
     if (path.endsWith(".opy") && importedFiles.includes(path)) {
         warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
         return "";
