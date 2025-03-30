@@ -32,6 +32,7 @@ import { parseType } from "../utils/types";
 import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../utils/varNames";
 import { compileCustomGameSettings } from "./compiler";
 import { LogicalLine } from "./tokenizer";
+import { opyTextures } from "../data/opy/textures";
 
 const builtInEnumNameToAstInfo = {
     Hero: {
@@ -189,11 +190,14 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
             }
 
             if (funcName === "__rule__") {
-                if (lineMembers[0].length !== 2) {
+                if (lineMembers[0].length < 2) {
                     error("Malformatted 'rule' declaration");
                 }
                 instructionRuleAttributes = {};
-                instructionRuleAttributes.name = unescapeString(lineMembers[0][1].text, true);
+                instructionRuleAttributes.name = lineMembers[0]
+                    .slice(1)
+                    .map((x) => unescapeString(x.text, true))
+                    .join("");
             } else if (funcName === "__enum__") {
                 if (lineMembers[0].length !== 2) {
                     error("Malformatted 'enum' declaration");
@@ -928,12 +932,20 @@ function parseMember(object: Token[], member: Token[]) {
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
                     return getAstForCustomString(" ".repeat(170));
                 } else {
-                    error("Unhandled member 'math." + name + "'");
+                    error("Unhandled member 'Math." + name + "'");
                 }
 
                 //Check the pseudo-enum "Vector"
             } else if (object[0].text === "Vector") {
                 return new Ast("Vector." + name);
+
+                //Check for textures
+            } else if (object[0].text === "Texture") {
+                if (name in opyTextures) {
+                    return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("holygrail", [], [], "GlobalVariable")])]);
+                } else {
+                    error("Unhandled member 'Texture." + name + "'");
+                }
 
                 //Check for number
             } else if (isNumber(object[0].text)) {

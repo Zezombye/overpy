@@ -156,6 +156,10 @@ export const setActivatedExtensions = (extensions: string[]) => (activatedExtens
 export var availableExtensionPoints: number;
 export const setAvailableExtensionPoints = (points: number) => (availableExtensionPoints = points);
 
+//Bypass for <tx> and <fg>
+export var enableTxSetup: boolean;
+export const setEnableTxSetup = (enable: boolean) => (enableTxSetup = enable);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -223,6 +227,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     nbElements = 0;
     activatedExtensions = [];
     availableExtensionPoints = 0;
+    enableTxSetup = false;
 }
 
 //Other constants

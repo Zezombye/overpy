@@ -17,14 +17,14 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTxSetup } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { ruleKw, customGameSettingsKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
-import { Ast } from "../utils/ast";
+import { Ast, getAstForFalse, getAstForNull } from "../utils/ast";
 import { getFilePaths, getFileContent } from "file_utils";
 import { astToString, warn, error } from "../utils/logging";
 import { tows } from "../utils/translation";
@@ -93,8 +93,28 @@ export async function compile(
 
     var lines = await tokenize(content);
 
+    if (enableTxSetup) {
+        addVariable("holygrail", true, 127);
+    }
+
     var astRules = await parseLines(lines);
     astRules.unshift(...getInitDirectivesRules());
+    if (enableTxSetup) {
+        var txSetupRule: any = `
+rule "<tx0C00000000001344> OverPy <\\ztx>/<\\zfg> setup code <tx0C00000000001344>":
+    #By Zezombye
+    #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
+    createDummy(getAllHeroes(), Team.ALL if getCurrentGamemode() == Gamemode.FFA else Team.1, false, null, null)
+    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u303C")
+    holygrail = getLastCreatedEntity()[0].split([])
+    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u0840")
+    holygrail = "______________________________________________________________________________________________________________________________\u303C".replace(holygrail, getLastCreatedEntity()[0]).substring(126, true)
+    destroyAllDummies()
+        `;
+        txSetupRule = await tokenize(txSetupRule);
+        txSetupRule = (await parseLines(txSetupRule))[0];
+        astRules.unshift(txSetupRule);
+    }
 
     if (DEBUG_MODE) {
         for (var elem of astRules) {

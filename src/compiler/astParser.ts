@@ -72,7 +72,6 @@ import "./functions/tanDeg.ts";
 import "./functions/vect.ts";
 import "./functions/vectorTowards.ts";
 import "./functions/victim.ts";
-import "./functions/wait.ts";
 import "./functions/waitUntil.ts";
 import "./functions/_&addToScore.ts";
 import "./functions/_&setStatusEffect.ts";

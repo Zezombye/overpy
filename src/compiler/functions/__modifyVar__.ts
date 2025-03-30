@@ -28,19 +28,19 @@ astParsingFunctions.__modifyVar__ = function (content) {
 
     if (enableOptimization) {
         switch (opName) {
-        case "__add__":
-        case "__subtract__":
-            if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
-                return getAstForUselessInstruction();
-            }
-            break;
-        case "__multiply__":
-        case "__divide__":
-        case "__raiseToPower__":
-            if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
-                return getAstForUselessInstruction();
-            }
-            break;
+            case "__add__":
+            case "__subtract__":
+                if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 0) {
+                    return getAstForUselessInstruction();
+                }
+                break;
+            case "__multiply__":
+            case "__divide__":
+            case "__raiseToPower__":
+                if (content.args[2].name === "__number__" && content.args[2].args[0].numValue === 1) {
+                    return getAstForUselessInstruction();
+                }
+                break;
         }
     }
 

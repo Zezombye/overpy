@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1 } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTxSetup } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -191,6 +191,10 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
         }
         if (content.startsWith("#!optimizeForSize")) {
             setOptimizationForSize(true);
+            return;
+        }
+        if (content.startsWith("#!setupTx")) {
+            setEnableTxSetup(true);
             return;
         }
         if (content.startsWith("#!replace0ByCapturePercentage")) {

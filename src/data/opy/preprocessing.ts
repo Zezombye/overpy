@@ -43,6 +43,9 @@ export const preprocessingDirectives: Record<string, {
         "description": "Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file.",
         "snippet": "include \"$0\"",
     },
+    "setupTx": {
+        "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `holygrail` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), though this is slightly less optimized as it will not be embedded in the string.",
+    },
     "disableOptimizations": {
         "description": "Disables all optimizations done by the compiler. Should be only used for debugging, if you suspect that OverPy has bugs in its optimizations.",
     },

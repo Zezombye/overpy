@@ -135,7 +135,7 @@ export function makeChildrenUseless(children: Ast[]) {
         }
     }
 
-    //If the current rule has a variable goto, then we cannot make the isntructions useless, as we don't know whether they will execute.
+    //If the current rule has a variable goto, then we cannot make the instructions useless, as we don't know whether they will execute.
     if (!currentRuleHasVariableGoto) {
         _makeChildrenUseless(children);
     }
@@ -319,7 +319,7 @@ export function getAstForNullVector() {
 export function getAstForCurrentArrayIndex() {
     return new Ast("__currentArrayIndex__");
 }
-export function getAstForCustomString(content: string, formatArgs = []) {
+export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
     const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
     return new Ast("__customString__", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]);
 }

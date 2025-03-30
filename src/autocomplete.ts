@@ -268,6 +268,9 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     if (doc === "__iconDescription__") {
         return new vscode.MarkdownString(`![](${vscode.Uri.file(`${overpyExtensionPath}/img/icons/${itemName.toLowerCase()}.png`)}) \n\n \n\n \n\n \n\n `);
     }
+    if (doc.startsWith("<txc")) {
+        return new vscode.MarkdownString(`\`${doc}\`\n\n![](${vscode.Uri.file(`${overpyExtensionPath}/img/textures/${doc.toLowerCase().replace(/[ <>]/g, "")}.png`)}) \n\n \n\n \n\n \n\n `);
+    }
 
     let result = "";
     result += doc;

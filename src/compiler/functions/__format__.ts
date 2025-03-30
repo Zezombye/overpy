@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTxSetup } from "../../globalVars";
 import { Token } from "../../compiler/tokenizer";
 import { getAstForNull, Ast } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
@@ -81,7 +81,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     var isCaseSensitive = str.type === "CaseSensitiveStringLiteral";
 
     var content = str.name;
-    var tokens: ({ text: string; type: "string" } | { index: number; type: "arg" })[] = [];
+    var tokens: ({ text: string; type: "string" } | { index: number; type: "arg" } | { type: "holygrail" })[] = [];
     var numberIndex = 0;
     var args = [];
     var argsAreNumbered = null;
@@ -128,14 +128,15 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 
     //Tokenize string
     while (true) {
-        var index = content.search(/{\d*}/);
-        if (index >= 0) {
-            if (index > 0) {
+        var fieldIndex = content.search(/{\d*}/);
+        var tagIndex = content.search(/<fg\s*#?[0-9a-fA-F]{1,8}>|<tx\s*[0-9a-fA-F]+>|<\/fg>/i);
+        if (fieldIndex >= 0 && (fieldIndex < tagIndex || tagIndex < 0)) {
+            if (fieldIndex > 0) {
                 tokens.push({
-                    text: applyStringModifiers(content.substring(0, index)),
+                    text: applyStringModifiers(content.substring(0, fieldIndex)),
                     type: "string",
                 });
-                content = content.substring(index);
+                content = content.substring(fieldIndex);
             }
             var number: string | number = content.substring(1, content.indexOf("}"));
 
@@ -163,6 +164,31 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                 type: "arg",
             });
             content = content.substring(content.indexOf("}") + 1);
+        } else if (tagIndex >= 0) {
+            if (tagIndex > 0) {
+                tokens.push({
+                    text: applyStringModifiers(content.substring(0, tagIndex)),
+                    type: "string",
+                });
+                content = content.substring(tagIndex);
+            }
+            if (!enableTxSetup) {
+                warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTx directive is needed for OverPy to properly unescape them.");
+                tokens.push({
+                    text: applyStringModifiers(content),
+                    type: "string",
+                });
+            } else {
+                tokens.push({
+                    type: "holygrail",
+                });
+            }
+            if (content.toLowerCase().startsWith("<tx")) {
+                if (!content.match(/^<tx\s*0*C[0-9a-fA-F]{14}>/i)) {
+                    warn("w_malformatted_tx", "Malformatted <tx> tag: '" + content.substring(0, content.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
+                }
+            }
+            content = content.substring(1);
         } else {
             tokens.push({
                 text: applyStringModifiers(content),
@@ -189,7 +215,21 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
         error("Could not convert the string to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
     }
 
-    return parseStringTokens(tokens, args);
+    if (tokens.some((token) => token.type === "holygrail")) {
+        //Add Global.holygrail at the end of the args, then convert tag tokens to arg tokens
+        args.push(new Ast("__globalVar__", [new Ast("holygrail", [], [], "GlobalVariable")]));
+        tokens = tokens.map((token) => {
+            if (token.type === "holygrail") {
+                return {
+                    index: args.length - 1,
+                    type: "arg",
+                };
+            }
+            return token;
+        });
+    }
+
+    return parseStringTokens(tokens as ({ text: string; type: "string" } | { index: number; type: "arg" })[], args);
 }
 
 function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: number; type: "arg" })[], args: Ast[]) {

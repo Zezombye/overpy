@@ -18,6 +18,7 @@
 "use strict";
 
 import { Argument, ReturnType } from "../../types";
+import { opyTextures } from "./textures";
 
 export const opyConstants: Record<string, Record<string, {
     description: string,
@@ -161,6 +162,10 @@ export const opyConstants: Record<string, Record<string, {
         },
         description: "The `Math` enum.",
     },
+    "Texture": {
+        description: "Custom textures. See #!setupTx and https://workshop.codes/wiki/articles/tx-reference-sheet for more information.",
+        ...Object.fromEntries(Object.entries(opyTextures).map(([k, v]) => [k, {description: v, args: null, isConstant: true, return: "string"}])),
+    }
 };
 
 // for (var key in opyConstants) {
