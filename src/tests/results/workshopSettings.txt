@@ -29,6 +29,8 @@ rule ("workshop settings") {
         "enums"
         Set Global Variable(A, Workshop Setting Combo(Custom String("enum", Null, Null, Null), Custom String("enum", Null, Null, Null), 0, Array(Custom String("a", Null, Null, Null), Custom String("b\nc\nd", Null, Null, Null)), 0));
         Set Global Variable(A, Workshop Setting Combo(Custom String("enum", Null, Null, Null), Custom String("enum", Null, Null, Null), 2, Array(Custom String("a", Null, Null, Null), Custom String("Β", Null, Null, Null), Custom String("ｃ", Null, Null, Null)), 0));
+        "texture test"
+        Set Global Variable(A, Workshop Setting Combo(Custom String("<txC00000000008E02>", Null, Null, Null), Custom String("<txC00000000008E02>", Null, Null, Null), 0, Array(Custom String("<txC00000000008E02>", Null, Null, Null)), 0));
     }
 }
 

@@ -1,4 +1,5 @@
 #!optimizeForSize
+#!suppressWarnings w_chased_var_in_for
 
 rule "0 to null":
     A = B.concat(0)

@@ -18,7 +18,7 @@ rule ("0 to null") {
         Set Global Variable(A, Compare(Null, ==, Global.B));
         Set Global Variable(A, Compare(Global.B, !=, Null));
         Set Global Variable(A, Compare(Null, !=, Global.B));
-        Set Global Variable(A, Custom String("{0}{1}{2}", Null, Null, Null));
+        Set Global Variable(A, Custom String("000", Null, Null, Null));
         Set Global Variable(A, String("{0}, {1}, and {2}", Null, Null, Null));
         Big Message(All Players(All Teams), Null);
         Set Global Variable(A, Null);

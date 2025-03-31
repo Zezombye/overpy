@@ -27,3 +27,6 @@ rule "workshop settings":
     #enums
     A = createWorkshopSetting(enum["a", "b\nc\nd"], "enum", "enum", 0)
     A = createWorkshopSetting(enum[p"a", b"b", w"c"], "enum", "enum", 2)
+
+    #texture test
+    A = createWorkshopSetting(enum["<txC00000000008E02>"], "<txC00000000008E02>", "<txC00000000008E02>", 0)
