@@ -905,6 +905,11 @@ function parseMember(object: Token[], member: Token[]) {
                 return enumMembers[object[0].text][name];
             }
 
+            //McCree fix for older gamemodes
+            if (object[0].text === "Hero" && name === "MCCREE") {
+                name = "CASSIDY";
+            }
+
             //Check for enums
             if (Object.keys(constantValues).includes(object[0].text)) {
                 return new Ast(name, [], [], object[0].text);
