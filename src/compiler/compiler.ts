@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTxSetup } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -93,15 +93,15 @@ export async function compile(
 
     var lines = await tokenize(content);
 
-    if (enableTxSetup) {
+    if (enableTagsSetup) {
         addVariable("holygrail", true, 127);
     }
 
     var astRules = await parseLines(lines);
     astRules.unshift(...getInitDirectivesRules());
-    if (enableTxSetup) {
+    if (enableTagsSetup) {
         var txSetupRule: any = `
-rule "<tx0C00000000001344> OverPy <\\ztx>/<\\zfg> setup code <tx0C00000000001344>":
+rule "<fgFFFF00FF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     #By Zezombye
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
     createDummy(getAllHeroes(), Team.ALL if getCurrentGamemode() == Gamemode.FFA else Team.1, false, null, null)

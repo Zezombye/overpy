@@ -157,8 +157,8 @@ export var availableExtensionPoints: number;
 export const setAvailableExtensionPoints = (points: number) => (availableExtensionPoints = points);
 
 //Bypass for <tx> and <fg>
-export var enableTxSetup: boolean;
-export const setEnableTxSetup = (enable: boolean) => (enableTxSetup = enable);
+export var enableTagsSetup: boolean;
+export const setEnableTagsSetup = (enable: boolean) => (enableTagsSetup = enable);
 
 //Decompilation variables
 
@@ -227,7 +227,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     nbElements = 0;
     activatedExtensions = [];
     availableExtensionPoints = 0;
-    enableTxSetup = false;
+    enableTagsSetup = false;
 }
 
 //Other constants

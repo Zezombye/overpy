@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTxSetup } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup } from "../../globalVars";
 import { Token } from "../../compiler/tokenizer";
 import { getAstForNull, Ast } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
@@ -83,7 +83,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     var content = str.name;
     var tokens: ({ text: string; type: "string" } | { index: number; type: "arg" } | { type: "holygrail" })[] = [];
     var numberIndex = 0;
-    var args = [];
+    var args: Ast[] = [];
     var argsAreNumbered = null;
     var isConvertedToBigLetters = false;
 
@@ -130,6 +130,11 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     while (true) {
         var fieldIndex = content.search(/{\d*}/);
         var tagIndex = content.search(/<fg|<tx|<\/fg>/i);
+        //console.log(str.parent?.parent?.name);
+        if (str.parent?.parent?.name === "createWorkshopSetting" || str.parent?.parent?.parent?.name === "createWorkshopSetting") {
+            //Don't replace tags in workshop settings
+            tagIndex = -1;
+        }
         if (fieldIndex >= 0 && (fieldIndex < tagIndex || tagIndex < 0)) {
             if (fieldIndex > 0) {
                 tokens.push({
@@ -172,8 +177,8 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                 });
                 content = content.substring(tagIndex);
             }
-            if (!enableTxSetup) {
-                warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTx directive is needed for OverPy to properly unescape them.");
+            if (!enableTagsSetup) {
+                warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
                 tokens.push({
                     text: applyStringModifiers(content),
                     type: "string",
@@ -183,8 +188,8 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                     type: "holygrail",
                 });
             }
-            if (content.match(/^<tx\s*0*C[0-9a-fA-F]+>/i)) {
-                if (!content.match(/^<tx\s*0*C[0-9a-fA-F]{14}>/i)) {
+            if (content.match(/^<tx\s*[0-9a-fA-F]+>/i)) {
+                if (content.match(/^<tx\s*0*C[0-9a-fA-F]{6,}>/i) && !content.match(/^<tx\s*0*C[0-9a-fA-F]{14}>/i)) {
                     warn("w_malformatted_tx", "Malformatted <tx> tag: '" + content.substring(0, content.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
                 }
             }
@@ -227,6 +232,68 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
             }
             return token;
         });
+    }
+
+    //console.log(tokens);
+    //console.log(args);
+    //debugger;
+
+    if (enableOptimization) {
+        //Optimize string args by inlining numbers and custom strings with at most one {0}
+        let argIndexesToRemove = [];
+        for (let [i, arg] of args.entries()) {
+            if (arg.name === "__number__" || (arg.name === "__customString__" && (arg.args[0].name.match(/\{0\}/g) || []).length <= 1 && !arg.args[0].name.includes("{1}") && !arg.args[0].name.includes("{2}"))) {
+                argIndexesToRemove.push(i);
+            }
+        }
+        //args = args.filter((_, i) => !argIndexesToRemove.includes(i))
+        tokens = tokens
+            .map((t) => {
+                if (t.type === "arg" && argIndexesToRemove.includes(t.index)) {
+                    let newText: string;
+                    if (args[t.index].name === "__number__") {
+                        newText = args[t.index].args[0].numValue.toFixed(2).replace(".00", "");
+                    } else if (args[t.index].name === "__customString__") {
+                        if (args[t.index].args[0].name.includes("{0}")) {
+                            let newTexts: { text: string; type: "string" }[] = (args[t.index].args[0].name.split("{0}") as string[]).map((x) => ({ text: x, type: "string" }));
+                            args[t.index] = args[t.index].args[1];
+                            return [newTexts[0], t, newTexts[1]];
+                        } else {
+                            newText = args[t.index].args[0].name;
+                        }
+                    } else {
+                        error("Invalid optimized string arg name '" + args[t.index].name + "', please report to Zezombye");
+                    }
+                    return {
+                        text: newText,
+                        type: "string" as "string",
+                    };
+                }
+                return t;
+            })
+            .flat();
+    }
+
+    //console.log(tokens);
+
+    //Concatenate consecutive string tokens
+    tokens = tokens.reduce((acc: ({ text: string; type: "string" } | { index: number; type: "arg" } | { type: "holygrail" })[], token) => {
+        let last = acc[acc.length - 1];
+        if (last && last.type === "string" && token.type === "string") {
+            last.text += token.text;
+        } else {
+            acc.push(token);
+        }
+        return acc;
+    }, []);
+
+    //texture tag autocorrect
+    for (let token of tokens) {
+        let match;
+        if (token.type === "string" && (match = token.text.match(/^tx\s*0*([0-9a-fA-F]{1,6})>/i))) {
+            //console.log(match[1]);
+            token.text = "txC00000000000000".substring(0, "txC00000000000000".length - match[1].length) + match[1] + token.text.substring(token.text.indexOf(">"));
+        }
     }
 
     return parseStringTokens(tokens as ({ text: string; type: "string" } | { index: number; type: "arg" })[], args);
