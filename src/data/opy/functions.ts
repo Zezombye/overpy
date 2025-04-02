@@ -125,6 +125,74 @@ export const opyFuncs: Record<string, {
         ],
         return: "void",
     },
+    "createCasedProgressBarIwt": {
+        "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 2 is enough, but 3 or even 4 may be needed if kerning is bad (with 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
+        "args": [
+            {
+                "name": "Text Count",
+                "description": "The amount of texts used to overlay.",
+                "type": "IntLiteral",
+                "default": 2,
+            },
+            {
+                "name": "Visible To",
+                "description": "One or more players who will see the progress bar HUD text.",
+                "type": [
+                    "Player",
+                    {
+                        "Array": "Player"
+                    }
+                ],
+                "default": "ALL PLAYERS",
+            },
+            {
+                "name": "Text",
+                "description": "The text to be displayed. Must be a literal custom string, not a variable.",
+                "type": "Object",
+                "default": "Custom String",
+            },
+            {
+                "name": "Position",
+                "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
+                "type": [
+                    "Position",
+                    "Player"
+                ],
+                "default": "Event Player",
+            },
+            {
+                "name": "Scale",
+                "description": "The text's scale.",
+                "type": "float",
+                "default": "NUMBER",
+            },
+            {
+                "name": "Clipping",
+                "description": "Specifies whether the text can be seen through walls or is instead clipped.",
+                "type": "Clip",
+                "default": "CLIP AGAINST SURFACES",
+            },
+            {
+                "name": "Text Color",
+                "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "Color",
+                "default": "COLOR",
+            },
+            {
+                "name": "Reevaluation",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
+                "type": "ProgressWorldTextReeval",
+                "default": "Visible To, Values, and Color",
+            },
+            {
+                "name": "Non-Team Spectators",
+                "description": "Whether non-team spectators can see the text or not.",
+                "type": "SpecVisibility",
+                "default": "Default Visibility",
+            }
+        ],
+        "return": "void",
+    },
     "createWorkshopSetting": {
         "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
         "args": [

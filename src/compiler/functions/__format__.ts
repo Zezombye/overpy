@@ -33,6 +33,10 @@ astParsingFunctions.__format__ = function (content) {
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
     } else {
+        if (content.parent?.name === "createCasedProgressBarIwt") {
+            //skip optimization so we can edit the string in createCasedProgressBarIwt then call this function to properly split it
+            return content;
+        }
         return parseCustomString(content.args[0], content.args.slice(1));
     }
 };
@@ -180,7 +184,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
             if (!enableTagsSetup) {
                 warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
                 tokens.push({
-                    text: applyStringModifiers(content),
+                    text: applyStringModifiers("<"),
                     type: "string",
                 });
             } else {
@@ -188,6 +192,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
                     type: "holygrail",
                 });
             }
+
             if (content.match(/^<tx\s*[0-9a-fA-F]+>/i)) {
                 if (content.match(/^<tx\s*0*C[0-9a-fA-F]{6,}>/i) && !content.match(/^<tx\s*0*C[0-9a-fA-F]{14}>/i)) {
                     warn("w_malformatted_tx", "Malformatted <tx> tag: '" + content.substring(0, content.indexOf(">")) + ">'. <tx> tags must be in the form <txC000000000xxxxx>.");
@@ -288,11 +293,13 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     }, []);
 
     //texture tag autocorrect
-    for (let token of tokens) {
-        let match;
-        if (token.type === "string" && (match = token.text.match(/^tx\s*0*([0-9a-fA-F]{1,6})>/i))) {
-            //console.log(match[1]);
-            token.text = "txC00000000000000".substring(0, "txC00000000000000".length - match[1].length) + match[1] + token.text.substring(token.text.indexOf(">"));
+    if (enableTagsSetup) {
+        for (let token of tokens) {
+            let match;
+            if (token.type === "string" && (match = token.text.match(/^tx\s*0*([0-9a-fA-F]{1,6})>/i))) {
+                //console.log(match[1]);
+                token.text = "txC00000000000000".substring(0, "txC00000000000000".length - match[1].length) + match[1] + token.text.substring(token.text.indexOf(">"));
+            }
         }
     }
 

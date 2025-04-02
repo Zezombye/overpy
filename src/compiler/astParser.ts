@@ -43,6 +43,7 @@ import "./functions/cos.ts";
 import "./functions/cosDeg.ts";
 import "./functions/createBeam.ts";
 import "./functions/createEffect.ts";
+import "./functions/createCasedProgressBarIwt.ts";
 import "./functions/createWorkshopSetting.ts";
 import "./functions/crossProduct.ts";
 import "./functions/directionTowards.ts";

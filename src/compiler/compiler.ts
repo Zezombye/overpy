@@ -104,7 +104,7 @@ export async function compile(
 rule "<fgFFFF00FF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     #By Zezombye
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
-    createDummy(getAllHeroes(), Team.ALL if getCurrentGamemode() == Gamemode.FFA else Team.1, false, null, null)
+    createDummy(getAllHeroes(),  Team.1 if getNumberOfSlots(Team.1) else Team.2 if getNumberOfSlots(Team.2) else true, false, null, null)
     getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u303C")
     holygrail = getLastCreatedEntity()[0].split([])
     getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u0840")

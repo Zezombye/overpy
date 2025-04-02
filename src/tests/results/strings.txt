@@ -16,7 +16,7 @@ rule ("<fgFFFF00FF>OverPy <­tx> / <­fg> setup code</fg>") {
     }
     actions {
         "By Zezombye\nMore info: https://workshop.codes/wiki/articles/tx-reference-sheet"
-        Create Dummy Bot(All Heroes, If-Then-Else(Compare(Current Game Mode, ==, Game Mode(Deathmatch)), All Teams, Team 1), False, Null, Null);
+        Create Dummy Bot(All Heroes, If-Then-Else(Number Of Slots(Team 1), Team 1, If-Then-Else(Number Of Slots(Team 2), Team 2, True)), False, Null, Null);
         Start Forcing Dummy Bot Name(Last Created Entity, Custom String("______________________________________________________________________________________________________________________________〼", Null, Null, Null));
         Set Global Variable(holygrail, String Split(First Of(Last Created Entity), Empty Array));
         Start Forcing Dummy Bot Name(Last Created Entity, Custom String("______________________________________________________________________________________________________________________________ࡀ", Null, Null, Null));
