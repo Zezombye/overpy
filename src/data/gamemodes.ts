@@ -106,6 +106,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "es-ES": "Control",
         "es-MX": "Control"
     },
+    "controlAprilFools": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Control April Fools",
+    },
     "ctf": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
@@ -166,6 +171,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "运载目标",
         "zh-TW": "護送"
     },
+    "escortAprilFools": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Escort April Fools",
+    },
     "ffa": {
         "guid": "000000006853",
         "defaultFfaPlayers": 12,
@@ -204,6 +214,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "闪点作战",
         "zh-TW": "閃擊點",
         "de-DE": "Flashpoint"
+    },
+    "flashpointAprilFools": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Flashpoint April Fools",
     },
     "freezethawElimination": {
         "defaultTeam1Players": 6,
@@ -244,6 +259,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "zh-CN": "攻击护送",
         "zh-TW": "混合",
         "de-DE": "Hybrid"
+    },
+    "hybridAprilFools": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Hybrid April Fools",
     },
     "junkenstein": {
         "defaultTeam1Players": 6,
@@ -340,6 +360,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "tr-TR": "İttir",
         "zh-CN": "机动推进",
         "zh-TW": "推進"
+    },
+    "pushAprilFools": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Push April Fools",
     },
     "skirmish": {
         "defaultTeam1Players": 5,

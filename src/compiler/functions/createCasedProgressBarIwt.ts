@@ -29,14 +29,12 @@ const spaces: Record<number, string> = {
     2: "\u2009",
     71: "\u202F",
     128: "\u2005",
-    //142: "\u0020",
-    //171: "\u2004",
-    //223: "\u0E00",
-    //256: "\u2000",
-    //284: "\u0020\u0020",
-    //426: "\u0020\u0020\u0020",
-    //461: "\u3164",
-    //512: "\u2001",
+    142: "\u0020",
+    171: "\u2004",
+    223: "\u0E00",
+    256: "\u2000",
+    461: "\u3164",
+    512: "\u2001",
 };
 
 function getBestSpaces(coins: number[], target: number) {
@@ -74,7 +72,7 @@ function generateCasedLine(text: string, nbTexts: number) {
     let textWidth = 0;
     //We cannot get rid of the "space" of the first fullwidth letter, so take it into account
     let foundLetterToLowercase = false;
-    let textCopy = text.replace(/(<fg\s*#?[0-9a-f]+>|<\/fg>)/gi, "");
+    let textCopy = text.replace(/(<fg\s*#?[0-9a-f\{\}]+>|<\/fg>)/gi, "");
     for (let i = 0; i < textCopy.length; i++) {
         if (textCopy.charAt(i) in alphabet) {
             foundLetterToLowercase = true;
@@ -119,7 +117,7 @@ function generateCasedLine(text: string, nbTexts: number) {
             texts[textIdx].content += alphabet[letter].lower;
             texts[textIdx].width += alphabet[letter].lowerWidth;
             lastLetter = letter;
-        } else if (text.substring(i).match(/^(<fg\s*#?[0-9a-f]+>|<\/fg>)/i)) {
+        } else if (text.substring(i).match(/^(<fg\s*#?[0-9a-f\{\}]+>|<\/fg>)/i)) {
             //Add the tag to all the strings, and skip past it
             for (let _text of texts) {
                 _text.content += text.substring(i, text.indexOf(">", i) + 1);
@@ -188,7 +186,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
     let tokens: { text: string; type: "string" | "arg" }[] = [];
 
     while (true) {
-        let argIndex = text.search(/{\d*}|<tx\s*[0-9a-f]+>|\n/i);
+        let argIndex = text.search(/{\d*}|<tx\s*[0-9a-f\{\}]+>|\n/i);
         if (argIndex >= 0) {
             if (argIndex > 0) {
                 tokens.push({
@@ -227,7 +225,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
         }
     }
 
-    console.log(tokens);
+    //console.log(tokens);
 
     let mappedTokens = tokens.map((t) =>
         t.type === "string"
@@ -237,7 +235,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
                   .map((x) => t.text),
     );
 
-    console.log(mappedTokens);
+    //console.log(mappedTokens);
 
     let casedTexts = Array(nbTexts)
         .fill("")
@@ -252,7 +250,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
                 .join("\n"),
         );
 
-    console.log(casedTexts);
+    //console.log(casedTexts);
 
     for (let i = 0; i < nbTexts; i++) {
         iwts.push(

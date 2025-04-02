@@ -3,7 +3,7 @@
 rule "":
     A = 1234
 
-    createCasedProgressBarIwt(4, getAllPlayers(), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+    createCasedProgressBarIwt(3, getAllPlayers(), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
 <fg00FFFFFF><txb667> BREAKTHROUGH UPDATE 8.3.0 FOR OVERPY!</fg>
 
 For the FIRST TIME EVER, you can use lowercase text
