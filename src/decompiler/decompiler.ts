@@ -91,7 +91,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
 
     var opyRules = astRulesToOpy(astRules);
     if (activatedExtensions.length > 0) {
-        result += "#Activated extensions\n\n" + activatedExtensions.map((x) => "#!extension " + x + "\n").join("") + "\n\n";
+        result += "#Activated extensions\n\n" + [...new Set(activatedExtensions)].map((x) => "#!extension " + x + "\n").join("") + "\n\n";
     }
 
     result += opyRules;

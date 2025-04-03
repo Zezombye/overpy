@@ -17,6 +17,7 @@
 
 "use strict";
 
+import { table } from "console";
 import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventSlotKw, funcKw } from "../data/other";
@@ -76,9 +77,13 @@ export function astRulesToOpy(rules: Ast[]) {
                 }
             }
         }
-        /*if (rule.isDisabled) {
-            decompiledRuleAttributes += tabLevel(nbTabs)+"@Disabled\n";
-        }*/
+        if (rule.ruleAttributes.isDisabled) {
+            decompiledRuleAttributes += tabLevel(nbTabs) + "@Disabled\n";
+        }
+        //In most cases, empty rules are delimiters. Keep them in just in case the user still wants them in the output
+        if (rule.children.length === 0) {
+            decompiledRuleAttributes += tabLevel(nbTabs) + "@Delimiter\n";
+        }
         if (decompiledRuleAttributes) {
             decompiledRuleAttributes += tabLevel(nbTabs) + "\n";
         }
@@ -87,9 +92,9 @@ export function astRulesToOpy(rules: Ast[]) {
         //Decompile the rule actions
         decompiledRule += astActionsToOpy(rule.children);
 
-        if (rule.ruleAttributes.isDisabled) {
-            decompiledRule = "/*\n" + decompiledRule + "*/";
-        }
+        /*if (rule.ruleAttributes.isDisabled) {
+            decompiledRule = "/*\n" + decompiledRule + "*\/";
+        }*/
         decompiledRule += "\n\n";
         result += decompiledRule;
     }
