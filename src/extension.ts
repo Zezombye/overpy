@@ -13,6 +13,8 @@ import { OWLanguage, ow_languages } from "./types.d";
 const overpyTemplate = `
 #OverPy starter pack
 
+#!setupTags
+
 settings {
     "main": {
         "description": "Some awesome game mode"

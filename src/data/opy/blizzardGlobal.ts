@@ -17,6 +17,18 @@
 
 "use strict";
 
+export const spaces: Record<number, string> = {
+    1: "\u2006",
+    2: "\u2009",
+    71: "\u202F",
+    128: "\u2005",
+    142: "\u0020",
+    171: "\u2004",
+    223: "\u0E00",
+    256: "\u2000",
+    461: "\u3164",
+    512: "\u2001",
+};
 
 export const blizzGlobalDefaultWidth = 512; //if a char isn't in blizzGlobalWidth, assume width of 512; this is to save space as most cjk chars have that width
 

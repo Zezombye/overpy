@@ -126,7 +126,7 @@ export const opyFuncs: Record<string, {
         return: "void",
     },
     "createCasedProgressBarIwt": {
-        "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 2 is enough, but 3 or even 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
+        "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
         "args": [
             {
                 "name": "Text Count",
@@ -148,7 +148,7 @@ export const opyFuncs: Record<string, {
             {
                 "name": "Text",
                 "description": "The text to be displayed. Must be a literal custom string, not a variable.",
-                "type": "Object",
+                "type": "String",
                 "default": "Custom String",
             },
             {
@@ -686,6 +686,34 @@ Examples of valid types:
         "isConstant": true,
         return: {Array: "Object"},
     },
+    "spacesForString": {
+        description: "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`.",
+        args: [
+
+            {
+                "name": "Text",
+                "description": "The text to get spaces of. Must be a literal custom string, not a variable.",
+                "type": "String",
+                "default": "Custom String",
+            },
+        ],
+        isConstant: true,
+        "return": "String",
+    },
+    "spacesForLength": {
+        description: "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function.",
+        args: [
+
+            {
+                "name": "Length",
+                "description": "The length to get. Must be a literal integer, not a variable.",
+                "type": "IntLiteral",
+                "default": 0,
+            },
+        ],
+        isConstant: true,
+        "return": "String",
+    },
     "stopChasingVariable": {
         "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
         "args": [
@@ -697,6 +725,19 @@ Examples of valid types:
             }
         ],
         return: "void",
+    },
+    "strVisualLength": {
+        description: "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`.",
+        args: [
+            {
+                "name": "Text",
+                "description": "The text to calculate the length of. Must be a literal custom string, not a variable.",
+                "type": "String",
+                "default": "Custom String",
+            },
+        ],
+        isConstant: true,
+        "return": "unsigned int",
     },
     "wait": {
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",

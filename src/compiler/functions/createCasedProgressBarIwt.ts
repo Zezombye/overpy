@@ -17,27 +17,14 @@
 
 "use strict";
 
-import { blizzGlobalDefaultWidth, blizzGlobalWidths } from "../../data/opy/blizzardGlobal";
+import { blizzGlobalDefaultWidth, blizzGlobalWidths, spaces } from "../../data/opy/blizzardGlobal";
 import { astParsingFunctions } from "../../globalVars";
 import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNumber } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 const alphabet: Record<string, any> = { a: { lower: "\uff41", width: 285, xmin: 21, lowerWidth: 512, lowerXmin: 130 }, b: { lower: "\uff42", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, c: { lower: "\uff43", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 142 }, d: { lower: "\uff44", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, e: { lower: "\uff45", width: 285, xmin: 20, lowerWidth: 512, lowerXmin: 135 }, f: { lower: "\uff46", width: 142, xmin: 9, lowerWidth: 512, lowerXmin: 195 }, g: { lower: "\uff47", width: 285, xmin: 15, lowerWidth: 512, lowerXmin: 138 }, h: { lower: "\uff48", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 150 }, i: { lower: "\u0456", width: 114, xmin: 34, lowerWidth: 115, lowerXmin: 36 }, j: { lower: "\u0458", width: 114, xmin: -9, lowerWidth: 115, lowerXmin: -9 }, k: { lower: "\uff4b", width: 256, xmin: 30, lowerWidth: 512, lowerXmin: 142 }, l: { lower: "I", width: 114, xmin: 35, lowerWidth: 142, lowerXmin: 51 }, m: { lower: "\uff4d", width: 426, xmin: 36, lowerWidth: 512, lowerXmin: 79 }, n: { lower: "\uff4e", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 149 }, o: { lower: "\uff4f", width: 285, xmin: 18, lowerWidth: 512, lowerXmin: 135 }, p: { lower: "\uff50", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, q: { lower: "\uff51", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, r: { lower: "\uff52", width: 170, xmin: 35, lowerWidth: 512, lowerXmin: 191 }, s: { lower: "\uff53", width: 256, xmin: 17, lowerWidth: 512, lowerXmin: 147 }, t: { lower: "\uff54", width: 142, xmin: 7, lowerWidth: 512, lowerXmin: 195 }, u: { lower: "\uff55", width: 285, xmin: 33, lowerWidth: 512, lowerXmin: 149 }, v: { lower: "\uff56", width: 256, xmin: 5, lowerWidth: 512, lowerXmin: 134 }, w: { lower: "\uff57", width: 370, xmin: 3, lowerWidth: 512, lowerXmin: 76 }, x: { lower: "\uff58", width: 256, xmin: 9, lowerWidth: 512, lowerXmin: 139 }, y: { lower: "\uff59", width: 256, xmin: 10, lowerWidth: 512, lowerXmin: 139 }, z: { lower: "\uff5a", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 147 } };
 
-const spaces: Record<number, string> = {
-    1: "\u2006",
-    2: "\u2009",
-    71: "\u202F",
-    128: "\u2005",
-    142: "\u0020",
-    171: "\u2004",
-    223: "\u0E00",
-    256: "\u2000",
-    461: "\u3164",
-    512: "\u2001",
-};
-
-function getBestSpaces(coins: number[], target: number) {
+export function getBestSpaces(coins: number[], target: number) {
     let costs = [0];
     let coins_used: number[] = [0];
 

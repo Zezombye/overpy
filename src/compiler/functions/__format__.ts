@@ -37,6 +37,10 @@ astParsingFunctions.__format__ = function (content) {
             //skip optimization so we can edit the string in createCasedProgressBarIwt then call this function to properly split it
             return content;
         }
+        if (content.parent?.name === "strVisualLength" || content.parent?.name === "spacesForString") {
+            //skip optimization (and string splitting), as the function just needs the length and doesn't do any further processing on the string
+            return content;
+        }
         return parseCustomString(content.args[0], content.args.slice(1));
     }
 };
