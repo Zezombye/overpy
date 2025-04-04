@@ -118,6 +118,12 @@ export const opyConstants: Record<string, Record<string, {
             "isConstant": true,
             return: "string"
         },
+        "FUCKTON_OF_NEWLINES": {
+            "description": "125 newlines ought to be enough for anybody",
+            "args": null,
+            "isConstant": true,
+            return: "string"
+        },
         "LOTS_OF_SPACES": {
             "description": "170 Em Spaces (U+2003). Add this to the end of a HUD text to ensure it will always be left-aligned.",
             "args": null,

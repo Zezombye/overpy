@@ -64,6 +64,25 @@ export const opyFuncs: Record<string, {
         "isConstant": true,
         return: "bool",
     },
+    "arrayToString": {
+        "description": "Displays an array (normally, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed.",
+        "args": [
+            {
+                "name": "ARRAY",
+                "description": "The array to be displayed.",
+                "type": {"Array": "Object"},
+                "default": "GLOBAL VARIABLE"
+            },
+            {
+                "name": "MAXIMUM LENGTH",
+                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable.",
+                "type": "IntLiteral",
+                "default": 0
+            }
+        ],
+        isConstant: true,
+        return: "String",
+    },
     "async": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
@@ -246,6 +265,17 @@ Examples of valid types:
             "int",
             "float",
         ],
+    },
+    "debug": {
+        "description": "For quick debugging of a value.",
+        "args": [
+            {
+                "name": "value",
+                "description": "The value to be displayed.",
+                "type": ["Object", "Array"],
+            }
+        ],
+        return: "void",
     },
     "floor": {
         "description": "The integer that is the floor of the specified value (equivalent to rounding down).",

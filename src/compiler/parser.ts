@@ -19,7 +19,7 @@
 
 import { constantValues } from "../data/constants";
 import { notConstantFunctions } from "../data/other";
-import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setFileStack, subroutines } from "../globalVars";
+import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
 import { OWLanguage } from "../types";
 import { Token } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber } from "../utils/ast";
@@ -84,7 +84,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
             currentLine.tokens.pop();
         }
 
-        // Handle variable delacartions
+        // Handle variable declarations
         if (currentLine.tokens[0].text === "globalvar" || currentLine.tokens[0].text === "playervar" || currentLine.tokens[0].text === "subroutine") {
             var initDirective = null;
             //Check for assignment
@@ -664,7 +664,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     } else if (content[0].text === "c") {
                         stringType = "CaseSensitiveStringLiteral";
                     } else {
-                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext) and 'w' (fullwidth)");
+                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext), 'c' (case-sensitive) and 'w' (fullwidth)");
                     }
                 } else {
                     error("Expected string, but got '" + content[i].text + "'");
@@ -865,10 +865,14 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         name = "horizontalAngleOfDirection";
     }
 
-    return new Ast(
+    let astResult = new Ast(
         name,
         args.map((x) => parse(x)),
     );
+    if (name === "debug") {
+        astResult.tokenArgsStr = dispTokens(content.slice(2, content.length - 1), true);
+    }
+    return astResult;
 }
 
 function parseMember(object: Token[], member: Token[]) {
@@ -936,6 +940,8 @@ function parseMember(object: Token[], member: Token[]) {
                     return getAstForNumber(0.48);
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
                     return getAstForCustomString(" ".repeat(170));
+                } else if (name === "FUCKTON_OF_NEWLINES" || name === "LOTS_OF_NEWLINES") {
+                    return getAstForCustomString("\n".repeat(125));
                 } else {
                     error("Unhandled member 'Math." + name + "'");
                 }

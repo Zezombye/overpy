@@ -22,6 +22,7 @@ import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
 import { getFileStackCopy, isVarChar, safeEval } from "../utils/other";
 import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
+import { dispTokens } from "../utils/tokens";
 
 export class Macro {
     isFunction: boolean;
@@ -47,7 +48,7 @@ export class LogicalLine {
     }
 
     toString() {
-        return " ".repeat(this.indentLevel) + this.tokens.join(" ");
+        return " ".repeat(this.indentLevel) + dispTokens(this.tokens, true);
     }
 }
 

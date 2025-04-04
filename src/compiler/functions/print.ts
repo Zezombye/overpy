@@ -18,8 +18,8 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstForTeamAll, getAstForNull, getAstFor0, getAstForColorWhite } from "../../utils/ast";
+import { Ast, getAstForTeamAll, getAstForNull, getAstFor0, getAstForColorWhite, getAstForCustomString } from "../../utils/ast";
 
 astParsingFunctions.print = function (content) {
-    return new Ast("__hudText__", [new Ast("getPlayers", [getAstForTeamAll()]), content.args[0], getAstForNull(), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstFor0(), getAstForColorWhite(), getAstForNull(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return new Ast("__hudText__", [new Ast("getPlayers", [getAstForTeamAll()]), content.args[0], getAstForCustomString(" ".repeat(170)), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstFor0(), getAstForColorWhite(), getAstForNull(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
 };

@@ -63,3 +63,16 @@ rule "other array functions":
     A = B.exclude(3)
     A = [X,Y,Z].reverse() #Z,Y,X
     A = B.reverse()
+
+rule "array to string":
+    print(arrayToString([10,20,30], 0))
+    print(arrayToString([10,20,30], 1))
+    print(arrayToString([10,20,30], 2))
+    print(arrayToString([10,20,30], 3))
+    print(arrayToString([10,20,30], 4))
+    print(arrayToString([], 0))
+    print(arrayToString([], 1))
+    print(arrayToString([], 2))
+    print(arrayToString([100], 0))
+    print(arrayToString([100], 1))
+    print(arrayToString([100], 2))

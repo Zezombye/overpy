@@ -18,7 +18,7 @@
 "use strict";
 import { funcKw } from "../data/other";
 // @ts-check
-import { currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
+import { astParsingFunctions, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
 import { error, functionNameToString } from "./logging";
 import { FileStackMember, type ReturnType } from "../types";
 import { isTypeSuitable } from "./types";
@@ -42,6 +42,7 @@ export class Ast {
     type: ReturnType | ReturnType[];
     numValue?: number;
     fileStack: FileStackMember[];
+    tokenArgsStr?: string; //Used for the debug() function
     argIndex = 0;
     childIndex = 0;
     wasParsed = false;
@@ -321,5 +322,5 @@ export function getAstForCurrentArrayIndex() {
 }
 export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
     const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
-    return new Ast("__customString__", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]);
+    return astParsingFunctions.__format__(new Ast("__format__", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
 }

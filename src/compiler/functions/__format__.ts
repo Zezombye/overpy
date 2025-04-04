@@ -55,7 +55,8 @@ var caseSensitiveReplacements: Record<string, string> = {
     d: "ḍ",
     e: "ẹ",
     f: "ƒ",
-    g: "ǵ",
+    //g: "ǵ",
+    g: "ǥ",
     h: "һ",
     i: "і",
     j: "ј",
@@ -124,8 +125,8 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 
             content = tmpStr;
         } else if (isCaseSensitive) {
-            content = content.replace(/e([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ѐ$1");
-            content = content.replace(/n([0123456789!\?\/@\(\)\]\}\{"\&#\^\$\*%])/g, "ǹ$1");
+            content = content.replace(/e([0123456789!\?\/@"\&#\^\$\*%])/g, "ѐ$1");
+            content = content.replace(/n([0123456789!\?\/@"\&#\^\$\*%])/g, "ǹ$1");
             for (var key of Object.keys(caseSensitiveReplacements)) {
                 content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key]);
             }

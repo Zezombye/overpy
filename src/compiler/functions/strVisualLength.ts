@@ -22,14 +22,7 @@ import { error } from "../../utils/logging";
 import { blizzGlobalDefaultWidth, blizzGlobalWidths } from "../../data/opy/blizzardGlobal";
 import { getAstForNumber } from "../../utils/ast";
 
-astParsingFunctions.strVisualLength = function (content) {
-    if (content.args[0].name !== "__format__") {
-        error("Text must be a literal custom string");
-    }
-    if (content.args[0].args.length > 1) {
-        error("Text must not have arguments");
-    }
-    let text = content.args[0].args[0].name;
+export function getStrVisualLength(text: string) {
     if (text.includes("\n")) {
         error("Text must not have newlines");
     }
@@ -43,5 +36,17 @@ astParsingFunctions.strVisualLength = function (content) {
             result += blizzGlobalDefaultWidth;
         }
     }
-    return getAstForNumber(result);
+    return result;
+}
+
+astParsingFunctions.strVisualLength = function (content) {
+    if (content.args[0].name !== "__format__") {
+        error("Text must be a literal custom string");
+    }
+    if (content.args[0].args.length > 1) {
+        error("Text must not have arguments");
+    }
+    let text = content.args[0].args[0].name;
+
+    return getAstForNumber(getStrVisualLength(text));
 };

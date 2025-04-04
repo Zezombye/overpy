@@ -18,6 +18,7 @@
 "use strict";
 
 import { Token } from "../compiler/tokenizer";
+import { operatorPrecedence } from "../globalVars";
 import { error } from "./logging";
 /**
  * Same as splitStrOnDelimiter but for a token list.
@@ -104,9 +105,27 @@ export function getTokenBracketPos(tokens: Token[], returnFirstPair = false) {
 }
 
 //Converts a token list, or a token object to string.
-export function dispTokens(content: Token | Token[] | string): string {
+export function dispTokens(content: Token | Token[] | string, prettyPrint = false): string {
     if (content instanceof Array) {
-        var result = content.map((x) => x.text).join(" ");
+        if (!prettyPrint) {
+            return content.map((x) => x.text).join(" ");
+        }
+        let result = "";
+        for (let [i, token] of content.entries()) {
+            if (["(", "[", "{", "."].includes(token.text)) {
+                result += token.text;
+            } else if (["+", "-"].includes(token.text) && (i === 0 || ["(", "[", "{", ",", ...Object.keys(operatorPrecedence)].includes(content[i - 1].text))) {
+                //unary plus/minus
+                result += token.text;
+            } else if (i < content.length - 1 && ["(", "[", "{"].includes(content[i + 1].text) && Object.keys(operatorPrecedence).includes(token.text)) {
+                result += token.text + " ";
+            } else if (i < content.length - 1 && ["(", "[", "{", ")", "]", "}", ".", ",", ":"].includes(content[i + 1].text)) {
+                result += token.text;
+            } else {
+                result += token.text + " ";
+            }
+        }
+        result = result.trim();
         return result;
     } else if (typeof content === "string") {
         return content;
