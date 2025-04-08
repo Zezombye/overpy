@@ -456,7 +456,7 @@ export function parseAst(content: Ast) {
             let args = funcKw[content.name].args as Argument[];
             //Generic type check
             for (var i = 0; i < content.args.length; i++) {
-                if (!isTypeSuitable(args[i].type, args[i].type)) {
+                if (!isTypeSuitable(args[i].type, content.args[i].type)) {
                     //Throw an error for when a literal is expected
                     if (Object.keys(constantValues).includes(args[i].type)) {
                         error(getTypeCheckFailedMessage(content, i, args[i].type, content.args[i]));

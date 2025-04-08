@@ -295,6 +295,11 @@ Examples of valid types:
         "args": [],
         return: {"Array": "Player"},
     },
+    "holygrail": {
+        description: "If using #!setupTags, returns an unsanitized '<' character.\n\nNote: you shouldn't need this, as OverPy automatically escapes <fg> and <tx> tags.",
+        args: null,
+        return: "String",
+    },
     "hudHeader": {
         "description": "Built-in macro for `hudText` to reduce the number of arguments.",
         "args": [

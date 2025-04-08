@@ -103,6 +103,8 @@ export function functionNameToString(content: Ast) {
 
     var funcToOperatorMapping = {
         __add__: "'+' or '+='",
+        __and__: "'and'",
+        __arrayContains__: "'in'",
         __assignTo__: "'='",
         __divide__: "'/' or '/='",
         __equals__: "'=='",
@@ -113,6 +115,8 @@ export function functionNameToString(content: Ast) {
         __lessThanOrEquals__: "'<='",
         __modulo__: "'%' or '%='",
         __multiply__: "'*' or '*='",
+        __not__: "'not'",
+        __or__: "'or'",
         __raiseToPower__: "'**' or '**='",
         __subtract__: "'-' or '-='",
         //todo
@@ -122,6 +126,27 @@ export function functionNameToString(content: Ast) {
         __chaseAtRate__: "chase",
         __chaseOverTime__: "chase",
         __raycast__: "raycast",
+        __all__: "all",
+        __any__: "any",
+        __arraySlice__: ".slice",
+        __concat__: ".concat",
+        __indexOfArrayValue__: ".index",
+        __lastOf__: ".last",
+        __removeFromArray__: ".exclude",
+        __sortedArray__: ".sorted",
+        __strCharAt__: ".charAt",
+        __strIndex__: ".strIndex",
+        __strReplace__: ".replace",
+        __strSplit__: ".split",
+        __substring__: ".substring",
+        __workshopSettingCombo__: "createWorkshopSetting",
+        __workshopSettingHero__: "createWorkshopSetting",
+        __workshopSettingInteger__: "createWorkshopSetting",
+        __workshopSettingReal__: "createWorkshopSetting",
+        __workshopSettingToggle__: "createWorkshopSetting",
+        __xComponentOf__: ".x",
+        __yComponentOf__: ".y",
+        __zComponentOf__: ".z",
         //todo
     };
 
@@ -135,8 +160,14 @@ export function functionNameToString(content: Ast) {
         funcDisplayName = "string " + escapeString(content.name, false);
     } else if (content.name === "__number__") {
         funcDisplayName = "number '" + content.args[0].numValue + "'";
+    } else if (content.name === "__globalVar__") {
+        funcDisplayName = "global variable '" + content.args[0].name + "'";
+    } else if (content.name === "__playerVar__") {
+        funcDisplayName = "player variable '" + content.args[1].name + "'";
+    } else if (["__button__", "__color__", "__hero__", "__map__", "__gamemode__", "__team__"].includes(content.name)) {
+        funcDisplayName = "enum '" + content.type.toString() + "'";
     } else {
-        funcDisplayName = "function '" + content.name + "'";
+        funcDisplayName = "function '" + content.name.replace("_&", ".") + "'";
     }
 
     return funcDisplayName;
