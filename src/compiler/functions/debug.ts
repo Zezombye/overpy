@@ -41,9 +41,9 @@ astParsingFunctions.debug = function (content) {
     }
     contentStr = contentStrTrimmed;
     if (enableTagsSetup) {
-        contentStr = "<FGD0FF00FF>" + contentStr + "</FG> = <FGFFFF00FF>{}" + " ".repeat(170);
+        contentStr = "<FGD0FF00FF>" + contentStr + "</FG>\u2028= <FGFFFF00FF>{}" + " ".repeat(170);
     } else {
-        contentStr = contentStr + " = {}" + " ".repeat(170);
+        contentStr = contentStr + "\u2028= {}" + " ".repeat(170);
     }
 
     console.log(contentStr);

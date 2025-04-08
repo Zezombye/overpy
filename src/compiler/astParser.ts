@@ -22,7 +22,7 @@ import { funcKw } from "../data/other";
 import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
-import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity } from "../utils/ast";
+import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
 import { Argument, Value } from "../types";
 
 import "./functions/abs.ts";
@@ -419,6 +419,13 @@ export function parseAst(content: Ast) {
         }
         if (content.args.length === 1) {
             content.args.push(getAstForInfinity());
+        }
+    } else if (content.name === "arrayToString") {
+        if (content.args.length < 1 || content.args.length > 2) {
+            error("Function '" + content.name + "' takes 1 or 2 arguments, received " + content.args.length);
+        }
+        if (content.args.length === 1) {
+            content.args.push(getAstForNumber(12));
         }
     }
 

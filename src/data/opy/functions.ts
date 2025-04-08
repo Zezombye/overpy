@@ -65,17 +65,17 @@ export const opyFuncs: Record<string, {
         return: "bool",
     },
     "arrayToString": {
-        "description": "Displays an array (normally, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed.",
+        "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed.",
         "args": [
             {
                 "name": "ARRAY",
-                "description": "The array to be displayed.",
+                "description": "The array to be displayed. If not an array, it will be displayed normally.",
                 "type": {"Array": "Object"},
                 "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "MAXIMUM LENGTH",
-                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable.",
+                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable. If not specified, defaults to 12.",
                 "type": "IntLiteral",
                 "default": 0
             }
