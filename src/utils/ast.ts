@@ -238,6 +238,20 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
     return false;
 }
 
+//Used to replace currentArrayElement with currentArrayElement[0] to fix the simultaneous mapping+filtering bug.
+export function replaceFunctionInAst(ast: Ast, functionName: string, newAst: Ast) {
+    if (ast.name === functionName) {
+        return newAst;
+    }
+    for (var i = 0; i < ast.args.length; i++) {
+        ast.args[i] = replaceFunctionInAst(ast.args[i], functionName, newAst);
+    }
+    for (var i = 0; i < ast.children.length; i++) {
+        ast.children[i] = replaceFunctionInAst(ast.children[i], functionName, newAst);
+    }
+    return ast;
+}
+
 //Most functions, during optimization, will need to replace themselves or their arguments by a few common values.
 export function getAstFor0() {
     return new Ast("__number__", [new Ast("0", [], [], "UnsignedIntLiteral")], [], "int");

@@ -22,7 +22,7 @@ import { notConstantFunctions } from "../data/other";
 import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
 import { OWLanguage } from "../types";
 import { Token } from "./tokenizer";
-import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber } from "../utils/ast";
+import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
@@ -1109,12 +1109,29 @@ function parseLiteralArray(content: Token[]) {
 
             debug("Parsing 'a for x in y if z', a='" + forOperands[0] + "', x='" + inOperands[0] + "', y='" + ifOperands[0] + "', z='" + ifOperands[1] + "'");
 
-            var condition = parse(ifOperands[1]);
+            var filterCondition = parse(ifOperands[1]);
             let mappingFunction = parse(forOperands[0]);
+
             setCurrentArrayElementName("");
             setCurrentArrayIndexName("");
 
-            return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), condition]), mappingFunction]);
+            //#302 - code generation for current array index won't work as expected with filtered+mapped arrays if the current array index is in the mapping function
+            //Map to [elem, index], then filter, then apply the actual mapping function.
+            //currentArrayElement becomes currentArrayElement[0] and currentArrayIndex becomes currentArrayElement[1].
+            if (astContainsFunctions(mappingFunction, ["__currentArrayIndex__"])) {
+                //warn("w_current_array_index_in_mapping_function", "The current array index is used in the mapping function of a filtered+mapped array. This will not work as expected, as the workshop first filters then maps, not both at the same time.");
+
+                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayElement__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor0()]));
+                mappingFunction = replaceFunctionInAst(mappingFunction, "__currentArrayIndex__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor1()]));
+
+                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayElement__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor0()]));
+                filterCondition = replaceFunctionInAst(filterCondition, "__currentArrayIndex__", new Ast("__valueInArray__", [new Ast("__currentArrayElement__"), getAstFor1()]));
+
+                //array.map((x,i) => [x,i]).filter(x => filterCondition).map(x => mappingFunction)
+                return new Ast("__mappedArray__", [new Ast("__filteredArray__", [new Ast("__mappedArray__", [parse(ifOperands[0]), new Ast("__array__", [new Ast("__currentArrayElement__"), new Ast("__currentArrayIndex__")])]), filterCondition]), mappingFunction]);
+            }
+
+            return new Ast("__mappedArray__", [new Ast("__filteredArray__", [parse(ifOperands[0]), filterCondition]), mappingFunction]);
         } else {
             error("Expected 0 or 1 'if' after 'in', but found " + (ifOperands.length - 1));
         }
