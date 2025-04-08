@@ -22,7 +22,7 @@ import { funcKw } from "../data/other";
 import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
-import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE } from "../utils/ast";
+import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity } from "../utils/ast";
 import { Argument, Value } from "../types";
 
 import "./functions/abs.ts";
@@ -413,6 +413,13 @@ export function parseAst(content: Ast) {
             content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
         }
         content.name = "__wait__";
+    } else if (content.name === "waitUntil") {
+        if (content.args.length > 2 || content.args.length === 0) {
+            error("Function 'waitUntil' takes 1 or 2 arguments, received " + content.args.length);
+        }
+        if (content.args.length === 1) {
+            content.args.push(getAstForInfinity());
+        }
     }
 
     if (!["__format__", "__array__", "__dict__", "__enumType__"].includes(content.name)) {

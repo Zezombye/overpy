@@ -25726,9 +25726,9 @@ export const actionKw: Record<string, Action> =
             },
             {
                 "name": "TIMEOUT",
-                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
+                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing. If not specified, defaults to `Math.INFINITY`.",
                 "type": "unsigned float",
-                "default": "99999",
+                "default": "999999999999",
                 "descriptionLocalized": {
                     "guid": "0000000121CA",
                     "en-US": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
