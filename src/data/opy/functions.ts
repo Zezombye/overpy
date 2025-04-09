@@ -290,6 +290,62 @@ Examples of valid types:
         "isConstant": true,
         return: "int",
     },
+    "hsl": {
+        description: "A custom color in HSL format. The first argument is the hue (0-360), the second is the saturation (0-1) and the third is the lightness (0-1).",
+        args: [
+            {
+                "name": "HUE",
+                "description": "The hue of the color.",
+                "type": "float",
+                "default": 0,
+            },
+            {
+                "name": "SATURATION",
+                "description": "The saturation of the color.",
+                "type": "float",
+                "default": 0,
+            },
+            {
+                "name": "LIGHTNESS",
+                "description": "The lightness of the color.",
+                "type": "float",
+                "default": 0,
+            }
+        ],
+        isConstant: true,
+        return: "Color",
+    },
+    "hsla": {
+        description: "A custom color in HSLA format. The first argument is the hue (0-360), the second is the saturation (0-1), the third is the lightness (0-1).",
+        args: [
+            {
+                "name": "HUE",
+                "description": "The hue of the color (0-360).",
+                "type": "float",
+                "default": 0,
+            },
+            {
+                "name": "SATURATION",
+                "description": "The saturation of the color (0-1).",
+                "type": "float",
+                "default": 0,
+            },
+            {
+                "name": "LIGHTNESS",
+                "description": "The lightness of the color (0-1).",
+                "type": "float",
+                "default": 0,
+            },
+            {
+                "name": "ALPHA",
+                "description": "The alpha of the color (0-255).",
+                "type": "float",
+                "default": 0,
+            }
+        ],
+        isConstant: true,
+        return: "Color",
+    },
     "getAllPlayers": {
         "description": "Built-in macro for `getPlayers(Team.ALL)`.",
         "args": [],

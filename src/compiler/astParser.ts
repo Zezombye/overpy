@@ -63,6 +63,7 @@ import "./functions/_&getRealPlayerClosestToReticle";
 import "./functions/getOppositeTeam.ts";
 import "./functions/healee.ts";
 import "./functions/healer.ts";
+import "./functions/hsla.ts";
 import "./functions/len.ts";
 import "./functions/lineIntersectsSphere.ts";
 import "./functions/log.ts";
@@ -407,6 +408,12 @@ export function parseAst(content: Ast) {
         }
         content.args.push(getAstFor255());
         content.name = "rgba";
+    } else if (content.name === "hsl") {
+        if (content.args.length !== 3) {
+            error("Function 'hsl' takes 3 arguments, received " + content.args.length);
+        }
+        content.args.push(getAstFor255());
+        content.name = "hsla";
     } else if (content.name === "_&startForcingOutlineFor") {
         if (content.args.length === 4) {
             content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
