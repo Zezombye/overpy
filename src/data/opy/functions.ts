@@ -295,10 +295,62 @@ Examples of valid types:
         "args": [],
         return: {"Array": "Player"},
     },
-    "holygrail": {
-        description: "If using #!setupTags, returns an unsanitized '<' character.\n\nNote: you shouldn't need this, as OverPy automatically escapes <fg> and <tx> tags.",
-        args: null,
-        return: "String",
+    "getRealClosestPlayer": {
+        "description": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "args": [
+            {
+                "name": "CENTER",
+                "description": "The position from which to measure proximity.",
+                "type": "Position",
+                "default": "VECTOR",
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which the closest player will come.",
+                "type": "Team",
+                "default": "TEAM",
+            }
+        ],
+        "return": "Player",
+    },
+
+    getRealFarthestPlayer: {
+
+        "description": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "args": [
+            {
+                "name": "CENTER",
+                "description": "The position from which to measure distance.",
+                "type": "Position",
+                "default": "VECTOR",
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams from which the farthest player will come.",
+                "type": "Team",
+                "default": "TEAM",
+            }
+        ],
+        "return": "Player",
+    },
+
+    "_&getRealPlayerClosestToReticle": {
+        "description": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "args": [
+            {
+                "name": "PLAYER",
+                "description": "The player from whose reticle to search for the closest player.",
+                "type": "Player",
+                "default": "EVENT PLAYER",
+            },
+            {
+                "name": "TEAM",
+                "description": "The team or teams on which to search for the closest player.",
+                "type": "Team",
+                "default": "TEAM",
+            }
+        ],
+        "return": "Player",
     },
     "hudHeader": {
         "description": "Built-in macro for `hudText` to reduce the number of arguments.",

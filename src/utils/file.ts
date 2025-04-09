@@ -19,16 +19,23 @@
 
 import { rootPath, importedFiles } from "../globalVars";
 import { debug, error, warn } from "./logging";
-import * as path from "path";
 import { unescapeString } from "./strings";
-import { FileType, workspace } from "vscode";
-import { URI, Utils } from "vscode-uri";
 
 export function getFilenameFromPath(filename: string) {
+    try {
+        var path = require("path");
+    } catch (e) {
+        error("Cannot import files in browsers (path not found)");
+    }
     return path.parse(filename).base;
 }
 
-export async function getFilePaths(pathStr: string): Promise<string[]> {
+export function getFilePaths(pathStr: string): string[] {
+    try {
+        var fs = require("fs");
+    } catch (e) {
+        error("Cannot import files in browsers (fs not found)");
+    }
     pathStr = pathStr.trim();
     debug("path str = " + pathStr);
     pathStr = unescapeString(pathStr, false);
@@ -44,11 +51,9 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
     }
 
     let matchingFiles: string[] = [];
-    let resolvedFile = await workspace.fs.stat(URI.file(pathStr));
-    if (resolvedFile.type & FileType.Directory) {
-        // matchingFiles = fs.readdirSync(pathStr).map(f => pathStr+f);
-        let resolvedFiles = await workspace.fs.readDirectory(URI.file(pathStr));
-        matchingFiles = resolvedFiles.filter(([fileName, fileType]) => fileName.toLowerCase().endsWith(".opy") && fileType & FileType.File).map(([fileName, _]) => pathStr + "/" + fileName);
+    if (fs.lstatSync(pathStr).isDirectory()) {
+        matchingFiles = (fs.readdirSync(pathStr) as string[]).map((f) => pathStr + f);
+        matchingFiles = matchingFiles.filter((f) => f.toLowerCase().endsWith(".opy") && fs.lstatSync(f).isFile());
         if (matchingFiles.length === 0) {
             error("The directory '" + pathStr + "' does not have any .opy files.");
         }
@@ -58,16 +63,19 @@ export async function getFilePaths(pathStr: string): Promise<string[]> {
     return matchingFiles;
 }
 
-export async function getFileContent(path: string): Promise<string> {
+export function getFileContent(path: string): string {
+    try {
+        var fs = require("fs");
+    } catch (e) {
+        error("Cannot import files in browsers (fs not found)");
+    }
     if (path.endsWith(".opy") && importedFiles.includes(path)) {
         warn("w_already_imported", "The file '" + path + "' was already imported and will not be imported again.");
         return "";
     }
     try {
         importedFiles.push(path);
-        let resolvedFile = await workspace.fs.readFile(URI.file(path));
-        let content = resolvedFile.toString();
-        return content + "\n";
+        return fs.readFileSync(path) + "\n";
     } catch (e) {
         // @ts-ignore
         error(e);

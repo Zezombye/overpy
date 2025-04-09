@@ -135,7 +135,7 @@ postLoadTasks.push({
 
         funcList = {
             ...funcList,
-            ...Object.fromEntries(Object.entries(funcDoc).filter(([key]) => !key.startsWith("_") && !key.includes("."))),
+            ...Object.fromEntries(Object.entries(funcDoc).filter(([key, value]) => !key.startsWith("_") && !key.includes(".") && !(value as Value).hideFromAutocomplete)),
         };
 
         preprocessingDirectivesList = makeCompList(structuredClone(preprocessingDirectives));

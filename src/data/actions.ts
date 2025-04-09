@@ -23,7 +23,8 @@ export type Action = {
     args: Argument[] | null,
     descriptionLocalized: LocalizableString,
     return: string,
-    hasLiteralLimit?: boolean
+    hasLiteralLimit?: boolean,
+    hideFromAutocomplete?: boolean;
 } & LocalizableString;
 
 // export type Argument = {

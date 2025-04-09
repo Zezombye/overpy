@@ -68,9 +68,9 @@ export async function compile(
 
     //Handle #!mainfile directive
     if (content.startsWith("#!mainFile ")) {
-        let mainFilePath = (await getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n"))))[0];
+        let mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
         setRootPath(mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1));
-        content = await getFileContent(mainFilePath);
+        content = getFileContent(mainFilePath);
         if (DEBUG_MODE) {
             console.log("content = ");
             console.log(content);
@@ -91,13 +91,13 @@ export async function compile(
     ]);
     resetMacros();
 
-    var lines = await tokenize(content);
+    var lines = tokenize(content);
 
     if (enableTagsSetup) {
         addVariable("holygrail", true, 127);
     }
 
-    var astRules = await parseLines(lines);
+    var astRules = parseLines(lines);
     astRules.unshift(...getInitDirectivesRules());
     if (enableTagsSetup) {
         var txSetupRule: any = `
@@ -111,8 +111,8 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     holygrail = "______________________________________________________________________________________________________________________________\u303C".replace(holygrail, getLastCreatedEntity()[0]).substring(126, true)
     destroyAllDummies()
         `;
-        txSetupRule = await tokenize(txSetupRule);
-        txSetupRule = (await parseLines(txSetupRule))[0];
+        txSetupRule = tokenize(txSetupRule);
+        txSetupRule = parseLines(txSetupRule)[0];
         astRules.unshift(txSetupRule);
     }
 

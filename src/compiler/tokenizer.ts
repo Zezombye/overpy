@@ -70,7 +70,7 @@ export class Token {
 Returns an array of logical lines, with their indentation level.
 Logical lines are separated by a '\n', if it is not backslashed, and not within brackets.
 */
-export async function tokenize(content: string): Promise<LogicalLine[]> {
+export function tokenize(content: string): LogicalLine[] {
     if (!content.endsWith("\n")) {
         content += "\n";
     }
@@ -163,11 +163,11 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
         i += amount;
     }
 
-    async function parsePreprocessingDirective(content: string) {
+    function parsePreprocessingDirective(content: string) {
         debug("Parsing preprocessing directive '" + content + "'");
         if (content.startsWith("#!define ") || content.startsWith("#!defineMember ")) {
             macros.push(
-                await parseMacro({
+                parseMacro({
                     fileStack: getFileStackCopy(),
                     content: content,
                 }),
@@ -327,7 +327,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
 
             if (preprocessingDirectiveContent.startsWith("#!include ")) {
                 let space = preprocessingDirectiveContent.indexOf(" ");
-                let paths = await getFilePaths(preprocessingDirectiveContent.substring(space));
+                let paths = getFilePaths(preprocessingDirectiveContent.substring(space));
 
                 for (let path of paths) {
                     fileStack.push({
@@ -338,13 +338,13 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
                         staticMember: true,
                         fileStackMemberType: "normal",
                     } as ScriptFileStackMember);
-                    let importedFileContent = await getFileContent(path);
-                    result.push(...(await tokenize(importedFileContent)));
+                    let importedFileContent = getFileContent(path);
+                    result.push(...tokenize(importedFileContent));
                     fileStack.pop();
                     moveCursor(j - i - 1);
                 }
             } else {
-                await parsePreprocessingDirective(preprocessingDirectiveContent);
+                parsePreprocessingDirective(preprocessingDirectiveContent);
                 moveCursor(j - i - 1);
             }
             continue;
@@ -428,12 +428,12 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
                             let bracketPos = getBracketPositions(content.substring(i), true, true);
                             text = content.substring(i, i + bracketPos[1] + 1);
                             let macroArgs = getArgs(content.substring(i + bracketPos[0] + 1, i + bracketPos[1]));
-                            replacement = await resolveMacro(macros[k], macroArgs, currentLine.indentLevel);
+                            replacement = resolveMacro(macros[k], macroArgs, currentLine.indentLevel);
                         } else {
                             //debug("Resolving normal macro "+macros[k].name);
                             text = macros[k].name;
                             //replacement = macros[k].replacement;
-                            replacement = await resolveMacro(macros[k], [], currentLine.indentLevel);
+                            replacement = resolveMacro(macros[k], [], currentLine.indentLevel);
                         }
 
                         content = content.substring(0, i) + replacement + content.substring(i + text.length);
@@ -503,7 +503,7 @@ export async function tokenize(content: string): Promise<LogicalLine[]> {
     return result;
 }
 
-async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number): Promise<string> {
+function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number): string {
     var result = "";
 
     if (macro.isFunction) {
@@ -513,7 +513,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
         }
 
         if (macro.isScript) {
-            let scriptContent = await getFileContent(macro.scriptPath);
+            let scriptContent = getFileContent(macro.scriptPath);
             let vars = "";
             for (let i = 0; i < args.length; i++) {
                 vars += "var " + macro.args[i] + "=" + args[i] + ";";
@@ -521,7 +521,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
             scriptContent = vars + "\n" + scriptContent;
             scriptContent = builtInJsFunctions + scriptContent;
             try {
-                result = await safeEval(scriptContent);
+                result = safeEval(scriptContent);
                 if (!result) {
                     error("Script '" + getFilenameFromPath(macro.scriptPath) + "' yielded an invalid result.\nPlease note that your script should yield a primitive value (e.g. a number or a string) as the final result.");
                 }
@@ -572,7 +572,7 @@ async function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: 
     return result;
 }
 
-async function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: string }): Promise<MacroData> {
+function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: string }): MacroData {
     let trimmedMacroContent = initialMacroData.content.substring(initialMacroData.content.indexOf(" ") + 1);
     let bracketPos = getBracketPositions(trimmedMacroContent, false, true);
     const isFunctionMacro = bracketPos.length > 0 && trimmedMacroContent.indexOf(" ") >= bracketPos[0];
@@ -604,7 +604,7 @@ async function parseMacro(initialMacroData: { fileStack: FileStackMember[]; cont
         //Test for script macro
         if (functionMacro.replacement.startsWith("__script__(")) {
             functionMacro.isScript = true;
-            functionMacro.scriptPath = (await getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1)))[0];
+            functionMacro.scriptPath = getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1))[0];
         } else {
             functionMacro.isScript = false;
         }

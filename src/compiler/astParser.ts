@@ -54,6 +54,12 @@ import "./functions/dotProduct.ts";
 import "./functions/eventPlayer.ts";
 import "./functions/floor.ts";
 import "./functions/getAllPlayers.ts";
+import "./functions/getClosestPlayer";
+import "./functions/getRealClosestPlayer";
+import "./functions/getFarthestPlayer";
+import "./functions/getRealFarthestPlayer";
+import "./functions/_&getPlayerClosestToReticle";
+import "./functions/_&getRealPlayerClosestToReticle";
 import "./functions/getOppositeTeam.ts";
 import "./functions/healee.ts";
 import "./functions/healer.ts";
@@ -294,6 +300,8 @@ export function parseAst(content: Ast) {
     setFileStack(content.fileStack);
     debug("Parsing AST of '" + content.name + "'");
 
+    content.wasParsed = true;
+
     if (!(content.args instanceof Array)) {
         error("Function '" + content.name + "' has '" + content.args + "' for args, expected array");
     }
@@ -440,7 +448,9 @@ export function parseAst(content: Ast) {
     for (var i = 0; i < content.args.length; i++) {
         content.argIndex = i;
         content.args[i].parent = content;
-        content.args[i] = parseAst(content.args[i]);
+        if (!content.args[i].wasParsed) {
+            content.args[i] = parseAst(content.args[i]);
+        }
     }
     content.argIndex = 0;
 
@@ -483,7 +493,7 @@ export function parseAst(content: Ast) {
     }
 
     //Set expected type
-    if (content.name !== "__rule__" && !content.parent) {
+    if (content.name !== "__rule__" && content.name !== "pass" && !content.parent) {
         error("No parent found for '" + content.name + "'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
@@ -523,11 +533,14 @@ export function parseAst(content: Ast) {
     setFileStack(content.fileStack);
 
     //Optimize, and re-optimize if the function name changed
-    var oldContentName = content.name;
+    let oldContentName = content.name;
+    let parent = content.parent;
     while (!content.doNotOptimize && content.name in astParsingFunctions) {
         content = astParsingFunctions[content.name](content);
         if (content.name !== oldContentName) {
             oldContentName = content.name;
+            content.parent = parent;
+            content = parseAst(content); //re-optimize in depth
         } else {
             break;
         }

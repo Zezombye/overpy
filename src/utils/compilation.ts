@@ -17,8 +17,12 @@
 
 "use strict";
 
+import { parseAst } from "../compiler/astParser";
+import { parseLines } from "../compiler/parser";
+import { tokenize } from "../compiler/tokenizer";
 import { CustomGameSettingSchema } from "../data/customGameSettings";
 import { customGameSettingsKw } from "../data/other";
+import { Ast, replaceFunctionInAst } from "./ast";
 import { error } from "./logging";
 import { escapeBadWords, escapeString, getUtf8ByteLength, getUtf8Length } from "./strings";
 import { tows } from "./translation";
@@ -103,6 +107,19 @@ export function trimNb(x: number | string) {
     //Thanks MagicMan for reporting this.
     if (x.indexOf("e") >= 0 && result.indexOf("e") === -1) {
         result += x.substring(x.indexOf("e"));
+    }
+    return result;
+}
+
+export function parseOpyMacro(macro: string, args: Ast[]): Ast {
+    let lines = tokenize(macro);
+    let astLines = parseLines(lines);
+    if (astLines.length !== 1) {
+        error("Macro '" + macro + "' should only have one line");
+    }
+    let result = astLines[0];
+    for (let [i, arg] of args.entries()) {
+        result = replaceFunctionInAst(result, "__arg" + i + "__", arg);
     }
     return result;
 }

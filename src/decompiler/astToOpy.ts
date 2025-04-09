@@ -334,8 +334,8 @@ export function astActionsToOpy(actions: Ast[]): string {
                 error("Unregistered function '" + actions[i].name + "'");
             }
 
-            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type][actions[i].args[1].name].extension) {
-                let extensionName = constantValues[actions[i].args[1].type][actions[i].args[1].name].extension as string;
+            if (["createEffect", "createBeam", "playEffect"].includes(actions[i].name) && constantValues[actions[i].args[1].type as string][actions[i].args[1].name].extension) {
+                let extensionName = constantValues[actions[i].args[1].type as string][actions[i].args[1].name].extension as string;
                 activatedExtensions.push(extensionName);
             }
 

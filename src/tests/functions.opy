@@ -13,6 +13,17 @@ rule "function":
     hudSubheader(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
     hudText(null, "azer", "dqsf", "fdsq", HudPosition.LEFT, -1, Color.RED, Color.WHITE, Color.YELLOW, HudReeval.VISIBILITY_SORT_ORDER_AND_STRING, SpecVisibility.NEVER)
     wait()
+    A = getClosestPlayer(B, C)
+    A = getRealClosestPlayer(B, C)
+    A = sorted([p for p in getLivingPlayers(C) if p.hasSpawned()], key=lambda x: distance(x, B))[0]
+
+    A = getFarthestPlayer(B, C)
+    A = getRealFarthestPlayer(B, C)
+    A = sorted([p for p in getLivingPlayers(C) if p.hasSpawned()], key=lambda x: -distance(x, B))[0]
+
+    A = A.getPlayerClosestToReticle(B)
+    A = A.getRealPlayerClosestToReticle(B)
+    A = sorted([p for p in getLivingPlayers(B) if p.hasSpawned() and p != A], key=lambda x: angleBetweenVectors(A.getFacingDirection(), x - A.getPosition()))[0]
 
 rule "beams":
     createBeam(A, Beam.GRAPPLE, B, C, Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)

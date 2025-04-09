@@ -39,9 +39,6 @@ async function main() {
             /* add to the end of plugins array */
             esbuildProblemMatcherPlugin,
         ],
-        alias: {
-            file_utils: "./src/utils/file_standalone.ts",
-        },
     });
     if (watch) {
         await ctx.watch();

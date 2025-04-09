@@ -43,6 +43,7 @@ export type Value = {
     return: ReturnType | ReturnType[];
     isConstant?: boolean;
     canBePutInBoolean?: boolean;
+    hideFromAutocomplete?: boolean;
 } & {
     [language in OWLanguage]?: string;
 };

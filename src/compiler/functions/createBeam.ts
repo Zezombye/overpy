@@ -22,11 +22,11 @@ import { astParsingFunctions, activatedExtensions } from "../../globalVars";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.createBeam = function (content) {
-    if (!(content.args[1].name in constantValues[content.args[1].type])) {
+    if (!(content.args[1].name in constantValues[content.args[1].type as string])) {
         error("Unknown beam '" + content.args[1].name + "'");
     }
-    if (constantValues[content.args[1].type][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type][content.args[1].name].extension ?? error("Check for workshop extension while creating beam failed"))) {
-        error("You must activate the extension '" + constantValues[content.args[1].type][content.args[1].name].extension + "' to use '" + content.args[1].type + "." + content.args[1].name + "'");
+    if (constantValues[content.args[1].type as string][content.args[1].name].extension && !activatedExtensions.includes(constantValues[content.args[1].type as string][content.args[1].name].extension ?? error("Check for workshop extension while creating beam failed"))) {
+        error("You must activate the extension '" + constantValues[content.args[1].type as string][content.args[1].name].extension + "' to use '" + content.args[1].type + "." + content.args[1].name + "'");
     }
 
     return content;

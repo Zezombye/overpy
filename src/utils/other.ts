@@ -126,7 +126,7 @@ export function getUniqueNumber(): number {
 }
 
 //eval with js-interpreter
-export function safeEval(script: string) {
+export function safeEval(script: string): string {
     // Transform code with Babel so that js-interpreter can understand
     // more modern JavaScript syntax
     const transformedScript = transform(script, {

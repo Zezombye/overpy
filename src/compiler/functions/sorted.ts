@@ -23,5 +23,5 @@ import { parseAst } from "../astParser";
 astParsingFunctions.sorted = function (content) {
     content.name = "__sortedArray__";
     content.type = content.args[0].type;
-    return parseAst(content);
+    return content;
 };

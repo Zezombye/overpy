@@ -61,7 +61,7 @@ const builtInEnumNameToAstInfo = {
     },
 };
 
-export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
+export function parseLines(lines: LogicalLine[]): Ast[] {
     var result: Ast[] = [];
     let currentComments: string[] = [];
 
@@ -123,8 +123,8 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
             let customGameSettings: any;
             try {
                 if (currentLine.tokens.length === 2) {
-                    var path = (await getFilePaths(currentLine.tokens[1].text))[0];
-                    customGameSettings = JSON.parse(safeEval("JSON.stringify(" + (await getFileContent(path)) + ")"));
+                    var path = getFilePaths(currentLine.tokens[1].text)[0];
+                    customGameSettings = JSON.parse(safeEval("JSON.stringify(" + getFileContent(path) + ")"));
                 } else {
                     customGameSettings = JSON.parse(
                         safeEval(
@@ -335,7 +335,7 @@ export async function parseLines(lines: LogicalLine[]): Promise<Ast[]> {
                 i += j - i - 1;
                 continue;
             } else {
-                children = await parseLines(childrenLines);
+                children = parseLines(childrenLines);
             }
 
             setFileStack(currentLine.tokens[0].fileStack);
@@ -702,7 +702,12 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
         //Check for enums
         if (enumMembers[name]) {
-            return new Ast("__enumType__", Object.values(enumMembers[name]), [], "Type");
+            return new Ast(
+                "__enumType__",
+                Object.values(enumMembers[name]).map((x) => x.clone()),
+                [],
+                "Type",
+            );
         } else if (name in builtInEnumNameToAstInfo) {
             const astInfo = builtInEnumNameToAstInfo[name as keyof typeof builtInEnumNameToAstInfo];
             const values = Object.keys(constantValues[astInfo.type])
@@ -906,7 +911,7 @@ function parseMember(object: Token[], member: Token[]) {
             //Check for member of a user-declared enum
             //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
             if (object[0].text in enumMembers && name in enumMembers[object[0].text]) {
-                return enumMembers[object[0].text][name];
+                return enumMembers[object[0].text][name].clone();
             }
 
             //McCree fix for older gamemodes

@@ -244,7 +244,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
             new Ast("createProgressBarInWorldText", [
                 content.args[1], //visibility
                 getAstForNumber(i), //percentage
-                astParsingFunctions.__format__(new Ast("__format__", [new Ast(casedTexts[i], [], [], "StringLiteral"), ...content.args[2].args.slice(1)])), //text
+                astParsingFunctions.__format__(new Ast("__format__", [new Ast(casedTexts[i], [], [], "CustomStringLiteral"), ...content.args[2].args.slice(1)])), //text
                 content.args[3], //position
                 content.args[4], //scale
                 content.args[5], //clipping

@@ -16,9 +16,9 @@
  */
 // @ts-check
 
-export var valueFuncKw: {
-    [key: string]: import("../types").Value;
-} =
+import { Value } from "../types";
+
+export const valueFuncKw: Record<string, Value> =
 //begin-json
 {
     "Vector.BACKWARD": {
@@ -2479,6 +2479,7 @@ export var valueFuncKw: {
         ],
         "return": "Player",
         "guid": "00000000C328",
+        hideFromAutocomplete: true,
         "descriptionLocalized": {
             "guid": "00000000C329",
             "en-US": "The Player closest to the reticle of the specified Player, optionally restricted by Team.",
@@ -15669,6 +15670,7 @@ export var valueFuncKw: {
             }
         ],
         "canBePutInBoolean": false,
+        hideFromAutocomplete: true,
         "return": "Player",
         "guid": "00000000B1DE",
         "descriptionLocalized": {
@@ -16130,6 +16132,7 @@ export var valueFuncKw: {
         ],
         "canBePutInBoolean": false,
         "return": "Player",
+        hideFromAutocomplete: true,
         "guid": "00000000B1DF",
         "descriptionLocalized": {
             "guid": "00000000BE36",

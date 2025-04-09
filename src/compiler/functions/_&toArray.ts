@@ -19,11 +19,11 @@
 
 import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
+import { error } from "../../utils/logging";
 
 astParsingFunctions["_&toArray"] = function (content) {
-    if (content.args[0].name === "__enumType__") {
-        return new Ast("__array__", content.args[0].args);
+    if (content.args[0].name !== "__enumType__") {
+        error("Cannot use .toArray() on something that is not an enum type");
     }
-
-    return content;
+    return new Ast("__array__", content.args[0].args);
 };

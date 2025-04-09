@@ -19,7 +19,7 @@
 
 import { astToOpy } from "../../decompiler/astToOpy";
 import { astParsingFunctions, enableTagsSetup } from "../../globalVars";
-import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForTeamAll } from "../../utils/ast";
+import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
 import { error } from "../../utils/logging";
 import { getStrVisualLength } from "./strVisualLength";
 
@@ -28,6 +28,12 @@ astParsingFunctions.debug = function (content) {
     if (!contentStr) {
         error("Could not get token content of debug function");
     }
+
+    if (!contentStr.startsWith("arrayToString(")) {
+        //Automatically display arrays
+        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(20)]));
+    }
+
     let contentStrTrimmed = "";
     for (let char of contentStr) {
         if (getStrVisualLength(contentStrTrimmed + char) <= 10000) {

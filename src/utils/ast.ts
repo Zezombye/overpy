@@ -20,7 +20,7 @@ import { funcKw } from "../data/other";
 // @ts-check
 import { astParsingFunctions, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
 import { error, functionNameToString } from "./logging";
-import { FileStackMember, type ReturnType } from "../types";
+import { FileStackMember, Type, type ReturnType } from "../types";
 import { isTypeSuitable } from "./types";
 
 export class RuleAttributes {
@@ -37,10 +37,10 @@ export class RuleAttributes {
 
 export class Ast {
     name: string;
-    args: any[];
+    args: Ast[];
     children: Ast[];
-    type: ReturnType | ReturnType[];
-    numValue?: number;
+    type: Type;
+    numValue!: number; //avoids undefined error, only used for __number__ ast anyway
     fileStack: FileStackMember[];
     tokenArgsStr?: string; //Used for the debug() function
     argIndex = 0;
@@ -70,6 +70,9 @@ export class Ast {
         if (!type) {
             if (name in funcKw) {
                 this.type = funcKw[name].return;
+            } else if (name.match(/^__arg\d+__$/)) {
+                //macro
+                this.type = "Value";
             } else {
                 error("Unknown function name '" + name + "'");
             }
@@ -93,6 +96,29 @@ export class Ast {
             child.parent = this;
         }
         this.fileStack = fileStack;
+    }
+
+    clone() {
+        var clone: Ast = new Ast(
+            this.name,
+            this.args.map((x) => x.clone()),
+            this.children.map((x) => x.clone()),
+            this.type,
+        );
+        clone.argIndex = this.argIndex;
+        clone.childIndex = this.childIndex;
+        clone.wasParsed = this.wasParsed;
+        clone.ruleAttributes = structuredClone(this.ruleAttributes);
+        clone.doNotOptimize = this.doNotOptimize;
+        clone.originalName = this.originalName;
+        clone.parent = this.parent;
+        clone.expectedType = this.expectedType;
+        clone.comment = this.comment;
+        clone.isDisabled = this.isDisabled;
+        clone.tokenArgsStr = this.tokenArgsStr;
+        clone.fileStack = this.fileStack;
+        clone.numValue = this.numValue;
+        return clone;
     }
 }
 
@@ -177,7 +203,7 @@ export function isDefinitelyTruthy(content: Ast): boolean {
     }
     //Test for number other than 0
     if (content.name === "__number__") {
-        return content.args[0].name !== 0;
+        return content.args[0].numValue !== 0;
     }
     //Test for arrays, cast as 1st element
     if (content.name === "__array__") {
