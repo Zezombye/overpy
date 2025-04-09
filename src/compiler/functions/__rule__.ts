@@ -74,11 +74,11 @@ astParsingFunctions.__rule__ = function (content) {
                     "return",
                     "__skip__",
                     "__skipIf__",
-                    //"__wait__",
+                    //"wait",
                     "__while__",
                 ].includes(children[i].name) &&
                 children[i].type !== "Label" &&
-                !(children[i].name === "__wait__" && content.ruleAttributes.event !== "__subroutine__")
+                !(children[i].name === "wait" && content.ruleAttributes.event !== "__subroutine__")
             ) {
                 debug("meaningful instruction :" + children[i].name);
                 hasMeaningfulInstructionBeenEncountered = true;

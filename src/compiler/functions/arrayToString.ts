@@ -19,6 +19,7 @@
 
 import { astParsingFunctions } from "../../globalVars";
 import { Ast, getAstForCustomString, getAstForEmptyArray, getAstForNull, getAstForNumber } from "../../utils/ast";
+import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.arrayToString = function (content) {
@@ -33,26 +34,17 @@ astParsingFunctions.arrayToString = function (content) {
     //If an array index doesn't exist, the value will be 0
     let placeholderStr = Array(maxLength).fill("0").join(", ") + (maxLength > 0 ? ", " : "") + "…\u0001";
 
-    return new Ast("__ifThenElse__", [
-        new Ast("__or__", [new Ast("len", [content.args[0]]), new Ast("__and__", [new Ast("__equals__", [content.args[0], getAstForEmptyArray()]), new Ast("__inequals__", [content.args[0], getAstForNull()])])]),
-        new Ast("__strReplace__", [
-            astParsingFunctions.__format__(
-                new Ast("__format__", [
-                    new Ast(displayStr, [], [], "CustomStringLiteral"),
-                    ...Array(maxLength)
-                        .fill(0)
-                        .map((x, i) => new Ast("__valueInArray__", [content.args[0], getAstForNumber(i)])),
-                ]),
+    let formatArgs = Array(maxLength).fill(0).map((x, i) => "__arg0__["+i+"]").join(", ");
+
+    return parseOpyMacro(`(
+        ${JSON.stringify(displayStr)}.format(${formatArgs}).replace(
+            ${JSON.stringify(placeholderStr)}.substring(
+                ${placeholderStr.length - 4 - 3*maxLength} + 3*len(__arg0__),
+                ${maxLength*3+4} - 3*len(__arg0__)
             ),
-            new Ast("__substring__", [
-                getAstForCustomString(placeholderStr),
-                //placeholderStr.length - 5 - 3*maxLength + 3*len(array)
-                new Ast("__add__", [getAstForNumber(placeholderStr.length - 5 - 3 * maxLength - 1 + 2), new Ast("__multiply__", [getAstForNumber(3), new Ast("len", [content.args[0]])])]),
-                //maxLength*3+4 - arrayLen*3
-                new Ast("__subtract__", [getAstForNumber(maxLength * 3 + 4), new Ast("__multiply__", [getAstForNumber(3), new Ast("len", [content.args[0]])])]),
-            ]),
-            getAstForEmptyArray(), //equivalent to empty string
-        ]),
-        getAstForCustomString("{}", [content.args[0]]),
-    ]);
+            []
+        )
+        if len(__arg0__) or (__arg0__ == [] and __arg0__ != null)
+        else "{}".format(__arg0__)
+    )`, content.args);
 };

@@ -125,6 +125,12 @@ rule ("optimizations with literals") {
         Modify Global Variable(A, Append To Array, Null);
         "3"
         Modify Global Variable(A, Append To Array, 3);
+        "4"
+        Modify Global Variable(A, Append To Array, 4);
+        "13.287"
+        Modify Global Variable(A, Append To Array, 13.28771237954945);
+        "9.210"
+        Modify Global Variable(A, Append To Array, 9.210340371976184);
         "32"
         Modify Global Variable(A, Append To Array, 32);
         "-31"

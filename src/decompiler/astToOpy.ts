@@ -320,7 +320,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 setRuleHasVariableGoto(true);
                 decompiledAction += "__skipIf__(" + astToOpy(actions[i].args[0]) + ", " + astToOpy(actions[i].args[1]) + ")";
             }
-        } else if (actions[i].name === "__wait__") {
+        } else if (actions[i].name === "wait") {
             decompiledAction += "wait(";
             if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
                 decompiledAction += astToOpy(actions[i].args[0]);

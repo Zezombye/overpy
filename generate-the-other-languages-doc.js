@@ -105,25 +105,12 @@ function iterateOnObject(content) {
         content = addTranslations(content);
     }
 
-    /*if ("description" in content && !("descriptionLocalized" in content)) {
-        content["descriptionLocalized"] = {"en-US": content["description"]}
-    }*/
-
     for (var key of Object.keys(content)) {
         if (typeof content[key] === "object" && content[key] !== null) {
             //Skip the comparison operators as they must not be translated.
-            if (key !== "__Operator__" && key !== "descriptionLocalized") {
-                if (key === "nameLocalized" || key === "descriptionLocalized") {
-                    oldRemoveParentheses = removeParentheses;
-                    removeParentheses = false;
-                    fuzzyMatch = true;
-                } else {
-                    fuzzyMatch = false;
-                }
+            if (key !== "__Operator__") {
+                fuzzyMatch = false;
                 content[key] = iterateOnObject(content[key]);
-                if (key === "nameLocalized" || key === "descriptionLocalized") {
-                    removeParentheses = oldRemoveParentheses;
-                }
             }
         }
     }

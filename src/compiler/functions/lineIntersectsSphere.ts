@@ -19,7 +19,16 @@
 
 import { astParsingFunctions } from "../../globalVars";
 import { Ast } from "../../utils/ast";
+import { parseOpyMacro } from "../../utils/compilation";
 
 astParsingFunctions.lineIntersectsSphere = function (content) {
+
+    let lineStart = "__arg0__";
+    let lineDirection = "__arg1__";
+    let sphereCenter = "__arg2__";
+    let sphereRadius = "__arg3__";
+
+    return parseOpyMacro(`distance(distance(${lineStart}, ${sphereCenter}) * ${lineDirection} + ${lineStart}, ${sphereCenter}) <= ${sphereRadius}`, content.args);
+
     return new Ast("__lessThanOrEquals__", [new Ast("distance", [new Ast("__add__", [new Ast("__multiply__", [new Ast("distance", [content.args[0], content.args[2]]), content.args[1]]), content.args[0]]), content.args[2]]), content.args[3]]);
 };

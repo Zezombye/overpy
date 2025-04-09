@@ -21,7 +21,7 @@ import { astParsingFunctions, enableOptimization, optimizeForSize } from "../../
 import { getAstFor0 } from "../../utils/ast";
 import { warn } from "../../utils/logging";
 
-astParsingFunctions.__wait__ = function (content) {
+astParsingFunctions.wait = function (content) {
     if (enableOptimization && optimizeForSize) {
         if (content.args[0].name === "__number__" && content.args[0].args[0].numValue <= 0.016) {
             //Change to 0, as it will get casted to 0.016 anyway, but that way the optimizer can then replace it to false for that sweet element.

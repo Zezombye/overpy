@@ -38,7 +38,6 @@ export type LocalizableString = { guid?: string } & {
 export type Value = {
     guid: string;
     description?: string;
-    descriptionLocalized?: LocalizableString;
     args: Argument[] | null;
     return: ReturnType | ReturnType[];
     isConstant?: boolean;
@@ -50,9 +49,7 @@ export type Value = {
 
 export type Argument = {
     name: string;
-    nameLocalized?: LocalizableString;
     description?: string;
-    descriptionLocalized?: LocalizableString;
     type: any;
     default?: any;
 

@@ -65,14 +65,16 @@ rule "other array functions":
     A = B.reverse()
 
 rule "array to string":
-    print(arrayToString([10,20,30], 0))
-    print(arrayToString([10,20,30], 1))
-    print(arrayToString([10,20,30], 2))
-    print(arrayToString([10,20,30], 3))
-    print(arrayToString([10,20,30], 4))
+    A = [10,20,30]
+    B = [100]
+    print(arrayToString(A, 0))
+    print(arrayToString(A, 1))
+    print(arrayToString(A, 2))
+    print(arrayToString(A, 3))
+    print(arrayToString(A, 4))
     print(arrayToString([], 0))
     print(arrayToString([], 1))
     print(arrayToString([], 2))
-    print(arrayToString([100], 0))
-    print(arrayToString([100], 1))
-    print(arrayToString([100], 2))
+    print(arrayToString(B, 0))
+    print(arrayToString(B, 1))
+    print(arrayToString(B, 2))

@@ -67,6 +67,9 @@ rule "optimizations with literals":
     A.append(getOppositeTeam(Team.ALL)) #All Teams
     A.append(len([])) #0
     A.append(len([B,C,D])) #3
+    A.append(log(10000, 10)) #4
+    A.append(log(10000, 2)) #13.287
+    A.append(log(10000)) #9.210
     A.append(max(5, 32)) #32
     A.append(min(-31, 6)) #-31
     A.append(normalize(vect(-13, 324, 674))) #vect(-0.017, 0.433, 0.901)

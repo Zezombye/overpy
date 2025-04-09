@@ -111,7 +111,6 @@ import "./functions/__filteredArray__.ts";
 import "./functions/__format__.ts";
 import "./functions/__for__.ts";
 import "./functions/__gamemode__.ts";
-import "./functions/__getHitPosition__.ts";
 import "./functions/__globalVar__.ts";
 import "./functions/__greaterThanOrEquals__.ts";
 import "./functions/__greaterThan__.ts";
@@ -141,7 +140,7 @@ import "./functions/__skip__.ts";
 import "./functions/__subtract__.ts";
 import "./functions/__switch__.ts";
 import "./functions/__valueInArray__.ts";
-import "./functions/__wait__.ts";
+import "./functions/wait";
 import "./functions/__while__.ts";
 import "./functions/__xComponentOf__.ts";
 import "./functions/__yComponentOf__.ts";
@@ -428,7 +427,6 @@ export function parseAst(content: Ast) {
         if (content.args.length === 1) {
             content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
         }
-        content.name = "__wait__";
     } else if (content.name === "waitUntil") {
         if (content.args.length > 2 || content.args.length === 0) {
             error("Function 'waitUntil' takes 1 or 2 arguments, received " + content.args.length);

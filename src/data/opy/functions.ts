@@ -895,22 +895,4 @@ Examples of valid types:
         isConstant: true,
         return: "String",
     },
-    "wait": {
-        "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
-        "args": [
-            {
-                "name": "TIME",
-                "description": "The duration of the pause. If omitted, defaults to 0.016.",
-                "type": "unsigned float",
-                "default": "NUMBER"
-            },
-            {
-                "name": "WAIT BEHAVIOR",
-                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
-                "type": "Wait",
-                "default": "IGNORE CONDITION"
-            }
-        ],
-        return: "void",
-    },
 };

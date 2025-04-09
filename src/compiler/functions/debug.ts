@@ -55,5 +55,5 @@ astParsingFunctions.debug = function (content) {
 
     console.log(contentStr);
 
-    return new Ast("__hudText__", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(), getAstForNull(), astParsingFunctions.__format__(new Ast("__format__", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), new Ast("LEFT", [], [], "HudPosition"), getAstFor0(), getAstForNull(), getAstForNull(), getAstForColorWhite(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return new Ast("__hudText__", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(), getAstForNull(), astParsingFunctions.__format__(new Ast("__format__", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForNull(), getAstForColorWhite(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
 };
