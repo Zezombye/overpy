@@ -826,6 +826,19 @@ Examples of valid types:
         isConstant: true,
         "return": "unsigned int",
     },
+    "timeToString": {
+        description: "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37)` will return `1:02:37.000`.",
+        args: [
+            {
+                "name": "TIME",
+                "description": "The time in seconds to display.",
+                "type": "unsigned float",
+                "default": "NUMBER"
+            },
+        ],
+        isConstant: true,
+        return: "String",
+    },
     "wait": {
         "description": "Pauses the execution of the action list. Unless the wait is interrupted, the remainder of the actions will execute after the pause.",
         "args": [

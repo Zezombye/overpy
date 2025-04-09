@@ -81,6 +81,7 @@ import "./functions/sqrt.ts";
 import "./functions/strVisualLength.ts";
 import "./functions/tan.ts";
 import "./functions/tanDeg.ts";
+import "./functions/timeToString";
 import "./functions/vect.ts";
 import "./functions/vectorTowards.ts";
 import "./functions/victim.ts";

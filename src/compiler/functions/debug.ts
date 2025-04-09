@@ -21,6 +21,7 @@ import { astToOpy } from "../../decompiler/astToOpy";
 import { astParsingFunctions, enableTagsSetup } from "../../globalVars";
 import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
 import { error } from "../../utils/logging";
+import { isTypeSuitable } from "../../utils/types";
 import { getStrVisualLength } from "./strVisualLength";
 
 astParsingFunctions.debug = function (content) {
@@ -29,9 +30,9 @@ astParsingFunctions.debug = function (content) {
         error("Could not get token content of debug function");
     }
 
-    if (!contentStr.startsWith("arrayToString(")) {
+    if (!contentStr.startsWith("arrayToString(") && isTypeSuitable("Array", content.args[0].type)) {
         //Automatically display arrays
-        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(20)]));
+        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(12)]));
     }
 
     let contentStrTrimmed = "";
