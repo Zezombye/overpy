@@ -53,25 +53,19 @@ import "./functions/distance.ts";
 import "./functions/dotProduct.ts";
 import "./functions/eventPlayer.ts";
 import "./functions/floor.ts";
-import "./functions/getAllPlayers.ts";
 import "./functions/getClosestPlayer";
-import "./functions/getRealClosestPlayer";
 import "./functions/getFarthestPlayer";
-import "./functions/getRealFarthestPlayer";
-import "./functions/_&getPlayerClosestToReticle";
-import "./functions/_&getRealPlayerClosestToReticle";
+import "./functions/.getPlayerClosestToReticle";
 import "./functions/getOppositeTeam.ts";
 import "./functions/healee.ts";
 import "./functions/healer.ts";
 import "./functions/hsla.ts";
 import "./functions/len.ts";
-import "./functions/lineIntersectsSphere.ts";
 import "./functions/log.ts";
 import "./functions/max.ts";
 import "./functions/min.ts";
 import "./functions/normalize.ts";
 import "./functions/playEffect.ts";
-import "./functions/print.ts";
 import "./functions/round.ts";
 import "./functions/sin.ts";
 import "./functions/sinDeg.ts";
@@ -82,19 +76,18 @@ import "./functions/sqrt.ts";
 import "./functions/strVisualLength.ts";
 import "./functions/tan.ts";
 import "./functions/tanDeg.ts";
-import "./functions/timeToString";
 import "./functions/vect.ts";
 import "./functions/vectorTowards.ts";
 import "./functions/victim.ts";
 import "./functions/waitUntil.ts";
-import "./functions/_&addToScore.ts";
-import "./functions/_&setStatusEffect.ts";
-import "./functions/_&setUltCharge.ts";
-import "./functions/_&toArray.ts";
+import "./functions/.addToScore";
+import "./functions/.setStatusEffect";
+import "./functions/.setUltCharge";
+import "./functions/.toArray";
 import "./functions/__add__.ts";
 import "./functions/__and__.ts";
-import "./functions/__append__.ts";
-import "./functions/__arraySlice__.ts";
+import "./functions/.append";
+import "./functions/.slice";
 import "./functions/__array__.ts";
 import "./functions/__assignTo__.ts";
 import "./functions/__chaseAtRate__.ts";
@@ -108,7 +101,7 @@ import "./functions/__elif__.ts";
 import "./functions/__else__.ts";
 import "./functions/__equals__.ts";
 import "./functions/__filteredArray__.ts";
-import "./functions/__format__.ts";
+import "./functions/.format.ts";
 import "./functions/__for__.ts";
 import "./functions/__gamemode__.ts";
 import "./functions/__globalVar__.ts";
@@ -117,9 +110,8 @@ import "./functions/__greaterThan__.ts";
 import "./functions/__hero__.ts";
 import "./functions/__ifThenElse__.ts";
 import "./functions/__if__.ts";
-import "./functions/__indexOfArrayValue__.ts";
 import "./functions/__inequals__.ts";
-import "./functions/__lastOf__.ts";
+import "./functions/.last";
 import "./functions/__lessThanOrEquals__.ts";
 import "./functions/__lessThan__.ts";
 import "./functions/__mappedArray__.ts";
@@ -133,8 +125,7 @@ import "./functions/__number__.ts";
 import "./functions/__or__.ts";
 import "./functions/__playerVar__.ts";
 import "./functions/__raiseToPower__.ts";
-import "./functions/__remove__.ts";
-import "./functions/__reverse__.ts";
+import "./functions/.remove";
 import "./functions/__rule__.ts";
 import "./functions/__skip__.ts";
 import "./functions/__subtract__.ts";
@@ -145,6 +136,8 @@ import "./functions/__while__.ts";
 import "./functions/__xComponentOf__.ts";
 import "./functions/__yComponentOf__.ts";
 import "./functions/__zComponentOf__.ts";
+import { opyMacros } from "../data/opy/macros";
+import { parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
@@ -331,14 +324,14 @@ export function parseAst(content: Ast) {
         return content;
     }
 
-    //For string literals, check if they are a child of __format__ (or of a string function). If not, wrap them with the __format__ function.
+    //For string literals, check if they are a child of .format (or of a string function). If not, wrap them with the .format function.
     //Do not use isTypeSuitable as that can return true for "value".
     if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
-        if (content.parent && ["__format__", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
+        if (content.parent && [".format", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
             return content;
         } else {
             var tmpParent = content.parent;
-            content = new Ast("__format__", [content]);
+            content = new Ast(".format", [content]);
             content.parent = tmpParent;
         }
     }
@@ -413,7 +406,7 @@ export function parseAst(content: Ast) {
         }
         content.args.push(getAstFor255());
         content.name = "hsla";
-    } else if (content.name === "_&startForcingOutlineFor") {
+    } else if (content.name === ".startForcingOutlineFor") {
         if (content.args.length === 4) {
             content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
         }
@@ -443,7 +436,7 @@ export function parseAst(content: Ast) {
         }
     }
 
-    if (!["__format__", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
+    if (![".format", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
         var nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
         if (content.args.length !== nbExpectedArgs) {
             error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
@@ -460,10 +453,10 @@ export function parseAst(content: Ast) {
     }
     content.argIndex = 0;
 
-    //Manually check types and arguments for the __format__, __array__, __enumType__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
-    if (content.name === "__format__") {
+    //Manually check types and arguments for the .format, __array__, __enumType__ or __dict__ functions, as they are the only functions that can take an infinite number of arguments.
+    if (content.name === ".format") {
         if (content.args.length < 1) {
-            error("Function '__format__' takes at least 1 argument, received " + content.args.length);
+            error("Function '.format' takes at least 1 argument, received " + content.args.length);
         }
         //Check types
         if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type ?? "", content.args[0].type)) {
@@ -503,7 +496,7 @@ export function parseAst(content: Ast) {
         error("No parent found for '" + content.name + "'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
-        if (content.parent.name === "__format__" && content.parent.argIndex > 0) {
+        if (content.parent.name === ".format" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
         } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
             content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
@@ -538,15 +531,24 @@ export function parseAst(content: Ast) {
 
     setFileStack(content.fileStack);
 
+
     //Optimize, and re-optimize if the function name changed
     let oldContentName = content.name;
+    let oldOriginalName = content.originalName || content.name;
+    //console.log("original name: "+oldOriginalName);
     let parent = content.parent;
-    while (!content.doNotOptimize && content.name in astParsingFunctions) {
-        content = astParsingFunctions[content.name](content);
+    while (!content.doNotOptimize && (content.name in astParsingFunctions || content.name in opyMacros)) {
+        if (content.name in astParsingFunctions) {
+            content = astParsingFunctions[content.name](content);
+        } else {
+            content = parseOpyMacroAst(content);
+        }
         if (content.name !== oldContentName) {
             oldContentName = content.name;
             content.parent = parent;
             content = parseAst(content); //re-optimize in depth
+            //console.log("Setting original name of '" + content.name + "' to '" + oldOriginalName+"'");
+            content.originalName = oldOriginalName;
         } else {
             break;
         }

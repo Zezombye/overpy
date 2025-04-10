@@ -18,9 +18,23 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
+import { astToString } from "../../utils/logging";
 import { parseAst } from "../astParser";
 
 astParsingFunctions.sorted = function (content) {
+
+    //console.log(astToString(content));
+
+    if (content.args[0].name === "__array__" && content.args[1].name === "__multiply__" && (
+        content.args[1].args[0].name === "__number__" && content.args[1].args[0].args[0].numValue === -1 && content.args[1].args[1].name === "__currentArrayIndex__"
+        || content.args[1].args[0].name === "__currentArrayIndex__" && content.args[1].args[1].name === "__number__" && content.args[1].args[1].args[0].numValue === -1
+
+    )) {
+        //sort by reverse index -> reverse the array
+        content.args[0].args.reverse();
+        return content.args[0];
+    }
+
     content.name = "__sortedArray__";
     content.type = content.args[0].type;
     return content;

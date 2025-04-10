@@ -17,77 +17,74 @@
 
 "use strict";
 
-import { Argument, LocalizableString, ReturnType } from "../../types";
+import { Argument, LocalizableString, Type } from "../../types";
 
 export const opyInternalFuncs: Record<string, {
     args: Argument[] | null,
-    return: ReturnType | ReturnType[],
+    return: Type,
     isConstant?: boolean,
     description?: string
 } & LocalizableString> = {
-    "__append__": {
-        "args": [
-            {
-                "name": "ARRAY",
-                "type": "Variable",
-            },{
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-            }
-        ],
-        return: "void",
-    },
     "__assignTo__": {
         "args": [
             {
-                "name": "VARIABLE",
-                "type": ["Object", "Array"],
-                "default": "GLOBAL VARIABLE",
+                "name": "variable",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-                canReplace0ByNull: true,
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "__case__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"]
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ]
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "__chaseAtRate__": {
         "args": [
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "type": "Variable",
                 "default": "A"
             },
             {
-                "name": "DESTINATION",
+                "name": "destination",
                 "type": [
                     "float",
                     "Vector"
                 ],
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
-                "name": "RATE",
+                "name": "rate",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
-                "name": "REEVALUATION",
+                "name": "reevaluation",
                 "type": "__ChaseRateReeval__",
                 "default": "DESTINATION AND RATE"
             }
@@ -97,29 +94,29 @@ export const opyInternalFuncs: Record<string, {
     "__chaseOverTime__": {
         "args": [
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "type": "GlobalVariable",
                 "default": "A"
             },
             {
-                "name": "DESTINATION",
+                "name": "destination",
                 "type": [
                     "float",
                     "Vector"
                 ],
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
-                "name": "DURATION",
+                "name": "duration",
                 "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
-                "name": "REEVALUATION",
+                "name": "reevaluation",
                 "type": "__ChaseTimeReeval__",
                 "default": "DESTINATION AND DURATION"
             }
@@ -128,289 +125,273 @@ export const opyInternalFuncs: Record<string, {
     },
     "__def__": {
         "args": null,
-        return: "void",
+        "return": "void"
     },
     "__default__": {
         "args": null,
-        return: "void",
+        "return": "void"
     },
     "__del__": {
         "args": [
             {
-                "name": "ARRAY INDEX",
-                "type": "unsigned int",
-            },
+                "name": "arrayIndex",
+                "type": "unsigned int"
+            }
         ],
-        return: "void",
+        "return": "void"
     },
     "__dict__": {
         "args": [
             {
-                "name": "ELEM",
-                "type": "DictElem",
+                "name": "elem",
+                "type": "DictElem"
             }
         ],
         "isConstant": true,
-        return: ["Object", "Array"],
+        "return": [
+            "Object",
+            "Array"
+        ]
     },
     "__dictElem__": {
         "args": [
             {
-                "name": "KEY",
-                "type": ["Object", "Array"],
-            },{
-                "name": "VALUE",
-                "type": ["Object", "Array"],
+                "name": "key",
+                "type": [
+                    "Object",
+                    "Array"
+                ]
+            },
+            {
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ]
             }
         ],
         "isConstant": true,
-        return: "DictElem",
+        "return": "DictElem"
     },
     "__distanceTo__": {
         "args": [
             {
-                "name": "LABEL",
-                "type": "Label",
-            },
+                "name": "label",
+                "type": "Label"
+            }
         ],
-        return: "unsigned int",
+        "return": "unsigned int"
     },
     "__doWhile__": {
         "args": [
             {
-                "name": "CONDITION",
+                "name": "condition",
                 "type": "bool",
                 "default": "COMPARE"
-            },
+            }
         ],
-        return: "void",
+        "return": "void"
     },
     "__enum__": {
         "args": [
             {
-                "name": "NAME",
-                "type": "EnumName",
+                "name": "name",
+                "type": "EnumName"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "__enumType__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["Array", "Object"],
+                "name": "value",
+                "type": [
+                    "Array",
+                    "Object"
+                ]
             }
         ],
-        return: "Type",
+        "return": "Type"
     },
     "__equals__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-                canReplace0ByNull: true,
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-                canReplace0ByNull: true,
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "__for__": {
         "args": [
             {
-                "name": "CONTROL VARIABLE",
-                "type": "Variable",
+                "name": "controlVariable",
+                "type": "Variable"
             },
             {
-                "name": "RANGE START",
-                "type": "float",
+                "name": "rangeStart",
+                "type": "float"
             },
             {
-                "name": "RANGE STOP",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "type": "float",
+                "name": "rangeStop",
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+                "type": "float"
             },
             {
-                "name": "STEP",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "type": "float",
+                "name": "step",
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+                "type": "float"
             }
         ],
-        return: "void",
-    },
-    "__format__": {
-        "args": [
-            {
-                "name": "STRING",
-                "type": "StringLiteral",
-                "default": "NULL"
-            },
-            {
-                "name": "VALUE",
-                "type": "Object",
-                "default": "NULL"
-            }
-        ],
-        "isConstant": true,
-        return: "String",
-    },
-    "__getNormal__": {
-        "args": [
-            {
-                "name": "RAYCAST",
-                "type": "Raycast",
-            }
-        ],
-        return: "Direction",
-    },
-    "__getPlayerHit__": {
-        "args": [
-            {
-                "name": "RAYCAST",
-                "type": "Raycast",
-            }
-        ],
-        return: "Player",
-    },
-    "__getHitPosition__": {
-        "args": [
-            {
-                "name": "RAYCAST",
-                "type": "Raycast",
-            }
-        ],
-        return: "Position",
+        "return": "void"
     },
     "__gotoLabel__": {
         "args": [
             {
-                "name": "LABEL",
-                "type": "Label",
+                "name": "label",
+                "type": "Label"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "__gotoLoc__": {
         "args": [
             {
-                "name": "LOC",
-                "type": "unsigned int",
+                "name": "loc",
+                "type": "unsigned int"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "__greaterThan__": {
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
-
     "__greaterThanOrEquals__": {
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "__inequals__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-                canReplace0ByNull: true,
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-                canReplace0ByNull: true,
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ],
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "__lessThan__": {
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "__lessThanOrEquals__": {
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "type": "float",
-                canReplace0ByNull: true,
+                "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "__modifyVar__": {
         "args": [
             {
-                "name": "VARIABLE",
-                "type": "Variable",
+                "name": "variable",
+                "type": "Variable"
             },
             {
-                "name": "OPERATION",
-                "type": "__Operation__",
+                "name": "operation",
+                "type": "__Operation__"
             },
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"],
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ]
             }
         ],
         "guid": "00000000786E",
@@ -425,49 +406,34 @@ export const opyInternalFuncs: Record<string, {
     "__negate__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["float", "Vector"],
+                "name": "value",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
-            },
+            }
         ],
         "isConstant": true,
-        return: ["float", "Vector"],
-    },
-    "__remove__": {
-        "args": [
-            {
-                "name": "ARRAY",
-                "type": "Variable",
-            },{
-                "name": "VALUE",
-                "type": ["Object", "Array"],
-            }
-        ],
-        return: "void",
-    },
-    "__reverse__": {
-        "description": "Reverses the array. Built-in macro for `sorted(x, lambda _, idx: -idx)`.",
-        "args": [
-            {
-                "name": "ARRAY",
-                "description": "The array to reverse.",
-                "type": "Array",
-                "default": "ARRAY"
-            }
-        ],
-        return: "Array",
+        "return": [
+            "float",
+            "Vector"
+        ]
     },
     "__rule__": {
         "args": null,
-        return: "void",
+        "return": "void"
     },
     "__switch__": {
         "args": [
             {
-                "name": "VALUE",
-                "type": ["Object", "Array"]
+                "name": "value",
+                "type": [
+                    "Object",
+                    "Array"
+                ]
             }
         ],
-        return: "void",
-    },
+        "return": "void"
+    }
 };

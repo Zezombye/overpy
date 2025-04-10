@@ -111,7 +111,7 @@ export function startsWithParenthesis(content: string): boolean {
  * @returns Whether the character is a valid character for a variable name.
  */
 export function isVarChar(c: string): boolean {
-    return (c >= "A" && c <= "Z") || (c >= "a" && c <= "z") || (c >= "0" && c <= "9") || c === "_" || c === "@";
+    return (c >= "A" && c <= "Z") || (c >= "a" && c <= "z") || (c >= "0" && c <= "9") || c === "_" || c === "@" || c === "$";
 }
 
 //ty stackoverflow

@@ -17,12 +17,12 @@
 
 "use strict";
 
-import { Argument, ReturnType } from "../../types";
+import { Argument, Type } from "../../types";
 
 export const opyModules: Record<string, Record<string, {
     description: string,
     args: Argument[],
-    return: ReturnType | ReturnType[]
+    return: Type
 }> & { description: string }> = {
 
     // @ts-expect-error - description will be added later

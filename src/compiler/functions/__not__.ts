@@ -36,12 +36,12 @@ astParsingFunctions.__not__ = function (content) {
             return content.args[0].args[0];
         }
         //not is alive -> is dead
-        if (content.args[0].name === "_&isAlive") {
-            return new Ast("_&isDead", [content.args[0].args[0]]);
+        if (content.args[0].name === ".isAlive") {
+            return new Ast(".isDead", [content.args[0].args[0]]);
         }
         //not is dead -> is alive
-        if (content.args[0].name === "_&isDead") {
-            return new Ast("_&isAlive", [content.args[0].args[0]]);
+        if (content.args[0].name === ".isDead") {
+            return new Ast(".isAlive", [content.args[0].args[0]]);
         }
     }
     return content;

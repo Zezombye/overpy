@@ -14,6 +14,7 @@ import { mapKw } from "./data/maps";
 import { opyAnnotations } from "./data/opy/annotations";
 import { opyConstants } from "./data/opy/constants";
 import { opyFuncs } from "./data/opy/functions";
+import { opyMacros } from "./data/opy/macros";
 import { opyKeywords } from "./data/opy/keywords";
 import { opyMemberFuncs } from "./data/opy/memberFunctions";
 import { opyModules } from "./data/opy/modules";
@@ -57,6 +58,7 @@ if (typeof module !== "undefined") {
         opyKeywords: opyKeywords,
         opyConstants: opyConstants,
         opyModules: opyModules,
+        opyMacros: opyMacros,
         currentLanguage: currentLanguage,
         macros: macros,
         resetGlobalVariables: resetGlobalVariables,

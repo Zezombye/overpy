@@ -17,14 +17,14 @@
 
 "use strict";
 
-import { Argument, ReturnType } from "../../types";
+import { Argument, Type } from "../../types";
 import { opyTextures } from "./textures";
 
 export const opyConstants: Record<string, Record<string, {
     description: string,
     args: Argument[] | null,
     isConstant?: boolean,
-    return: ReturnType
+    return: Type
 }> | { description: string }> = {
     "Vector": {
         "UP": {
@@ -131,7 +131,7 @@ export const opyConstants: Record<string, Record<string, {
             return: "string"
         },
         "INFINITY": {
-            "description": "The number infinity = 9999999999999999999.",
+            "description": "The number infinity = 9999999999999999999.\n\n**Warning**: Currently, the workshop clamps this value to 10 million, but you can have up to 100 million by using operations (addition/multiplication). Multiply infinity by itself to have true infinity.",
             "args": null,
             "isConstant": true,
             return: "unsigned int",

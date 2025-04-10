@@ -18,15 +18,16 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
+import { astContainsRandom } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.hsla = function (content) {
     //https://stackoverflow.com/a/64090995/4851350
-    let h = "__arg0__";
-    let s = "__arg1__";
-    let l = "__arg2__";
-    let a = "__arg3__";
+    let h = "$h";
+    let s = "$s";
+    let l = "$l";
+    let a = "$a";
 
     if (content.args[0].name === "__number__" && (content.args[0].args[0].numValue < 0 || content.args[0].args[0].numValue > 360)) {
         error("Hue must be between 0 and 360");
@@ -41,6 +42,12 @@ astParsingFunctions.hsla = function (content) {
         error("Alpha must be between 0 and 255");
     }
 
+    for (let arg of content.args) {
+        if (astContainsRandom(arg)) {
+            error("Cannot use random functions in hsl() or hsla()");
+        }
+    }
+
     let f = (n: number) => `(${l} - ${s}*min(${l}, 1-${l}) * max(min(min((${n}+${h}/30)%12 - 3, 9 - ((${n}+${h}/30)%12)), 1), -1))`;
-    return parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, content.args);
+    return parseOpyMacro(`rgba(${f(0)}*255, ${f(8)}*255, ${f(4)}*255, ${a})`, ["$h", "$s", "$l", "$a"], content.args);
 };

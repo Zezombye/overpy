@@ -62,7 +62,7 @@ Note: Z-index is left &lt; right &lt; top
     Right Sort offset: <input type="text" id="sort-offset-right">
 </p>
 <p>
-    Left color: 
+    Left color:
     <select id="color-left">
         <option value="Color.AQUA">Aqua</option>
         <option value="Color.BLUE">Blue</option>
@@ -77,8 +77,8 @@ Note: Z-index is left &lt; right &lt; top
         <option value="Color.TURQUOISE">Turquoise</option>
         <option value="Color.WHITE">White</option>
         <option value="Color.YELLOW">Yellow</option>
-    </select> 
-    Top color: 
+    </select>
+    Top color:
     <select id="color-top">
         <option value="Color.AQUA">Aqua</option>
         <option value="Color.BLUE">Blue</option>
@@ -93,8 +93,8 @@ Note: Z-index is left &lt; right &lt; top
         <option value="Color.TURQUOISE">Turquoise</option>
         <option value="Color.WHITE">White</option>
         <option value="Color.YELLOW">Yellow</option>
-    </select> 
-    Right color: 
+    </select>
+    Right color:
     <select id="color-right">
         <option value="Color.AQUA">Aqua</option>
         <option value="Color.BLUE">Blue</option>
@@ -109,10 +109,10 @@ Note: Z-index is left &lt; right &lt; top
         <option value="Color.TURQUOISE">Turquoise</option>
         <option value="Color.WHITE">White</option>
         <option value="Color.YELLOW">Yellow</option>
-    </select> 
+    </select>
 </p>
 <p>
-    <!--Language: <select id="language">            
+    <!--Language: <select id="language">
         <option value="en-US">English</option>
         <option value="de-DE">German</option>
         <option value="es-ES">Spanish (Spain)</option>
@@ -199,7 +199,7 @@ function splitStr(s, position) {
                     nbThinSpaces = 1;
                 }
             }
-            
+
             //nbThinSpaces = 1;
         }
         nbSpaces = Math.floor(nbSpaces);
@@ -269,7 +269,7 @@ function generate(position, color, sortOffset) {
     var addVerticalShadow = document.getElementById("add-vertical-shadow").checked;
 
     if (addVerticalShadow && position === "left") {
-        input = 
+        input =
 `                                                                                                                                                    *
                                                                                                                                                 *
                                                                                                                                                 *
@@ -281,7 +281,7 @@ function generate(position, color, sortOffset) {
 `+input;
     } else if (addVerticalShadow && position === "right") {
         input =
-` 
+`
 
 
 
@@ -312,7 +312,7 @@ function generate(position, color, sortOffset) {
         "¬": "￢",
         "¦": "￤",
     };
-    
+
 
     /*for (var char of '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~') {
         mappings[char] = String.fromCodePoint(char.charCodeAt(0)+0xFEE0);
@@ -339,13 +339,13 @@ function generate(position, color, sortOffset) {
 
     var lines = input.split("\n");
     for (var i = 0; i < lines.length; i++) {
-        
+
         var color = document.getElementById("color-"+position).options[document.getElementById("color-"+position).selectedIndex].value;
 
         if (generateForOverpy) {
             output += "    hudSubheader(getAllPlayers(), "+splitStr(lines[i], position)+", HudPosition."+position.toUpperCase()+", "+(i+(+document.getElementById("sort-offset-"+position).value))+", "+color+", HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)\n";
         } else {
-            output += "\t"+tows("__hudText__", actionKw)+"("
+            output += "\t"+tows("hudText", actionKw)+"("
                 +tows("getPlayers", valueFuncKw)+"("
                     +tows("Team.ALL", getConstantKw("TEAM CONSTANT"))
                 +"), "

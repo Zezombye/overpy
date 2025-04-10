@@ -28,8 +28,8 @@ astParsingFunctions.log = function (content) {
         if (enableOptimization && content.args[0].name === "__number__") {
             return getAstForNumber(Math.log(content.args[0].args[0].numValue));
         }
-        return parseOpyMacro(`10000 * (__arg0__ ** 0.0001 - 1)`, content.args);
+        return parseOpyMacro(`10000 * ($nb1 ** 0.0001 - 1)`, ["$nb1"], content.args);
     } else {
-        return parseOpyMacro(`log(__arg0__) / log(__arg1__)`, content.args);
+        return parseOpyMacro(`log($nb1) / log($nb2)`, ["$nb1", "$nb2"], content.args);
     }
 };

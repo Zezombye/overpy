@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
 import { getAstForNumber, getAstFor0, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
@@ -25,7 +25,10 @@ astParsingFunctions.__multiply__ = function (content) {
     if (enableOptimization) {
         //If both arguments are numbers, return their product.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(content.args[0].args[0].numValue * content.args[1].args[0].numValue);
+            let result = content.args[0].args[0].numValue * content.args[1].args[0].numValue;
+            if (Math.abs(result) < NUMBER_LIMIT) {
+                return getAstForNumber(result);
+            }
         }
 
         //If one of the arguments is 1, return the other argument.

@@ -19,7 +19,7 @@
 
 import { blizzGlobalDefaultWidth, blizzGlobalWidths, spaces } from "../../data/opy/blizzardGlobal";
 import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNumber } from "../../utils/ast";
+import { Ast, astContainsRandom, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNumber } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 const alphabet: Record<string, any> = { a: { lower: "\uff41", width: 285, xmin: 21, lowerWidth: 512, lowerXmin: 130 }, b: { lower: "\uff42", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, c: { lower: "\uff43", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 142 }, d: { lower: "\uff44", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, e: { lower: "\uff45", width: 285, xmin: 20, lowerWidth: 512, lowerXmin: 135 }, f: { lower: "\uff46", width: 142, xmin: 9, lowerWidth: 512, lowerXmin: 195 }, g: { lower: "\uff47", width: 285, xmin: 15, lowerWidth: 512, lowerXmin: 138 }, h: { lower: "\uff48", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 150 }, i: { lower: "\u0456", width: 114, xmin: 34, lowerWidth: 115, lowerXmin: 36 }, j: { lower: "\u0458", width: 114, xmin: -9, lowerWidth: 115, lowerXmin: -9 }, k: { lower: "\uff4b", width: 256, xmin: 30, lowerWidth: 512, lowerXmin: 142 }, l: { lower: "I", width: 114, xmin: 35, lowerWidth: 142, lowerXmin: 51 }, m: { lower: "\uff4d", width: 426, xmin: 36, lowerWidth: 512, lowerXmin: 79 }, n: { lower: "\uff4e", width: 285, xmin: 36, lowerWidth: 512, lowerXmin: 149 }, o: { lower: "\uff4f", width: 285, xmin: 18, lowerWidth: 512, lowerXmin: 135 }, p: { lower: "\uff50", width: 285, xmin: 28, lowerWidth: 512, lowerXmin: 136 }, q: { lower: "\uff51", width: 285, xmin: 13, lowerWidth: 512, lowerXmin: 136 }, r: { lower: "\uff52", width: 170, xmin: 35, lowerWidth: 512, lowerXmin: 191 }, s: { lower: "\uff53", width: 256, xmin: 17, lowerWidth: 512, lowerXmin: 147 }, t: { lower: "\uff54", width: 142, xmin: 7, lowerWidth: 512, lowerXmin: 195 }, u: { lower: "\uff55", width: 285, xmin: 33, lowerWidth: 512, lowerXmin: 149 }, v: { lower: "\uff56", width: 256, xmin: 5, lowerWidth: 512, lowerXmin: 134 }, w: { lower: "\uff57", width: 370, xmin: 3, lowerWidth: 512, lowerXmin: 76 }, x: { lower: "\uff58", width: 256, xmin: 9, lowerWidth: 512, lowerXmin: 139 }, y: { lower: "\uff59", width: 256, xmin: 10, lowerWidth: 512, lowerXmin: 139 }, z: { lower: "\uff5a", width: 256, xmin: 16, lowerWidth: 512, lowerXmin: 147 } };
@@ -156,8 +156,13 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
     if (content.args[0].args[0].numValue < 2 || content.args[0].args[0].numValue > 6) {
         error("Number of texts must be between 2 and 6");
     }
-    if (content.args[2].name !== "__format__") {
+    if (content.args[2].name !== ".format") {
         error("Text must be a literal custom string");
+    }
+    for (let arg of content.args) {
+        if (astContainsRandom(arg)) {
+            error("Cannot use random functions in createCasedProgressBarIwt");
+        }
     }
 
     let iwts: Ast[] = [];
@@ -218,8 +223,8 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
         t.type === "string"
             ? generateCasedLine(t.text, nbTexts)
             : Array(nbTexts)
-                  .fill("")
-                  .map((x) => t.text),
+                .fill("")
+                .map((x) => t.text),
     );
 
     //console.log(mappedTokens);
@@ -244,7 +249,7 @@ astParsingFunctions.createCasedProgressBarIwt = function (content) {
             new Ast("createProgressBarInWorldText", [
                 content.args[1], //visibility
                 getAstForNumber(i), //percentage
-                astParsingFunctions.__format__(new Ast("__format__", [new Ast(casedTexts[i], [], [], "CustomStringLiteral"), ...content.args[2].args.slice(1)])), //text
+                astParsingFunctions[".format"](new Ast(".format", [new Ast(casedTexts[i], [], [], "CustomStringLiteral"), ...content.args[2].args.slice(1)])), //text
                 content.args[3], //position
                 content.args[4], //scale
                 content.args[5], //clipping

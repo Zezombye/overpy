@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
 import { getAstForNumber, getAstFor0, Ast } from "../../utils/ast";
 import { warn, functionNameToString, typeToString } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
@@ -32,7 +32,10 @@ astParsingFunctions.__divide__ = function (content) {
     if (enableOptimization) {
         //If both arguments are numbers, return their quotient.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(content.args[0].args[0].numValue / content.args[1].args[0].numValue);
+            let result = content.args[0].args[0].numValue / content.args[1].args[0].numValue;
+            if (Math.abs(result) < NUMBER_LIMIT) {
+                return getAstForNumber(result);
+            }
         }
 
         //A/1 -> A

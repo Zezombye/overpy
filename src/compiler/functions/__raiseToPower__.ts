@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
 import { getAstFor0, getAstForNumber } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
@@ -28,7 +28,10 @@ astParsingFunctions.__raiseToPower__ = function (content) {
             if (content.args[0].args[0].numValue < 0) {
                 return getAstFor0();
             }
-            return getAstForNumber(Math.pow(content.args[0].args[0].numValue, content.args[1].args[0].numValue));
+            let result = Math.pow(content.args[0].args[0].numValue, content.args[1].args[0].numValue);
+            if (Math.abs(result) < NUMBER_LIMIT) {
+                return getAstForNumber(result);
+            }
         }
 
         //A**1 -> A

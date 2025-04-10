@@ -195,17 +195,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Up",
         "zh-TW": "Up"
     },
-    "_&getAbilityCharge": {
+    ".getAbilityCharge": {
         "description": "The ability charge count for a player associated by button.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON"
@@ -229,17 +229,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ability Charge",
         "zh-TW": "Ability Charge"
     },
-    "_&getAbilityCooldown": {
+    ".getAbilityCooldown": {
         "description": "The ability cooldown time in seconds for a player associated by button.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON"
@@ -263,17 +263,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ability Cooldown",
         "zh-TW": "Ability Cooldown"
     },
-    "_&getAbilityResource": {
+    ".getAbilityResource": {
         "description": "The ability resource percent for a player associated by button.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ability to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "The ability to check associated by button.",
                 "type": "Button",
                 "default": "BUTTON"
@@ -297,11 +297,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ability Resource",
         "zh-TW": "Ability Resource"
     },
-    "_&getAllowedHeroes": {
+    ".getAllowedHeroes": {
         "description": "The array of heroes from which the specified player is currently allowed to select.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose allowed heroes to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -328,11 +328,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Allowed Heroes",
         "zh-TW": "Allowed Heroes"
     },
-    "_&getAltitude": {
+    ".getAltitude": {
         "description": "The player's current height in meters above a surface. Results in 0 whenever the player is on a surface.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose altitude to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -356,17 +356,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Altitude Of",
         "zh-TW": "Altitude Of"
     },
-    "_&getAmmo": {
+    ".getAmmo": {
         "description": "The current ammo of a player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "CLIP",
+                "name": "clip",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -392,11 +392,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ammo",
         "zh-TW": "Ammo"
     },
-    "_&getCurrentHero": {
+    ".getCurrentHero": {
         "description": "The current hero of a player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose hero to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -421,11 +421,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Hero Of",
         "zh-TW": "Hero Of"
     },
-    "_&getCurrentWeapon": {
+    ".getCurrentWeapon": {
         "description": "The currently held weapon of a player. Returns 2 for Baby Dva's gun, Torbjorn's hammer, and Mercy's pistol; 1 otherwise.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose weapon to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -449,12 +449,12 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Weapon",
         "zh-TW": "Weapon"
     },
-    "_&getEyePosition": {
+    ".getEyePosition": {
         "guid": "00000000C595",
         "description": "The position of a player's first person view (used for aiming)",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The position of a player's first person view (used for aiming)",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -478,11 +478,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Eye Position",
         "zh-TW": "Eye Position"
     },
-    "_&getFacingDirection": {
+    ".getFacingDirection": {
         "description": "The unit-length directional vector of a player's current facing relative to the world. This value includes both horizontal and vertical facing.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose facing direction to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -507,12 +507,12 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Facing Direction Of",
         "zh-TW": "Facing Direction Of"
     },
-    "_&getHealth": {
+    ".getHealth": {
         "guid": "0000000081C2",
         "description": "The current health of a player, including armor and shields.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -535,17 +535,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Health",
         "zh-TW": "Health"
     },
-    "_&getHealthOfType": {
+    ".getHealthOfType": {
         "description": "The current health of the specified player, filtered by the given health type.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "HEALTH",
+                "name": "health",
                 "description": "The type of health to acquire.",
                 "type": "Health",
                 "default": "HEALTH"
@@ -569,11 +569,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Health Of Type",
         "zh-TW": "Health Of Type"
     },
-    "_&getHeroOfDuplication": {
+    ".getHeroOfDuplication": {
         "description": "The hero currently being duplicated by the specified player. If no hero is being duplicated, the resulting value is 0.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player performing the duplication.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -598,23 +598,23 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Hero Being Duplicated",
         "zh-TW": "Hero Being Duplicated"
     },
-    "_&getHeroStatistic": {
+    ".getHeroStatistic": {
         "description": "Provides a statistic of the specified player's time playing a specific hero (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
         "args": [
             {
-                "name": "Player",
+                "name": "player",
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
                 "default": "Event Player"
             },
             {
-                "name": "Hero",
+                "name": "hero",
                 "description": "The hero whose statistic to acquire",
                 "type": "Hero",
                 "default": "Hero"
             },
             {
-                "name": "Stat",
+                "name": "stat",
                 "description": "The statistic to acquire.",
                 "type": "HeroStat",
                 "default": "All Damage Dealt"
@@ -638,11 +638,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Player Hero Stat",
         "zh-TW": "Player Hero Stat"
     },
-    "_&getHorizontalFacingAngle": {
+    ".getHorizontalFacingAngle": {
         "description": "The horizontal angle in degrees of a player's current facing relative to the world. This value increases as the player rotates to the left (wrapping around at +/- 180).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose horizontal facing angle to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -666,11 +666,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Horizontal Facing Angle Of",
         "zh-TW": "Horizontal Facing Angle Of"
     },
-    "_&getHorizontalSpeed": {
+    ".getHorizontalSpeed": {
         "description": "The current horizontal speed of a player in meters per second. This measurement excludes all vertical motion.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose horizontal speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -694,17 +694,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Horizontal Speed Of",
         "zh-TW": "Horizontal Speed Of"
     },
-    "_&getMaxAmmo": {
+    ".getMaxAmmo": {
         "description": "The current max ammo of a player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose max ammo to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "CLIP",
+                "name": "clip",
                 "description": "The index of the clip to be acquired. 0 is the first clip, and 1 is the second (only used for Bastion's Sentry gun and Baptiste's Heal Grenades).",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -730,11 +730,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Max Ammo",
         "zh-TW": "Max Ammo"
     },
-    "_&getMaxHealth": {
+    ".getMaxHealth": {
         "description": "The max health of a player, including armor and shields.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -758,17 +758,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Max Health",
         "zh-TW": "Max Health"
     },
-    "_&getMaxHealthOfType": {
+    ".getMaxHealthOfType": {
         "description": "The max health of the specified player, filtered by the given health type.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose max health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "HEALTH",
+                "name": "health",
                 "description": "The type of max health to acquire.",
                 "type": "Health",
                 "default": "HEALTH"
@@ -792,11 +792,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Max Health Of Type",
         "zh-TW": "Max Health Of Type"
     },
-    "_&getNormalizedHealth": {
+    ".getNormalizedHealth": {
         "description": "The current health of a player, including armor and shields, normalized between 0 and 1. (for example, 0 is no health, 0.5 is half health, 1 is full health, etc.)",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose normalized health to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -820,11 +820,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Normalized Health",
         "zh-TW": "Normalized Health"
     },
-    "_&getNumberOfDeaths": {
+    ".getNumberOfDeaths": {
         "description": "The number of deaths a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose death count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -848,11 +848,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Number Of Deaths",
         "zh-TW": "Number Of Deaths"
     },
-    "_&getNumberOfElims": {
+    ".getNumberOfElims": {
         "description": "The number of eliminations a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose elimination count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -876,11 +876,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Number Of Eliminations",
         "zh-TW": "Number Of Eliminations"
     },
-    "_&getNumberOfFinalBlows": {
+    ".getNumberOfFinalBlows": {
         "description": "The number of final blows a specific player has earned. This value only accumulates while a game is in progress.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose final blow count to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -904,17 +904,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Number Of Final Blows",
         "zh-TW": "Number Of Final Blows"
     },
-    "_&getPlayerClosestToReticle": {
+    ".getPlayerClosestToReticle": {
         "description": "The player closest to the reticle of the specified player, optionally restricted by team.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to search for the closest player.",
                 "type": "Team",
                 "default": "TEAM"
@@ -939,23 +939,23 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Player Closest To Reticle",
         "zh-TW": "Player Closest To Reticle"
     },
-    "_&getPlayersInViewAngle": {
+    ".getPlayersInViewAngle": {
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to consider players.",
                 "type": "Team",
                 "default": "TEAM"
             },
             {
-                "name": "VIEW ANGLE",
+                "name": "viewAngle",
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
                 "default": "NUMBER"
@@ -981,11 +981,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Players in View Angle",
         "zh-TW": "Players in View Angle"
     },
-    "_&getPosition": {
+    ".getPosition": {
         "description": "The current position of a player as a vector.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose position to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1010,11 +1010,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Position Of",
         "zh-TW": "Position Of"
     },
-    "_&getScore": {
+    ".getScore": {
         "description": "The current score of a player. Results in 0 if the game mode is not free-for-all.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose score to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1038,11 +1038,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Score Of",
         "zh-TW": "Score Of"
     },
-    "_&getSlot": {
+    ".getSlot": {
         "description": "The slot number of the specified player. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose slot number to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1066,11 +1066,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Slot Of",
         "zh-TW": "Slot Of"
     },
-    "_&getSpeed": {
+    ".getSpeed": {
         "description": "The current speed of a player in meters per second.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1094,17 +1094,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Speed Of",
         "zh-TW": "Speed Of"
     },
-    "_&getSpeedInDirection": {
+    ".getSpeedInDirection": {
         "description": "The current speed of a player in a specific direction in meters per second.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "DIRECTION",
+                "name": "direction",
                 "description": "The direction of travel in which to measure the player's speed.",
                 "type": "Direction",
                 "default": "VECTOR"
@@ -1128,17 +1128,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Speed Of In Direction",
         "zh-TW": "Speed Of In Direction"
     },
-    "_&getStatistic": {
+    ".getStatistic": {
         "description": "Provides a statistic of the specified player (limited to the current match). Statistics are only gathered when the game is in progress. Dummy bots do not gather statistics.",
         "args": [
             {
-                "name": "Player",
+                "name": "player",
                 "description": "The Player whose statistic to acquire.",
                 "type": "Player",
                 "default": "Event Player"
             },
             {
-                "name": "Statistic",
+                "name": "statistic",
                 "description": "The statistic to acquire.",
                 "type": "Stat",
                 "default": "All Damage Dealt"
@@ -1162,11 +1162,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Player Stat",
         "zh-TW": "Player Stat"
     },
-    "_&getTeam": {
+    ".getTeam": {
         "description": "The team of a player. If the game mode is free-for-all, the team is considered to be all.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose team to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1191,11 +1191,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Team Of",
         "zh-TW": "Team Of"
     },
-    "_&getThrottle": {
+    ".getThrottle": {
         "description": "The directional input of a player, represented by a vector with horizontal input on the x component (positive to the left) and vertical input on the z component (positive upward).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose directional input to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1220,11 +1220,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Throttle Of",
         "zh-TW": "Throttle Of"
     },
-    "_&getUltCharge": {
+    ".getUltCharge": {
         "description": "The current ultimate ability charge percentage of a player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ultimate charge percentage to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1248,11 +1248,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ultimate Charge Percent",
         "zh-TW": "Ultimate Charge Percent"
     },
-    "_&getVelocity": {
+    ".getVelocity": {
         "description": "The current velocity of a player as a vector. If the player is on a surface, the y component of this velocity will be 0, even when traveling up or down a slope.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose velocity to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1277,11 +1277,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Velocity Of",
         "zh-TW": "Velocity Of"
     },
-    "_&getVerticalFacingAngle": {
+    ".getVerticalFacingAngle": {
         "description": "The vertical angle in degrees of a player's current facing relative to the world. This value increases as the player looks down.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose vertical facing angle to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1305,11 +1305,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Vertical Facing Angle Of",
         "zh-TW": "Vertical Facing Angle Of"
     },
-    "_&getVerticalSpeed": {
+    ".getVerticalSpeed": {
         "description": "The current vertical speed of a player in meters per second. This measurement excludes all horizontal motion, including motion while traveling up and down slopes.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose vertical speed to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1333,11 +1333,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Vertical Speed Of",
         "zh-TW": "Vertical Speed Of"
     },
-    "_&hasSpawned": {
+    ".hasSpawned": {
         "description": "Whether an entity has spawned in the world. Results in false for players who have not chosen a hero yet.",
         "args": [
             {
-                "name": "ENTITY",
+                "name": "entity",
                 "description": "The player, icon entity, or effect entity whose presence in world to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1361,17 +1361,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Has Spawned",
         "zh-TW": "Has Spawned"
     },
-    "_&hasStatusEffect": {
+    ".hasStatusEffect": {
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "STATUS",
+                "name": "status",
                 "description": "The status to check for.",
                 "type": "Status",
                 "default": "HACKED"
@@ -1395,11 +1395,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Has Status",
         "zh-TW": "Has Status"
     },
-    "_&isAlive": {
+    ".isAlive": {
         "description": "Whether a player is alive.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose life to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1423,17 +1423,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Alive",
         "zh-TW": "Is Alive"
     },
-    "_&isCommunicating": {
+    ".isCommunicating": {
         "description": "Whether a player is using a specific communication type (such as emoting, using a voice line, using a spray, etc.).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose communication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "TYPE",
+                "name": "type",
                 "description": "The type of communication to consider. The duration of emotes is exact, the duration of voice lines is assumed to be 4 seconds, and all other durations are assumed to be 2 seconds.",
                 "type": "Comms",
                 "default": "VOICE LINE UP"
@@ -1457,11 +1457,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Communicating",
         "zh-TW": "Is Communicating"
     },
-    "_&isCommunicatingAnything": {
+    ".isCommunicatingAnything": {
         "description": "Whether a player is using any communication type (such as emoting, using a voice line, using a spray, etc.).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose communication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1485,11 +1485,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Communicating Any",
         "zh-TW": "Is Communicating Any"
     },
-    "_&isCommunicatingEmote": {
+    ".isCommunicatingEmote": {
         "description": "Whether a player is using an emote.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose emoting status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1513,11 +1513,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Communicating Any Emote",
         "zh-TW": "Is Communicating Any Emote"
     },
-    "_&isCommunicatingSpray": {
+    ".isCommunicatingSpray": {
         "description": "Whether a Player is using a spray.",
         "args": [
             {
-                "name": "Player",
+                "name": "player",
                 "description": "The Player whose spray status to check.",
                 "type": "Player",
                 "default": "Event Player"
@@ -1541,11 +1541,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Communicating Any Spray",
         "zh-TW": "Is Communicating Any Spray"
     },
-    "_&isCommunicatingVoiceline": {
+    ".isCommunicatingVoiceline": {
         "description": "Whether a player is using a voice line. (The duration of voice lines is assumed to be 4 seconds.)",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose voice line status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1569,11 +1569,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Communicating Any Voice line",
         "zh-TW": "Is Communicating Any Voice line"
     },
-    "_&isCrouching": {
+    ".isCrouching": {
         "description": "Whether a player is crouching.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose crouching status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1597,11 +1597,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Crouching",
         "zh-TW": "Is Crouching"
     },
-    "_&isDead": {
+    ".isDead": {
         "description": "Whether a player is dead.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose death to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1625,11 +1625,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Dead",
         "zh-TW": "Is Dead"
     },
-    "_&isDummy": {
+    ".isDummy": {
         "description": "Whether a player is a dummy bot.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "Player to consider.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1653,11 +1653,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Is Dummy Bot",
         "zh-TW": "Is Dummy Bot"
     },
-    "_&isDuplicatingAHero": {
+    ".isDuplicatingAHero": {
         "description": "Whether the specified player is duplicating another hero. To check which hero, use the Hero Being Duplicated value.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose duplication status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1681,11 +1681,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Is Duplicating",
         "zh-TW": "Is Duplicating"
     },
-    "_&isFiringPrimaryFire": {
+    ".isFiringPrimaryFire": {
         "description": "Whether the specified player's primary weapon attack is being used.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose primary weapon attack usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1709,11 +1709,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Firing Primary",
         "zh-TW": "Is Firing Primary"
     },
-    "_&isFiringSecondaryFire": {
+    ".isFiringSecondaryFire": {
         "description": "Whether the specified player's secondary weapon attack is being used.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose secondary weapon attack usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1737,17 +1737,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Firing Secondary",
         "zh-TW": "Is Firing Secondary"
     },
-    "_&isHoldingButton": {
+    ".isHoldingButton": {
         "description": "Whether a player is holding a specific button.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose button to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "The button to check.",
                 "type": "Button",
                 "default": "BUTTON"
@@ -1771,11 +1771,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Button Held",
         "zh-TW": "Is Button Held"
     },
-    "_&isInAir": {
+    ".isInAir": {
         "description": "Whether a player is airborne.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose airborne status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1799,11 +1799,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is In Air",
         "zh-TW": "Is In Air"
     },
-    "_&isInAlternateForm": {
+    ".isInAlternateForm": {
         "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose form to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1827,11 +1827,11 @@ export const valueFuncKw: Record<string, Value> =
         "ru-RU": "Is In Alternate Form",
         "zh-TW": "Is In Alternate Form"
     },
-    "_&isInSpawnRoom": {
+    ".isInSpawnRoom": {
         "description": "Whether a specific player is in the spawn room (and is thus being healed and able to change heroes).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose spawn room status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1855,23 +1855,23 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is In Spawn Room",
         "zh-TW": "Is In Spawn Room"
     },
-    "_&isInViewAngle": {
+    ".isInViewAngle": {
         "description": "Whether a location is within view of a player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "LOCATION",
+                "name": "location",
                 "description": "The location to test if it's within view.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "VIEW ANGLE",
+                "name": "viewAngle",
                 "description": "The view angle to compare against in degrees.",
                 "type": "float",
                 "default": "NUMBER"
@@ -1895,11 +1895,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is In View Angle",
         "zh-TW": "Is In View Angle"
     },
-    "_&isJumping": {
+    ".isJumping": {
         "description": "Whether the specified player is jumping.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose jump usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1923,11 +1923,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Jumping",
         "zh-TW": "Is Jumping"
     },
-    "_&isMeleeing": {
+    ".isMeleeing": {
         "description": "Whether the specified player is meleeing.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose melee usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1951,11 +1951,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Meleeing",
         "zh-TW": "Is Meleeing"
     },
-    "_&isMoving": {
+    ".isMoving": {
         "description": "Whether a player is moving (defined as having a non-zero current speed).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose moving status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -1979,11 +1979,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Moving",
         "zh-TW": "Is Moving"
     },
-    "_&isOnFire": {
+    ".isOnFire": {
         "description": "Whether a specific player's portrait is on fire.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose portrait to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2007,11 +2007,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Portrait On Fire",
         "zh-TW": "Is Portrait On Fire"
     },
-    "_&isOnGround": {
+    ".isOnGround": {
         "description": "Whether a player is on the ground (or other walkable surface).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ground status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2035,11 +2035,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is On Ground",
         "zh-TW": "Is On Ground"
     },
-    "_&isOnObjective": {
+    ".isOnObjective": {
         "description": "Whether a specific player is currently occupying a payload or capture point.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose objective status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2063,11 +2063,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is On Objective",
         "zh-TW": "Is On Objective"
     },
-    "_&isOnWall": {
+    ".isOnWall": {
         "description": "Whether a player is on a wall (climbing or riding).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose wall status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2091,11 +2091,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is On Wall",
         "zh-TW": "Is On Wall"
     },
-    "_&isReloading": {
+    ".isReloading": {
         "description": "Whether the specified player is reloading.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose reload usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2119,11 +2119,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Reloading",
         "zh-TW": "Is Reloading"
     },
-    "_&isStanding": {
+    ".isStanding": {
         "description": "Whether a player is standing (defined as both not moving and not in the air).",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose standing status to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2147,11 +2147,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Standing",
         "zh-TW": "Is Standing"
     },
-    "_&isUsingAbility1": {
+    ".isUsingAbility1": {
         "description": "Whether the specified player is using ability 1.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ability 1 usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2175,11 +2175,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Using Ability 1",
         "zh-TW": "Is Using Ability 1"
     },
-    "_&isUsingAbility2": {
+    ".isUsingAbility2": {
         "description": "Whether the specified player is using ability 2.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ability 2 usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2203,11 +2203,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Is Using Ability 2",
         "zh-TW": "Is Using Ability 2"
     },
-    "_&isUsingUltimate": {
+    ".isUsingUltimate": {
         "description": "Whether a player is using an ultimate ability.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose ultimate ability usage to check.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
@@ -2236,7 +2236,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The sum of two numbers or vectors.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -2246,7 +2246,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -2281,13 +2281,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified condition evaluates to true for every value in the specified array.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose values will be considered.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "CONDITION",
+                "name": "condition",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE"
@@ -2316,13 +2316,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether both of the two inputs are true (or equivalent to true).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
                 "default": "TRUE"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of the two inputs considered. If both are true (or equivalent to true), then the and value is true.",
                 "type": "bool",
                 "default": "TRUE"
@@ -2351,13 +2351,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified condition evaluates to true for any value in the specified array.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose values will be considered.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "CONDITION",
+                "name": "condition",
                 "description": "The condition that is evaluated for each element of the specified array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE"
@@ -2386,13 +2386,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified array contains the specified value.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array in which to search for the specified value.",
                 "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The value for which to search.",
                 "type": "Object",
                 "canReplace0ByNull": true,
@@ -2418,11 +2418,11 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Array Contains",
         "zh-TW": "Array Contains"
     },
-    "__arraySlice__": {
-        "description": "A copy of the specified array containing only values from a specified index range.",
+    ".slice": {
+        "description": "A copy of the specified array containing only values from a specified index range. **Does not support nested arrays.**",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array from which to make a copy.",
                 "type": {
                     "Array": "Object"
@@ -2430,7 +2430,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "START INDEX",
+                "name": "startIndex",
                 "description": "The first index of the range.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -2438,7 +2438,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "COUNT",
+                "name": "count",
                 "description": "The number of elements in the resulting array. The resulting array will contain fewer elements if the specified range exceeds the bounds of the array.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -2446,6 +2446,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             }
         ],
+        class: "Array",
         "isConstant": true,
         "return": {
             "Array": "Object"
@@ -2504,7 +2505,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A button constant.",
         "args": [
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "A button constant.",
                 "type": "ButtonLiteral",
                 "default": "PRIMARY FIRE"
@@ -2534,7 +2535,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A Color Constant",
         "args": [
             {
-                "name": "Color",
+                "name": "color",
                 "description": "A Color Constant",
                 "type": "ColorLiteral",
                 "default": "White"
@@ -2564,7 +2565,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the comparison of the two inputs is true.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
                 "type": [
                     "Object",
@@ -2573,13 +2574,13 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "COMPARISON",
+                "name": "comparison",
                 "description": "",
                 "type": "__Operator__",
                 "default": "=="
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand side of the comparison. This may be any value type if the operation is == or !=. Otherwise, real numbers are expected.",
                 "type": [
                     "Object",
@@ -2607,18 +2608,18 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Compare",
         "zh-TW": "Compare"
     },
-    "__concat__": {
+    ".concat": {
         "guid": "00000000C41A",
         "description": "A copy of an array with one or more values appended to the end.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array to which to append.",
                 "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
                 "type": [
                     "Object",
@@ -2630,6 +2631,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             }
         ],
+        class: "Array",
         "isConstant": true,
         "return": "Array",
         "en-US": "Append To Array",
@@ -2702,7 +2704,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "ty magzie for adding that",
         "args": [
             {
-                "name": "STRING",
+                "name": "string",
                 "description": "",
                 "type": "CustomStringLiteral",
                 "default": ""
@@ -2754,7 +2756,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The ratio of two numbers or vectors. A vector divided by a number will yield a scaled vector. Division by zero results in zero.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -2764,7 +2766,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -2820,13 +2822,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A copy of the specified array with any values that do not match the specified condition removed.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose copy will be filtered.",
                 "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "CONDITION",
+                "name": "condition",
                 "description": "The condition that is evaluated for each element of the copied array. If the condition is true, the element is kept in the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE"
@@ -2855,7 +2857,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The value at the start of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
@@ -2888,7 +2890,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A game mode constant.",
         "args": [
             {
-                "name": "GAME MODE",
+                "name": "gameMode",
                 "description": "A game mode constant.",
                 "type": "GamemodeLiteral",
                 "default": "ASSAULT"
@@ -2917,7 +2919,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The current value of a global variable, which is a variable that belongs to the game itself.",
         "args": [
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "description": "The variable whose value to acquire.",
                 "type": "GlobalVariable",
                 "default": "A"
@@ -2966,7 +2968,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A hero constant.",
         "args": [
             {
-                "name": "HERO",
+                "name": "hero",
                 "description": "A hero constant.",
                 "type": "HeroLiteral",
                 "default": "ANA"
@@ -2995,13 +2997,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Results in the Then value when the If condition is true; otherwise, results in the Else value.",
         "args": [
             {
-                "name": "IF",
+                "name": "if",
                 "description": "If this condition evaluates to true, the result of the value is then; otherwise, the result is else.",
                 "type": "bool",
                 "default": "TRUE"
             },
             {
-                "name": "THEN",
+                "name": "then",
                 "description": "The result of the value when the if condition evaluates to true.",
                 "type": [
                     "Object",
@@ -3011,7 +3013,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "ELSE",
+                "name": "else",
                 "description": "The result of the value when the if condition evaluates to false.",
                 "type": [
                     "Object",
@@ -3043,11 +3045,11 @@ export const valueFuncKw: Record<string, Value> =
         "zh-CN": "If-Then-Else",
         "zh-TW": "If-Then-Else"
     },
-    "__indexOfArrayValue__": {
-        "description": "The index of a value within an array or -1 if no such value can be found.",
+    ".index": {
+        "description": "The index of a value within the array or -1 if no such value can be found. **Does not support nested arrays.**\nWarning: if the array contains `true`, it will match against any truthy value, and `true` will match against any truthy value in the array.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array in which to search for the specified value.",
                 "type": {
                     "Array": "Object"
@@ -3055,13 +3057,14 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The value for which to search.",
                 "type": "Object",
                 "canReplace0ByNull": true,
                 "default": "NUMBER"
             }
         ],
+        class: "Array",
         "isConstant": true,
         "return": "int",
         "guid": "00000000C330",
@@ -3081,16 +3084,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Index Of Array Value",
         "zh-TW": "Index Of Array Value"
     },
-    "__lastOf__": {
+    ".last": {
         "description": "The value at the end of the specified array. Results in 0 if the specified array is empty.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array from which the value is acquired.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
             }
         ],
+        class: "Array",
         "isConstant": true,
         "return": [
             "Object",
@@ -3118,7 +3122,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Text formed from a selection of strings and specified values.",
         "args": [
             {
-                "name": "STRING",
+                "name": "string",
                 "description": "",
                 "type": "LocalizedStringLiteral",
                 "default": "HELLO"
@@ -3169,7 +3173,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A map constant.",
         "args": [
             {
-                "name": "MAP",
+                "name": "map",
                 "description": "A map constant.",
                 "type": "MapLiteral",
                 "default": "AYUTTHAYA"
@@ -3198,13 +3202,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A copy of the specified array with the values mapped according to the mapping expression that is evaluated for each element.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose copy will be mapped.",
                 "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "CONDITION",
+                "name": "condition",
                 "description": "The mapping expression that is evaluated for each element of the copied array. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "bool",
                 "default": "COMPARE"
@@ -3234,14 +3238,14 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The remainder of the left-hand operand divided by the right-hand operand. Any number modulo zero results in zero.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace1ByTrue": true,
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
                 "canReplace1ByTrue": true,
@@ -3271,7 +3275,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The product of two numbers or vectors. A vector multiplied by a number will yield a scaled vector.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -3280,7 +3284,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -3315,7 +3319,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the input is false (or equivalent to false).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "When this input is false (or equivalent to false), then the not value is true. Otherwise, the not value is false.",
                 "type": "bool",
                 "default": "TRUE"
@@ -3342,7 +3346,7 @@ export const valueFuncKw: Record<string, Value> =
     "__number__": {
         "args": [
             {
-                "name": "NUMBER",
+                "name": "number",
                 "type": "FloatLiteral",
                 "default": "0"
             }
@@ -3371,13 +3375,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether either of the two inputs are true (or equivalent to true).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
                 "default": "TRUE"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of the two inputs considered. If either one is true (or equivalent to true), then the or value is true.",
                 "type": "bool",
                 "default": "TRUE"
@@ -3405,13 +3409,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The current value of a player variable, which is a variable that belongs to a specific player.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player whose variable value to acquire.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "description": "The variable whose value to acquire.",
                 "type": "PlayerVariable",
                 "default": "A"
@@ -3440,13 +3444,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The left-hand operand raised to the power of the right-hand operand. If the left-hand operand is negative, the result is always zero.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "default": "NUMBER"
@@ -3474,19 +3478,19 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The surface normal at the ray cast hit position (or from end pos to start pos if no hit occurs).",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "PLAYERS TO INCLUDE",
+                "name": "playersToInclude",
                 "description": "Which players can be hit by this ray cast.",
                 "type": {
                     "Array": "Player"
@@ -3494,7 +3498,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "PLAYERS TO EXCLUDE",
+                "name": "playersToExclude",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
                 "type": {
                     "Array": "Player"
@@ -3502,7 +3506,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "name": "includePlayerOwnedObjects",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE"
@@ -3531,19 +3535,19 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The player hit by the ray cast (or null if no player is hit).",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "PLAYERS TO INCLUDE",
+                "name": "playersToInclude",
                 "description": "Which players can be hit by this ray cast.",
                 "type": {
                     "Array": "Player"
@@ -3551,7 +3555,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "PLAYERS TO EXCLUDE",
+                "name": "playersToExclude",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
                 "type": {
                     "Array": "Player"
@@ -3559,7 +3563,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "name": "includePlayerOwnedObjects",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE"
@@ -3588,19 +3592,19 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The position where the ray cast hits a surface, object, or player (or the end pos if no hit occurs).",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The start position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The end position for the ray cast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "PLAYERS TO INCLUDE",
+                "name": "playersToInclude",
                 "description": "Which players can be hit by this ray cast.",
                 "type": {
                     "Array": "Player"
@@ -3608,7 +3612,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "PLAYERS TO EXCLUDE",
+                "name": "playersToExclude",
                 "description": "Which players cannot be hit by this ray cast. This list takes precedence over players to include.",
                 "type": {
                     "Array": "Player"
@@ -3616,7 +3620,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "INCLUDE PLAYER OWNED OBJECTS",
+                "name": "includePlayerOwnedObjects",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the ray cast.",
                 "type": "bool",
                 "default": "TRUE"
@@ -3641,17 +3645,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ray Cast Hit Position",
         "zh-TW": "Ray Cast Hit Position"
     },
-    "__removeFromArray__": {
-        "description": "A copy of an array with one or more values removed (if found).",
+    ".exclude": {
+        "description": "A copy of the array with one or more values removed (if found).",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array from which to remove values.",
                 "type": "Array",
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The value to remove from the array (if found). If this value is itself an array, each matching element is removed.",
                 "type": [
                     "Object",
@@ -3661,6 +3665,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             }
         ],
+        class: "Array",
         "isConstant": true,
         "return": "Array",
         "guid": "00000000C421",
@@ -3684,13 +3689,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The integer to which the specified value rounds.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number to round.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "ROUNDING TYPE",
+                "name": "roundingType",
                 "description": "Determines the direction in which the value will be rounded.",
                 "type": "__Rounding__",
                 "default": "UP"
@@ -3719,7 +3724,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A copy of the specified array with the values sorted according to the value rank that is evaluated for each element.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose copy will be sorted.",
                 "type": {
                     "Array": "Object"
@@ -3727,7 +3732,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "VALUE RANK",
+                "name": "valueRank",
                 "description": "The value that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Use the current array element value to reference the element of the array currently being considered.",
                 "type": "Object",
                 "default": "CURRENT ARRAY ELEMENT"
@@ -3754,22 +3759,24 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Sorted Array",
         "zh-TW": "Sorted Array"
     },
-    "__strCharAt__": {
+    ".charAt": {
         "description": "The character found at a specified index of a String.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The String value whose character to acquire.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Index",
+                "name": "index",
                 "description": "The index of the character to be acquired (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
                 "default": 0
             }
         ],
+        isConstant: true,
+        class: "String",
         "return": "String",
         "guid": "000000012D5E",
         "en-US": "Char In String",
@@ -3788,22 +3795,24 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Char In String",
         "zh-TW": "Char In String"
     },
-    "__strIndex__": {
+    ".strIndex": {
         "description": "The index of a character within a String or -1 if no such character can be found.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The String Value from which to search for the character.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Character",
+                "name": "character",
                 "description": "The character for which to search",
                 "type": "String",
                 "default": "Global Variable"
             }
         ],
+        isConstant: true,
+        class: "String",
         "return": "int",
         "guid": "000000012D5F",
         "en-US": "Index Of String Char",
@@ -3822,28 +3831,30 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Index Of String Char",
         "zh-TW": "Index Of String Char"
     },
-    "__strReplace__": {
+    ".replace": {
         "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The String Value with which to search for replacements.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Pattern",
+                "name": "pattern",
                 "description": "The String pattern to be replaced.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Replacement",
+                "name": "replacement",
                 "description": "The String Value with which to replace the pattern String",
                 "type": "String",
                 "default": "Global Variable"
             }
         ],
+        isConstant: true,
+        class: "String",
         "return": "String",
         "guid": "000000012D61",
         "en-US": "String Replace",
@@ -3862,17 +3873,17 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "String Replace",
         "zh-TW": "String Replace"
     },
-    "__strSplit__": {
+    ".split": {
         "description": "Results in an Array of String Values. These String Values will be built from the specified String Value, split around the separator String.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The String Value to split.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Separator",
+                "name": "separator",
                 "description": "The separator String with which to split the String Value.",
                 "type": "String",
                 "default": "Global Variable"
@@ -3881,6 +3892,8 @@ export const valueFuncKw: Record<string, Value> =
         "return": {
             "Array": "String"
         },
+        isConstant: true,
+        class: "String",
         "guid": "000000012D60",
         "en-US": "String Split",
         "es-MX": "Separación de cadena",
@@ -3898,28 +3911,29 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "String Split",
         "zh-TW": "String Split"
     },
-    "__substring__": {
+    ".substring": {
         "description": "The substring of the provided string.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The string value from which to build the substring.",
                 "type": "String",
                 "default": "Global Variable"
             },
             {
-                "name": "Substring Start Index",
+                "name": "substringStartIndex",
                 "description": "Specifies the character that will start the substring (with 0 as the first character, 1 as the second character, etc.).",
                 "type": "unsigned int",
                 "default": 0
             },
             {
-                "name": "Substring Length",
+                "name": "substringLength",
                 "description": "Specifies the number of characters in the substring.",
                 "type": "unsigned int",
                 "default": 0
             }
         ],
+        class: "String",
         "isConstant": true,
         "return": "String",
         "guid": "0000000124A6",
@@ -3944,7 +3958,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The difference between two numbers or vectors.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -3955,7 +3969,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number or a vector.",
                 "type": [
                     "float",
@@ -3989,7 +4003,7 @@ export const valueFuncKw: Record<string, Value> =
     "__team__": {
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "type": "TeamLiteral",
                 "default": "ALL",
                 "description": "A Team constant."
@@ -4018,13 +4032,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The value found at a specific element of an array. Results in 0 if the element does not exist.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose element to acquire.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "INDEX",
+                "name": "index",
                 "description": "The index of the element to acquire.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -4058,23 +4072,23 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
         "args": [
             {
-                "name": "Category",
+                "name": "category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "Name",
+                "name": "name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "Default",
+                "name": "default",
                 "description": "The default value for this setting.",
                 "type": "UnsignedIntLiteral",
                 "default": 0
             },
             {
-                "name": "Options",
+                "name": "options",
                 "description": "The options for this setting.",
                 "type": {
                     "Array": "CustomStringLiteral"
@@ -4082,7 +4096,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "Array"
             },
             {
-                "name": "Sort Order",
+                "name": "sortOrder",
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
                 "default": 0
@@ -4110,23 +4124,23 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
         "args": [
             {
-                "name": "Category",
+                "name": "category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "Name",
+                "name": "name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "Default",
+                "name": "default",
                 "description": "The default value for this setting.",
                 "type": "HeroLiteral",
                 "default": "Ana"
             },
             {
-                "name": "Sort Order",
+                "name": "sortOrder",
                 "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
                 "type": "IntLiteral",
                 "default": 0
@@ -4154,35 +4168,35 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
         "args": [
             {
-                "name": "CATEGORY",
+                "name": "category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "NAME",
+                "name": "name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "DEFAULT",
+                "name": "default",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0
             },
             {
-                "name": "MIN",
+                "name": "min",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0
             },
             {
-                "name": "MAX",
+                "name": "max",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 100
             },
             {
-                "name": "SORT ORDER",
+                "name": "sortOrder",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0
@@ -4211,35 +4225,35 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
         "args": [
             {
-                "name": "CATEGORY",
+                "name": "category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "NAME",
+                "name": "name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "DEFAULT",
+                "name": "default",
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 0
             },
             {
-                "name": "MIN",
+                "name": "min",
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 0
             },
             {
-                "name": "MAX",
+                "name": "max",
                 "description": "",
                 "type": "FloatLiteral",
                 "default": 100
             },
             {
-                "name": "SORT ORDER",
+                "name": "sortOrder",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0
@@ -4268,23 +4282,23 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
         "args": [
             {
-                "name": "CATEGORY",
+                "name": "category",
                 "description": "The name of the category in which this setting will be found.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "NAME",
+                "name": "name",
                 "description": "The name of this setting.",
                 "type": "CustomStringLiteral"
             },
             {
-                "name": "DEFAULT",
+                "name": "default",
                 "description": "",
                 "type": "BoolLiteral",
                 "default": 0
             },
             {
-                "name": "SORT ORDER",
+                "name": "sortOrder",
                 "description": "",
                 "type": "IntLiteral",
                 "default": 0
@@ -4313,7 +4327,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The x component of the specified vector, usually representing a leftward amount.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The vector from which to acquire the x component.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -4342,7 +4356,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The y component of the specified vector, usually representing an upward amount.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The vector from which to acquire the y component.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -4371,7 +4385,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The z component of the specified vector, usually representing a forward amount.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The vector from which to acquire the z component.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -4400,13 +4414,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Converts a Hero and Button parameter into a string that shows up as an icon (up to 4 per string).",
         "args": [
             {
-                "name": "HERO",
+                "name": "hero",
                 "description": "The hero for the ability that will be converted to an icon.",
                 "type": "Hero",
                 "default": "HERO"
             },
             {
-                "name": "Button",
+                "name": "button",
                 "description": "The button for the ability that will be converted to an icon.",
                 "type": "Button",
                 "default": "Button"
@@ -4436,7 +4450,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The absolute value of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number value whose absolute value will be computed.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4465,7 +4479,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arccosine in radians of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4494,7 +4508,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arccosine in degrees of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4523,13 +4537,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The angle in degrees between two directional vectors (no normalization required).",
         "args": [
             {
-                "name": "VECTOR",
+                "name": "vector",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
                 "default": "VECTOR"
             },
             {
-                "name": "VECTOR",
+                "name": "vector",
                 "description": "One of two directional vectors between which to measure the angle in degrees. This vector does not need to be pre-normalized.",
                 "type": "Direction",
                 "default": "VECTOR"
@@ -4558,13 +4572,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The difference in degrees between two angles. After the angles are wrapped to be within +/- 180 of each other, the result is positive if the second angle is greater than the first angle. Otherwise, the result is zero or negative.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "One of the two angles between which to measure the resulting angle.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4593,13 +4607,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The unit-length direction vector corresponding to the specified angles.",
         "args": [
             {
-                "name": "HORIZONTAL ANGLE",
+                "name": "horizontalAngle",
                 "description": "The horizontal angle in degrees used to construct the resulting vector.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "VERTICAL ANGLE",
+                "name": "verticalAngle",
                 "description": "The vertical angle in degrees used to construct the resulting vector.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4629,7 +4643,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arcsine in radians of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4658,7 +4672,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arcsine in degrees of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "Input value for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4687,13 +4701,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arctangent in radians of the specified numerator and denominator (often referred to as atan2).",
         "args": [
             {
-                "name": "NUMERATOR",
+                "name": "numerator",
                 "description": "Numerator input for the function.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "DENOMINATOR",
+                "name": "denominator",
                 "description": "Denominator input for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4722,13 +4736,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Arctangent in degrees of the specified numerator and denominator (often referred to as atan2).",
         "args": [
             {
-                "name": "NUMERATOR",
+                "name": "numerator",
                 "description": "Numerator input for the function.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "DENOMINATOR",
+                "name": "denominator",
                 "description": "Denominator input for the function.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4779,7 +4793,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
         "args": [
             {
-                "name": "BUTTON",
+                "name": "button",
                 "description": "The button for the input binding that will be converted to a string.",
                 "type": "Button",
                 "default": "Button"
@@ -4809,7 +4823,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Cosine of the specified angle in radians.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4838,7 +4852,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Cosine of the specified angle in degrees.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER"
@@ -4867,13 +4881,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The cross product of the specified values. (Left cross up equals forward.)",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand-side vector operand of the cross product.",
                 "type": "Vector",
                 "default": "VECTOR"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand-side vector operand of the cross product.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -4903,13 +4917,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The unit-length direction vector from one position to another.",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The position from which the resulting direction vector will point.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The position to which the resulting direction vector will point.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -4939,13 +4953,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The distance between two positions in meters.",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "One of the two positions used in the distance measurement.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -4974,13 +4988,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The dot product of the specified values.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
                 "default": "VECTOR"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "One of two vector operands of the dot product.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -5009,7 +5023,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified player, icon entity, or effect entity still exists. Useful for determining if a player has left the match or an entity has been destroyed.",
         "args": [
             {
-                "name": "ENTITY",
+                "name": "entity",
                 "description": "The player, icon entity, or effect entity whose existence to check.",
                 "type": [
                     "Player",
@@ -5040,7 +5054,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Makes a copy of the provided value. Useful for selectively not reevaluating certain parts of a value, such as creating effects in a loop.",
         "args": [
             {
-                "name": "Input Value",
+                "name": "inputValue",
                 "description": "The value that will be only evaluated once.",
                 "type": [
                     "Object",
@@ -5335,13 +5349,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The player closest to a position, optionally restricted by team.",
         "args": [
             {
-                "name": "CENTER",
+                "name": "center",
                 "description": "The position from which to measure proximity.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which the closest player will come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5371,7 +5385,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The score percentage for the specified team in control mode.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose score percentage to acquire.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5513,7 +5527,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all dead players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5544,13 +5558,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The player farthest from a position, optionally restricted by team.",
         "args": [
             {
-                "name": "CENTER",
+                "name": "center",
                 "description": "The position from which to measure distance.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which the farthest player will come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5580,7 +5594,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The player carrying a particular team's flag in capture the flag. Results in null if no player is carrying the flag.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5609,7 +5623,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The position of a specific team's flag in capture the flag.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose flag position to acquire.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5807,7 +5821,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all living players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -5922,7 +5936,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of dead players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6013,13 +6027,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of players playing a specific hero on a team or in the match.",
         "args": [
             {
-                "name": "HERO",
+                "name": "hero",
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6068,7 +6082,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of living players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6096,7 +6110,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6124,7 +6138,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to count players.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6152,7 +6166,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of slots on a team or in the match.",
         "args": [
             {
-                "name": "Team",
+                "name": "team",
                 "description": "The team or teams on which to count slots.",
                 "type": "Team",
                 "default": "Team"
@@ -6202,7 +6216,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The position in the world of the specified objective (either a control point, a payload checkpoint, or a payload destination). Valid in assault, escort, hybrid, and control.",
         "args": [
             {
-                "name": "NUMBER",
+                "name": "number",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -6233,7 +6247,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The team opposite the specified team.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose opposite to acquire. If all, the result will be all.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6327,7 +6341,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all players on a team or in the match.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6358,25 +6372,25 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
         "args": [
             {
-                "name": "CENTER",
+                "name": "center",
                 "description": "The center position from which to measure distance.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "RADIUS",
+                "name": "radius",
                 "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
                 "type": "unsigned float",
                 "default": "NUMBER"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams to which a player must belong to be included in the resulting array.",
                 "type": "Team",
                 "default": "TEAM"
             },
             {
-                "name": "LOS CHECK",
+                "name": "losCheck",
                 "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
                 "type": "LosCheck",
                 "default": "OFF"
@@ -6407,7 +6421,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The player or array of players who occupy a specific slot in the game.",
         "args": [
             {
-                "name": "SLOT",
+                "name": "slot",
                 "description": "The slot number from which to acquire a player or players. In team games, each team has slots 0 through 5. In free-for-all games, slots are numbered 0 through 11.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -6415,7 +6429,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which to acquire a player or players.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6449,7 +6463,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all players occupying neither a payload nor a control point (either on a team or in the match).",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6480,13 +6494,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The array of players playing a specific hero on a team or in the match.",
         "args": [
             {
-                "name": "HERO",
+                "name": "hero",
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6517,7 +6531,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "An array containing all players occupying a payload or control point (either on a team or in the match).",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams from which players may come.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6569,7 +6583,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The active spawn points for a team or for the match, provided as an array of position vectors.",
         "args": [
             {
-                "name": "Team",
+                "name": "team",
                 "description": "The team whose spawn points to acquire.",
                 "type": "Team",
                 "default": "Team"
@@ -6712,7 +6726,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Converts a hero parameter into a string that shows up as an icon  (up to 4 per string).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The hero that will be converted to an icon.",
                 "type": "Hero",
                 "default": "HERO"
@@ -6742,7 +6756,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The horizontal angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
-                "name": "DIRECTION",
+                "name": "direction",
                 "description": "The direction vector from which to acquire a horizontal angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
                 "default": "VECTOR"
@@ -6771,13 +6785,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The horizontal angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is on the player's left. Otherwise, the result is zero or negative.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "POSITION",
+                "name": "position",
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -6826,7 +6840,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Allows you to use an icon inside of a string (up to 4 per string).",
         "args": [
             {
-                "name": "Icon",
+                "name": "icon",
                 "description": "The icon to display.",
                 "type": "Icon",
                 "default": "ARROW: DOWN"
@@ -6898,7 +6912,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether a specific team's flag is at its base in capture the flag.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6926,7 +6940,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether a specific team's flag is being carried by a member of the opposing team in capture the flag.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose flag to check.",
                 "type": "Team",
                 "default": "TEAM"
@@ -6975,7 +6989,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether two positions have line of sight with each other.",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The start position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": [
                     "Position",
@@ -6984,7 +6998,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The end position for the line-of-sight check. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": [
                     "Position",
@@ -6993,7 +7007,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "VECTOR"
             },
             {
-                "name": "BARRIERS",
+                "name": "barriers",
                 "description": "Defines how barriers affect line of sight. When considering whether a barrier belongs to an enemy, the allegiance of the player provided to start pos (if any) is used.",
                 "type": "BarrierLos",
                 "default": "BARRIERS DO NOT BLOCK LOS"
@@ -7105,7 +7119,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified objective has been completed. Results in false if the game mode is not assault, escort, or hybrid.",
         "args": [
             {
-                "name": "NUMBER",
+                "name": "number",
                 "description": "The index of the objective to consider, starting at 0 and counting up. Each control point, payload checkpoint, and payload destination has its own index.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
@@ -7135,7 +7149,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified team is currently on defense. Results in false if the game mode is not assault, escort, or hybrid.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose role to check.",
                 "type": "Team",
                 "default": "TEAM"
@@ -7163,7 +7177,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified team is currently on offense. Results in false if the game mode is not assault, escort, or hybrid.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose role to check.",
                 "type": "Team",
                 "default": "TEAM"
@@ -7212,7 +7226,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The number of elements in the specified array. For strings, use `strLen`.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose elements will be counted.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
@@ -7262,19 +7276,19 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The vector in local coordinates corresponding to the provided vector in world coordinates.",
         "args": [
             {
-                "name": "WORLD VECTOR",
+                "name": "worldVector",
                 "description": "The vector in world coordinates that will be converted to local coordinates.",
                 "type": "Vector",
                 "default": "VECTOR"
             },
             {
-                "name": "RELATIVE PLAYER",
+                "name": "relativePlayer",
                 "description": "The player to whom the resulting vector will be relative.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "TRANSFORMATION",
+                "name": "transformation",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
                 "default": "ROTATION"
@@ -7333,7 +7347,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The greater of two numbers.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -7341,7 +7355,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -7372,7 +7386,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The lesser of two numbers.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The left-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -7380,7 +7394,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The right-hand operand. May be any value that results in a number.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -7410,7 +7424,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The position closest to the specified position that can be stood on and is accessible from a spawn point.",
         "args": [
             {
-                "name": "POSITION",
+                "name": "position",
                 "description": "The position from which to search for the nearest walkable position.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -7439,7 +7453,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The unit-length normalization of a vector.",
         "args": [
             {
-                "name": "VECTOR",
+                "name": "vector",
                 "description": "The vector to normalize.",
                 "type": "Vector",
                 "default": "VECTOR"
@@ -7492,7 +7506,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A random value from the specified array.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
@@ -7523,7 +7537,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A random integer between the specified min and max, inclusive.",
         "args": [
             {
-                "name": "MIN",
+                "name": "min",
                 "description": "The smallest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
                 "canReplace0ByFalse": true,
@@ -7531,7 +7545,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "MAX",
+                "name": "max",
                 "description": "The largest integer allowed. If a real number is provided to this input, it is rounded to the nearest integer.",
                 "type": "int",
                 "canReplace0ByFalse": true,
@@ -7561,7 +7575,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A copy of the specified array with the values in a random order.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose copy will be randomized.",
                 "type": "Array",
                 "default": "GLOBAL VARIABLE"
@@ -7589,13 +7603,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A random real number between the specified min and max.",
         "args": [
             {
-                "name": "MIN",
+                "name": "min",
                 "description": "The smallest real number allowed.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "MAX",
+                "name": "max",
                 "description": "The largest real number allowed.",
                 "type": "float",
                 "default": "NUMBER"
@@ -7623,25 +7637,25 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A custom color with the specified red, green, blue and alpha values.",
         "args": [
             {
-                "name": "Red",
+                "name": "red",
                 "description": "The red component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             },
             {
-                "name": "Green",
+                "name": "green",
                 "description": "The green component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             },
             {
-                "name": "Blue",
+                "name": "blue",
                 "description": "The blue component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             },
             {
-                "name": "Alpha",
+                "name": "alpha",
                 "description": "The alpha component of a color. 255 is perfectly opaque while 0 is perfectly invisible.",
                 "type": "unsigned int",
                 "default": 255
@@ -7671,7 +7685,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Sine of the specified angle in radians.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER"
@@ -7700,7 +7714,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Sine of the specified angle in degrees.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER"
@@ -7729,7 +7743,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The square root of the specified value.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number value whose square root will be computed. Negative values result in zero.",
                 "type": "unsigned float",
                 "default": "NUMBER"
@@ -7758,13 +7772,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether the specified string contains the specified substring.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The string in which to search for the specified substring.",
                 "type": "String",
                 "default": "Custom String"
             },
             {
-                "name": "Substring",
+                "name": "substring",
                 "description": "The substring for which to search.",
                 "type": "String",
                 "default": "Custom String"
@@ -7793,7 +7807,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The length in characters of the provided string.",
         "args": [
             {
-                "name": "String",
+                "name": "string",
                 "description": "The string whose characters to count.",
                 "type": "String",
                 "default": "Global Variable"
@@ -7822,7 +7836,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Tangent of the specified angle in radians.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in radians.",
                 "type": "float",
                 "default": "NUMBER"
@@ -7851,7 +7865,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Tangent of the specified angle in degrees.",
         "args": [
             {
-                "name": "ANGLE",
+                "name": "angle",
                 "description": "Angle in degrees.",
                 "type": "float",
                 "default": "NUMBER"
@@ -7880,13 +7894,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
             {
-                "name": "HERO",
+                "name": "hero",
                 "description": "The hero to check for play.",
                 "type": "Hero",
                 "default": "HERO"
             },
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team or teams on which to check for the hero being played.",
                 "type": "Team",
                 "default": "TEAM"
@@ -7915,7 +7929,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The current score for the specified team. Results in 0 in free-for-all game modes.",
         "args": [
             {
-                "name": "TEAM",
+                "name": "team",
                 "description": "The team whose score to acquire.",
                 "type": "Team",
                 "default": "TEAM"
@@ -7964,7 +7978,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "Increases the update frequency of the provided value to once per tick. Useful for smoothing the appearance of certain Values, such as getPosition(), that normally only update every few ticks. Applies to rule conditions as well as reevaluating action parameters. The value is interpolated client-side if the framerate is higher than the tick rate. May increase server load and/or lower frame rate.",
         "args": [
             {
-                "name": "Value",
+                "name": "value",
                 "description": "The value that will be updated once per tick.",
                 "type": [
                     "Object",
@@ -8000,7 +8014,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "A vector composed of three real numbers (x, y, z) where x is left, y is up, and z is forward. Vectors are used for position, direction, and velocity.",
         "args": [
             {
-                "name": "X",
+                "name": "x",
                 "description": "The x value of the vector.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -8008,7 +8022,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "Y",
+                "name": "y",
                 "description": "The y value of the vector.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -8016,7 +8030,7 @@ export const valueFuncKw: Record<string, Value> =
                 "default": "NUMBER"
             },
             {
-                "name": "Z",
+                "name": "z",
                 "description": "The z value of the vector.",
                 "type": "float",
                 "canReplace0ByFalse": true,
@@ -8047,13 +8061,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The displacement vector from one position to another.",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The position from which the resulting displacement vector begins.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The position at which the resulting displacement vector ends.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -8083,7 +8097,7 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The vertical angle in degrees corresponding to the specified direction vector.",
         "args": [
             {
-                "name": "DIRECTION",
+                "name": "direction",
                 "description": "The direction vector from which to acquire a vertical angle in degrees. The vector is unitized before calculation begins.",
                 "type": "Direction",
                 "default": "VECTOR"
@@ -8112,13 +8126,13 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The vertical angle in degrees from a player's current forward direction to the specified position. The result is positive if the position is below the player. Otherwise, the result is zero or negative.",
         "args": [
             {
-                "name": "PLAYER",
+                "name": "player",
                 "description": "The player from whose current facing the angle begins.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "POSITION",
+                "name": "position",
                 "description": "The position in the world where the angle ends.",
                 "type": "Position",
                 "default": "VECTOR"
@@ -8168,19 +8182,19 @@ export const valueFuncKw: Record<string, Value> =
         "description": "The vector in world coordinates corresponding to the provided vector in local coordinates.",
         "args": [
             {
-                "name": "LOCAL VECTOR",
+                "name": "localVector",
                 "description": "The vector in local coordinates that will be converted to world coordinates.",
                 "type": "Vector",
                 "default": "VECTOR"
             },
             {
-                "name": "RELATIVE PLAYER",
+                "name": "relativePlayer",
                 "description": "The player to whom the local vector is relative.",
                 "type": "Player",
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "TRANSFORMATION",
+                "name": "transformation",
                 "description": "Specifies whether the vector should receive a rotation and a translation (usually applied to positions) or only a rotation (usually applied to directions and velocities).",
                 "type": "Transform",
                 "default": "ROTATION"

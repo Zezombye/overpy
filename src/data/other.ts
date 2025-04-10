@@ -20,6 +20,7 @@
 import { Action, actionKw } from "./actions";
 import { Constant, constantValues } from "./constants";
 import { opyFuncs } from "./opy/functions";
+import { opyMacros } from "./opy/macros";
 import { opyInternalFuncs } from "./opy/internalFunctions";
 import { heroKw } from "./heroes";
 import { valueFuncKw } from "./values";
@@ -776,7 +777,20 @@ postLoadTasks.push({
 
         wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
 
-        funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs);
+        funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs, opyMacros);
+
+        //Set whether a macro argument is duplicated (if so, it will be checked to not contain random values)
+        for (let macroName in opyMacros) {
+            let macro = opyMacros[macroName];
+            if (macro.args) {
+                for (let arg of macro.args) {
+                    if ((macro.macro.match(new RegExp("\\$" + arg.name, "g")) || []).length > 1) {
+                        arg.isDuplicatedInMacro = true;
+                    }
+                }
+            }
+        }
+
     },
     priority: 21
 });

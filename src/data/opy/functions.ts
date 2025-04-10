@@ -17,144 +17,161 @@
 
 "use strict";
 
-import { Argument, ReturnType } from "../../types";
+import { Argument, Type } from "../../types";
 
-export const opyFuncs: Record<string, {
-    description: string,
-    args: Argument[] | null,
-    return: ReturnType | ReturnType[],
-    isConstant?: boolean
-}> = {
-//Functions
-
-    "_&toArray": {
-        "description": "Get an array of the values of an enum.",
-        "args": [
-            {
-                "name": "__enumType__",
-                "description": "The enum to take the values from.",
-                "type": "Type"
-            }
-        ],
-        "return": {Array: "Object"}
-    },
+export const opyFuncs: Record<
+    string,
+    {
+        description: string;
+        args: Argument[] | null;
+        class?: string,
+        return: Type;
+        isConstant?: boolean;
+    }
+> = {
     "all": {
         "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
         "args": [
             {
-                "name": "Array",
+                "name": "array",
                 "description": "The array whose values will be considered.",
-                "type": {"Array": "bool"},
+                "type": {
+                    "Array": "bool"
+                },
                 "default": "GLOBAL VARIABLE"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
     },
     "any": {
         "description": "Whether any value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `any([player.A == 2 for player in getAllPlayers()])`",
         "args": [
             {
-                "name": "Array",
+                "name": "array",
                 "description": "The array whose values will be considered.",
-                "type": {"Array": "bool"},
+                "type": {
+                    "Array": "bool"
+                },
                 "default": "GLOBAL VARIABLE"
             }
         ],
         "isConstant": true,
-        return: "bool",
+        "return": "bool"
+    },
+    ".append": {
+        "description": "Appends the specified value to the specified array. Note that this function is really the equivalent of `extend()`, that is, `[1,2].append([3,4])` will produce `[1,2,3,4]` instead of `[1,2,[3,4]]`. Modifies the array in-place; use `concat` to instead return a copy of the array.\n\nExample: `A.append(3)`",
+        "args": [
+            {
+                "name": "array",
+                "type": "Variable"
+            },
+            {
+                "name": "value",
+                "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
+                "type": ["Object", { Array: "Object" }],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "void",
     },
     "arrayToString": {
         "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed.",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array to be displayed. If not an array, it will be displayed normally.",
-                "type": {"Array": "Object"},
+                "type": {
+                    "Array": "Object"
+                },
                 "default": "GLOBAL VARIABLE"
             },
             {
-                "name": "MAXIMUM LENGTH",
+                "name": "maxLength",
                 "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable. If not specified, defaults to 12.",
                 "type": "IntLiteral",
                 "default": 0
             }
         ],
-        isConstant: true,
-        return: "String",
+        "isConstant": true,
+        "return": "String"
     },
     "async": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
-                "name": "SUBROUTINE",
+                "name": "subroutine",
                 "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
                 "type": "Subroutine",
                 "default": "Sub0"
             },
             {
-                "name": "IF ALREADY EXECUTING",
+                "name": "ifAlreadyExecuting",
                 "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
                 "type": "AsyncBehavior",
                 "default": "RESTART RULE"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "ceil": {
         "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number to get the ceiling of.",
                 "type": "float",
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "int",
+        "return": "int"
     },
     "chase": {
         "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
         "args": [
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "description": "Specifies which variable (global or player) to modify gradually.",
                 "type": "Variable",
                 "default": "A"
             },
             {
-                "name": "DESTINATION",
+                "name": "destination",
                 "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
-                "type": ["float", "Vector"],
+                "type": [
+                    "float",
+                    "Vector"
+                ],
                 "default": "NUMBER"
             },
             {
-                "name": "RATE OR DURATION",
+                "name": "rateOrDuration",
                 "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "REEVALUATION",
+                "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "ChaseReeval",
                 "default": "DESTINATION AND RATE"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "createCasedProgressBarIwt": {
         "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
         "args": [
             {
-                "name": "Text Count",
+                "name": "textCount",
                 "description": "The amount of texts used to overlay.",
                 "type": "IntLiteral",
-                "default": 2,
+                "default": 2
             },
             {
-                "name": "Visible To",
+                "name": "visibleTo",
                 "description": "One or more players who will see the progress bar HUD text.",
                 "type": [
                     "Player",
@@ -162,109 +179,101 @@ export const opyFuncs: Record<string, {
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS",
+                "default": "ALL PLAYERS"
             },
             {
-                "name": "Text",
+                "name": "text",
                 "description": "The text to be displayed. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String",
+                "default": "Custom String"
             },
             {
-                "name": "Position",
+                "name": "position",
                 "description": "The text's position. If this value is a player, then the text will appear above the player's head. Otherwise, the value is interpreted as a position in the world.",
                 "type": [
                     "Position",
                     "Player"
                 ],
-                "default": "Event Player",
+                "default": "Event Player"
             },
             {
-                "name": "Scale",
+                "name": "scale",
                 "description": "The text's scale.",
                 "type": "float",
-                "default": "NUMBER",
+                "default": "NUMBER"
             },
             {
-                "name": "Clipping",
+                "name": "clipping",
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
-                "default": "CLIP AGAINST SURFACES",
+                "default": "CLIP AGAINST SURFACES"
             },
             {
-                "name": "Text Color",
+                "name": "textColor",
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR",
+                "default": "COLOR"
             },
             {
-                "name": "Reevaluation",
+                "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressWorldTextReeval",
-                "default": "Visible To, Values, and Color",
+                "default": "Visible To, Values, and Color"
             },
             {
-                "name": "Non-Team Spectators",
+                "name": "nonTeamSpectators",
                 "description": "Whether non-team spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "Default Visibility",
+                "default": "Default Visibility"
             }
         ],
-        "return": "void",
+        "return": "void"
     },
     "createWorkshopSetting": {
         "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
         "args": [
             {
-                "name": "TYPE",
-                "description":
-`The type of the setting. Can be an integer, float, hero, enum, or boolean.
-
-To specify a minimum or maximum, use the type option syntax: for example, \`int[3:6]\` specifies an integer with a minimum of 3 and maximum of 6, included.
-
-Examples of valid types:
-
-- \`int[-2:7]\`
-- \`float[-3.5:3]\`
-- \`bool\`
-- \`Hero\`
-- \`enum["First option", "Second option"]\`
-`,
+                "name": "type",
+                "description": "The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum[\"First option\", \"Second option\"]`\n",
                 "type": "Type",
-                "default": "",
-            },{
-                "name": "CATEGORY",
+                "default": ""
+            },
+            {
+                "name": "category",
                 "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "NAME",
+                "default": "CUSTOM STRING"
+            },
+            {
+                "name": "name",
                 "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING",
-            },{
-                "name": "DEFAULT",
+                "default": "CUSTOM STRING"
+            },
+            {
+                "name": "default",
                 "description": "The default value for this setting.",
                 "type": [
                     "BoolLiteral",
                     "IntLiteral",
                     "FloatLiteral",
-                    "HeroLiteral",
+                    "HeroLiteral"
                 ],
-                "default": 0,
-            },{
-                "name": "SORT ORDER",
+                "default": 0
+            },
+            {
+                "name": "sortOrder",
                 "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. If not specified, defaults to 0. Can be from 0 to 63.",
                 "type": "IntLiteral",
-                "default": 0,
+                "default": 0
             }
         ],
         "isConstant": true,
         "return": [
             "bool",
             "int",
-            "float",
-        ],
+            "float"
+        ]
     },
     "debug": {
         "description": "For quick debugging of a value.",
@@ -272,551 +281,294 @@ Examples of valid types:
             {
                 "name": "value",
                 "description": "The value to be displayed.",
-                "type": ["Object", "Array"],
+                "type": [
+                    "Object",
+                    "Array"
+                ]
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "floor": {
         "description": "The integer that is the floor of the specified value (equivalent to rounding down).",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number to get the floor of.",
                 "type": "float",
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "int",
+        "return": "int"
+    },
+    ".format": {
+        "description": "The values that will be converted to text and used to replace the format placeholders (such as `{}` or `{0}`). Only usable on a string. Can have as much arguments as there are placeholders. The n-th argument replaces the n-th placeholder.",
+        "args": [
+            {
+                "name": "string",
+                "type": "StringLiteral",
+                "default": "NULL"
+            },
+            {
+                "name": "value",
+                "description": "The value used to replace the matching placeholder.",
+                "type": "Object",
+                "default": "NULL"
+            }
+        ],
+        class: "String",
+        return: "String",
+    },
+    ".getNormal": {
+        "description": "The surface normal at the raycast hit position (or from end pos to start pos if no hit occurs).",
+        "args": [
+            {
+                "name": "raycast",
+                "type": "Raycast"
+            }
+        ],
+        class: "Raycast",
+        return: "Direction",
+    },
+    ".getPlayerHit": {
+        "description": "The player hit by the raycast (or null if no player is hit).",
+        "args": [
+            {
+                "name": "raycast",
+                "type": "Raycast"
+            }
+        ],
+        class: "Raycast",
+        return: "Player",
+    },
+    ".getHitPosition": {
+        "description": "The position where the raycast hits a surface, object, or player (or the end pos if no hit occurs).",
+        "args": [
+            {
+                "name": "raycast",
+                "type": "Raycast"
+            }
+        ],
+        class: "Raycast",
+        return: "Position",
     },
     "hsl": {
-        description: "A custom color in HSL format. The first argument is the hue (0-360), the second is the saturation (0-1) and the third is the lightness (0-1).",
-        args: [
+        "description": "A custom color in HSL format. The first argument is the hue (0-360), the second is the saturation (0-1) and the third is the lightness (0-1).",
+        "args": [
             {
-                "name": "HUE",
+                "name": "hue",
                 "description": "The hue of the color.",
                 "type": "float",
-                "default": 0,
+                "default": 0
             },
             {
-                "name": "SATURATION",
+                "name": "saturation",
                 "description": "The saturation of the color.",
                 "type": "float",
-                "default": 0,
+                "default": 0
             },
             {
-                "name": "LIGHTNESS",
+                "name": "lightness",
                 "description": "The lightness of the color.",
                 "type": "float",
-                "default": 0,
+                "default": 0
             }
         ],
-        isConstant: true,
-        return: "Color",
+        "isConstant": true,
+        "return": "Color"
     },
     "hsla": {
-        description: "A custom color in HSLA format. The first argument is the hue (0-360), the second is the saturation (0-1), the third is the lightness (0-1).",
-        args: [
+        "description": "A custom color in HSLA format. The first argument is the hue (0-360), the second is the saturation (0-1), the third is the lightness (0-1).",
+        "args": [
             {
-                "name": "HUE",
+                "name": "hue",
                 "description": "The hue of the color (0-360).",
                 "type": "float",
-                "default": 0,
+                "default": 0
             },
             {
-                "name": "SATURATION",
+                "name": "saturation",
                 "description": "The saturation of the color (0-1).",
                 "type": "float",
-                "default": 0,
+                "default": 0
             },
             {
-                "name": "LIGHTNESS",
+                "name": "lightness",
                 "description": "The lightness of the color (0-1).",
                 "type": "float",
-                "default": 0,
+                "default": 0
             },
             {
-                "name": "ALPHA",
+                "name": "alpha",
                 "description": "The alpha of the color (0-255).",
                 "type": "float",
-                "default": 0,
-            }
-        ],
-        isConstant: true,
-        return: "Color",
-    },
-    "getAllPlayers": {
-        "description": "Built-in macro for `getPlayers(Team.ALL)`.",
-        "args": [],
-        return: {"Array": "Player"},
-    },
-    "getRealClosestPlayer": {
-        "description": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
-        "args": [
-            {
-                "name": "CENTER",
-                "description": "The position from which to measure proximity.",
-                "type": "Position",
-                "default": "VECTOR",
-            },
-            {
-                "name": "TEAM",
-                "description": "The team or teams from which the closest player will come.",
-                "type": "Team",
-                "default": "TEAM",
-            }
-        ],
-        "return": "Player",
-    },
-
-    getRealFarthestPlayer: {
-
-        "description": "The alive and spawned player farthest from a position, optionally restricted by team.\n\nNote: the workshop `Farthest Player From` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
-        "args": [
-            {
-                "name": "CENTER",
-                "description": "The position from which to measure distance.",
-                "type": "Position",
-                "default": "VECTOR",
-            },
-            {
-                "name": "TEAM",
-                "description": "The team or teams from which the farthest player will come.",
-                "type": "Team",
-                "default": "TEAM",
-            }
-        ],
-        "return": "Player",
-    },
-
-    "_&getRealPlayerClosestToReticle": {
-        "description": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
-        "args": [
-            {
-                "name": "PLAYER",
-                "description": "The player from whose reticle to search for the closest player.",
-                "type": "Player",
-                "default": "EVENT PLAYER",
-            },
-            {
-                "name": "TEAM",
-                "description": "The team or teams on which to search for the closest player.",
-                "type": "Team",
-                "default": "TEAM",
-            }
-        ],
-        "return": "Player",
-    },
-    "hudHeader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": ["Player", {Array: "Player"}],
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "STRING"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HudPosition",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-        return: "void",
-    },
-    "hudSubheader": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": ["Player", {Array: "Player"}],
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HudPosition",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "default": "NUMBER"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-        return: "void",
-    },
-    "hudSubtext": {
-        "description": "Built-in macro for `hudText` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": ["Player", {Array: "Player"}],
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "SUBTEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HudPosition",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "default": "NUMBER"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-        return: "void",
-    },
-    "hudText": {
-        "description": "Creates hud text visible to specific players at a specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text id value. This action will fail if too many text elements have been created.\n\nNote: you can use the macros `hudHeader`, `hudSubheader` and `hudSubtext` to reduce the number of arguments.",
-        "args": [
-            {
-                "name": "VISIBLE TO",
-                "description": "One or more players who will see the hud text.",
-                "type": ["Player", {Array: "Player"}],
-                "default": "ALL PLAYERS"
-            },
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "STRING"
-            },
-            {
-                "name": "SUBHEADER",
-                "description": "The subheader text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "NULL"
-            },
-            {
-                "name": "TEXT",
-                "description": "The body text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "NULL"
-            },
-            {
-                "name": "LOCATION",
-                "description": "The location on the screen where the text will appear.",
-                "type": "HudPosition",
-                "default": "LEFT"
-            },
-            {
-                "name": "SORT ORDER",
-                "description": "The sort order of the text relative to other text in the same location. A higher sort order will come after a lower sort order.",
-                "type": "float",
-                canReplace0ByFalse: true,
-                canReplace1ByTrue: true,
-                "default": "NUMBER"
-            },
-            {
-                "name": "HEADER COLOR",
-                "description": "The color of the header.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "SUBHEADER COLOR",
-                "description": "The color of the subheader.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "TEXT COLOR",
-                "description": "The color of the text.",
-                "type": "Color",
-                "default": "WHITE"
-            },
-            {
-                "name": "REEVALUATION",
-                "description": "Specifies which of this action's inputs will be continuously reevaluated.",
-                "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
-            },
-            {
-                "name": "SPECTATORS",
-                "description": "Whether spectators can see the text or not. Optional argument.",
-                "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
-            }
-        ],
-        return: "void",
-    },
-    "getSign": {
-        "description": "Built-in macro for calculating the sign of a number. Resolves to `(x>0)-(x<0)`. Returns -1, 0 or 1.",
-        "args": [
-            {
-                "name": "NUMBER",
-                "description": "The number to calculate the sign of.",
-                "type": "float",
-                "default": "NUMBER"
+                "default": 0
             }
         ],
         "isConstant": true,
-        return: "int",
-    },
-    "lineIntersectsSphere": {
-        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate around the edges of a sphere if `lineStart` is too close to `sphereCenter`.\n\nThanks to LazyLion for the formula.\n\nResolves to `distance(distance(lineStart, sphereCenter) * lineDirection + lineStart, sphereCenter) <= sphereRadius`.",
-        "args": [
-            {
-                "name": "LINE START",
-                "description": "The starting position of the line.",
-                "type": "Position",
-            },{
-                "name": "LINE DIRECTION",
-                "description": "The direction from the starting position to the ending position of the line.",
-                "type": "Direction",
-            },{
-                "name": "SPHERE CENTER",
-                "description": "The center of the sphere.",
-                "type": "Position",
-            },{
-                "name": "SPHERE RADIUS",
-                "description": "The radius of the sphere.",
-                "type": "unsigned float",
-            }
-        ],
-        "isConstant": true,
-        return: "bool",
+        "return": "Color"
     },
     "log": {
         "description": "Built-in macro to calculate the logarithm of the specified number. Accurate to an error of 0.01 for values up to 1 million. Thanks to lucid and LazyLion for the formula.\n\nBe wary of floating point precision errors, and use the `round()` function if you must compare the output. For example, `log(10000, 10)` will not give exactly 4.",
         "args": [
             {
-                "name": "NUMBER",
+                "name": "number",
                 "description": "The number to get the logarithm of.",
-                "type": "unsigned float",
-            },{
-                "name": "BASE",
-                "description": "The base of the logarithm. If not specified, defaults to `math.e`.",
-                "type": "unsigned float",
+                "type": "unsigned float"
+            },
+            {
+                "name": "base",
+                "description": "The base of the logarithm. If not specified, defaults to `Math.E`.",
+                "type": "unsigned float"
             }
         ],
         "isConstant": true,
-        return: "float",
+        "return": "float"
     },
     "pass": {
-        "description": "Does nothing. Used when OverPy's grammar requires an instruction, such as having an empty block. Is parsed as an action for the purposes of runtime `goto`s.",
+        "description": "Does nothing. Is parsed as an action for the purposes of runtime `goto`s.",
         "args": null,
-        return: "void",
-    },
-    "print": {
-        "description": "Creates an orange HUD text at the top left. Should be used for quick debugging of a value.",
-        "args": [
-            {
-                "name": "HEADER",
-                "description": "The text to be displayed (can be blank)",
-                "type": "Object",
-                "default": "STRING"
-            }
-        ],
-        return: "void",
+        "return": "void"
     },
     "range": {
         "description": "Only usable inside a `for` instruction, such as `for i in range(1,3,2)`. If only 2 arguments are provided, they are treated as `range(start, stop)`. If only one argument is provided, it is treated as `range(stop)`.",
         "args": [
             {
-                "name": "START",
+                "name": "start",
                 "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
                 "type": "float",
                 "default": "NUMBER"
             },
             {
-                "name": "STOP",
+                "name": "stop",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
                 "default": "COUNT OF"
             },
             {
-                "name": "STEP",
+                "name": "step",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action. If omitted, defaults to 1.",
                 "type": "float",
                 "default": "NUMBER"
             }
         ],
-        return: "Iterator",
+        "return": "Iterator"
     },
     "raycast": {
         "description": "Defines a raycast to be then used with `getPlayerHit()`, `getNormal()` or `getHitPosition()`.",
         "args": [
             {
-                "name": "START POS",
+                "name": "startPos",
                 "description": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "END POS",
+                "name": "endPos",
                 "description": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
                 "default": "VECTOR"
             },
             {
-                "name": "players To Include",
+                "name": "playersToInclude",
                 "description": "Which players can be hit by this raycast.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "ALL PLAYERS"
             },
             {
-                "name": "players To Exclude",
+                "name": "playersToExclude",
                 "description": "Which players cannot be hit by this raycast. This list takes precedence over players to include.",
-                "type": {Array: "Player"},
+                "type": {
+                    "Array": "Player"
+                },
                 "default": "EVENT PLAYER"
             },
             {
-                "name": "include Player Objects",
+                "name": "includePlayerObjects",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast.",
                 "type": "bool",
                 "default": "TRUE"
             }
         ],
-        return: "Raycast",
+        "return": "Raycast"
+    },
+    ".remove": {
+        "description": "Removes one or more Values from the Variable's array (if found). If the Variable isn't already an array, it becomes an array of one element before the remove occurs.",
+        "args": [
+            {
+                "name": "array",
+                "type": "Variable"
+            },
+            {
+                "name": "value",
+                "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
+                "type": ["Object", "Array"],
+                "default": "NUMBER"
+            }
+        ],
+        class: "Array",
+        return: "void",
     },
     "rgb": {
         "description": "A custom color with the specified red, green, and blue values.",
         "args": [
             {
-                "name": "Red",
+                "name": "red",
                 "description": "The red component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             },
             {
-                "name": "Green",
+                "name": "green",
                 "description": "The green component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             },
             {
-                "name": "Blue",
+                "name": "blue",
                 "description": "The blue component of a color, from 0 to 255.",
                 "type": "unsigned int",
                 "default": 255
             }
         ],
         "isConstant": true,
-        "return": "Color",
+        "return": "Color"
     },
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
         "args": [
             {
-                "name": "VALUE",
+                "name": "value",
                 "description": "The real number to get the nearest integer of.",
                 "type": "float",
                 "default": "NUMBER"
             }
         ],
         "isConstant": true,
-        return: "int"
+        "return": "int"
     },
     "RULE_CONDITION": {
         "description": "Equivalent to true if every rule condition is true. Can only be used in the following cases:\n\n- `while RULE_CONDITION` (in a do/while loop)\n- `while not RULE_CONDITION` (in a do/while loop)\n- `if RULE_CONDITION: continue` (and not in a while/for loop)\n- `if not RULE_CONDITION: continue` (and not in a while/for loop)\n- `if RULE_CONDITION: return`\n- `if not RULE_CONDITION: return`",
         "args": null,
-        return: "bool",
+        "return": "bool"
     },
     "RULE_START": {
         "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement.",
         "args": null,
-        return: "Label",
+        "return": "Label"
     },
     "sorted": {
         "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
         "args": [
             {
-                "name": "ARRAY",
+                "name": "array",
                 "description": "The array whose copy will be sorted.",
-                "type": {Array: "Object"},
+                "type": {
+                    "Array": "Object"
+                },
                 "default": "GLOBAL VARIABLE"
             },
             {
@@ -827,72 +579,71 @@ Examples of valid types:
             }
         ],
         "isConstant": true,
-        return: {Array: "Object"},
+        "return": {
+            "Array": "Object"
+        }
     },
     "spacesForString": {
-        description: "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`.",
-        args: [
-
+        "description": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`.",
+        "args": [
             {
-                "name": "Text",
+                "name": "text",
                 "description": "The text to get spaces of. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String",
-            },
+                "default": "Custom String"
+            }
         ],
-        isConstant: true,
-        "return": "String",
+        "isConstant": true,
+        "return": "String"
     },
     "spacesForLength": {
-        description: "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function.",
-        args: [
-
+        "description": "Returns a string made of spaces that is the same length as the provided length (in terms of font units). The length should be the result of a calculation done by the `strVisualLength()` function.",
+        "args": [
             {
-                "name": "Length",
+                "name": "length",
                 "description": "The length to get. Must be a literal integer, not a variable.",
                 "type": "IntLiteral",
-                "default": 0,
-            },
+                "default": 0
+            }
         ],
-        isConstant: true,
-        "return": "String",
+        "isConstant": true,
+        "return": "String"
     },
     "stopChasingVariable": {
         "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
         "args": [
             {
-                "name": "VARIABLE",
+                "name": "variable",
                 "description": "Specifies which variable (global or player) to stop modifying.",
                 "type": "Variable",
                 "default": "A"
             }
         ],
-        return: "void",
+        "return": "void"
     },
     "strVisualLength": {
-        description: "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`.",
-        args: [
+        "description": "Returns the length (in font units) of a literal string. Note that it must use the Blizzard Global font (use the 'b' string modifier on the final string, unless displaying in a progress bar in-world text). The string is case-sensitive.\n\nSee also: `spacesForLength()` and `spacesForString()`.",
+        "args": [
             {
-                "name": "Text",
+                "name": "text",
                 "description": "The text to calculate the length of. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String",
-            },
+                "default": "Custom String"
+            }
         ],
-        isConstant: true,
-        "return": "unsigned int",
+        "isConstant": true,
+        "return": "unsigned int"
     },
-    "timeToString": {
-        description: "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37)` will return `1:02:37.000`.",
-        args: [
+    ".toArray": {
+        "description": "Get an array of the values of an enum.",
+        "args": [
             {
-                "name": "TIME",
-                "description": "The time in seconds to display.",
-                "type": "unsigned float",
-                "default": "NUMBER"
-            },
+                "name": "__enumType__",
+                "description": "The enum to take the values from.",
+                "type": "Type"
+            }
         ],
-        isConstant: true,
-        return: "String",
+        class: "Enum",
+        "return": "Array",
     },
 };

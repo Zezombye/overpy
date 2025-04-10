@@ -239,7 +239,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 decrementNbTabs();
             }
             continue;
-        } else if (actions[i].name === "__hudText__") {
+        } else if (actions[i].name === "hudText") {
             if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
                 decompiledAction += "hudHeader(" + [0, 1, 4, 5, 6, 9, 10].map((x) => astToOpy(actions[i].args[x])).join(", ") + ")";
             } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
@@ -339,7 +339,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 activatedExtensions.push(extensionName);
             }
 
-            if (actions[i].name.startsWith("_&")) {
+            if (actions[i].name.startsWith(".")) {
                 var op1 = astToOpy(actions[i].args[0]);
                 if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                     op1 = "(" + op1 + ")";
@@ -347,7 +347,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 decompiledAction =
                     op1 +
                     "." +
-                    actions[i].name.substring(2) +
+                    actions[i].name.substring(".".length) +
                     "(" +
                     actions[i].args
                         .slice(1)
@@ -530,48 +530,15 @@ export function astToOpy(content: Ast): string {
     if (content.name === "__array__") {
         return "[" + content.args.map((x) => astToOpy(x)).join(", ") + "]";
     }
-    var internalFuncToFuncMap = {
-        __concat__: "concat",
-        __removeFromArray__: "exclude",
-        __indexOfArrayValue__: "index",
-    };
-    if (content.name in internalFuncToFuncMap) {
-        var result = astToOpy(content.args[0]);
-        if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
-            result = "(" + result + ")";
-        }
-        return result + "." + internalFuncToFuncMap[content.name as keyof typeof internalFuncToFuncMap] + "(" + astToOpy(content.args[1]) + ")";
-    }
 
-    //Functions with a dot/index
-    if (["__arraySlice__", "__substring__", "__strSplit__", "__strReplace__", "__strIndex__", "__strCharAt__", "__firstOf__", "__lastOf__", "__valueInArray__", "__xComponentOf__", "__yComponentOf__", "__zComponentOf__"].includes(content.name)) {
+    //Functions with an index or with a member value that doesn't have parentheses
+    if (["__firstOf__", "__valueInArray__", "__xComponentOf__", "__yComponentOf__", "__zComponentOf__"].includes(content.name)) {
         var result = astToOpy(content.args[0]);
         if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
             result = "(" + result + ")";
-        }
-        if (content.name === "__arraySlice__") {
-            return result + ".slice(" + astToOpy(content.args[1]) + ", " + astToOpy(content.args[2]) + ")";
-        }
-        if (content.name === "__substring__") {
-            return result + ".substring(" + astToOpy(content.args[1]) + ", " + astToOpy(content.args[2]) + ")";
-        }
-        if (content.name === "__strSplit__") {
-            return result + ".split(" + astToOpy(content.args[1]) + ")";
-        }
-        if (content.name === "__strIndex__") {
-            return result + ".strIndex(" + astToOpy(content.args[1]) + ")";
-        }
-        if (content.name === "__strReplace__") {
-            return result + ".replace(" + astToOpy(content.args[1]) + ", " + astToOpy(content.args[2]) + ")";
-        }
-        if (content.name === "__strCharAt__") {
-            return result + ".charAt(" + astToOpy(content.args[1]) + ")";
         }
         if (content.name === "__firstOf__") {
             return result + "[0]";
-        }
-        if (content.name === "__lastOf__") {
-            return result + ".last()";
         }
         if (content.name === "__valueInArray__") {
             return result + "[" + astToOpy(content.args[1]) + "]";
@@ -815,7 +782,7 @@ export function astToOpy(content: Ast): string {
     if (funcKw[content.name].args === null) {
         return content.name;
     } else {
-        if (content.name.startsWith("_&")) {
+        if (content.name.startsWith(".")) {
             var result = astToOpy(content.args[0]);
             if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
                 result = "(" + result + ")";
@@ -823,7 +790,7 @@ export function astToOpy(content: Ast): string {
             return (
                 result +
                 "." +
-                content.name.substring(2) +
+                content.name.substring(".".length) +
                 "(" +
                 content.args
                     .slice(1)

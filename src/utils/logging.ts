@@ -128,17 +128,6 @@ export function functionNameToString(content: Ast) {
         __raycast__: "raycast",
         __all__: "all",
         __any__: "any",
-        __arraySlice__: ".slice",
-        __concat__: ".concat",
-        __indexOfArrayValue__: ".index",
-        __lastOf__: ".last",
-        __removeFromArray__: ".exclude",
-        __sortedArray__: ".sorted",
-        __strCharAt__: ".charAt",
-        __strIndex__: ".strIndex",
-        __strReplace__: ".replace",
-        __strSplit__: ".split",
-        __substring__: ".substring",
         __workshopSettingCombo__: "createWorkshopSetting",
         __workshopSettingHero__: "createWorkshopSetting",
         __workshopSettingInteger__: "createWorkshopSetting",
@@ -151,23 +140,24 @@ export function functionNameToString(content: Ast) {
     };
 
     let funcDisplayName: string;
+    let funcName = content.originalName || content.name;
 
-    if (content.name in funcToOperatorMapping) {
-        funcDisplayName = "operator " + funcToOperatorMapping[content.name as keyof typeof funcToOperatorMapping];
-    } else if (content.name in funcToDisplayMapping) {
-        funcDisplayName = "function '" + funcToDisplayMapping[content.name as keyof typeof funcToDisplayMapping] + "'";
+    if (funcName in funcToOperatorMapping) {
+        funcDisplayName = "operator " + funcToOperatorMapping[funcName as keyof typeof funcToOperatorMapping];
+    } else if (funcName in funcToDisplayMapping) {
+        funcDisplayName = "function '" + funcToDisplayMapping[funcName as keyof typeof funcToDisplayMapping] + "'";
     } else if (isTypeSuitable("StringLiteral", content.type)) {
-        funcDisplayName = "string " + escapeString(content.name, false);
-    } else if (content.name === "__number__") {
+        funcDisplayName = "string " + escapeString(funcName, false);
+    } else if (funcName === "__number__") {
         funcDisplayName = "number '" + content.args[0].numValue + "'";
-    } else if (content.name === "__globalVar__") {
+    } else if (funcName === "__globalVar__") {
         funcDisplayName = "global variable '" + content.args[0].name + "'";
-    } else if (content.name === "__playerVar__") {
+    } else if (funcName === "__playerVar__") {
         funcDisplayName = "player variable '" + content.args[1].name + "'";
-    } else if (["__button__", "__color__", "__hero__", "__map__", "__gamemode__", "__team__"].includes(content.name)) {
+    } else if (["__button__", "__color__", "__hero__", "__map__", "__gamemode__", "__team__"].includes(funcName)) {
         funcDisplayName = "enum '" + content.type.toString() + "'";
     } else {
-        funcDisplayName = "function '" + content.name.replace("_&", ".") + "'";
+        funcDisplayName = "function '" + funcName + "'";
     }
 
     return funcDisplayName;

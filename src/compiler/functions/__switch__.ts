@@ -62,7 +62,7 @@ astParsingFunctions.__switch__ = function (content) {
         caseOffsets.push(new Ast("__distanceTo__", [new Ast("__label_switch_" + switchNb + "_" + i + "__", [], [], "Label")]));
     }
 
-    casesChildren.unshift(new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast("__indexOfArrayValue__", [new Ast("__array__", switchCaseArgs), content.args[0]])])])]));
+    casesChildren.unshift(new Ast("__skip__", [new Ast("__valueInArray__", [new Ast("__array__", caseOffsets), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", switchCaseArgs), content.args[0]])])])]));
 
     //Insert the children of the cases in the parent
     for (var child of casesChildren) {

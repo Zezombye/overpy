@@ -41,6 +41,7 @@ export type Value = {
     args: Argument[] | null;
     return: ReturnType | ReturnType[];
     isConstant?: boolean;
+    class?: string;
     canBePutInBoolean?: boolean;
     hideFromAutocomplete?: boolean;
 } & {
@@ -56,6 +57,7 @@ export type Argument = {
     min?: number;
     max?: number;
     literalMax?: number;
+    isDuplicatedInMacro?: boolean;
 } & ReplaceableData;
 
 export type Map = {
@@ -143,8 +145,6 @@ export type ReplaceableData = {
     canReplace1ByTrue?: boolean;
     canReplaceNullVectorByNull?: boolean;
 };
-
-export type ReturnType = string | { Array: string } | { Direction: [string, string, string] };
 
 export type Type = string[] | string | { [key: string]: string | Type[] };
 

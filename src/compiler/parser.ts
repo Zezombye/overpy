@@ -859,13 +859,13 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     if (name === "destroyAllInWorldText") {
         name = "destroyAllInWorldTexts";
     } else if (name === "disableEnvironmentCollision") {
-        name = "_&disableEnvironmentCollision";
+        name = ".disableEnvironmentCollision";
     } else if (name === "enableEnvironmentCollision") {
-        name = "_&enableEnvironmentCollision";
-    } else if (name === "_&disableHeroHUD") {
-        name = "_&disableHeroHud";
+        name = ".enableEnvironmentCollision";
+    } else if (name === ".disableHeroHUD") {
+        name = ".disableHeroHud";
     } else if (name === "enablePlayerCollision") {
-        name = "_&enablePlayerCollision";
+        name = ".enablePlayerCollision";
     } else if (name === "horizontalAngleFromDirection") {
         name = "horizontalAngleOfDirection";
     }
@@ -978,35 +978,7 @@ function parseMember(object: Token[], member: Token[]) {
         }
         return new Ast("__playerVar__", [parse(object), new Ast(name, [], [], "PlayerVariable")]);
     } else {
-        if (["append", "concat", "exclude", "index", "remove", "split", "strIndex", "charAt"].includes(name)) {
-            if (args.length !== 1) {
-                error("Function '" + name + "' takes 1 argument, received " + args.length);
-            }
-            var funcToInternalFuncMap = {
-                append: "__append__",
-                concat: "__concat__",
-                exclude: "__removeFromArray__",
-                index: "__indexOfArrayValue__",
-                remove: "__remove__",
-                split: "__strSplit__",
-                strIndex: "__strIndex__",
-                charAt: "__strCharAt__",
-            };
-
-            return new Ast(funcToInternalFuncMap[name as keyof typeof funcToInternalFuncMap], [parse(object), parse(args[0])]);
-        } else if (name === "last") {
-            if (args.length !== 0) {
-                error("Function '" + name + "' takes 1 argument, received " + args.length);
-            }
-            return new Ast("__lastOf__", [parse(object)]);
-        } else if (name === "format") {
-            return new Ast("__format__", [parse(object)].concat(args.map((x) => parse(x))));
-        } else if (["getHitPosition", "getNormal", "getPlayerHit"].includes(name)) {
-            if (args.length !== 0) {
-                error("Function '" + name + "' takes no argument, received " + args.length);
-            }
-            return new Ast("__" + name + "__", [parse(object)]);
-        } else if (object[0].text === "random" && object.length === 1) {
+        if (object[0].text === "random" && object.length === 1) {
             if (name === "randint" || name === "uniform") {
                 if (args.length !== 2) {
                     error("Function 'random." + name + "' takes 2 arguments, received " + args.length);
@@ -1020,28 +992,8 @@ function parseMember(object: Token[], member: Token[]) {
             } else {
                 error("Unhandled member 'random." + name + "'");
             }
-        } else if (name === "replace") {
-            if (args.length !== 2) {
-                error("Function 'replace' takes 2 arguments, received " + args.length);
-            }
-            return new Ast("__strReplace__", [parse(object), parse(args[0]), parse(args[1])]);
-        } else if (name === "reverse") {
-            if (args.length !== 0) {
-                error("Function '" + name + "' takes 1 argument, received " + args.length);
-            }
-            return new Ast("__reverse__", [parse(object)]);
-        } else if (name === "slice") {
-            if (args.length !== 2) {
-                error("Function 'slice' takes 2 arguments, received " + args.length);
-            }
-            return new Ast("__arraySlice__", [parse(object), parse(args[0]), parse(args[1])]);
-        } else if (name === "substring") {
-            if (args.length !== 2) {
-                error("Function 'substring' takes 2 arguments, received " + args.length);
-            }
-            return new Ast("__substring__", [parse(object), parse(args[0]), parse(args[1])]);
         } else {
-            //Assume it is a player function
+            //Assume it is a generic member function
 
             //old functions
             if (name === "setCamera") {
@@ -1049,7 +1001,7 @@ function parseMember(object: Token[], member: Token[]) {
             } else if (name === "disableHeroHUD") {
                 name = "disableHeroHud";
             }
-            return new Ast("_&" + name, [parse(object)].concat(args.map((x) => parse(x))));
+            return new Ast("." + name, [parse(object)].concat(args.map((x) => parse(x))));
         }
     }
 

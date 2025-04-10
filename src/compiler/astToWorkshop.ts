@@ -356,16 +356,16 @@ function astToWs(content: Ast): string {
         }
         newName = "__chase" + newName;
         content.name = newName;
-    } else if (["__getHitPosition__", "__getPlayerHit__", "__getNormal__"].includes(content.name)) {
+    } else if ([".getHitPosition", ".getPlayerHit", ".getNormal"].includes(content.name)) {
         if (content.args[0].name !== "raycast") {
             error("Cannot use " + functionNameToString(content) + " with " + functionNameToString(content.args[0]));
         }
         content.args = content.args[0].args;
         content.name = {
-            __getHitPosition__: "__raycastHitPosition__",
-            __getPlayerHit__: "__raycastHitPlayer__",
-            __getNormal__: "__raycastHitNormal__",
-        }[content.name as "__getHitPosition__" | "__getPlayerHit__" | "__getNormal__"];
+            ".getHitPosition": "__raycastHitPosition__",
+            ".getPlayerHit": "__raycastHitPlayer__",
+            ".getNormal": "__raycastHitNormal__",
+        }[content.name as ".getHitPosition" | ".getPlayerHit" | ".getNormal"];
     } else if (content.name === "__for__") {
         var newName = "";
         if (content.args[0].name === "__globalVar__") {
@@ -382,9 +382,6 @@ function astToWs(content: Ast): string {
     } else if (content.name === "__globalVar__") {
         incrementNbElements();
         return tows("__global__", valueKw) + "." + astToWs(content.args[0]);
-    } else if (content.name === "__negate__") {
-        content.name = "__multiply__";
-        content.args = [getAstForMinus1(), content.args[0]];
     } else if (content.name === "__number__") {
         incrementNbElements(2);
         return trimNb(content.args[0].name);
@@ -398,33 +395,9 @@ function astToWs(content: Ast): string {
     } else if (content.name === "ceil") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundUp__", [], [], "__Rounding__")];
-    } else if (content.name === "getSign") {
-        //getSign(x) -> (x>0)-(x<0)
-        content.name = "__subtract__";
-        content.args = [new Ast("__greaterThan__", [content.args[0], getAstFor0()]), new Ast("__lessThan__", [content.args[0], getAstFor0()])];
     } else if (content.name === "floor") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundDown__", [], [], "__Rounding__")];
-    } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-        if (content.name === "hudHeader") {
-            content.args.splice(2, 0, getAstForNull());
-            content.args.splice(3, 0, getAstForNull());
-            content.args.splice(7, 0, getAstForNull());
-            content.args.splice(8, 0, getAstForNull());
-        } else if (content.name === "hudSubheader") {
-            content.args.splice(1, 0, getAstForNull());
-            content.args.splice(3, 0, getAstForNull());
-            content.args.splice(6, 0, getAstForNull());
-            content.args.splice(8, 0, getAstForNull());
-        } else {
-            content.args.splice(1, 0, getAstForNull());
-            content.args.splice(2, 0, getAstForNull());
-            content.args.splice(6, 0, getAstForNull());
-            content.args.splice(7, 0, getAstForNull());
-        }
-        content.name = "__hudText__";
-    } else if (content.name === "hudText") {
-        content.name = "__hudText__";
     } else if (content.name === "pass") {
         content.name = "return";
         content.isDisabled = true;

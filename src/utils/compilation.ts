@@ -21,9 +21,11 @@ import { parseAst } from "../compiler/astParser";
 import { parseLines } from "../compiler/parser";
 import { tokenize } from "../compiler/tokenizer";
 import { CustomGameSettingSchema } from "../data/customGameSettings";
+import { opyMacros } from "../data/opy/macros";
 import { customGameSettingsKw } from "../data/other";
-import { Ast, replaceFunctionInAst } from "./ast";
-import { error } from "./logging";
+import { Ast, astContainsRandom, replaceFunctionInAst } from "./ast";
+import { astToString, error } from "./logging";
+import { upperCaseToCamelCase } from "./other";
 import { escapeBadWords, escapeString, getUtf8ByteLength, getUtf8Length } from "./strings";
 import { tows } from "./translation";
 
@@ -111,15 +113,35 @@ export function trimNb(x: number | string) {
     return result;
 }
 
-export function parseOpyMacro(macro: string, args: Ast[]): Ast {
+export function parseOpyMacroAst(content: Ast): Ast {
+
+    if (!(content.name in opyMacros)) {
+        error("Unknown macro '" + content.name + "'");
+    }
+
+    for (let [i, arg] of (opyMacros[content.name].args || []).entries()) {
+        if (arg.isDuplicatedInMacro && astContainsRandom(content.args[i])) {
+            error("Cannot use random functions in argument '" + arg.name + "' of macro '" + content.name + "', as it is duplicated within the macro");
+        }
+    }
+
+    let macro = opyMacros[content.name].macro;
+
+    return parseOpyMacro(macro, (opyMacros[content.name].args || []).map(arg => "$"+arg.name), content.args);
+}
+
+export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
+
+
     let lines = tokenize(macro);
     let astLines = parseLines(lines);
     if (astLines.length !== 1) {
         error("Macro '" + macro + "' should only have one line");
     }
     let result = astLines[0];
-    for (let [i, arg] of args.entries()) {
-        result = replaceFunctionInAst(result, "__arg" + i + "__", arg);
+    for (let [i, arg] of argNames.entries()) {
+        result = replaceFunctionInAst(result, arg, args[i]);
     }
     return result;
+
 }

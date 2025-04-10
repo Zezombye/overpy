@@ -48,12 +48,12 @@ astParsingFunctions.debug = function (content) {
     }
     contentStr = contentStrTrimmed;
     if (enableTagsSetup) {
-        contentStr = "<FGD0FF00FF>" + contentStr + "</FG>\u2028= <FGFFFF00FF>{}" + " ".repeat(170);
+        contentStr = "<FGD0FF00FF>" + contentStr + "\u2028<FG99F3FFFF>= <FGFFFF00FF>{}" + " ".repeat(170);
     } else {
         contentStr = contentStr + "\u2028= {}" + " ".repeat(170);
     }
 
-    console.log(contentStr);
+    //console.log(contentStr);
 
-    return new Ast("__hudText__", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(), getAstForNull(), astParsingFunctions.__format__(new Ast("__format__", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForNull(), getAstForColorWhite(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(), getAstForNull(), astParsingFunctions[".format"](new Ast(".format", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForNull(), getAstForColorWhite(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
 };

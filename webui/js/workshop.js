@@ -848,7 +848,7 @@ var app = new Vue({
                 NUMBER: "__number__",
                 OFF: "OFF",
                 "PLAYER VARIABLE": "__playerVar__",
-                "Position Of": "_&getPosition",
+                "Position Of": ".getPosition",
                 "PRIMARY FIRE": "PRIMARY_FIRE",
                 "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT": "RECEIVERS_DAMAGERS_AND_DMGPERCENT",
                 "RECEIVERS, HEALERS, AND HEALING PERCENT": "RECEIVERS_HEALERS_AND_HEALPERCENT",

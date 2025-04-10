@@ -30,14 +30,14 @@ export const opyAnnotations: Record<string, {
     "@Name": {
         "description": "For subroutines, specifies the name of the rule.",
         args: [{
-            "name": "NAME",
+            "name": "name",
             "description": "A string literal containing the name of the rule."
         }]
     },
     "@Event": {
         "description": "Defines the event type for the current rule. If omitted, default to `global`. Not applicable for subroutines.",
         args: [{
-            "name": "TYPE",
+            "name": "type",
             "description": "The type of the event.",
             "values": Object.keys(eventKw),
         }]
@@ -45,7 +45,7 @@ export const opyAnnotations: Record<string, {
     "@Team": {
         "description": "Defines which team the current rule applies for. If omitted, defaults to `all`. Not applicable for subroutines.",
         args: [{
-            "name": "TEAM",
+            "name": "team",
             "description": "The team of the event.",
             "values": Object.keys(eventTeamKw),
         }]
@@ -53,7 +53,7 @@ export const opyAnnotations: Record<string, {
     "@Slot": {
         "description": "Defines which slot the current rule applies for. If omitted, defaults to all slots. Cannot be used with `@Hero`. Not applicable for subroutines.",
         args: [{
-            "name": "SLOT",
+            "name": "slot",
             "description": "The slot of the event.",
             "values": Object.keys(eventSlotKw),
         }]
@@ -61,7 +61,7 @@ export const opyAnnotations: Record<string, {
     "@Hero": {
         "description": "Defines which hero the current rule applies for. If omitted, defaults to all heroes. Cannot be used with `@Slot`. Not applicable for subroutines.",
         args: [{
-            "name": "HERO",
+            "name": "hero",
             "description": "The hero of the event.",
             "values": Object.keys(heroKw).map(x => x.toLowerCase()),
         }]
@@ -69,7 +69,7 @@ export const opyAnnotations: Record<string, {
     "@Condition": {
         "description": "Specifies a condition that must be fulfilled for the rule to be run. Not applicable for subroutines.",
         args: [{
-            "name": "CONDITION",
+            "name": "condition",
             "description": "The condition that must be fulfilled.",
         }]
     },

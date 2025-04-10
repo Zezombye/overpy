@@ -20,7 +20,7 @@ import { funcKw } from "../data/other";
 // @ts-check
 import { astParsingFunctions, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
 import { error, functionNameToString } from "./logging";
-import { FileStackMember, Type, type ReturnType } from "../types";
+import { FileStackMember, Type } from "../types";
 import { isTypeSuitable } from "./types";
 
 export class RuleAttributes {
@@ -55,7 +55,7 @@ export class Ast {
     doNotOptimize = false;
     originalName?: string;
     parent?: Ast;
-    expectedType?: ReturnType | ReturnType[];
+    expectedType?: Type;
     comment?: string;
     isDisabled = false;
 
@@ -70,7 +70,7 @@ export class Ast {
         if (!type) {
             if (name in funcKw) {
                 this.type = funcKw[name].return;
-            } else if (name.match(/^__arg\d+__$/)) {
+            } else if (name.startsWith("$")) {
                 //macro
                 this.type = "Value";
             } else {
@@ -237,6 +237,12 @@ export function areAstsAlwaysEqual(a: Ast, b: Ast) {
     return true;
 }
 
+//Should check for any function which can return a different value if called twice within the same action.
+//For now, only random functions fit that criteria
+export function astContainsRandom(ast: Ast) {
+    return astContainsFunctions(ast, ["random.randint", "random.uniform", "random.choice", "random.shuffle"]);
+}
+
 export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnTrue = false) {
     if (functionNames.includes(ast.name)) {
         if (errorOnTrue) {
@@ -266,8 +272,9 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
 
 //Used to replace currentArrayElement with currentArrayElement[0] to fix the simultaneous mapping+filtering bug.
 export function replaceFunctionInAst(ast: Ast, functionName: string, newAst: Ast) {
+    //console.log("Replacing " + functionName + " with " + newAst.name);
     if (ast.name === functionName) {
-        return newAst;
+        return newAst.clone();
     }
     for (var i = 0; i < ast.args.length; i++) {
         ast.args[i] = replaceFunctionInAst(ast.args[i], functionName, newAst);
@@ -362,5 +369,5 @@ export function getAstForCurrentArrayIndex() {
 }
 export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
     const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
-    return astParsingFunctions.__format__(new Ast("__format__", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
+    return astParsingFunctions[".format"](new Ast(".format", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
 }

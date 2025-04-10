@@ -18,11 +18,14 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstForCustomString, getAstForEmptyArray, getAstForNull, getAstForNumber } from "../../utils/ast";
+import { Ast, astContainsRandom, getAstForCustomString, getAstForEmptyArray, getAstForNull, getAstForNumber } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.arrayToString = function (content) {
+    if (astContainsRandom(content.args[0])) {
+        error("Cannot display an array containing random functions. Assign it to a variable first.");
+    }
     if (content.args[1].name !== "__number__") {
         error("The max length must be a literal number");
     }
@@ -34,17 +37,17 @@ astParsingFunctions.arrayToString = function (content) {
     //If an array index doesn't exist, the value will be 0
     let placeholderStr = Array(maxLength).fill("0").join(", ") + (maxLength > 0 ? ", " : "") + "…\u0001";
 
-    let formatArgs = Array(maxLength).fill(0).map((x, i) => "__arg0__["+i+"]").join(", ");
+    let formatArgs = Array(maxLength).fill(0).map((x, i) => "$array["+i+"]").join(", ");
 
     return parseOpyMacro(`(
         ${JSON.stringify(displayStr)}.format(${formatArgs}).replace(
             ${JSON.stringify(placeholderStr)}.substring(
-                ${placeholderStr.length - 4 - 3*maxLength} + 3*len(__arg0__),
-                ${maxLength*3+4} - 3*len(__arg0__)
+                ${placeholderStr.length - 4 - 3*maxLength} + 3*len($array),
+                ${maxLength*3+4} - 3*len($array)
             ),
             []
         )
-        if len(__arg0__) or (__arg0__ == [] and __arg0__ != null)
-        else "{}".format(__arg0__)
-    )`, content.args);
+        if len($array) or ($array == [] and $array != null)
+        else "{}".format($array)
+    )`, ["$array"], content.args);
 };

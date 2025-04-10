@@ -40,7 +40,7 @@ export function getStrVisualLength(text: string) {
 }
 
 astParsingFunctions.strVisualLength = function (content) {
-    if (content.args[0].name !== "__format__") {
+    if (content.args[0].name !== ".format") {
         error("Text must be a literal custom string");
     }
     if (content.args[0].args.length > 1) {

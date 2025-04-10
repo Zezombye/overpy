@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars.js";
+import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars.js";
 import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast.js";
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
 import { isTypeSuitable } from "../../utils/types.js";
@@ -33,7 +33,10 @@ astParsingFunctions.__add__ = function (content) {
     if (enableOptimization) {
         //If both arguments are numbers, return their addition.
         if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(content.args[0].args[0].numValue + content.args[1].args[0].numValue);
+            let result = content.args[0].args[0].numValue + content.args[1].args[0].numValue;
+            if (Math.abs(result) < NUMBER_LIMIT) {
+                return getAstForNumber(result);
+            }
         }
 
         //If one of the arguments is 0, return the other argument.

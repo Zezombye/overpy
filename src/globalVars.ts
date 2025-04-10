@@ -33,6 +33,8 @@ export var subroutines: Subroutine[];
 export var currentLanguage: OWLanguage;
 
 export const ELEMENT_LIMIT = 32768;
+//The workshop behaves weirdly with this limit (sometimes it is 100M instead of 10M), so don't perform optimizations if going beyond it
+export const NUMBER_LIMIT = 10_000_000;
 export const PAGE_SIZE = 100;
 //If it is in a browser then it is assumed to be in debug mode.
 // @ts-ignore

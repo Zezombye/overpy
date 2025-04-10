@@ -21,7 +21,7 @@ rule ("function") {
         Set Global Variable(A, Ray Cast Hit Player(Global.B, Global.C, Global.D, Global.E, True));
         Set Global Variable(A, Ray Cast Hit Position(Global.B, Global.C, Global.D, Global.E, False));
         Set Global Variable(A, Ray Cast Hit Normal(Global.B, Global.C, Global.D, Global.E, True));
-        Set Global Variable(A, Subtract(Compare(-3, >, Null), Compare(-3, <, Null)));
+        Set Global Variable(A, Divide(Divide(Multiply(Multiply(-3, 999999999999999), 999999999999999), 999999999999999), 10));
         Set Global Variable(A, String Slice(Global.B, 2, 4));
         Chase Player Variable Over Time(Event Player, B, 9999, 3, Destination and Duration);
         Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, True, Color(Red), Null, Null, Visible To and String, Visible Always);
@@ -36,8 +36,9 @@ rule ("function") {
         Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.C), Has Spawned(Current Array Element)), Multiply(-1, Distance Between(Current Array Element, Global.B)))));
         Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.C), Has Spawned(Current Array Element)), Multiply(-1, Distance Between(Current Array Element, Global.B)))));
         Set Global Variable(A, Player Closest To Reticle(Global.A, Global.B));
-        Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Position Of(Global.A))))));
-        Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Position Of(Global.A))))));
+        Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Eye Position(Global.A))))));
+        Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.B), And(Has Spawned(Current Array Element), Compare(Current Array Element, !=, Global.A))), Angle Between Vectors(Facing Direction Of(Global.A), Subtract(Current Array Element, Eye Position(Global.A))))));
+        Set Global Variable(A, Compare(Distance Between(Add(Multiply(Distance Between(Global.B, Global.D), Random Value In Array(Global.C)), Global.B), Global.D), <=, Random Value In Array(Global.E)));
     }
 }
 

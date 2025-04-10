@@ -23,7 +23,9 @@ rule "function":
 
     A = A.getPlayerClosestToReticle(B)
     A = A.getRealPlayerClosestToReticle(B)
-    A = sorted([p for p in getLivingPlayers(B) if p.hasSpawned() and p != A], key=lambda x: angleBetweenVectors(A.getFacingDirection(), x - A.getPosition()))[0]
+    A = sorted([p for p in getLivingPlayers(B) if p.hasSpawned() and p != A], key=lambda x: angleBetweenVectors(A.getFacingDirection(), x - A.getEyePosition()))[0]
+
+    A = lineIntersectsSphere(B, random.choice(C), D, random.choice(E))
 
 rule "beams":
     createBeam(A, Beam.GRAPPLE, B, C, Color.WHITE, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)

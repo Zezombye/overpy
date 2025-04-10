@@ -8,7 +8,7 @@ import { opyStringEntities } from "./data/opy/stringEntities";
 import { valueFuncKw } from "./data/values";
 import { showOverPyExtensionError } from "./extension";
 import { DEBUG_MODE, enumMembers, postLoadTasks } from "./globalVars";
-import { Argument, Value, ReturnType, Type, MacroData, Variable, Subroutine } from "./types";
+import { Argument, Value, Type, MacroData, Variable, Subroutine } from "./types";
 import { opyFuncs } from "./data/opy/functions";
 import { opyKeywords } from "./data/opy/keywords";
 import { opyAnnotations } from "./data/opy/annotations";
@@ -41,7 +41,7 @@ export type OverpyModule = {
     class: string;
     description: string;
     args: Argument[];
-    return: ReturnType | ReturnType[];
+    return: Type;
 };
 export let moduleFuncList: Record<string, OverpyModule> = {};
 const metaRuleParams = structuredClone(opyAnnotations);
@@ -78,10 +78,10 @@ postLoadTasks.push({
         funcDoc = {
             ...actionKw,
             ...valueFuncKw,
+            ...opyFuncs
         };
 
         funcList = {
-            ...opyFuncs,
             ...opyKeywords,
         };
 
@@ -121,7 +121,7 @@ postLoadTasks.push({
                             {
                                 description: string;
                                 args: Argument[];
-                                return: ReturnType | ReturnType[];
+                                return: Type;
                             },
                         ] => {
                             const [_, entry] = funcEntry;
@@ -141,9 +141,13 @@ postLoadTasks.push({
         preprocessingDirectivesList = makeCompList(structuredClone(preprocessingDirectives));
 
         Object.keys(funcDoc)
-            .filter((key) => key.startsWith("_&"))
+            .filter((key) => key.startsWith("."))
             .forEach((key) => {
-                let newKeyName = key.substring("_&".length);
+                if ((funcDoc[key] as Value).hideFromAutocomplete) {
+                    delete funcDoc[key];
+                    return;
+                }
+                let newKeyName = key.substring(".".length);
                 funcDoc[newKeyName] = funcDoc[key];
                 delete funcDoc[key];
                 funcDoc[newKeyName].isMember = true;

@@ -396,7 +396,7 @@ export function decompile(content: string): Ast {
     if (name === "__localizedString__" && args.length === 0) {
         return new Ast("STRING", [], [], "HudReeval");
     }
-    if (name === "_&startForcingOutlineFor" && args.length === 4) {
+    if (name === ".startForcingOutlineFor" && args.length === 4) {
         args.push("DEFAULT");
     }
     if (name === "__workshopSettingToggle__" && args.length === 3) {
