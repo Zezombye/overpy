@@ -98,3 +98,15 @@ rule "optimizations for function combinations":
     A = len(getPlayersOnHero(B, C)) #getNumberOfHeroes(B, C)
     A = len(getLivingPlayers(B)) #getNumberOfLivingPlayers(B)
     A = len(getDeadPlayers(B)) #getNumberOfDeadPlayers(B)
+
+rule "default arguments":
+    hudHeader(text=1234)
+    hudHeader(A, text=1234)
+    hudHeader(A, 1234)
+    hudHeader(A, 1234, HudPosition.LEFT, 0, Color.WHITE, HudReeval.VISIBILITY_SORT_ORDER_STRING_AND_COLOR, SpecVisibility.DEFAULT)
+    wait()
+    C.startFacing(vect(1, 2, 3))
+    C.startFacing(vect(1, 2, 3), relativity=Relativity.TO_PLAYER)
+    D = D.getAmmo()
+    E = E.slice(5)
+    E = E.slice(5, 7)

@@ -24,12 +24,15 @@ import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { funcKw } from "./data/other";
 import { constantValues } from "./data/constants";
-import { FileStackMember, MacroData, OWLanguage, Subroutine, Type, Variable } from "./types";
-import { Ast } from "./utils/ast";
+import { FileStackMember, MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Type, Variable } from "./types";
+import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue } from "./utils/ast";
+import { opyMacros } from "./data/opy/macros";
+import { builtInEnumNameToAstInfo } from "./compiler/parser";
+import { parseOpyMacro } from "./utils/compilation";
 
-export var globalVariables: Variable[];
-export var playerVariables: Variable[];
-export var subroutines: Subroutine[];
+export var globalVariables: Variable[] = [];
+export var playerVariables: Variable[] = [];
+export var subroutines: Subroutine[] = [];
 export var currentLanguage: OWLanguage;
 
 export const ELEMENT_LIMIT = 32768;
@@ -86,13 +89,13 @@ export var optimizeForSize: boolean;
 export const setOptimizationForSize = (size: boolean) => (optimizeForSize = size);
 
 /** Contains all macros. */
-export var macros: MacroData[];
+export var macros: MacroData[] = [];
 export const resetMacros = () => (macros = []);
 
 /** All warnings encountered during this compilation run. */
-export var encounteredWarnings: string[];
+export var encounteredWarnings: string[] = [];
 /** All warnings encountered during this compilation run that were either suppressed or otherwise ignored. */
-export let hiddenWarnings: string[];
+export let hiddenWarnings: string[] = [];
 /** A set of warning types that will not invoke a visible warning.
  * Specified using the \@SuppressWarnings annotation, and applies to
  * the current rule only.
@@ -103,7 +106,7 @@ export var globallySuppressedWarningTypes: string[];
 
 /** A list of imported files, to prevent import loops.
  */
-export var importedFiles: string[];
+export var importedFiles: string[] = [];
 
 export var disableUnusedVars: boolean;
 
@@ -112,7 +115,7 @@ export const setCompiledCustomGameSettings = (settings: string) => (compiledCust
 
 /** The stack of the files (macros count as "files").
  */
-export let fileStack: FileStackMember[];
+export let fileStack: FileStackMember[] = [];
 export const setFileStack = (newFileStack: FileStackMember[]) => (fileStack = newFileStack);
 export const pushToFileStack = (newMember: FileStackMember) => fileStack.push(newMember);
 export const popFromFileStack = (): FileStackMember | undefined => fileStack.pop();
@@ -350,6 +353,7 @@ export const bigLettersMappings: Record<string, string> = {
     Y: "Υ",
     z: "Ζ",
     Z: "Ζ",
+    ".": "\u2024",
     " ": "\u2028", //line separator
 };
 
@@ -527,6 +531,8 @@ export function postInitialLoad() {
             typeMatrix["Vector"].push("Direction", "Position", "Velocity");
 
             reservedNames.push(...Object.keys(typeMatrix));
+
+
         },
         priority: 26,
     });

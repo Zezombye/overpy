@@ -35,13 +35,12 @@ export const opyMacros: Record<string, {
                 "name": "center",
                 "description": "The position from which to measure proximity.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "team",
                 "description": "The team or teams from which the closest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "ALL"
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned()], key=lambda p: distance(p, $center))[0]",
@@ -54,13 +53,12 @@ export const opyMacros: Record<string, {
                 "name": "center",
                 "description": "The position from which to measure proximity.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "team",
                 "description": "The team or teams from which the closest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "ALL"
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned()], key=lambda p: distance(p, $center))",
@@ -73,13 +71,12 @@ export const opyMacros: Record<string, {
                 "name": "center",
                 "description": "The position from which to measure distance.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "team",
                 "description": "The team or teams from which the farthest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "ALL"
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned()], key=lambda p: -distance(p, $center))[0]",
@@ -93,13 +90,12 @@ export const opyMacros: Record<string, {
                 "name": "center",
                 "description": "The position from which to measure distance.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "team",
                 "description": "The team or teams from which the farthest player will come.",
                 "type": "Team",
-                "default": "TEAM"
+                "default": "ALL"
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned()], key=lambda p: -distance(p, $center))",
@@ -113,13 +109,12 @@ export const opyMacros: Record<string, {
                 "name": "player",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "team",
                 "description": "The team or teams on which to search for the closest player.",
                 "type": "Team",
-                "default": "TEAM",
+                "default": "ALL",
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $player], key=lambda x: angleBetweenVectors($player.getFacingDirection(), x - $player.getEyePosition()))[0]",
@@ -132,26 +127,24 @@ export const opyMacros: Record<string, {
                 "name": "player",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "team",
                 "description": "The team or teams on which to search for the closest player.",
                 "type": "Team",
-                "default": "TEAM",
+                "default": "ALL",
             }
         ],
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $player], key=lambda x: angleBetweenVectors($player.getFacingDirection(), x - $player.getEyePosition()))",
         "return": "Player",
     },
     "getSign": {
-        "description": "Built-in macro for calculating the sign of a number. Resolves to `(x>0)-(x<0)`. Returns -1, 0 or 1.",
+        "description": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1.",
         "args": [
             {
                 "name": "number",
                 "description": "The number to calculate the sign of.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         macro: "$number * Math.INFINITY * Math.INFINITY / Math.INFINITY / 10",
@@ -178,13 +171,12 @@ export const opyMacros: Record<string, {
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
-                "name": "header",
-                "description": "The text to be displayed (can be blank)",
+                "name": "text",
+                "description": "The text to be displayed.",
                 "type": "Object",
-                "default": "STRING"
             },
             {
                 "name": "location",
@@ -198,10 +190,10 @@ export const opyMacros: Record<string, {
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": 0
             },
             {
-                "name": "headerColor",
+                "name": "color",
                 "description": "The color of the header.",
                 "type": "Color",
                 "default": "WHITE"
@@ -210,16 +202,16 @@ export const opyMacros: Record<string, {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
+                "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
-                "name": "spectators",
+                "name": "specVisibility",
                 "description": "Whether spectators can see the text or not. Optional argument.",
                 "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
+                "default": "DEFAULT"
             }
         ],
-        macro: "hudText($visibleTo, $header, null, null, $location, $sortOrder, $headerColor, null, null, $reevaluation, $spectators)",
+        macro: "hudText($visibleTo, $text, null, null, $location, $sortOrder, $color, null, null, $reevaluation, $specVisibility)",
         "return": "void"
     },
     "hudSubheader": {
@@ -234,13 +226,12 @@ export const opyMacros: Record<string, {
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
-                "name": "subheader",
-                "description": "The subheader text to be displayed (can be blank)",
+                "name": "text",
+                "description": "The subheader text to be displayed.",
                 "type": "Object",
-                "default": "NULL"
             },
             {
                 "name": "location",
@@ -254,10 +245,10 @@ export const opyMacros: Record<string, {
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": 0
             },
             {
-                "name": "subheaderColor",
+                "name": "color",
                 "description": "The color of the subheader.",
                 "type": "Color",
                 "default": "WHITE"
@@ -266,16 +257,16 @@ export const opyMacros: Record<string, {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
+                "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
-                "name": "spectators",
+                "name": "specVisibility",
                 "description": "Whether spectators can see the text or not. Optional argument.",
                 "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
+                "default": "DEFAULT"
             }
         ],
-        macro: "hudText($visibleTo, null, $subheader, null, $location, $sortOrder, null, $subheaderColor, null, $reevaluation, $spectators)",
+        macro: "hudText($visibleTo, null, $text, null, $location, $sortOrder, null, $color, null, $reevaluation, $specVisibility)",
         "return": "void"
     },
     "hudSubtext": {
@@ -290,13 +281,12 @@ export const opyMacros: Record<string, {
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
-                "name": "subtext",
-                "description": "The body text to be displayed (can be blank)",
+                "name": "text",
+                "description": "The text to be displayed.",
                 "type": "Object",
-                "default": "NULL"
             },
             {
                 "name": "location",
@@ -310,10 +300,10 @@ export const opyMacros: Record<string, {
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": 0
             },
             {
-                "name": "textColor",
+                "name": "color",
                 "description": "The color of the text.",
                 "type": "Color",
                 "default": "WHITE"
@@ -322,16 +312,16 @@ export const opyMacros: Record<string, {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
+                "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
-                "name": "spectators",
+                "name": "specVisibility",
                 "description": "Whether spectators can see the text or not. Optional argument.",
                 "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
+                "default": "DEFAULT"
             }
         ],
-        macro: "hudText($visibleTo, null, null, $subtext, $location, $sortOrder, null, null, $textColor, $reevaluation, $spectators)",
+        macro: "hudText($visibleTo, null, null, $text, $location, $sortOrder, null, null, $color, $reevaluation, $specVisibility)",
         "return": "void"
     },
     "lineIntersectsSphere": {
@@ -365,7 +355,6 @@ export const opyMacros: Record<string, {
                 "name": "text",
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "STRING"
             }
         ],
         macro: "hudText(getAllPlayers(), $text, Math.FUCKTON_OF_SPACES, null, HudPosition.LEFT, -9999, Color.ORANGE, null, null, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.DEFAULT)",
@@ -378,7 +367,6 @@ export const opyMacros: Record<string, {
                 "name": "array",
                 "description": "The array to reverse.",
                 "type": "Array",
-                "default": "ARRAY"
             }
         ],
         class: "Array",
@@ -392,7 +380,6 @@ export const opyMacros: Record<string, {
                 "name": "time",
                 "description": "The time in seconds to display.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         macro: `

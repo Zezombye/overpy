@@ -124,9 +124,9 @@ rule "Initial Player":
 
 
 rule "Global credit HUD":
-    hudText(getAllPlayers(), " Code: 12MET ", "{0} Mystery Ultimates".format(iconString(Icon.QUESTION_MARK)), "By CactusPuppy", HudPosition.RIGHT, -10, Color.ORANGE, Color.WHITE, rgba(255, 255, 255, 128), HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
+    hudText(getAllPlayers(), " Code: 12MET ", "{0} Mystery Ultimates".format(iconString(Icon.QUESTION_MARK)), "By CactusPuppy", HudPosition.RIGHT, -10, Color.ORANGE, Color.WHITE, rgb(255, 255, 255, 128), HudReeval.VISIBILITY, SpecVisibility.ALWAYS)
     if DEBUG_MODE:
-        hudSubheader(getAllPlayers(), "DEBUG MODE ENABLED", HudPosition.RIGHT, -9, rgb(rainbowVector.x, rainbowVector.y, rainbowVector.z), HudReeval.VISIBILITY_AND_COLOR, SpecVisibility.DEFAULT)
+        hudSubheader(getAllPlayers(), "DEBUG MODE ENABLED", HudPosition.RIGHT, -9, rgb(rainbowVector.x, rainbowVector.y, rainbowVector.z), HudReeval.VISIBILITY_AND_COLOR)
 
 
 rule "If not in DEBUG_MODE, disable inspector recording":
@@ -152,7 +152,7 @@ rule "Create randomized ultimate hero HUD":
     @Event eachPlayer
     @Condition SHOW_ULTIMATE_HERO == true
     
-    createInWorldText(eventPlayer if eventPlayer.ultimateHero and eventPlayer.ultimateState == "NORMAL" and eventPlayer.getUltCharge() == 100 else null, "{0}: {1}".format(heroIcon(eventPlayer.ultimateHero), abilityIconString(eventPlayer.ultimateHero, Button.ULTIMATE)), updateEveryTick(true * eventPlayer.getEyePosition() + ([] * (crossProduct(eventPlayer.getFacingDirection(), angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90)))) + (-110 * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 300 * eventPlayer.getFacingDirection()), 4, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.NEVER)
+    createInWorldText(eventPlayer if eventPlayer.ultimateHero and eventPlayer.ultimateState == "NORMAL" and eventPlayer.getUltCharge() == 100 else null, "{0}: {1}".format(heroIcon(eventPlayer.ultimateHero), abilityIconString(eventPlayer.ultimateHero, Button.ULTIMATE)), updateEveryFrame(true * eventPlayer.getEyePosition() + ([] * (crossProduct(eventPlayer.getFacingDirection(), angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90)))) + (-110 * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 300 * eventPlayer.getFacingDirection()), 4, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.NEVER)
 
 
 def ChooseNewUltimateHero():
@@ -798,7 +798,7 @@ rule "When the lingering state begins, start a timer":
     
     eventPlayer.extendedUltPercentLeft = 100
     chase(eventPlayer.extendedUltPercentLeft, 0, duration=eventPlayer.extendedUltDuration, ChaseReeval.NONE)
-    progressBarHud(eventPlayer, eventPlayer.extendedUltPercentLeft, "Ultimate Hero Time Remaining", HudPosition.LEFT, -10, rgba(0, 234, 234, (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)) + ((1 - (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)))) * (sin(sqrt(eventPlayer.extendedUltDuration * eventPlayer.extendedUltPercentLeft * 18.85)) / 2 + 0.5))) * 223 + 32), Color.WHITE, ProgressHudReeval.VISIBILITY_VALUES_AND_COLOR, SpecVisibility.DEFAULT)
+    progressBarHud(eventPlayer, eventPlayer.extendedUltPercentLeft, "Ultimate Hero Time Remaining", HudPosition.LEFT, -10, rgb(0, 234, 234, (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)) + ((1 - (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)))) * (sin(sqrt(eventPlayer.extendedUltDuration * eventPlayer.extendedUltPercentLeft * 18.85)) / 2 + 0.5))) * 223 + 32))
     eventPlayer.extendedUltTimer = getLastCreatedText()
     bigMessage(eventPlayer, "Returning to original hero in {0} seconds...".format(eventPlayer.extendedUltDuration))
     waitUntil(eventPlayer.extendedUltPercentLeft == 0 or eventPlayer.ultimateState != "LINGERING", 1000000)

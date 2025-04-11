@@ -25,6 +25,64 @@ import { isTypeSuitable } from "../utils/types";
 import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
 import { Argument, Value } from "../types";
 
+import "./functions/__add__.ts";
+import "./functions/__and__.ts";
+import "./functions/__array__.ts";
+import "./functions/__assignTo__.ts";
+import "./functions/__chaseAtRate__.ts";
+import "./functions/__chaseOverTime__.ts";
+import "./functions/__del__.ts";
+import "./functions/__dict__.ts";
+import "./functions/__distanceTo__.ts";
+import "./functions/__divide__.ts";
+import "./functions/__doWhile__.ts";
+import "./functions/__elif__.ts";
+import "./functions/__else__.ts";
+import "./functions/__equals__.ts";
+import "./functions/__filteredArray__.ts";
+import "./functions/__for__.ts";
+import "./functions/__gamemode__.ts";
+import "./functions/__globalVar__.ts";
+import "./functions/__greaterThan__.ts";
+import "./functions/__greaterThanOrEquals__.ts";
+import "./functions/__hero__.ts";
+import "./functions/__if__.ts";
+import "./functions/__ifThenElse__.ts";
+import "./functions/__inequals__.ts";
+import "./functions/__lessThan__.ts";
+import "./functions/__lessThanOrEquals__.ts";
+import "./functions/__map__.ts";
+import "./functions/__mappedArray__.ts";
+import "./functions/__modifyVar__.ts";
+import "./functions/__modulo__.ts";
+import "./functions/__multiply__.ts";
+import "./functions/__negate__.ts";
+import "./functions/__not__.ts";
+import "./functions/__number__.ts";
+import "./functions/__or__.ts";
+import "./functions/__playerVar__.ts";
+import "./functions/__raiseToPower__.ts";
+import "./functions/__rule__.ts";
+import "./functions/__skip__.ts";
+import "./functions/__subtract__.ts";
+import "./functions/__switch__.ts";
+import "./functions/__valueInArray__.ts";
+import "./functions/__while__.ts";
+import "./functions/__xComponentOf__.ts";
+import "./functions/__yComponentOf__.ts";
+import "./functions/__zComponentOf__.ts";
+import "./functions/.addToScore";
+import "./functions/.append";
+import "./functions/.format.ts";
+import "./functions/.getPlayerClosestToReticle";
+import "./functions/.last";
+import "./functions/.remove";
+import "./functions/.setStatusEffect";
+import "./functions/.setUltCharge";
+import "./functions/.slice";
+import "./functions/.startDamageOverTime.ts";
+import "./functions/.startHealingOverTime.ts";
+import "./functions/.toArray";
 import "./functions/abs.ts";
 import "./functions/acos.ts";
 import "./functions/acosDeg.ts";
@@ -43,8 +101,8 @@ import "./functions/continue.ts";
 import "./functions/cos.ts";
 import "./functions/cosDeg.ts";
 import "./functions/createBeam.ts";
-import "./functions/createEffect.ts";
 import "./functions/createCasedProgressBarIwt.ts";
+import "./functions/createEffect.ts";
 import "./functions/createWorkshopSetting.ts";
 import "./functions/crossProduct.ts";
 import "./functions/debug.ts";
@@ -55,11 +113,10 @@ import "./functions/eventPlayer.ts";
 import "./functions/floor.ts";
 import "./functions/getClosestPlayer";
 import "./functions/getFarthestPlayer";
-import "./functions/.getPlayerClosestToReticle";
 import "./functions/getOppositeTeam.ts";
 import "./functions/healee.ts";
 import "./functions/healer.ts";
-import "./functions/hsla.ts";
+import "./functions/hsl";
 import "./functions/len.ts";
 import "./functions/log.ts";
 import "./functions/max.ts";
@@ -79,63 +136,8 @@ import "./functions/tanDeg.ts";
 import "./functions/vect.ts";
 import "./functions/vectorTowards.ts";
 import "./functions/victim.ts";
-import "./functions/waitUntil.ts";
-import "./functions/.addToScore";
-import "./functions/.setStatusEffect";
-import "./functions/.setUltCharge";
-import "./functions/.toArray";
-import "./functions/__add__.ts";
-import "./functions/__and__.ts";
-import "./functions/.append";
-import "./functions/.slice";
-import "./functions/__array__.ts";
-import "./functions/__assignTo__.ts";
-import "./functions/__chaseAtRate__.ts";
-import "./functions/__chaseOverTime__.ts";
-import "./functions/__del__.ts";
-import "./functions/__dict__.ts";
-import "./functions/__distanceTo__.ts";
-import "./functions/__divide__.ts";
-import "./functions/__doWhile__.ts";
-import "./functions/__elif__.ts";
-import "./functions/__else__.ts";
-import "./functions/__equals__.ts";
-import "./functions/__filteredArray__.ts";
-import "./functions/.format.ts";
-import "./functions/__for__.ts";
-import "./functions/__gamemode__.ts";
-import "./functions/__globalVar__.ts";
-import "./functions/__greaterThanOrEquals__.ts";
-import "./functions/__greaterThan__.ts";
-import "./functions/__hero__.ts";
-import "./functions/__ifThenElse__.ts";
-import "./functions/__if__.ts";
-import "./functions/__inequals__.ts";
-import "./functions/.last";
-import "./functions/__lessThanOrEquals__.ts";
-import "./functions/__lessThan__.ts";
-import "./functions/__mappedArray__.ts";
-import "./functions/__map__.ts";
-import "./functions/__modifyVar__.ts";
-import "./functions/__modulo__.ts";
-import "./functions/__multiply__.ts";
-import "./functions/__negate__.ts";
-import "./functions/__not__.ts";
-import "./functions/__number__.ts";
-import "./functions/__or__.ts";
-import "./functions/__playerVar__.ts";
-import "./functions/__raiseToPower__.ts";
-import "./functions/.remove";
-import "./functions/__rule__.ts";
-import "./functions/__skip__.ts";
-import "./functions/__subtract__.ts";
-import "./functions/__switch__.ts";
-import "./functions/__valueInArray__.ts";
 import "./functions/wait";
-import "./functions/__while__.ts";
-import "./functions/__xComponentOf__.ts";
-import "./functions/__yComponentOf__.ts";
-import "./functions/__zComponentOf__.ts";
+import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
 import { parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 
@@ -373,68 +375,9 @@ export function parseAst(content: Ast) {
         }
         //for (i in range(1,2,3)) -> for(i, 1, 2, 3)
         content.args = [content.args[0].args[1], content.args[0].args[0].args[0], content.args[0].args[0].args[1], content.args[0].args[0].args[2]];
-    } else if (["hudHeader", "hudSubheader", "hudSubtext"].includes(content.name)) {
-        if (content.args.length < 6 || content.args.length > 7) {
-            error("Function '" + content.name + "' takes 6 or 7 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 6) {
-            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-        }
-    } else if (content.name === "hudText") {
-        if (content.args.length < 10 || content.args.length > 11) {
-            error("Function '" + content.name + "' takes 10 or 11 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 10) {
-            content.args.push(new Ast("DEFAULT", [], [], "SpecVisibility"));
-        }
-    } else if (content.name === "log") {
-        if (content.args.length < 1 || content.args.length > 2) {
-            error("Function '" + content.name + "' takes 1 or 2 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 1) {
-            content.args.push(getAstForE());
-        }
-    } else if (content.name === "rgb") {
-        if (content.args.length !== 3) {
-            error("Function 'rgb' takes 3 arguments, received " + content.args.length);
-        }
-        content.args.push(getAstFor255());
-        content.name = "rgba";
-    } else if (content.name === "hsl") {
-        if (content.args.length !== 3) {
-            error("Function 'hsl' takes 3 arguments, received " + content.args.length);
-        }
-        content.args.push(getAstFor255());
-        content.name = "hsla";
-    } else if (content.name === ".startForcingOutlineFor") {
-        if (content.args.length === 4) {
-            content.args.push(new Ast("DEFAULT", [], [], "OutlineVisibility"));
-        }
-    } else if (content.name === "wait") {
-        if (content.args.length > 2) {
-            error("Function 'wait' takes 0 to 2 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 0) {
-            content.args.push(getAstFor0_016());
-        }
-        if (content.args.length === 1) {
-            content.args.push(new Ast("IGNORE_CONDITION", [], [], "Wait"));
-        }
-    } else if (content.name === "waitUntil") {
-        if (content.args.length > 2 || content.args.length === 0) {
-            error("Function 'waitUntil' takes 1 or 2 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 1) {
-            content.args.push(getAstForInfinity());
-        }
-    } else if (content.name === "arrayToString") {
-        if (content.args.length < 1 || content.args.length > 2) {
-            error("Function '" + content.name + "' takes 1 or 2 arguments, received " + content.args.length);
-        }
-        if (content.args.length === 1) {
-            content.args.push(getAstForNumber(12));
-        }
     }
+
+
 
     if (![".format", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
         var nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;

@@ -20,8 +20,11 @@ import { funcKw } from "../data/other";
 // @ts-check
 import { astParsingFunctions, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
 import { error, functionNameToString } from "./logging";
-import { FileStackMember, Type } from "../types";
+import { Argument, FileStackMember, Type } from "../types";
 import { isTypeSuitable } from "./types";
+import { constantValues } from "../data/constants";
+import { builtInEnumNameToAstInfo } from "../compiler/parser";
+import { parseOpyMacro } from "./compilation";
 
 export class RuleAttributes {
     isDelimiter = false;
@@ -338,19 +341,19 @@ export function getAstForBool(bool: boolean) {
     }
 }
 export function getAstForNull() {
-    return new Ast("null", [], [], "Player");
+    return new Ast("null");
 }
 export function getAstForFalse() {
-    return new Ast("false", [], [], "bool");
+    return new Ast("false");
 }
 export function getAstForTrue() {
-    return new Ast("true", [], [], "bool");
+    return new Ast("true");
 }
 export function getAstForColorWhite() {
-    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")], [], "Color");
+    return new Ast("__color__", [new Ast("WHITE", [], [], "ColorLiteral")]);
 }
 export function getAstForTeamAll() {
-    return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")], [], "Team");
+    return new Ast("__team__", [new Ast("ALL", [], [], "TeamLiteral")]);
 }
 export function getAstForUselessInstruction() {
     return new Ast("pass");
@@ -370,4 +373,34 @@ export function getAstForCurrentArrayIndex() {
 export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
     const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
     return astParsingFunctions[".format"](new Ast(".format", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
+}
+
+
+
+export function getAstForArgDefault(arg: Argument) {
+    let defaultAst;
+    if (arg.default === true) {
+        defaultAst = getAstForTrue();
+    } else if (arg.default === false) {
+        defaultAst = getAstForFalse();
+    } else if (arg.default === null) {
+        defaultAst = getAstForNull();
+    } else if (typeof arg.default === "number") {
+        defaultAst = getAstForNumber(arg.default);
+    } else if (arg.default === "getAllPlayers()") {
+        defaultAst = new Ast("getPlayers", [getAstForTeamAll()]);
+    } else if (arg.default === "vect(0,0,0)") {
+        defaultAst = getAstForNullVector();
+    } else if (arg.default === "Math.INFINITY") {
+        defaultAst = getAstForInfinity();
+    } else if (arg.default === "Math.E") {
+        defaultAst = getAstForE();
+    } else if (arg.type in constantValues) {
+        defaultAst = new Ast(arg.default, [], [], arg.type);
+    } else if (arg.type in builtInEnumNameToAstInfo) {
+        defaultAst = new Ast(builtInEnumNameToAstInfo[arg.type].name, [new Ast(arg.default, [], [], builtInEnumNameToAstInfo[arg.type].type)]);
+    } else {
+        defaultAst = parseOpyMacro(arg.default, [], []);
+    }
+    return defaultAst;
 }

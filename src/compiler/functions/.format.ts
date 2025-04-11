@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup } from "../../globalVars";
+import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT } from "../../globalVars";
 import { Token } from "../../compiler/tokenizer";
 import { getAstForNull, Ast } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
@@ -252,7 +252,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
         //Optimize string args by inlining numbers and custom strings with at most one {0}
         let argIndexesToRemove = [];
         for (let [i, arg] of args.entries()) {
-            if (arg.name === "__number__" || (arg.name === "__customString__" && (arg.args[0].name.match(/\{0\}/g) || []).length <= 1 && !arg.args[0].name.includes("{1}") && !arg.args[0].name.includes("{2}"))) {
+            if (arg.name === "__number__" && Math.abs(arg.args[0].numValue) < NUMBER_LIMIT || (arg.name === "__customString__" && (arg.args[0].name.match(/\{0\}/g) || []).length <= 1 && !arg.args[0].name.includes("{1}") && !arg.args[0].name.includes("{2}"))) {
                 argIndexesToRemove.push(i);
             }
         }

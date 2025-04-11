@@ -22,7 +22,7 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventSlotKw, funcKw } from "../data/other";
 import { activatedExtensions, astOperatorPrecedence, currentArrayElementName, currentArrayIndexName, currentRuleHasVariableGoto, decompilationLabelNumber, decompilerGotos, decrementNbTabs, incrementDecompilationLabelNumber, incrementNbTabs, nbTabs, resetDecompilationLabelNumber, resetDecompilerGotos, resetRuleHasVariableGoto, setCurrentArrayElementName, setCurrentArrayIndexName, setNbTabs, setRuleHasVariableGoto } from "../globalVars";
-import { Ast, astContainsFunctions, getAstFor0 } from "../utils/ast";
+import { areAstsAlwaysEqual, Ast, astContainsFunctions, getAstFor0, getAstForArgDefault } from "../utils/ast";
 import { error, debug } from "../utils/logging";
 import { tabLevel } from "../utils/other";
 import { escapeString } from "../utils/strings";
@@ -99,6 +99,25 @@ export function astRulesToOpy(rules: Ast[]) {
         result += decompiledRule;
     }
     return result;
+}
+
+export function astArgsToOpy(funcName: string, args: Ast[]) {
+
+    let funcArgs = (funcKw[funcName].args || []).slice(funcName.startsWith(".") ? 1 : 0);
+    for (let i = funcArgs.length-1; i >= 0; i--) {
+        if (i > args.length-1) {
+            error("Invalid number of arguments for function '"+funcName+"', expected at least "+i+", received "+args.length);
+        }
+        //console.log(args);
+        //console.log(i);
+        //console.log(args[i]);
+        if (funcArgs[i]?.default !== undefined && areAstsAlwaysEqual(args[i], getAstForArgDefault(funcArgs[i]))) {
+            args.pop();
+        } else {
+            break;
+        }
+    }
+    return args.map(x => astToOpy(x)).join(", ");
 }
 
 export function astActionsToOpy(actions: Ast[]): string {
@@ -240,15 +259,22 @@ export function astActionsToOpy(actions: Ast[]): string {
             }
             continue;
         } else if (actions[i].name === "hudText") {
+            let decompiledActionName;
+            let actionArgs;
             if (actions[i].args[2].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudHeader(" + [0, 1, 4, 5, 6, 9, 10].map((x) => astToOpy(actions[i].args[x])).join(", ") + ")";
+                decompiledActionName = "hudHeader";
+                actionArgs = [0, 1, 4, 5, 6, 9, 10].map(x => actions[i].args[x]);
             } else if (actions[i].args[1].name === "null" && actions[i].args[3].name === "null") {
-                decompiledAction += "hudSubheader(" + [0, 2, 4, 5, 7, 9, 10].map((x) => astToOpy(actions[i].args[x])).join(", ") + ")";
+                decompiledActionName = "hudSubheader";
+                actionArgs = [0, 2, 4, 5, 7, 9, 10].map(x => actions[i].args[x]);
             } else if (actions[i].args[1].name === "null" && actions[i].args[2].name === "null") {
-                decompiledAction += "hudSubtext(" + [0, 3, 4, 5, 8, 9, 10].map((x) => astToOpy(actions[i].args[x])).join(", ") + ")";
+                decompiledActionName = "hudSubtext";
+                actionArgs = [0, 3, 4, 5, 8, 9, 10].map(x => actions[i].args[x]);
             } else {
-                decompiledAction += "hudText(" + actions[i].args.map((x) => astToOpy(x)).join(", ") + ")";
+                decompiledActionName = "hudText";
+                actionArgs = actions[i].args;
             }
+            decompiledAction += decompiledActionName+"(" + astArgsToOpy(decompiledActionName, actionArgs) + ")";
         } else if (actions[i].name === "__loop__") {
             decompiledAction += "goto RULE_START";
         } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
@@ -287,7 +313,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 op1 = "(" + op1 + ")";
             }
             decompiledAction = op1 + "." + astToOpy(actions[i].args[1]) + "[" + astToOpy(actions[i].args[2]) + "] = " + astToOpy(actions[i].args[3]);
-        } else if (actions[i].name === "__startRule__") {
+        } else if (actions[i].name === "async") {
             decompiledAction += "async(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ")";
         } else if (actions[i].name === "__stopChasingGlobalVariable__") {
             decompiledAction += "stopChasingVariable(" + actions[i].args[0].name + ")";
@@ -320,15 +346,6 @@ export function astActionsToOpy(actions: Ast[]): string {
                 setRuleHasVariableGoto(true);
                 decompiledAction += "__skipIf__(" + astToOpy(actions[i].args[0]) + ", " + astToOpy(actions[i].args[1]) + ")";
             }
-        } else if (actions[i].name === "wait") {
-            decompiledAction += "wait(";
-            if (!(actions[i].args[0].name === "__number__" && actions[i].args[0].args[0].name === "0.016" && actions[i].args[1].name === "IGNORE_CONDITION")) {
-                decompiledAction += astToOpy(actions[i].args[0]);
-            }
-            if (actions[i].args[1].name !== "IGNORE_CONDITION") {
-                decompiledAction += ", " + astToOpy(actions[i].args[1]);
-            }
-            decompiledAction += ")";
         } else {
             if (!(actions[i].name in funcKw)) {
                 error("Unregistered function '" + actions[i].name + "'");
@@ -339,26 +356,22 @@ export function astActionsToOpy(actions: Ast[]): string {
                 activatedExtensions.push(extensionName);
             }
 
+            let actionArgs;
+
             if (actions[i].name.startsWith(".")) {
                 var op1 = astToOpy(actions[i].args[0]);
                 if (astContainsFunctions(actions[i].args[0], Object.keys(astOperatorPrecedence))) {
                     op1 = "(" + op1 + ")";
                 }
-                decompiledAction =
-                    op1 +
-                    "." +
-                    actions[i].name.substring(".".length) +
-                    "(" +
-                    actions[i].args
-                        .slice(1)
-                        .map((x) => astToOpy(x))
-                        .join(", ") +
-                    ")";
+                decompiledAction = op1 + actions[i].name;
+                actionArgs = actions[i].args.slice(1);
             } else {
                 decompiledAction = actions[i].name;
-                if (funcKw[actions[i].name].args !== null) {
-                    decompiledAction += "(" + actions[i].args.map((x) => astToOpy(x)).join(", ") + ")";
-                }
+                actionArgs = actions[i].args;
+            }
+
+            if (funcKw[actions[i].name].args !== null) {
+                decompiledAction += "(" + astArgsToOpy(actions[i].name, actionArgs) + ")";
             }
         }
 
@@ -689,18 +702,6 @@ export function astToOpy(content: Ast): string {
         }
         return result;
     }
-    if (content.name === "rgba") {
-        if (content.args[3].args[0].numValue === 255) {
-            return (
-                "rgb(" +
-                content.args
-                    .slice(0, 3)
-                    .map((x) => astToOpy(x))
-                    .join(", ") +
-                ")"
-            );
-        }
-    }
     if (content.name === "__round__") {
         if (content.args[1].name === "__roundUp__") {
             return "ceil(" + astToOpy(content.args[0]) + ")";
@@ -782,23 +783,18 @@ export function astToOpy(content: Ast): string {
     if (funcKw[content.name].args === null) {
         return content.name;
     } else {
+        let astArgs;
+        let result = "";
         if (content.name.startsWith(".")) {
-            var result = astToOpy(content.args[0]);
+            result = astToOpy(content.args[0]);
             if (astContainsFunctions(content.args[0], Object.keys(astOperatorPrecedence))) {
                 result = "(" + result + ")";
             }
-            return (
-                result +
-                "." +
-                content.name.substring(".".length) +
-                "(" +
-                content.args
-                    .slice(1)
-                    .map((x) => astToOpy(x))
-                    .join(", ") +
-                ")"
-            );
+            astArgs = content.args.slice(1);
+        } else {
+            astArgs = content.args;
         }
-        return content.name + "(" + content.args.map((x) => astToOpy(x)).join(", ") + ")";
+        result += content.name + "(" + astArgsToOpy(content.name, astArgs) + ")";
+        return result;
     }
 }

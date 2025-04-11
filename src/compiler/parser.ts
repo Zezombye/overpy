@@ -18,11 +18,11 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { notConstantFunctions } from "../data/other";
+import { funcKw, notConstantFunctions } from "../data/other";
 import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
 import { OWLanguage } from "../types";
 import { Token } from "./tokenizer";
-import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForCustomString, getAstForE, getAstForNumber, replaceFunctionInAst } from "../utils/ast";
+import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
@@ -33,8 +33,9 @@ import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../util
 import { compileCustomGameSettings } from "./compiler";
 import { LogicalLine } from "./tokenizer";
 import { opyTextures } from "../data/opy/textures";
+import { parseOpyMacro } from "../utils/compilation";
 
-const builtInEnumNameToAstInfo = {
+export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
         name: "__hero__",
         type: "HeroLiteral",
@@ -425,6 +426,57 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
     };
 }
 
+export function parseArgs(funcName: string, args: Token[][]) {
+    if (!(funcName in funcKw)) {
+        error("Unknown function '"+funcName+"'");
+    }
+    if (funcKw[funcName].args === null) {
+        if (args.length > 0) {
+            error("Function '"+funcName+"' takes no argument");
+        }
+        return [];
+    }
+    if ([".format", "__array__", "__dict__", "__enumType__", "range"].includes(funcName)) {
+        //Those functions take infinite arguments or a wacky number of arguments
+        return args.map(x => parse(x));
+    }
+
+    let funcArgsDict = Object.fromEntries(funcKw[funcName].args!.map((x, i) => [x.name, {index: i, ...x}]));
+    let positionalArgs: (Token[] | Ast)[] = Array(funcKw[funcName].args!.length).fill(null);
+    let hasKwArg = false;
+    for (let [i, arg] of args.entries()) {
+        if (arg.length > 2 && arg[1].text === "=") {
+            if (!(arg[0].text in funcArgsDict)) {
+                error("Unknown keyword argument '"+arg[0].text+"' for function '"+funcName+"'");
+            }
+            hasKwArg = true;
+            let argIndex = funcArgsDict[arg[0].text].index;
+            if (positionalArgs[argIndex] !== null) {
+                error("Argument '"+arg[0].text+"' of function '"+funcName+"' is defined twice");
+            }
+            positionalArgs[argIndex] = arg.slice(2);
+        } else {
+            if (hasKwArg) {
+                error("Cannot use positional arguments after keyword arguments");
+            }
+            positionalArgs[i] = arg;
+        }
+    }
+
+    for (let [i, arg] of funcKw[funcName].args!.entries()) {
+        if (positionalArgs[i] === null) {
+            if (arg.default !== undefined) {
+
+                positionalArgs[i] = getAstForArgDefault(arg);
+            } else {
+                error("Missing argument '"+arg.name+"' for function '"+funcName+"'");
+            }
+        }
+    }
+
+    return positionalArgs.map(x => x instanceof Ast ? x : parse(x));
+}
+
 export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     if (content === undefined) {
         error("Content is undefined");
@@ -745,7 +797,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             error("Expected subroutine name as first argument");
         }
 
-        return new Ast("__startRule__", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
+        return new Ast("async", [new Ast(subroutineArg, [], [], "Subroutine"), parse(args[1])]);
     }
 
     if (name === "chase") {
@@ -856,23 +908,26 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     }
 
     //Old functions
-    if (name === "destroyAllInWorldText") {
-        name = "destroyAllInWorldTexts";
-    } else if (name === "disableEnvironmentCollision") {
-        name = ".disableEnvironmentCollision";
-    } else if (name === "enableEnvironmentCollision") {
-        name = ".enableEnvironmentCollision";
-    } else if (name === ".disableHeroHUD") {
-        name = ".disableHeroHud";
-    } else if (name === "enablePlayerCollision") {
-        name = ".enablePlayerCollision";
-    } else if (name === "horizontalAngleFromDirection") {
-        name = "horizontalAngleOfDirection";
+    let functionAliases: Record<string, string> = {
+        "destroyAllInWorldText": "destroyAllInWorldTexts",
+        "disableEnvironmentCollision": ".disableEnvironmentCollision",
+        "enableEnvironmentCollision": ".enableEnvironmentCollision",
+        "enablePlayerCollision": ".enablePlayerCollision",
+        "horizontalAngleFromDirection": "horizontalAngleOfDirection",
+        "getLastDoT": "getLastDamageOverTimeId",
+        "getLastHoT": "getLastHealingOverTimeId",
+        "rgba": "rgb",
+        "hsla": "hsl",
+        "updateEveryTick": "updateEveryFrame",
+    };
+
+    if (name in functionAliases) {
+        name = functionAliases[name];
     }
 
     let astResult = new Ast(
         name,
-        args.map((x) => parse(x)),
+        parseArgs(name, args),
     );
     if (name === "debug") {
         astResult.tokenArgsStr = dispTokens(content.slice(2, content.length - 1), true);
@@ -932,7 +987,7 @@ function parseMember(object: Token[], member: Token[]) {
                 } else if (name === "E") {
                     return getAstForE();
                 } else if (name === "INFINITY") {
-                    return getAstForNumber(999999999999999);
+                    return getAstForInfinity();
                 } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
                     return getAstForNumber(0.984724);
                 } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
@@ -996,12 +1051,20 @@ function parseMember(object: Token[], member: Token[]) {
             //Assume it is a generic member function
 
             //old functions
-            if (name === "setCamera") {
-                name = "startCamera";
-            } else if (name === "disableHeroHUD") {
-                name = "disableHeroHud";
+            let functionAliases: Record<string, string> = {
+                "setCamera": "startCamera",
+                "disableHeroHUD": "disableHeroHud",
+                "startDoT": "startDamageOverTime",
+                "stopDoT": "stopDamageOverTime",
+                "stopAllDoT": "stopAllDamageOverTime",
+                "startHoT": "startHealingOverTime",
+                "stopHoT": "stopHealingOverTime",
+                "stopAllHoT": "stopAllHealingOverTime",
+            };
+            if (name in functionAliases) {
+                name = functionAliases[name];
             }
-            return new Ast("." + name, [parse(object)].concat(args.map((x) => parse(x))));
+            return new Ast("." + name, parseArgs("."+name, [object].concat(args)));
         }
     }
 

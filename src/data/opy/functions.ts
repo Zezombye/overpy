@@ -38,7 +38,6 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "bool"
                 },
-                "default": "GLOBAL VARIABLE"
             }
         ],
         "isConstant": true,
@@ -53,7 +52,6 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "bool"
                 },
-                "default": "GLOBAL VARIABLE"
             }
         ],
         "isConstant": true,
@@ -70,7 +68,6 @@ export const opyFuncs: Record<
                 "name": "value",
                 "description": "The value to append to the end of the array. If this value is itself an array, each element is appended.",
                 "type": ["Object", { Array: "Object" }],
-                "default": "NUMBER"
             }
         ],
         class: "Array",
@@ -85,35 +82,16 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "Object"
                 },
-                "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "maxLength",
-                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable. If not specified, defaults to 12.",
+                "description": "The maximum length of the array. If the array is longer than this, an ellipsis (...) will be displayed. Must be a literal number, not a variable.",
                 "type": "IntLiteral",
-                "default": 0
+                "default": 12
             }
         ],
         "isConstant": true,
         "return": "String"
-    },
-    "async": {
-        "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
-        "args": [
-            {
-                "name": "subroutine",
-                "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
-                "type": "Subroutine",
-                "default": "Sub0"
-            },
-            {
-                "name": "ifAlreadyExecuting",
-                "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
-                "type": "AsyncBehavior",
-                "default": "RESTART RULE"
-            }
-        ],
-        "return": "void"
     },
     "ceil": {
         "description": "The integer that is the ceiling of the specified value (equivalent to rounding up).",
@@ -122,7 +100,6 @@ export const opyFuncs: Record<
                 "name": "value",
                 "description": "The real number to get the ceiling of.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "isConstant": true,
@@ -135,7 +112,6 @@ export const opyFuncs: Record<
                 "name": "variable",
                 "description": "Specifies which variable (global or player) to modify gradually.",
                 "type": "Variable",
-                "default": "A"
             },
             {
                 "name": "destination",
@@ -144,19 +120,16 @@ export const opyFuncs: Record<
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
             },
             {
                 "name": "rateOrDuration",
                 "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "ChaseReeval",
-                "default": "DESTINATION AND RATE"
             }
         ],
         "return": "void"
@@ -168,7 +141,7 @@ export const opyFuncs: Record<
                 "name": "textCount",
                 "description": "The amount of texts used to overlay.",
                 "type": "IntLiteral",
-                "default": 2
+                default: 3,
             },
             {
                 "name": "visibleTo",
@@ -179,13 +152,12 @@ export const opyFuncs: Record<
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                default: "getAllPlayers()",
             },
             {
                 "name": "text",
                 "description": "The text to be displayed. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String"
             },
             {
                 "name": "position",
@@ -194,37 +166,35 @@ export const opyFuncs: Record<
                     "Position",
                     "Player"
                 ],
-                "default": "Event Player"
             },
             {
                 "name": "scale",
                 "description": "The text's scale.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "clipping",
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
-                "default": "CLIP AGAINST SURFACES"
+                "default": "NONE"
             },
             {
                 "name": "textColor",
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressWorldTextReeval",
-                "default": "Visible To, Values, and Color"
+                "default": "VISIBILITY_POSITION_VALUES_AND_COLOR"
             },
             {
                 "name": "nonTeamSpectators",
                 "description": "Whether non-team spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "Default Visibility"
+                "default": "DEFAULT"
             }
         ],
         "return": "void"
@@ -236,19 +206,16 @@ export const opyFuncs: Record<
                 "name": "type",
                 "description": "The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum[\"First option\", \"Second option\"]`\n",
                 "type": "Type",
-                "default": ""
             },
             {
                 "name": "category",
                 "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
             },
             {
                 "name": "name",
                 "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
                 "type": "CustomStringLiteral",
-                "default": "CUSTOM STRING"
             },
             {
                 "name": "default",
@@ -259,11 +226,10 @@ export const opyFuncs: Record<
                     "FloatLiteral",
                     "HeroLiteral"
                 ],
-                "default": 0
             },
             {
                 "name": "sortOrder",
-                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. If not specified, defaults to 0. Can be from 0 to 63.",
+                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. Can be from 0 to 63.",
                 "type": "IntLiteral",
                 "default": 0
             }
@@ -296,7 +262,6 @@ export const opyFuncs: Record<
                 "name": "value",
                 "description": "The real number to get the floor of.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "isConstant": true,
@@ -308,13 +273,11 @@ export const opyFuncs: Record<
             {
                 "name": "string",
                 "type": "StringLiteral",
-                "default": "NULL"
             },
             {
                 "name": "value",
                 "description": "The value used to replace the matching placeholder.",
                 "type": "Object",
-                "default": "NULL"
             }
         ],
         class: "String",
@@ -354,56 +317,28 @@ export const opyFuncs: Record<
         return: "Position",
     },
     "hsl": {
-        "description": "A custom color in HSL format. The first argument is the hue (0-360), the second is the saturation (0-1) and the third is the lightness (0-1).",
-        "args": [
-            {
-                "name": "hue",
-                "description": "The hue of the color.",
-                "type": "float",
-                "default": 0
-            },
-            {
-                "name": "saturation",
-                "description": "The saturation of the color.",
-                "type": "float",
-                "default": 0
-            },
-            {
-                "name": "lightness",
-                "description": "The lightness of the color.",
-                "type": "float",
-                "default": 0
-            }
-        ],
-        "isConstant": true,
-        "return": "Color"
-    },
-    "hsla": {
-        "description": "A custom color in HSLA format. The first argument is the hue (0-360), the second is the saturation (0-1), the third is the lightness (0-1).",
+        "description": "A custom color in HSL/HSLA format.",
         "args": [
             {
                 "name": "hue",
                 "description": "The hue of the color (0-360).",
                 "type": "float",
-                "default": 0
             },
             {
                 "name": "saturation",
                 "description": "The saturation of the color (0-1).",
                 "type": "float",
-                "default": 0
             },
             {
                 "name": "lightness",
                 "description": "The lightness of the color (0-1).",
                 "type": "float",
-                "default": 0
             },
             {
                 "name": "alpha",
                 "description": "The alpha of the color (0-255).",
                 "type": "float",
-                "default": 0
+                default: 255,
             }
         ],
         "isConstant": true,
@@ -419,8 +354,9 @@ export const opyFuncs: Record<
             },
             {
                 "name": "base",
-                "description": "The base of the logarithm. If not specified, defaults to `Math.E`.",
-                "type": "unsigned float"
+                "description": "The base of the logarithm.",
+                "type": "unsigned float",
+                default: "Math.E",
             }
         ],
         "isConstant": true,
@@ -438,19 +374,16 @@ export const opyFuncs: Record<
                 "name": "start",
                 "description": "The control variable is set to this value when the loop begins. If omitted, defaults to 0.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "stop",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
-                "default": "COUNT OF"
             },
             {
                 "name": "step",
-                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action. If omitted, defaults to 1.",
+                "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "return": "Iterator"
@@ -462,13 +395,11 @@ export const opyFuncs: Record<
                 "name": "startPos",
                 "description": "The start position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "endPos",
                 "description": "The end position for the raycast. If a player is provided, a position 2 meters above the player's feet is used.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "playersToInclude",
@@ -476,7 +407,6 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "Player"
                 },
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "playersToExclude",
@@ -484,13 +414,12 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "Player"
                 },
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "includePlayerObjects",
                 "description": "Whether player-owned objects (such as barriers or turrets) should be included in the raycast.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": true
             }
         ],
         "return": "Raycast"
@@ -506,36 +435,10 @@ export const opyFuncs: Record<
                 "name": "value",
                 "description": "The value to remove from the array (if found). If an array is given, each value is removed from the array.",
                 "type": ["Object", "Array"],
-                "default": "NUMBER"
             }
         ],
         class: "Array",
         return: "void",
-    },
-    "rgb": {
-        "description": "A custom color with the specified red, green, and blue values.",
-        "args": [
-            {
-                "name": "red",
-                "description": "The red component of a color, from 0 to 255.",
-                "type": "unsigned int",
-                "default": 255
-            },
-            {
-                "name": "green",
-                "description": "The green component of a color, from 0 to 255.",
-                "type": "unsigned int",
-                "default": 255
-            },
-            {
-                "name": "blue",
-                "description": "The blue component of a color, from 0 to 255.",
-                "type": "unsigned int",
-                "default": 255
-            }
-        ],
-        "isConstant": true,
-        "return": "Color"
     },
     "round": {
         "description": "The integer that is closest to the specified value (equivalent to rounding to nearest).\n\nTo round up or down, use `ceil()` or `floor()`.",
@@ -544,7 +447,6 @@ export const opyFuncs: Record<
                 "name": "value",
                 "description": "The real number to get the nearest integer of.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "isConstant": true,
@@ -569,13 +471,11 @@ export const opyFuncs: Record<
                 "type": {
                     "Array": "Object"
                 },
-                "default": "GLOBAL VARIABLE"
             },
             {
                 "name": "lambda",
                 "description": "The lambda function that is evaluated for each element of the copied array. The array is sorted by this rank in ascending order. Can be omitted if the array is sorted without a special key (equivalent to `lambda x: x`).",
                 "type": "Lambda",
-                "default": "CURRENT ARRAY ELEMENT"
             }
         ],
         "isConstant": true,
@@ -590,7 +490,6 @@ export const opyFuncs: Record<
                 "name": "text",
                 "description": "The text to get spaces of. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String"
             }
         ],
         "isConstant": true,
@@ -603,7 +502,6 @@ export const opyFuncs: Record<
                 "name": "length",
                 "description": "The length to get. Must be a literal integer, not a variable.",
                 "type": "IntLiteral",
-                "default": 0
             }
         ],
         "isConstant": true,
@@ -616,7 +514,6 @@ export const opyFuncs: Record<
                 "name": "variable",
                 "description": "Specifies which variable (global or player) to stop modifying.",
                 "type": "Variable",
-                "default": "A"
             }
         ],
         "return": "void"
@@ -628,7 +525,6 @@ export const opyFuncs: Record<
                 "name": "text",
                 "description": "The text to calculate the length of. Must be a literal custom string, not a variable.",
                 "type": "String",
-                "default": "Custom String"
             }
         ],
         "isConstant": true,

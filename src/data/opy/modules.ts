@@ -36,7 +36,6 @@ export const opyModules: Record<string, Record<string, {
                     "type": "int",
                     canReplace0ByFalse: true,
                     canReplace1ByTrue: true,
-                    "default": "NUMBER"
                 },
                 {
                     "name": "MAX",
@@ -44,7 +43,6 @@ export const opyModules: Record<string, Record<string, {
                     "type": "int",
                     canReplace0ByFalse: true,
                     canReplace1ByTrue: true,
-                    "default": "NUMBER"
                 }
             ],
             "return": "int",
@@ -56,13 +54,11 @@ export const opyModules: Record<string, Record<string, {
                     "name": "MIN",
                     "description": "The smallest real number allowed.",
                     "type": "float",
-                    "default": "NUMBER"
                 },
                 {
                     "name": "MAX",
                     "description": "The largest real number allowed.",
                     "type": "float",
-                    "default": "NUMBER"
                 }
             ],
             "return": "float",
@@ -74,7 +70,6 @@ export const opyModules: Record<string, Record<string, {
                     "name": "ARRAY",
                     "description": "The array from which to randomly take a value. If a non-array value is provided, the result is simply the provided value.",
                     "type": "Array",
-                    "default": "GLOBAL VARIABLE"
                 }
             ],
             "return": [
@@ -89,7 +84,6 @@ export const opyModules: Record<string, Record<string, {
                     "name": "ARRAY",
                     "description": "The array whose copy will be randomized.",
                     "type": "Array",
-                    "default": "GLOBAL VARIABLE"
                 }
             ],
             "return": "Array",

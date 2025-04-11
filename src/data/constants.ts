@@ -7215,7 +7215,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
     "Impulse": {
         "CANCEL_CONTRARY_MOTION": {
             "guid": "00000000B520",
-            "description": "If the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
+            "description": "**Legacy, use `CANCEL_CONTRARY_MOTION_XYZ` instead.**\n\nIf the target is moving against the direction of the impulse, this relative velocity is negated before the impulse is applied. Horizontal velocity (XZ) and vertical velocity (Y) are processed separately.",
 
             "en-US": "Cancel Contrary Motion",
             "es-MX": "Cancelar movimiento contrario",

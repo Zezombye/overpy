@@ -22,7 +22,7 @@ import { astContainsRandom } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 
-astParsingFunctions.hsla = function (content) {
+astParsingFunctions.hsl = function (content) {
     //https://stackoverflow.com/a/64090995/4851350
     let h = "$h";
     let s = "$s";

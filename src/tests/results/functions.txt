@@ -21,7 +21,7 @@ rule ("function") {
         Set Global Variable(A, Ray Cast Hit Player(Global.B, Global.C, Global.D, Global.E, True));
         Set Global Variable(A, Ray Cast Hit Position(Global.B, Global.C, Global.D, Global.E, False));
         Set Global Variable(A, Ray Cast Hit Normal(Global.B, Global.C, Global.D, Global.E, True));
-        Set Global Variable(A, Divide(Divide(Multiply(Multiply(-3, 999999999999999), 999999999999999), 999999999999999), 10));
+        Set Global Variable(A, Divide(Divide(Multiply(Multiply(-3, 999999999999), 999999999999), 999999999999), 10));
         Set Global Variable(A, String Slice(Global.B, 2, 4));
         Chase Player Variable Over Time(Event Player, B, 9999, 3, Destination and Duration);
         Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, True, Color(Red), Null, Null, Visible To and String, Visible Always);
@@ -186,6 +186,24 @@ rule ("optimizations for function combinations") {
         Set Global Variable(A, Number Of Living Players(Global.B));
         "getNumberOfDeadPlayers(B)"
         Set Global Variable(A, Number Of Dead Players(Global.B));
+    }
+}
+
+rule ("default arguments") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Create HUD Text(All Players(All Teams), 1234, Null, Null, Left, False, Color(White), Null, Null, Visible To Sort Order String and Color, Default Visibility);
+        Create HUD Text(Global.A, 1234, Null, Null, Left, False, Color(White), Null, Null, Visible To Sort Order String and Color, Default Visibility);
+        Create HUD Text(Global.A, 1234, Null, Null, Left, False, Color(White), Null, Null, Visible To Sort Order String and Color, Default Visibility);
+        Create HUD Text(Global.A, 1234, Null, Null, Left, False, Color(White), Null, Null, Visible To Sort Order String and Color, Default Visibility);
+        Wait(False, Ignore Condition);
+        Start Facing(Global.C, Vector(True, 2, 3), 999999999999, To World, Direction and Turn Rate);
+        Start Facing(Global.C, Vector(True, 2, 3), 999999999999, To Player, Direction and Turn Rate);
+        Set Global Variable(D, Ammo(Global.D, False));
+        Set Global Variable(E, Array Slice(Global.E, 5, 999999999999));
+        Set Global Variable(E, Array Slice(Global.E, 5, 7));
     }
 }
 

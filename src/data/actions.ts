@@ -49,31 +49,27 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healthType",
                 "description": "Specifies the type of health (Armor or shields) contained in the Health Pool.",
                 "type": "Health",
-                "default": "Armor"
             },
             {
                 "name": "maxHealth",
                 "description": "The size of the health pool",
                 "type": "unsigned float",
-                "default": 100
             },
             {
                 "name": "isRecoverable",
                 "description": "Whether health in this pool can be healed once it is lost. If this is value is false, then the health pool will shrink and disappear as it is damaged.",
                 "type": "bool",
-                "default": "true"
             },
             {
                 "name": "reevaluation",
                 "description": "If set to true and Recoverable is also true, then Max Health will be reevaluated every frame. Else, Max Health is only evaluated once when this action executes.",
                 "type": "bool",
-                "default": "true"
+                "default": true
             }
         ],
         "return": "void",
@@ -106,7 +102,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "score",
@@ -114,7 +109,6 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "000000007873",
@@ -147,13 +141,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button that is being reenabled.",
                 "type": "Button",
-                "default": "BUTTON"
             }
         ],
         "guid": "00000000B9D0",
@@ -186,31 +178,27 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "direction",
                 "description": "The unit direction in which the impulse will be applied. This value is normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             },
             {
                 "name": "speed",
                 "description": "The magnitude of the change to the velocities of the player or players.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
-                "default": "TO WORLD"
             },
             {
                 "name": "motion",
                 "description": "Specifies whether existing velocity that is counter to direction should first be cancelled out before applying the impulse.",
                 "type": "Impulse",
-                "default": "CANCEL CONTRARY MOTION"
+                "default": "CANCEL_CONTRARY_MOTION_XYZ"
             }
         ],
         "guid": "0000000078F6",
@@ -238,20 +226,17 @@ export const actionKw: Record<string, Action> =
                 "name": "child",
                 "description": "The player that will attach to the parent. This player will be unable to move freely until detached or teleported away.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "parent",
                 "description": "The player to whom the child will attach. This player's movement will be unaffected and will determine the child's position.",
                 "type": "Player",
-                "default": "LAST CREATED ENTITY"
             },
             {
                 "name": "offset",
                 "description": "The coordinates of the child relative to the parent. For example, `vect(1,2,0)` would be above and to the left of the parent's head.",
                 "type": "Position",
                 "canReplaceNullVectorByNull": true,
-                "default": "VECTOR"
             }
         ],
         "return": "void",
@@ -284,7 +269,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -317,13 +301,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "status",
                 "description": "The status to be removed from the player or players.",
                 "type": "Status",
-                "default": "HACKED"
             }
         ],
         "guid": "00000000B595",
@@ -356,13 +338,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "type",
                 "description": "The type of communication.",
                 "type": "Comms",
-                "default": "VOICE LINE UP"
             }
         ],
         "guid": "00000000B9E3",
@@ -395,7 +375,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -428,7 +407,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9B5",
@@ -461,7 +439,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9B3",
@@ -494,13 +471,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "includeFloors",
                 "description": "If true, collision with the floors is also disabled.",
                 "type": "bool",
-                "default": "false"
             }
         ],
         "return": "void",
@@ -533,7 +508,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -566,7 +540,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -599,7 +572,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -632,7 +604,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -665,7 +636,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -698,7 +668,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "viewingPlayers",
@@ -709,7 +678,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "All Players"
             }
         ],
         "return": "void",
@@ -742,7 +710,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -775,7 +742,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B87A",
@@ -808,7 +774,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -841,7 +806,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             }
         ],
         "return": "void",
@@ -874,25 +838,21 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             },
             {
                 "name": "teamVoiceChat",
                 "description": "Whether or not team voice chat will be disabled.",
                 "type": "bool",
-                "default": true
             },
             {
                 "name": "matchVoiceChat",
                 "description": "Whether or not match voice chat will be disabled.",
                 "type": "bool",
-                "default": true
             },
             {
                 "name": "groupVoiceChat",
                 "description": "Whether or not group voice chat will be disabled.",
                 "type": "bool",
-                "default": true
             }
         ],
         "return": "void",
@@ -925,13 +885,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button that is being disabled.",
                 "type": "Button",
-                "default": "BUTTON"
             }
         ],
         "guid": "00000000B9CF",
@@ -964,7 +922,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9AE",
@@ -997,7 +954,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9B4",
@@ -1030,7 +986,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1063,7 +1018,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1096,7 +1050,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1129,7 +1082,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1162,7 +1114,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1195,7 +1146,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1228,7 +1178,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "viewingPlayers",
@@ -1239,7 +1188,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "All Players"
             }
         ],
         "return": "void",
@@ -1272,7 +1220,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1305,7 +1252,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B878",
@@ -1338,7 +1284,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1371,7 +1316,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             }
         ],
         "return": "void",
@@ -1404,7 +1348,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             }
         ],
         "return": "void",
@@ -1437,13 +1380,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The button to be pressed.",
                 "type": "Button",
-                "default": "BUTTON"
             }
         ],
         "guid": "0000000078FB",
@@ -1476,7 +1417,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "hero",
@@ -1487,7 +1427,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Hero"
                     }
                 ],
-                "default": "HERO"
             }
         ],
         "guid": "00000000B9B1",
@@ -1520,7 +1459,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1553,7 +1491,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000BA5A",
@@ -1586,7 +1523,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "0000000078FC",
@@ -1620,7 +1556,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -1652,13 +1587,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use ability 1. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "guid": "00000000B9B8",
@@ -1691,13 +1624,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use ability 2. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "guid": "00000000B9B7",
@@ -1730,13 +1661,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
-                "default": "BUTTON"
             },
             {
                 "name": "chargeCount",
@@ -1744,7 +1673,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             }
         ],
         "return": "void",
@@ -1777,13 +1705,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
-                "default": "BUTTON"
             },
             {
                 "name": "cooldown",
@@ -1791,7 +1717,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "return": "void",
@@ -1824,13 +1749,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button associated with the ability to be modified.",
                 "type": "Button",
-                "default": "BUTTON"
             },
             {
                 "name": "resourcePercent",
@@ -1838,7 +1761,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             }
         ],
         "return": "void",
@@ -1871,13 +1793,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "turnSpeedPercent",
                 "description": "The percentage of normal aim speed to which the player or players will set their aim speed.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000C364",
@@ -1910,7 +1830,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "hero",
@@ -1921,7 +1840,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Hero"
                     }
                 ],
-                "default": "HERO"
             }
         ],
         "guid": "00000000BA5B",
@@ -1954,7 +1872,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "clip",
@@ -1962,7 +1879,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             },
             {
                 "name": "ammo",
@@ -1970,7 +1886,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             }
         ],
         "return": "void",
@@ -2003,13 +1918,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use crouch. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "return": "void",
@@ -2042,7 +1955,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "damageDealtPercent",
@@ -2051,7 +1963,6 @@ export const actionKw: Record<string, Action> =
                 "min": 0,
                 "max": 10000,
                 "literalMax": 1000,
-                "default": "NUMBER"
             }
         ],
         "hasLiteralLimit": true,
@@ -2085,7 +1996,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "damageReceivedPercent",
@@ -2094,7 +2004,6 @@ export const actionKw: Record<string, Action> =
                 "min": 0,
                 "max": 10000,
                 "literalMax": 1000,
-                "default": "NUMBER"
             }
         ],
         "hasLiteralLimit": true,
@@ -2128,13 +2037,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "environmentCreditPlayer",
                 "description": "The Player who will receive credit if the target player or players die to the environment before landing on the ground. An environment credit player of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
             }
         ],
         "return": "void",
@@ -2167,19 +2074,16 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "direction",
                 "description": "The unit direction in which the player or players will face. This value is normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
-                "default": "TO WORLD"
             }
         ],
         "guid": "00000000BB29",
@@ -2212,7 +2116,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "gravityPercent",
@@ -2220,7 +2123,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B999",
@@ -2253,7 +2155,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healingDealtPercent",
@@ -2262,7 +2163,6 @@ export const actionKw: Record<string, Action> =
                 "min": 0,
                 "max": 10000,
                 "literalMax": 1000,
-                "default": "NUMBER"
             }
         ],
         "hasLiteralLimit": true,
@@ -2296,13 +2196,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healingReceivedPercent",
                 "description": "The percentage of raw healing received to which the player or players will set their healing received.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B993",
@@ -2335,13 +2233,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "amount",
                 "description": "How much health the player or players will have.",
                 "type": "unsigned float",
-                "default": 1
             }
         ],
         "return": "void",
@@ -2374,13 +2270,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "invisibleTo",
                 "description": "Specifies for whom the player or players will be invisible.",
                 "type": "Invis",
-                "default": "ALL"
             }
         ],
         "guid": "00000000B9ED",
@@ -2413,13 +2307,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use jump. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "return": "void",
@@ -2452,13 +2344,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "jumpVerticalSpeedPercent",
                 "description": "The percentage of raw jump vertical speed to which the player or players will set their jump vertical speed.",
                 "type": "unsigned float",
-                "default": 100
             }
         ],
         "return": "void",
@@ -2491,13 +2381,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "knockbackDealtPercent",
                 "description": "The percentage of raw knockback dealt to which the player or players will set their knockback dealt.",
                 "type": "unsigned float",
-                "default": 100
             }
         ],
         "return": "void",
@@ -2530,13 +2418,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "knockbackReceivedPercent",
                 "description": "The percentage of raw knockback received to which the player or players will set their knockback received.",
                 "type": "unsigned float",
-                "default": 100
             }
         ],
         "return": "void",
@@ -2569,7 +2455,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "clip",
@@ -2577,7 +2462,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             },
             {
                 "name": "ammo",
@@ -2585,7 +2469,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             }
         ],
         "return": "void",
@@ -2618,7 +2501,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healthPercent",
@@ -2627,7 +2509,6 @@ export const actionKw: Record<string, Action> =
                 "min": 0,
                 "max": 10000,
                 "literalMax": 1000,
-                "default": "NUMBER"
             }
         ],
         "hasLiteralLimit": true,
@@ -2661,13 +2542,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use melee. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "return": "void",
@@ -2700,7 +2579,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "moveSpeedPercent",
@@ -2708,7 +2586,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B998",
@@ -2741,13 +2618,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use primary fire. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "guid": "00000000C6C5",
@@ -2780,7 +2655,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "projectileGravityPercent",
@@ -2788,7 +2662,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B99B",
@@ -2821,7 +2694,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "projectileSpeedPercent",
@@ -2829,7 +2701,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B99D",
@@ -2862,13 +2733,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use reload. Expects a boolean value such as True, False, or Compare.",
                 "type": "bool",
-                "default": "true"
             }
         ],
         "return": "void",
@@ -2901,7 +2770,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "time",
@@ -2909,7 +2777,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B9CD",
@@ -2942,7 +2809,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "score",
@@ -2950,7 +2816,6 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB22",
@@ -2983,13 +2848,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use secondary fire. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "guid": "00000000C6C4",
@@ -3022,27 +2885,23 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "assister",
                 "description": "Specifies a player to be awarded assist credit should the affected player or players be killed while the status is in effect. An assister of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
             },
             {
                 "name": "status",
                 "description": "The status to be applied to the player or players. These behave similarly to statuses applied from hero abilities.",
                 "type": "Status",
-                "default": "HACKED"
             },
             {
                 "name": "duration",
-                "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 9999.",
+                "description": "The duration of the status in seconds. To have a status that lasts until a clear status action is executed, provide an arbitrarily long duration such as 99999.",
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B588",
@@ -3075,7 +2934,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "chargePercent",
@@ -3083,7 +2941,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB1C",
@@ -3116,13 +2973,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "enabled",
                 "description": "Specifies whether the player or players are able to use their ultimate ability. Expects a boolean value such as true, false, or compare.",
                 "type": "bool",
-                "default": "TRUE"
             }
         ],
         "guid": "00000000B9B6",
@@ -3155,7 +3010,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "weapon",
@@ -3163,7 +3017,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 0
             }
         ],
         "return": "void",
@@ -3196,37 +3049,32 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "direction",
                 "description": "The unit direction in which the acceleration will be applied. This value is normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             },
             {
                 "name": "rate",
                 "description": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "maxSpeed",
                 "description": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
-                "default": "TO WORLD"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "AccelReeval",
-                "default": "DIRECTION, RATE, AND MAX SPEED"
+                "default": "DIRECTION_RATE_AND_MAX_SPEED"
             }
         ],
         "guid": "00000000BB0D",
@@ -3259,25 +3107,22 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "eyePosition",
                 "description": "The position of the camera. Reevaluates continuously.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "lookAtPosition",
                 "description": "Where the camera looks at. Reevaluates continuously.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "blendSpeed",
                 "description": "How fast to blend the camera movement as positions change. 0 means do not blend at all, and just change positions instantly.",
                 "type": "unsigned float",
-                "default": "NUMBER"
+                "default": 0
             }
         ],
         "guid": "00000000C393",
@@ -3298,7 +3143,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Start Camera",
         "zh-TW": "Start Camera"
     },
-    ".startDoT": {
+    ".startDamageOverTime": {
         "description": "Starts an instance of damage over time. This dot will persist for the specified duration or until stopped by script. To obtain a reference to this dot, use the last damage over time id value.",
         "args": [
             {
@@ -3310,25 +3155,21 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "damager",
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
             },
             {
                 "name": "duration",
-                "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
+                "description": "The duration of the damage over time in seconds. To have a dot that lasts until stopped by script, provide an arbitrarily long duration such as 99999.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "damagePerSecond",
                 "description": "The damage per second for the damage over time.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B9C5",
@@ -3361,31 +3202,29 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "direction",
                 "description": "The unit direction in which the player or players will eventually face. This value is normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             },
             {
                 "name": "turnRate",
                 "description": "The turn rate in degrees per second.",
                 "type": "unsigned float",
-                "default": "NUMBER"
+                "default": "Math.INFINITY"
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
-                "default": "TO WORLD"
+                "default": "TO_WORLD"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "FacingReeval",
-                "default": "DIRECTION AND TURN RATE"
+                "default": "DIRECTION_AND_TURN_RATE"
             }
         ],
         "guid": "00000000BB20",
@@ -3418,13 +3257,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button that is being held virtually.",
                 "type": "Button",
-                "default": "BUTTON"
             }
         ],
         "guid": "00000000B9D3",
@@ -3457,13 +3294,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "hero",
                 "description": "The hero that the player or players will be forced to be.",
                 "type": "Hero",
-                "default": "HERO"
             }
         ],
         "guid": "00000000ABFB",
@@ -3496,13 +3331,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             },
             {
                 "name": "name",
                 "description": "The name to be forced.",
                 "type": "String",
-                "default": "Custom String"
             }
         ],
         "return": "void",
@@ -3535,7 +3368,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "viewingPlayers",
@@ -3546,19 +3378,16 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "All Players"
             },
             {
                 "name": "visible",
                 "description": "Whether or not the specified player outlines should be visible.",
                 "type": "bool",
-                "default": "true"
             },
             {
                 "name": "color",
                 "description": "The color of the specified player outlines, if they are visible.",
                 "type": "Color",
-                "default": "COLOR"
             },
             {
                 "name": "visibility",
@@ -3592,20 +3421,18 @@ export const actionKw: Record<string, Action> =
                 "name": "player",
                 "description": "The player whose position will be forced. (The reevaluation option does not apply to this value.)",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "position",
                 "description": "The position the player will occupy. If reevaluation is enabled, this value can be used to move the player around over time.",
                 "type": "Position",
                 "canReplace0ByNull": true,
-                "default": "VECTOR"
             },
             {
                 "name": "reevaluate",
                 "description": "If this value is true, then the position will be reevaluated and applied to the player every frame. If this value is false, then the position is only evaluated once when the action begins.",
                 "type": "bool",
-                "default": "TRUE"
+                "default": true
             }
         ],
         "return": "void",
@@ -3638,7 +3465,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "minForward",
@@ -3646,7 +3472,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "maxForward",
@@ -3654,7 +3479,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "minBackward",
@@ -3662,7 +3486,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "maxBackward",
@@ -3670,7 +3493,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "minSideways",
@@ -3678,7 +3500,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "maxSideways",
@@ -3686,7 +3507,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB0F",
@@ -3719,7 +3539,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "targets",
@@ -3730,13 +3549,12 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this Action's Inputs will be continuously reevaluated. This Action will keep asking for and using new Values from reevaluated Inputs.",
                 "type": "AssistReeval",
-                "default": "Assisters and Targets"
+                "default": "ASSISTERS_AND_TARGETS"
             }
         ],
         "return": "void",
@@ -3757,8 +3575,8 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Start Assist",
         "zh-TW": "Start Assist"
     },
-    ".startHoT": {
-        "description": "Starts an instance of heal over time. This hot will persist for the specified duration or until stopped by script. To obtain a reference to this hot, use the last heal over time id value.",
+    ".startHealingOverTime": {
+        "description": "Starts an instance of heal over time. This healing will persist for the specified duration or until stopped by script. To obtain a reference to this healing, use the last heal over time id value.",
         "args": [
             {
                 "name": "player",
@@ -3769,25 +3587,21 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healer",
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
             },
             {
                 "name": "duration",
-                "description": "The duration of the heal over time in seconds. To have a hot that lasts until stopped by script, provide an arbitrarily long duration such as 9999.",
+                "description": "The duration of the heal over time in seconds. To have a healing that lasts until stopped by script, provide an arbitrarily long duration such as 99999.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "healingPerSecond",
                 "description": "The healing per second for the heal over time.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B9C2",
@@ -3820,7 +3634,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "pitchScalar",
@@ -3833,7 +3646,7 @@ export const actionKw: Record<string, Action> =
                 "name": "reevaluation",
                 "description": "If true, Pitch Scalar is evaluated and updated every frame. If false, Pitch Scalar is evaluated once when the action executes.",
                 "type": "bool",
-                "default": "true"
+                "default": true
             }
         ],
         "return": "void",
@@ -3866,7 +3679,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "scale",
@@ -3874,13 +3686,12 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 1
             },
             {
                 "name": "reevaluation",
                 "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
-                "default": "true"
+                "default": true
             }
         ],
         "return": "void",
@@ -3913,7 +3724,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "scale",
@@ -3921,13 +3731,12 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": 1
             },
             {
                 "name": "reevaluation",
                 "description": "If this value is true, then scale will be reevaluated and applied to the player or players every frame. If this value is false, then the scale is only evaluated once when the action begins.",
                 "type": "bool",
-                "default": "true"
+                "default": true
             }
         ],
         "return": "void",
@@ -3960,37 +3769,33 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "direction",
                 "description": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             },
             {
                 "name": "magnitude",
                 "description": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "description": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
                 "type": "Relativity",
-                "default": "TO WORLD"
             },
             {
                 "name": "behavior",
                 "description": "Specifies whether preexisting throttle is replaced or added to.",
                 "type": "Throttle",
-                "default": "REPLACE EXISTING THROTTLE"
+                "default": "REPLACE_EXISTING"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "ThrottleReeval",
-                "default": "DIRECTION AND MAGNITUDE"
+                "default": "DIRECTION_AND_MAGNITUDE"
             }
         ],
         "guid": "00000000CEA4",
@@ -4023,25 +3828,21 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "xAxisScalar",
                 "description": "The player or players will have their throttle X axis (left to right) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "yAxisScalar",
                 "description": "The player or players will have their throttle Y axis (front to back) multiplied by this value before the throttle is rotated to its new relative direction. This value is evaluated continuously (meaning it updates every frame).",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "relativeDirection",
                 "description": "After the axis scalars are applied, the player or players will have their throttle transformed so that it is relative to this unit direction vector. For example, to make the throttle camera relative, provide the direction that the camera is facing. This value is evaluated continuously (meaning it updates every frame) and normalized internally.",
                 "type": "Direction",
-                "default": "VECTOR"
             }
         ],
         "guid": "00000000CC26",
@@ -4074,7 +3875,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000BB0C",
@@ -4095,7 +3895,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Stop Accelerating",
         "zh-TW": "Stop Accelerating"
     },
-    ".stopAllDoT": {
+    ".stopAllDamageOverTime": {
         "description": "Stops all damage over time started by start damage over time for one or more players.",
         "args": [
             {
@@ -4107,7 +3907,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9C3",
@@ -4128,7 +3927,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Stop All Damage Over Time",
         "zh-TW": "Stop All Damage Over Time"
     },
-    ".stopAllHoT": {
+    ".stopAllHealingOverTime": {
         "description": "Stops all heal over time started by start heal over time for one or more players.",
         "args": [
             {
@@ -4140,7 +3939,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000B9C0",
@@ -4173,7 +3971,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000C3B1",
@@ -4206,7 +4003,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000BB21",
@@ -4239,13 +4035,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "button",
                 "description": "The logical button that is no longer being held virtually.",
                 "type": "Button",
-                "default": "BUTTON"
             }
         ],
         "guid": "00000000B9D2",
@@ -4278,7 +4072,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000AC1B",
@@ -4311,7 +4104,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             }
         ],
         "return": "void",
@@ -4344,7 +4136,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "viewingPlayers",
@@ -4355,7 +4146,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "All Players"
             }
         ],
         "return": "void",
@@ -4388,7 +4178,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -4421,7 +4210,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000BB0E",
@@ -4454,7 +4242,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -4487,7 +4274,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -4520,7 +4306,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "return": "void",
@@ -4553,7 +4338,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000CEA3",
@@ -4586,7 +4370,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000CC25",
@@ -4620,14 +4403,12 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "position",
                 "description": "The position to which the player or players will teleport. If a player is provided, the position of the player is used.",
                 "type": "Position",
                 "canReplace0ByNull": true,
-                "default": "VECTOR"
             }
         ],
         "return": "void",
@@ -4696,7 +4477,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "Specifies whether the execution is stopped.",
                 "type": "bool",
-                "default": "COMPARE"
             }
         ],
         "guid": "00000000BB04",
@@ -4724,7 +4504,6 @@ export const actionKw: Record<string, Action> =
                 "name": "subroutine",
                 "description": "Specifies which subroutine to call. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
                 "type": "Subroutine",
-                "default": "Sub0"
             }
         ],
         "guid": "00000001001E",
@@ -4752,7 +4531,6 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "Specifies which global variable to modify gradually.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "destination",
@@ -4761,19 +4539,16 @@ export const actionKw: Record<string, Action> =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
             },
             {
                 "name": "rate",
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseRateReeval__",
-                "default": "DESTINATION AND RATE"
             }
         ],
         "guid": "00000000B840",
@@ -4801,7 +4576,6 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "Specifies which global variable to modify gradually.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "destination",
@@ -4810,19 +4584,16 @@ export const actionKw: Record<string, Action> =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
             },
             {
                 "name": "duration",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseTimeReeval__",
-                "default": "DESTINATION AND DURATION"
             }
         ],
         "guid": "00000000B842",
@@ -4855,13 +4626,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which of the player's variables to modify gradually.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "destination",
@@ -4870,19 +4639,16 @@ export const actionKw: Record<string, Action> =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
             },
             {
                 "name": "rate",
                 "description": "The amount of change that will happen to the variable's value each second.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseRateReeval__",
-                "default": "DESTINATION AND RATE"
             }
         ],
         "guid": "00000000B83F",
@@ -4915,7 +4681,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
@@ -4929,19 +4694,16 @@ export const actionKw: Record<string, Action> =
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
             },
             {
                 "name": "duration",
                 "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "__ChaseTimeReeval__",
-                "default": "DESTINATION AND DURATION"
             }
         ],
         "guid": "00000000B841",
@@ -4969,7 +4731,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
                 "type": "bool",
-                "default": "COMPARE"
             }
         ],
         "guid": "00000000FB33",
@@ -5039,25 +4800,21 @@ export const actionKw: Record<string, Action> =
                 "name": "controlVariable",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "rangeStart",
                 "description": "The control variable is set to this value when the loop begins.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "rangeStop",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
-                "default": "COUNT OF"
             },
             {
                 "name": "step",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000FEE2",
@@ -5085,31 +4842,26 @@ export const actionKw: Record<string, Action> =
                 "name": "controlPlayer",
                 "description": "The player whose variable is being modified in this loop. If multiple players are specified, the first player is used.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "controlVariable",
                 "description": "The variable being modified in this loop. It is set to the range start value when the loop begins, and the loop continues until the control variable reaches or passes the range stop value.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "rangeStart",
                 "description": "The control variable is set to this value when the loop begins.",
                 "type": "float",
-                "default": "NUMBER"
             },
             {
                 "name": "rangeStop",
                 "description": "If the control variable reaches or passes this value, then the loop will exit, and execution jumps to the next action after the end action. Whether this value is considered passed or not is based on whether the step value is negative or positive. If the control variable has already reached or passed this value when the loop begins, then the loop exits.",
                 "type": "float",
-                "default": "COUNT OF"
             },
             {
                 "name": "step",
                 "description": "This value is added to the control variable when the end action is reached. If this modification causes the control variable to reach or pass the range stop value, then the loop exits, and execution jumps to the next action after the end action. Otherwise, the loop continues, and execution jumps to the next action after the for action.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000FEE1",
@@ -5142,25 +4894,25 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
                 "name": "header",
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "STRING"
+                "default": null,
             },
             {
                 "name": "subheader",
                 "description": "The subheader text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "NULL"
+                "default": null,
             },
             {
                 "name": "text",
                 "description": "The body text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "NULL"
+                "default": null,
             },
             {
                 "name": "location",
@@ -5174,37 +4926,37 @@ export const actionKw: Record<string, Action> =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": 0
             },
             {
                 "name": "headerColor",
                 "description": "The color of the header.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "subheaderColor",
                 "description": "The color of the subheader.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "textColor",
                 "description": "The color of the text.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
+                "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             },
             {
-                "name": "spectators",
+                "name": "specVisibility",
                 "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
+                "default": "DEFAULT"
             }
         ],
         "guid": "00000000BAD3",
@@ -5232,7 +4984,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next else if, else, or end action at the current level.",
                 "type": "bool",
-                "default": "COMPARE"
             }
         ],
         "guid": "00000000FB32",
@@ -5302,7 +5053,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "Specifies whether the loop will occur.",
                 "type": "bool",
-                "default": "COMPARE"
             }
         ],
         "guid": "00000000BB06",
@@ -5351,19 +5101,16 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "The global variable to modify.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "index",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
-                "default": "NUMBER"
             },
             {
                 "name": "operation",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
-                "default": "ADD"
             },
             {
                 "name": "value",
@@ -5372,7 +5119,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000C7E1",
@@ -5400,13 +5146,11 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "The global variable to modify.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "operation",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
-                "default": "ADD"
             },
             {
                 "name": "value",
@@ -5415,7 +5159,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000786E",
@@ -5448,25 +5191,21 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "index",
                 "description": "The index of the array to modify. If the index is beyond the end of the array, the array is extended with new elements given a value of zero.",
                 "type": "unsigned int",
-                "default": "NUMBER"
             },
             {
                 "name": "operation",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
-                "default": "ADD"
             },
             {
                 "name": "value",
@@ -5475,7 +5214,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000C7DF",
@@ -5508,19 +5246,16 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which of the player's variables to modify.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "operation",
                 "description": "The way in which the variable's value will be changed. Options include standard arithmetic operations as well as array operations for appending and removing values.",
                 "type": "__Operation__",
-                "default": "ADD"
             },
             {
                 "name": "value",
@@ -5529,7 +5264,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000786F",
@@ -5557,7 +5291,6 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "Specifies which global variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "index",
@@ -5565,7 +5298,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "value",
@@ -5574,7 +5306,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BBAA",
@@ -5602,7 +5333,6 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "Specifies which global variable to store the value into.",
                 "type": "GlobalVariable",
-                "default": "A"
             },
             {
                 "name": "value",
@@ -5611,7 +5341,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "0000000077DE",
@@ -5644,13 +5373,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which player variable's value is the array to modify. If the variable's value is not an array, then its value becomes an empty array.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "index",
@@ -5658,7 +5385,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "value",
@@ -5667,7 +5393,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BBA9",
@@ -5700,13 +5425,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which of the player's variables to store the value into.",
                 "type": "PlayerVariable",
-                "default": "A"
             },
             {
                 "name": "value",
@@ -5715,7 +5438,6 @@ export const actionKw: Record<string, Action> =
                     "Object",
                     "Array"
                 ],
-                "default": "NUMBER"
             }
         ],
         "guid": "0000000077DF",
@@ -5743,7 +5465,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "Specifies whether the skip occurs.",
                 "type": "bool",
-                "default": "COMPARE"
             },
             {
                 "name": "numberOfActions",
@@ -5751,7 +5472,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB00",
@@ -5782,7 +5502,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "return": "void",
@@ -5802,20 +5521,19 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Skip",
         "zh-TW": "Skip"
     },
-    "__startRule__": {
+    "async": {
         "description": "Begins simultaneous execution of a subroutine rule (which is a rule with a Subroutine event type). Execution of the original rule continues uninterrupted. The subroutine will have access to the same contextual values (such as Event Player) as the original rule.",
         "args": [
             {
                 "name": "subroutine",
                 "description": "Specifies which subroutine to start. If a rule with a subroutine event type specifies the same subroutine, then it will execute. Otherwise, this action is ignored.",
                 "type": "Subroutine",
-                "default": "Sub0"
             },
             {
                 "name": "ifAlreadyExecuting",
                 "description": "Determines what should happen if the rule specified by the subroutine is already executing on the same player or global entity.",
                 "type": "AsyncBehavior",
-                "default": "RESTART RULE"
+                "default": "RESTART"
             }
         ],
         "guid": "000000010022",
@@ -5843,7 +5561,6 @@ export const actionKw: Record<string, Action> =
                 "name": "variable",
                 "description": "Specifies which global variable to stop modifying.",
                 "type": "GlobalVariable",
-                "default": "A"
             }
         ],
         "guid": "00000000B83E",
@@ -5876,13 +5593,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "variable",
                 "description": "Specifies which of the player's variables to stop modifying.",
                 "type": "PlayerVariable",
-                "default": "A"
             }
         ],
         "guid": "00000000B83D",
@@ -5909,17 +5624,17 @@ export const actionKw: Record<string, Action> =
         "args": [
             {
                 "name": "time",
-                "description": "The duration of the pause. If omitted, defaults to 0.016.",
+                "description": "The duration of the pause.",
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+                "default": 0.016,
             },
             {
                 "name": "waitBehavior",
-                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart. If omitted, defaults to `Wait.IGNORE_CONDITION`.",
+                "description": "Specifies if and how the wait can be interrupted. If the condition list is ignored, the wait will not be interrupted. Otherwise, the condition list will determine if and when the action list will abort or restart.",
                 "type": "Wait",
-                "default": "IGNORE CONDITION"
+                "default": "IGNORE_CONDITION"
             }
         ],
         "return": "void",
@@ -5946,7 +5661,6 @@ export const actionKw: Record<string, Action> =
                 "name": "condition",
                 "description": "If this evaluates to true, execution continues with the next action. Otherwise, execution jumps to the next end action at the current level.",
                 "type": "bool",
-                "default": "COMPARE"
             }
         ],
         "guid": "00000000FB35",
@@ -5974,7 +5688,6 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The team or teams whose score will be changed.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "score",
@@ -5982,7 +5695,6 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB24",
@@ -6015,14 +5727,13 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                default: "getAllPlayers()",
             },
             {
-                "name": "header",
+                "name": "text",
                 "description": "The message to be displayed.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "STRING"
             }
         ],
         "guid": "00000000BA88",
@@ -6097,37 +5808,33 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "type",
                 "description": "The type of effect to be created.",
                 "type": "Beam",
-                "default": "GOOD BEAM"
             },
             {
                 "name": "startPosition",
                 "description": "The effect's start position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "endPosition",
                 "description": "The effect's end position. If this value is a player, then the effect will move along with the player. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "color",
                 "description": "The color of the beam to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Only the \"good\" and \"bad\" beam effects can have color applied.",
                 "type": "Color",
-                "default": "COLOR"
+                default: null,
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs.",
                 "type": "EffectReeval",
-                "default": "VISIBLE TO, POSITION, AND RADIUS"
+                "default": "VISIBILITY_POSITION_RADIUS_AND_COLOR"
             }
         ],
         "guid": "00000000CE80",
@@ -6155,13 +5862,11 @@ export const actionKw: Record<string, Action> =
                 "name": "hero",
                 "description": "The hero that the bot will be. If more than one hero is provided, one will be chosen at random.",
                 "type": "Hero",
-                "default": "HERO"
             },
             {
                 "name": "team",
                 "description": "The team on which to create the bot. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "slot",
@@ -6169,21 +5874,19 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "position",
                 "description": "The initial position where the bot will appear.",
                 "type": "Position",
                 "canReplaceNullVectorByNull": true,
-                "default": "VECTOR"
             },
             {
                 "name": "facing",
                 "description": "The initial direction that the bot will face.",
                 "type": "Direction",
                 "canReplaceNullVectorByNull": true,
-                "default": "VECTOR"
+                "default": "vect(0,0,0)"
             }
         ],
         "guid": "00000000CA6A",
@@ -6216,19 +5919,16 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "type",
                 "description": "The type of effect to be created.",
                 "type": "Effect",
-                "default": "SPHERE"
             },
             {
                 "name": "color",
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects. Does not support Custom Color.",
                 "type": "Color",
-                "default": "COLOR"
             },
             {
                 "name": "position",
@@ -6237,7 +5937,6 @@ export const actionKw: Record<string, Action> =
                     "Position",
                     "Player"
                 ],
-                "default": "VECTOR"
             },
             {
                 "name": "radius",
@@ -6245,13 +5944,12 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated.",
                 "type": "EffectReeval",
-                "default": "VISIBLE TO, POSITION, AND RADIUS"
+                "default": "VISIBILITY_POSITION_RADIUS_AND_COLOR"
             }
         ],
         "guid": "00000000B8AF",
@@ -6284,7 +5982,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "position",
@@ -6293,13 +5990,11 @@ export const actionKw: Record<string, Action> =
                     "Position",
                     "Player"
                 ],
-                "default": "VECTOR"
             },
             {
                 "name": "icon",
                 "description": "The icon to be created.",
                 "type": "Icon",
-                "default": "ARROW: DOWN"
             },
             {
                 "name": "reevaluation",
@@ -6311,13 +6006,13 @@ export const actionKw: Record<string, Action> =
                 "name": "iconColor",
                 "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "VISIBILITY_POSITION_AND_COLOR"
             },
             {
                 "name": "showWhenOffscreen",
                 "description": "Should this icon appear even when it is behind you?",
                 "type": "bool",
-                "default": "TRUE"
+                "default": true
             }
         ],
         "guid": "00000000ACFA",
@@ -6350,14 +6045,13 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                default: "getAllPlayers()",
             },
             {
                 "name": "header",
                 "description": "The text to be displayed.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "STRING"
             },
             {
                 "name": "position",
@@ -6367,7 +6061,6 @@ export const actionKw: Record<string, Action> =
                     "Player"
                 ],
                 "canReplaceNullVectorByNull": true,
-                "default": "VECTOR"
             },
             {
                 "name": "scale",
@@ -6375,31 +6068,30 @@ export const actionKw: Record<string, Action> =
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             },
             {
                 "name": "clipping",
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
-                "default": "CLIP AGAINST SURFACES"
+                "default": "NONE"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "WorldTextReeval",
-                "default": "VISIBLE TO, POSITION, AND STRING"
+                "default": "VISIBILITY_POSITION_STRING_AND_COLOR"
             },
             {
                 "name": "textColor",
                 "description": "Specifies the color of the in-world text to use.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
-                "name": "spectators",
+                "name": "specVisibility",
                 "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "DEFAULT VISIBILITY"
+                "default": "DEFAULT"
             }
         ],
         "guid": "00000000BAD0",
@@ -6432,7 +6124,7 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
                 "name": "value",
@@ -6444,7 +6136,7 @@ export const actionKw: Record<string, Action> =
                 "name": "text",
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "Custom String"
+                "default": null,
             },
             {
                 "name": "position",
@@ -6453,43 +6145,42 @@ export const actionKw: Record<string, Action> =
                     "Position",
                     "Player"
                 ],
-                "default": "Event Player"
             },
             {
                 "name": "scale",
                 "description": "The text's scale.",
                 "type": "float",
-                "default": "NUMBER"
+                "default": 1,
             },
             {
                 "name": "clipping",
                 "description": "Specifies whether the text can be seen through walls or is instead clipped.",
                 "type": "Clip",
-                "default": "CLIP AGAINST SURFACES"
+                "default": "NONE"
             },
             {
                 "name": "progressBarColor",
                 "description": "The color of the progress bar text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "textColor",
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressWorldTextReeval",
-                "default": "Visible To, Values, and Color"
+                "default": "VISIBILITY_POSITION_VALUES_AND_COLOR"
             },
             {
-                "name": "non-teamSpectators",
-                "description": "Whether non-team spectators can see the text or not.",
+                "name": "specVisibility",
+                "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "Default Visibility"
+                "default": "DEFAULT"
             }
         ],
         "return": "void",
@@ -6523,19 +6214,17 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "damager",
                 "description": "The player who will receive credit for the damage. A damager of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
+                default: null,
             },
             {
                 "name": "amount",
                 "description": "The amount of damage to apply. This amount may be modified by buffs, debuffs, or armor.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "return": "void",
@@ -6583,7 +6272,6 @@ export const actionKw: Record<string, Action> =
                 "name": "player",
                 "description": "The winning player.",
                 "type": "Player",
-                "default": "EVENT PLAYER"
             }
         ],
         "guid": "00000000AD30",
@@ -6632,7 +6320,6 @@ export const actionKw: Record<string, Action> =
                 "name": "roundWinningTeam",
                 "description": "Round winning team",
                 "type": "Team",
-                "default": "TEAM"
             }
         ],
         "guid": "00000000BF93",
@@ -6660,7 +6347,6 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The winning team.",
                 "type": "Team",
-                "default": "TEAM"
             }
         ],
         "guid": "0000000078FD",
@@ -6835,7 +6521,6 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The team to remove the dummy bot from. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "slot",
@@ -6843,7 +6528,6 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000CC21",
@@ -6871,7 +6555,6 @@ export const actionKw: Record<string, Action> =
                 "name": "entity",
                 "description": "Specifies which effect entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
                 "type": "EntityId",
-                "default": "LAST CREATED ENTITY"
             }
         ],
         "guid": "00000000B8AE",
@@ -6899,7 +6582,6 @@ export const actionKw: Record<string, Action> =
                 "name": "textId",
                 "description": "Specifies which hud text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
                 "type": "TextId",
-                "default": "LAST TEXT ID"
             }
         ],
         "guid": "00000000BAD2",
@@ -6927,7 +6609,6 @@ export const actionKw: Record<string, Action> =
                 "name": "entity",
                 "description": "Specifies which icon entity to destroy. This entity may be last created entity or a variable into which last created entity was earlier stored.",
                 "type": "EntityId",
-                "default": "LAST CREATED ENTITY"
             }
         ],
         "guid": "00000000B4E7",
@@ -6955,7 +6636,6 @@ export const actionKw: Record<string, Action> =
                 "name": "textId",
                 "description": "Specifies which in-world text to destroy. This id may be last text id or a variable into which last text id was earlier stored.",
                 "type": "TextId",
-                "default": "LAST TEXT ID"
             }
         ],
         "guid": "00000000BACF",
@@ -6983,7 +6663,6 @@ export const actionKw: Record<string, Action> =
                 "name": "textId",
                 "description": "Specifies which progress bar HUD text to destroy. This ID may be Last Text ID or a Variable into which Last Text ID was earlier stored.",
                 "type": "TextId",
-                "default": "Last Text ID"
             }
         ],
         "return": "void",
@@ -7011,7 +6690,6 @@ export const actionKw: Record<string, Action> =
                 "name": "textId",
                 "description": "Specifies which progress bar in-world text to destroy. This ID may be Last Text ID or a variable into which the Last Text ID was earlier stored.",
                 "type": "TextId",
-                "default": "Last Text ID"
             }
         ],
         "return": "void",
@@ -7276,19 +6954,17 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healer",
                 "description": "The player who will receive credit for the healing. A healer of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
+                "default": null,
             },
             {
                 "name": "amount",
                 "description": "The amount of healing to apply. This amount may be modified by buff or debuffs. Healing is capped by each player's max health.",
                 "type": "float",
-                "default": "NUMBER"
             }
         ],
         "return": "void",
@@ -7321,13 +6997,12 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "killer",
                 "description": "The player who will receive credit for the kill. A killer of null indicates no player will receive credit.",
                 "type": "Player",
-                "default": "NULL"
+                "default": null
             }
         ],
         "return": "void",
@@ -7359,13 +7034,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             },
             {
                 "name": "team",
                 "description": "The team on which to move the Player. The \"all\" option only works in free-for-all game modes, while the \"team\" options only work in team-based game modes.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "slot",
@@ -7425,31 +7098,26 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "type",
                 "description": "The type of effect to be created.",
                 "type": "DynamicEffect",
-                "default": "GOOD EXPLOSION"
             },
             {
                 "name": "color",
                 "description": "The color of the effect to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not support Custom Color.",
                 "type": "Color",
-                "default": "COLOR"
             },
             {
                 "name": "position",
                 "description": "The effect's position. If this value is a player, then the effect will play at the player's position. Otherwise, the value is interpreted as a position in the world.",
                 "type": "Position",
-                "default": "VECTOR"
             },
             {
                 "name": "radius",
                 "description": "The effect's radius in meters.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB27",
@@ -7477,7 +7145,6 @@ export const actionKw: Record<string, Action> =
                 "name": "text",
                 "description": "The string to be logged to the workshop inspector.",
                 "type": "Object",
-                "default": "CUSTOM STRING"
             }
         ],
         "return": "void",
@@ -7510,7 +7177,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "value",
@@ -7522,7 +7188,7 @@ export const actionKw: Record<string, Action> =
                 "name": "text",
                 "description": "The text to be displayed (can be blank)",
                 "type": "Object",
-                "default": "Custom String"
+                "default": null
             },
             {
                 "name": "location",
@@ -7540,25 +7206,25 @@ export const actionKw: Record<string, Action> =
                 "name": "progressBarColor",
                 "description": "The color of the progress bar to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "textColor",
                 "description": "The color of the text to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
-                "default": "COLOR"
+                "default": "WHITE"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The text will keep asking for and using new values from reevaluated inputs.",
                 "type": "ProgressHudReeval",
-                "default": "Visible To, Values, and Color"
+                "default": "VISIBILITY_VALUES_AND_COLOR"
             },
             {
-                "name": "non-teamSpectators",
-                "description": "Whether non-team spectators can see the text or not.",
+                "name": "specVisibility",
+                "description": "Whether spectators can see the text or not.",
                 "type": "SpecVisibility",
-                "default": "Default Visibility"
+                "default": "DEFAULT"
             }
         ],
         "return": "void",
@@ -7591,7 +7257,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "Event Player"
             }
         ],
         "return": "void",
@@ -7619,7 +7284,6 @@ export const actionKw: Record<string, Action> =
                 "name": "healthPoolId",
                 "description": "Specifies a health pool created by the Add Health Pool action. (Health pool IDs may be obtained using the Last Created Health Pool Value.)",
                 "type": "HealthPoolId",
-                "default": "Last Created Health Pool"
             }
         ],
         "return": "void",
@@ -7712,7 +7376,6 @@ export const actionKw: Record<string, Action> =
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000AD31",
@@ -7745,20 +7408,19 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                default: "getAllPlayers()",
             },
             {
-                "name": "header",
+                "name": "text",
                 "description": "The message to be displayed.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "STRING"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The message will keep asking for and using new values from reevaluated inputs.",
                 "type": "HudReeval",
-                "default": "VISIBLE TO AND STRING"
+                "default": "VISIBILITY_SORT_ORDER_STRING_AND_COLOR"
             }
         ],
         "guid": "00000000BA85",
@@ -7786,7 +7448,6 @@ export const actionKw: Record<string, Action> =
                 "name": "speedPercent",
                 "description": "The simulation rate as a percentage of normal speed. Only rates up to 100% are allowed.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B9F2",
@@ -7814,7 +7475,6 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The team or teams whose score will be set.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "score",
@@ -7822,7 +7482,6 @@ export const actionKw: Record<string, Action> =
                 "type": "int",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000BB25",
@@ -7855,14 +7514,13 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
+                "default": "getAllPlayers()"
             },
             {
-                "name": "header",
+                "name": "text",
                 "description": "The message to be displayed.",
                 "type": "Object",
                 "canReplace0ByNull": true,
-                "default": "STRING"
             }
         ],
         "guid": "00000000BA87",
@@ -7895,7 +7553,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "damagers",
@@ -7906,19 +7563,17 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "damagePercent",
                 "description": "The percentage of damage that will apply to receivers when attacked by damagers.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "DamageReeval",
-                "default": "RECEIVERS, DAMAGERS, AND DAMAGE PERCENT"
+                "default": "RECEIVERS_DAMAGERS_AND_DMGPERCENT"
             }
         ],
         "guid": "00000000C639",
@@ -7946,14 +7601,12 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The team whose spawn room will be forced.",
                 "type": "Team",
-                "default": "TEAM"
             },
             {
                 "name": "room",
                 "description": "The number of the spawn room to be forced. 0 is the first spawn room, 1 the second, and 2 is the third. If the specified spawn room does not exist, players will use the normal spawn room.",
                 "type": "unsigned int",
                 "canReplace0ByFalse": true,
-                "default": "NUMBER"
             }
         ],
         "guid": "00000000B573",
@@ -8007,7 +7660,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "EVENT PLAYER"
             },
             {
                 "name": "healers",
@@ -8018,19 +7670,17 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "ALL PLAYERS"
             },
             {
                 "name": "healingPercent",
                 "description": "The percentage of healing that will apply to receivers when healed by healers.",
                 "type": "unsigned float",
-                "default": "NUMBER"
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
                 "type": "HealingReeval",
-                "default": "RECEIVERS, HEALERS, AND HEALING PERCENT"
+                "default": "RECEIVERS_HEALERS_AND_HEALPERCENT"
             }
         ],
         "return": "void",
@@ -8121,7 +7771,6 @@ export const actionKw: Record<string, Action> =
                 "name": "assistId",
                 "description": "Specifies which assist instance to stop. This ID may be Last Assist ID or a Variable into which Last Assist ID was earlier stored.",
                 "type": "AssistId",
-                "default": "Last Assist ID"
             }
         ],
         "return": "void",
@@ -8149,7 +7798,6 @@ export const actionKw: Record<string, Action> =
                 "name": "damageModificationId",
                 "description": "Specifies which damage modification instance to stop. This id may be last damage modification id or a variable into which last damage modification id was earlier stored.",
                 "type": "DamageModificationId",
-                "default": "LAST DAMAGE MODIFICATION ID"
             }
         ],
         "guid": "00000000C649",
@@ -8170,14 +7818,13 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Stop Damage Modification",
         "zh-TW": "Stop Damage Modification"
     },
-    "stopDoT": {
+    "stopDamageOverTime": {
         "description": "Stops an instance of damage over time started by the start damage over time action.",
         "args": [
             {
                 "name": "damageOverTimeId",
                 "description": "Specifies which damage over time instance to stop. This id may be last damage over time id or a variable into which last damage over time id was earlier stored.",
                 "type": "DotId",
-                "default": "LAST DAMAGE OVER TIME ID"
             }
         ],
         "guid": "00000000B9C4",
@@ -8205,7 +7852,6 @@ export const actionKw: Record<string, Action> =
                 "name": "team",
                 "description": "The team that will resume using their normal spawn room.",
                 "type": "Team",
-                "default": "TEAM"
             }
         ],
         "guid": "00000000B574",
@@ -8233,7 +7879,6 @@ export const actionKw: Record<string, Action> =
                 "name": "healingModificationId",
                 "description": "Specifies which healing modification instance to stop. This id may be last healing modification id or a variable into which last healing modification id was earlier stored.",
                 "type": "HealingModificationId",
-                "default": "LAST HEALING MODIFICATION ID"
             }
         ],
         "guid": "00000000FD37",
@@ -8254,14 +7899,13 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Stop Healing Modification",
         "zh-TW": "Stop Healing Modification"
     },
-    "stopHoT": {
+    "stopHealingOverTime": {
         "description": "Stops an instance of heal over time started by the start heal over time action.",
         "args": [
             {
                 "name": "healOverTimeId",
                 "description": "Specifies which heal over time instance to stop. This id may be last heal over time id or a variable into which last heal over time id was earlier stored.",
                 "type": "HotId",
-                "default": "PLAYER VARIABLE"
             }
         ],
         "guid": "00000000B9C1",
@@ -8310,13 +7954,12 @@ export const actionKw: Record<string, Action> =
                 "name": "continueCondition",
                 "description": "If this value becomes true, the wait concludes, and the next action in the action list begins executing.",
                 "type": "bool",
-                "default": "false"
             },
             {
                 "name": "timeout",
-                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing. If not specified, defaults to `Math.INFINITY`.",
+                "description": "If this many seconds elapse, the wait concludes, and the next action in the action list begins executing.",
                 "type": "unsigned float",
-                "default": "999999999999"
+                "default": "Math.INFINITY"
             }
         ],
         "return": "void",
@@ -8343,7 +7986,6 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "type",
                 "type": "Projectile",
-                "default": "ORB",
                 "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension."
             },
             {
@@ -8354,25 +7996,25 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "event player",
-                "description": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner."
+                "description": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner.",
+                default: null,
             },
             {
                 "name": "startPosition",
                 "type": "Position",
-                "default": "null",
-                "description": "The start position of the projectile. If null, the player's eye position will be used."
+                "description": "The start position of the projectile. If null, the player's eye position will be used.",
+                "default": null,
             },
             {
                 "name": "direction",
                 "type": "Direction",
-                "default": "null",
-                "description": "The direction for the projectile to travel. If null, the player's facing direction will be used."
+                "description": "The direction for the projectile to travel. If null, the player's facing direction will be used.",
+                "default": null,
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "type": "Relativity",
-                "default": "TO WORLD",
+                "default": "TO_WORLD",
                 "description": "Whether the projectile's start position and direction are relative to the player or to the world."
             },
             {
@@ -8384,43 +8026,42 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "affectedTeam",
                 "type": "Team",
-                "default": "TEAM",
+                "default": "ALL",
                 "description": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
             },
             {
                 "name": "damage",
                 "type": "unsigned float",
-                "default": "50",
                 "description": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
             },
             {
                 "name": "damageScalar",
                 "type": "unsigned float",
-                "default": "1",
+                "default": 1,
                 "description": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
             },
             {
                 "name": "explosionRadius",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "description": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
             },
             {
                 "name": "explosionEffect",
                 "type": "DynamicEffect",
-                "default": "BAD EXPLOSION",
+                "default": "BAD_EXPLOSION",
                 "description": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
             },
             {
                 "name": "explosionSound",
                 "type": "DynamicEffect",
-                "default": "Explosion Sound",
+                "default": "EXPLOSION_SOUND",
                 "description": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
             },
             {
                 "name": "oversize",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "min": 0,
                 "max": 1,
                 "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
@@ -8428,7 +8069,6 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "speed",
                 "type": "unsigned float",
-                "default": "10",
                 "min": 0.1,
                 "max": 1000,
                 "description": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)"
@@ -8436,7 +8076,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "lifetime",
                 "type": "unsigned float",
-                "default": "5",
+                "default": "Math.INFINITY",
                 "min": 0.1,
                 "max": 100,
                 "description": "How long in seconds before the projectile expires."
@@ -8444,13 +8084,13 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "impulseStrength",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "description": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
             },
             {
                 "name": "ricochetCount",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "min": 0,
                 "max": 20,
                 "description": "How many times the projectile will ricochet off the environment before expiring."
@@ -8458,7 +8098,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "gravity",
                 "type": "float",
-                "default": "0",
+                "default": 0,
                 "description": "The amount of gravity affecting the projectile, creating an arc. If negative, the projectile will arc upwards."
             }
         ],
@@ -8486,7 +8126,6 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "type",
                 "type": "Projectile",
-                "default": "ORB",
                 "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles workshop extension."
             },
             {
@@ -8497,25 +8136,25 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "event player",
+                default: null,
                 "description": "The player who owns this projectile and will receive credit for kills. If null, the projectile will be owned by nobody. The projectile will not affect its owner."
             },
             {
                 "name": "startPosition",
                 "type": "Position",
-                "default": "null",
+                "default": null,
                 "description": "The start position of the projectile. If null, the player's eye position will be used."
             },
             {
                 "name": "direction",
                 "type": "Direction",
-                "default": "null",
+                "default": null,
                 "description": "The direction for the projectile to travel. If null, the player's facing direction will be used."
             },
             {
-                "name": "relative",
+                "name": "relativity",
                 "type": "Relativity",
-                "default": "TO WORLD",
+                "default": "TO_WORLD",
                 "description": "Whether the projectile's start position and direction are relative to the player or to the world."
             },
             {
@@ -8527,43 +8166,42 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "affectedTeam",
                 "type": "Team",
-                "default": "TEAM",
+                "default": "ALL",
                 "description": "Which team the projectile will collide with. The projectile will never affect its owner regardless of team."
             },
             {
                 "name": "damage",
                 "type": "unsigned float",
-                "default": "50",
                 "description": "The amount of damage or healing the projectile will apply to targets it collides with. If explosion radius is set to an amount greater than 0, this is how much damage the explosion will do at its center."
             },
             {
                 "name": "damageScalar",
                 "type": "unsigned float",
-                "default": "1",
+                "default": 1,
                 "description": "If explosion radius is set to 0 this is how much to scale the damage amount for critical hits. If the explosion radius is greater than 0 this is how much damage the projectile will do at the edge of the explosion."
             },
             {
                 "name": "explosionRadius",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "description": "The radius of the explosion created by this projectile. If 0, this projectile doesn't create an explosion."
             },
             {
                 "name": "explosionEffect",
                 "type": "DynamicEffect",
-                "default": "BAD EXPLOSION",
+                "default": "BAD_EXPLOSION",
                 "description": "The effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
             },
             {
                 "name": "explosionSound",
                 "type": "DynamicEffect",
-                "default": "Explosion Sound",
+                "default": "EXPLOSION_SOUND",
                 "description": "The sound effect to use when the projectile explodes. If explosion radius is 0 this effect will not be created."
             },
             {
                 "name": "oversize",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "min": 0,
                 "max": 1,
                 "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
@@ -8571,7 +8209,6 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "speed",
                 "type": "unsigned float",
-                "default": "10",
                 "min": 0.1,
                 "max": 1000,
                 "description": "The speed in meters per second that the projectile will travel along its direction. (0.1 to 1000)"
@@ -8579,7 +8216,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "lifetime",
                 "type": "unsigned float",
-                "default": "5",
+                "default": "Math.INFINITY",
                 "min": 0.1,
                 "max": 100,
                 "description": "How long in seconds before the projectile expires."
@@ -8587,19 +8224,18 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "impulseStrength",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "description": "The strength of the impulse to apply to a target when hit by this projectile. If explosion radius greater than 0, this impulse will applied to all targets affected by the explosion."
             },
             {
                 "name": "homingTarget",
                 "type": "Player",
-                "default": "null",
                 "description": "The homing target for the projectile. If null, the projectile will travel in a straight line."
             },
             {
                 "name": "homingStrength",
                 "type": "float",
-                "default": "0.5",
+                "default": 1,
                 "min": 0,
                 "max": 1,
                 "description": "A 0 to 1 value representing how strongly the projectile will follow its target and how easily it will lose its target. At 0, the projectile won't follow its target at all, at 1, it will follow its target aggressively and never lose it."
@@ -8634,13 +8270,11 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "All Players",
                 "description": "One or more players who will be able to see the effect."
             },
             {
                 "name": "type",
                 "type": "Projectile",
-                "default": "ORB",
                 "description": "The type of projectile to be created. New options can be added to this list by enabling the Projectiles Workshop Extension."
             },
             {
@@ -8651,7 +8285,6 @@ export const actionKw: Record<string, Action> =
                         "Array": "Player"
                     }
                 ],
-                "default": "null",
                 "description": "One or more players who the projectile will appear friendly to."
             },
             {
@@ -8660,19 +8293,17 @@ export const actionKw: Record<string, Action> =
                     "Position",
                     "Player"
                 ],
-                "default": "Event Player",
                 "description": "The position of the effect."
             },
             {
                 "name": "direction",
                 "type": "Direction",
-                "default": "vector",
                 "description": "The facing direction of the effect."
             },
             {
                 "name": "oversize",
                 "type": "unsigned float",
-                "default": "0",
+                "default": 0,
                 "min": 0,
                 "max": 1,
                 "description": "A 0 to 1 range for how oversized the projectile should be, 0 being the default size, 1 being the maximum allowed size. The maximum allowed size is different for each projectile type."
@@ -8680,7 +8311,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "reevaluation",
                 "type": "ProjectileEffectReeval",
-                "default": "Visible To Position Direction And Size",
+                "default": "VISIBILITY_FRIENDLINESS_POSITION_DIRECTION_AND_SIZE",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. The effect will keep asking for and using new values from reevaluated inputs."
             }
         ],

@@ -33,7 +33,7 @@ export const opyInternalFuncs: Record<string, {
                     "Object",
                     "Array"
                 ],
-                "default": "GLOBAL VARIABLE"
+
             },
             {
                 "name": "value",
@@ -42,7 +42,7 @@ export const opyInternalFuncs: Record<string, {
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "return": "void"
@@ -64,7 +64,7 @@ export const opyInternalFuncs: Record<string, {
             {
                 "name": "variable",
                 "type": "Variable",
-                "default": "A"
+
             },
             {
                 "name": "destination",
@@ -74,19 +74,19 @@ export const opyInternalFuncs: Record<string, {
                 ],
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "rate",
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "reevaluation",
                 "type": "__ChaseRateReeval__",
-                "default": "DESTINATION AND RATE"
+
             }
         ],
         "return": "void"
@@ -96,7 +96,7 @@ export const opyInternalFuncs: Record<string, {
             {
                 "name": "variable",
                 "type": "GlobalVariable",
-                "default": "A"
+
             },
             {
                 "name": "destination",
@@ -106,19 +106,19 @@ export const opyInternalFuncs: Record<string, {
                 ],
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "duration",
                 "type": "float",
                 "canReplace0ByFalse": true,
                 "canReplace1ByTrue": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "reevaluation",
                 "type": "__ChaseTimeReeval__",
-                "default": "DESTINATION AND DURATION"
+
             }
         ],
         "return": "void"
@@ -187,7 +187,7 @@ export const opyInternalFuncs: Record<string, {
             {
                 "name": "condition",
                 "type": "bool",
-                "default": "COMPARE"
+
             }
         ],
         "return": "void"
@@ -222,7 +222,7 @@ export const opyInternalFuncs: Record<string, {
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
@@ -231,7 +231,7 @@ export const opyInternalFuncs: Record<string, {
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -286,13 +286,13 @@ export const opyInternalFuncs: Record<string, {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -304,13 +304,13 @@ export const opyInternalFuncs: Record<string, {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -325,7 +325,7 @@ export const opyInternalFuncs: Record<string, {
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
@@ -334,7 +334,7 @@ export const opyInternalFuncs: Record<string, {
                     "Array"
                 ],
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -346,13 +346,13 @@ export const opyInternalFuncs: Record<string, {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -364,13 +364,13 @@ export const opyInternalFuncs: Record<string, {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             },
             {
                 "name": "value",
                 "type": "float",
                 "canReplace0ByNull": true,
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
@@ -411,7 +411,7 @@ export const opyInternalFuncs: Record<string, {
                     "float",
                     "Vector"
                 ],
-                "default": "NUMBER"
+
             }
         ],
         "isConstant": true,
