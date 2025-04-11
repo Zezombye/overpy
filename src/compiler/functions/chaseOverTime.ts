@@ -19,4 +19,4 @@
 
 import { astParsingFunctions } from "../../globalVars";
 
-astParsingFunctions.__chaseOverTime__ = astParsingFunctions.__chaseAtRate__;
+astParsingFunctions.chaseOverTime = astParsingFunctions.chaseAtRate;

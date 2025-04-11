@@ -118,8 +118,7 @@ export enum Overwatch2Heroes {
     venture = "venture",
     widowmaker = "widowmaker",
     winston = "winston",
-    // Because Zezombye used this name and now we're stuck with it
-    hammond = "hammond",
+    wreckingBall = "wreckingBall",
     zarya = "zarya",
     zenyatta = "zenyatta",
 }

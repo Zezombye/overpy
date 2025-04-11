@@ -811,12 +811,13 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (args[3].length !== 3 || args[3][0].text !== "ChaseReeval" || args[3][1].text !== ".") {
             error("Expected a member of the 'ChaseReeval' enum as 4th argument for function 'chase', but got '" + dispTokens(args[3]) + "'");
         }
+        args[3][0].text = "__ChaseReeval__";
         if (args[2][0].text === "rate") {
-            var funcName = "__chaseAtRate__";
-            args[3][0].text = "__ChaseRateReeval__";
+            var funcName = "chaseAtRate";
+            args[3][0].text = "ChaseRateReeval";
         } else {
-            var funcName = "__chaseOverTime__";
-            args[3][0].text = "__ChaseTimeReeval__";
+            var funcName = "chaseOverTime";
+            args[3][0].text = "ChaseTimeReeval";
         }
 
         return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
@@ -896,8 +897,11 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (args.length !== 4 && args.length !== 5) {
             error("Function 'createWorkshopSetting' takes 4 or 5 arguments, received " + args.length);
         }
+        if (args.length === 4) {
+            args.push([{ text: "0", fileStack: [] }]);
+        }
 
-        return new Ast("createWorkshopSetting", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
+        return new Ast("__createWorkshopSetting__", [parseType(args[0]), ...args.slice(1).map((x) => parse(x))]);
     }
 
     //Check for subroutine call
@@ -969,9 +973,12 @@ function parseMember(object: Token[], member: Token[]) {
                 return enumMembers[object[0].text][name].clone();
             }
 
-            //McCree fix for older gamemodes
+            //Fix for older gamemodes
             if (object[0].text === "Hero" && name === "MCCREE") {
                 name = "CASSIDY";
+            }
+            if (object[0].text === "Hero" && name === "HAMMOND") {
+                name = "WRECKING_BALL";
             }
 
             //Check for enums

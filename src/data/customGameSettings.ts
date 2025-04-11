@@ -7083,7 +7083,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     }
                 }
             },
-            "hammond": {
+            "wreckingBall": {
                 "values": {
                     "enableRollOnly": {
                         "values": "__boolOnOff__",

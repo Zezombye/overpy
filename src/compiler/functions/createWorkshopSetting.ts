@@ -24,7 +24,7 @@ import { error, getTypeCheckFailedMessage, functionNameToString } from "../../ut
 import { getUtf8Length } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
 
-astParsingFunctions.createWorkshopSetting = function (content) {
+astParsingFunctions.__createWorkshopSetting__ = function (content) {
     let funcValueArgs = funcKw[content.name].args;
     if (funcValueArgs === null) {
         error("No arguments found for workshop setting: '" + content.name + "'");
@@ -52,31 +52,31 @@ astParsingFunctions.createWorkshopSetting = function (content) {
 
     if (settingType.args.length === 0) {
         if (settingType.name === "bool") {
-            result = new Ast("__workshopSettingToggle__", [settingCategory, settingName, settingDefault, sortOrder]);
+            result = new Ast("createWorkshopSettingBool", [settingCategory, settingName, settingDefault, sortOrder]);
         } else if (settingType.name === "int") {
-            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("createWorkshopSettingInt", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned int") {
-            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("createWorkshopSettingInt", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed int") {
-            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("createWorkshopSettingInt", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "float") {
-            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
+            result = new Ast("createWorkshopSettingFloat", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "unsigned float") {
-            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
+            result = new Ast("createWorkshopSettingFloat", [settingCategory, settingName, settingDefault, getAstFor0(), getAstForInfinity(), sortOrder]);
         } else if (settingType.name === "signed float") {
-            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
+            result = new Ast("createWorkshopSettingFloat", [settingCategory, settingName, settingDefault, getAstForMinusInfinity(), getAstFor0(), sortOrder]);
         } else if (settingType.name === "Hero") {
-            result = new Ast("__workshopSettingHero__", [settingCategory, settingName, settingDefault, sortOrder]);
+            result = new Ast("createWorkshopSettingHero", [settingCategory, settingName, settingDefault, sortOrder]);
         } else {
             error("Invalid type '" + settingType.name + "' for argument 1 of function 'createWorkshopSetting', expected 'int', 'float', 'bool', 'enum' or 'Hero'");
         }
     } else {
         if (settingType.name === "int") {
-            result = new Ast("__workshopSettingInteger__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
+            result = new Ast("createWorkshopSettingInt", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "float") {
-            result = new Ast("__workshopSettingReal__", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
+            result = new Ast("createWorkshopSettingFloat", [settingCategory, settingName, settingDefault, settingType.args[0], settingType.args[1], sortOrder]);
         } else if (settingType.name === "__enumType__") {
-            result = new Ast("__workshopSettingCombo__", [
+            result = new Ast("createWorkshopSettingEnum", [
                 settingCategory,
                 settingName,
                 settingDefault,

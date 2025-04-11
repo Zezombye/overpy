@@ -773,7 +773,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Ultimate"
         }
     },
-    "ChaseReeval": {},
+    "__ChaseReeval__": {},
     "Clip": {
         "SURFACES": {
             "guid": "00000000BAF5",
@@ -9036,7 +9036,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "Visible To Position String and Color"
         }
     },
-    "__ChaseRateReeval__": {
+    "ChaseRateReeval": {
         "DESTINATION_AND_RATE": {
             "guid": "00000000B8CA",
             "en-US": "Destination and Rate",
@@ -9074,7 +9074,7 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "zh-TW": "None"
         }
     },
-    "__ChaseTimeReeval__": {
+    "ChaseTimeReeval": {
         "DESTINATION_AND_DURATION": {
             "guid": "00000000C479",
             "en-US": "Destination and Duration",
@@ -9956,7 +9956,7 @@ postLoadTasks.push({
             constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
         }
 
-        constantValues["ChaseReeval"] = Object.assign({}, constantValues["__ChaseRateReeval__"], constantValues["__ChaseTimeReeval__"]);
+        constantValues["__ChaseReeval__"] = Object.assign({}, constantValues["ChaseRateReeval"], constantValues["ChaseTimeReeval"]);
 
         for (var key in constantValues) {
             if (key.endsWith("Literal")) {

@@ -59,69 +59,76 @@ export const opyInternalFuncs: Record<string, {
         ],
         "return": "void"
     },
-    "__chaseAtRate__": {
+    "__chase__": {
+        "description": "Legacy way of chasing a variable.",
         "args": [
             {
                 "name": "variable",
+                "description": "Specifies which variable (global or player) to modify gradually.",
                 "type": "Variable",
-
             },
             {
                 "name": "destination",
+                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
                 "type": [
                     "float",
                     "Vector"
                 ],
-                "canReplace0ByFalse": true,
-                "canReplace1ByTrue": true,
-
             },
             {
-                "name": "rate",
+                "name": "rateOrDuration",
+                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
                 "type": "float",
-                "canReplace0ByFalse": true,
-                "canReplace1ByTrue": true,
-
             },
             {
                 "name": "reevaluation",
-                "type": "__ChaseRateReeval__",
-
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "ChaseReeval",
             }
         ],
         "return": "void"
     },
-    "__chaseOverTime__": {
+    "__createWorkshopSetting__": {
+        "description": "Legacy way of creating workshop settings.",
         "args": [
             {
-                "name": "variable",
-                "type": "GlobalVariable",
-
+                "name": "type",
+                "description": "The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum[\"First option\", \"Second option\"]`\n",
+                "type": "Type",
             },
             {
-                "name": "destination",
+                "name": "category",
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
+            },
+            {
+                "name": "name",
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
+            },
+            {
+                "name": "default",
+                "description": "The default value for this setting.",
                 "type": [
-                    "float",
-                    "Vector"
+                    "BoolLiteral",
+                    "IntLiteral",
+                    "FloatLiteral",
+                    "HeroLiteral"
                 ],
-                "canReplace0ByFalse": true,
-                "canReplace1ByTrue": true,
-
             },
             {
-                "name": "duration",
-                "type": "float",
-                "canReplace0ByFalse": true,
-                "canReplace1ByTrue": true,
-
-            },
-            {
-                "name": "reevaluation",
-                "type": "__ChaseTimeReeval__",
-
+                "name": "sortOrder",
+                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. Can be from 0 to 63.",
+                "type": "IntLiteral",
+                "default": 0
             }
         ],
-        "return": "void"
+        "isConstant": true,
+        "return": [
+            "bool",
+            "int",
+            "float"
+        ]
     },
     "__def__": {
         "args": null,

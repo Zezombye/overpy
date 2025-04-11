@@ -1732,7 +1732,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Is In Air"
     },
     ".isInAlternateForm": {
-        "description": "Whether the specified player is currently in an alternate form:\n        \n- Hammond's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
+        "description": "Whether the specified player is currently in an alternate form:\n        \n- Wrecking Ball's ball form\n- Baby Dva\n- Bastion's turret and tank forms\n- Lucio's speed song\n- Mercy's pistol\n- Torbjorn's hammer\n\nFor Echo duplication, use the Is Duplicating value instead.",
         "args": [
             {
                 "name": "player",
@@ -3889,18 +3889,18 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Value In Array",
         "zh-TW": "Value In Array"
     },
-    "__workshopSettingCombo__": {
+    "createWorkshopSettingEnum": {
         "description": "Provides the value (a choice of Custom Strings) of a new option setting that will appear in the Workshop Settings card as a combo box. This value returns the index of the selected choice.",
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral"
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral"
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
@@ -3916,11 +3916,13 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "sortOrder",
-                "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
                 "type": "IntLiteral",
+                "default": 0
             }
         ],
         "return": "unsigned int",
+        isConstant: true,
         "guid": "000000011CC0",
         "en-US": "Workshop Setting Combo",
         "es-MX": "Combinado de la configuración del Workshop",
@@ -3938,18 +3940,18 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Workshop Setting Combo",
         "zh-TW": "Workshop Setting Combo"
     },
-    "__workshopSettingHero__": {
+    "createWorkshopSettingHero": {
         "description": "Provides the value of a new hero setting that will appear in the Workshop Settings card as a hero list.",
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral"
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral"
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
@@ -3958,11 +3960,13 @@ export const valueFuncKw: Record<string, Value> =
             },
             {
                 "name": "sortOrder",
-                "description": "The sort order of the setting relative to other settings in the same category. Settings with a higher sort order will come after settings with a lower sort order.",
+                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
                 "type": "IntLiteral",
+                "default": 0
             }
         ],
         "return": "Hero",
+        isConstant: true,
         "guid": "000000011CBC",
         "en-US": "Workshop Setting Hero",
         "es-MX": "Configuración de héroe del Workshop",
@@ -3980,38 +3984,39 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Workshop Setting Hero",
         "zh-TW": "Workshop Setting Hero"
     },
-    "__workshopSettingInteger__": {
+    "createWorkshopSettingInt": {
         "description": "Provides the value of a new integer setting that will appear in the workshop settings card as a slider.",
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral"
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral"
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "",
+                "description": "The default value for this setting.",
                 "type": "IntLiteral",
             },
             {
                 "name": "min",
-                "description": "",
+                "description": "The minimum value for this setting.",
                 "type": "IntLiteral",
             },
             {
                 "name": "max",
-                "description": "",
+                "description": "The maximum value for this setting.",
                 "type": "IntLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "",
+                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
                 "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -4033,38 +4038,39 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Workshop Setting Integer",
         "zh-TW": "Workshop Setting Integer"
     },
-    "__workshopSettingReal__": {
+    "createWorkshopSettingFloat": {
         "description": "Provides the value of a new real number setting that will appear in the workshop settings card as a slider.",
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral"
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral"
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "",
+                "description": "The default value for this setting.",
                 "type": "FloatLiteral",
             },
             {
                 "name": "min",
-                "description": "",
+                "description": "The minimum value for this setting.",
                 "type": "FloatLiteral",
             },
             {
                 "name": "max",
-                "description": "",
+                "description": "The maximum value for this setting.",
                 "type": "FloatLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "",
+                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
                 "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -4086,28 +4092,29 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Workshop Setting Real",
         "zh-TW": "Workshop Setting Real"
     },
-    "__workshopSettingToggle__": {
+    "createWorkshopSettingBool": {
         "description": "Provides the value (true or false) of a new toggle setting that will appear in the workshop settings card as a checkbox.",
         "args": [
             {
                 "name": "category",
-                "description": "The name of the category in which this setting will be found.",
-                "type": "CustomStringLiteral"
+                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "name",
-                "description": "The name of this setting.",
-                "type": "CustomStringLiteral"
+                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
+                "type": "CustomStringLiteral",
             },
             {
                 "name": "default",
-                "description": "",
+                "description": "The default value for this setting.",
                 "type": "BoolLiteral",
             },
             {
                 "name": "sortOrder",
-                "description": "",
+                "description": "A sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically.",
                 "type": "IntLiteral",
+                "default": 0
             }
         ],
         "isConstant": true,
@@ -5053,7 +5060,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "getAllHeroes": {
         "guid": "00000000BF58",
-        "description": "The array of all heroes in overwatch. The order is as follows:\n        \n        0. Reaper   \n        1. Tracer   \n        2. Mercy    \n        3. Hanzo    \n        4. Torbjorn \n        5. Reinhardt\n        6. Pharah   \n        7. Winston  \n        8. Widowmaker\n        9. Bastion  \n        10. Symmetra \n        11. Zenyatta \n        12. Genji    \n        13. Roadhog  \n        14. Cassidy   \n        15. Junkrat  \n        16. Zarya    \n        17. Soldier  \n        18. Lucio    \n        19. Dva      \n        20. Mei      \n        21. Sombra   \n        22. Doomfist \n        23. Ana      \n        24. Orisa    \n        25. Brigitte \n        26. Moira    \n        27. Hammond  \n        28. Sojourn     \n        29. Ashe \n        30. Echo    \n        31. Baptiste\n        32. Kiriko\n        33. Junker Queen\n        34. Sigma\n",
+        "description": "The array of all heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
         "args": [],
         "isConstant": true,
         "return": {
@@ -5269,7 +5276,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Objective Index"
     },
     "getDamageHeroes": {
-        "description": "The array of all damage heroes in overwatch. The order is as follows:\n        \n        0. Reaper\n        1. Tracer\n        2. Hanzo\n        3. Torbjorn\n        4. Pharah\n        5. Widowmaker\n        6. Bastion\n        7. Symmetra\n        8. Genji\n        9. Cassidy\n        10. Junkrat\n        11. Soldier\n        12. Mei\n        13. Sombra\n        14. Ashe\n        15. Echo  \n        16. Kiriko  \n",
+        "description": "The array of all damage heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
         "args": [],
         "isConstant": true,
         "return": {
@@ -6368,7 +6375,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Spawn Points"
     },
     "getSupportHeroes": {
-        "description": "The array of all support heroes in overwatch. The order is as follows:\n        \n        0. Mercy\n        1. Zenyatta\n        2. Lucio\n        3. Ana\n        4. Brigitte\n        5. Moira\n        6. Baptiste    \n        7. Kiriko\n",
+        "description": "The array of all support heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
         "args": [],
         "isConstant": true,
         "return": {
@@ -6393,7 +6400,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Support Heroes"
     },
     "getTankHeroes": {
-        "description": "The array of all tank heroes in overwatch. The order is as follows:\n        \n        0. Reinhardt\n        1. Winston\n        2. Roadhog\n        3. Zarya\n        4. Dva\n        5. Doomfist\n        6. Orisa\n        7. Hammond\n        8. Junker Queen\n        9. Sigma\n",
+        "description": "The array of all tank heroes in overwatch. Note that the order is not guaranteed and the position of later heroes can and will change with the addition of new heroes.",
         "args": [],
         "isConstant": true,
         "return": {

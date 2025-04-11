@@ -505,8 +505,8 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
                     }
                     var heroesKey = "enabledHeroes" in customGameSettings.heroes[team] ? "enabledHeroes" : "disabledHeroes";
                     wsHeroesKey = tows(heroesKey, customGameSettingsSchema.heroes.values);
-                    for (var hero of customGameSettings.heroes[team][heroesKey]) {
-                        wsHeroesKeyObj.push(tows(hero, heroKw));
+                    for (let hero of customGameSettings.heroes[team][heroesKey]) {
+                        wsHeroesKeyObj.push(tows(hero === "mccree" ? "cassidy" : hero === "hammond" ? "wreckingBall" : hero, heroKw));
                     }
                     delete customGameSettings.heroes[team][heroesKey];
                 }
@@ -521,6 +521,15 @@ export function compileCustomGameSettings(customGameSettings: Record<string, any
                         ),
                     );
                     delete customGameSettings.heroes[team].general;
+                }
+
+                if (customGameSettings.heroes[team].mccree) {
+                    customGameSettings.heroes[team].cassidy = customGameSettings.heroes[team].mccree;
+                    delete customGameSettings.heroes[team].mccree;
+                }
+                if (customGameSettings.heroes[team].hammond) {
+                    customGameSettings.heroes[team].wreckingBall = customGameSettings.heroes[team].hammond;
+                    delete customGameSettings.heroes[team].hammond;
                 }
 
                 for (let hero of Object.keys(customGameSettings.heroes[team])) {

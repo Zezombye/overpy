@@ -20,7 +20,7 @@
 import { astParsingFunctions } from "../../globalVars";
 
 astParsingFunctions.__hero__ = function (content) {
-    if (content.expectedType === "HeroLiteral" || content.parent?.name === "createWorkshopSetting") {
+    if (content.expectedType === "HeroLiteral" || content.parent?.name === "__createWorkshopSetting__" || content.parent?.name === "createWorkshopSettingHero") {
         return content.args[0];
     } else {
         return content;

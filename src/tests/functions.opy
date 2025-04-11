@@ -7,7 +7,13 @@ rule "function":
     A = raycast(B, C, D, E, true).getNormal()
     A = getSign(-3)
     A = B.substring(2, 4)
+
     chase(eventPlayer.B, 9999, duration=3, ChaseReeval.DESTINATION_AND_DURATION)
+    chaseOverTime(eventPlayer.B, 9999, 3, ChaseTimeReeval.DESTINATION_AND_DURATION)
+    chaseAtRate(eventPlayer.B, 9999, 3, ChaseRateReeval.DESTINATION_AND_RATE)
+    chaseOverTime(B, 9999, 1, ChaseTimeReeval.DESTINATION_AND_DURATION)
+    chaseAtRate(B, 99999, 1, ChaseRateReeval.DESTINATION_AND_RATE)
+
     hudHeader(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
     hudSubtext(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)
     hudSubheader(getAllPlayers(), "test", HudPosition.LEFT, 1, Color.RED, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.ALWAYS)

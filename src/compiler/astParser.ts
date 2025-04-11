@@ -29,8 +29,8 @@ import "./functions/__add__.ts";
 import "./functions/__and__.ts";
 import "./functions/__array__.ts";
 import "./functions/__assignTo__.ts";
-import "./functions/__chaseAtRate__.ts";
-import "./functions/__chaseOverTime__.ts";
+import "./functions/chaseAtRate";
+import "./functions/chaseOverTime";
 import "./functions/__del__.ts";
 import "./functions/__dict__.ts";
 import "./functions/__distanceTo__.ts";
@@ -340,12 +340,6 @@ export function parseAst(content: Ast) {
 
     if (!(content.name in funcKw)) {
         error("Unknown function '" + content.name + "'");
-    }
-
-    if (content.name === "createWorkshopSetting") {
-        if (content.args.length === 4) {
-            content.args.push(getAstFor0());
-        }
     }
 
     //Normalize arguments

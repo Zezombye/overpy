@@ -20,7 +20,7 @@ rule "workshop settings":
     A = createWorkshopSetting(float<6:>, "float", "float<6;>", 3.5)
     A = createWorkshopSetting(float<:6>, "float", "float<;6>", 3.5)
 
-    #heros
+    #heroes
     A = createWorkshopSetting(Hero, "hero", "hero", Hero.ANA)
     A = createWorkshopSetting(Hero, "hero", "hero", Hero.HAMMOND, 3)
 

@@ -4548,7 +4548,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "__ChaseRateReeval__",
+                "type": "ChaseRateReeval",
             }
         ],
         "guid": "00000000B840",
@@ -4593,7 +4593,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "__ChaseTimeReeval__",
+                "type": "ChaseTimeReeval",
             }
         ],
         "guid": "00000000B842",
@@ -4648,7 +4648,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "__ChaseRateReeval__",
+                "type": "ChaseRateReeval",
             }
         ],
         "guid": "00000000B83F",
@@ -4703,7 +4703,7 @@ export const actionKw: Record<string, Action> =
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "__ChaseTimeReeval__",
+                "type": "ChaseTimeReeval",
             }
         ],
         "guid": "00000000B841",

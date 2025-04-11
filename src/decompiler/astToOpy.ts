@@ -245,13 +245,13 @@ export function astActionsToOpy(actions: Ast[]): string {
         } else if (actions[i].name === "__callSubroutine__") {
             decompiledAction += actions[i].args[0].name + "()";
         } else if (actions[i].name === "__chaseGlobalVariableAtRate__") {
-            decompiledAction += "chase(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", rate=" + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + ")";
+            decompiledAction += "chaseAtRate(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", " + astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_RATE" ? "" : ", " + astToOpy(actions[i].args[3])) + ")";
         } else if (actions[i].name === "__chaseGlobalVariableOverTime__") {
-            decompiledAction += "chase(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", duration=" + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + ")";
+            decompiledAction += "chaseOverTime(" + actions[i].args[0].name + ", " + astToOpy(actions[i].args[1]) + ", " + astToOpy(actions[i].args[2]) + (actions[i].args[3].name === "DESTINATION_AND_DURATION" ? "" : ", " + astToOpy(actions[i].args[3])) + ")";
         } else if (actions[i].name === "__chasePlayerVariableAtRate__") {
-            decompiledAction += "chase(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", rate=" + astToOpy(actions[i].args[3]) + ", " + astToOpy(actions[i].args[4]) + ")";
+            decompiledAction += "chaseAtRate(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_RATE" ? "" : ", " + astToOpy(actions[i].args[4])) + ")";
         } else if (actions[i].name === "__chasePlayerVariableOverTime__") {
-            decompiledAction += "chase(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", duration=" + astToOpy(actions[i].args[3]) + ", " + astToOpy(actions[i].args[4]) + ")";
+            decompiledAction += "chaseOverTime(" + astToOpy(actions[i].args[0]) + "." + actions[i].args[1].name + ", " + astToOpy(actions[i].args[2]) + ", " + astToOpy(actions[i].args[3]) + (actions[i].args[4].name === "DESTINATION_AND_DURATION" ? "" : ", " + astToOpy(actions[i].args[4])) + ")";
         } else if (actions[i].name === "__end__" && !actions[i].isDisabled) {
             if (nbTabs > 1) {
                 // nbTabs--;
@@ -426,8 +426,6 @@ export function astToOpy(content: Ast): string {
     if (typeof content.type !== "object" && content.type in constantValues) {
         if (["GamemodeLiteral", "TeamLiteral", "HeroLiteral", "MapLiteral", "ButtonLiteral", "ColorLiteral"].includes(content.type)) {
             return content.type.replace(/Literal$/, "") + "." + content.name;
-        } else if (["__ChaseTimeReeval__", "__ChaseRateReeval__"].includes(content.type)) {
-            return "ChaseReeval." + content.name;
         } else {
             return content.type + "." + content.name;
         }
@@ -722,59 +720,6 @@ export function astToOpy(content: Ast): string {
     }
     if (content.name === "__raycastHitPlayer__") {
         return "raycast(" + content.args.map((x) => astToOpy(x)).join(", ") + ").getPlayerHit()";
-    }
-
-    if (content.name === "__workshopSettingCombo__") {
-        return (
-            "createWorkshopSetting(enum" +
-            astToOpy(content.args[3]) +
-            ", " +
-            content.args
-                .slice(0, 3)
-                .map((x) => astToOpy(x))
-                .join(", ") +
-            ", " +
-            astToOpy(content.args[4]) +
-            ")"
-        );
-    }
-    if (content.name === "__workshopSettingHero__") {
-        return "createWorkshopSetting(Hero, " + content.args.map((x) => astToOpy(x)).join(", ") + ")";
-    }
-    if (content.name === "__workshopSettingToggle__") {
-        return "createWorkshopSetting(bool, " + content.args.map((x) => astToOpy(x)).join(", ") + ")";
-    }
-    if (content.name === "__workshopSettingInteger__") {
-        return (
-            "createWorkshopSetting(int[" +
-            astToOpy(content.args[3]) +
-            ":" +
-            astToOpy(content.args[4]) +
-            "], " +
-            content.args
-                .slice(0, 3)
-                .map((x) => astToOpy(x))
-                .join(", ") +
-            ", " +
-            astToOpy(content.args[5]) +
-            ")"
-        );
-    }
-    if (content.name === "__workshopSettingReal__") {
-        return (
-            "createWorkshopSetting(float[" +
-            astToOpy(content.args[3]) +
-            ":" +
-            astToOpy(content.args[4]) +
-            "], " +
-            content.args
-                .slice(0, 3)
-                .map((x) => astToOpy(x))
-                .join(", ") +
-            ", " +
-            astToOpy(content.args[5]) +
-            ")"
-        );
     }
 
     if (!(content.name in funcKw)) {

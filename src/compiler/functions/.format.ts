@@ -139,9 +139,9 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     while (true) {
         var fieldIndex = content.search(/{\d*}/);
         var tagIndex = content.search(/<fg|<tx|<\/fg>/i);
-        //console.log(str.parent?.parent?.name);
-        if (str.parent?.parent?.name === "createWorkshopSetting" || str.parent?.parent?.parent?.name === "createWorkshopSetting") {
-            //Don't replace tags in workshop settings
+
+        //Don't replace tags in workshop settings
+        if ([str.parent?.parent?.name, str.parent?.parent?.parent?.name].some(x => ["__createWorkshopSetting__", "createWorkshopSettingBool", "createWorkshopSettingEnum", "createWorkshopSettingInt", "createWorkshopSettingFloat", "createWorkshopSettingBool"].includes(x as string))) {
             tagIndex = -1;
         }
         if (fieldIndex >= 0 && (fieldIndex < tagIndex || tagIndex < 0)) {

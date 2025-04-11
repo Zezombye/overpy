@@ -399,13 +399,13 @@ export function decompile(content: string): Ast {
     if (name === ".startForcingOutlineFor" && args.length === 4) {
         args.push("DEFAULT");
     }
-    if (name === "__workshopSettingToggle__" && args.length === 3) {
+    if (name === "createWorkshopSettingBool" && args.length === 3) {
         args.push("0");
     }
-    if (name === "__workshopSettingInteger__" && args.length === 5) {
+    if (name === "createWorkshopSettingInt" && args.length === 5) {
         args.push("0");
     }
-    if (name === "__workshopSettingReal__" && args.length === 5) {
+    if (name === "createWorkshopSettingFloat" && args.length === 5) {
         args.push("0");
     }
 
@@ -427,7 +427,7 @@ export function decompile(content: string): Ast {
             }
         } else if (name !== "__array__") {
             if (args.length !== wsFuncKw[name].args?.length) {
-                error("Function '" + name + "' has " + args.length + "args, expected " + funcKw[name].args?.length ?? "<ERR: UNDEFINED ARGS>");
+                error("Function '" + name + "' has " + args.length + "args, expected " + (wsFuncKw[name].args?.length ?? "<ERR: UNDEFINED ARGS>"));
             }
         }
     }

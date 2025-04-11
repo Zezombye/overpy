@@ -105,13 +105,14 @@ export const opyFuncs: Record<
         "isConstant": true,
         "return": "int"
     },
-    "chase": {
-        "description": "Gradually modifies the value of a variable (global or player) at a specific rate, or over time.",
+    "chaseAtRate": {
+        description: "Gradually modifies the value of a variable at a specific rate.",
         "args": [
             {
                 "name": "variable",
-                "description": "Specifies which variable (global or player) to modify gradually.",
+                "description": "The variable to chase.",
                 "type": "Variable",
+
             },
             {
                 "name": "destination",
@@ -120,16 +121,62 @@ export const opyFuncs: Record<
                     "float",
                     "Vector"
                 ],
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+
             },
             {
-                "name": "rateOrDuration",
-                "description": "The amount of change that will happen to the variable's value each second, or the amount of time, in seconds, over which the variable's value will approach the destination.\n\nPut `rate=xxxx` or `duration=xxxx` as argument.",
+                "name": "rate",
                 "type": "float",
+                "description": "The amount of change that will happen to the variable's value each second.",
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+
             },
             {
                 "name": "reevaluation",
                 "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
-                "type": "ChaseReeval",
+                "type": "ChaseRateReeval",
+                default: "DESTINATION_AND_RATE"
+
+            }
+        ],
+        "return": "void"
+    },
+    "chaseOverTime": {
+        description: "Gradually modifies the value of a variable over time.",
+        "args": [
+            {
+                "name": "variable",
+                "description": "Specifies which variable to modify gradually.",
+                "type": "Variable",
+
+            },
+            {
+                "name": "destination",
+                "description": "The value that the variable will eventually reach. The type of this value may be either a number or a vector, though the variable's existing value must be of the same type before the chase begins.",
+                "type": [
+                    "float",
+                    "Vector"
+                ],
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+
+            },
+            {
+                "name": "duration",
+                "type": "float",
+                "description": "The amount of time, in seconds, over which the variable's value will approach the destination.",
+                "canReplace0ByFalse": true,
+                "canReplace1ByTrue": true,
+
+            },
+            {
+                "name": "reevaluation",
+                "description": "Specifies which of this action's inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "ChaseTimeReeval",
+                default: "DESTINATION_AND_DURATION",
+
             }
         ],
         "return": "void"
@@ -198,48 +245,6 @@ export const opyFuncs: Record<
             }
         ],
         "return": "void"
-    },
-    "createWorkshopSetting": {
-        "description": "Provides the value of a new setting that will appear in the workshop settings card as a slider or checkbox.",
-        "args": [
-            {
-                "name": "type",
-                "description": "The type of the setting. Can be an integer, float, hero, enum, or boolean.\n\nTo specify a minimum or maximum, use the type option syntax: for example, `int[3:6]` specifies an integer with a minimum of 3 and maximum of 6, included.\n\nExamples of valid types:\n\n- `int[-2:7]`\n- `float[-3.5:3]`\n- `bool`\n- `Hero`\n- `enum[\"First option\", \"Second option\"]`\n",
-                "type": "Type",
-            },
-            {
-                "name": "category",
-                "description": "The name of the category in which this setting will be found. Must be a custom string literal with 128 characters or less.",
-                "type": "CustomStringLiteral",
-            },
-            {
-                "name": "name",
-                "description": "The name of this setting. Must be a custom string literal with 128 characters or less.",
-                "type": "CustomStringLiteral",
-            },
-            {
-                "name": "default",
-                "description": "The default value for this setting.",
-                "type": [
-                    "BoolLiteral",
-                    "IntLiteral",
-                    "FloatLiteral",
-                    "HeroLiteral"
-                ],
-            },
-            {
-                "name": "sortOrder",
-                "description": "An optional sort order for this setting (within the category). Settings with the same sort order are ordered alphabetically. Can be from 0 to 63.",
-                "type": "IntLiteral",
-                "default": 0
-            }
-        ],
-        "isConstant": true,
-        "return": [
-            "bool",
-            "int",
-            "float"
-        ]
     },
     "debug": {
         "description": "For quick debugging of a value.",

@@ -123,16 +123,11 @@ export function functionNameToString(content: Ast) {
     };
 
     var funcToDisplayMapping = {
-        __chaseAtRate__: "chase",
-        __chaseOverTime__: "chase",
+        __chase__: "chase",
         __raycast__: "raycast",
         __all__: "all",
         __any__: "any",
-        __workshopSettingCombo__: "createWorkshopSetting",
-        __workshopSettingHero__: "createWorkshopSetting",
-        __workshopSettingInteger__: "createWorkshopSetting",
-        __workshopSettingReal__: "createWorkshopSetting",
-        __workshopSettingToggle__: "createWorkshopSetting",
+        __createWorkshopSetting__: "createWorkshopSetting",
         __xComponentOf__: ".x",
         __yComponentOf__: ".y",
         __zComponentOf__: ".z",

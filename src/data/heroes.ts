@@ -927,7 +927,7 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pl-PL": "Illari",
         "pt-BR": "Illari"
     },
-    "hammond": {
+    "wreckingBall": {
         "guid": "000000007269",
         "secondaryFire": {
             "guid": "0000000082A6",

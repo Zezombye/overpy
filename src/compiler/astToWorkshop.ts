@@ -240,7 +240,7 @@ function astToWs(content: Ast): string {
                 } else if (argInfo.canReplace1ByTrue && content.args[i].args[0].numValue === 1) {
                     content.args[i] = getAstForTrue();
                 } else {
-                    if (!["__workshopSettingReal__", "__workshopSettingInteger__", "__workshopSettingToggle__", "__workshopSettingHero__", "__workshopSettingCombo__"].includes(content.name)) {
+                    if (!["createWorkshopSettingFloat", "createWorkshopSettingInt", "createWorkshopSettingBool", "createWorkshopSettingHero", "createWorkshopSettingEnum"].includes(content.name)) {
                         if (content.args[i].args[0].numValue === 0 && replacementFor0 !== "") {
                             content.args[i] = new Ast(replacementFor0);
                         } else if (content.args[i].args[0].numValue === 1 && replacementFor1 !== "") {
@@ -342,8 +342,8 @@ function astToWs(content: Ast): string {
             error("Cannot modify or assign to " + functionNameToString(content.args[0]));
         }
         content.name = newName;
-    } else if (content.name === "__chaseAtRate__" || content.name === "__chaseOverTime__") {
-        var newName = content.name === "__chaseAtRate__" ? "AtRate__" : "OverTime__";
+    } else if (content.name === "chaseAtRate" || content.name === "chaseOverTime") {
+        var newName = content.name === "chaseAtRate" ? "AtRate__" : "OverTime__";
 
         if (content.args[0].name === "__globalVar__") {
             newName = "GlobalVariable" + newName;
@@ -481,14 +481,14 @@ function astToWs(content: Ast): string {
         decrementNbElements(content.args.length);
     } else if (["__array__", "evalOnce"].includes(content.name)) {
         incrementNbElements();
-    } else if (["__workshopSettingInteger__", "__workshopSettingReal__"].includes(content.name)) {
+    } else if (["createWorkshopSettingInt", "createWorkshopSettingFloat"].includes(content.name)) {
         // nbElements += 1 - 4; //remove elements because of number literals
         decrementNbElements(3);
-    } else if (["__workshopSettingToggle__", "__workshopSettingHero__"].includes(content.name)) {
+    } else if (["createWorkshopSettingBool", "createWorkshopSettingHero"].includes(content.name)) {
         // For your consideration, the original code is:
         // nbElements++;
         // nbElements -= 1; //remove elements because of number literals
-    } else if (["__workshopSettingCombo__"].includes(content.name)) {
+    } else if (["createWorkshopSettingEnum"].includes(content.name)) {
         // For your consideration, the original code is:
         // nbElements++;
         // nbElements -= 2; //remove elements because of number literals

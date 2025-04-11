@@ -21,8 +21,8 @@ import { astParsingFunctions, globalVariables, playerVariables, defaultVarNames 
 import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
 
-astParsingFunctions.__chaseAtRate__ = function (content) {
-    //Warning: this function is duplicated with __chaseOverTime__.
+astParsingFunctions.chaseAtRate = function (content) {
+    //Warning: this function is duplicated with chaseOverTime.
 
     if (content.args[0].name === "__playerVar__") {
         var isGlobalVariable = false;
@@ -32,6 +32,10 @@ astParsingFunctions.__chaseAtRate__ = function (content) {
         var varName = content.args[0].args[0].name;
     } else {
         error("Expected variable for 1st argument of function 'chase', but got " + functionNameToString(content.args[0]));
+    }
+
+    if (content.name === "chaseAtRate" && content.args[1].name === "__number__" && content.args[1].args[0].numValue === 9999) {
+        warn("w_chase_9999", "Chasing a variable to 9999 is not enough because a custom game can last up to 16200 seconds. Use Math.INFINITY or 99999.");
     }
 
     var varArray = isGlobalVariable ? globalVariables : playerVariables;
