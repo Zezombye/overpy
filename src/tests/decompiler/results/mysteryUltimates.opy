@@ -95,16 +95,16 @@ subroutine PreparingUltEventHandler_Casting 16
 
 rule "Initial Global":
     SHOULD_RESET_HEROES_ON_DESPAWN = true
-    FORCE_NON_NATIVE_ULTIMATE = createWorkshopSetting(bool, "Mystery Ultimates", "Force Random Ultimate To Be Non-Native", true, 0)
-    RANDOM_ULTIMATE_MATCHES_ROLE = createWorkshopSetting(bool, "Mystery Ultimates", "Force Random Ultimate To Match Role", false, 1)
-    SHOW_ULTIMATE_HERO = createWorkshopSetting(bool, "Mystery Ultimates", "Show Randomized Ultimate Hero", false, 3)
-    ENFORCE_ROLE_LOCK = createWorkshopSetting(bool, "Mystery Ultimates", "Enforce Role Lock", true, 4)
-    DEBUG_MODE = createWorkshopSetting(bool, " DEBUG", "Debug Mode Enabled", false, -1)
-    DEBUG_MELEE_FOR_ULT_CHARGE = createWorkshopSetting(bool, " DEBUG", "Melee for 25% Ult Charge", false, 0)
-    DEBUG_SHOULD_FORCE_ULTIMATE_HERO = createWorkshopSetting(bool, " DEBUG", "Force Ultimate Hero", false, 1)
-    DEBUG_ULTIMATE_HERO = createWorkshopSetting(Hero, " DEBUG", "Ultimate Hero to Force", Hero.ANA, 2)
-    DEBUG_LOG_EVENTS = createWorkshopSetting(bool, " DEBUG", "Log Events to Inspector (*doesn't need debug mode on)", false, 3)
-    DEBUG_SHOW_CURRENT_STATE = createWorkshopSetting(bool, " DEBUG", "Show Current State", false, 4)
+    FORCE_NON_NATIVE_ULTIMATE = createWorkshopSettingBool("Mystery Ultimates", "Force Random Ultimate To Be Non-Native", true)
+    RANDOM_ULTIMATE_MATCHES_ROLE = createWorkshopSettingBool("Mystery Ultimates", "Force Random Ultimate To Match Role", false, 1)
+    SHOW_ULTIMATE_HERO = createWorkshopSettingBool("Mystery Ultimates", "Show Randomized Ultimate Hero", false, 3)
+    ENFORCE_ROLE_LOCK = createWorkshopSettingBool("Mystery Ultimates", "Enforce Role Lock", true, 4)
+    DEBUG_MODE = createWorkshopSettingBool(" DEBUG", "Debug Mode Enabled", false, -1)
+    DEBUG_MELEE_FOR_ULT_CHARGE = createWorkshopSettingBool(" DEBUG", "Melee for 25% Ult Charge", false)
+    DEBUG_SHOULD_FORCE_ULTIMATE_HERO = createWorkshopSettingBool(" DEBUG", "Force Ultimate Hero", false, 1)
+    DEBUG_ULTIMATE_HERO = createWorkshopSettingHero(" DEBUG", "Ultimate Hero to Force", Hero.ANA, 2)
+    DEBUG_LOG_EVENTS = createWorkshopSettingBool(" DEBUG", "Log Events to Inspector (*doesn't need debug mode on)", false, 3)
+    DEBUG_SHOW_CURRENT_STATE = createWorkshopSettingBool(" DEBUG", "Show Current State", false, 4)
     placeableUltimateHeroes = [Hero.BAPTISTE, Hero.SYMMETRA, Hero.LIFEWEAVER]
     ability1AllowedHeroes = [Hero.DVA, Hero.ECHO]
     ability2AllowedHeroes = []
@@ -145,7 +145,7 @@ rule "If should show current state, display it":
 rule "[wheelVisuals.del] Start chasing rainbowVector":
     @Condition DEBUG_MODE == true
     
-    chase(rainbowVector, vect(min(max(abs(getTotalTimeElapsed() * 900 % 765 - 382.5), 127.5), 255), min(max(abs((getTotalTimeElapsed() * 900 + 255) % 765 - 382.5), 127.5), 255), min(max(abs((getTotalTimeElapsed() * 900 + 510) % 765 - 382.5), 127.5), 255)), rate=99999, ChaseReeval.DESTINATION_AND_RATE)
+    chaseAtRate(rainbowVector, vect(min(max(abs(getTotalTimeElapsed() * 900 % 765 - 382.5), 127.5), 255), min(max(abs((getTotalTimeElapsed() * 900 + 255) % 765 - 382.5), 127.5), 255), min(max(abs((getTotalTimeElapsed() * 900 + 510) % 765 - 382.5), 127.5), 255)), 99999)
 
 
 rule "Create randomized ultimate hero HUD":
@@ -330,7 +330,7 @@ def SetLingerDuration():
     @Name "[SUB]: Set linger duration"
     
     eventPlayer.extendedUltDuration = 0
-    goto loc+[17, 0, 2, 4, 6, 8, 10, 12, 14, 16][[Hero.JUNKER_QUEEN, Hero.HAMMOND, Hero.LIFEWEAVER, Hero.TRACER, Hero.ILLARI, Hero.TORBJORN, Hero.HANZO, Hero.BASTION, Hero.VENTURE].index(eventPlayer.getCurrentHero()) + 1]
+    goto loc+[17, 0, 2, 4, 6, 8, 10, 12, 14, 16][[Hero.JUNKER_QUEEN, Hero.WRECKING_BALL, Hero.LIFEWEAVER, Hero.TRACER, Hero.ILLARI, Hero.TORBJORN, Hero.HANZO, Hero.BASTION, Hero.VENTURE].index(eventPlayer.getCurrentHero()) + 1]
     eventPlayer.extendedUltDuration = 5
     goto lbl_0
     eventPlayer.extendedUltDuration = 15
@@ -613,7 +613,7 @@ rule "[trackAbilityLockout.del] When a player becomes hacked, start ability lock
     #Ensure that we don't overwrite the EMP lockout duration
     if eventPlayer.hackAbilityLockout < 1.5:
         eventPlayer.hackAbilityLockout = 1.5
-    chase(eventPlayer.hackAbilityLockout, 0, rate=1, ChaseReeval.NONE)
+    chaseAtRate(eventPlayer.hackAbilityLockout, 0, 1, ChaseRateReeval.NONE)
     #Handle cleansing
     waitUntil(not eventPlayer.hasStatusEffect(Status.HACKED) or eventPlayer.hackAbilityLockout <= 0, 1000000)
     eventPlayer.hackAbilityLockout = 0
@@ -627,7 +627,7 @@ rule "[trackAbilityLockout.del] When a player is hit by EMP, start ability locko
     
     stopChasingVariable(eventPlayer.hackAbilityLockout)
     eventPlayer.hackAbilityLockout = 3
-    chase(eventPlayer.hackAbilityLockout, 0, rate=1, ChaseReeval.NONE)
+    chaseAtRate(eventPlayer.hackAbilityLockout, 0, 1, ChaseRateReeval.NONE)
 
 
 rule "[trackAbilityLockout.del] When hackAbilityLockout reaches 0, stop chasing it":
@@ -797,7 +797,7 @@ rule "When the lingering state begins, start a timer":
     @Condition eventPlayer.ultimateState == "LINGERING"
     
     eventPlayer.extendedUltPercentLeft = 100
-    chase(eventPlayer.extendedUltPercentLeft, 0, duration=eventPlayer.extendedUltDuration, ChaseReeval.NONE)
+    chaseOverTime(eventPlayer.extendedUltPercentLeft, 0, eventPlayer.extendedUltDuration, ChaseTimeReeval.NONE)
     progressBarHud(eventPlayer, eventPlayer.extendedUltPercentLeft, "Ultimate Hero Time Remaining", HudPosition.LEFT, -10, rgb(0, 234, 234, (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)) + ((1 - (min(1, max(0, (eventPlayer.extendedUltPercentLeft - 33) / 17)))) * (sin(sqrt(eventPlayer.extendedUltDuration * eventPlayer.extendedUltPercentLeft * 18.85)) / 2 + 0.5))) * 223 + 32))
     eventPlayer.extendedUltTimer = getLastCreatedText()
     bigMessage(eventPlayer, "Returning to original hero in {0} seconds...".format(eventPlayer.extendedUltDuration))

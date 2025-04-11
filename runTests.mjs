@@ -36,14 +36,14 @@ CustomDiff.tokenize = function (value, options) {
 
     return retLines;
 };
-CustomDiff.removeEmpty = (array) => {
+/*CustomDiff.removeEmpty = (array) => {
     return array.map((line) => {
         if (line.trim() === "") {
             return "";
         }
         return line;
     });
-};
+};*/
 
 const compileTestsFolder = "./src/tests/";
 const compileExpectedResultsFolder = "./src/tests/results/";
@@ -51,6 +51,53 @@ const compileExpectedResultsFolder = "./src/tests/results/";
 const files = readdirSync(compileTestsFolder);
 const opyFiles = files.filter((file) => file.endsWith(".opy"));
 console.log(colors.bold(`Running ${opyFiles.length} compilation tests`));
+
+function displayDiff(differences) {
+
+    //Convert to object, splitting the lines
+    differences = differences.map((diff) => diff.value.replace(/\n$/, "").split("\n").map(line => ({added: diff.added, removed: diff.removed, value: line+"\n"}))).flat();
+
+
+    //Remove consecutive unchanged lines, unless they are within a distance of 5 from a change
+    const filteredDifferences = [];
+    let nbContextLines = 5;
+    let lineIdx = 1;
+    for (let i = 0; i < differences.length; i++) {
+        const diffLine = differences[i];
+        if (diffLine.added || diffLine.removed) {
+            filteredDifferences.push({type: diffLine.added ? "added" : "removed", line: diffLine.value, lineNb: lineIdx});
+        } else {
+            let isLineAdded = false;
+            for (let j = i-nbContextLines; j < i + nbContextLines+1; j++) {
+                if (j < 0 || j >= differences.length) continue;
+                const contextDiffLine = differences[j];
+                if (contextDiffLine.added || contextDiffLine.removed) {
+                    filteredDifferences.push({type: "unchanged", line: diffLine.value, lineNb: lineIdx});
+                    isLineAdded = true;
+                    break;
+                }
+            }
+            if (!isLineAdded && filteredDifferences.length > 0 && filteredDifferences[filteredDifferences.length - 1].type !== "ellipsis") {
+                filteredDifferences.push({type: "ellipsis"});
+            }
+        }
+        if (!diffLine.added) {
+            lineIdx++;
+        }
+    }
+    for (let diff of filteredDifferences) {
+        if (diff.type === "ellipsis") {
+            process.stdout.write(colors.grey("\n------------------------------------------------\n\n"));
+        } else if (diff.type === "unchanged") {
+            process.stdout.write((""+diff.lineNb).padStart(4, " ") +". " + colors.grey("  "+diff.line));
+        } else if (diff.type === "added") {
+            process.stdout.write("      " + colors.green("+ "+diff.line));
+        } else if (diff.type === "removed") {
+            process.stdout.write((""+diff.lineNb).padStart(4, " ") +". " + colors.red("- "+diff.line));
+        }
+    };
+}
+
 for (let file of opyFiles) {
     console.log("Running test " + file);
 
@@ -79,15 +126,7 @@ for (let file of opyFiles) {
     if (hasDifferences) {
         console.error(`Test ${file} failed:`);
         console.log("Differences found:");
-        differences.forEach((diff) => {
-            let diffString = diff.value;
-            if (diff.added) diffString = `+${diffString}`;
-            else if (diff.removed) diffString = `-${diffString}`;
-            else diffString = ` ${diffString}`;
-
-            const color = diff.added ? "green" : diff.removed ? "red" : "grey";
-            process.stdout.write(colors[color](diffString));
-        });
+        displayDiff(differences);
         process.exit(1);
     }
 }
@@ -127,15 +166,7 @@ for (let inputFile of decompilerFilesFiltered) {
     if (hasDifferences) {
         console.error(`Test ${inputFile} failed:`);
         console.log("Differences found:");
-        differences.forEach((diff) => {
-            let diffString = diff.value;
-            if (diff.added) diffString = `+${diffString}`;
-            else if (diff.removed) diffString = `-${diffString}`;
-            else diffString = ` ${diffString}`;
-
-            const color = diff.added ? "green" : diff.removed ? "red" : "grey";
-            process.stdout.write(colors[color](diffString));
-        });
+        displayDiff(differences);
         process.exit(1);
     }
 }

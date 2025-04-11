@@ -24,6 +24,10 @@ rule ("function") {
         Set Global Variable(A, Divide(Divide(Multiply(Multiply(-3, 999999999999), 999999999999), 999999999999), 10));
         Set Global Variable(A, String Slice(Global.B, 2, 4));
         Chase Player Variable Over Time(Event Player, B, 9999, 3, Destination and Duration);
+        Chase Player Variable Over Time(Event Player, B, 9999, 3, Destination and Duration);
+        Chase Player Variable At Rate(Event Player, B, 9999, 3, Destination and Rate);
+        Chase Global Variable Over Time(B, 9999, True, Destination and Duration);
+        Chase Global Variable At Rate(B, 99999, True, Destination and Rate);
         Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, True, Color(Red), Null, Null, Visible To and String, Visible Always);
         Create HUD Text(All Players(All Teams), Null, Null, Custom String("test", Null, Null, Null), Left, True, Null, Null, Color(Red), Visible To and String, Visible Always);
         Create HUD Text(All Players(All Teams), Null, Custom String("test", Null, Null, Null), Null, Left, True, Null, Color(Red), Null, Visible To and String, Visible Always);

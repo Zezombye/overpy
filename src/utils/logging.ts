@@ -43,12 +43,12 @@ export function error(str: string, token?: any): never {
                 if ("rule" in file) {
                     err += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + ("actionNb" in file ? ", action #" + file.actionNb : "conditionNb" in file ? ", condition #" + file.conditionNb : "");
                 } else {
-                    err += "\n\t| line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
+                    err += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
                 }
             }
         }
     } else {
-        err += "\n\t| <no filestack>";
+        err += "\n    | <no filestack>";
     }
 
     throw new Error(err);
@@ -64,12 +64,12 @@ export function warn(warnType: string, message: string) {
                     // @ts-ignore - I don't know where the properties this object has come from, and I don't care to find them
                     warning += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + (file.actionNb ? ", action #" + file.actionNb : file.conditionNb ? ", condition #" + file.conditionNb : "");
                 } else {
-                    warning += "\n\t| line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
+                    warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
                 }
             }
         }
     } else {
-        warning += "\n\t| <no filestack>";
+        warning += "\n    | <no filestack>";
     }
 
     if (suppressedWarningTypes.includes(warnType) || globallySuppressedWarningTypes.includes(warnType) || warnType === "w_type_check") {
@@ -131,7 +131,6 @@ export function functionNameToString(content: Ast) {
         __xComponentOf__: ".x",
         __yComponentOf__: ".y",
         __zComponentOf__: ".z",
-        //todo
     };
 
     let funcDisplayName: string;

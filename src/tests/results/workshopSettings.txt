@@ -23,7 +23,7 @@ rule ("workshop settings") {
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<2.5;19>", Null, Null, Null), 3.5, 2.5, 19, 0));
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<6;>", Null, Null, Null), 3.5, 6, 9999999999999, 0));
         Set Global Variable(A, Workshop Setting Real(Custom String("float", Null, Null, Null), Custom String("float<;6>", Null, Null, Null), 3.5, -9999999999999, 6, 0));
-        "heros"
+        "heroes"
         Set Global Variable(A, Workshop Setting Hero(Custom String("hero", Null, Null, Null), Custom String("hero", Null, Null, Null), Ana, 0));
         Set Global Variable(A, Workshop Setting Hero(Custom String("hero", Null, Null, Null), Custom String("hero", Null, Null, Null), Wrecking Ball, 3));
         "enums"
