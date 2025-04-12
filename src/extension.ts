@@ -8,7 +8,7 @@ import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
 import { postInitialLoad } from "./globalVars";
 import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
-import { OWLanguage, ow_languages } from "./types.d";
+import { Argument, OWLanguage, ow_languages } from "./types.d";
 
 const overpyTemplate = `
 #OverPy starter pack
@@ -221,6 +221,8 @@ export function activate(context: vscode.ExtensionContext) {
                     let i = -1;
                     let isInString = false;
                     let currentStringChar = "";
+                    let potentialKeywordArg = null;
+                    let equalsSignPos = null;
                     for (; i >= -position.character + 1; i--) {
                         let currentChar = document.getText(new vscode.Range(position.translate(0, i + 1), position.translate(0, i)));
                         if (!isInString) {
@@ -236,6 +238,11 @@ export function activate(context: vscode.ExtensionContext) {
                                 currentStringChar = currentChar;
                             } else if (parenthesisLevel === 0 && currentChar === ",") {
                                 currentArgNb++;
+                                if (equalsSignPos !== null) {
+                                    potentialKeywordArg = document.getText(new vscode.Range(position.translate(0, i+1), position.translate(0, equalsSignPos))).trim();
+                                }
+                            } else if (parenthesisLevel === 0 && currentArgNb === 0 && currentChar === "=" && equalsSignPos === null) {
+                                equalsSignPos = i;
                             }
                         } else {
                             if (currentChar === currentStringChar && (i === 0 || document.getText(new vscode.Range(position.translate(0, i), position.translate(0, i - 1))) !== "\\")) {
@@ -246,6 +253,11 @@ export function activate(context: vscode.ExtensionContext) {
                     if (isInString) {
                         return;
                     }
+                    //get keyword arg for first argument (as there is no comma)
+                    if (equalsSignPos !== null && potentialKeywordArg === null) {
+                        potentialKeywordArg = document.getText(new vscode.Range(position.translate(0, i+1), position.translate(0, equalsSignPos))).trim();
+                    }
+                    console.log("potentialKeywordArg: '" + potentialKeywordArg+"'");
                     var range = document.getWordRangeAtPosition(position.translate(0, i));
                     if (range !== undefined) {
                         funcName = document.getText(range);
@@ -255,6 +267,9 @@ export function activate(context: vscode.ExtensionContext) {
 
                     if (funcName in allFuncList) {
                         if ("sigHelp" in allFuncList[funcName] && allFuncList[funcName].sigHelp !== null) {
+                            if (potentialKeywordArg !== null && (allFuncList[funcName].args as Argument[] || []).map(x => x.name).includes(potentialKeywordArg)) {
+                                currentArgNb = (allFuncList[funcName].args as Argument[]).map(x => x.name).indexOf(potentialKeywordArg);
+                            }
                             (allFuncList[funcName].sigHelp as vscode.SignatureHelp).activeParameter = currentArgNb;
                             return allFuncList[funcName].sigHelp as vscode.SignatureHelp;
                         }

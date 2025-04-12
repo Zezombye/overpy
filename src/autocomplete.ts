@@ -17,6 +17,8 @@ import { opyMemberFuncs } from "./data/opy/memberFunctions";
 import { astToOpy } from "./decompiler/astToOpy";
 import { typeToString } from "./utils/logging";
 import { Ast } from "./utils/ast";
+import { builtInEnumNameToAstInfo } from "./compiler/parser";
+import { opyMacros } from "./data/opy/macros";
 
 const overpyExtension = vscode.extensions.getExtension("zezombye.overpy");
 if (overpyExtension === undefined) {
@@ -78,7 +80,8 @@ postLoadTasks.push({
         funcDoc = {
             ...actionKw,
             ...valueFuncKw,
-            ...opyFuncs
+            ...opyFuncs,
+            ...opyMacros,
         };
 
         funcList = {
@@ -283,7 +286,14 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     let argStr = "";
 
     if ("args" in item && Array.isArray(item.args) && (item.args.length > 1 || (item.args.length > 0 && !isMemberFunctionFlag))) {
-        argStr = (item.args as Argument[]).slice(isMemberFunctionFlag ? 1 : 0).reduce((prev, arg) => prev + `- \`${getSuitableArgName(arg.name)}\`: ${arg.description}\n`, "");
+        argStr = (item.args as Argument[]).slice(isMemberFunctionFlag ? 1 : 0).reduce((prev, arg) =>
+            prev + "- `"+arg.name
+            + (arg.default !== undefined ? "?" : "")
+            + "`: "+arg.description
+            + (arg.description?.endsWith(".") ? "" : ".")
+            //Add zero-width space to force line break on large constants such as HudReeval.VISIBILITY_SORT_ORDER_STRING_AND_COLOR
+            + (arg.default !== undefined ? " If omitted, defaults to `"+argDefaultToString(arg).replaceAll("_", "_\u200B")+"`." : "")+"\n", ""
+        );
     }
 
     if (argStr !== "") {
@@ -301,6 +311,10 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
 
     if ("extension" in item) {
         infoStr += "Part of extension `" + item.extension + "`.\n";
+    }
+
+    if ("macro" in item) {
+        infoStr += "This macro resolves to:\n"+ "`"+(item.macro as string).replaceAll("$", "")+"`" + "\n";
     }
 
     if (infoStr) {
@@ -366,21 +380,11 @@ function getSnippetForMetaRuleParam(param: string) {
     return result;
 }
 
-function getSuitableArgName(arg: string) {
-    arg = arg.toLowerCase();
-    if (arg === "visible to") {
-        arg = "visibility";
+function argDefaultToString(arg: Argument) {
+    if (arg.type in constantValues || arg.type in builtInEnumNameToAstInfo) {
+        return arg.type+"."+arg.default;
     }
-    arg = arg
-        .split(" ")
-        .map((x) => x[0].toUpperCase() + x.substring(1).toLowerCase())
-        .join("");
-    arg = arg[0].toLowerCase() + arg.substring(1);
-    return arg;
-}
-
-function getSuitableArgType(type: Type) {
-    return typeToString(type);
+    return ""+arg.default;
 }
 
 function makeSignatureHelp(funcName: string, func: OverpyModule) {
@@ -395,20 +399,27 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
 
     var paramInfo = [];
     var sigStr = "";
-
-    if (isMemberFunction) {
-        sigStr += "Player.";
-    } else if ("class" in func) {
+    if ("class" in func) {
         sigStr += func.class + ".";
+    } else if (isMemberFunction) {
+        sigStr += "Player.";
     }
 
     sigStr += funcName + "(";
 
     for (var i = 0; i < func.args.length; i++) {
         if (!(i === 0 && isMemberFunction)) {
-            var argName = getSuitableArgName(func.args[i].name);
-            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argName.length], func.args[i].description));
-            sigStr += argName + ": " + getSuitableArgType(func.args[i].type);
+            var argName = func.args[i].name;
+            let argSignature = argName;
+            /*if (func.args[i].default !== undefined) {
+                argSignature += "?";
+            }*/
+            //argSignature += ": " + typeToString(func.args[i].type);
+            if (func.args[i].default !== undefined) {
+                argSignature +="=" + argDefaultToString(func.args[i]);
+            }
+            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString(func.args[i].description+"\n\nType: `"+typeToString(func.args[i].type)+"`")));
+            sigStr += argSignature;
             if (i < func.args.length - 1) {
                 sigStr += ", ";
             }

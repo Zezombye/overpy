@@ -157,7 +157,7 @@ export function functionNameToString(content: Ast) {
     return funcDisplayName;
 }
 
-export function typeToString(type: Type): Type {
+export function typeToString(type: Type): string {
     if (typeof type === "string") {
         return type;
     } else if (type instanceof Array) {
