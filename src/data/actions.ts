@@ -7194,7 +7194,7 @@ export const actionKw: Record<string, Action> =
                 "name": "location",
                 "description": "The location on the screen where the text will appear.",
                 "type": "HudPosition",
-                "default": "Left"
+                "default": "LEFT"
             },
             {
                 "name": "sortOrder",

@@ -5999,6 +5999,9 @@ export const constantValues: Record<string, { description?: string } & Record<st
         }
     },
     "HudPosition": {
+        "ACTUALLY_LEFT": {
+            "description": "In OW2, HUDs are automatically centered. Specify this value if you actually want your HUD to be on the left of the screen.\n\nNote: this will make all other HUDs with a position of `HudPosition.LEFT` be centered on the screen."
+        },
         "LEFT": {
             "guid": "00000000BAF6",
             "en-US": "Left",

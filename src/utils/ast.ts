@@ -375,6 +375,9 @@ export function getAstForCustomString(content: string, formatArgs: Ast[] = []) {
     const [arg1 = getAstForNull(), arg2 = getAstForNull(), arg3 = getAstForNull()] = formatArgs;
     return astParsingFunctions[".format"](new Ast(".format", [new Ast(content, [], [], "CustomStringLiteral"), arg1, arg2, arg3]));
 }
+export function getAstForFucktonOfSpaces() {
+    return getAstForCustomString("\u2003".repeat(170));
+}
 
 
 
