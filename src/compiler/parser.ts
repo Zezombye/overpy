@@ -500,7 +500,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (content.length === 2) {
             //Check for the special "RULE_START" and convert to the "Loop" instruction.
             if (content[1].text === "RULE_START") {
-                return new Ast("__loop__");
+                return new Ast("loop");
             }
             //The goto goes to a label.
             return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(content[1].text, [], [], "Label")])]);

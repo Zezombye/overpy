@@ -26,7 +26,7 @@ astParsingFunctions.__if__ = function (content) {
         error("'if' AST lacks parent");
     }
 
-    //Check for "if (not) RULE_CONDITION: return/continue/goto RULE_START".
+    //Check for "if (not) RULE_CONDITION: return/continue/loop()".
     if (content.args[0].name === "RULE_CONDITION" || (content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION")) {
         if (currentRuleHasVariableGoto) {
             //Keep the child and add a "pass" for the "end"
@@ -36,7 +36,7 @@ astParsingFunctions.__if__ = function (content) {
         if (content.children.length !== 1) {
             error("Cannot use 'RULE_CONDITION' in that context");
         }
-        if (content.children[0].name === "__loop__") {
+        if (content.children[0].name === "loop") {
             if (content.args[0].name === "RULE_CONDITION") {
                 return new Ast("__loopIfConditionIsTrue__");
             } else {
@@ -56,7 +56,7 @@ astParsingFunctions.__if__ = function (content) {
     if (enableOptimization) {
         //if/loop, if/abort, if/skip -> loop if/abort if/skip if
         //but only if no relative goto, 1 child, and no else/elif after the if
-        if (content.children.length === 1 && (content.parent.childIndex === content.parent.children.length - 1 || (content.parent.children[content.parent.childIndex + 1].name !== "__elif__" && content.parent.children[content.parent.childIndex + 1].name !== "__else__")) && ["return", "__loop__", "__skip__"].includes(content.children[0].name)) {
+        if (content.children.length === 1 && (content.parent.childIndex === content.parent.children.length - 1 || (content.parent.children[content.parent.childIndex + 1].name !== "__elif__" && content.parent.children[content.parent.childIndex + 1].name !== "__else__")) && ["return", "loop", "__skip__"].includes(content.children[0].name)) {
             if (currentRuleHasVariableGoto) {
                 //Keep the child and add a "pass" for the "end"
                 content.parent.children.splice(content.parent.childIndex + 1, 0, content.children[0], getAstForUselessInstruction());
@@ -71,7 +71,7 @@ astParsingFunctions.__if__ = function (content) {
 
             if (content.children[0].name === "return") {
                 return new Ast("__abortIf__", [content.args[0]]);
-            } else if (content.children[0].name === "__loop__") {
+            } else if (content.children[0].name === "loop") {
                 return new Ast("__loopIf__", [content.args[0]]);
             } else if (content.children[0].name === "__skip__") {
                 return new Ast("__skipIf__", [content.args[0], content.children[0].args[0]]);

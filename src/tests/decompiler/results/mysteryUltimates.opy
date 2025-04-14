@@ -99,12 +99,12 @@ rule "Initial Global":
     RANDOM_ULTIMATE_MATCHES_ROLE = createWorkshopSettingBool("Mystery Ultimates", "Force Random Ultimate To Match Role", false, 1)
     SHOW_ULTIMATE_HERO = createWorkshopSettingBool("Mystery Ultimates", "Show Randomized Ultimate Hero", false, 3)
     ENFORCE_ROLE_LOCK = createWorkshopSettingBool("Mystery Ultimates", "Enforce Role Lock", true, 4)
-    DEBUG_MODE = createWorkshopSettingBool(" DEBUG", "Debug Mode Enabled", false, -1)
-    DEBUG_MELEE_FOR_ULT_CHARGE = createWorkshopSettingBool(" DEBUG", "Melee for 25% Ult Charge", false)
-    DEBUG_SHOULD_FORCE_ULTIMATE_HERO = createWorkshopSettingBool(" DEBUG", "Force Ultimate Hero", false, 1)
-    DEBUG_ULTIMATE_HERO = createWorkshopSettingHero(" DEBUG", "Ultimate Hero to Force", Hero.ANA, 2)
-    DEBUG_LOG_EVENTS = createWorkshopSettingBool(" DEBUG", "Log Events to Inspector (*doesn't need debug mode on)", false, 3)
-    DEBUG_SHOW_CURRENT_STATE = createWorkshopSettingBool(" DEBUG", "Show Current State", false, 4)
+    DEBUG_MODE = createWorkshopSettingBool("\u2000DEBUG", "Debug Mode Enabled", false, -1)
+    DEBUG_MELEE_FOR_ULT_CHARGE = createWorkshopSettingBool("\u2000DEBUG", "Melee for 25% Ult Charge", false)
+    DEBUG_SHOULD_FORCE_ULTIMATE_HERO = createWorkshopSettingBool("\u2000DEBUG", "Force Ultimate Hero", false, 1)
+    DEBUG_ULTIMATE_HERO = createWorkshopSettingHero("\u2000DEBUG", "Ultimate Hero to Force", Hero.ANA, 2)
+    DEBUG_LOG_EVENTS = createWorkshopSettingBool("\u2000DEBUG", "Log Events to Inspector (*doesn't need debug mode on)", false, 3)
+    DEBUG_SHOW_CURRENT_STATE = createWorkshopSettingBool("\u2000DEBUG", "Show Current State", false, 4)
     placeableUltimateHeroes = [Hero.BAPTISTE, Hero.SYMMETRA, Hero.LIFEWEAVER]
     ability1AllowedHeroes = [Hero.DVA, Hero.ECHO]
     ability2AllowedHeroes = []
@@ -697,7 +697,7 @@ rule "If player is placing ult doesn't have enough ult charge while casting, fil
     eventPlayer.setUltCharge(100)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     if RULE_CONDITION:
-        goto RULE_START
+        loop()
 
 
 rule "Continually attempt to use ult while in the preparing ult state and the player is in the activating ult state":
@@ -710,7 +710,7 @@ rule "Continually attempt to use ult while in the preparing ult state and the pl
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
     if RULE_CONDITION:
-        goto RULE_START
+        loop()
 
 
 rule "When the player presses their ult button in the activating state, issue an ult_pressed event, then after a while, if we haven't exited the state, issue an ult_pressed_expired event":
@@ -739,7 +739,7 @@ rule "In the using ult state, if the player gains ult charge, set it back to 0":
     eventPlayer.setUltCharge(0)
     wait()
     if RULE_CONDITION:
-        goto RULE_START
+        loop()
 
 
 rule "While attempting to cast ult, if player has an placeable ult and they cancel it, bring it back up":
@@ -786,7 +786,7 @@ rule "When the player starts using ult, issue a USED_ULTIMATE event, then when t
     if eventPlayer.getCurrentHero() == Hero.KIRIKO:
         waitUntil(eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero(), 0.5)
         if eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero():
-            goto RULE_START
+            loop()
     eventPlayer.ultimateEvent = "ULTIMATE_ENDED"
     UltimateEventHandler()
     eventPlayer.ultimateEvent = "NONE"

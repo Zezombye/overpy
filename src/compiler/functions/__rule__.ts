@@ -66,7 +66,7 @@ astParsingFunctions.__rule__ = function (content) {
                     //"__forGlobalVariable__",
                     //"__forPlayerVariable__",
                     "__if__",
-                    "__loop__",
+                    "loop",
                     "__loopIf__",
                     "__loopIfConditionIsFalse__",
                     "__loopIfConditionIsTrue__",

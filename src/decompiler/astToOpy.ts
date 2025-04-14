@@ -275,14 +275,12 @@ export function astActionsToOpy(actions: Ast[]): string {
                 actionArgs = actions[i].args;
             }
             decompiledAction += decompiledActionName+"(" + astArgsToOpy(decompiledActionName, actionArgs) + ")";
-        } else if (actions[i].name === "__loop__") {
-            decompiledAction += "goto RULE_START";
         } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "goto RULE_START";
+            decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__loopIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if not RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "goto RULE_START";
+            decompiledAction += "if not RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "goto RULE_START";
+            decompiledAction += "if RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
                 decompiledAction += astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + astToOpy(actions[i].args[2]);

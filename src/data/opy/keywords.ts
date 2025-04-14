@@ -55,10 +55,6 @@ export const opyKeywords: Record<string, {
         "args": null,
         "snippet": "del $0",
     },
-    "do": {
-        "description": "Denotes a do/while loop. Can only be specified at the start of a rule (ignoring the rule condition). The matching `while` must not have an ending colon (`:`).",
-        "args": null,
-    },
     "elif": {
         "description": "Denotes the beginning of a block that will only execute if the specified condition is true and the previous `if` or `elif` block's condition was false.",
         "args": null,
@@ -188,7 +184,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "args": null,
     },
     "while": {
-        "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block. Can also denote the end of a do/while loop, if no `:` is at the end of the instruction.",
+        "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block.",
         "args": null,
         "snippet": "while $0",
     },

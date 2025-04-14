@@ -5073,7 +5073,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Loop If",
         "zh-TW": "Loop If"
     },
-    "__loop__": {
+    "loop": {
         "guid": "0000000078F5",
         "description": "Restarts the action list from the beginning.",
         "args": [],

@@ -38,7 +38,7 @@ astParsingFunctions.continue = function (content) {
 
     if (innermostStructure.name === "__doWhile__") {
         //Return a loop instruction
-        return new Ast("__loop__");
+        return new Ast("loop");
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         //Do not use the "continue" action because of a workshop bug where it will abort the rule if an "if" is above it.
         //return content;

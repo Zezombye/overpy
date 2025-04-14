@@ -40,7 +40,7 @@ astParsingFunctions.__doWhile__ = function (content) {
     if (enableOptimization && isDefinitelyFalsy(content.args[0])) {
         loopFunc = getAstForUselessInstruction();
     } else if (enableOptimization && isDefinitelyTruthy(content.args[0])) {
-        loopFunc = new Ast("__loop__");
+        loopFunc = new Ast("loop");
     } else if (content.args[0].name === "RULE_CONDITION") {
         loopFunc = new Ast("__loopIfConditionIsTrue__");
     } else if (content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION") {

@@ -478,11 +478,6 @@ export const opyFuncs: Record<
         "args": null,
         "return": "bool"
     },
-    "RULE_START": {
-        "description": "Denotes the start of the rule. Can only be used as an argument to a `goto` statement.",
-        "args": null,
-        "return": "Label"
-    },
     "sorted": {
         "description": "A copy of the specified array with the values sorted according to the lambda function that is evaluated for each element.\n\nExample: `sorted(getAllPlayers(), key=lambda x: x.getScore())`",
         "args": [
