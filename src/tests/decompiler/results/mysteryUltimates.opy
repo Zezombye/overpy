@@ -152,7 +152,7 @@ rule "Create randomized ultimate hero HUD":
     @Event eachPlayer
     @Condition SHOW_ULTIMATE_HERO == true
     
-    createInWorldText(eventPlayer if eventPlayer.ultimateHero and eventPlayer.ultimateState == "NORMAL" and eventPlayer.getUltCharge() == 100 else null, "{0}: {1}".format(heroIcon(eventPlayer.ultimateHero), abilityIconString(eventPlayer.ultimateHero, Button.ULTIMATE)), updateEveryFrame(true * eventPlayer.getEyePosition() + ([] * (crossProduct(eventPlayer.getFacingDirection(), angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90)))) + (-110 * (angleToDirection(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 300 * eventPlayer.getFacingDirection()), 4, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.NEVER)
+    createInWorldText(eventPlayer if eventPlayer.ultimateHero and eventPlayer.ultimateState == "NORMAL" and eventPlayer.getUltCharge() == 100 else null, "{0}: {1}".format(heroIcon(eventPlayer.ultimateHero), abilityIconString(eventPlayer.ultimateHero, Button.ULTIMATE)), updateEveryFrame(true * eventPlayer.getEyePosition() + ([] * (crossProduct(eventPlayer.getFacingDirection(), directionFromAngles(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90)))) + (-110 * (directionFromAngles(horizontalAngleOfDirection(eventPlayer.getFacingDirection()), verticalAngleOfDirection(eventPlayer.getFacingDirection()) - 90))) + 300 * eventPlayer.getFacingDirection()), 4, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING, Color.WHITE, SpecVisibility.NEVER)
 
 
 def ChooseNewUltimateHero():
@@ -163,22 +163,22 @@ def ChooseNewUltimateHero():
     else:
         eventPlayer.eligibleHeroSwaps = getAllHeroes()
         if RANDOM_ULTIMATE_MATCHES_ROLE:
-            if eventPlayer.getCurrentHero() in getTankHeroes():
+            if eventPlayer.getHero() in getTankHeroes():
                 eventPlayer.eligibleHeroSwaps = getTankHeroes()
-            elif eventPlayer.getCurrentHero() in getDamageHeroes():
+            elif eventPlayer.getHero() in getDamageHeroes():
                 eventPlayer.eligibleHeroSwaps = getDamageHeroes()
-            elif eventPlayer.getCurrentHero() in getSupportHeroes():
+            elif eventPlayer.getHero() in getSupportHeroes():
                 eventPlayer.eligibleHeroSwaps = getSupportHeroes()
         if FORCE_NON_NATIVE_ULTIMATE:
-            eventPlayer.eligibleHeroSwaps.remove(eventPlayer.getCurrentHero())
+            eventPlayer.eligibleHeroSwaps.remove(eventPlayer.getHero())
         eventPlayer.ultimateHero = random.choice(eventPlayer.eligibleHeroSwaps)
     #If the ultimateHero matches their hero right now, then we can allow native ultimate.
     #Otherwise, we need to disable the ultimate button.
-    if eventPlayer.ultimateHero == eventPlayer.getCurrentHero():
+    if eventPlayer.ultimateHero == eventPlayer.getHero():
         if DEBUG_LOG_EVENTS:
             if not DEBUG_MODE:
                 enableInspector()
-            printLog("{0}{1}{2}".format("{0}{1}{2}".format(eventPlayer, " got native ult (", eventPlayer.getCurrentHero()), "). FORCE_NON_NATIVE_ULTIMATE: ", FORCE_NON_NATIVE_ULTIMATE))
+            printLog("{0}{1}{2}".format("{0}{1}{2}".format(eventPlayer, " got native ult (", eventPlayer.getHero()), "). FORCE_NON_NATIVE_ULTIMATE: ", FORCE_NON_NATIVE_ULTIMATE))
             if not DEBUG_MODE:
                 disableInspector()
         eventPlayer.allowButton(Button.ULTIMATE)
@@ -190,9 +190,9 @@ rule "Track player's true hero":
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.ultimateState == "NORMAL"
-    @Condition eventPlayer.trueHero != eventPlayer.getCurrentHero()
+    @Condition eventPlayer.trueHero != eventPlayer.getHero()
     
-    eventPlayer.trueHero = eventPlayer.getCurrentHero()
+    eventPlayer.trueHero = eventPlayer.getHero()
     #Prevent swapping to a different role
     if ENFORCE_ROLE_LOCK:
         if eventPlayer.trueHero in getDamageHeroes():
@@ -201,7 +201,7 @@ rule "Track player's true hero":
             eventPlayer.setAllowedHeroes(getTankHeroes())
         elif eventPlayer.trueHero in getSupportHeroes():
             eventPlayer.setAllowedHeroes(getSupportHeroes())
-    if eventPlayer.getCurrentHero() == eventPlayer.ultimateHero:
+    if eventPlayer.getHero() == eventPlayer.ultimateHero:
         if FORCE_NON_NATIVE_ULTIMATE:
             ChooseNewUltimateHero()
         else:
@@ -222,7 +222,7 @@ rule "If player used their native ultimate, choose a new ultimate hero after the
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned() == true
     @Condition (eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero()) == true
-    @Condition eventPlayer.getCurrentHero() == eventPlayer.ultimateHero
+    @Condition eventPlayer.getHero() == eventPlayer.ultimateHero
     
     waitUntil(not eventPlayer.isUsingUltimate() and not eventPlayer.isDuplicatingAHero(), 1000000)
     ChooseNewUltimateHero()
@@ -240,7 +240,7 @@ def ProcessNewPriorityList():
     for i in range(len(finalPriorityList)):
         if draftPriorityList.index(finalPriorityList[i]) == -1:
             p = finalPriorityList[i]
-            p.preloadHero(p.getCurrentHero() if p.hasSpawned() else [])
+            p.preloadHero(p.getHero() if p.hasSpawned() else [])
     #Update the final priority list
     finalPriorityList = draftPriorityList
     #Preload all players who are in the final priority list
@@ -269,9 +269,9 @@ def UltEventHandler_Normal():
     eventPlayer.disallowButton(Button.ABILITY_2)
     eventPlayer.startForcingHero(eventPlayer.ultimateHero)
     eventPlayer.ultimateHero = false
-    if eventPlayer.getCurrentHero() in ability1AllowedHeroes:
+    if eventPlayer.getHero() in ability1AllowedHeroes:
         eventPlayer.allowButton(Button.ABILITY_1)
-    if eventPlayer.getCurrentHero() in ability2AllowedHeroes:
+    if eventPlayer.getHero() in ability2AllowedHeroes:
         eventPlayer.allowButton(Button.ABILITY_2)
     eventPlayer.allowButton(Button.ULTIMATE)
     eventPlayer.ultimateState = "PREPARING_ULT"
@@ -301,7 +301,7 @@ def RestoreTrueHeroAndReturnToNormal():
         eventPlayer.ultimateState = "NORMAL"
         goto lbl_0
     eventPlayer.startForcingHero(eventPlayer.trueHero)
-    waitUntil(eventPlayer.getCurrentHero() == eventPlayer.trueHero, 1000000)
+    waitUntil(eventPlayer.getHero() == eventPlayer.trueHero, 1000000)
     eventPlayer.setUltCharge(0)
     async(OverwriteHeroSwapUltTransfer, AsyncBehavior.NOOP)
     eventPlayer.stopForcingCurrentHero()
@@ -330,7 +330,7 @@ def SetLingerDuration():
     @Name "[SUB]: Set linger duration"
     
     eventPlayer.extendedUltDuration = 0
-    goto loc+[17, 0, 2, 4, 6, 8, 10, 12, 14, 16][[Hero.JUNKER_QUEEN, Hero.WRECKING_BALL, Hero.LIFEWEAVER, Hero.TRACER, Hero.ILLARI, Hero.TORBJORN, Hero.HANZO, Hero.BASTION, Hero.VENTURE].index(eventPlayer.getCurrentHero()) + 1]
+    goto loc+[17, 0, 2, 4, 6, 8, 10, 12, 14, 16][[Hero.JUNKER_QUEEN, Hero.WRECKING_BALL, Hero.LIFEWEAVER, Hero.TRACER, Hero.ILLARI, Hero.TORBJORN, Hero.HANZO, Hero.BASTION, Hero.VENTURE].index(eventPlayer.getHero()) + 1]
     eventPlayer.extendedUltDuration = 5
     goto lbl_0
     eventPlayer.extendedUltDuration = 15
@@ -388,7 +388,7 @@ def UltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling overall ult state event "), eventPlayer.ultimateEvent, " in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getCurrentHero()))
+        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling overall ult state event "), eventPlayer.ultimateEvent, " in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
     goto loc+[7, 0, 2, 4, 6][["NORMAL", "PREPARING_ULT", "USING_ULT", "LINGERING"].index(eventPlayer.ultimateState) + 1]
@@ -405,7 +405,7 @@ def UltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling overall ult state event "), eventPlayer.ultimateEvent, "; now in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getCurrentHero()))
+        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling overall ult state event "), eventPlayer.ultimateEvent, "; now in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
 
@@ -421,7 +421,7 @@ def SetStallDuration():
     @Name "[SUB]: Set cast stall duration"
     
     eventPlayer.ultCastStallDuration = 0
-    goto loc+[3, 0, 2][[Hero.DVA, Hero.ZARYA].index(eventPlayer.getCurrentHero()) + 1]
+    goto loc+[3, 0, 2][[Hero.DVA, Hero.ZARYA].index(eventPlayer.getHero()) + 1]
     eventPlayer.ultCastStallDuration = 1.25
     goto lbl_0
     eventPlayer.ultCastStallDuration = 0.75
@@ -495,7 +495,7 @@ def PreparingUltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling preparing ult state event "), eventPlayer.preparingUltEvent, " in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getCurrentHero()))
+        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling preparing ult state event "), eventPlayer.preparingUltEvent, " in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
     goto loc+[9, 0, 2, 4, 6, 8][["NONE", "SWITCHING_HEROES", "STALLING", "ACTIVATING_ULT", "CASTING_ULT"].index(eventPlayer.preparingUltState) + 1]
@@ -515,7 +515,7 @@ def PreparingUltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling preparing ult state event "), eventPlayer.preparingUltEvent, "; now in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getCurrentHero()))
+        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling preparing ult state event "), eventPlayer.preparingUltEvent, "; now in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
 
@@ -578,7 +578,7 @@ rule "DEBUG: When player holds crouch for 2 seconds, swap their hero":
     wait(2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.pos = eventPlayer.getPosition()
     eventPlayer.facing = eventPlayer.getFacingDirection()
-    eventPlayer.setAllowedHeroes(getAllHeroes().exclude(eventPlayer.getCurrentHero()))
+    eventPlayer.setAllowedHeroes(getAllHeroes().exclude(eventPlayer.getHero()))
     waitUntil(not eventPlayer.hasSpawned(), 1)
     eventPlayer.resetHeroAvailability()
     waitUntil(eventPlayer.hasSpawned(), 1000000)
@@ -607,7 +607,7 @@ rule "DEBUG: Say Goodbye to end round":
 
 rule "[trackAbilityLockout.del] When a player becomes hacked, start ability lockout timer":
     @Event eachPlayer
-    @Condition eventPlayer.hasStatusEffect(Status.HACKED) == true
+    @Condition eventPlayer.hasStatus(Status.HACKED) == true
     
     stopChasingVariable(eventPlayer.hackAbilityLockout)
     #Ensure that we don't overwrite the EMP lockout duration
@@ -615,14 +615,14 @@ rule "[trackAbilityLockout.del] When a player becomes hacked, start ability lock
         eventPlayer.hackAbilityLockout = 1.5
     chaseAtRate(eventPlayer.hackAbilityLockout, 0, 1, ChaseRateReeval.NONE)
     #Handle cleansing
-    waitUntil(not eventPlayer.hasStatusEffect(Status.HACKED) or eventPlayer.hackAbilityLockout <= 0, 1000000)
+    waitUntil(not eventPlayer.hasStatus(Status.HACKED) or eventPlayer.hackAbilityLockout <= 0, 1000000)
     eventPlayer.hackAbilityLockout = 0
     stopChasingVariable(eventPlayer.hackAbilityLockout)
 
 
 rule "[trackAbilityLockout.del] When a player is hit by EMP, start ability lockout timer":
     @Event playerTookDamage
-    @Condition attacker.getCurrentHero() == Hero.SOMBRA
+    @Condition attacker.getHero() == Hero.SOMBRA
     @Condition eventAbility == Button.ULTIMATE
     
     stopChasingVariable(eventPlayer.hackAbilityLockout)
@@ -642,7 +642,7 @@ rule "[stateMachine.del] Perform actions when stalling is activated":
     @Condition eventPlayer.ultimateState == "PREPARING_ULT"
     @Condition eventPlayer.preparingUltState == "STALLING"
     
-    goto loc+[3, 0][[Hero.DVA].index(eventPlayer.getCurrentHero()) + 1]
+    goto loc+[3, 0][[Hero.DVA].index(eventPlayer.getHero()) + 1]
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(1)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
@@ -655,7 +655,7 @@ rule "When the player presses their ult button in NORMAL mode, activate ult":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.trueHero != eventPlayer.ultimateHero
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE) == true
-    @Condition any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatusEffect(Status.ASLEEP), eventPlayer.hasStatusEffect(Status.FROZEN), eventPlayer.hasStatusEffect(Status.KNOCKED_DOWN), eventPlayer.hasStatusEffect(Status.STUNNED)]) == false
+    @Condition any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatus(Status.ASLEEP), eventPlayer.hasStatus(Status.FROZEN), eventPlayer.hasStatus(Status.KNOCKED_DOWN), eventPlayer.hasStatus(Status.STUNNED)]) == false
     
     eventPlayer.preparingUltEvent = "STATE_ENTER"
     PreparingUltimateEventHandler()
@@ -669,7 +669,7 @@ rule "When the player is in the preparing ult state and they swap off their true
     @Event eachPlayer
     @Condition eventPlayer.ultimateState == "PREPARING_ULT"
     @Condition eventPlayer.preparingUltState == "SWITCHING_HEROES"
-    @Condition eventPlayer.getCurrentHero() != eventPlayer.trueHero
+    @Condition eventPlayer.getHero() != eventPlayer.trueHero
     
     eventPlayer.preparingUltEvent = "HERO_SWAPPED"
     PreparingUltimateEventHandler()
@@ -704,7 +704,7 @@ rule "Continually attempt to use ult while in the preparing ult state and the pl
     @Event eachPlayer
     @Condition eventPlayer.ultimateState == "PREPARING_ULT"
     @Condition eventPlayer.preparingUltState != "STALLING"
-    @Condition eventPlayer.getCurrentHero() in placeableUltimateHeroes == false
+    @Condition eventPlayer.getHero() in placeableUltimateHeroes == false
     @Condition eventPlayer.getUltCharge() == 100
     
     eventPlayer.forceButtonPress(Button.ULTIMATE)
@@ -745,7 +745,7 @@ rule "In the using ult state, if the player gains ult charge, set it back to 0":
 rule "While attempting to cast ult, if player has an placeable ult and they cancel it, bring it back up":
     @Event eachPlayer
     @Condition eventPlayer.ultimateState == "PREPARING_ULT"
-    @Condition eventPlayer.getCurrentHero() in placeableUltimateHeroes == true
+    @Condition eventPlayer.getHero() in placeableUltimateHeroes == true
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
     
     wait(0.25)
@@ -755,10 +755,10 @@ rule "While attempting to cast ult, if player has an placeable ult and they canc
 rule "While attempting to cast ult, if player has a placeable ult and they get hard CC'd, bring it back up when they are no longer afflicted":
     @Event eachPlayer
     @Condition eventPlayer.ultimateState == "PREPARING_ULT"
-    @Condition eventPlayer.getCurrentHero() in placeableUltimateHeroes == true
-    @Condition any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatusEffect(Status.ASLEEP), eventPlayer.hasStatusEffect(Status.FROZEN), eventPlayer.hasStatusEffect(Status.KNOCKED_DOWN), eventPlayer.hasStatusEffect(Status.STUNNED)]) == true
+    @Condition eventPlayer.getHero() in placeableUltimateHeroes == true
+    @Condition any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatus(Status.ASLEEP), eventPlayer.hasStatus(Status.FROZEN), eventPlayer.hasStatus(Status.KNOCKED_DOWN), eventPlayer.hasStatus(Status.STUNNED)]) == true
     
-    waitUntil(any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatusEffect(Status.ASLEEP), eventPlayer.hasStatusEffect(Status.FROZEN), eventPlayer.hasStatusEffect(Status.KNOCKED_DOWN), eventPlayer.hasStatusEffect(Status.STUNNED)]) == false, 1000000)
+    waitUntil(any([eventPlayer.hackAbilityLockout > 0, eventPlayer.hasStatus(Status.ASLEEP), eventPlayer.hasStatus(Status.FROZEN), eventPlayer.hasStatus(Status.KNOCKED_DOWN), eventPlayer.hasStatus(Status.STUNNED)]) == false, 1000000)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
 
 
@@ -783,7 +783,7 @@ rule "When the player starts using ult, issue a USED_ULTIMATE event, then when t
     eventPlayer.preparingUltEvent = "NONE"
     waitUntil(not eventPlayer.isUsingUltimate() and not eventPlayer.isDuplicatingAHero(), 1000000)
     #Have to wait a bit for Kiriko because casting ult can cause IsUsingUltimate to go false for a short period of time
-    if eventPlayer.getCurrentHero() == Hero.KIRIKO:
+    if eventPlayer.getHero() == Hero.KIRIKO:
         waitUntil(eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero(), 0.5)
         if eventPlayer.isUsingUltimate() or eventPlayer.isDuplicatingAHero():
             loop()

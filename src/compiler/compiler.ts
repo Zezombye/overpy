@@ -175,7 +175,7 @@ rule "OverPy translation setup - Determine the player's language":
     @Condition not eventPlayer.isDummy()
     @Condition eventPlayer.__languageIndex__ == 1.1
     eventPlayer.startFacing(
-        angleToDirection(20*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
+        directionFromAngles(20*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
         Math.INFINITY,
         Relativity.TO_WORLD,
         FacingReeval.DIRECTION_AND_TURN_RATE

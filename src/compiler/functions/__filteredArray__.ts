@@ -58,10 +58,10 @@ astParsingFunctions.__filteredArray__ = function (content) {
             }
             //filter(getPlayers(A), x.getCurrentHero() == B) -> getPlayersOnHero(B, A)
             if (content.args[1].name === "__equals__") {
-                if (content.args[1].args[0].name === ".getCurrentHero" && content.args[1].args[0].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                if (content.args[1].args[0].name === ".getHero" && content.args[1].args[0].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[1], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                     return new Ast("getPlayersOnHero", [content.args[1].args[1], content.args[0].args[0]]);
                 }
-                if (content.args[1].args[1].name === ".getCurrentHero" && content.args[1].args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
+                if (content.args[1].args[1].name === ".getHero" && content.args[1].args[1].args[0].name === "__currentArrayElement__" && !astContainsFunctions(content.args[1].args[0], ["__currentArrayElement__", "__currentArrayIndex__"])) {
                     return new Ast("getPlayersOnHero", [content.args[1].args[0], content.args[0].args[0]]);
                 }
             }

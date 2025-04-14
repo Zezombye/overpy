@@ -444,7 +444,7 @@ function astToWs(content: Ast): string {
             "iconString",
             "__ifThenElse__",
             ".index",
-            "buttonString",
+            "inputBindingString",
             "__all__",
             "__any__",
             ".isUsingUltimate",

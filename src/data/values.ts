@@ -383,7 +383,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Ammo",
         "zh-TW": "Ammo"
     },
-    ".getCurrentHero": {
+    ".getHero": {
         "description": "The current hero of a player.",
         "args": [
             {
@@ -1311,7 +1311,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Has Spawned",
         "zh-TW": "Has Spawned"
     },
-    ".hasStatusEffect": {
+    ".hasStatus": {
         "description": "Whether the specified player has the specified status, either from the set status action or from a non-scripted game mechanic.",
         "args": [
             {
@@ -4404,7 +4404,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Angle Difference",
         "zh-TW": "Angle Difference"
     },
-    "angleToDirection": {
+    "directionFromAngles": {
         "description": "The unit-length direction vector corresponding to the specified angles.",
         "args": [
             {
@@ -4582,7 +4582,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Attacker",
         "zh-TW": "Attacker"
     },
-    "buttonString": {
+    "inputBindingString": {
         "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
         "args": [
             {
@@ -5733,7 +5733,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Number Of Dead Players",
         "zh-TW": "Number Of Dead Players"
     },
-    "getNumberOfDoTIds": {
+    "getNumberOfDamageOverTimeIds": {
         "description": "The current number of Damage Over Time instances started from the Damage Over Time action.",
         "args": [],
         "return": "unsigned int",
@@ -5829,7 +5829,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Number Of Heroes",
         "zh-TW": "Number Of Heroes"
     },
-    "getNumberOfHoTIds": {
+    "getNumberOfHealingOverTimeIds": {
         "description": "The current number of Heal Over Time instances started from the Heal Over Time action.",
         "args": [],
         "return": "unsigned int",
@@ -7615,7 +7615,7 @@ export const valueFuncKw: Record<string, Value> =
         "th-TH": "Tangent From Degrees",
         "zh-TW": "Tangent From Degrees"
     },
-    "teamHasHero": {
+    "isHeroBeingPlayed": {
         "description": "Whether a specific hero is being played (either on a team or in the match).",
         "args": [
             {

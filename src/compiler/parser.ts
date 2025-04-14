@@ -954,9 +954,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         "horizontalAngleFromDirection": "horizontalAngleOfDirection",
         "getLastDoT": "getLastDamageOverTimeId",
         "getLastHoT": "getLastHealingOverTimeId",
+        "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
+        "getNumberOfHoTIds": "getNumberOfHealingOverTimeIds",
         "rgba": "rgb",
         "hsla": "hsl",
         "updateEveryTick": "updateEveryFrame",
+        "angleToDirection": "directionFromAngles",
+        "buttonString": "inputBindingString",
+        "teamHasHero": "isHeroBeingPlayed",
+        "stopDoT": "stopDamageOverTime",
+        "stopHoT": "stopHealingOverTime",
     };
 
     if (name in functionAliases) {
@@ -1098,10 +1105,10 @@ function parseMember(object: Token[], member: Token[]) {
                 "setCamera": "startCamera",
                 "disableHeroHUD": "disableHeroHud",
                 "startDoT": "startDamageOverTime",
-                "stopDoT": "stopDamageOverTime",
-                "stopAllDoT": "stopAllDamageOverTime",
                 "startHoT": "startHealingOverTime",
-                "stopHoT": "stopHealingOverTime",
+                "getCurrentHero": "getHero",
+                "hasStatusEffect": "hasStatus",
+                "stopAllDoT": "stopAllDamageOverTime",
                 "stopAllHoT": "stopAllHealingOverTime",
             };
             if (name in functionAliases) {
