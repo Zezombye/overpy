@@ -4505,7 +4505,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "torbjorn",
                         "widowmaker",
                         "winston",
-                        "hammond",
+                        "wreckingBall",
                         "ramattra",
                         "venture"
                     ],
@@ -4541,7 +4541,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "torbjorn",
                         "widowmaker",
                         "winston",
-                        "hammond",
+                        "wreckingBall",
                         "ramattra",
                         "venture"
                     ],
@@ -4967,7 +4967,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "exclude": [
                         "lucio",
                         "soldier",
-                        "hammond",
+                        "wreckingBall",
                         "zenyatta"
                     ],
                     "en-US": "%1$s Cooldown Time",
@@ -5044,7 +5044,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "include": [
                         "brigitte",
                         "hanzo",
-                        "hammond"
+                        "wreckingBall"
                     ],
                     "en-US": "%1$s",
                     "de-DE": "%1$s",
@@ -5069,7 +5069,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "max": 500,
                     "default": 100,
                     "include": [
-                        "hammond"
+                        "wreckingBall"
                     ],
                     "en-US": "%1$s Cooldown Time",
                     "de-DE": "%1$s – Abklingzeit",
@@ -5220,7 +5220,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "sojourn",
                         "soldier",
                         "sombra",
-                        "hammond",
+                        "wreckingBall",
                         "ramattra",
                         "lifeweaver",
                         "venture",
@@ -5262,7 +5262,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "sigma",
                         "soldier",
                         "sombra",
-                        "hammond",
+                        "wreckingBall",
                         "ramattra",
                         "lifeweaver",
                         "venture",

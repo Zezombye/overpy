@@ -77,7 +77,7 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "fr-FR": "Clash",
         "it-IT": "Scontro",
         "ja-JP": "クラッシュ",
-        "ko-KR": "대격돌",
+        "ko-KR": "격돌",
         "pl-PL": "Starcie",
         "pt-BR": "Embate",
         "ru-RU": "Битва",

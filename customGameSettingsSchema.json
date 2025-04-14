@@ -11401,14 +11401,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "enabledHeroes": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "ashe": {
@@ -14327,7 +14327,7 @@
                                 }
                             }
                         },
-                        "hammond": {
+                        "wreckingBall": {
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
@@ -16417,14 +16417,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "enabledHeroes": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "ashe": {
@@ -19343,7 +19343,7 @@
                                 }
                             }
                         },
-                        "hammond": {
+                        "wreckingBall": {
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
@@ -21433,14 +21433,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "enabledHeroes": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "ashe": {
@@ -24359,7 +24359,7 @@
                                 }
                             }
                         },
-                        "hammond": {
+                        "wreckingBall": {
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
@@ -26449,14 +26449,14 @@
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "enabledHeroes": {
                             "type": "array",
                             "items": {
                                 "type": "string",
-                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                                "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                             }
                         },
                         "ashe": {
@@ -29375,7 +29375,7 @@
                                 }
                             }
                         },
-                        "hammond": {
+                        "wreckingBall": {
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
@@ -31554,14 +31554,14 @@
                     "type": "array",
                     "items": {
                         "type": "string",
-                        "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                        "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                     }
                 },
                 "enabledHeroes": {
                     "type": "array",
                     "items": {
                         "type": "string",
-                        "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "hammond", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
+                        "enum": ["ana", "ashe", "baptiste", "bastion", "brigitte", "doomfist", "dva", "echo", "genji", "illari", "wreckingBall", "hanzo", "junkerQueen", "junkrat", "kiriko", "lucio", "mauga", "mccree", "mei", "mercy", "moira", "orisa", "pharah", "reaper", "reinhardt", "roadhog", "sigma", "sojourn", "soldier", "sombra", "symmetra", "torbjorn", "tracer", "widowmaker", "winston", "zarya", "zenyatta", "ramattra", "lifeweaver", "venture"]
                     }
                 },
                 "ashe": {
@@ -34480,7 +34480,7 @@
                         }
                     }
                 },
-                "hammond": {
+                "wreckingBall": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
