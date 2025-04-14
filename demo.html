@@ -15,7 +15,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
 -->
-<!--stfu firefox -->
 <!doctype html>
 <html>
     <head>
@@ -401,6 +400,14 @@ rule "Display position":
                 document.getElementById("workshop-textarea").value = "";
                 document.getElementById("compiled-textarea").value = "";
             }
+
+            //catch ctrl+s to execute compile
+            document.addEventListener("keydown", function (event) {
+                if (event.ctrlKey && event.key === "s") {
+                    event.preventDefault();
+                    demoCompile();
+                }
+            });
         </script>
     </body>
 </html>
