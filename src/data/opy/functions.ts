@@ -505,7 +505,7 @@ export const opyFuncs: Record<
         }
     },
     "spacesForString": {
-        "description": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`.",
+        "description": "Returns a string made of spaces that is the same length as the provided string. The provided string must be a literal string.\n\n**NOTE**: The displayed string MUST be in the Blizzard Global font (use the 'b' string modifier on the final string, unless using a progress bar). **The casing of the string is also respected**.\n\nThis is useful to do alignment tricks.\n\nThis function is the equivalent of `spacesForLength(strVisualLength(str))`, however it can also be used with translated strings, in which case it will also return a translated string.",
         "args": [
             {
                 "name": "text",

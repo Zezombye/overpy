@@ -18,7 +18,7 @@
 "use strict";
 
 import PO from "pofile";
-import { currentRuleName, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
+import { currentRuleName, DEBUG_MODE, mainFileName, rootPath, translatedStrings, translationLanguages } from "../globalVars";
 import { BaseNormalFileStackMember } from "../types";
 import { Ast } from "../utils/ast";
 import { escapeString, unescapeString } from "../utils/strings";
@@ -151,6 +151,9 @@ export function exportToPoFiles(translatedStrings: TranslatedString[]) {
     try {
         var fs = require("fs");
     } catch (e) {
+        if (DEBUG_MODE) {
+            return;
+        }
         error("Cannot do translations in browsers (fs not found)");
     }
 
@@ -198,6 +201,9 @@ export function importFromPoFiles() {
     try {
         var fs = require("fs");
     } catch (e) {
+        if (DEBUG_MODE) {
+            return [];
+        }
         error("Cannot do translations in browsers (fs not found)");
     }
 

@@ -18,9 +18,13 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { Ast, getAstFor0 } from "../../utils/ast";
 import { error } from "../../utils/logging";
+import { getAstForTranslatedString } from "./__translatedString__";
 
 astParsingFunctions.spacesForString = function (content) {
+    if (content.args[0].name === "__translatedString__") {
+        return getAstForTranslatedString(content.args[0]);
+    }
     return astParsingFunctions.spacesForLength(new Ast("spacesForLength", [astParsingFunctions.strVisualLength(content)]));
 };
