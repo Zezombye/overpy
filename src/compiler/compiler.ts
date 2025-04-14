@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -102,6 +102,8 @@ export async function compile(
 
     var lines = tokenize(content);
 
+    var translationConstantString = null;
+
     if (translationLanguages.length > 0) {
         if (translationLanguages.includes("zh") && translationLanguages.includes("es_mx") && translationLanguages.includes("es_es")) {
             //There is no constant that is different in all languages except zh
@@ -121,7 +123,7 @@ export async function compile(
             setTranslationLanguageConstant(mapKw.practiceRange);
         }
 
-        let translationConstantString = translationLanguages.map((lang) => {
+        translationConstantString = translationLanguages.map((lang) => {
             if (lang.includes("_")) {
                 return translationLanguageConstant[lang.split("_")[0]+"-"+lang.split("_")[1].toUpperCase()];
             } else {
@@ -144,6 +146,10 @@ export async function compile(
         }).join("0");
 
         addVariable("__overpyTranslationHelper__", true, -1, tokenize("p"+escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
+        if (usePlayerVarForTranslations) {
+            //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
+            addVariable("__languageIndex__", false, -1, tokenize("1.1")[0].tokens);
+        }
     }
 
     if (enableTagsSetup) {
@@ -153,10 +159,41 @@ export async function compile(
     if (translationLanguages.length > 0) {
         setTranslatedStrings(importFromPoFiles());
     }
+
+
     //console.log(structuredClone(translatedStrings));
 
     var astRules = parseLines(lines);
-    astRules.unshift(...getInitDirectivesRules());
+
+    if (usePlayerVarForTranslations) {
+
+        let translationSetupRule: any =
+        `
+rule "OverPy translation setup - Determine the player's language":
+    @Event eachPlayer
+    @Condition eventPlayer.hasSpawned()
+    @Condition not eventPlayer.isDummy()
+    @Condition eventPlayer.__languageIndex__ == 1.1
+    eventPlayer.startFacing(
+        angleToDirection(20*abs(${escapeString("\u{EC48}0"+translationConstantString, false)}.split(null[0]).index(${translationLanguageConstantOpy}.split([]))), 5),
+        Math.INFINITY,
+        Relativity.TO_WORLD,
+        FacingReeval.DIRECTION_AND_TURN_RATE
+    )
+
+    #Because of precision errors, we round to the hundredth.
+    waitUntil(round(eventPlayer.getHorizontalFacingAngle()*100)/100 % 20 == 0 and round(eventPlayer.getVerticalFacingAngle()*100)/100 == 5, 15)
+
+    eventPlayer.__languageIndex__ = min(1, round(eventPlayer.getHorizontalFacingAngle()/20))
+
+    eventPlayer.stopFacing()
+    eventPlayer.setFacing(null, Relativity.TO_WORLD)
+        `;
+        translationSetupRule = tokenize(translationSetupRule);
+        translationSetupRule = parseLines(translationSetupRule)[0];
+        astRules.unshift(translationSetupRule);
+    }
+
     if (enableTagsSetup) {
         var txSetupRule: any = `
 rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
@@ -173,6 +210,8 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
         txSetupRule = parseLines(txSetupRule)[0];
         astRules.unshift(txSetupRule);
     }
+
+    astRules.unshift(...getInitDirectivesRules());
 
     if (DEBUG_MODE) {
         for (var elem of astRules) {

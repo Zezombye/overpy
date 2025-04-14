@@ -1040,7 +1040,7 @@ function parseMember(object: Token[], member: Token[]) {
                 } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
                     return getAstForNumber(0.48);
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
-                    return getAstForCustomString(" ".repeat(170));
+                    return getAstForCustomString("\u2003".repeat(170));
                 } else if (name === "FUCKTON_OF_NEWLINES" || name === "LOTS_OF_NEWLINES") {
                     return getAstForCustomString("\n".repeat(125));
                 } else {

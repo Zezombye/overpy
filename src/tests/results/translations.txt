@@ -35,6 +35,15 @@ variables {
         24: Y
         25: Z
 }
+rule ("Initialize global variables") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(__overpyTranslationHelper__, String Split(Custom String("0White0Blanc0Blanco0白色"), First Of(Null)));
+    }
+}
+
 rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
     event {
         Ongoing - Global;
@@ -48,15 +57,6 @@ rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
         Start Forcing Dummy Bot Name(Last Created Entity, Custom String("______________________________________________________________________________________________________________________________ࡀ"));
         Set Global Variable(holygrail, String Slice(String Replace(Custom String("______________________________________________________________________________________________________________________________〼"), Global.holygrail, First Of(Last Created Entity)), 126, True));
         Destroy All Dummy Bots;
-    }
-}
-
-rule ("Initialize global variables") {
-    event {
-        Ongoing - Global;
-    }
-    actions {
-        Set Global Variable(__overpyTranslationHelper__, String Split(Custom String("0White0Blanc0Blanco0白色"), First Of(Null)));
     }
 }
 

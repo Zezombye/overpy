@@ -121,11 +121,11 @@ rule "Integrity check":
     },
     "translations": {
         "description": `
-Setups the translation system. Arguments are the language codes separated by commas.
+Setups the translation system. Arguments are the language codes separated by spaces.
 
 For example:
 
-\`#!translations "en", "fr", "es", "zh_cn"\`
+\`#!translations en fr es zh_cn\`
 
 Only the es_mx, es_es, zh_cn and zh_tw languages can be specified fully. For the rest, you can only specify the first two letters.
 
@@ -139,7 +139,9 @@ OverPy will generate and parse .po files for each language based on the name of 
 
 **WARNING**: A translated string cannot be used as a normal string **when stored in a variable**, as it becomes a string array. This means you cannot use \`.replace()\`, \`.charAt()\`, etc. When translating your gamemode, look out for these functions.
 
-This also means that, when used in a variable, you cannot use a translated string as an argument of a string: \`{}{}.format(t"string", 1234)\` will not work. Instead, do \`t"string{}".format(1234)\`. The translated string must always be top-level. You will also get "TLErr" if trying to use a translated string as an argument for another function.
+This also means that, when used in a variable, you cannot use a translated string as an argument of a string: \`"{}{}".format(t"string", 1234)\` will not work. Instead, do \`t"string{}".format(1234)\`. The translated string must always be top-level. You will also get "TLErr" if trying to use a translated string as an argument for another function.
+
+You can also potentially save a lot of elements by using the #!translateWithPlayerVar directive (see the associated documentation).
 
 **Note**: The way string formatting works is via the .replace() function and some constants. This means you cannot have the following in your translated strings if using formatters:
 
@@ -160,6 +162,15 @@ This also means that, when used in a variable, you cannot use a translated strin
 - \`1876658.25\`
 - \`1876659.25\`
         `
+    },
+    "translateWithPlayerVar": {
+        "description": `
+Stores the player's language in a variable using a rule which uses the \`.startFacing()\` function when the player spawns (the language is determined based on the player's facing direction).
+
+If using translations, this can save a lot of elements.
+
+Do not use this directive if your gamemode changes the player's facing direction on spawn.
+        `,
     },
 
     "extension": {

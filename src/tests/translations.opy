@@ -12,7 +12,7 @@ settings {
     },
 }
 #!setupTags
-#!translations en, fr, es, zh_cn
+#!translations en fr es zh_cn
 rule "owo\nuwu":
     A = _("some string")
     debug(t"some string")

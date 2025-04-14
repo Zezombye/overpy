@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -192,7 +192,7 @@ export function tokenize(content: string): LogicalLine[] {
             return;
         }
         if (content.startsWith("#!translations ")) {
-            let translations = content.substring("#!translations ".length).split(",").map(x => x.replaceAll("-", "_").toLowerCase().trim());
+            let translations = content.substring("#!translations ".length).split(" ").map(x => x.replaceAll("-", "_").toLowerCase().trim());
             for (let translation of translations) {
                 if (!["de","en","es","es_es","es_mx","fr","it","ja","ko","pl","pt","ru","th","tr","zh","zh_cn","zh_tw"].includes(translation)) {
                     error("Invalid language '" + translation + "'");
@@ -208,6 +208,10 @@ export function tokenize(content: string): LogicalLine[] {
             setTranslationLanguages(translations as TranslationLanguage[]);
             return;
 
+        }
+        if (content.startsWith("#!translateWithPlayerVar")) {
+            setUsePlayerVarForTranslations(true);
+            return;
         }
         if (content.startsWith("#!optimizeForSize")) {
             setOptimizationForSize(true);

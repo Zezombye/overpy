@@ -18,7 +18,7 @@
 "use strict";
 
 import { spaces } from "../../data/opy/blizzardGlobal";
-import { astParsingFunctions, translationLanguageConstantOpy, translationLanguages } from "../../globalVars";
+import { astParsingFunctions, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
 import { Ast } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
@@ -92,7 +92,11 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
 
     if (isReevaluatedClientSide) {
-        opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";
+        if (usePlayerVarForTranslations) {
+            opyMacro += "[localPlayer.__languageIndex__]";
+        } else {
+            opyMacro += "[abs(__overpyTranslationHelper__.index("+translationLanguageConstantOpy+".split([])))]";
+        }
     }
 
     return parseOpyMacro(opyMacro, replacementNames, replacements);
