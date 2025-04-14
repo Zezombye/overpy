@@ -4,6 +4,11 @@
 import { readdirSync, readFileSync, existsSync, writeFileSync } from "fs";
 import { Diff } from "diff";
 import colors from "colors";
+import * as readline from "readline";
+import { stdin as input, stdout as output } from 'node:process';
+
+const rl = readline.createInterface({ input, output });
+
 
 // @ts-ignore - Standalone OverPy conditionally exports when run in Node
 import { compile, decompileAllRules, readyPromise } from "./out/overpy_standalone.js";
@@ -45,6 +50,15 @@ CustomDiff.tokenize = function (value, options) {
     });
 };*/
 
+function getInput(str) {
+    return new Promise(resolve => {
+        rl.question(str, (input) => {
+            rl.close();
+            resolve(input);
+        });
+    });
+}
+
 const compileTestsFolder = "./src/tests/";
 const compileExpectedResultsFolder = "./src/tests/results/";
 
@@ -60,7 +74,7 @@ function displayDiff(differences) {
 
     //Remove consecutive unchanged lines, unless they are within a distance of 5 from a change
     const filteredDifferences = [];
-    let nbContextLines = 5;
+    let nbContextLines = 2;
     let lineIdx = 1;
     for (let i = 0; i < differences.length; i++) {
         const diffLine = differences[i];
@@ -105,7 +119,7 @@ for (let file of opyFiles) {
     let compileResult;
     try {
         await readyPromise;
-        compileResult = (await compile(inputContent)).result;
+        compileResult = (await compile(inputContent, "en-US", compileTestsFolder, file)).result;
     } catch (error) {
         console.error(`Test ${file} failed:`);
         console.error(error);
@@ -127,7 +141,15 @@ for (let file of opyFiles) {
         console.error(`Test ${file} failed:`);
         console.log("Differences found:");
         displayDiff(differences);
-        process.exit(1);
+
+
+        let answer = await getInput("Continue? (y/n): ");
+        rl.close();
+        if (answer.toLowerCase() !== "y") {
+            process.exit(1);
+        } else {
+            writeFileSync(resultFilePath, compileResult);
+        }
     }
 }
 
@@ -167,8 +189,17 @@ for (let inputFile of decompilerFilesFiltered) {
         console.error(`Test ${inputFile} failed:`);
         console.log("Differences found:");
         displayDiff(differences);
-        process.exit(1);
+
+        let answer = await getInput("Continue? (y/n): ");
+        rl.close();
+        if (answer.toLowerCase() !== "y") {
+            process.exit(1);
+        } else {
+            writeFileSync(resultFilePath, decompileResult);
+        }
+
     }
 }
 
 console.log(colors.bold(colors.green("All tests passed")));
+rl.close();
