@@ -153,7 +153,7 @@ export async function compile(
     }
 
     if (enableTagsSetup) {
-        addVariable("holygrail", true, -1);
+        addVariable("__holygrail__", true, -1);
     }
 
     if (translationLanguages.length > 0) {
@@ -201,9 +201,9 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     createDummy(getAllHeroes(),  Team.1 if getNumberOfSlots(Team.1) else Team.2 if getNumberOfSlots(Team.2) else true, false, null, null)
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
     getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u303C")
-    holygrail = getLastCreatedEntity()[0].split([])
+    __holygrail__ = getLastCreatedEntity()[0].split([])
     getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u0840")
-    holygrail = p"______________________________________________________________________________________________________________________________\u303C".replace(holygrail, getLastCreatedEntity()[0]).substring(126, true)
+    __holygrail__ = p"______________________________________________________________________________________________________________________________\u303C".replace(__holygrail__, getLastCreatedEntity()[0]).substring(126, true)
     destroyAllDummies()
         `;
         txSetupRule = tokenize(txSetupRule);
@@ -347,11 +347,21 @@ function generateVariablesField() {
 
         for (let variable of unassignedVariables) {
             var foundSpot = false;
-            for (var i = 0; i < 128; i++) {
-                if (outputVariables[i] === undefined) {
-                    foundSpot = true;
-                    outputVariables[i] = variable;
-                    break;
+            if (variable.startsWith("__") && variable.endsWith("__")) {
+                for (var i = 127; i >= 0; i--) {
+                    if (outputVariables[i] === undefined) {
+                        foundSpot = true;
+                        outputVariables[i] = variable;
+                        break;
+                    }
+                }
+            } else {
+                for (var i = 0; i < 128; i++) {
+                    if (outputVariables[i] === undefined) {
+                        foundSpot = true;
+                        outputVariables[i] = variable;
+                        break;
+                    }
                 }
             }
             if (!foundSpot) {

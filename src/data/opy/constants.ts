@@ -136,6 +136,12 @@ export const opyConstants: Record<string, Record<string, {
             "isConstant": true,
             return: "unsigned int",
         },
+        "EPSILON": {
+            "description": "The smallest number greater than 0 which still isn't considered equal to 0 when compared = 0.0000001192093.\n\nThanks LazyLion for finding this value.",
+            "args": null,
+            "isConstant": true,
+            "return": "unsigned float",
+        },
         "SPHERE_HORIZONTAL_RADIUS_MULT": {
             "description": "The visual horizontal radius of a sphere = 0.984724 of the radius.",
             "args": null,

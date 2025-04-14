@@ -22,7 +22,7 @@ import { funcKw, notConstantFunctions } from "../data/other";
 import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token } from "./tokenizer";
-import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
+import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
@@ -1029,6 +1029,8 @@ function parseMember(object: Token[], member: Token[]) {
                     return getAstForE();
                 } else if (name === "INFINITY") {
                     return getAstForInfinity();
+                } else if (name === "EPSILON") {
+                    return getAstForNumber(0.0000001192093);
                 } else if (name === "SPHERE_HORIZONTAL_RADIUS_MULT") {
                     return getAstForNumber(0.984724);
                 } else if (name === "SPHERE_VERTICAL_RADIUS_MULT") {
@@ -1040,7 +1042,7 @@ function parseMember(object: Token[], member: Token[]) {
                 } else if (name === "RING_EXPLOSION_RADIUS_MULT") {
                     return getAstForNumber(0.48);
                 } else if (name === "FUCKTON_OF_SPACES" || name === "LOTS_OF_SPACES") {
-                    return getAstForCustomString("\u2003".repeat(170));
+                    return getAstForFucktonOfSpaces();
                 } else if (name === "FUCKTON_OF_NEWLINES" || name === "LOTS_OF_NEWLINES") {
                     return getAstForCustomString("\n".repeat(125));
                 } else {
@@ -1054,7 +1056,7 @@ function parseMember(object: Token[], member: Token[]) {
                 //Check for textures
             } else if (object[0].text === "Texture") {
                 if (name in opyTextures) {
-                    return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("holygrail", [], [], "GlobalVariable")])]);
+                    return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")])]);
                 } else {
                     error("Unhandled member 'Texture." + name + "'");
                 }

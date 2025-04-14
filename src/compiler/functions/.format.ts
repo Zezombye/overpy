@@ -235,7 +235,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 
     if (tokens.some((token) => token.type === "holygrail")) {
         //Add Global.holygrail at the end of the args, then convert tag tokens to arg tokens
-        args.push(new Ast("__globalVar__", [new Ast("holygrail", [], [], "GlobalVariable")]));
+        args.push(new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")]));
         tokens = tokens.map((token) => {
             if (token.type === "holygrail") {
                 return {
