@@ -100,16 +100,16 @@ export function activate(context: vscode.ExtensionContext) {
                 vscode.window.showErrorMessage("No active text editor tab found. Please open a new editor tab before re-running this command.");
                 return;
             }
-            let rootPath = activeEditor.document.fileName;
-            rootPath = rootPath.replace(/\\/g, "/");
-            rootPath = rootPath.substring(0, rootPath.lastIndexOf("/") + 1);
+            let mainFilePath = activeEditor.document.fileName.replace(/\\/g, "/");
+            let mainFileName = mainFilePath.split("/").pop();
+            let rootPath = mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1);
 
             const configuredLanguage = vscode.workspace.getConfiguration("overpy").workshopLanguage;
             if (Object.values(ow_languages).includes(configuredLanguage) === false) {
                 vscode.window.showErrorMessage(`Configured OverPy language ${configuredLanguage} is not recognized as a supported language.`);
                 return;
             }
-            const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage, rootPath);
+            const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage, rootPath, mainFileName);
             for (let warning of compileResult.encounteredWarnings) {
                 vscode.window.showWarningMessage(`Warning: ${warning}`);
             }
@@ -146,10 +146,15 @@ export function activate(context: vscode.ExtensionContext) {
         if (document.languageId === "overpy" && vscode.workspace.getConfiguration("overpy").addTemplateOnNewFile && document.getText().length === 0) {
             vscode.window.showTextDocument(document, vscode.ViewColumn.Active, false).then((editor) => {
                 editor.edit((editBuilder) => {
-                    editBuilder.insert(new vscode.Position(0, 0), overpyTemplate[0]);
+                    editBuilder.insert(new vscode.Position(0, 0), overpyTemplate);
                 });
             });
         }
+    });
+
+    //Set the word pattern to not include words right before quotes, else we get the default text-based suggestions for string modifiers
+    vscode.languages.setLanguageConfiguration("overpy", {
+        wordPattern: /(-?\d*\.\d\w*)|([\w]+(?!["']))/g,
     });
 
     vscode.languages.registerCompletionItemProvider(
@@ -194,6 +199,10 @@ export function activate(context: vscode.ExtensionContext) {
                             return;
                         }
                     } else {
+                        //Don't trigger autocompletion for string modifiers
+                        if (["\"", "'"].includes(document.getText(new vscode.Range(position.translate(0, 0), position.translate(0, 1))))) {
+                            return;
+                        }
                         return defaultCompList;
                     }
                 } catch (e) {

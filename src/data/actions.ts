@@ -6003,7 +6003,7 @@ export const actionKw: Record<string, Action> =
                 "default": "VISIBLE TO AND POSITION"
             },
             {
-                "name": "iconColor",
+                "name": "color",
                 "description": "The color of the icon to be created. If a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer.",
                 "type": "Color",
                 "default": "VISIBILITY_POSITION_AND_COLOR"
@@ -6048,7 +6048,7 @@ export const actionKw: Record<string, Action> =
                 default: "getAllPlayers()",
             },
             {
-                "name": "header",
+                "name": "text",
                 "description": "The text to be displayed.",
                 "type": "Object",
                 "canReplace0ByNull": true,
@@ -6082,7 +6082,7 @@ export const actionKw: Record<string, Action> =
                 "default": "VISIBILITY_POSITION_STRING_AND_COLOR"
             },
             {
-                "name": "textColor",
+                "name": "color",
                 "description": "Specifies the color of the in-world text to use.",
                 "type": "Color",
                 "default": "WHITE"
@@ -8263,7 +8263,7 @@ export const actionKw: Record<string, Action> =
         "description": "Creates an in-world projectile effect entity. This effect entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
         "args": [
             {
-                "name": "visibility",
+                "name": "visibleTo",
                 "type": [
                     "Player",
                     {

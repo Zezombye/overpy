@@ -60,7 +60,8 @@ export class Ast {
     parent?: Ast;
     expectedType?: Type;
     comment?: string;
-    isDisabled = false;
+    isDisabled: boolean = false;
+    clientSideReevaluatedArgIndexes: number[] = [];
 
     constructor(name: string, args?: any[], children?: Ast[], type?: any) {
         if (name === null || name === undefined) {

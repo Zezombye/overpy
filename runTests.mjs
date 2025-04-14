@@ -53,7 +53,6 @@ CustomDiff.tokenize = function (value, options) {
 function getInput(str) {
     return new Promise(resolve => {
         rl.question(str, (input) => {
-            rl.close();
             resolve(input);
         });
     });
@@ -144,8 +143,8 @@ for (let file of opyFiles) {
 
 
         let answer = await getInput("Continue? (y/n): ");
-        rl.close();
         if (answer.toLowerCase() !== "y") {
+            rl.close();
             process.exit(1);
         } else {
             writeFileSync(resultFilePath, compileResult);
@@ -191,8 +190,8 @@ for (let inputFile of decompilerFilesFiltered) {
         displayDiff(differences);
 
         let answer = await getInput("Continue? (y/n): ");
-        rl.close();
         if (answer.toLowerCase() !== "y") {
+            rl.close();
             process.exit(1);
         } else {
             writeFileSync(resultFilePath, decompileResult);

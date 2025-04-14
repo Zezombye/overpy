@@ -29,6 +29,7 @@ import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getA
 import { opyMacros } from "./data/opy/macros";
 import { builtInEnumNameToAstInfo } from "./compiler/parser";
 import { parseOpyMacro } from "./utils/compilation";
+import { TranslatedString, TranslationLanguage } from "./compiler/translations";
 
 export var globalVariables: Variable[] = [];
 export var playerVariables: Variable[] = [];
@@ -49,6 +50,9 @@ export const DEBUG_PROFILER = false;
 
 //Compilation variables - are reset at each compilation.
 
+
+export var mainFileName: string;
+export const setMainFileName = (name: string) => (mainFileName = name);
 /**
  * The absolute path of the folder containing the main file. Used for relative paths. */
 export var rootPath: string;
@@ -60,6 +64,10 @@ export var currentArrayElementName: string;
 export const setCurrentArrayElementName = (name: string) => (currentArrayElementName = name);
 export var currentArrayIndexName: string;
 export const setCurrentArrayIndexName = (name: string) => (currentArrayIndexName = name);
+
+//Set at each rule, to get the rule name for translated strings
+export var currentRuleName: string;
+export const setCurrentRuleName = (name: string) => (currentRuleName = name);
 
 /**
  * Set at each rule, to check whether it is legal to use "eventPlayer" and related. */
@@ -165,6 +173,21 @@ export const setAvailableExtensionPoints = (points: number) => (availableExtensi
 export var enableTagsSetup: boolean;
 export const setEnableTagsSetup = (enable: boolean) => (enableTagsSetup = enable);
 
+//List of translation languages
+export var translationLanguages: TranslationLanguage[] = [];
+export const setTranslationLanguages = (languages: TranslationLanguage[]) => (translationLanguages = languages);
+
+//List of translated strings encountered during compilation
+export var translatedStrings: TranslatedString[] = [];
+export const setTranslatedStrings = (strings: TranslatedString[]) => (translatedStrings = strings);
+
+//The constant that will be used to determine the player's language
+export var translationLanguageConstant: any;
+export const setTranslationLanguageConstant = (constant: any) => (translationLanguageConstant = constant);
+
+export var translationLanguageConstantOpy: string;
+export const setTranslationLanguageConstantOpy = (constant: string) => (translationLanguageConstantOpy = constant);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -203,7 +226,11 @@ export function resetGlobalVariables(language: OWLanguage) {
     currentArrayElementName = "";
     currentArrayIndexName = "";
     currentLanguage = language;
+    currentRuleName = "";
     currentRuleEvent = "";
+    currentRuleHasVariableGoto = false;
+    currentRuleLabels = [];
+    currentRuleLabelAccess = {};
     macros = [];
     fileStack = [];
     decompilerGotos = [];
@@ -233,6 +260,13 @@ export function resetGlobalVariables(language: OWLanguage) {
     activatedExtensions = [];
     availableExtensionPoints = 0;
     enableTagsSetup = false;
+    nbHeroesInValue = 0;
+    translationLanguages = [];
+    translatedStrings = [];
+    mainFileName = "";
+    translationLanguageConstant = null;
+    translationLanguageConstantOpy = "";
+
 }
 
 //Other constants

@@ -22,6 +22,7 @@ import { Token } from "../../compiler/tokenizer";
 import { getAstForNull, Ast } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 import { getUtf8Length } from "../../utils/strings";
+import { getAstForTranslatedString } from "./__translatedString__";
 
 astParsingFunctions[".format"] = function (content) {
     //Localized strings take one element more than custom strings.
@@ -32,17 +33,19 @@ astParsingFunctions[".format"] = function (content) {
 
     if (content.args[0].type === "LocalizedStringLiteral") {
         return parseLocalizedString(content.args[0], content.args.slice(1));
-    } else {
-        if (content.parent?.name === "createCasedProgressBarIwt") {
-            //skip optimization so we can edit the string in createCasedProgressBarIwt then call this function to properly split it
-            return content;
-        }
-        if (content.parent?.name === "strVisualLength" || content.parent?.name === "spacesForString") {
-            //skip optimization (and string splitting), as the function just needs the length and doesn't do any further processing on the string
-            return content;
-        }
-        return parseCustomString(content.args[0], content.args.slice(1));
     }
+    if (content.parent?.name === "createCasedProgressBarIwt") {
+        //skip optimization so we can edit the string in createCasedProgressBarIwt then call this function to properly split it
+        return content;
+    }
+    if (content.parent?.name === "strVisualLength" || content.parent?.name === "spacesForString") {
+        //skip optimization (and string splitting), as the function just needs the length and doesn't do any further processing on the string
+        return content;
+    }
+    if (content.args[0].name === "__translatedString__") {
+        return getAstForTranslatedString(content.args[0], content.args.slice(1));
+    }
+    return parseCustomString(content.args[0], content.args.slice(1));
 };
 
 var caseSensitiveReplacements: Record<string, string> = {

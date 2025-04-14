@@ -167,6 +167,7 @@
         "diff": "^5.2.0",
         "dotenv": "^16.4.5",
         "js-interpreter": "^5.1.2",
+        "pofile": "^1.1.4",
         "vscode-uri": "^3.0.8"
     },
     "devDependencies": {
@@ -180,7 +181,7 @@
         "@typescript-eslint/parser": "^7.8.0",
         "@vscode/test-cli": "^0.0.9",
         "@vscode/test-electron": "^2.3.9",
-        "esbuild": "^0.21.4",
+        "esbuild": "^0.25.2",
         "eslint": "^8.57.0",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.7",
@@ -190,18 +191,18 @@
     "scripts": {
         "vscode:prepublish": "npm run package",
         "dev": "node esbuild.standalone.js --watch",
-        "compile": "npm run check-types && npm run lint && node esbuild.js",
-        "compile-standalone": "npm run check-types && npm run lint && node esbuild.standalone.js",
+        "compile": "node esbuild.js",
+        "compile-standalone": "node esbuild.standalone.js",
         "watch": "npm-run-all -p watch:*",
         "watch:esbuild": "node esbuild.js --watch",
         "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-        "package": "npm run test && node esbuild.js --production",
+        "package": "npm run check-types && npm run lint && npm run test && node esbuild.js --production",
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . -w --outDir out",
         "pretest": "npm run compile-standalone",
         "check-types": "tsc --noEmit",
         "lint": "npx eslint src --ext ts",
-        "test": "node runTests.mjs",
+        "test": "node esbuild.standalone.js && node runTests.mjs",
         "prepare": "husky"
     },
     "lint-staged": {

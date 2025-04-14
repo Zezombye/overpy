@@ -19,8 +19,8 @@
 
 import { constantValues } from "../data/constants";
 import { funcKw, notConstantFunctions } from "../data/other";
-import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
-import { OWLanguage } from "../types";
+import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
+import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
@@ -34,6 +34,7 @@ import { compileCustomGameSettings } from "./compiler";
 import { LogicalLine } from "./tokenizer";
 import { opyTextures } from "../data/opy/textures";
 import { parseOpyMacro } from "../utils/compilation";
+import { getTranslatedString } from "./translations";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -195,10 +196,8 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     error("Malformatted 'rule' declaration");
                 }
                 instructionRuleAttributes = {};
-                instructionRuleAttributes.name = lineMembers[0]
-                    .slice(1)
-                    .map((x) => unescapeString(x.text, true))
-                    .join("");
+                instructionRuleAttributes.name = lineMembers[0].slice(1).map((x) => unescapeString(x.text, true)).join("");
+                setCurrentRuleName(instructionRuleAttributes.name);
             } else if (funcName === "__enum__") {
                 if (lineMembers[0].length !== 2) {
                     error("Malformatted 'enum' declaration");
@@ -210,6 +209,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
                 instructionRuleAttributes = {};
                 instructionRuleAttributes.subroutineName = lineMembers[0][1].text;
+                setCurrentRuleName("Subroutine "+instructionRuleAttributes.subroutineName);
                 if (isSubroutineName(instructionRuleAttributes.subroutineName)) {
                     for (var subroutine of subroutines) {
                         if (subroutine.name === instructionRuleAttributes.subroutineName) {
@@ -698,6 +698,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     //Check for strings
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
         var stringType = "StringLiteral";
+        let translate = false;
         var string = "";
         for (var i = content.length - 1; i >= 0; i--) {
             if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
@@ -715,13 +716,21 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                         stringType = "PlaintextStringLiteral";
                     } else if (content[0].text === "c") {
                         stringType = "CaseSensitiveStringLiteral";
+                    } else if (content[0].text === "t") {
+                        translate = true;
                     } else {
-                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext), 'c' (case-sensitive) and 'w' (fullwidth)");
+                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
                     }
                 } else {
-                    error("Expected string, but got '" + content[i].text + "'");
+                    error("Invalid content before string: '" + content[i].text + "'");
                 }
             }
+        }
+        if (translate) {
+            if (kwargs.disableTranslation) {
+                error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
+            }
+            return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         }
         return new Ast(string, [], [], stringType);
     }
@@ -786,6 +795,31 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
 
     //Special functions
+
+
+    if (name === "_") {
+        if (args.length !== 1 && args.length !== 2) {
+            error("Function '_' takes 2 arguments, received " + args.length);
+        }
+        let context = null;
+        if (args.length === 2) {
+            if (args[0].length !== 1 || (args[0][0].text[0] !== "'" && args[0][0].text[0] !== "\"")) {
+                error("First argument of function '_' must be a string literal");
+            }
+            context = unescapeString(args[0][0].text, true);
+        }
+        let translationTarget = parse(args[args.length-1], {disableTranslation: true});
+        if (translationTarget.type === "StringLiteral") {
+            return getTranslatedString(translationTarget.name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+        } else {
+            //It is a variable; assume the value is a translated string (string array)
+            if (args.length !== 1) {
+                error("Cannot specify translation context when not translating a string literal");
+            }
+            return new Ast("__translateString__", [translationTarget]);
+        }
+
+    }
 
     if (name === "async") {
         if (args.length !== 2) {

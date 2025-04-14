@@ -419,7 +419,7 @@ rule ("initial zombie hero") {
     actions {
         Set Global Variable(Z, Hero(Torbjörn));
         Set Global Variable(N, Null);
-        Create HUD Text(All Players(All Teams), Custom String("Waiting 4 Players 2 Start ...", Null, Null, Null), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Custom String("Waiting 4 Players 2 Start ..."), Null, Null, Left, False, Color(White), Null, Null, Visible To and String, Default Visibility);
     }
 }
 
@@ -604,14 +604,14 @@ rule ("trigger") {
         Set Global Variable(Q, 1);
         Skip If(Compare(Count Of(Filtered Array(Players Within Radius(Value In Array(Global.T, Global.N), 5, All Teams, Off), Compare((Current Array Element).Z, ==, 1))), !=, Null), 23);
         Skip If(Compare(Global.N, ==, Add(Count Of(Global.S), -1)), 11);
-        Big Message(All Players(All Teams), Custom String("Defend: {0} sec", Z Component Of(Value In Array(Global.S, Global.N)), Null, Null));
+        Big Message(All Players(All Teams), Custom String("Defend: {0} sec", Z Component Of(Value In Array(Global.S, Global.N))));
         Wait(Subtract(Z Component Of(Value In Array(Global.S, Global.N)), 8), Ignore Condition);
         Abort If(Compare(Global.R, <=, 2));
-        Big Message(All Players(All Teams), Custom String("Defend: 8 sec", Null, Null, Null));
+        Big Message(All Players(All Teams), Custom String("Defend: 8 sec"));
         Set Global Variable(Q, 1.5);
         Wait(7, Ignore Condition);
         Abort If(Compare(Global.R, <=, 2));
-        Big Message(All Players(All Teams), Custom String("Defend: 1 sec", Null, Null, Null));
+        Big Message(All Players(All Teams), Custom String("Defend: 1 sec"));
         Set Global Variable(Q, 2);
         Wait(True, Ignore Condition);
         Abort If(Compare(Global.R, <=, 2));
@@ -619,7 +619,7 @@ rule ("trigger") {
         Set Global Variable(Q, 3);
         Modify Global Variable(N, Add, True);
         Skip If(Compare(Global.N, ==, Count Of(Global.S)), True);
-        Big Message(All Players(All Teams), Custom String("Run!!!", Null, Null, Null));
+        Big Message(All Players(All Teams), Custom String("Run!!!"));
         //lbl_2:
         Destroy All Effects;
         Wait(0.25, Ignore Condition);
@@ -643,7 +643,7 @@ rule ("first infection") {
     }
     actions {
         Wait(True, Ignore Condition);
-        Big Message(All Players(All Teams), Custom String("Initial Dead: {0} sec", Subtract(10, Global.O), Null, Null));
+        Big Message(All Players(All Teams), Custom String("Initial Dead: {0} sec", Subtract(10, Global.O)));
         Modify Global Variable(O, Add, True);
         Loop If(Compare(Global.O, <, 10));
         Skip If(Compare(Count Of(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element))), <=, 10), True);
@@ -707,7 +707,7 @@ rule ("infect players") {
         Set Player Variable(Victim, Z, 1);
         Modify Player Score(Attacker, True);
         Set Player Variable(Victim, H, Hero Of(Victim));
-        Create HUD Text(All Players(All Teams), Custom String("{0} {1} -> {2}", Hero Icon String(Hero Of(Attacker)), Attacker, Custom String("{0} {1}", Hero Icon String((Victim).H), Victim, Null)), Null, Null, Right, False, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Custom String("{0} {1} -> {2}", Hero Icon String(Hero Of(Attacker)), Attacker, Custom String("{0} {1}", Hero Icon String((Victim).H), Victim)), Null, Null, Right, False, Color(White), Null, Null, Visible To and String, Default Visibility);
         Skip If(Compare(Count Of(Filtered Array(Filtered Array(All Players(All Teams), Has Spawned(Current Array Element)), Compare((Current Array Element).Z, ==, Null))), !=, Null), 2);
         Set Global Variable(E, 1);
         Resurrect(Event Player);
@@ -801,7 +801,7 @@ rule ("zombie behavior") {
         Teleport(Event Player, (Event Player).C);
         Stop All Heal Over Time(Event Player);
         Set Status(Event Player, Null, Rooted, 2);
-        Big Message(Event Player, Custom String("You Dead", Null, Null, Null));
+        Big Message(Event Player, Custom String("You Dead"));
         Wait(True, Ignore Condition);
         Clear Status(Event Player, Rooted);
         Press Button(Event Player, Button(Ultimate));
@@ -887,7 +887,7 @@ rule ("normal zombies: rein") {
     }
     actions {
         Set Global Variable(Z, Hero(Reinhardt));
-        Big Message(All Players(All Teams), Custom String("Level 2: {0}", Hero(Reinhardt), Null, Null));
+        Big Message(All Players(All Teams), Custom String("Level 2: {0}", Hero(Reinhardt)));
     }
 }
 
@@ -900,7 +900,7 @@ rule ("hard zombies: winston") {
     }
     actions {
         Set Global Variable(Z, Hero(Winston));
-        Big Message(All Players(All Teams), Custom String("Level 3: {0}", Hero(Winston), Null, Null));
+        Big Message(All Players(All Teams), Custom String("Level 3: {0}", Hero(Winston)));
     }
 }
 
@@ -913,7 +913,7 @@ rule ("expert zombies: brig") {
     }
     actions {
         Set Global Variable(Z, Hero(Brigitte));
-        Big Message(All Players(All Teams), Custom String("Final Level: {0}", Hero(Brigitte), Null, Null));
+        Big Message(All Players(All Teams), Custom String("Final Level: {0}", Hero(Brigitte)));
     }
 }
 
@@ -938,7 +938,7 @@ rule ("zombies win") {
     }
     actions {
         Stop All Damage Modifications;
-        Big Message(All Players(All Teams), Custom String("Dead Win", Null, Null, Null));
+        Big Message(All Players(All Teams), Custom String("Dead Win"));
         Wait(5, Ignore Condition);
         Skip If(Compare(Match Time, >, Null), True);
         Set Global Variable(J, 4);
@@ -956,7 +956,7 @@ rule ("humans win") {
     }
     actions {
         Stop All Damage Modifications;
-        Big Message(All Players(All Teams), Custom String("Heroes Win", Null, Null, Null));
+        Big Message(All Players(All Teams), Custom String("Heroes Win"));
         Wait(False, Ignore Condition);
         Kill(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, 1)), Null);
         Modify Player Score(Filtered Array(All Players(All Teams), Compare((Current Array Element).Z, ==, Null)), 100);

@@ -28,10 +28,10 @@ rule ("function") {
         Chase Player Variable At Rate(Event Player, B, 9999, 3, Destination and Rate);
         Chase Global Variable Over Time(B, 9999, True, Destination and Duration);
         Chase Global Variable At Rate(B, 99999, True, Destination and Rate);
-        Create HUD Text(All Players(All Teams), Custom String("test", Null, Null, Null), Null, Null, Left, True, Color(Red), Null, Null, Visible To and String, Visible Always);
-        Create HUD Text(All Players(All Teams), Null, Null, Custom String("test", Null, Null, Null), Left, True, Null, Null, Color(Red), Visible To and String, Visible Always);
-        Create HUD Text(All Players(All Teams), Null, Custom String("test", Null, Null, Null), Null, Left, True, Null, Color(Red), Null, Visible To and String, Visible Always);
-        Create HUD Text(Null, Custom String("azer", Null, Null, Null), Custom String("dqsf", Null, Null, Null), Custom String("fdsq", Null, Null, Null), Left, -1, Color(Red), Color(White), Color(Yellow), Visible To Sort Order and String, Visible Never);
+        Create HUD Text(All Players(All Teams), Custom String("test"), Null, Null, Left, True, Color(Red), Null, Null, Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("test"), Left, True, Null, Null, Color(Red), Visible To and String, Visible Always);
+        Create HUD Text(All Players(All Teams), Null, Custom String("test"), Null, Left, True, Null, Color(Red), Null, Visible To and String, Visible Always);
+        Create HUD Text(Null, Custom String("azer"), Custom String("dqsf"), Custom String("fdsq"), Left, -1, Color(Red), Color(White), Color(Yellow), Visible To Sort Order and String, Visible Never);
         Wait(False, Ignore Condition);
         Set Global Variable(A, Closest Player To(Global.B, Global.C));
         Set Global Variable(A, First Of(Sorted Array(Filtered Array(All Living Players(Global.C), Has Spawned(Current Array Element)), Distance Between(Current Array Element, Global.B))));

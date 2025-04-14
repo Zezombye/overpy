@@ -29,6 +29,22 @@ export const opyFuncs: Record<
         isConstant?: boolean;
     }
 > = {
+    "_": {
+        "description": "The translation function. If two arguments are specified, the first argument (a string literal) is used as the context to disambiguate strings that are the same but must be translated differently. Else, the first argument is the string to be translated (can be a variable, in which case this function has to be used directly in the display function such as `hudText()`).\n\nSee `#!translations` for more details.",
+        "args": [
+            {
+                "name": "contextOrString",
+                "description": "If two arguments are specified, the context (as a string literal); otherwise, the string to be translated (can be a variable).",
+                "type": "String",
+            }, {
+                "name": "string",
+                "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
+                "type": "StringLiteral",
+                "default": null,
+            }
+        ],
+        "return": "String",
+    },
     "all": {
         "description": "Whether every value in the specified array evaluates to true. Can use mapped arrays.\n\nExample: `all([player.A == 2 for player in getAllPlayers()])`",
         "args": [
@@ -247,7 +263,7 @@ export const opyFuncs: Record<
         "return": "void"
     },
     "debug": {
-        "description": "For quick debugging of a value.",
+        "description": "For quick debugging of a value. Displays both the value and the text of the function call.",
         "args": [
             {
                 "name": "value",

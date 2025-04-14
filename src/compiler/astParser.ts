@@ -19,7 +19,7 @@
 
 import { constantValues } from "../data/constants";
 import { funcKw } from "../data/other";
-import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels } from "../globalVars";
+import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, astParsingFunctions, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
@@ -66,6 +66,8 @@ import "./functions/__rule__.ts";
 import "./functions/__skip__.ts";
 import "./functions/__subtract__.ts";
 import "./functions/__switch__.ts";
+import "./functions/__translateString__";
+import "./functions/__translatedString__";
 import "./functions/__valueInArray__.ts";
 import "./functions/__while__.ts";
 import "./functions/__xComponentOf__.ts";
@@ -140,6 +142,7 @@ import "./functions/wait";
 import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
 import { parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
+import { getTranslatedString } from "./translations";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
@@ -274,6 +277,7 @@ export function parseAstRules(rules: Ast[]) {
             error("Unexpected function '" + rule.name + "' outside a rule");
         }
 
+        setCurrentRuleName(rule.ruleAttributes.name);
         setCurrentRuleEvent(rule.ruleAttributes.event);
         resetCurrentRuleLabels();
         clearRuleLabelAccess();
@@ -329,7 +333,7 @@ export function parseAst(content: Ast) {
     //For string literals, check if they are a child of .format (or of a string function). If not, wrap them with the .format function.
     //Do not use isTypeSuitable as that can return true for "value".
     if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
-        if (content.parent && [".format", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0) {
+        if (content.parent && ([".format", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0 || content.parent.name === "__translatedString__")) {
             return content;
         } else {
             var tmpParent = content.parent;
@@ -373,12 +377,14 @@ export function parseAst(content: Ast) {
 
 
 
-    if (![".format", "__array__", "__dict__", "__enumType__"].includes(content.name)) {
+    if (![".format", "__array__", "__dict__", "__enumType__", "__translatedString__"].includes(content.name)) {
         var nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
         if (content.args.length !== nbExpectedArgs) {
             error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
         }
     }
+
+    setClientSideReevaluatedArgIndexes(content);
 
     //Parse args
     for (var i = 0; i < content.args.length; i++) {
@@ -404,7 +410,7 @@ export function parseAst(content: Ast) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]));
             }
         }
-    } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__") {
+    } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__" || content.name === "__translatedString__") {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
@@ -435,7 +441,7 @@ export function parseAst(content: Ast) {
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === ".format" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
-        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__") {
+        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__" || content.parent.name === "__translatedString__") {
             content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";
@@ -493,4 +499,111 @@ export function parseAst(content: Ast) {
     content.childIndex = 0;
 
     return content;
+}
+
+
+export function setClientSideReevaluatedArgIndexes(content: Ast) {
+
+    //This is not fully accurate, for now I only tested the string functions. Other reevaluated functions must be tested to check if they are reevaluated client side.
+
+    let reevaluationToArgNames: Record<string, string[]> = {
+        "none": [],
+
+        "position_and_radius": ["startPosition", "endPosition", "position", "radius"],
+        "position_radius_and_color": ["startPosition", "endPosition", "position", "radius", "color"],
+        "visibility_position_and_radius": ["visibleTo", "startPosition", "endPosition", "position", "radius"],
+        "visibility_position_radius_and_color": ["visibleTo", "startPosition", "endPosition", "position", "radius", "color"],
+
+        "direction_and_turn_rate": ["direction", "turnRate"],
+
+        "visibility_sort_order_and_string": ["visibleTo", "sortOrder", "text", "header", "subheader"],
+        "color": ["color", "textColor", "headerColor", "subheaderColor", "progressBarColor"],
+        "sort_order": ["sortOrder"],
+        "sort_order_and_color": ["sortOrder", "color", "textColor", "headerColor", "subheaderColor"],
+        "sort_order_and_string": ["sortOrder", "text", "header", "subheader"],
+        "sort_order_string_and_color": ["sortOrder", "text", "header", "subheader", "color", "textColor", "headerColor", "subheaderColor"],
+        "string": ["text", "header", "subheader"],
+        "string_and_color": ["text", "header", "subheader", "color", "textColor", "headerColor", "subheaderColor"],
+        "visibility": ["visibleTo"],
+        "visibility_and_color": ["visibleTo", "color", "textColor", "headerColor", "subheaderColor", "progressBarColor"],
+        "visibility_and_sort_order": ["visibleTo", "sortOrder"],
+        "visibility_and_string": ["visibleTo", "text", "header", "subheader"],
+        "visibility_sort_order_and_color": ["visibleTo", "sortOrder", "color", "textColor", "headerColor", "subheaderColor"],
+        "visibility_sort_order_string_and_color": ["visibleTo", "sortOrder", "text", "header", "subheader", "color", "textColor", "headerColor", "subheaderColor"],
+        "visibility_string_and_color": ["visibleTo", "text", "header", "subheader", "color", "textColor", "headerColor", "subheaderColor"],
+
+        "position_and_color": ["startPosition", "endPosition", "position", "color", "textColor", "progressBarColor"],
+        "visibility_and_position": ["visibleTo", "startPosition", "endPosition", "position"],
+        "visibility_position_and_color": ["visibleTo", "startPosition", "endPosition", "position", "color", "textColor", "progressBarColor"],
+
+        "values": ["value", "text"],
+        "values_and_color": ["value", "text", "progressBarColor", "textColor"],
+        "visibility_and_values": ["visibleTo", "value", "text"],
+        "visibility_values_and_color": ["visibleTo", "value", "text", "progressBarColor", "textColor"],
+
+        "position": ["position"],
+        "position_and_values": ["position", "values", "text"],
+        "position_values_and_color": ["position", "values", "text", "progressBarColor", "textColor"],
+        "visibility_position_and_values": ["visibleTo", "position", "values", "text"],
+        "visibility_position_values_and_color": ["visibleTo", "position", "values", "text", "progressBarColor", "textColor"],
+
+        "direction_and_magnitude": ["direction", "magnitude"],
+
+        "visibility_position_and_string": ["visibleTo", "position", "text"],
+        "visibility_position_string_and_color": ["visibleTo", "position", "text", "color"],
+
+        "visibility_position_direction_and_size": ["visibleTo", "position", "direction", "oversize"],
+        "position_direction_and_size": ["position", "direction", "oversize"],
+        "visibility_friendliness_position_direction_and_size": ["visibleTo", "friendlyTo", "position", "direction", "oversize"],
+        "friendliness_position_direction_and_size": ["friendlyTo", "position", "direction", "oversize"],
+        "visibility_and_friendliness": ["visibleTo", "friendlyTo"],
+        "friendliness": ["friendlyTo"],
+    };
+
+    //Functions which have args that always reeval
+    let reevaluatedFunctionArgs: Record<string, string[]> = {
+        "debug": ["value"],
+        "print": ["text"],
+        "bigMessage": ["text"],
+        "smallMessage": ["text"],
+    };
+
+    //Functions which have an argument for reevaluation
+    let reevaluatedFunctions: String[] = [
+        "createCasedProgressBarIwt",
+        "hudHeader",
+        "hudSubtext",
+        "hudSubheader",
+        "hudText",
+        "createBeam",
+        "createEffect",
+        "createIcon",
+        "createInWorldText",
+        "createProgressBarInWorldText",
+        "progressBarHud",
+        "setObjectiveDescription",
+        "createProjectileEffect",
+        ".startFacing",
+        ".startThrottleInDirection",
+    ];
+
+    if (content.name in reevaluatedFunctionArgs) {
+        content.clientSideReevaluatedArgIndexes = reevaluatedFunctionArgs[content.name].map(x => {
+            let argIndex = funcKw[content.name].args?.findIndex(y => y.name === x);
+            if (argIndex === undefined || argIndex === -1) {
+                error("Could not find argument '" + x + "' in function '" + content.name + "'");
+            }
+            return argIndex;
+        });
+        //console.log("Setting reevaluated args for '" + content.name + "' to " + content.clientSideReevaluatedArgIndexes);
+
+    } else if (reevaluatedFunctions.includes(content.name)) {
+        let reevaluationValue = content.args[funcKw[content.name].args?.findIndex(x => x.name === "reevaluation") ?? error("Could not find reevaluation argument in function '" + content.name + "'")].name.toLowerCase();
+        if (!(reevaluationValue in reevaluationToArgNames)) {
+            error("Unknown reevaluation value '" + reevaluationValue + "' in function '" + content.name + "'");
+        }
+        //Do not throw error if we cannot find the argument name, as for convenience the reevaluation args are merged among the different types, so some arg names may not exist
+        content.clientSideReevaluatedArgIndexes = reevaluationToArgNames[reevaluationValue].map(x => funcKw[content.name].args?.findIndex(y => y.name === x)).filter(x => x !== undefined && x !== -1) as number[];
+        //console.log("Setting reevaluated args for '" + content.name + "' to " + content.clientSideReevaluatedArgIndexes);
+    }
 }

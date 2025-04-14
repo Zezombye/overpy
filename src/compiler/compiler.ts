@@ -17,12 +17,12 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
-import { ruleKw, customGameSettingsKw } from "../data/other";
+import { ruleKw, customGameSettingsKw, constantKw } from "../data/other";
 import { isNumber, shuffleArray, tabLevel } from "../utils/other";
 import { Ast, getAstForFalse, getAstForNull } from "../utils/ast";
 import { getFilePaths, getFileContent } from "file_utils";
@@ -31,11 +31,15 @@ import { tows } from "../utils/translation";
 import { parseAstRules } from "./astParser";
 import { astRulesToWs } from "./astToWorkshop";
 import { parseLines } from "./parser";
-import { tokenize } from "./tokenizer";
+import { Token, tokenize } from "./tokenizer";
 import { addVariable } from "../utils/varNames";
 import { MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
 import { compileCustomGameSettingsDict } from "../utils/compilation";
 import { reinitInterpreter } from "../jsInterpreter";
+import PO from "pofile";
+import { importFromPoFiles, TranslatedString, exportToPoFiles } from "./translations";
+import { constantValues } from "../data/constants";
+import { escapeString } from "../utils/strings";
 
 /**
  * @returns An object containing the compiled result along with associated metadata
@@ -44,6 +48,7 @@ export async function compile(
     content: string,
     language: OWLanguage = "en-US",
     _rootPath = "",
+    mainFileName = "",
 ): Promise<{
     result: string;
     macros: MacroData[];
@@ -57,6 +62,8 @@ export async function compile(
     activatedExtensions: string[];
     spentExtensionPoints: number;
     availableExtensionPoints: number;
+    translationLanguages: string[];
+    translatedStrings: TranslatedString[];
 }> {
     const t0 = performance.now();
 
@@ -69,6 +76,7 @@ export async function compile(
     //Handle #!mainfile directive
     if (content.startsWith("#!mainFile ")) {
         let mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
+        setMainFileName(mainFilePath.split("/").pop() as string);
         setRootPath(mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1));
         content = getFileContent(mainFilePath);
         if (DEBUG_MODE) {
@@ -76,12 +84,13 @@ export async function compile(
             console.log(content);
         }
     } else {
+        setMainFileName(mainFileName);
         importedFiles.push(rootPath);
     }
 
     setFileStack([
         {
-            name: "<main>",
+            name: mainFileName || "<main>",
             currentLineNb: 1,
             currentColNb: 1,
             remainingChars: 99999999999, //does not matter
@@ -93,9 +102,58 @@ export async function compile(
 
     var lines = tokenize(content);
 
-    if (enableTagsSetup) {
-        addVariable("holygrail", true, 127);
+    if (translationLanguages.length > 0) {
+        if (translationLanguages.includes("zh") && translationLanguages.includes("es_mx") && translationLanguages.includes("es_es")) {
+            //There is no constant that is different in all languages except zh
+            error("Cannot use language combination zh, es_mx and es_es at the same time");
+        } else if (!(translationLanguages.includes("zh_cn") && translationLanguages.includes("zh_tw")) && !(translationLanguages.includes("es_mx") && translationLanguages.includes("es_es"))) {
+            //Constant that is the same in all Chinese and Spanish languages
+            //Use that by default as color constants can be put in strings without wrapping with updateEveryFrame(), so it saves one element
+            setTranslationLanguageConstantOpy("Color.WHITE");
+            setTranslationLanguageConstant(constantValues.ColorLiteral.WHITE);
+        } else if (translationLanguages.includes("es")) {
+            //Constant that is different in all languages except both Spanish languages
+            setTranslationLanguageConstantOpy("updateEveryFrame(Map.ILIOS_RUINS)");
+            setTranslationLanguageConstant(mapKw.iliosRuins);
+        } else {
+            //Constant that is different in all languages
+            setTranslationLanguageConstantOpy("updateEveryFrame(Map.PRACTICE_RANGE)");
+            setTranslationLanguageConstant(mapKw.practiceRange);
+        }
+
+        let translationConstantString = translationLanguages.map((lang) => {
+            if (lang.includes("_")) {
+                return translationLanguageConstant[lang.split("_")[0]+"-"+lang.split("_")[1].toUpperCase()];
+            } else {
+                return translationLanguageConstant[({
+                    "en": "en-US",
+                    "es": "es-MX",
+                    "fr": "fr-FR",
+                    "ja": "ja-JP",
+                    "pt": "pt-BR",
+                    "th": "th-TH",
+                    "tr": "tr-TR",
+                    "zh": "zh-CN",
+                    "de": "de-DE",
+                    "it": "it-IT",
+                    "ko": "ko-KR",
+                    "pl": "pl-PL",
+                    "ru": "ru-RU",
+                } as Record<string, string>)[lang]];
+            }
+        }).join("0");
+
+        addVariable("__overpyTranslationHelper__", true, -1, tokenize("p"+escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
     }
+
+    if (enableTagsSetup) {
+        addVariable("holygrail", true, -1);
+    }
+
+    if (translationLanguages.length > 0) {
+        setTranslatedStrings(importFromPoFiles());
+    }
+    //console.log(structuredClone(translatedStrings));
 
     var astRules = parseLines(lines);
     astRules.unshift(...getInitDirectivesRules());
@@ -105,10 +163,10 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     #By Zezombye
     createDummy(getAllHeroes(),  Team.1 if getNumberOfSlots(Team.1) else Team.2 if getNumberOfSlots(Team.2) else true, false, null, null)
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
-    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u303C")
+    getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u303C")
     holygrail = getLastCreatedEntity()[0].split([])
-    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u0840")
-    holygrail = "______________________________________________________________________________________________________________________________\u303C".replace(holygrail, getLastCreatedEntity()[0]).substring(126, true)
+    getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u0840")
+    holygrail = p"______________________________________________________________________________________________________________________________\u303C".replace(holygrail, getLastCreatedEntity()[0]).substring(126, true)
     destroyAllDummies()
         `;
         txSetupRule = tokenize(txSetupRule);
@@ -135,6 +193,11 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
         var t1 = performance.now();
         console.log("Compilation time: " + (t1 - t0) + "ms");
     }
+
+    if (translationLanguages.length > 0) {
+        exportToPoFiles(translatedStrings);
+    }
+
     return {
         result: result,
         macros: macros,
@@ -148,6 +211,8 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
         activatedExtensions: activatedExtensions,
         spentExtensionPoints: spentExtensionPoints,
         availableExtensionPoints: availableExtensionPoints,
+        translationLanguages: translationLanguages,
+        translatedStrings: translatedStrings,
     };
 }
 

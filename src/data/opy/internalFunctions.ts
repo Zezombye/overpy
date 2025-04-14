@@ -442,5 +442,23 @@ export const opyInternalFuncs: Record<string, {
             }
         ],
         "return": "void"
+    },
+    "__translateString__": {
+        "args": [
+            {
+                "name": "value",
+                "type": "Value"
+            }
+        ],
+        "return": "String",
+    },
+    "__translatedString__": {
+        "args": [
+            {
+                "name": "strings",
+                "type": "StringLiteral"
+            }
+        ],
+        "return": "String",
     }
 };

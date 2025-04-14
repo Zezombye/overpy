@@ -16,13 +16,14 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
 import { getFileStackCopy, isVarChar, safeEval } from "../utils/other";
 import { BaseNormalFileStackMember, FileStackMember, FunctionMacroData, MacroData, MacroFileStackMember, ScriptFileStackMember } from "../types";
 import { dispTokens } from "../utils/tokens";
+import { TranslationLanguage } from "./translations";
 
 export class Macro {
     isFunction: boolean;
@@ -182,13 +183,31 @@ export function tokenize(content: string): LogicalLine[] {
             setOptimizationEnabled(false);
             return;
         }
-        if (content.startsWith("#!extension")) {
-            var addedExtension = content.substring("#!extension".length).trim();
+        if (content.startsWith("#!extension ")) {
+            var addedExtension = content.substring("#!extension ".length).trim();
             if (!(addedExtension in customGameSettingsSchema.extensions.values)) {
                 error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
             }
             activatedExtensions.push(addedExtension);
             return;
+        }
+        if (content.startsWith("#!translations ")) {
+            let translations = content.substring("#!translations ".length).split(",").map(x => x.replaceAll("-", "_").toLowerCase().trim());
+            for (let translation of translations) {
+                if (!["de","en","es","es_es","es_mx","fr","it","ja","ko","pl","pt","ru","th","tr","zh","zh_cn","zh_tw"].includes(translation)) {
+                    error("Invalid language '" + translation + "'");
+                }
+            }
+            if (translations.includes("es") && (translations.includes("es_es") || translations.includes("es_mx"))) {
+                error("Cannot use 'es' with 'es_es' or 'es_mx'");
+            }
+            if (translations.includes("zh") && (translations.includes("zh_cn") || translations.includes("zh_tw"))) {
+                error("Cannot use 'zh' with 'zh_cn' or 'zh_tw'");
+            }
+
+            setTranslationLanguages(translations as TranslationLanguage[]);
+            return;
+
         }
         if (content.startsWith("#!optimizeForSize")) {
             setOptimizationForSize(true);
@@ -198,6 +217,7 @@ export function tokenize(content: string): LogicalLine[] {
             setEnableTagsSetup(true);
             return;
         }
+
         if (content.startsWith("#!replace0ByCapturePercentage")) {
             if (replacementFor0 !== "") {
                 error("A replacement for 0 has already been defined");

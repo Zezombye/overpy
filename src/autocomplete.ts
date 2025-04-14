@@ -90,7 +90,7 @@ postLoadTasks.push({
 
         defaultConstValues = Object.fromEntries(
             Object.entries(structuredClone({ ...constantValues, ...opyConstants, ...opyModules }))
-                .filter(([key]) => !key.startsWith("_"))
+                .filter(([key]) => !(key.startsWith("__") && key.endsWith("__")))
                 .map(([key, constant]) => {
                     if (!key.endsWith("Literal")) return [key, constant];
 
@@ -138,7 +138,7 @@ postLoadTasks.push({
 
         funcList = {
             ...funcList,
-            ...Object.fromEntries(Object.entries(funcDoc).filter(([key, value]) => !key.startsWith("_") && !key.includes(".") && !(value as Value).hideFromAutocomplete)),
+            ...Object.fromEntries(Object.entries(funcDoc).filter(([key, value]) => !(key.startsWith("__") && key.endsWith("__")) && !key.includes(".") && !(value as Value).hideFromAutocomplete)),
         };
 
         preprocessingDirectivesList = makeCompList(structuredClone(preprocessingDirectives));
@@ -244,7 +244,7 @@ ${entry[1].description}`,
 function makeCompList(obj: Record<string, unknown>) {
     const result = new vscode.CompletionList(
         Object.keys(obj)
-            .filter((key) => typeof obj[key] === "object")
+            .filter((key) => typeof obj[key] === "object" && !(key.startsWith("__") && key.endsWith("__")))
             .map((key) => makeCompItem(key, obj[key] as OverpyModule)),
     );
     return result;
@@ -371,7 +371,7 @@ function getSnippetForMetaRuleParam(param: string) {
     if (ruleParam.args && ruleParam.args.length > 0) {
         if (ruleParam.args[0].values) {
             result += " ${1|";
-            result += ruleParam.args[0].values.filter((x) => !x.startsWith("__")).join(",");
+            result += ruleParam.args[0].values.filter((x) => !(x.startsWith("__") && x.endsWith("__"))).join(",");
             result += "|}";
         } else {
             result += " ";

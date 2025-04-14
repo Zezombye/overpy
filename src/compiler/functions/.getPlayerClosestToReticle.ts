@@ -21,6 +21,6 @@ import { astParsingFunctions } from "../../globalVars";
 import { warn } from "../../utils/logging";
 
 astParsingFunctions[".getPlayerClosestToReticle"] = function (content) {
-    warn("w_player_closest_to_reticle", "The getPlayerClosestToReticle() function targets dead and unspawned players (at 0,0,0). Use getRealPlayerClosestToReticle() instead.");
+    warn("w_player_closest_to_reticle", "The .getPlayerClosestToReticle() function targets dead and unspawned players (at 0,0,0). Use .getRealPlayerClosestToReticle() instead.");
     return content;
 };

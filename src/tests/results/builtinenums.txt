@@ -38,7 +38,7 @@ rule ("enums") {
         Set Global Variable(I, 2.718281828459045);
         Set Global Variable(J, 3.141592653589793);
         Set Global Variable(K, Color(Blue));
-        Set Global Variable(S, Custom String("                                                                                                                          {0}", Custom String("                                                ", Null, Null, Null), Null, Null));
+        Set Global Variable(S, Custom String("                                                                                                                          {0}", Custom String("                                                ")));
     }
 }
 

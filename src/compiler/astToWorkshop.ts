@@ -356,6 +356,17 @@ function astToWs(content: Ast): string {
         }
         newName = "__chase" + newName;
         content.name = newName;
+    } else if (content.name === "__customString__" || content.name === "__localizedString__") {
+        //Remove the additional nulls to get cleaner output
+        for (let i = 3; i >= 1; i--) {
+            if (content.args[i].name === "null") {
+                incrementNbElements();
+                content.args.pop();
+            } else {
+                break;
+            }
+        }
+
     } else if ([".getHitPosition", ".getPlayerHit", ".getNormal"].includes(content.name)) {
         if (content.args[0].name !== "raycast") {
             error("Cannot use " + functionNameToString(content) + " with " + functionNameToString(content.args[0]));
@@ -404,6 +415,61 @@ function astToWs(content: Ast): string {
     } else if (content.name === "round") {
         content.name = "__round__";
         content.args = [content.args[0], new Ast("__roundToNearest__", [], [], "__Rounding__")];
+    } else if (content.name === ".replace") {
+        //For translations, we use that as a workaround for .format(), except not all values can be used in .replace().
+        //If they cannot be used, wrap them with updateEveryFrame(), as evalOnce() adds another element (and can cause side effects), and firstOf() returns 0 for some objects such as numbers
+        if (![
+            "abilityIconString",
+            "__add__",
+            ".concat",
+            "__array__",
+            "__arrayContains__",
+            ".slice",
+            ".charAt",
+            "__color__",
+            "__currentArrayElement__",
+            "__currentArrayIndex__",
+            "rgb",
+            "__customString__",
+            "__divide__",
+            "__emptyArray__",
+            "evalOnce",
+            "__filteredArray__",
+            "__firstOf__",
+            "__globalVar__",
+            "healee",
+            "healer",
+            "heroIcon",
+            "hostPlayer",
+            "iconString",
+            "__ifThenElse__",
+            ".index",
+            "buttonString",
+            "__all__",
+            "__any__",
+            ".isUsingUltimate",
+            ".last",
+            "__mappedArray__",
+            "__multiply__",
+            ".getPlayerClosestToReticle",
+            ".getHeroStatistic",
+            "__playerVar__",
+            ".getPlayersInViewAngle",
+            "random.choice",
+            "random.shuffle",
+            ".exclude",
+            "__sortedArray__",
+            "getSpawnPoints",
+            "__localizedString__",
+            ".replace",
+            ".substring",
+            ".split",
+            "__subtract__",
+            "updateEveryFrame",
+            "__valueInArray__",
+        ].includes(content.args[2].name)) {
+            content.args[2] = new Ast("updateEveryFrame", [content.args[2]]);
+        }
     } else if (content.name === "RULE_CONDITION" || content.name === "RULE_START") {
         //If we encounter that keyword here, it means it hasn't been converted to "loop if condition is true" or similar.
         error("Cannot use '" + content.name + "' in that context");
@@ -480,6 +546,7 @@ function astToWs(content: Ast): string {
     if (content.type === "void" && content.args !== null) {
         decrementNbElements(content.args.length);
     } else if (["__array__", "evalOnce"].includes(content.name)) {
+        //Those functions take one more element than they're supposed to for some reason
         incrementNbElements();
     } else if (["createWorkshopSettingInt", "createWorkshopSettingFloat"].includes(content.name)) {
         // nbElements += 1 - 4; //remove elements because of number literals
