@@ -74,6 +74,10 @@ export const setCurrentRuleName = (name: string) => (currentRuleName = name);
 export var currentRuleEvent: string;
 export const setCurrentRuleEvent = (event: string) => (currentRuleEvent = event);
 
+//Set at each rule (but only in astToWorkshop). Used for ruleCondition.
+export var currentRuleConditions: Ast[];
+export const setCurrentRuleConditions = (conditions: Ast[]) => (currentRuleConditions = conditions);
+
 /**
  * @possibly_unused
  *
@@ -231,6 +235,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     currentLanguage = language;
     currentRuleName = "";
     currentRuleEvent = "";
+    currentRuleConditions = [];
     currentRuleHasVariableGoto = false;
     currentRuleLabels = [];
     currentRuleLabelAccess = {};
@@ -270,6 +275,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     translationLanguageConstant = null;
     translationLanguageConstantOpy = "";
     usePlayerVarForTranslations = false;
+
 
 }
 

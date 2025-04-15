@@ -56,7 +56,7 @@
                 },
                 {
                     "name": "variable.other",
-                    "match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
+                    "match": "\\b(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|ruleCondition|RULE_START|__\\w+__|[A-Z]|[A-D][A-Z])\\b"
                 },
                 {
                     "name": "string.regexp",

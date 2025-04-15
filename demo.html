@@ -292,7 +292,7 @@ rule "Display position":
                     if (stream.match(/(and|or|not|in)\b|((\+|\-|\*\*|\/|\%|\*|<|>)=?)|(\=)|\.|((min|max|\!)\=)/)) {
                         return "operator";
                     }
-                    if (stream.match(/(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|RULE_START|__\w+__|[A-Z]|[A-D][A-Z])\b/)) {
+                    if (stream.match(/(eventPlayer|attacker|victim|eventDamage|eventHealing|eventWasCriticalHit|eventWasEnvironment|eventWasHealthPack|eventAbility|eventDirection|healee|healer|hostPlayer|localPlayer|loc|RULE_CONDITION|ruleCondition|RULE_START|__\w+__|[A-Z]|[A-D][A-Z])\b/)) {
                         return "variable";
                     }
                     if (stream.match(/[A-Z_\d]+\b/)) {

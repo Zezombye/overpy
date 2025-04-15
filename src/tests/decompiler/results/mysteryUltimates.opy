@@ -696,7 +696,7 @@ rule "If player is placing ult doesn't have enough ult charge while casting, fil
     
     eventPlayer.setUltCharge(100)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
-    if RULE_CONDITION:
+    if ruleCondition:
         loop()
 
 
@@ -709,7 +709,7 @@ rule "Continually attempt to use ult while in the preparing ult state and the pl
     
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait(0.05, Wait.ABORT_WHEN_FALSE)
-    if RULE_CONDITION:
+    if ruleCondition:
         loop()
 
 
@@ -738,7 +738,7 @@ rule "In the using ult state, if the player gains ult charge, set it back to 0":
     
     eventPlayer.setUltCharge(0)
     wait()
-    if RULE_CONDITION:
+    if ruleCondition:
         loop()
 
 

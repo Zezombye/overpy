@@ -789,6 +789,10 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             return new Ast("__number__", [new Ast(name, [], [], "UnsignedIntLiteral")], [], "unsigned int");
         }
 
+        if (name === "RULE_CONDITION") {
+            name = "ruleCondition";
+        }
+
         return new Ast(name);
     }
 

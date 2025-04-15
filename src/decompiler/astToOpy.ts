@@ -237,9 +237,9 @@ export function astActionsToOpy(actions: Ast[]): string {
         } else if (actions[i].name === "__abortIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "return";
         } else if (actions[i].name === "__abortIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if not RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
+            decompiledAction += "if not ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
         } else if (actions[i].name === "__abortIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
+            decompiledAction += "if ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "return";
         } else if (actions[i].name === "__assignTo__") {
             decompiledAction = astToOpy(actions[i].args[0]) + " = " + astToOpy(actions[i].args[1]);
         } else if (actions[i].name === "__callSubroutine__") {
@@ -278,9 +278,9 @@ export function astActionsToOpy(actions: Ast[]): string {
         } else if (actions[i].name === "__loopIf__" && !currentRuleHasVariableGoto) {
             decompiledAction += "if " + astToOpy(actions[i].args[0]) + ":\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__loopIfConditionIsFalse__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if not RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
+            decompiledAction += "if not ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__loopIfConditionIsTrue__" && !currentRuleHasVariableGoto) {
-            decompiledAction += "if RULE_CONDITION:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
+            decompiledAction += "if ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
                 decompiledAction += astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + astToOpy(actions[i].args[2]);

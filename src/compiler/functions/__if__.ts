@@ -26,30 +26,27 @@ astParsingFunctions.__if__ = function (content) {
         error("'if' AST lacks parent");
     }
 
-    //Check for "if (not) RULE_CONDITION: return/continue/loop()".
-    if (content.args[0].name === "RULE_CONDITION" || (content.args[0].name === "__not__" && content.args[0].args[0].name === "RULE_CONDITION")) {
+    //Check for "if (not) ruleCondition: return/continue/loop()".
+    if (content.args[0].name === "ruleCondition" || (content.args[0].name === "__not__" && content.args[0].args[0].name === "ruleCondition")) {
         if (currentRuleHasVariableGoto) {
             //Keep the child and add a "pass" for the "end"
-            content.parent.children.splice(content.parent.childIndex + 1, 0, content.args[0].name === "RULE_CONDITION" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
+            content.parent.children.splice(content.parent.childIndex + 1, 0, content.args[0].name === "ruleCondition" ? getAstForUselessInstruction() : content.children[0], getAstForUselessInstruction());
         }
 
-        if (content.children.length !== 1) {
-            error("Cannot use 'RULE_CONDITION' in that context");
-        }
-        if (content.children[0].name === "loop") {
-            if (content.args[0].name === "RULE_CONDITION") {
-                return new Ast("__loopIfConditionIsTrue__");
-            } else {
-                return new Ast("__loopIfConditionIsFalse__");
+        if (content.children.length === 1) {
+            if (content.children[0].name === "loop") {
+                if (content.args[0].name === "ruleCondition") {
+                    return new Ast("__loopIfConditionIsTrue__");
+                } else {
+                    return new Ast("__loopIfConditionIsFalse__");
+                }
+            } else if (content.children[0].name === "return") {
+                if (content.args[0].name === "ruleCondition") {
+                    return new Ast("__abortIfConditionIsTrue__");
+                } else {
+                    return new Ast("__abortIfConditionIsFalse__");
+                }
             }
-        } else if (content.children[0].name === "return") {
-            if (content.args[0].name === "RULE_CONDITION") {
-                return new Ast("__abortIfConditionIsTrue__");
-            } else {
-                return new Ast("__abortIfConditionIsFalse__");
-            }
-        } else {
-            error("Cannot use 'RULE_CONDITION' in that context");
         }
     }
 

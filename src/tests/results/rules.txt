@@ -3,6 +3,7 @@ variables {
         0: A
         1: B
         2: C
+        3: D
         22: W
         23: X
         24: Y
@@ -86,6 +87,44 @@ rule ("condition that is always true") {
     }
     actions {
         Modify Global Variable(B, Add, True);
+    }
+}
+
+rule ("rule condition test 1") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "true"
+        Set Global Variable(A, True);
+    }
+}
+
+rule ("rule condition test 2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.A != False;
+        Global.B != False;
+        Global.C != False;
+        Global.D == 2;
+    }
+    actions {
+        "A and B and C and D == 2"
+        Set Global Variable(A, ((Global.A) && (Global.B) && (Global.C) && (Compare(Global.D, ==, 2))));
+    }
+}
+
+rule ("rule condition test 3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.A != False;
+    }
+    actions {
+        Set Global Variable(A, ((Global.A)));
     }
 }
 

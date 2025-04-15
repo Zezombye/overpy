@@ -22,7 +22,7 @@ import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
 import { eventKw, eventPlayerKw, eventTeamKw, funcKw, ruleKw, valueKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentLanguage, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setFileStack, setOptimizationEnabled } from "../globalVars";
+import { currentLanguage, currentRuleConditions, decrementNbElements, enableOptimization, fileStack, incrementNbElements, incrementNbHeroesInValue, nbElements, nbHeroesInValue, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, resetNbHeroesInValue, setCurrentRuleConditions, setFileStack, setOptimizationEnabled } from "../globalVars";
 import { getAstForNull, getAstForTrue, Ast, getAstForFalse, getAstForMinus1, getAstFor0 } from "../utils/ast";
 import { trimNb } from "../utils/compilation";
 import { error, functionNameToString } from "../utils/logging";
@@ -36,6 +36,7 @@ export function astRulesToWs(rules: Ast[]) {
     var compiledRules = [];
 
     for (var rule of rules) {
+        setCurrentRuleConditions([]);
         var result = "";
 
         if (rule.name === "pass") {
@@ -68,6 +69,7 @@ export function astRulesToWs(rules: Ast[]) {
         if (rule.ruleAttributes.conditions !== undefined && rule.ruleAttributes.conditions.length > 0) {
             result += tabLevel(1) + tows("__conditions__", ruleKw) + " {\n";
             for (var condition of rule.ruleAttributes.conditions) {
+                currentRuleConditions.push(condition.clone());
                 result += astRuleConditionToWs(condition);
             }
             result += tabLevel(1) + "}\n";
@@ -470,9 +472,26 @@ function astToWs(content: Ast): string {
         ].includes(content.args[2].name)) {
             content.args[2] = new Ast("updateEveryFrame", [content.args[2]]);
         }
-    } else if (content.name === "RULE_CONDITION" || content.name === "RULE_START") {
+    } else if (content.name === "RULE_START") {
         //If we encounter that keyword here, it means it hasn't been converted to "loop if condition is true" or similar.
         error("Cannot use '" + content.name + "' in that context");
+    } else if (content.name === "ruleCondition") {
+        //If we encounter that keyword here, it means it hasn't been converted to "loop if condition is true" or similar.
+        //Convert it to the rule conditions joined with "and".
+        if (currentRuleConditions.length === 0) {
+            content.name = "true";
+        } else {
+            result += "(";
+            for (let i = 0; i < currentRuleConditions.length; i++) {
+                if (i > 0) {
+                    result += " && ";
+                }
+                result += "("+astToWs(currentRuleConditions[i])+")";
+            }
+            result += ")";
+            incrementNbElements(currentRuleConditions.length - 1);
+            return result;
+        }
     } else if (content.name === "stopChasingVariable") {
         var newName = "";
         if (content.args[0].name === "__globalVar__") {
