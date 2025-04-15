@@ -25,5 +25,7 @@ astParsingFunctions.__dict__ = function (content) {
         error("Cannot use a dictionary without accessing it");
     }
 
+    //The processing happens in the __valueInArray__ function
+
     return content;
 };

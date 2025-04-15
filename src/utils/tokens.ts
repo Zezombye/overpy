@@ -119,7 +119,7 @@ export function dispTokens(content: Token | Token[] | string, prettyPrint = fals
                 result += token.text;
             } else if (i < content.length - 1 && ["(", "[", "{"].includes(content[i + 1].text) && Object.keys(operatorPrecedence).includes(token.text)) {
                 result += token.text + " ";
-            } else if (i < content.length - 1 && ["(", "[", "{", ")", "]", "}", ".", ",", ":"].includes(content[i + 1].text)) {
+            } else if (i < content.length - 1 && (["(", "[", "{", ")", "]", "}", ".", ",", ":"].includes(content[i + 1].text) || content[i+1].text.startsWith("'") || content[i+1].text.startsWith('"'))) {
                 result += token.text;
             } else {
                 result += token.text + " ";

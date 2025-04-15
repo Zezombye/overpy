@@ -18,7 +18,7 @@
 "use strict";
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { Ast, getAstForFalse, getAstForNull } from "../../utils/ast";
+import { Ast, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__valueInArray__ = function (content) {
@@ -26,7 +26,18 @@ astParsingFunctions.__valueInArray__ = function (content) {
         var dictKeys = content.args[0].args.map((x: Ast) => x.args[0]);
         var dictValues = content.args[0].args.map((x: Ast) => x.args[1]);
         var index = content.args[1];
-        return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast("max", [getAstForFalse(), new Ast(".index", [new Ast("__array__", dictKeys), index])])]);
+        if (dictKeys.some(x => x.name === "__default__")) {
+            if (dictKeys.filter(x => x.name === "__default__").length > 1) {
+                error("Cannot have multiple default values in a dictionary");
+            }
+            let defaultIndex = dictKeys.findIndex(x => x.name === "__default__");
+            dictKeys = dictKeys.filter(x => x.name !== "__default__");
+            //Reorder dict values to put default first
+            dictValues = [dictValues[defaultIndex]].concat(dictValues.filter((_, i) => i !== defaultIndex));
+            return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast("__add__", [getAstFor1(), new Ast(".index", [new Ast("__array__", dictKeys), index])])]);
+        } else {
+            return new Ast("__valueInArray__", [new Ast("__array__", dictValues), new Ast(".index", [new Ast("__array__", dictKeys), index])]);
+        }
     }
 
     if (content.args[1].name === "__number__" && content.args[1].args[0].numValue < 0) {

@@ -796,6 +796,9 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         if (name === "RULE_CONDITION") {
             name = "ruleCondition";
         }
+        if (name === "default") {
+            name = "__default__";
+        }
 
         return new Ast(name);
     }
