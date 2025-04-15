@@ -344,6 +344,9 @@ function astToWs(content: Ast): string {
             error("Cannot modify or assign to " + functionNameToString(content.args[0]));
         }
         content.name = newName;
+    } else if (content.name === "__array__" && content.args.length === 0) {
+        incrementNbElements();
+        return tows("__emptyArray__", valueKw);
     } else if (content.name === "chaseAtRate" || content.name === "chaseOverTime") {
         var newName = content.name === "chaseAtRate" ? "AtRate__" : "OverTime__";
 

@@ -489,11 +489,6 @@ export let typeTree: (string | Record<string, any>)[] = [
     "void",
     "Type",
 
-    "Lambda",
-    "Label",
-    "DictElem",
-    "Raycast",
-
     "Subroutine",
     "GlobalVariable",
     "PlayerVariable",
@@ -515,6 +510,13 @@ export let typeTree: (string | Record<string, any>)[] = [
     },
 
     "Value",
+
+    //OverPy internal types
+    "Lambda",
+    "Label",
+    "Dict",
+    "DictKey",
+    "DictElem",
     "Raycast",
 ];
 

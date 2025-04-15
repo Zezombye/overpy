@@ -619,7 +619,7 @@ function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: s
     }
 
     //Not sure how to handle the general case of multiple macros referencing each other
-    if (macro.text.trim() === macro.name) {
+    if (macro.text === macro.replacement) {
         error("Macro '" + macro.name + "' references itself");
     }
 

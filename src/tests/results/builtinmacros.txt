@@ -1,0 +1,15 @@
+variables {
+    global:
+        0: waveHeroes
+        1: waveLengths
+}
+rule ("splitDictArray") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(waveHeroes, Array(Hero(Ana), Hero(Soldier: 76), Hero(Wrecking Ball)));
+        Set Global Variable(waveLengths, Array(3, 8, Null));
+    }
+}
+

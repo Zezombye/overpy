@@ -800,7 +800,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             name = "__default__";
         }
 
-        return new Ast(name);
+        try {
+            return new Ast(name);
+        } catch (e) {
+            if (kwargs.isDictKey) {
+                //Macros such as splitDictArray can have dicts with arbitrary keys. Try again but set it as dict key
+                return new Ast(name, [], [], "DictKey");
+            } else {
+                throw e;
+            }
+        }
     }
 
     debug("args: " + args.map((x) => "'" + dispTokens(x) + "'").join(", "));
@@ -1135,7 +1144,7 @@ function parseMember(object: Token[], member: Token[]) {
 //Parses a literal array such as [1,2,3] or [i for i in x if cond].
 function parseLiteralArray(content: Token[]) {
     if (content.length === 2) {
-        return new Ast("__emptyArray__");
+        return new Ast("__array__");
     }
 
     //Check for "for" keyword
@@ -1240,9 +1249,11 @@ function parseDictionary(content: Token[]) {
     content = content.slice(1, content.length - 1);
     var elems = splitTokens(content, ",");
     //support trailing comma
-    if (elems[elems.length - 1].length === 0) {
+    if (elems.length > 0 && elems[elems.length - 1].length === 0) {
         elems.pop();
     }
+
+    let dictKeys = new Set();
 
     var astElems = [];
     for (var elem of elems) {
@@ -1250,7 +1261,12 @@ function parseDictionary(content: Token[]) {
         if (keyValue.length !== 2) {
             error("Expected a value of the form 'key: value' but got '" + dispTokens(elem) + "'");
         }
-        astElems.push(new Ast("__dictElem__", [parse(keyValue[0]), parse(keyValue[1])]));
+        if (dictKeys.has(dispTokens(keyValue[0]))) {
+            error("Duplicate key '" + dispTokens(keyValue[0]) + "' in dictionary");
+        } else {
+            dictKeys.add(dispTokens(keyValue[0]));
+        }
+        astElems.push(new Ast("__dictElem__", [parse(keyValue[0], {isDictKey: true}), parse(keyValue[1])]));
     }
     return new Ast("__dict__", astElems);
 }

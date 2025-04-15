@@ -27,7 +27,6 @@ import { Argument, Value } from "../types";
 
 import "./functions/__add__.ts";
 import "./functions/__and__.ts";
-import "./functions/__array__.ts";
 import "./functions/__assignTo__.ts";
 import "./functions/chaseAtRate";
 import "./functions/chaseOverTime";
@@ -133,6 +132,7 @@ import "./functions/sinDeg.ts";
 import "./functions/sorted.ts";
 import "./functions/spacesForLength.ts";
 import "./functions/spacesForString.ts";
+import "./functions/splitDictArray";
 import "./functions/sqrt.ts";
 import "./functions/strVisualLength.ts";
 import "./functions/tan.ts";
@@ -327,8 +327,8 @@ export function parseAst(content: Ast) {
         return content;
     }
 
-    //For labels, do nothing.
-    if (content.type === "Label") {
+    //For labels and dict keys, do nothing.
+    if (content.type === "Label" || content.type === "DictKey") {
         return content;
     }
 

@@ -523,6 +523,43 @@ export const opyFuncs: Record<
         "isConstant": true,
         "return": "String"
     },
+    "splitDictArray": {
+        "description": `
+Maps an array of dictionaries to variables. For example:
+\`\`\`python
+splitDictArray({
+    hero: waveHeroes,
+    length: waveLengths
+}, [
+    {hero: Hero.ANA, length: 3},
+    {length: 8, hero: Hero.SOLDIER},
+    {hero: Hero.HAMMOND}
+])
+\`\`\`
+
+Will yield the following:
+
+\`\`\`python
+waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
+waveLengths = [3, 8, null]
+\`\`\`
+
+        `,
+        "args": [
+            {
+                "name": "variables",
+                "description": "A dictionary mapping the keys to the variables to be assigned to.",
+                "type": "Dict",
+            },{
+                "name": "values",
+                "description": "An array of dictionaries describing the values to be assigned to the variables.",
+                "type": {
+                    "Array": "Dict"
+                },
+            }
+        ],
+        "return": "void",
+    },
     "stopChasingVariable": {
         "description": "Stops an in-progress chase of a variable (global or player), leaving it at its current value.",
         "args": [

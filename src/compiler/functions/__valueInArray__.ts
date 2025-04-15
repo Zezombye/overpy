@@ -26,6 +26,12 @@ astParsingFunctions.__valueInArray__ = function (content) {
         var dictKeys = content.args[0].args.map((x: Ast) => x.args[0]);
         var dictValues = content.args[0].args.map((x: Ast) => x.args[1]);
         var index = content.args[1];
+        for (let k of dictKeys) {
+            if (k.type === "DictKey") {
+                //Dictionaries that are directly accessed cannot have arbitrary key names
+                error("Unknown function '"+k.name+"'");
+            }
+        }
         if (dictKeys.some(x => x.name === "__default__")) {
             if (dictKeys.filter(x => x.name === "__default__").length > 1) {
                 error("Cannot have multiple default values in a dictionary");
@@ -51,7 +57,7 @@ astParsingFunctions.__valueInArray__ = function (content) {
             if (content.args[0].name === "__array__") {
                 if (arrayIndex < content.args[0].args.length) {
                     return content.args[0].args[arrayIndex];
-                } else {
+                } else if (content.args[0].args.length !== 0) {
                     return getAstForNull();
                 }
             }

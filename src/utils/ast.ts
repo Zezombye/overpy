@@ -180,6 +180,9 @@ export function isDefinitelyFalsy(content: Ast) {
     if (["__emptyArray__", "false", "null"].includes(content.name)) {
         return true;
     }
+    if (content.name === "__array__" && content.args.length === 0) {
+        return true;
+    }
     //Test for null vector: vect(0,0,0)
     /*if (content.name === "vect") {
         return (isDefinitelyFalsy(content.args[0]) && isDefinitelyFalsy(content.args[1]) && isDefinitelyFalsy(content.args[2]));
@@ -363,7 +366,7 @@ export function getAstForEnd() {
     return new Ast("__end__");
 }
 export function getAstForEmptyArray() {
-    return new Ast("__emptyArray__");
+    return new Ast("__array__");
 }
 export function getAstForNullVector() {
     return new Ast("vect", [getAstFor0(), getAstFor0(), getAstFor0()]);
