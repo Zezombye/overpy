@@ -279,7 +279,9 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
 
                 //Implement our own mini-parser to not get "function does not exist" errors.
-                enumMembers[args[0].name] = {};
+                if (!(args[0].name in enumMembers)) {
+                    enumMembers[args[0].name] = {};
+                }
                 var lastIntValue: number | Ast = 0;
                 for (var k = 0; k < childrenLines.length; k++) {
                     setFileStack(childrenLines[k].tokens[0].fileStack);
@@ -291,28 +293,26 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text[0] === "#") {
                         childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length - 1);
                     }
-                    if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text !== ",") {
-                        if (k < childrenLines.length - 1) {
-                            error("Expected ',' at the end of the line");
-                        }
-                    } else {
+                    //Remove comma at end of line, if there is one
+                    if (childrenLines[k].tokens[childrenLines[k].tokens.length - 1].text === ",") {
                         childrenLines[k].tokens = childrenLines[k].tokens.slice(0, childrenLines[k].tokens.length - 1);
                     }
                     var assignOperands = splitTokens(childrenLines[k].tokens, "=", false);
+                    let enumValue = null;
                     if (assignOperands.length === 1) {
                         //Enum member was not assigned a value
                         if (typeof lastIntValue === "number") {
-                            enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = getAstForNumber(lastIntValue);
+                            enumValue = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else if (lastIntValue instanceof Ast && lastIntValue.name === "__negate__" && lastIntValue.args[0].name === "__number__") {
                             lastIntValue = -lastIntValue.args[0].args[0].numValue + 1;
-                            enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = getAstForNumber(lastIntValue);
+                            enumValue = getAstForNumber(lastIntValue);
                             lastIntValue++;
                         } else {
                             error("Cannot auto-increment enum member, as last value was " + functionNameToString(lastIntValue));
                         }
                     } else {
-                        var enumValue = parse(assignOperands[1]);
+                        enumValue = parse(assignOperands[1]);
                         if (enumValue.name === "__number__") {
                             lastIntValue = enumValue.args[0].numValue + 1;
                         } else {
@@ -329,8 +329,12 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
                             lastIntValue = enumValue;
                         }
-                        enumMembers[args[0].name][childrenLines[k].tokens[0].toString()] = enumValue;
                     }
+                    let enumMemberName = childrenLines[k].tokens[0].toString();
+                    if (enumMemberName in enumMembers[args[0].name]) {
+                        error("Duplicate enum member '" +args[0].name+"."+ enumMemberName + "''");
+                    }
+                    enumMembers[args[0].name][enumMemberName] = enumValue;
                 }
                 //We do not care about enums in the AST
                 i += j - i - 1;
