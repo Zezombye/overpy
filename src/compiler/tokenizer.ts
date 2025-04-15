@@ -614,6 +614,15 @@ function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: s
         replacement: isFunctionMacro ? trimmedMacroContent.substring(bracketPos[1] + 1).trim() : trimmedMacroContent.substring(trimmedMacroContent.indexOf(" ")).trim(),
     };
 
+    if (macros.some((m) => m.name === macro.name)) {
+        error("Macro '" + macro.name + "' is already defined");
+    }
+
+    //Not sure how to handle the general case of multiple macros referencing each other
+    if (macro.text.trim() === macro.name) {
+        error("Macro '" + macro.name + "' references itself");
+    }
+
     if (!macro.isFunction) {
         //Not a function macro
         if (reservedNames.includes(macro.name)) {
