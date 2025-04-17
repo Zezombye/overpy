@@ -18,13 +18,21 @@
 "use strict";
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNumber } from "../../utils/ast";
+import { Ast, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.min = function (content) {
+
     if (enableOptimization) {
-        if (content.args[0].name === "__number__" && content.args[1].name === "__number__") {
-            return getAstForNumber(Math.min(content.args[0].args[0].numValue, content.args[1].args[0].numValue));
+        let numbers = content.args.filter(arg => arg.name === "__number__").map(arg => arg.args[0].numValue);
+        if (numbers.length === content.args.length) {
+            return getAstForNumber(Math.min(...numbers));
         }
+        let minNumber = Math.min(...numbers);
+        content.args = content.args.filter(x => x.name !== "__number__" || x.args[0].numValue === minNumber);
+    }
+
+    if (content.args.length > 2) {
+        return new Ast("min", [content.args[0], astParsingFunctions.min(new Ast("min", content.args.slice(1)))]);
     }
 
     return content;

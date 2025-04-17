@@ -4583,7 +4583,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Attacker"
     },
     "inputBindingString": {
-        "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.",
+        "description": "Converts a button parameter into a string that shows up based on the player's input bindings. This value cannot be stored in variables.\n\nNote: the `buttonToString()` macro performs a much nicer-looking conversion.",
         "args": [
             {
                 "name": "button",
@@ -7092,7 +7092,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "max": {
         "guid": "00000000C418",
-        "description": "The greater of two numbers.",
+        "description": "The maximum of two numbers. Note: this function can take an infinite amount of arguments.",
         "args": [
             {
                 "name": "value",
@@ -7129,7 +7129,7 @@ export const valueFuncKw: Record<string, Value> =
     },
     "min": {
         "guid": "00000000C416",
-        "description": "The lesser of two numbers.",
+        "description": "The minimum of two or more numbers. Note: this function can take an infinite amount of arguments.",
         "args": [
             {
                 "name": "value",

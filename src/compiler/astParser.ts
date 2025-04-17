@@ -379,7 +379,7 @@ export function parseAst(content: Ast) {
 
 
 
-    if (![".format", "__array__", "__dict__", "__enumType__", "__translatedString__"].includes(content.name)) {
+    if (![".format", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
         var nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
         if (content.args.length !== nbExpectedArgs) {
             error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
@@ -412,7 +412,7 @@ export function parseAst(content: Ast) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[1].type, content.args[i]));
             }
         }
-    } else if (content.name === "__array__" || content.name === "__dict__" || content.name === "__enumType__" || content.name === "__translatedString__") {
+    } else if (["__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
         //Check types
         for (var i = 0; i < content.args.length; i++) {
             if (!isTypeSuitable(funcKw[content.name]?.args?.[0].type, content.args[i].type)) {
@@ -443,7 +443,7 @@ export function parseAst(content: Ast) {
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {
         if (content.parent.name === ".format" && content.parent.argIndex > 0) {
             content.expectedType = funcKw[content.parent.name].args?.[1].type ?? "__INVALID__";
-        } else if (content.parent.name === "__array__" || content.parent.name === "__dict__" || content.parent.name === "__enumType__" || content.parent.name === "__translatedString__") {
+        } else if (["__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.parent.name)) {
             content.expectedType = funcKw[content.parent.name].args?.[0].type ?? "__INVALID__";
         } else if (content.parent.name === "@Condition") {
             content.expectedType = "bool";

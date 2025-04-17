@@ -34,7 +34,7 @@ astParsingFunctions.debug = function (content) {
     contentStr = contentStr.replaceAll("{", "\u{E007B}");
     contentStr = contentStr.replaceAll("}", "\u{E007D}");
 
-    if (!contentStr.startsWith("arrayToString(")) {
+    if (!contentStr.startsWith("arrayToString(") && isTypeSuitable("Array", content.args[0].type)) {
         //Automatically display arrays. Keep the max length low to not take too many elements
         content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(6)]));
     }
