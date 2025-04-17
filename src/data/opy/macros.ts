@@ -27,7 +27,52 @@ export const opyMacros: Record<string, {
     description: string
 } & LocalizableString> = {
 
-
+    "buttonToString": {
+        "description": "Displays a button with [ ] if not a texture, and replaces LSHIFT/LCONTROL/LALT by SHIFT/CTRL/ALT.\n\nYou will likely want to use this instead of `inputBindingString()`.",
+        "args": [
+            {
+                "name": "button",
+                "description": "The button to display.",
+                "type": "Button",
+            }
+        ],
+        /*macro: `(
+    inputBindingString($button)
+        if "\\\\{}".format(inputBindingString($button)).substring(0, 3) == "\\\\{}".format(iconString(Icon.ARROW_DOWN)).substring(0, 3)
+        else "[{}]".format(inputBindingString($button).replace("LSHIFT", "SHIFT").replace("LCONTROL", "CTRL").replace("LALT", "ALT"))
+    )`,*/
+        macro: `["{0}(0.00, 1.00, 0.00)[{0}](0.00, 1.00, 0.00)[SHIFT](0.00, 1.00, 0.00)[CTRL](0.00, 1.00, 0.00)[ALT]".format(b).split(Vector.UP[0])[
+    strLen("\\\\{0}{0}{0}{0}{0}{0}{0}".format(b)) % 7 == 1 and
+    abs("\uEC470\uEC470LSHIFT0LCONTROL0LALT".split(null[0]).index(b))
+] for b in inputBindingString($button)]`,
+        return: "String",
+    },
+    ".getEffectiveHero": {
+        "description": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`.",
+        "args": [
+            {
+                "name": "player",
+                "description": "The player whose effective hero you want to get.",
+                "type": "Player",
+            }
+        ],
+        macro: "$player.getHeroOfDuplication() or $player.getHero()",
+        "class": "Player",
+        return: "Hero",
+    },
+    ".getOppositeTeam": {
+        "description": "Gets the opposite team of the team of a player. If the team is `Team.ALL`, it returns `Team.ALL`.",
+        "args": [
+            {
+                "name": "player",
+                "description": "The player whose opposite team you want to get.",
+                "type": "Player",
+            }
+        ],
+        macro: "getOppositeTeam($player.getTeam())",
+        "class": "Player",
+        "return": "Team",
+    },
     "getRealClosestPlayer": {
         "description": "The alive and spawned player closest to a position, optionally restricted by team.\n\nNote: the workshop `Closest Player To` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
         "args": [
@@ -374,7 +419,7 @@ export const opyMacros: Record<string, {
         "return": "Array"
     },
     "timeToString": {
-        "description": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37)` will return `1:02:37.000`.",
+        "description": "Converts a time (in seconds) to a H:MM:SS format with decimals included (unless you use the `floor()` function). For example, `timeToString(3600+120+37.65)` will return `1:02:37.65`.",
         "args": [
             {
                 "name": "time",
@@ -389,6 +434,20 @@ export const opyMacros: Record<string, {
             ($time % 60 + 100).substring(true, 9999)
         )`,
         "return": "String"
-    }
+    },
+    ".unique": {
+        "description": "Returns a copy of the array with duplicate values removed (the first value is kept).\n\nThanks to LazyLion for the formula.",
+        "args": [
+            {
+
+                "name": "array",
+                "description": "The array to get the unique values from.",
+                "type": "Array",
+            }
+        ],
+        macro: "[elem for elem, idx in $array if $array.index(elem) == idx]",
+        class: "Array",
+        "return": "Array",
+    },
 
 };
