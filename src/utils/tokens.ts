@@ -114,12 +114,14 @@ export function dispTokens(content: Token | Token[] | string, prettyPrint = fals
         for (let [i, token] of content.entries()) {
             if (["(", "[", "{", "."].includes(token.text)) {
                 result += token.text;
-            } else if (["+", "-"].includes(token.text) && (i === 0 || ["(", "[", "{", ",", ...Object.keys(operatorPrecedence)].includes(content[i - 1].text))) {
+            } else if (["+", "-"].includes(token.text) && (i === 0 || ["(", "[", "{", ",", "else", ...Object.keys(operatorPrecedence)].includes(content[i - 1].text))) {
                 //unary plus/minus
                 result += token.text;
-            } else if (i < content.length - 1 && ["(", "[", "{"].includes(content[i + 1].text) && Object.keys(operatorPrecedence).includes(token.text)) {
+            } else if (i < content.length - 1 && ["(", "[", "{"].includes(content[i + 1].text) && ["else", ",", ...Object.keys(operatorPrecedence)].includes(token.text)) {
                 result += token.text + " ";
-            } else if (i < content.length - 1 && (["(", "[", "{", ")", "]", "}", ".", ",", ":"].includes(content[i + 1].text) || content[i+1].text.startsWith("'") || content[i+1].text.startsWith('"'))) {
+            } else if (i < content.length-1 && !["else", ",", ...Object.keys(operatorPrecedence)].includes(token.text) && (content[i+1].text.startsWith("'") || content[i+1].text.startsWith('"'))) {
+                result += token.text;
+            } else if (i < content.length - 1 && (["(", "[", "{", ")", "]", "}", ".", ",", ":"].includes(content[i + 1].text))) {
                 result += token.text;
             } else {
                 result += token.text + " ";

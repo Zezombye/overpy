@@ -727,6 +727,9 @@ export const mapKw: Record<string, import("../types").Map> =
             "clash",
             "skirmish"
         ],
+        "variants": {
+            "default": "972777519512068154",
+        },
         "en-US": "Hanaoka",
         "de-DE": "Hanaoka",
         "es-ES": "Hanaoka",
@@ -1587,6 +1590,9 @@ export const mapKw: Record<string, import("../types").Map> =
             "skirmish",
             "flashpoint"
         ],
+        "variants": {
+            "default": "972777519512068154",
+        },
         "guid": "000000014012",
         "en-US": "New Junk City",
         "ja-JP": "NEW JUNK CITY",
@@ -2111,6 +2117,9 @@ export const mapKw: Record<string, import("../types").Map> =
             "clash",
             "skirmish"
         ],
+        "variants": {
+            "default": "972777519512068154",
+        },
         "en-US": "Throne of Anubis",
         "de-DE": "Thron des Anubis",
         "es-ES": "Trono de Anubis",

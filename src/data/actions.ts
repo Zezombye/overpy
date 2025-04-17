@@ -7022,7 +7022,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Kill",
         "zh-TW": "Kill"
     },
-    "moveToTeam": {
+    ".moveToTeam": {
         "description": "Moves one or more players to the specified team and slot. This action can fail if the specified slot is not available. This action doesn't work on dummy bots.",
         "args": [
             {
@@ -7245,7 +7245,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Create Progress Bar HUD Text",
         "zh-TW": "Create Progress Bar HUD Text"
     },
-    "removeFromGame": {
+    ".removeFromGame": {
         "description": "Removes one or more players from the custom game. This action doesn't work on dummy bots.",
         "args": [
             {

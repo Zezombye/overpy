@@ -314,7 +314,7 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     }
 
     if ("macro" in item) {
-        infoStr += "This macro resolves to:\n"+ "`"+(item.macro as string).replaceAll("$", "")+"`" + "\n";
+        infoStr += "This macro resolves to:\n"+ "`"+(item.macro as string).trim().replaceAll("$", "")+"`" + "\n";
     }
 
     if (infoStr) {

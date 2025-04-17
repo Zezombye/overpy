@@ -79,7 +79,7 @@ astParsingFunctions.arrayToString = function (content) {
         ]
     ]`;
 
-    console.log(macro);
+    //console.log(macro);
 
     return parseOpyMacro(macro, ["$array"], content.args);
 };

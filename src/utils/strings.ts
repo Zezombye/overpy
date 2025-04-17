@@ -159,9 +159,12 @@ export function escapeString(content: string, tows: boolean) {
     if (!tows) {
         result = result.replace(/\u00AD/g, "\\z");
 
-        for (let char of "\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\u000B\u000C\u000E\u000F\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C\u001D\u001E\u001F\u00A0\u0E00\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u200B\u200C\u200D\u200E\u200F\u2028\u2029\u202A\u202B\u202C\u202D\u202E\u202F\u205F\u206A\u206B\u206C\u206D\u206E\u206F\u3000\u3164") {
-            result = result.replaceAll(char, "\\u" + char.codePointAt(0)?.toString(16).padStart(4, "0"));
-        }
+        result = result.split("").map(c => {
+            if ("\u00A0\u0E00\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u200B\u200C\u200D\u200E\u200F\u2028\u2029\u202A\u202B\u202C\u202D\u202E\u202F\u205F\u206A\u206B\u206C\u206D\u206E\u206F\u3000\u3164".includes(c) || c.match(/\p{Other}/gu)) {
+                return "\\u" + c.codePointAt(0)?.toString(16).padStart(4, "0");
+            }
+            return c;
+        }).join("");
 
     }
     return result;
