@@ -18,8 +18,12 @@
 "use strict";
 
 import { astParsingFunctions } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { Ast, astContainsRandom } from "../../utils/ast";
 
 astParsingFunctions[".remove"] = function (content) {
+    //That way we don't duplicate the code for 2d/3d array accesses
+    if (!astContainsRandom(content.args[0])) {
+        return new Ast("__assignTo__", [content.args[0], new Ast(".exclude", [content.args[0], content.args[1]])]);
+    }
     return new Ast("__modifyVar__", [content.args[0], new Ast("__removeFromArrayByValue__", [], [], "__Operation__"), content.args[1]]);
 };
