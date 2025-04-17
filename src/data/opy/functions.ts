@@ -197,13 +197,46 @@ export const opyFuncs: Record<
         ],
         "return": "void"
     },
-    "compressed": {
-        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places.",
+    "compress": {
+        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nUse the `decompress()` function to get the original array back.",
         "args": [
             {
                 "name": "array",
                 "description": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable.",
                 "type": "Array",
+            }
+        ],
+        return: "String",
+    },
+    "compressed": {
+        "description": "Compresses in-place the specified array of numbers or vectors into a string, then returns the decompressed array. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places, and vectors to 2 decimal places.\n\nThis function is only effective once the array has at least 18 vectors or 26 numbers.\n\nFor some use cases, it might be more effective to use this function instead of `compress()` and `decompressNumbers()`/`decompressVectors()`, as it can apply optimizations if all numbers have a low amount of significant digits or if they are all positive.",
+        "args": [
+            {
+                "name": "array",
+                "description": "An array of literal numbers or vectors to be compressed and immediately decompressed. The array must be a literal array, not a variable.",
+                "type": "Array",
+            }
+        ],
+        return: "Array",
+    },
+    "decompressNumbers": {
+        "description": "Decompresses an array of numbers (see `compress()`).",
+        "args": [
+            {
+                "name": "string",
+                "description": "The string which represents the compressed array to decompress.",
+                "type": "String",
+            }
+        ],
+        return: "Array",
+    },
+    "decompressVectors": {
+        "description": "Decompresses an array of vectors (see `compress()`).",
+        "args": [
+            {
+                "name": "string",
+                "description": "The string which represents the compressed array to decompress.",
+                "type": "String",
             }
         ],
         return: "Array",
