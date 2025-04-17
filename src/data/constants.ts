@@ -25,8 +25,9 @@ import { postLoadTasks } from "../globalVars";
 export type Constant = LocalizableString & {
     extension?: string,
     description?: string,
-    red?: number, green?: number, blue?: number,
-    onlyInOw1?: boolean
+    red?: number, green?: number, blue?: number, alpha?: number,
+    onlyInOw1?: boolean,
+    onlyInOverpy?: boolean,
 };
 
 export const constantValues: Record<string, { description?: string } & Record<string, Constant>> =
@@ -1026,6 +1027,12 @@ export const constantValues: Record<string, { description?: string } & Record<st
             "pl-PL": "Red",
             "ru-RU": "Red",
             "zh-TW": "Red"
+        },
+        "LIGHT_RED": {
+            "red": 255,
+            "green": 112,
+            "blue": 122,
+            "onlyInOverpy": true,
         },
         "ROSE": {
             "guid": "000000012550",

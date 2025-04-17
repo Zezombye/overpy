@@ -976,12 +976,14 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         "getLastHoT": "getLastHealingOverTimeId",
         "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
         "getNumberOfHoTIds": "getNumberOfHealingOverTimeIds",
+        "moveToTeam": ".moveToTeam",
         "rgba": "rgb",
         "hsla": "hsl",
         "updateEveryTick": "updateEveryFrame",
         "angleToDirection": "directionFromAngles",
         "buttonString": "inputBindingString",
         "teamHasHero": "isHeroBeingPlayed",
+        "removeFromGame": ".removeFromGame",
         "stopDoT": "stopDamageOverTime",
         "stopHoT": "stopHealingOverTime",
     };
@@ -1047,6 +1049,9 @@ function parseMember(object: Token[], member: Token[]) {
                 return new Ast(name, [], [], object[0].text);
             } else if (builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo]) {
                 const astInfo = builtInEnumNameToAstInfo[object[0].text as keyof typeof builtInEnumNameToAstInfo];
+                if (astInfo.name === "__color__" && constantValues[astInfo.type][name].onlyInOverpy) {
+                    return new Ast("rgb", [getAstForNumber(constantValues[astInfo.type][name].red ?? 0), getAstForNumber(constantValues[astInfo.type][name].green ?? 0), getAstForNumber(constantValues[astInfo.type][name].blue ?? 0), getAstForNumber(constantValues[astInfo.type][name].alpha ?? 0)]);
+                }
                 return new Ast(astInfo.name, [new Ast(name, [], [], astInfo.type)]);
                 //Check the pseudo-enum "math"
             } else if (object[0].text === "Math") {
@@ -1082,6 +1087,10 @@ function parseMember(object: Token[], member: Token[]) {
 
                 //Check for textures
             } else if (object[0].text === "Texture") {
+                setEnableTagsSetup(true);
+                if (!isVarName("__holygrail__", true)) {
+                    addVariable("__holygrail__", true, -1);
+                }
                 if (name in opyTextures) {
                     return getAstForCustomString(opyTextures[name].replace("<", "{0}"), [new Ast("__globalVar__", [new Ast("__holygrail__", [], [], "GlobalVariable")])]);
                 } else {
