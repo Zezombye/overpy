@@ -24,9 +24,6 @@ import { error } from "../../utils/logging";
 import { escapeString } from "../../utils/strings";
 
 astParsingFunctions.arrayToString = function (content) {
-    if (astContainsRandom(content.args[0])) {
-        error("Cannot display an array containing random functions. Assign it to a variable first.");
-    }
     if (content.args[1].name !== "__number__") {
         error("The max length must be a literal number");
     }
@@ -34,41 +31,44 @@ astParsingFunctions.arrayToString = function (content) {
     let maxLength = Math.min(1000, content.args[1].args[0].numValue);
 
 
-    //To make replacements, we use private use characters from U+E100 to U+E4E8
-    //The last character is used for the "...x more" replacement
-    let replacements = Array(maxLength).fill(null).map((x, i) => String.fromCodePoint(0xE100+i));
+    //The \u0001 is a special character for our replace to only match our array and not the values inside. It needs to be a zero-width space.
+    let displayStr = Array(maxLength).fill("{}").join(", ") + (maxLength > 0 ? ", " : "") + "…\u0001";
 
-    //We add two zero-width spaces to the first element so the calculation is len(array)*3 instead of len(array)*3-2
-    //Use U+E4E9 for displaying the remaining length
-    let replacementStr = replacements.map((x,i) => (i === 0 ? x + "\u00AD\u00AD" : x)+", ").join("") + "…\uE4E9 more";
+    //If an array index doesn't exist, the value will be 0
+    let placeholderStr = Array(maxLength).fill("0").join(", ") + (maxLength > 0 ? ", " : "") + "…\u0001";
 
-    let replacementFormula = replacements.map((x, i) => ".replace(x.last()["+i+"], x[0]["+i+"])").join("")+".replace(x.last().last(), len(x[0])-"+maxLength+")";
+    let formatArgs = Array(maxLength).fill(0).map((x, i) => "x["+(i+2)+"]").join(", ");;
 
     let macro = `[
-        "{}{}{}".format(
-            "[" if x[1] else [],
-            ${escapeString(replacementStr, false)}.substring(0, 1 if not x[1] else Math.INFINITY if len(x[0]) > ${maxLength} else len(x[0])*3)${replacementFormula},
-            "]" if x[1] else []
-        )
-        #x[0] is the array
-        #x[1] is whether it is actually an array
-        #x[2] is the replacements, as an array of chars
+        "[{}{}]".format(
+            ${escapeString(displayStr, false)}.format(${formatArgs}).replace(
+                ${escapeString(placeholderStr, false)}.substring(
+                    ${placeholderStr.length - 4 - 3 * maxLength} + x[1],
+                    ${maxLength * 3 + 4} - x[1]
+                ),
+                []
+            ),
+            "+{}".format(x[1]/3 - ${maxLength}) if x[1] > ${maxLength*3} else []
+        ) if x[0] else x[2].split([])
+        #x[0] is whether it is actually an array
+        #x[1] is the length * 3 for the substring calculations
+        #x[2] and onwards is the actual array
         for x in
         [
-            [
-                a,
-                len(a) or (a == [] and a != null), #true if it is actually an array, else we don't display the brackets
-                ${escapeString(replacements.join("0")+"0\uE4E9", false)}.split(null[0]),
-            ] for a in [
+
+            (len(a) or (a == [] and a != null)) #true if it is actually an array, else we don't display the brackets
+            .concat(3 if not len(a) and a != [] else len(a)*3)
+            .concat(a)
+            for a in [
                 [
                     #Make elements suitable for display.
                     #Display strings with quotes and escaped backslashes/newlines
                     #Note: there are twice the backslashes because we are in a JS template string
-                    elem.replace("\\\\", "\\\\\\\\").replace('"', '\\\\"').replace("\\n", "\\\\n") if strLen(elem) or (elem.split([]) == [].split([]) and elem != [])
+                    #'"{}"'.format(elem.replace("\\\\", "\\\\\\\\").replace('"', '\\\\"')) if strLen(elem) or ("{}".format(elem) == "" and elem != []) else
 
                     #If the elem is itself an array, display the first element and the length
-                    else "[{}]".format(elem) if len(elem) == 1 or (elem == [] and elem != null)
-                    else "[{}, …{} more]".format(elem, len(elem)-1) if len(elem)
+                    "[{}]".format(elem) if len(elem) == 1 or (elem == [] and elem != null)
+                    else "[{}, …+{}]".format(elem, len(elem)-1) if len(elem)
 
                     #Default to the element which will naturally be casted to string
                     else elem

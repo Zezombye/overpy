@@ -35,13 +35,13 @@ astParsingFunctions.debug = function (content) {
     contentStr = contentStr.replaceAll("}", "\u{E007D}");
 
     if (!contentStr.startsWith("arrayToString(")) {
-        //Automatically display arrays
-        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(12)]));
+        //Automatically display arrays. Keep the max length low to not take too many elements
+        content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(6)]));
     }
 
     let contentStrTrimmed = "";
     for (let char of contentStr) {
-        if (getStrVisualLength(contentStrTrimmed + char) <= 10000) {
+        if (getStrVisualLength(contentStrTrimmed + char) <= 20000) {
             contentStrTrimmed += char;
         } else {
             break;
