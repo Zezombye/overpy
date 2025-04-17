@@ -34,7 +34,7 @@ astParsingFunctions.debug = function (content) {
     contentStr = contentStr.replaceAll("{", "\u{E007B}");
     contentStr = contentStr.replaceAll("}", "\u{E007D}");
 
-    if (!contentStr.startsWith("arrayToString(") && isTypeSuitable("Array", content.args[0].type)) {
+    if (!contentStr.startsWith("arrayToString(")) {
         //Automatically display arrays
         content.args[0] = astParsingFunctions.arrayToString(new Ast("arrayToString", [content.args[0], getAstForNumber(12)]));
     }
@@ -59,5 +59,5 @@ astParsingFunctions.debug = function (content) {
 
     //console.log(contentStr);
 
-    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(), getAstForNull(), astParsingFunctions[".format"](new Ast(".format", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForNull(), getAstForColorWhite(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(),  astParsingFunctions[".format"](new Ast(".format", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForColorWhite(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
 };
