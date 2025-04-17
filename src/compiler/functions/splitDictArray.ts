@@ -58,6 +58,17 @@ astParsingFunctions.splitDictArray = function (content) {
         }
     }
 
+    if (content.args[2].name === "true") {
+        //Compress arrays. If we get an exception then the array isn't made of literal numbers/vectors
+        arrays = arrays.map((x) => {
+            try {
+                return astParsingFunctions.compressed(new Ast("compressed", [x]));
+            } catch (e) {
+                return x;
+            }
+        });
+    }
+
     let assignments = arrays.map((x, i) => new Ast("__assignTo__", [variables[i], x]));
     if (!content.parent) {
         error("Could not find parent of splitDictArray");

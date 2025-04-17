@@ -90,7 +90,7 @@ export const opyFuncs: Record<
         return: "void",
     },
     "arrayToString": {
-        "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed.",
+        "description": "Displays an array (otherwise, casting an array to a string will only display the first value). The second argument is the maximum length of the array (arrays can go up to 1000, which would generate a lot of elements). If the array length is above the maximum length, an ellipsis (...) will be displayed along with the amount of elements remaining.",
         "args": [
             {
                 "name": "array",
@@ -197,6 +197,17 @@ export const opyFuncs: Record<
         ],
         "return": "void"
     },
+    "compressed": {
+        "description": "Compresses the specified array of numbers or vectors into a string. Strings take much fewer elements, so use this function if you are running out of elements.\n\nNote that numbers will get rounded to 3 decimal places.",
+        "args": [
+            {
+                "name": "array",
+                "description": "An array of literal numbers or vectors to be compressed. The array must be a literal array, not a variable.",
+                "type": "Array",
+            }
+        ],
+        return: "Array",
+    },
     "createCasedProgressBarIwt": {
         "description": "Overlays multiple progress bars to create lowercase text based on fullwidth characters.\n\nThe first argument is the number of texts to use (2 to 4). Usually 3 is enough, but 4 may be needed if kerning is bad (with 'f', 'r' or 't' chars).\n\nNote however that after a formatter or a texture, there may be a extra space.\n\nAs it is a progress bar, just add a bunch of newlines at the beginning of the string to make the bar not visible.\n\nNote: all the text must be in the top-level (literal) string. Text used with formatters '{}' will not be lowercased.",
         "args": [
@@ -263,7 +274,7 @@ export const opyFuncs: Record<
         "return": "void"
     },
     "debug": {
-        "description": "For quick debugging of a value. Displays both the value and the text of the function call.",
+        "description": "For quick debugging of a value. Displays both the value and the text of the function call. If the value is an array, it is automatically wrapped with `arrayToString()`.",
         "args": [
             {
                 "name": "value",
@@ -544,6 +555,7 @@ waveHeroes = [Hero.ANA, Hero.SOLDIER, Hero.HAMMOND]
 waveLengths = [3, 8, null]
 \`\`\`
 
+If the third argument is set to \`true\`, arrays will be compressed if they are arrays of literal numbers or vectors.
         `,
         "args": [
             {
@@ -556,6 +568,11 @@ waveLengths = [3, 8, null]
                 "type": {
                     "Array": "Dict"
                 },
+            }, {
+                "name": "compress",
+                "description": "Set to true to compress the arrays if they are arrays of literal numbers or vectors.",
+                "type": "bool",
+                "default": false,
             }
         ],
         "return": "void",

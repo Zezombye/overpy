@@ -98,6 +98,7 @@ import "./functions/atan2Deg.ts";
 import "./functions/attacker.ts";
 import "./functions/break.ts";
 import "./functions/ceil.ts";
+import "./functions/compressed";
 import "./functions/continue.ts";
 import "./functions/cos.ts";
 import "./functions/cosDeg.ts";
