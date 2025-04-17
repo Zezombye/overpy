@@ -73,6 +73,9 @@ export function translate(keyword: string, toWorkshop: boolean, keywordObj: Reco
             if (typeof keywordObj[key] !== "object") {
                 continue;
             }
+            if (keywordObj[key].onlyInOverpy) {
+                continue;
+            }
 
             if (currentLanguage in keywordObj[key]) {
                 var keywordComparing = keywordObj[key][currentLanguage];
