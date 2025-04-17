@@ -833,22 +833,22 @@ This also means that, when used in a variable, you cannot use a translated strin
 
 **Note**: The way string formatting works is via the .replace() function and some constants. This means you cannot have the following in your translated strings if using formatters:
 
-- \`(0.00, 1.00, 0.00)\` (\`Vector.UP\`)
-- \`(0.00, -1.00, 0.00)\` (\`Vector.DOWN\`)
-- \`(1.00, 0.00, 0.00)\` (\`Vector.LEFT\`)
-- \`(-1.00, 0.00, 0.00)\` (\`Vector.RIGHT\`)
-- \`(0.00, 0.00, 1.00)\` (\`Vector.FORWARD\`)
-- \`(0.00, 0.00, -1.00)\` (\`Vector.BACKWARD\`)
-- \`1876650.25\`
-- \`1876651.25\`
-- \`1876652.25\`
-- \`1876653.25\`
-- \`1876654.25\`
-- \`1876655.25\`
-- \`1876656.25\`
-- \`1876657.25\`
-- \`1876658.25\`
-- \`1876659.25\`
+- `(0.00, 1.00, 0.00)` (`Vector.UP`)
+- `(0.00, -1.00, 0.00)` (`Vector.DOWN`)
+- `(1.00, 0.00, 0.00)` (`Vector.LEFT`)
+- `(-1.00, 0.00, 0.00)` (`Vector.RIGHT`)
+- `(0.00, 0.00, 1.00)` (`Vector.FORWARD`)
+- `(0.00, 0.00, -1.00)` (`Vector.BACKWARD`)
+- `1876650.25`
+- `1876651.25`
+- `1876652.25`
+- `1876653.25`
+- `1876654.25`
+- `1876655.25`
+- `1876656.25`
+- `1876657.25`
+- `1876658.25`
+- `1876659.25`
 
 Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable and save on elements, but it is potentially invasive (although it should work with the vast majority of gamemodes).
 
