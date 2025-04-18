@@ -370,11 +370,11 @@ export const opyMacros: Record<string, {
         "return": "void"
     },
     "lineIntersectsSphere": {
-        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate around the edges of a sphere if `lineStart` is too close to `sphereCenter`.\n\nThanks to LazyLion for the formula.",
+        "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula.",
         "args": [
             {
                 "name": "lineStart",
-                "description": "The starting position of the line.",
+                "description": "The starting position of the line. It must be outside the sphere for the function to work.",
                 "type": "Position",
             },{
                 "name": "lineDirection",
@@ -390,7 +390,7 @@ export const opyMacros: Record<string, {
                 "type": "unsigned float",
             }
         ],
-        macro: "distance(distance($lineStart, $sphereCenter) * $lineDirection + $lineStart, $sphereCenter) <= $sphereRadius",
+        macro: "angleBetweenVectors($lineStart, $lineDirection) <= asinDeg($sphereRadius / distance($lineStart, $sphereCenter))",
         return: "bool",
     },
     "print": {
