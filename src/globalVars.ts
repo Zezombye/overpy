@@ -195,6 +195,9 @@ export const setTranslationLanguageConstantOpy = (constant: string) => (translat
 export var usePlayerVarForTranslations: boolean;
 export const setUsePlayerVarForTranslations = (use: boolean) => (usePlayerVarForTranslations = use);
 
+export var excludeVariablesInCompilation: boolean;
+export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -275,6 +278,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     translationLanguageConstant = null;
     translationLanguageConstantOpy = "";
     usePlayerVarForTranslations = false;
+    excludeVariablesInCompilation = false;
 
 
 }

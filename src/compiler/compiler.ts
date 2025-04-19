@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -264,7 +264,12 @@ function compileRules(astRules: Ast[]) {
 
     var compiledRules = astRulesToWs(parsedAstRules).join("");
 
-    var result = compiledCustomGameSettings + generateVariablesField() + generateSubroutinesField() + compiledRules;
+    var result = compiledCustomGameSettings;
+    if (!excludeVariablesInCompilation) {
+        result += generateVariablesField();
+        result += generateSubroutinesField();
+    }
+    result += compiledRules;
 
     setFileStack([]);
     if (nbElements > ELEMENT_LIMIT) {

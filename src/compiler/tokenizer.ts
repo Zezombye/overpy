@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -189,6 +189,10 @@ export function tokenize(content: string): LogicalLine[] {
                 error("Unknown extension '" + addedExtension + "', valid ones are: " + Object.keys(customGameSettingsSchema.extensions.values).join(", "));
             }
             activatedExtensions.push(addedExtension);
+            return;
+        }
+        if (content.startsWith("#!excludeVariablesInCompilation")) {
+            setExcludeVariablesInCompilation(true);
             return;
         }
         if (content.startsWith("#!translations ")) {
