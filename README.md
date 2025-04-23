@@ -878,7 +878,7 @@ When in a reevaluated HUD text, `t"Some string"` resolves to:
 ["Some string", "Une chaîne"][["White", "Blanc"].index("{}").format(Color.WHITE)]
 ```
 
-This works as reevaluated text is evaluated client-side. To check if something is evaluated client-side, check if `inputBindingString` is 0 or `localPlayer` is 0.
+This works as reevaluated text is evaluated client-side. To check if something is evaluated client-side, check if `inputBindingString` isn't 0 or `localPlayer` isn't 0.
 
 When in a variable, `text = t"Some string"` just resolves to `text = ["Some string", "Une chaîne"]`. We cannot access the array now as we do not know the player's language, and so we need to access it in the HUD text. So `_(text)` will then resolve to `text[["White", "Blanc"].index("{}").format(Color.WHITE)]`.
 

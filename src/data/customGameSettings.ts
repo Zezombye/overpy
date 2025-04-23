@@ -797,6 +797,20 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-CN": "复生时间",
                         "zh-TW": "重生時間"
                     },
+                    "perkEliminationCatchupLevelAmount%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 100,
+                        "default": 15,
+                        "en-US": "Perk Elimination Catchup Level Amount",
+                    },
+                    "perkGeneration%": {
+                        "values": "__percent__",
+                        "min": 10,
+                        "max": 500,
+                        "default": 100,
+                        "en-US": "Perk Generation",
+                    },
                     "tankPassiveHealthBonus": {
                         "values": {
                             "1Tank2Offense2Support": {
@@ -8757,7 +8771,7 @@ postLoadTasks.push({
         //Apply general settings to each gamemode... but not Elimination for some reason lmao
         for (var gamemode in customGameSettingsSchema.gamemodes.values) {
             if (gamemode === "elimination") {
-                for (var key of ["enabledMaps", "disabledMaps", "enableEnemyHealthBars", "gamemodeStartTrigger", "healthPackRespawnTime%", "enableKillCam", "enableKillFeed", "enableSkins", "spawnHealthPacks"]) {
+                for (var key of ["enabledMaps", "disabledMaps", "enableEnemyHealthBars", "gamemodeStartTrigger", "healthPackRespawnTime%", "enableKillCam", "enableKillFeed", "enableSkins", "spawnHealthPacks", "perkEliminationCatchupLevelAmount%", "perkGeneration%"]) {
                     customGameSettingsSchema.gamemodes.values[gamemode].values[key] = customGameSettingsSchema.gamemodes.values.general.values[key];
                 }
             } else {

@@ -183,6 +183,62 @@ export const opyMacros: Record<string, {
         macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $player], key=lambda x: angleBetweenVectors($player.getFacingDirection(), x - $player.getEyePosition()))",
         "return": "Player",
     },
+
+    "getRealPlayersInRadius": {
+        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\nNote: the workshop `Players In Radius` function targets dead players. Use this function instead.",
+        "args": [
+            {
+                "name": "center",
+                "description": "The center position from which to measure distance.",
+                "type": "Position",
+            },
+            {
+                "name": "radius",
+                "description": "The radius in meters inside which players must be in order to be included in the resulting array.",
+                "type": "unsigned float",
+            },
+            {
+                "name": "team",
+                "description": "The team or teams to which a player must belong to be included in the resulting array.",
+                "type": "Team",
+                "default": "ALL"
+            },
+            {
+                "name": "losCheck",
+                "description": "Specifies whether and how a player must pass a line-of-sight check to be included in the resulting array.",
+                "type": "LosCheck",
+                "default": "OFF"
+            }
+        ],
+        macro: "[p for p in getPlayersInRadius($center, $radius, $team, $losCheck) if p.isAlive() and p.hasSpawned()]",
+        "return": {
+            "Array": "Player"
+        },
+    },
+    ".getRealPlayersInViewAngle": {
+        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
+        "args": [
+            {
+                "name": "player",
+                "description": "The player whose view to use for the check.",
+                "type": "Player",
+            },
+            {
+                "name": "team",
+                "description": "The team or teams on which to consider players.",
+                "type": "Team",
+            },
+            {
+                "name": "viewAngle",
+                "description": "The view angle to compare against in degrees.",
+                "type": "float",
+            }
+        ],
+        macro: "[p for p in $player.getPlayersInViewAngle($team, $viewAngle) if p.isAlive() and p.hasSpawned()]",
+        "return": {
+            "Array": "Player"
+        },
+    },
     "getSign": {
         "description": "Built-in macro for calculating the sign of a number. Returns -1, 0 or 1.",
         "args": [

@@ -908,7 +908,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Player Closest To Reticle"
     },
     ".getPlayersInViewAngle": {
-        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.",
+        "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\n**Note**: This function picks up dead and unspawned players. Use `.getRealPlayersInViewAngle()` instead.",
         "args": [
             {
                 "name": "player",
@@ -929,6 +929,7 @@ export const valueFuncKw: Record<string, Value> =
         "return": {
             "Array": "Player"
         },
+        hideFromAutocomplete: true,
         "guid": "00000000C32F",
         "en-US": "Players in View Angle",
         "es-MX": "Jugadores en el ángulo de vista",
@@ -6139,7 +6140,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "All Players"
     },
     "getPlayersInRadius": {
-        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.",
+        "description": "An array containing all players within a certain distance of a position, optionally restricted by team and line of sight.\n\n**Note**: This function picks up dead players. Use `getRealPlayersInRadius()` instead.",
         "args": [
             {
                 "name": "center",
@@ -6168,6 +6169,7 @@ export const valueFuncKw: Record<string, Value> =
         "return": {
             "Array": "Player"
         },
+        hideFromAutocomplete: true,
         "guid": "00000000B1E0",
         "en-US": "Players Within Radius",
         "es-MX": "Jugadores dentro del radio",

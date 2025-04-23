@@ -19,7 +19,7 @@
 
 import { astParsingFunctions, enableOptimization } from "../../globalVars";
 import { Ast, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
-import { error } from "../../utils/logging";
+import { error, warn } from "../../utils/logging";
 
 astParsingFunctions.__valueInArray__ = function (content) {
     if (content.args[0].name === "__dict__") {
@@ -60,6 +60,9 @@ astParsingFunctions.__valueInArray__ = function (content) {
                 } else if (content.args[0].args.length !== 0) {
                     return getAstForNull();
                 }
+            }
+            if (content.args[0].name === "__number__") {
+                warn("w_array_index_number", "Accessing the index of a number always gives 0 (even using index 0)");
             }
         }
     }
