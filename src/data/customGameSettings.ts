@@ -4759,7 +4759,9 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "dva",
                         "doomfist",
                         "echo",
+                        "freja",
                         "genji",
+                        "hazard",
                         "kiriko",
                         "lucio",
                         "cassidy",
@@ -4871,12 +4873,13 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "brigitte",
                         "dva",
                         "hanzo",
+                        "freja",
+                        "hazard",
                         "kiriko",
                         "moira",
                         "reinhardt",
                         "sojourn",
                         "sigma",
-                        "hazard"
                     ],
                     "guid": "000000005ECC",
                     "en-US": "Ammunition Clip Size Scalar",
@@ -4901,6 +4904,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                     "exclude": [
                         "brigitte",
                         "dva",
+                        "freja",
+                        "hazard",
                         "hanzo",
                         "kiriko",
                         "moira",
@@ -5218,6 +5223,8 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "dva",
                         "doomfist",
                         "echo",
+                        "freja",
+                        "hazard",
                         "junkerQueen",
                         "lucio",
                         "mauga",
@@ -5262,6 +5269,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "brigitte",
                         "doomfist",
                         "echo",
+                        "freja",
                         "junkerQueen",
                         "lucio",
                         "orisa",
@@ -5841,6 +5849,31 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "tr-TR": "Mühimmat Yenileme Süre Skaleri",
                         "zh-CN": "弹药恢复时间速率",
                         "zh-TW": "彈藥自動裝填時間"
+                    }
+                }
+            },
+            "freja": {
+                "values": {
+                    "secondaryFireDuration%": {
+                        "values": "__percent__",
+                        "min": 50,
+                        "max": 300,
+                        "default": 100,
+                        "en-US": "Take Aim Duration",
+                    },
+                    "ability1Distance%": {
+                        "values": "__percent__",
+                        "min": 50,
+                        "max": 200,
+                        "default": 100,
+                        "en-US": "Quick Dash Distance",
+                    },
+                    "ability2Height%": {
+                        "values": "__percent__",
+                        "min": 75,
+                        "max": 150,
+                        "default": 100,
+                        "en-US": "Updraft Height",
                     }
                 }
             },
@@ -7408,7 +7441,11 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
             "hazard": {
                 "values": {
                     "ability2Kb%": {
-                        "en-US": "Jagged Wall Knockback Scalar",
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 400,
+                        "default": 100,
+                        "en-US": "Jagged Wall Knockback",
                         "guid": "00000002356E",
                         "de-DE": "Zackenwall – Rückstoß",
                         "es-ES": "Repulsión de Muro afilado",
@@ -7430,7 +7467,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "min": 25,
                         "max": 400,
                         "default": 100,
-                        "en-US": "Jagged Wall Health Scalar",
+                        "en-US": "Jagged Wall Health",
                         "guid": "00000002356D",
                         "de-DE": "Zackenwall – Trefferpunkte",
                         "es-ES": "Salud de Muro afilado",
@@ -7447,12 +7484,19 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "zh-CN": "尖刺墙生命值倍率",
                         "zh-TW": "鋸齒牆生命值"
                     },
+                    "secondaryFireMovementSpeedPenalty%": {
+                        "values": "__percent__",
+                        "min": 0,
+                        "max": 150,
+                        "default": 100,
+                        "en-US": "Spike Guard Movement Speed Penalty",
+                    },
                     "secondaryFireCost%": {
                         "values": "__percent__",
                         "min": 0,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Spike Guard Resource Cost Scalar",
+                        "en-US": "Spike Guard Resource Cost",
                         "guid": "000000023571",
                         "de-DE": "Stachelschutz – Ressourcenkosten",
                         "es-ES": "Coste de recursos de Protección de púas",
@@ -7474,7 +7518,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "min": 25,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Spike Guard Resource Regeneration Scalar",
+                        "en-US": "Spike Guard Resource Regeneration",
                         "guid": "000000023574",
                         "de-DE": "Stachelschutz – Regenerierte Ressourcen",
                         "es-ES": "Regeneración de recursos de Protección de púas",
@@ -7496,7 +7540,7 @@ export const customGameSettingsSchema: CustomGameSettingSchema =
                         "min": 100,
                         "max": 200,
                         "default": 100,
-                        "en-US": "Violent Leap Distance Scalar",
+                        "en-US": "Violent Leap Distance",
                         "guid": "00000002356B",
                         "de-DE": "Sturzsprung – Distanz",
                         "es-ES": "Distancia de Salto violento",

@@ -88,6 +88,7 @@ export enum Overwatch2Heroes {
     doomfist = "doomfist",
     dva = "dva",
     echo = "echo",
+    freja = "freja",
     genji = "genji",
     hanzo = "hanzo",
     hazard = "hazard",

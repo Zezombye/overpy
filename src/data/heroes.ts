@@ -783,6 +783,21 @@ export const heroKw: Record<Overwatch2Heroes, HeroData> =
         "pt-BR": "Echo",
         "tr-TR": "Echo"
     },
+    "freja": {
+        "en-US": "Freja",
+        "secondaryFire": {
+            "en-US": "Take Aim",
+        },
+        "ability1": {
+            "en-US": "Quick Dash",
+        },
+        "ability2": {
+            "en-US": "Updraft",
+        },
+        "ultimate": {
+            "en-US": "Bola Shot",
+        }
+    },
     "genji": {
         "guid": "000000000029",
         "ability1": {

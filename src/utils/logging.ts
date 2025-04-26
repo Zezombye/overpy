@@ -40,11 +40,7 @@ export function error(str: string, token?: any): never {
         if (fileStack.length !== 0) {
             fileStack.reverse();
             for (var file of fileStack) {
-                if ("rule" in file) {
-                    err += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + ("actionNb" in file ? ", action #" + file.actionNb : "conditionNb" in file ? ", condition #" + file.conditionNb : "");
-                } else {
-                    err += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
-                }
+                err += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
             }
         }
     } else {
@@ -60,12 +56,7 @@ export function warn(warnType: string, message: string) {
         if (fileStack.length !== 0) {
             fileStack.reverse();
             for (var file of fileStack) {
-                if ("rule" in file) {
-                    // @ts-ignore - I don't know where the properties this object has come from, and I don't care to find them
-                    warning += "\n------------------------------------------------------------------------------------\nat rule #" + file.ruleNb + " ('" + file.rule + "')" + (file.actionNb ? ", action #" + file.actionNb : file.conditionNb ? ", condition #" + file.conditionNb : "");
-                } else {
-                    warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
-                }
+                warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
             }
         }
     } else {

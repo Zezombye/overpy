@@ -91,6 +91,8 @@ rule ("strings") {
         Set Global Variable(A, Custom String("|_____________________________________________________________________________________________________________120 chars|12{0}{1}", Global.A, Custom String("3{0}4", Global.B)));
         Set Global Variable(A, Custom String("|_____________________________________________________________________________________________________________120 chars|1{0}2{1}", Global.A, Custom String("{0}34", Global.B)));
         Set Global Variable(A, Custom String("|_____________________________________________________________________________________________________________120 chars|{0}{1}", Global.A, Custom String("{0}{1}", Global.B, Global.C)));
+        Set Global Variable(A, Custom String("[{0}] LEAVE EDIT MODE\n{1} CREATE BOT\n{2}", Global.B, Global.C, Custom String("{0} GRAB BOT\n[{1}] REMOVE BOT\n[{2}", Global.D, Global.E, Custom String("{0}] + [{1}] REMOVE ALL BOTS\n[{2}", Global.A, Global.E, Custom String("{0}] PLACE RESET MARKER\n[{1}] + [{0}] REMOVE RESET MARKER\n[{2}", Global.F, Global.A, Custom String("{0}] INCREASE PLACEMENT DISTANCE\n[{1}] + [{0}] DECREASE PLACEMENT DISTANCE", Global.G, Global.A))))));
+        Set Global Variable(A, Custom String("{0} CREATE BOT {1}\n{2}", Global.B, Global.C, Custom String("{0} GRAB BOT\n[{1}] REMOVE BOT\n[{2}", Global.D, Global.E, Custom String("{0}] + [{1}] REMOVE ALL BOTS\n[{1}] PLACE RESET MARKER\n[{0}] + [{1}] REMOVE RESET MARKER\n[{2}", Global.A, Global.E, Custom String("{0}] INCREASE PLACEMENT DISTANCE\n[{1}] + [{0}] DECREASE PLACEMENT DISTANCE", Global.F, Global.A)))));
     }
 }
 
