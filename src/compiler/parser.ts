@@ -19,14 +19,14 @@
 
 import { constantValues } from "../data/constants";
 import { funcKw, notConstantFunctions } from "../data/other";
-import { currentArrayElementName, currentArrayIndexName, enumMembers, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
 import { isNumber, safeEval } from "../utils/other";
-import { getUtf8Length, unescapeString } from "../utils/strings";
+import { applyCasedStringModifier, escapeString, getUtf8Length, unescapeString } from "../utils/strings";
 import { dispTokens, getTokenBracketPos, splitTokens } from "../utils/tokens";
 import { parseType } from "../utils/types";
 import { addSubroutine, addVariable, isSubroutineName, isVarName } from "../utils/varNames";
@@ -713,17 +713,42 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     if (content[0].text === "l") {
                         stringType = "LocalizedStringLiteral";
                     } else if (content[0].text === "b") {
-                        stringType = "BigLettersStringLiteral";
+                        let isConvertedToBigLetters = false;
+                        //If big letters, try to map letters until we get one
+                        //We only need one letter to convert to big letters
+                        for (var j = 0; j < string.length; j++) {
+                            if (string[j] in bigLettersMappings) {
+                                string = string.substring(0, j) + bigLettersMappings[string[j]] + string.substring(j + 1);
+                                isConvertedToBigLetters = true;
+                                break;
+                            }
+                        }
+                        if (!isConvertedToBigLetters) {
+                            error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
+                        }
                     } else if (content[0].text === "w") {
-                        stringType = "FullwidthStringLiteral";
+                        let containsNonFullwidthChar = false;
+                        var tmpStr = "";
+                        for (var char of string) {
+                            if (char in fullwidthMappings) {
+                                tmpStr += fullwidthMappings[char];
+                            } else {
+                                containsNonFullwidthChar = true;
+                                tmpStr += char;
+                            }
+                        }
+                        string = tmpStr;
+                        if (containsNonFullwidthChar) {
+                            warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
+                        }
                     } else if (content[0].text === "p") {
-                        stringType = "PlaintextStringLiteral";
+                        //legacy string modifier, unused
                     } else if (content[0].text === "c") {
-                        stringType = "CaseSensitiveStringLiteral";
+                        string = applyCasedStringModifier(string);
                     } else if (content[0].text === "t") {
                         translate = true;
                     } else {
-                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'p' (plaintext), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
+                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
                     }
                 } else {
                     error("Invalid content before string: '" + content[i].text + "'");

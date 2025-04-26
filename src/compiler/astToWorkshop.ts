@@ -214,7 +214,7 @@ function astToWs(content: Ast): string {
     } else if (content.type === "Subroutine") {
         incrementNbElements();
         return translateSubroutineToWs(content.name);
-    } else if (typeof content.type === "string" && ["CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral"].includes(content.type)) {
+    } else if (typeof content.type === "string" && content.type === "CustomStringLiteral") {
         incrementNbElements();
         return escapeString(content.name, true);
     } else if (content.type === "LocalizedStringLiteral") {

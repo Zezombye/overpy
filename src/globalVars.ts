@@ -425,6 +425,38 @@ for (var char of "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\
     fullwidthMappings[char] = String.fromCodePoint(char.charCodeAt(0) + 0xfee0);
 }
 
+export const caseSensitiveReplacements: Record<string, string> = {
+    æ: "ӕ",
+    nj: "ǌ",
+    " a ": " ａ ",
+    a: "ạ",
+    b: "ḅ",
+    c: "ƈ",
+    d: "ḍ",
+    e: "ẹ",
+    f: "ƒ",
+    g: "ǥ",
+    h: "һ",
+    i: "і",
+    j: "ј",
+    k: "ḳ",
+    l: "I",
+    m: "ṃ",
+    n: "ṇ",
+    o: "ο",
+    p: "ṗ",
+    q: "ǫ",
+    r: "ṛ",
+    s: "ѕ",
+    t: "ṭ",
+    u: "υ",
+    v: "ν",
+    w: "ẉ",
+    x: "ҳ",
+    y: "ỵ",
+    z: "ẓ",
+};
+
 //Combinations of 0x01 through 0x1F (excluding 0x09, 0x0A and 0x0D). Used for workshop settings to prevent duplicates.
 //These characters render as zero-width spaces in Overwatch.
 //For some reason, 0x0B and 0x0C aren't sorted according to their ascii value.
@@ -512,9 +544,7 @@ export let typeTree: (string | Record<string, any>)[] = [
     {
         StringLiteral: [
             "LocalizedStringLiteral",
-            {
-                CustomStringLiteral: ["FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"],
-            },
+            "CustomStringLiteral",
         ],
     },
 

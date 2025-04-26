@@ -19,6 +19,7 @@
 
 import { error } from "./logging.js";
 import { opyStringEntities } from "../data/opy/stringEntities.js";
+import { caseSensitiveReplacements } from "../globalVars.js";
 
 export function escapeBadWords(content: string) {
     //000000000057.07F
@@ -199,4 +200,13 @@ export function getUtf8ByteLength(str: string) {
         } //trail surrogate
     }
     return s;
+}
+
+export function applyCasedStringModifier(content: string) {
+    content = content.replace(/e([0123456789!\?\/@"\&#\^\$\*%])/g, "ѐ$1");
+    content = content.replace(/n([0123456789!\?\/@"\&#\^\$\*%])/g, "ǹ$1");
+    for (var key of Object.keys(caseSensitiveReplacements)) {
+        content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key]);
+    }
+    return content;
 }

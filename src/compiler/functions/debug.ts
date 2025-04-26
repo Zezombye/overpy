@@ -21,6 +21,7 @@ import { astToOpy } from "../../decompiler/astToOpy";
 import { astParsingFunctions, enableTagsSetup } from "../../globalVars";
 import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
 import { error } from "../../utils/logging";
+import { applyCasedStringModifier } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";
 import { getStrVisualLength } from "./strVisualLength";
 
@@ -59,5 +60,5 @@ astParsingFunctions.debug = function (content) {
 
     //console.log(contentStr);
 
-    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(),  astParsingFunctions[".format"](new Ast(".format", [new Ast(contentStr, [], [], "CaseSensitiveStringLiteral"), content.args[0]])), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForColorWhite(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
+    return new Ast("hudText", [new Ast("getPlayers", [getAstForTeamAll()]), getAstForNull(),  astParsingFunctions[".format"](new Ast(".format", [new Ast(applyCasedStringModifier(contentStr), [], [], "CustomStringLiteral"), content.args[0]])), getAstForNull(), new Ast("LEFT", [], [], "HudPosition"), getAstForNumber(-9999), getAstForNull(), getAstForColorWhite(), getAstForNull(), new Ast("VISIBILITY_AND_STRING", [], [], "HudReeval"), new Ast("DEFAULT", [], [], "SpecVisibility")]);
 };

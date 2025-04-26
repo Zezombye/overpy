@@ -338,7 +338,7 @@ export function parseAst(content: Ast) {
 
     //For string literals, check if they are a child of .format (or of a string function). If not, wrap them with the .format function.
     //Do not use isTypeSuitable as that can return true for "value".
-    if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral", "FullwidthStringLiteral", "BigLettersStringLiteral", "PlaintextStringLiteral", "CaseSensitiveStringLiteral"].includes(content.type)) {
+    if (typeof content.type === "string" && ["StringLiteral", "LocalizedStringLiteral", "CustomStringLiteral"].includes(content.type)) {
         if (content.parent && ([".format", "__customString__", "__localizedString__"].includes(content.parent.name) && content.parent.argIndex === 0 || content.parent.name === "__translatedString__")) {
             return content;
         } else {

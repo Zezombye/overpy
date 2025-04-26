@@ -48,49 +48,11 @@ astParsingFunctions[".format"] = function (content) {
     return parseCustomString(content.args[0], content.args.slice(1));
 };
 
-var caseSensitiveReplacements: Record<string, string> = {
-    æ: "ӕ",
-    nj: "ǌ",
-    " a ": " ａ ",
-    a: "ạ",
-    b: "ḅ",
-    c: "ƈ",
-    d: "ḍ",
-    e: "ẹ",
-    f: "ƒ",
-    //g: "ǵ",
-    g: "ǥ",
-    h: "һ",
-    i: "і",
-    j: "ј",
-    k: "ḳ",
-    l: "I",
-    m: "ṃ",
-    n: "ṇ",
-    o: "ο",
-    p: "ṗ",
-    q: "ǫ",
-    r: "ṛ",
-    s: "ѕ",
-    t: "ṭ",
-    u: "υ",
-    v: "ν",
-    w: "ẉ",
-    x: "ҳ",
-    y: "ỵ",
-    z: "ẓ",
-};
-
 //Parses a custom string.
 function parseCustomString(str: Ast, formatArgs: Ast[]) {
     if (!formatArgs) {
         formatArgs = [];
     }
-
-    var isBigLetters = str.type === "BigLettersStringLiteral";
-    var isFullwidth = str.type === "FullwidthStringLiteral";
-    var isPlaintext = str.type === "PlaintextStringLiteral";
-    var isCaseSensitive = str.type === "CaseSensitiveStringLiteral";
 
     var content = str.name;
     var tokens: ({ text: string; type: "string" } | { index: number; type: "arg" } | { type: "holygrail" })[] = [];
@@ -104,39 +66,6 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     var numberMapping: Record<number, number> = {};
     var containsNonFullwidthChar = false;
 
-    function applyStringModifiers(content: string) {
-        //If big letters, try to map letters until we get one
-        //We only need one letter to convert to big letters
-        if (isBigLetters && !isConvertedToBigLetters) {
-            for (var i = 0; i < content.length; i++) {
-                if (content[i] in bigLettersMappings) {
-                    content = content.substring(0, i) + bigLettersMappings[content[i]] + content.substring(i + 1);
-                    isConvertedToBigLetters = true;
-                    break;
-                }
-            }
-        } else if (isFullwidth) {
-            var tmpStr = "";
-            for (var char of content) {
-                if (char in fullwidthMappings) {
-                    tmpStr += fullwidthMappings[char];
-                } else {
-                    containsNonFullwidthChar = true;
-                    tmpStr += char;
-                }
-            }
-
-            content = tmpStr;
-        } else if (isCaseSensitive) {
-            content = content.replace(/e([0123456789!\?\/@"\&#\^\$\*%])/g, "ѐ$1");
-            content = content.replace(/n([0123456789!\?\/@"\&#\^\$\*%])/g, "ǹ$1");
-            for (var key of Object.keys(caseSensitiveReplacements)) {
-                content = content.replace(new RegExp(key, "g"), caseSensitiveReplacements[key]);
-            }
-        }
-
-        return content;
-    }
 
     //Tokenize string
     while (true) {
@@ -150,7 +79,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
         if (fieldIndex >= 0 && (fieldIndex < tagIndex || tagIndex < 0)) {
             if (fieldIndex > 0) {
                 tokens.push({
-                    text: applyStringModifiers(content.substring(0, fieldIndex)),
+                    text: content.substring(0, fieldIndex),
                     type: "string",
                 });
                 content = content.substring(fieldIndex);
@@ -184,7 +113,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
         } else if (tagIndex >= 0) {
             if (tagIndex > 0) {
                 tokens.push({
-                    text: applyStringModifiers(content.substring(0, tagIndex)),
+                    text: content.substring(0, tagIndex),
                     type: "string",
                 });
                 content = content.substring(tagIndex);
@@ -192,7 +121,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
             if (!enableTagsSetup) {
                 warn("w_tags", "A tag (<tx> or <fg>) was found in a string, but the #!setupTags directive is needed for OverPy to properly unescape them.");
                 tokens.push({
-                    text: applyStringModifiers("<"),
+                    text: "<",
                     type: "string",
                 });
             } else {
@@ -209,7 +138,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
             content = content.substring(1);
         } else {
             tokens.push({
-                text: applyStringModifiers(content),
+                text: content,
                 type: "string",
             });
             break;
@@ -224,13 +153,6 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
             if (DEBUG_MODE) console.log(numberMapping);
             error("Too few arguments in format() function: expected " + (+key + 1) + " but found " + formatArgs.length);
         }
-    }
-
-    if (isFullwidth && containsNonFullwidthChar) {
-        warn("w_not_total_fullwidth", "Could not fully convert this string to fullwidth characters");
-    }
-    if (isBigLetters && !isConvertedToBigLetters) {
-        error("Could not convert the string to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
     }
 
     if (tokens.some((token) => token.type === "holygrail")) {
