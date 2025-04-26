@@ -343,7 +343,6 @@ export const astOperatorPrecedence: Record<string, number> = {
     __raiseToPower__: 9,
 };
 
-console.log(constantValues);
 //Text that gets inserted on top of all js scripts.
 export const builtInJsFunctions = `
 function vect(x,y,z) {

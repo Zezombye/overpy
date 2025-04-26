@@ -28,6 +28,9 @@ import { getAstForTranslatedString } from "./__translatedString__";
 //The max total length of 511 bytes got removed.
 const STR_MAX_LENGTH = 128;
 
+//The max number of arguments in a custom string. Beyond this limit, we need to split the string.
+const STR_MAX_ARGS = 3;
+
 astParsingFunctions[".format"] = function (content) {
     //Localized strings take one element more than custom strings.
     //Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
@@ -241,104 +244,130 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: number; type: "arg" })[], args: Ast[]) {
     var result: string = "";
     var resultArgs: Ast[] = [];
-    var numbers: number[] = [];
+    var uniqueNumbers: number[] = [];
     var numbersEncountered: number[] = [];
     var mappings: Record<number, number> = {};
     var stringLength = 0;
-    var currentNbIndex = 0;
 
-    //iterate through tokens and figure out the total number of unique numbers
+    //console.log("Parsing string tokens: ", structuredClone(tokens));
+
+    //Compilation optimization: check if the string is "simple" (aka one token that doesn't need to be split)
+    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= STR_MAX_LENGTH) {
+        result = tokens[0].text;
+        return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral"), getAstForNull(), getAstForNull(), getAstForNull()]);
+    }
+
+    //Iterate through tokens and figure out the total number of unique numbers
     for (var token of tokens) {
         if (token.type === "string") {
             continue;
         } else {
-            if (!numbers.includes(token.index)) {
-                numbers.push(token.index);
+            if (!uniqueNumbers.includes(token.index)) {
+                uniqueNumbers.push(token.index);
             }
         }
     }
 
-    //Add tokens
-    //For now, no optimization: just split if more than 3 unique numbers
+    for (let [i, token] of tokens.entries()) {
+        let shouldSplitString = false;
 
-    //Compilation optimization: do not do this whole loop if the string is "simple" (aka one token that doesn't need to be split)
-    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= STR_MAX_LENGTH) {
-        result = tokens[0].text;
-        return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")])
-    } else {
-        for (var i = 0; i < tokens.length; i++) {
-            //length check
-            let token = tokens[i];
-            if ((token.type === "string" && stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length)) || (token.type === "arg" && stringLength + "{0}".length > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length))) {
-                var splitString = false;
-                if (token.type === "string" && (stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH || tokens.length > i)) {
-                    var tokenText = [...token.text];
-                    var tokenSliceLength = 0;
-                    var sliceIndex = 0;
-                    for (var j = 0; stringLength + tokenSliceLength < STR_MAX_LENGTH - "{0}".length * 2; j++) {
-                        tokenSliceLength += getUtf8Length(tokenText[j] + "");
-                        sliceIndex++;
-                    }
+        //Check string tokens
 
-                    result += tokenText.slice(0, sliceIndex).join("");
-
-                    token.text = tokenText.slice(sliceIndex).join("");
-                    splitString = true;
-                } else if (token.type === "arg" && tokens.length > i) {
-                    splitString = true;
-                }
-
-                if (splitString) {
-                    result += "{" + currentNbIndex + "}";
-                    if (currentNbIndex > 2) {
-                        error("Custom string parser returned '{" + currentNbIndex + "}', please report to Zezombye");
-                    }
-                    resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-                    break;
-                }
+        //Check if the string would overflow if we add the token (adding a buffer for a potential "{0}" if there are more tokens remaining).
+        //If the string would overflow, then add to the result the text of the token up to the overflow point, and remove that from the token text.
+        if (token.type === "string" && stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length)) {
+            shouldSplitString = true;
+            let tokenText = [...token.text];
+            //console.log(tokenText);
+            let tokenSliceLength = 0;
+            let sliceIndex = 0;
+            for (let j = 0; stringLength + tokenSliceLength < STR_MAX_LENGTH - "{0}".length; j++) {
+                tokenSliceLength += getUtf8Length(tokenText[j] + "");
+                sliceIndex++;
             }
+            result += tokenText.slice(0, sliceIndex).join("");
+            token.text = tokenText.slice(sliceIndex).join("");
+        }
 
-            if (token.type === "string") {
-                result += token.text;
-                stringLength += getUtf8Length(token.text);
+        //Check arg tokens
+
+        //Check if the string would overflow if there are tokens remaining and adding the arg + an additional arg would make the string overflow.
+        //For maximum optimization, check if there is only 1 string token remaining and its length wouldn't make the string overflow.
+        if (token.type === "arg"
+            && i < tokens.length-1 && stringLength + "{0}{0}".length > STR_MAX_LENGTH
+            && !(i === tokens.length-2 && tokens[tokens.length-1].type === "string" && stringLength+"{0}".length+getUtf8Length((tokens[tokens.length-1] as {text: string}).text) <= STR_MAX_LENGTH
+        )) {
+            shouldSplitString = true;
+        }
+
+        if (token.type === "arg" && !(token.index in mappings) && numbersEncountered.length >= STR_MAX_ARGS - 1) {
+            //It is a new number
+
+            // If we've got more than 3 numbers incoming, then we have to split
+            if (uniqueNumbers.length > STR_MAX_ARGS) {
+                shouldSplitString = true;
             } else {
-                // If we have encountered more than 2 numbers and we've either:
-                //   - got more than 3 numbers incoming, or
-                //   - the string would be too long with additional tokens incoming
-                // then we need to split the format string and continue extending
-                // the string in a nested custom string
-                if (numbersEncountered.length >= 2 && (numbers.length > 3 || (i < tokens.length - 1 && stringLength + (tokens[i + 1].type === "string" ? getUtf8Length((tokens[i + 1] as { text: string }).text) + "{0}".length : "{0}".length) > STR_MAX_LENGTH))) {
-                    //split
-                    result += "{2}";
-                    resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
-                    break;
-                } else {
-                    if (!(token.index in mappings)) {
-                        mappings[token.index] = numbersEncountered.length;
+                //Check if the string would overflow if we add all remaining tokens (in which case it would need an additional format arg, so split now)
+                let remainingStringLength = 0;
+                for (let token2 of tokens.slice(i)) {
+                    if (token2.type === "arg") {
+                        remainingStringLength += "{0}".length;
+                    } else {
+                        remainingStringLength += getUtf8Length(token2.text);
                     }
-                    if (!numbersEncountered.includes(token.index)) {
-                        numbersEncountered.push(token.index);
-                        resultArgs.push(args[token.index]);
-                    }
-                    result += "{" + mappings[token.index] + "}";
-                    if (mappings[token.index] > 2) {
-                        error("Custom string parser returned '{" + mappings[token.index] + "}', please report to Zezombye");
-                    }
-                    if (mappings[token.index] === currentNbIndex) {
-                        currentNbIndex++;
-                    }
-                    stringLength += "{0}".length;
+                }
+                if (stringLength + remainingStringLength > STR_MAX_LENGTH) {
+                    shouldSplitString = true;
                 }
             }
         }
+
+
+        if (shouldSplitString) {
+            result += "{" + numbersEncountered.length + "}";
+            if (numbersEncountered.length > STR_MAX_ARGS-1) {
+                error("Custom string parser returned '{" + numbersEncountered.length + "}', please report to Zezombye");
+            }
+            resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));
+            break;
+        }
+
+        if (token.type === "string") {
+            result += token.text;
+            stringLength += getUtf8Length(token.text);
+
+        } else {
+            if (!(token.index in mappings)) {
+                //It is a new number
+                mappings[token.index] = numbersEncountered.length;
+
+                if (numbersEncountered.includes(token.index)) {
+                    error("Custom string parser broke (numbersEncountered already contains index), please report to Zezombye");
+                }
+                numbersEncountered.push(token.index);
+                resultArgs.push(args[token.index]);
+            }
+
+            result += "{" + mappings[token.index] + "}";
+            if (mappings[token.index] > STR_MAX_ARGS-1) {
+                error("Custom string parser returned '{" + mappings[token.index] + "}', please report to Zezombye");
+            }
+            stringLength += "{0}".length;
+        }
+
+
     }
 
-    while (resultArgs.length < 3) {
+    while (resultArgs.length < STR_MAX_ARGS) {
         resultArgs.push(getAstForNull());
     }
 
-    if (resultArgs.length !== 3) {
+    if (resultArgs.length !== STR_MAX_ARGS) {
         error("Custom string parser broke (string args length is " + resultArgs.length + "), please report to Zezombye");
+    }
+
+    if (getUtf8Length(result) > STR_MAX_LENGTH) {
+        error("Custom string parser broke (string char length is "+getUtf8Length(result)+"), please report to Zezombye");
     }
 
     return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")].concat(resultArgs));

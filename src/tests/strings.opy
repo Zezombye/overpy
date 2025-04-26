@@ -41,3 +41,31 @@ string")
     A = "abc".strIndex("b")
     A = "a,b,c".replace(",",";")
     A = "abc".charAt(1)
+
+    #!define 120_CHARS "|_____________________________________________________________________________________________________________120 chars|"
+
+    A = "{}{}{}".format(120_CHARS, 120_CHARS, 120_CHARS)
+    A = "{}{}{}{}{}".format(A,B,C, 120_CHARS, D)
+    #should not be split
+    A = "{}12345678".format(120_CHARS)
+    #should be split
+    A = "{}123456789".format(120_CHARS)
+    #should not be split
+    A = "{}12345{}".format(120_CHARS, A)
+    A = "{}1234{}5".format(120_CHARS, A)
+    A = "{}123{}56".format(120_CHARS, A)
+    A = "{}12{}456".format(120_CHARS, A)
+    A = "{}12{}{}".format(120_CHARS, A,B)
+    A = "{}1{}{}2".format(120_CHARS, A,B)
+    A = "{}{}1{}2".format(120_CHARS, A,B)
+    #should be split
+    A = "{}123456{}".format(120_CHARS, A)
+    A = "{}12345{}6".format(120_CHARS, A)
+    A = "{}1234{}56".format(120_CHARS, A)
+    A = "{}123{}456".format(120_CHARS, A)
+    A = "{}123{}{}4".format(120_CHARS, A, B)
+    A = "{}123{}4{}".format(120_CHARS, A, B)
+    A = "{}12{}34{}".format(120_CHARS, A, B)
+    A = "{}12{}3{}4".format(120_CHARS, A, B)
+    A = "{}1{}2{}34".format(120_CHARS, A, B)
+    A = "{}{}{}{}".format(120_CHARS, A, B, C)
