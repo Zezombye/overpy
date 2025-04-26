@@ -118,7 +118,6 @@ export function tokenize(content: string): LogicalLine[] {
             currentLineNb: startingLine,
             currentColNb: startingCol,
             staticMember: false,
-            fileStackMemberType: "normal",
         });
     }
 
@@ -135,16 +134,10 @@ export function tokenize(content: string): LogicalLine[] {
     function moveCursor(amount: number) {
         for (let j = 0; j < amount; j++) {
             let currentFile = fileStack[fileStack.length - 1];
-            if (currentFile.fileStackMemberType === "webUI") {
-                error("WebUI file stack member not supported in this context (currentFile)");
-            }
             if (!currentFile.staticMember && currentFile.remainingChars > 0) {
                 currentFile.remainingChars--;
                 if (currentFile.remainingChars === 0) {
                     let nextFile = fileStack[fileStack.length - 2];
-                    if (nextFile.fileStackMemberType === "webUI") {
-                        error("WebUI file stack member not supported in this context (nextFile)");
-                    }
                     //debug("macro lines = "+macroLines+", macro cols = "+macroCols);
                     nextFile.currentLineNb += currentFile.callLines;
                     nextFile.currentColNb += currentFile.callLines - 1;
@@ -485,9 +478,6 @@ export function tokenize(content: string): LogicalLine[] {
                         k = 0;
                         i--;
                         let currentFile = fileStack[fileStack.length - 1];
-                        if (currentFile.fileStackMemberType !== "normal") {
-                            error("Tokenizer: File stack member type is not normal");
-                        }
                         if (currentFile.staticMember === false) {
                             currentFile.remainingChars++;
                         }
@@ -548,6 +538,8 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
             }
             scriptContent = vars + "\n" + scriptContent;
             scriptContent = builtInJsFunctions + scriptContent;
+            //console.log(scriptContent);
+            //console.log("owo123");
             try {
                 result = safeEval(scriptContent);
                 if (!result) {
@@ -555,6 +547,9 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
                 }
                 result = result.toString();
             } catch (e: any) {
+                //console.log("aaa");
+                //console.log("b:"+e.toString());
+                //console.log("cccc");
                 let stackTrace = e.stack.split("\n").slice(1).reverse();
                 let encounteredEval = false;
                 for (let line of stackTrace) {
@@ -573,7 +568,6 @@ function resolveMacro(macro: MacroData, args: string[] = [], indentLevel: number
                             currentLineNb: lineNb,
                             currentColNb: colNb,
                             staticMember: true,
-                            fileStackMemberType: "normal",
                         });
                     }
                 }

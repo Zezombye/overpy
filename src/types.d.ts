@@ -159,7 +159,6 @@ export type BaseNormalFileStackMember = {
     name: string;
     currentLineNb: number;
     currentColNb: number;
-    fileStackMemberType: "normal";
 };
 
 export type ScriptFileStackMember = BaseNormalFileStackMember & {
@@ -174,28 +173,8 @@ export type MacroFileStackMember = BaseNormalFileStackMember & {
     callLines: number;
 };
 
-export type BaseWebUIFileStackMember = {
-    rule: string;
-    ruleNb: number;
-    fileStackMemberType: "webUI";
-};
 
-export type RuleWebUIFileStackMember = BaseWebUIFileStackMember & {
-    webUIType: "rule";
-};
-export type ConditionWebUIFileStackMember = BaseWebUIFileStackMember & {
-    webUIType: "condition";
-    conditionNb: number;
-};
-
-export type ActionWebUIFileStackMember = BaseWebUIFileStackMember & {
-    webUIType: "action";
-    actionNb: number;
-};
-
-export type WebUIFileStackMember = RuleWebUIFileStackMember | ConditionWebUIFileStackMember | ActionWebUIFileStackMember;
-
-export type FileStackMember = ScriptFileStackMember | MacroFileStackMember | WebUIFileStackMember;
+export type FileStackMember = ScriptFileStackMember | MacroFileStackMember;
 
 export type BaseMacroData = {
     isFunction: boolean;

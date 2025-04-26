@@ -30,6 +30,8 @@ import { opyMacros } from "./data/opy/macros";
 import { builtInEnumNameToAstInfo } from "./compiler/parser";
 import { parseOpyMacro } from "./utils/compilation";
 import { TranslatedString, TranslationLanguage } from "./compiler/translations";
+import { heroKw } from "./data/heroes";
+import { gamemodeKw } from "./data/gamemodes";
 
 export var globalVariables: Variable[] = [];
 export var playerVariables: Variable[] = [];
@@ -350,9 +352,12 @@ function vect(x,y,z) {
     });
 }
 
-var Map = {${Object.keys(mapKw)
-        .map((x) => `${camelCaseToUpperCase(x)}:'Map.${camelCaseToUpperCase(x)}'`)
-        .join(",")}}
+var Map = {${Object.keys(mapKw).map((x) => `${camelCaseToUpperCase(x)}:'Map.${camelCaseToUpperCase(x)}'`).join(",")}}
+var Hero = {${Object.keys(heroKw).map((x) => `${camelCaseToUpperCase(x)}:'Hero.${camelCaseToUpperCase(x)}'`).join(",")}}
+var Gamemode = {${Object.keys(gamemodeKw).map((x) => `${camelCaseToUpperCase(x)}:'Gamemode.${camelCaseToUpperCase(x)}'`).join(",")}}
+var Color = {${Object.keys(constantValues.ColorLiteral).map((x) => `${camelCaseToUpperCase(x)}:'Color.${camelCaseToUpperCase(x)}'`).join(",")}}
+var Team = {${Object.keys(constantValues.TeamLiteral).map((x) => `${camelCaseToUpperCase(x)}:'Team.${camelCaseToUpperCase(x)}'`).join(",")}}
+var Button = {${Object.keys(constantValues.ButtonLiteral).map((x) => `${camelCaseToUpperCase(x)}:'Button.${camelCaseToUpperCase(x)}'`).join(",")}}
 `;
 
 export const builtInJsFunctionsNbLines = builtInJsFunctions.split("\n").length;
