@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { areAstsAlwaysEqual, Ast, astContainsRandom, getAstForUselessInstruction } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { areAstsAlwaysEqual, Ast, astContainsRandom, astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 

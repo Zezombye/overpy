@@ -18,7 +18,8 @@
 "use strict";
 // @ts-check
 
-import { astParsingFunctions, currentRuleLabelAccess } from "../../globalVars";
+import { currentRuleLabelAccess } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__distanceTo__ = function (content) {
     //Increment the number of times this label is accessed.

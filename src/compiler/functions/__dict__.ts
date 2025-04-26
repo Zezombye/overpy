@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__dict__ = function (content) {

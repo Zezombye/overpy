@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { customGameSettingsKw, valueKw } from "../data/other";
-import { currentLanguage } from "../globalVars";
+import { customGameSettingsKw } from "../data/other";
+import { currentLanguage, valueKw } from "../globalVars";
 import { debug, warn, error } from "./logging";
 import { startsWithParenthesis } from "./other";
 import { unescapeString } from "./strings";

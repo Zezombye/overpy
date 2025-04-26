@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNumber } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.dotProduct = function (content) {
     if (enableOptimization) {

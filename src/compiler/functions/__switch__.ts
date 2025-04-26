@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstForEnd, getAstFor1, getAstForTrue } from "../../utils/ast";
+import { Ast, getAstForEnd, getAstFor1, getAstForTrue, astParsingFunctions } from "../../utils/ast";
 import { error, functionNameToString } from "../../utils/logging";
 import { getUniqueNumber } from "../../utils/other";
 

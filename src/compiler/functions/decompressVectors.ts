@@ -17,11 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { Ast, getAstFor0, getAstFor0_0001, getAstForEmptyArray, getAstForNumber } from "../../utils/ast";
-import { parseOpyMacro } from "../../utils/compilation";
-import { error } from "../../utils/logging";
-import { escapeString } from "../../utils/strings";
+import { astParsingFunctions } from "../../utils/ast";
 import { getDecompressionAst } from "./compressed";
 
 astParsingFunctions.decompressVectors = function (content) {

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNumber, Ast, getAstForMinus1 } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { getAstForNumber, Ast, getAstForMinus1, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__negate__ = function (content) {
     if (enableOptimization) {

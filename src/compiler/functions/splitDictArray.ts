@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstFor0, getAstForEmptyArray, getAstForNull } from "../../utils/ast";
+import { Ast, astParsingFunctions, getAstFor0, getAstForEmptyArray, getAstForNull } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.splitDictArray = function (content) {

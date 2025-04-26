@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__number__ = function (content) {
     content.type = content.args[0].type;

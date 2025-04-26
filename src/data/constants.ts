@@ -16,11 +16,6 @@
  */
 
 import { LocalizableString } from "../types";
-import { heroKw } from "../data/heroes";
-import { mapKw } from "../data/maps";
-import { gamemodeKw } from "../data/gamemodes";
-import { camelCaseToUpperCase } from "../utils/other";
-import { postLoadTasks } from "../globalVars";
 
 export type Constant = LocalizableString & {
     extension?: string,
@@ -9963,34 +9958,3 @@ export const constantValues: Record<string, { description?: string } & Record<st
 }
 //end-json
 ;
-
-postLoadTasks.push({
-    task: () => {
-        // @ts-ignore: we will fill in the description later in this task.
-        constantValues["HeroLiteral"] = {};
-        for (var key of Object.keys(heroKw)) {
-            constantValues["HeroLiteral"][camelCaseToUpperCase(key)] = heroKw[key as keyof typeof heroKw];
-        }
-        // @ts-ignore: we will fill in the description later in this task.
-        constantValues["MapLiteral"] = {};
-        for (var key of Object.keys(mapKw)) {
-            constantValues["MapLiteral"][camelCaseToUpperCase(key)] = mapKw[key];
-        }
-        // @ts-ignore: we will fill in the description later in this task.
-        constantValues["GamemodeLiteral"] = {};
-        for (var key of Object.keys(gamemodeKw)) {
-            constantValues["GamemodeLiteral"][camelCaseToUpperCase(key)] = gamemodeKw[key];
-        }
-
-        constantValues["__ChaseReeval__"] = Object.assign({}, constantValues["ChaseRateReeval"], constantValues["ChaseTimeReeval"]);
-
-        for (var key in constantValues) {
-            if (key.endsWith("Literal")) {
-                constantValues[key].description = "The built-in `"+key.substring(0, key.length-"Literal".length)+"` enum.";
-            } else {
-                constantValues[key].description = "The built-in `"+key+"` enum.";
-            }
-        }
-    },
-    priority: 20
-});

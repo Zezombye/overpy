@@ -18,9 +18,9 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { ruleKw, eventKw, eventTeamKw, eventPlayerKw, wsFuncKw, constantKw, funcKw } from "../data/other";
+import { ruleKw, eventKw, eventTeamKw, eventPlayerKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { currentArrayElementName, currentArrayIndexName, resetDecompilerGotos, resetNbTabs } from "../globalVars";
+import { currentArrayElementName, currentArrayIndexName, resetDecompilerGotos, resetNbTabs, wsFuncKw, constantKw, funcKw } from "../globalVars";
 import { Ast, getAstForNumber, getAstForNull } from "../utils/ast";
 import { getBracketPositions, splitInstructions, getPrefixString, splitStrOnDelimiter, getArgs, getOperatorInStr } from "../utils/decompilation";
 import { error, debug } from "../utils/logging";

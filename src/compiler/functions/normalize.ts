@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNullVector, Ast, getAstForNumber } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { getAstForNullVector, Ast, getAstForNumber, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.normalize = function (content) {
     if (enableOptimization) {

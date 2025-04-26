@@ -17,7 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, globalVariables, playerVariables, defaultVarNames } from "../../globalVars";
+import { globalVariables, playerVariables, defaultVarNames } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 import { error, functionNameToString, warn } from "../../utils/logging";
 import { addVariable } from "../../utils/varNames";
 

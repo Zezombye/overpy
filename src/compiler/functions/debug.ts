@@ -18,8 +18,8 @@
 "use strict";
 
 import { astToOpy } from "../../decompiler/astToOpy";
-import { astParsingFunctions, enableTagsSetup } from "../../globalVars";
-import { Ast, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
+import { enableTagsSetup } from "../../globalVars";
+import { Ast, astParsingFunctions, getAstFor0, getAstForColorWhite, getAstForCustomString, getAstForNull, getAstForNumber, getAstForTeamAll } from "../../utils/ast";
 import { error } from "../../utils/logging";
 import { applyCasedStringModifier } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";

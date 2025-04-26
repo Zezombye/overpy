@@ -17,10 +17,9 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
 import { error } from "../../utils/logging";
 import { blizzGlobalDefaultWidth, blizzGlobalWidths, spaces } from "../../data/opy/blizzardGlobal";
-import { getAstForCustomString } from "../../utils/ast";
+import { astParsingFunctions, getAstForCustomString } from "../../utils/ast";
 import { getBestSpaces } from "./createCasedProgressBarIwt";
 
 astParsingFunctions.spacesForLength = function (content) {

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNumber, getAstFor0, Ast } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { getAstForNumber, getAstFor0, Ast, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.len = function (content) {
     if (content.args[0].name === "__enumType__") {

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForEmptyArray, Ast } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { getAstForEmptyArray, Ast, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions[".slice"] = function (content) {
     if (enableOptimization) {

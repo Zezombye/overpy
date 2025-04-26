@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstFor0 } from "../../utils/ast";
+import { Ast, astParsingFunctions, getAstFor0 } from "../../utils/ast";
 import { error } from "../../utils/logging";
 import { getAstForTranslatedString } from "./__translatedString__";
 

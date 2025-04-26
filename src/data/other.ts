@@ -17,19 +17,7 @@
 
 "use strict";
 // @ts-check
-import { Action, actionKw } from "./actions";
-import { Constant, constantValues } from "./constants";
-import { opyFuncs } from "./opy/functions";
-import { opyMacros } from "./opy/macros";
-import { opyInternalFuncs } from "./opy/internalFunctions";
-import { heroKw } from "./heroes";
-import { valueFuncKw } from "./values";
 import { LocalizableString, ScriptFileStackMember, Value } from "../types";
-import { astParsingFunctions, postLoadTasks, setFileStack } from "../globalVars";
-import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue } from "../utils/ast";
-import { parseOpyMacro } from "../utils/compilation";
-import { error } from "../utils/logging";
-import { builtInEnumNameToAstInfo } from "../compiler/parser";
 
 export const customGameSettingsKw: Record<string, LocalizableString> =
 //begin-json
@@ -748,54 +736,3 @@ export const eventPlayerKw: Record<string, LocalizableString> =
 }
 //end-json
 ;
-
-/**
- * A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
- * Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
-*/
-export let notConstantFunctions: Value[];
-
-export let constantKw: Record<string, Constant> = {};
-
-
-//A value is defined as a function that returns a value (eg: "Has Spawned"), or a constant (number, vector, hero...)
-export let valueKw: Record<string, Value> & Record<string, Constant>;
-
-export let wsFuncKw: Record<string, Action> & Record<string, Value>;
-
-export let funcKw: Record<string, Action> & Record<string, Value> & typeof opyInternalFuncs;
-
-postLoadTasks.push({
-    task: () => {
-        Object.assign(eventPlayerKw, eventSlotKw, heroKw);
-
-        notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
-
-        for (var constant of Object.keys(constantValues)) {
-            for (var value of Object.keys(constantValues[constant])) {
-                constantKw[constant+"."+value] = constantValues[constant][value];
-            }
-        }
-
-        valueKw = Object.assign({}, valueFuncKw, constantKw);
-
-        wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
-
-        funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs, opyMacros);
-
-
-        //Set whether a macro argument is duplicated (if so, it will be checked to not contain random values)
-        for (let macroName in opyMacros) {
-            let macro = opyMacros[macroName];
-            if (macro.args) {
-                for (let arg of macro.args) {
-                    if ((macro.macro.match(new RegExp("\\$" + arg.name, "g")) || []).length > 1) {
-                        arg.isDuplicatedInMacro = true;
-                    }
-                }
-            }
-        }
-
-    },
-    priority: 21
-});

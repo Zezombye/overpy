@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { getAstForNumber, getAstFor0, Ast } from "../../utils/ast";
+import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
+import { getAstForNumber, getAstFor0, Ast, astParsingFunctions } from "../../utils/ast";
 import { warn, functionNameToString, typeToString } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
 

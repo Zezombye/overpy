@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, currentRuleEvent } from "../../globalVars";
-import { getAstForEnd } from "../../utils/ast";
+import { enableOptimization, currentRuleEvent } from "../../globalVars";
+import { astParsingFunctions, getAstForEnd } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 
 astParsingFunctions.__else__ = function (content) {

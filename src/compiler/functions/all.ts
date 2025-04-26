@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.all = function (content) {
     if (content.args[0].name === "__mappedArray__") {

@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, astContainsRandom } from "../../utils/ast";
+import { Ast, astContainsRandom, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions[".append"] = function (content) {
     //That way we don't duplicate the code for 2d/3d array accesses

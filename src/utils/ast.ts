@@ -16,15 +16,17 @@
  */
 
 "use strict";
-import { funcKw } from "../data/other";
 // @ts-check
-import { astParsingFunctions, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack } from "../globalVars";
+import { currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw } from "../globalVars";
 import { error, functionNameToString } from "./logging";
 import { Argument, FileStackMember, Type } from "../types";
 import { isTypeSuitable } from "./types";
 import { constantValues } from "../data/constants";
 import { builtInEnumNameToAstInfo } from "../compiler/parser";
 import { parseOpyMacro } from "./compilation";
+
+//An array of functions for ast parsing (to not have a 4k lines file with all the functions and be able to handle each function in a separate file).
+export var astParsingFunctions: Record<string, (content: Ast) => Ast> = {};
 
 export class RuleAttributes {
     isDelimiter = false;

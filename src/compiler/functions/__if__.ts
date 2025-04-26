@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, currentRuleHasVariableGoto, enableOptimization, currentRuleEvent } from "../../globalVars";
-import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd } from "../../utils/ast";
+import { currentRuleHasVariableGoto, enableOptimization, currentRuleEvent } from "../../globalVars";
+import { getAstForUselessInstruction, Ast, isDefinitelyFalsy, isDefinitelyTruthy, makeChildrenUseless, getAstForEnd, astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__if__ = function (content) {

@@ -18,7 +18,8 @@
 "use strict";
 
 import { constantValues } from "../../data/constants";
-import { astParsingFunctions, activatedExtensions } from "../../globalVars";
+import { activatedExtensions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.playEffect = function (content) {

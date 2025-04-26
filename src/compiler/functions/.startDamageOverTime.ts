@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForUselessInstruction } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { astParsingFunctions, getAstForUselessInstruction } from "../../utils/ast";
 import { warn } from "../../utils/logging";
 
 astParsingFunctions[".startDamageOverTime"] = function (content) {

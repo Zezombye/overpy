@@ -17,7 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
+import { enableOptimization } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__yComponentOf__ = function (content) {
     if (enableOptimization) {

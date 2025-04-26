@@ -17,9 +17,8 @@
 
 "use strict";
 
-import { funcKw } from "../../data/other";
-import { astParsingFunctions, fileStack, workshopSettingWhitespace, workshopSettingNames, setFileStack } from "../../globalVars";
-import { Ast, getAstForMinusInfinity, getAstForInfinity, getAstFor0 } from "../../utils/ast";
+import { fileStack, workshopSettingWhitespace, workshopSettingNames, setFileStack, funcKw } from "../../globalVars";
+import { Ast, getAstForMinusInfinity, getAstForInfinity, getAstFor0, astParsingFunctions } from "../../utils/ast";
 import { error, getTypeCheckFailedMessage, functionNameToString } from "../../utils/logging";
 import { getUtf8Length } from "../../utils/strings";
 import { isTypeSuitable } from "../../utils/types";

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, translationLanguageConstantOpy, translationLanguages } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { translationLanguageConstantOpy, translationLanguages } from "../../globalVars";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 import { escapeString } from "../../utils/strings";

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars";
-import { getAstFor0, getAstForNumber } from "../../utils/ast";
+import { enableOptimization, NUMBER_LIMIT } from "../../globalVars";
+import { astParsingFunctions, getAstFor0, getAstForNumber } from "../../utils/ast";
 import { isTypeSuitable } from "../../utils/types";
 
 astParsingFunctions.__raiseToPower__ = function (content) {

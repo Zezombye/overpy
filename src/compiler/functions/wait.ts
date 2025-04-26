@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, optimizeForSize } from "../../globalVars";
-import { getAstFor0 } from "../../utils/ast";
+import { enableOptimization, optimizeForSize } from "../../globalVars";
+import { astParsingFunctions, getAstFor0 } from "../../utils/ast";
 import { warn } from "../../utils/logging";
 
 astParsingFunctions.wait = function (content) {

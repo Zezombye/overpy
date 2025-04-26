@@ -17,7 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, currentRuleHasVariableGoto, setRuleHasVariableGoto } from "../../globalVars";
+import { currentRuleHasVariableGoto, setRuleHasVariableGoto } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__skip__ = function (content) {
     if (content.args[0].name !== "__distanceTo__") {

@@ -17,9 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { astToString } from "../../utils/logging";
-import { parseAst } from "../astParser";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.sorted = function (content) {
 

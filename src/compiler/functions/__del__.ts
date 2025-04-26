@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, astContainsRandom } from "../../utils/ast";
+import { Ast, astContainsRandom, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error, functionNameToString } from "../../utils/logging";
 

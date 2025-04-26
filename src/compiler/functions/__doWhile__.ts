@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { isDefinitelyFalsy, getAstForUselessInstruction, isDefinitelyTruthy, Ast } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { isDefinitelyFalsy, getAstForUselessInstruction, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.__doWhile__ = function (content) {

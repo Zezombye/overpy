@@ -17,12 +17,16 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT } from "../../globalVars";
+import { enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT } from "../../globalVars";
 import { Token } from "../../compiler/tokenizer";
-import { getAstForNull, Ast } from "../../utils/ast";
+import { getAstForNull, Ast, astParsingFunctions } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 import { getUtf8Length } from "../../utils/strings";
 import { getAstForTranslatedString } from "./__translatedString__";
+
+//The max length of a custom string, in UTF-8 characters. Beyond this limit, we need to split the string.
+//The max total length of 511 bytes got removed.
+const STR_MAX_LENGTH = 128;
 
 astParsingFunctions[".format"] = function (content) {
     //Localized strings take one element more than custom strings.
@@ -59,12 +63,10 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
     var numberIndex = 0;
     var args: Ast[] = [];
     var argsAreNumbered = null;
-    var isConvertedToBigLetters = false;
 
     //Used to reorder args for easier optimization.
     //Eg "{1}{0}" is converted to "{0}{1}", with the arguments obviously switched.
     var numberMapping: Record<number, number> = {};
-    var containsNonFullwidthChar = false;
 
 
     //Tokenize string
@@ -237,7 +239,7 @@ function parseCustomString(str: Ast, formatArgs: Ast[]) {
 }
 
 function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: number; type: "arg" })[], args: Ast[]) {
-    var result = "";
+    var result: string = "";
     var resultArgs: Ast[] = [];
     var numbers: number[] = [];
     var numbersEncountered: number[] = [];
@@ -260,19 +262,20 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
     //For now, no optimization: just split if more than 3 unique numbers
 
     //Compilation optimization: do not do this whole loop if the string is "simple" (aka one token that doesn't need to be split)
-    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= 128) {
+    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= STR_MAX_LENGTH) {
         result = tokens[0].text;
+        return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral")])
     } else {
         for (var i = 0; i < tokens.length; i++) {
             //length check
             let token = tokens[i];
-            if ((token.type === "string" && stringLength + getUtf8Length(token.text) > 128 - (i === tokens.length - 1 ? 0 : "{0}".length)) || (token.type === "arg" && stringLength + "{0}".length > 128 - (i === tokens.length - 1 ? 0 : "{0}".length))) {
+            if ((token.type === "string" && stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length)) || (token.type === "arg" && stringLength + "{0}".length > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length))) {
                 var splitString = false;
-                if (token.type === "string" && (stringLength + getUtf8Length(token.text) > 128 || tokens.length > i)) {
+                if (token.type === "string" && (stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH || tokens.length > i)) {
                     var tokenText = [...token.text];
                     var tokenSliceLength = 0;
                     var sliceIndex = 0;
-                    for (var j = 0; stringLength + tokenSliceLength < 128 - "{0}".length * 2; j++) {
+                    for (var j = 0; stringLength + tokenSliceLength < STR_MAX_LENGTH - "{0}".length * 2; j++) {
                         tokenSliceLength += getUtf8Length(tokenText[j] + "");
                         sliceIndex++;
                     }
@@ -304,7 +307,7 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
                 //   - the string would be too long with additional tokens incoming
                 // then we need to split the format string and continue extending
                 // the string in a nested custom string
-                if (numbersEncountered.length >= 2 && (numbers.length > 3 || (i < tokens.length - 1 && stringLength + (tokens[i + 1].type === "string" ? getUtf8Length((tokens[i + 1] as { text: string }).text) + "{0}".length : "{0}".length) > 128))) {
+                if (numbersEncountered.length >= 2 && (numbers.length > 3 || (i < tokens.length - 1 && stringLength + (tokens[i + 1].type === "string" ? getUtf8Length((tokens[i + 1] as { text: string }).text) + "{0}".length : "{0}".length) > STR_MAX_LENGTH))) {
                     //split
                     result += "{2}";
                     resultArgs.push(parseStringTokens(tokens.slice(i, tokens.length), args));

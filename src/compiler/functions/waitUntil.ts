@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 import { warn } from "../../utils/logging";
 import { isTypeSuitable } from "../../utils/types";
 

@@ -20,8 +20,8 @@
 import { table } from "console";
 import { constantValues } from "../data/constants";
 import { stringKw } from "../data/localizedStrings";
-import { eventSlotKw, funcKw } from "../data/other";
-import { activatedExtensions, astOperatorPrecedence, currentArrayElementName, currentArrayIndexName, currentRuleHasVariableGoto, decompilationLabelNumber, decompilerGotos, decrementNbTabs, incrementDecompilationLabelNumber, incrementNbTabs, nbTabs, resetDecompilationLabelNumber, resetDecompilerGotos, resetRuleHasVariableGoto, setCurrentArrayElementName, setCurrentArrayIndexName, setNbTabs, setRuleHasVariableGoto } from "../globalVars";
+import { eventSlotKw } from "../data/other";
+import { activatedExtensions, astOperatorPrecedence, currentArrayElementName, currentArrayIndexName, currentRuleHasVariableGoto, decompilationLabelNumber, decompilerGotos, decrementNbTabs, incrementDecompilationLabelNumber, incrementNbTabs, nbTabs, resetDecompilationLabelNumber, resetDecompilerGotos, resetRuleHasVariableGoto, setCurrentArrayElementName, setCurrentArrayIndexName, setNbTabs, setRuleHasVariableGoto, funcKw } from "../globalVars";
 import { areAstsAlwaysEqual, Ast, astContainsFunctions, getAstFor0, getAstForArgDefault } from "../utils/ast";
 import { error, debug } from "../utils/logging";
 import { tabLevel } from "../utils/other";

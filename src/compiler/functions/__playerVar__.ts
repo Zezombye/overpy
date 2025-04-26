@@ -17,6 +17,6 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.__playerVar__ = astParsingFunctions.__globalVar__;

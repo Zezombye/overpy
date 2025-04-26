@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { Ast, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { Ast, astParsingFunctions, getAstFor1, getAstForFalse, getAstForNull } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
 
 astParsingFunctions.__valueInArray__ = function (content) {

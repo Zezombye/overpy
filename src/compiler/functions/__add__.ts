@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization, NUMBER_LIMIT } from "../../globalVars.js";
-import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2 } from "../../utils/ast.js";
+import { enableOptimization, NUMBER_LIMIT } from "../../globalVars.js";
+import { getAstForNumber, areAstsAlwaysEqual, Ast, getAstFor2, astParsingFunctions } from "../../utils/ast.js";
 import { warn, getTypeCheckFailedMessage } from "../../utils/logging.js";
 import { isTypeSuitable } from "../../utils/types.js";
 

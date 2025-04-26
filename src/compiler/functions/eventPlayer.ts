@@ -17,7 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, currentRuleEvent } from "../../globalVars";
+import { currentRuleEvent } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
 import { error } from "../../utils/logging";
 
 astParsingFunctions.eventPlayer = function (content) {

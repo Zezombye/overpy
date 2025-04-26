@@ -17,10 +17,9 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
 import { error } from "../../utils/logging";
 import { blizzGlobalDefaultWidth, blizzGlobalWidths } from "../../data/opy/blizzardGlobal";
-import { getAstForNumber } from "../../utils/ast";
+import { astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
 export function getStrVisualLength(text: string) {
     if (text.includes("\n")) {

@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { Ast, getAstForNumber } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { Ast, astParsingFunctions, getAstForNumber } from "../../utils/ast";
 
 astParsingFunctions.max = function (content) {
     if (enableOptimization) {

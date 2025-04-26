@@ -17,8 +17,7 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
-import { Ast, getAstForCustomString, getAstForFucktonOfSpaces } from "../../utils/ast";
+import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpaces } from "../../utils/ast";
 
 astParsingFunctions.hudText = function (content) {
     if (content.args[4].name === "ACTUALLY_LEFT") {

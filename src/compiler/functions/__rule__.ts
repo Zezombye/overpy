@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, fileStack, enableOptimization, setFileStack } from "../../globalVars";
-import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast } from "../../utils/ast";
+import { fileStack, enableOptimization, setFileStack } from "../../globalVars";
+import { getAstForUselessInstruction, getAstForNumber, isDefinitelyFalsy, isDefinitelyTruthy, Ast, astParsingFunctions } from "../../utils/ast";
 import { debug, error } from "../../utils/logging";
 
 astParsingFunctions.__rule__ = function (content) {

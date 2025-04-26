@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { getAstForNumber, Ast, getAstFor10000, getAstFor0_0001, getAstFor1 } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { getAstForNumber, Ast, getAstFor10000, getAstFor0_0001, getAstFor1, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 
 astParsingFunctions.log = function (content) {

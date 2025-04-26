@@ -17,8 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions, enableOptimization } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { enableOptimization } from "../../globalVars";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 
 astParsingFunctions.vect = function (content) {
     if (enableOptimization) {

@@ -2,9 +2,9 @@
 // ! the order in which esbuild includes the files.
 // !
 // ! Yes, this sucks. Too bad!
+import { currentLanguage, macros, resetGlobalVariables, postInitialLoad } from "./globalVars";
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
-import { currentLanguage, macros, resetGlobalVariables, postInitialLoad } from "./globalVars";
 import { actionKw } from "./data/actions";
 import { constantValues } from "./data/constants";
 import { customGameSettingsSchema } from "./data/customGameSettings";

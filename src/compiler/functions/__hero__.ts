@@ -17,7 +17,8 @@
 
 "use strict";
 
-import { astParsingFunctions } from "../../globalVars";
+import { astParsingFunctions } from "../../utils/ast";
+
 
 astParsingFunctions.__hero__ = function (content) {
     if (content.expectedType === "HeroLiteral" || content.parent?.name === "__createWorkshopSetting__" || content.parent?.name === "createWorkshopSettingHero") {

@@ -18,8 +18,8 @@
 "use strict";
 
 import { spaces } from "../../data/opy/blizzardGlobal";
-import { astParsingFunctions, translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
-import { Ast } from "../../utils/ast";
+import { translationLanguageConstantOpy, translationLanguages, usePlayerVarForTranslations } from "../../globalVars";
+import { Ast, astParsingFunctions } from "../../utils/ast";
 import { parseOpyMacro } from "../../utils/compilation";
 import { error } from "../../utils/logging";
 import { escapeString } from "../../utils/strings";
