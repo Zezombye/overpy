@@ -1001,6 +1001,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         "getNumberOfDoTIds": "getNumberOfDamageOverTimeIds",
         "getNumberOfHoTIds": "getNumberOfHealingOverTimeIds",
         "moveToTeam": ".moveToTeam",
+        "printLog": "logToInspector",
         "rgba": "rgb",
         "hsla": "hsl",
         "updateEveryTick": "updateEveryFrame",

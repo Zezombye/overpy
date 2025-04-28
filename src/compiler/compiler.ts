@@ -145,10 +145,11 @@ export async function compile(
             }
         }).join("0");
 
-        addVariable("__overpyTranslationHelper__", true, -1, tokenize("p"+escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         if (usePlayerVarForTranslations) {
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
             addVariable("__languageIndex__", false, -1, tokenize("1.1")[0].tokens);
+        } else {
+            addVariable("__overpyTranslationHelper__", true, -1, tokenize("p"+escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         }
     }
 
@@ -167,6 +168,10 @@ export async function compile(
 
     if (usePlayerVarForTranslations) {
 
+        if (translationLanguages.length === 0) {
+            error("Translations must be setup using the #!translations directive");
+        }
+
         let translationSetupRule: any =
         `
 rule "OverPy translation setup - Determine the player's language":
@@ -184,7 +189,7 @@ rule "OverPy translation setup - Determine the player's language":
     #Because of precision errors, we round to the hundredth.
     waitUntil(round(eventPlayer.getHorizontalFacingAngle()*100)/100 % 20 == 0 and round(eventPlayer.getVerticalFacingAngle()*100)/100 == 5, 15)
 
-    eventPlayer.__languageIndex__ = min(1, round(eventPlayer.getHorizontalFacingAngle()/20))
+    eventPlayer.__languageIndex__ = max(1, (round(eventPlayer.getVerticalFacingAngle()*100)/100 == 5) * round(eventPlayer.getHorizontalFacingAngle()/20))
 
     eventPlayer.stopFacing()
     eventPlayer.setFacing(null, Relativity.TO_WORLD)

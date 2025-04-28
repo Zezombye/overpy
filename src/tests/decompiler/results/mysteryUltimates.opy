@@ -178,7 +178,7 @@ def ChooseNewUltimateHero():
         if DEBUG_LOG_EVENTS:
             if not DEBUG_MODE:
                 enableInspector()
-            printLog("{0}{1}{2}".format("{0}{1}{2}".format(eventPlayer, " got native ult (", eventPlayer.getHero()), "). FORCE_NON_NATIVE_ULTIMATE: ", FORCE_NON_NATIVE_ULTIMATE))
+            logToInspector("{0}{1}{2}".format("{0}{1}{2}".format(eventPlayer, " got native ult (", eventPlayer.getHero()), "). FORCE_NON_NATIVE_ULTIMATE: ", FORCE_NON_NATIVE_ULTIMATE))
             if not DEBUG_MODE:
                 disableInspector()
         eventPlayer.allowButton(Button.ULTIMATE)
@@ -388,7 +388,7 @@ def UltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling overall ult state event "), eventPlayer.ultimateEvent, " in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
+        logToInspector("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling overall ult state event "), eventPlayer.ultimateEvent, " in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
     goto loc+[7, 0, 2, 4, 6][["NORMAL", "PREPARING_ULT", "USING_ULT", "LINGERING"].index(eventPlayer.ultimateState) + 1]
@@ -405,7 +405,7 @@ def UltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling overall ult state event "), eventPlayer.ultimateEvent, "; now in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
+        logToInspector("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling overall ult state event "), eventPlayer.ultimateEvent, "; now in state "), eventPlayer.ultimateState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
 
@@ -495,7 +495,7 @@ def PreparingUltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling preparing ult state event "), eventPlayer.preparingUltEvent, " in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
+        logToInspector("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Handling preparing ult state event "), eventPlayer.preparingUltEvent, " in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
     goto loc+[9, 0, 2, 4, 6, 8][["NONE", "SWITCHING_HEROES", "STALLING", "ACTIVATING_ULT", "CASTING_ULT"].index(eventPlayer.preparingUltState) + 1]
@@ -515,7 +515,7 @@ def PreparingUltimateEventHandler():
     if DEBUG_LOG_EVENTS:
         if not DEBUG_MODE:
             enableInspector()
-        printLog("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling preparing ult state event "), eventPlayer.preparingUltEvent, "; now in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
+        logToInspector("{0}{1}".format("{0}{1}{2}".format("{0}{1}{2}".format("{0}{1}{2}".format("[", eventPlayer, "] Finished handling preparing ult state event "), eventPlayer.preparingUltEvent, "; now in state "), eventPlayer.preparingUltState, ", on hero "), eventPlayer.getHero()))
         if not DEBUG_MODE:
             disableInspector()
 

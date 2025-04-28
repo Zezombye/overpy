@@ -7138,7 +7138,7 @@ export const actionKw: Record<string, Action> =
         "ru-RU": "Play Effect",
         "zh-TW": "Play Effect"
     },
-    "printLog": {
+    "logToInspector": {
         "description": "Causes the workshop inspector to record a log entry.",
         "args": [
             {

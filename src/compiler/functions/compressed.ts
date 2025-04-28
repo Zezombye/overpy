@@ -34,7 +34,8 @@ type CompressionInfo = {
 //Use base 100 to compress more efficiently
 //Use 1 and 2-byte chars to reduce the kb taken.
 //Do NOT use letters and numbers because they can be censored (even numbers as they can form stuff like 1488). I allowed "Q", "q" and "2" because idk how you could make a swear word with that.
-let alphabet = "\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\n\u000B\u000C\r\u000E\u000F\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C\u001D\u001E\u001F !\"#$%&'()*+,-./2:;<=>?@Q[\\]^_`q{|}~\u007F\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008A\u008B\u008C\u008D\u008E\u008F\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009A\u009B\u009C\u009D\u009E\u009F";
+//Also do not use the "{" character to avoid creating formatters like {0}.
+let alphabet = "\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\n\u000B\u000C\r\u000E\u000F\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001A\u001B\u001C\u001D\u001E\u001F !\"#$%&'()*+,-./2:;<=>?@Q[\\]^_`q|}~\u007F\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008A\u008B\u008C\u008D\u008E\u008F\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009A\u009B\u009C\u009D\u009E\u009F\u00A1";
 
 export function prepareAstForCompression(content: Ast, assumeDefaultValues=false) {
 

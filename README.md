@@ -235,7 +235,6 @@ If a function is not in that list, then the name is the English name in camelCas
 <code>Is True For Any(<i>array</i>, Current Array Element == 2 && Current Array Index > 4)</code> | <code>any([<i>elem</i> == 2 and <i>idx</i> > 4 for <i>elem</i>, <i>idx</i> in <i>array</i>])</code><br>Also see Filtered Array.
 <code>Last Of(<i>array</i>)</code>                                     | <code><i>array</i>.last()</code>
 <code>Left</code>                                        | <code>Vector.LEFT</code>
-<code>Log To Inspector</code>                            | <code>printLog()</code>
 <code>Loop If(A == 2)</code>                                     | <code>if A == 2:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
 <code>Loop If Condition Is False</code>                  | <code>if not ruleCondition:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
 <code>Loop If Condition Is True</code>                   | <code>if ruleCondition:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;loop()</code>
@@ -522,7 +521,7 @@ Suppresses the specified warnings globally across the program. Warnings must be 
 
 ## Optimizations
 
-By default, OverPy automatically optimizes gamemodes for speed. This means useless code is converted, calculations are done when possible, and function patterns are replaced with builtin functions.
+By default, OverPy automatically optimizes gamemodes for speed. This means useless code is removed, calculations are done when possible, and function patterns are replaced with builtin functions.
 
 For example:
 
@@ -565,9 +564,9 @@ Normal macros are declared with the `#!define` directive:
 #!define TEAM_ZOMBIES 2
 ```
 
-This is primarly useful for declaring constants.
+This is primarily useful for declaring constants.
 
-The `#!defineMember` directive behaves exactly the same as `#!define`, except the VS Code extension will put the autocompletion in the dot trigger. This is primarly useful for vectors: if you have a vector that stores 3 distinct numbers, you can do `#!defineMember someVar x` to do `vector.someVar` instead of `vector.x`.
+The `#!defineMember` directive behaves exactly the same as `#!define`, except the VS Code extension will put the autocompletion in the dot trigger. This is primarily useful for vectors: if you have a vector that stores 3 distinct numbers, you can do `#!defineMember someVar x` to do `vector.someVar` instead of `vector.x`.
 
 ## Function macros
 
@@ -609,6 +608,7 @@ For the technical details:
 
 - Arguments are automatically inserted into the script (in this case, `var x = 123;` would be inserted at the top of the script)
 - A `vect()` function is automatically inserted, so that `vect(1,2,3)` returns an object with the correct x, y, and z properties and `toString()` function
+- The `Map`, `Gamemode`, `Hero`, `Color`, `Team` and `Button` enums can also be used (`Map.KANEZAKA` will return `"Map.KANEZAKA"`)
 - The script is then evaluated using a JavaScript interpreter
 
 # Advanced constructs
@@ -839,16 +839,7 @@ This also means that, when used in a variable, you cannot use a translated strin
 - `(-1.00, 0.00, 0.00)` (`Vector.RIGHT`)
 - `(0.00, 0.00, 1.00)` (`Vector.FORWARD`)
 - `(0.00, 0.00, -1.00)` (`Vector.BACKWARD`)
-- `1876650.25`
-- `1876651.25`
-- `1876652.25`
-- `1876653.25`
-- `1876654.25`
-- `1876655.25`
-- `1876656.25`
-- `1876657.25`
-- `1876658.25`
-- `1876659.25`
+- `1876650.25`, `1876651.25`, `1876652.25`, `1876653.25`, `1876654.25`, `1876655.25`, `1876656.25`, `1876657.25`, `1876658.25`, `1876659.25`
 
 Last, you can use the `#!translateWithPlayerVar` directive to store the player's language in a variable and save on elements, but it is potentially invasive (although it should work with the vast majority of gamemodes).
 
@@ -875,12 +866,12 @@ This will appear to work, but this is evaluated server-side, and what it actuall
 When in a reevaluated HUD text, `t"Some string"` resolves to:
 
 ```py
-["Some string", "Une chaîne"][["White", "Blanc"].index("{}").format(Color.WHITE)]
+["Some string", "Une chaîne"][["White", "Blanc"].index("{}".format(Color.WHITE))]
 ```
 
 This works as reevaluated text is evaluated client-side. To check if something is evaluated client-side, check if `inputBindingString` isn't 0 or `localPlayer` isn't 0.
 
-When in a variable, `text = t"Some string"` just resolves to `text = ["Some string", "Une chaîne"]`. We cannot access the array now as we do not know the player's language, and so we need to access it in the HUD text. So `_(text)` will then resolve to `text[["White", "Blanc"].index("{}").format(Color.WHITE)]`.
+When in a variable, `text = t"Some string"` just resolves to `text = ["Some string", "Une chaîne"]`. We cannot access the array now as we do not know the player's language, and so we need to access it in the HUD text. So `_(text)` will then resolve to `text[["White", "Blanc"].index("{}".format(Color.WHITE))]`.
 
 Since we are dealing with the array form of the translated string between declaration and display, we cannot perform any operations on it like we would on a normal string.
 
