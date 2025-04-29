@@ -63,7 +63,7 @@ export const opyAnnotations: Record<string, {
         args: [{
             "name": "hero",
             "description": "The hero of the event.",
-            "values": Object.keys(heroKw).map(x => x.toLowerCase()),
+            "values": Object.keys(heroKw),
         }]
     },
     "@Condition": {

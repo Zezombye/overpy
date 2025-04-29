@@ -148,6 +148,7 @@ import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
 import { parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
+import { upperCaseToCamelCase } from "../utils/other";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
@@ -179,7 +180,17 @@ export function parseAstRules(rules: Ast[]) {
 
                 if (rule.children[i].args.length === 3 && (rule.children[i].args[0].name === "Team" || rule.children[i].args[0].name === "Hero") && rule.children[i].args[1].name === ".") {
                     rule.children[i].args = [rule.children[i].args[2]];
-                    rule.children[i].args[0].name = rule.children[i].args[0].name.toLowerCase();
+                    rule.children[i].args[0].name = upperCaseToCamelCase(rule.children[i].args[0].name);
+                }
+
+                if (rule.children[i].name === "@Hero") {
+                    //legacy hero names
+                    if (rule.children[i].args[0].name === "mccree") {
+                        rule.children[i].args[0].name = "cassidy";
+                    }
+                    if (rule.children[i].args[0].name === "hammond") {
+                        rule.children[i].args[0].name = "wreckingBall";
+                    }
                 }
 
                 if (rule.children[i].args.length !== 1) {
