@@ -56,65 +56,71 @@ export function decompileRuleToAst(content: string): Ast {
 
     debug("Decompiling rule " + ruleName);
 
-    var ruleContent = content.substring(bracketPos[2] + 1, bracketPos[3]);
+    try {
 
-    var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
+        var ruleContent = content.substring(bracketPos[2] + 1, bracketPos[3]);
 
-    var eventInst: string[] = [];
-    var conditions = "";
-    var actions = "";
+        var bracketPos2 = [-1].concat(getBracketPositions(ruleContent));
 
-    for (var i = 0; i < bracketPos2.length - 2; i += 2) {
-        var fieldName = topy(ruleContent.substring(bracketPos2[i] + 1, bracketPos2[i + 1]), ruleKw);
-        if (fieldName === "__event__") {
-            eventInst = splitInstructions(ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]));
-        } else if (fieldName === "__conditions__") {
-            //conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
-            conditions = "conditions {" + ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]) + "}";
-        } else if (fieldName === "__actions__") {
-            //actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
-            actions = "actions {" + ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]) + "}";
-        } else {
-            error("Unknown field name " + fieldName + " in rule " + ruleName);
-        }
-    }
+        var eventInst: string[] = [];
+        var conditions = "";
+        var actions = "";
 
-    //Parse events
-    if (eventInst.length > 0) {
-        var eventName = topy(eventInst[0], eventKw);
-        ruleAttributes.event = eventName;
-
-        if (eventName === "__subroutine__") {
-            if (eventInst.length !== 2) {
-                error("Malformed subroutine event");
-            }
-            var subroutineName = translateSubroutineToPy(eventInst[1].trim());
-            ruleAttributes.subroutineName = subroutineName;
-        } else {
-            if (eventInst.length > 1) {
-                //There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
-                ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
-                ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
+        for (var i = 0; i < bracketPos2.length - 2; i += 2) {
+            var fieldName = topy(ruleContent.substring(bracketPos2[i] + 1, bracketPos2[i + 1]), ruleKw);
+            if (fieldName === "__event__") {
+                eventInst = splitInstructions(ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]));
+            } else if (fieldName === "__conditions__") {
+                //conditions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+                conditions = "conditions {" + ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]) + "}";
+            } else if (fieldName === "__actions__") {
+                //actions = splitInstructions(ruleContent.substring(bracketPos2[i+1]+1, bracketPos2[i+2]));
+                actions = "actions {" + ruleContent.substring(bracketPos2[i + 1] + 1, bracketPos2[i + 2]) + "}";
+            } else {
+                error("Unknown field name " + fieldName + " in rule " + ruleName);
             }
         }
+
+        //Parse events
+        if (eventInst.length > 0) {
+            var eventName = topy(eventInst[0], eventKw);
+            ruleAttributes.event = eventName;
+
+            if (eventName === "__subroutine__") {
+                if (eventInst.length !== 2) {
+                    error("Malformed subroutine event");
+                }
+                var subroutineName = translateSubroutineToPy(eventInst[1].trim());
+                ruleAttributes.subroutineName = subroutineName;
+            } else {
+                if (eventInst.length > 1) {
+                    //There cannot be only 2 event instructions: it's either 1 (global) or 3 (every other event).
+                    ruleAttributes.eventTeam = topy(eventInst[1], eventTeamKw);
+                    ruleAttributes.eventPlayer = topy(eventInst[2], eventPlayerKw);
+                }
+            }
+        }
+
+        //Parse conditions
+        if (conditions !== "") {
+            ruleAttributes.conditions = decompileConditions(conditions);
+        }
+
+        //Parse actions
+        let astActions = [] as Ast[];
+        if (actions !== "") {
+            astActions = decompileActions(actions);
+        }
+
+        var astRule = new Ast("__rule__", [], astActions);
+        astRule.ruleAttributes = ruleAttributes;
+        astRule.ruleAttributes.isDisabled = currentRuleIsDisabled;
+
+        return astRule;
+    } catch (e) {
+        error("In rule "+ruleName+": " + e);
     }
 
-    //Parse conditions
-    if (conditions !== "") {
-        ruleAttributes.conditions = decompileConditions(conditions);
-    }
-
-    //Parse actions
-    let astActions = [] as Ast[];
-    if (actions !== "") {
-        astActions = decompileActions(actions);
-    }
-
-    var astRule = new Ast("__rule__", [], astActions);
-    astRule.ruleAttributes = ruleAttributes;
-    astRule.ruleAttributes.isDisabled = currentRuleIsDisabled;
-
-    return astRule;
 }
 
 export function decompileConditions(content: string) {

@@ -27,10 +27,15 @@ astParsingFunctions.__else__ = function (content) {
     }
 
     //Check if the else is directly preceded by an elif/if/else.
+    //Do not raise an error because that is valid workshop syntax and can be used for gotos
     if (content.parent.childIndex === 0 || !["__if__", "__elif__", "__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
-        error("Found 'else', but no 'if' or 'elif' before it");
+        //Except if the parent is an if/elif/else because then the generated code will not work properly
+        if (["__if__", "__elif__", "__else__"].includes(content.parent.name)) {
+            error("Found 'else', but no 'if' or 'elif' before it");
+        }
+        warn("w_lone_else", "Found 'else', but no 'if' or 'elif' before it");
     }
-    if (["__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
+    if (content.parent.childIndex === 0 || ["__else__"].includes(content.parent.children[content.parent.childIndex - 1].name)) {
         warn("w_lone_else", "Found 'else' directly after another 'else'");
     }
 

@@ -34,69 +34,74 @@ export function astRulesToOpy(rules: Ast[]) {
     var result = "";
 
     for (var rule of rules) {
-        var decompiledRule = "";
-        var decompiledRuleAttributes = "";
-        setNbTabs(1);
-        resetDecompilationLabelNumber();
-        resetRuleHasVariableGoto();
+        try {
 
-        if (rule.ruleAttributes.event === "__subroutine__") {
-            decompiledRule += "def " + rule.ruleAttributes.subroutineName + "():\n";
-            decompiledRuleAttributes += tabLevel(nbTabs) + "@Name " + escapeString(rule.ruleAttributes.name, false) + "\n";
-        } else {
-            decompiledRule += "rule " + escapeString(rule.ruleAttributes.name, false) + ":\n";
+            var decompiledRule = "";
+            var decompiledRuleAttributes = "";
+            setNbTabs(1);
+            resetDecompilationLabelNumber();
+            resetRuleHasVariableGoto();
 
-            //Decompile the rule attributes
-            if (rule.ruleAttributes.event !== "global") {
-                decompiledRuleAttributes += tabLevel(nbTabs) + "@Event " + rule.ruleAttributes.event + "\n";
-            }
-            if (rule.ruleAttributes.eventTeam && rule.ruleAttributes.eventTeam !== "all") {
-                decompiledRuleAttributes += tabLevel(nbTabs) + "@Team " + rule.ruleAttributes.eventTeam + "\n";
-            }
-            if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
-                if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
-                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Slot " + rule.ruleAttributes.eventPlayer + "\n";
-                } else {
-                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Hero " + rule.ruleAttributes.eventPlayer + "\n";
+            if (rule.ruleAttributes.event === "__subroutine__") {
+                decompiledRule += "def " + rule.ruleAttributes.subroutineName + "():\n";
+                decompiledRuleAttributes += tabLevel(nbTabs) + "@Name " + escapeString(rule.ruleAttributes.name, false) + "\n";
+            } else {
+                decompiledRule += "rule " + escapeString(rule.ruleAttributes.name, false) + ":\n";
+
+                //Decompile the rule attributes
+                if (rule.ruleAttributes.event !== "global") {
+                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Event " + rule.ruleAttributes.event + "\n";
+                }
+                if (rule.ruleAttributes.eventTeam && rule.ruleAttributes.eventTeam !== "all") {
+                    decompiledRuleAttributes += tabLevel(nbTabs) + "@Team " + rule.ruleAttributes.eventTeam + "\n";
+                }
+                if (rule.ruleAttributes.eventPlayer && rule.ruleAttributes.eventPlayer !== "all") {
+                    if (rule.ruleAttributes.eventPlayer in eventSlotKw) {
+                        decompiledRuleAttributes += tabLevel(nbTabs) + "@Slot " + rule.ruleAttributes.eventPlayer + "\n";
+                    } else {
+                        decompiledRuleAttributes += tabLevel(nbTabs) + "@Hero " + rule.ruleAttributes.eventPlayer + "\n";
+                    }
+                }
+                if (rule.ruleAttributes.conditions) {
+                    let conditions = rule.ruleAttributes.conditions as Ast[];
+                    for (var condition of conditions) {
+                        if (condition.comment) {
+                            decompiledRuleAttributes += condition.comment
+                                .split("\n")
+                                .map((x) => tabLevel(nbTabs) + "#" + x + "\n")
+                                .join("");
+                        }
+                        decompiledRuleAttributes += tabLevel(nbTabs);
+                        if (condition.isDisabled) {
+                            decompiledRuleAttributes += "#";
+                        }
+                        decompiledRuleAttributes += "@Condition " + astToOpy(condition) + "\n";
+                    }
                 }
             }
-            if (rule.ruleAttributes.conditions) {
-                let conditions = rule.ruleAttributes.conditions as Ast[];
-                for (var condition of conditions) {
-                    if (condition.comment) {
-                        decompiledRuleAttributes += condition.comment
-                            .split("\n")
-                            .map((x) => tabLevel(nbTabs) + "#" + x + "\n")
-                            .join("");
-                    }
-                    decompiledRuleAttributes += tabLevel(nbTabs);
-                    if (condition.isDisabled) {
-                        decompiledRuleAttributes += "#";
-                    }
-                    decompiledRuleAttributes += "@Condition " + astToOpy(condition) + "\n";
-                }
+            if (rule.ruleAttributes.isDisabled) {
+                decompiledRuleAttributes += tabLevel(nbTabs) + "@Disabled\n";
             }
-        }
-        if (rule.ruleAttributes.isDisabled) {
-            decompiledRuleAttributes += tabLevel(nbTabs) + "@Disabled\n";
-        }
-        //In most cases, empty rules are delimiters. Keep them in just in case the user still wants them in the output
-        if (rule.children.length === 0) {
-            decompiledRuleAttributes += tabLevel(nbTabs) + "@Delimiter\n";
-        }
-        if (decompiledRuleAttributes) {
-            decompiledRuleAttributes += tabLevel(nbTabs) + "\n";
-        }
-        decompiledRule += decompiledRuleAttributes;
+            //In most cases, empty rules are delimiters. Keep them in just in case the user still wants them in the output
+            if (rule.children.length === 0) {
+                decompiledRuleAttributes += tabLevel(nbTabs) + "@Delimiter\n";
+            }
+            if (decompiledRuleAttributes) {
+                decompiledRuleAttributes += tabLevel(nbTabs) + "\n";
+            }
+            decompiledRule += decompiledRuleAttributes;
 
-        //Decompile the rule actions
-        decompiledRule += astActionsToOpy(rule.children);
+            //Decompile the rule actions
+            decompiledRule += astActionsToOpy(rule.children);
 
-        /*if (rule.ruleAttributes.isDisabled) {
-            decompiledRule = "/*\n" + decompiledRule + "*\/";
-        }*/
-        decompiledRule += "\n\n";
-        result += decompiledRule;
+            /*if (rule.ruleAttributes.isDisabled) {
+                decompiledRule = "/*\n" + decompiledRule + "*\/";
+            }*/
+            decompiledRule += "\n\n";
+            result += decompiledRule;
+        } catch (e) {
+            error("Error while decompiling rule '" + rule.ruleAttributes.name + "': " + e);
+        }
     }
     return result;
 }
@@ -159,8 +164,7 @@ export function astActionsToOpy(actions: Ast[]): string {
                 }
             }
 
-            //Properly checking for a lone elif/else would be difficult as this AST has no concept of "children".
-            //Moreover, a lone elif/else is very probably unintended, as it makes the actions inside it not execute.
+            //Check for a while/for without "end" and convert to "if", as overpy cannot represent those
             if (!isEndFound && actions[i].name !== "__elif__" && actions[i].name !== "__else__") {
                 result += tabLevel(nbTabs) + "#Note: this '" + actions[i].name + "' had no 'end' action.\n";
                 debug("No end found for " + actions[i].name);
@@ -210,7 +214,30 @@ export function astActionsToOpy(actions: Ast[]): string {
             };
             if ((actions[i].name === "__elif__" || actions[i].name === "__else__") && !actions[i].isDisabled) {
                 if (nbTabs > 1) {
-                    decrementNbTabs();
+                    //Properly check for lone elif/else chains. Go backwards and see if there is a if/elif/else without an end.
+                    let depth = 0;
+                    let found = false;
+                    for (let j = i - 1; j >= 0; j--) {
+                        if (actions[j].isDisabled) {
+                            continue;
+                        }
+                        if (["__if__", "__elif__", "__else__"].includes(actions[j].name) && depth === 0) {
+                            found = true;
+                            break;
+                        }
+                        if (["__if__", "__while__", "__for__"].includes(actions[j].name)) {
+                            depth--;
+                        }
+                        if (actions[j].name === "__end__") {
+                            depth++;
+                        }
+                        if (depth < 0) {
+                            break;
+                        }
+                    }
+                    if (found) {
+                        decrementNbTabs();
+                    }
                 }
             }
             tabLevelForThisAction = nbTabs;
@@ -283,7 +310,11 @@ export function astActionsToOpy(actions: Ast[]): string {
             decompiledAction += "if ruleCondition:\n" + tabLevel(tabLevelForThisAction + 1) + "loop()";
         } else if (actions[i].name === "__modifyVar__") {
             if (actions[i].args[1].name in funcToOpMapping) {
-                decompiledAction += astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + astToOpy(actions[i].args[2]);
+                if (["__add__", "__subtract__"].includes(actions[i].args[1].name) && (actions[i].args[2].name === "__number__" && actions[i].args[2].args[0].name === "1" || actions[i].args[2].name === "true")) {
+                    decompiledAction += astToOpy(actions[i].args[0]) + (actions[i].args[1].name === "__add__" ? "++" : "--");
+                } else {
+                    decompiledAction += astToOpy(actions[i].args[0]) + " " + funcToOpMapping[actions[i].args[1].name as keyof typeof funcToOpMapping] + " " + astToOpy(actions[i].args[2]);
+                }
             } else if (actions[i].args[1].name === "__min__") {
                 decompiledAction += astToOpy(actions[i].args[0]) + " min= " + astToOpy(actions[i].args[2]);
             } else if (actions[i].args[1].name === "__max__") {

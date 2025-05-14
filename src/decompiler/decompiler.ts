@@ -22,7 +22,7 @@ import { heroKw } from "../data/heroes";
 import { mapKw } from "../data/maps";
 import { customGameSettingsKw, ruleKw } from "../data/other";
 import { valueFuncKw } from "../data/values";
-import { resetGlobalVariables, globalVariables, defaultVarNames, playerVariables, subroutines, defaultSubroutineNames, activatedExtensions, setActivatedExtensions } from "../globalVars";
+import { resetGlobalVariables, globalVariables, defaultVarNames, playerVariables, subroutines, defaultSubroutineNames, activatedExtensions, setActivatedExtensions, DEBUG_MODE } from "../globalVars";
 import { OWLanguage, Overwatch2Heroes } from "../types.d";
 import { Ast } from "../utils/ast";
 import { decompileCustomGameSettingsDict, getBracketPositions } from "../utils/decompilation";
@@ -38,6 +38,10 @@ import { decompileActions, decompileConditions, decompileRuleToAst } from "./wor
 export function decompileAllRules(content: string, language: OWLanguage = "en-US") {
     resetGlobalVariables(language);
     var result = decompileAllRulesToAst(content);
+
+    if (DEBUG_MODE) {
+        console.log(result);
+    }
 
     if (Array.isArray(result)) {
         //decompiled rules
