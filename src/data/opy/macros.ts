@@ -42,9 +42,9 @@ export const opyMacros: Record<string, {
         else "[{}]".format(inputBindingString($button).replace("LSHIFT", "SHIFT").replace("LCONTROL", "CTRL").replace("LALT", "ALT"))
     )`,*/
         macro: `["{0}(0.00, 1.00, 0.00)[{0}](0.00, 1.00, 0.00)[SHIFT](0.00, 1.00, 0.00)[CTRL](0.00, 1.00, 0.00)[ALT]".format(b).split(Vector.UP[0])[
-    strLen("\\\\{0}{0}{0}{0}{0}{0}{0}".format(b)) % 7 == 1 and
-    abs("\uEC470\uEC470LSHIFT0LCONTROL0LALT".split(null[0]).index(b))
-] for b in inputBindingString($button)]`,
+            strLen("\\\\{0}{0}{0}{0}{0}{0}{0}".format(b)) % 7 == 1 and
+            abs("\uEC470\uEC470LSHIFT0LCONTROL0LALT".split(null[0]).index(b))
+        ] for b in inputBindingString($button)]`,
         return: "String",
     },
     ".getEffectiveHero": {
@@ -424,6 +424,26 @@ export const opyMacros: Record<string, {
         ],
         macro: "hudText($visibleTo, null, null, $text, $location, $sortOrder, null, null, $color, $reevaluation, $specVisibility)",
         "return": "void"
+    },
+    "lerp": {
+        "description": "Built-in macro for linear interpolation between two values. The value of `t` must be between 0 and 1.",
+        "args": [
+            {
+                "name": "start",
+                "description": "The starting value.",
+                "type": "float",
+            },{
+                "name": "end",
+                "description": "The ending value.",
+                "type": "float",
+            },{
+                "name": "t",
+                "description": "The interpolation factor. Must be between 0 and 1.",
+                "type": "unsigned float",
+            }
+        ],
+        macro: "$start * (1 - $t) + $end * $t",
+        return: "float"
     },
     "lineIntersectsSphere": {
         "description": "Built-in macro to determine whether a line intersects a sphere. Can be used to check if a player is looking at a specific point. Note that this function is inaccurate if the line starting point is already inside the sphere.\n\nThanks to Mira for the formula.",
