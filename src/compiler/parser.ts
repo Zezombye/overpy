@@ -901,6 +901,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         return new Ast(funcName, [parse(args[0]), parse(args[1]), parse(args[2].slice(2)), parse(args[3])]);
     }
 
+    if (name === "__distanceTo__") {
+        if (args.length !== 1) {
+            error("Function '__distanceTo__' takes 1 argument, received " + args.length);
+        }
+        if (args[0].length !== 1) {
+            error("Function '__distanceTo__' takes a label as argument");
+        }
+        return new Ast("__distanceTo__", [new Ast(args[0][0].text, [], [], "Label")]);
+    }
+
     if (name === "raycast") {
         if (args.length === 5) {
             if (args[2].length >= 2 && (args[2][0].text === "include" || args[2][1].text === "=")) {
