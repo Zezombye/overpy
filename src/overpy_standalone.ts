@@ -2,7 +2,7 @@
 // ! the order in which esbuild includes the files.
 // !
 // ! Yes, this sucks. Too bad!
-import { currentLanguage, macros, resetGlobalVariables, postInitialLoad } from "./globalVars";
+import { currentLanguage, macros, resetGlobalVariables, postInitialLoad, computeCustomGameSettingsSchema } from "./globalVars";
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
 import { actionKw } from "./data/actions";
@@ -36,36 +36,37 @@ const readyPromise = new Promise<void>((resolve, reject) => {
 
 if (typeof module !== "undefined") {
     module.exports = {
-        decompileAllRules: decompileAllRules,
-        decompileActions: decompileActions,
-        decompileConditions: decompileConditions,
-        astToOpy: astToOpy,
-        compile: compile,
-        actionKw: actionKw,
-        valueFuncKw: valueFuncKw,
-        constantValues: constantValues,
+        decompileAllRules,
+        decompileActions,
+        decompileConditions,
+        astToOpy,
+        compile,
+        actionKw,
+        valueFuncKw,
+        constantValues,
         annotations: opyAnnotations,
-        eventKw: eventKw,
-        eventTeamKw: eventTeamKw,
-        eventSlotKw: eventSlotKw,
-        eventPlayerKw: eventPlayerKw,
-        ruleKw: ruleKw,
-        stringKw: stringKw,
-        heroKw: heroKw,
-        mapKw: mapKw,
-        opyFuncs: opyFuncs,
-        opyMemberFuncs: opyMemberFuncs,
-        opyKeywords: opyKeywords,
-        opyConstants: opyConstants,
-        opyModules: opyModules,
-        opyMacros: opyMacros,
-        currentLanguage: currentLanguage,
-        macros: macros,
-        resetGlobalVariables: resetGlobalVariables,
-        preprocessingDirectives: preprocessingDirectives,
-        typeToString: typeToString,
-        opyStringEntities: opyStringEntities,
-        customGameSettingsSchema: customGameSettingsSchema,
-        readyPromise: readyPromise,
+        eventKw,
+        eventTeamKw,
+        eventSlotKw,
+        eventPlayerKw,
+        ruleKw,
+        stringKw,
+        heroKw,
+        mapKw,
+        opyFuncs,
+        opyMemberFuncs,
+        opyKeywords,
+        opyConstants,
+        opyModules,
+        opyMacros,
+        currentLanguage,
+        macros,
+        resetGlobalVariables,
+        preprocessingDirectives,
+        typeToString,
+        opyStringEntities,
+        customGameSettingsSchema,
+        readyPromise,
+        computeCustomGameSettingsSchema,
     };
 }

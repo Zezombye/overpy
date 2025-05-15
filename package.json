@@ -196,7 +196,7 @@
         "watch": "npm-run-all -p watch:*",
         "watch:esbuild": "node esbuild.js --watch",
         "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-        "package": "npm run check-types && npm run lint && npm run test && node esbuild.js --production",
+        "package": "npm run check-types && npm run lint && npm run test && node esbuild.js --production && node generateJsonSchema.mjs",
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . -w --outDir out",
         "pretest": "npm run compile-standalone",
