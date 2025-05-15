@@ -39,8 +39,8 @@ astParsingFunctions.__multiply__ = function (content) {
             return content.args[0];
         }
 
-        //A*0 = 0*A = 0
-        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0)) {
+        //A*0 = 0*A = 0, but only if the other argument is definitely a number
+        if ((content.args[0].name === "__number__" && content.args[0].args[0].numValue === 0 && isTypeSuitable("float", content.args[1].type, false)) || (content.args[1].name === "__number__" && content.args[1].args[0].numValue === 0 && isTypeSuitable("float", content.args[0].type, false))) {
             return getAstFor0();
         }
 

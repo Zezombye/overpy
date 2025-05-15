@@ -44,9 +44,10 @@ astParsingFunctions.__subtract__ = function (content) {
             return content.args[0];
         }
 
-        //A-A -> 0
+        //A-A -> A*0
+        //We cannot convert that to 0 because it can be a vector
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
-            return getAstFor0();
+            return new Ast("__multiply__", [content.args[0], getAstFor0()]);
         }
 
         //Check if both arguments are vectors containing numbers.
