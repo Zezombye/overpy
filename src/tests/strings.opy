@@ -17,9 +17,9 @@ rule "strings":
 
     A = w"uwu {0}".format(C)
     A = f"owo {1+2}"
-    B = fb'123145{ "{0}{1}".format(C,D)} {A+B} {0}'
+    B = fb'123145{C} {A+B} {0}'
     B = wf'fullwidth a{A+B}f'
-    B = cf'fullwidth a{owo}f'
+    B = cf'lowercase a{owo}f'
 
     print("Multiple fields {} {} {} {} {} {} {} {}".format(A,B,C,D,E,F,G,H))
     print("Numbered fields {0} {1} {2} {1} {3}".format(A,B,C,D))

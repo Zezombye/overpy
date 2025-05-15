@@ -324,7 +324,7 @@ export function decompile(content: string): Ast {
 
     //Check for string literals
     if (name.startsWith('"')) {
-        return new Ast(unescapeString(name, false), [], [], "StringLiteral");
+        return new Ast(unescapeString(name, false), [], [], "CustomStringLiteral");
     }
 
     //Check for numbers

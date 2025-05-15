@@ -22,9 +22,9 @@ import { Ast, astParsingFunctions, getAstForCustomString, getAstForFucktonOfSpac
 astParsingFunctions.hudText = function (content) {
     if (content.args[4].name === "ACTUALLY_LEFT") {
         if (content.args[2].name !== "null") {
-            content.args[2] = astParsingFunctions[".format"](new Ast(".format", [new Ast("{}{}", [], [], "StringLiteral"), content.args[2], getAstForFucktonOfSpaces()]));
+            content.args[2] = astParsingFunctions[".format"](new Ast(".format", [new Ast("{}{}", [], [], "CustomStringLiteral"), content.args[2], getAstForFucktonOfSpaces()]));
         } else if (content.args[3].name !== "null") {
-            content.args[3] = astParsingFunctions[".format"](new Ast(".format", [new Ast("{}{}", [], [], "StringLiteral"), content.args[3], getAstForFucktonOfSpaces()]));
+            content.args[3] = astParsingFunctions[".format"](new Ast(".format", [new Ast("{}{}", [], [], "CustomStringLiteral"), content.args[3], getAstForFucktonOfSpaces()]));
         } else {
             //hud header only, so don't put spaces in the header
             content.args[3] = getAstForFucktonOfSpaces();

@@ -700,7 +700,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
 
     //Check for strings
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
-        var stringType = "StringLiteral";
+        var stringType = "CustomStringLiteral";
         let translate = false;
         let isFormattedString = false;
         let isCasedString = false;
@@ -713,7 +713,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     error("Invalid content before string: '" + content[i].text + "'");
                 }
                 //string modifiers
-                console.log("string modifiers: "+content[0].text);
+                //console.log("string modifiers: "+content[0].text);
                 if (content[0].text.includes("l")) {
                     if (content[0].text.length > 1) {
                         error("Cannot use other string modifiers with 'l'");
@@ -771,7 +771,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                     isCasedString = true;
                 }
                 if (content[0].text.includes("t")) {
-                    if (content.length > 1) {
+                    if (content[0].text.length > 1) {
                         error("Cannot use other string modifiers with 't'");
                     }
                     translate = true;
@@ -913,7 +913,7 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             context = unescapeString(args[0][0].text, true);
         }
         let translationTarget = parse(args[args.length-1], {disableTranslation: true});
-        if (translationTarget.type === "StringLiteral") {
+        if (translationTarget.type === "CustomStringLiteral") {
             return getTranslatedString(translationTarget.name, context, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
         } else {
             //It is a variable; assume the value is a translated string (string array)

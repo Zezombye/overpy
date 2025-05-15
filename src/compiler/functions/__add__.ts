@@ -47,6 +47,14 @@ astParsingFunctions.__add__ = function (content) {
             return content.args[0];
         }
 
+        //If one of the argument is vect(0,0,0), return the other argument.
+        if (content.args[0].name === "vect" && content.args[0].args[0].name === "__number__" && content.args[0].args[0].args[0].numValue === 0 && content.args[0].args[1].name === "__number__" && content.args[0].args[1].args[0].numValue === 0 && content.args[0].args[2].name === "__number__" && content.args[0].args[2].args[0].numValue === 0) {
+            return content.args[1];
+        }
+        if (content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[0].args[0].numValue === 0 && content.args[1].args[1].name === "__number__" && content.args[1].args[1].args[0].numValue === 0 && content.args[1].args[2].name === "__number__" && content.args[1].args[2].args[0].numValue === 0) {
+            return content.args[0];
+        }
+
         //A+A -> 2*A
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {
             return new Ast("__multiply__", [getAstFor2(), content.args[0]]);

@@ -149,7 +149,7 @@ export async function compile(
             //Initialize to 1.1, that way the player doesn't see "TLErr" while the language is detected, and we can check if the language has been set or not
             addVariable("__languageIndex__", false, -1, tokenize("1.1")[0].tokens);
         } else {
-            addVariable("__overpyTranslationHelper__", true, -1, tokenize("p"+escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
+            addVariable("__overpyTranslationHelper__", true, -1, tokenize(escapeString("\u{EC48}0"+translationConstantString, false)+".split(null[0])")[0].tokens);
         }
     }
 
@@ -205,10 +205,10 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     #By Zezombye
     createDummy(getAllHeroes(),  Team.1 if getNumberOfSlots(Team.1) else Team.2 if getNumberOfSlots(Team.2) else true, false, null, null)
     #More info: https://workshop.codes/wiki/articles/tx-reference-sheet
-    getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u303C")
+    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u303C")
     __holygrail__ = getLastCreatedEntity()[0].split([])
-    getLastCreatedEntity().startForcingName(p"______________________________________________________________________________________________________________________________\u0840")
-    __holygrail__ = p"______________________________________________________________________________________________________________________________\u303C".replace(__holygrail__, getLastCreatedEntity()[0]).substring(126, true)
+    getLastCreatedEntity().startForcingName("______________________________________________________________________________________________________________________________\u0840")
+    __holygrail__ = "______________________________________________________________________________________________________________________________\u303C".replace(__holygrail__, getLastCreatedEntity()[0]).substring(126, true)
     destroyAllDummies()
         `;
         txSetupRule = tokenize(txSetupRule);

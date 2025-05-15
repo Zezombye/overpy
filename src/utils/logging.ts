@@ -190,7 +190,7 @@ export function astToString(ast: Ast, nbTabs = 0) {
     if (ast === undefined) {
         return "__undefined__";
     }
-    result += (ast.type === "StringLiteral" ? escapeString(ast.name, false) : ast.name);
+    result += (isTypeSuitable("StringLiteral", ast.type, false) ? escapeString(ast.name, false) : ast.name);
     if (ast.args === undefined) {
         result += "(__undefined__)";
     } else if (ast.args.length > 0) {

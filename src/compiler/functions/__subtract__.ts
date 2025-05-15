@@ -44,6 +44,11 @@ astParsingFunctions.__subtract__ = function (content) {
             return content.args[0];
         }
 
+        //A - vect(0,0,0) -> A
+        if (content.args[1].name === "vect" && content.args[1].args[0].name === "__number__" && content.args[1].args[0].args[0].numValue === 0 && content.args[1].args[1].name === "__number__" && content.args[1].args[1].args[0].numValue === 0 && content.args[1].args[2].name === "__number__" && content.args[1].args[2].args[0].numValue === 0) {
+            return content.args[0];
+        }
+
         //A-A -> A*0
         //We cannot convert that to 0 because it can be a vector
         if (areAstsAlwaysEqual(content.args[0], content.args[1])) {

@@ -77,7 +77,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
             rawString = rawString.replaceAll("{" + i + "}", separators[i] in vectorToString ? vectorToString[separators[i]] : separators[i]);
         }
 
-        opyMacro = "p"+escapeString(rawString, false);
+        opyMacro = escapeString(rawString, false);
         for (let i = 0; i < replacements.length; i++) {
             opyMacro += ".replace(updateEveryFrame("+separators[i]+"), $arg" + i+")";
         }
@@ -105,7 +105,7 @@ export function getAstForTranslatedString(content: Ast, replacements: Ast[] = []
 
 astParsingFunctions.__translatedString__ = function (content) {
     for (let arg of content.args) {
-        if (arg.type !== "StringLiteral") {
+        if (arg.type !== "CustomStringLiteral") {
             error("Argument of __translatedString__ is not a string literal, please report to Zezombye");
         }
     }

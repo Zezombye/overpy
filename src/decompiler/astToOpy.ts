@@ -430,7 +430,7 @@ export function astActionsToOpy(actions: Ast[]): string {
 export function astToOpy(content: Ast): string {
     debug("Parsing AST of '" + content.name + "'");
 
-    if (content.type === "StringLiteral") {
+    if (isTypeSuitable("StringLiteral", content.type, false)) {
         return escapeString(content.name, false);
     }
 

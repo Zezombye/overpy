@@ -201,7 +201,7 @@ export function parseAstRules(rules: Ast[]) {
                 }
 
                 if (rule.children[i].name === "@Name") {
-                    if (rule.children[i].args[0].type !== "StringLiteral") {
+                    if (rule.children[i].args[0].type !== "CustomStringLiteral") {
                         error("Expected a string as argument of '@Name'");
                     }
                     rule.ruleAttributes[annotationToPropMap[rule.children[i].name].prop] = rule.children[i].args[0].name;
@@ -225,7 +225,7 @@ export function parseAstRules(rules: Ast[]) {
                 }
                 var fillerName = "";
                 if (rule.children[i].args.length > 0) {
-                    if (rule.children[i].args[0].type !== "StringLiteral") {
+                    if (rule.children[i].args[0].type !== "CustomStringLiteral") {
                         error("Expected a string as argument of '@NewPage'");
                     }
                     fillerName = rule.children[i].args[0].name;
@@ -324,7 +324,7 @@ export function parseAst(content: Ast) {
     if (!(content.children instanceof Array)) {
         error("Function '" + content.name + "' has '" + content.children + "' for args, expected array");
     }
-    if (content.name.startsWith("@") && !isTypeSuitable("StringLiteral", content.type)) {
+    if (content.name.startsWith("@") && !isTypeSuitable("CustomStringLiteral", content.type)) {
         //Annotations are processed in the parseAstRules function. If we encounter an annotation here, then it wasn't at the beginning of a rule.
         error("Annotations must be at the beginning of the rule");
     }

@@ -35,7 +35,7 @@ astParsingFunctions[".format"] = function (content) {
     //Localized strings take one element more than custom strings.
     //Therefore, convert localized strings into custom strings if they are a localized string that is the same in every language.
     if (enableOptimization && content.args[0].type === "LocalizedStringLiteral" && ["", "*", "----------", "#{0}", "-> {0}", "<-> {0}", "<- {0}", "{0} ->", "{0} <->", "{0} <-", "{0} -> {1}", "{0} - {1}", "{0} != {1}", "{0} * {1}", "{0} / {1}", "{0} + {1}", "{0} <-> {1}", "{0} <- {1}", "{0} <= {1}", "{0} < {1}", "{0} == {1}", "{0} = {1}", "{0} >= {1}", "{0} > {1}", "{0} {1}", "{0} : {1} : {2}", "{0} {1} {2}", "({0})", "¡{0}!", "¿{0}?"].includes(content.args[0].name)) {
-        content.args[0].type = "StringLiteral";
+        content.args[0].type = "CustomStringLiteral";
     }
 
     if (content.args[0].type === "LocalizedStringLiteral") {
@@ -52,7 +52,7 @@ astParsingFunctions[".format"] = function (content) {
     if (content.args[0].name === "__translatedString__") {
         return getAstForTranslatedString(content.args[0], content.args.slice(1));
     }
-    if (content.args[0].type !== "StringLiteral") {
+    if (content.args[0].type !== "CustomStringLiteral") {
         error(".format() can only be used on a string literal without 'f' modifier");
     }
     return parseCustomString(content.args[0], content.args.slice(1));

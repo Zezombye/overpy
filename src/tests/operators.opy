@@ -35,6 +35,8 @@ rule "add":
     A = B+0 #B
     A = B+B #B*2
     A = 1+2 #3
+    A = B+vect(0,0,0) #B
+    A = vect(0,0,0)+B #B
     A = vect(B,C,D)+vect(1,2,3)
     A = vect(1,2,3)+vect(4,5,6) #vect(5,7,9)
 
@@ -42,8 +44,9 @@ rule "subtract":
     A = B-C
     A = B-C-D
     A = B-0 #B
-    A = B-B #0
+    A = B-B #B*0
     A = 1-2 #-1
+    A = B-vect(0,0,0) #B
     A = vect(B,C,D)-vect(1,2,3)
     A = vect(1,2,3)-vect(4,5,6) #vect(-3,-3,-3)
 
@@ -68,7 +71,8 @@ rule "multiply":
     A = B*C
     A = B*1 #B
     A = B*B #B**2
-    A = B*0 #0
+    A = B*0 #B*0
+    A = len(B)*0 #0
     A = 2*3 #6
     A = 2*vect(3,4,5) #vect(6,8,10)
     A = vect(3,4,5)*2 #vect(6,8,10)

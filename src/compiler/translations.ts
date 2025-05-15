@@ -125,24 +125,12 @@ export function getTranslatedString(str: string, context: string | null, fileSta
         translatedStrings.push(translatedString);
     }
 
-    //This breaks if storing the translated string in a variable. For now, don't optimize if all translations are the same as the default language
-    /*let hasTranslation = false;
-    for (let language of translationLanguages.slice(1)) { //first language is default language
-        if (translatedString[language] && translatedString[language] !== translatedString.default) {
-            hasTranslation = true;
-            break;
-        }
-    }
-    if (!hasTranslation) {
-        return new Ast(str, [], [], "StringLiteral");
-    }*/
-
     let translatedStringLiterals = translationLanguages.map((language) => {
         return leadingWhitespace + (translatedString[language] || translatedString.default).split("\n").map((line, j) => lines[j].leadingWhitespace + line + lines[j].trailingWhitespace).join("\n") + trailingWhitespace;
     });
     //console.log(translatedStringLiterals);
 
-    return new Ast("__translatedString__", translatedStringLiterals.map(x => new Ast(x, [], [], "StringLiteral")));
+    return new Ast("__translatedString__", translatedStringLiterals.map(x => new Ast(x, [], [], "CustomStringLiteral")));
 
 }
 

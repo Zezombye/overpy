@@ -66,6 +66,10 @@ rule ("add") {
         Set Global Variable(A, Multiply(2, Global.B));
         "3"
         Set Global Variable(A, 3);
+        "B"
+        Set Global Variable(A, Global.B);
+        "B"
+        Set Global Variable(A, Global.B);
         Set Global Variable(A, Add(Vector(Global.B, Global.C, Global.D), Vector(True, 2, 3)));
         "vect(5,7,9)"
         Set Global Variable(A, Vector(5, 7, 9));
@@ -81,10 +85,12 @@ rule ("subtract") {
         Set Global Variable(A, Subtract(Subtract(Global.B, Global.C), Global.D));
         "B"
         Set Global Variable(A, Global.B);
-        "0"
-        Set Global Variable(A, Null);
+        "B*0"
+        Set Global Variable(A, Multiply(Global.B, 0));
         "-1"
         Set Global Variable(A, -1);
+        "B"
+        Set Global Variable(A, Global.B);
         Set Global Variable(A, Subtract(Vector(Global.B, Global.C, Global.D), Vector(True, 2, 3)));
         "vect(-3,-3,-3)"
         Set Global Variable(A, Vector(-3, -3, -3));
@@ -131,6 +137,8 @@ rule ("multiply") {
         Set Global Variable(A, Global.B);
         "B**2"
         Set Global Variable(A, Multiply(Global.B, Global.B));
+        "B*0"
+        Set Global Variable(A, Multiply(Global.B, 0));
         "0"
         Set Global Variable(A, Null);
         "6"

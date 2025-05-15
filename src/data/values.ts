@@ -3666,7 +3666,7 @@ export const valueFuncKw: Record<string, Value> =
         "zh-TW": "Index Of String Char"
     },
     ".replace": {
-        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.",
+        "description": "Results in a String Value. This String Value will be built from the specified String Value, where all occurrences of the pattern String are replaced with the replacement String.\n\n**WARNING**: This function clamps the string to 511 bytes (in UTF-8).",
         "args": [
             {
                 "name": "string",

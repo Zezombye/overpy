@@ -8,6 +8,7 @@ variables {
         5: F
         6: G
         7: H
+        8: owo
         127: __holygrail__
 }
 rule ("<fg00FFFFFF>OverPy <­tx> / <­fg> setup code</fg>") {
@@ -42,6 +43,11 @@ rule ("strings") {
         Create HUD Text(All Players(All Teams), Custom String("Βig letters string"), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("localized string"), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), String("{0}, {1}, and {2}", Null, 1, 2), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
+        Set Global Variable(A, Custom String("ｕｗｕ {0}", Global.C));
+        Set Global Variable(A, Custom String("owo 3"));
+        Set Global Variable(B, Custom String("123145{0} {1} 0", Global.C, Add(Global.A, Global.B)));
+        Set Global Variable(B, Custom String("ｆｕｌｌｗｉｄｔｈ ａ{0}ｆ", Add(Global.A, Global.B)));
+        Set Global Variable(B, Custom String("Iοẉẹṛƈạѕẹ ạ{0}ƒ", Global.owo));
         Create HUD Text(All Players(All Teams), Custom String("Multiple fields {0} {1} {2}", Global.A, Global.B, Custom String("{0} {1} {2}", Global.C, Global.D, Custom String("{0} {1} {2}", Global.E, Global.F, Custom String("{0} {1}", Global.G, Global.H)))), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("Numbered fields {0} {1} {2}", Global.A, Global.B, Custom String("{0} {1} {2}", Global.C, Global.B, Global.D)), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
         Create HUD Text(All Players(All Teams), Custom String("Numbered fields 2 {0}{1}{2}{0}", Global.B, Global.A, Global.C), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);

@@ -455,8 +455,8 @@ export const opyInternalFuncs: Record<string, {
     "__translatedString__": {
         "args": [
             {
-                "name": "strings",
-                "type": "StringLiteral"
+                "name": "string",
+                "type": "CustomStringLiteral"
             }
         ],
         "return": "String",

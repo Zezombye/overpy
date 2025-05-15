@@ -39,7 +39,7 @@ export const opyFuncs: Record<
             }, {
                 "name": "string",
                 "description": "The string to be translated. Must be a string literal, as there are two arguments and the context has been specified.",
-                "type": "StringLiteral",
+                "type": "CustomStringLiteral",
                 "default": null,
             }
         ],
