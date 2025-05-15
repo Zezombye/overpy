@@ -52,6 +52,9 @@ astParsingFunctions[".format"] = function (content) {
     if (content.args[0].name === "__translatedString__") {
         return getAstForTranslatedString(content.args[0], content.args.slice(1));
     }
+    if (content.args[0].type !== "StringLiteral") {
+        error(".format() can only be used on a string literal without 'f' modifier");
+    }
     return parseCustomString(content.args[0], content.args.slice(1));
 };
 

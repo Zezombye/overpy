@@ -20,7 +20,7 @@
 import { constantValues } from "../data/constants";
 import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
-import { Token } from "./tokenizer";
+import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
 import { getFileContent, getFilePaths } from "file_utils";
 import { debug, error, functionNameToString, warn } from "../utils/logging";
@@ -702,55 +702,87 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
     if (content[content.length - 1].text.startsWith('"') || content[content.length - 1].text.startsWith("'")) {
         var stringType = "StringLiteral";
         let translate = false;
+        let isFormattedString = false;
+        let isCasedString = false;
         var string = "";
         for (var i = content.length - 1; i >= 0; i--) {
             if (content[i].text.startsWith('"') || content[i].text.startsWith("'")) {
                 string = unescapeString(content[i].text, true) + string;
             } else {
-                if (i === 0) {
-                    //string modifier?
-                    if (content[0].text === "l") {
-                        stringType = "LocalizedStringLiteral";
-                    } else if (content[0].text === "b") {
-                        let isConvertedToBigLetters = false;
-                        //If big letters, try to map letters until we get one
-                        //We only need one letter to convert to big letters
-                        for (var j = 0; j < string.length; j++) {
-                            if (string[j] in bigLettersMappings) {
-                                string = string.substring(0, j) + bigLettersMappings[string[j]] + string.substring(j + 1);
-                                isConvertedToBigLetters = true;
-                                break;
-                            }
-                        }
-                        if (!isConvertedToBigLetters) {
-                            error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
-                        }
-                    } else if (content[0].text === "w") {
-                        let containsNonFullwidthChar = false;
-                        var tmpStr = "";
-                        for (var char of string) {
-                            if (char in fullwidthMappings) {
-                                tmpStr += fullwidthMappings[char];
-                            } else {
-                                containsNonFullwidthChar = true;
-                                tmpStr += char;
-                            }
-                        }
-                        string = tmpStr;
-                        if (containsNonFullwidthChar) {
-                            warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
-                        }
-                    } else if (content[0].text === "p") {
-                        //legacy string modifier, unused
-                    } else if (content[0].text === "c") {
-                        string = applyCasedStringModifier(string);
-                    } else if (content[0].text === "t") {
-                        translate = true;
-                    } else {
-                        error("Invalid string modifier '" + content[0].text + "', valid ones are 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
-                    }
-                } else {
+                if (i !== 0) {
                     error("Invalid content before string: '" + content[i].text + "'");
+                }
+                //string modifiers
+                console.log("string modifiers: "+content[0].text);
+                if (content[0].text.includes("l")) {
+                    if (content[0].text.length > 1) {
+                        error("Cannot use other string modifiers with 'l'");
+                    }
+                    stringType = "LocalizedStringLiteral";
+                }
+                if (content[0].text.includes("b")) {
+                    let isConvertedToBigLetters = false;
+                    //If big letters, try to map letters until we get one
+                    //We only need one letter to convert to big letters
+                    for (var j = 0; j < string.length; j++) {
+                        let formatterMatch = string.substring(j).match(content[0].text.includes("f") ? /^\{([^}]*)\}/ : /^\{\d*\}/);
+                        if (formatterMatch) {
+                            j += formatterMatch[0].length - 1;
+                            continue;
+                        }
+                        if (string[j] in bigLettersMappings) {
+                            string = string.substring(0, j) + bigLettersMappings[string[j]] + string.substring(j + 1);
+                            isConvertedToBigLetters = true;
+                            break;
+                        }
+                    }
+                    if (!isConvertedToBigLetters) {
+                        error("Could not convert the string "+escapeString(string, false)+" to big letters. The string must have one of the following chars: '" + Object.keys(bigLettersMappings).join("") + "'");
+                    }
+                }
+                if (content[0].text.includes("w")) {
+                    let containsNonFullwidthChar = false;
+                    var tmpStr = "";
+                    for (var j = 0; j < string.length; j++) {
+
+                        let formatterMatch = string.substring(j).match(content[0].text.includes("f") ? /^\{([^}]*)\}/ : /^\{\d*\}/);
+                        if (formatterMatch) {
+                            j += formatterMatch[0].length - 1;
+                            tmpStr += formatterMatch[0];
+                            continue;
+                        }
+                        if (string[j] in fullwidthMappings) {
+                            tmpStr += fullwidthMappings[string[j]];
+                        } else {
+                            containsNonFullwidthChar = true;
+                            tmpStr += string[j];
+                        }
+                    }
+                    string = tmpStr;
+                    if (containsNonFullwidthChar) {
+                        warn("w_not_total_fullwidth", "Could not fully convert the string "+escapeString(string, false)+" to fullwidth characters");
+                    }
+                }
+                if (content[0].text.includes("p")) {
+                    //legacy string modifier, unused
+                }
+                if (content[0].text.includes("c")) {
+                    //easier to apply the modifier after we do the formatting
+                    isCasedString = true;
+                }
+                if (content[0].text.includes("t")) {
+                    if (content.length > 1) {
+                        error("Cannot use other string modifiers with 't'");
+                    }
+                    translate = true;
+                }
+                if (content[0].text.includes("f")) {
+                    isFormattedString = true;
+                }
+                for (let char of content[0].text) {
+                    if (!["l", "b", "c", "w", "p", "t", "f"].includes(char)) {
+                        error("Invalid string modifier '" + char + "', valid ones are 'f' (formatted), 'l' (localized), 'b' (big letters), 'c' (case-sensitive), 'w' (fullwidth) and 't' (translate)");
+                    }
                 }
             }
         }
@@ -759,6 +791,34 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
                 error("Translation is disabled in this context but the 't' string modifier was used, please report to Zezombye");
             }
             return getTranslatedString(string, null, content[content.length-1].fileStack as BaseNormalFileStackMember[]);
+        }
+        if (isFormattedString) {
+            let formatter = null;
+            let formatArgs = [];
+            do {
+                formatter = string.match(/\{([^}]*)\}/);
+                if (formatter) {
+
+                    let lines = tokenize(formatter[1]);
+                    let astLines = parseLines(lines);
+                    if (astLines.length !== 1) {
+                        error("String formatter '" + formatter + "' should only have one line");
+                    }
+                    let formatArg = astLines[0];
+                    formatArgs.push(formatArg);
+                    string = string.replace(formatter[0], "\uEC60" + (formatArgs.length - 1) + "\uEC61");
+                }
+
+            } while (formatter);
+            string = string.replaceAll("\uEC60", "{").replaceAll("\uEC61", "}");
+            if (isCasedString) {
+                string = applyCasedStringModifier(string);
+            }
+            debug("processed formatted string: "+string);
+            return new Ast(".format", [new Ast(string, [], [], stringType), ...formatArgs]);
+        }
+        if (isCasedString) {
+            string = applyCasedStringModifier(string);
         }
         return new Ast(string, [], [], stringType);
     }

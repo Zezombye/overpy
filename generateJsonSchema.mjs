@@ -106,7 +106,6 @@ for (var key in overpy.customGameSettingsSchema) {
                 var validMaps = Object.keys(overpy.mapKw).filter(x => overpy.mapKw[x].gamemodes.includes(gamemode));
             }
             for (var key2 in overpy.customGameSettingsSchema[key].values[gamemode].values) {
-                console.log("generating gamemode "+gamemode+" key "+key2);
                 if (key2 === "disabledMaps" || key2 === "enabledMaps") {
                     jsonSchema.properties[key].properties[gamemode].properties[key2] = {
                         "type": "array",
@@ -152,7 +151,7 @@ for (var key in overpy.customGameSettingsSchema) {
             },
         }
         for (var hero in overpy.customGameSettingsSchema[key].values) {
-            console.log("generating hero "+hero);
+            //console.log("generating hero "+hero);
             jsonSchema.definitions.heroes.properties[hero] = {}
             if (hero === "disabledHeroes" || hero === "enabledHeroes") {
                 jsonSchema.definitions.heroes.properties[hero] = {

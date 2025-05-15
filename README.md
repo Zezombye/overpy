@@ -455,13 +455,14 @@ The escape sequences `\t`, `\r`, and `\z` map respectively to a tab, a carriage 
 
 ## String modifiers
 
-String modifiers are placed just before the string, such as `w"fullwidth string"`. There are currently 5 string modifiers:
+String modifiers are placed just before the string, such as `w"fullwidth string"`. There are currently 6 string modifiers:
 
 - The `l` string modifier specifies a localized string (`String` function in the workshop). Localized strings are not recommended as they are limited to a specific subset of predefined strings. They are only included for legacy gamemodes.
 - The `w` string modifier makes the string fullwidth.
 - The `b` string modifier forces, when possible, the use of the "big letters" font (Blizzard Global font).
 - The `c` string modifier makes the string case-sensitive, using special latin characters that are not uppercased. It however shows diacritics above most letters, and only works with the latin alphabet.
 - The `t` string modifier specifies that the string should be included in translations (see [translations](#translations).)
+- The `f` string modifier allows using inline formatters instead of the `.format()` function, such as `f"You have {eventPlayer.money} money and deal {eventPlayer.damage} damage"`. A formatter cannot have a "}" or the same quote as the source string inside it.
 
 ## Tags
 

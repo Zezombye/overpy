@@ -21,7 +21,13 @@
             "include": "#labels"
         },
         {
+            "include": "#fstrings"
+        },
+        {
             "include": "#strings"
+        },
+        {
+            "include": "#apos-fstrings"
         },
         {
             "include": "#apos-strings"
@@ -100,6 +106,25 @@
                 }
             ]
         },
+        "fstrings": {
+            "name": "string.quoted.double.overpy",
+            "begin": "((?<=f)|(?<=f\\w)|(?<=f\\w\\w))\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.overpy",
+                    "match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
+                }, {
+                    "name": "constant.character.escape.overpy",
+                    "begin": "\\{",
+                    "end": "[\\}\"]",
+                    "contentName": "meta.embedded.overpy",
+                    "patterns": [
+                        {"include": "$self"}
+                    ]
+                }
+            ]
+        },
         "strings": {
             "name": "string.quoted.double.overpy",
             "begin": "\"",
@@ -107,7 +132,26 @@
             "patterns": [
                 {
                     "name": "constant.character.escape.overpy",
+                    "match": "(\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;))|(\\{\\d*\\})"
+                }
+            ]
+        },
+        "apos-fstrings": {
+            "name": "string.quoted.double.overpy",
+            "begin": "((?<=f)|(?<=f\\w)|(?<=f\\w\\w))'",
+            "end": "'",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.overpy",
                     "match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
+                }, {
+                    "name": "constant.character.escape.overpy",
+                    "begin": "\\{",
+                    "end": "[\\}']",
+                    "contentName": "meta.embedded.overpy",
+                    "patterns": [
+                        {"include": "$self"}
+                    ]
                 }
             ]
         },
@@ -118,7 +162,7 @@
             "patterns": [
                 {
                     "name": "constant.character.escape.overpy",
-                    "match": "\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;)"
+                    "match": "(\\\\([\\\\\"'nrtzbf]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|&\\w+;))|(\\{\\d*\\})"
                 }
             ]
         },
