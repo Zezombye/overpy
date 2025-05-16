@@ -351,6 +351,23 @@ settings {
 
 However, there are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch then use the decompile command to convert to OverPy.
 
+You can also put the settings in a .json file and then import it with `settings "gamesettings.json"`. This has the advantage of adding autocompletion, although it will display syntax errors if it doesn't perfectly conform to the JSON syntax (trailing comma, comment, etc).
+
+The settings are treated as a Javascript object, meaning you can do things such as:
+
+```js
+#!define VERSION "1.0.1"
+#!define CODE "T50EZ"
+settings {
+    main: {
+        name: "Some gamemode",
+        //comment
+        description: "Version "+VERSION+" - code: "+CODE,
+    },
+    //...
+}
+```
+
 Extensions are activated using the `#!extensions` compiler directive.
 
 # Control flow
