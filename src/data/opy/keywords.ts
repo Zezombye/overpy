@@ -169,7 +169,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
 
 \`\`\`python
 macro add(a, b):
-    return a + b
+    a + b
 \`\`\`
 The macro can then be used like a function: \`add(C, D)\` will yield \`C + D\`.
 
@@ -178,7 +178,7 @@ Note that, unlike \`#!define\`, macros will not mess up the order of operations:
 \`\`\`python
 #!define add_define(a, b) a+b
 macro add_macro(a, b):
-    return a + b
+    a + b
 
 rule "":
     A = add_define(A, B) * C #will be interpreted as A + (B * C)

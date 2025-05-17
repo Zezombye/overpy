@@ -612,7 +612,7 @@ Use the `macro` keyword to declare a macro, which is an inline function. For exa
 
 ```python
 macro add(a, b):
-    return a + b
+    a + b
 
 rule "":
     A = add(C, D) #A = C + D
