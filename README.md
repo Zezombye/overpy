@@ -361,10 +361,8 @@ The settings are treated as a Javascript object, meaning you can do things such 
 settings {
     main: {
         name: "Some gamemode",
-        //comment
         description: "Version "+VERSION+" - code: "+CODE,
     },
-    //...
 }
 ```
 
@@ -507,7 +505,7 @@ Compiler options begin with the `#!` operator, not indented.
 
 ## #!include
 
-Inserts the text of the specified file. The file path can be relative; if so, it is relative to the main file. For example:
+Inserts the text of the specified file. The file path can be relative; if so, it is relative to the file with the `#!include` directive. For example:
 
 ```c
 #!include "heroes/zenyatta.opy"

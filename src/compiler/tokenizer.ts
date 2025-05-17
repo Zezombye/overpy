@@ -16,7 +16,7 @@
  */
 
 import { customGameSettingsSchema } from "../data/customGameSettings";
-import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation } from "../globalVars";
+import { DEBUG_MODE, activatedExtensions, builtInJsFunctions, builtInJsFunctionsNbLines, fileStack, globallySuppressedWarningTypes, macros, optimizeForSize, replacementFor0, replacementFor1, replacementForTeam1, reservedNames, setOptimizationEnabled, setOptimizationForSize, setReplacementFor0, setReplacementFor1, setReplacementForTeam1, setEnableTagsSetup, translationLanguages, setTranslationLanguages, setUsePlayerVarForTranslations, setExcludeVariablesInCompilation, rootPath } from "../globalVars";
 import { getArgs, getBracketPositions } from "../utils/decompilation";
 import { getFileContent, getFilePaths, getFilenameFromPath } from "file_utils";
 import { debug, error, warn } from "../utils/logging";
@@ -348,18 +348,27 @@ export function tokenize(content: string): LogicalLine[] {
 
             if (preprocessingDirectiveContent.startsWith("#!include ")) {
                 let space = preprocessingDirectiveContent.indexOf(" ");
-                let paths = getFilePaths(preprocessingDirectiveContent.substring(space));
+                let basePath = rootPath;
+                for (let k = fileStack.length - 1; k >= 0; k--) {
+                    if (fileStack[k].path) {
+                        basePath = fileStack[k].path as string;
+                        break;
+                    }
+                }
+                let paths = getFilePaths(preprocessingDirectiveContent.substring(space), basePath);
 
                 for (let path of paths) {
+
+                    let importedFileContent = getFileContent(path);
                     fileStack.push({
                         name: getFilenameFromPath(path),
+                        path: path,
                         currentLineNb: 1,
                         currentColNb: 1,
                         remainingChars: 99999999999, //does not matter
                         staticMember: true,
                         fileStackMemberType: "normal",
                     } as ScriptFileStackMember);
-                    let importedFileContent = getFileContent(path);
                     result.push(...tokenize(importedFileContent));
                     fileStack.pop();
                     moveCursor(j - i - 1);
@@ -599,6 +608,14 @@ function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: s
     let bracketPos = getBracketPositions(trimmedMacroContent, false, true);
     const isFunctionMacro = bracketPos.length > 0 && trimmedMacroContent.indexOf(" ") >= bracketPos[0];
 
+    let basePath = rootPath;
+    for (let k = fileStack.length - 1; k >= 0; k--) {
+        if (fileStack[k].path) {
+            basePath = fileStack[k].path as string;
+            break;
+        }
+    }
+
     let macroText = isFunctionMacro ? trimmedMacroContent.substring(0, bracketPos[1] + 1).trim() : trimmedMacroContent.substring(0, trimmedMacroContent.indexOf(" ")).trim();
 
     let macro: MacroData = {
@@ -635,7 +652,7 @@ function parseMacro(initialMacroData: { fileStack: FileStackMember[]; content: s
         //Test for script macro
         if (functionMacro.replacement.startsWith("__script__(")) {
             functionMacro.isScript = true;
-            functionMacro.scriptPath = getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1))[0];
+            functionMacro.scriptPath = getFilePaths(functionMacro.replacement.substring("__script__(".length, functionMacro.replacement.length - 1), basePath)[0];
         } else {
             functionMacro.isScript = false;
         }

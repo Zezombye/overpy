@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { rootPath, importedFiles } from "../globalVars";
+import { importedFiles } from "../globalVars";
 import { debug, error, warn } from "./logging";
 import { unescapeString } from "./strings";
 
@@ -30,11 +30,16 @@ export function getFilenameFromPath(filename: string) {
     return path.parse(filename).base;
 }
 
-export function getFilePaths(pathStr: string): string[] {
+export function getFilePaths(pathStr: string, basePath: string): string[] {
     try {
         var fs = require("fs");
+        var path = require("path");
     } catch (e) {
         error("Cannot import files in browsers (fs not found)");
+    }
+    //console.log("basePath = " + basePath);
+    if (!basePath.endsWith("/")) {
+        basePath = basePath.split("/").slice(0, -1).join("/") + "/";
     }
     pathStr = pathStr.trim();
     debug("path str = " + pathStr);
@@ -47,7 +52,7 @@ export function getFilePaths(pathStr: string): string[] {
     //Determine if the path is relative
     if (!(pathStr.startsWith("/") || /^[A-Za-z]:/.test(pathStr))) {
         //relative path
-        pathStr = rootPath + pathStr;
+        pathStr = basePath + pathStr;
     }
 
     let matchingFiles: string[] = [];
@@ -60,6 +65,7 @@ export function getFilePaths(pathStr: string): string[] {
     } else {
         matchingFiles = [pathStr];
     }
+    matchingFiles.sort();
     return matchingFiles;
 }
 

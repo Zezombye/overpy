@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -124,7 +124,15 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             let customGameSettings: any;
             try {
                 if (currentLine.tokens.length === 2) {
-                    var path = getFilePaths(currentLine.tokens[1].text)[0];
+
+                    let basePath = rootPath;
+                    for (let k = fileStack.length - 1; k >= 0; k--) {
+                        if (fileStack[k].path) {
+                            basePath = fileStack[k].path as string;
+                            break;
+                        }
+                    }
+                    var path = getFilePaths(currentLine.tokens[1].text, basePath)[0];
                     customGameSettings = JSON.parse(safeEval("JSON.stringify(" + getFileContent(path) + ")"));
                 } else {
                     customGameSettings = JSON.parse(

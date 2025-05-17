@@ -158,6 +158,7 @@ export type Type = string[] | string | { [key: string]: string | Type[] };
  */
 export type BaseNormalFileStackMember = {
     name: string;
+    path?: string;
     currentLineNb: number;
     currentColNb: number;
 };

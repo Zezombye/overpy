@@ -70,12 +70,15 @@ export async function compile(
     if (DEBUG_PROFILER) console.profile();
     resetGlobalVariables(language);
     reinitInterpreter("");
-    // rootPath = _rootPath;
+    _rootPath = _rootPath.trim().replaceAll("\\", "/");
+    if (!_rootPath.endsWith("/")) {
+        _rootPath += "/";
+    }
     setRootPath(_rootPath);
 
     //Handle #!mainfile directive
     if (content.startsWith("#!mainFile ")) {
-        let mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")))[0];
+        let mainFilePath = getFilePaths(content.substring("#!mainFile ".length, content.indexOf("\n")), _rootPath)[0];
         setMainFileName(mainFilePath.split("/").pop() as string);
         setRootPath(mainFilePath.substring(0, mainFilePath.lastIndexOf("/") + 1));
         content = getFileContent(mainFilePath);
