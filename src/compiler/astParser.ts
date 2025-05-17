@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw } from "../globalVars";
+import { fileStack, suppressedWarningTypes, currentRuleEvent, currentRuleLabels, currentRuleLabelAccess, currentRuleHasVariableGoto, setFileStack, setCurrentRuleEvent, setCurrentRuleLabels, clearRuleLabelAccess, resetRuleHasVariableGoto, resetCurrentRuleLabels, setCurrentRuleName, funcKw, astMacros } from "../globalVars";
 import { error, functionNameToString, warn, getTypeCheckFailedMessage, debug } from "../utils/logging";
 import { isTypeSuitable } from "../utils/types";
 import { Ast, astParsingFunctions, getAstFor0, getAstFor0_016, getAstFor1, getAstFor255, getAstForE, getAstForInfinity, getAstForNumber } from "../utils/ast";
@@ -146,17 +146,33 @@ import "./functions/victim.ts";
 import "./functions/wait";
 import "./functions/waitUntil.ts";
 import { opyMacros } from "../data/opy/macros";
-import { parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
+import { parseAstMacro, parseOpyMacro, parseOpyMacroAst } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
 import { upperCaseToCamelCase } from "../utils/other";
+import { parse } from "path";
 
 export function parseAstRules(rules: Ast[]) {
     var rulesResult: Ast[] = [];
     for (var rule of rules) {
         setFileStack(rule.fileStack);
 
+        //Resolve macros in case macros have annotations
+        for (let i = 0; i < rule.children.length; i++) {
+            setFileStack(rule.children[i].fileStack);
+            if (rule.children[i].name in astMacros) {
+                let macroLines = parseAstMacro(rule.children[i]);
+                for (let line of macroLines) {
+                    line.fileStack = rule.children[i].fileStack;
+                    line.comment = rule.children[i].comment;
+                    line.parent = rule;
+                }
+                rule.children.splice(i, 1, ...macroLines);
+                i--;
+            }
+        }
+
         //Parse annotations
-        var i = 0;
+        let i = 0;
         for (; i < rule.children.length; i++) {
             if (!rule.children[i].name.startsWith("@")) {
                 break;
@@ -289,6 +305,9 @@ export function parseAstRules(rules: Ast[]) {
             }
             rule.name = "__rule__";
             rule.originalName = "__def__";
+        } else if (rule.name in astMacros) {
+            rulesResult.push(...parseAstRules(parseAstMacro(rule)));
+            continue;
         } else {
             error("Unexpected function '" + rule.name + "' outside a rule");
         }
@@ -301,7 +320,7 @@ export function parseAstRules(rules: Ast[]) {
 
         //Parse conditions now that we extracted the event (so we yield a proper error with event-related values)
         if (rule.ruleAttributes.conditions !== undefined) {
-            for (var i = 0; i < rule.ruleAttributes.conditions.length; i++) {
+            for (let i = 0; i < rule.ruleAttributes.conditions.length; i++) {
                 rule.ruleAttributes.conditions[i] = parseAst(rule.ruleAttributes.conditions[i]);
                 rule.ruleAttributes.conditions[i].comment = rule.ruleAttributes.conditionComments[i];
             }
@@ -358,7 +377,7 @@ export function parseAst(content: Ast) {
         }
     }
 
-    if (!(content.name in funcKw)) {
+    if (!(content.name in funcKw) && !(content.name in astMacros)) {
         error("Unknown function '" + content.name + "'");
     }
 
@@ -394,9 +413,17 @@ export function parseAst(content: Ast) {
 
 
     if (![".format", "__array__", "__dict__", "__enumType__", "__translatedString__", "min", "max"].includes(content.name)) {
-        var nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
-        if (content.args.length !== nbExpectedArgs) {
-            error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
+        if (content.name in astMacros) {
+            let nbExpectedArgs = astMacros[content.name].args.length;
+            if (content.args.length !== nbExpectedArgs) {
+                error("Macro '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
+            }
+        } else {
+
+            let nbExpectedArgs = funcKw[content.name]?.args?.length ?? 0;
+            if (content.args.length !== nbExpectedArgs) {
+                error("Function '" + content.name + "' takes " + nbExpectedArgs + " arguments, received " + content.args.length);
+            }
         }
     }
 
@@ -433,6 +460,8 @@ export function parseAst(content: Ast) {
                 warn("w_type_check", getTypeCheckFailedMessage(content, i, funcKw[content.name]?.args?.[0].type, content.args[i]));
             }
         }
+    } else if (content.name in astMacros) {
+        //Do nothing, we cannot check types of a user-defined macro
     } else {
         if (funcKw[content.name].args !== null) {
             let args = funcKw[content.name].args as Argument[];
@@ -463,6 +492,8 @@ export function parseAst(content: Ast) {
             content.expectedType = "bool";
         } else if (content.parent.name in funcKw) {
             content.expectedType = funcKw[content.parent.name].args?.[content.parent.argIndex].type ?? "__INVALID__";
+        } else if (content.parent.name in astMacros) {
+            content.expectedType = astMacros[content.parent.name].args[content.parent.argIndex].type;
         } else {
             error("Unknown parent name '" + content.parent.name + "'");
         }
@@ -496,9 +527,16 @@ export function parseAst(content: Ast) {
     let oldOriginalName = content.originalName || content.name;
     //console.log("original name: "+oldOriginalName);
     let parent = content.parent;
-    while (!content.doNotOptimize && (content.name in astParsingFunctions || content.name in opyMacros)) {
+    while (!content.doNotOptimize && (content.name in astParsingFunctions || content.name in opyMacros || content.name in astMacros)) {
         if (content.name in astParsingFunctions) {
             content = astParsingFunctions[content.name](content);
+        } else if (content.name in astMacros) {
+            let macroLines = parseAstMacro(content);
+            if (content.parent === undefined) {
+                error("Parent is undefined in ast macro");
+            }
+            content.parent.children.splice(content.parent.childIndex + 1, 0, ...macroLines.slice(1));
+            content = macroLines[0];
         } else {
             content = parseOpyMacroAst(content);
         }

@@ -201,3 +201,22 @@ export interface FunctionMacroData extends BaseMacroData {
 }
 
 export type MacroData = FunctionMacroData | NonFunctionMacroData;
+
+export type AstMacroData = {
+    name: string;
+    lines: Ast[];
+    linesStr: string[];
+    class_?: string;
+    args: {
+        name: string;
+        default?: Ast;
+        defaultStr?: string;
+        type: Type;
+    }[]
+}
+
+export type AstConstantData = {
+    name: string;
+    value: Ast;
+    valueStr: string;
+}

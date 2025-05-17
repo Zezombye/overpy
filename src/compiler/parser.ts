@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -119,6 +119,44 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             continue;
         }
 
+        //Handle constants
+        if (currentLine.tokens[0].text === "const") {
+            if (currentLine.tokens.length < 3) {
+                error("Malformed const declaration");
+            }
+            if (currentLine.indentLevel !== 0) {
+                error("const directive cannot be indented");
+            }
+            let name = currentLine.tokens[1].text;
+            if (currentLine.tokens[2].text !== "=") {
+                error("Malformed const declaration");
+            }
+            let value = parse(currentLine.tokens.slice(3));
+            if (name in astConstants) {
+                error("Constant '" + name + "' already exists");
+            }
+            if (isVarName(name, true)) {
+                error("Constant '" + name + "' is already a global variable");
+            }
+            //Check that there are only constant functions, as to not mislead the programmer; constants are just macros in disguise
+            if (
+                astContainsFunctions(
+                    value,
+                    notConstantFunctions,
+                    false,
+                )
+            ) {
+                warn("w_const_not_constant", "The value of const " + name + " seems to not be constant; it will be inlined and not stored.");
+            }
+            astConstants[name] = {
+                name: name,
+                value: value,
+                valueStr: dispTokens(currentLine.tokens.slice(3), true),
+            };
+            currentComments = [];
+            continue;
+        }
+
         // Handle custom game settings
         if (currentLine.tokens[0].text === "settings") {
             let customGameSettings: any;
@@ -173,7 +211,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 currentLineAst.comment = commentArrayToString(currentComments);
             }
             result.push(currentLineAst);
-        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default"].includes(currentLine.tokens[0].text)) {
+        } else if (["rule", "enum", "if", "elif", "else", "do", "for", "def", "while", "switch", "case", "default", "macro"].includes(currentLine.tokens[0].text)) {
             var tokenToFuncMapping = {
                 rule: "__rule__",
                 enum: "__enum__",
@@ -187,6 +225,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 switch: "__switch__",
                 case: "__case__",
                 default: "__default__",
+                macro: "__macro__",
             };
 
             var funcName = tokenToFuncMapping[currentLine.tokens[0].text as keyof typeof tokenToFuncMapping];
@@ -232,7 +271,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
             }
 
-            if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__"].includes(funcName)) {
+            if (!["__else__", "__doWhile__", "__rule__", "__enum__", "__def__", "__default__", "__macro__"].includes(funcName)) {
                 args = [parse(lineMembers[0].slice(1))];
             }
 
@@ -327,7 +366,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                             if (
                                 astContainsFunctions(
                                     enumValue,
-                                    notConstantFunctions.filter((v) => ("en-US" as OWLanguage) in v).map((v) => v["en-US"] as string),
+                                    notConstantFunctions,
                                     false,
                                 )
                             ) {
@@ -344,6 +383,89 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     enumMembers[args[0].name][enumMemberName] = enumValue;
                 }
                 //We do not care about enums in the AST
+                i += j - i - 1;
+                continue;
+
+            } else if (funcName === "__macro__") {
+
+                if (lineMembers[0].length < 4) {
+                    error("Malformatted 'macro' declaration");
+                }
+                if (currentLine.indentLevel !== 0) {
+                    error("Macro declaration cannot be indented");
+                }
+                let name = lineMembers[0][1].text;
+                let class_;
+                if (lineMembers[0][2].text === ".") {
+                    class_ = name;
+                    name = "."+lineMembers[0][3].text;
+                }
+                let macroArgTokens = lineMembers[0].slice((class_ ? 4 : 2));
+                if (macroArgTokens[0].text !== "(" || macroArgTokens[macroArgTokens.length - 1].text !== ")") {
+                    error("Malformatted macro arguments");
+                }
+                macroArgTokens = macroArgTokens.slice(1, macroArgTokens.length - 1);
+                let macroArgsTokens = splitTokens(macroArgTokens, ",", true);
+                if (macroArgsTokens.length === 0 && class_) {
+                    error("Class macro must have 'self' as first argument");
+                }
+
+                let macroArgs = [];
+                for (let [argTokensIdx, argTokens] of Object.entries(macroArgsTokens)) {
+                    if (argTokens.length === 0) {
+                        error("Empty argument in macro declaration");
+                    }
+                    if (argTokens.length === 1) {
+                        if (argTokens[0].text === "self" && !class_) {
+                            error("Cannot use 'self' in a non-class macro");
+                        }
+                        if (argTokens[0].text === "self" && argTokensIdx !== "0") {
+                            error("The 'self' argument must be the first argument in a class macro");
+                        }
+                        macroArgs.push({
+                            name: argTokens[0].text,
+                            type: "Value",
+                        });
+                    } else {
+                        if (argTokens[1].text !== "=") {
+                            error("Malformed macro argument '"+argTokens[0].text+"'");
+                        }
+                        if (argTokens[0].text === "self") {
+                            error("Cannot assign default value to 'self'");
+                        }
+                        macroArgs.push({
+                            name: argTokens[0].text,
+                            default: parse(argTokens.slice(2)),
+                            defaultStr: dispTokens(argTokens.slice(2), true),
+                            type: "Value",
+                        });
+                    }
+                }
+                if (class_ && macroArgs[0].name !== "self") {
+                    error("Class macro must have 'self' as first argument");
+                }
+
+                astMacroLocalVariables.push(...macroArgs.map(x => x.name));
+                let macroLines = parseLines(childrenLines);
+                resetAstMacroLocalVariables();
+
+                //Do not use args as signature (to allow macro overloading), it would make the code too complex and is unnecessary with default values
+                if (name in astMacros) {
+                    error("Macro '" + name + "' already exists");
+                }
+                if (name in funcKw) {
+                    error("Macro '" + name + "' is already a built-in function");
+                }
+
+                astMacros[name] = {
+                    name: name,
+                    class_: class_,
+                    lines: macroLines,
+                    linesStr: childrenLines.map(x => dispTokens(x.tokens, true)),
+                    args: macroArgs,
+                };
+
+                //We do not care about macros in the AST
                 i += j - i - 1;
                 continue;
             } else {
@@ -438,10 +560,15 @@ function getOperator(tokens: Token[], operators: string[], rtlPrecedence = false
 }
 
 export function parseArgs(funcName: string, args: Token[][]) {
-    if (!(funcName in funcKw)) {
+    let funcInfo;
+    if (funcName in funcKw) {
+        funcInfo = funcKw[funcName];
+    } else if (funcName in astMacros) {
+        funcInfo = astMacros[funcName];
+    } else {
         error("Unknown function '"+funcName+"'");
     }
-    if (funcKw[funcName].args === null) {
+    if (funcInfo.args === null) {
         if (args.length > 0) {
             error("Function '"+funcName+"' takes no argument");
         }
@@ -452,8 +579,8 @@ export function parseArgs(funcName: string, args: Token[][]) {
         return args.map(x => parse(x));
     }
 
-    let funcArgsDict = Object.fromEntries(funcKw[funcName].args!.map((x, i) => [x.name, {index: i, ...x}]));
-    let positionalArgs: (Token[] | Ast)[] = Array(funcKw[funcName].args!.length).fill(null);
+    let funcArgsDict = Object.fromEntries(funcInfo.args!.map((x, i) => [x.name, {index: i, ...x}]));
+    let positionalArgs: (Token[] | Ast)[] = Array(funcInfo.args!.length).fill(null);
     let hasKwArg = false;
     for (let [i, arg] of args.entries()) {
         if (arg.length > 2 && arg[1].text === "=") {
@@ -474,7 +601,7 @@ export function parseArgs(funcName: string, args: Token[][]) {
         }
     }
 
-    for (let [i, arg] of funcKw[funcName].args!.entries()) {
+    for (let [i, arg] of funcInfo.args!.entries()) {
         if (positionalArgs[i] === null) {
             if (arg.default !== undefined) {
 
@@ -876,6 +1003,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
         //Check for global variable
         if (isVarName(name, true)) {
             return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
+        }
+
+        //Check for constant
+        if (name in astConstants) {
+            return astConstants[name].value.clone();
+        }
+
+        //Check for local variable
+        if (astMacroLocalVariables.includes(name)) {
+            return new Ast("$"+name);
         }
 
         //Check for number

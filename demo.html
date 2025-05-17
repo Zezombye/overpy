@@ -67,7 +67,7 @@
     </head>
     <body>
         <center>
-            <a href="https://github.com/Zezombye/overpy"><h1>OverPy v8 language demo by Zezombye</h1></a>
+            <a href="https://github.com/Zezombye/overpy"><h1>OverPy v9 language demo by Zezombye</h1></a>
             <p>
                 <button onclick="demoAddText();">Add example text</button> | Language:
                 <select id="languageInput">
@@ -277,7 +277,7 @@ rule "Display position":
                     if (stream.match(/\b[a-z]+(?=["'])/)) {
                         return "modifier";
                     }
-                    if (stream.match(/(if|else|elif|do|while|for|return|continue|false|true|null|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\b/)) {
+                    if (stream.match(/(if|else|elif|do|while|for|return|continue|false|true|null|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum|const|macro|self)\b/)) {
                         return "keyword";
                     }
                     if (stream.match(/(False|True|None|Null|class|finally|is|try|from|nonlocal|with|as|yield|assert|except|raise|disabled|import)\b/)) {

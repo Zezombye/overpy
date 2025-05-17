@@ -1,0 +1,138 @@
+settings
+{
+	main
+	{
+		Description: "Tower Meifense - BETA do not copy! by Zezombye"
+	}
+	lobby
+	{
+		Map Rotation: Paused
+		Max Spectators: 6
+		Return To Lobby: Never
+		Swap Teams After Match: No
+	}
+	modes
+	{
+		Assault
+		{
+			enabled maps
+			{
+				Temple of Anubis
+			}
+			Capture Speed Modifier: 60%
+		}
+		Escort
+		{
+			enabled maps
+			{
+				Dorado
+			}
+			Payload Speed Modifier: 200%
+		}
+		General
+		{
+			Game Mode Start: Manual
+			Hero Limit: Off
+			Respawn Time Scalar: 50%
+			Spawn Health Packs: Disabled
+		}
+	}
+	heroes
+	{
+		Team 1
+		{
+			enabled heroes
+			{
+				Ashe
+				Bastion
+				Torbjörn
+				Widowmaker
+			}
+		}
+		Team 2
+		{
+			Mei
+			{
+				Cryo-Freeze Cooldown Time: 200%
+				Ice Wall Cooldown Time: 200%
+				Secondary Fire: Off
+				Weapon Freeze Rate Scalar: 50%
+			}
+		}
+		General
+		{
+			Ashe
+			{
+				Ammunition Clip Size Scalar: 200%
+				Ultimate Duration: 300%
+			}
+			Bastion
+			{
+				Ammunition Clip Size Scalar: 200%
+			}
+			Widowmaker
+			{
+				Damage Dealt: 120%
+				Grappling Hook Cooldown Time: 10%
+			}
+		}
+	}
+}
+variables {
+    global:
+        0: A
+}
+rule ("1") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 1);
+    }
+}
+
+rule ("2") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 2);
+    }
+}
+
+rule ("3") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 3);
+    }
+}
+
+rule ("4") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 4);
+    }
+}
+
+rule ("5") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 5);
+    }
+}
+
+rule ("6") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 6);
+    }
+}
+

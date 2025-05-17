@@ -1,0 +1,70 @@
+variables {
+    global:
+        0: A
+        1: B
+        2: C
+    player:
+        0: A
+}
+rule ("1") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.A == Global.B;
+    }
+    actions {
+        "A = 543+B"
+        Set Global Variable(A, Add(543, Global.B));
+        "A = 2, B = 3"
+        Set Global Variable(A, 2);
+        "A = 2, B = 3"
+        Set Global Variable(B, 3);
+        "A = 2 + B + C"
+        Set Global Variable(A, Add(Add(2, Global.B), Global.C));
+        "A = B - 3"
+        Set Global Variable(A, Subtract(Global.B, 3));
+        "A = B - C"
+        Set Global Variable(A, Subtract(Global.B, Global.C));
+        "A = B - C"
+        Set Global Variable(A, Subtract(Global.B, Global.C));
+        "A = 5, B = (5+B) - 6"
+        Set Global Variable(A, 5);
+        "A = 5, B = (5+B) - 6"
+        Set Global Variable(B, Subtract(Add(5, Global.B), 6));
+        "hostPlayer.A = 3"
+        Set Player Variable(Host Player, A, 3);
+        "hostPlayer.A = 4"
+        Set Player Variable(Host Player, A, 4);
+    }
+}
+
+rule ("2") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 123);
+    }
+}
+
+rule ("3") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 456);
+    }
+}
+
+rule ("4") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(B, 789);
+    }
+}
+

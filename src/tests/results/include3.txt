@@ -1,0 +1,13 @@
+variables {
+    global:
+        0: A
+}
+rule ("3") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(A, 3);
+    }
+}
+

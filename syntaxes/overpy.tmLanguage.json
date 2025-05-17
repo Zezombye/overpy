@@ -54,7 +54,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.overpy",
-                    "match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum)\\b"
+                    "match": "\\b(if|else|elif|do|while|for|return|continue|false|true|null|goto|lambda|pass|del|break|switch|case|default|def|rule|settings|globalvar|playervar|subroutine|unsigned|signed|int|float|bool|enum|const|macro|self)\\b"
                 },
                 {
                     "name": "keyword.other.overpy",

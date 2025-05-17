@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw } from "../globalVars";
+import { setRootPath, importedFiles, fileStack, DEBUG_MODE, ELEMENT_LIMIT, activatedExtensions, availableExtensionPoints, compiledCustomGameSettings, encounteredWarnings, enumMembers, globalInitDirectives, globalVariables, macros, nbElements, nbTabs, playerInitDirectives, playerVariables, resetGlobalVariables, subroutines, rootPath, setFileStack, resetMacros, setAvailableExtensionPoints, setCompiledCustomGameSettings, resetNbTabs, incrementNbTabs, decrementNbTabs, setActivatedExtensions, hiddenWarnings, DEBUG_PROFILER, enableTagsSetup, translationLanguages, translatedStrings, setMainFileName, mainFileName, setTranslatedStrings, setTranslationLanguageConstant, translationLanguageConstant, setTranslationLanguageConstantOpy, usePlayerVarForTranslations, translationLanguageConstantOpy, excludeVariablesInCompilation, constantKw, astMacros, astConstants } from "../globalVars";
 import { customGameSettingsSchema } from "../data/customGameSettings";
 import { gamemodeKw } from "../data/gamemodes";
 import { heroKw } from "../data/heroes";
@@ -33,7 +33,7 @@ import { astRulesToWs } from "./astToWorkshop";
 import { parseLines } from "./parser";
 import { Token, tokenize } from "./tokenizer";
 import { addVariable } from "../utils/varNames";
-import { MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
+import { AstConstantData, AstMacroData, MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
 import { compileCustomGameSettingsDict } from "../utils/compilation";
 import { reinitInterpreter } from "../jsInterpreter";
 import PO from "pofile";
@@ -52,6 +52,8 @@ export async function compile(
 ): Promise<{
     result: string;
     macros: MacroData[];
+    astMacros: Record<string, AstMacroData>;
+    astConstants: Record<string, AstConstantData>;
     globalVariables: Variable[];
     playerVariables: Variable[];
     subroutines: Subroutine[];
@@ -104,6 +106,17 @@ export async function compile(
     resetMacros();
 
     var lines = tokenize(content);
+
+    setFileStack([
+        {
+            name: "<internal>",
+            currentLineNb: 1,
+            currentColNb: 1,
+            remainingChars: 99999999999, //does not matter
+            staticMember: true,
+            fileStackMemberType: "normal",
+        } as ScriptFileStackMember,
+    ]);
 
     var translationConstantString = null;
 
@@ -168,6 +181,17 @@ export async function compile(
     //console.log(structuredClone(translatedStrings));
 
     var astRules = parseLines(lines);
+
+    setFileStack([
+        {
+            name: "<internal>",
+            currentLineNb: 1,
+            currentColNb: 1,
+            remainingChars: 99999999999, //does not matter
+            staticMember: true,
+            fileStackMemberType: "normal",
+        } as ScriptFileStackMember,
+    ]);
 
     if (usePlayerVarForTranslations) {
 
@@ -246,20 +270,22 @@ rule "<fg00FFFFFF>OverPy <\\ztx> / <\\zfg> setup code</fg>":
     }
 
     return {
-        result: result,
-        macros: macros,
-        globalVariables: globalVariables,
-        playerVariables: playerVariables,
-        subroutines: subroutines,
-        encounteredWarnings: encounteredWarnings,
-        hiddenWarnings: hiddenWarnings,
-        enumMembers: enumMembers,
-        nbElements: nbElements,
-        activatedExtensions: activatedExtensions,
-        spentExtensionPoints: spentExtensionPoints,
-        availableExtensionPoints: availableExtensionPoints,
-        translationLanguages: translationLanguages,
-        translatedStrings: translatedStrings,
+        result,
+        macros,
+        astMacros,
+        astConstants,
+        globalVariables,
+        playerVariables,
+        subroutines,
+        encounteredWarnings,
+        hiddenWarnings,
+        enumMembers,
+        nbElements,
+        activatedExtensions,
+        spentExtensionPoints,
+        availableExtensionPoints,
+        translationLanguages,
+        translatedStrings,
     };
 }
 
@@ -272,6 +298,17 @@ function compileRules(astRules: Ast[]) {
 
     var compiledRules = astRulesToWs(parsedAstRules).join("");
 
+    setFileStack([
+        {
+            name: "<internal>",
+            currentLineNb: 1,
+            currentColNb: 1,
+            remainingChars: 99999999999, //does not matter
+            staticMember: true,
+            fileStackMemberType: "normal",
+        } as ScriptFileStackMember,
+    ]);
+
     var result = compiledCustomGameSettings;
     if (!excludeVariablesInCompilation) {
         result += generateVariablesField();
@@ -279,7 +316,6 @@ function compileRules(astRules: Ast[]) {
     }
     result += compiledRules;
 
-    setFileStack([]);
     if (nbElements > ELEMENT_LIMIT) {
         warn("w_element_limit", "The gamemode is over the element limit (" + nbElements + " > " + ELEMENT_LIMIT + " elements)");
     }

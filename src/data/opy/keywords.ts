@@ -23,6 +23,7 @@ export const opyKeywords: Record<string, {
     description: string,
     args: Argument[] | null,
     snippet?: string
+    hideFromAutocomplete?: boolean
 }> = {
 
     //Keywords
@@ -35,11 +36,32 @@ export const opyKeywords: Record<string, {
     "bool": {
         "description": "The 'boolean' type. Denotes a boolean such as 'false' or 'true'.",
         "args": null,
+        hideFromAutocomplete: true,
     },
     "case": {
         "description": "Denotes a block that will be reached if the specified variable in the corresponding `switch` statement is equal to the value specified in this `case` statement. Literal arrays should not be used. Note that the execution will not jump to the end of the `switch` block after the end of the `case` block; if you want that to be the case, use the `break` instruction.",
         "args": null,
         "snippet": "case $0",
+    },
+    "const": {
+        "description": `Declares a constant, which will be inlined in the code. For example:
+
+\`\`\`python
+const BOSS_HP = 1000
+\`\`\`
+
+Note: unlike \`#!define\`, constants will not mess up the order of operations:
+\`\`\`python
+const SCORE_TO_WIN_CONST = DIFFICULTY + 3
+#!define SCORE_TO_WIN_DEFINE DIFFICULTY + 3
+
+rule "":
+    A = SCORE_TO_WIN_DEFINE * 2 #will be interpreted as DIFFICULTY + (3 * 2)
+    A = SCORE_TO_WIN_CONST * 2 #will be interpreted as (DIFFICULTY + 3) * 2
+\`\`\`
+`,
+        "args": null,
+        "snippet": "const $0",
     },
     "def": {
         "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
@@ -93,6 +115,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     "float": {
         "description": "The 'float' type. Denotes any real number.\n\nLimits can be specified: for example, `float[-4.5:5.5]` denotes all numbers between -4.5 and 5.5, inclusive.",
         "args": null,
+        hideFromAutocomplete: true,
     },
     "for": {
         "description": `Denotes either:
@@ -119,6 +142,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     "int": {
         "description": "The 'integer' type. A subset of the 'float' type. Denotes all numbers without decimals.\n\nLimits can be specified: for example, `int[-4:5]` denotes all integers between -4 and 5, inclusive.",
         "args": null,
+        hideFromAutocomplete: true,
     },
     "globalvar": {
         "description": "Declares a global variable. The index (0-127) can optionally be specified. Example: `globalvar myVar 127`",
@@ -140,6 +164,50 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "args": null,
         "snippet": "loc+$0",
     },
+    "macro": {
+        "description": `Declares a macro, which is an inline function. For example:
+
+\`\`\`python
+macro add(a, b):
+    return a + b
+\`\`\`
+The macro can then be used like a function: \`add(C, D)\` will yield \`C + D\`.
+
+Note that, unlike \`#!define\`, macros will not mess up the order of operations:
+
+\`\`\`python
+#!define add_define(a, b) a+b
+macro add_macro(a, b):
+    return a + b
+
+rule "":
+    A = add_define(A, B) * C #will be interpreted as A + (B * C)
+    A = add_macro(A, B) * C #will be interpreted as (A + B) * C
+\`\`\`
+
+You can also declare member macros, which must take \`self\` as the first argument. For example:
+\`\`\`python
+macro Player.setPowerLevel(self, powerLevel):
+    self.setMaxHealth(powerLevel*200)
+    self.setDamageDealt(powerLevel*2)
+\`\`\`
+
+\`self\` will be replaced by the member, so \`A.setPowerLevel(2)\` will yield \`A.setMaxHealth(400)\` and \`A.setDamageDealt(4)\`.
+
+Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
+
+\`\`\`python
+macro Player.setPowerLevel(self, powerLevel=1, damageDealt=null):
+    self.setMaxHealth(powerLevel*200)
+    self.setDamageDealt(damageDealt or powerLevel*2)
+
+rule "":
+    A.setPowerLevel(damageDealt=3)
+\`\`\`
+`,
+        "args": null,
+        "snippet": "macro $0",
+    },
     "not": {
         "description": "Whether the given operand is false (or equivalent to false).",
         "args": null,
@@ -160,6 +228,18 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "args": null,
         "snippet": "rule \"$0\"",
     },
+    "self": {
+        "description": `In a member macro, refers to the member itself. For example:
+\`\`\`python
+macro Array.reverse():
+    sorted(self, key=lambda _, i: -i)
+\`\`\`
+If calling \`A.reverse()\`, \`self\` will be replaced by \`A\`.
+
+A member macro must always have \`self\` as the first argument.
+`,
+        "args": null,
+    },
     "settings": {
         "description": "Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).",
         "args": null,
@@ -168,6 +248,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     "signed": {
         "description": "Defines the specified type as signed (inferior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
+        hideFromAutocomplete: true,
     },
     "switch": {
         "description": "Denotes the beginning of a block that will jump execution to the `case` statement that has the value of the specified variable. If no `case` statement has the value of the specified variable, the execution goes to the `default` statement if it exists, else to the end of the block.",
@@ -182,6 +263,7 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
     "unsigned": {
         "description": "Defines the specified type as unsigned (superior or equal to 0). Only valid for 'int' or 'float'.",
         "args": null,
+        hideFromAutocomplete: true,
     },
     "while": {
         "description": "Denotes the beginning of a block that will execute in a loop as long as the specified condition is true. If the condition evaluates to false when execution is at the top of the loop, then the loop exits, and execution jumps to the next action after the end of the block.",

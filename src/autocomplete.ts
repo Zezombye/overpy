@@ -8,7 +8,7 @@ import { opyStringEntities } from "./data/opy/stringEntities";
 import { valueFuncKw } from "./data/values";
 import { showOverPyExtensionError } from "./extension";
 import { DEBUG_MODE, enumMembers, postLoadTasks } from "./globalVars";
-import { Argument, Value, Type, MacroData, Variable, Subroutine } from "./types";
+import { Argument, Value, Type, MacroData, Variable, Subroutine, AstMacroData, AstConstantData } from "./types";
 import { opyFuncs } from "./data/opy/functions";
 import { opyKeywords } from "./data/opy/keywords";
 import { opyAnnotations } from "./data/opy/annotations";
@@ -59,11 +59,15 @@ export let defaultCompList: vscode.CompletionList;
 export let allFuncList: Record<string, Record<string, unknown>>;
 export let memberCompletionItems: vscode.CompletionList;
 export type AutocompleteFunctionData = {
-    args: { name: string; type: string }[];
+    args: { name: string; type: string, default?: string }[];
     description: string;
+    class?: string;
 };
 export let normalMacros: Record<string, AutocompleteFunctionData> = {};
+export let normalAstMacros: Record<string, AutocompleteFunctionData> = {};
 export let memberMacros: Record<string, AutocompleteFunctionData> = {};
+export let memberAstMacros: Record<string, AutocompleteFunctionData> = {};
+export let astConstants: Record<string, AutocompleteFunctionData> = {};
 export let globalVariables: Record<string, { description: string }> = {};
 export let playerVariables: Record<string, { description: string }> = {};
 export let subroutines: Record<string, AutocompleteFunctionData> = {};
@@ -194,7 +198,9 @@ export function refreshAutoComplete() {
     defaultCompList = makeCompList({
         ...funcList,
         ...constantValuesCompLists,
+        ...astConstants,
         ...normalMacros,
+        ...normalAstMacros,
         ...globalVariables,
         ...subroutines,
     });
@@ -202,14 +208,18 @@ export function refreshAutoComplete() {
         ...funcList,
         ...memberFuncList,
         ...moduleFuncList,
+        ...astConstants,
         ...normalMacros,
+        ...normalAstMacros,
         ...memberMacros,
+        ...memberAstMacros,
     };
 
     Object.keys(allFuncList).forEach((key) => (allFuncList[key].sigHelp = makeSignatureHelp(key, allFuncList[key] as OverpyModule)));
     memberCompletionItems = makeCompList({
         ...memberFuncList,
         ...memberMacros,
+        ...memberAstMacros,
         ...playerVariables,
     });
 }
@@ -289,8 +299,7 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
         argStr = (item.args as Argument[]).slice(isMemberFunctionFlag ? 1 : 0).reduce((prev, arg) =>
             prev + "- `"+arg.name
             + (arg.default !== undefined ? "?" : "")
-            + "`: "+arg.description
-            + (arg.description?.endsWith(".") ? "" : ".")
+            + "`"+(arg.description ? ": "+arg.description + (arg.description?.endsWith(".") ? "" : ".") : "")
             //Add zero-width space to force line break on large constants such as HudReeval.VISIBILITY_SORT_ORDER_STRING_AND_COLOR
             + (arg.default !== undefined ? " If omitted, defaults to `"+argDefaultToString(arg).replaceAll("_", "_\u200B")+"`." : "")+"\n", ""
         );
@@ -301,7 +310,7 @@ function generateDocFromDoc(itemName: string, item: OverpyModule): vscode.Markdo
     }
     if (isMemberFunctionFlag) {
         infoStr += "Class: `Player`  \n";
-    } else if ("class" in item) {
+    } else if (item.class) {
         infoStr += `Class: \`${item.class}\`  \n`;
     }
 
@@ -399,7 +408,7 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
 
     var paramInfo = [];
     var sigStr = "";
-    if ("class" in func) {
+    if (func.class) {
         sigStr += func.class + ".";
     } else if (isMemberFunction) {
         sigStr += "Player.";
@@ -418,7 +427,7 @@ function makeSignatureHelp(funcName: string, func: OverpyModule) {
             if (func.args[i].default !== undefined) {
                 argSignature +="=" + argDefaultToString(func.args[i]);
             }
-            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString(func.args[i].description+"\n\nType: `"+typeToString(func.args[i].type)+"`")));
+            paramInfo.push(new vscode.ParameterInformation([sigStr.length, sigStr.length + argSignature.length], new vscode.MarkdownString((func.args[i].description ? func.args[i].description+"\n\n" : "")+"Type: `"+typeToString(func.args[i].type)+"`")));
             sigStr += argSignature;
             if (i < func.args.length - 1) {
                 sigStr += ", ";
@@ -490,6 +499,48 @@ export function fillAutocompletionMacros(macros: MacroData[]) {
         } else {
             normalMacros[macroName] = convertedMacro;
         }
+    }
+}
+
+export function fillAutocompletionAstMacros(macros: AstMacroData[]) {
+    normalAstMacros = {};
+    memberAstMacros = {};
+    for (let macro of macros) {
+        let convertedMacro: AutocompleteFunctionData = {
+            args: [],
+            description: "",
+            class: macro.class_,
+        };
+        var macroName = macro.name;
+        if (macro.args.length === 0) {
+            macroName += "()";
+        } else {
+            for (var arg of macro.args) {
+                if (arg.name !== "self") {
+                    convertedMacro.args.push({
+                        name: arg.name,
+                        type: typeToString(arg.type),
+                        default: arg.defaultStr,
+                    });
+                }
+            }
+        }
+        convertedMacro.description = "This macro resolves to:\n\n`" + macro.linesStr.join("`\n`")+"`";
+        if (macro.class_) {
+            memberAstMacros[macroName.replace(".", "")] = convertedMacro;
+        } else {
+            normalAstMacros[macroName] = convertedMacro;
+        }
+    }
+}
+
+export function fillAutocompletionConstants(constants: AstConstantData[]) {
+    astConstants = {};
+    for (var constant of constants) {
+        astConstants[constant.name] = {
+            args: [],
+            description: "This constant resolves to:\n\n`" + constant.valueStr + "`",
+        };
     }
 }
 

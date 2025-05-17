@@ -17,7 +17,7 @@
 
 "use strict";
 // @ts-check
-import { currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw } from "../globalVars";
+import { astMacros, currentRuleHasVariableGoto, currentRuleLabelAccess, fileStack, funcKw } from "../globalVars";
 import { error, functionNameToString } from "./logging";
 import { Argument, FileStackMember, Type } from "../types";
 import { isTypeSuitable } from "./types";
@@ -76,8 +76,10 @@ export class Ast {
         if (!type) {
             if (name in funcKw) {
                 this.type = funcKw[name].return;
+            } else if (name in astMacros) {
+                this.type = (astMacros[name].lines.length > 2 ? "void" : astMacros[name].lines[0].type);
             } else if (name.startsWith("$")) {
-                //macro
+                //macro arg
                 this.type = "Value";
             } else {
                 error("Unknown function name '" + name + "'");
@@ -280,6 +282,7 @@ export function astContainsFunctions(ast: Ast, functionNames: string[], errorOnT
 }
 
 //Used to replace currentArrayElement with currentArrayElement[0] to fix the simultaneous mapping+filtering bug.
+//Also used for macro args.
 export function replaceFunctionInAst(ast: Ast, functionName: string, newAst: Ast) {
     //console.log("Replacing " + functionName + " with " + newAst.name);
     if (ast.name === functionName) {
@@ -408,6 +411,8 @@ export function getAstForArgDefault(arg: Argument) {
         defaultAst = new Ast(arg.default, [], [], arg.type);
     } else if (arg.type in builtInEnumNameToAstInfo) {
         defaultAst = new Ast(builtInEnumNameToAstInfo[arg.type].name, [new Ast(arg.default, [], [], builtInEnumNameToAstInfo[arg.type].type)]);
+    } else if (arg.default instanceof Ast) {
+        defaultAst = arg.default.clone();
     } else {
         defaultAst = parseOpyMacro(arg.default, [], []);
     }

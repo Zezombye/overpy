@@ -24,7 +24,7 @@ export const preprocessingDirectives: Record<string, {
     snippet?: string
 }> = {
     "define": {
-        "description": "Creates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
+        "description": "**Warning**: This directive performs a text-based replacement! Use `macro` or `const` instead, unless absolutely necessary.\n\nCreates a macro, like in C/C++. Macros must be defined before any code. Examples:\n\n    #!define currentSectionWalls A\n    #!define GAME_NOT_STARTED 3`\n\nFunction macros are supported as well:\n\n    #!define getFirstAvailableMei() [player for player in getPlayers(Team.2) if not player.isFighting][0]\n    #!define spawnMei(type, location)     getFirstAvailableMei().meiType = type\\\n    wait(0.1)\\\n    getFirstAvailableMei().teleport(location)\\\n    getFirstAvailableMei().isFighting = true\n\nNote the usage of the backslashed lines.\n\nJS scripts can be inserted with the special `__script__` function:\n\n    #!define addFive(x) __script__(\"addfive.js\")\n\nwhere the `addfive.js` script contains `x+5` (no `return`).\n\nArguments of JS scripts are inserted automatically at the beginning (so `addFive(123)` would cause `var x = 123;` to be inserted). The script is then evaluated using `eval()`.\n\nA `vect()` function is also inserted, so that `vect(1,2,3)` returns an object with the correct properties and `toString()` function.\n\nWhen resolving the macro, the indentation on the macro call is prepended to each line of the replacement.\n",
         "snippet": "define $0",
     },
     "defineMember": {
@@ -44,7 +44,7 @@ export const preprocessingDirectives: Record<string, {
         "snippet": "include \"$0\"",
     },
     "excludeVariablesInCompilation": {
-        "description": "Does not include the variables field in compilation. For if you want to paste into another mode with mismatched variable indices.",
+        "description": "Does not include the variables field in compilation. Use if you want to paste into another mode with mismatched variable indices.",
     },
     "setupTags": {
         "description": "Add a rule to obtain an unsanitized '<' character which can be used to create <tx> and <fg> tags.\n\n**WARNING**: The inserted rule creates a dummy bot then immediately destroys it. This has the side effect of triggering each-player rules and may break your gamemode (though if properly coded, it shouldn't).\n\nThe `__holygrail__` variable can be used to obtain the raw '<' character, although it is not necessary as OverPy will automatically take care of the conversion, meaning you can put raw texture tags in strings.\n\nFor color, use the <fgRRGGBBAA> tag, where RR/GG/BB are the hex color value, and AA is the hex transparency value (00 = transparent, FF = opaque).\nExample: `print('<fgFF0000FF>Red text</fg>')`.\n\nFor textures, use the <TX> standalone tag, with the texture id as seen in https://workshop.codes/wiki/articles/tx-reference-sheet.\nExample: `print('<TXC0000000002DD21>')` will display the mouse cursor texture.\n\nAdditionally, you can use the `Texture` enum (such as `Texture.MOUSE_CURSOR`), and OverPy will automatically optimize it.\n\nOverPy will also replace `'<tx1234>'` to the correct full texture id, but only if the entire tag is inside a string (`'<tx{}>'.format(id)` will not work, but `'<tx{}>'.format(1234)` will).",
@@ -154,16 +154,7 @@ You can also potentially save a lot of elements by using the #!translateWithPlay
 - \`(-1.00, 0.00, 0.00)\` (\`Vector.RIGHT\`)
 - \`(0.00, 0.00, 1.00)\` (\`Vector.FORWARD\`)
 - \`(0.00, 0.00, -1.00)\` (\`Vector.BACKWARD\`)
-- \`1876650.25\`
-- \`1876651.25\`
-- \`1876652.25\`
-- \`1876653.25\`
-- \`1876654.25\`
-- \`1876655.25\`
-- \`1876656.25\`
-- \`1876657.25\`
-- \`1876658.25\`
-- \`1876659.25\`
+- \`1876650.25\`, \`1876651.25\`, \`1876652.25\`, \`1876653.25\`, \`1876654.25\`, \`1876655.25\`, \`1876656.25\`, \`1876657.25\`, \`1876658.25\`, \`1876659.25\`
         `
     },
     "translateWithPlayerVar": {

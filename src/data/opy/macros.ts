@@ -51,12 +51,12 @@ export const opyMacros: Record<string, {
         "description": "Gets the effective hero of a player (if playing Echo, it returns the hero they are currently duplicating).\n\nYou will likely want to use this instead of `getHero()`.",
         "args": [
             {
-                "name": "player",
+                "name": "self",
                 "description": "The player whose effective hero you want to get.",
                 "type": "Player",
             }
         ],
-        macro: "$player.getHeroOfDuplication() or $player.getHero()",
+        macro: "$self.getHeroOfDuplication() or $self.getHero()",
         "class": "Player",
         return: "Hero",
     },
@@ -69,7 +69,7 @@ export const opyMacros: Record<string, {
                 "type": "Player",
             }
         ],
-        macro: "getOppositeTeam($player.getTeam())",
+        macro: "getOppositeTeam($self.getTeam())",
         "class": "Player",
         "return": "Team",
     },
@@ -151,7 +151,7 @@ export const opyMacros: Record<string, {
         "description": "The alive and spawned player closest to the reticle of the specified player, optionally restricted by team.\n\nNote: the workshop `Player Closest To Reticle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
         "args": [
             {
-                "name": "player",
+                "name": "self",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
             },
@@ -162,14 +162,14 @@ export const opyMacros: Record<string, {
                 "default": "ALL",
             }
         ],
-        macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $player], key=lambda x: angleBetweenVectors($player.getFacingDirection(), x - $player.getEyePosition()))[0]",
+        macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $self], key=lambda x: angleBetweenVectors($self.getFacingDirection(), x - $self.getEyePosition()))[0]",
         "return": "Player",
     },
     ".getRealPlayersClosestToReticle": {
         "description": "The alive and spawned players closest to the reticle of the specified player, optionally restricted by team and sorted by ascending distance to reticle.",
         "args": [
             {
-                "name": "player",
+                "name": "self",
                 "description": "The player from whose reticle to search for the closest player.",
                 "type": "Player",
             },
@@ -180,7 +180,7 @@ export const opyMacros: Record<string, {
                 "default": "ALL",
             }
         ],
-        macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $player], key=lambda x: angleBetweenVectors($player.getFacingDirection(), x - $player.getEyePosition()))",
+        macro: "sorted([p for p in getLivingPlayers($team) if p.hasSpawned() and p != $self], key=lambda x: angleBetweenVectors($self.getFacingDirection(), x - $self.getEyePosition()))",
         "return": "Player",
     },
 
@@ -219,7 +219,7 @@ export const opyMacros: Record<string, {
         "description": "The players who are within a specific view angle of a specific player's reticle, optionally restricted by team.\n\nNote: the workshop `Players in View Angle` function targets dead and unspawned players (at 0,0,0). Use this function instead.",
         "args": [
             {
-                "name": "player",
+                "name": "self",
                 "description": "The player whose view to use for the check.",
                 "type": "Player",
             },
@@ -234,7 +234,7 @@ export const opyMacros: Record<string, {
                 "type": "float",
             }
         ],
-        macro: "[p for p in $player.getPlayersInViewAngle($team, $viewAngle) if p.isAlive() and p.hasSpawned()]",
+        macro: "[p for p in $self.getPlayersInViewAngle($team, $viewAngle) if p.isAlive() and p.hasSpawned()]",
         "return": {
             "Array": "Player"
         },
@@ -485,13 +485,13 @@ export const opyMacros: Record<string, {
         "description": "Reverses the array.",
         "args": [
             {
-                "name": "array",
+                "name": "self",
                 "description": "The array to reverse.",
                 "type": "Array",
             }
         ],
         class: "Array",
-        macro: "sorted($array, key=lambda _, i: -i)",
+        macro: "sorted($self, key=lambda _, i: -i)",
         "return": "Array"
     },
     "timeToString": {
@@ -516,12 +516,12 @@ export const opyMacros: Record<string, {
         "args": [
             {
 
-                "name": "array",
+                "name": "self",
                 "description": "The array to get the unique values from.",
                 "type": "Array",
             }
         ],
-        macro: "[elem for elem, idx in $array if $array.index(elem) == idx]",
+        macro: "[elem for elem, idx in $self if $self.index(elem) == idx]",
         class: "Array",
         "return": "Array",
     },

@@ -7,7 +7,7 @@ import * as vscode from "vscode";
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
 import { postInitialLoad } from "./globalVars";
-import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
+import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionAstMacros, fillAutocompletionConstants, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
 import { Argument, OWLanguage, ow_languages } from "./types.d";
 
 const overpyTemplate = `
@@ -119,6 +119,8 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showInformationMessage(`Successfully compiled! (copied into clipboard${showElementCount ? `; ${compileResult.nbElements} elements` : ""})`);
 
             fillAutocompletionMacros(compileResult.macros);
+            fillAutocompletionAstMacros(Object.values(compileResult.astMacros));
+            fillAutocompletionConstants(Object.values(compileResult.astConstants));
             fillAutocompletionVariables(compileResult.globalVariables, compileResult.playerVariables);
             fillAutocompletionSubroutines(compileResult.subroutines);
             fillAutocompletionEnums(compileResult.enumMembers);

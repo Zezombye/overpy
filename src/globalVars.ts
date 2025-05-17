@@ -23,7 +23,7 @@ import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { Constant, constantValues } from "./data/constants";
-import { FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, ScriptFileStackMember, Subroutine, Type, Value, Variable } from "./types.d.js";
+import { AstConstantData, AstMacroData, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, ScriptFileStackMember, Subroutine, Type, Value, Variable } from "./types.d.js";
 import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue } from "./utils/ast";
 import { TranslatedString, TranslationLanguage } from "./compiler/translations";
 import { heroKw } from "./data/heroes";
@@ -109,6 +109,11 @@ export const setOptimizationForSize = (size: boolean) => (optimizeForSize = size
 /** Contains all macros. */
 export var macros: MacroData[] = [];
 export const resetMacros = () => (macros = []);
+export var astConstants: Record<string, AstConstantData> = {};
+export var astMacros: Record<string, AstMacroData> = {};
+export var astMacroLocalVariables: string[] = [];
+//Reset at each macro parse
+export const resetAstMacroLocalVariables = () => (astMacroLocalVariables = []);
 
 /** All warnings encountered during this compilation run. */
 export var encounteredWarnings: string[] = [];
@@ -249,6 +254,9 @@ export function resetGlobalVariables(language: OWLanguage) {
     currentRuleLabels = [];
     currentRuleLabelAccess = {};
     macros = [];
+    astMacros = {};
+    astConstants = {};
+    astMacroLocalVariables = [];
     fileStack = [];
     decompilerGotos = [];
     nbTabs = 0;
@@ -612,7 +620,7 @@ postLoadTasks.push({
  * A constant function is defined as a function/constant that will always return the same value throughout the lifetime of a game. (This means "current gamemode" and "current map" are valid, as you cannot change a map without restarting the game.)
  * Here we store the functions that are not constant, as it is easier to check with astContainsFunctions().
 */
-export let notConstantFunctions: Value[];
+export let notConstantFunctions: string[];
 
 export let constantKw: Record<string, Constant> = {};
 
@@ -628,7 +636,7 @@ postLoadTasks.push({
     task: () => {
         Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
-        notConstantFunctions = Object.values(valueFuncKw).filter(x => !x.isConstant);
+        notConstantFunctions = Object.keys(valueFuncKw).filter(x => !valueFuncKw[x].isConstant);
 
         for (var constant of Object.keys(constantValues)) {
             for (var value of Object.keys(constantValues[constant])) {
@@ -641,6 +649,15 @@ postLoadTasks.push({
         wsFuncKw = Object.assign({}, actionKw, valueFuncKw);
 
         funcKw = Object.assign({}, wsFuncKw, opyFuncs, opyInternalFuncs, opyMacros);
+
+        for (var func in funcKw) {
+            let funcArgs = funcKw[func].args;
+            if (funcArgs === null) {
+                reservedNames.push(func);
+            } else if (funcArgs.length === 0) {
+                reservedSubroutineNames.push(func);
+            }
+        }
 
 
         //Set whether a macro argument is duplicated (if so, it will be checked to not contain random values)
@@ -819,14 +836,6 @@ postLoadTasks.push({
 export function postInitialLoad() {
     postLoadTasks.push({
         task: () => {
-            for (var func in funcKw) {
-                let funcArgs = funcKw[func].args;
-                if (funcArgs === null) {
-                    reservedNames.push(func);
-                } else if (funcArgs.length === 0) {
-                    reservedSubroutineNames.push(func);
-                }
-            }
 
             typeTree.push(...Object.keys(constantValues));
 

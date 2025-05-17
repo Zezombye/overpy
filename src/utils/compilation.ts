@@ -23,6 +23,8 @@ import { tokenize } from "../compiler/tokenizer";
 import { CustomGameSettingSchema } from "../data/customGameSettings";
 import { opyMacros } from "../data/opy/macros";
 import { customGameSettingsKw } from "../data/other";
+import { astMacros, fileStack } from "../globalVars";
+import { FileStackMember } from "../types";
 import { Ast, astContainsRandom, replaceFunctionInAst } from "./ast";
 import { astToString, error } from "./logging";
 import { upperCaseToCamelCase } from "./other";
@@ -132,7 +134,6 @@ export function parseOpyMacroAst(content: Ast): Ast {
 
 export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
 
-
     let lines = tokenize(macro);
     let astLines = parseLines(lines);
     if (astLines.length !== 1) {
@@ -142,6 +143,37 @@ export function parseOpyMacro(macro: string, argNames: string[], args: Ast[]) {
     for (let [i, arg] of argNames.entries()) {
         result = replaceFunctionInAst(result, arg, args[i]);
     }
+    return result;
+
+}
+
+export function parseAstMacro(macro: Ast): Ast[] {
+    if (!(macro.name in astMacros)) {
+        error("Unknown macro '" + macro.name + "'");
+    }
+
+    function setMacroFilestack(ast: Ast, fileStack: FileStackMember[]) {
+        ast.fileStack = [...fileStack, ast.fileStack[ast.fileStack.length - 1]];
+        for (var arg of ast.args) {
+            setMacroFilestack(arg, fileStack);
+        }
+        for (var child of ast.children) {
+            setMacroFilestack(child, fileStack);
+        }
+
+    }
+
+    //console.log("ast macro", macro);
+    //console.log("filestack", fileStack);
+    let result: Ast[] = astMacros[macro.name].lines.map((line) => line.clone());
+    let argNames = astMacros[macro.name].args.map(arg => arg.name);
+    for (let i = 0; i < result.length; i++) {
+        for (let [j, arg] of argNames.entries()) {
+            result[i] = replaceFunctionInAst(result[i], "$"+arg, macro.args[j].clone());
+        }
+        setMacroFilestack(result[i], fileStack);
+    }
+    //console.log(result);
     return result;
 
 }
