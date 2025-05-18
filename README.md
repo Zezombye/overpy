@@ -160,7 +160,7 @@ rule "functions":
 
 ```
 
-# Function syntax reference
+## Function syntax reference
 
 <details>
 <summary>List of functions with a significant syntax/name change (click to expand)</summary>
