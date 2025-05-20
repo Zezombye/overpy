@@ -571,52 +571,22 @@ Size optimizations must be enabled for these replacements to work (with `#!optim
 
 Preprocessing is an important part of OverPy and allows extending its power way beyond the limitations of the workshop.
 
-## Constants
-
-A constant can be declared using the `const` keyword, and will be inlined in the code. For example:
-
-```ruby
-const DIFFICULTY = 2
-const SCORE_TO_WIN_CONST = DIFFICULTY + 3
-
-rule "":
-    scoreToWin = SCORE_TO_WIN_CONST * 2 #will be interpreted as (2 + 3) * 2
-```
-
-## Enums
-
-Enums can be declared to avoid manually declaring several constants:
-
-```java
-enum GameStatus:
-    GAME_NOT_STARTED = 1
-    GAME_IN_PROGRESS
-    GAME_FINISHED
-
-enum Team:
-    HUMANS = Team.2
-    ZOMBIES = Team.1
-
-rule "Kill zombies when game has finished":
-    @Condition gameStatus == GameStatus.GAME_FINISHED
-    kill(getPlayers(Team.ZOMBIES), null)
-```
-
-If an enum member is not given a value, it will take the previous value plus 1 (or 0 if it is the first value). You can also extend existing enums, such as the `Team` enum in this example.
-
-You can use `len(GameStatus)` to have the amount of values in the enum and `GameStatus.toArray()` to get an array of the values. This is useful to iterate on the values.
-
 ## Macros
 
-Use the `macro` keyword to declare a macro, which is an inline function. For example:
+Use the `macro` keyword to declare a macro, which is an inline function or constant. For example:
 
 ```python
+macro BOSS_HP = 1000 + getNumberOfPlayers() * 300
+
 macro add(a, b):
     a + b
 
 rule "":
     A = add(C, D) #A = C + D
+    B = BOSS_HP #B = 1000 + getNumberOfPlayers() * 300
 ```
+
+Note that the replacement is done in the AST, meaning the order of operations will be as expected. For example, `BOSS_HP * 200` will be equivalent to `(1000 + getNumberOfPlayers() * 300) * 200`.
 
 You can also declare member macros, which must take `self` as the first argument. For example:
 
@@ -658,7 +628,7 @@ then `sum(3, 4) * 3` will be resolved as `3 + 4 * 3` and `sum(3, 4 if A else 3)`
 
 This macro should be declared instead as `#!define sum(a,b) ((a)+(b))`: parentheses around the whole macro definition, and around each argument.
 
-This problem does not occur with `const` or `macro`, which is why you should always use them unless you absolutely need `#!define` (you most likely don't).
+This problem does not occur with `macro`, which is why you should always use them unless you absolutely need `#!define` (you most likely don't).
 
 The `#!defineMember` directive behaves exactly the same as `#!define`, except the VS Code extension will put the autocompletion in the dot trigger. This is primarily useful for vectors: if you have a vector that stores 3 distinct numbers, you can do `#!defineMember someVar x` to do `vector.someVar` instead of `vector.x`.
 
@@ -678,6 +648,31 @@ For the technical details:
 - A `vect()` function is automatically inserted, so that `vect(1,2,3)` returns an object with the correct x, y, and z properties and `toString()` function
 - The `Map`, `Gamemode`, `Hero`, `Color`, `Team` and `Button` enums can also be used (`Map.KANEZAKA` will return `"Map.KANEZAKA"`)
 - The script is then evaluated using a JavaScript interpreter
+
+## Enums
+
+Enums can be declared to avoid manually declaring several macros:
+
+```java
+enum GameStatus:
+    GAME_NOT_STARTED = 1
+    GAME_IN_PROGRESS
+    GAME_FINISHED
+
+enum Team:
+    HUMANS = Team.2
+    ZOMBIES = Team.1
+
+rule "Kill zombies when game has finished":
+    @Condition gameStatus == GameStatus.GAME_FINISHED
+    kill(getPlayers(Team.ZOMBIES), null)
+```
+
+If an enum member is not given a value, it will take the previous value plus 1 (or 0 if it is the first value). You can also extend existing enums, such as the `Team` enum in this example.
+
+You can use `len(GameStatus)` to have the amount of values in the enum and `GameStatus.toArray()` to get an array of the values. This is useful to iterate on the values.
+
+Note that enum members are inlined, so if you use a value such as `getAllPlayers()` that changes during a game, the value of the enum will also change.
 
 # Advanced constructs
 

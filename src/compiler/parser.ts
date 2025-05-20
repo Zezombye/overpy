@@ -119,34 +119,21 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             continue;
         }
 
-        //Handle constants
-        if (currentLine.tokens[0].text === "const") {
-            if (currentLine.tokens.length < 3) {
-                error("Malformed const declaration");
-            }
+        //Handle macro constants
+        if (currentLine.tokens[0].text === "macro" && currentLine.tokens.length >= 4 && currentLine.tokens[currentLine.tokens.length - 1].text !== ":") {
             if (currentLine.indentLevel !== 0) {
-                error("const directive cannot be indented");
+                error("macro directive cannot be indented");
             }
             let name = currentLine.tokens[1].text;
             if (currentLine.tokens[2].text !== "=") {
-                error("Malformed const declaration");
+                error("Malformed macro declaration");
             }
             let value = parse(currentLine.tokens.slice(3));
             if (name in astConstants) {
-                error("Constant '" + name + "' already exists");
+                error("Macro '" + name + "' already exists");
             }
             if (isVarName(name, true)) {
-                error("Constant '" + name + "' is already a global variable");
-            }
-            //Check that there are only constant functions, as to not mislead the programmer; constants are just macros in disguise
-            if (
-                astContainsFunctions(
-                    value,
-                    notConstantFunctions,
-                    false,
-                )
-            ) {
-                warn("w_const_not_constant", "The value of const " + name + " seems to not be constant; it will be inlined and not stored.");
+                error("Macro '" + name + "' is already a global variable");
             }
             astConstants[name] = {
                 name: name,

@@ -43,26 +43,6 @@ export const opyKeywords: Record<string, {
         "args": null,
         "snippet": "case $0",
     },
-    "const": {
-        "description": `Declares a constant, which will be inlined in the code. For example:
-
-\`\`\`python
-const BOSS_HP = 1000
-\`\`\`
-
-Note: unlike \`#!define\`, constants will not mess up the order of operations:
-\`\`\`python
-const SCORE_TO_WIN_CONST = DIFFICULTY + 3
-#!define SCORE_TO_WIN_DEFINE DIFFICULTY + 3
-
-rule "":
-    A = SCORE_TO_WIN_DEFINE * 2 #will be interpreted as DIFFICULTY + (3 * 2)
-    A = SCORE_TO_WIN_CONST * 2 #will be interpreted as (DIFFICULTY + 3) * 2
-\`\`\`
-`,
-        "args": null,
-        "snippet": "const $0",
-    },
     "def": {
         "description": "Defines a subroutine. Note that subroutines cannot have any arguments or rule conditions. Example: `def mySubroutine():`",
         "args": null,
@@ -165,13 +145,15 @@ An enum can also be used as a type, such as \`enum["Value 1", "Value 2"]\`.
         "snippet": "loc+$0",
     },
     "macro": {
-        "description": `Declares a macro, which is an inline function. For example:
+        "description": `Declares a macro, which is an inline function or constant. For example:
 
 \`\`\`python
+macro BOSS_HP = 1000+getNumberOfPlayers()*300
+
 macro add(a, b):
     a + b
 \`\`\`
-The macro can then be used like a function: \`add(C, D)\` will yield \`C + D\`.
+The macro can then be used like a function: \`add(C, D)\` will yield \`C + D\` and \`BOSS_HP\` will get replaced by \`1000+getNumberOfPlayers()*300\`.
 
 Note that, unlike \`#!define\`, macros will not mess up the order of operations:
 

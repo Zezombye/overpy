@@ -1,5 +1,5 @@
 
-const testconst = (543
+macro testconst = (543
 +B)
 
 macro annotations():

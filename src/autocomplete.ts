@@ -539,7 +539,7 @@ export function fillAutocompletionConstants(constants: AstConstantData[]) {
     for (var constant of constants) {
         astConstants[constant.name] = {
             args: [],
-            description: "This constant resolves to:\n\n`" + constant.valueStr + "`",
+            description: "This macro resolves to:\n\n`" + constant.valueStr + "`",
         };
     }
 }
