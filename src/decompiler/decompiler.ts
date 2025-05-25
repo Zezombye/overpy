@@ -35,7 +35,10 @@ import { decompileActions, decompileConditions, decompileRuleToAst } from "./wor
 
 //OverPy Decompiler (Workshop -> OverPy)
 
-export function decompileAllRules(content: string, language: OWLanguage = "en-US") {
+export function decompileAllRules(content: string, language: OWLanguage = "en-US", options?: {
+    ignoreVariableIndex?: boolean,
+    ignoreSubroutineIndex?: boolean
+}) {
     resetGlobalVariables(language);
     var result = decompileAllRulesToAst(content);
 
@@ -59,7 +62,11 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         var globalVariableDeclarations = "";
         for (var variable of globalVariables) {
             if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-                globalVariableDeclarations += "globalvar " + variable.name + " " + variable.index + "\n";
+                globalVariableDeclarations += "globalvar " + variable.name;
+                if (!options?.ignoreVariableIndex) {
+                    globalVariableDeclarations += " " + variable.index;
+                }
+                globalVariableDeclarations += "\n";
             }
         }
         if (globalVariableDeclarations !== "") {
@@ -71,7 +78,11 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         var playerVariableDeclarations = "";
         for (var variable of playerVariables) {
             if (defaultVarNames.indexOf(variable.name) !== variable.index) {
-                playerVariableDeclarations += "playervar " + variable.name + " " + variable.index + "\n";
+                playerVariableDeclarations += "playervar " + variable.name;
+                if (!options?.ignoreVariableIndex) {
+                    playerVariableDeclarations += " " + variable.index;
+                }
+                playerVariableDeclarations += "\n";
             }
         }
         if (playerVariableDeclarations !== "") {
@@ -84,7 +95,11 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         subroutines.sort((a, b) => a.index - b.index);
         for (var subroutine of subroutines) {
             if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
-                subroutineDeclarations += "subroutine " + subroutine.name + " " + subroutine.index + "\n";
+                subroutineDeclarations += "subroutine " + subroutine.name;
+                if (!options?.ignoreSubroutineIndex) {
+                    subroutineDeclarations += " " + subroutine.index;
+                }
+                subroutineDeclarations += "\n";
             }
         }
         if (subroutineDeclarations !== "") {
