@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -122,18 +122,36 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
         //Handle macro constants
         if (currentLine.tokens[0].text === "macro" && currentLine.tokens.length >= 4 && currentLine.tokens[currentLine.tokens.length - 1].text !== ":") {
             if (currentLine.indentLevel !== 0) {
-                error("macro directive cannot be indented");
+                error("Macro directive cannot be indented");
             }
-            let name = currentLine.tokens[1].text;
-            if (currentLine.tokens[2].text !== "=") {
+            if (currentLine.tokens.length < 4) {
                 error("Malformed macro declaration");
             }
-            let value = parse(currentLine.tokens.slice(3));
+            let name = currentLine.tokens[1].text;
+            let class_;
+            if (currentLine.tokens[2].text === ".") {
+                class_ = name;
+                name = "."+currentLine.tokens[3].text;
+                if (currentLine.tokens.length < 6) {
+                    error("Malformed macro declaration");
+                }
+            }
+            if (currentLine.tokens[class_ ? 4 : 2].text !== "=") {
+                error("Malformed macro declaration");
+            }
+            if (class_) {
+                astMacroLocalVariables.push("self");
+            }
+            let value = parse(currentLine.tokens.slice(class_ ? 5 : 3));
+            resetAstMacroLocalVariables();
+            if ((class_ ? reservedMemberNames : reservedNames).includes(name.replace(".", ""))) {
+                error("Macro name '" + name + "' is a reserved word");
+            }
             if (name in astConstants) {
                 error("Macro '" + name + "' already exists");
             }
-            if (isVarName(name, true)) {
-                error("Macro '" + name + "' is already a global variable");
+            if (isVarName(name.replace(".", ""), (class_ ? false : true))) {
+                error("Macro '" + name + "' is already a " + (class_ ? "player" : "global")+" variable");
             }
             astConstants[name] = {
                 name: name,
@@ -393,11 +411,11 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 }
                 macroArgTokens = macroArgTokens.slice(1, macroArgTokens.length - 1);
                 let macroArgsTokens = splitTokens(macroArgTokens, ",", true);
+                let macroArgs = [];
                 if (macroArgsTokens.length === 0 && class_) {
-                    error("Class macro must have 'self' as first argument");
+                    macroArgs.push({name: "self", type: "Value"});
                 }
 
-                let macroArgs = [];
                 for (let [argTokensIdx, argTokens] of Object.entries(macroArgsTokens)) {
                     if (argTokens.length === 0) {
                         error("Empty argument in macro declaration");
@@ -429,11 +447,17 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     }
                 }
                 if (class_ && macroArgs[0].name !== "self") {
-                    error("Class macro must have 'self' as first argument");
+                    macroArgs.unshift({name: "self", type: "Value"});
                 }
 
                 astMacroLocalVariables.push(...macroArgs.map(x => x.name));
                 let macroLines = parseLines(childrenLines);
+                if (macroLines.length === 0) {
+                    error("Macro '" + name + "' cannot be empty (use 'pass' for a no-op macro)");
+                }
+                if (macroLines[0].name === "__elif__" || macroLines[0].name === "__else__") {
+                    error("Macro '" + name + "' cannot start with an 'elif' or 'else' statement");
+                }
                 resetAstMacroLocalVariables();
 
                 //Do not use args as signature (to allow macro overloading), it would make the code too complex and is unnecessary with default values
@@ -992,15 +1016,16 @@ export function parse(content: Token[], kwargs: Record<string, any> = {}): Ast {
             return new Ast("__globalVar__", [new Ast(name, [], [], "GlobalVariable")]);
         }
 
+        //Check for local variable
+        if (astMacroLocalVariables.includes(name)) {
+            return new Ast("$"+name);
+        }
+
         //Check for constant
         if (name in astConstants) {
             return astConstants[name].value.clone();
         }
 
-        //Check for local variable
-        if (astMacroLocalVariables.includes(name)) {
-            return new Ast("$"+name);
-        }
 
         //Check for number
         if (isNumber(name)) {
@@ -1257,6 +1282,8 @@ function parseMember(object: Token[], member: Token[]) {
         }
 
         if (object.length === 1) {
+
+
             //Check for member of a user-declared enum
             //Do not throw an error if the name is not in the enum, as it can be in a built-in enum
             if (object[0].text in enumMembers && name in enumMembers[object[0].text]) {
@@ -1330,6 +1357,13 @@ function parseMember(object: Token[], member: Token[]) {
                     error("Expected a number after '.' but got '" + name + "'");
                 }
                 return new Ast("__number__", [new Ast(object[0].text + "." + name, [], [], "UnsignedFloatLiteral")], [], "unsigned float");
+            }
+
+            //Check for member constant
+            if ("." + name in astConstants) {
+                let result = astConstants["." + name].value.clone();
+                result = replaceFunctionInAst(result, "$self", parse(object));
+                return result;
             }
         }
 

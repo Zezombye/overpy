@@ -112,7 +112,7 @@ export function translateVarToWs(content: string, isGlobalVariable: boolean) {
 
 //Adds a variable to the global/player variable arrays.
 export function addVariable(content: string, isGlobalVariable: boolean, index: number, initValue: Token[] | null = null) {
-    if (isGlobalVariable && content in astConstants) {
+    if ((isGlobalVariable ? "" : ".")+content in astConstants) {
         error("Variable name '" + content + "' is already declared as a macro");
     }
     if ((isGlobalVariable && reservedNames.includes(content)) || (!isGlobalVariable && reservedMemberNames.includes(content))) {

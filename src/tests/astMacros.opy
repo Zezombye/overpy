@@ -2,6 +2,8 @@
 macro testconst = (543
 +B)
 
+macro Player.testconst = self.x + self.y
+
 macro annotations():
     @Event eachPlayer
     @Condition A == B
@@ -20,7 +22,7 @@ macro test4(a=5, b):
     A = a
     B = test3(a+B, b)
 
-macro Player.test2(self, b):
+macro Player.test2(b):
     self.A = b
 
 macro Player.test3(self):
@@ -48,6 +50,8 @@ rule "1":
     annotations()
     #A = 543+B
     A = testconst
+    #A = A.x + A.y
+    A = Player.testconst
     #A = 2, B = 3
     test1()
     # A = 2 + B + C

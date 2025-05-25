@@ -217,6 +217,7 @@ export type AstMacroData = {
 
 export type AstConstantData = {
     name: string;
+    class_?: string;
     value: Ast;
     valueStr: string;
 }
