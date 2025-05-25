@@ -589,12 +589,12 @@ rule "":
 
 Note that the replacement is done in the AST, meaning the order of operations will be as expected. For example, `BOSS_HP * 200` will be equivalent to `(1000 + getNumberOfPlayers() * 300) * 200`.
 
-You can also declare member macros, which must take `self` as the first argument. For example:
+You can also declare member macros, where the member is referenced with `self`. For example:
 
 ```python
 macro Vector.sum = self.x + self.y
 
-macro Player.setPowerLevel(self, powerLevel):
+macro Player.setPowerLevel(powerLevel):
     self.setMaxHealth(powerLevel*300)
     self.setDamageDealt(100+powerLevel*20)
 
@@ -612,7 +612,7 @@ rule "power level":
 Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
 
 ```python
-macro Player.setPowerLevel(self, powerLevel=1, damageDealt=null):
+macro Player.setPowerLevel(powerLevel=1, damageDealt=null):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(damageDealt or powerLevel*2)
 
