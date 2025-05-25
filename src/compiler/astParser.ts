@@ -518,6 +518,7 @@ export function parseAst(content: Ast) {
             content.children[i].comment = childComment;
         }
     }
+    content.childIndex = 0;
 
     setFileStack(content.fileStack);
 
@@ -527,7 +528,7 @@ export function parseAst(content: Ast) {
     let oldOriginalName = content.originalName || content.name;
     //console.log("original name: "+oldOriginalName);
     let parent = content.parent;
-    while (!content.doNotOptimize && (content.name in astParsingFunctions || content.name in opyMacros || content.name in astMacros)) {
+    if (!content.doNotReparse && (content.name in astParsingFunctions || content.name in opyMacros || content.name in astMacros)) {
         if (content.name in astParsingFunctions) {
             content = astParsingFunctions[content.name](content);
         } else if (content.name in astMacros) {
@@ -543,14 +544,13 @@ export function parseAst(content: Ast) {
         if (content.name !== oldContentName) {
             oldContentName = content.name;
             content.parent = parent;
-            content = parseAst(content); //re-optimize in depth
+            if (!content.doNotReparse) {
+                content = parseAst(content); //re-optimize in depth
+            }
             //console.log("Setting original name of '" + content.name + "' to '" + oldOriginalName+"'");
             content.originalName = oldOriginalName;
-        } else {
-            break;
         }
     }
-    content.childIndex = 0;
 
     return content;
 }

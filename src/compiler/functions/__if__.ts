@@ -75,8 +75,8 @@ astParsingFunctions.__if__ = function (content) {
             }
         }
 
-        //if false -> make the children useless
-        if (isDefinitelyFalsy(content.args[0])) {
+        //if false and no variable goto -> make the children useless
+        if (!currentRuleHasVariableGoto && isDefinitelyFalsy(content.args[0])) {
             makeChildrenUseless(content.children);
         }
     }
@@ -104,6 +104,8 @@ astParsingFunctions.__if__ = function (content) {
             content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
         }
     }
+
+    content.doNotReparse = true; //prevent calling this function again, else it would add multiple "end"s
 
     return content;
 };

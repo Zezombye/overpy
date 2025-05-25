@@ -36,6 +36,14 @@ macro createRules(a, b):
     rule "4":
         B = b
 
+macro loneCondition():
+    if A:
+        B = 3
+
+macro loneLoop():
+    while B:
+        C++
+
 rule "1":
     annotations()
     #A = 543+B
@@ -54,6 +62,12 @@ rule "1":
     test4(b=6)
     # hostPlayer.A = 3
     hostPlayer.test2(3)
+    if A:
+        loneCondition()
+        loneLoop()
+    while A:
+        loneCondition()
+    loneCondition()
     # hostPlayer.A = 4
     hostPlayer.test3()
 

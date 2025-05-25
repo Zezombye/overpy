@@ -63,5 +63,7 @@ astParsingFunctions.__elif__ = function (content) {
         }
     }
 
+    content.doNotReparse = true; //prevent calling this function again, else it would add multiple "end"s
+
     return content;
 };

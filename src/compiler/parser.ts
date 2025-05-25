@@ -448,7 +448,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                     name: name,
                     class_: class_,
                     lines: macroLines,
-                    linesStr: childrenLines.map(x => dispTokens(x.tokens, true)),
+                    linesStr: childrenLines.map(x => " ".repeat(x.indentLevel*4) + dispTokens(x.tokens, true)),
                     args: macroArgs,
                 };
 

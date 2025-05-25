@@ -57,7 +57,7 @@ export class Ast {
         name: "",
         event: "",
     };
-    doNotOptimize = false;
+    doNotReparse = false;
     originalName?: string;
     parent?: Ast;
     expectedType?: Type;
@@ -117,7 +117,7 @@ export class Ast {
         clone.childIndex = this.childIndex;
         clone.wasParsed = this.wasParsed;
         clone.ruleAttributes = structuredClone(this.ruleAttributes);
-        clone.doNotOptimize = this.doNotOptimize;
+        clone.doNotReparse = this.doNotReparse;
         clone.originalName = this.originalName;
         clone.parent = this.parent;
         clone.expectedType = this.expectedType;

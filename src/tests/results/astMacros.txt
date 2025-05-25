@@ -36,6 +36,22 @@ rule ("1") {
         Set Global Variable(B, Subtract(Add(5, Global.B), 6));
         "hostPlayer.A = 3"
         Set Player Variable(Host Player, A, 3);
+        If(Global.A);
+            If(Global.A);
+                Set Global Variable(B, 3);
+            End;
+            While(Global.B);
+                Modify Global Variable(C, Add, 1);
+            End;
+        End;
+        While(Global.A);
+            If(Global.A);
+                Set Global Variable(B, 3);
+            End;
+        End;
+        If(Global.A);
+            Set Global Variable(B, 3);
+        End;
         "hostPlayer.A = 4"
         Set Player Variable(Host Player, A, 4);
     }

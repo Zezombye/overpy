@@ -56,8 +56,6 @@ rule ("while false") {
         Ongoing - Global;
     }
     actions {
-        While(False);
-        End;
         Modify Global Variable(B, Add, True);
     }
 }

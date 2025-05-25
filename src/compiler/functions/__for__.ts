@@ -67,6 +67,7 @@ astParsingFunctions.__for__ = function (content) {
 
     //Add the "end" function.
     content.parent.children.splice(content.parent.childIndex + 1, 0, getAstForEnd());
+    content.doNotReparse = true; //prevent calling this function again, else it would add multiple "end"s
 
     return content;
 };

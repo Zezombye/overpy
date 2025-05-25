@@ -50,7 +50,7 @@ astParsingFunctions.break = function (content) {
         return new Ast("__skip__", [new Ast("__distanceTo__", [new Ast(labelName, [], [], "Label")])]);
     } else if (innermostStructure.name === "__switch__") {
         var result = new Ast("__else__");
-        result.doNotOptimize = true;
+        result.doNotReparse = true;
         return result;
     } else if (innermostStructure.name === "__while__" || innermostStructure.name === "__for__") {
         return content;

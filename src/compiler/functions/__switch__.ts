@@ -73,6 +73,6 @@ astParsingFunctions.__switch__ = function (content) {
     content.parent.children.splice(content.parent.childIndex + 1, 0, ...casesChildren);
 
     var result = new Ast("__if__", [getAstForTrue()]);
-    result.doNotOptimize = true;
+    result.doNotReparse = true;
     return result;
 };
