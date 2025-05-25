@@ -59,7 +59,7 @@ export let defaultCompList: vscode.CompletionList;
 export let allFuncList: Record<string, Record<string, unknown>>;
 export let memberCompletionItems: vscode.CompletionList;
 export type AutocompleteFunctionData = {
-    args: { name: string; type: string, default?: string }[];
+    args: { name: string; type: string, default?: string }[] | null;
     description: string;
     class?: string;
 };
@@ -67,7 +67,8 @@ export let normalMacros: Record<string, AutocompleteFunctionData> = {};
 export let normalAstMacros: Record<string, AutocompleteFunctionData> = {};
 export let memberMacros: Record<string, AutocompleteFunctionData> = {};
 export let memberAstMacros: Record<string, AutocompleteFunctionData> = {};
-export let astConstants: Record<string, AutocompleteFunctionData> = {};
+export let normalAstConstants: Record<string, AutocompleteFunctionData> = {};
+export let memberAstConstants: Record<string, AutocompleteFunctionData> = {};
 export let globalVariables: Record<string, { description: string }> = {};
 export let playerVariables: Record<string, { description: string }> = {};
 export let subroutines: Record<string, AutocompleteFunctionData> = {};
@@ -198,7 +199,7 @@ export function refreshAutoComplete() {
     defaultCompList = makeCompList({
         ...funcList,
         ...constantValuesCompLists,
-        ...astConstants,
+        ...normalAstConstants,
         ...normalMacros,
         ...normalAstMacros,
         ...globalVariables,
@@ -208,9 +209,10 @@ export function refreshAutoComplete() {
         ...funcList,
         ...memberFuncList,
         ...moduleFuncList,
-        ...astConstants,
+        ...normalAstConstants,
         ...normalMacros,
         ...normalAstMacros,
+        ...memberAstConstants,
         ...memberMacros,
         ...memberAstMacros,
     };
@@ -219,6 +221,7 @@ export function refreshAutoComplete() {
     memberCompletionItems = makeCompList({
         ...memberFuncList,
         ...memberMacros,
+        ...memberAstConstants,
         ...memberAstMacros,
         ...playerVariables,
     });
@@ -482,7 +485,7 @@ export function fillAutocompletionMacros(macros: MacroData[]) {
                 macroName += "()";
             } else {
                 for (var arg of macro.args) {
-                    convertedMacro.args.push({
+                    (convertedMacro.args as Array<any>).push({
                         name: arg,
                         type: "Object",
                     });
@@ -517,7 +520,7 @@ export function fillAutocompletionAstMacros(macros: AstMacroData[]) {
         } else {
             for (var arg of macro.args) {
                 if (arg.name !== "self") {
-                    convertedMacro.args.push({
+                    (convertedMacro.args as Array<any>).push({
                         name: arg.name,
                         type: typeToString(arg.type),
                         default: arg.defaultStr,
@@ -535,12 +538,19 @@ export function fillAutocompletionAstMacros(macros: AstMacroData[]) {
 }
 
 export function fillAutocompletionConstants(constants: AstConstantData[]) {
-    astConstants = {};
+    normalAstConstants = {};
+    memberAstConstants = {};
     for (var constant of constants) {
-        astConstants[constant.name] = {
-            args: [],
+        let convertedConstant: AutocompleteFunctionData = {
+            args: null,
             description: "This macro resolves to:\n\n`" + constant.valueStr + "`",
+            class: constant.class_,
         };
+        if (constant.class_) {
+            memberAstConstants[constant.name.replace(".", "")] = convertedConstant;
+        } else {
+            normalAstConstants[constant.name] = convertedConstant;
+        }
     }
 }
 

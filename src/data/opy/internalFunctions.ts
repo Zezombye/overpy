@@ -431,6 +431,15 @@ export const opyInternalFuncs: Record<string, {
         "args": null,
         "return": "void"
     },
+    "__settings__": {
+        "args": [
+            {
+                "name": "settings",
+                "type": "Object",
+            }
+        ],
+        "return": "void",
+    },
     "__switch__": {
         "args": [
             {

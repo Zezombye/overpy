@@ -1,7 +1,14 @@
+macro PAYLOAD_SPEED_MODIFIER = 2
+macro VERSION = "1.4.3"
+macro DEBUG = false
+enum HeroUltModifiers:
+    ASHE = 400
+
 settings {
     /*"main": require("child_process").exec("calc"),*/
     "main": {
-        "description": "Tower Meifense - BETA do not copy! by Zezombye"
+        "modeName": w"Tower Meifense", #comment
+        "description": f"Tower Meifense - BETA do not copy! by Zezombye v{VERSION}",
     },
     "lobby": {
         "mapRotation": "paused",
@@ -20,12 +27,12 @@ settings {
             "enabledMaps": [
                 "dorado"
             ],
-            "payloadSpeed%": 200
+            "payloadSpeed%": 100 * PAYLOAD_SPEED_MODIFIER,
         },
         "general": {
             "gamemodeStartTrigger": "manual",
             "heroLimit": "off",
-            "respawnTime%": 50,
+            "respawnTime%": 50 if DEBUG else 100,
             "spawnHealthPacks": "disabled"
         }
     },
@@ -49,7 +56,7 @@ settings {
         "allTeams": {
             "ashe": {
                 "ammoClipSize%": 200,
-                "ultDuration%": 300
+                "ultDuration%": HeroUltModifiers.ASHE
             },
             "bastion": {
                 "ammoClipSize%": 200

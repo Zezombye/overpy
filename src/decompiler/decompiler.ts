@@ -35,10 +35,10 @@ import { decompileActions, decompileConditions, decompileRuleToAst } from "./wor
 
 //OverPy Decompiler (Workshop -> OverPy)
 
-export function decompileAllRules(content: string, language: OWLanguage = "en-US", options?: {
+export function decompileAllRules(content: string, language: OWLanguage = "en-US", options: {
     ignoreVariableIndex?: boolean,
     ignoreSubroutineIndex?: boolean
-}) {
+} = {}) {
     resetGlobalVariables(language);
     var result = decompileAllRulesToAst(content);
 
@@ -63,7 +63,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         for (var variable of globalVariables) {
             if (defaultVarNames.indexOf(variable.name) !== variable.index) {
                 globalVariableDeclarations += "globalvar " + variable.name;
-                if (!options?.ignoreVariableIndex) {
+                if (!options.ignoreVariableIndex) {
                     globalVariableDeclarations += " " + variable.index;
                 }
                 globalVariableDeclarations += "\n";
@@ -79,7 +79,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         for (var variable of playerVariables) {
             if (defaultVarNames.indexOf(variable.name) !== variable.index) {
                 playerVariableDeclarations += "playervar " + variable.name;
-                if (!options?.ignoreVariableIndex) {
+                if (!options.ignoreVariableIndex) {
                     playerVariableDeclarations += " " + variable.index;
                 }
                 playerVariableDeclarations += "\n";
@@ -96,7 +96,7 @@ export function decompileAllRules(content: string, language: OWLanguage = "en-US
         for (var subroutine of subroutines) {
             if (defaultSubroutineNames.indexOf(subroutine.name) !== subroutine.index) {
                 subroutineDeclarations += "subroutine " + subroutine.name;
-                if (!options?.ignoreSubroutineIndex) {
+                if (!options.ignoreSubroutineIndex) {
                     subroutineDeclarations += " " + subroutine.index;
                 }
                 subroutineDeclarations += "\n";

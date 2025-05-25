@@ -34,6 +34,7 @@ import { LogicalLine } from "./tokenizer";
 import { opyTextures } from "../data/opy/textures";
 import { parseOpyMacro } from "../utils/compilation";
 import { getTranslatedString } from "./translations";
+import { parseAst } from "./astParser";
 
 export const builtInEnumNameToAstInfo: Record<string, {name: string, type: string}> = {
     Hero: {
@@ -156,7 +157,8 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
             astConstants[name] = {
                 name: name,
                 value: value,
-                valueStr: dispTokens(currentLine.tokens.slice(3), true),
+                class_: class_,
+                valueStr: dispTokens(currentLine.tokens.slice(class_ ? 5 : 3), true),
             };
             currentComments = [];
             continue;
@@ -164,7 +166,7 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
 
         // Handle custom game settings
         if (currentLine.tokens[0].text === "settings") {
-            let customGameSettings: any;
+            let customGameSettings: Token[];
             try {
                 if (currentLine.tokens.length === 2) {
 
@@ -176,18 +178,13 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                         }
                     }
                     var path = getFilePaths(currentLine.tokens[1].text, basePath)[0];
-                    customGameSettings = JSON.parse(safeEval("JSON.stringify(" + getFileContent(path) + ")"));
+                    let customGameSettingsLines = tokenize(getFileContent(path));
+                    if (customGameSettingsLines.length !== 1) {
+                        error("Could not parse custom game settings (got " + customGameSettingsLines.length + " logical lines, expected 1)");
+                    }
+                    customGameSettings = customGameSettingsLines[0].tokens;
                 } else {
-                    customGameSettings = JSON.parse(
-                        safeEval(
-                            "JSON.stringify(" +
-                                currentLine.tokens
-                                    .slice(1)
-                                    .map((x) => x.text)
-                                    .join("") +
-                                ")",
-                        ),
-                    );
+                    customGameSettings = currentLine.tokens.slice(1);
                 }
 
                 // TODO: Check shape of custom game settings
@@ -195,7 +192,8 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 // @ts-ignore
                 error(e);
             }
-            compileCustomGameSettings(customGameSettings);
+
+            compileCustomGameSettings(customGameSettingsAstToObject(parseAst(new Ast("__settings__", [parse(customGameSettings)]))));
             currentComments = [];
             continue;
         }
@@ -1539,4 +1537,55 @@ function parseDictionary(content: Token[]) {
         astElems.push(new Ast("__dictElem__", [parse(keyValue[0], {isDictKey: true}), parse(keyValue[1])]));
     }
     return new Ast("__dict__", astElems);
+}
+
+//This function cannot be in utils/compilation.ts, otherwise it causes import order issues
+export function customGameSettingsAstToObject(customGameSettings: Ast): Record<string, any> | Array<any> | string | number | boolean {
+    //console.log(customGameSettings);
+    if (customGameSettings.name === "__settings__") {
+        if (customGameSettings.args[0].name !== "__dict__") {
+            error("Expected custom game settings to be a dictionary, but got " + functionNameToString(customGameSettings.args[0]));
+        }
+        return customGameSettingsAstToObject(customGameSettings.args[0]);
+    }
+    if (customGameSettings.name === "__dict__") {
+        let result: Record<string, any> = {};
+        for (let dictElem of customGameSettings.args) {
+            if (dictElem.name !== "__dictElem__") {
+                error("Expected dict element, but got " + functionNameToString(dictElem));
+            }
+            let key = customGameSettingsAstToObject(dictElem.args[0]);
+            if (typeof key !== "string") {
+                error("Dictionary key must be a string literal, got '"+key+"' of type " + typeof key);
+            }
+            if (key in result) {
+                error("Duplicate key '" + key + "' in custom game settings");
+            }
+            result[key] = customGameSettingsAstToObject(dictElem.args[1]);
+        }
+        return result;
+    }
+    if (customGameSettings.name === "__array__") {
+        return customGameSettings.args.map((x) => customGameSettingsAstToObject(x));
+    }
+    if (customGameSettings.name === "__customString__") {
+
+        if (customGameSettings.name !== "__customString__") {
+            error("Expected dict key to be a string literal, but got " + functionNameToString(customGameSettings));
+        }
+        if (customGameSettings.args[1].name !== "null" || customGameSettings.args[2].name !== "null" || customGameSettings.args[3].name !== "null") {
+            error("Could not optimize string " + escapeString(customGameSettings.args[0].name, false) + " to be without formatters");
+        }
+        return customGameSettings.args[0].name;
+    }
+    if (customGameSettings.name === "__number__") {
+        return customGameSettings.args[0].numValue;
+    }
+    if (customGameSettings.name === "true") {
+        return true;
+    }
+    if (customGameSettings.name === "false") {
+        return false;
+    }
+    error("Unhandled "+ functionNameToString(customGameSettings) + " in custom game settings, expected dict, array, string, number or boolean");
 }

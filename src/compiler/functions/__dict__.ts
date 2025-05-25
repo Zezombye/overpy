@@ -24,6 +24,13 @@ astParsingFunctions.__dict__ = function (content) {
     if (content.parent?.name === "splitDictArray" || content.parent?.parent?.name === "splitDictArray") {
         return content;
     }
+    let parent = content.parent;
+    while (parent) {
+        if (parent.name === "__settings__") {
+            return content;
+        }
+        parent = parent.parent;
+    }
     if (content.parent?.name !== "__valueInArray__") {
         error("Cannot use a dictionary without accessing it");
     }

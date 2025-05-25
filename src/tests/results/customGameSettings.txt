@@ -2,7 +2,8 @@ settings
 {
 	main
 	{
-		Description: "Tower Meifense - BETA do not copy! by Zezombye"
+		Mode Name: "Ｔｏｗｅｒ Ｍｅｉｆｅｎｓｅ"
+		Description: "Tower Meifense - BETA do not copy! by Zezombye v1.4.3"
 	}
 	lobby
 	{
@@ -33,7 +34,7 @@ settings
 		{
 			Game Mode Start: Manual
 			Hero Limit: Off
-			Respawn Time Scalar: 50%
+			Respawn Time Scalar: 100%
 			Spawn Health Packs: Disabled
 		}
 	}
@@ -64,7 +65,7 @@ settings
 			Ashe
 			{
 				Ammunition Clip Size Scalar: 200%
-				Ultimate Duration: 300%
+				Ultimate Duration: 400%
 			}
 			Bastion
 			{

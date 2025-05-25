@@ -593,16 +593,21 @@ Note that the replacement is done in the AST, meaning the order of operations wi
 You can also declare member macros, which must take `self` as the first argument. For example:
 
 ```python
+macro Vector.sum = self.x + self.y
+
 macro Player.setPowerLevel(self, powerLevel):
     self.setMaxHealth(powerLevel*300)
     self.setDamageDealt(100+powerLevel*20)
 
-#"self" is replaced by the member (here hostPlayer)
+#"self" is replaced by the member (here hostPlayer / powerLevel)
 rule "power level":
-    hostPlayer.setPowerLevel(3)
+    powerLevel = vect(1, 4.5, 2)
+
+    hostPlayer.setPowerLevel(powerLevel.sum)
     #equivalent to:
-    hostPlayer.setMaxHealth(3*300)
-    hostPlayer.setDamageDealt(100+3*20)
+    hostPlayer.setMaxHealth((powerLevel.x + powerLevel.y) * 300)
+    hostPlayer.setDamageDealt(100 + (powerLevel.x + powerLevel.y) * 20)
+
 ```
 
 Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
@@ -631,8 +636,6 @@ then `sum(3, 4) * 3` will be resolved as `3 + 4 * 3` and `sum(3, 4 if A else 3)`
 This macro should be declared instead as `#!define sum(a,b) ((a)+(b))`: parentheses around the whole macro definition, and around each argument.
 
 This problem does not occur with `macro`, which is why you should always use them unless you absolutely need `#!define` (you most likely don't).
-
-The `#!defineMember` directive behaves exactly the same as `#!define`, except the VS Code extension will put the autocompletion in the dot trigger. This is primarily useful for vectors: if you have a vector that stores 3 distinct numbers, you can do `#!defineMember someVar x` to do `vector.someVar` instead of `vector.x`.
 
 ## Javascript macros
 

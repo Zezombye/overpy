@@ -1,6 +1,7 @@
 
 macro testconst = (543
 +B)
+globalvar owo
 
 macro Player.testconst = self.x + self.y
 
@@ -51,7 +52,7 @@ rule "1":
     #A = 543+B
     A = testconst
     #A = A.x + A.y
-    A = Player.testconst
+    A = A.testconst
     #A = 2, B = 3
     test1()
     # A = 2 + B + C

@@ -495,7 +495,7 @@ function generateSubroutinesField() {
     return result;
 }
 
-export function compileCustomGameSettings(customGameSettings: Record<string, any>) {
+export function compileCustomGameSettings(customGameSettings: any) {
     if (typeof customGameSettings !== "object") {
         error("Custom game settings must be an object");
     }

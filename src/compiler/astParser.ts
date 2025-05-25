@@ -480,7 +480,7 @@ export function parseAst(content: Ast) {
     }
 
     //Set expected type
-    if (content.name !== "__rule__" && content.name !== "pass" && !content.parent) {
+    if (!["__rule__", "__settings__", "pass"].includes(content.name) && !content.parent) {
         error("No parent found for '" + content.name + "'");
     }
     if (content.name !== "__rule__" && content.parent !== undefined && content.parent.argIndex !== -1) {

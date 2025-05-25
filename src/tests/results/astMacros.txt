@@ -18,6 +18,8 @@ rule ("1") {
     actions {
         "A = 543+B"
         Set Global Variable(A, Add(543, Global.B));
+        "A = A.x + A.y"
+        Set Global Variable(A, Add(X Component Of(Global.A), Y Component Of(Global.A)));
         "A = 2, B = 3"
         Set Global Variable(A, 2);
         "A = 2, B = 3"
