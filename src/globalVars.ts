@@ -49,9 +49,8 @@ export const PAGE_SIZE = 100;
 //If it is in a browser then it is assumed to be in debug mode.
 // @ts-ignore
 export const IS_IN_BROWSER = typeof window !== "undefined";
-export const DEBUG_MODE =
-    // @ts-ignore
-    IS_IN_BROWSER && window.location.host !== "vscode.dev";
+// @ts-ignore
+export const DEBUG_MODE = IS_IN_BROWSER && window.location.host !== "vscode.dev";
 export const DEBUG_PROFILER = false;
 
 //Compilation variables - are reset at each compilation.
@@ -209,6 +208,10 @@ export const setUsePlayerVarForTranslations = (use: boolean) => (usePlayerVarFor
 export var excludeVariablesInCompilation: boolean;
 export const setExcludeVariablesInCompilation = (exclude: boolean) => (excludeVariablesInCompilation = exclude);
 
+//As game settings are now compiled with the OverPy parser, we need to conditionally override the string limit (which isn't 128 chars for game description for example).
+export var ignoreStringLimit: boolean;
+export const setIgnoreStringLimit = (ignore: boolean) => (ignoreStringLimit = ignore);
+
 //Decompilation variables
 
 /** Global variable used for "skip", to keep track of where the skip ends.
@@ -293,8 +296,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     translationLanguageConstantOpy = "";
     usePlayerVarForTranslations = false;
     excludeVariablesInCompilation = false;
-
-
+    ignoreStringLimit = false;
 }
 
 //Other constants

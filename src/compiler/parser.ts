@@ -18,7 +18,7 @@
 "use strict";
 
 import { constantValues } from "../data/constants";
-import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames } from "../globalVars";
+import { bigLettersMappings, caseSensitiveReplacements, currentArrayElementName, currentArrayIndexName, enumMembers, fullwidthMappings, operatorPrecedence, setCurrentArrayElementName, setCurrentArrayIndexName, setCurrentRuleName, setEnableTagsSetup, setFileStack, subroutines, funcKw, notConstantFunctions, rootPath, fileStack, astConstants, astMacros, astMacroLocalVariables, resetAstMacroLocalVariables, reservedNames, reservedMemberNames, setIgnoreStringLimit, DEBUG_MODE } from "../globalVars";
 import { BaseNormalFileStackMember, OWLanguage } from "../types";
 import { Token, tokenize } from "./tokenizer";
 import { Ast, areAstsAlwaysEqual, astContainsFunctions, getAstFor0, getAstFor1, getAstForArgDefault, getAstForCustomString, getAstForE, getAstForFalse, getAstForFucktonOfSpaces, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue, replaceFunctionInAst } from "../utils/ast";
@@ -186,14 +186,18 @@ export function parseLines(lines: LogicalLine[]): Ast[] {
                 } else {
                     customGameSettings = currentLine.tokens.slice(1);
                 }
-
-                // TODO: Check shape of custom game settings
             } catch (e) {
                 // @ts-ignore
                 error(e);
             }
 
-            compileCustomGameSettings(customGameSettingsAstToObject(parseAst(new Ast("__settings__", [parse(customGameSettings)]))));
+            setIgnoreStringLimit(true);
+            let customGameSettingsAst = parseAst(new Ast("__settings__", [parse(customGameSettings)]));
+            if (DEBUG_MODE) {
+                console.log("Settings AST: ", customGameSettingsAst);
+            }
+            compileCustomGameSettings(customGameSettingsAstToObject(customGameSettingsAst));
+            setIgnoreStringLimit(false);
             currentComments = [];
             continue;
         }

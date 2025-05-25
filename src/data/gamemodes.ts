@@ -111,6 +111,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "defaultTeam2Players": 5,
         "en-US": "Control April Fools",
     },
+    "controlCommunity": {
+        "defaultTeam1Players": 5, //actually idk, it's removed anyway
+        "defaultTeam2Players": 5,
+        "en-US": "Control Community",
+    },
     "ctf": {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
@@ -170,6 +175,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "tr-TR": "Koruma",
         "zh-CN": "运载目标",
         "zh-TW": "護送"
+    },
+    "escortCommunity": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Escort Community",
     },
     "escortAprilFools": {
         "defaultTeam1Players": 5,
@@ -264,6 +274,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
         "en-US": "Hybrid April Fools",
+    },
+    "hybridCommunity": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Hybrid Community",
     },
     "junkenstein": {
         "defaultTeam1Players": 6,
@@ -365,6 +380,11 @@ export const gamemodeKw: Record<string, LocalizableString & {
         "defaultTeam1Players": 5,
         "defaultTeam2Players": 5,
         "en-US": "Push April Fools",
+    },
+    "pushCommunity": {
+        "defaultTeam1Players": 5,
+        "defaultTeam2Players": 5,
+        "en-US": "Push Community",
     },
     "skirmish": {
         "defaultTeam1Players": 5,

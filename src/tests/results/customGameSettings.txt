@@ -3,7 +3,7 @@ settings
 	main
 	{
 		Mode Name: "Ｔｏｗｅｒ Ｍｅｉｆｅｎｓｅ"
-		Description: "Tower Meifense - BETA do not copy! by Zezombye v1.4.3"
+		Description: "Tower Meifense - BETA do not copy! by Zezombye v1.4.3\n\nThis is an extremely long string that takes advantage of the fact that the description can have up to 512 characters (not bytes). ¤§€ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat naz|"
 	}
 	lobby
 	{

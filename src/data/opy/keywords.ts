@@ -167,19 +167,21 @@ rule "":
     A = add_macro(A, B) * C #will be interpreted as (A + B) * C
 \`\`\`
 
-You can also declare member macros, which must take \`self\` as the first argument. For example:
+You can also declare member macros, where \`self\` refers to the member. For example:
 \`\`\`python
-macro Player.setPowerLevel(self, powerLevel):
+macro Player.setPowerLevel(powerLevel):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(powerLevel*2)
+
+macro Vector.sum = self.x + self.y
 \`\`\`
 
-\`self\` will be replaced by the member, so \`A.setPowerLevel(2)\` will yield \`A.setMaxHealth(400)\` and \`A.setDamageDealt(4)\`.
+\`A.setPowerLevel(2)\` will yield \`A.setMaxHealth(400)\` and \`A.setDamageDealt(4)\`.
 
 Default parameters can also be specified, and just like normal functions, you can use keyword arguments:
 
 \`\`\`python
-macro Player.setPowerLevel(self, powerLevel=1, damageDealt=null):
+macro Player.setPowerLevel(powerLevel=1, damageDealt=null):
     self.setMaxHealth(powerLevel*200)
     self.setDamageDealt(damageDealt or powerLevel*2)
 
@@ -223,7 +225,43 @@ A member macro must always have \`self\` as the first argument.
         "args": null,
     },
     "settings": {
-        "description": "Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).",
+        "description": `Declares custom game settings. Must be followed by an object containing the settings, or by a string containing the path to a JSON file (it must be named 'settings.opy.json' to get the autocompletion).
+
+The settings are parsed with OverPy's parser, meaning you can do things such as:
+
+\`\`\`py
+macro VERSION = "1.4.3"
+macro DEBUG = false
+macro CLIP_SIZE_MULTIPLIER = 2
+enum HeroUltModifiers:
+    ASHE = 400
+
+settings {
+    /* comment */
+    "main": {
+        "modeName": w"Tower Meifense",
+        "description": f"Tower Meifense by Zezombye v{VERSION}",
+    },
+    "gamemodes": {
+        "general": {
+            "respawnTime%": 50 if DEBUG else 100,
+        }
+    },
+    "heroes": {
+        "allTeams": {
+            "ashe": {
+                "ammoClipSize%": 100 * CLIP_SIZE_MULTIPLIER,
+                "ultDuration%": HeroUltModifiers.ASHE
+            },
+        }
+    }
+}
+\`\`\`
+
+Note that every value has to eventually resolve to a dict/array/string/number/boolean through the optimizer (you can't do \`200 * A\` where \`A\` is a variable).
+
+There are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch, then use the decompile command to convert to OverPy.
+        `,
         "args": null,
         "snippet": "settings $0",
     },

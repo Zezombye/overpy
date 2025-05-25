@@ -17,7 +17,7 @@
 
 "use strict";
 
-import { enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT } from "../../globalVars";
+import { enableOptimization, bigLettersMappings, fullwidthMappings, DEBUG_MODE, enableTagsSetup, NUMBER_LIMIT, ignoreStringLimit } from "../../globalVars";
 import { Token } from "../../compiler/tokenizer";
 import { getAstForNull, Ast, astParsingFunctions } from "../../utils/ast";
 import { error, warn } from "../../utils/logging";
@@ -252,10 +252,12 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
     var mappings: Record<number, number> = {};
     var stringLength = 0;
 
+    let strMaxLength = ignoreStringLimit ? Infinity : STR_MAX_LENGTH;
+
     //console.log("Parsing string tokens: ", structuredClone(tokens));
 
     //Compilation optimization: check if the string is "simple" (aka one token that doesn't need to be split)
-    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= STR_MAX_LENGTH) {
+    if (tokens.length === 1 && tokens[0].type === "string" && getUtf8Length(tokens[0].text) <= strMaxLength) {
         result = tokens[0].text;
         return new Ast("__customString__", [new Ast(result, [], [], "CustomStringLiteral"), getAstForNull(), getAstForNull(), getAstForNull()]);
     }
@@ -278,13 +280,13 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
 
         //Check if the string would overflow if we add the token (adding a buffer for a potential "{0}" if there are more tokens remaining).
         //If the string would overflow, then add to the result the text of the token up to the overflow point, and remove that from the token text.
-        if (token.type === "string" && stringLength + getUtf8Length(token.text) > STR_MAX_LENGTH - (i === tokens.length - 1 ? 0 : "{0}".length)) {
+        if (token.type === "string" && stringLength + getUtf8Length(token.text) > strMaxLength - (i === tokens.length - 1 ? 0 : "{0}".length)) {
             shouldSplitString = true;
             let tokenText = [...token.text];
             //console.log(tokenText);
             let tokenSliceLength = 0;
             let sliceIndex = 0;
-            for (let j = 0; stringLength + tokenSliceLength < STR_MAX_LENGTH - "{0}".length; j++) {
+            for (let j = 0; stringLength + tokenSliceLength < strMaxLength - "{0}".length; j++) {
                 tokenSliceLength += getUtf8Length(tokenText[j] + "");
                 sliceIndex++;
             }
@@ -297,8 +299,8 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
         //Check if the string would overflow if there are tokens remaining and adding the arg + an additional arg would make the string overflow.
         //For maximum optimization, check if there is only 1 string token remaining and its length wouldn't make the string overflow.
         if (token.type === "arg"
-            && i < tokens.length-1 && stringLength + "{0}{0}".length > STR_MAX_LENGTH
-            && !(i === tokens.length-2 && tokens[tokens.length-1].type === "string" && stringLength+"{0}".length+getUtf8Length((tokens[tokens.length-1] as {text: string}).text) <= STR_MAX_LENGTH
+            && i < tokens.length-1 && stringLength + "{0}{0}".length > strMaxLength
+            && !(i === tokens.length-2 && tokens[tokens.length-1].type === "string" && stringLength+"{0}".length+getUtf8Length((tokens[tokens.length-1] as {text: string}).text) <= strMaxLength
         )) {
             shouldSplitString = true;
         }
@@ -319,7 +321,7 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
                         remainingStringLength += getUtf8Length(token2.text);
                     }
                 }
-                if (stringLength + remainingStringLength > STR_MAX_LENGTH) {
+                if (stringLength + remainingStringLength > strMaxLength) {
                     shouldSplitString = true;
                 }
             }
@@ -369,7 +371,7 @@ function parseStringTokens(tokens: ({ text: string; type: "string" } | { index: 
         error("Custom string parser broke (string args length is " + resultArgs.length + "), please report to Zezombye");
     }
 
-    if (getUtf8Length(result) > STR_MAX_LENGTH) {
+    if (getUtf8Length(result) > strMaxLength) {
         error("Custom string parser broke (string char length is "+getUtf8Length(result)+"), please report to Zezombye");
     }
 

@@ -38,7 +38,7 @@ export function decompileCustomGameSettingsDict(dict: string[], kwObj: Record<st
             continue;
         }
 
-        // Some setting keys can contain colons, so we need to split on the last colon
+        // Some setting keys such as "Ultimate Generation - Combat Configuration: Artillery: 200%" can contain colons, so we need to split on the last colon
         let keyValueSplitLocation = elem.lastIndexOf(":");
 
         if (keyValueSplitLocation === -1) {

@@ -335,7 +335,7 @@ OverPy supports including custom game settings, using the `settings` keyword. Th
 ```py
 macro VERSION = "1.4.3"
 macro DEBUG = false
-macro CLIP_SPEED_MULTIPLIER = 2
+macro CLIP_SIZE_MULTIPLIER = 2
 enum HeroUltModifiers:
     ASHE = 400
 
@@ -353,7 +353,7 @@ settings {
     "heroes": {
         "allTeams": {
             "ashe": {
-                "ammoClipSize%": 200 * CLIP_SPEED_MULTIPLIER,
+                "ammoClipSize%": 100 * CLIP_SIZE_MULTIPLIER,
                 "ultDuration%": HeroUltModifiers.ASHE
             },
         }
@@ -924,6 +924,61 @@ There is however a way of transferring data from client to server. Most reevalua
 Note: I used arrays in the example. OverPy concatenates arrays to strings using `.split()` and does various other tricks to save elements, but the principle is the same.
 
 </details>
+
+# Common warnings
+
+## w_ow2_rule_condition_chase
+
+This is a bug introduced in Overwatch 2 where a rule condition check does not properly trigger while a variable is chased. For example:
+
+```py
+playervar chasebug = 0
+
+rule "debug":
+    debug(hostPlayer.chasebug)
+
+rule "Start chasing":
+    @Event eachPlayer
+    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
+    chaseAtRate(eventPlayer.chasebug, 10, 1, ChaseRateReeval.NONE)
+    wait(5)
+    stopChasingVariable(eventPlayer.chasebug)
+
+rule "Display chase":
+    @Event eachPlayer
+    @Condition updateEveryFrame(eventPlayer.chasebug > 1)
+    print("Test chase")
+```
+
+You would expect "Test chase" to display after 1 second, but the variable goes well past 1 and it still doesn't display until we stop chasing the variable. It would also display if the variable reached the destination (here 10).
+
+To solve this bug, refactor your code to stop chasing the variable when you need to check it in a rule condition. Eg here, we could put the stop at 1 instead of 10. Then put `@SuppressWarnings w_ow2_rule_condition_chase` on the rule with the rule condition you checked is working. (It is not recommended to disable it for the whole project.)
+
+## w_wait_until
+
+```py
+globalvar waitUntilBug = 0
+
+rule "debug":
+    debug(waitUntilBug)
+
+rule "Set wait until var":
+    @Event eachPlayer
+    @Condition eventPlayer.isHoldingButton(Button.INTERACT)
+    waitUntilBug = 1
+
+rule "Display wait until 1":
+    waitUntil(waitUntilBug, 99999)
+    print("Test wait until 1")
+
+rule "Display wait until 2":
+    waitUntil(waitUntilBug == true, 99999)
+    print("Test wait until 2")
+```
+
+Since non-zero numbers are truthy, you would expect both `print` statements to run; however, only the second one runs. Therefore, if OverPy cannot determine that the expression in `waitUntil` is a boolean, the warning will be thrown.
+
+You can safely ignore this warning if you are using a variable that can only be a boolean.
 
 ----------------------
 

@@ -8,7 +8,7 @@ settings {
     /*"main": require("child_process").exec("calc"),*/
     "main": {
         "modeName": w"Tower Meifense", #comment
-        "description": f"Tower Meifense - BETA do not copy! by Zezombye v{VERSION}",
+        "description": f"Tower Meifense - BETA do not copy! by Zezombye v{VERSION}\n\nThis is an extremely long string that takes advantage of the fact that the description can have up to 512 characters (not bytes). ¤§€ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat naz|",
     },
     "lobby": {
         "mapRotation": "paused",
