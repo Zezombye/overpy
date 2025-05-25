@@ -330,43 +330,42 @@ If a function is not in that list, then the name is the English name in camelCas
 
 ## Custom game settings
 
-OverPy supports including custom game settings, using the `settings` keyword:
+OverPy supports including custom game settings, using the `settings` keyword. The settings are parsed with OverPy's parser, meaning you can do things such as:
 
-```js
+```py
+macro VERSION = "1.4.3"
+macro DEBUG = false
+macro CLIP_SPEED_MULTIPLIER = 2
+enum HeroUltModifiers:
+    ASHE = 400
+
 settings {
+    /* comment */
     "main": {
-        "description": "Some awesome game mode"
+        "modeName": w"Tower Meifense",
+        "description": f"Tower Meifense by Zezombye v{VERSION}",
     },
     "gamemodes": {
-        "skirmish": {
-            "enabledMaps": [
-                "workshopIsland"
-            ]
-        },
         "general": {
-            "heroLimit": "off",
-            "respawnTime%": 30
+            "respawnTime%": 50 if DEBUG else 100,
+        }
+    },
+    "heroes": {
+        "allTeams": {
+            "ashe": {
+                "ammoClipSize%": 200 * CLIP_SPEED_MULTIPLIER,
+                "ultDuration%": HeroUltModifiers.ASHE
+            },
         }
     }
 }
 ```
 
-However, there are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch then use the decompile command to convert to OverPy.
+Note that every value has to eventually resolve to a dict/array/string/number/boolean through the optimizer (you can't do `200 * A` where `A` is a variable).
+
+There are quite a lot of changes regarding the syntax, and it is recommended that you edit settings within Overwatch, then use the decompile command to convert to OverPy.
 
 You can also put the settings in a .json file and then import it with `settings "gamesettings.opy.json"`. This has the advantage of adding autocompletion (if ending with .opy.json), although it will display syntax errors if it doesn't perfectly conform to the JSON syntax (trailing comma, comment, etc).
-
-The settings are treated as a Javascript object, meaning you can do things such as:
-
-```js
-#!define VERSION "1.0.1"
-#!define CODE "T50EZ"
-settings {
-    main: {
-        name: "Some gamemode",
-        description: "Version "+VERSION+" - code: "+CODE,
-    },
-}
-```
 
 Extensions are activated using the `#!extensions` compiler directive.
 
