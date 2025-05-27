@@ -1,0 +1,3982 @@
+settings
+{
+	main
+	{
+		Description: "1v1 Build your hero v2.0 by Seita --- Code: METDP --- Full description: workshop.codes/1v1meta"
+		Mode Name: "1v1 Build your hero"
+	}
+
+	lobby
+	{
+		Allow Players Who Are In Queue: Yes
+		Map Rotation: After A Game
+		Max Spectators: 12
+		Max Team 1 Players: 1
+		Max Team 2 Players: 1
+		Return To Lobby: Never
+	}
+
+	modes
+	{
+		Control
+		{
+			disabled maps
+			{
+				Antarctic Peninsula
+				Samoa
+			}
+		}
+
+		General
+		{
+			Capture Speed Modifier: 80%
+			Competitive Rules: Enabled
+			Game Mode Start: Immediately
+			Health Pack Respawn Time Scalar: 250%
+			Limit Roles: 2 Of Each Role Per Team
+			Respawn Time Scalar: 30%
+		}
+	}
+
+	heroes
+	{
+		General
+		{
+			Ultimate Generation - Combat: 200%
+
+			Ana
+			{
+				Biotic Grenade Cooldown Time: 0%
+				Sleep Dart Cooldown Time: 0%
+			}
+
+			Baptiste
+			{
+				Healing Dealt: 10%
+				Health: 200%
+				Ultimate Generation Amplification Matrix: 125%
+			}
+
+			Cassidy
+			{
+				Health: 200%
+			}
+
+			D.Va
+			{
+				Boosters Cooldown Time: 25%
+				Defense Matrix Maximum Time: 500%
+				Defense Matrix Recharge Rate: 500%
+			}
+
+			Echo
+			{
+				Health: 200%
+				Sticky Bombs Cooldown Time: 0%
+				Ultimate Generation Duplicate: 91%
+			}
+
+			Genji
+			{
+				Swift Strike Cooldown Time: 0%
+			}
+
+			Hanzo
+			{
+				Health: 200%
+				Sonic Arrow Cooldown Time: 0%
+				Ultimate Generation Dragonstrike: 91%
+			}
+
+			Junker Queen
+			{
+				Commanding Shout Cooldown Time: 0%
+				Jagged Blade Cooldown Time: 62%
+			}
+
+			Junkrat
+			{
+				Health: 200%
+				Ultimate Generation RIP-Tire: 104%
+			}
+
+			Lifeweaver
+			{
+				Petal Platform Cooldown Time: 0%
+			}
+
+			Lúcio
+			{
+				Amp It Up Cooldown Time: 83%
+				Healing Dealt: 10%
+			}
+
+			Orisa
+			{
+				Energy Javelin Cooldown Time: 80%
+				Health: 33%
+			}
+
+			Pharah
+			{
+				Concussive Blast Cooldown Time: 0%
+				Concussive Blast Knockback Scalar: 125%
+				Health: 200%
+				Hover Jets Recharge Rate: 50%
+				Jump Jet Acceleration Scalar: 120%
+				Jump Jet Cooldown Time: 0%
+				Ultimate Generation Barrage: 108%
+			}
+
+			Ramattra
+			{
+				Void Barrier Omnic Form Cooldown Time: 0%
+			}
+
+			Reaper
+			{
+				Healing Dealt: 20%
+				Health: 160%
+				Movement Speed: 110%
+				Ultimate Generation Death Blossom: 104%
+			}
+
+			Reinhardt
+			{
+				Damage Dealt: 115%
+				Fire Strike Cooldown Time: 0%
+				Movement Speed: 125%
+			}
+
+			Roadhog
+			{
+				Chain Hook Cooldown Time: 0%
+				No Ammunition Requirement: On
+				Projectile Speed: 120%
+			}
+
+			Sigma
+			{
+				Accretion Cooldown Time: 0%
+				Damage Dealt: 125%
+				Experimental Barrier Cooldown Time: 500%
+				Experimental Barrier Recharge Rate: 500%
+				Ultimate Generation Gravitic Flux: 114%
+			}
+
+			Sojourn
+			{
+				Disruptor Shot Cooldown Time: 0%
+			}
+
+			Soldier: 76
+			{
+				Biotic Field Cooldown Time: 0%
+				Health: 200%
+				Helix Rockets Cooldown Time: 0%
+				Ultimate Generation Tactical Visor: 125%
+			}
+
+			Sombra
+			{
+				Health: 200%
+				Ultimate Generation EMP: 80%
+			}
+
+			Symmetra
+			{
+				Health: 200%
+				Teleporter Cooldown Time: 0%
+			}
+
+			Torbjörn
+			{
+				No Ammunition Requirement: On
+			}
+
+			Tracer
+			{
+				Projectile Gravity: 0%
+				Projectile Speed: 500%
+			}
+
+			Wrecking Ball
+			{
+				Infinite Ultimate Duration: Enabled
+			}
+
+			Zarya
+			{
+				Damage Dealt: 130%
+				Particle Barrier Cooldown Time: 0%
+				Projected Barrier Cooldown Time: 0%
+			}
+
+			Zenyatta
+			{
+				Healing Dealt: 10%
+				Health: 200%
+				Ultimate Generation Transcendence: 125%
+			}
+
+			enabled heroes
+			{
+				Baptiste
+				Cassidy
+				Echo
+				Hanzo
+				Junkrat
+				Pharah
+				Reaper
+				Reinhardt
+				Sigma
+				Soldier: 76
+				Sombra
+				Zenyatta
+			}
+		}
+	}
+}
+
+variables
+{
+	global:
+		0: HudT1Visibility
+		1: HudT2Visibility
+		2: WaitTest
+		3: StartHud
+		4: StartHud2
+
+	player:
+		0: UsingAbi1
+		1: Ability1
+		2: Ability2
+		3: Ultimate
+		4: Secondary
+		5: SpawnLocation
+		6: SecoCD
+		7: SecoHud
+		8: MenuLoaded
+		9: FirstHeroBuilt
+		10: HeroSwapFix
+		11: Abi1Scaling
+		12: Abi2Scaling
+		14: DoomUlt
+		15: UltScaling
+		16: SpeedDura
+		17: UltKeep
+		18: Abi1CD
+		19: Abi1Hud
+		20: Abi2CD
+		21: Abi2Hud
+		111: IsInMenuMode
+		112: MenuVFX
+		113: MenuZAxis
+		114: MenuYAxis
+		115: MenuXAxis
+		116: CursorPos
+		117: CurrActionID
+		118: ButtonExitMenu
+		119: ButtonProperties
+		120: CursorX
+		121: CursorY
+		122: MenuEyePos
+		123: MenuOriginalFacing
+		124: ActionIDQueue
+		125: CurrActionID_Secondary
+		126: ActionIDQueue_Secondary
+		127: __iter__
+}
+
+subroutines
+{
+	0: Abi1Attach
+	1: Abi2Attach
+	2: UltAttach
+	3: SecoAttach
+	7: CreateMenuButtonsMore
+	125: CreateMenuFrame
+	126: CreateMenuButtons
+	127: CreateMenuCursor
+}
+
+rule("1v1 Build your hero by Seita")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.StartHud = -1;
+		Global.StartHud2 = -1;
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String(" "), Top, 21, Color(White), Color(White), Color(White),
+			Visible To and String, Default Visibility);
+	}
+}
+
+rule("While in setup")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is In Setup == True;
+	}
+
+	actions
+	{
+		Destroy All Dummy Bots;
+		All Players(All Teams).FirstHeroBuilt = False;
+		Set Match Time(300);
+		Create HUD Text(All Players(All Teams), Custom String("Press {0} to build your hero!", Input Binding String(Button(Interact))),
+			Custom String("Round will start after both players have confirmed their first build."), Custom String(
+			"Press the -> Confirm <- button to confirm your build."), Top, 20, Color(Green), Color(White), Color(White),
+			Visible To and String, Default Visibility);
+		Global.StartHud = Last Text ID;
+		Create HUD Text(All Players(All Teams), Custom String("Code: METDP"), Custom String("twitter.com/Seita_ow"), Custom String(
+			"Full details: workshop.codes/1v1meta"), Top, 22, Color(Orange), Color(Blue), Color(White), Visible To and String,
+			Default Visibility);
+		Global.StartHud2 = Last Text ID;
+		Set Ultimate Charge(All Players(All Teams), 0);
+		All Players(All Teams).UltKeep = 0;
+	}
+}
+
+rule("First Hero built")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is In Setup == True;
+		Players In Slot(0, Team 1).FirstHeroBuilt == True;
+		Players In Slot(0, Team 2).FirstHeroBuilt == True;
+	}
+
+	actions
+	{
+		Wait(1, Abort When False);
+		Small Message(All Players(All Teams), Custom String("Both players finished their hero, starting the round"));
+		Set Match Time(6);
+		Destroy HUD Text(Global.StartHud);
+		Destroy HUD Text(Global.StartHud2);
+	}
+}
+
+rule("Remove Hud")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Is In Setup == False;
+	}
+
+	actions
+	{
+		Destroy HUD Text(Global.StartHud);
+		Destroy HUD Text(Global.StartHud2);
+	}
+}
+
+rule("Remove assembling heroes for testing")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Assembling Heroes == True;
+	}
+
+	actions
+	{
+		Set Match Time(1);
+	}
+}
+
+rule("Faster Point open")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Is Between Rounds == False;
+		Is In Setup == False;
+		Is Assembling Heroes == False;
+	}
+
+	actions
+	{
+		Set Match Time(20);
+	}
+}
+
+rule("Bots: Phased out, Invisible, Movement collision, Facing")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Slot Of(Event Player) != 0;
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Phased Out, 9999);
+		Set Invisible(Event Player, All);
+		Disable Movement Collision With Players(Event Player);
+		Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Eye Position(Players In Slot(0,
+			Team Of(Event Player))), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0,
+			Team Of(Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), 50000, To World,
+			Direction and Turn Rate);
+	}
+}
+
+disabled rule("Ability 1:")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("SUB: Ability 1 Attach")
+{
+	event
+	{
+		Subroutine;
+		Abi1Attach;
+	}
+
+	actions
+	{
+		Event Player.Abi1Scaling = 1;
+		If(Hero Of(Event Player) == Hero(Hanzo));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Ana));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+			Event Player.Abi1Scaling = 1.150;
+		End;
+		If(Hero Of(Event Player) == Hero(Roadhog));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Junker Queen));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+			Stop Facing(Event Player);
+		End;
+		If(Hero Of(Event Player) == Hero(Lifeweaver));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Genji));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Pharah));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(D.Va));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		Start Scaling Player(Event Player, Event Player.Abi1Scaling, True);
+	}
+}
+
+rule("Ability 1 - Attach: Hero Swap")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+		Hero Of(Players In Slot(0, Team Of(Event Player))) != Players In Slot(0, Team Of(Event Player)).HeroSwapFix;
+	}
+
+	actions
+	{
+		Wait(0.500, Ignore Condition);
+		Call Subroutine(Abi1Attach);
+		Players In Slot(0, Team Of(Event Player)).HeroSwapFix = Hero Of(Players In Slot(0, Team Of(Event Player)));
+	}
+}
+
+rule("Ability 1 - Attach: Normal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(Abi1Attach);
+	}
+}
+
+rule("Using ability 1: LW & JQ & Hanzo")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		(Hero Of(Event Player) == Hero(Junker Queen) || Hero Of(Event Player) == Hero(Hanzo) || Hero Of(Event Player) == Hero(Lifeweaver))
+			== True;
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 1)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi1CD == 0;
+	}
+
+	actions
+	{
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 1));
+		If(Hero Of(Event Player) == Hero(Lifeweaver));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 8;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 8);
+		Else If(Hero Of(Event Player) == Hero(Junker Queen));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 7;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 7);
+		Else If(Hero Of(Event Player) == Hero(Hanzo));
+			Set Projectile Speed(Event Player, 500);
+			Wait(0.100, Ignore Condition);
+			Press Button(Event Player, Button(Primary Fire));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 6;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 6);
+		End;
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi1CD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Using ability 1: Ana")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Ana);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 1)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi1CD == 0;
+	}
+
+	actions
+	{
+		disabled Wait(2, Ignore Condition);
+		Set Invisible(Event Player, None);
+		Stop Holding Button(Players In Slot(0, Team Of(Event Player)), Button(Primary Fire));
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), False);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 1));
+		Wait(0.250, Ignore Condition);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.100, Ignore Condition);
+		Set Invisible(Event Player, All);
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), True);
+		Players In Slot(0, Team Of(Event Player)).Abi1CD = 12;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 12);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi1CD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Using ability 1: Hog hook")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Roadhog);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 1)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi1CD == 0;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, None);
+		Set Move Speed(Players In Slot(0, Team Of(Event Player)), 50);
+		Stop Holding Button(Players In Slot(0, Team Of(Event Player)), Button(Primary Fire));
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), False);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 1));
+		Players In Slot(0, Team Of(Event Player)).Abi1CD = 10;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 10);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi1CD, 0, 1, Destination and Rate);
+		Wait(0.075, Ignore Condition);
+		Set Invisible(Event Player, All);
+		Wait(0.550, Ignore Condition);
+		If(Is Game In Progress);
+			Wait(Distance Between(Eye Position(Players In Slot(0, Team 1)), Eye Position(Players In Slot(0, Team 2))) * 0.020,
+				Ignore Condition);
+		End;
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), True);
+		Set Move Speed(Players In Slot(0, Team Of(Event Player)), 100);
+	}
+}
+
+rule("Using ability 1: Genji, Dva, Pharah")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		(Hero Of(Event Player) == Hero(D.Va) || Hero Of(Event Player) == Hero(Genji) || Hero Of(Event Player) == Hero(Pharah)) == True;
+		Event Player.UsingAbi1 == False;
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 1)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi1CD == 0;
+	}
+
+	actions
+	{
+		Detach Players(Event Player);
+		Start Forcing Throttle(Event Player, 1, 1, 0, 1, 0, 1);
+		disabled Teleport(Event Player, Position Of(Players In Slot(0, Team Of(Event Player))));
+		Wait(0.050, Ignore Condition);
+		Attach Players(Players In Slot(0, Team Of(Event Player)), Event Player, Vector(0, 0, 0));
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 1));
+		If(Hero Of(Event Player) == Hero(D.Va));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 8;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 7);
+		Else If(Hero Of(Event Player) == Hero(Genji));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 7;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 7);
+		Else If(Hero Of(Event Player) == Hero(Pharah));
+			Players In Slot(0, Team Of(Event Player)).Abi1CD = 7;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 1), 7);
+		End;
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi1CD, 0, 1, Destination and Rate);
+		Wait(0.200, Ignore Condition);
+		Event Player.UsingAbi1 = True;
+	}
+}
+
+rule("Ability 1 False: Genji, Dva, Pharah")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		(Hero Of(Event Player) == Hero(D.Va) || Hero Of(Event Player) == Hero(Genji) || Hero Of(Event Player) == Hero(Pharah)) == True;
+		Is Using Ability 1(Event Player) == False;
+		Event Player.UsingAbi1 == True;
+	}
+
+	actions
+	{
+		Wait(0.050, Ignore Condition);
+		Detach Players(Players In Slot(0, Team Of(Event Player)));
+		Stop Forcing Throttle(Event Player);
+		Wait(0.500, Ignore Condition);
+		Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		disabled Teleport(Event Player, Players In Slot(0, Team Of(Event Player)).SpawnLocation);
+		Event Player.UsingAbi1 = False;
+	}
+}
+
+rule("Dva Flight cancel")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 1;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(D.Va);
+		Event Player.UsingAbi1 == True;
+		Is Using Ability 1(Event Player) == True;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 1)) == True;
+	}
+
+	actions
+	{
+		Press Button(Event Player, Button(Ability 1));
+	}
+}
+
+disabled rule("Ability 2:")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("SUB: Ability 2 Attach")
+{
+	event
+	{
+		Subroutine;
+		Abi2Attach;
+	}
+
+	actions
+	{
+		Event Player.Abi2Scaling = 1;
+		If(Hero Of(Event Player) == Hero(Zarya));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, -2));
+			Start Facing(Event Player, Direction Towards(Eye Position(Event Player), Eye Position(Players In Slot(0, Team Of(Event Player)))),
+				50000, To World, Direction and Turn Rate);
+		End;
+		If(Hero Of(Event Player) == Hero(Ana));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0.600, 0));
+			disabled Event Player.Abi1Scaling = 1.500;
+		End;
+		If(Hero Of(Event Player) == Hero(Symmetra));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Soldier: 76));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Sojourn));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0.500, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Sigma));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0.400, -0.200, -0.200));
+		End;
+		If(Hero Of(Event Player) == Hero(Lúcio));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 4, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Pharah));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Event Player) == Hero(Reinhardt));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+		Start Scaling Player(Event Player, Event Player.Abi2Scaling, True);
+	}
+}
+
+rule("Ability 2 - Attach: Hero Swap")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+		Hero Of(Players In Slot(0, Team Of(Event Player))) != Players In Slot(0, Team Of(Event Player)).HeroSwapFix;
+	}
+
+	actions
+	{
+		Wait(0.500, Ignore Condition);
+		Call Subroutine(Abi2Attach);
+		Players In Slot(0, Team Of(Event Player)).HeroSwapFix = Hero Of(Players In Slot(0, Team Of(Event Player)));
+	}
+}
+
+rule("Ability 2 - Attach: Normal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Call Subroutine(Abi2Attach);
+	}
+}
+
+rule("Using ability 2: Most heroes")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) != Hero(Symmetra);
+		Hero Of(Event Player) != Hero(Sigma);
+		Hero Of(Event Player) != Hero(Doomfist);
+		Hero Of(Event Player) != Hero(Zarya);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 2)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi2CD == 0;
+	}
+
+	actions
+	{
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 2));
+		If(Hero Of(Event Player) == Hero(Ana));
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 10;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 10);
+		Else If(Hero Of(Event Player) == Hero(Sojourn));
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 8;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 8);
+		Else If(Hero Of(Event Player) == Hero(Soldier: 76));
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 12;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 12);
+		Else If(Hero Of(Event Player) == Hero(Pharah));
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 4;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 4);
+		Else If(Hero Of(Event Player) == Hero(Reinhardt));
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 6;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 6);
+		End;
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi2CD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Using ability 2: Sig")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Sigma);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 2)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi2CD == 0;
+	}
+
+	actions
+	{
+		Set Ability Cooldown(Event Player, Button(Ability 2), 0);
+		Set Move Speed(Players In Slot(0, Team Of(Event Player)), 25);
+		Set Invisible(Event Player, None);
+		Stop Holding Button(Players In Slot(0, Team Of(Event Player)), Button(Primary Fire));
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), False);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 2));
+		Players In Slot(0, Team Of(Event Player)).Abi2CD = 8;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 8);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi2CD, 0, 1, Destination and Rate);
+		Wait(0.600, Ignore Condition);
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), True);
+		Set Move Speed(Players In Slot(0, Team Of(Event Player)), 100);
+		Wait(0.070, Ignore Condition);
+		Set Invisible(Event Player, All);
+	}
+}
+
+rule("Using ability 2: Sym")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Symmetra);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 2)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi2CD == 0;
+	}
+
+	actions
+	{
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 2));
+		Wait(0.100, Ignore Condition);
+		Press Button(Event Player, Button(Primary Fire));
+		Wait(0.250, Ignore Condition);
+		Cancel Primary Action(Event Player);
+		If(Is Using Ability 2(Event Player) == True);
+			Players In Slot(0, Team Of(Event Player)).Abi2CD = 12;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 12);
+			Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi2CD, 0, 1, Destination and Rate);
+		End;
+	}
+}
+
+rule("Using ability 2: Zarya")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 2;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Zarya);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ability 2)) == True;
+		Players In Slot(0, Team Of(Event Player)).Abi2CD == 0;
+	}
+
+	actions
+	{
+		Start Scaling Player(Players In Slot(1, Team Of(Event Player)), 0.100, True);
+		Start Scaling Player(Players In Slot(3, Team Of(Event Player)), 0.100, True);
+		Start Scaling Player(Players In Slot(4, Team Of(Event Player)), 0.100, True);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ability 2));
+		Players In Slot(0, Team Of(Event Player)).Abi2CD = 13;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Ability 2), 13);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi2CD, 0, 1, Destination and Rate);
+		Wait(0.250, Ignore Condition);
+		Start Scaling Player(Players In Slot(1, Team Of(Event Player)), 1, True);
+		Start Scaling Player(Players In Slot(3, Team Of(Event Player)), 1, True);
+		Start Scaling Player(Players In Slot(4, Team Of(Event Player)), 1, True);
+	}
+}
+
+disabled rule("Ultimate:")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Free ultimate %")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Players In Slot(0, Team Of(Event Player)).HeroSwapFix = Hero Of(Players In Slot(0, Team Of(Event Player)));
+		If(Hero Of(Event Player) == Hero(Kiriko));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+		End;
+		If(Hero Of(Event Player) == Hero(Tracer));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 35);
+		End;
+		If(Hero Of(Event Player) == Hero(Wrecking Ball));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 45);
+		End;
+		If(Hero Of(Event Player) == Hero(Ashe));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		End;
+		If(Hero Of(Event Player) == Hero(Doomfist));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 25);
+		End;
+		If(Hero Of(Event Player) == Hero(Zarya));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+		End;
+		If(Hero Of(Event Player) == Hero(Lifeweaver));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+		End;
+		If(Hero Of(Event Player) == Hero(Junker Queen));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		End;
+		Wait(0.100, Ignore Condition);
+		Players In Slot(0, Team Of(Event Player)).UltKeep = Ultimate Charge Percent(Players In Slot(0, Team Of(Event Player)));
+	}
+}
+
+rule("Ult keep testing")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Is In Spawn Room(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.300, Abort When False);
+		Event Player.UltKeep = Ultimate Charge Percent(Event Player);
+		disabled Small Message(All Players(All Teams), Custom String("ult put on variable: {0}", Event Player.UltKeep));
+		Wait(4, Abort When False);
+		Loop If Condition Is True;
+	}
+}
+
+rule("SUB: Ultimate Attach")
+{
+	event
+	{
+		Subroutine;
+		UltAttach;
+	}
+
+	actions
+	{
+		disabled Event Player.UltScaling = 1;
+		If(Hero Of(Event Player) == Hero(Zarya));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0.500, 0));
+		Else;
+			If(Hero Of(Event Player) == Hero(Hanzo));
+				Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, -5));
+			Else;
+				Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+			End;
+		End;
+		disabled Start Scaling Player(Event Player, Event Player.UltScaling, True);
+	}
+}
+
+rule("Ultimate - Attach: Hero Swap")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+		Hero Of(Players In Slot(0, Team Of(Event Player))) != Players In Slot(0, Team Of(Event Player)).HeroSwapFix;
+	}
+
+	actions
+	{
+		Wait(0.050, Abort When False);
+		disabled Small Message(All Players(All Teams), Custom String("hero swap trigger"));
+		Wait(0.100, Ignore Condition);
+		Call Subroutine(UltAttach);
+		Players In Slot(0, Team Of(Event Player)).HeroSwapFix = Hero Of(Players In Slot(0, Team Of(Event Player)));
+		Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), Players In Slot(0, Team Of(Event Player)).UltKeep);
+		disabled If(Hero Of(Event Player) == Hero(Tracer));
+		disabled Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 30);
+		disabled End;
+		disabled If(Hero Of(Event Player) == Hero(Hanzo));
+		disabled Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 30);
+		disabled End;
+		disabled If(Hero Of(Event Player) == Hero(Wrecking Ball));
+		disabled Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 50);
+		disabled End;
+		disabled If(Hero Of(Event Player) == Hero(Ashe));
+		disabled Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 15);
+		disabled End;
+		disabled If(Hero Of(Event Player) == Hero(Doomfist));
+		disabled Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		disabled End;
+	}
+}
+
+rule("Ultimate - Attach: Normal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Call Subroutine(UltAttach);
+	}
+}
+
+rule("Using ultimate: Most heroes")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) != Hero(Junker Queen);
+		Hero Of(Event Player) != Hero(Doomfist);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ultimate)) == True;
+		Ultimate Charge Percent(Players In Slot(0, Team Of(Event Player))) == 100;
+	}
+
+	actions
+	{
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Set Ultimate Charge(Event Player, 100);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ultimate));
+		If(Hero Of(Event Player) == Hero(Lifeweaver));
+			Wait(0.100, Ignore Condition);
+			Press Button(Event Player, Button(Primary Fire));
+			Wait(0.250, Ignore Condition);
+			If(Is Using Ultimate(Event Player) == True);
+				Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+			End;
+		End;
+		If(Hero Of(Event Player) == Hero(Tracer));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 35);
+		End;
+		If(Hero Of(Event Player) == Hero(Kiriko));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+		End;
+		If(Hero Of(Event Player) == Hero(Junker Queen));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		End;
+		If(Hero Of(Event Player) == Hero(Ashe));
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		End;
+		If(Hero Of(Event Player) == Hero(Mei) || Hero Of(Event Player) == Hero(Zenyatta) || Hero Of(Event Player) == Hero(Zarya));
+			disabled Wait(6, Ignore Condition);
+			Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 0);
+		End;
+		If(Hero Of(Event Player) == Hero(Baptiste));
+			Cancel Primary Action(Event Player);
+			Wait(0.050, Ignore Condition);
+			Press Button(Event Player, Button(Ultimate));
+			Wait(0.100, Ignore Condition);
+			Press Button(Event Player, Button(Primary Fire));
+			Wait(0.250, Ignore Condition);
+			If(Is Using Ultimate(Event Player) == True);
+				Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+			End;
+		End;
+	}
+}
+
+rule("Using ultimate: JQ")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Junker Queen);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ultimate)) == True;
+		Ultimate Charge Percent(Players In Slot(0, Team Of(Event Player))) == 100;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, None);
+		Detach Players(Event Player);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Set Ultimate Charge(Event Player, 100);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ultimate));
+		Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 20);
+		Start Heal Over Time(Players In Slot(0, Team Of(Event Player)), Event Player, 5, 20);
+		Wait(1, Ignore Condition);
+		Wait Until(Is Using Ultimate(Event Player) == False, 3);
+		Set Invisible(Event Player, All);
+		Wait(1, Ignore Condition);
+		Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+	}
+}
+
+rule("Using ultimate: Doom")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Doomfist);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Ultimate)) == True;
+		Ultimate Charge Percent(Players In Slot(0, Team Of(Event Player))) == 100;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, None);
+		Detach Players(Event Player);
+		Event Player.DoomUlt = Ray Cast Hit Position(Eye Position(Players In Slot(0, Team Of(Event Player))), Eye Position(Players In Slot(
+			0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(Event Player))) * 100, All Players(All Teams),
+			All Players(Team Of(Event Player)), False);
+		Set Ultimate Charge(Event Player, 100);
+		Press Button(Event Player, Button(Ultimate));
+		Set Ultimate Charge(Players In Slot(0, Team Of(Event Player)), 25);
+		Wait(1, Ignore Condition);
+		Teleport(Event Player, Event Player.DoomUlt);
+		Press Button(Event Player, Button(Primary Fire));
+		Wait(1.500, Ignore Condition);
+		Set Invisible(Event Player, All);
+		Wait(1, Ignore Condition);
+		Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+	}
+}
+
+rule("Kiriko ulting: CD reduction")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 3;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Kiriko);
+		Is Using Ultimate(Event Player) == True;
+	}
+
+	actions
+	{
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi1CD, 0, 2, Destination and Rate);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), Abi2CD, 0, 2, Destination and Rate);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), SecoCD, 0, 2, Destination and Rate);
+		Wait(1, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+disabled rule("Secondary:")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("SUB: Secondary Attach")
+{
+	event
+	{
+		Subroutine;
+		SecoAttach;
+	}
+
+	actions
+	{
+		If(Hero Of(Event Player) == Hero(Orisa));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, -0.500, 0));
+		Else If(Hero Of(Event Player) == Hero(D.Va));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, -0.300, -1));
+		Else If(Hero Of(Event Player) == Hero(Roadhog));
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		Else;
+			Attach Players(Event Player, Players In Slot(0, Team Of(Event Player)), Vector(0, 0, 0));
+		End;
+	}
+}
+
+rule("Secondary: Attach: Hero Swap")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Hero Of(Event Player) != Hero(Lúcio);
+		Is Alive(Event Player) == True;
+		Hero Of(Players In Slot(0, Team Of(Event Player))) != Players In Slot(0, Team Of(Event Player)).HeroSwapFix;
+	}
+
+	actions
+	{
+		Wait(0.500, Ignore Condition);
+		Call Subroutine(SecoAttach);
+		Players In Slot(0, Team Of(Event Player)).HeroSwapFix = Hero Of(Players In Slot(0, Team Of(Event Player)));
+	}
+}
+
+rule("Secondary: Attach: Normal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+		Has Spawned(Players In Slot(0, Team Of(Event Player))) == True;
+		Hero Of(Event Player) != Hero(Lúcio);
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.300, Ignore Condition);
+		Call Subroutine(SecoAttach);
+	}
+}
+
+rule("Using secondary: Most heroes")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) != Hero(Ramattra);
+		Hero Of(Event Player) != Hero(D.Va);
+		Hero Of(Event Player) != Hero(Roadhog);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire)) == True;
+		Players In Slot(0, Team Of(Event Player)).SecoCD == 0;
+	}
+
+	actions
+	{
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Secondary Fire));
+		If(Hero Of(Event Player) == Hero(Orisa));
+			Players In Slot(0, Team Of(Event Player)).SecoCD = 10;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 10);
+		Else If(Hero Of(Event Player) == Hero(Echo));
+			Players In Slot(0, Team Of(Event Player)).SecoCD = 10;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 10);
+		Else If(Hero Of(Event Player) == Hero(Soldier: 76));
+			Players In Slot(0, Team Of(Event Player)).SecoCD = 6;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 6);
+		Else If(Hero Of(Event Player) == Hero(Junker Queen));
+			Players In Slot(0, Team Of(Event Player)).SecoCD = 6;
+			Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 6);
+		End;
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), SecoCD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Using secondary: Hog")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Roadhog);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire)) == True;
+		Players In Slot(0, Team Of(Event Player)).SecoCD == 0;
+	}
+
+	actions
+	{
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), False);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Vector(X Component Of(Ray Cast Hit Position(Players In Slot(
+			0, Team Of(Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0,
+			Team Of(Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), Y Component Of(
+			Ray Cast Hit Position(Players In Slot(0, Team Of(Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player)))
+			+ Facing Direction Of(Players In Slot(0, Team Of(Event Player))) * 100, All Players(All Teams), All Players(Team Of(
+			Event Player)), False)) - 0.400, Z Component Of(Ray Cast Hit Position(Players In Slot(0, Team Of(Event Player)), Eye Position(
+			Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(Event Player))) * 100, All Players(
+			All Teams), All Players(Team Of(Event Player)), False)))), To World);
+		disabled Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Secondary Fire));
+		Players In Slot(0, Team Of(Event Player)).SecoCD = 2;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 2);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), SecoCD, 0, 1, Destination and Rate);
+		Wait(0.400, Ignore Condition);
+		Set Primary Fire Enabled(Players In Slot(0, Team Of(Event Player)), True);
+	}
+}
+
+rule("Using secondary: Dva")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(D.Va);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire)) == True;
+		Players In Slot(0, Team Of(Event Player)).SecoCD == 0;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, None);
+		Players In Slot(0, Team Of(Event Player)).SecoCD = 6;
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 6);
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), SecoCD, 0, 1, Destination and Rate);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Start Holding Button(Event Player, Button(Secondary Fire));
+		Wait(1.200, Ignore Condition);
+		Stop Holding Button(Event Player, Button(Secondary Fire));
+		Set Invisible(Event Player, All);
+	}
+}
+
+rule("Using secondary: Ram")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Ramattra);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Knocked Down) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Stunned) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Frozen) == False;
+		Has Status(Players In Slot(0, Team Of(Event Player)), Rooted) == False;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire)) == True;
+		Players In Slot(0, Team Of(Event Player)).SecoCD == 0;
+	}
+
+	actions
+	{
+		Set Ability Cooldown(Event Player, Button(Secondary Fire), 0);
+		Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Ray Cast Hit Position(Players In Slot(0, Team Of(
+			Event Player)), Eye Position(Players In Slot(0, Team Of(Event Player))) + Facing Direction Of(Players In Slot(0, Team Of(
+			Event Player))) * 100, All Players(All Teams), All Players(Team Of(Event Player)), False)), To World);
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Secondary Fire));
+		Set Ability Cooldown(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire), 13);
+		Players In Slot(0, Team Of(Event Player)).SecoCD = 13;
+		Chase Player Variable At Rate(Players In Slot(0, Team Of(Event Player)), SecoCD, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Secondary: JQ Recall")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Junker Queen);
+		Is Alive(Players In Slot(0, Team Of(Event Player))) == True;
+		Is Button Held(Players In Slot(0, Team Of(Event Player)), Button(Secondary Fire)) == True;
+		Players In Slot(0, Team Of(Event Player)).SecoCD != 6;
+		Players In Slot(0, Team Of(Event Player)).SecoCD >= 3;
+	}
+
+	actions
+	{
+		Press Button(Event Player, Button(Secondary Fire));
+		Wait(0.250, Ignore Condition);
+		Wait(Event Player.SecoCD, Ignore Condition);
+	}
+}
+
+rule("Ram Shield HP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 4;
+	}
+
+	conditions
+	{
+		Hero Of(Event Player) == Hero(Ramattra);
+	}
+
+	actions
+	{
+		Set Max Health(Event Player, 20);
+	}
+}
+
+disabled rule("Gamemode:")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Slot 0: Disable buttons")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Ultimate));
+		Disallow Button(Event Player, Button(Secondary Fire));
+	}
+}
+
+rule("Team 1: Dummy bot damage shows enemy HP")
+{
+	event
+	{
+		Player Dealt Damage;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+	}
+
+	actions
+	{
+		Damage(Victim, Players In Slot(0, Team 1), 0.100);
+	}
+}
+
+rule("Team 2: Dummy bot damage shows enemy HP")
+{
+	event
+	{
+		Player Dealt Damage;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == True;
+	}
+
+	actions
+	{
+		Damage(Victim, Players In Slot(0, Team 2), 0.100);
+	}
+}
+
+disabled rule("Ability CD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Set Ability Cooldown(Players In Slot(0, Team 1), Button(Ability 1), Ability Cooldown(Players In Slot(1, Team 1), Button(
+			Ability 1)));
+		Wait(0.050, Ignore Condition);
+		Set Ability Cooldown(Players In Slot(0, Team 1), Button(Ability 2), Ability Cooldown(Players In Slot(2, Team 1), Button(
+			Ability 2)));
+		Wait(0.050, Ignore Condition);
+		Set Ability Cooldown(Players In Slot(0, Team 2), Button(Ability 1), Ability Cooldown(Players In Slot(1, Team 2), Button(
+			Ability 1)));
+		Wait(0.050, Ignore Condition);
+		Set Ability Cooldown(Players In Slot(0, Team 2), Button(Ability 2), Ability Cooldown(Players In Slot(2, Team 2), Button(
+			Ability 2)));
+		Wait(0.050, Ignore Condition);
+		Loop;
+	}
+}
+
+rule("Ability HUD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Create HUD Text(Global.HudT1Visibility, Null, Null, Players In Slot(0, Team 1), Left, 1, Color(White), Color(Blue), Color(Blue),
+			Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT1Visibility, Null, Null, Custom String("Ability 1: {0}", Ability Icon String(Hero Of(Players In Slot(1,
+			Team 1)), Button(Ability 1))), Left, 1.100, Color(White), Color(Blue), Color(Blue), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT1Visibility, Null, Null, Custom String("Ability 2: {0}", Ability Icon String(Hero Of(Players In Slot(2,
+			Team 1)), Button(Ability 2))), Left, 1.200, Color(White), Color(Blue), Color(Blue), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT1Visibility, Null, Null, Custom String("Ultimate: {0}", Ability Icon String(Hero Of(Players In Slot(3,
+			Team 1)), Button(Ultimate))), Left, 1.300, Color(White), Color(Blue), Color(Blue), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT1Visibility, Null, Null, Custom String("Secondary: {0}", Ability Icon String(Hero Of(Players In Slot(4,
+			Team 1)), Button(Secondary Fire))), Left, 1.400, Color(White), Color(Blue), Color(Blue), Visible To and String,
+			Default Visibility);
+		Create HUD Text(Global.HudT2Visibility, Null, Null, Players In Slot(0, Team 2), Left, 2, Color(White), Color(Red), Color(Red),
+			Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT2Visibility, Null, Null, Custom String("Ability 1: {0}", Ability Icon String(Hero Of(Players In Slot(1,
+			Team 2)), Button(Ability 1))), Left, 2.100, Color(White), Color(Red), Color(Red), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT2Visibility, Null, Null, Custom String("Ability 2: {0}", Ability Icon String(Hero Of(Players In Slot(2,
+			Team 2)), Button(Ability 2))), Left, 2.200, Color(White), Color(Red), Color(Red), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT2Visibility, Null, Null, Custom String("Ultimate: {0}", Ability Icon String(Hero Of(Players In Slot(3,
+			Team 2)), Button(Ultimate))), Left, 2.300, Color(White), Color(Red), Color(Red), Visible To and String, Default Visibility);
+		Create HUD Text(Global.HudT2Visibility, Null, Null, Custom String("Secondary: {0}", Ability Icon String(Hero Of(Players In Slot(4,
+			Team 2)), Button(Secondary Fire))), Left, 2.400, Color(White), Color(Red), Color(Red), Visible To and String,
+			Default Visibility);
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String("Press {0} in spawn to build your hero", Input Binding String(
+			Button(Interact))), Left, 3, Color(White), Color(White), Color(Yellow), Visible To and String, Default Visibility);
+	}
+}
+
+rule("Hud visibility Start")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Has Spawned(Players In Slot(0, Team 1)) == True;
+	}
+
+	actions
+	{
+		Global.HudT1Visibility = Players In Slot(0, Team 1);
+	}
+}
+
+rule("Hud visibility Start")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Has Spawned(Players In Slot(0, Team 2)) == True;
+	}
+
+	actions
+	{
+		Global.HudT2Visibility = Players In Slot(0, Team 2);
+	}
+}
+
+rule("Hud visibility after 15s")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Is Between Rounds == False;
+		Is In Setup == False;
+		Is Assembling Heroes == False;
+	}
+
+	actions
+	{
+		Wait(15, Ignore Condition);
+		Modify Global Variable(HudT1Visibility, Append To Array, Players In Slot(0, Team 2));
+		Modify Global Variable(HudT2Visibility, Append To Array, Players In Slot(0, Team 1));
+	}
+}
+
+rule("Hud visibility hide")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Between Rounds == True;
+	}
+
+	actions
+	{
+		Global.HudT1Visibility = Players In Slot(0, Team 1);
+		Global.HudT2Visibility = Players In Slot(0, Team 2);
+	}
+}
+
+rule("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒【Josbird's Cursor Menu】▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Create basic HUD elements")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		"Creates a HUD at the top of the screen, beneath the objective/game mode information, telling them which button opens the menu."
+		disabled Create HUD Text(Filtered Array(All Players(All Teams), !Current Array Element.IsInMenuMode), Custom String(
+			"Press {0} to open menu", Input Binding String(Button(Interact))), Null, Null, Top, 1, Color(Yellow), Color(White), Color(
+			White), Visible To and String, Default Visibility);
+		"Displays server load on the top right of the screen, above the kill feed."
+		disabled Create HUD Text(All Players(All Teams), Server Load Average, Null, String("Server Load Average"), Right, 0, Color(Green), Color(
+			Green), Color(White), Visible To and String, Default Visibility);
+		"Credits (please do not delete!)"
+		Create HUD Text(Filtered Array(All Players(All Teams), Current Array Element.IsInMenuMode), Null, Null, Custom String(
+			"Cursor Menu created by Josbird   {0}   Code: GETVX", Ability Icon String(Hero(Mercy), Button(Ultimate))), Right, -100, Color(
+			White), Color(White), Color(Aqua), Visible To and String, Default Visibility);
+	}
+}
+
+rule("Toggle menu mode")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		Is In Spawn Room(Event Player) == True;
+		Is Alive(Event Player) == True;
+		Event Player.MenuLoaded == False;
+		"The menu is currently set to both open and close when Interact is pressed."
+		Is Button Held(Event Player, Button(Interact)) == True;
+		"I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril."
+		Is Communicating Any Emote(Event Player) == False;
+	}
+
+	actions
+	{
+		"If the menu is not open, opens the menu. Otherwise, closes it."
+		Event Player.IsInMenuMode = True;
+	}
+}
+
+rule("Toggle menu mode")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		Is In Spawn Room(Event Player) == True;
+		Is Alive(Event Player) == True;
+		Event Player.MenuLoaded == True;
+		"The menu is currently set to both open and close when Interact is pressed."
+		Is Button Held(Event Player, Button(Interact)) == True;
+		"I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril."
+		Is Communicating Any Emote(Event Player) == False;
+	}
+
+	actions
+	{
+		"If the menu is not open, opens the menu. Otherwise, closes it."
+		Event Player.IsInMenuMode = False;
+	}
+}
+
+rule("Menu activated > Start setup")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"Triggers once whenever the menu opens."
+		Event Player.IsInMenuMode == True;
+	}
+
+	actions
+	{
+		"Sets aim speed to minimum to reduce camera sway while in menu."
+		Set Aim Speed(Event Player, 10);
+		"These 2 rules disable primary and secondary fire for the purposes of click detection. Though personally I haven't actually thought of a use for secondary fire yet."
+		Set Primary Fire Enabled(Event Player, False);
+		Set Secondary Fire Enabled(Event Player, False);
+		"These 2 rules disable the non-menu HUD. This is optional, I just think it looks cleaner."
+		Disable Hero HUD(Event Player);
+		Disable Game Mode HUD(Event Player);
+		"This (and the following rule) set the menu eye position to follow the player's eye position. Overwrite if you plan to separate the menu from the player's current position."
+		Event Player.MenuEyePos = Eye Position(Event Player);
+		Chase Player Variable At Rate(Event Player, MenuEyePos, Eye Position(Event Player), 100000, Destination and Rate);
+		"Stores original facing direction of player for the purpose of recording mouse movement. Don't recommend changing this."
+		Event Player.MenuOriginalFacing = Facing Direction Of(Event Player);
+		"Sets the forward axis of the menu view (into and out of the screen). Change this to match the facing direction of whatever camera you use if you decouple it from the first person view. (Make sure to normalize if the direction is not a unit vector.)"
+		Event Player.MenuZAxis = Facing Direction Of(Event Player);
+		"Sets vertical axis of menu (up and down the screen)."
+		Event Player.MenuYAxis = Direction From Angles(Horizontal Angle From Direction(Event Player.MenuZAxis),
+			Vertical Angle From Direction(Event Player.MenuZAxis) + -90);
+		"Sets horizontal axis of the menu (left and right on the screen)."
+		Event Player.MenuXAxis = Cross Product(Event Player.MenuZAxis, Event Player.MenuYAxis);
+		"These three rules scale up all 3 axes to 100 meters in order to stabilize the menu in-world texts by placing them far away from the camera view. Keep this in mind if you plan to make your own texts on the screen."
+		Event Player.MenuXAxis *= 100;
+		Event Player.MenuYAxis *= 100;
+		Event Player.MenuZAxis *= 100;
+		"This is where the magic happens. The first rule initializes the cursor position and the second moves it around the screen as the player moves their aim by projecting the angle difference onto a flat plane."
+		Event Player.CursorPos = Event Player.MenuEyePos + Event Player.MenuZAxis * 3;
+		Chase Player Variable At Rate(Event Player, CursorPos,
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * -0.750 * Angle Difference(
+			Horizontal Angle From Direction(Event Player.MenuOriginalFacing), Horizontal Angle From Direction(Facing Direction Of(
+			Event Player))) + Event Player.MenuYAxis * -0.750 * Angle Difference(Vertical Angle From Direction(
+			Event Player.MenuOriginalFacing), Vertical Angle From Direction(Facing Direction Of(Event Player))), 100000,
+			Destination and Rate);
+		"The next four rules provide a simpler way to track the position of the cursor relative to the screen. Use these instead of CursorPos to compare the cursor position to coordinates of onscreen elements."
+		Event Player.CursorX = 0;
+		Event Player.CursorY = 0;
+		Chase Player Variable At Rate(Event Player, CursorX, -0.750 * Angle Difference(Horizontal Angle From Direction(
+			Event Player.MenuOriginalFacing), Horizontal Angle From Direction(Facing Direction Of(Event Player))), 100000,
+			Destination and Rate);
+		Chase Player Variable At Rate(Event Player, CursorY, -0.750 * Angle Difference(Vertical Angle From Direction(
+			Event Player.MenuOriginalFacing), Vertical Angle From Direction(Facing Direction Of(Event Player))), 100000,
+			Destination and Rate);
+		"This rule initializes the array that stores all components of the menu in order to destroy them when it closes. Don't recommend changing this."
+		Event Player.MenuVFX = Empty Array;
+		"These subroutines do the actual work of constructing the menu. See subroutines for more details."
+		Call Subroutine(CreateMenuFrame);
+		Call Subroutine(CreateMenuCursor);
+		Call Subroutine(CreateMenuButtons);
+		Call Subroutine(CreateMenuButtonsMore);
+		Event Player.MenuLoaded = True;
+	}
+}
+
+rule("Menu activated > Create frame")
+{
+	event
+	{
+		Subroutine;
+		CreateMenuFrame;
+	}
+
+	actions
+	{
+		"This rule constructs the 10 elements that make up the frame of the menu. If you want to resize the menu, change the position and contents of these texts to what you want. Don't make it any larger as current size is optimized to be onscreen at min FoV."
+		Abort If(False);
+		"The following 8 rules create the corner pieces of the menu frame."
+		Create In-World Text(Event Player, Custom String("┌"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * -2.500 + Event Player.MenuYAxis * 1.050,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("┐"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * 2.500 + Event Player.MenuYAxis * 1.050,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("└"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * -2.500 + Event Player.MenuYAxis * -1.450,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("┘"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * 2.500 + Event Player.MenuYAxis * -1.450,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		"The following 8 rules create the edge pieces of the menu frame. Recommend removing these first if you are running low on in-world text budget."
+		Create In-World Text(Event Player, Custom String("━━━━━━━━━━━━━━━━"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * 0 + Event Player.MenuYAxis * 1.050,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("━━━━━━━━━━━━━━━━"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * 0 + Event Player.MenuYAxis * -1.450,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("┃\r\n┃\r\n┃\r\n┃\r\n┃\r\n┃\r\n┃"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * -2.500 + Event Player.MenuYAxis * -0.700,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Create In-World Text(Event Player, Custom String("┃\r\n┃\r\n┃\r\n┃\r\n┃\r\n┃\r\n┃"), World Vector Of(Local Vector Of(
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * 2.500 + Event Player.MenuYAxis * -0.700,
+			Event Player, Rotation And Translation), Event Player, Rotation And Translation), 4, Do Not Clip, Visible To and Position,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		"This creates a button to close the menu using a simplified version of the default button schema detailed on workshop.codes: [button text, action ID, x position, y position, click radius]."
+		Event Player.ButtonExitMenu = Array(Custom String("confirm"), Custom String("exit menu"), 1.750, 0, 0.400);
+		"Creates the inactive text of the exit button. Becomes invisible when the cursor hovers over the button."
+		Create In-World Text(Filtered Array(Event Player, Event Player.IsInMenuMode && Distance Between(Event Player.CursorPos,
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3])
+			> 100 * Event Player.ButtonExitMenu[4]), Event Player.ButtonExitMenu[0],
+			Event Player.MenuEyePos + Event Player.MenuYAxis * -0.200 + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3],
+			3, Do Not Clip, Visible To Position and String, Color(Green), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		"Creates the hover text of the exit button. Becomes visible when the cursor hovers over the button."
+		Create In-World Text(Filtered Array(Event Player, Event Player.IsInMenuMode && Distance Between(Event Player.CursorPos,
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3])
+			<= 100 * Event Player.ButtonExitMenu[4]), Event Player.ButtonExitMenu[0],
+			Event Player.MenuEyePos + Event Player.MenuYAxis * -0.200 + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3],
+			3, Do Not Clip, Visible To Position and String, Color(Yellow), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+	}
+}
+
+rule("Wait test")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.WaitTest = 0.025;
+	}
+}
+
+rule("Menu activated > Create buttons")
+{
+	event
+	{
+		Subroutine;
+		CreateMenuButtons;
+	}
+
+	actions
+	{
+		"This rule creates the actual button visuals when the menu is opened. Until we get color variables, this is where more experienced users can change button colors. In each set, 2nd action = inactive button color, 4th = hovered button color."
+		Wait(0.016, Ignore Condition);
+		" \r\nButtonProperties[0]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 0);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[0][7] && True),
+			Event Player.ButtonProperties[0][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[0][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[0][3] - 0.200), Event Player.ButtonProperties[0][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[1]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 1);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[1][7] && True),
+			Event Player.ButtonProperties[1][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[1][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[1][3] - 0.200), Event Player.ButtonProperties[1][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[2]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 2);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[2][7] && True),
+			Event Player.ButtonProperties[2][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[2][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[2][3] - 0.200), Event Player.ButtonProperties[2][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[3]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 3);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[3][7] && True),
+			Event Player.ButtonProperties[3][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[3][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[3][3] - 0.200), Event Player.ButtonProperties[3][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[4]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 4);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[4][7] && True),
+			Event Player.ButtonProperties[4][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[4][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[4][3] - 0.200), Event Player.ButtonProperties[4][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[5]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 5);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[5][7] && True),
+			Event Player.ButtonProperties[5][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[5][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[5][3] - 0.200), Event Player.ButtonProperties[5][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[6]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 6);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[6][7] && True),
+			Event Player.ButtonProperties[6][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[6][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[6][3] - 0.200), Event Player.ButtonProperties[6][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[7]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 7);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[7][7] && True),
+			Event Player.ButtonProperties[7][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[7][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[7][3] - 0.200), Event Player.ButtonProperties[7][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[8]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 8);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[8][7] && True),
+			Event Player.ButtonProperties[8][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[8][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[8][3] - 0.200), Event Player.ButtonProperties[8][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[9]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 9);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[9][7] && True),
+			Event Player.ButtonProperties[9][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[9][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[9][3] - 0.200), Event Player.ButtonProperties[9][8], Do Not Clip, Visible To Position and String,
+			Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[10]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 10);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[10][7] && True),
+			Event Player.ButtonProperties[10][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[10][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[10][3] - 0.200), Event Player.ButtonProperties[10][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[11]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 11);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[11][7] && True),
+			Event Player.ButtonProperties[11][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[11][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[11][3] - 0.200), Event Player.ButtonProperties[11][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[12]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 12);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[12][7] && True),
+			Event Player.ButtonProperties[12][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[12][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[12][3] - 0.200), Event Player.ButtonProperties[12][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[13]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 13);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[13][7] && True),
+			Event Player.ButtonProperties[13][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[13][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[13][3] - 0.200), Event Player.ButtonProperties[13][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[14]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 14);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[14][7] && True),
+			Event Player.ButtonProperties[14][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[14][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[14][3] - 0.200), Event Player.ButtonProperties[14][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[15]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 15);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[15][7] && True),
+			Event Player.ButtonProperties[15][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[15][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[15][3] - 0.200), Event Player.ButtonProperties[15][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+	}
+}
+
+rule("Menu activated > Create buttons 2")
+{
+	event
+	{
+		Subroutine;
+		CreateMenuButtonsMore;
+	}
+
+	actions
+	{
+		"This rule creates the actual button visuals when the menu is opened. Until we get color variables, this is where more experienced users can change button colors. In each set, 2nd action = inactive button color, 4th = hovered button color."
+		Wait(0.016, Ignore Condition);
+		" \r\nButtonProperties[16]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 16);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[16][7] && True),
+			Event Player.ButtonProperties[16][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[16][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[16][3] - 0.200), Event Player.ButtonProperties[16][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[17]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 17);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[17][7] && True),
+			Event Player.ButtonProperties[17][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[17][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[17][3] - 0.200), Event Player.ButtonProperties[17][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[18]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 18);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[18][7] && True),
+			Event Player.ButtonProperties[18][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[18][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[18][3] - 0.200), Event Player.ButtonProperties[18][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[19]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 19);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[19][7] && True),
+			Event Player.ButtonProperties[19][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[19][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[19][3] - 0.200), Event Player.ButtonProperties[19][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[20]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 20);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[20][7] && True),
+			Event Player.ButtonProperties[20][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[20][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[20][3] - 0.200), Event Player.ButtonProperties[20][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[21]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 21);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[21][7] && True),
+			Event Player.ButtonProperties[21][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[21][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[21][3] - 0.200), Event Player.ButtonProperties[21][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[22]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 22);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[22][7] && True),
+			Event Player.ButtonProperties[22][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[22][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[22][3] - 0.200), Event Player.ButtonProperties[22][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[23]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 23);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[23][7] && True),
+			Event Player.ButtonProperties[23][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[23][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[23][3] - 0.200), Event Player.ButtonProperties[23][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[24]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 24);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[24][7] && True),
+			Event Player.ButtonProperties[24][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[24][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[24][3] - 0.200), Event Player.ButtonProperties[24][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[25]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 25);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[25][7] && True),
+			Event Player.ButtonProperties[25][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[25][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[25][3] - 0.200), Event Player.ButtonProperties[25][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[26]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 26);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[26][7] && True),
+			Event Player.ButtonProperties[26][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[26][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[26][3] - 0.200), Event Player.ButtonProperties[26][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[27]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 27);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[27][7] && True),
+			Event Player.ButtonProperties[27][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[27][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[27][3] - 0.200), Event Player.ButtonProperties[27][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[28]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 28);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[28][7] && True),
+			Event Player.ButtonProperties[28][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[28][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[28][3] - 0.200), Event Player.ButtonProperties[28][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[29]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 29);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[29][7] && True),
+			Event Player.ButtonProperties[29][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[29][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[29][3] - 0.200), Event Player.ButtonProperties[29][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[30]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 30);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[30][7] && True),
+			Event Player.ButtonProperties[30][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[30][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[30][3] - 0.200), Event Player.ButtonProperties[30][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[31]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 31);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[31][7] && True),
+			Event Player.ButtonProperties[31][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[31][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[31][3] - 0.200), Event Player.ButtonProperties[31][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[32]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 32);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[32][7] && True),
+			Event Player.ButtonProperties[32][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[32][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[32][3] - 0.200), Event Player.ButtonProperties[32][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[33]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 33);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[33][7] && True),
+			Event Player.ButtonProperties[33][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[33][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[33][3] - 0.200), Event Player.ButtonProperties[33][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+		" \r\nButtonProperties[33]"
+		Abort If(Count Of(Event Player.ButtonProperties) <= 34);
+		Create In-World Text(Filtered Array(Event Player, Event Player.ButtonProperties[34][7] && True),
+			Event Player.ButtonProperties[34][0],
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonProperties[34][2] + Event Player.MenuYAxis * (
+			Event Player.ButtonProperties[34][3] - 0.200), Event Player.ButtonProperties[34][8], Do Not Clip,
+			Visible To Position and String, Color(White), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(Global.WaitTest, Ignore Condition);
+	}
+}
+
+rule("Menu activated > Create cursor")
+{
+	event
+	{
+		Subroutine;
+		CreateMenuCursor;
+	}
+
+	actions
+	{
+		"The next four rules create the actual cursor that the player can move around. For the cursor to render over all other text, it must be the last in-world text to become visible. Thus, we create two identical cursors that alternate visibility every frame."
+		Create In-World Text(Filtered Array(Event Player, Total Time Elapsed % 0.032 > 0.016), Custom String("▲"), World Vector Of(
+			Local Vector Of(Event Player.CursorPos + Event Player.MenuYAxis * -0.200, Event Player, Rotation And Translation),
+			Event Player, Rotation And Translation), 3, Do Not Clip, Visible To and Position, Color(Yellow), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+		Wait(0.016, Ignore Condition);
+		Create In-World Text(Filtered Array(Event Player, Total Time Elapsed % 0.032 < 0.016), Custom String("▲"), World Vector Of(
+			Local Vector Of(Event Player.CursorPos + Event Player.MenuYAxis * -0.200, Event Player, Rotation And Translation),
+			Event Player, Rotation And Translation), 3, Do Not Clip, Visible To and Position, Color(Yellow), Default Visibility);
+		Modify Player Variable(Event Player, MenuVFX, Append To Array, Last Text ID);
+	}
+}
+
+rule("Menu deactivated > Clean up")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"Triggers once whenever the menu is closed. Technically also triggers when the game starts but that, uh, probably won't cause any problems."
+		Event Player.IsInMenuMode == False;
+		Event Player.MenuLoaded == True;
+	}
+
+	actions
+	{
+		"Return aim speed to normal."
+		Set Aim Speed(Event Player, 100);
+		"Reenable buttons previously reserved for menu clicking."
+		Set Primary Fire Enabled(Event Player, True);
+		Set Secondary Fire Enabled(Event Player, True);
+		"Reenable the HUD."
+		Enable Game Mode HUD(Event Player);
+		Enable Hero HUD(Event Player);
+		"Stop all active chases"
+		Stop Chasing Player Variable(Event Player, MenuEyePos);
+		Stop Chasing Player Variable(Event Player, CursorPos);
+		Stop Chasing Player Variable(Event Player, CursorX);
+		Stop Chasing Player Variable(Event Player, CursorY);
+		"Loops through all the components of the menu, destroying each one. Note that there is currently no wait in here, so if the array has a lot of elements, the server may be under a lot of stress for a moment. This may be a good place to reduce load if needed."
+		For Player Variable(Event Player, __iter__, 0, Count Of(Event Player.MenuVFX), 1);
+			"Since trying to destroy the wrong type of entity doesn't cause any errors, we simply try each type on the current entity, allowing for any type of effect or icon to be placed in MenuVFX for cleanup when the menu is closed."
+			Destroy In-World Text(Event Player.MenuVFX[Event Player.__iter__]);
+			disabled Destroy Effect(Event Player.MenuVFX[Event Player.__iter__]);
+			disabled Destroy Icon(Event Player.MenuVFX[Event Player.__iter__]);
+			disabled Destroy HUD Text(Event Player.MenuVFX[Event Player.__iter__]);
+		End;
+		Wait(0.500, Ignore Condition);
+		Event Player.MenuLoaded = False;
+	}
+}
+
+rule("Force menu exit on emote")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"I added this in because emoting prevents you from moving your aim, thus making the cursor immovable. Remove at your own peril."
+		Event Player.IsInMenuMode == True;
+		Is Communicating Any Emote(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.IsInMenuMode = False;
+	}
+}
+
+rule("Cursor bounding box")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		Event Player.IsInMenuMode == True;
+		"Checks if the cursor is more than 0.1 screen units outside of the bounding box. If you resize the screen make sure to change this as well."
+		(Absolute Value(Event Player.CursorX) > 2.600 || Absolute Value(Event Player.CursorY) > 1.350) == True;
+	}
+
+	actions
+	{
+		"Clamps the player's horizontal facing to the range of valid screen space. Screen border values should replace the 2.500s and 1.250s here if you resize the screen."
+		Set Facing(Event Player, Direction From Angles(Min(Max(Horizontal Angle From Direction(Facing Direction Of(Event Player)),
+			Horizontal Angle From Direction(Event Player.MenuOriginalFacing) - 2.500 / 0.750), Horizontal Angle From Direction(
+			Event Player.MenuOriginalFacing) + 2.500 / 0.750), Min(Max(Vertical Angle From Direction(Facing Direction Of(Event Player)),
+			Vertical Angle From Direction(Event Player.MenuOriginalFacing) - 1.250 / 0.750), Vertical Angle From Direction(
+			Event Player.MenuOriginalFacing) + 1.250 / 0.750)), To World);
+		"Double checks every 100ms that the cursor is not still outside the bounds of the menu. This is necessary because if the player moves their aim fast enough, they could overcome the border if they were fast enough."
+		Wait(0.100, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Detect primary fire button press")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"Rather than checking for a button click in conditions, we only check for a mouse click so that the player can't press down primary fire then move the cursor onto the button."
+		Event Player.IsInMenuMode == True;
+		Is Button Held(Event Player, Button(Primary Fire)) == True;
+	}
+
+	actions
+	{
+		"Clears the primary action ID queue."
+		Event Player.ActionIDQueue = Empty Array;
+		"Checks if the cursor is currently within radius of the exit button."
+		If(Distance Between(Event Player.CursorPos,
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3])
+			<= 100 * Event Player.ButtonExitMenu[4]);
+			"Add the exit button's action ID to the primary action ID queue."
+			Modify Player Variable(Event Player, ActionIDQueue, Append To Array, Event Player.ButtonExitMenu[1]);
+		End;
+		"For each button, checks if the cursor is within that button's click area."
+		For Player Variable(Event Player, __iter__, 0, Count Of(Event Player.ButtonProperties), 1);
+			If(Absolute Value(Event Player.CursorX - Event Player.ButtonProperties[Event Player.__iter__][2])
+				<= Event Player.ButtonProperties[Event Player.__iter__][4] / 2 && Absolute Value(
+				Event Player.CursorY - Event Player.ButtonProperties[Event Player.__iter__][3])
+				<= Event Player.ButtonProperties[Event Player.__iter__][5] / 2);
+				"If so, add that button's primary action ID to the queue."
+				Modify Player Variable(Event Player, ActionIDQueue, Append To Array, Event Player.ButtonProperties[Event Player.__iter__][1]);
+			End;
+		End;
+		"Set the current action ID variable to the first button clicked for one tick."
+		Event Player.CurrActionID = First Of(Event Player.ActionIDQueue);
+		Wait(0.016, Ignore Condition);
+		Event Player.CurrActionID = Null;
+	}
+}
+
+rule("Detect secondary fire button press")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"Rather than checking for a button click in conditions, we only check for a mouse click so that the player can't press down secondary fire then move the cursor onto the button."
+		Event Player.IsInMenuMode == True;
+		Is Button Held(Event Player, Button(Secondary Fire)) == True;
+	}
+
+	actions
+	{
+		"Clears the secondary action ID queue."
+		Event Player.ActionIDQueue_Secondary = Empty Array;
+		"Checks if the cursor is currently within radius of the exit button."
+		If(Distance Between(Event Player.CursorPos,
+			Event Player.MenuEyePos + Event Player.MenuZAxis * 3 + Event Player.MenuXAxis * Event Player.ButtonExitMenu[2] + Event Player.MenuYAxis * Event Player.ButtonExitMenu[3])
+			<= 100 * Event Player.ButtonExitMenu[4]);
+			"Add the exit button's action ID to the secondary action ID queue."
+			Modify Player Variable(Event Player, ActionIDQueue_Secondary, Append To Array, Event Player.ButtonExitMenu[1]);
+		End;
+		"For each button, checks if the cursor is within that button's click area."
+		For Player Variable(Event Player, __iter__, 0, Count Of(Event Player.ButtonProperties), 1);
+			If(Absolute Value(Event Player.CursorX - Event Player.ButtonProperties[Event Player.__iter__][2])
+				<= Event Player.ButtonProperties[Event Player.__iter__][4] / 2 && Absolute Value(
+				Event Player.CursorY - Event Player.ButtonProperties[Event Player.__iter__][3])
+				<= Event Player.ButtonProperties[Event Player.__iter__][5] / 2);
+				"If so, add that button's secondary action ID to the queue."
+				Modify Player Variable(Event Player, ActionIDQueue_Secondary, Append To Array,
+					Event Player.ButtonProperties[Event Player.__iter__][9]);
+			End;
+		End;
+		"Set the current action ID variable to the first button clicked for one tick."
+		Event Player.CurrActionID_Secondary = First Of(Event Player.ActionIDQueue_Secondary);
+		Wait(0.016, Ignore Condition);
+		Event Player.CurrActionID_Secondary = Null;
+	}
+}
+
+rule("Action ID \"exit menu\"")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("exit menu");
+	}
+
+	actions
+	{
+		Play Effect(Event Player, Explosion Sound, Color(White), Event Player, 35);
+		Event Player.IsInMenuMode = False;
+	}
+}
+
+rule("Secondary action ID \"exit menu\"")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID_Secondary == Custom String("exit menu");
+	}
+
+	actions
+	{
+		Play Effect(Event Player, Explosion Sound, Color(White), Event Player, 35);
+		Event Player.IsInMenuMode = False;
+	}
+}
+
+rule(">>>EDIT BUTTON & LABEL STARTING VALUES HERE<<<")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		"Dummy bots were getting menu stuff and causing server crashes, so we exclude them from these rules."
+		Is Dummy Bot(Event Player) == False;
+		"This rule currently resets all buttons to their initial states any time the menu is opened. If you want button states to persist between menu uses, disable this condition."
+		disabled Event Player.IsInMenuMode == True;
+	}
+
+	actions
+	{
+		"Empty the button properties array."
+		Event Player.ButtonProperties = Empty Array;
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("Ability 1"), Custom String(""),
+			-2, 1, 1, 0.150, False, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("Ability 2"), Custom String(""),
+			-1, 1, 1, 0.150, False, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("Secondary"), Custom String(""),
+			0, 1, 1, 0.150, False, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("Ultimate"), Custom String(""),
+			1, 1, 1, 0.150, False, True, 3, Null, Null, Null)));
+		"Ability 1"
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Roadhog), Button(Ability 1))), Custom String("Ability1Hog"), -2, 0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			D.Va), Button(Ability 1))), Custom String("Ability1Dva"), -2, 0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Genji), Button(Ability 1))), Custom String("Ability1Genji"), -2, 0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Hanzo), Button(Ability 1))), Custom String("Ability1Hanzo"), -2, 0, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Pharah), Button(Ability 1))), Custom String("Ability1Pharah"), -2, -0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Ana), Button(Ability 1))), Custom String("Ability1Ana"), -2, -0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Lifeweaver), Button(Ability 1))), Custom String("Ability1LW"), -2, -0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Junker Queen), Button(Ability 1))), Custom String("Ability1JQ"), -2, -1, 1, 0.150, True, True, 3, Null, Null, Null)));
+		"Ability 2"
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Ana), Button(Ability 2))), Custom String("Ability2Ana"), -1, 0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Sojourn), Button(Ability 2))), Custom String("Ability2Soju"), -1, 0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Zarya), Button(Ability 2))), Custom String("Ability2Zarya"), -1, 0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Symmetra), Button(Ability 2))), Custom String("Ability2Sym"), -1, 0, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Soldier: 76), Button(Ability 2))), Custom String("Ability2Sold"), -1, -0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Pharah), Button(Ability 2))), Custom String("Ability2Pharah"), -1, -0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Reinhardt), Button(Ability 2))), Custom String("Ability2Rein"), -1, -0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Sigma), Button(Ability 2))), Custom String("Ability2Sig"), -1, -1, 1, 0.150, True, True, 3, Null, Null, Null)));
+		"Secondary"
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Orisa), Button(Secondary Fire))), Custom String("SecondOrisa"), 0, 0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Echo), Button(Secondary Fire))), Custom String("SecondEcho"), 0, 0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Roadhog), Button(Secondary Fire))), Custom String("SecondHog"), 0, 0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			D.Va), Button(Secondary Fire))), Custom String("SecondDva"), 0, 0, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Soldier: 76), Button(Secondary Fire))), Custom String("SecondSold"), 0, -0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Ramattra), Button(Secondary Fire))), Custom String("SecondRam"), 0, -0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Junker Queen), Button(Secondary Fire))), Custom String("SecondJQ"), 0, -0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		"Ultimate"
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Lifeweaver), Button(Ultimate))), Custom String("UltimateLW"), 1, 0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Zarya), Button(Ultimate))), Custom String("UltimateZarya"), 1, 0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Kiriko), Button(Ultimate))), Custom String("UltimateKiri"), 1, 0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Doomfist), Button(Ultimate))), Custom String("UltimateDoom"), 1, 0, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Tracer), Button(Ultimate))), Custom String("UltimateTracer"), 1, -0.250, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Ashe), Button(Ultimate))), Custom String("UltimateAshe"), 1, -0.500, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Baptiste), Button(Ultimate))), Custom String("UltimateBap"), 1, -0.750, 1, 0.150, True, True, 3, Null, Null, Null)));
+		Modify Player Variable(Event Player, ButtonProperties, Append To Array, Array(Array(Custom String("{0}", Ability Icon String(Hero(
+			Junker Queen), Button(Ultimate))), Custom String("UltimateJQ"), 1, -1, 1, 0.150, True, True, 3, Null, Null, Null)));
+	}
+}
+
+rule("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒a")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Exit menu if out of spawn")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == False;
+		Is In Spawn Room(Event Player) == False;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Event Player.IsInMenuMode = False;
+	}
+}
+
+rule("Ability 1: Hog Hook")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Hog");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Roadhog: Chain Hook"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Roadhog);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: Dva Boosters")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Dva");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("D.Va: Boosters"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(D.Va);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: Genji Dash")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Genji");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Genji: Dash"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Genji);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: Hanzo WH")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Hanzo");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Hanzo: Sonic Arrow"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Hanzo);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: Pharah Jet")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Pharah");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Pharah: Jump Jet"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Pharah);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: LW Platform")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1LW");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Lifeweaver: Petal Platform"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Lifeweaver);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: Ana Sleep")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1Ana");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Ana: Sleep Dart"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Ana);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 1: JQ Shout")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability1JQ");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Junker Queen: Commanding Shout"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability1 = Hero(Junker Queen);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Ana Nade")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Ana");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Ana: Biotic Grenade"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Ana);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Zarya Bubble")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Zarya");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Zarya: Barrier"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Zarya);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Soju Disruptor")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Soju");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Sojourn: Disruptor Shot"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Sojourn);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Sym TP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Sym");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Symmetra: Teleporter"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Symmetra);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Soldier Heal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Sold");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Soldier: Biotic Field"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Soldier: 76);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Pharah Boop")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Pharah");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Pharah: Concussive Blast"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Pharah);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Rein Fire")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Rein");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Reinhardt: Firestrike"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Reinhardt);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ability 2: Sig Rock")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("Ability2Sig");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Sigma: Accretion"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ability2 = Hero(Sigma);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Zarya Grav")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateZarya");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Zarya: Graviton Surge"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Zarya);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Ashe Bob")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateAshe");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Ashe: B.O.B."));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Ashe);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: LW Tree")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateLW");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Lifeweaver: Tree of Life"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Lifeweaver);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Kitsune Rush")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateKiri");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Kiriko: Kitsune Rush"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Kiriko);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Tracer Pulse")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateTracer");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Tracer: (Ranged) Pulse Bomb"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Tracer);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Bap Window")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateBap");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Baptiste: Amplification Matrix"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Baptiste);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: Doom airstrike")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateDoom");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Doomfist: Meteor (Air) Strike"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Doomfist);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Ultimate: JQ Rampage")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("UltimateJQ");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Junker Queen: Rampage"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Ultimate = Hero(Junker Queen);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Orisa Spear")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondOrisa");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Orisa: Energy Javelin"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Orisa);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Echo Mines")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondEcho");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Echo: Sticky mines"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Echo);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Hog Shot")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondHog");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Roadhog: Scrap Gun"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Roadhog);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Dva Matrix")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondDva");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("D.Va: Defense Matrix"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(D.Va);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Ram Shield")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondRam");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Ramattra: Void Barrier"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Ramattra);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: Soldier Rocket")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondSold");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Soldier: Helix Rockets"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Soldier: 76);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Secondary: JQ Blade")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("SecondJQ");
+	}
+
+	actions
+	{
+		Small Message(Event Player, Custom String("Junker Queen: Jagged Blade"));
+		Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 35);
+		Event Player.Secondary = Hero(Junker Queen);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Summon bots on exit menu")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.CurrActionID == Custom String("exit menu");
+	}
+
+	actions
+	{
+		Event Player.SpawnLocation = Position Of(Event Player);
+		Wait(0.250, Ignore Condition);
+		If(Hero Of(Players In Slot(1, Team Of(Event Player))) != Event Player.Ability1);
+			Create Dummy Bot(Event Player.Ability1, Team Of(Event Player), 1, Position Of(Event Player), Vector(0, 0, 0));
+			Wait(0.100, Ignore Condition);
+			Event Player.Abi1Hud = Ability Icon String(Hero Of(Players In Slot(1, Team Of(Event Player))), Button(Ability 1));
+		End;
+		If(Hero Of(Players In Slot(2, Team Of(Event Player))) != Event Player.Ability2);
+			Wait(0.250, Ignore Condition);
+			Create Dummy Bot(Event Player.Ability2, Team Of(Event Player), 2, Position Of(Event Player), Vector(0, 0, 0));
+			Wait(0.100, Ignore Condition);
+			Event Player.Abi2Hud = Ability Icon String(Hero Of(Players In Slot(2, Team Of(Event Player))), Button(Ability 2));
+		End;
+		If(Hero Of(Players In Slot(3, Team Of(Event Player))) != Event Player.Ultimate);
+			Wait(0.250, Ignore Condition);
+			Create Dummy Bot(Event Player.Ultimate, Team Of(Event Player), 3, Position Of(Event Player), Vector(0, 0, 0));
+		End;
+		If(Hero Of(Players In Slot(4, Team Of(Event Player))) != Event Player.Secondary);
+			Wait(0.250, Ignore Condition);
+			Create Dummy Bot(Event Player.Secondary, Team Of(Event Player), 4, Position Of(Event Player), Vector(0, 0, 0));
+			Wait(0.100, Ignore Condition);
+			Event Player.SecoHud = Ability Icon String(Hero Of(Players In Slot(4, Team Of(Event Player))), Button(Secondary Fire));
+		End;
+		Wait(0.250, Ignore Condition);
+		If(Number Of Players(Team Of(Event Player)) == 5);
+			Event Player.FirstHeroBuilt = True;
+		End;
+	}
+}
+
+rule("Rein Size")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Slot Of(Event Player) == 0;
+	}
+
+	actions
+	{
+		Start Scaling Player(Event Player, 0.800, True);
+	}
+}
+
+rule("Sig Size")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Sigma;
+	}
+
+	conditions
+	{
+		Slot Of(Event Player) == 0;
+	}
+
+	actions
+	{
+		Start Scaling Player(Event Player, 0.800, True);
+	}
+}
+
+rule("Speed boost in spawn")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Is In Spawn Room(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 275);
+	}
+}
+
+rule("Speed boost not in setup fixes some maps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Is In Setup == False;
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 275);
+		Event Player.SpeedDura = 3;
+		Chase Player Variable At Rate(Event Player, SpeedDura, 0, 1, Destination and Rate);
+	}
+}
+
+rule("Speed boost out of spawn")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Is In Spawn Room(Event Player) == False;
+		Is Dummy Bot(Event Player) == False;
+		Has Spawned(Event Player) == True;
+		Hero Of(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 275);
+		Event Player.SpeedDura = 3;
+		Chase Player Variable At Rate(Event Player, SpeedDura, 0, 1, Destination and Rate);
+		Wait(0.200, Abort When False);
+		Small Message(Event Player, Custom String("Leaving spawn: speed buff ends in 3 seconds"));
+	}
+}
+
+rule("Speed duration 0")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.SpeedDura == 0;
+	}
+
+	actions
+	{
+		Set Move Speed(Event Player, 100);
+	}
+}
+
+rule("Player Dies")
+{
+	event
+	{
+		Player Died;
+		All;
+		Slot 0;
+	}
+
+	actions
+	{
+		Event Player.UltKeep = Ultimate Charge Percent(Event Player);
+		Small Message(All Players(Opposite Team Of(Team Of(Victim))), Custom String("Opponent died: Healing to full in 4.5 seconds"));
+		Wait(0.200, Ignore Condition);
+		Teleport(Event Player, Event Player.SpawnLocation);
+		Wait(4.300, Ignore Condition);
+		Heal(All Players(All Teams), Null, 1000);
+	}
+}
+
+disabled rule("###   External Ability Hud   ###")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Create Ability Icons")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Create Progress Bar In-World Text(All Players(All Teams), 10, Custom String("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ■■■"),
+			Update Every Frame(Eye Position(Local Player) + 100 * (0.700 * World Vector Of(Right, Local Player, Rotation) + (0.300 - 0.200)
+			* Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(Local Player)), Vertical Angle From Direction(
+			Facing Direction Of(Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 8, Do Not Clip, Null, Color(Black),
+			Visible To Position Values and Color, Visible Never);
+		Create Progress Bar In-World Text(All Players(All Teams), 10, Custom String("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ■"),
+			Update Every Frame(Eye Position(Local Player) + 100 * (-0.030 * World Vector Of(Right, Local Player, Rotation) + (
+			-1.100 - -0.200) * Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(Local Player)),
+			Vertical Angle From Direction(Facing Direction Of(Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 8,
+			Do Not Clip, Null, Color(Black), Visible To Position Values and Color, Visible Never);
+		"abi1"
+		Create In-World Text(Local Player, Local Player.Abi1Hud, Update Every Frame(Eye Position(Local Player) + 100 * (
+			0.515 * World Vector Of(Right, Local Player, Rotation) + (-0.840 - 0.200) * Direction From Angles(
+			Horizontal Angle From Direction(Facing Direction Of(Local Player)), Vertical Angle From Direction(Facing Direction Of(
+			Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 2, Do Not Clip, Visible To Position String and Color, Color(
+			White), Visible Never);
+		"abi2"
+		Create In-World Text(Local Player, Local Player.Abi2Hud, Update Every Frame(Eye Position(Local Player) + 100 * (
+			0.730 * World Vector Of(Right, Local Player, Rotation) + (-0.840 - 0.200) * Direction From Angles(
+			Horizontal Angle From Direction(Facing Direction Of(Local Player)), Vertical Angle From Direction(Facing Direction Of(
+			Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 2, Do Not Clip, Visible To Position String and Color, Color(
+			White), Visible Never);
+		"secondary"
+		Create In-World Text(Local Player, Local Player.SecoHud, Update Every Frame(Eye Position(Local Player) + 100 * (
+			0.948 * World Vector Of(Right, Local Player, Rotation) + (-0.840 - 0.200) * Direction From Angles(
+			Horizontal Angle From Direction(Facing Direction Of(Local Player)), Vertical Angle From Direction(Facing Direction Of(
+			Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 2, Do Not Clip, Visible To Position String and Color, Color(
+			White), Visible Never);
+		"ulti"
+		Create In-World Text(Local Player, Custom String("{0}", Ability Icon String(Hero Of(Players In Slot(3, Team Of(Local Player))),
+			Button(Ultimate))), Update Every Frame(Eye Position(Local Player) + 100 * (0.005 * World Vector Of(Right, Local Player,
+			Rotation) + -2.040 * Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(Local Player)),
+			Vertical Angle From Direction(Facing Direction Of(Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 2,
+			Do Not Clip, Visible To Position String and Color, Color(White), Visible Never);
+	}
+}
+
+rule("Abi 1 Hud: Cooldown")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.Abi1CD != 0;
+	}
+
+	actions
+	{
+		Event Player.Abi1Hud = Round To Integer(Event Player.Abi1CD, Up);
+		Wait(0.500, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Abi 1 Hud: Icon cd 0")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.Abi1CD == 0;
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, Abi1CD);
+		Event Player.Abi1Hud = Ability Icon String(Hero Of(Players In Slot(1, Team Of(Event Player))), Button(Ability 1));
+	}
+}
+
+rule("Abi 2 Hud: Cooldown")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.Abi2CD != 0;
+	}
+
+	actions
+	{
+		Event Player.Abi2Hud = Round To Integer(Event Player.Abi2CD, Up);
+		Wait(0.500, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Abi 2 Hud: Icon cd 0")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.Abi2CD == 0;
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, Abi2CD);
+		Event Player.Abi2Hud = Ability Icon String(Hero Of(Players In Slot(2, Team Of(Event Player))), Button(Ability 2));
+	}
+}
+
+rule("Seco Hud: Cooldown")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.SecoCD != 0;
+	}
+
+	actions
+	{
+		Event Player.SecoHud = Round To Integer(Event Player.SecoCD, Up);
+		Wait(0.500, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Seco Hud: Icon cd 0")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Slot 0;
+	}
+
+	conditions
+	{
+		Event Player.SecoCD == 0;
+	}
+
+	actions
+	{
+		Stop Chasing Player Variable(Event Player, SecoCD);
+		Event Player.SecoHud = Ability Icon String(Hero Of(Players In Slot(4, Team Of(Event Player))), Button(Secondary Fire));
+	}
+}

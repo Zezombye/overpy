@@ -1,0 +1,1528 @@
+settings
+{
+	main
+	{
+		Description: "Overwatch Pictionary 1.2 by PMAJellies"
+		Mode Name: "Overwatch Pictionary"
+	}
+	lobby
+	{
+		Allow Players Who Are In Queue: Yes
+		Match Voice Chat: Enabled
+	}
+	modes
+	{
+		Deathmatch
+		{
+			enabled maps
+			{
+				Workshop Chamber
+			}
+		}
+		General
+		{
+			Game Mode Start: Manual
+			Hero Limit: Off
+			Score To Win: 50
+		}
+	}
+	heroes
+	{
+		General
+		{
+			Ultimate Ability: Off
+		}
+	}
+	extensions
+	{
+		Play More Effects
+	}
+}
+variables {
+    global:
+        0: PlayerArray
+        1: StartPictionary
+        2: Drawer
+        3: Turn
+        4: DrawerRadius
+        5: DrawerColor
+        6: Timer
+        7: DrawTool
+        8: ForLoop
+        9: NumOfEffects
+        10: AllWordsArray
+        11: ChoosingWord
+        12: PictionaryWord
+        13: NumGuessed
+        14: RoundNum
+        15: Winner
+        16: ScoreboardArray
+        17: WordText
+        19: HiddenWord
+        20: BannedWords
+    player:
+        0: Points
+        2: BulletEffect
+        3: Firing
+        4: WordArray
+        6: GuessedWord
+}
+subroutines {
+    0: Menu
+    1: Pictionary
+    2: Keyboard
+    3: Scoreboard
+    4: NewDrawer
+    5: Winner
+}
+disabled rule ("Debug Hud") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Dummy Bot(Event Player) == False;
+    }
+    actions {
+        Create HUD Text(Event Player, Null, Facing Direction Of(Event Player), Null, Left, 0, Null, Color(White), Null, Visible To and String, Default Visibility);
+        Create HUD Text(Event Player, Null, Position Of(Event Player), Null, Left, 0, Null, Color(Red), Null, Visible To and String, Default Visibility);
+        Create HUD Text(Event Player, Null, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Null, Left, 0, Null, Color(Green), Null, Visible To and String, Default Visibility);
+    }
+}
+
+rule ("Banned Words") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(BannedWords, Empty Array);
+        Modify Global Variable(BannedWords, Append To Array, Custom String("***"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("*****"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("******"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("*****"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("*****H"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("******"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("*****R"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("NIGOR"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("****OR"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("*****"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("****"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("***"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("******"));
+        Modify Global Variable(BannedWords, Append To Array, Custom String("TESTTESTTEST"));
+    }
+}
+
+rule ("Pictionary All Words Array 1") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(AllWordsArray, Empty Array);
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BANANA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PUMPKIN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("APPLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GRAPES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CARROT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FISH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOTDOG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIZZA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PINEAPPLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHICKEN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DOG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ELEPHANT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SNAKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SHARK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BUTTERFLY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPIDER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FLOWER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TREE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VOLCANO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TORNADO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OCEAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SEAWEED"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ISLAND"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WATERFALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EARTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SUN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SATURN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HEADPHONES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PHONE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("KEYBOARD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOUSE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MICROPHONE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MONEY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DESK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BED"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOOTHBRUSH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOILET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHAIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FIRE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WATER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LIGHTNING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NIKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PEPSI"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OVERWATCH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MINECRAFT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MCDONALDS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BURGER KING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOYOTA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FACEBOOK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("YOUTUBE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TWITTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("REDDIT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WINDOWS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FOOTBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BASEBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TENNIS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GOLF"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BASKETBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SOCCER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FOOTBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOCKEY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PLAYSTATION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NINTENDO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STEAM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DISCORD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("XBOX"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MARIO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SONIC"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("KIRBY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIKACHU"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PACMAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LINK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TETRIS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PONG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BATMAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SUPERMAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPIDERMAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("IRON MAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAPTAIN AMERICA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("THOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JEFF KAPLAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TRUMP"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OBAMA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("KIT KAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("REESES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CANDY CORN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DOCTOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POLICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FARMER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BOXING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BOOK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RAINBOW"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TRUCK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAR"));
+    }
+}
+
+rule ("Pictionary All Words Array 2") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BIKINI"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BEARD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EYE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LADYBUG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NOSE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BEE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MAILBOX"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STARFISH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CRAB"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LOBSTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ANGRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAPPY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DRAGON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LIPSTICK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FLAG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ROBOT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MAGNET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TELESCOPE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TENT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MUSIC"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIANO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BIRD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TACO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CLOCK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WATCH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIRATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BOAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAMERA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TWITCH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PHOTOSHOP"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPOTIFY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("INSTAGRAM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FIREFOX"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CALCULATOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ANDROID"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POPCORN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PENCIL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SHAVE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BALLOON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DIAMOND"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OCTOPUS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FLORIDA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CUPCAKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SCISSORS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FORK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPOON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("KNIFE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SANDWICH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GLASSES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BUBBLEGUM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JELLYFISH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STRAWBERRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LIGHTSABER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FLASHLIGHT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPONGEBOB"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SQUIDWARD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOMER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MICKEY MOUSE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SHAGGY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DONALD DUCK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PATRICK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOM AND JERRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SAMURAI JACK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DEXTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AVATAR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DUCKTALES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PHINEAS AND FERB"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HEART"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PICKLE RICK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JAWS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JURASSIC PARK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STAR WARS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LION KING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOY STORY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PINOCCHIO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GENIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NEMO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("UP"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MONSTERS INC"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DORY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GRENADE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("YODA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SKITTLES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DEATH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LADDER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COFFIN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ELMO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HARRY POTTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TEAR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BEACH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MUSTACHE"));
+    }
+}
+
+rule ("Pictionary All Words Array 3") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ZENYATTA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ANA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LUCIO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ZARYA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("REINHARDT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WRECKING BALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MCCREE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ASHE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DOOMFIST"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOIRA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SOLDIER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DVA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ORISA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WIDOWMAKER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GENJI"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HANZO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BASTION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TORBJORN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SIGMA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NOTHING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DRUGS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WEED"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SHADOW"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WINSTON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JOYSTICK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BLENDER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SPRING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WINTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SUMMER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WHEEL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PLANE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HELICOPTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ZOMBIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HORSE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SQUID"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BOWSER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LEAF"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("JAZZ"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FOX"));
+    }
+}
+
+rule ("Pictionary All Words Array 4") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PEOPLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HISTORY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ART"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WORLD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MAP"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TWO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FAMILY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HEALTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COMPUTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MEAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("YEAR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("THANKS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MUSIC"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PERSON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FOOD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LAW"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BIRD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ABILITY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LOVE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TELEVISION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SCIENCE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TEMPERATURE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STORY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OVEN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LANGUAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PLAYER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VIDEO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WEEK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COUNTRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EXAM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOVIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ARMY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CAMERA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PAPER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHILD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MONTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GOAL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AUDIENCE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FISHING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MARRIAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MEDICINE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TEACHER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NIGHT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHEMISTRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DISEASE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DISK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ROAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SOUP"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ADDITION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MATH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PAINTING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STUDENT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WOOD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OFFICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PRESIDENT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CIGARETTE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DRIVER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FLIGHT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LENGTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MAGAZINE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NEWSPAPER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TEACHING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CELL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DEALER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LAKE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PHONE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DEATH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WOMAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BLOOD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WEALTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CITY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DEPTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GRANDMOTHER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HEART"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PHOTO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RECIPE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PERCENTAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COLLEGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MEMORY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STORAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VERSION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ALCOHOL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ARGUMENT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HIGHWAY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LOSS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STEAK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CANCER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CURRENCY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ENTRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MIXTURE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VIRUS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ACTOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CLASSROOM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DELIVERY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DIFFICULTY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DRAMA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ELECTION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ENGINE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FOOTBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOTEL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("OWNER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BATH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BREAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CANDIDATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CLIMATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ELEVATOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EMOTION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GUEST"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HEIGHT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MANAGER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RECORDING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHARITY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COUSIN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EDITOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GUITAR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MOM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("REFLECTION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("REFRIGERATOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SINGER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TENNIS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BASKET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BONUS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CABINET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHURCH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CLOTHES"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COFFEE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DINNER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DRAWING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LAB"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MEASUREMENT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MUD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ORANGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POETRY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POLICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("QUEEN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RATIO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RESTAURANT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SONG"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOOTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TOWN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VEHICLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VOLUME"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WIFE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AIRPORT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BASEBALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHAPTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("ERROR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FARMER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GIRL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HALL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HISTORIAN"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOSPITAL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("INJURY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MEAL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POEM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PROPOSAL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RIVER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SON"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TEA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("VILLAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WARNING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WINNER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WRITER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BREATH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BUYER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHEST"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHOCOLATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("COOKIE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DESK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GARBAGE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GROCERY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HONEY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("INSECT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("KING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LADDER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MENU"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PENALTY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIANO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POTATO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PROFESSOR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SALAD"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SISTER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TONGUE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WEAKNESS"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WEDDING"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AFFAIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("APPLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BATHROOM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BEDROOM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BEER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BIRTHDAY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CHEEK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DIAMOND"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DIRT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("EAR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FUNERAL"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GENE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GIRLFRIEND"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LADY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MIDNIGHT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PIZZA"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POET"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("POLLUTION"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SHIRT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("SIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TALE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("THROAT"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("UNCLE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("YOUTH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TIME"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WORK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FILM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("WATER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("MONEY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STUDY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("GAME"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("LIFE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FORM"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("AIR"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("DAY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("NUMBER"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("FISH"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HAND"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BOOK"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("TYPE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("HOME"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("BODY"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("STATE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("RADIO"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("PRICE"));
+        Modify Global Variable(AllWordsArray, Append To Array, Custom String("CARD"));
+    }
+}
+
+rule ("Global Variables") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Disable Built-In Game Mode Completion;
+        Disable Built-In Game Mode Scoring;
+        Set Global Variable(PlayerArray, Empty Array);
+        Set Global Variable(StartPictionary, False);
+        Set Global Variable(Timer, -1);
+        Set Global Variable(RoundNum, 1);
+        Set Global Variable(HiddenWord, Custom String(""));
+    }
+}
+
+rule ("Player Variables") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        Set Player Variable(Event Player, Points, 0);
+        Set Player Variable(Event Player, WordArray, Empty Array);
+    }
+}
+
+rule ("Menu") {
+    event {
+        Subroutine;
+        Menu;
+    }
+    actions {
+        Create In-World Text(All Players(All Teams), Custom String("Overwatch   Pictionary"), Vector(19.5, 19, 0), 3, Do Not Clip, Visible To Position and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("By PMAJellies"), Vector(19.5, 17, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("START"), Vector(19.5, 5, 0), 3, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+    }
+}
+
+rule ("StartLobby") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Call Subroutine(Menu);
+    }
+}
+
+rule ("Loop Time") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Match Time < 3500;
+    }
+    actions {
+        Set Match Time(3599);
+    }
+}
+
+rule ("Player Joins") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Alive(Event Player) == True;
+        Has Spawned(Event Player) == True;
+    }
+    actions {
+        Teleport(Event Player, Vector(-8, 0, Random Real(-8, 8)));
+        Set Facing(Event Player, Vector(0.95, 0.3, 0), To World);
+        Set Status(Event Player, Null, Phased Out, 9999);
+        Set Primary Fire Enabled(Event Player, False);
+        Modify Global Variable(PlayerArray, Append To Array, Event Player);
+        Set Ability 1 Enabled(Event Player, False);
+        Set Ability 2 Enabled(Event Player, False);
+        Set Secondary Fire Enabled(Event Player, False);
+    }
+}
+
+rule ("Player Leaves") {
+    event {
+        Player Left Match;
+        All;
+        All;
+    }
+    actions {
+        Modify Global Variable(PlayerArray, Remove From Array By Value, Event Player);
+        If(Compare((Event Player).GuessedWord, ==, True));
+            Modify Global Variable(NumGuessed, Subtract, 1);
+        End;
+        If(Compare(Global.Drawer, ==, Event Player));
+            Set Global Variable(Timer, 0);
+    }
+}
+
+rule ("Primary Fire") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.Drawer != Event Player;
+        (Event Player).GuessedWord == False;
+    }
+    actions {
+        Set Player Variable(Event Player, Firing, True);
+        "eventPlayer.BulletEffect = getLastCreatedEntity()"
+        Play Effect(Event Player, Ring Explosion Sound, Color(White), Event Player, 100);
+        Wait(0.016, Ignore Condition);
+        Set Player Variable(Event Player, Firing, False);
+        Wait(0.1, Ignore Condition);
+    }
+}
+
+rule ("Start Pictionary") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Vector(20, 5.75, 0), Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), Distance Between(Eye Position(Event Player), Vector(20, 5.75, 0)))), Null, All Players(All Teams), False)) <= 1;
+        (Event Player).Firing == True;
+        Global.StartPictionary == False;
+    }
+    actions {
+        Set Status(All Players(All Teams), Null, Rooted, 2);
+        Destroy All In-World Text;
+        Wait(0.016, Ignore Condition);
+        Set Global Variable(StartPictionary, True);
+        "Pictionary()\nKeyboard()\nScoreboard()"
+        Set Global Variable(PlayerArray, Randomized Array(Global.PlayerArray));
+        Set Global Variable(Turn, -1);
+        Call Subroutine(NewDrawer);
+        Big Message(All Players(All Teams), Custom String("Round {0}", Global.RoundNum));
+    }
+}
+
+rule ("Setup Pictionary Players") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+    }
+    actions {
+        Create In-World Text(Event Player, (Event Player).WordArray, Add(Eye Position(Event Player), Facing Direction Of(Event Player)), 1.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Set Player Variable(Event Player, Points, 0);
+    }
+}
+
+rule ("PictionarySub") {
+    event {
+        Subroutine;
+        Pictionary;
+    }
+    actions {
+        Create Beam Effect(All Players(All Teams), Good Beam, Vector(19.5, 8, -8), Vector(19.5, 8, 8), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Good Beam, Vector(19.5, 24, -8), Vector(19.5, 24, 8), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Good Beam, Vector(19.5, 24, 8), Vector(19.5, 8, 8), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Good Beam, Vector(19.5, 24, -8), Vector(19.5, 8, -8), Color(White), Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 22, -10), 1, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 19, -10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 16, -10), 0.6, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 13, -10), 0.4, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 10, -10), 0.2, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(White), Vector(20, 20, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Red), Vector(20, 18, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Orange), Vector(20, 16, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Yellow), Vector(20, 14, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Lime Green), Vector(20, 12, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Green), Vector(20, 18, 12), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Sky Blue), Vector(20, 16, 12), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Blue), Vector(20, 14, 12), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Purple), Vector(20, 12, 12), 0.8, Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Good Beam, Vector(-4, 0, 20), Vector(-4, 0, -20), Color(Red), Visible To Position and Radius);
+        Create Icon(Global.Drawer, Vector(20, 7.5, 11), Trashcan, Visible To and Position, Color(Red), False);
+        Create Effect(Global.Drawer, Sphere, Color(Black), Vector(20, 20, 12), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Gray), Vector(20, 22, 10), 0.8, Visible To Position and Radius);
+        Create Effect(Global.Drawer, Sphere, Color(Rose), Vector(20, 22, 12), 0.8, Visible To Position and Radius);
+    }
+}
+
+rule ("KeyboardSub") {
+    event {
+        Subroutine;
+        Keyboard;
+    }
+    actions {
+        "createInWorldText(getAllPlayers(), \"Q  W  E  R  T  Y  U  I  O  P\", vect(20, 4.5, 0), 2, Clip.NONE, WorldTextReeval.VISIBILITY_POSITION_AND_STRING)"
+        Create In-World Text(All Players(All Teams), Custom String("Q"), Vector(20, 6, -9), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("W"), Vector(20, 6, -7), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("E"), Vector(20, 6, -5), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("R"), Vector(20, 6, -3), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("T"), Vector(20, 6, -1), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("Y"), Vector(20, 6, 1), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("U"), Vector(20, 6, 3), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("I"), Vector(20, 6, 5), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("O"), Vector(20, 6, 7), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("P"), Vector(20, 6, 9), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("DEL"), Vector(20, 6, 11), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("A"), Vector(20, 4, -8), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("S"), Vector(20, 4, -6), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("D"), Vector(20, 4, -4), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("F"), Vector(20, 4, -2), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("G"), Vector(20, 4, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("H"), Vector(20, 4, 2), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("J"), Vector(20, 4, 4), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("K"), Vector(20, 4, 6), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("L"), Vector(20, 4, 8), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("Z"), Vector(20, 2, -6), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("X"), Vector(20, 2, -4), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("C"), Vector(20, 2, -2), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("V"), Vector(20, 2, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("B"), Vector(20, 2, 2), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("N"), Vector(20, 2, 4), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("M"), Vector(20, 2, 6), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("SUBMIT"), Vector(20, 2, 10), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("| SPACE |"), Vector(20, 0, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+    }
+}
+
+rule ("ScoreboardSub") {
+    event {
+        Subroutine;
+        Scoreboard;
+    }
+    actions {
+        Set Global Variable(ScoreboardArray, Sorted Array(Global.PlayerArray, (Current Array Element).Points));
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", First Of(Global.ScoreboardArray), (First Of(Global.ScoreboardArray)).Points), Left, 0, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 1), (Value In Array(Global.ScoreboardArray, 1)).Points), Left, 1, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 2), (Value In Array(Global.ScoreboardArray, 2)).Points), Left, 2, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 3), (Value In Array(Global.ScoreboardArray, 3)).Points), Left, 3, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 4), (Value In Array(Global.ScoreboardArray, 4)).Points), Left, 4, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 5), (Value In Array(Global.ScoreboardArray, 5)).Points), Left, 5, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 6), (Value In Array(Global.ScoreboardArray, 6)).Points), Left, 6, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 7), (Value In Array(Global.ScoreboardArray, 7)).Points), Left, 7, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 8), (Value In Array(Global.ScoreboardArray, 8)).Points), Left, 8, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 9), (Value In Array(Global.ScoreboardArray, 9)).Points), Left, 9, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 10), (Value In Array(Global.ScoreboardArray, 10)).Points), Left, 10, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: Points {1}", Value In Array(Global.ScoreboardArray, 11), (Value In Array(Global.ScoreboardArray, 11)).Points), Left, 11, Null, Null, Color(White), Visible To and String, Default Visibility);
+    }
+}
+
+rule ("NewDrawer Setup") {
+    event {
+        Subroutine;
+        NewDrawer;
+    }
+    actions {
+        Start Forcing Throttle(All Players(All Teams), 0, 0, 0, 0, 0, 0);
+        Set Global Variable(NumGuessed, 0);
+        Set Player Variable(All Players(All Teams), GuessedWord, False);
+        Set Global Variable(ChoosingWord, False);
+        "getAllPlayers().clearStatusEffect(Status.ROOTED)"
+        Destroy All Effects;
+        Destroy All In-World Text;
+        Destroy All HUD Text;
+        If(Compare(Global.Turn, >=, Subtract(Count Of(Global.PlayerArray), 1)));
+            Set Global Variable(Turn, 0);
+            Modify Global Variable(RoundNum, Add, 1);
+            If(Compare(Global.RoundNum, ==, 5));
+                Big Message(All Players(All Teams), Custom String("Final Round"));
+            Else;
+                Big Message(All Players(All Teams), Custom String("Round {0}", Global.RoundNum));
+            End;
+        Else;
+            Modify Global Variable(Turn, Add, 1);
+        End;
+        Set Global Variable(Drawer, Value In Array(Global.PlayerArray, Global.Turn));
+        Set Global Variable(ChoosingWord, False);
+        Teleport(Global.Drawer, Vector(2, 0, 0));
+        Set Status(Global.Drawer, Null, Rooted, 9999);
+        Set Gravity(Global.Drawer, 0);
+        Wait(0.7, Ignore Condition);
+        Set Status(Global.Drawer, Null, Phased Out, 9999);
+        Set Facing(Global.Drawer, Vector(1, 0.07, 0), To World);
+        Teleport(Global.Drawer, Vector(2, 12, 0));
+        Call Subroutine(Scoreboard);
+        Call Subroutine(Keyboard);
+        Call Subroutine(Pictionary);
+        Set Global Variable(Timer, 60);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("Drawing: {0}", Global.Drawer), Top, 0, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("Time: {0}", Global.Timer), Top, 0, Null, Null, Color(White), Visible To and String, Default Visibility);
+        "chaseAtRate(Timer, 0, 1)"
+        Set Global Variable(DrawerColor, Custom String("White"));
+        Set Global Variable(DrawerRadius, 0.6);
+        Set Global Variable(NumOfEffects, 0);
+        Create HUD Text(All Players(All Teams), Null, Null, Custom String("Effect Limit: {0} / 230", Global.NumOfEffects), Top, 0, Null, Null, Color(White), Visible To and String, Default Visibility);
+        Set Global Variable(AllWordsArray, Randomized Array(Global.AllWordsArray));
+        Create In-World Text(Global.Drawer, First Of(Global.AllWordsArray), Vector(20, 18, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Visible Never);
+        Create In-World Text(Global.Drawer, Value In Array(Global.AllWordsArray, 1), Vector(20, 15, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Visible Never);
+        Create In-World Text(Global.Drawer, Value In Array(Global.AllWordsArray, 2), Vector(20, 12, 0), 2, Do Not Clip, Visible To Position and String, Color(White), Visible Never);
+        Clear Status(All Players(All Teams), Rooted);
+        Wait(0.1, Ignore Condition);
+        Set Status(Global.Drawer, Null, Rooted, 9999);
+        Stop Forcing Throttle(All Players(All Teams));
+        Set Player Variable(Event Player, WordArray, Custom String(""));
+        Set Global Variable(HiddenWord, Custom String(""));
+    }
+}
+
+rule ("QWERTYUIOP") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 5.5;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 7.5;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -10;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 10;
+        (Event Player).Firing == True;
+    }
+    actions {
+        If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -8));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}Q", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -6));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}W", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -4));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}E", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -2));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}R", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 0));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}T", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 2));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}Y", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 4));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}U", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 6));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}I", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 8));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}O", (Event Player).WordArray));
+        Else;
+            Set Player Variable(Event Player, WordArray, Custom String("{0}P", (Event Player).WordArray));
+    }
+}
+
+rule ("ASDFGHJKL") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 3.5;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 5.5;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -9;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 9;
+        (Event Player).Firing == True;
+    }
+    actions {
+        If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -7));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}A", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -5));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}S", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -3));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}D", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -1));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}F", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 1));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}G", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 3));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}H", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 5));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}J", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 7));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}K", (Event Player).WordArray));
+        Else;
+            Set Player Variable(Event Player, WordArray, Custom String("{0}L", (Event Player).WordArray));
+    }
+}
+
+rule ("ZXCVBNM") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 1.5;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 3.5;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -7;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 7;
+        (Event Player).Firing == True;
+    }
+    actions {
+        If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -5));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}Z", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -3));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}X", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -1));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}C", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 1));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}V", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 3));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}B", (Event Player).WordArray));
+        Else If(Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 5));
+            Set Player Variable(Event Player, WordArray, Custom String("{0}N", (Event Player).WordArray));
+        Else;
+            Set Player Variable(Event Player, WordArray, Custom String("{0}M", (Event Player).WordArray));
+    }
+}
+
+rule ("SPACE") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 0.5, 0)) <= 1;
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        (Event Player).Firing == True;
+    }
+    actions {
+        Set Player Variable(Event Player, WordArray, Custom String("{0} ", (Event Player).WordArray));
+    }
+}
+
+rule ("SUBMIT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 2.5, 10)) <= 1;
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        (Event Player).Firing == True;
+        (Event Player).WordArray != Custom String("");
+        (Event Player).WordArray != Custom String("******");
+    }
+    actions {
+        If(Compare((Event Player).WordArray, ==, Global.PictionaryWord));
+            Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0} guessed correctly!", Event Player), Right, 0, Null, Null, Color(Green), None, Default Visibility);
+            Wait(0.02, Ignore Condition);
+            Set Player Variable(Event Player, GuessedWord, True);
+            Set Player Variable(Event Player, WordArray, Custom String(""));
+            Modify Global Variable(NumGuessed, Add, 1);
+            Modify Player Variable(Event Player, Points, Add, Divide(100, Global.NumGuessed));
+            Modify Player Variable(Global.Drawer, Points, Add, 20);
+        Else If(Array Contains(Global.BannedWords, (Event Player).WordArray));
+            Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0} kicked for racism!", Event Player), Right, 0, Null, Null, Color(Red), None, Default Visibility);
+            Remove Player(Event Player);
+        Else;
+            Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}: {1}", Event Player, (Event Player).WordArray), Right, 0, Null, Null, Color(White), None, Default Visibility);
+            Wait(0.02, Ignore Condition);
+            Set Player Variable(Event Player, WordArray, Custom String(""));
+    }
+}
+
+rule ("DEL") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 6.5, 11)) <= 1;
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+        (Event Player).Firing == True;
+    }
+    actions {
+        Set Player Variable(Event Player, WordArray, Custom String(""));
+    }
+}
+
+rule ("DrawTool") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.Drawer == Event Player;
+        Global.StartPictionary == True;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 8;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 24;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -8;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 8;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        Create Effect(Event Player, Sphere, Global.DrawerColor, Update Every Frame(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), Global.DrawerRadius, Visible To Position and Radius);
+        Set Global Variable(DrawTool, Last Created Entity);
+    }
+}
+
+rule ("DrawTool Destroy") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.Drawer == Event Player;
+        Global.StartPictionary == True;
+        Or(Or(Or(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), >, 24), Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 8)), Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, -8)), Compare(Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), >, 8)) == True;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        Destroy Effect(Global.DrawTool);
+    }
+}
+
+rule ("Drawer Draw") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.Drawer == Event Player;
+        Global.StartPictionary == True;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 8;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 24;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -8;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 8;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        Create Effect(All Players(All Teams), Sphere, Global.DrawerColor, Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Global.DrawerRadius, None);
+        Modify Global Variable(NumOfEffects, Add, 1);
+        Wait(0.1, Ignore Condition);
+        If(Compare(Global.NumOfEffects, >=, 230));
+            Small Message(Global.Drawer, Custom String("Effect Limit Reached"));
+        End;
+        Loop If Condition Is True;
+    }
+}
+
+rule ("Drawer Select Size") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 8;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 24;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > -12;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < -8;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 11.5));
+            Set Global Variable(DrawerRadius, 0.2);
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 14.5));
+            Set Global Variable(DrawerRadius, 0.4);
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 17.5));
+            Set Global Variable(DrawerRadius, 0.6);
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 20.5));
+            Set Global Variable(DrawerRadius, 0.8);
+        Else;
+            Set Global Variable(DrawerRadius, 1);
+    }
+}
+
+rule ("Drawer Select Color 1") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 11;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 24;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 9;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 11;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 13));
+            Set Global Variable(DrawerColor, Color(Lime Green));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 15));
+            Set Global Variable(DrawerColor, Color(Yellow));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 17));
+            Set Global Variable(DrawerColor, Color(Orange));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 19));
+            Set Global Variable(DrawerColor, Color(Red));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 21));
+            Set Global Variable(DrawerColor, Color(White));
+        Else;
+            Set Global Variable(DrawerColor, Color(Gray));
+    }
+}
+
+rule ("Drawer Select Color 2") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        X Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) == 20;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 11;
+        Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 24;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) > 11;
+        Z Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)) < 13;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 13));
+            Set Global Variable(DrawerColor, Color(Purple));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 15));
+            Set Global Variable(DrawerColor, Color(Blue));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 17));
+            Set Global Variable(DrawerColor, Color(Sky Blue));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 19));
+            Set Global Variable(DrawerColor, Color(Green));
+        Else If(Compare(Y Component Of(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True)), <, 21));
+            Set Global Variable(DrawerColor, Color(Black));
+        Else;
+            Set Global Variable(DrawerColor, Color(Rose));
+    }
+}
+
+rule ("Trash") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 9.5, 11)) <= 1;
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+    }
+    actions {
+        Destroy All Icons;
+        Destroy In-World Text(Global.WordText);
+        Destroy All Effects;
+        Wait(0.02, Ignore Condition);
+        Call Subroutine(Pictionary);
+        Set Global Variable(NumOfEffects, 0);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 255), Default Visibility);
+        Set Global Variable(WordText, Last Created Entity);
+    }
+}
+
+rule ("Drawer Select Word 0") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 18.4, 0)) <= 0.8;
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == False;
+    }
+    actions {
+        Set Global Variable(PictionaryWord, First Of(Global.AllWordsArray));
+        Chase Global Variable At Rate(Timer, 0, 1, Destination and Rate);
+        Destroy All In-World Text;
+        Destroy All Effects;
+        Wait(0.05, Ignore Condition);
+        Call Subroutine(Keyboard);
+        Call Subroutine(Pictionary);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 255), Default Visibility);
+        Set Global Variable(WordText, Last Created Entity);
+        Wait(0.25, Ignore Condition);
+        Set Global Variable(ChoosingWord, True);
+        Set Global Variable(DrawerColor, Custom String("White"));
+        Set Global Variable(DrawerRadius, 0.6);
+        Set Global Variable(NumOfEffects, 0);
+    }
+}
+
+rule ("Drawer Select Word 1") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 15.35, 0)) <= 0.8;
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == False;
+    }
+    actions {
+        Set Global Variable(PictionaryWord, Value In Array(Global.AllWordsArray, 1));
+        Chase Global Variable At Rate(Timer, 0, 1, Destination and Rate);
+        Destroy All In-World Text;
+        Destroy All Effects;
+        Wait(0.05, Ignore Condition);
+        Call Subroutine(Keyboard);
+        Call Subroutine(Pictionary);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Wait(0.25, Ignore Condition);
+        Set Global Variable(ChoosingWord, True);
+        Set Global Variable(DrawerColor, Custom String("White"));
+        Set Global Variable(DrawerRadius, 0.6);
+        Set Global Variable(NumOfEffects, 0);
+    }
+}
+
+rule ("Drawer Select Word 2") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 1000)), Null, Event Player, True), Vector(20, 12.35, 0)) <= 0.8;
+        Global.StartPictionary == True;
+        Global.Drawer == Event Player;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        Global.ChoosingWord == False;
+    }
+    actions {
+        Set Global Variable(PictionaryWord, Value In Array(Global.AllWordsArray, 2));
+        Chase Global Variable At Rate(Timer, 0, 1, Destination and Rate);
+        Destroy All In-World Text;
+        Destroy All Effects;
+        Wait(0.05, Ignore Condition);
+        Call Subroutine(Keyboard);
+        Call Subroutine(Pictionary);
+        Create In-World Text(Event Player, Global.PictionaryWord, Vector(20, 24, 0), 2.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Wait(0.25, Ignore Condition);
+        Set Global Variable(ChoosingWord, True);
+        Set Global Variable(DrawerColor, Custom String("White"));
+        Set Global Variable(DrawerRadius, 0.6);
+        Set Global Variable(NumOfEffects, 0);
+    }
+}
+
+rule ("Times Up or Everyone Guesses") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Or(Compare(Global.Timer, ==, 0), Compare(Global.NumGuessed, ==, Subtract(Count Of(Global.PlayerArray), 1))) == True;
+        Global.StartPictionary == True;
+    }
+    actions {
+        Set Global Variable(Drawer, Null);
+        Stop Chasing Global Variable(Timer);
+        Set Global Variable(Timer, -1);
+        Play Effect(All Players(All Teams), Debuff Impact Sound, Color(White), Vector(0, 0, 0), 200);
+        Clear Status(All Players(All Teams), Phased Out);
+        Set Status(All Players(All Teams), Null, Rooted, 8);
+        Wait(0.5, Ignore Condition);
+        Big Message(All Players(All Teams), Custom String("The Word Was: {0}", Global.PictionaryWord));
+        Wait(5, Ignore Condition);
+        Teleport(All Players(All Teams), Vector(-8, 0, Random Real(-8, 8)));
+        Set Gravity(All Players(All Teams), 100);
+        Set Status(All Players(All Teams), Null, Phased Out, 9999);
+        Call Subroutine(NewDrawer);
+    }
+}
+
+rule ("Create Typing Text") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.Drawer != Event Player;
+        Global.ChoosingWord == True;
+    }
+    actions {
+        Create In-World Text(Event Player, (Event Player).WordArray, Add(Eye Position(Event Player), Facing Direction Of(Event Player)), 1.5, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+    }
+}
+
+rule ("End Game") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.Turn >= Subtract(Count Of(Global.PlayerArray), 1);
+        Global.RoundNum == 5;
+    }
+    actions {
+        Call Subroutine(Winner);
+        Big Message(All Players(All Teams), Custom String("{0} Wins!!!", Global.Winner));
+        Wait(5, Ignore Condition);
+        Set Global Variable(PlayerArray, Empty Array);
+        Set Global Variable(StartPictionary, False);
+        Set Global Variable(Timer, -1);
+        Set Global Variable(RoundNum, 1);
+        Destroy All Effects;
+        Destroy All HUD Text;
+        Destroy All In-World Text;
+        Wait(0.2, Ignore Condition);
+    }
+}
+
+rule ("Winner Subroutine") {
+    event {
+        Subroutine;
+        Winner;
+    }
+    actions {
+        If(Compare((First Of(Global.PlayerArray)).Points, >, (Value In Array(Global.PlayerArray, 1)).Points));
+            Set Global Variable(Winner, First Of(Global.PlayerArray));
+        Else;
+            Set Global Variable(Winner, Value In Array(Global.PlayerArray, 1));
+        End;
+        Set Global Variable(ForLoop, 0);
+        For Global Variable(ForLoop, 0, Count Of(Global.PlayerArray), 1);
+            If(Compare((Value In Array(Global.PlayerArray, Global.ForLoop)).Points, >, (Global.Winner).Points));
+                Set Global Variable(Winner, Value In Array(Global.PlayerArray, Global.ForLoop));
+            End;
+        End;
+    }
+}
+
+rule ("Crossing Red Line") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        X Component Of(Position Of(Event Player)) > -4;
+        Global.StartPictionary == True;
+        Global.Drawer != Event Player;
+    }
+    actions {
+        Apply Impulse(Event Player, Vector(-1, 0, 0), 10, To World, Cancel Contrary Motion);
+        Wait(0.016, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("Drawer Flies Away") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Distance Between(Position Of(Global.Drawer), Vector(2, 13.425, 0)) >= 2;
+        Global.Drawer == Event Player;
+    }
+    actions {
+        Set Gravity(Event Player, 100);
+        Teleport(Event Player, Vector(2, 0, 0));
+        Wait(0.25, Ignore Condition);
+        Set Gravity(Event Player, 0);
+        Wait(0.25, Ignore Condition);
+        Set Facing(Global.Drawer, Vector(1, 0.07, 0), To World);
+        Teleport(Global.Drawer, Vector(2, 12, 0));
+    }
+}
+
+disabled rule ("Create Bot [testing]") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Button Held(Event Player, Button(Interact)) == True;
+    }
+    actions {
+        Create Dummy Bot(Hero(Ana), All Teams, -1, Position Of(Event Player), Vector(0, 0, 0));
+    }
+}
+

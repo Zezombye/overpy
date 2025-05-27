@@ -1,0 +1,2333 @@
+settings
+{
+	main
+	{
+		Description: "<fg00ffffff>Base Wars <fgffa600ff>is a FFA in which you <fgff6fd0ff>build your base</fg>, <fgc752ffff>collect loot</fg> and <fgc8ff55ff>raid your neighbors</fg>.\n\nFirst to <fgffff00ff>1000 gold</fg> wins - <fgf40000ff>by any means necessary.</fg>\n\n<fgddddddff>v2.3</fg> | Code: <fg00ff6eff>14WON</fg>\n\nFeedback: <fgff00ffff>discord.gg/EEMjjFB</fg>\nMade by </fg>Durkhaz"
+		Mode Name: "<fg00ffffff>Base <fgff5e5eff>Wars <fgffff00ff>2.3"
+	}
+	lobby
+	{
+		Map Rotation: After A Game
+		Match Voice Chat: Enabled
+		Return To Lobby: Never
+		Swap Teams After Match: No
+	}
+	modes
+	{
+		Deathmatch
+		{
+			disabled maps
+			{
+				Workshop Chamber
+				Workshop Expanse
+				Workshop Green Screen
+				Workshop Island
+			}
+		}
+		General
+		{
+			Allow Hero Switching: Off
+			Game Mode Start: All Slots Filled
+			Hero Limit: Off
+			Kill Cam: Off
+			Kill Feed: Off
+			Respawn Time Scalar: 60%
+			Self Initiated Respawn: Off
+			Spawn Health Packs: Disabled
+		}
+	}
+	heroes
+	{
+		General
+		{
+			Ana
+			{
+				Ultimate Generation Nano Boost: 150%
+			}
+			Mercy
+			{
+				Ultimate Generation Valkyrie: 150%
+			}
+			Wrecking Ball
+			{
+				Healing Received: 80%
+			}
+			Zenyatta
+			{
+				Ultimate Generation Transcendence: 150%
+			}
+		}
+	}
+}
+variables {
+    global:
+        0: practiceRangeTranslations
+        1: powerLevelColors
+        2: upgradeColors
+        3: upgradeIcons
+        4: waitingStartGameHud
+        5: waitingNavmeshHud
+        6: gameEndCamera
+        7: tmpTotalGoldCalc
+        8: hudIterator
+        9: antiCrashActivated
+        10: isGameInitialized
+        11: hasGameStarted
+        12: gameRulesGoldMinerInitialCost
+        14: mapNavMesh
+        15: leaderboard
+        16: mapOrigin
+        17: mapXYZ
+        18: mapRotationVector
+        20: mapInfo
+        22: bountyArrayLocations
+        23: bountyArrayEffects
+        24: bountyArrayMoney
+        25: bountyArrayNum
+        26: bountyArrayIterator
+        27: tmpBountyClosestPlayer
+        28: tmpBountyLocation
+        35: stealingBaseOwnerIterator
+        36: gameHealingHeroes
+        39: mapSize
+        40: stealingDistanceThreshold
+        41: stealingDistanceMultiplier
+        42: totalGoldToWin
+        43: sparkboltSpawnpointIndex
+        44: sparkboltPickupPos
+        45: tmpSparkboltClosestPlayer
+        46: sparkboltEffects
+        47: tmpPowerupSpawnpointRandomPoint
+        48: tmpPowerupSpawnpointRandomPointW
+        49: lootBlockerVolumeRadius
+        50: gameRulesMoveBaseInitialCost
+        51: gameRulesGoldMinerFrequency
+        54: gameEnded
+        55: gameWinner
+        56: gameEndingScreenPos
+        57: gameScorePositions
+        58: gameScoreTopPlayers
+        59: gameScoreTopPlayersValues
+        60: baseUpgradeSphereActualSize
+        61: tmpBaseOwners
+        62: team1Str
+        63: team2Str
+        64: workshopSettingsIterator
+        66: enabledSettingsStr
+        67: enableStealing
+        68: enableOccupiedStealing
+        69: enableSparkbolts
+        70: enableGoldMinerUpgrade
+        71: enableLootOrbs
+        72: lootSpawnMax
+        73: gameLootOrbAmount
+        74: enableInvisibleLootPickup
+        75: gameGoldVictory
+        76: enableAlwaysFreeHeroSwitch
+        77: enableAlwaysFreeBaseMove
+        78: enableInefficientGoldMiner
+        79: mapExtension1Spawn
+        80: mapExtension1Xyz
+        81: mapExtension1Origin
+        82: mapExtension1Rotation
+        83: mapExtension2Spawn
+        84: mapExtension2Xyz
+        85: mapExtension2Origin
+        86: mapExtension2Rotation
+        87: mapExtension3Spawn
+        88: mapExtension3Xyz
+        89: mapExtension3Origin
+        90: mapExtension3Rotation
+        91: mapExtensionSpawn
+        92: chosenMapExtension
+        93: availableMapExtensions
+        94: disableNwpCheck
+        95: lootArrayLocations
+        96: lootSpawnPoints
+        97: lootArrayLocationsStored
+        98: lootSpread
+        99: lootCollectIterator
+        100: lootArraySpawned
+        101: lootSpawnpointIterator
+        102: lootSpawnerIterator
+        103: lootSpawnerNumLoot
+        104: lootSpawnerEffectIterator
+        105: tmpLootSpawnpointRandomPointWP
+        106: tmpLootCollectClosestPlayer
+        107: tmpLootSpawnpoint
+        108: tmpLootSpawnpointProximity
+        109: tmpLootSpawnpointRandomPoint
+        110: lootBlockerVolumePos
+        111: displayScoreboard
+        112: tmpAllPlayers
+        113: scoreboardIterator
+        114: tmpPlayer
+    player:
+        0: storedMoney
+        1: statsMoney
+        2: hasBase
+        3: statsUpgradeCost
+        4: statsMoneyStorage
+        5: tmpUpgradeCurrentSelection
+        6: canAutoHeal
+        7: regenStartTime
+        8: isStealingActive
+        9: playerBaseProximityIterator
+        10: statsStealingSpeed
+        12: playerBaseLocation
+        13: statsMoneyBase
+        18: debugEffectCountArray
+        19: baseProtectionTimer
+        20: isMovingBase
+        21: hudBaseProtection
+        23: tmpMoneyDifference
+        24: statsMoneySec
+        25: playerObjectInBase
+        26: statsMoneyKill
+        27: isInBase
+        28: isChangingHero
+        29: oldHeroHealth
+        30: isInitialized
+        33: upgradeCurrentSelection
+        34: isUpgradeInputOnCooldown
+        35: showUpgradeText
+        36: regenID
+        37: upgradeOffsetLeft
+        38: upgradeOffsetRight
+        39: isCloaked
+        40: stealingFrom
+        41: stealingSoundEffect
+        42: tmpStealingAmount
+        43: stealingOnCooldown
+        45: statsUpgradeLevels
+        47: statsUpgradeHeroSwitchUsed
+        48: statsUpgradeHeroSwitchShadowCost
+        49: tmpStealingDistanceBonus
+        50: tmpStealingRiskBonus
+        51: statsBaseDelay
+        52: isSparkboltOnCooldown
+        53: tmpBaseSparkboltTarget
+        54: nbSparkbolts
+        55: sparkboltEffect
+        56: scoreArray
+}
+subroutines {
+    0: settleBalance
+    1: setBaseLocation
+    2: playerBaseBuildEffects
+    3: baseUpgradeFail
+    4: checkUpgradeAvailability
+}
+rule ("Initialize global variables") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(practiceRangeTranslations, Array(Custom String("Practice Range"), Custom String("Campo de Treinamento")));
+        Set Global Variable(powerLevelColors, Array(Color(White), Color(White), Color(White), Color(White), Color(Aqua), Color(Aqua), Color(Aqua), Color(Blue), Color(Purple), Color(Red), Color(Orange), Custom Color(20, 20, 20, 255)));
+        Set Global Variable(upgradeColors, Array(Color(Blue), Color(Red), Color(Yellow), Color(Green), Color(Turquoise), Color(Purple), Color(Aqua)));
+        Set Global Variable(upgradeIcons, Array(Icon String(Diamond), Icon String(Skull), Icon String(Circle), Icon String(Trashcan), Icon String(Recycle), Icon String(Stop), Icon String(Warning)));
+        Set Global Variable(team1Str, Custom String("{0}", Team 1));
+        Set Global Variable(team2Str, Custom String("{0}", Team 2));
+        Set Global Variable(workshopSettingsIterator, 0);
+        Set Global Variable(enabledSettingsStr, Custom String(""));
+        Set Global Variable(enableStealing, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Enable Stealing"), True, 0));
+        Set Global Variable(enableOccupiedStealing, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Enable stealing from occupied bases"), True, 1));
+        Set Global Variable(enableSparkbolts, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Spawn sparkbolts"), True, 2));
+        Set Global Variable(enableGoldMinerUpgrade, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Players can upgrade gold miner"), True, 3));
+        Set Global Variable(enableLootOrbs, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Spawn loot orbs"), True, 4));
+        Set Global Variable(lootSpawnMax, Workshop Setting Integer(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Maximum number of loot orbs [default 16]"), 16, 5, 16, 5));
+        Set Global Variable(gameLootOrbAmount, Workshop Setting Integer(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Gold given by loot orbs [default 10]"), 10, 5, 30, 6));
+        Set Global Variable(enableInvisibleLootPickup, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Sombra can pick up orbs while invisible"), False, 7));
+        Set Global Variable(gameGoldVictory, Workshop Setting Integer(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Amount of gold to win [default 1000]"), 1000, 500, 5000, 8));
+        Set Global Variable(enableAlwaysFreeHeroSwitch, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Hero switch is always free"), False, 9));
+        Set Global Variable(enableAlwaysFreeBaseMove, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Base move is always free"), False, 10));
+        Set Global Variable(enableInefficientGoldMiner, Workshop Setting Toggle(Custom String("BASE WARS BY DURKHAZ#2629\nCONCEPT- PYROCREEP#2665\nTHANKS- CUDDLYFLOWER#2892, HuKuTa94#2589, Kevin#26140\nRemaster- Zezombye#2627"), Custom String("Make gold miner less efficient"), False, 11));
+        Set Global Variable(mapExtension1Spawn, Null);
+        Set Global Variable(mapExtension1Xyz, Null);
+        Set Global Variable(mapExtension1Origin, Null);
+        Set Global Variable(mapExtension1Rotation, Null);
+        Set Global Variable(mapExtension2Spawn, Null);
+        Set Global Variable(mapExtension2Xyz, Null);
+        Set Global Variable(mapExtension2Origin, Null);
+        Set Global Variable(mapExtension2Rotation, Null);
+        Set Global Variable(mapExtension3Spawn, Null);
+        Set Global Variable(mapExtension3Xyz, Null);
+        Set Global Variable(mapExtension3Origin, Null);
+        Set Global Variable(mapExtension3Rotation, Null);
+        Set Global Variable(mapExtensionSpawn, Null);
+        Set Global Variable(chosenMapExtension, 0);
+        Set Global Variable(availableMapExtensions, Array(0));
+        Set Global Variable(disableNwpCheck, False);
+        Set Global Variable(lootArrayLocations, Empty Array);
+        Set Global Variable(lootSpawnPoints, Empty Array);
+        Set Global Variable(displayScoreboard, False);
+    }
+}
+
+rule ("LOOT BOUNTY COLLECT LOOP") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.bountyArrayNum != 0;
+    }
+    actions {
+        For Global Variable(bountyArrayIterator, 0, Count Of(Global.bountyArrayLocations), 1);
+            If(Compare(Value In Array(Global.bountyArrayEffects, Global.bountyArrayIterator), !=, Null));
+                Set Global Variable(tmpBountyLocation, Value In Array(Global.bountyArrayLocations, Global.bountyArrayIterator));
+                Set Global Variable(tmpBountyClosestPlayer, First Of(Sorted Array(Filtered Array(All Players(All Teams), And(And(And(Is Alive(Current Array Element), Has Spawned(Current Array Element)), Not((Current Array Element).isInBase)), Or(Global.enableInvisibleLootPickup, Not((Current Array Element).isCloaked)))), Distance Between(Position Of(Current Array Element), Global.tmpBountyLocation))));
+                If(And(Entity Exists(Global.tmpBountyClosestPlayer), Compare(Distance Between(Position Of(Global.tmpBountyClosestPlayer), Global.tmpBountyLocation), <=, 2.5)));
+                    Modify Player Variable(Global.tmpBountyClosestPlayer, statsMoney, Add, Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator));
+                    Modify Player Variable At Index(Global.tmpBountyClosestPlayer, scoreArray, 2, Add, Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator));
+                    Modify Player Variable At Index(Global.tmpBountyClosestPlayer, scoreArray, 5, Add, 1);
+                    Destroy Effect(Value In Array(Global.bountyArrayEffects, Global.bountyArrayIterator));
+                    Modify Global Variable(bountyArrayNum, Subtract, 1);
+                    Set Global Variable At Index(bountyArrayEffects, Global.bountyArrayIterator, Null);
+                    Play Effect(Global.tmpBountyClosestPlayer, Buff Explosion Sound, Color(White), Global.tmpBountyLocation, 50);
+                    Small Message(Global.tmpBountyClosestPlayer, Custom String("+{0}{1}", Evaluate Once(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator)), Value In Array(Array(Custom String(" PLAYER GOLD"), Custom String(" ouro do jogador")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+                    If(Compare(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator), <=, 25));
+                        Play Effect(Global.tmpBountyClosestPlayer, Good Pickup Effect, Color(Green), Global.tmpBountyLocation, 1);
+                    Else If(And(Compare(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator), >, 25), Compare(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator), <=, 250)));
+                        Play Effect(Global.tmpBountyClosestPlayer, Good Pickup Effect, Color(Turquoise), Global.tmpBountyLocation, 1);
+                    Else If(And(Compare(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator), >, 250), Compare(Value In Array(Global.bountyArrayMoney, Global.bountyArrayIterator), <=, 750)));
+                        Play Effect(Global.tmpBountyClosestPlayer, Good Pickup Effect, Color(Blue), Global.tmpBountyLocation, 1);
+                    Else;
+                        Play Effect(Global.tmpBountyClosestPlayer, Good Pickup Effect, Color(Purple), Global.tmpBountyLocation, 1);
+                    End;
+                    Wait(0.032, Ignore Condition);
+                End;
+                Wait(0.032, Ignore Condition);
+            End;
+        End;
+        Wait(0.1, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("LOOT FIND SPAWNPOINTS") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+    }
+    actions {
+        While(And(Compare(Global.lootSpawnpointIterator, <=, 200), Compare(Count Of(Global.tmpLootSpawnpointProximity), <, 128)));
+            Set Global Variable(tmpLootSpawnpointRandomPointWP, Add(Add(Add(Global.mapOrigin, Multiply(Global.mapRotationVector, Random Real(0, X Component Of(Global.mapXYZ)))), Multiply(Vector(Z Component Of(Global.mapRotationVector), 0, Multiply(X Component Of(Global.mapRotationVector), -1)), Random Real(0, Z Component Of(Global.mapXYZ)))), Vector(0, Random Real(0, Y Component Of(Global.mapXYZ)), 0)));
+            If(Global.disableNwpCheck);
+                Set Global Variable(tmpLootSpawnpoint, Ray Cast Hit Position(Global.tmpLootSpawnpointRandomPointWP, Subtract(Global.tmpLootSpawnpointRandomPointWP, Vector(0, 100, 0)), Empty Array, Empty Array, False));
+                Skip If(Compare(Global.tmpLootSpawnpoint, ==, Subtract(Global.tmpLootSpawnpointRandomPointWP, Vector(0, 100, 0))), 9);
+            Else;
+                Set Global Variable(tmpLootSpawnpoint, Add(Nearest Walkable Position(Global.tmpLootSpawnpointRandomPointWP), Vector(0, 0.35, 0)));
+                Skip If(Compare(Distance Between(Global.tmpLootSpawnpoint, Global.tmpLootSpawnpointRandomPointWP), >, 5), 6);
+            End;
+            Skip If(Or(Compare(Global.tmpLootSpawnpoint, ==, 0), And(Compare(Global.lootBlockerVolumePos, !=, 0), Compare(Distance Between(Global.tmpLootSpawnpoint, Global.lootBlockerVolumePos), <=, Global.lootBlockerVolumeRadius))), 4);
+            Set Global Variable(tmpLootSpawnpointProximity, Sorted Array(Remove From Array(Global.lootSpawnPoints, Null), Distance Between(Global.tmpLootSpawnpoint, Current Array Element)));
+            Skip If(And(Compare(Distance Between(Global.tmpLootSpawnpoint, First Of(Global.tmpLootSpawnpointProximity)), <, Global.lootSpread), Compare(Count Of(Global.tmpLootSpawnpointProximity), !=, 0)), 1);
+            Skip(3);
+            //lbl_3:
+            Modify Global Variable(lootSpawnpointIterator, Add, 1);
+            //lbl_0:
+            //lbl_1:
+            //lbl_2:
+            Wait(0.001, Ignore Condition);
+            Loop;
+            //lbl_4:
+            Modify Global Variable(lootSpawnPoints, Append To Array, Global.tmpLootSpawnpoint);
+            Set Global Variable(lootSpawnpointIterator, 0);
+            Wait(0.001, Ignore Condition);
+        End;
+        Set Global Variable(lootSpawnpointIterator, 0);
+        Modify Global Variable(lootSpawnMax, Min, Count Of(Global.lootSpawnPoints));
+        Set Global Variable At Index(lootArrayLocations, Subtract(Global.lootSpawnMax, 1), Null);
+        Set Global Variable At Index(lootArrayLocationsStored, Subtract(Global.lootSpawnMax, 1), 0);
+        Set Global Variable(tmpLootSpawnpointProximity, Null);
+    }
+}
+
+rule ("LOOT LOOT EFFECTS") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.lootArrayLocations != Empty Array;
+        Global.enableLootOrbs != False;
+    }
+    actions {
+        For Global Variable(lootCollectIterator, 0, Count Of(Global.lootArrayLocations), 1);
+            Set Global Variable At Index(lootArrayLocations, Global.lootCollectIterator, Vector(0, -9999, 0));
+        End;
+        "This is ugly, but this way loot effects stay persistent"
+        Create Effect(All Players(All Teams), Orb, Color(Green), First Of(Global.lootArrayLocations), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 1));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 1), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 2));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 2), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 3));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 3), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 4));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 4), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 5));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 5), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 6));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 6), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 7));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 7), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 8));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 8), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 9));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 9), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 10));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 10), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 11));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 11), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 12));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 12), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 13));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 13), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 14));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 14), 1, Visible To Position and Radius);
+        Abort If(Compare(Global.lootSpawnMax, ==, 15));
+        Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.lootArrayLocations, 15), 1, Visible To Position and Radius);
+    }
+}
+
+rule ("LOOT SPAWN") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.gameEnded == False;
+        Global.enableLootOrbs != False;
+        Count Of(Global.lootArrayLocations) != 0;
+        Global.lootSpawnerNumLoot < Global.lootSpawnMax;
+    }
+    actions {
+        If(Value In Array(Global.lootArraySpawned, Global.lootSpawnerEffectIterator));
+            Modify Global Variable(lootSpawnerEffectIterator, Add, 1);
+            If(Compare(Global.lootSpawnerEffectIterator, >=, Count Of(Global.lootArrayLocations)));
+                Set Global Variable(lootSpawnerEffectIterator, 0);
+            End;
+            Wait(0.016, Ignore Condition);
+            Loop;
+        End;
+        While(True);
+            If(Global.disableNwpCheck);
+                Set Global Variable(tmpLootSpawnpointRandomPointWP, Value In Array(Global.lootSpawnPoints, Global.lootSpawnerIterator));
+            Else;
+                Set Global Variable(tmpLootSpawnpointRandomPoint, Add(Multiply(Normalize(Vector(Random Real(-1, 1), Random Real(-1, 1), Random Real(-1, 1))), Random Real(2, 10)), Value In Array(Global.lootSpawnPoints, Global.lootSpawnerIterator)));
+                Set Global Variable(tmpLootSpawnpointRandomPointWP, Nearest Walkable Position(Global.tmpLootSpawnpointRandomPoint));
+                If(Compare(Distance Between(Global.tmpLootSpawnpointRandomPointWP, Global.tmpLootSpawnpointRandomPoint), >=, 1.5));
+                    Wait(0.064, Ignore Condition);
+                    Skip(7);
+                End;
+            End;
+            Set Global Variable(tmpLootSpawnpointRandomPointWP, Add(Ray Cast Hit Position(Add(Global.tmpLootSpawnpointRandomPointWP, Vector(0, 2, 0)), Subtract(Global.tmpLootSpawnpointRandomPointWP, Vector(0, 10, 0)), Null, Null, False), Vector(0, 0.35, 0)));
+            If(And(Or(Global.disableNwpCheck, Compare(Distance Between(Global.tmpLootSpawnpointRandomPointWP, Nearest Walkable Position(Global.tmpLootSpawnpointRandomPointWP)), <=, 0.1)), Or(Compare(Global.lootBlockerVolumePos, ==, Null), And(Compare(Global.lootBlockerVolumePos, !=, Null), Compare(Distance Between(Global.tmpLootSpawnpointRandomPointWP, Global.lootBlockerVolumePos), >, Global.lootBlockerVolumeRadius)))));
+                Break;
+            End;
+            Wait(0.064, Ignore Condition);
+            //lbl_0:
+        End;
+        Set Global Variable At Index(lootArrayLocations, Global.lootSpawnerEffectIterator, Global.tmpLootSpawnpointRandomPointWP);
+        Set Global Variable At Index(lootArraySpawned, Global.lootSpawnerEffectIterator, True);
+        Modify Global Variable(lootSpawnerIterator, Add, 1);
+        Modify Global Variable(lootSpawnerNumLoot, Add, 1);
+        If(Compare(Global.lootSpawnerIterator, >=, Count Of(Global.lootSpawnPoints)));
+            Set Global Variable(lootSpawnerIterator, 0);
+        End;
+        Wait(1.12, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("LOOT COLLECT LOOP") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.enableLootOrbs != False;
+    }
+    actions {
+        For Global Variable(lootCollectIterator, 0, Count Of(Global.lootArrayLocations), 1);
+            If(Value In Array(Global.lootArraySpawned, Global.lootCollectIterator));
+                Set Global Variable(tmpLootCollectClosestPlayer, First Of(Sorted Array(Filtered Array(All Players(All Teams), And(And(And(Is Alive(Current Array Element), Has Spawned(Current Array Element)), Not((Current Array Element).isInBase)), Or(Global.enableInvisibleLootPickup, Not((Current Array Element).isCloaked)))), Distance Between(Position Of(Current Array Element), Value In Array(Global.lootArrayLocations, Global.lootCollectIterator)))));
+                If(And(Entity Exists(Global.tmpLootCollectClosestPlayer), Compare(Distance Between(Global.tmpLootCollectClosestPlayer, Value In Array(Global.lootArrayLocations, Global.lootCollectIterator)), <=, 2.5)));
+                    Set Global Variable At Index(lootArrayLocationsStored, Global.lootCollectIterator, Value In Array(Global.lootArrayLocations, Global.lootCollectIterator));
+                    Modify Global Variable(lootSpawnerNumLoot, Subtract, 1);
+                    Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Value In Array(Global.lootArrayLocationsStored, Global.lootCollectIterator), 1);
+                    Play Effect(Global.tmpLootCollectClosestPlayer, Buff Explosion Sound, Color(White), Value In Array(Global.lootArrayLocationsStored, Global.lootCollectIterator), 50);
+                    Set Global Variable At Index(lootArrayLocations, Global.lootCollectIterator, Vector(0, -9999, 0));
+                    Set Global Variable At Index(lootArraySpawned, Global.lootCollectIterator, False);
+                    Modify Player Variable(Global.tmpLootCollectClosestPlayer, statsMoney, Add, Global.gameLootOrbAmount);
+                    Modify Player Variable At Index(Global.tmpLootCollectClosestPlayer, scoreArray, 2, Add, Global.gameLootOrbAmount);
+                    Modify Player Variable At Index(Global.tmpLootCollectClosestPlayer, scoreArray, 5, Add, 1);
+                    Small Message(Global.tmpLootCollectClosestPlayer, Custom String("+{0}{1}", Global.gameLootOrbAmount, Value In Array(Array(Custom String(" GOLD"), Custom String(" de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+                End;
+            End;
+            Wait(0.016, Ignore Condition);
+        End;
+        Wait(0.1, Ignore Condition);
+        Loop;
+    }
+}
+
+rule ("LOOT LOSS1") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+    conditions {
+        Attacker == Victim;
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Set Player Variable(Event Player, statsMoney, 0);
+    }
+}
+
+rule ("LOOT LOSS2") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Destroy HUD Text((Event Player).hudBaseProtection);
+    }
+}
+
+rule ("LOOT POWERUP COLLECT LOOP") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.sparkboltPickupPos != Null;
+        Global.enableSparkbolts != False;
+    }
+    actions {
+        Set Global Variable(tmpSparkboltClosestPlayer, First Of(Sorted Array(Filtered Array(All Players(All Teams), And(And(And(Is Alive(Current Array Element), Has Spawned(Current Array Element)), Not((Current Array Element).isInBase)), Or(Global.enableInvisibleLootPickup, Not((Current Array Element).isCloaked)))), Distance Between(Position Of(Current Array Element), Global.sparkboltPickupPos))));
+        If(And(Entity Exists(Global.tmpSparkboltClosestPlayer), Compare(Distance Between(Position Of(Global.tmpSparkboltClosestPlayer), Global.sparkboltPickupPos), <=, 2.5)));
+            Modify Player Variable(Global.tmpSparkboltClosestPlayer, nbSparkbolts, Add, 1);
+            Small Message(Global.tmpSparkboltClosestPlayer, Custom String("+1 {0}{1}", Icon String(Bolt), Value In Array(Array(Custom String(" SPARKBOLT"), Custom String(" faísca")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Destroy Effect(First Of(Global.sparkboltEffects));
+            Destroy Effect(Value In Array(Global.sparkboltEffects, 1));
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(White), Global.sparkboltPickupPos, 1);
+            Play Effect(Global.tmpSparkboltClosestPlayer, Buff Explosion Sound, Color(White), Global.sparkboltPickupPos, 50);
+            Set Global Variable(sparkboltPickupPos, Null);
+            Set Global Variable(sparkboltSpawnpointIndex, Modulo(Add(Global.sparkboltSpawnpointIndex, 1), Count Of(Global.lootSpawnPoints)));
+        End;
+        Wait(0.25, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("LOOT POWERUP SPAWN") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.sparkboltPickupPos == Null;
+        Global.enableSparkbolts != False;
+    }
+    actions {
+        Wait(Subtract(60, Number Of Players(All Teams)), Ignore Condition);
+        While(True);
+            Set Global Variable(tmpPowerupSpawnpointRandomPoint, Add(Multiply(Normalize(Vector(Random Real(-1, 1), Random Real(-1, 1), Random Real(-1, 1))), Random Real(2, 10)), Value In Array(Global.lootSpawnPoints, Global.sparkboltSpawnpointIndex)));
+            If(Global.disableNwpCheck);
+                Set Global Variable(tmpPowerupSpawnpointRandomPointW, Ray Cast Hit Position(Global.tmpPowerupSpawnpointRandomPoint, Subtract(Global.tmpPowerupSpawnpointRandomPoint, Vector(0, 100, 0)), Empty Array, Empty Array, False));
+            Else;
+                Set Global Variable(tmpPowerupSpawnpointRandomPointW, Nearest Walkable Position(Global.tmpPowerupSpawnpointRandomPoint));
+                Skip If(Compare(Distance Between(Global.tmpPowerupSpawnpointRandomPointW, Global.tmpPowerupSpawnpointRandomPoint), >=, 1.5), 5);
+            End;
+            Set Global Variable(tmpPowerupSpawnpointRandomPointW, Add(Ray Cast Hit Position(Add(Global.tmpPowerupSpawnpointRandomPointW, Vector(0, 2, 0)), Subtract(Global.tmpPowerupSpawnpointRandomPointW, Vector(0, 10, 0)), Null, Null, False), Vector(0, 0.35, 0)));
+            If(Or(Compare(Distance Between(Global.tmpPowerupSpawnpointRandomPointW, Nearest Walkable Position(Global.tmpPowerupSpawnpointRandomPointW)), <=, 0.1), Global.disableNwpCheck));
+                Break;
+            End;
+            //lbl_0:
+            Wait(0.064, Ignore Condition);
+        End;
+        Set Global Variable(sparkboltPickupPos, Global.tmpPowerupSpawnpointRandomPointW);
+        Create Effect(All Players(All Teams), Sparkles, Color(White), Global.sparkboltPickupPos, 0.5, Visible To Position and Radius);
+        Set Global Variable At Index(sparkboltEffects, 0, Last Created Entity);
+        Create Effect(All Players(All Teams), Sphere, Color(White), Add(Position Of(Global.sparkboltPickupPos), Vector(0, Divide(Modulo(Total Time Elapsed, 0.2), 3), 0)), Add(Divide(Modulo(Total Time Elapsed, 0.3), 3), 0.2), Visible To Position and Radius);
+        Set Global Variable At Index(sparkboltEffects, 1, Last Created Entity);
+    }
+}
+
+rule ("GAME WIN CONDITION") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.gameGoldVictory != 0;
+        (Event Player).statsMoneyBase >= Global.gameGoldVictory;
+        Global.gameEnded == False;
+    }
+    actions {
+        "declarePlayerVictory(eventPlayer)"
+        Set Global Variable(gameEnded, True);
+        Set Global Variable(gameWinner, Event Player);
+        Set Slow Motion(33);
+        Wait(0.5, Ignore Condition);
+        Big Message(All Players(All Teams), Custom String("{0}{1}", Event Player, Value In Array(Array(Custom String(" has won the game"), Custom String(" venceu o jogo")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+        Wait(0.8, Ignore Condition);
+        Respawn(All Dead Players(All Teams));
+        Set Global Variable(tmpAllPlayers, All Players(All Teams));
+        For Global Variable(scoreboardIterator, 0, Count Of(Global.tmpAllPlayers), 1);
+            Set Global Variable(tmpPlayer, Value In Array(Global.tmpAllPlayers, Global.scoreboardIterator));
+            Set Player Variable(Global.tmpPlayer, scoreArray, Array(First Of((Global.tmpPlayer).scoreArray), Divide(First Of((Global.tmpPlayer).scoreArray), Max(1, Value In Array((Global.tmpPlayer).scoreArray, 1))), Value In Array((Global.tmpPlayer).scoreArray, 8), Value In Array((Global.tmpPlayer).scoreArray, 2), Value In Array((Global.tmpPlayer).scoreArray, 3), Divide(Value In Array((Global.tmpPlayer).scoreArray, 2), Subtract(Total Time Elapsed, Value In Array((Global.tmpPlayer).scoreArray, 4))), Divide(Value In Array((Global.tmpPlayer).scoreArray, 2), Max(1, First Of((Global.tmpPlayer).scoreArray))), Value In Array((Global.tmpPlayer).scoreArray, 5), Value In Array((Global.tmpPlayer).scoreArray, 6), Value In Array((Global.tmpPlayer).scoreArray, 7)));
+            Wait(0.016, Ignore Condition);
+        End;
+        Set Global Variable(gameScoreTopPlayers, Empty Array);
+        For Global Variable(scoreboardIterator, 0, 10, 1);
+            Modify Global Variable(gameScoreTopPlayers, Append To Array, Last Of(Sorted Array(Global.tmpAllPlayers, Value In Array((Current Array Element).scoreArray, Global.scoreboardIterator))));
+            Wait(0.016, Ignore Condition);
+        End;
+        Set Global Variable(gameScoreTopPlayersValues, Empty Array);
+        For Global Variable(scoreboardIterator, 0, 10, 1);
+            Modify Global Variable(gameScoreTopPlayersValues, Append To Array, Value In Array((Value In Array(Global.gameScoreTopPlayers, Global.scoreboardIterator)).scoreArray, Global.scoreboardIterator));
+        End;
+        "display scoreboard"
+        Set Global Variable(displayScoreboard, True);
+        Set Slow Motion(100);
+        Destroy All In-World Text;
+        Destroy All HUD Text;
+        Destroy All Effects;
+        Destroy All Icons;
+        Destroy All Dummy Bots;
+        Wait(0.016, Ignore Condition);
+        Set Global Variable At Index(gameScorePositions, 0, Ray Cast Hit Position(Add(Global.gameEndCamera, Multiply(Forward, 2)), Subtract(Add(Global.gameEndCamera, Multiply(Forward, 2)), Vector(0, 10, 0)), Empty Array, Empty Array, False));
+        "createDummy(random.choice(getAllHeroes()), Team.ALL, -1, gameScorePositions[0], Vector.BACKWARD)\ngameWinner = getLastCreatedEntity()"
+        Set Facing(Global.gameWinner, Backward, To World);
+        Teleport(Global.gameWinner, First Of(Global.gameScorePositions));
+        Start Modifying Hero Voice Lines(Global.gameWinner, Random Real(0.5, 1.5), False);
+        Start Scaling Barriers(Global.gameWinner, 0.1, False);
+        Start Forcing Player Position(Global.gameWinner, First Of(Global.gameScorePositions), False);
+        "gameScorePositions[1] = ((gameWinner.getEyePosition() - gameWinner.getPosition()) * 0.75).y"
+        Set Global Variable At Index(gameScorePositions, 1, 1.5);
+        Set Global Variable(gameEndCamera, Add(First Of(Global.gameScorePositions), Vector(Multiply(Value In Array(Global.gameScorePositions, 1), -1), Value In Array(Global.gameScorePositions, 1), Multiply(Value In Array(Global.gameScorePositions, 1), -2))));
+        Set Facing(Global.gameWinner, Direction Towards(Eye Position(Global.gameWinner), Global.gameEndCamera), To World);
+        Set Global Variable At Index(gameScorePositions, 2, Add(First Of(Global.gameScorePositions), Vector(Multiply(Value In Array(Global.gameScorePositions, 1), -1.5), Multiply(Value In Array(Global.gameScorePositions, 1), 0.06), Multiply(Value In Array(Global.gameScorePositions, 1), 0))));
+        Set Global Variable At Index(gameScorePositions, 3, Add(Value In Array(Global.gameScorePositions, 2), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.075), 0)));
+        Create In-World Text(All Players(All Teams), Custom String("{0}\n ", Value In Array(Array(Custom String("Winner"), Custom String("Vencedor")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Update Every Frame(Add(Eye Position(Global.gameWinner), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.55), 0))), 2, Do Not Clip, Visible To Position and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n{0}", Global.gameWinner), Update Every Frame(Add(Eye Position(Global.gameWinner), Vector(0, Multiply(Value In Array(Global.gameScorePositions, 1), 0.55), 0))), 2, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("{0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                  ", Icon String(Skull), Value In Array(Array(Custom String(" Bounty Hunter"), Custom String(" Caçador de recompensas")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n{0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                  ", Ability Icon String(Hero(Cassidy), Button(Ultimate)), Value In Array(Array(Custom String(" Assassin"), Custom String(" Assassino")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n{0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                  ", Icon String(Sad), Value In Array(Array(Custom String(" Victim"), Custom String(" Vítima")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n{0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                  ", Ability Icon String(Hero(Sigma), Button(Primary Fire)), Value In Array(Array(Custom String(" Gold Hoarder"), Custom String(" A***ulador de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n{0}{1}\n\n\n\n\n\n\n\n\n\n\n                                                                  ", Ability Icon String(Hero(Moira), Button(Secondary Fire)), Value In Array(Array(Custom String(" Master Thief"), Custom String(" Ladrão mestre")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n{0}{1}\n\n\n\n\n\n\n\n\n                                                                  ", Ability Icon String(Hero(Tracer), Button(Ability 1)), Value In Array(Array(Custom String(" Fast Earner"), Custom String(" A***ulador rápido")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n{0}{1}\n\n\n\n\n\n\n                                                                  ", Icon String(Heart), Value In Array(Array(Custom String(" Friendly Farmer"), Custom String(" A***ulador amigável")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n{0}{1}\n\n\n\n\n                                                                  ", Ability Icon String(Hero(Sigma), Button(Ability 1)), Value In Array(Array(Custom String(" Cookie Clicker"), Custom String(" Cookie clicker")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{0}{1}\n\n\n                                                                  ", Ability Icon String(Hero(Bastion), Button(Secondary Fire)), Value In Array(Array(Custom String(" Engineer"), Custom String(" Engenheiro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{0}{1}\n                                                                  ", Ability Icon String(Hero(Soldier: 76), Button(Ability 1)), Value In Array(Array(Custom String(" Traveler"), Custom String(" Nômade")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(Orange), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n{0} \n\n{1}\n\n{2}", First Of(Global.gameScoreTopPlayers), Value In Array(Global.gameScoreTopPlayers, 1), Custom String("{0}\n\n{1}\n\n{2}", Value In Array(Global.gameScoreTopPlayers, 2), Value In Array(Global.gameScoreTopPlayers, 3), Custom String("{0}\n\n{1}\n\n{2}", Value In Array(Global.gameScoreTopPlayers, 4), Value In Array(Global.gameScoreTopPlayers, 5), Custom String("{0}\n\n{1}\n\n{2}", Value In Array(Global.gameScoreTopPlayers, 6), Value In Array(Global.gameScoreTopPlayers, 7), Custom String("{0}\n\n{1}\n\n", Value In Array(Global.gameScoreTopPlayers, 8), Value In Array(Global.gameScoreTopPlayers, 9)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String("　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", First Of(Global.gameScoreTopPlayersValues), Value In Array(Array(Custom String(" kills"), Custom String(" abates")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 1), Value In Array(Array(Custom String(" K/D"), Custom String(" A/M")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 2), Value In Array(Array(Custom String(" gold stolen from"), Custom String(" ouro roubado de")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 3), Value In Array(Array(Custom String(" gold earned"), Custom String(" ouro obtido")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 4), Value In Array(Array(Custom String(" gold stolen"), Custom String(" ouro roubado")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 5), Value In Array(Array(Custom String(" gold/sec"), Custom String(" ouro/seg")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 6), Value In Array(Array(Custom String(" gold/kills"), Custom String(" ouro/abates")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 7), Value In Array(Array(Custom String(" orbs collected"), Custom String(" orbes coletados")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n\n\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 8), Value In Array(Array(Custom String(" upgrades"), Custom String(" melhorias")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Create In-World Text(All Players(All Teams), Custom String(" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n　　　　　　　　　　　　　　　　　　　　　　　　　  {0}{1}\n 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ", Value In Array(Global.gameScoreTopPlayersValues, 9), Value In Array(Array(Custom String(" bases moved"), Custom String(" bases movidas")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Value In Array(Global.gameScorePositions, 2), 1.9, Do Not Clip, Visible To and String, Color(White), Default Visibility);
+        Wait(0.1, Ignore Condition);
+        Stop Forcing Player Position(Global.gameWinner);
+        Wait(0.1, Ignore Condition);
+        Communicate(Global.gameWinner, Emote Up);
+    }
+}
+
+rule ("game ended - resurrect players") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.displayScoreboard != False;
+        Is Dead(Event Player) == True;
+    }
+    actions {
+        Respawn(Event Player);
+    }
+}
+
+rule ("game ended and host afk - finish game") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.displayScoreboard != False;
+    }
+    actions {
+        Wait(30, Ignore Condition);
+        Declare Player Victory(Global.gameWinner);
+        Wait(3, Ignore Condition);
+        Restart Match;
+    }
+}
+
+rule ("game ended - disable all buttons and HUDs") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.displayScoreboard != False;
+        Has Spawned(Event Player) == True;
+        Is Alive(Event Player) == True;
+    }
+    actions {
+        Wait(0.016, Ignore Condition);
+        "eventPlayer.disallowButton(Button.PRIMARY_FIRE)\neventPlayer.disallowButton(Button.SECONDARY_FIRE)"
+        Disallow Button(Event Player, Button(Ability 1));
+        Disallow Button(Event Player, Button(Ability 2));
+        Disallow Button(Event Player, Button(Ultimate));
+        Disallow Button(Event Player, Button(Interact));
+        Disallow Button(Event Player, Button(Jump));
+        Disallow Button(Event Player, Button(Crouch));
+        "eventPlayer.disallowButton(Button.MELEE)"
+        Disallow Button(Event Player, Button(Reload));
+        Cancel Primary Action(Event Player);
+        Set Status(Event Player, Null, Phased Out, 9999);
+        Set Damage Received(Event Player, 0);
+        "eventPlayer.setStatusEffect(null, Status.FROZEN, 9999)\neventPlayer.setStatusEffect(null, Status.INVINCIBLE, 9999)"
+        Set Move Speed(Event Player, 0);
+        "eventPlayer.setInvisibility(Invis.ALL)"
+        Set Player Variable(Event Player, isInBase, True);
+        Set Player Variable(Event Player, playerBaseLocation, Vector(0, -10000, 0));
+        Set Player Variable(Event Player, hasBase, False);
+        Disable Hero HUD(Event Player);
+        Disable Messages(Event Player);
+        Start Forcing Player Outlines(Event Player, All Players(All Teams), False, Color(White), Default);
+        Disable Nameplates(Event Player, All Players(All Teams));
+        Start Camera(Event Player, Global.gameEndCamera, Add(Global.gameEndCamera, Forward), 0);
+        If(Compare(Event Player, !=, Global.gameWinner));
+            Start Forcing Player Position(Event Player, Vector(1000, 1000, 1000), False);
+        Else;
+            Start Forcing Player Position(Event Player, First Of(Global.gameScorePositions), False);
+            Wait(0.1, Ignore Condition);
+            Stop Forcing Player Position(Event Player);
+    }
+}
+
+rule ("init") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+    }
+    actions {
+        Set Match Time(819);
+        Disable Built-In Game Mode Completion;
+        Disable Built-In Game Mode Announcer;
+        Disable Built-In Game Mode Scoring;
+        Destroy All Dummy Bots;
+        Destroy HUD Text(Global.waitingStartGameHud);
+        Create HUD Text(Filtered Array(All Players(All Teams), Not((Current Array Element).hasBase)), Value In Array(Array(Custom String("{0} NO BASE BUILT {0}\n  PRESS [{1}] TO BUILD", Icon String(Warning), Input Binding String(Button(Interact))), Custom String("   {0} Base não construída {0}\nPressione [{1}] para construir", Icon String(Warning), Input Binding String(Button(Interact)))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Null, Null, Top, -4, Color(Red), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(Mapped Array(All Players(All Teams), (Current Array Element).stealingFrom), Value In Array(Array(Custom String("{0} ENEMY IN YOUR BASE! {0}", Icon String(Warning)), Custom String("{0} Inimigo na sua base! {0}", Icon String(Warning))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Null, Custom String("              "), Top, -2, Color(Red), Color(White), Color(White), Visible To and String, Visible Never);
+        "disconnectedPlayers = []"
+        Set Global Variable At Index(bountyArrayLocations, 11, Null);
+        Set Global Variable At Index(bountyArrayEffects, 11, Null);
+        Set Global Variable At Index(bountyArrayMoney, 11, Null);
+        Set Global Variable(leaderboard, Empty Array);
+        Set Global Variable(stealingDistanceMultiplier, 1.5);
+        Set Global Variable(stealingDistanceThreshold, 0.75);
+        Set Global Variable(lootSpread, 15);
+        Set Global Variable(baseUpgradeSphereActualSize, 0.394);
+        Set Global Variable(sparkboltPickupPos, Null);
+        Set Global Variable(gameRulesGoldMinerInitialCost, 30);
+        If(Not(Global.enableGoldMinerUpgrade));
+            Set Global Variable(gameRulesGoldMinerInitialCost, 100000);
+        End;
+        Set Global Variable(gameRulesMoveBaseInitialCost, 50);
+        If(Global.enableAlwaysFreeBaseMove);
+            Set Global Variable(gameRulesMoveBaseInitialCost, 0);
+        End;
+        Set Global Variable(gameRulesGoldMinerFrequency, 1);
+        If(Global.enableInefficientGoldMiner);
+            Set Global Variable(gameRulesGoldMinerFrequency, 2);
+        End;
+        Set Global Variable(tmpTotalGoldCalc, 100);
+        Set Global Variable(totalGoldToWin, 0);
+        While(Compare(Global.tmpTotalGoldCalc, <, Global.gameGoldVictory));
+            Modify Global Variable(totalGoldToWin, Add, Global.tmpTotalGoldCalc);
+            Set Global Variable(tmpTotalGoldCalc, Multiply(Round To Integer(Divide(Multiply(Global.tmpTotalGoldCalc, 1.5), 10), Up), 10));
+        End;
+        Modify Global Variable(totalGoldToWin, Add, Global.gameGoldVictory);
+        Set Global Variable(gameHealingHeroes, Remove From Array(Remove From Array(Filtered Array(All Heroes, Not(Array Contains(All Support Heroes, Current Array Element))), Hero(Roadhog)), Hero(Soldier: 76)));
+        Set Global Variable(hasGameStarted, True);
+        Wait(1, Ignore Condition);
+        Pause Match Time;
+    }
+}
+
+rule ("GAME INIT MAP") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+    }
+    actions {
+        "destroyAllHudTexts()"
+        Set Global Variable(lootBlockerVolumePos, Null);
+        Set Global Variable(mapNavMesh, Null);
+        Set Global Variable(mapInfo, Null);
+        Set Global Variable(mapRotationVector, Direction From Angles(0, 0));
+        Set Global Variable(lootBlockerVolumeRadius, 30);
+        If(Or(Compare(Current Map, ==, Map(Black Forest)), Compare(Current Map, ==, Map(Black Forest Winter))));
+            Set Global Variable(mapInfo, Vector(-64.026, 10.008, -63.027));
+            Set Global Variable(gameEndCamera, Vector(-21.45, 13.18, 2.03));
+        Else If(Or(Compare(Current Map, ==, Map(Blizzard World)), Compare(Current Map, ==, Map(Blizzard World Winter))));
+            Set Global Variable(mapNavMesh, Vector(-92.816, -1.3, 119.946));
+            Set Global Variable(mapInfo, Vector(-93.084, 7, 68.06));
+            Set Global Variable(gameEndCamera, Vector(-124.15, 1.2, 107.3));
+        Else If(Compare(Current Map, ==, Map(Castillo)));
+            Set Global Variable(mapInfo, Vector(-60.13, 7.032, 52.027));
+            Set Global Variable(gameEndCamera, Vector(-82.63, 43.36, 16.35));
+        Else If(Or(Compare(Current Map, ==, Map(Château Guillard)), Compare(Current Map, ==, Map(Château Guillard Halloween))));
+            Set Global Variable(mapInfo, Vector(66.17, 13.001, 65.046));
+            Set Global Variable(gameEndCamera, Vector(205.74, 1.28, 76.17));
+        Else If(Compare(Current Map, ==, Map(Dorado)));
+            Set Global Variable(mapInfo, Vector(85.11, 14.007, -67.039));
+            Set Global Variable(mapNavMesh, Vector(69.636, 6.939, -13.709));
+            Set Global Variable(mapRotationVector, Direction From Angles(321, 0));
+            Set Global Variable(gameEndCamera, Vector(133.25, 57.86, 34.46));
+        Else If(Or(Compare(Current Map, ==, Map(Ecopoint: Antarctica)), Compare(Current Map, ==, Map(Ecopoint: Antarctica Winter))));
+            Set Global Variable(mapInfo, Vector(-110.027, 10.003, -56.06));
+            Set Global Variable(gameEndCamera, Vector(-5.46, 24.56, -55.57));
+        Else If(Or(Compare(Current Map, ==, Map(Eichenwalde)), Compare(Current Map, ==, Map(Eichenwalde Halloween))));
+            Set Global Variable(mapNavMesh, Vector(21.479, 4.943, -61.208));
+            Set Global Variable(mapInfo, Vector(55.021, 18.004, -77.102));
+            Set Global Variable(mapRotationVector, Direction From Angles(15, 0));
+            Set Global Variable(gameEndCamera, Vector(122.3, 9.66, -29.3));
+            Set Global Variable(mapExtension1Spawn, Vector(12, 6, -70));
+            Set Global Variable(mapExtension1Origin, Vector(-32, -1.75, -14.5));
+            Set Global Variable(mapExtension1Xyz, Vector(48, 16.75, 85.75));
+            Set Global Variable(mapExtension1Rotation, -284.5);
+            If(Not(Workshop Setting Toggle(Custom String("­\nMap extensions"), Custom String("Eichenwalde 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("­\nMap extensions"), Custom String("Eichenwalde 1st point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+        Else If(Or(Compare(Current Map, ==, Map(Hanamura)), Compare(Current Map, ==, Map(Hanamura Winter))));
+            "first point: doable but no space, maybe as an extension"
+            Set Global Variable(mapNavMesh, Vector(41.188, 0.478, 24.839));
+            Set Global Variable(mapInfo, Vector(-138.015, -14.005, -65.105));
+            Set Global Variable(mapRotationVector, Direction From Angles(348, 0));
+            Set Global Variable(gameEndCamera, Vector(69.88, -2.14, 58.6));
+            Set Global Variable(mapExtension1Spawn, Vector(39, 1, 10.3));
+            Set Global Variable(mapExtension1Origin, Vector(31, -5, -29.75));
+            Set Global Variable(mapExtension1Xyz, Vector(65.5, 14, 38));
+            Set Global Variable(mapExtension1Rotation, -0.5);
+            If(Not(Workshop Setting Toggle(Custom String("      　"), Custom String("Hanamura 1st point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("      　"), Custom String("Hanamura pre-choke"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+        Else If(Compare(Current Map, ==, Map(Havana)));
+            "both points are doable and good + the secret space"
+            Set Global Variable(mapNavMesh, Vector(-18.944, 6.062, -80.093));
+            Set Global Variable(mapInfo, Vector(44, 8.004, -61.103));
+            Set Global Variable(gameEndCamera, Vector(-35.31, 8.03, 64.56));
+            Set Global Variable(mapExtension1Spawn, Vector(-11, 6, -80));
+            Set Global Variable(mapExtension1Origin, Vector(1, 4, -97.25));
+            Set Global Variable(mapExtension1Xyz, Vector(96, 8, 61));
+            Set Global Variable(mapExtension1Rotation, -88.75);
+            Set Global Variable(mapExtension2Spawn, Vector(140, 6, -46.5));
+            Set Global Variable(mapExtension2Origin, Vector(69.5, 4, -84.75));
+            Set Global Variable(mapExtension2Xyz, Vector(56, 8, 94.75));
+            Set Global Variable(mapExtension2Rotation, -10);
+            Set Global Variable(mapExtension3Spawn, Vector(17.6, 20, -7.6));
+            Set Global Variable(mapExtension3Origin, Vector(-18.25, 4, -36));
+            Set Global Variable(mapExtension3Xyz, Vector(64.75, 13, 70.25));
+            Set Global Variable(mapExtension3Rotation, 0);
+            If(Not(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 1st point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana 3rd point"), False, 2));
+                Modify Global Variable(availableMapExtensions, Append To Array, 2);
+            End;
+            If(Workshop Setting Toggle(Custom String("     　"), Custom String("Havana secret area"), False, 3));
+                Modify Global Variable(availableMapExtensions, Append To Array, 3);
+            End;
+        Else If(Or(Compare(Current Map, ==, Map(Hollywood)), Compare(Current Map, ==, Map(Hollywood Halloween))));
+            "third point doable but meh, first point doable and good"
+            Set Global Variable(mapNavMesh, Vector(-18.025, 1.777, 14.081));
+            Set Global Variable(mapInfo, Vector(-82.041, 6.002, -87.072));
+            Set Global Variable(mapRotationVector, Direction From Angles(16, 0));
+            Set Global Variable(gameEndCamera, Vector(-31.01, 7.16, -176.48));
+            Set Global Variable(mapExtension1Spawn, Vector(-35, 2, -135));
+            Set Global Variable(mapExtension1Origin, Vector(-38.75, 2, -78.5));
+            Set Global Variable(mapExtension1Xyz, Vector(57.25, 15.25, 67));
+            Set Global Variable(mapExtension1Rotation, 104);
+            Set Global Variable(mapExtension2Spawn, Vector(-27, 2, -3));
+            Set Global Variable(mapExtension2Origin, Vector(-41.5, 2, -18.75));
+            Set Global Variable(mapExtension2Xyz, Vector(70.5, 15.25, 94.25));
+            Set Global Variable(mapExtension2Rotation, -25.75);
+            If(Not(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 3rd point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+            If(Workshop Setting Toggle(Custom String("    　"), Custom String("Hollywood 1st point"), False, 2));
+                Modify Global Variable(availableMapExtensions, Append To Array, 2);
+            End;
+        Else If(Compare(Current Map, ==, Map(Horizon Lunar Colony)));
+            Set Global Variable(mapNavMesh, Vector(51.683, 6.129, -34.033));
+            Set Global Variable(mapInfo, Vector(-166.055, 11.003, -80.112));
+            Set Global Variable(mapRotationVector, Direction From Angles(48, 0));
+            Set Global Variable(lootBlockerVolumePos, Vector(73.442, 17.829, -98.474));
+            Set Global Variable(lootBlockerVolumeRadius, 16);
+            Set Global Variable(gameEndCamera, Vector(-109, 4.77, -118.15));
+        Else If(Compare(Current Map, ==, Map(Ilios Lighthouse)));
+            Set Global Variable(mapInfo, Vector(176.245, -12.03, -100.103));
+            Set Global Variable(mapRotationVector, Direction From Angles(23, 0));
+            Set Global Variable(gameEndCamera, Vector(315.15, -23.06, 82.19));
+        Else If(Compare(Current Map, ==, Map(Ilios Ruins)));
+            Set Global Variable(mapInfo, Vector(-45.081, 10.057, -219.184));
+            Set Global Variable(gameEndCamera, Vector(36.57, 102.09, -130));
+        Else If(Compare(Current Map, ==, Map(Ilios Well)));
+            Set Global Variable(mapInfo, Vector(-157.179, -10.005, -51.094));
+            Set Global Variable(mapRotationVector, Direction From Angles(315, 0));
+            Set Global Variable(gameEndCamera, Vector(-217.03, 1.35, -18.18));
+        Else If(Compare(Current Map, ==, Map(Kanezaka)));
+            Set Global Variable(mapInfo, Vector(-102.07, 10.004, -86.056));
+            Set Global Variable(gameEndCamera, Vector(-14.67, 68.99, -126.2));
+        Else If(Or(Compare(Current Map, ==, Map(King's Row)), Compare(Current Map, ==, Map(King's Row Winter))));
+            "first point awesome, 3rd point meh, secret area ok (only for kings row normal)\nfor kings row winter, only 1st point ok"
+            Set Global Variable(mapNavMesh, Vector(-122.712, -1.072, -1.493));
+            Set Global Variable(mapInfo, Vector(-74.12, -14.004, -102.068));
+            Set Global Variable(mapRotationVector, Direction From Angles(350, 0));
+            Set Global Variable(lootBlockerVolumePos, Vector(-127.119, 0.434, -57.126));
+            Set Global Variable(gameEndCamera, Vector(-33.72, 40.35, -61.41));
+            Set Global Variable(mapExtension1Spawn, Vector(-4.64, 0, 11));
+            Set Global Variable(mapExtension1Origin, Vector(24, -4, -45.25));
+            Set Global Variable(mapExtension1Xyz, Vector(52, 13, 100.25));
+            Set Global Variable(mapExtension1Rotation, -95);
+            "only for normal version"
+            Set Global Variable(mapExtension2Spawn, Vector(-59.12, 1, 37.79));
+            Set Global Variable(mapExtension2Origin, Vector(-29.5, 4, -7.75));
+            Set Global Variable(mapExtension2Xyz, Vector(45.25, 15.75, 73.5));
+            Set Global Variable(mapExtension2Rotation, -101);
+            If(Not(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row 1st point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+            If(And(Workshop Setting Toggle(Custom String("   　"), Custom String("King's Row secret area (not available on winter)"), False, 2), Compare(Current Map, ==, Map(King's Row))));
+                Modify Global Variable(availableMapExtensions, Append To Array, 2);
+            End;
+        Else If(Or(Compare(Current Map, ==, Map(Lijiang Control Center)), Compare(Current Map, ==, Map(Lijiang Control Center Lunar New Year))));
+            Set Global Variable(mapInfo, Vector(-123.089, 14.265, 127.335));
+            Set Global Variable(mapRotationVector, Direction From Angles(45, 0));
+            Set Global Variable(gameEndCamera, Vector(87.78, 265.71, 363.57));
+        Else If(Or(Compare(Current Map, ==, Map(Lijiang Garden)), Compare(Current Map, ==, Map(Lijiang Garden Lunar New Year))));
+            Set Global Variable(mapInfo, Vector(-79.092, 4.094, 187.108));
+            Set Global Variable(gameEndCamera, Vector(-1.28, 95.34, 179.78));
+        Else If(Or(Compare(Current Map, ==, Map(Lijiang Night Market)), Compare(Current Map, ==, Map(Lijiang Night Market Lunar New Year))));
+            Set Global Variable(mapInfo, Vector(-83.084, -8.002, -185.081));
+            Set Global Variable(gameEndCamera, Vector(-77.06, 245.24, 369.46));
+        Else If(Compare(Current Map, ==, Map(Malevento)));
+            Set Global Variable(mapInfo, Vector(-78.033, -18.005, -83.032));
+            Set Global Variable(gameEndCamera, Vector(25, 9, 20));
+        Else If(Compare(Current Map, ==, Map(Necropolis)));
+            Set Global Variable(mapInfo, Vector(-65.048, -18.007, -80.036));
+            Set Global Variable(gameEndCamera, Vector(0.92, 12.58, -18.32));
+        Else If(Compare(Current Map, ==, Map(Nepal Sanctum)));
+            Set Global Variable(mapInfo, Vector(194.041, 6.128, -74.097));
+            Set Global Variable(gameEndCamera, Vector(81.96, 129.66, -2.54));
+        Else If(Compare(Current Map, ==, Map(Nepal Shrine)));
+            Set Global Variable(mapInfo, Vector(-183.073, 13.01, -54.09));
+            Set Global Variable(gameEndCamera, Vector(50.13, 130.99, -2.66));
+        Else If(Compare(Current Map, ==, Map(Nepal Village)));
+            Set Global Variable(mapInfo, Vector(-185.223, -14.102, -90.096));
+            Set Global Variable(gameEndCamera, Vector(-63.38, 16, -63.21));
+        Else If(Compare(Current Map, ==, Map(Oasis City Center)));
+            Set Global Variable(mapInfo, Vector(66.068, 14, 156.281));
+            Set Global Variable(mapRotationVector, Direction From Angles(-315, 0));
+            Set Global Variable(gameEndCamera, Vector(168.03, 61.19, 288.45));
+        Else If(Compare(Current Map, ==, Map(Oasis Gardens)));
+            Set Global Variable(mapInfo, Vector(163.047, 11.001, -79.268));
+            Set Global Variable(mapRotationVector, Direction From Angles(45, 0));
+            Set Global Variable(gameEndCamera, Vector(142.13, 46.81, -224.55));
+        Else If(Compare(Current Map, ==, Map(Oasis University)));
+            Set Global Variable(mapInfo, Vector(-140.225, 11.008, -64.07));
+            Set Global Variable(gameEndCamera, Vector(-197.81, 59.98, 43.73));
+        Else If(Compare(Current Map, ==, Map(Paris)));
+            "1st point ok"
+            Set Global Variable(mapNavMesh, Vector(-46.367, 10.098, -0.162));
+            Set Global Variable(mapInfo, Vector(-86.143, 8.008, -82.084));
+            Set Global Variable(mapRotationVector, Direction From Angles(26, 0));
+            Set Global Variable(gameEndCamera, Vector(27.85, 12.88, -83.67));
+            Set Global Variable(mapExtension1Spawn, Vector(-52, 12, 11.55));
+            Set Global Variable(mapExtension1Origin, Vector(31.75, 8, -48.5));
+            Set Global Variable(mapExtension1Xyz, Vector(42.5, 14.5, 115));
+            Set Global Variable(mapExtension1Rotation, -137);
+            If(Not(Workshop Setting Toggle(Custom String("  　"), Custom String("Paris 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String("  　"), Custom String("Paris 1st point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+        Else If(Compare(Current Map, ==, Map(Petra)));
+            Set Global Variable(mapInfo, Vector(-83.044, -15.012, -83.015));
+            Set Global Variable(gameEndCamera, Vector(1.02, -8.96, 7.02));
+        Else If(Compare(Current Map, ==, Map(Route 66)));
+            "3rd point ok"
+            Set Global Variable(mapInfo, Vector(-62.014, 15.004, 57.019));
+            Set Global Variable(gameEndCamera, Vector(34.7, 37, 38.62));
+            Set Global Variable(mapRotationVector, Direction From Angles(-212, 0));
+            Set Global Variable(mapExtension1Spawn, Vector(-92.5, 7, -23.3));
+            Set Global Variable(mapExtension1Origin, Vector(-67.5, 4, 46.25));
+            Set Global Variable(mapExtension1Xyz, Vector(51.5, 15, 101.5));
+            Set Global Variable(mapExtension1Rotation, -224);
+            If(Not(Workshop Setting Toggle(Custom String(" 　"), Custom String("Route 66 2nd point (default)"), True, 0)));
+                Modify Global Variable(availableMapExtensions, Remove From Array By Value, 0);
+            End;
+            If(Workshop Setting Toggle(Custom String(" 　"), Custom String("Route 66 3rd point"), False, 1));
+                Modify Global Variable(availableMapExtensions, Append To Array, 1);
+            End;
+        Else If(Compare(Current Map, ==, Map(Temple of Anubis)));
+            Set Global Variable(mapNavMesh, Vector(-4.694, -2.336, -6.513));
+            Set Global Variable(mapInfo, Vector(80.016, 10, -130.004));
+            Set Global Variable(mapRotationVector, Direction From Angles(275, 0));
+            Set Global Variable(gameEndCamera, Vector(15.08, 16.6, -18.58));
+        Else If(Compare(Current Map, ==, Map(Volskaya Industries)));
+            Set Global Variable(mapNavMesh, Vector(14.482, -4.352, 44.386));
+            Set Global Variable(mapInfo, Vector(-73.094, -8.005, 145.01));
+            Set Global Variable(mapRotationVector, Direction From Angles(335, 0));
+            Set Global Variable(lootBlockerVolumePos, Vector(28.034, 27.621, 76.387));
+            Set Global Variable(gameEndCamera, Vector(-41, -1.32, -85.31));
+        End;
+        "elif getCurrentMap() == Map.WORKSHOP_EXPANSE or getCurrentMap() == Map.WORKSHOP_EXPANSE_NIGHT:\nmapInfo = vect(-200.1, 1, -200.1)"
+        Abort If(Compare(Global.mapInfo, ==, Null));
+        If(Compare(Count Of(Global.availableMapExtensions), ==, 0));
+            Set Global Variable(availableMapExtensions, Array(0));
+        End;
+        Set Global Variable(chosenMapExtension, Random Value In Array(Global.availableMapExtensions));
+        If(Compare(Global.chosenMapExtension, ==, 0));
+            "mapXYZ = whole numbers in mapInfo, ignoring signs"
+            Set Global Variable(mapXYZ, Divide(Global.mapInfo, Vector(Absolute Value(X Component Of(Global.mapInfo)), Absolute Value(Y Component Of(Global.mapInfo)), Absolute Value(Z Component Of(Global.mapInfo)))));
+            Modify Global Variable(mapXYZ, Multiply, Vector(Round To Integer(Absolute Value(X Component Of(Global.mapInfo)), Down), Round To Integer(Absolute Value(Y Component Of(Global.mapInfo)), Down), Round To Integer(Absolute Value(Z Component Of(Global.mapInfo)), Down)));
+            "mapOrigin = fractional part of mapInfo + signs"
+            Set Global Variable(mapOrigin, Multiply(1000, Subtract(Global.mapInfo, Global.mapXYZ)));
+            Set Global Variable(mapXYZ, Vector(Absolute Value(X Component Of(Global.mapXYZ)), Absolute Value(Y Component Of(Global.mapXYZ)), Absolute Value(Z Component Of(Global.mapXYZ))));
+        Else If(Compare(Global.chosenMapExtension, ==, 1));
+            Set Global Variable(mapXYZ, Global.mapExtension1Xyz);
+            Set Global Variable(mapOrigin, Global.mapExtension1Origin);
+            Set Global Variable(mapRotationVector, Direction From Angles(Global.mapExtension1Rotation, 0));
+            Set Global Variable(mapExtensionSpawn, Global.mapExtension1Spawn);
+        Else If(Compare(Global.chosenMapExtension, ==, 2));
+            Set Global Variable(mapXYZ, Global.mapExtension2Xyz);
+            Set Global Variable(mapOrigin, Global.mapExtension2Origin);
+            Set Global Variable(mapRotationVector, Direction From Angles(Global.mapExtension2Rotation, 0));
+            Set Global Variable(mapExtensionSpawn, Global.mapExtension2Spawn);
+        Else If(Compare(Global.chosenMapExtension, ==, 3));
+            Set Global Variable(mapXYZ, Global.mapExtension3Xyz);
+            Set Global Variable(mapOrigin, Global.mapExtension3Origin);
+            Set Global Variable(mapRotationVector, Direction From Angles(Global.mapExtension3Rotation, 0));
+            Set Global Variable(mapExtensionSpawn, Global.mapExtension3Spawn);
+        End;
+        If(Or(Or(And(Compare(Current Map, ==, Map(Havana)), Compare(Global.chosenMapExtension, ==, 3)), And(Compare(Current Map, ==, Map(King's Row)), Compare(Global.chosenMapExtension, ==, 1))), And(Compare(Current Map, ==, Map(Route 66)), Compare(Global.chosenMapExtension, ==, 1))));
+            Set Global Variable(disableNwpCheck, True);
+        End;
+        Set Global Variable(mapSize, Subtract(Square Root(Add(Raise To Power(X Component Of(Global.mapXYZ), 2), Raise To Power(Z Component Of(Global.mapXYZ), 2))), 20));
+        Wait(1, Ignore Condition);
+        If(Compare(Global.mapNavMesh, !=, Null));
+            While(Compare(Distance Between(Nearest Walkable Position(Global.mapNavMesh), Global.mapNavMesh), <=, 2));
+                Wait(0.25, Ignore Condition);
+            End;
+        End;
+        Set Global Variable(isGameInitialized, True);
+        Destroy HUD Text(Global.waitingNavmeshHud);
+        Set Match Time(62);
+        Set Global Variable(gameEndingScreenPos, Vector(0, 0, 0));
+    }
+}
+
+rule ("skip assembling heroes") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Assembling Heroes == True;
+    }
+    actions {
+        If(False);
+        Else;
+            Set Match Time(10);
+    }
+}
+
+rule ("GAME MEDKIT NERF") {
+    event {
+        Player Received Healing;
+        All;
+        All;
+    }
+    conditions {
+        Event Was Health Pack == True;
+    }
+    actions {
+        Set Status(Event Player, Null, Hacked, 5);
+        Set Move Speed(Event Player, 75);
+        Wait(5, Ignore Condition);
+        Set Move Speed(Event Player, 100);
+    }
+}
+
+rule ("init player") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.gameEnded == False;
+    }
+    actions {
+        Set Player Variable(Event Player, hasBase, False);
+        Set Player Variable(Event Player, isMovingBase, False);
+        Set Player Variable(Event Player, statsMoneySec, 0);
+        Set Player Variable(Event Player, statsMoney, 0);
+        Set Player Variable(Event Player, statsMoneyStorage, 100);
+        Set Player Variable(Event Player, upgradeCurrentSelection, 2);
+        Set Player Variable(Event Player, statsUpgradeCost, Empty Array);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 0, Global.gameRulesGoldMinerInitialCost);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 1, 25);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 2, 100);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 3, Global.gameRulesMoveBaseInitialCost);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 4, 0);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 5, 30);
+        Set Player Variable At Index(Event Player, statsUpgradeCost, 6, 80);
+        Set Player Variable(Event Player, statsUpgradeLevels, Array(1, 1, 1, 0, 0, 1, 1));
+        Set Player Variable(Event Player, statsUpgradeHeroSwitchShadowCost, 75);
+        Set Player Variable(Event Player, statsMoneyKill, 5);
+        Set Player Variable(Event Player, statsStealingSpeed, 1);
+        If(False);
+        Else;
+            Set Player Variable(Event Player, statsBaseDelay, 4);
+        End;
+        Set Player Variable(Event Player, isStealingActive, False);
+        Set Player Variable(Event Player, playerBaseLocation, Vector(0, -1000, 0));
+        Set Player Variable(Event Player, playerObjectInBase, Null);
+        Set Player Variable(Event Player, debugEffectCountArray, Empty Array);
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, False);
+        Set Player Variable(Event Player, upgradeOffsetLeft, 0.9);
+        Set Player Variable(Event Player, upgradeOffsetRight, Multiply((Event Player).upgradeOffsetLeft, -1));
+        Disable Game Mode HUD(Event Player);
+        "eventPlayer.disableScoreboard()"
+        Set Player Variable At Index(Event Player, scoreArray, 4, Total Time Elapsed);
+    }
+}
+
+rule ("game not started") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Waiting For Players == True;
+    }
+    actions {
+        Create HUD Text(All Players(All Teams), If-Then-Else(Compare(Number Of Players(All Teams), <, 4), Value In Array(Array(Custom String("Waiting for players to start ({0}/4)", Number Of Players(All Teams)), Custom String("Esperando jogadores para iniciar ({0}/4)", Number Of Players(All Teams))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("Starting the game..."), Custom String("Iniciando jogo...")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Null, Null, Top, 3, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Set Global Variable(waitingStartGameHud, Last Text ID);
+    }
+}
+
+rule ("enough players - start game") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Waiting For Players == True;
+        Number Of Players(All Teams) >= 4;
+    }
+    actions {
+        Start Game Mode;
+    }
+}
+
+rule ("unsupported map") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.mapInfo == Null;
+        Is Game In Progress == True;
+    }
+    actions {
+        Create HUD Text(All Players(All Teams), Value In Array(Array(Custom String("The map {0} IS NOT SUPPORTED!", Current Map), Custom String("O mapa {0} não é compatível!", Current Map)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Null, Null, Top, 3, Color(Red), Null, Null, Visible To and String, Default Visibility);
+    }
+}
+
+rule ("waiting for navmesh to generate") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted == False;
+        Global.isGameInitialized == False;
+        Global.mapInfo != Null;
+    }
+    actions {
+        Create HUD Text(All Players(All Teams), Value In Array(Array(Custom String("Building the navmesh, please wait"), Custom String("Construindo a navmesh, aguarde")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Null, Null, Top, 3, Color(Orange), Null, Null, Visible To and String, Default Visibility);
+        Set Global Variable(waitingNavmeshHud, Last Text ID);
+    }
+}
+
+rule ("init player hud") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Has Spawned(Event Player) == True;
+        (Event Player).isInitialized == False;
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Wait(0.25, Ignore Condition);
+        Set Player Variable(Event Player, isInitialized, True);
+        "gold in base"
+        Create HUD Text(Event Player, Icon String(Circle), Value In Array(Array(Custom String("GOLD IN BASE"), Custom String("Ouro na base")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Custom String("{0}/{1} ({2}", (Event Player).statsMoneyBase, (Event Player).statsMoneyStorage, Custom String("{0})                                                                                                                         {1}", If-Then-Else(Compare((Event Player).statsMoneyBase, <, (Event Player).statsMoneyStorage), Value In Array(Array(Custom String("+{0}/sec", (Event Player).statsMoneySec), Custom String("+{0}/seg", (Event Player).statsMoneySec)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("Full!"), Custom String("Cheio!")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Custom String("                                     "))), Left, 0, Color(Orange), Color(Orange), If-Then-Else(Compare((Event Player).statsMoneyBase, <, (Event Player).statsMoneyStorage), Color(White), Color(Red)), Visible To String and Color, Default Visibility);
+        "gold on player"
+        Create HUD Text(Event Player, Icon String(Poison), Value In Array(Array(Custom String("GOLD ON PLAYER    "), Custom String("Ouro no jogador")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Custom String("{0}                                                                                                                          {1}", (Event Player).statsMoney, Custom String("                                    ")), Left, 1, Color(Orange), Color(Orange), Color(White), Visible To and String, Default Visibility);
+        "upgrade header"
+        Create In-World Text(If-Then-Else((Event Player).showUpgradeText, Event Player, Empty Array), Custom String("{0}{1}\n{2}\n\n\n\n", Value In Array(Array(Value In Array(Array(Custom String("             "), Custom String("              ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("             "), Custom String("            ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("               "), Custom String("                     ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("            "), Custom String("        ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("              "), Custom String("            ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("            "), Custom String("                      ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("           "), Custom String("　　　　　  ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), (Event Player).upgradeCurrentSelection), Value In Array(Global.upgradeIcons, (Event Player).upgradeCurrentSelection), Value In Array(Array(Value In Array(Array(Custom String("AUTO GOLD MINER"), Custom String("Gerador de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("KILL GOLD BOUNTY"), Custom String("Ouro por abate")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("BASE GOLD STORAGE"), Custom String("Armazenamento da base")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("MOVE YOUR BASE"), Custom String("Mover base")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("SWITCH YOUR HERO"), Custom String("Trocar de herói")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("GOLD STEAL SPEED"), Custom String("Taxa de roubo de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("BASE ENTRY TIME"), Custom String("Tempo de entrada na base")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), (Event Player).upgradeCurrentSelection)), (Event Player).playerBaseLocation, 2, Do Not Clip, Visible To Position and String, Value In Array(Global.upgradeColors, (Event Player).upgradeCurrentSelection), Default Visibility);
+        "upgrade description"
+        Create In-World Text(If-Then-Else((Event Player).showUpgradeText, Event Player, Empty Array), Value In Array(Array(Value In Array(Array(Custom String("    [LVL {0}]\n\n  Upgrades your gold generation\n    to {1} per second. Can't generate\nwhen there are players in your base\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Add((Event Player).statsMoneySec, 1)), Custom String("    [NV {0}]\n\n       MELHORA A GERAÇÃO DE OURO\nPARA {1} POR SEGUNDO. NÃO FUNCIONA\n    QUANDO HÁ JOGADORES NA BASE.\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Add((Event Player).statsMoneySec, 1))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("     [LVL {0}]\n\n    Increases bounty from {1} to {2}\nAwarded by dealing finishing blow\n  Doesn't affect dropped loot orbs\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), (Event Player).statsMoneyKill, Add((Event Player).statsMoneyKill, 15)), Custom String("       [NV {0}]\n\nAUMENTA A RECOMPENSA DE {1} PARA {2}\n          OBTIDO AO EFETUAR UM ABATE\n           NÃO AFETA ORBES DEIXADOS\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), (Event Player).statsMoneyKill, Add((Event Player).statsMoneyKill, 15))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("[LVL {0}]\n\nIncreases the maximum amount \n  of gold your base can store.\n  Upgraded storage: {1} gold\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Round To Integer(Multiply((Event Player).statsMoneyStorage, 1.5), Up)), Custom String("[NV {0}]\n\n　　　　 Aumenta o máximo de ouro\n　　　 que a sua base pode armazenar.　　　 \n　　　　 Após melhoria: {1} de ouro\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Round To Integer(Multiply((Event Player).statsMoneyStorage, 1.5), Up))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("   [NO LVL]\n \n           Packs up your base. \nYou keep your gold & upgrades. \nPrice depends on gold storage.\n "), Custom String("　　　　[SEM NV]\n\n　　　　 Empacota a sua base.\n　 Ouro e melhorias são mantidos.\nO preço depende do armazenamento.\n ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String(" [NO LVL]\n \n     Takes you to hero selection.\n  Bug: If only one hero shows up\nWait 5 seconds until they appear.\n "), Custom String("　　   [sem nv]\n\n　　　   Leva à seleção de heróis.\n        Bug: se apenas um herói aparecer\naguarde 5 segundos até o resto surgir.\n ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("     [LVL {0}]\n \n    Steal +2 gold/sec from bases.\nSame upgrade price as gold miner.\n  Total {1} + enemy gold miner/sec.\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Multiply(Add((Event Player).statsStealingSpeed, 1), 2)), Custom String("[NV {0}]\n\n　　　  Roube +2 ouro/seg de bases.\n  　 Mesmo preço do gerador de ouro.　   \n　　   Total {1} + gerador inimigo/seg.\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), Multiply(Add((Event Player).statsStealingSpeed, 1), 2))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("  [LVL {0}]\n \n      Reduces the time it takes\nto enter your base by 0.5 sec.\n    The current delay is {1} sec.\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), (Event Player).statsBaseDelay), Custom String("[NV {0}]\n\n　　　　     Reduz o tempo necessário\n  　　　para entrar na base por 0,5 seg.　　　  \n　　　　　   O tempo atual é {1} seg.\n ", Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), (Event Player).statsBaseDelay)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), (Event Player).upgradeCurrentSelection), (Event Player).playerBaseLocation, 1.1, Do Not Clip, Visible To Position and String, Color(White), Default Visibility);
+        "base sphere"
+        Create Effect(Filtered Array(All Players(All Teams), Not(And(Compare(Current Array Element, ==, Event Player), (Current Array Element).isInBase))), Sphere, Value In Array(Global.powerLevelColors, Value In Array((Event Player).statsUpgradeLevels, 2)), (Event Player).playerBaseLocation, 3.5, Visible To Position Radius and Color);
+        "base ring"
+        Create Effect(If-Then-Else((Event Player).isInBase, Event Player, Empty Array), Ring, Value In Array(Global.powerLevelColors, Value In Array((Event Player).statsUpgradeLevels, 2)), (Event Player).playerBaseLocation, 3.5, Visible To Position Radius and Color);
+        "upgrade sphere"
+        Create Effect(If-Then-Else((Event Player).isInBase, Event Player, Empty Array), Sphere, If-Then-Else((Event Player).showUpgradeText, Value In Array(Global.upgradeColors, (Event Player).upgradeCurrentSelection), Color(White)), (Event Player).playerBaseLocation, 0.4, Visible To Position Radius and Color);
+        Create Icon(If-Then-Else((Event Player).showUpgradeText, Event Player, Empty Array), Update Every Frame(Add(Multiply(Normalize(Vector(Multiply(Z Component Of(Facing Direction Of(Event Player)), -1), 0, X Component Of(Facing Direction Of(Event Player)))), (Event Player).upgradeOffsetRight), Subtract((Event Player).playerBaseLocation, Vector(0, 0.3, 0)))), Arrow: Left, Visible To and Position, Color(White), False);
+        Create Icon(If-Then-Else((Event Player).showUpgradeText, Event Player, Empty Array), Update Every Frame(Add(Multiply(Normalize(Vector(Multiply(Z Component Of(Facing Direction Of(Event Player)), -1), 0, X Component Of(Facing Direction Of(Event Player)))), (Event Player).upgradeOffsetLeft), Subtract((Event Player).playerBaseLocation, Vector(0, 0.3, 0)))), Arrow: Right, Visible To and Position, Color(White), False);
+        "stealing sphere"
+        Create Effect(Filtered Array(All Players(All Teams), Compare((Current Array Element).stealingFrom, ==, Event Player)), Sphere, Color(Red), (Event Player).playerBaseLocation, 0.4, Visible To Position and Radius);
+        "stealing hud"
+        Create In-World Text(Filtered Array(All Players(All Teams), Compare((Current Array Element).stealingFrom, ==, Event Player)), Value In Array(Array(Custom String("HOLD {0} TO STEAL {1} GOLD: {2}", Input Binding String(Button(Interact)), Icon String(Skull), (Event Player).statsMoneyBase), Custom String("Segure {0} para roubar {1} ouro: {2}", Input Binding String(Button(Interact)), Icon String(Skull), (Event Player).statsMoneyBase)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), (Event Player).playerBaseLocation, 1.5, Do Not Clip, Visible To Position and String, Color(Red), Visible Never);
+    }
+}
+
+rule ("update outlines") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    actions {
+        While(True);
+            Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Value In Array(Global.powerLevelColors, Value In Array((Event Player).statsUpgradeLevels, 2)), Default);
+            Wait(1, Ignore Condition);
+        End;
+    }
+}
+
+rule ("display scoreboard") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Wait(0.016, Ignore Condition);
+        "title + 1st player"
+        Create HUD Text(All Players(All Teams), Null, Value In Array(Array(Custom String("            discord.gg/YP544CH | code: 14WON\nScoreboard    -    Base Wars 2.3 12/11/2022"), Custom String("　　　　　 discord.gg/YP544CH | código: 14WON\n　　　 Placar    -    Guerra de Bases 2.3 12/11/2022")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("FIRST TO {0} GOLD IN BASE WINS!\n", Global.gameGoldVictory), Custom String("Vença ao obter {0} de ouro na base!\n", Global.gameGoldVictory)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Right, 1, Color(White), Color(Orange), Color(White), Visible To and String, Visible Always);
+        For Global Variable(hudIterator, 0, 3, 1);
+            Create HUD Text(All Players(All Teams), Null, Value In Array(Array(Custom String("Scoreboard    -    Base Wars 2.3 12/11/2022"), Custom String("　　　 Placar    -    Guerra de Bases 2.3 12/11/2022")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Custom String(" · {0}% {1} {2} ", Round To Integer(Multiply(Divide(Add((Value In Array(Global.leaderboard, Evaluate Once(Global.hudIterator))).statsMoneyBase, (Value In Array(Global.leaderboard, Evaluate Once(Global.hudIterator))).storedMoney), Global.totalGoldToWin), 100), Down), Hero Icon String(Hero Of(Value In Array(Global.leaderboard, Evaluate Once(Global.hudIterator)))), Value In Array(Global.leaderboard, Evaluate Once(Global.hudIterator))), Right, Add(Evaluate Once(Global.hudIterator), 2), Null, Null, Value In Array(Global.powerLevelColors, Value In Array((Value In Array(Global.leaderboard, Evaluate Once(Global.hudIterator))).statsUpgradeLevels, 2)), Visible To String and Color, Visible Always);
+        End;
+    }
+}
+
+rule ("update scoreboard") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+    }
+    actions {
+        While(True);
+            Set Global Variable(leaderboard, Sorted Array(Filtered Array(All Players(All Teams), Compare(Add((Current Array Element).statsMoneyBase, (Current Array Element).statsMoneyStorage), >, 0)), Multiply(-1, Add((Current Array Element).statsMoneyBase, Multiply((Current Array Element).statsMoneyStorage, 10)))));
+            Wait(1, Ignore Condition);
+        End;
+    }
+}
+
+rule ("PLAYER REGEN CONDITION") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Has Spawned(Event Player) == True;
+    }
+    actions {
+        Set Player Variable(Event Player, canAutoHeal, False);
+        Abort If(Not(Array Contains(Global.gameHealingHeroes, Hero Of(Event Player))));
+        Set Player Variable(Event Player, canAutoHeal, True);
+    }
+}
+
+rule ("PLAYER REGEN TAKE DAMAGE") {
+    event {
+        Player Took Damage;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).canAutoHeal != False;
+    }
+    actions {
+        Set Player Variable(Event Player, regenStartTime, Add(Total Time Elapsed, 5));
+        Stop Heal Over Time((Event Player).regenID);
+        Set Player Variable(Event Player, regenID, Null);
+    }
+}
+
+rule ("PLAYER REGEN START") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).canAutoHeal != False;
+        Health(Event Player) != Max Health(Event Player);
+        (Event Player).regenStartTime < Total Time Elapsed;
+        (Event Player).regenStartTime != 0;
+        (Event Player).regenID == Null;
+        (Event Player).isInBase == False;
+    }
+    actions {
+        Start Heal Over Time(Event Player, Null, 9999, 33);
+        Set Player Variable(Event Player, regenID, Last Heal Over Time ID);
+        Wait(0.016, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("PLAYER REGEN STOP") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).regenID != Null;
+        Health(Event Player) == Max Health(Event Player);
+    }
+    actions {
+        Stop Heal Over Time((Event Player).regenID);
+        Set Player Variable(Event Player, regenID, Null);
+    }
+}
+
+rule ("PLAYER SOMBRA CLOAK ON") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Hero Of(Event Player) == Hero(Sombra);
+        Is Using Ability 1(Event Player) == True;
+    }
+    actions {
+        Set Player Variable(Event Player, isCloaked, True);
+    }
+}
+
+rule ("PLAYER SOMBRA CLOAK OFF") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Or(Compare(Hero Of(Event Player), !=, Hero(Sombra)), Not(Is Using Ability 1(Event Player))) == True;
+    }
+    actions {
+        Set Player Variable(Event Player, isCloaked, False);
+    }
+}
+
+rule ("BASE BUILD CHECK CONDITION") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).hasBase == False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        Y Component Of((Event Player).playerBaseLocation) == -1000;
+        Is On Ground(Event Player) == True;
+        Global.hasGameStarted != False;
+        (Event Player).stealingFrom == Null;
+    }
+    actions {
+        Call Subroutine(setBaseLocation);
+        Wait(0.75, Ignore Condition);
+    }
+}
+
+rule ("BASE BUILD") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).hasBase == False;
+        Y Component Of((Event Player).playerBaseLocation) != -1000;
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Set Player Variable(Event Player, hasBase, True);
+        "spawnBaseEffect()\ncreateIcon(eventPlayer, eventPlayer.playerBaseLocation + vect(0, 2.8, 0), Icon.HALO, IconReeval.POSITION, Color.WHITE, false)"
+        Create In-World Text(Remove From Array(All Players(All Teams), Event Player), Custom String("{0} {1} {2}", Hero Icon String(Hero Of(Event Player)), Event Player, (Event Player).statsMoneyBase), Add((Event Player).playerBaseLocation, Vector(0, 2, 0)), 0.8, Clip Against Surfaces, Visible To Position and String, Color(White), Visible Always);
+        Create In-World Text(Event Player, Custom String("{0}{1}", Hero Icon String(Hero Of(Event Player)), Value In Array(Array(Custom String(" Your base"), Custom String(" Sua base")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Add((Event Player).playerBaseLocation, Vector(0, 2.5, 0)), 1, Do Not Clip, Visible To Position and String, Color(White), Visible Never);
+        Create In-World Text(If-Then-Else((Event Player).showUpgradeText, Event Player, Empty Array), Custom String(" \n \n \n \n \n{0}{1}", Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection), Value In Array(Array(Custom String(" GOLD"), Custom String(" de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), (Event Player).playerBaseLocation, 2, Do Not Clip, Visible To Position and String, Color(Orange), Default Visibility);
+        Call Subroutine(playerBaseBuildEffects);
+    }
+}
+
+rule ("player enters base") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        (Event Player).playerObjectInBase == Null;
+        (Event Player).hasBase != False;
+        Distance Between((Event Player).playerBaseLocation, Event Player) <= 3.5;
+        Has Status(Event Player, Asleep) == False;
+        Has Status(Event Player, Frozen) == False;
+        Has Status(Event Player, Unkillable) == False;
+        Has Status(Event Player, Invincible) == False;
+        Has Status(Event Player, Phased Out) == False;
+        Is Using Ultimate(Event Player) == False;
+        (Event Player).isCloaked == False;
+    }
+    actions {
+        Set Player Variable(Event Player, playerObjectInBase, Event Player);
+        Stop Chasing Player Variable(Event Player, baseProtectionTimer);
+        Set Player Variable(Event Player, baseProtectionTimer, (Event Player).statsBaseDelay);
+        Create HUD Text(Event Player, Value In Array(Array(Custom String("{0} ENTERING BASE {0} \n           IN {1} SEC", Icon String(Warning), (Event Player).baseProtectionTimer), Custom String("{0} Entrando na base {0} \n              em {1} seg", Icon String(Warning), (Event Player).baseProtectionTimer)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Null, Null, Top, -3, Color(Orange), Null, Null, Visible To and String, Default Visibility);
+        Set Player Variable(Event Player, hudBaseProtection, Last Text ID);
+        Chase Player Variable At Rate(Event Player, baseProtectionTimer, 0, 1, None);
+    }
+}
+
+rule ("BASE ENTER ABORT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).playerObjectInBase == Event Player;
+        (Event Player).isInBase == False;
+        Or(Or(Or(Or(Or(Or((Event Player).isCloaked, Has Status(Event Player, Asleep)), Has Status(Event Player, Frozen)), Has Status(Event Player, Unkillable)), Has Status(Event Player, Invincible)), Has Status(Event Player, Phased Out)), Is Using Ultimate(Event Player)) == True;
+    }
+    actions {
+        Stop Chasing Player Variable(Event Player, baseProtectionTimer);
+        Destroy HUD Text((Event Player).hudBaseProtection);
+        Set Player Variable(Event Player, playerObjectInBase, Null);
+    }
+}
+
+rule ("BASE EXIT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).playerObjectInBase != Null;
+        Global.hasGameStarted != False;
+        (Event Player).hasBase != False;
+        Distance Between((Event Player).playerBaseLocation, Event Player) >= 3.5;
+    }
+    actions {
+        Set Player Variable(Event Player, playerObjectInBase, Null);
+        Set Damage Dealt(Event Player, 100);
+        Stop Chasing Player Variable(Event Player, baseProtectionTimer);
+        Destroy HUD Text((Event Player).hudBaseProtection);
+        Abort If(Not((Event Player).isInBase));
+        Set Player Variable(Event Player, isInBase, False);
+        Clear Status(Event Player, Phased Out);
+        Set Invisible(Event Player, None);
+        Stop All Heal Over Time(Event Player);
+        Allow Button(Event Player, Button(Primary Fire));
+        Allow Button(Event Player, Button(Melee));
+        Allow Button(Event Player, Button(Secondary Fire));
+        Set Ability 1 Enabled(Event Player, True);
+        Set Ability 2 Enabled(Event Player, True);
+        Allow Button(Event Player, Button(Ultimate));
+    }
+}
+
+rule ("player finished entering base") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).playerObjectInBase != Null;
+        (Event Player).baseProtectionTimer == 0;
+        Is Alive(Event Player) == True;
+        Global.gameEnded == False;
+    }
+    actions {
+        Set Damage Dealt(Event Player, 0);
+        Set Invisible(Event Player, All);
+        Start Heal Over Time(Event Player, Event Player, 9999, 25);
+        Set Status(Event Player, Null, Phased Out, 9999);
+        Disallow Button(Event Player, Button(Primary Fire));
+        Disallow Button(Event Player, Button(Secondary Fire));
+        Disallow Button(Event Player, Button(Melee));
+        Set Ability 1 Enabled(Event Player, False);
+        Set Ability 2 Enabled(Event Player, False);
+        Disallow Button(Event Player, Button(Ultimate));
+        Set Move Speed(Event Player, 100);
+        Stop Heal Over Time((Event Player).regenID);
+        Set Player Variable(Event Player, regenID, Null);
+        Stop Chasing Player Variable(Event Player, baseProtectionTimer);
+        Destroy HUD Text((Event Player).hudBaseProtection);
+        Create HUD Text(Event Player, Value In Array(Array(Custom String("         {0} PROTECTED AND INVISIBLE {0}\n\nTo upgrade, look at white center orb", Icon String(Checkmark)), Custom String("{0} PROTEGIDO(A) E INVISÍVEL {0}\n\n  PARA APRIMORAR, OLHE PARA\n       O ORBE BRANCO CENTRAL", Icon String(Checkmark))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("Controls:"), Custom String("Controles:")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Custom String("{0}\n{1}", Value In Array(Array(Custom String("{0}{1} : navigate menu\n[{2}]    : buy upgrade", Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Interact))), Custom String("{0}{1} : navegar pelo menu\n[{2}]    : comprar melhoria", Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Interact)))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))), Value In Array(Array(Custom String("[{0}]   : use sparkbolt\n[{1} {2} remaining]", Input Binding String(Button(Ultimate)), (Event Player).nbSparkbolts, Icon String(Bolt)), Custom String("[{0}]   : usar faísca\n[{1} {2} restando]", Input Binding String(Button(Ultimate)), (Event Player).nbSparkbolts, Icon String(Bolt))), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))), Top, -3, Color(Green), Color(Green), Color(White), Visible To and String, Default Visibility);
+        Set Player Variable(Event Player, hudBaseProtection, Last Text ID);
+        Call Subroutine(settleBalance);
+        "eventPlayer.upgradeRightArrow = getLastCreatedEntity()"
+        If(Not((Event Player).isInBase));
+            Play Effect(All Players(All Teams), Good Pickup Effect, Value In Array(Global.powerLevelColors, Value In Array((Event Player).statsUpgradeLevels, 2)), Position Of(Event Player), 4);
+        End;
+        Set Player Variable(Event Player, isInBase, True);
+    }
+}
+
+rule ("BASE RESPAWN") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Has Spawned(Event Player) == True;
+        Is Alive(Event Player) == True;
+    }
+    actions {
+        If(Or(Not((Event Player).hasBase), (Event Player).isMovingBase));
+            If(Compare(Global.chosenMapExtension, >, 0));
+                Wait(0.1, Ignore Condition);
+                Teleport(Event Player, Global.mapExtensionSpawn);
+                If(Compare(Hero Of(Event Player), ==, Hero(Tracer)));
+                    Set Ability 2 Enabled(Event Player, False);
+                    Wait(3.1, Ignore Condition);
+                    Set Ability 2 Enabled(Event Player, True);
+                End;
+            End;
+            Abort;
+        End;
+        Set Player Variable(Event Player, statsMoney, 0);
+        Destroy HUD Text((Event Player).hudBaseProtection);
+        Set Player Variable(Event Player, isInBase, True);
+        Set Player Variable(Event Player, baseProtectionTimer, 0);
+        Teleport(Event Player, (Event Player).playerBaseLocation);
+        Set Player Variable(Event Player, playerObjectInBase, Event Player);
+        Set Invisible(Event Player, All);
+    }
+}
+
+rule ("check if player is in someone else's base") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        Global.enableStealing != False;
+    }
+    actions {
+        "TODO: optimize this **** by not constantly looping if stealingFrom != null"
+        While(True);
+            If(And(And(Is Alive(Event Player), Has Spawned(Event Player)), Not((Event Player).isCloaked)));
+                Set Global Variable(tmpBaseOwners, Filtered Array(All Players(All Teams), And(And(And(Compare(Current Array Element, !=, Event Player), (Current Array Element).hasBase), Compare((Current Array Element).statsMoneyBase, !=, 0)), Not(And((Current Array Element).isInBase, Not(Global.enableOccupiedStealing))))));
+                For Global Variable(stealingBaseOwnerIterator, 0, Count Of(Global.tmpBaseOwners), 1);
+                    If(Compare(Distance Between(Position Of(Event Player), (Value In Array(Global.tmpBaseOwners, Global.stealingBaseOwnerIterator)).playerBaseLocation), <=, 3.5));
+                        Set Player Variable(Event Player, stealingFrom, Value In Array(Global.tmpBaseOwners, Global.stealingBaseOwnerIterator));
+                        Skip(4);
+                    End;
+                End;
+            End;
+            Set Player Variable(Event Player, stealingFrom, Null);
+            //lbl_0:
+            Wait(0.064, Ignore Condition);
+        End;
+    }
+}
+
+rule ("ENEMY BASE STEAL LOOP") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.enableStealing != False;
+        Is Alive(Event Player) == True;
+        Has Spawned(Event Player) == True;
+        (Event Player).stealingFrom != Null;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).stealingOnCooldown == False;
+        (Event Player).isCloaked == False;
+        ((Event Player).stealingFrom).statsMoneyBase != 0;
+        Dot Product(Direction Towards(Eye Position(Event Player), ((Event Player).stealingFrom).playerBaseLocation), Facing Direction Of(Event Player)) >= 0.99;
+        Distance Between(Position Of(Event Player), ((Event Player).stealingFrom).playerBaseLocation) < 2;
+    }
+    actions {
+        If(Not((Event Player).isStealingActive));
+            Create Effect(Event Player, Pick-up Sound, Color(White), Event Player, 2000, Visible To Position and Radius);
+            Set Player Variable(Event Player, stealingSoundEffect, Last Created Entity);
+            Set Player Variable(Event Player, isStealingActive, True);
+        End;
+        Set Player Variable(Event Player, tmpMoneyDifference, ((Event Player).stealingFrom).statsMoneyBase);
+        If(((Event Player).stealingFrom).isInBase);
+            Modify Player Variable(Event Player, tmpMoneyDifference, Add, ((Event Player).stealingFrom).statsMoney);
+        End;
+        Set Player Variable(Event Player, tmpStealingAmount, Add(Round To Integer(Divide(((Event Player).stealingFrom).statsMoneySec, 2), Up), (Event Player).statsStealingSpeed));
+        "Risk bonus (if player is in base)"
+        If(Or(((Event Player).stealingFrom).isInBase, Is Dead((Event Player).stealingFrom)));
+            Set Player Variable(Event Player, tmpStealingRiskBonus, Round To Integer(Multiply((Event Player).tmpStealingAmount, 0.5), Up));
+            Modify Player Variable(Event Player, tmpStealingAmount, Add, (Event Player).tmpStealingRiskBonus);
+        Else;
+            Set Player Variable(Event Player, tmpStealingRiskBonus, 0);
+        End;
+        "Distance bonus"
+        Set Player Variable(Event Player, tmpStealingDistanceBonus, Round To Integer(Multiply((Event Player).statsStealingSpeed, Subtract(Multiply(Add(Global.stealingDistanceMultiplier, Global.stealingDistanceThreshold), Min(1, Divide(Distance Between((Event Player).playerBaseLocation, ((Event Player).stealingFrom).playerBaseLocation), Global.mapSize))), Global.stealingDistanceThreshold)), To Nearest));
+        If(Not((Event Player).hasBase));
+            Set Player Variable(Event Player, tmpStealingDistanceBonus, 0);
+        End;
+        If(Compare((Event Player).tmpStealingDistanceBonus, >, 0));
+            Modify Player Variable(Event Player, tmpStealingAmount, Add, (Event Player).tmpStealingDistanceBonus);
+        End;
+        Modify Player Variable(Event Player, tmpStealingAmount, Min, (Event Player).tmpMoneyDifference);
+        If(Compare((Event Player).tmpStealingDistanceBonus, >, 0));
+            If(Compare((Event Player).tmpStealingRiskBonus, >, 0));
+                Small Message(Event Player, Value In Array(Array(Custom String("+{0} GOLD ({1} distance bonus, {2} risk bonus)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingDistanceBonus, (Event Player).tmpStealingRiskBonus), Custom String("+{0} de ouro ({1} bônus de distância, {2} bônus de risco)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingDistanceBonus, (Event Player).tmpStealingRiskBonus)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+            Else;
+                Small Message(Event Player, Value In Array(Array(Custom String("+{0} GOLD ({1} distance bonus)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingDistanceBonus), Custom String("+{0} de ouro ({1} bônus de distância)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingDistanceBonus)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+            End;
+        Else;
+            If(Compare((Event Player).tmpStealingRiskBonus, >, 0));
+                Small Message(Event Player, Value In Array(Array(Custom String("+{0} GOLD ({1} risk bonus)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingRiskBonus), Custom String("+{0} de ouro ({1} bônus de risco)", (Event Player).tmpStealingAmount, (Event Player).tmpStealingRiskBonus)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+            Else;
+                Small Message(Event Player, Custom String("+{0}{1}", (Event Player).tmpStealingAmount, Value In Array(Array(Custom String(" GOLD"), Custom String(" de ouro")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            End;
+        End;
+        Modify Player Variable(Event Player, statsMoney, Add, (Event Player).tmpStealingAmount);
+        Modify Player Variable At Index(Event Player, scoreArray, 2, Add, (Event Player).tmpStealingAmount);
+        Modify Player Variable At Index(Event Player, scoreArray, 3, Add, (Event Player).tmpStealingAmount);
+        Modify Player Variable At Index((Event Player).stealingFrom, scoreArray, 8, Add, (Event Player).tmpStealingAmount);
+        Modify Player Variable((Event Player).stealingFrom, statsMoneyBase, Subtract, (Event Player).tmpStealingAmount);
+        "If the player is in the base, take from his money instead of from his base"
+        If(And(And(((Event Player).stealingFrom).isInBase, Compare(((Event Player).stealingFrom).statsMoneyStorage, !=, ((Event Player).stealingFrom).statsMoneyBase)), Compare(((Event Player).stealingFrom).statsMoney, >, 0)));
+            Set Player Variable((Event Player).stealingFrom, tmpMoneyDifference, Min(Subtract(((Event Player).stealingFrom).statsMoneyStorage, ((Event Player).stealingFrom).statsMoneyBase), ((Event Player).stealingFrom).statsMoney));
+            Modify Player Variable((Event Player).stealingFrom, statsMoney, Subtract, ((Event Player).stealingFrom).tmpMoneyDifference);
+            Modify Player Variable((Event Player).stealingFrom, statsMoneyBase, Add, ((Event Player).stealingFrom).tmpMoneyDifference);
+        End;
+        Play Effect(Event Player, Explosion Sound, Color(White), ((Event Player).stealingFrom).playerBaseLocation, 5);
+        Play Effect(Event Player, Ring Explosion, Color(Red), ((Event Player).stealingFrom).playerBaseLocation, 2);
+        Wait(0.5, Ignore Condition);
+        Loop If Condition Is True;
+        Set Player Variable(Event Player, stealingOnCooldown, True);
+        Destroy Effect((Event Player).stealingSoundEffect);
+        Set Player Variable(Event Player, isStealingActive, False);
+        Wait(1, Ignore Condition);
+        Set Player Variable(Event Player, stealingOnCooldown, False);
+    }
+}
+
+rule ("upgrade gold miner") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 0;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 6, Add, 1);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Play Effect(Event Player, Ring Explosion, Color(Blue), (Event Player).playerBaseLocation, 4);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, Multiply(Round To Integer(Divide(Multiply((Event Player).statsUpgradeCost, 1.5), 10), Up), 10));
+            Set Player Variable At Index(Event Player, statsUpgradeCost, 5, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Modify Player Variable(Event Player, statsMoneySec, Add, 1);
+            Modify Player Variable At Index(Event Player, statsUpgradeLevels, (Event Player).upgradeCurrentSelection, Add, 1);
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Arrow: Up), Value In Array(Array(Custom String(" +1 GOLD/SEC "), Custom String(" +1 ouro/seg ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Call Subroutine(checkUpgradeAvailability);
+            Call Subroutine(settleBalance);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("gold miner loop") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+        (Event Player).statsMoneySec != 0;
+    }
+    actions {
+        While(True);
+            If(And(And(And(And((Event Player).hasBase, Is Alive(Event Player)), Not(Array Contains(Mapped Array(All Players(All Teams), (Current Array Element).stealingFrom), Event Player))), Not((Event Player).isMovingBase)), Not((Event Player).isInBase)));
+                If(Compare((Event Player).statsMoneyBase, <, (Event Player).statsMoneyStorage));
+                    Modify Player Variable At Index(Event Player, scoreArray, 2, Add, (Event Player).tmpMoneyDifference);
+                    Modify Player Variable(Event Player, statsMoneyBase, Add, (Event Player).statsMoneySec);
+                    Modify Player Variable(Event Player, statsMoneyBase, Min, (Event Player).statsMoneyStorage);
+                End;
+            End;
+            Wait(Global.gameRulesGoldMinerFrequency, Ignore Condition);
+        End;
+    }
+}
+
+rule ("upgrade kill bounty") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 1;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 6, Add, 1);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Play Effect(Event Player, Ring Explosion, Color(Red), (Event Player).playerBaseLocation, 4);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, Multiply(Round To Integer(Divide(Multiply(Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection), 1.5), 10), To Nearest), 10));
+            Modify Player Variable(Event Player, statsMoneyKill, Add, 15);
+            Modify Player Variable At Index(Event Player, statsUpgradeLevels, (Event Player).upgradeCurrentSelection, Add, 1);
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Arrow: Up), Value In Array(Array(Custom String(" +15 KILL BOUNTY "), Custom String(" +15 recompensa de abate ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Call Subroutine(checkUpgradeAvailability);
+            Call Subroutine(settleBalance);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("player kill") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+    conditions {
+        Global.hasGameStarted != False;
+    }
+    actions {
+        Modify Player Variable At Index(Event Player, scoreArray, 1, Add, 1);
+        If(Compare(Attacker, !=, Victim));
+            Small Message(Attacker, Custom String("+ {0}{1}", (Attacker).statsMoneyKill, Value In Array(Array(Custom String(" GOLD (kill)"), Custom String(" ouro (abate)")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Modify Player Variable(Attacker, statsMoney, Add, (Attacker).statsMoneyKill);
+            Modify Player Variable At Index(Attacker, scoreArray, 2, Add, (Attacker).statsMoneyKill);
+            Modify Player Variable At Index(Attacker, scoreArray, 0, Add, 1);
+        End;
+        Abort If(Compare((Victim).statsMoney, <=, 0));
+        If(Compare(Value In Array(Global.bountyArrayEffects, Slot Of(Victim)), !=, Null));
+            Destroy Effect(Value In Array(Global.bountyArrayEffects, Slot Of(Victim)));
+            Set Global Variable At Index(bountyArrayEffects, Slot Of(Victim), Null);
+            Modify Global Variable(bountyArrayNum, Subtract, 1);
+        End;
+        Set Global Variable At Index(bountyArrayLocations, Slot Of(Victim), Add(Ray Cast Hit Position(Eye Position(Victim), Subtract(Eye Position(Victim), Vector(0, 15, 0)), Null, Null, False), Vector(0, 0.35, 0)));
+        Set Global Variable At Index(bountyArrayMoney, Slot Of(Victim), (Victim).statsMoney);
+        If(Compare((Victim).statsMoney, <=, 25));
+            Create Effect(All Players(All Teams), Orb, Color(Green), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Green), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+        Else If(And(Compare((Victim).statsMoney, >, 25), Compare((Victim).statsMoney, <=, 250)));
+            Create Effect(All Players(All Teams), Orb, Color(Turquoise), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Turquoise), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+        Else If(And(Compare((Victim).statsMoney, >, 250), Compare((Victim).statsMoney, <=, 750)));
+            Create Effect(All Players(All Teams), Orb, Color(Blue), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Blue), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+        Else;
+            Create Effect(All Players(All Teams), Orb, Color(Purple), Value In Array(Global.bountyArrayLocations, Slot Of(Victim)), 1, None);
+            Play Effect(All Players(All Teams), Good Pickup Effect, Color(Purple), Subtract(Position Of(Victim), Vector(0, 1, 0)), 0.5);
+        End;
+        Set Global Variable At Index(bountyArrayEffects, Slot Of(Victim), Last Created Entity);
+        Set Player Variable(Victim, statsMoney, 0);
+        Modify Global Variable(bountyArrayNum, Add, 1);
+    }
+}
+
+rule ("upgrade storage capacity") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 2;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 6, Add, 1);
+            Modify Player Variable(Event Player, storedMoney, Add, (Event Player).statsMoneyStorage);
+            Set Player Variable(Event Player, statsMoneyBase, 0);
+            Play Effect(Event Player, Ring Explosion, Color(Yellow), (Event Player).playerBaseLocation, 4);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable(Event Player, statsMoneyStorage, Min(Multiply(Round To Integer(Divide(Multiply((Event Player).statsMoneyStorage, 1.5), 10), Up), 10), Global.gameGoldVictory));
+            Set Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, (Event Player).statsMoneyStorage);
+            Skip If(Global.enableAlwaysFreeHeroSwitch, 8);
+            If(Or((Event Player).statsUpgradeHeroSwitchUsed, Compare(Value In Array((Event Player).statsUpgradeLevels, (Event Player).upgradeCurrentSelection), >=, 4)));
+                Set Player Variable(Event Player, statsUpgradeHeroSwitchUsed, True);
+                Skip If(Compare(Value In Array((Event Player).statsUpgradeCost, 4), !=, 0), 1);
+                Set Player Variable At Index(Event Player, statsUpgradeCost, 4, (Event Player).statsUpgradeHeroSwitchShadowCost);
+                //lbl_1:
+                Modify Player Variable At Index(Event Player, statsUpgradeCost, 4, Add, Round To Integer(Divide((Event Player).statsMoneyStorage, 5), Up));
+            Else;
+                Modify Player Variable(Event Player, statsUpgradeHeroSwitchShadowCost, Add, Round To Integer(Divide((Event Player).statsMoneyStorage, 5), Up));
+            End;
+            //lbl_0:
+            Skip If(Global.enableAlwaysFreeBaseMove, 1);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, 3, Max(Round To Integer(Divide((Event Player).statsMoneyStorage, 5), Up), 50));
+            //lbl_2:
+            Modify Player Variable At Index(Event Player, statsUpgradeLevels, (Event Player).upgradeCurrentSelection, Add, 1);
+            Small Message(Event Player, Custom String("{0} +{1}{2}{0}", Icon String(Arrow: Up), Round To Integer(Divide((Event Player).statsMoneyStorage, 2), Up), Value In Array(Array(Custom String(" GOLD CAPACITY "), Custom String(" capacidade de ouro ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Call Subroutine(checkUpgradeAvailability);
+            Call Subroutine(settleBalance);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("UPGRADE BUY MOVE BASE") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 3;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 7, Add, 1);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Play Effect(Event Player, Ring Explosion, Color(Green), (Event Player).playerBaseLocation, 2);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable(Event Player, playerBaseLocation, Vector(0, -10000, 0));
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Trashcan), Value In Array(Array(Custom String(" PACKED UP BASE "), Custom String(" Base empacotada ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Wait(1, Ignore Condition);
+            Set Player Variable(Event Player, isMovingBase, True);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("UPGRADE END MOVE BASE") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isMovingBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).hasBase != False;
+        Is On Ground(Event Player) == True;
+        (Event Player).stealingFrom == Null;
+    }
+    actions {
+        Call Subroutine(setBaseLocation);
+        If(Compare(Y Component Of((Event Player).playerBaseLocation), >, -10000));
+            Set Player Variable(Event Player, isMovingBase, False);
+            Call Subroutine(playerBaseBuildEffects);
+        End;
+        Wait(0.75, Ignore Condition);
+    }
+}
+
+rule ("UPGRADE BUY HERO") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 4;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+        (Event Player).isChangingHero == False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Set Player Variable(Event Player, isChangingHero, True);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Skip If(Global.enableAlwaysFreeHeroSwitch, 3);
+            Skip If((Event Player).statsUpgradeHeroSwitchUsed, 1);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, 4, (Event Player).statsUpgradeHeroSwitchShadowCost);
+            //lbl_1:
+            Set Player Variable(Event Player, statsUpgradeHeroSwitchUsed, True);
+            //lbl_0:
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable(Event Player, oldHeroHealth, Multiply(Normalized Health(Event Player), 100));
+            Set Facing(Event Player, Vector(0, 1, 0), To Player);
+            Teleport(Event Player, Vector(0, 10000, 0));
+            Set Gravity(Event Player, 0);
+            Wait(0.25, Ignore Condition);
+            Set Player Allowed Heroes(Event Player, Remove From Array(All Heroes, Hero Of(Event Player)));
+            Call Subroutine(settleBalance);
+            Wait(0.25, Ignore Condition);
+            Reset Player Hero Availability(Event Player);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("UPGRADE BUY HERO TELEPORT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Has Spawned(Event Player) == True;
+    }
+    actions {
+        Abort If(Or(Not((Event Player).isInitialized), Not((Event Player).hasBase)));
+        Teleport(Event Player, (Event Player).playerBaseLocation);
+        Set Player Variable(Event Player, isInBase, True);
+        Set Player Variable(Event Player, playerObjectInBase, Event Player);
+        Set Player Variable(Event Player, baseProtectionTimer, 0);
+        Set Invisible(Event Player, All);
+        Set Gravity(Event Player, 100);
+        Set Status(Event Player, Null, Frozen, 1);
+        Set Max Health(Event Player, (Event Player).oldHeroHealth);
+        Wait(0.016, Ignore Condition);
+        Set Max Health(Event Player, 100);
+        Set Player Variable(Event Player, isChangingHero, False);
+    }
+}
+
+rule ("UPGRADE BUY STEAL SPEED") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 5;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 6, Add, 1);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Play Effect(Event Player, Ring Explosion, Color(Purple), (Event Player).playerBaseLocation, 4);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, Multiply(Round To Integer(Divide(Multiply(Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection), 1.5), 10), Up), 10));
+            Skip If(Not(Global.enableGoldMinerUpgrade), 1);
+            Set Player Variable At Index(Event Player, statsUpgradeCost, 0, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            //lbl_0:
+            Modify Player Variable(Event Player, statsStealingSpeed, Add, 1);
+            Modify Player Variable At Index(Event Player, statsUpgradeLevels, (Event Player).upgradeCurrentSelection, Add, 1);
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Arrow: Up), Value In Array(Array(Custom String(" +2 GOLD STEAL/SEC  "), Custom String(" +2 ouro roubado/seg ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Call Subroutine(checkUpgradeAvailability);
+            Call Subroutine(settleBalance);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("UPGRADE BUY DELAY") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        (Event Player).upgradeCurrentSelection == 6;
+        (Event Player).showUpgradeText != Null;
+        (Event Player).hasBase != False;
+    }
+    actions {
+        If(Compare((Event Player).statsMoneyBase, >=, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection)));
+            Modify Player Variable At Index(Event Player, scoreArray, 6, Add, 1);
+            Modify Player Variable(Event Player, statsMoneyBase, Subtract, Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection));
+            Play Effect(Event Player, Ring Explosion, Color(Sky Blue), (Event Player).playerBaseLocation, 4);
+            Play Effect(Event Player, Buff Explosion Sound, Color(White), Event Player, 200);
+            Modify Player Variable(Event Player, statsBaseDelay, Subtract, 0.5);
+            If(Compare((Event Player).statsBaseDelay, <=, 0.5));
+                Modify Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, Add, 10000);
+            Else;
+                Modify Player Variable At Index(Event Player, statsUpgradeCost, (Event Player).upgradeCurrentSelection, Multiply, 2);
+            End;
+            Modify Player Variable At Index(Event Player, statsUpgradeLevels, (Event Player).upgradeCurrentSelection, Add, 1);
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Arrow: Up), Value In Array(Array(Custom String(" -0.5 SEC DELAY "), Custom String(" -0,5 seg de intervalo ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Call Subroutine(checkUpgradeAvailability);
+            Call Subroutine(settleBalance);
+        Else;
+            Call Subroutine(baseUpgradeFail);
+    }
+}
+
+rule ("upgrade - use sparkbolt") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        Is Button Held(Event Player, Button(Ultimate)) == True;
+        (Event Player).nbSparkbolts != 0;
+        (Event Player).isSparkboltOnCooldown == False;
+    }
+    actions {
+        Set Player Variable(Event Player, isSparkboltOnCooldown, True);
+        Set Player Variable(Event Player, tmpBaseSparkboltTarget, Ray Cast Hit Player(Eye Position(Event Player), Add(Eye Position(Event Player), Multiply(Facing Direction Of(Event Player), 10)), All Players(All Teams), Event Player, True));
+        If(Entity Exists((Event Player).tmpBaseSparkboltTarget));
+            If(Compare(Distance Between((Event Player).playerBaseLocation, Position Of((Event Player).tmpBaseSparkboltTarget)), <, 8));
+                Modify Player Variable(Event Player, nbSparkbolts, Subtract, 1);
+                Small Message(Event Player, Custom String("-1 {0}", Icon String(Bolt)));
+                Set Status((Event Player).tmpBaseSparkboltTarget, Event Player, Hacked, 2.5);
+                Set Status((Event Player).tmpBaseSparkboltTarget, Event Player, Stunned, 0.5);
+                Damage((Event Player).tmpBaseSparkboltTarget, (Event Player).tmpBaseSparkboltTarget, 100);
+                Create Beam Effect(All Players(All Teams), Bad Beam, Add((Event Player).playerBaseLocation, Vector(0, 3.5, 0)), Eye Position((Event Player).tmpBaseSparkboltTarget), Color(Sky Blue), Visible To Position and Radius);
+                Set Player Variable(Event Player, sparkboltEffect, Last Created Entity);
+                Play Effect(All Players(All Teams), Explosion Sound, Color(White), (Event Player).playerBaseLocation, 200);
+                Play Effect(All Players(All Teams), Good Explosion, Color(Sky Blue), Add((Event Player).playerBaseLocation, Vector(0, 3.5, 0)), 1);
+                Play Effect(All Players(All Teams), Good Explosion, Color(Sky Blue), Eye Position((Event Player).tmpBaseSparkboltTarget), 1);
+                Wait(0.64, Ignore Condition);
+                Destroy Effect((Event Player).sparkboltEffect);
+            Else;
+                Small Message(Event Player, Value In Array(Array(Custom String("TOO FAR AWAY"), Custom String("Muito longe")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+            End;
+        Else;
+            Small Message(Event Player, Value In Array(Array(Custom String("AIM AT ENEMY"), Custom String("Mire no inimigo")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+        End;
+        Wait(0.5, Ignore Condition);
+        Set Player Variable(Event Player, isSparkboltOnCooldown, False);
+    }
+}
+
+rule ("UPGRADE SELECT LEFT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isUpgradeInputOnCooldown == False;
+        (Event Player).showUpgradeText != Null;
+        Is Button Held(Event Player, Button(Primary Fire)) == True;
+        (Event Player).isInBase != False;
+    }
+    actions {
+        Play Effect(Event Player, Debuff Impact Sound, Color(White), Event Player, 20);
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, True);
+        Set Player Variable(Event Player, tmpUpgradeCurrentSelection, Subtract((Event Player).upgradeCurrentSelection, 1));
+        While(True);
+            If(Compare((Event Player).tmpUpgradeCurrentSelection, <, 0));
+                Set Player Variable(Event Player, tmpUpgradeCurrentSelection, Subtract(Count Of((Event Player).statsUpgradeCost), 1));
+            End;
+            If(Compare(Value In Array((Event Player).statsUpgradeCost, (Event Player).tmpUpgradeCurrentSelection), <=, Global.gameGoldVictory));
+                Break;
+            End;
+            Modify Player Variable(Event Player, tmpUpgradeCurrentSelection, Subtract, 1);
+        End;
+        Set Player Variable(Event Player, upgradeCurrentSelection, (Event Player).tmpUpgradeCurrentSelection);
+        Set Player Variable(Event Player, upgradeOffsetRight, -1);
+        Wait(0.25, Ignore Condition);
+        Set Player Variable(Event Player, upgradeOffsetRight, -0.9);
+        Wait(0.25, Ignore Condition);
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, False);
+    }
+}
+
+rule ("UPGRADE SELECT RIGHT") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isUpgradeInputOnCooldown == False;
+        (Event Player).showUpgradeText != Null;
+        Is Button Held(Event Player, Button(Secondary Fire)) == True;
+        (Event Player).isInBase != False;
+    }
+    actions {
+        Play Effect(Event Player, Debuff Impact Sound, Color(White), Event Player, 20);
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, True);
+        Set Player Variable(Event Player, tmpUpgradeCurrentSelection, Modulo(Add((Event Player).upgradeCurrentSelection, 1), Count Of((Event Player).statsUpgradeCost)));
+        While(True);
+            If(Compare(Value In Array((Event Player).statsUpgradeCost, (Event Player).tmpUpgradeCurrentSelection), <=, Global.gameGoldVictory));
+                Break;
+            End;
+            Set Player Variable(Event Player, tmpUpgradeCurrentSelection, Modulo(Add((Event Player).tmpUpgradeCurrentSelection, 1), Count Of((Event Player).statsUpgradeCost)));
+        End;
+        Set Player Variable(Event Player, upgradeCurrentSelection, (Event Player).tmpUpgradeCurrentSelection);
+        Set Player Variable(Event Player, upgradeOffsetLeft, 1);
+        Wait(0.25, Ignore Condition);
+        Set Player Variable(Event Player, upgradeOffsetLeft, 0.9);
+        Wait(0.25, Ignore Condition);
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, False);
+    }
+}
+
+rule ("show upgrade menu") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).isInBase != False;
+        (Event Player).showUpgradeText == Null;
+        "@Condition dotProduct(directionTowards(eventPlayer.getEyePosition(), eventPlayer.playerBaseLocation), eventPlayer.getFacingDirection()) >= 0.99"
+        Distance Between(Vector(0, 0, 0), Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) <= Global.baseUpgradeSphereActualSize;
+    }
+    actions {
+        Set Player Variable(Event Player, isUpgradeInputOnCooldown, True);
+        Wait(0.25, Abort When False);
+        Set Player Variable(Event Player, showUpgradeText, True);
+        Wait(0.25, Ignore Condition);
+        If(Compare((Event Player).showUpgradeText, !=, Null));
+            Set Player Variable(Event Player, isUpgradeInputOnCooldown, False);
+        End;
+        Loop If Condition Is True;
+    }
+}
+
+rule ("hide upgrade menu") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        (Event Player).showUpgradeText != False;
+        Distance Between(Vector(0, 0, 0), Subtract((Event Player).playerBaseLocation, Add(Eye Position(Event Player), Multiply(Absolute Value(Dot Product(Subtract((Event Player).playerBaseLocation, Eye Position(Event Player)), Facing Direction Of(Event Player))), Facing Direction Of(Event Player))))) > Global.baseUpgradeSphereActualSize;
+    }
+    actions {
+        Set Player Variable(Event Player, showUpgradeText, False);
+    }
+}
+
+rule ("SUB SETTLE BALANCE") {
+    event {
+        Subroutine;
+        settleBalance;
+    }
+    actions {
+        If(And(Compare((Event Player).statsMoneyStorage, !=, (Event Player).statsMoneyBase), Compare((Event Player).statsMoney, >, 0)));
+            Set Player Variable(Event Player, tmpMoneyDifference, Min(Subtract((Event Player).statsMoneyStorage, (Event Player).statsMoneyBase), (Event Player).statsMoney));
+            Modify Player Variable(Event Player, statsMoney, Subtract, (Event Player).tmpMoneyDifference);
+            Modify Player Variable(Event Player, statsMoneyBase, Add, (Event Player).tmpMoneyDifference);
+            Small Message(Event Player, Value In Array(Array(Custom String("STORED {0} GOLD IN BASE", (Event Player).tmpMoneyDifference), Custom String("{0} de ouro armazenado", (Event Player).tmpMoneyDifference)), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+        End;
+    }
+}
+
+rule ("place player base if location is good") {
+    event {
+        Subroutine;
+        setBaseLocation;
+    }
+    actions {
+        If(Compare(Distance Between(Position Of(Event Player), (Value In Array(All Players(All Teams), (Event Player).playerBaseProximityIterator)).playerBaseLocation), <, 14));
+            Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Stop), Value In Array(Array(Custom String(" ENEMY BASE TOO CLOSE "), Custom String(" Base inimiga muito próxima ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+            Set Player Variable(Event Player, playerBaseProximityIterator, 0);
+            Abort;
+        End;
+        Modify Player Variable(Event Player, playerBaseProximityIterator, Add, 1);
+        Loop If(Compare((Event Player).playerBaseProximityIterator, <, Number Of Players(All Teams)));
+        Set Player Variable(Event Player, playerBaseProximityIterator, 0);
+        Skip If(Compare(Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Position Of(Event Player), Multiply(Direction Towards(Eye Position(Event Player), Add(Position Of(Event Player), Vector(2, 0, 0))), 40)), Empty Array, Empty Array, False), Add(Position Of(Event Player), Vector(2, 0, 0))), >, 0.6), 12);
+        Skip If(Compare(Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Position Of(Event Player), Multiply(Direction Towards(Eye Position(Event Player), Add(Position Of(Event Player), Vector(-2, 0, 0))), 40)), Empty Array, Empty Array, False), Add(Position Of(Event Player), Vector(-2, 0, 0))), >, 0.6), 11);
+        Skip If(Compare(Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Position Of(Event Player), Multiply(Direction Towards(Eye Position(Event Player), Add(Position Of(Event Player), Vector(0, 0, 2))), 40)), Empty Array, Empty Array, False), Add(Position Of(Event Player), Vector(0, 0, 2))), >, 0.6), 10);
+        Skip If(Compare(Distance Between(Ray Cast Hit Position(Eye Position(Event Player), Add(Position Of(Event Player), Multiply(Direction Towards(Eye Position(Event Player), Add(Position Of(Event Player), Vector(0, 0, -2))), 40)), Empty Array, Empty Array, False), Add(Position Of(Event Player), Vector(0, 0, -2))), >, 0.6), 9);
+        Skip If(Has Status(Event Player, Invincible), 8);
+        Skip If(And(Compare(Distance Between(Position Of(Event Player), Nearest Walkable Position(Position Of(Event Player))), >, 8), Not(Global.disableNwpCheck)), 7);
+        "prevent placing base on cars"
+        Skip If(And(And(Compare(Current Map, ==, Map(Kanezaka)), Compare(Y Component Of(Position Of(Event Player)), >, 13)), Compare(Z Component Of(Position Of(Event Player)), >, 24)), 8);
+        If(Compare(Current Map, ==, Map(Oasis City Center)));
+            Skip If(Compare(Dot Product(Vector Towards(Vector(186.86, 0.85, 180.78), Position Of(Event Player)), Direction From Angles(Add(Horizontal Angle From Direction(Vector(-0.784, 0, 0.621)), 90), 0)), <, 0), 6);
+            Skip If(Compare(Dot Product(Vector Towards(Vector(102.41, 0.85, 258.16), Position Of(Event Player)), Direction From Angles(Add(Horizontal Angle From Direction(Vector(-0.634, 0, 0.773)), 90), 0)), <, 0), 5);
+        End;
+        Set Player Variable(Event Player, playerBaseLocation, Position Of(Event Player));
+        Abort;
+        //lbl_0:
+        //lbl_1:
+        //lbl_2:
+        //lbl_3:
+        //lbl_4:
+        //lbl_5:
+        Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Stop), Value In Array(Array(Custom String(" BAD BASE LOCATION "), Custom String(" Local de base inválido ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+        Abort;
+        //lbl_6:
+        //lbl_7:
+        //lbl_8:
+        Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(Stop), Value In Array(Array(Custom String(" BAD BASE LOCATION (too close to cars) "), Custom String(" Local de base inválido (muito perto dos carros) ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+        Abort;
+    }
+}
+
+rule ("SUB BASE BUILD EFFECTS") {
+    event {
+        Subroutine;
+        playerBaseBuildEffects;
+    }
+    actions {
+        Play Effect(Event Player, Debuff Impact Sound, Color(Yellow), Event Player, 10000);
+        Play Effect(Event Player, Good Pickup Effect, Color(White), Add(Position Of(Event Player), Facing Direction Of(Event Player)), 30);
+        Play Effect(All Players(All Teams), Ring Explosion, Color(White), Add((Event Player).playerBaseLocation, Vector(0, 0.5, 0)), 7.5);
+    }
+}
+
+rule ("SUB UPGRADE FAIL") {
+    event {
+        Subroutine;
+        baseUpgradeFail;
+    }
+    actions {
+        Play Effect(Event Player, Ring Explosion Sound, Color(White), Event Player, 20);
+        Small Message(Event Player, Custom String("{0}{1}{0}", Icon String(No), Value In Array(Array(Custom String(" NOT ENOUGH GOLD IN BASE "), Custom String(" Ouro da base insuficiente ")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range)))))));
+    }
+}
+
+rule ("SUB SKIP TO AVAILABLE UPGRADE AFTER PURCHASE") {
+    event {
+        Subroutine;
+        checkUpgradeAvailability;
+    }
+    actions {
+        If(Compare(Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection), >, Global.gameGoldVictory));
+            Set Player Variable(Event Player, isUpgradeInputOnCooldown, True);
+            While(Compare(Value In Array((Event Player).statsUpgradeCost, (Event Player).upgradeCurrentSelection), >, Global.gameGoldVictory));
+                Skip If(Compare((Event Player).upgradeCurrentSelection, <, Subtract(Count Of((Event Player).statsUpgradeCost), 1)), 2);
+                Set Player Variable(Event Player, upgradeCurrentSelection, 0);
+                Skip(1);
+                //lbl_0:
+                Modify Player Variable(Event Player, upgradeCurrentSelection, Add, 1);
+                //lbl_1:
+            End;
+            Wait(0.25, Ignore Condition);
+            Set Player Variable(Event Player, isUpgradeInputOnCooldown, False);
+        End;
+    }
+}
+
+rule ("anti crash") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.antiCrashActivated == False;
+        Server Load > 230;
+    }
+    actions {
+        Wait(1, Abort When False);
+        Small Message(All Players(All Teams), Value In Array(Array(Custom String("Anti-crash system activated"), Custom String("Sistema anti-travamento ativado")), Max(False, Index Of Array Value(Global.practiceRangeTranslations, Custom String("{0}", Map(Practice Range))))));
+        Set Slow Motion(10);
+        Set Global Variable(antiCrashActivated, True);
+    }
+}
+
+rule ("disable anti crash") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.antiCrashActivated != False;
+        Server Load < 210;
+    }
+    actions {
+        Set Slow Motion(100);
+        Set Global Variable(antiCrashActivated, False);
+    }
+}
+
+rule ("failsafe") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        If(True);
+            Create HUD Text(All Players(All Teams), Custom String("Warning: obfuscation is disabled!"), Custom String("                                                                                                                             {0}", Custom String("                                             ")), Null, Left, -9999, Color(Orange), Null, Null, Visible To and String, Default Visibility);
+    }
+}
+

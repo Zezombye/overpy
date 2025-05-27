@@ -1,0 +1,2436 @@
+settings
+{
+	main
+	{
+		Description: "Change nights through workshop settings (orange card)\nDMG46 / Release 1.0.4 (March 2024) / Alomare#11266"
+		Mode Name: "Five Nights at Ecopoint"
+	}
+	lobby
+	{
+		Allow Players Who Are In Queue: Yes
+		Map Rotation: Paused
+		Match Voice Chat: Enabled
+		Max Spectators: 12
+		Max Team 1 Players: 1
+		Max Team 2 Players: 0
+		Return To Lobby: After A Game
+	}
+	modes
+	{
+		disabled Elimination
+		{
+			Capture Objective Tiebreaker: Off
+		}
+		Team Deathmatch
+		{
+			enabled maps
+			{
+				Ecopoint: Antarctica Winter
+			}
+			Self Initiated Respawn: Off
+		}
+		General
+		{
+			Game Mode Start: Immediately
+			Hero Limit: Off
+			Kill Feed: Off
+			Respawn As Random Hero: On
+			Respawn Time Scalar: 0%
+			Spawn Health Packs: Disabled
+		}
+	}
+	heroes
+	{
+		Team 1
+		{
+			Mei
+			{
+				Cryo-Freeze: Off
+				Ice Wall: Off
+				No Ammunition Requirement: On
+				Primary Fire: Off
+				Secondary Fire: Off
+				Ultimate Ability Blizzard: Off
+			}
+			Reinhardt
+			{
+				Charge Cooldown Time: 0%
+			}
+		}
+		Team 2
+		{
+			Spawn With Ultimate Ready: On
+		}
+		General
+		{
+			enabled heroes
+			{
+				Mei
+			}
+		}
+	}
+	extensions
+	{
+		Beam Effects
+		Beam Sounds
+		Buff Status Effects
+		Debuff Status Effects
+		Buff and Debuff Sounds
+		Energy Explosion Effects
+		Explosion Sounds
+		Play More Effects
+	}
+}
+variables {
+    global:
+        0: NightNumber
+        1: AutoRestart
+        2: NoJumpscares
+        3: Cheats
+        4: Echo
+        5: Orisa
+        6: Genji
+        7: Bastion
+        8: Zen
+        9: CamShake
+        10: CurrentCam
+        11: Player_
+        12: LastCam
+        13: InteractCams
+        14: CamsJammed
+        15: TextChatOn
+        16: CurrentTime
+        17: Power
+        18: NightPhase
+        19: ClosedFrontDoor
+        20: InteractFrontDoor
+        21: ClosedLeftDoor
+        22: InteractLeftDoor
+        23: ClosedRightDoor
+        24: InteractRightDoor
+        25: PowerUsage
+        26: BastionPhase
+        27: EchoPhase
+        28: ZenDoorNumber
+        29: Blinded
+        30: PhoneRings
+        31: CamPositions
+        32: HeightFrontDoor
+        33: HeightRightDoor
+        34: HeightLeftDoor
+        35: DoorsWalkable
+        36: CamLookAts
+        37: ZenAI
+        38: BastionAI
+        39: OrisaAI
+        40: EchoAI
+        41: GenjiAI
+        42: OrisaMeter
+        43: OrisaAIPrevious
+        44: HeaterPower
+        45: WarningIconVisible
+        46: ZenPositions
+        47: ZenPositions2
+        48: ZenPickedCamAndPos
+        49: BarValue
+        50: BarTextAndColor
+    player:
+        0: HasMoved
+}
+subroutines {
+    0: OutlineFix
+    1: CameraShake
+    2: CamsJammed
+    3: PhoneRing
+    4: BastionJumpscare
+    5: EchoJumpscare
+    6: OrisaJumpscare
+    7: GenjiJumpscare
+    8: ZenSequence
+    9: ZenJumpscare
+    10: Night6Call
+    11: ZenDoor
+    12: ZenMove
+}
+rule ("[WS] Settings") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(NightNumber, Workshop Setting Combo(Custom String("GENERAL"), Custom String("NIGHT NUMBER"), 0, Array(Custom String("NIGHT 1"), Custom String("NIGHT 2"), Custom String("NIGHT 3"), Custom String("NIGHT 4"), Custom String("NIGHT 5"), Custom String("NIGHT 6"), Custom String("CUSTOM NIGHT")), 0));
+        Set Global Variable(AutoRestart, Workshop Setting Toggle(Custom String("GENERAL"), Custom String("AUTO-RESTART ON DEATH"), False, 1));
+        Set Global Variable(NoJumpscares, Workshop Setting Toggle(Custom String("GENERAL"), Custom String("NO JUMPSCARES MODE"), False, 2));
+        "CHEATS"
+        Set Global Variable At Index(Cheats, 0, Workshop Setting Toggle(Custom String("CHEATS"), Custom String("SHOW ENEMY INFO"), False, 0));
+        Set Global Variable At Index(Cheats, 1, Workshop Setting Toggle(Custom String("CHEATS"), Custom String("UNLIMITED POWER"), False, 0));
+    }
+}
+
+rule ("OutlineFix") {
+    event {
+        Subroutine;
+        OutlineFix;
+    }
+    actions {
+        Teleport(All Players(Team 2), Vector(0, -1000, 0));
+        Kill(All Players(Team 2), Null);
+        Wait(0.016, Ignore Condition);
+        Start Forcing Player Outlines(All Players(All Teams), All Players(All Teams), False, Null, Default);
+        Wait(0.016, Ignore Condition);
+        Resurrect(All Players(Team 2));
+        Set Status(Global.Echo, Null, Knocked Down, 99999);
+        Set Status(Global.Orisa, Null, Knocked Down, 99999);
+        Set Status(Global.Genji, Null, Knocked Down, 99999);
+        Teleport(Global.Bastion, Vector(-12.74, 7, -49.92));
+        Teleport(Global.Echo, Vector(28.62, 3, 2.9));
+        Teleport(Global.Orisa, Vector(-10.7, 8.52, -0.37));
+        Teleport(Global.Genji, Vector(-2.6, 7, 54.5));
+        Teleport(Global.Zen, Vector(2, 7.4, 22.4));
+    }
+}
+
+rule ("[SR] Camera Shake") {
+    event {
+        Subroutine;
+        CameraShake;
+    }
+    actions {
+        Set Global Variable(CamShake, Vector(Random Real(-0.1, 0.1), Random Real(-0.1, 0.1), Random Real(-0.1, 0.1)));
+        Wait(0.016, Ignore Condition);
+        Loop;
+    }
+}
+
+rule ("[SR] Cams Jammed") {
+    event {
+        Subroutine;
+        CamsJammed;
+    }
+    actions {
+        If(Global.CurrentCam);
+            Clear Status(Global.Player_, Rooted);
+            Set Gravity(Global.Player_, 100);
+            Set Global Variable(LastCam, Global.CurrentCam);
+            Stop Camera(Global.Player_);
+            Set Facing(Global.Player_, Direction Towards(Eye Position(Global.Player_), Global.InteractCams), To World);
+            Set Global Variable(CurrentCam, 0);
+        End;
+        Chase Global Variable At Rate(CamsJammed, 0, 1, None);
+        Modify Global Variable(CamsJammed, Add, 9);
+        Wait(0.05, Ignore Condition);
+        Play Effect(All Players(All Teams), Widowmaker Venom Mine Explosion Sound, Color(Team 1), Global.InteractCams, 55);
+        Wait Until(Not(Global.CamsJammed), 99999);
+        Play Effect(All Players(All Teams), Bad Explosion, Color(Orange), Global.InteractCams, 0.25);
+    }
+}
+
+rule ("[EP] Toggle Text Chat") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Is Alive(Event Player) == True;
+        Is Button Held(Event Player, Button(Ultimate)) == True;
+    }
+    actions {
+        If(Global.TextChatOn);
+            Disable Text Chat(Event Player);
+            Small Message(All Players(All Teams), Custom String("TEXT CHAT DISABLED"));
+            Set Global Variable(TextChatOn, 0);
+        Else;
+            Enable Text Chat(Event Player);
+            Small Message(All Players(All Teams), Custom String("TEXT CHAT ENABLED"));
+            Set Global Variable(TextChatOn, 1);
+        End;
+        Wait(0.5, Ignore Condition);
+    }
+}
+
+rule ("[G] Defeat") {
+    event {
+        Player Died;
+        All;
+        All;
+    }
+    conditions {
+        Event Player == Global.Player_;
+    }
+    actions {
+        Enable Built-In Game Mode Music;
+        Declare Team Victory(Team 2);
+        Abort If(Not(Global.AutoRestart));
+        Wait(2, Ignore Condition);
+        Restart Match;
+    }
+}
+
+rule ("[G] Victory") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.CurrentTime >= 6;
+        Global.NightNumber != 5;
+    }
+    actions {
+        Enable Built-In Game Mode Music;
+        Declare Team Victory(Team 1);
+    }
+}
+
+rule ("[G] Power 0") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.Power <= 0;
+        Is Alive(Global.Player_) == True;
+        Global.NightPhase >= 3;
+    }
+    actions {
+        Wait(0.1, Abort When False);
+        Play Effect(All Players(All Teams), Lúcio Sound Barrier Cast Sound, Color(Team 1), Global.InteractCams, 100);
+        If(Global.ClosedFrontDoor);
+            Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractFrontDoor, 35);
+            Chase Global Variable Over Time(HeightFrontDoor, 0.01, 0.4, None);
+            Set Global Variable(ClosedFrontDoor, 0);
+        End;
+        If(Global.ClosedLeftDoor);
+            Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractLeftDoor, 35);
+            Chase Global Variable Over Time(HeightLeftDoor, 0.01, 0.4, None);
+            Set Global Variable(ClosedLeftDoor, 0);
+        End;
+        If(Global.ClosedRightDoor);
+            Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractRightDoor, 35);
+            Chase Global Variable Over Time(HeightRightDoor, 0.01, 0.4, None);
+            Set Global Variable(ClosedRightDoor, 0);
+        End;
+        Set Global Variable(PowerUsage, 0);
+    }
+}
+
+rule ("[G] Rein Charge") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Is Alive(Players In Slot(1, Team 1)) == True;
+        Or(Is True For Any(Array(Global.BastionPhase, Global.EchoPhase), Or(Compare(Current Array Element, >=, 3), Compare(Current Array Element, <=, -3))), Global.ZenDoorNumber) == True;
+        Is Using Ability 1(Players In Slot(1, Team 1)) == False;
+    }
+    actions {
+        Cancel Primary Action(Players In Slot(1, Team 1));
+        Set Ability Cooldown(Players In Slot(1, Team 1), Button(Ability 1), 0);
+        Press Button(Players In Slot(1, Team 1), Button(Ability 1));
+        Wait Until(Not(Is Using Ability 1(Players In Slot(1, Team 1))), 99999);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("[G] Main Setup") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        "REIN"
+        Create Dummy Bot(Hero(Reinhardt), Team 1, 1, Vector(0, 200, 0), Vector(-1, 0, 0));
+        Start Forcing Player Position(Players In Slot(1, Team 1), Vector(0, 200, 0), False);
+        Set Invisible(Players In Slot(1, Team 1), All);
+        "STUFF"
+        Disable Built-In Game Mode Announcer;
+        Disable Built-In Game Mode Completion;
+        Disable Built-In Game Mode Music;
+        Disable Built-In Game Mode Scoring;
+        Disable Inspector Recording;
+        Set Global Variable(NightPhase, 999);
+        Wait Until(And(Is Game In Progress, Has Spawned(Players In Slot(0, Team 1))), 99999);
+        Start Rule(OutlineFix, Restart Rule);
+        Pause Match Time;
+        Set Global Variable(Player_, Players In Slot(0, Team 1));
+        Set Global Variable(Power, 100);
+        Set Global Variable(PowerUsage, 1);
+        Chase Global Variable Over Time(CurrentTime, 6, 512, None);
+        Create Effect(If-Then-Else(Global.Blinded, Global.Player_, Null), Sphere, Color(Black), Global.Player_, 100, Visible To Position and Radius);
+        Teleport(Global.Player_, Vector(-1.06, 7.4, -27.55));
+        Set Facing(Global.Player_, Vector(0.7, 0, 0.7), To World);
+        Disable Scoreboard(All Players(All Teams));
+        Disable Game Mode HUD(All Players(All Teams));
+        Disable Hero HUD(All Players(All Teams));
+        Start Forcing Player Outlines(All Players(All Teams), All Players(All Teams), False, Color(White), Default);
+        Disable Nameplates(All Players(All Teams), All Players(All Teams));
+        Disable Text Chat(All Players(All Teams));
+        Set Knockback Received(All Players(All Teams), 0);
+        Set Damage Dealt(Global.Player_, 0);
+        "HUD"
+        Skip If(Compare(Global.NightNumber, ==, 5), 1);
+        Create HUD Text(All Players(All Teams), Custom String("{0} AM", If-Then-Else(Compare(Global.CurrentTime, <, 1), 12, Round To Integer(Global.CurrentTime, Down))), Custom String("NIGHT {0}", Add(Global.NightNumber, 1)), If-Then-Else(Is True For Any(Global.Cheats, Current Array Element), Custom String("CHEATS ENABLED"), Custom String("")), Right, 0, Color(White), Color(White), Color(Turquoise), Visible To and String, Default Visibility);
+        //lbl_0:
+        Create HUD Text(All Players(All Teams), Custom String("POWER: {0}%", Round To Integer(Global.Power, Down)), Null, Null, Left, 0, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(All Players(All Teams), Null, Custom String(" \r\nUSAGE"), String Slice(Custom String("■■■■■"), 0, Global.PowerUsage), Left, 1, Color(White), Color(White), If-Then-Else(Compare(Global.PowerUsage, <=, 2), Color(Green), If-Then-Else(And(Compare(Global.PowerUsage, >, 2), Compare(Global.PowerUsage, <=, 3)), Color(Yellow), Color(Red))), Visible To String and Color, Default Visibility);
+        Create In-World Text(If-Then-Else(Global.PhoneRings, Local Player, Null), Custom String("HOLD [{0}] TO ANSWER PHONE OR WAIT TO IGNORE", Input Binding String(Button(Ability 1))), Update Every Frame(Add(If-Then-Else(Global.CurrentCam, Value In Array(Global.CamPositions, Global.CurrentCam), Eye Position(Global.Player_)), Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 18)), 1000))), 1.5, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 200), Default Visibility);
+        Create In-World Text(If-Then-Else(Global.CurrentCam, Null, Global.Player_), Custom String("⊙"), Update Every Frame(Add(Eye Position(Global.Player_), Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 3.87)), 1000))), 2.3, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 170), Default Visibility);
+    }
+}
+
+disabled rule ("DOORS") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Doors FX") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Wait(0.25, Ignore Condition);
+        "Heights"
+        Set Global Variable(HeightFrontDoor, 0.01);
+        Set Global Variable(HeightRightDoor, 0.01);
+        Set Global Variable(HeightLeftDoor, 0.01);
+        "Interact"
+        Set Global Variable(InteractFrontDoor, Vector(6.99, 8.92, -22.78));
+        Set Global Variable(InteractRightDoor, Vector(-1.8, 8.8, -23.51));
+        Set Global Variable(InteractLeftDoor, Vector(0.7, 8.8, -30.66));
+        Create Effect(All Players(All Teams), Sphere, If-Then-Else(Global.ClosedFrontDoor, Color(Red), Color(Gray)), Global.InteractFrontDoor, 0.15, Visible To Position Radius and Color);
+        Create Effect(All Players(All Teams), Sphere, If-Then-Else(Global.ClosedRightDoor, Color(Red), Color(Gray)), Global.InteractRightDoor, 0.15, Visible To Position Radius and Color);
+        Create Effect(All Players(All Teams), Sphere, If-Then-Else(Global.ClosedLeftDoor, Color(Red), Color(Gray)), Global.InteractLeftDoor, 0.15, Visible To Position Radius and Color);
+        Wait(0.05, Ignore Condition);
+        Skip If(Compare(Global.NightNumber, >=, 1), 4);
+        Create In-World Text(If-Then-Else(And(Compare(Global.CurrentTime, <, 1), Not(Global.CurrentCam)), All Players(All Teams), Null), Custom String("FRONT GATE"), Global.InteractFrontDoor, 0.9, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        Create In-World Text(If-Then-Else(And(Compare(Global.CurrentTime, <, 1), Not(Global.CurrentCam)), All Players(All Teams), Null), Custom String("LEFT GATE"), Global.InteractLeftDoor, 0.9, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        Create In-World Text(If-Then-Else(And(Compare(Global.CurrentTime, <, 1), Not(Global.CurrentCam)), All Players(All Teams), Null), Custom String("RIGHT GATE"), Global.InteractRightDoor, 0.9, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        Wait(0.05, Ignore Condition);
+        //lbl_0:
+        Create Effect(If-Then-Else(And(Compare(Distance Between(Eye Position(Global.Player_), Global.InteractFrontDoor), <, 2), Compare(Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractFrontDoor)), <, 30)), All Players(All Teams), Null), Sphere, Color(White), Global.InteractFrontDoor, 0.065, Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(And(Compare(Distance Between(Eye Position(Global.Player_), Global.InteractRightDoor), <, 2), Compare(Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractRightDoor)), <, 30)), All Players(All Teams), Null), Sphere, Color(White), Global.InteractRightDoor, 0.065, Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(And(Compare(Distance Between(Eye Position(Global.Player_), Global.InteractLeftDoor), <, 2), Compare(Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractLeftDoor)), <, 30)), All Players(All Teams), Null), Sphere, Color(White), Global.InteractLeftDoor, 0.065, Visible To Position Radius and Color);
+        Wait(0.05, Ignore Condition);
+        "FRONT BEAMS"
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(5.96, 10.88, -20.88), Vector(5.96, Add(10.88, Global.HeightFrontDoor), -20.88), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(5.64, 10.88, -20.57), Vector(5.64, Add(10.88, Global.HeightFrontDoor), -20.57), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(5.33, 10.88, -20.26), Vector(5.33, Add(10.88, Global.HeightFrontDoor), -20.26), Color(White), Visible To Position and Radius);
+        Wait(0.05, Ignore Condition);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(6.27, 10.88, -21.19), Vector(6.27, Add(10.88, Global.HeightFrontDoor), -21.19), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(6.57, 10.88, -21.5), Vector(6.57, Add(10.88, Global.HeightFrontDoor), -21.5), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(6.81, Add(10.88, Global.HeightFrontDoor), -21.74), Vector(5.09, Add(10.88, Global.HeightFrontDoor), -20.02), Color(White), Visible To Position and Radius);
+        Wait(0.05, Ignore Condition);
+        "LEFT BEAMS"
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(2.48, 10.88, -30.14), Vector(2.48, Add(10.88, Global.HeightLeftDoor), -30.14), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(2.79, 10.88, -29.83), Vector(2.79, Add(10.88, Global.HeightLeftDoor), -29.83), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(3.1, 10.88, -29.52), Vector(3.1, Add(10.88, Global.HeightLeftDoor), -29.52), Color(White), Visible To Position and Radius);
+        Wait(0.05, Ignore Condition);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(2.17, 10.88, -30.45), Vector(2.17, Add(10.88, Global.HeightLeftDoor), -30.45), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(1.86, 10.88, -30.76), Vector(1.86, Add(10.88, Global.HeightLeftDoor), -30.76), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(1.64, Add(10.88, Global.HeightLeftDoor), -31), Vector(3.33, Add(10.88, Global.HeightLeftDoor), -29.29), Color(White), Visible To Position and Radius);
+        Wait(0.05, Ignore Condition);
+        "RIGHT BEAMS"
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-3.3, 10.88, -24.36), Vector(-3.3, Add(10.88, Global.HeightRightDoor), -24.36), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-3.61, 10.88, -24.67), Vector(-3.61, Add(10.88, Global.HeightRightDoor), -24.67), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-3.92, 10.88, -24.98), Vector(-3.92, Add(10.88, Global.HeightRightDoor), -24.98), Color(White), Visible To Position and Radius);
+        Wait(0.05, Ignore Condition);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-2.99, 10.88, -24.05), Vector(-2.99, Add(10.88, Global.HeightRightDoor), -24.05), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Symmetra Projector Beam, Vector(-2.68, 10.88, -23.74), Vector(-2.68, Add(10.88, Global.HeightRightDoor), -23.74), Color(White), Visible To Position and Radius);
+        Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-2.45, Add(10.88, Global.HeightRightDoor), -23.51), Vector(-4.15, Add(10.88, Global.HeightRightDoor), -25.21), Color(White), Visible To Position and Radius);
+    }
+}
+
+rule ("[G] Front Door Interact") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Eye Position(Global.Player_), Global.InteractFrontDoor) < 2;
+        Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractFrontDoor)) < 30;
+        Is Button Held(Global.Player_, Button(Interact)) == True;
+        Is In Line of Sight(Eye Position(Global.Player_), Global.InteractFrontDoor, Barriers Do Not Block LOS) == True;
+    }
+    actions {
+        If(Global.Power);
+            If(Global.ClosedFrontDoor);
+                Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractFrontDoor, 35);
+                Chase Global Variable Over Time(HeightFrontDoor, 0.01, 0.4, None);
+                Set Global Variable(ClosedFrontDoor, 0);
+                Modify Global Variable(PowerUsage, Subtract, 1);
+                Wait(0.4, Ignore Condition);
+            Else;
+                Play Effect(All Players(All Teams), Sombra Translocator Reappear Sound, Color(Team 2), Global.InteractFrontDoor, 50);
+                Chase Global Variable Over Time(HeightFrontDoor, -3.5, 0.4, None);
+                Set Global Variable(ClosedFrontDoor, 1);
+                Modify Global Variable(PowerUsage, Add, 1);
+                Wait(0.4, Ignore Condition);
+                Abort If(Not(Global.Power));
+                Play Effect(All Players(All Teams), Wrecking Ball Piledriver Impact Sound, Color(Team 2), Global.InteractFrontDoor, 8);
+            End;
+        Else;
+            Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Global.InteractFrontDoor, 125);
+    }
+}
+
+rule ("[G] Left Door Interact") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Eye Position(Global.Player_), Global.InteractLeftDoor) < 2;
+        Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractLeftDoor)) < 30;
+        Is Button Held(Global.Player_, Button(Interact)) == True;
+        Is In Line of Sight(Eye Position(Global.Player_), Global.InteractLeftDoor, Barriers Do Not Block LOS) == True;
+    }
+    actions {
+        If(Global.Power);
+            If(Global.ClosedLeftDoor);
+                Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractLeftDoor, 35);
+                Chase Global Variable Over Time(HeightLeftDoor, 0.01, 0.4, None);
+                Set Global Variable(ClosedLeftDoor, 0);
+                Modify Global Variable(PowerUsage, Subtract, 1);
+                Wait(0.4, Ignore Condition);
+            Else;
+                Play Effect(All Players(All Teams), Sombra Translocator Reappear Sound, Color(Team 2), Global.InteractLeftDoor, 50);
+                Chase Global Variable Over Time(HeightLeftDoor, -3.5, 0.4, None);
+                Set Global Variable(ClosedLeftDoor, 1);
+                Modify Global Variable(PowerUsage, Add, 1);
+                Wait(0.4, Ignore Condition);
+                Abort If(Not(Global.Power));
+                Play Effect(All Players(All Teams), Wrecking Ball Piledriver Impact Sound, Color(Team 2), Global.InteractLeftDoor, 8);
+            End;
+        Else;
+            Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Global.InteractLeftDoor, 125);
+    }
+}
+
+rule ("[G] Right Door Interact") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Eye Position(Global.Player_), Global.InteractRightDoor) < 2;
+        Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractRightDoor)) < 30;
+        Is Button Held(Global.Player_, Button(Interact)) == True;
+        Is In Line of Sight(Eye Position(Global.Player_), Global.InteractRightDoor, Barriers Do Not Block LOS) == True;
+    }
+    actions {
+        If(Global.Power);
+            If(Global.ClosedRightDoor);
+                Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(Team 2), Global.InteractRightDoor, 35);
+                Chase Global Variable Over Time(HeightRightDoor, 0.01, 0.4, None);
+                Set Global Variable(ClosedRightDoor, 0);
+                Modify Global Variable(PowerUsage, Subtract, 1);
+                Wait(0.4, Ignore Condition);
+            Else;
+                Play Effect(All Players(All Teams), Sombra Translocator Reappear Sound, Color(Team 2), Global.InteractRightDoor, 50);
+                Chase Global Variable Over Time(HeightRightDoor, -3.5, 0.4, None);
+                Set Global Variable(ClosedRightDoor, 1);
+                Modify Global Variable(PowerUsage, Add, 1);
+                Wait(0.4, Ignore Condition);
+                Abort If(Not(Global.Power));
+                Play Effect(All Players(All Teams), Wrecking Ball Piledriver Impact Sound, Color(Team 2), Global.InteractRightDoor, 8);
+            End;
+        Else;
+            Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Global.InteractRightDoor, 125);
+    }
+}
+
+rule ("[G] Front Door Barrier") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Position Of(Global.Player_), Vector(8.21, 7.38, -18.62)) < 4;
+        Or(Not(Global.DoorsWalkable), Global.ClosedFrontDoor) == True;
+    }
+    actions {
+        Apply Impulse(Global.Player_, Direction Towards(Vector(8.43, 7.38, -18.4), Position Of(Global.Player_)), 4, To World, Cancel Contrary Motion);
+        Wait(0.02, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("[G] Left Door Barrier") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Position Of(Global.Player_), Vector(4.81, 7.38, -32.44)) < 4;
+        Or(Not(Global.DoorsWalkable), Global.ClosedLeftDoor) == True;
+    }
+    actions {
+        Apply Impulse(Global.Player_, Direction Towards(Vector(5.02, 7.38, -32.66), Position Of(Global.Player_)), 4, To World, Cancel Contrary Motion);
+        Wait(0.02, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+rule ("[G] Right Door Barrier") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Position Of(Global.Player_), Vector(-5.65, 7.38, -22.06)) < 4;
+        Or(Not(Global.DoorsWalkable), Global.ClosedRightDoor) == True;
+    }
+    actions {
+        Apply Impulse(Global.Player_, Direction Towards(Vector(-5.87, 7.38, -21.84), Position Of(Global.Player_)), 4, To World, Cancel Contrary Motion);
+        Wait(0.02, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+disabled rule ("CAMERAS") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Cams Setup") {
+    event {
+        Ongoing - Global;
+    }
+    actions {
+        Set Global Variable(CamPositions, Array(Null, Vector(1.367, 9.276, -54.926), Vector(-5.5, 10, -27), Vector(-10.08, 9.75, -8.96), Vector(20.45, 3.38, 1.08), Vector(18, 7.1, -6.6), Vector(21.7, 11.51, -8.91), Vector(-3.8, 10.4, 52.8)));
+        Set Global Variable(CamLookAts, Array(Null, Vector(-0.97, -0.1, 0.2), Vector(-0.7, -0.25, -0.7), Vector(-0.4, -0.3, 0.87), Vector(1, 0, 0), Vector(0, -0.3, -1), Vector(0.6, -0.15, 0.79), Vector(-0.18, -0.78, 0.6)));
+        Set Global Variable(InteractCams, Vector(0.55, 8.4, -22.2));
+        Set Global Variable(CurrentCam, 0);
+        Set Global Variable(LastCam, 1);
+        Skip If(Compare(Global.NightNumber, >=, 1), 1);
+        Create In-World Text(If-Then-Else(And(Compare(Global.CurrentTime, <, 1), Not(Global.CurrentCam)), Local Player, Null), Custom String("[{0}] TO ENTER/LEAVE CAMERAS", Input Binding String(Button(Interact))), Global.InteractCams, 1, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 200), Default Visibility);
+        //lbl_0:
+        Create HUD Text(If-Then-Else(Global.CurrentCam, All Players(All Teams), Null), Custom String("CAM {0}", Global.CurrentCam), Null, Null, Top, 0, Color(White), Null, Null, Visible To and String, Default Visibility);
+        Create HUD Text(If-Then-Else(Global.CurrentCam, Local Player, Null), Null, Custom String("<  {0}  |  {1}  >", Input Binding String(Button(Secondary Fire)), Input Binding String(Button(Primary Fire))), Null, Top, 1, Null, Color(White), Null, Visible To and String, Default Visibility);
+        Create Effect(If-Then-Else(And(Compare(Distance Between(Eye Position(Global.Player_), Global.InteractCams), <, 2), Compare(Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Eye Position(Global.Player_), Global.InteractCams)), <, 30)), All Players(All Teams), Null), Sphere, Color(White), Global.InteractCams, 0.065, Visible To Position Radius and Color);
+        Create Effect(If-Then-Else(Global.CamsJammed, All Players(All Teams), Null), Winston Primal Rage Effect, Color(Team 1), Global.InteractCams, 1, Visible To Position and Radius);
+        Create Effect(All Players(All Teams), Ring, If-Then-Else(Global.CamsJammed, Color(Orange), Color(Gray)), Global.InteractCams, 0.1, Visible To Position Radius and Color);
+        Wait(0.1, Ignore Condition);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 1), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 2), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 3), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 4), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 5), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 6), 0.25, Visible To);
+        Create Effect(All Players(All Teams), Sphere, Color(Black), Value In Array(Global.CamPositions, 7), 0.25, Visible To);
+    }
+}
+
+rule ("[EP] Cams Interact") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Distance Between(Eye Position(Event Player), Global.InteractCams) < 2;
+        Is Button Held(Event Player, Button(Interact)) == True;
+        Is Moving(Event Player) == False;
+        Is Dummy Bot(Event Player) == False;
+    }
+    actions {
+        If(And(Not(Global.CamsJammed), Global.Power));
+            If(Compare(Global.CurrentCam, ==, 0));
+                Abort If(Compare(Angle Between Vectors(Facing Direction Of(Event Player), Direction Towards(Eye Position(Event Player), Global.InteractCams)), >=, 30));
+                Set Global Variable(CurrentCam, Global.LastCam);
+                Modify Global Variable(PowerUsage, Add, 1);
+                Set Status(Event Player, Null, Rooted, 9999);
+                Set Gravity(Event Player, 0);
+                Set Melee Enabled(Event Player, False);
+                Start Camera(Event Player, Value In Array(Global.CamPositions, Global.CurrentCam), Update Every Frame(Add(Value In Array(Global.CamPositions, Global.CurrentCam), Facing Direction Of(Event Player))), 0);
+                Set Facing(Event Player, Value In Array(Global.CamLookAts, Global.CurrentCam), To World);
+                Wait(0.05, Ignore Condition);
+                Play Effect(All Players(All Teams), Sombra Translocating Sound, Color(Team 2), Value In Array(Global.CamPositions, Global.CurrentCam), 45);
+            Else;
+                Set Global Variable(CurrentCam, 0);
+                Modify Global Variable(PowerUsage, Subtract, 1);
+                Clear Status(Event Player, Rooted);
+                Set Gravity(Event Player, 100);
+                Set Melee Enabled(Event Player, True);
+                Stop Camera(Event Player);
+                Set Facing(Event Player, Direction Towards(Eye Position(Event Player), Global.InteractCams), To World);
+            End;
+            Wait(0.05, Ignore Condition);
+            Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 2), Position Of(Event Player), 200);
+        Else;
+            Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Global.InteractCams, 125);
+    }
+}
+
+rule ("[EP] Cycle Cams") {
+    event {
+        Ongoing - Each Player;
+        All;
+        All;
+    }
+    conditions {
+        Or(Is Button Held(Event Player, Button(Primary Fire)), Is Button Held(Event Player, Button(Secondary Fire))) == True;
+        Is Button Held(Event Player, Button(Reload)) == False;
+        Global.CurrentCam != 0;
+        "@Condition Power > 0"
+        Is Dummy Bot(Event Player) == False;
+    }
+    actions {
+        If(Is Button Held(Event Player, Button(Primary Fire)));
+            If(Compare(Global.CurrentCam, >=, Subtract(Count Of(Global.CamPositions), 1)));
+                Set Global Variable(CurrentCam, 1);
+            Else;
+                Modify Global Variable(CurrentCam, Add, 1);
+            End;
+        Else If(Is Button Held(Event Player, Button(Secondary Fire)));
+            If(Compare(Global.CurrentCam, <=, 1));
+                Set Global Variable(CurrentCam, Subtract(Count Of(Global.CamPositions), 1));
+            Else;
+                Modify Global Variable(CurrentCam, Subtract, 1);
+            End;
+        End;
+        Set Facing(Event Player, Value In Array(Global.CamLookAts, Global.CurrentCam), To World);
+        Wait(0.05, Ignore Condition);
+        Play Effect(All Players(All Teams), Sombra Translocating Sound, Color(Team 1), Value In Array(Global.CamPositions, Global.CurrentCam), 45);
+    }
+}
+
+rule ("[G] Update Last Cam / Zen Chance") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.CurrentCam != 0;
+        Global.LastCam != Global.CurrentCam;
+    }
+    actions {
+        Set Global Variable(LastCam, Global.CurrentCam);
+        Abort If(Or(Compare(Random Integer(1, 100), >, Global.ZenAI), Compare(Global.NightNumber, ==, 5)));
+        Start Rule(ZenSequence, Do Nothing);
+    }
+}
+
+disabled rule ("NIGHTS") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[SR] Phone Ring") {
+    event {
+        Subroutine;
+        PhoneRing;
+    }
+    actions {
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+        Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 0.08);
+        Play Effect(All Players(All Teams), Buff Impact Sound, Null, Global.InteractCams, 8);
+    }
+}
+
+rule ("[G] Night 1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 0;
+        Is Game In Progress == True;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.083, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(All Teams), Custom String("SURVIVE UNTIL 6 AM"));
+        Wait Until(Compare(Global.CurrentTime, >=, 2), 99999);
+        Modify Global Variable(BastionAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 3), 99999);
+        Skip If(Compare(Random Integer(1, 100), >, 10), 1);
+        Small Message(All Players(All Teams), Custom String("[?] IT SHOULD HAVE BEEN YOU."));
+        //lbl_1:
+        Modify Global Variable(BastionAI, Add, 1);
+        Modify Global Variable(OrisaAI, Add, 3);
+    }
+}
+
+rule ("[G] Night 1 Call") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 0;
+        Is Game In Progress == True;
+        Is Alive(Global.Player_) == True;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 4);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] UHM... HELLO? MEI?"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AH, THANK GOD COMMS ARE BACK."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] YOU SHOULD RECEIVE THIS BY TOMORROW NIGHT..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WHAT A TRAGEDY. I'M REALLY SORRY ABOUT YOUR FRIENDS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THESE NINE YEARS HAVE BEEN ROUGH, BUT IT'S GOOD TO HAVE YOU BACK."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] ANYWAY, THERE'S NO TIME TO WASTE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THE NEW CREW IS GETTING READY..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] BUT THE STORM HAS SEVERELY DAMAGED"));
+        Wait(1.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("MOST OF THE EQUIPMENT IN THERE..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] INCLUDING SECURITY SYSTEMS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SO WE'VE ASSIGNED YOU TO GET FAMILIAR"));
+        Wait(1.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("WITH OUR - VERY EXPENSIVE - ROBOTS..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND MAKE SURE THEY'RE IN GOOD CONDITIONS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SO... YEAH. JUST KEEP THEM SAFE AND WORKING."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND REPORT ME ANYTHING STRANGE YOU FIND."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WE'LL TALK MORE TOMORROW. GOOD LUCK!"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX HANGS UP]"));
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+    }
+}
+
+rule ("[G] Night 2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 1;
+        Is Game In Progress == True;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.1, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(All Teams), Custom String("SURVIVE UNTIL 6 AM"));
+        Modify Global Variable(ZenAI, Add, 1);
+        Modify Global Variable(BastionAI, Add, 2);
+        Wait Until(Compare(Global.CurrentTime, >=, 1), 99999);
+        Modify Global Variable(BastionAI, Add, 2);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 2), 99999);
+        Skip If(Compare(Random Integer(1, 100), >, 10), 1);
+        Small Message(All Players(All Teams), Custom String("[?] IT'S ALL YOUR FAULT."));
+        //lbl_1:
+        Modify Global Variable(EchoAI, Add, 2);
+        Wait Until(Compare(Global.CurrentTime, >=, 3), 99999);
+        Modify Global Variable(BastionAI, Add, 2);
+        Wait Until(Compare(Global.CurrentTime, >=, 4), 99999);
+        Modify Global Variable(EchoAI, Add, 1);
+    }
+}
+
+rule ("[G] Night 2 Call") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 1;
+        Is Game In Progress == True;
+        Is Alive(Global.Player_) == True;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 4);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] MEI! WHAT'S UP?"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] HOPE YOU'RE DOING FINE OUT THERE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] I HAVE SOME NEW INFO BASED ON YOUR REPORTS..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND I GOTTA FILL YOU UP RIGHT NOW."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SO... THERE'S SOMETHING ABOUT ECHO."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] YOU MUST HAVE SEEN HER SOMEWHERE ALREADY."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SHE IS... SMARTER THAN THE OTHER ONES..."));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("IN A CERTAIN WAY."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SHE HAS REMOTE ACCESS TO THE POWER NETWORK..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND SHE IS MALFUNCTIONING RIGHT NOW."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] BUT NO WORRIES!"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] IF SHE TRIES TO PLAY ANY TRICKS ON YOU..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] JUST CLOSE THE GATE AND HIDE FROM HER VIEW FOR A BIT."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THAT UH... SHOULD MAKE HER GO AWAY FOR A WHILE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] I THINK THAT'S IT. GOOD LUCK AGAIN!"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND KEEP SENDING THESE REPORTS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THEY'RE VERY HELPFUL."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] PEACE!"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX HANGS UP]"));
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+    }
+}
+
+rule ("[G] Night 3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 2;
+        Is Game In Progress == True;
+    }
+    actions {
+        Set Global Variable(NightPhase, 999);
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.116, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(All Teams), Custom String("SURVIVE UNTIL 6 AM"));
+        Modify Global Variable(ZenAI, Add, 1);
+        Modify Global Variable(GenjiAI, Add, 2);
+        Modify Global Variable(BastionAI, Add, 3);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 1), 99999);
+        Modify Global Variable(EchoAI, Add, 4);
+        Wait Until(Compare(Global.CurrentTime, >=, 2), 99999);
+        Modify Global Variable(BastionAI, Add, 2);
+        Modify Global Variable(OrisaAI, Add, 1);
+        Wait Until(Compare(Global.CurrentTime, >=, 3), 99999);
+        Modify Global Variable(EchoAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 4), 99999);
+        Skip If(Compare(Random Integer(1, 100), >, 10), 1);
+        Small Message(All Players(All Teams), Custom String("[?] IT'S YOUR TURN TO FREEZE."));
+        //lbl_1:
+        Modify Global Variable(OrisaAI, Add, 2);
+    }
+}
+
+rule ("[G] Night 3 Call") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 2;
+        Is Game In Progress == True;
+        Is Alive(Global.Player_) == True;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 4);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] HELLO HELLO! READY FOR YOUR THIRD NIGHT?"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WE HAVE BEEN REEEALLY BUSY WITH"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("ALL THE READINGS YOU PROVIDED ME."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THERE'S ANOTHER DETAIL YOU MUST KNOW."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THE OLD HUNTER BOT PROTOTYPE..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THAT WAS BEING KEPT IN ECOPOINT FOR REASONS"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("EVEN I DON'T KNOW..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] HAS BOOTED UP SOMEHOW."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] HE USES THERMAL SENSORS TO FIND AND NEUTRALIZE..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] ANYTHING THAT'S DOING SOMETHING IT IS"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("PROGRAMMED TO PREVENT."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND SINCE THE FACILITY IS IN LOCKDOWN..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND THE ONLY HEAT SIGNATURE AROUND IS YOU..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WELL, I THINK YOU KNOW WHAT I MEAN."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] BUT DON'T PANIC. WE'VE PLAYED AROUND"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("WITH THE HEAT SYSTEM FOR A BIT..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] TO MESS WITH HIS SENSORS..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AND LOCK HIM IN THE CORRIDOR NEXT TO"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("THE CREW QUARTERS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] SO YOU SHOULD BE SAFE..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] AS LONG AS YOU KEEP THAT HEATER POWERED."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] I'M REALLY SORRY ABOUT THIS MEI."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WE'RE WORKING HARD TO FIX EVERYTHING."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THIS DAMN STORM..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] BUT YOU'LL BE FINE. I PROMISE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THANK YOU FOR DOING THIS FOR US."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX HANGS UP]"));
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+    }
+}
+
+rule ("[G] Night 4") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 3;
+        Is Game In Progress == True;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.12, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(All Teams), Custom String("SURVIVE UNTIL 6 AM"));
+        Modify Global Variable(ZenAI, Add, 1);
+        Modify Global Variable(GenjiAI, Add, 3);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Modify Global Variable(BastionAI, Add, 4);
+        Modify Global Variable(EchoAI, Add, 4);
+        Wait Until(Compare(Global.CurrentTime, >=, 2), 99999);
+        Modify Global Variable(BastionAI, Add, 4);
+        Modify Global Variable(EchoAI, Add, 4);
+        Wait Until(Compare(Global.CurrentTime, >=, 4), 99999);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 5), 99999);
+        Modify Global Variable(GenjiAI, Add, 9);
+    }
+}
+
+rule ("[G] Night 4 Call") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 3;
+        Is Game In Progress == True;
+        Is Alive(Global.Player_) == True;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 4);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[STATIC]"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[?] YOU SHOULD HAVE DIED WITH US."));
+        Wait(2.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+    }
+}
+
+rule ("[G] Night 5") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 4;
+        Is Game In Progress == True;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.125, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(All Teams), Custom String("SURVIVE UNTIL 6 AM"));
+        Modify Global Variable(ZenAI, Add, 15);
+        Modify Global Variable(GenjiAI, Add, 7);
+        Modify Global Variable(OrisaAI, Add, 6);
+        Modify Global Variable(BastionAI, Add, 6);
+        Modify Global Variable(EchoAI, Add, 5);
+        Wait Until(Compare(Global.CurrentTime, >=, 2), 99999);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Modify Global Variable(BastionAI, Add, 2);
+        Modify Global Variable(EchoAI, Add, 3);
+        Wait Until(Compare(Global.CurrentTime, >=, 4), 99999);
+        Skip If(Compare(Random Integer(1, 100), >, 10), 1);
+        Small Message(All Players(All Teams), Custom String("[?] YOU LEFT US BEHIND."));
+        //lbl_1:
+        Modify Global Variable(GenjiAI, Add, 3);
+        Modify Global Variable(OrisaAI, Add, 3);
+        Modify Global Variable(BastionAI, Add, 3);
+        Modify Global Variable(EchoAI, Add, 3);
+    }
+}
+
+rule ("[G] Night 5 Call") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 4;
+        Is Game In Progress == True;
+        Is Alive(Global.Player_) == True;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 4);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] MEI? I HOPE THIS MESSAGE REACHES YOU."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] YOUR SIGNAL WENT DOWN YESTERDAY."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] IF YOU'RE LISTENING TO ME, PLEASE PAY ATTENTION."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WE'VE UNCOVERED PROJECTS FOR A FIFTH SECURITY BOT."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] WE DO NOT KNOW WHERE IT IS AND HOW IT WORKS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] THE NEW CREW WON'T MOVE TO ECOPOINT UNTIL"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("THIS IS ALL SORTED OUT AND CLARIFIED."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] GOD KNOWS WHY THE HELL YOU AND YOUR"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("COLLEAGUES WERE LIVING NEXT TO THESE THINGS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX] PLEASE BE CAREFUL. HELP IS ON THE WAY."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MAX HANGS UP]"));
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+    }
+}
+
+rule ("[G] Night 7 (Custom)") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber == 6;
+        Is Game In Progress == True;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.131, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Big Message(All Players(Team 1), Custom String("SURVIVE UNTIL 6 AM"));
+        Set Global Variable(GenjiAI, Workshop Setting Integer(Custom String("CUSTOM NIGHT SETTINGS"), Custom String("GENJI A.I LEVEL"), 0, 0, 20, 0));
+        Set Global Variable(EchoAI, Workshop Setting Integer(Custom String("CUSTOM NIGHT SETTINGS"), Custom String("ECHO A.I LEVEL"), 0, 0, 20, 0));
+        Set Global Variable(OrisaAI, Workshop Setting Integer(Custom String("CUSTOM NIGHT SETTINGS"), Custom String("ORISA A.I LEVEL"), 0, 0, 20, 0));
+        Set Global Variable(BastionAI, Workshop Setting Integer(Custom String("CUSTOM NIGHT SETTINGS"), Custom String("BASTION A.I LEVEL"), 0, 0, 20, 0));
+        Set Global Variable(ZenAI, Workshop Setting Integer(Custom String("CUSTOM NIGHT SETTINGS"), Custom String("ZENYATTA A.I LEVEL"), 0, 0, 20, 0));
+    }
+}
+
+disabled rule ("BASTION") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Bastion Setup") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber != 5;
+    }
+    actions {
+        Create Dummy Bot(Hero(Bastion), Team 2, 0, Vector(-12.74, 7, -49.92), Vector(1, 0, 0));
+        Set Global Variable(Bastion, Players In Slot(0, Team 2));
+        Start Scaling Player(Global.Bastion, 1.3, False);
+        Start Modifying Hero Voice Lines(Global.Bastion, 1.5, True);
+        Wait Until(Is Game In Progress, 99999);
+        Skip If(Not(First Of(Global.Cheats)), 1);
+        Create In-World Text(All Players(All Teams), Custom String("{0} {1} / {2} A.I", Hero Icon String(Hero(Bastion)), Global.BastionPhase, Global.BastionAI), Global.Bastion, 1.2, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        //lbl_0:
+    }
+}
+
+rule ("[SR] Bastion Jumpscare") {
+    event {
+        Subroutine;
+        BastionJumpscare;
+    }
+    actions {
+        Destroy All In-World Text;
+        If(Not(Global.NoJumpscares));
+            Set Invisible(Global.Player_, All);
+            Set Global Variable(CurrentCam, 0);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Global.Bastion, False);
+            Wait(0.04, Ignore Condition);
+            Set Status(Global.Bastion, Null, Phased Out, 3);
+            Set Status(Players In Slot(1, Team 1), Null, Phased Out, 3);
+            Wait(0.12, Ignore Condition);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Vector(0, 200, 0), False);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+            Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+            Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+            Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+            Damage(Global.Player_, Null, 300);
+            Teleport(Global.Bastion, Position Of(Global.Player_));
+            Wait(0.025, Ignore Condition);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Bastion), Multiply(Facing Direction Of(Global.Bastion), 0.7))), Add(Update Every Frame(Eye Position(Global.Bastion)), Global.CamShake), 0);
+            Start Rule(CameraShake, Restart Rule);
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Bastion);
+        Else;
+            Set Global Variable(CurrentCam, 0);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Bastion), Multiply(Facing Direction Of(Global.Bastion), 1.5))), Update Every Frame(Eye Position(Global.Bastion)), 0);
+            Small Message(All Players(All Teams), Custom String("DEAD!"));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Bastion);
+        End;
+    }
+}
+
+rule ("[G] Bastion Progression") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        (Global.Bastion).HasMoved == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase != -3;
+        Global.BastionPhase != 3;
+    }
+    actions {
+        Wait(Add(5.5, Divide(Global.BastionAI, 6)), Abort When False);
+        If(Compare(Random Integer(1, 20), <=, Global.BastionAI));
+            Set Player Variable(Global.Bastion, HasMoved, False);
+            If(Compare(Global.BastionPhase, ==, 0));
+                Set Global Variable(BastionPhase, Random Value In Array(Array(1, -1)));
+            Else;
+                Modify Global Variable(BastionPhase, Add, If-Then-Else(Compare(Global.BastionPhase, >, 0), 1, -1));
+            End;
+        End;
+        Loop;
+    }
+}
+
+rule ("[G] Bastion Phase 0") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == 0;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 1), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, 0));
+        Teleport(Global.Bastion, Vector(-12.74, 7, -49.92));
+        Set Facing(Global.Bastion, Vector(1, 0, 0), To World);
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase 1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == 1;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 1), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, 1));
+        Teleport(Global.Bastion, Vector(6.46, 8.1, -50.77));
+        Set Facing(Global.Bastion, Vector(0.07, 0, 1), To World);
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase 2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == 2;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.08, 8.1, -40.48), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.08, 8.1, -40.48), 75)))), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, 2));
+        Teleport(Global.Bastion, Vector(6.59, 8.01, -45.94));
+        Set Facing(Global.Bastion, Vector(-0.6, 0, 0.8), To World);
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase 3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == 3;
+    }
+    actions {
+        Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, 3));
+        Teleport(Global.Bastion, Vector(3.39, 7.06, -31.06));
+        Set Facing(Global.Bastion, Vector(-0.71, 0, 0.71), To World);
+        Wait(Subtract(6, Divide(Global.BastionAI, 10)), Ignore Condition);
+        Wait Until(Not(Global.CurrentCam), 8);
+        If(Global.ClosedLeftDoor);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+            If(Global.ClosedLeftDoor);
+                Set Global Variable(BastionPhase, If-Then-Else(Compare(Random Integer(1, 100), <=, Global.BastionAI), Random Value In Array(Array(-1, 1)), 0));
+            Else;
+                Call Subroutine(BastionJumpscare);
+            End;
+        Else;
+            Call Subroutine(BastionJumpscare);
+        End;
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase -1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == -1;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 1), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, -1));
+        Teleport(Global.Bastion, Vector(-10.88, 7, -47));
+        Set Facing(Global.Bastion, Vector(0.02, 0, 1), To World);
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase -2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == -2;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 1), Compare(Global.CurrentCam, !=, 2)), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, -2));
+        Teleport(Global.Bastion, Vector(-8.8, 7.34, -33.58));
+        Set Facing(Global.Bastion, Vector(0.02, 0, 1), To World);
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+rule ("[G] Bastion Phase -3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.BastionAI != 0;
+        Global.BastionPhase == -3;
+    }
+    actions {
+        Wait Until(And(And(Compare(Global.CurrentCam, !=, 2), Global.OrisaMeter), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
+        Abort If(Compare(Global.BastionPhase, !=, -3));
+        Teleport(Global.Bastion, Vector(-4.38, 7.04, -23.22));
+        Set Facing(Global.Bastion, Vector(0.71, 0, -0.71), To World);
+        Wait(Subtract(6, Divide(Global.BastionAI, 10)), Ignore Condition);
+        Wait Until(Not(Global.CurrentCam), 8);
+        If(Global.ClosedRightDoor);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 1), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+            If(Global.ClosedRightDoor);
+                Set Global Variable(BastionPhase, If-Then-Else(Compare(Random Integer(1, 100), <=, Global.BastionAI), Random Value In Array(Array(-1, 1)), 0));
+            Else;
+                Call Subroutine(BastionJumpscare);
+            End;
+        Else;
+            Call Subroutine(BastionJumpscare);
+        End;
+        Set Player Variable(Global.Bastion, HasMoved, True);
+    }
+}
+
+disabled rule ("ECHO") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Echo Setup") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber != 5;
+    }
+    actions {
+        Wait(0.25, Ignore Condition);
+        Create Dummy Bot(Hero(Echo), Team 2, 2, Vector(28.62, 3, 2.9), Vector(0, 0, 1));
+        Set Global Variable(Echo, Players In Slot(2, Team 2));
+        Start Scaling Player(Global.Echo, 1.2, False);
+        Wait Until(Is Game In Progress, 99999);
+        Set Status(Players On Hero(Hero(Echo), All Teams), Null, Knocked Down, 9999);
+        Skip If(Not(First Of(Global.Cheats)), 1);
+        Create In-World Text(All Players(All Teams), Custom String("{0} {1} / {2} A.I", Hero Icon String(Hero(Echo)), Global.EchoPhase, Global.EchoAI), Global.Echo, 1.2, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        //lbl_0:
+    }
+}
+
+rule ("[SR] Echo Jumpscare") {
+    event {
+        Subroutine;
+        EchoJumpscare;
+    }
+    actions {
+        Destroy All In-World Text;
+        If(Not(Global.NoJumpscares));
+            Set Invisible(Global.Player_, All);
+            Set Global Variable(CurrentCam, 0);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Global.Echo, False);
+            Wait(0.04, Ignore Condition);
+            Set Status(Global.Echo, Null, Phased Out, 3);
+            Set Status(Players In Slot(1, Team 1), Null, Phased Out, 3);
+            Wait(0.12, Ignore Condition);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Vector(0, 200, 0), False);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+            Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+            Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+            Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+            Damage(Global.Player_, Null, 300);
+            Teleport(Global.Echo, Position Of(Global.Player_));
+            Wait(0.016, Ignore Condition);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Echo), Multiply(Facing Direction Of(Global.Echo), 0.6))), Add(Update Every Frame(Eye Position(Global.Echo)), Global.CamShake), 0);
+            Press Button(Global.Echo, Button(Ability 2));
+            Start Rule(CameraShake, Restart Rule);
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Echo);
+        Else;
+            Set Global Variable(CurrentCam, 0);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Echo), Multiply(Facing Direction Of(Global.Echo), 1.5))), Update Every Frame(Eye Position(Global.Echo)), 0);
+            Small Message(All Players(All Teams), Custom String("DEAD!"));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Echo);
+        End;
+    }
+}
+
+rule ("[G] Echo Progression") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        (Global.Echo).HasMoved == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase != 4;
+        Global.EchoPhase != -4;
+    }
+    actions {
+        Wait(Add(5, Divide(Global.EchoAI, 6)), Abort When False);
+        If(Compare(Random Integer(1, 20), <=, Global.EchoAI));
+            Set Player Variable(Global.Echo, HasMoved, False);
+            If(Compare(Global.EchoPhase, ==, 0));
+                Clear Status(Global.Echo, Knocked Down);
+                Set Global Variable(EchoPhase, Random Value In Array(Array(1, -1)));
+            Else;
+                Modify Global Variable(EchoPhase, Add, If-Then-Else(Compare(Global.EchoPhase, >, 0), 1, -1));
+            End;
+        End;
+        Loop;
+    }
+}
+
+rule ("[G] Echo Phase 0") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == 0;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 4), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, 0));
+        Teleport(Global.Echo, Vector(28.62, 3, 2.9));
+        Set Facing(Global.Echo, Vector(0, 0, 1), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase 1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == 1;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 4), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, 1));
+        Teleport(Global.Echo, Vector(22.4, 3, 2.57));
+        Set Facing(Global.Echo, Vector(-1, 0, 0), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase 2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == 2;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 4), Compare(Global.CurrentCam, !=, 5)), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, 2));
+        Teleport(Global.Echo, Vector(18.33, 4, -6.3));
+        Set Facing(Global.Echo, Vector(-0.22, 0.25, -0.94), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase 3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == 3;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 5), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(16.39, 7.02, -14.72), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(16.39, 7.02, -14.72), 75)))), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, 3));
+        Teleport(Global.Echo, Vector(17.18, 6.02, -13.96));
+        Set Facing(Global.Echo, Vector(-0.86, 0.1, -0.5), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase -1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == -1;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 4), Compare(Global.CurrentCam, !=, 6)), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, -1));
+        Teleport(Global.Echo, Vector(27.3, 8.96, 2.53));
+        Set Facing(Global.Echo, Vector(-0.45, 0, -0.89), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase -2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == -2;
+    }
+    actions {
+        Wait Until(Compare(Global.CurrentCam, !=, 6), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, -2));
+        Teleport(Global.Echo, Vector(22.8, 7.25, -11.8));
+        Set Facing(Global.Echo, Direction Towards(Eye Position(Global.Echo), Value In Array(Global.CamPositions, 6)), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase -3") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Global.EchoPhase == -3;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 6), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(14.55, 13.1, -20.3), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(14.55, 13.1, -20.3), 75)))), 99999);
+        Abort If(Compare(Global.EchoPhase, !=, -3));
+        Teleport(Global.Echo, Vector(15.5, 11.81, -21));
+        Set Facing(Global.Echo, Vector(-0.9, -0.5, -0.05), To World);
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+rule ("[G] Echo Phase 4 and -4") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.EchoAI != 0;
+        Or(Compare(Global.EchoPhase, ==, 4), Compare(Global.EchoPhase, ==, -4)) == True;
+    }
+    actions {
+        Wait Until(And(And(Compare(Global.CurrentCam, !=, 4), Compare(Global.CurrentCam, !=, 6)), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
+        Abort If(And(Compare(Global.EchoPhase, !=, 4), Compare(Global.EchoPhase, !=, -4)));
+        Teleport(Global.Echo, Vector(6.74, 7.02, -19.94));
+        Set Facing(Global.Echo, Vector(-0.71, 0.1, -0.71), To World);
+        Wait(Subtract(6, Divide(Global.EchoAI, 10)), Ignore Condition);
+        Wait Until(Not(Global.CurrentCam), 5);
+        If(Global.ClosedFrontDoor);
+            Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Echo), 75))), 99999);
+            If(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS)));
+                Wait(Random Real(1, 3), Ignore Condition);
+                Loop If(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Echo), Barriers Do Not Block LOS));
+            Else If(Not(Is In View Angle(Global.Player_, Eye Position(Global.Echo), 75)));
+                Start Rule(CamsJammed, Restart Rule);
+                Set Global Variable(Power, Max(0, Subtract(Global.Power, 3)));
+            End;
+            Set Global Variable(EchoPhase, If-Then-Else(Compare(Random Integer(1, 100), <=, Global.EchoAI), Random Value In Array(Array(-1, 1)), 0));
+        Else;
+            Call Subroutine(EchoJumpscare);
+        End;
+        Set Player Variable(Global.Echo, HasMoved, True);
+    }
+}
+
+disabled rule ("ORISA") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Orisa Setup") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber != 5;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Create Dummy Bot(Hero(Orisa), Team 2, 1, Vector(-10.7, 8.52, -0.37), Vector(-1, 0, 0));
+        Set Global Variable(Orisa, Players In Slot(1, Team 2));
+        Start Scaling Player(Global.Orisa, 1.35, False);
+        Wait Until(Is Game In Progress, 99999);
+        Set Status(Players On Hero(Hero(Orisa), All Teams), Null, Knocked Down, 9999);
+        Set Global Variable(OrisaMeter, 100);
+        Skip If(Not(First Of(Global.Cheats)), 1);
+        Create In-World Text(All Players(All Teams), Custom String("{0} {1} / {2} A.I", Hero Icon String(Hero(Orisa)), Global.OrisaMeter, Global.OrisaAI), Global.Orisa, 1.2, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        //lbl_0:
+    }
+}
+
+rule ("[SR] Orisa Jumpscare") {
+    event {
+        Subroutine;
+        OrisaJumpscare;
+    }
+    actions {
+        Destroy All In-World Text;
+        If(Not(Global.NoJumpscares));
+            Set Invisible(Global.Player_, All);
+            Set Global Variable(CurrentCam, 0);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+            Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+            Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+            Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+            Damage(Global.Player_, Null, 300);
+            Wait(0.016, Ignore Condition);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Orisa), Multiply(Facing Direction Of(Global.Orisa), 1.2))), Add(Update Every Frame(Eye Position(Global.Orisa)), Global.CamShake), 0);
+            Damage(Global.Orisa, Null, 390);
+            Start Rule(CameraShake, Restart Rule);
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Orisa);
+        Else;
+            Set Global Variable(CurrentCam, 0);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Orisa), Multiply(Facing Direction Of(Global.Orisa), 1.5))), Update Every Frame(Eye Position(Global.Orisa)), 0);
+            Small Message(All Players(All Teams), Custom String("DEAD!"));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Orisa);
+        End;
+    }
+}
+
+rule ("[G] Orisa Progression") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.OrisaAI != 0;
+    }
+    actions {
+        Chase Global Variable At Rate(OrisaMeter, 0, Add(0.45, Divide(Global.OrisaAI, 15)), Destination and Rate);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 66)), 99999);
+        Clear Status(Global.Orisa, Knocked Down);
+        Set Facing(Global.Orisa, Direction Towards(Eye Position(Global.Orisa), Value In Array(Global.CamPositions, 3)), To World);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 23)), 99999);
+        Teleport(Global.Orisa, Vector(-10.36, 7, -8.25));
+        Set Facing(Global.Orisa, Vector(-1, 0, 0), To World);
+        Wait Until(And(And(And(Compare(Global.CurrentCam, !=, 3), Compare(Global.OrisaMeter, <=, 0)), Compare(Global.BastionPhase, !=, 3)), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-15.57, 7.42, -11.65), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-15.57, 7.42, -11.65), 75)))), 99999);
+        Teleport(Global.Orisa, Vector(-15.57, 6.42, -11.65));
+        Set Facing(Global.Orisa, Vector(0.68, 0, -0.73), To World);
+        Wait Until(Not(Global.CurrentCam), 5);
+        Start Throttle In Direction(Global.Orisa, Direction Towards(Position Of(Global.Orisa), Vector(-4.2, 7.07, -23.51)), 1, To World, Replace existing throttle, Direction and Magnitude);
+        Wait Until(Compare(Distance Between(Position Of(Global.Orisa), Vector(-4.2, 7.07, -23.51)), <=, 0.3), 99999);
+        If(Global.ClosedRightDoor);
+            Set Status(Global.Orisa, Global.Player_, Stunned, 1);
+            Stop Throttle In Direction(Global.Orisa);
+            Wait Until(And(Compare(Global.CurrentCam, !=, 3), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Orisa), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Orisa), 75)))), 99999);
+            If(Global.ClosedRightDoor);
+                Teleport(Global.Orisa, Vector(-10.7, 8.52, -0.37));
+                Set Facing(Global.Orisa, Direction Towards(Eye Position(Global.Orisa), Value In Array(Global.CamPositions, 3)), To World);
+                Set Global Variable(OrisaMeter, 100);
+                Loop If Condition Is True;
+            Else;
+                Call Subroutine(OrisaJumpscare);
+            End;
+        Else;
+            Call Subroutine(OrisaJumpscare);
+    }
+}
+
+rule ("[G] Update Orisa Speed") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.OrisaAI != 0;
+        Global.OrisaAIPrevious != Global.OrisaAI;
+    }
+    actions {
+        Set Global Variable(OrisaAIPrevious, Global.OrisaAI);
+        Set Move Speed(Global.Orisa, Add(165, Multiply(Global.OrisaAI, 1.5)));
+    }
+}
+
+rule ("[G] Orisa Stall Start") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.CurrentCam == 3;
+        Global.OrisaAI != 0;
+        Global.OrisaMeter > 0;
+    }
+    actions {
+        Stop Chasing Global Variable(OrisaMeter);
+        Wait(Random Real(1.4, 2.2), Abort When False);
+        Set Global Variable(OrisaMeter, Min(100, Add(Global.OrisaMeter, 0.9)));
+        Loop If Condition Is True;
+    }
+}
+
+rule ("[G] Orisa Stall Stop") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.CurrentCam != 3;
+        Global.OrisaAI != 0;
+    }
+    actions {
+        Wait(0.25, Abort When False);
+        Chase Global Variable At Rate(OrisaMeter, 0, Add(0.45, Divide(Global.OrisaAI, 15)), Destination and Rate);
+    }
+}
+
+disabled rule ("GENJI") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Genji Setup") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber != 5;
+        Global.NightNumber > 1;
+    }
+    actions {
+        Wait(0.75, Ignore Condition);
+        Create Dummy Bot(Hero(Genji), Team 2, 3, Vector(-2.6, 7, 54.5), Vector(-0.7, 0, -0.71));
+        Set Global Variable(Genji, Players In Slot(3, Team 2));
+        Start Scaling Player(Global.Genji, 1.6, False);
+        Wait Until(Is Game In Progress, 99999);
+        Set Status(Players On Hero(Hero(Genji), All Teams), Null, Knocked Down, 9999);
+        Set Global Variable(HeaterPower, 100);
+        Skip If(Not(First Of(Global.Cheats)), 1);
+        Create In-World Text(All Players(All Teams), Custom String("{0} {1} / {2} A.I", Hero Icon String(Hero(Genji)), Global.HeaterPower, Global.GenjiAI), Global.Genji, 1.2, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        //lbl_0:
+        Create Effect(All Players(All Teams), Zarya Particle Beam Sound, Color(Team 2), Value In Array(Global.CamPositions, 7), Divide(Global.HeaterPower, 2), Visible To Position and Radius);
+        Create In-World Text(If-Then-Else(Compare(Global.CurrentCam, ==, 7), Global.Player_, Null), String Slice(Custom String("■■■■■■■■■■■■■■■■"), 0, Divide(Global.HeaterPower, 6.25)), Update Every Frame(Add(Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 22)), 1000), Value In Array(Global.CamPositions, 7))), 2.7, Do Not Clip, Visible To Position String and Color, Custom Color(255, Multiply(Global.HeaterPower, 2.55), Global.HeaterPower, If-Then-Else(Compare(Divide(Global.HeaterPower, 6.25), >, 15.5), 215, 160)), Default Visibility);
+        Create In-World Text(If-Then-Else(Compare(Global.CurrentCam, ==, 7), Local Player, Null), Custom String("HOLD [{0}] TO WIND UP HEATER", Input Binding String(Button(Reload))), Update Every Frame(Add(Multiply(Direction From Angles(Horizontal Facing Angle Of(Local Player), Add(Vertical Facing Angle Of(Local Player), 24.5)), 1000), Value In Array(Global.CamPositions, 7))), 1.7, Do Not Clip, Visible To Position String and Color, Custom Color(255, 255, 255, If-Then-Else(Is Button Held(Local Player, Button(Reload)), 255, 140)), Default Visibility);
+        Create Icon(If-Then-Else(Global.CurrentCam, Null, Global.WarningIconVisible), Global.InteractCams, Fire, Visible To and Position, Custom Color(255, 80, 0, 255), True);
+        Create HUD Text(If-Then-Else(Global.CurrentCam, Global.WarningIconVisible, Null), Null, Null, Custom String("CAM 7"), Top, 2, Null, Null, Custom Color(255, 80, 0, 255), Visible To, Default Visibility);
+    }
+}
+
+rule ("[SR] Genji Jumpscare") {
+    event {
+        Subroutine;
+        GenjiJumpscare;
+    }
+    actions {
+        Destroy All In-World Text;
+        If(Not(Global.NoJumpscares));
+            Teleport(Global.Genji, Ray Cast Hit Position(Eye Position(Global.Player_), Add(Eye Position(Global.Player_), Multiply(Facing Direction Of(Global.Player_), Vector(-3, 0, -3))), Null, Global.Player_, False));
+            Start Facing(Global.Genji, Direction Towards(Eye Position(Global.Genji), Eye Position(Global.Player_)), 360, To World, Direction and Turn Rate);
+            Wait Until(Not(Global.CurrentCam), Random Real(4, 8));
+            Wait Until(Is In View Angle(Global.Player_, Eye Position(Global.Genji), 50), Random Real(4, 8));
+            Wait(0.5, Ignore Condition);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+            Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+            Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+            Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+            Damage(Global.Player_, Null, 300);
+            Wait(0.016, Ignore Condition);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Genji), Multiply(Facing Direction Of(Global.Genji), 1.2))), Add(Update Every Frame(Eye Position(Global.Genji)), Global.CamShake), 0);
+            Start Rule(CameraShake, Restart Rule);
+            Press Button(Global.Genji, Button(Ultimate));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Genji);
+        Else;
+            Teleport(Global.Genji, Ray Cast Hit Position(Eye Position(Global.Player_), Add(Eye Position(Global.Player_), Multiply(Facing Direction Of(Global.Player_), Vector(-3, 0, -3))), Null, Global.Player_, False));
+            Start Facing(Global.Genji, Direction Towards(Eye Position(Global.Genji), Eye Position(Global.Player_)), 360, To World, Direction and Turn Rate);
+            Wait Until(Not(Global.CurrentCam), Random Real(4, 8));
+            Wait Until(Is In View Angle(Global.Player_, Eye Position(Global.Genji), 50), Random Real(4, 8));
+            Wait(0.5, Ignore Condition);
+            Set Global Variable(CurrentCam, 0);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Genji), Multiply(Facing Direction Of(Global.Genji), 1.5))), Update Every Frame(Eye Position(Global.Genji)), 0);
+            Small Message(All Players(All Teams), Custom String("DEAD!"));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Genji);
+        End;
+    }
+}
+
+rule ("[G] Genji Progression") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.GenjiAI != 0;
+        Global.HeaterPower <= 0;
+    }
+    actions {
+        Wait Until(And(Compare(Global.CurrentCam, !=, 7), Compare(Global.HeaterPower, <=, 0)), 99999);
+        Clear Status(Global.Genji, Knocked Down);
+        Set Facing(Global.Genji, Direction Towards(Eye Position(Global.Genji), Value In Array(Global.CamPositions, 7)), To World);
+        Wait(Random Real(2.2, Subtract(4.4, Divide(Global.GenjiAI, 10))), Ignore Condition);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 7), Compare(Global.HeaterPower, <=, 0)), 99999);
+        Teleport(Global.Genji, Vector(-12.56, 7, 45.08));
+        Set Facing(Global.Genji, Vector(0.71, 0, -0.71), To World);
+        Wait(Random Real(1.8, Subtract(4, Divide(Global.GenjiAI, 10))), Ignore Condition);
+        Wait Until(And(Compare(Global.CurrentCam, !=, 7), Compare(Global.HeaterPower, <=, 0)), 99999);
+        Call Subroutine(GenjiJumpscare);
+    }
+}
+
+rule ("[G] Start Wind Down") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.GenjiAI != 0;
+        Is Game In Progress == True;
+    }
+    actions {
+        Chase Global Variable At Rate(HeaterPower, 0, Add(2.3, Divide(Global.GenjiAI, 6.2)), Destination and Rate);
+    }
+}
+
+rule ("[G] Wind Up") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.CurrentCam == 7;
+        Is Button Held(Global.Player_, Button(Reload)) == True;
+        Global.GenjiAI != 0;
+    }
+    actions {
+        Play Effect(All Players(All Teams), Brigitte Whip Shot Heal Area Sound, Color(Team 2), Value In Array(Global.CamPositions, 7), 25);
+        Chase Global Variable At Rate(HeaterPower, 100, 35, None);
+        Wait Until(Or(Not(Is Button Held(Global.Player_, Button(Reload))), Compare(Global.CurrentCam, !=, 7)), 99999);
+        Chase Global Variable At Rate(HeaterPower, 0, Add(2.3, Divide(Global.GenjiAI, 6.2)), Destination and Rate);
+    }
+}
+
+rule ("[G] Warning") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.GenjiAI != 0;
+        Global.HeaterPower < 28;
+    }
+    actions {
+        Set Global Variable(WarningIconVisible, All Players(All Teams));
+        Wait(0.2, Ignore Condition);
+        Set Global Variable(WarningIconVisible, Null);
+        Wait(0.2, Ignore Condition);
+        Loop If Condition Is True;
+    }
+}
+
+disabled rule ("ZEN") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Zen Setup") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Global.NightNumber >= 1;
+    }
+    actions {
+        Wait(1, Ignore Condition);
+        Create Dummy Bot(Hero(Zenyatta), Team 2, 4, Vector(2, 7.4, 22.4), Vector(1, 0, 0));
+        Set Global Variable(Zen, Players In Slot(4, Team 2));
+        Start Scaling Player(Global.Zen, 1.35, False);
+        Set Global Variable(ZenPositions, Array(Vector(-1.92, 7, -54.26), Vector(-9.09, 7.23, -30.7), Vector(-10.11, 8.51, -1.69), Vector(28.2, 3, 1.2), Vector(18, 4.9, -9.52), Vector(23.9, 9, -5.63), Vector(-4.23, 7, 54.36)));
+        Set Global Variable(ZenPositions2, Array(Null, Array(Vector(-8.69, 7, -49.87), Vector(16.82, 8.96, -48.44)), Array(Vector(-12.25, 7.24, -33.65), Vector(-2.2, 7.34, -31.7)), Array(Vector(-20.72, 7, 6.54), Vector(-19.22, 12, 8.7), Vector(-10.91, 7, 8.71)), Array(Vector(23.93, 3.15, -5.11), Vector(29.37, 3.15, 3.7)), Array(Vector(18, 5.96, -11.64)), Array(Vector(23.62, 9, 5.63), Vector(23.1, 6.86, -12.56)), Array(Vector(3.34, 8, 53.94), Vector(-13.06, 7, 44.26))));
+        Set Invisible(Global.Zen, All);
+        Set Healing Received(Global.Zen, 0);
+        Disable Movement Collision With Players(Global.Zen);
+        Start Facing(Global.Zen, Direction Towards(Eye Position(Global.Zen), Eye Position(Global.Player_)), 1000, To World, Direction and Turn Rate);
+        Disable Built-In Game Mode Respawning(Global.Zen);
+    }
+}
+
+rule ("[SR] Zen Jumpscare Nights 1-5") {
+    event {
+        Subroutine;
+        ZenSequence;
+    }
+    actions {
+        Set Invisible(Global.Zen, None);
+        Start Facing(Global.Zen, Direction Towards(Eye Position(Global.Zen), Value In Array(Global.CamPositions, Global.CurrentCam)), 1000, To World, Direction and Turn Rate);
+        Teleport(Global.Zen, First Of(Sorted Array(Global.ZenPositions, Distance Between(Current Array Element, Value In Array(Global.CamPositions, Global.CurrentCam)))));
+        Wait Until(Or(Or(Is Button Held(Global.Player_, Button(Primary Fire)), Is Button Held(Global.Player_, Button(Secondary Fire))), Is Button Held(Global.Player_, Button(Interact))), Subtract(1.5, Divide(Global.ZenAI, 30)));
+        If(Or(Or(Is Button Held(Global.Player_, Button(Primary Fire)), Is Button Held(Global.Player_, Button(Secondary Fire))), Is Button Held(Global.Player_, Button(Interact))));
+            Set Invisible(Global.Zen, All);
+            Wait(4, Ignore Condition);
+            Abort;
+        Else;
+            Wait Until(Compare(Global.CurrentCam, !=, Global.LastCam), 9999);
+            Teleport(Global.Zen, Vector(3.9, 7.4, -25.5));
+            Wait Until(Not(Global.CurrentCam), 9999);
+            Wait(0.1, Ignore Condition);
+            Start Facing(Global.Zen, Direction Towards(Eye Position(Global.Zen), Eye Position(Global.Player_)), 1000, To World, Direction and Turn Rate);
+            Set Facing(Global.Player_, Direction Towards(Eye Position(Global.Player_), Eye Position(Global.Zen)), To World);
+            Wait Until(Global.CurrentCam, Subtract(1.7, Divide(Global.ZenAI, 30)));
+            If(Global.CurrentCam);
+                Set Invisible(Global.Zen, All);
+                Teleport(Global.Zen, First Of(Sorted Array(Global.ZenPositions, Distance Between(Current Array Element, Value In Array(Global.CamPositions, Global.CurrentCam)))));
+                Wait(4, Ignore Condition);
+                Abort;
+            Else;
+                Destroy All In-World Text;
+                If(Not(Global.NoJumpscares));
+                    Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+                    Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+                    Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+                    Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+                    Damage(Global.Player_, Null, 300);
+                    Wait(0.016, Ignore Condition);
+                    Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Zen), Facing Direction Of(Global.Zen))), Add(Update Every Frame(Eye Position(Global.Zen)), Global.CamShake), 0);
+                    Start Rule(CameraShake, Restart Rule);
+                    Press Button(Global.Zen, Button(Ultimate));
+                    Wait(1.5, Ignore Condition);
+                    Kill(Global.Player_, Global.Zen);
+                Else;
+                    Set Global Variable(CurrentCam, 0);
+                    Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Zen), Facing Direction Of(Global.Zen))), Update Every Frame(Eye Position(Global.Zen)), 0);
+                    Small Message(All Players(All Teams), Custom String("DEAD!"));
+                    Wait(1.5, Ignore Condition);
+                    Kill(Global.Player_, Global.Zen);
+                End;
+            End;
+        End;
+    }
+}
+
+disabled rule ("NIGHT 6") {
+    event {
+        Ongoing - Global;
+    }
+}
+
+rule ("[G] Zen Progression") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.NightNumber == 5;
+        Global.NightPhase == 6;
+        Is Alive(Global.Zen) == True;
+        Global.ZenDoorNumber == 0;
+        Global.CurrentCam != First Of(Global.ZenPickedCamAndPos);
+        Global.ZenAI > 0;
+    }
+    actions {
+        Start Facing(Global.Zen, Direction Towards(Eye Position(Global.Zen), First Of(Sorted Array(Remove From Array(Global.CamPositions, Null), Distance Between(Eye Position(Global.Zen), Current Array Element)))), 1000, To World, Direction and Turn Rate);
+        Wait(Subtract(6.5, Divide(Global.ZenAI, 15)), Abort When False);
+        If(Compare(Random Integer(1, 20), >, Global.ZenAI));
+            Call Subroutine(ZenMove);
+        Else;
+            Start Facing(Global.Zen, Direction Towards(Eye Position(Global.Zen), Eye Position(Global.Player_)), 1000, To World, Direction and Turn Rate);
+            Call Subroutine(ZenDoor);
+        End;
+        Loop If Condition Is True;
+    }
+}
+
+rule ("[SR] Zen Jumpscare Night 6") {
+    event {
+        Subroutine;
+        ZenJumpscare;
+    }
+    actions {
+        Enable Movement Collision With Players(Global.Zen);
+        Set Invisible(Global.Zen, None);
+        Destroy All In-World Text;
+        Stop Facing(Global.Zen);
+        If(Not(Global.NoJumpscares));
+            Set Invisible(Global.Player_, All);
+            Set Global Variable(CurrentCam, 0);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Global.Zen, False);
+            Wait(0.04, Ignore Condition);
+            Set Status(Global.Zen, Null, Phased Out, 3);
+            Set Status(Players In Slot(1, Team 1), Null, Phased Out, 3);
+            Wait(0.12, Ignore Condition);
+            Start Forcing Player Position(Players In Slot(1, Team 1), Vector(0, 200, 0), False);
+            Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(Team 1), Global.Player_, 200);
+            Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Global.Player_, 200);
+            Start Modifying Hero Voice Lines(Global.Player_, 0.5, False);
+            Add Health Pool To Player(Global.Player_, Shields, 100, True, True);
+            Damage(Global.Player_, Null, 300);
+            Teleport(Global.Zen, Position Of(Global.Player_));
+            Wait(0.025, Ignore Condition);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Zen), Multiply(Facing Direction Of(Global.Zen), 0.7))), Add(Update Every Frame(Eye Position(Global.Zen)), Global.CamShake), 0);
+            Start Rule(CameraShake, Restart Rule);
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Zen);
+        Else;
+            Set Global Variable(CurrentCam, 0);
+            Start Camera(Global.Player_, Update Every Frame(Add(Eye Position(Global.Zen), Multiply(Facing Direction Of(Global.Zen), 1.5))), Update Every Frame(Eye Position(Global.Zen)), 0);
+            Small Message(All Players(All Teams), Custom String("DEAD!"));
+            Wait(1.5, Ignore Condition);
+            Kill(Global.Player_, Global.Zen);
+        End;
+    }
+}
+
+rule ("[SR] Night 6 Call") {
+    event {
+        Subroutine;
+        Night6Call;
+    }
+    actions {
+        Wait(0.5, Ignore Condition);
+        Set Global Variable(PhoneRings, 3);
+        While(And(Global.PhoneRings, Not(Is Button Held(Global.Player_, Button(Ability 1)))));
+            Call Subroutine(PhoneRing);
+            Modify Global Variable(PhoneRings, Subtract, 1);
+            Wait Until(Is Button Held(Global.Player_, Button(Ability 1)), 2);
+        End;
+        Abort If(Not(Is Button Held(Global.Player_, Button(Ability 1))));
+        Set Global Variable(PhoneRings, 0);
+        Wait(0.5, Ignore Condition);
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 200);
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[?] TESTING... TESTING... 1... 2... 3..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[?] THIS IS VOICE LOG NUMBER NINETEEN..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[?] FROM HEAD OF A.I RESEARCH BOHAI LIAO."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] OUR WORK HAS BEEN SHOWING VERY"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("PROMISING RESULTS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] SPECIALLY WITH THE FRAGMENT THAT OVERWATCH"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("HAS RETRIEVED IN THEIR ANUBIS SIEGE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] TO HAVE A PIECE OF A GOD PROGRAM IN MY HANDS?"));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] IT IS A PRIVILEGE. AND A RESPONSIBILITY."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] WE CAN ACHIEVE GREATNESS WITH THIS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] I'LL MAKE SURE WE DO."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] I'VE UPLOADED A PROTOTYPE CODE INTO AN OLD SECURITY ROBOT..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] WHICH MUST BE KEPT IN ECOPOINT NOT TO RAISE ANY SUSPICION."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] AT LEAST IN THE NEAR FUTURE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] A \"FRIEND\" OF MINE WITH CLOSE RELATIONS"));
+        Wait(0.5, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("TO THE SHAMBALI..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] STRONGLY ADVISED AGAINST THIS..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] STATING I'M MESSING WITH SOMETHING I DON'T UNDERSTAND."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] AND SOMETHING ABOUT ASCENDED PROGRAMS..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] BEING ABLE TO INTERACT WITH THE REALM OF THE DEAD."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] I'VE NEVER HEARD ANYTHING MORE ABSURD THAN THIS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] THEY WILL NEVER UNDERSTAND."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] BUT IT DOESN'T MATTER."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] MY WORK IS ALMOST COMPLETE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO] THEY WILL SEE."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[LIAO ENDS THE LOG]"));
+        Play Effect(All Players(All Teams), Soldier: 76 Sprint Start Sound, Color(Team 1), Eye Position(Global.Player_), 130);
+        Wait(3, Ignore Condition);
+    }
+}
+
+rule ("[G] Night 6 Part 1") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.NightNumber == 5;
+    }
+    actions {
+        Skip If(Value In Array(Global.Cheats, 1), 1);
+        Chase Global Variable At Rate(Power, 0, Multiply(0.131, Global.PowerUsage), Destination and Rate);
+        //lbl_0:
+        Call Subroutine(Night6Call);
+        Set Global Variable(NightPhase, 4);
+        Small Message(All Players(All Teams), Custom String("[MEI] MAX SAID HE UNCOVERED PROJECTS FOR A FIFTH ROBOT..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] IF I RETRIEVE THEM I MAY BE ABLE TO FIND A WEAKNESS."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] I SHOULD BE ABLE TO DOWNLOAD THEM FROM THE MONITOR STATION..."));
+        Wait Until(Compare(Global.CurrentCam, !=, 0), 99999);
+        Small Message(All Players(All Teams), Custom String("[MEI] THERE IT IS!"));
+        Create Effect(If-Then-Else(Compare(Global.BarValue, !=, 100), All Players(All Teams), Null), Echo Cloning Sound, Color(Team 1), If-Then-Else(Global.CurrentCam, Value In Array(Global.CamPositions, Global.CurrentCam), Global.InteractCams), Global.BarValue, Visible To Position and Radius);
+        Create Progress Bar HUD Text(If-Then-Else(And(Global.CurrentCam, Or(Compare(Global.NightPhase, ==, 4), Compare(Global.NightPhase, ==, 5))), Local Player, Null), Global.BarValue, If-Then-Else(Compare(Global.NightPhase, ==, 4), Custom String("SIGNAL LOCATED. PRESS [{0}] TO BEGIN TRANSMISSION.", Input Binding String(Button(Ability 2))), First Of(Global.BarTextAndColor)), Top, 2, Value In Array(Global.BarTextAndColor, 1), Color(White), Visible To Values and Color, Visible Always);
+        Set Global Variable At Index(BarTextAndColor, 1, Color(Yellow));
+        Set Global Variable(BarValue, 100);
+        Wait Until(And(Global.CurrentCam, Is Button Held(Global.Player_, Button(Ability 2))), 99999);
+        Play Effect(All Players(All Teams), Brigitte Repair Pack Impact Sound, Color(Team 1), Value In Array(Global.CamPositions, Global.CurrentCam), 60);
+        Set Global Variable(NightPhase, 5);
+        Set Global Variable(BarValue, 0);
+        Set Global Variable At Index(BarTextAndColor, 0, Custom String("FETCHING DATA..."));
+        Set Global Variable At Index(BarTextAndColor, 1, Color(White));
+        Chase Global Variable At Rate(BarValue, 100, Max(Subtract(100, Global.BarValue), 3), Destination and Rate);
+        Wait Until(Compare(Global.BarValue, >=, 100), 99999);
+        Set Global Variable At Index(BarTextAndColor, 0, Custom String("DOWNLOADING SCHEMATICS..."));
+        Set Global Variable(BarValue, 0);
+        Chase Global Variable At Rate(BarValue, 100, 20, None);
+        Wait Until(Compare(Global.BarValue, >=, 100), 99999);
+        Set Global Variable At Index(BarTextAndColor, 0, Custom String("UPDATING TRANSMITTERS..."));
+        Set Global Variable(BarValue, 0);
+        Chase Global Variable At Rate(BarValue, 100, 25, None);
+        Wait Until(Compare(Global.BarValue, >=, 100), 99999);
+        Set Global Variable At Index(BarTextAndColor, 0, Custom String("COMPLETE"));
+        Set Global Variable At Index(BarTextAndColor, 1, Color(Green));
+        Play Effect(All Players(All Teams), Buff Impact Sound, Color(Team 2), If-Then-Else(Global.CurrentCam, Value In Array(Global.CamPositions, Global.CurrentCam), Global.InteractCams), 35);
+        Wait(2, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] WITH THIS I CAN REMOTELY INDUCE AN OVERLOAD..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] BUT IT DRAINS POWER, SO I NEED TO BE CAREFUL."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] NOW I JUST NEED TO FIND IT..."));
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[MEI] BEFORE IT FINDS ME."));
+        Wait(3, Ignore Condition);
+        Big Message(All Players(All Teams), Custom String("SHUT THE FIFTH ROBOT DOWN"));
+        Chase Global Variable Over Time(BarValue, 0, 4, None);
+        Set Global Variable(BarValue, 0);
+        Create Progress Bar In-World Text(If-Then-Else(And(Global.CurrentCam, Compare(Global.NightPhase, ==, 6)), Local Player, Null), Global.BarValue, If-Then-Else(Global.BarValue, Custom String("RECHARGING..."), Custom String("[{0}] TO FIRE OVERLOAD\r\n(MUST BE AIMING DIRECTLY AT TARGET)", Input Binding String(Button(Reload)))), Update Every Frame(Add(Value In Array(Global.CamPositions, Global.CurrentCam), Multiply(Direction From Angles(Horizontal Facing Angle Of(Local Player), Add(Vertical Facing Angle Of(Local Player), 15)), 1000))), 1, Do Not Clip, Color(Orange), Color(Gray), Visible To Position Values and Color, Default Visibility);
+        Set Global Variable(NightPhase, 6);
+        Modify Global Variable(ZenAI, Add, 2);
+        Call Subroutine(ZenMove);
+        Set Invisible(Global.Zen, None);
+        Skip If(Not(First Of(Global.Cheats)), 1);
+        Create In-World Text(All Players(All Teams), Custom String("{0} {1} / {2} A.I", Hero Icon String(Hero(Zenyatta)), If-Then-Else(Global.ZenDoorNumber, Custom String("OFFICE GATE"), Custom String("CAM {0}", First Of(Global.ZenPickedCamAndPos))), Global.ZenAI), Global.Zen, 1.2, Do Not Clip, Visible To Position and String, Custom Color(255, 255, 255, 175), Default Visibility);
+        //lbl_1:
+        Create In-World Text(If-Then-Else(Global.CurrentCam, Global.Player_, Null), Custom String("⊙"), Update Every Frame(Add(Value In Array(Global.CamPositions, Global.CurrentCam), Multiply(Direction From Angles(Horizontal Facing Angle Of(Global.Player_), Add(Vertical Facing Angle Of(Global.Player_), 3.87)), 1000))), 2.3, Do Not Clip, Visible To Position and String, If-Then-Else(Global.BarValue, Color(Gray), Color(Orange)), Default Visibility);
+    }
+}
+
+rule ("[G] Night 6 Part 2") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Is Dead(Global.Zen) == True;
+        Global.NightNumber == 5;
+        Global.NightPhase == 6;
+    }
+    actions {
+        Destroy All In-World Text;
+        Set Invisible(Global.Zen, All);
+        Set Global Variable(NightPhase, 7);
+        Wait(3, Ignore Condition);
+        Small Message(All Players(All Teams), Custom String("[?] THIS IS NOT OVER YET..."));
+        Wait(3, Ignore Condition);
+        Big Message(All Players(All Teams), Custom String("ESCAPE"));
+        Set Global Variable(DoorsWalkable, 1);
+        Create Effect(All Players(All Teams), Ring, Color(White), Vector(-7.83, 7.02, -2.91), 1.5, Visible To);
+        Create Icon(All Players(All Teams), Vector(-7.83, 7.02, -2.91), Flag, Visible To, Color(White), True);
+        Wait Until(Compare(Distance Between(Position Of(Global.Player_), Vector(-7.83, 7.02, -2.91)), <=, 1.5), 20);
+        If(Compare(Distance Between(Position Of(Global.Player_), Vector(-7.83, 7.02, -2.91)), <=, 1.55));
+            Set Invisible(Global.Player_, All);
+            Start Camera(Global.Player_, Evaluate Once(Add(Eye Position(Global.Player_), Multiply(Up, 2))), Vector(-7.83, 7.02, -2.91), 0);
+            Destroy All Effects;
+            Enable Built-In Game Mode Music;
+            Declare Team Victory(Team 1);
+        Else;
+            Resurrect(Global.Zen);
+            Teleport(Global.Zen, Position Of(Global.Player_));
+            Call Subroutine(ZenJumpscare);
+    }
+}
+
+rule ("[G] Fire Overload") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.NightNumber == 5;
+        Global.NightPhase == 6;
+        Global.CurrentCam != 0;
+        Global.BarValue <= 0;
+        Is Button Held(Global.Player_, Button(Reload)) == True;
+    }
+    actions {
+        Set Global Variable(BarValue, 100);
+        Set Global Variable(Power, Max(0, Subtract(Global.Power, 5)));
+        Modify Global Variable(PowerUsage, Subtract, 1);
+        Play Effect(All Players(All Teams), Baptiste Biotic Launcher Explosion Sound, Color(Team 1), Value In Array(Global.CamPositions, Global.CurrentCam), 50);
+        Play Effect(All Players(All Teams), Sombra Logo Sound, Color(Team 1), Value In Array(Global.CamPositions, Global.CurrentCam), 50);
+        Play Effect(All Players(All Teams), Sombra Logo Effect, Color(Team 2), Ray Cast Hit Position(Value In Array(Global.CamPositions, Global.CurrentCam), Add(Value In Array(Global.CamPositions, Global.CurrentCam), Multiply(Facing Direction Of(Global.Player_), 100)), All Players(All Teams), Null, False), 1);
+        If(Compare(Ray Cast Hit Player(Value In Array(Global.CamPositions, Global.CurrentCam), Add(Value In Array(Global.CamPositions, Global.CurrentCam), Multiply(Facing Direction Of(Global.Player_), 100)), All Players(Team 2), Null, False), ==, Global.Zen));
+            Set Damage Dealt(Global.Player_, 100);
+            Skip If(Compare(Global.ZenAI, >, 2), 1);
+            Small Message(All Players(All Teams), Custom String("[MEI] THAT'S IT! JUST A FEW MORE HITS..."));
+            //lbl_0:
+            Damage(Global.Zen, Global.Player_, 41);
+            Start Rule(CamsJammed, Do Nothing);
+            Call Subroutine(ZenMove);
+            Wait(0.2, Ignore Condition);
+            Set Global Variable(CamsJammed, 4.8);
+            Modify Global Variable(ZenAI, Add, 2);
+            Set Damage Dealt(Global.Player_, 0);
+    }
+}
+
+rule ("[G] Stalling in Cam") {
+    event {
+        Ongoing - Global;
+    }
+    conditions {
+        Is Game In Progress == True;
+        Global.NightNumber == 5;
+        Global.NightPhase == 6;
+        Has Status(Global.Zen, Stunned) == False;
+        Global.CurrentCam == First Of(Global.ZenPickedCamAndPos);
+        Angle Between Vectors(Facing Direction Of(Global.Player_), Direction Towards(Value In Array(Global.CamPositions, Global.CurrentCam), Eye Position(Global.Zen))) < 20;
+    }
+    actions {
+        Wait(2.5, Ignore Condition);
+        Abort If(Compare(Global.CurrentCam, !=, First Of(Global.ZenPickedCamAndPos)));
+        Call Subroutine(ZenJumpscare);
+    }
+}
+
+rule ("[SR] Zen at Doors") {
+    event {
+        Subroutine;
+        ZenDoor;
+    }
+    actions {
+        Set Global Variable(ZenDoorNumber, Random Integer(1, 3));
+        If(Compare(Global.ZenDoorNumber, ==, 1));
+            Wait Until(Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(1.93, 8.43, -30.57), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(1.93, 8.43, -30.57), 75))), 99999);
+            Teleport(Global.Zen, Vector(3.39, 7.06, -31.06));
+            Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
+            Wait Until(Not(Global.CurrentCam), 4);
+            If(Global.ClosedLeftDoor);
+                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Bastion), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Bastion), 75)))), 99999);
+                If(Global.ClosedLeftDoor);
+                    Set Global Variable(ZenDoorNumber, 0);
+                Else;
+                    Call Subroutine(ZenJumpscare);
+                End;
+            Else;
+                Call Subroutine(ZenJumpscare);
+            End;
+        Else If(Compare(Global.ZenDoorNumber, ==, 2));
+            Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(-4.38, 9, -23.22), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(-4.38, 9, -23.22), 75)))), 99999);
+            Teleport(Global.Zen, Vector(-4.38, 7.04, -23.22));
+            Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
+            Wait Until(Not(Global.CurrentCam), 4);
+            If(Global.ClosedRightDoor);
+                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
+                If(Global.ClosedRightDoor);
+                    Set Global Variable(ZenDoorNumber, 0);
+                Else;
+                    Call Subroutine(ZenJumpscare);
+                End;
+            Else;
+                Call Subroutine(ZenJumpscare);
+            End;
+        Else If(Compare(Global.ZenDoorNumber, ==, 3));
+            Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Vector(6.74, 9.02, -19.94), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Vector(6.74, 9.02, -19.94), 75)))), 99999);
+            Teleport(Global.Zen, Vector(6.74, 7.02, -19.94));
+            Wait(Subtract(6, Divide(Global.ZenAI, 10)), Ignore Condition);
+            Wait Until(Not(Global.CurrentCam), 4);
+            If(Global.ClosedFrontDoor);
+                Wait Until(And(Not(Global.CurrentCam), Or(Not(Is In Line of Sight(Eye Position(Global.Player_), Eye Position(Global.Zen), Barriers Do Not Block LOS)), Not(Is In View Angle(Global.Player_, Eye Position(Global.Zen), 75)))), 99999);
+                If(Global.ClosedFrontDoor);
+                    Set Global Variable(ZenDoorNumber, 0);
+                Else;
+                    Call Subroutine(ZenJumpscare);
+                End;
+            Else;
+                Call Subroutine(ZenJumpscare);
+            End;
+            Call Subroutine(ZenMove);
+        End;
+    }
+}
+
+rule ("[SR] Zen Move") {
+    event {
+        Subroutine;
+        ZenMove;
+    }
+    actions {
+        Set Global Variable At Index(ZenPickedCamAndPos, 0, Random Value In Array(Remove From Array(Array(1, 2, 3, 4, 5, 6, 7), First Of(Global.ZenPickedCamAndPos))));
+        Set Global Variable At Index(ZenPickedCamAndPos, 1, Random Value In Array(Value In Array(Global.ZenPositions2, First Of(Global.ZenPickedCamAndPos))));
+        Wait Until(Compare(Global.CurrentCam, !=, First Of(Global.ZenPickedCamAndPos)), 99999);
+        Teleport(Global.Zen, Value In Array(Global.ZenPickedCamAndPos, 1));
+    }
+}
+

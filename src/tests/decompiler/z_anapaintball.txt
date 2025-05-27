@@ -1,0 +1,4103 @@
+settings
+{
+	main
+	{
+		Description: "Always import the code → 1DMTZ ←\nNEVER SAVE AS PRESET!\n\nTrain your aim while having fun!\nEarn medals, honor players, get a nuke...\nThe best Ana Paintball mode since 2019!\n\nDonate ≫ ko-fi.com/jinkofi\nDiscord ≫ jinko.dev/discord\nTikTok ≫ @Jinko_OW\nFull mode details ≫ www.jinko.dev/anapb"
+		Mode Name: "｢︻デ≡一一 ANA PAINTBALL by Jinko"
+	}
+
+	lobby
+	{
+		Allow Players Who Are In Queue: Yes
+		Map Rotation: After A Game
+		Max FFA Players: 8
+		Max Spectators: 12
+		Return To Lobby: Never
+		Swap Teams After Match: No
+	}
+
+	modes
+	{
+		Deathmatch
+		{
+			enabled maps
+			{
+				Black Forest Winter 972777519512063901
+				Blizzard World 972777519512068194
+				Château Guillard 972777519512063901
+				Dorado 972777519512068153
+				Ecopoint: Antarctica 972777519512068154
+				Eichenwalde 972777519512068154
+				Hollywood 972777519512068154
+				Kanezaka 972777519512063901
+				Lijiang Control Center 972777519512063901
+				Malevento 972777519512063901
+				Petra 972777519512068154
+			}
+		}
+
+		General
+		{
+			Allow Hero Switching: Disabled
+			Enemy Health Bars: Disabled
+			Game Mode Start: Immediately
+			Kill Cam: Disabled
+			Respawn Time Scalar: 0%
+			Score To Win: 30
+			Self Initiated Respawn: Off
+			Spawn Health Packs: Disabled
+		}
+	}
+
+	heroes
+	{
+		General
+		{
+			Infinite Ultimate Duration: Enabled
+			Ultimate Generation: 10%
+			Ultimate Generation - Combat: 0%
+			Ultimate Generation - Passive: 0%
+
+			Ana
+			{
+				Biotic Grenade: Disabled
+				Sleep Dart Cooldown Time: 20%
+				Ultimate Generation - Combat Nano Boost: 0%
+				Ultimate Generation - Passive Nano Boost: 0%
+			}
+
+			Bastion
+			{
+				Infinite Ultimate Duration: Enabled
+				Spawn With Ultimate Ready: Enabled
+				Ultimate Duration: 500%
+			}
+
+			enabled heroes
+			{
+				Ana
+			}
+		}
+	}
+
+	extensions
+	{
+		Buff Status Effects
+		Buff and Debuff Sounds
+		Energy Explosion Effects
+		Explosion Sounds
+		Debuff Status Effects
+		Projectiles
+	}
+}
+
+variables
+{
+	global:
+		0: ONFIRE_STREAK
+		1: RAMPAGE_STREAK
+		2: NUCLEAR_STREAK
+		3: NANO_SCORE
+		4: LONGSHOT_DISTANCE
+		5: CUSTOM_RESPAWN_TIME
+		6: NIGHT_MAPS
+		7: JUMP_PAD_COLOR
+		8: DEATH_PLANE_BOT_MAPS
+		10: JumpPadPos
+		11: JumpPadPower
+		12: JumpPadSize
+		13: JumpPadFx
+		14: LongestShotPlayer
+		15: LongestShotValue
+		16: BestKillstreakPlayer
+		17: BestKillstreakValue
+		18: BestSleepAccuracyPlayer
+		19: BestSleepAccuracyValue
+		20: BestNoscopeAccuracyPlayer
+		21: BestNoscopeAccuracyValue
+		22: BestScopedAccuracyValue
+		23: BestScopedAccuracyPlayer
+		24: MatchEnded
+		25: Winner
+		26: FinalVictim
+		27: LongshotWin
+		28: i
+		29: FirstBlood
+		30: FirstSleep
+		31: RespawnHigherDistance
+		32: RespawnLowerDistance
+		33: RespawnFailsafeDistance
+		34: SpawnPointSettings
+		35: PlayzoneCenter
+		36: PlayzoneRadius
+		37: OutOfBoundBot
+		38: NanoNukeBot
+		39: PetraPunches
+		40: TempAIBotBeingRemoved
+		41: TempAIBotBeingRemovedName
+		42: RevertKillsToAIBotsEnabled
+		43: TempLeavingAIBotSlot
+		44: AIBotSlots
+		45: NukeExplodeFxPos
+		46: NukeCamHorizontalDist
+		47: Camdist
+		48: NukePos
+		49: NukeImpactPos
+		50: NukeCamPos
+		51: NukeCamShakeX
+		52: NukeCamShakeY
+		53: NukeCamShakeZ
+		54: Rainbow
+		55: BotName
+		58: SlowMo
+
+	player:
+		0: A
+		1: ClosestPadIndex
+		2: LongshotCount
+		3: LongestLongshot
+		4: SleepShots
+		5: SleepHits
+		6: SleepAccuracy
+		7: NoscopeShots
+		8: NoscopeHits
+		9: NoscopeAccuracy
+		10: ScopedShots
+		11: L
+		12: ScopedHits
+		13: ScopedAccuracy
+		14: Jumps
+		15: PerfectQuickscopes
+		16: ComebackCount
+		17: Executes
+		18: StolenKills
+		19: DemotedPlayers
+		20: Deaths
+		21: ElimsBeforeQS
+		22: KillStreak
+		23: KillStreakBeforeDeath
+		24: DemotedEffect
+		25: RampageVFX
+		26: RampageSFX
+		27: IsOnFire
+		28: IsOnRampage
+		29: IsNuclear
+		31: DisplayMedal
+		32: SystemMessages
+		33: MedalQueue
+		34: MultiKillCount
+		35: QuadFeedTimes
+		36: EarnedCollateral
+		37: Sandman
+		38: PunchDrunk
+		39: AlivePlayers
+		40: SpawnPointsNotInLOS
+		41: SpawnPointsFarEnoughFromPlayers
+		42: ChosenSpawnPoint
+		43: AIBotKillsPerSlot
+		44: HonorQueue
+		45: HonorBar
+		46: HonorTarget
+		47: RaycastLastHitPlayer
+		48: RaycastLastHitPos
+		49: NukeEffects
+		51: SysMsgCount
+		52: FixMovementBug
+		53: IsPlayer
+		54: IsAIBot
+		55: LastSleptBy
+		56: SleepUsedAndDied
+		57: SleepLock
+		58: SleepsOnground
+		59: DemotionVictim
+		60: ShutdownVictim
+		61: StolenFrom
+		62: NanoDelay
+		63: DisplayStats
+		64: OofDistance
+		65: OofText
+		66: Temp
+		67: PerfectQSVFX
+}
+
+subroutines
+{
+	0: SleepDarts
+	1: SayVoiceline
+	2: SayUltStatus
+	3: SayThanks
+	4: SaySorry
+	5: RandomEmote
+	6: FromTheGrave
+	7: RespawnSystem
+	8: RespawnsCHATEAU
+	9: RespawnsPETRA
+	10: RespawnsMALEVENTO
+	11: RespawnsDORADO
+	12: RespawnsHOLLYWOOD
+	13: RespawnsBLIZZWORLD
+	14: RespawnsEICHENWALDE
+	15: RespawnsECOPOINT
+	16: RespawnsBLACKFOREST
+	18: RespawnsKANEZAKA
+	19: RespawnsLIJANGCONTROL
+}
+
+rule("Initialize global variables")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Global.ONFIRE_STREAK = 5;
+		Global.RAMPAGE_STREAK = 10;
+		Global.NUCLEAR_STREAK = 15;
+		Global.NANO_SCORE = 29;
+		Global.LONGSHOT_DISTANCE = 40;
+		Global.CUSTOM_RESPAWN_TIME = 1.600;
+		Global.NIGHT_MAPS = Array(Map(Eichenwalde Halloween), Map(Château Guillard Halloween), Map(Blizzard World Winter), Map(
+			Ecopoint: Antarctica Winter), Map(Hollywood Halloween));
+		Global.JUMP_PAD_COLOR = Array Contains(Global.NIGHT_MAPS, Current Map) ? Color(Blue) : Color(Purple);
+		Global.DEATH_PLANE_BOT_MAPS = Array(Map(Black Forest), Map(Black Forest Winter), Map(Hollywood), Map(Hollywood Halloween), Map(
+			Château Guillard), Map(Château Guillard Halloween));
+		Global.MatchEnded = False;
+		Global.RevertKillsToAIBotsEnabled = Workshop Setting Toggle(Custom String("AI Bots"), Custom String(
+			"Revert kills against removed AI bots"), True, 0);
+		Global.AIBotSlots = Empty Array;
+		Global.NukeExplodeFxPos = 1;
+		Global.BotName = 1;
+		Global.SlowMo = 100;
+	}
+}
+
+rule("Initialize player variables")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	actions
+	{
+		Event Player.LongestLongshot = 0;
+		Event Player.KillStreak = 0;
+		Event Player.IsOnFire = False;
+		Event Player.IsOnRampage = False;
+		Event Player.IsNuclear = False;
+		Event Player.SystemMessages = Empty Array;
+		Event Player.MedalQueue = Empty Array;
+		Event Player.QuadFeedTimes = Empty Array;
+		Event Player.HonorQueue = Empty Array;
+		Event Player.HonorBar = 0;
+		Event Player.SleepUsedAndDied = True;
+		Event Player.SleepsOnground = False;
+		Event Player.NanoDelay = 1;
+		Event Player.DisplayStats = True;
+	}
+}
+
+rule("Disable inspector & match ending and initiate text rainbow")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Disable Built-In Game Mode Completion;
+		Global.Rainbow = Vector(0, 0, 0);
+		Chase Global Variable At Rate(Rainbow, Vector(Min(Max(Absolute Value(Total Time Elapsed * 50 % 841.500 - 420.750) - 25.500,
+			114.750), 255), Min(Max(Absolute Value((Total Time Elapsed * 50 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(
+			Max(Absolute Value((Total Time Elapsed * 50 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255)), 99999,
+			Destination and Rate);
+	}
+}
+
+rule("Player damage & HP settings")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	actions
+	{
+		Set Damage Received(Event Player, 0.000);
+		Set Max Health(Event Player, 27.500);
+	}
+}
+
+rule("Start match sooner & pause timer")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Assembling Heroes == True;
+	}
+
+	actions
+	{
+		Set Match Time(13);
+		Wait(13.200, Ignore Condition);
+		Set Match Time(261);
+		Wait(0.016, Ignore Condition);
+		Pause Match Time;
+	}
+}
+
+rule("Detect players")
+{
+	event
+	{
+		Player Joined Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == False;
+	}
+
+	actions
+	{
+		Start Forcing Dummy Bot Name(Event Player, Custom String("​ [ -C°▥°]-C Ana Bot #{0}", Count Of(Filtered Array(All Players(
+			All Teams), Current Array Element.IsAIBot))));
+		If(Custom String("{0}", Event Player) == Custom String("​ [ -C°▥°]-C Ana Bot #{0}", Count Of(Filtered Array(All Players(All Teams),
+			Current Array Element.IsAIBot))));
+			Event Player.IsPlayer = False;
+			Event Player.IsAIBot = True;
+		Else;
+			Event Player.IsPlayer = True;
+			Event Player.IsAIBot = False;
+			Stop Forcing Dummy Bot Name(Event Player);
+		End;
+		Set Respawn Max Time(Event Player, Global.CUSTOM_RESPAWN_TIME);
+		If(Global.MatchEnded);
+			Disallow Button(Event Player, Button(Primary Fire));
+			Disallow Button(Event Player, Button(Secondary Fire));
+			Disallow Button(Event Player, Button(Melee));
+			Set Status(Event Player, Null, Rooted, 999);
+	}
+}
+
+rule("Restart game when lobby is empty")
+{
+	event
+	{
+		Player Left Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.MatchEnded == False;
+	}
+
+	actions
+	{
+		If(Number Of Heroes(Hero(Ana), All Teams) == 0);
+			Restart Match;
+	}
+}
+
+rule("Define spawn points, play zone and nuke settings depending on map")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
+			Call Subroutine(RespawnsCHATEAU);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(200.750, 21.890, 67);
+			Global.NukeCamPos = Vector(241.370, 123.780, 29.920);
+		Else If(Current Map == Map(Petra));
+			Call Subroutine(RespawnsPETRA);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(15.570, -6.600, 35.950);
+			Global.NukeCamPos = Vector(25.800, 66.800, 89.990);
+		Else If(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter));
+			Call Subroutine(RespawnsBLACKFOREST);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(-21.970, 12.090, 5.580);
+			Global.NukeCamPos = Vector(-54.850, 104.180, -38.500);
+		Else If(Current Map == Map(Malevento));
+			Call Subroutine(RespawnsMALEVENTO);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(0.310, -1, -7.360);
+			Global.NukeCamPos = Vector(30.100, 78, -53.590);
+		Else If(Current Map == Map(Dorado));
+			Call Subroutine(RespawnsDORADO);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(99.130, 21.230, 1.930);
+			Global.NukeCamPos = Vector(119.790, 122.460, -49.050);
+		Else If(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween));
+			Call Subroutine(RespawnsHOLLYWOOD);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(1.950, 1.600, -47.400);
+			Global.NukeCamPos = Vector(1.080, 83.210, 7.600);
+		Else If(Current Map == Map(Blizzard World) || Current Map == Map(Blizzard World Winter));
+			Call Subroutine(RespawnsBLIZZWORLD);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(-51.160, 11.030, 96.460);
+			Global.NukeCamPos = Vector(-105.760, 102.050, 89.830);
+		Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
+			Call Subroutine(RespawnsEICHENWALDE);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(56, 18, -80);
+			Global.NukeCamPos = Vector(117, 95, -114);
+		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
+			Call Subroutine(RespawnsECOPOINT);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(2.680, 7.300, 1.250);
+			Global.NukeCamPos = Vector(-13.770, 92.290, -51.370);
+		Else If(Current Map == Map(Kanezaka));
+			Call Subroutine(RespawnsKANEZAKA);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 25;
+			Global.RespawnFailsafeDistance = 15;
+			Global.NukeImpactPos = Vector(-36.310, 5.840, -7.690);
+			Global.NukeCamPos = Vector(-66.480, 91.680, -53.680);
+		Else If(Current Map == Map(Lijiang Control Center) || Current Map == Map(Lijiang Control Center Lunar New Year));
+			Call Subroutine(RespawnsLIJANGCONTROL);
+			Global.RespawnHigherDistance = 999;
+			Global.RespawnLowerDistance = 30;
+			Global.RespawnFailsafeDistance = 15;
+			Global.PlayzoneCenter = Vector(0, 267.280, 282.520);
+			Global.PlayzoneRadius = 75;
+			Global.NukeImpactPos = Vector(44.840, 243.670, 257.170);
+			Global.NukeCamPos = Vector(93.750, 567.330, 282.320);
+		"if the current map is not supported by the mode, use default spawn system"
+		Else;
+			Global.SpawnPointSettings = 0;
+			Global.PlayzoneCenter = 0;
+			Global.PlayzoneRadius = 0;
+			Global.NukeImpactPos = Vector(0, 0, 0);
+			Global.NukeCamPos = Vector(55, 80, 0);
+	}
+}
+
+rule("PLAYER EFFECTS")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	actions
+	{
+		Create In-World Text(!Has Status(Local Player, Asleep) && Has Status(Event Player, Asleep) && Distance Between(Local Player,
+			Event Player) <= 20 && Is Alive(Event Player) && Event Player.SleepsOnground && Angle Between Vectors(Facing Direction Of(
+			Local Player), Direction Towards(Eye Position(Local Player), Event Player))
+			< 5 && !Global.MatchEnded ? Local Player : Empty Array, Local Player.Executes < 3 ? Custom String("{0} punch to {1}",
+			Ability Icon String(Hero(Ana), Button(Melee)), Score Of(Event Player) > Score Of(Local Player) ? Custom String("demote")
+			: Custom String("execute")) : Custom String(""), Event Player + Vector(0, 0.400, 0), 1, Clip Against Surfaces,
+			Visible To Position String and Color, Score Of(Event Player) > Score Of(Local Player) ? Custom Color(63, 191, 116, 255)
+			: Color(Sky Blue), Visible Never);
+		Create Effect(Event Player.KillStreak >= Global.ONFIRE_STREAK ? Local Player : Empty Array, Soldier: 76 Sprinting Effect, Color(
+			Team 1), Event Player, 10, Visible To Position and Radius);
+		Create Effect(Event Player.KillStreak >= Global.RAMPAGE_STREAK && !(Event Player.KillStreak == Global.NUCLEAR_STREAK)
+			? Local Player : Empty Array, Echo Cloning Effect, Color(Team 1), Event Player, 1, Visible To Position and Radius);
+		Create Effect(Event Player.KillStreak >= Global.RAMPAGE_STREAK && Event Player.RampageSFX == True ? Local Player : Empty Array,
+			Winston Primal Rage Sound, Color(Team 1), Event Player, Event Player == Local Player ? 80 : 200,
+			Visible To Position and Radius);
+		Create Effect(Score Of(Event Player) == Global.NANO_SCORE && Is Alive(Event Player)
+			&& Event Player.NanoDelay ? Local Player : Empty Array, Ana Nano Boosted Effect, Color(Team 1), Event Player,
+			Is Using Ultimate(Event Player) ? 0 : 1, Visible To Position and Radius);
+		Create Effect(Score Of(Event Player) == Global.NANO_SCORE && Is Alive(Event Player)
+			&& Event Player.NanoDelay ? Local Player : Empty Array, Ana Nano Boosted Sound, Color(Team 1), Event Player,
+			Event Player == Local Player ? (Is Using Ultimate(Event Player) ? 0 : 25) : 150, Visible To Position and Radius);
+		Create Effect(Event Player.DemotedEffect == True ? Local Player : Empty Array, Sombra Hacked Sound, Color(Team 1), Event Player,
+			Event Player == Local Player ? 100 : 0, Visible To Position and Radius);
+		Create Effect(Event Player.RampageVFX == True && !(Event Player.KillStreak == Global.NUCLEAR_STREAK) ? Remove From Array(
+			Local Player, Event Player) : Empty Array, Winston Primal Rage Effect, Color(Team 1), Event Player,
+			Event Player == Local Player ? 70 : 200, Visible To Position and Radius);
+		Create Effect(Event Player.RampageVFX == True ? Local Player : Empty Array, Wrecking Ball Adaptive Shield Target Effect, Color(
+			Team 1), Event Player, Event Player == Local Player ? 70 : 200, Visible To Position and Radius);
+		Create Effect(Global.MatchEnded && Global.NukePos ? Local Player : Empty Array, Zenyatta Orb of Discord Target Effect, Color(
+			Team 1), Remove From Array(Event Player, Global.Winner), 1, Visible To Position and Radius);
+		Create Effect(Event Player.PerfectQSVFX == True ? Local Player : Empty Array, Wrecking Ball Adaptive Shield Target Effect, Color(
+			Team 1), Event Player, Event Player == Local Player ? 100 : 0, Visible To Position and Radius);
+	}
+}
+
+rule("toggle stats HUD")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		Event Player.DisplayStats = !Event Player.DisplayStats;
+	}
+}
+
+rule("PLAYER HUDs")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		"SCOREBOARD STUFF"
+		Create HUD Text(Local Player.IsPlayer, Null, Null, Custom String(
+			"                                                                                                                www.jinko.{0}",
+			Custom String(
+			"dev/discord                  use game code  ▶  1DMTZ                                                                      {0}",
+			Custom String("                                                                                          "))), Left, 0, Null,
+			Null, Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(
+			Absolute Value((Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Visible To and Color, Visible Never);
+		Create HUD Text(Local Player.IsPlayer, Null, Custom String("always import code 1DMTZ to play the latest version!"), Null, Top, 1,
+			Null, Color(White), Null, Visible To and String, Visible Never);
+		"Makes the scoreboard larger and pushes the honor prompt down"
+		Create HUD Text(Local Player.IsPlayer, Null, Null, Custom String(
+			" \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                                                         {0}",
+			Custom String("                      ")), Top, 5, Null, Null, Color(White), Visible To, Visible Never);
+		"Aligns the ScoreBoard Wallpapers horizontally"
+		Create HUD Text(Local Player.IsPlayer, Null, Custom String(
+			"\n                                                                                                                         {0}",
+			Custom String("                                        ")), Null, Right, 0, Null, Color(Red), Null, Visible To and String,
+			Visible Never);
+		Create HUD Text(Local Player.IsPlayer, Null, Null, Custom String("{0}", Is True For Any(All Players(All Teams), Score Of(
+			Current Array Element) == Global.NANO_SCORE) ? Custom String(
+			"                                                         {0}    {0}       {0}    {0}", Icon String(Warning)) : Custom String(
+			"                                                         {0}    {0}       {0}    {0}", Ability Icon String(Hero(Kiriko),
+			Button(Ultimate)))), Right, 0, Null, Null, Color(White), Visible To and String, Visible Never);
+		Create HUD Text(Array(Local Player.IsPlayer && Number Of Players(All Teams) > 1), Null, Null, Custom String("\n{0}", Count Of(
+			Filtered Array(All Players(All Teams), Score Of(Current Array Element) == Global.NANO_SCORE)) >= 2 && Score Of(Local Player)
+			== Global.NANO_SCORE ? Custom String("                                                         {0}    {0}       {0}    {0}",
+			Icon String(Warning)) : Custom String("                                                         {0}    {0}       {0}    {0}",
+			Ability Icon String(Hero(D.Va), Button(Ultimate)))), Right, 0, Null, Null, Color(White), Visible To and String, Visible Never);
+		"MAIN STATS (with icons)"
+		Create HUD Text(Local Player.IsPlayer, Null, Null, Local Player.DisplayStats ? Custom String(
+			"▼ use [{0}] to toggle stats                                                                                               {1}",
+			Input Binding String(Button(Interact)), Custom String("                                                                 "))
+			: Custom String(
+			"▶ use [{0}] to toggle stats                                                                                               {1}",
+			Input Binding String(Button(Interact)), Custom String("                                                                 ")),
+			Left, 8, Null, Null, Local Player.DisplayStats ? Custom Color(63, 191, 116, 255) : Custom Color(63, 191, 116, 50),
+			Visible To Sort Order String and Color, Visible Never);
+		Create HUD Text(Local Player.DisplayStats, Custom String("{0}", Ability Icon String(Hero(Sojourn), Button(Secondary Fire))),
+			Custom String(
+			"Scoped Accuracy                                                                                                           {0}",
+			Custom String("                                                               ")), Custom String("{0}%",
+			Local Player.ScopedAccuracy), Left, 10,
+			Local Player.ScopedAccuracy == Global.BestScopedAccuracyValue && Local Player.ScopedShots >= 15 && Local Player.ScopedAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255), Color(
+			White),
+			Local Player.ScopedAccuracy == Global.BestScopedAccuracyValue && Local Player.ScopedShots >= 15 && Local Player.ScopedAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible To Sort Order String and Color, Visible Never);
+		Create HUD Text(Local Player.DisplayStats, Custom String("{0}", Ability Icon String(Hero(Ana), Button(Ultimate))), Custom String(
+			"Noscope Accuracy                                                                                                          {0}",
+			Custom String("                                                                ")), Custom String("{0}%",
+			Local Player.NoscopeAccuracy), Left, 11,
+			Local Player.NoscopeAccuracy == Global.BestNoscopeAccuracyValue && Local Player.NoscopeShots >= 15 && Local Player.NoscopeAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255), Color(
+			White),
+			Local Player.NoscopeAccuracy == Global.BestNoscopeAccuracyValue && Local Player.NoscopeShots >= 15 && Local Player.NoscopeAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible To Sort Order String and Color, Visible Never);
+		Create HUD Text(Local Player.DisplayStats, Custom String("{0}", Ability Icon String(Hero(Ana), Button(Ability 1))), Custom String(
+			"Sleep Dart Accuracy                                                                                                       {0}",
+			Custom String("                                                                   ")), Custom String("{0}%",
+			Local Player.SleepAccuracy), Left, 12,
+			Local Player.SleepAccuracy == Global.BestSleepAccuracyValue && Local Player.SleepShots >= 10 && Local Player.SleepAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255), Color(
+			White),
+			Local Player.SleepAccuracy == Global.BestSleepAccuracyValue && Local Player.SleepShots >= 10 && Local Player.SleepAccuracy > 0 ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible To Sort Order String and Color, Visible Never);
+		Create HUD Text(Array(Local Player.DisplayStats && Global.LongestShotValue >= 40), Custom String("{0}", Ability Icon String(Hero(
+			Cassidy), Button(Ultimate))), Custom String(
+			"Longest longshot                                                                                                          {0}",
+			Custom String("                                                                ")), Custom String("{0}: {1}m",
+			Global.LongestShotPlayer, Global.LongestShotValue), Left, 13,
+			Local Player.LongestLongshot == Global.LongestShotValue ? Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255), Color(
+			White), Local Player.LongestLongshot == Global.LongestShotValue ? Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible To Sort Order String and Color, Visible Never);
+		Create HUD Text(Array(Local Player.DisplayStats && Global.BestKillstreakValue >= Global.ONFIRE_STREAK), Custom String("{0}",
+			Ability Icon String(Hero(Reaper), Button(Ultimate))), Custom String(
+			"Longest killstreak                                                                                                        {0}",
+			Custom String("                                                                  ")), Custom String("{0} - {1}k",
+			Global.BestKillstreakPlayer, Global.BestKillstreakValue), Left, 14, Global.BestKillstreakPlayer == Local Player ? Custom Color(
+			Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255), Color(
+			White), Global.BestKillstreakPlayer == Local Player ? Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible To Sort Order String and Color, Visible Never);
+		"SECONDARY STATS\n Current killstreak"
+		Create HUD Text(Array(Local Player.DisplayStats), Null, Custom String("Current killstreak: {0}{1}          ",
+			Local Player.KillStreak, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 21, Null,
+			Local Player.KillStreak < Global.ONFIRE_STREAK ? Custom Color(63, 191, 116, 255) : (
+			Local Player.KillStreak >= Global.ONFIRE_STREAK && Local Player.KillStreak < Global.RAMPAGE_STREAK ? Color(Orange) : (
+			Local Player.KillStreak >= Global.RAMPAGE_STREAK && Local Player.KillStreak < Global.NUCLEAR_STREAK ? Color(Yellow)
+			: Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(
+			Absolute Value((Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255))), Null,
+			Visible To Sort Order String and Color, Visible Never);
+		"K/D Ratio"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.Deaths > 0 && Score Of(Local Player) > 0), Null, Custom String(
+			"K/D ratio: {0}{1}          ", (Local Player.ScopedHits + Local Player.NoscopeHits + Local Player.Executes)
+			/ Local Player.Deaths, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 22, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		"Shots fired"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.ScopedShots + Local Player.NoscopeShots > 100), Null,
+			Custom String("Rifle shots: {0}{1}          ", Local Player.ScopedShots + Local Player.NoscopeShots, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 23, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		"Jumps"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.Jumps > 200), Null, Custom String("Jumps: {0}{1}          ",
+			Local Player.Jumps, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 24, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		"Kills stolen"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.StolenKills > 0), Null, Custom String(
+			"Kills stolen: {0}{1}          ", Local Player.StolenKills, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 25, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		"Players demoted"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.DemotedPlayers > 0), Null, Custom String(
+			"Players demoted: {0}{1}          ", Local Player.DemotedPlayers, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 26, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		"Perfect Quickscopes"
+		Create HUD Text(Array(Local Player.DisplayStats && Local Player.PerfectQuickscopes > 0), Null, Custom String(
+			"Perfect Quickscopes: {0}{1}          ", Local Player.PerfectQuickscopes, Custom String(
+			"                                                                                                                          {0}",
+			Custom String("                                      "))), Null, Left, 27, Null, Custom Color(63, 191, 116, 255), Null,
+			Visible To Sort Order and String, Visible Never);
+		Create Progress Bar HUD Text(Array(Local Player.IsPlayer && Local Player.HonorBar > 0 && Local Player.HonorBar < 100),
+			Local Player.HonorBar, Custom String("press [{0}] to honor {1}", Input Binding String(Button(Ability 2)),
+			Local Player.HonorTarget), Top, 10, Custom Color(44, 133, 81, 255), Custom Color(44, 133, 81, 255), Visible To and Values,
+			Visible Never);
+	}
+}
+
+rule("SPECTATOR & POTG HUDs")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		"hudText([not localPlayer.IsPlayer and LongestShotValue >= 40], \"{}\".format(abilityIconString(Hero.MCCREE, Button.ULTIMATE)), \"Longest longshot          \" emptySpace, \"{0}: {1}m\".format(LongestShotPlayer, LongestShotValue), HudPosition.LEFT, 14, customGreen"
+		Create HUD Text(Array(!Local Player.IsPlayer), Null, Null, Custom String(
+			"\n\n\nana paintball by jinko - code 1DMTZ\n             www.jinko.dev/discord"), Top, 100, Null, Null, Custom Color(Min(Max(
+			Absolute Value(Total Time Elapsed * 85 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 85 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Visible To and Color, Visible Never);
+	}
+}
+
+rule("Initial spawn point & message")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Dummy Bot(Event Player) == False;
+		Number Of Deaths(Event Player) == 0;
+		Global.SpawnPointSettings != 0;
+	}
+
+	actions
+	{
+		Wait Until(Has Spawned(Event Player), 99999);
+		Call Subroutine(RespawnSystem);
+		Wait(0.200, Ignore Condition);
+		Small Message(Event Player, Custom String("    Mode by Jinko#2838"));
+		Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Color(White), Event Player, 200);
+		Wait(0.700, Ignore Condition);
+		If(!String Contains(Custom String("{0}", Event Player), Custom String("ml7")));
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    {0}  Discord invite up there  {0}", Icon String(
+				Arrow: Up)), Custom String("    {0}  TikTok: @Jinko_OW", Icon String(Heart)), Custom String(
+				"    {0}  Scoped shots pierce enemies!", Ability Icon String(Hero(Zarya), Button(Ability 2))), Custom String(
+				"    {0}  Get a 15 kills streak for a BIG surprise!", Icon String(Radioactive)), Custom String(
+				"    {0}{1}  Try punching sleeping players!", Ability Icon String(Hero(Ana), Button(Melee)), Ability Icon String(Hero(Ana),
+				Button(Ability 1))))));
+		"for ml7"
+		Else;
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    {0}  Guard Check  {0}", Ability Icon String(Hero(Ashe),
+				Button(Ultimate))), Custom String("    fun fact: ml7 never got a nuke ml7Point"), Custom String(
+				"    100% nuking this game!! ml7Whoa"), Custom String("    {0}  Can we get some Guard Check in the chat?", Ability Icon String(
+				Hero(Ashe), Button(Ultimate))), Custom String("    {0}  Demmos 1 nuke - ml7 0 nuke", Icon String(Sad)), Custom String(
+				"    ml7 joacă modul meu!! poggies"), Custom String(
+				"    Hewwo. I'm em ewl sewwen (´・ω・`). I wuuve den (^^). I wike cats nyaa~ Owaf pways the game instwead of me, but uwu will{0}",
+				Custom String(" never know (≧ω≦)")))));
+		End;
+		Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Color(White), Event Player, 200);
+	}
+}
+
+rule("Subroutine RespawnSystem")
+{
+	event
+	{
+		Subroutine;
+		RespawnSystem;
+	}
+
+	actions
+	{
+		Event Player.AlivePlayers = Filtered Array(All Players(All Teams), Current Array Element != Event Player && Is Alive(
+			Current Array Element) && Has Spawned(Current Array Element) && Hero Of(Current Array Element) == Hero(Ana));
+		Event Player.SpawnPointsNotInLOS = Filtered Array(Global.SpawnPointSettings, (First Of(Event Player.AlivePlayers)
+			!= Null ? !Is In Line of Sight(First Of(Event Player.AlivePlayers), First Of(Current Array Element) + Vector(0, 1.800, 0),
+			Barriers Do Not Block LOS) : True) && (Event Player.AlivePlayers[1] != Null ? !Is In Line of Sight(
+			Event Player.AlivePlayers[1], First Of(Current Array Element) + Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (
+			Event Player.AlivePlayers[2] != Null ? !Is In Line of Sight(Event Player.AlivePlayers[2], First Of(Current Array Element)
+			+ Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (Event Player.AlivePlayers[3] != Null ? !Is In Line of Sight(
+			Event Player.AlivePlayers[3], First Of(Current Array Element) + Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (
+			Event Player.AlivePlayers[4] != Null ? !Is In Line of Sight(Event Player.AlivePlayers[4], First Of(Current Array Element)
+			+ Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (Event Player.AlivePlayers[5] != Null ? !Is In Line of Sight(
+			Event Player.AlivePlayers[5], First Of(Current Array Element) + Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (
+			Event Player.AlivePlayers[6] != Null ? !Is In Line of Sight(Event Player.AlivePlayers[6], First Of(Current Array Element)
+			+ Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True) && (Event Player.AlivePlayers[7] != Null ? !Is In Line of Sight(
+			Event Player.AlivePlayers[7], First Of(Current Array Element) + Vector(0, 1.800, 0), Barriers Do Not Block LOS) : True));
+		If(Count Of(Event Player.SpawnPointsNotInLOS) == 0);
+			"failsafe"
+			Event Player.SpawnPointsNotInLOS = Global.SpawnPointSettings;
+		End;
+		Event Player.SpawnPointsFarEnoughFromPlayers = Filtered Array(Event Player.SpawnPointsNotInLOS, (First Of(
+			Event Player.AlivePlayers) != Null ? Absolute Value(Distance Between(First Of(Current Array Element), First Of(
+			Event Player.AlivePlayers)) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[1] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[1]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[2] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[2]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[3] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[3]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[4] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[4]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[5] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[5]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[6] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[6]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True) && (
+			Event Player.AlivePlayers[7] != Null ? Absolute Value(Distance Between(First Of(Current Array Element),
+			Event Player.AlivePlayers[7]) - (Global.RespawnHigherDistance + Global.RespawnLowerDistance) / 2) <= (
+			Global.RespawnHigherDistance - Global.RespawnLowerDistance) / 2 : True));
+		If(Count Of(Event Player.SpawnPointsFarEnoughFromPlayers) == 0);
+			"failsafe"
+			Event Player.SpawnPointsFarEnoughFromPlayers = Filtered Array(Event Player.SpawnPointsNotInLOS, (First Of(
+				Event Player.AlivePlayers) != Null ? Distance Between(First Of(Current Array Element), First Of(Event Player.AlivePlayers))
+				: 999999) >= Global.RespawnFailsafeDistance && (Event Player.AlivePlayers[1] != Null ? Distance Between(First Of(
+				Current Array Element), Event Player.AlivePlayers[1]) : 999999) >= Global.RespawnFailsafeDistance && (
+				Event Player.AlivePlayers[2] != Null ? Distance Between(First Of(Current Array Element), Event Player.AlivePlayers[2])
+				: 999999) >= Global.RespawnFailsafeDistance && (Event Player.AlivePlayers[3] != Null ? Distance Between(First Of(
+				Current Array Element), Event Player.AlivePlayers[3]) : 999999) >= Global.RespawnFailsafeDistance && (
+				Event Player.AlivePlayers[4] != Null ? Distance Between(First Of(Current Array Element), Event Player.AlivePlayers[4])
+				: 999999) >= Global.RespawnFailsafeDistance && (Event Player.AlivePlayers[5] != Null ? Distance Between(First Of(
+				Current Array Element), Event Player.AlivePlayers[5]) : 999999) >= Global.RespawnFailsafeDistance && (
+				Event Player.AlivePlayers[6] != Null ? Distance Between(First Of(Current Array Element), Event Player.AlivePlayers[6])
+				: 999999) >= Global.RespawnFailsafeDistance && (Event Player.AlivePlayers[7] != Null ? Distance Between(First Of(
+				Current Array Element), Event Player.AlivePlayers[7]) : 999999) >= Global.RespawnFailsafeDistance);
+		End;
+		If(Count Of(Event Player.SpawnPointsFarEnoughFromPlayers) == 0);
+			"failsafe"
+			Event Player.SpawnPointsFarEnoughFromPlayers = Event Player.SpawnPointsNotInLOS;
+		End;
+		Event Player.ChosenSpawnPoint = Random Value In Array(Event Player.SpawnPointsFarEnoughFromPlayers);
+		Teleport(Event Player, First Of(Event Player.ChosenSpawnPoint));
+		Set Facing(Event Player, Event Player.ChosenSpawnPoint[1], To World);
+		Wait(0.016, Ignore Condition);
+		Set Facing(Event Player, Event Player.ChosenSpawnPoint[1], To World);
+		Wait(0.016, Ignore Condition);
+		Set Facing(Event Player, Event Player.ChosenSpawnPoint[1], To World);
+		Wait(0.016, Ignore Condition);
+		Set Facing(Event Player, Event Player.ChosenSpawnPoint[1], To World);
+		Wait(0.016, Ignore Condition);
+		Set Facing(Event Player, Event Player.ChosenSpawnPoint[1], To World);
+		Apply Impulse(Event Player, Velocity Of(Event Player) * -1, Speed Of(Event Player), To World, Incorporate Contrary Motion);
+	}
+}
+
+rule("Subroutine RespawnsCHATEAU")
+{
+	event
+	{
+		Subroutine;
+		RespawnsCHATEAU;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(165.760, 5, 81), Vector(1, 0, 0)), Array(Vector(185.500, 1, 72.400), Vector(0.830,
+			0, -0.560)), Array(Vector(167.640, 5, 76.940), Vector(0.880, 0, 0.480)), Array(Vector(170, 7, 69.500), Vector(0.840, 0,
+			-0.550)), Array(Vector(177, 0, 51.500), Vector(1, 0, 0.070)), Array(Vector(194.680, 1, 66.550), Vector(-0.740, 0, 0.680)),
+			Array(Vector(202, 0, 84.200), Vector(0.630, 0, -0.780)), Array(Vector(210.500, 0, 84.200), Vector(-0.680, 0, -0.730)), Array(
+			Vector(202.550, 0, 70.120), Vector(0.550, 0, 0.830)), Array(Vector(210.180, 0, 70.460), Vector(-0.570, 0, 0.820)), Array(
+			Vector(224.400, 1, 80.700), Vector(-1, 0, -0.010)), Array(Vector(215.750, 2, 93.490), Vector(0.710, 0, -0.710)), Array(Vector(
+			238.630, 2, 84.620), Vector(-0.710, 0, 0.710)), Array(Vector(233.800, 2, 100.200), Vector(-0.900, 0, -0.430)), Array(Vector(
+			228.510, 2, 101.190), Vector(0.520, 0, -0.850)), Array(Vector(204.150, 9, 89.400), Vector(0.550, 0, 0.830)), Array(Vector(
+			189.600, 9, 110), Vector(1, 0, 0)), Array(Vector(176.530, 9, 108.500), Vector(0.500, 0, -0.860)), Array(Vector(220.350, 12,
+			43.890), Vector(-0.860, 0, 0.500)), Array(Vector(209.200, 9, 83.400), Vector(-0.570, 0, -0.820)), Array(Vector(202.500, 8,
+			73.600), Vector(1, 0, 0)), Array(Vector(209.690, 8, 73.080), Vector(-1, 0, 0)), Array(Vector(220.060, 8, 69.500), Vector(0.220,
+			0, 0.970)), Array(Vector(218.910, 9, 61.070), Vector(-1, 0, -0.080)), Array(Vector(222.500, 8, 80), Vector(-0.720, 0, 0.700)),
+			Array(Vector(225.300, 13, 62), Vector(-1, 0, -0.010)), Array(Vector(222.600, 6, 107.300), Vector(-0.360, 0, -0.930)), Array(
+			Vector(236.500, 4, 113.400), Vector(-0.240, 0, -0.970)), Array(Vector(181, 1.660, 84.710), Vector(0.930, 0, -0.360)), Array(
+			Vector(180.880, 1.670, 81.500), Vector(0.720, 0, 0.690)), Array(Vector(188.740, 1, 93.790), Vector(-0.970, 0, -0.260)), Array(
+			Vector(172.900, 5, 92.300), Vector(0.730, 0, -0.680)), Array(Vector(183.500, 9, 108.500), Vector(-0.170, 0, -0.990)), Array(
+			Vector(188.730, 8, 106.490), Vector(0.520, 0, -0.850)), Array(Vector(188.500, 9, 115), Vector(0.900, 0, -0.430)), Array(Vector(
+			193.120, 9, 116.870), Vector(0.020, 0, -1)), Array(Vector(222.750, 2, 93.490), Vector(-0.920, 0, -0.390)), Array(Vector(
+			177.300, 7, 59.740), Vector(-0.970, 0, -0.250)), Array(Vector(188.500, 6, 90), Vector(-0.870, 0, -0.500)), Array(Vector(222, 8,
+			98), Vector(-1, 0, -0.010)), Array(Vector(203.100, 9, 83.350), Vector(0.580, 0, -0.810)), Array(Vector(208.300, 9, 89.400),
+			Vector(-0.570, 0, 0.820)), Array(Vector(225.710, 1, 78.320), Vector(-0.920, 0, 0.400)), Array(Vector(238.630, 2, 90.670),
+			Vector(-1, 0, -0.010)), Array(Vector(210.380, 8, 110.580), Vector(-1, 0, -0.030)), Array(Vector(212.990, 8, 95.910), Vector(-1,
+			0, -0.100)), Array(Vector(217.310, 5, 109.500), Vector(1, 0, 0)), Array(Vector(217.310, 5, 114.610), Vector(1, 0, 0)), Array(
+			Vector(177.250, 7, 63.990), Vector(-0.400, 0, 0.910)), Array(Vector(176.040, 7, 70), Vector(-0.280, 0, -0.960)), Array(Vector(
+			168.870, 7, 67.510), Vector(0.720, 0, -0.690)));
+	}
+}
+
+rule("Subroutine RespawnsPETRA")
+{
+	event
+	{
+		Subroutine;
+		RespawnsPETRA;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(10.990, -5.720, -14.020), Vector(0.730, 0, 0.680)), Array(Vector(-38.360, -10.650,
+			-15.660), Vector(0.050, 0, 1)), Array(Vector(-31.140, -11.670, 22.250), Vector(0.510, 0, -0.860)), Array(Vector(-27.860,
+			-11.880, 22.240), Vector(-0.680, 0, -0.740)), Array(Vector(-24.830, -11.630, 19.220), Vector(-0.570, 0, -0.820)), Array(Vector(
+			-30.790, -5, 23.250), Vector(0.470, 0, -0.880)), Array(Vector(-15.250, -8.180, 17.220), Vector(-0.760, 0, 0.650)), Array(
+			Vector(6.500, -12.790, 32.800), Vector(-0.560, 0, 0.830)), Array(Vector(-2.500, -11.900, 32.800), Vector(0.550, 0, 0.830)),
+			Array(Vector(-6.500, -12.680, 40.570), Vector(0.850, 0, 0.530)), Array(Vector(5.200, -11.580, 60.530), Vector(-0.930, 0,
+			-0.340)), Array(Vector(34.910, -9.430, 21.370), Vector(-0.630, 0, 0.780)), Array(Vector(28.250, -5.800, 11.790), Vector(-0.830,
+			0, -0.560)), Array(Vector(27.820, -5.710, 5.780), Vector(-0.760, 0, 0.650)), Array(Vector(19.750, -5.810, 6.230), Vector(0.410,
+			0, 0.910)), Array(Vector(19.830, -5.690, 11.870), Vector(0.370, 0, -0.930)), Array(Vector(-13.250, -9.330, -1.250), Vector(
+			0.660, 0, 0.750)), Array(Vector(-9.340, -5, 39.250), Vector(-0.610, 0, -0.790)), Array(Vector(-12.790, -4.980, -5.750), Vector(
+			0.610, 0, -0.790)), Array(Vector(-6.750, -5.610, -14.790), Vector(-0.700, 0, 0.710)), Array(Vector(-18.510, -6.030, -6.750),
+			Vector(-0.750, 0, -0.660)), Array(Vector(3.650, -1, -13.360), Vector(-0.910, 0, -0.420)), Array(Vector(0.360, -1, -13.340),
+			Vector(0.910, 0, -0.420)), Array(Vector(-7.210, 1, -19.240), Vector(-0.210, 0, 0.980)), Array(Vector(8.850, -6, -11.190),
+			Vector(-0.520, 0, 0.850)), Array(Vector(16.240, -5.690, -6.720), Vector(-0.810, 0, -0.580)), Array(Vector(28.040, -4, -5.540),
+			Vector(-0.900, 0, 0.430)), Array(Vector(-36.270, -12.180, 12.220), Vector(0.060, 0, -1)), Array(Vector(-13.810, -9, 35.250),
+			Vector(-0.660, 0, -0.750)), Array(Vector(-22.090, -6.020, 53.220), Vector(0.970, 0, -0.220)), Array(Vector(-9.870, -9.950,
+			14.380), Vector(-0.240, 0, 0.970)), Array(Vector(7.630, -5.930, -5.150), Vector(-1, 0, -0.100)), Array(Vector(-10.790, 1.050,
+			-19.240), Vector(0.500, 0, 0.870)), Array(Vector(24.370, -10.190, 26.910), Vector(-0.190, 0, 0.980)), Array(Vector(11.140,
+			-12.190, 57.620), Vector(0.700, 0, -0.710)), Array(Vector(-7.740, -10.110, 52.590), Vector(0.880, 0, 0.470)), Array(Vector(
+			28.650, -5.980, 16.350), Vector(-0.780, 0, 0.620)), Array(Vector(29.170, -3.380, -2.050), Vector(-0.890, 0, -0.450)), Array(
+			Vector(24.400, -4, -9.920), Vector(-0.020, 0, 1)), Array(Vector(19.200, -4.900, -14.200), Vector(0.740, 0, 0.680)), Array(
+			Vector(19.200, -4.900, -14.200), Vector(-0.830, 0, 0.560)), Array(Vector(5.140, -5.820, -15.050), Vector(-0.450, 0, 0.890)),
+			Array(Vector(-1.130, -5.740, -16.010), Vector(0.580, 0, 0.810)), Array(Vector(-4.800, -6, -11.230), Vector(0.770, 0, 0.640)),
+			Array(Vector(-12.750, -9, 24.780), Vector(-0.620, 0, 0.780)), Array(Vector(-6.840, -10.580, 22.110), Vector(-1, 0, -0.030)),
+			Array(Vector(-6.840, -10.580, 22.110), Vector(1, 0, 0)), Array(Vector(9.190, -11, 22.030), Vector(1, 0, 0.010)), Array(Vector(
+			9.190, -11, 22.030), Vector(-1, 0, 0)), Array(Vector(7.240, -11, 30.790), Vector(-0.750, 0, -0.660)), Array(Vector(-2.820, -11,
+			31.220), Vector(0.710, 0, -0.710)), Array(Vector(-20.640, -12.030, 8.940), Vector(1, 0, 0.010)), Array(Vector(-44.050, -13.010,
+			18.140), Vector(1, 0, -0.030)), Array(Vector(20.490, -12.980, 54.940), Vector(-0.680, 0, -0.740)));
+	}
+}
+
+rule("Subroutine RespawnsMALEVENTO")
+{
+	event
+	{
+		Subroutine;
+		RespawnsMALEVENTO;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(49.140, 6, 18.500), Vector(-1, 0, 0)), Array(Vector(38.320, 3, 17), Vector(-0.540,
+			0, 0.840)), Array(Vector(40.880, 6, 30.290), Vector(-0.970, 0, 0.250)), Array(Vector(8.700, 4, 30.840), Vector(0.770, 0,
+			0.640)), Array(Vector(-7.250, 2, 10.280), Vector(0.980, 0, -0.220)), Array(Vector(0.580, 2, 7.140), Vector(-0.030, 0, 1)),
+			Array(Vector(20.060, 6, -4.270), Vector(0.650, 0, 0.760)), Array(Vector(33.670, 5.500, -5.350), Vector(-0.760, 0, -0.650)),
+			Array(Vector(33.550, 3.160, -14.220), Vector(-0.930, 0, -0.360)), Array(Vector(25.680, 2, -29.700), Vector(-0.270, 0, 0.960)),
+			Array(Vector(32.390, 3, -20.420), Vector(-0.950, 0, -0.300)), Array(Vector(2.910, -3.500, -35.070), Vector(-0.280, 0, 0.960)),
+			Array(Vector(6.990, -3.270, -31.790), Vector(-0.850, 0, 0.520)), Array(Vector(3.970, -3.500, -26.850), Vector(-0.890, 0,
+			-0.450)), Array(Vector(-14.240, -2.320, -13.980), Vector(-0.990, 0, 0.120)), Array(Vector(-18.370, -3, -5.070), Vector(-0.510,
+			0, -0.860)), Array(Vector(-25.380, -2, 4), Vector(-0.390, 0, 0.920)), Array(Vector(-34.450, -1, 14.550), Vector(0.920, 0,
+			0.400)), Array(Vector(-16.430, 3.010, 48.470), Vector(0.760, 0, -0.650)), Array(Vector(-1.360, 2.670, 47.360), Vector(0.780, 0,
+			-0.630)), Array(Vector(1.360, 2.670, 47.360), Vector(-0.790, 0, -0.610)), Array(Vector(9.620, 3, 12.550), Vector(1, 0,
+			-0.010)), Array(Vector(-32.840, 4, 7.940), Vector(1, 0, 0)), Array(Vector(-24.150, 4, 5.100), Vector(-0.410, 0, 0.910)), Array(
+			Vector(-23.400, 4, 11.430), Vector(-0.400, 0, -0.920)), Array(Vector(42.740, 3, 22.070), Vector(-1, 0, 0)), Array(Vector(
+			39.250, 3, 26.680), Vector(-0.690, 0, -0.730)), Array(Vector(3.830, -2, -19.890), Vector(-0.960, 0, -0.270)), Array(Vector(
+			-5.830, -2, -22.480), Vector(0.960, 0, 0.280)), Array(Vector(-21.370, 0.440, 46.250), Vector(-0.490, 0, -0.870)), Array(Vector(
+			-19.780, 1.240, 46.250), Vector(0.970, 0, -0.260)), Array(Vector(-19.500, 2, 41.130), Vector(0.970, 0, 0.250)), Array(Vector(
+			-31.100, -1, 22.570), Vector(0.190, 0, -0.980)), Array(Vector(-29.980, -1, 25.940), Vector(0.630, 0, 0.780)), Array(Vector(-28,
+			-2, 8.150), Vector(0.190, 0, 0.980)), Array(Vector(-31.760, -2, 12.230), Vector(0.070, 0, -1)), Array(Vector(-27.080, -2, 4),
+			Vector(-0.010, 0, 1)), Array(Vector(32.550, 3, -18.170), Vector(-0.730, 0, 0.680)), Array(Vector(20.500, 2.900, -7.470),
+			Vector(0.400, 0, -0.920)), Array(Vector(20.290, 1, -3.610), Vector(-0.580, 0, 0.820)), Array(Vector(44.040, 5.500, 9.860),
+			Vector(-0.930, 0, -0.380)), Array(Vector(38.830, 7, 26.500), Vector(-0.480, 0, 0.880)), Array(Vector(35.310, 6, 31.680),
+			Vector(-0.980, 0, 0.220)), Array(Vector(11.250, 4, 42.170), Vector(-1, 0, 0.090)), Array(Vector(0.030, 9.040, 41.850), Vector(
+			0, 0, -1)), Array(Vector(-9.990, 2, 26.820), Vector(-0.610, 0, 0.790)), Array(Vector(2.680, 6.800, 1.750), Vector(0.730, 0,
+			0.680)), Array(Vector(10.700, 6, 3.760), Vector(1, 0, -0.030)), Array(Vector(-6.090, 7.760, 33.930), Vector(1, 0, 0)), Array(
+			Vector(-1.660, 6.680, 27.720), Vector(0.820, 0, 0.580)), Array(Vector(49.140, 5.140, 21.990), Vector(-1, 0, -0.040)), Array(
+			Vector(43.800, 7, 26.700), Vector(-0.870, 0, -0.500)), Array(Vector(6.280, 1.560, 33.490), Vector(-0.730, 0, -0.680)), Array(
+			Vector(-3, 6.630, 3.100), Vector(1, 0, 0.030)), Array(Vector(-6.050, 5.500, 1.750), Vector(0, 0, 1)), Array(Vector(6.120,
+			5.500, 5.270), Vector(-0.050, 0, 1)), Array(Vector(-8.380, -3.270, -30.800), Vector(-1, 0, 0.020)), Array(Vector(-8.380,
+			-3.270, -30.800), Vector(0.990, 0, -0.150)), Array(Vector(-3.530, -3.500, -34.300), Vector(0.370, 0, 0.930)), Array(Vector(
+			38.050, 7, 16.870), Vector(-0.300, 0, 0.950)), Array(Vector(24.990, 6, 6.300), Vector(-0.290, 0, -0.960)), Array(Vector(24.290,
+			5, -7), Vector(-0.250, 0, -0.970)));
+	}
+}
+
+rule("Subroutine RespawnsDORADO")
+{
+	event
+	{
+		Subroutine;
+		RespawnsDORADO;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(111.050, 8.040, -18.210), Vector(1, 0, -0.100)), Array(Vector(130.480, 8.040,
+			-7.100), Vector(-0.900, 0, -0.440)), Array(Vector(158.340, 10.010, -13.250), Vector(-0.840, 0, 0.540)), Array(Vector(152.320,
+			10.010, -3.060), Vector(-0.850, 0, -0.530)), Array(Vector(161.880, 10.010, -3.160), Vector(-0.960, 0, -0.270)), Array(Vector(
+			152.470, 10.010, 0.620), Vector(-0.260, 0, 0.960)), Array(Vector(159.650, 11.050, 2.600), Vector(-0.800, 0, 0.600)), Array(
+			Vector(63.980, 14.010, 24.340), Vector(0.940, 0, 0.330)), Array(Vector(77.740, 13.010, 16.590), Vector(0.050, 0, 1)), Array(
+			Vector(102.640, 12.030, 19.430), Vector(0.150, 0, -0.990)), Array(Vector(83.210, 6.810, -7.750), Vector(0.370, 0, 0.930)),
+			Array(Vector(107.120, 11, 48.480), Vector(0.630, 0, -0.780)), Array(Vector(121.370, 11, 52.180), Vector(-0.420, 0, -0.910)),
+			Array(Vector(135.610, 11.010, 48.210), Vector(-0.970, 0, -0.250)), Array(Vector(124.550, 11, 39.690), Vector(-0.960, 0,
+			-0.280)), Array(Vector(133.610, 7.250, -14.250), Vector(-0.990, 0, 0.140)), Array(Vector(98.460, 13.010, 21.620), Vector(
+			-0.990, 0, 0.150)), Array(Vector(67.470, 14.010, 16.630), Vector(0.280, 0, 0.960)), Array(Vector(68.150, 15.070, 32.480),
+			Vector(-0.620, 0, 0.780)), Array(Vector(68.150, 15.070, 32.480), Vector(0.620, 0, -0.780)), Array(Vector(63.350, 17.010,
+			36.640), Vector(0.940, 0, 0.350)), Array(Vector(72.440, 8, 8.890), Vector(0.960, 0, -0.290)), Array(Vector(76.840, 8, 5.440),
+			Vector(0.780, 0, 0.630)), Array(Vector(79.410, 8, 3.370), Vector(0.490, 0, 0.870)), Array(Vector(81.240, 7, 2.430), Vector(
+			0.820, 0, -0.580)), Array(Vector(108.470, 11.010, -25.480), Vector(-0.900, 0, 0.450)), Array(Vector(108.470, 11.010, -25.480),
+			Vector(0.620, 0, -0.790)), Array(Vector(112.460, 11.010, -33.260), Vector(-0.120, 0, 0.990)), Array(Vector(128.880, 9.410,
+			-28.510), Vector(-0.380, 0, 0.920)), Array(Vector(132.810, 9.410, -25.450), Vector(-0.800, 0, 0.610)), Array(Vector(140.970,
+			11, -20.850), Vector(0.090, 0, 1)), Array(Vector(144.240, 11, -20.050), Vector(-0.870, 0, 0.490)), Array(Vector(141.030,
+			10.010, -10.690), Vector(0.320, 0, 0.950)), Array(Vector(155.950, 10.010, -7.090), Vector(-1, 0, 0.040)), Array(Vector(162.870,
+			10.010, -8.530), Vector(-0.980, 0, 0.190)), Array(Vector(155.670, 10.010, 5.480), Vector(-0.700, 0, 0.710)), Array(Vector(
+			101.250, 12.340, 0.990), Vector(0.260, 0, 0.970)), Array(Vector(111.050, 12.340, 8.610), Vector(-0.990, 0, 0.140)), Array(
+			Vector(98.500, 18.880, 24.820), Vector(-0.140, 0, -0.990)), Array(Vector(122.380, 11, 36.850), Vector(-0.980, 0, 0.190)),
+			Array(Vector(133.560, 11.010, 46.770), Vector(-0.860, 0, -0.510)), Array(Vector(89.580, 11.010, 17.060), Vector(0.990, 0,
+			-0.130)));
+	}
+}
+
+rule("Subroutine RespawnsHOLLYWOOD")
+{
+	event
+	{
+		Subroutine;
+		RespawnsHOLLYWOOD;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(45.800, 2.750, -45.420), Vector(-1, 0, 0.070)), Array(Vector(47.430, 2.750,
+			-64.900), Vector(-0.970, 0, 0.240)), Array(Vector(35.060, 1.800, -29.220), Vector(-0.850, 0, -0.530)), Array(Vector(32.240,
+			2.750, -62.280), Vector(0.230, 0, 0.970)), Array(Vector(28.210, 1.860, -71.500), Vector(-0.360, 0, -0.930)), Array(Vector(
+			19.100, 1.750, -93.560), Vector(0.580, 0, 0.820)), Array(Vector(-1.820, 4.790, -65.060), Vector(0.970, 0, -0.240)), Array(
+			Vector(-6.450, 4, -65.060), Vector(0.370, 0, 0.930)), Array(Vector(8.520, 4.790, -64.910), Vector(-0.540, 0, 0.840)), Array(
+			Vector(-18.790, 1.750, -47.450), Vector(0.930, 0, -0.370)), Array(Vector(-19.170, 5.750, -52.350), Vector(-0.490, 0, -0.870)),
+			Array(Vector(-17.120, 1.730, -77.890), Vector(0.300, 0, 0.950)), Array(Vector(-8.170, 1.600, -73.870), Vector(-0.200, 0,
+			0.980)), Array(Vector(-16.170, 1.730, -71.410), Vector(0.980, 0, -0.210)), Array(Vector(6.370, 5.830, -28.170), Vector(0.890,
+			0, 0.450)), Array(Vector(5.830, 5.750, -32.470), Vector(-0.970, 0, -0.240)), Array(Vector(-10.730, 1.750, -10.950), Vector(
+			0.910, 0, -0.420)), Array(Vector(10, 1.750, -1.370), Vector(-0.840, 0, -0.540)), Array(Vector(5.230, 1.750, -10.440), Vector(1,
+			0, 0.010)), Array(Vector(15.260, 1.750, -8.250), Vector(-0.200, 0, -0.980)), Array(Vector(3.030, 1.750, -33.700), Vector(0.800,
+			0, 0.600)), Array(Vector(12.550, 3.330, -33.030), Vector(-1, 0, 0.040)), Array(Vector(-0.330, 1.870, -29.950), Vector(-0.260,
+			0, 0.970)), Array(Vector(13.550, 1.750, -40.250), Vector(0.900, 0, 0.440)), Array(Vector(-12.580, 1.730, -58.240), Vector(
+			0.760, 0, 0.650)), Array(Vector(0.990, 1.600, -83.530), Vector(0.650, 0, 0.760)), Array(Vector(26.730, 1.610, -47.340), Vector(
+			-0.960, 0, 0.280)), Array(Vector(26.730, 1.610, -47.340), Vector(-0.150, 0, 0.990)), Array(Vector(8.250, 2, -66.190), Vector(
+			-0.640, 0, -0.770)), Array(Vector(2.550, 2, -67.580), Vector(0.200, 0, 0.980)), Array(Vector(2.760, 3.970, -12.790), Vector(
+			-0.350, 0, -0.940)), Array(Vector(-6.400, 1.600, -40.340), Vector(0.860, 0, 0.510)), Array(Vector(42.160, 1.750, -68.160),
+			Vector(-0.990, 0, 0.120)), Array(Vector(42.160, 1.750, -68.160), Vector(-0.480, 0, -0.880)), Array(Vector(37.740, 2.750,
+			-53.240), Vector(-1, 0, -0.020)), Array(Vector(27.470, 1.630, -93.540), Vector(-0.720, 0, 0.700)), Array(Vector(37.790, 1.600,
+			-83.910), Vector(-0.130, 0, 0.990)), Array(Vector(22.420, 1.860, -78.920), Vector(0.920, 0, -0.400)), Array(Vector(9.670,
+			2.780, -69.690), Vector(0.750, 0, 0.660)), Array(Vector(-2.330, 1.600, -67.640), Vector(0.470, 0, -0.880)), Array(Vector(
+			42.820, 2.750, -63.160), Vector(-0.970, 0, 0.220)), Array(Vector(38.910, 2.750, -46.440), Vector(-0.070, 0, 1)), Array(Vector(
+			48.880, 2.750, -52.790), Vector(-0.770, 0, 0.640)), Array(Vector(49.570, 2.750, -58.580), Vector(-0.850, 0, -0.520)), Array(
+			Vector(10.460, 1.750, -9.640), Vector(0.730, 0, -0.690)), Array(Vector(-1.580, 1.750, -5.510), Vector(-0.030, 0, -1)), Array(
+			Vector(-21.110, 5.750, -39.240), Vector(0.440, 0, -0.900)), Array(Vector(-17.320, 3.750, -41.940), Vector(0.580, 0, -0.810)),
+			Array(Vector(-26.530, 5.750, -46.690), Vector(0.440, 0, -0.900)), Array(Vector(-18.320, 5.750, -56.490), Vector(-0.180, 0,
+			-0.980)), Array(Vector(-19.430, 1.730, -77.360), Vector(0.830, 0, 0.560)), Array(Vector(-17.660, 1.730, -65.590), Vector(1, 0,
+			-0.020)), Array(Vector(7.750, 2, -64.770), Vector(-0.710, 0, 0.700)), Array(Vector(1.070, 1.870, -24.320), Vector(-0.480, 0,
+			-0.880)), Array(Vector(9.130, 1.600, -51.760), Vector(-0.950, 0, 0.310)), Array(Vector(-8.430, 1.750, -14.790), Vector(0.850,
+			0, 0.530)), Array(Vector(1.270, 6, -65.790), Vector(0.980, 0, -0.210)), Array(Vector(22.380, 1.630, -94.910), Vector(0.070, 0,
+			1)), Array(Vector(35.080, 1.600, -76.760), Vector(0.320, 0, 0.950)), Array(Vector(33.440, 2.120, -79.980), Vector(-0.410, 0,
+			-0.910)), Array(Vector(36.830, 1.600, -75.590), Vector(-0.140, 0, 0.990)), Array(Vector(51.040, 5.430, -65.630), Vector(-0.430,
+			0, 0.900)), Array(Vector(55.210, 2.750, -49.210), Vector(-0.980, 0, -0.200)), Array(Vector(29.890, 2.750, -60.860), Vector(
+			0.870, 0, 0.490)), Array(Vector(43.130, 2.750, -32.040), Vector(-0.870, 0, -0.480)), Array(Vector(24.270, 2.530, -28.470),
+			Vector(-0.990, 0, 0.170)), Array(Vector(18.150, 1.750, -13.780), Vector(-0.940, 0, 0.340)), Array(Vector(8.410, 3.690, 1.320),
+			Vector(-0.390, 0, -0.920)), Array(Vector(-12.170, 1.600, -20.280), Vector(0.830, 0, -0.550)), Array(Vector(4.060, 1.750,
+			-29.170), Vector(0.920, 0, 0.390)), Array(Vector(0.140, 2, -56.110), Vector(0.740, 0, -0.680)), Array(Vector(-4.130, 1.600,
+			-82.230), Vector(0.650, 0, 0.760)), Array(Vector(12.420, 1.750, -85.350), Vector(0.280, 0, 0.960)), Array(Vector(35.040, 1.600,
+			-86.680), Vector(-0.570, 0, 0.820)), Array(Vector(32.270, 1.620, -42.540), Vector(-0.810, 0, -0.580)), Array(Vector(33.160,
+			1.750, -28.740), Vector(-0.640, 0, -0.760)), Array(Vector(16.620, 1.750, -41.020), Vector(-0.120, 0, 0.990)), Array(Vector(
+			-0.050, 1.750, -32.070), Vector(0.080, 0, -1)), Array(Vector(-16.970, 1.750, -46.540), Vector(0.760, 0, -0.650)), Array(Vector(
+			-27.250, 5.750, -38.520), Vector(0.490, 0, -0.870)), Array(Vector(-25.040, 5.750, -52.570), Vector(1, 0, -0.020)), Array(
+			Vector(-14.110, 1.730, -69.580), Vector(0.740, 0, -0.670)), Array(Vector(-16.760, 1.730, -62.030), Vector(0.860, 0, -0.520)));
+	}
+}
+
+rule("Subroutine RespawnsBLIZZWORLD")
+{
+	event
+	{
+		Subroutine;
+		RespawnsBLIZZWORLD;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(-13.320, 1.940, 85.290), Vector(-0.710, 0, 0.710)), Array(Vector(-22.940, 0.290,
+			114.410), Vector(-0.410, 0, -0.910)), Array(Vector(-27.470, 0.290, 112.510), Vector(0.520, 0, -0.860)), Array(Vector(-28.620,
+			0.290, 102.190), Vector(-0.970, 0, -0.260)), Array(Vector(-20.800, 2.070, 104.070), Vector(0.130, 0, -0.990)), Array(Vector(
+			-27.190, 6, 86.440), Vector(0.690, 0, 0.720)), Array(Vector(-42.260, -0.110, 97.260), Vector(0.410, 0, -0.910)), Array(Vector(
+			-55.140, -0.190, 98.160), Vector(0.040, 0, -1)), Array(Vector(-45.560, -0.200, 89.210), Vector(-0.980, 0, -0.210)), Array(
+			Vector(-62, 1.030, 73.030), Vector(0.360, 0, 0.930)), Array(Vector(-82.540, 0.250, 60.960), Vector(0.710, 0, 0.700)), Array(
+			Vector(-56.690, -0.250, 58.800), Vector(-0.930, 0, 0.370)), Array(Vector(-52.640, -0.250, 62.080), Vector(-0.880, 0, 0.480)),
+			Array(Vector(-51.080, -0.250, 67.290), Vector(-1, 0, -0.030)), Array(Vector(-40.340, 0.750, 55.530), Vector(-0.120, 0, 0.990)),
+			Array(Vector(-20.060, 0.020, 61.190), Vector(-0.980, 0, 0.220)), Array(Vector(-15.810, 2, 74.190), Vector(-0.220, 0, 0.980)),
+			Array(Vector(-75.880, 0.790, 92.860), Vector(0.020, 0, -1)), Array(Vector(-86.250, 0.750, 79.240), Vector(-0.280, 0, 0.960)),
+			Array(Vector(-80.460, 4.880, 63.050), Vector(0.710, 0, 0.700)), Array(Vector(-90.780, 0.750, 88.790), Vector(0.720, 0,
+			-0.690)), Array(Vector(-83.940, 0.750, 100.720), Vector(0.500, 0, -0.870)), Array(Vector(-85.420, 0.750, 92.490), Vector(0.730,
+			0, 0.680)), Array(Vector(-42.540, -0.210, 136.040), Vector(-0.950, 0, -0.300)), Array(Vector(-44.340, -2.210, 149.300), Vector(
+			-0.870, 0, -0.500)), Array(Vector(-42.050, -2.210, 140.770), Vector(-1, 0, -0.090)), Array(Vector(-46.110, 1.910, 144.130),
+			Vector(-0.960, 0, -0.280)), Array(Vector(-78.020, 1.750, 152.070), Vector(0.300, 0, -0.950)), Array(Vector(-70.620, 1.750,
+			156.480), Vector(0.680, 0, -0.730)), Array(Vector(-74.260, 0.750, 135.910), Vector(0.960, 0, 0.290)), Array(Vector(-77.290,
+			0.810, 117.500), Vector(0.820, 0, 0.570)), Array(Vector(-62.850, 0.750, 134.450), Vector(-0.950, 0, -0.300)), Array(Vector(
+			-58.310, -0.110, 127.240), Vector(0.990, 0, -0.120)), Array(Vector(-67.230, 1.120, 107.280), Vector(0.270, 0, -0.960)), Array(
+			Vector(-81.960, 0.250, 71.300), Vector(0.970, 0, 0.250)), Array(Vector(-71.230, 0.250, 62.340), Vector(0.030, 0, 1)), Array(
+			Vector(-29.850, 0, 56.900), Vector(-0.100, 0, 0.990)), Array(Vector(-16.210, 2, 62.500), Vector(-0.740, 0, 0.680)), Array(
+			Vector(-19.590, 2, 69.570), Vector(0.290, 0, 0.960)), Array(Vector(-25.970, 6, 88.920), Vector(0.290, 0, -0.960)), Array(
+			Vector(-42.920, -0.120, 131.240), Vector(-0.970, 0, -0.260)), Array(Vector(-29.960, -2.210, 148.520), Vector(-0.960, 0,
+			-0.270)), Array(Vector(-44.040, -0.190, 97.290), Vector(0.090, 0, -1)), Array(Vector(-44.100, -0.190, 97.370), Vector(-0.900,
+			0, 0.430)), Array(Vector(-55.700, -0.190, 92.290), Vector(-0.010, 0, -1)), Array(Vector(-49.450, -0.190, 87.060), Vector(-1, 0,
+			-0.020)), Array(Vector(-84.530, 0.250, 63.820), Vector(0.960, 0, 0.270)), Array(Vector(-80.400, 0.250, 59.160), Vector(0.340,
+			0, 0.940)), Array(Vector(-70.170, 0.250, 64.050), Vector(-0.710, 0, 0.700)), Array(Vector(-79.940, 0.250, 73.290), Vector(
+			0.710, 0, -0.700)), Array(Vector(-81.660, 4.880, 66.560), Vector(0.820, 0, 0.570)), Array(Vector(-77.280, 4.880, 61.730),
+			Vector(0.550, 0, 0.830)), Array(Vector(-53.190, -0.250, 69.270), Vector(-0.990, 0, -0.150)), Array(Vector(-23.640, 0, 55.390),
+			Vector(-0.570, 0, 0.820)), Array(Vector(-27.330, 0.290, 107.110), Vector(-0.650, 0, -0.760)), Array(Vector(-101.160, 0.750,
+			93.040), Vector(0.990, 0, -0.140)), Array(Vector(-88.140, 0.750, 82.180), Vector(0.960, 0, 0.280)), Array(Vector(-95.900,
+			1.610, 86.820), Vector(0.800, 0, 0.600)), Array(Vector(-36.130, -2.210, 146.910), Vector(-0.960, 0, -0.270)), Array(Vector(
+			-52.870, -0.250, 147.390), Vector(0.290, 0, -0.960)), Array(Vector(-71.920, 1.750, 149.720), Vector(-0.590, 0, -0.810)), Array(
+			Vector(-68.420, 1.750, 150.160), Vector(0.950, 0, -0.300)), Array(Vector(-77.190, 1.750, 156.090), Vector(0.580, 0, -0.820)),
+			Array(Vector(-77.720, 0.900, 139.310), Vector(0.980, 0, -0.210)));
+	}
+}
+
+rule("Subroutine RespawnsEICHENWALDE")
+{
+	event
+	{
+		Subroutine;
+		RespawnsEICHENWALDE;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(66, 16.030, -63.590), Vector(0.960, 0, -0.280)), Array(Vector(60.850, 6.720,
+			-77.360), Vector(-0.660, 0, 0.750)), Array(Vector(55.580, 5.980, -100.310), Vector(-0.240, 0, -0.970)), Array(Vector(62.480,
+			6.720, -109.840), Vector(-0.900, 0, 0.440)), Array(Vector(66.250, 10.500, -116.920), Vector(0.900, 0, 0.440)), Array(Vector(
+			29.540, 10.400, -94.070), Vector(0.990, 0, 0.100)), Array(Vector(34.990, 12.720, -106.340), Vector(0.780, 0, 0.620)), Array(
+			Vector(101.120, 12.720, -108.840), Vector(-0.590, 0, 0.810)), Array(Vector(101.120, 12.720, -108.840), Vector(-0.890, 0,
+			-0.450)), Array(Vector(95.870, 12.720, -105.250), Vector(0.430, 0, 0.900)), Array(Vector(92.400, 18.680, -66.330), Vector(
+			-0.650, 0, -0.760)), Array(Vector(75.190, 12.660, -71.860), Vector(-0.380, 0, 0.930)), Array(Vector(81.900, 13.040, -65.170),
+			Vector(-0.220, 0, -0.970)), Array(Vector(57.100, 6.720, -108.970), Vector(0.990, 0, 0.150)), Array(Vector(67.990, 18.050,
+			-76.640), Vector(-0.560, 0, 0.830)), Array(Vector(58.250, 11.720, -84.470), Vector(-0.630, 0, 0.780)), Array(Vector(88.980,
+			12.800, -63.530), Vector(-0.270, 0, -0.960)), Array(Vector(28.630, 8, -87.770), Vector(0.580, 0, 0.810)), Array(Vector(52.490,
+			10.720, -120.620), Vector(0.390, 0, 0.920)), Array(Vector(58.200, 10.720, -121.730), Vector(-0.030, 0, 1)), Array(Vector(
+			54.900, 4.720, -89.370), Vector(0.080, 0, -1)), Array(Vector(55.910, 4.720, -85.470), Vector(0.360, 0, 0.930)), Array(Vector(
+			53.600, 6.720, -76.030), Vector(0.520, 0, 0.850)), Array(Vector(51.640, 11.720, -82.040), Vector(0.910, 0, 0.420)), Array(
+			Vector(60.800, 11.720, -75.620), Vector(-0.550, 0, 0.840)), Array(Vector(102.950, 12.720, -71.180), Vector(-0.920, 0, -0.380)),
+			Array(Vector(99.260, 11.850, -98.240), Vector(-0.420, 0, -0.910)), Array(Vector(105.760, 12.720, -111.070), Vector(-0.900, 0,
+			0.440)), Array(Vector(56.010, 10.720, -116.710), Vector(0.650, 0, 0.760)), Array(Vector(52.580, 21.200, -65.270), Vector(0.970,
+			0, -0.260)), Array(Vector(70.150, 18.040, -69.320), Vector(-0.850, 0, -0.530)), Array(Vector(54.420, 10.720, -125.170), Vector(
+			0.230, 0, 0.970)), Array(Vector(31.080, 8, -86.940), Vector(0.280, 0, 0.960)), Array(Vector(31.890, 6.030, -73.700), Vector(1,
+			0, -0.100)), Array(Vector(35.790, 5.250, -51.970), Vector(0.170, 0, -0.980)), Array(Vector(35.790, 5.250, -51.970), Vector(
+			0.900, 0, 0.440)), Array(Vector(57.840, 6.720, -73.970), Vector(-0.320, 0, 0.950)), Array(Vector(64.750, 4.720, -82.100),
+			Vector(-0.910, 0, -0.400)), Array(Vector(104.780, 12.750, -71.800), Vector(-0.870, 0, -0.500)), Array(Vector(100.060, 10.720,
+			-96.110), Vector(0.290, 0, 0.960)), Array(Vector(100.060, 10.720, -96.110), Vector(-0.380, 0, -0.930)), Array(Vector(103.840,
+			12.720, -115.110), Vector(-0.690, 0, 0.720)), Array(Vector(94.530, 12.720, -112.970), Vector(-0.390, 0, 0.920)), Array(Vector(
+			47.300, 8.450, -102.740), Vector(-0.960, 0, 0.270)), Array(Vector(50.260, 6.720, -107.190), Vector(0.880, 0, 0.470)), Array(
+			Vector(61.050, 4.720, -95.460), Vector(-0.830, 0, 0.560)));
+	}
+}
+
+rule("Subroutine RespawnsECOPOINT")
+{
+	event
+	{
+		Subroutine;
+		RespawnsECOPOINT;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(-10.620, 7, 9.120), Vector(-0.440, 0, -0.900)), Array(Vector(-9.880, 7, -8.470),
+			Vector(-0.520, 0, 0.860)), Array(Vector(-6.520, 7.240, -9.730), Vector(0.870, 0, 0.490)), Array(Vector(-6.520, 7.240, 9.730),
+			Vector(0.870, 0, -0.490)), Array(Vector(23.350, 6.020, -18.800), Vector(-0.750, 0, 0.670)), Array(Vector(24.120, 6.010,
+			15.260), Vector(-0.960, 0, 0.270)), Array(Vector(23.160, 6.010, 18.900), Vector(-0.690, 0, -0.730)), Array(Vector(11.040,
+			8.040, 60.320), Vector(-0.250, 0, -0.970)), Array(Vector(6.640, 8.040, 55.910), Vector(0.140, 0, -0.990)), Array(Vector(-4.780,
+			7, 52.650), Vector(-0.700, 0, -0.710)), Array(Vector(4.440, 7.390, -25.380), Vector(0.330, 0, 0.950)), Array(Vector(-32.120, 9,
+			6.110), Vector(1, 0, 0.010)), Array(Vector(-32.120, 9, -6.100), Vector(1, 0, 0)), Array(Vector(18.340, 11.210, 11.130), Vector(
+			-0.360, 0, 0.930)), Array(Vector(-9.710, 6.930, -10.880), Vector(0.010, 0, -1)), Array(Vector(-9.150, 8.530, -0.230), Vector(
+			-1, 0, 0)), Array(Vector(-9.790, 6.900, 10.880), Vector(0, 0, 1)), Array(Vector(13.850, 8.010, -59.450), Vector(-0.330, 0,
+			0.940)), Array(Vector(-7.800, 7, -50.470), Vector(-0.520, 0, 0.850)), Array(Vector(-14.910, 7.130, -32.010), Vector(0.920, 0,
+			0.390)), Array(Vector(-8.170, 7, 49.260), Vector(-0.690, 0, -0.720)), Array(Vector(-29, 9, 3.120), Vector(-0.230, 0, -0.970)),
+			Array(Vector(-28.720, 9, -3.120), Vector(-0.290, 0, 0.960)), Array(Vector(-33.980, 9, -3.120), Vector(0.930, 0, 0.360)), Array(
+			Vector(-34.100, 9, 3.120), Vector(0.940, 0, -0.350)), Array(Vector(-19.960, 7, -8.450), Vector(0.870, 0, 0.490)), Array(Vector(
+			-19.960, 7, 8.300), Vector(0.800, 0, -0.600)), Array(Vector(-16.580, 7.520, 16.110), Vector(0.830, 0, -0.560)), Array(Vector(
+			-16.600, 7.530, -16.100), Vector(0.800, 0, 0.610)), Array(Vector(22.030, 6.860, -12.560), Vector(0.150, 0, 0.990)), Array(
+			Vector(21.980, 6.980, 12.320), Vector(0.220, 0, -0.980)), Array(Vector(24.120, 6.020, -15.560), Vector(-0.990, 0, -0.160)),
+			Array(Vector(18.020, 4.630, -8.970), Vector(0, 0, 1)), Array(Vector(18.020, 4.630, -8.970), Vector(0, 0, -1)), Array(Vector(
+			29.880, 3, -0.030), Vector(-0.860, 0, 0.500)), Array(Vector(29.880, 3, -0.030), Vector(-0.870, 0, -0.490)), Array(Vector(
+			27.180, 3.160, 6.280), Vector(-0.570, 0, -0.820)), Array(Vector(27.160, 3.160, -6.260), Vector(-0.560, 0, 0.830)), Array(
+			Vector(18, 4.670, 9.050), Vector(-0.010, 0, 1)), Array(Vector(18, 4.670, 9.050), Vector(0, 0, -1)), Array(Vector(3.140, 7.400,
+			20.210), Vector(-0.070, 0, 1)), Array(Vector(6.510, 7.400, 23.580), Vector(-0.760, 0, -0.650)), Array(Vector(4.330, 7.400,
+			25.990), Vector(-0.500, 0, -0.870)), Array(Vector(13.730, 8.040, 59.490), Vector(-0.290, 0, -0.960)), Array(Vector(15.400,
+			8.960, 43.820), Vector(-0.990, 0, -0.100)), Array(Vector(3.610, 9.120, 47.120), Vector(0.870, 0, -0.500)), Array(Vector(-0.180,
+			7.560, 55.390), Vector(0.820, 0, -0.570)), Array(Vector(-0.180, 7.560, 55.390), Vector(-0.770, 0, -0.640)), Array(Vector(
+			-15.590, 7.560, 31.850), Vector(0.980, 0, -0.220)), Array(Vector(-15.580, 7.550, -31.880), Vector(0.990, 0, 0.160)), Array(
+			Vector(-0.830, 7.350, -54.490), Vector(0.950, 0, 0.320)), Array(Vector(-0.830, 7.350, -54.490), Vector(-0.850, 0, 0.530)),
+			Array(Vector(3.670, 8.960, -47.300), Vector(0.770, 0, 0.630)), Array(Vector(15.340, 8.940, -43.620), Vector(-1, 0, 0.060)),
+			Array(Vector(12.270, 8.160, -54.180), Vector(-0.310, 0, 0.950)), Array(Vector(3.600, 8.060, -19.770), Vector(0.360, 0,
+			-0.930)), Array(Vector(15.360, 10.260, -27.810), Vector(0.460, 0, 0.890)), Array(Vector(19.080, 12, -15.510), Vector(-0.860, 0,
+			-0.520)), Array(Vector(18.350, 11.460, -11.640), Vector(-0.430, 0, -0.900)), Array(Vector(18.350, 11.460, -11.640), Vector(
+			-0.030, 0, 1)), Array(Vector(17.990, 11.360, 11.440), Vector(0.020, 0, -1)), Array(Vector(17.990, 11.360, 11.440), Vector(
+			-0.370, 0, 0.930)), Array(Vector(15.500, 10.120, 28.160), Vector(0.620, 0, -0.780)));
+	}
+}
+
+rule("Subroutine RespawnsBLACKFOREST")
+{
+	event
+	{
+		Subroutine;
+		RespawnsBLACKFOREST;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(-8.380, 14.130, 23.080), Vector(-0.330, 0, 0.940)), Array(Vector(-4.790, 11.460,
+			36.300), Vector(0.960, 0, -0.270)), Array(Vector(0.130, 12.860, 12.540), Vector(0.250, 0, -0.970)), Array(Vector(7.860, 12.500,
+			12.590), Vector(-0.640, 0, -0.770)), Array(Vector(11.420, 12.500, 4.140), Vector(-0.930, 0, -0.360)), Array(Vector(7.860,
+			12.500, -2.600), Vector(-0.570, 0, 0.820)), Array(Vector(0.230, 12.840, -2.600), Vector(0.460, 0, 0.890)), Array(Vector(10.970,
+			17.860, -0.930), Vector(0.700, 0, -0.710)), Array(Vector(35.750, 14, -13.040), Vector(-1, 0, 0)), Array(Vector(31.630, 17,
+			-2.460), Vector(-1, 0, -0.020)), Array(Vector(26.450, 16.950, -16.910), Vector(-0.980, 0, 0.220)), Array(Vector(29.350, 12,
+			-22.270), Vector(-0.070, 0, 1)), Array(Vector(28.780, 12, -22.530), Vector(-0.630, 0, -0.780)), Array(Vector(35.860, 12,
+			-26.100), Vector(-0.870, 0, 0.490)), Array(Vector(13.430, 9.090, 1.620), Vector(0.960, 0, 0.270)), Array(Vector(14.830, 9,
+			8.240), Vector(0.950, 0, -0.310)), Array(Vector(27.950, 16.970, 22.930), Vector(-0.990, 0, -0.130)), Array(Vector(25.130,
+			16.890, 30.120), Vector(-0.900, 0, -0.430)), Array(Vector(-12.920, 15, 36.980), Vector(0.150, 0, -0.990)), Array(Vector(10.970,
+			16.950, 10.930), Vector(0.700, 0, 0.710)), Array(Vector(28.040, 16.980, -10.610), Vector(-0.990, 0, 0.120)), Array(Vector(
+			-11.840, 13.440, -15.250), Vector(-0.240, 0, -0.970)), Array(Vector(-13.130, 15, -27.370), Vector(0.150, 0, 0.990)), Array(
+			Vector(41.740, 12, 32.410), Vector(-1, 0, -0.060)), Array(Vector(38.720, 12, 35.110), Vector(-0.960, 0, -0.270)), Array(Vector(
+			35.360, 12, 43.460), Vector(-0.550, 0, -0.840)), Array(Vector(29.090, 9, 1.630), Vector(-0.840, 0, 0.550)), Array(Vector(
+			29.090, 9.300, 8.370), Vector(-0.810, 0, -0.590)), Array(Vector(19.130, 17.500, 4.270), Vector(-0.900, 0, -0.440)), Array(
+			Vector(19.130, 17.500, 1.060), Vector(-0.980, 0, 0.180)), Array(Vector(19.130, 17.500, 5.730), Vector(-0.970, 0, 0.240)),
+			Array(Vector(19.130, 17.500, 8.940), Vector(-0.980, 0, -0.210)), Array(Vector(4.300, 17.500, 12.790), Vector(0, 0, -1)), Array(
+			Vector(4.640, 17.500, -2.770), Vector(0, 0, 1)), Array(Vector(-6.110, 11.810, -26.520), Vector(0.980, 0, 0.220)), Array(Vector(
+			-4.650, 11.900, -22.670), Vector(-0.520, 0, 0.860)), Array(Vector(-4.650, 11.900, -22.670), Vector(0.510, 0, -0.860)), Array(
+			Vector(-4.400, 11.810, 32.380), Vector(0.500, 0, 0.870)), Array(Vector(-4.400, 11.810, 32.380), Vector(-0.510, 0, -0.860)),
+			Array(Vector(-14.170, 14.380, 33.860), Vector(0.400, 0, -0.920)), Array(Vector(-3.500, 18, 31.530), Vector(-0.940, 0, -0.330)),
+			Array(Vector(-8.380, 18, 23.080), Vector(-0.310, 0, 0.950)), Array(Vector(-9.830, 16.100, -25.310), Vector(-0.250, 0, 0.970)),
+			Array(Vector(-8.760, 18, -13.350), Vector(-0.300, 0, -0.950)), Array(Vector(-7.860, 13.440, -14.340), Vector(-0.170, 0,
+			-0.980)), Array(Vector(0.150, 17.310, 10.010), Vector(0.700, 0, -0.710)), Array(Vector(0.140, 17.310, -0.010), Vector(0.700, 0,
+			0.720)), Array(Vector(-5.590, 13.090, 5.080), Vector(0.030, 0, -1)), Array(Vector(-5.590, 13.090, 5.080), Vector(0, 0, 1)),
+			Array(Vector(-8.690, 16.580, 34.530), Vector(-0.500, 0, -0.870)), Array(Vector(-14.580, 14.120, -23.610), Vector(0.560, 0,
+			0.830)), Array(Vector(-12.810, 13.070, -22.250), Vector(0.430, 0, 0.900)), Array(Vector(-11.370, 13, 32.380), Vector(0.330, 0,
+			-0.940)), Array(Vector(30.840, 17, 12.490), Vector(-1, 0, 0)), Array(Vector(32, 12, 41.380), Vector(-0.360, 0, -0.930)), Array(
+			Vector(14.050, 11.490, 4.780), Vector(1, 0, 0.020)), Array(Vector(15.680, 9, 6.560), Vector(1, 0, -0.080)), Array(Vector(
+			33.330, 12, -32.400), Vector(-0.430, 0, 0.900)), Array(Vector(39.420, 12, -22.050), Vector(-0.990, 0, 0.110)), Array(Vector(
+			29.290, 12, 32.650), Vector(-0.880, 0, 0.480)), Array(Vector(29.290, 12, 32.650), Vector(-0.050, 0, -1)), Array(Vector(1.430,
+			11.050, 33.480), Vector(1, 0, -0.040)), Array(Vector(0.770, 10.920, -23.920), Vector(0.980, 0, 0.200)), Array(Vector(35.570,
+			14, 22.770), Vector(-1, 0, 0.020)), Array(Vector(34.510, 15.970, 17.840), Vector(-0.070, 0, 1)), Array(Vector(34.510, 15.970,
+			17.840), Vector(0.010, 0, -1)), Array(Vector(35.750, 17, 11.060), Vector(-0.800, 0, 0.610)), Array(Vector(35.750, 17, -1.010),
+			Vector(-0.790, 0, -0.610)), Array(Vector(34.090, 16.020, -7.740), Vector(0.010, 0, -1)), Array(Vector(34.090, 16.020, -7.740),
+			Vector(0.010, 0, 1)), Array(Vector(9.450, 12.500, 1.310), Vector(-0.830, 0, 0.560)), Array(Vector(8.710, 12.500, 4.990),
+			Vector(-1, 0, 0)), Array(Vector(8.120, 12.500, 9.230), Vector(-0.910, 0, -0.410)));
+	}
+}
+
+rule("Subroutine RespawnsLIJANGCONTROL")
+{
+	event
+	{
+		Subroutine;
+		RespawnsLIJANGCONTROL;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(40.960, 267, 312.980), Vector(-0.810, 0, 0.590)), Array(Vector(26.880, 267,
+			325.740), Vector(0.710, 0, -0.700)), Array(Vector(34.500, 267, 327.090), Vector(-0.170, 0, -0.980)), Array(Vector(26.750, 267,
+			316.840), Vector(-0.080, 0, -1)), Array(Vector(20.140, 270, 331.860), Vector(-1, 0, -0.050)), Array(Vector(28.850, 267,
+			280.400), Vector(-0.670, 0, -0.740)), Array(Vector(15.440, 267, 270.890), Vector(0.290, 0, 0.960)), Array(Vector(24.010, 267,
+			282.830), Vector(1, 0, -0.040)), Array(Vector(10.250, 270, 307.250), Vector(-0.690, 0, -0.720)), Array(Vector(-4.320, 274,
+			337.250), Vector(0, 0, -1)), Array(Vector(3.800, 274, 337.250), Vector(0, 0, -1)), Array(Vector(24.580, 267, 277.900), Vector(
+			-0.700, 0, -0.720)), Array(Vector(-15.430, 267, 270.890), Vector(-0.290, 0, 0.960)), Array(Vector(-24.580, 267, 277.900),
+			Vector(0.720, 0, -0.700)), Array(Vector(-27.970, 267, 281.190), Vector(0.560, 0, -0.830)), Array(Vector(-26.750, 267, 316.840),
+			Vector(-0.140, 0, -0.990)), Array(Vector(-10.250, 270, 307.250), Vector(0.570, 0, -0.820)), Array(Vector(-40.480, 267,
+			314.150), Vector(1, 0, 0)), Array(Vector(-12.260, 270, 299.030), Vector(1, 0, -0.070)), Array(Vector(12.270, 270, 299.020),
+			Vector(-1, 0, 0.040)), Array(Vector(5.130, 267.170, 292.120), Vector(0.410, 0, -0.910)), Array(Vector(-5.130, 267.170,
+			292.120), Vector(-0.410, 0, -0.910)), Array(Vector(-0.080, 278, 337.250), Vector(0, 0, -1)), Array(Vector(-0.040, 270,
+			329.480), Vector(0, 0, -1)), Array(Vector(35.510, 267, 317.280), Vector(-0.700, 0, -0.720)), Array(Vector(41.190, 266.150,
+			323.180), Vector(-0.700, 0, -0.720)), Array(Vector(-32.620, 267, 327.530), Vector(-0.020, 0, -1)), Array(Vector(-41.800,
+			266.130, 322.640), Vector(0.710, 0, -0.700)), Array(Vector(-35.120, 267, 316.080), Vector(0.710, 0, -0.700)), Array(Vector(
+			5.320, 267.170, 267.420), Vector(-0.130, 0, 0.990)), Array(Vector(-5.320, 267.170, 267.420), Vector(0.130, 0, 0.990)), Array(
+			Vector(-0.120, 274, 337.250), Vector(0, 0, -1)), Array(Vector(44.060, 265, 325.860), Vector(-0.690, 0, -0.730)), Array(Vector(
+			41.100, 265, 330.050), Vector(0.120, 0, -0.990)), Array(Vector(40.970, 265, 339.720), Vector(-0.370, 0, -0.930)), Array(Vector(
+			23.620, 267, 330.680), Vector(0.670, 0, -0.740)), Array(Vector(19.550, 270, 349.550), Vector(0.730, 0, -0.680)), Array(Vector(
+			10.780, 270, 340.970), Vector(0.700, 0, -0.720)), Array(Vector(9.750, 270, 330.750), Vector(1, 0, 0.050)), Array(Vector(25.910,
+			270, 337.620), Vector(-0.930, 0, -0.370)), Array(Vector(-16.740, 270, 346.700), Vector(0.110, 0, -0.990)), Array(Vector(
+			-25.910, 270, 337.620), Vector(0.910, 0, -0.410)), Array(Vector(-17.780, 270, 347.890), Vector(-0.840, 0, -0.540)), Array(
+			Vector(-30.430, 267, 335.940), Vector(-0.090, 0, -1)), Array(Vector(-22.470, 267, 329.510), Vector(-0.690, 0, -0.720)), Array(
+			Vector(-41.960, 265, 340.700), Vector(0.310, 0, -0.950)), Array(Vector(-40.760, 265, 330.690), Vector(-0.180, 0, -0.980)),
+			Array(Vector(-47.020, 265, 327.770), Vector(0.720, 0, -0.690)), Array(Vector(-22.850, 267, 278.310), Vector(1, 0, 0)), Array(
+			Vector(22.860, 267, 278.310), Vector(-1, 0, 0)), Array(Vector(31.840, 270, 347.070), Vector(-0.710, 0, -0.700)), Array(Vector(
+			29.570, 267, 336.800), Vector(0.300, 0, -0.950)), Array(Vector(-20.440, 270, 332.150), Vector(0.940, 0, -0.340)), Array(Vector(
+			-23.360, 270, 350.330), Vector(-0.420, 0, -0.910)), Array(Vector(46.320, 265, 336.940), Vector(-0.680, 0, -0.740)), Array(
+			Vector(24.940, 270, 349.580), Vector(-0.030, 0, -1)), Array(Vector(19.580, 270, 343.920), Vector(-0.320, 0, -0.950)), Array(
+			Vector(16.780, 270, 346.700), Vector(-0.100, 0, -0.990)), Array(Vector(28.270, 267, 285.360), Vector(0.700, 0, 0.710)), Array(
+			Vector(28.270, 267, 285.360), Vector(-0.340, 0, -0.940)), Array(Vector(-24.010, 267, 282.830), Vector(-1, 0, -0.060)), Array(
+			Vector(-33.240, 267, 289.560), Vector(-0.660, 0, 0.750)), Array(Vector(-33.240, 267, 289.560), Vector(0.630, 0, -0.770)),
+			Array(Vector(-17.350, 269.950, 341.060), Vector(0.220, 0, -0.980)), Array(Vector(-9.750, 269.950, 331.600), Vector(-1, 0,
+			-0.090)), Array(Vector(1.430, 270, 329.500), Vector(-0.360, 0, -0.930)), Array(Vector(-1.430, 270, 329.500), Vector(0.370, 0,
+			-0.930)), Array(Vector(-4.160, 278, 337.140), Vector(-0.010, 0, -1)), Array(Vector(3.890, 278, 337.100), Vector(0, 0, -1)));
+	}
+}
+
+rule("Subroutine RespawnsKANEZAKA")
+{
+	event
+	{
+		Subroutine;
+		RespawnsKANEZAKA;
+	}
+
+	actions
+	{
+		"Spawn points:"
+		Global.SpawnPointSettings = Array(Array(Vector(4.170, 7, 22.050), Vector(-0.900, 0, -0.430)), Array(Vector(-5.050, 9.120, 38.490),
+			Vector(-0.570, 0, -0.820)), Array(Vector(-33.420, 4, 41.350), Vector(0.510, 0, -0.860)), Array(Vector(-40.750, 6, 35.130),
+			Vector(-0.440, 0, -0.900)), Array(Vector(-56.160, 8, 23.670), Vector(0.930, 0, 0.360)), Array(Vector(-47.790, 6, 19.610),
+			Vector(0.850, 0, 0.530)), Array(Vector(-33.060, 6, 20.250), Vector(0.770, 0, 0.630)), Array(Vector(-11.170, 6.230, 44.060),
+			Vector(-0.920, 0, -0.380)), Array(Vector(-16.740, 10.500, 20.990), Vector(-0.530, 0, -0.850)), Array(Vector(-15.930, 6,
+			20.010), Vector(-0.050, 0, -1)), Array(Vector(-0.660, 6.860, 2.920), Vector(-0.350, 0, 0.940)), Array(Vector(3.860, 6, 13.130),
+			Vector(-0.700, 0, -0.710)), Array(Vector(10.070, 7.730, -32.260), Vector(-0.010, 0, 1)), Array(Vector(-5.080, 10, -42.010),
+			Vector(-0.700, 0, 0.710)), Array(Vector(-14.080, 6, -36.900), Vector(0.660, 0, 0.750)), Array(Vector(-17.180, 6, -31.300),
+			Vector(-1, 0, -0.100)), Array(Vector(-15.370, 6, -30.140), Vector(0.980, 0, -0.200)), Array(Vector(-10.570, 6, 15.630), Vector(
+			0.750, 0, -0.660)), Array(Vector(-8.730, 6, -11.750), Vector(0.650, 0, -0.760)), Array(Vector(-11.100, 6, -11.300), Vector(
+			-0.980, 0, -0.210)), Array(Vector(-16.880, 7.010, -57.010), Vector(0.350, 0, 0.940)), Array(Vector(-19.240, 7.010, -49.030),
+			Vector(-0.990, 0, -0.120)), Array(Vector(-43.270, 10, -49.400), Vector(-0.660, 0, 0.750)), Array(Vector(-41.620, 11, -37.250),
+			Vector(-0.980, 0, 0.220)), Array(Vector(-44.250, 10, -30.590), Vector(0.990, 0, 0.140)), Array(Vector(-58.300, 9, -9.460),
+			Vector(0.760, 0, 0.650)), Array(Vector(-61.460, 11, -18.960), Vector(0.960, 0, 0.270)), Array(Vector(-58.950, 11, -38.050),
+			Vector(0.700, 0, 0.720)), Array(Vector(-43.280, 13, -25.360), Vector(-0.680, 0, 0.740)), Array(Vector(-51.650, 11, -49.910),
+			Vector(0.970, 0, -0.240)), Array(Vector(6.130, 7, -35.290), Vector(-0.720, 0, 0.690)), Array(Vector(14.140, 7, -29.300),
+			Vector(-0.940, 0, -0.340)), Array(Vector(-27.830, 6, 9.990), Vector(-0.010, 0, 1)), Array(Vector(-25.640, 9, -57.290), Vector(
+			-0.390, 0, 0.920)), Array(Vector(-8.650, 7.500, 43.930), Vector(0.760, 0, -0.650)), Array(Vector(-8.650, 7.500, 43.930),
+			Vector(-1, 0, -0.080)), Array(Vector(-4.900, 10, 31.490), Vector(-0.710, 0, 0.700)), Array(Vector(-31.350, 4, 45.350), Vector(
+			0.430, 0, -0.900)), Array(Vector(-26.650, 4, 45.350), Vector(-0.210, 0, -0.980)), Array(Vector(-58.110, 9, -6.170), Vector(
+			0.980, 0, -0.210)), Array(Vector(-66.250, 12, -33), Vector(0.800, 0, 0.600)), Array(Vector(-66.250, 12, -27.740), Vector(1, 0,
+			0)), Array(Vector(-66.250, 12, -22), Vector(0.850, 0, -0.520)), Array(Vector(-43.850, 9.400, -55.290), Vector(0.860, 0,
+			0.520)), Array(Vector(-23.880, 7, -54.290), Vector(-0.580, 0, 0.820)), Array(Vector(-11.710, 7, -54.180), Vector(-0.190, 0,
+			0.980)), Array(Vector(10.570, 8.370, -41.100), Vector(-0.980, 0, 0.180)), Array(Vector(13.650, 8, -39.140), Vector(-0.750, 0,
+			0.660)), Array(Vector(9.020, 8, -35.950), Vector(0.790, 0, -0.620)), Array(Vector(12.800, 7, -22.790), Vector(-0.940, 0,
+			0.340)), Array(Vector(10.190, 6, -18.630), Vector(-0.530, 0, 0.850)), Array(Vector(10.190, 6, -18.630), Vector(-0.210, 0,
+			-0.980)), Array(Vector(8.240, 9, 2.220), Vector(-0.960, 0, 0.290)), Array(Vector(8.240, 9, 2.220), Vector(0.010, 0, -1)),
+			Array(Vector(8.690, 7.570, 6.890), Vector(-0.900, 0, 0.430)), Array(Vector(8.690, 7.570, 6.890), Vector(0.300, 0, -0.950)),
+			Array(Vector(-32.470, 6.580, -11.380), Vector(0.710, 0, 0.710)), Array(Vector(-26.710, 10, -28.580), Vector(-1, 0, 0.050)),
+			Array(Vector(-26.710, 10, -28.580), Vector(0.960, 0, 0.280)), Array(Vector(-23.750, 6, -28.430), Vector(0.930, 0, -0.360)),
+			Array(Vector(-10.560, 10.500, 17.960), Vector(-0.980, 0, -0.200)), Array(Vector(-14.820, 10.500, 13.060), Vector(-0.310, 0,
+			0.950)));
+	}
+}
+
+rule("Create playzone FX")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.PlayzoneCenter != 0;
+	}
+
+	actions
+	{
+		Create Effect(Array(Distance Between(Local Player, Global.PlayzoneCenter)
+			>= Global.PlayzoneRadius - 8 ? Local Player : Empty Array), Sphere, Color(Orange), Global.PlayzoneCenter,
+			Global.PlayzoneRadius, Visible To);
+	}
+}
+
+rule("Trigger playzone")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Distance Between(Eye Position(Event Player), Global.PlayzoneCenter) >= Global.PlayzoneRadius - 2;
+		Global.PlayzoneCenter != 0;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Velocity Of(Event Player) * -1, Speed Of(Event Player), To World, Incorporate Contrary Motion);
+		Apply Impulse(Event Player, Vector(X Component Of(Direction Towards(Position Of(Event Player), Global.PlayzoneCenter)), 0,
+			Z Component Of(Direction Towards(Position Of(Event Player), Global.PlayzoneCenter))), 5, To World, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Up, 2, To World, Incorporate Contrary Motion);
+		Play Effect(Event Player, Baptiste Biotic Launcher Explosion Sound, Color(White), Event Player, 20);
+		Set Status(Event Player, Null, Stunned, 0.500);
+		Wait(0.500, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("ECOPOINT create TPs")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter)) == True;
+	}
+
+	actions
+	{
+		Create Icon(Array(Local Player.IsPlayer && Is In Line of Sight(Eye Position(Local Player), Vector(-5, 9, -54),
+			All Barriers Block LOS)), Vector(-5.200, 8, -54.640), Spiral, Visible To Position and Color, Color(Sky Blue), False);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Rose), Vector(-5.350, 8, -54.660), 1.500, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Sparkles, Color(Purple), Vector(-5.350, 8, -54.660), 1.500, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Beacon Sound, Color(Blue), Vector(-5.350, 8, -54.660), 100, Visible To Position and Radius);
+		Create Icon(Array(Local Player.IsPlayer && Is In Line of Sight(Eye Position(Local Player), Vector(-13, 9, 44),
+			All Barriers Block LOS)), Vector(-13.600, 8, 43.600), Spiral, Visible To Position and Color, Color(Sky Blue), False);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Rose), Vector(-13.800, 8, 43.570), 1.500, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Sparkles, Color(Purple), Vector(-13.800, 8, 43.570), 1.500, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Beacon Sound, Color(Blue), Vector(-13.800, 8, 43.570), 100, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Rose), Vector(-25, 31.500, -10.890), 0.500, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Rose), Vector(-25, 31.500, 10.890), 0.500, Visible To Position and Radius);
+	}
+}
+
+rule("ECOPOINT trigger right side TP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter)) == True;
+		Distance Between(Event Player, Vector(-7.780, 8, -57.050)) <= 4.800;
+	}
+
+	actions
+	{
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Vector(-5.300, 8, -54.700), 80);
+		Play Effect(All Players(All Teams), Sombra Translocator Disappear Effect, Color(White), Vector(-5.300, 8, -54.700), 20);
+		Event Player.L = 1.500;
+		Chase Player Variable At Rate(Event Player, L, 0, 1, Destination and Rate);
+		Event Player.A = Y Component Of(Facing Direction Of(Event Player));
+		Teleport(Event Player, Vector(-25, 31.500, -10.890));
+		Set Facing(Event Player, Normalize(Vector(5, Y Component Of(Position Of(Event Player)), -23) - Position Of(Event Player)) + Vector(
+			0, Event Player.A, 0), To World);
+		Start Accelerating(Event Player, Up, 20, 20, To World, Direction Rate and Max Speed);
+		Apply Impulse(Event Player, Vector(0, 0, 0), 2, To World, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Down, 3, To World, Cancel Contrary Motion);
+		Wait(0.016, Ignore Condition);
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Position Of(Event Player), 200);
+		Play Effect(All Players(All Teams), Sombra Translocator Reappear Effect, Color(White), Position Of(Event Player), 20);
+		Wait(0.500, Ignore Condition);
+		Stop Accelerating(Event Player);
+	}
+}
+
+rule("ECOPOINT trigger left side TP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter)) == True;
+		Distance Between(Event Player, Vector(-16.300, 8, 41)) <= 4.900;
+	}
+
+	actions
+	{
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Vector(-13.700, 8, 43.500), 80);
+		Play Effect(All Players(All Teams), Sombra Translocator Disappear Effect, Color(White), Vector(-13.700, 8, 43.500), 20);
+		Event Player.L = 1.500;
+		Chase Player Variable At Rate(Event Player, L, 0, 1, Destination and Rate);
+		Event Player.A = Y Component Of(Facing Direction Of(Event Player));
+		Teleport(Event Player, Vector(-25, 31.500, 10.890));
+		Set Facing(Event Player, Normalize(Vector(0, Y Component Of(Position Of(Event Player)), 28) - Position Of(Event Player)) + Vector(
+			0, Event Player.A, 0), To World);
+		Start Accelerating(Event Player, Up, 20, 20, To World, Direction Rate and Max Speed);
+		Apply Impulse(Event Player, Vector(0, 0, 0), 2, To World, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Down, 3, To World, Cancel Contrary Motion);
+		Wait(0.016, Ignore Condition);
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Position Of(Event Player), 200);
+		Play Effect(All Players(All Teams), Sombra Translocator Reappear Effect, Color(White), Position Of(Event Player), 20);
+		Wait(0.500, Ignore Condition);
+		Stop Accelerating(Event Player);
+	}
+}
+
+rule("FOREST create TP")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Black Forest Winter) || Current Map == Map(Black Forest)) == True;
+	}
+
+	actions
+	{
+		Create In-World Text(Array(Local Player.IsPlayer && Is In Line of Sight(Eye Position(Local Player), Vector(-32, 13, 8),
+			All Barriers Block LOS) && Angle Between Vectors(Facing Direction Of(Local Player), Direction Towards(Eye Position(
+			Local Player), Vector(-32, 13, 8))) < 15 && Distance Between(Vector(-32, 14.500, 8), Local Player) <= 25), Custom String(
+			"teleporter"), Vector(-32, 17, 8), 2, Clip Against Surfaces, Visible To Position and Color, Color(Rose), Visible Never);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Rose), Vector(-32, 13, 8), 3, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Sparkles, Color(Purple), Vector(-32, 13, 8), 3, Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Beacon Sound, Color(Blue), Vector(-32, 13, 8), 100, Visible To Position and Radius);
+	}
+}
+
+rule("FOREST trigger TP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Black Forest Winter) || Current Map == Map(Black Forest)) == True;
+		Distance Between(Event Player, Vector(-32, 13, 8)) <= 3;
+	}
+
+	actions
+	{
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Vector(-32, 13, 8), 120);
+		Play Effect(All Players(All Teams), Sombra Translocator Disappear Effect, Color(White), Vector(-32, 13, 8), 20);
+		Event Player.L = 1.500;
+		Chase Player Variable At Rate(Event Player, L, 0, 1, Destination and Rate);
+		Event Player.A = Y Component Of(Facing Direction Of(Event Player));
+		Teleport(Event Player, Vector(29, 11, 5));
+		Set Facing(Event Player, Normalize(Vector(0, Y Component Of(Position Of(Event Player)), 0) - Position Of(Event Player)) + Vector(0,
+			Event Player.A, 0), To World);
+		Wait(0.016, Ignore Condition);
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Position Of(Event Player), 200);
+		Play Effect(All Players(All Teams), Sombra Translocator Reappear Effect, Color(White), Position Of(Event Player), 20);
+		Wait(0.750, Ignore Condition);
+		Stop Accelerating(Event Player);
+	}
+}
+
+rule("HOLLYWOOD Locked zone 1")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween)) == True;
+		Is On Ground(Event Player) == True;
+		Distance Between(Event Player, Vector(2.880, 7.750, -15.900)) <= 2;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Vector Towards(Vector(2.880, 7.750, -15.900), Event Player), 1, To World, Cancel Contrary Motion);
+		Set Status(Event Player, Null, Rooted, 0.200);
+		Wait(0.100, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("HOLLYWOOD Locked zone 2")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween)) == True;
+		Distance Between(Event Player, Vector(37, 8.740, -66.500)) <= 6.300;
+		Is On Ground(Event Player) == True;
+		Absolute Value(Y Component Of(Position Of(Event Player)) - 8.900) < 0.200;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Vector Towards(Vector(138, -100, 300), Event Player), 3, To World, Cancel Contrary Motion);
+		Set Status(Event Player, Null, Rooted, 0.200);
+		Wait(0.500, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("CREATE Dorado launcher")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Map == Map(Dorado);
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Good Aura, Color(Yellow), Vector(123.400, 10, -17.500), 0.500,
+			Visible To Position and Radius);
+	}
+}
+
+rule("TRIGGER Dorado launcher")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Current Map == Map(Dorado);
+		Distance Between(Event Player, Vector(123.400, 10, -17.500)) <= 1.200;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Velocity Of(Event Player) * -1, Speed Of(Event Player), To World, Incorporate Contrary Motion);
+		Set Status(Event Player, Null, Rooted, 1);
+		Play Effect(Event Player, Buff Impact Sound, Color(White), Vector(123.400, 10, -17.500), 30);
+		Play Effect(Remove From Array(All Players(All Teams), Event Player), Buff Impact Sound, Color(White), Vector(123.400, 10, -17.500),
+			40);
+		Apply Impulse(Event Player, Vector(-21.100, 20, 27.400), 44, To World, Cancel Contrary Motion);
+		Disable Movement Collision With Environment(Event Player, False);
+		Wait(0.400, Ignore Condition);
+		Enable Movement Collision With Environment(Event Player);
+	}
+}
+
+disabled rule("CREATE Lijang Control launcher")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Lijiang Control Center) || Current Map == Map(Lijiang Control Center Lunar New Year)) == True;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Good Aura, Color(Yellow), Vector(0, 271, 268), 0.500, Visible To Position and Radius);
+	}
+}
+
+disabled rule("TRIGGER Lijang Control launcher")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Lijiang Control Center) || Current Map == Map(Lijiang Control Center Lunar New Year)) == True;
+		Distance Between(Event Player, Vector(0, 271, 268)) <= 1.200;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Velocity Of(Event Player) * -1, Speed Of(Event Player), To World, Incorporate Contrary Motion);
+		Set Status(Event Player, Null, Rooted, 1);
+		Play Effect(Event Player, Buff Impact Sound, Color(White), Vector(0, 271, 268), 30);
+		Play Effect(Remove From Array(All Players(All Teams), Event Player), Buff Impact Sound, Color(White), Vector(0, 271, 268), 40);
+		Apply Impulse(Event Player, Vector(0, 16, 22), 38, To World, Cancel Contrary Motion);
+		Disable Movement Collision With Environment(Event Player, False);
+		Wait(1.200, Ignore Condition);
+		Enable Movement Collision With Environment(Event Player);
+	}
+}
+
+rule("HOLLYWOOD platform boost PAYLOAD SIDE")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween)) == True;
+		Distance Between(Event Player, Vector(13.200, 10.550, -32.100)) <= 2.300;
+		Is On Ground(Event Player) == True;
+		Update Every Frame(Y Component Of(Position Of(Event Player)) >= 9 && Y Component Of(Position Of(Event Player)) < 10.400) != False;
+	}
+
+	actions
+	{
+		Wait(0.016, Ignore Condition);
+		If(!Is Jumping(Event Player));
+			Loop If Condition Is True;
+			Wait Until(Is Jumping(Event Player), 0.016);
+			Abort If(!Is Jumping(Event Player));
+		End;
+		Apply Impulse(Event Player, Up, 12, To World, Cancel Contrary Motion);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(White), Event Player, 20);
+	}
+}
+
+rule("HOLLYWOOD platform boost WALL SIDE")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween)) == True;
+		Distance Between(Event Player, Vector(-6.210, 10.130, -58.940)) <= 2.300;
+		Is On Ground(Event Player) == True;
+		Update Every Frame(Y Component Of(Position Of(Event Player)) >= 8.300 && Y Component Of(Position Of(Event Player)) < 9.880)
+			!= False;
+	}
+
+	actions
+	{
+		Wait(0.016, Ignore Condition);
+		Loop If Condition Is True;
+		If(Is Jumping(Event Player));
+			Apply Impulse(Event Player, Up, 12, To World, Cancel Contrary Motion);
+			Play Effect(All Players(All Teams), Ring Explosion Sound, Color(White), Event Player, 20);
+	}
+}
+
+rule("Hammond says hello back")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Communicating(Event Player, Hello) == True;
+		Distance Between(Event Player, Eye Position(Global.OutOfBoundBot)) < 15;
+		Angle Between Vectors(Facing Direction Of(Event Player), Direction Towards(Eye Position(Event Player), Eye Position(
+			Global.OutOfBoundBot))) <= 16.500;
+		Is In Line of Sight(Eye Position(Event Player), Eye Position(Global.OutOfBoundBot), Barriers Do Not Block LOS) == True;
+	}
+
+	actions
+	{
+		Wait(0.500, Ignore Condition);
+		Communicate(Global.OutOfBoundBot, Hello);
+		Wait(3, Ignore Condition);
+	}
+}
+
+rule("GLOBAL create Nano-Nuke Bastion")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Bastion), All Teams, 10, Vector(0, 999, 0), Up);
+		Global.NanoNukeBot = Last Created Entity;
+		Start Forcing Dummy Bot Name(Global.NanoNukeBot, Custom String("join www.jinko.dev/discord"));
+		Set Player Score(Global.NanoNukeBot, -69);
+		Set Invisible(Global.NanoNukeBot, All);
+		Set Status(Global.NanoNukeBot, Null, Phased Out, 9999);
+		Set Gravity(Global.NanoNukeBot, 0);
+		Start Modifying Hero Voice Lines(Global.NanoNukeBot, 0.500, False);
+		Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		"for petra floor breaking"
+		Start Scaling Player(Global.NanoNukeBot, 0.200, False);
+	}
+}
+
+rule("PETRA break floor over time")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.NanoNukeBot != False;
+		Current Map == Map(Petra);
+	}
+
+	actions
+	{
+		For Global Variable(PetraPunches, 0, 50, 1);
+			Wait(3, Ignore Condition);
+			"for spectators joining during the match"
+			Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+				Default);
+			Teleport(Global.NanoNukeBot, Random Value In Array(Array(Vector(-4, -11, 12), Vector(9.500, -11, 11.300), Vector(8.200, -11,
+				6.500), Vector(-3.300, -11, 6.500))));
+			Start Holding Button(Global.NanoNukeBot, Button(Melee));
+			Wait(0.016, Ignore Condition);
+			Teleport(Global.NanoNukeBot, Vector(0, 999, 0));
+		End;
+	}
+}
+
+rule("Death plane exploit loop")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Array Contains(Global.DEATH_PLANE_BOT_MAPS, Current Map) == True;
+	}
+
+	actions
+	{
+		Wait(10, Ignore Condition);
+		Set Environment Credit Player(Global.OutOfBoundBot, Global.OutOfBoundBot);
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Loop;
+	}
+}
+
+rule("Death plane HAMMOND CHATEAU")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween)) == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Wrecking Ball), All Teams, 11, Vector(200, 200, 80), Forward);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("giant cheese eater"));
+		"OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
+		Disable Movement Collision With Environment(Global.OutOfBoundBot, True);
+		Set Max Health(Global.OutOfBoundBot, Absolute Value(100000000));
+		Set Damage Dealt(Global.OutOfBoundBot, 0);
+		Start Scaling Player(Global.OutOfBoundBot, 100, False);
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Invincible, 9999);
+		Set Status(Global.OutOfBoundBot, Null, Phased Out, 9999);
+		Set Environment Credit Player(Global.OutOfBoundBot, Global.OutOfBoundBot);
+		Teleport(Global.OutOfBoundBot, Vector(206.400, -34.500, 92));
+		Set Facing(Global.OutOfBoundBot, Backward, To Player);
+		Wait(0.016, Ignore Condition);
+		Start Facing(Global.OutOfBoundBot, Distance Between(Closest Player To(Global.OutOfBoundBot, All Teams), Vector(206.400, 0, 92))
+			<= 25 && Distance Between(Closest Player To(Global.OutOfBoundBot, All Teams), Vector(206, 0, 73)) <= 13 && Y Component Of(
+			Position Of(Closest Player To(Global.OutOfBoundBot, All Teams))) < 3.500 && Has Spawned(Closest Player To(Global.OutOfBoundBot,
+			All Teams)) ? Direction Towards(Eye Position(Global.OutOfBoundBot), Closest Player To(Global.OutOfBoundBot, All Teams))
+			: Backward, 20, To World, Direction and Turn Rate);
+	}
+}
+
+rule("Death plane HAMMOND HOLLYWOOD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween)) == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Wrecking Ball), All Teams, 11, Vector(200, 200, 80), Forward);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("giant cheese eater"));
+		"OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
+		Disable Movement Collision With Environment(Global.OutOfBoundBot, True);
+		Set Max Health(Global.OutOfBoundBot, Absolute Value(100000000));
+		Set Damage Dealt(Global.OutOfBoundBot, 0);
+		Start Scaling Player(Global.OutOfBoundBot, 100, False);
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Invincible, 9999);
+		Set Status(Global.OutOfBoundBot, Null, Phased Out, 9999);
+		Set Environment Credit Player(Global.OutOfBoundBot, Global.OutOfBoundBot);
+		Teleport(Global.OutOfBoundBot, Vector(-16.700, -32.750, -14.250));
+		Set Facing(Global.OutOfBoundBot, Direction Towards(Eye Position(Global.OutOfBoundBot), Vector(-4, 3, -12)), To World);
+		Wait(0.016, Ignore Condition);
+		Start Facing(Global.OutOfBoundBot, Distance Between(Closest Player To(Global.OutOfBoundBot, All Teams), Vector(-7, 0.800, -7))
+			<= 12.200 ? Direction Towards(Eye Position(Global.OutOfBoundBot), Closest Player To(Global.OutOfBoundBot, All Teams))
+			: Direction Towards(Eye Position(Global.OutOfBoundBot), Vector(-4, 3, -12)), 20, To World, Direction and Turn Rate);
+	}
+}
+
+rule("Death plane SIGMA BLACK FOREST")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		(Current Map == Map(Black Forest) || Current Map == Map(Black Forest Winter)) == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Sigma), All Teams, 11, Vector(1000, 1000, 1000), Forward);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Bigma"));
+		"OutOfBoundBot.disableNameplatesFor(getAllPlayers())"
+		Disable Movement Collision With Environment(Global.OutOfBoundBot, True);
+		Set Max Health(Global.OutOfBoundBot, Absolute Value(100000000));
+		Set Damage Dealt(Global.OutOfBoundBot, 0);
+		Start Scaling Player(Global.OutOfBoundBot, 100, False);
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Invincible, 9999);
+		Set Status(Global.OutOfBoundBot, Null, Invincible, 9999);
+		Set Status(Global.OutOfBoundBot, Null, Phased Out, 9999);
+		Set Environment Credit Player(Global.OutOfBoundBot, Global.OutOfBoundBot);
+		Teleport(Global.OutOfBoundBot, Vector(-44, -25, -2));
+		Set Facing(Global.OutOfBoundBot, Direction Towards(Eye Position(Global.OutOfBoundBot), Vector(-16.400, 15, -6)), To World);
+	}
+}
+
+disabled rule("Mei ECOPOINT")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter)) == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Mei), All Teams, 11, Vector(26, 9.500, 0), Right);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Ice Cube"));
+		Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
+		Disable Movement Collision With Environment(Global.OutOfBoundBot, False);
+		Start Scaling Player(Global.OutOfBoundBot, 0.200, False);
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Set Status(Global.OutOfBoundBot, Null, Invincible, 9999);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Asleep, 9999);
+	}
+}
+
+rule("Kiriko Kanezaka")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Current Map == Map(Kanezaka);
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Kiriko), All Teams, 11, Vector(-11.500, 10.800, 16.900), Right);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Kiricat"));
+		Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
+		Disable Movement Collision With Environment(Global.OutOfBoundBot, True);
+		Start Scaling Player(Global.OutOfBoundBot, 0.150, False);
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Knocked Down, 9999);
+		Create Effect(Local Player, Ana Sleeping Effect, Color(Team 1), Eye Position(Global.OutOfBoundBot) + Vector(0, -0.100, 0), 1,
+			Visible To);
+		Set Status(Global.OutOfBoundBot, Null, Phased Out, 9999);
+	}
+}
+
+rule("Junkrat Petra")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Current Map == Map(Petra);
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Junkrat), All Teams, 11, Vector(-17.940, 0.240, 17.110), Left);
+		Global.OutOfBoundBot = Last Created Entity;
+		Start Forcing Player Outlines(Global.OutOfBoundBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Set Player Score(Global.OutOfBoundBot, -69);
+		Start Forcing Dummy Bot Name(Global.OutOfBoundBot, Custom String("Gold Hoarder"));
+		Disable Nameplates(Global.OutOfBoundBot, All Players(All Teams));
+		Set Gravity(Global.OutOfBoundBot, 0);
+		Wait(2, Ignore Condition);
+		Set Status(Global.OutOfBoundBot, Null, Knocked Down, 9999);
+		Create Effect(Local Player, Ana Sleeping Effect, Color(Team 1), Vector(-18.800, 0.850, 17.110), 1, Visible To);
+		Set Status(Global.OutOfBoundBot, Null, Phased Out, 9999);
+	}
+}
+
+rule("Count human kills of AI bots")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Attacker.IsAIBot == False;
+		Victim.IsAIBot != False;
+	}
+
+	actions
+	{
+		Attacker.AIBotKillsPerSlot[Slot Of(Victim)] += 1;
+	}
+}
+
+rule("Store slot of AI bot that just joined")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.IsAIBot != False;
+	}
+
+	actions
+	{
+		Modify Global Variable(AIBotSlots, Append To Array, Slot Of(Event Player));
+	}
+}
+
+rule("Remove scores from players who killed the AI bot that just left")
+{
+	event
+	{
+		Player Left Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.RevertKillsToAIBotsEnabled != False;
+	}
+
+	actions
+	{
+		Global.TempLeavingAIBotSlot = -1;
+		For Global Variable(i, 0, Number Of Slots(All Teams), 1);
+			If(Array Contains(Global.AIBotSlots, Global.i) && (!Entity Exists(Players In Slot(Global.i, All Teams)) || !Players In Slot(
+				Global.i, All Teams).IsAIBot));
+				Global.TempLeavingAIBotSlot = Global.i;
+				Break;
+			End;
+		End;
+		If(Global.TempLeavingAIBotSlot >= 0);
+			Modify Global Variable(AIBotSlots, Remove From Array By Value, Global.TempLeavingAIBotSlot);
+			For Global Variable(i, 0, Number Of Slots(All Teams), 1);
+				If(!Players In Slot(Global.i, All Teams).IsAIBot && !Is Dummy Bot(Players In Slot(Global.i, All Teams)));
+					Set Player Score(Players In Slot(Global.i, All Teams), Score Of(Players In Slot(Global.i, All Teams)) - Players In Slot(Global.i,
+						All Teams).AIBotKillsPerSlot[Global.TempLeavingAIBotSlot]);
+					Players In Slot(Global.i, All Teams).AIBotKillsPerSlot[Global.TempLeavingAIBotSlot] = 0;
+				End;
+			End;
+	}
+}
+
+rule("Remove AI bots to leave space for human players")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Number Of Players(All Teams) - Count Of(Filtered Array(All Players(All Teams), Is Dummy Bot(Current Array Element)))
+			== Number Of Slots(All Teams);
+		Event Player == First Of(Filtered Array(All Players(All Teams), Current Array Element.IsAIBot));
+	}
+
+	actions
+	{
+		"let the setup playerJoined rule run first, so IsAIBot is set"
+		Wait(0, Abort When False);
+		Global.TempAIBotBeingRemoved = First Of(Filtered Array(All Players(All Teams), Current Array Element.IsAIBot));
+		Global.TempAIBotBeingRemovedName = Custom String("{0}", Global.TempAIBotBeingRemoved);
+		Abort If(!Global.TempAIBotBeingRemoved);
+		Wait Until(Has Spawned(Host Player), 99999);
+		Small Message(Host Player, Custom String("    {0} Removing {1} to leave space for more human players", Icon String(Bolt),
+			Global.TempAIBotBeingRemovedName));
+		Remove Player(Global.TempAIBotBeingRemoved);
+		Wait Until(!Entity Exists(Global.TempAIBotBeingRemoved), 2);
+		"There may be AI Bots in the lobby waiting to join in. Let's remove those too."
+		Loop If Condition Is True;
+	}
+}
+
+rule("Hardscope messages")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Firing Secondary(Event Player) == True;
+		Is Firing Primary(Event Player) == False;
+	}
+
+	actions
+	{
+		Wait(4, Abort When False);
+		Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+		If(!String Contains(Custom String("{0}", Event Player), Custom String("ml7")));
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    Take your time..."), Custom String(
+				"    That's a long hardscope"), Custom String("    No quickscopes?"))));
+		Else;
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    ML7 CAUGHT HARDSCOPING LMFAO"), Custom String(
+				"    POV you're hardscoping"), Custom String("    Even Demmos doesn't hardscope ml7LMAO"))));
+		End;
+		Abort;
+	}
+}
+
+rule("If melee an awake player")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Melee);
+		Has Status(Victim, Asleep) == False;
+	}
+
+	actions
+	{
+		Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+		Small Message(Event Player, Custom String("    {0}{1}  Melee only kills sleeping players  {0}{1}", Ability Icon String(Hero(Ana),
+			Button(Melee)), Ability Icon String(Hero(Ana), Button(Ability 1))));
+		Play Effect(Event Player, Debuff Impact Sound, Color(White), Event Player, 120);
+		Wait(0.500, Ignore Condition);
+	}
+}
+
+rule("If nanoboosted player uses disabled buttons")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) == Global.NANO_SCORE;
+		Is True For Any(Array(Button(Melee), Button(Reload), Button(Primary Fire), Button(Secondary Fire)), Is Button Held(Event Player,
+			Current Array Element)) == True;
+	}
+
+	actions
+	{
+		Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+		Small Message(Event Player, Custom String("    {0}  Use sleep dart to win  {0}", Icon String(Exclamation Mark)));
+		Play Effect(Event Player, Debuff Impact Sound, Color(White), Event Player, 120);
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Scoped shots")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Firing Primary(Event Player) == True;
+		Is Firing Secondary(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.ScopedShots += 1;
+		Event Player.ScopedAccuracy = Round To Integer(Event Player.ScopedHits / Event Player.ScopedShots * 100, To Nearest);
+		Global.BestScopedAccuracyValue = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+			Current Array Element.ScopedShots >= 15), Current Array Element.ScopedAccuracy)).ScopedAccuracy;
+	}
+}
+
+rule("Noscope shots")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Firing Primary(Event Player) == True;
+		Is Firing Secondary(Event Player) == False;
+	}
+
+	actions
+	{
+		Event Player.NoscopeShots += 1;
+		Event Player.NoscopeAccuracy = Round To Integer(Event Player.NoscopeHits / Event Player.NoscopeShots * 100, To Nearest);
+		Global.BestNoscopeAccuracyValue = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+			Current Array Element.NoscopeShots >= 15), Current Array Element.NoscopeAccuracy)).NoscopeAccuracy;
+	}
+}
+
+rule("Noscope hits")
+{
+	event
+	{
+		Player Dealt Final Blow;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Firing Secondary(Attacker) == False;
+		Is Meleeing(Attacker) == False;
+	}
+
+	actions
+	{
+		Attacker.NoscopeHits += 1;
+		Attacker.NoscopeAccuracy = Round To Integer(Attacker.NoscopeHits / Attacker.NoscopeShots * 100, To Nearest);
+		Global.BestNoscopeAccuracyValue = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+			Current Array Element.NoscopeShots >= 15), Current Array Element.NoscopeAccuracy)).NoscopeAccuracy;
+		Global.BestNoscopeAccuracyPlayer = Event Player;
+		If(Attacker.NoscopeHits == 10);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 34);
+			Big Message(Attacker, Custom String("{0}  No scope needed!  {0}", Ability Icon String(Hero(Sojourn), Button(Ultimate))));
+	}
+}
+
+rule("Sleep Dart shots")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Using Ability 1(Event Player) == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.300, Abort When False);
+		Event Player.SleepShots += 1;
+		Event Player.SleepAccuracy = Round To Integer(Event Player.SleepHits / Event Player.SleepShots * 100, To Nearest);
+		Global.BestSleepAccuracyValue = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+			Current Array Element.SleepShots >= 10), Current Array Element.SleepAccuracy)).SleepAccuracy;
+	}
+}
+
+rule("Subroutine SleepDarts")
+{
+	event
+	{
+		Subroutine;
+		SleepDarts;
+	}
+
+	actions
+	{
+		If(!Global.FirstSleep);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 9);
+			Global.FirstSleep = True;
+		End;
+		Victim.LastSleptBy = Attacker;
+		For Global Variable(i, 0, Number Of Players(All Teams), 1);
+			Start Forcing Player Outlines(Victim, All Players(All Teams)[Global.i], True, Score Of(Victim) > Score Of(All Players(All Teams)
+				[Global.i]) ? Custom Color(63, 191, 116, 255) : Color(Sky Blue), Default);
+		End;
+		Attacker.SleepHits += 1;
+		Attacker.SleepAccuracy = Round To Integer(Attacker.SleepHits / Attacker.SleepShots * 100, To Nearest);
+		Global.BestSleepAccuracyValue = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+			Current Array Element.SleepShots >= 10), Current Array Element.SleepAccuracy)).SleepAccuracy;
+		Global.BestSleepAccuracyPlayer = Attacker;
+		Wait(0.500, Ignore Condition);
+		Victim.SleepsOnground = True;
+		Wait Until(!Has Status(Victim, Asleep), 4);
+		Victim.SleepsOnground = False;
+		Stop Forcing Player Outlines(Victim, All Players(All Teams));
+		If(Is Alive(Victim));
+			Victim.LastSleptBy = Null;
+			If(Victim.KillStreak >= Global.RAMPAGE_STREAK);
+				Start Forcing Player Outlines(Victim, All Players(All Teams), True, Color(Yellow), Default);
+			Else If(Victim.KillStreak >= Global.ONFIRE_STREAK);
+				Start Forcing Player Outlines(Victim, All Players(All Teams), True, Color(Orange), Default);
+			Else;
+				Stop Forcing Player Outlines(Victim, All Players(All Teams));
+			End;
+		End;
+	}
+}
+
+rule("Sleep Dart hits")
+{
+	event
+	{
+		Player Took Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Event Was Environment == False;
+	}
+
+	actions
+	{
+		"Using the async thingie to keep the wait in the logic while allowing other rules to run"
+		Start Rule(SleepDarts, Restart Rule);
+	}
+}
+
+rule("detect movement bug")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Has Status(Victim, Asleep) == True;
+		Event Ability == Button(Ability 1);
+		Event Was Environment == False;
+	}
+
+	actions
+	{
+		Victim.FixMovementBug = True;
+	}
+}
+
+rule("Kill logic")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Event Ability == Button(Primary Fire) || (Event Ability == Button(Melee) && Has Status(Victim, Asleep))) == True;
+		Global.MatchEnded == False;
+	}
+
+	actions
+	{
+		Kill(Victim, Attacker);
+		Attacker.EarnedCollateral = 0;
+		Victim.HonorTarget = Attacker;
+		Victim.HonorBar = 100;
+		Chase Player Variable Over Time(Victim, HonorBar, 0, Global.CUSTOM_RESPAWN_TIME + 0.900, Destination and Duration);
+		If(Attacker.ComebackCount > 3);
+			Attacker.ComebackCount = 0;
+			Start Rule(SayVoiceline, Do Nothing);
+			If(Attacker.ComebackCount < 10);
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 10);
+			Else;
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 11);
+				Big Message(Attacker, Custom String("{0}  Iron Will!  {0}", Ability Icon String(Hero(Pharah), Button(Jump))));
+			End;
+		End;
+		If(!Global.FirstBlood);
+			Global.FirstBlood = !Global.FirstBlood;
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 8);
+			Start Rule(SayVoiceline, Do Nothing);
+		End;
+		"SCOPED KILLS"
+		If(Is Firing Primary(Attacker) && Is Firing Secondary(Attacker));
+			Attacker.ScopedHits += 1;
+			Attacker.RaycastLastHitPlayer = Attacker;
+			Attacker.RaycastLastHitPos = Eye Position(Attacker);
+			"COLLATERALS"
+			While(Attacker.RaycastLastHitPlayer != Null);
+				"if DEBUG_MODE: createBeam(getAllPlayers(), Beam.GRAPPLE, attacker.RaycastLastHitPos, raycast(attacker.RaycastLastHitPos, attacker.RaycastLastHitPos + eventPlayer.getFacingDirection() * 250, getAllPlayers(), [victim, attacker.RaycastLastHitPlayer], true).ge"
+				Attacker.Temp = Ray Cast Hit Position(Attacker.RaycastLastHitPos, Attacker.RaycastLastHitPos + Facing Direction Of(Event Player)
+					* 250, All Living Players(All Teams), Array(Victim, Attacker.RaycastLastHitPlayer), True);
+				Attacker.RaycastLastHitPlayer = Ray Cast Hit Player(Attacker.RaycastLastHitPos, Attacker.RaycastLastHitPos + Facing Direction Of(
+					Event Player) * 250, All Living Players(All Teams), Array(Victim, Attacker.RaycastLastHitPlayer), True);
+				Attacker.RaycastLastHitPos = Attacker.Temp;
+				Kill(Attacker.RaycastLastHitPlayer, Attacker);
+				Attacker.MedalQueue = Append To Array(Array(0), Attacker.MedalQueue);
+				Attacker.KillStreak += 1;
+				Attacker.EarnedCollateral += 1;
+			End;
+			Attacker.ScopedAccuracy = Round To Integer(Attacker.ScopedHits / Attacker.ScopedShots * 100, To Nearest);
+			Global.BestScopedAccuracyPlayer = Last Of(Sorted Array(Filtered Array(All Players(All Teams),
+				Current Array Element.ScopedShots >= 15), Current Array Element.ScopedAccuracy));
+			Global.BestScopedAccuracyValue = Global.BestScopedAccuracyPlayer.ScopedAccuracy;
+			If(Attacker.EarnedCollateral > 1);
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 30);
+				Big Message(Attacker, Custom String("{0}  {1} collateral kills!  {0}", Ability Icon String(Hero(Zarya), Button(Ability 2)),
+					Attacker.EarnedCollateral));
+				"For loop required for SYSMSG that target multiple players"
+				For Global Variable(i, 0, Number Of Players(All Teams) - 1, 1);
+					Remove From Array(All Players(All Teams), Attacker)[Global.i].MedalQueue = Append To Array(Array(0), Remove From Array(All Players(
+						All Teams), Attacker)[Global.i].MedalQueue);
+				End;
+				Small Message(Remove From Array(All Players(All Teams), Attacker), Custom String("    {0}  {1} got {2} collateral kills!",
+					Ability Icon String(Hero(Zarya), Button(Ability 2)), Attacker, Attacker.EarnedCollateral));
+			End;
+		"NOSCOPE KILLS"
+		Else If(Event Ability == Button(Primary Fire));
+			Attacker.KillStreak += 1;
+			Attacker.MedalQueue = Append To Array(Array(0), Attacker.MedalQueue);
+		"MELEE KILLS"
+		Else;
+			Attacker.KillStreak += 1;
+			If(Is In Air(Victim) && Is In Air(Attacker));
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 33);
+				Big Message(Attacker, Custom String("{0}  Dream catcher!  {0}", Ability Icon String(Hero(Ramattra), Button(Ability 2))));
+			End;
+			Attacker.Executes += 1;
+			Attacker.PunchDrunk += 1;
+			Set Ammo(Attacker, 0, 15);
+			Attacker.MedalQueue = Append To Array(Array(0), Attacker.MedalQueue);
+			Play Effect(Score Of(Victim) > Score Of(Attacker) ? All Players(All Teams) : Remove From Array(All Players(All Teams), Victim),
+				Sigma Accretion Impact Sound, Color(White), Position Of(Victim), 55);
+			"DEMOTIONS"
+			If(Score Of(Victim) >= Score Of(Attacker));
+				Attacker.DemotionVictim = Victim;
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 3);
+				Start Rule(SaySorry, Do Nothing);
+				"For loop required for SYSMSG that target multiple players"
+				For Global Variable(i, 0, Number Of Players(All Teams) - 2, 1);
+					Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue = Append To Array(Array(0),
+						Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue);
+				End;
+				Small Message(Remove From Array(All Players(All Teams), Array(Victim, Attacker)), Custom String("    {0}  {1} demoted {2}!",
+					Ability Icon String(Hero(Wrecking Ball), Button(Crouch)), Attacker, Victim));
+				Victim.MedalQueue = Append To Array(Array(0), Victim.MedalQueue);
+				Small Message(Victim, Custom String("    {0}  {1} demoted you", Ability Icon String(Hero(Wrecking Ball), Button(Crouch)),
+					Attacker));
+				Set Player Score(Victim, Score Of(Victim) - 1);
+				Attacker.DemotedPlayers += 1;
+				If(Attacker.DemotedPlayers == 5);
+					Modify Player Variable(Attacker, MedalQueue, Append To Array, 4);
+					Big Message(Attacker, Custom String("{0}  Terminator!  {0}", Ability Icon String(Hero(Baptiste), Button(Ability 2))));
+				End;
+				Play Effect(Attacker, Ana Biotic Grenade Explosion Sound, Color(White), Victim, 200);
+				Victim.DemotedEffect = True;
+				If(Score Of(Victim) == Global.NANO_SCORE - 1);
+					Modify Player Variable(Attacker, MedalQueue, Append To Array, 24);
+					Big Message(Attacker, Custom String("  Showstopper!  "));
+				End;
+			Else If(Score Of(Attacker) < Global.NANO_SCORE);
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 2);
+				Set Ammo(Attacker, 0, 15);
+			End;
+			If(Attacker.PunchDrunk == 3);
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 38);
+				Attacker.PunchDrunk = 0;
+			End;
+		End;
+		If(Victim.KillStreak == Global.ONFIRE_STREAK - 1 || Victim.KillStreak == Global.RAMPAGE_STREAK - 1);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 19);
+			Start Rule(SaySorry, Do Nothing);
+		End;
+		If(Victim.KillStreak == Global.NUCLEAR_STREAK - 1);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 23);
+			Start Rule(SaySorry, Do Nothing);
+			Big Message(Remove From Array(All Players(All Teams), Attacker), Custom String("{0} saved everyone from {1}'s nuke!", Attacker,
+				Victim));
+			Big Message(Attacker, Custom String("{0}  You saved everyone from {1}'s nuke!  {0}", Ability Icon String(Hero(Mercy), Button(
+				Ultimate)), Victim));
+		End;
+		If(Victim.IsNuclear);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 22);
+			Big Message(Attacker, Custom String("You triggered {0}'s nuke!", Victim));
+		End;
+		If(Victim.KillStreak == 0);
+			Victim.ComebackCount += 1;
+		End;
+		If(Attacker.KillStreak > Global.BestKillstreakValue && Attacker.KillStreak >= Global.ONFIRE_STREAK);
+			Global.BestKillstreakPlayer = Attacker;
+			Global.BestKillstreakValue = Attacker.KillStreak;
+		End;
+		If(Score Of(Attacker) > Global.NANO_SCORE);
+			Set Player Score(Attacker, Global.NANO_SCORE);
+		End;
+		If(Ammo(Attacker, 0) == 0);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 32);
+			Big Message(Attacker, Custom String("{0} Last bullet kill! {0}", Icon String(Club)));
+		End;
+		"STOLEN KILLS"
+		If(Victim.LastSleptBy != Null && Victim.LastSleptBy != Attacker);
+			Attacker.StolenFrom = Victim.LastSleptBy;
+			Attacker.StolenKills += 1;
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 6);
+			"For the assist"
+			Attacker.StolenFrom.MedalQueue = Append To Array(Array(0), Attacker.StolenFrom.MedalQueue);
+			"For the kill"
+			Attacker.StolenFrom.MedalQueue = Append To Array(Array(0), Attacker.StolenFrom.MedalQueue);
+			"For the message below"
+			Attacker.StolenFrom.MedalQueue = Append To Array(Array(0), Attacker.StolenFrom.MedalQueue);
+			If(Attacker.StolenKills == 5);
+				Modify Player Variable(Attacker, MedalQueue, Append To Array, 7);
+				Big Message(Attacker, Custom String("{0}  Sleep thief:  {0}", Ability Icon String(Hero(Moira), Button(Secondary Fire))));
+			End;
+			Attacker.StolenFrom = Append To Array(Array(0), Attacker.StolenFrom);
+			Small Message(Attacker.StolenFrom, Custom String("    {0}  {1} stole your kill", Ability Icon String(Hero(Roadhog), Button(
+				Ability 1)), Attacker));
+			Start Rule(SayThanks, Do Nothing);
+		End;
+		If(Is Dead(Attacker));
+			Start Rule(FromTheGrave, Do Nothing);
+		End;
+		Set Ultimate Charge(Attacker, Score Of(Attacker) / Global.NANO_SCORE * 100);
+		If(Score Of(Attacker) == Global.NANO_SCORE - 2);
+			Start Rule(SayUltStatus, Do Nothing);
+		End;
+		Attacker.ComebackCount = 0;
+	}
+}
+
+rule("Respawn logic")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Global.MatchEnded == False;
+		Global.SpawnPointSettings != 0;
+	}
+
+	actions
+	{
+		Disable Nameplates(Event Player, Array(All Players(All Teams), !Local Player.IsPlayer));
+		Wait(0.700, Ignore Condition);
+		Set Invisible(Event Player, All);
+		Wait Until(Is Alive(Event Player), 9);
+		Call Subroutine(RespawnSystem);
+		Set Invisible(Event Player, None);
+		Enable Nameplates(Event Player, All Players(All Teams));
+	}
+}
+
+rule("Reset players upon death")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	actions
+	{
+		Stop Forcing Player Outlines(Event Player, All Players(All Teams));
+		"for the death system message"
+		Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+		Event Player.KillStreakBeforeDeath = Event Player.KillStreak;
+		Event Player.Deaths += 1;
+		Event Player.SleepUsedAndDied = True;
+		Event Player.SleepsOnground = False;
+		Clear Status(Event Player, Burning);
+		Event Player.IsOnFire = False;
+		Event Player.IsOnRampage = False;
+		Event Player.RampageSFX = False;
+		Event Player.NanoDelay = !Event Player.NanoDelay;
+		Event Player.Sandman = 0;
+		Event Player.PunchDrunk = 0;
+		Event Player.MultiKillCount = 0;
+		Wait Until(Is Alive(Event Player), 69);
+		Event Player.SleepLock = 0;
+		Event Player.KillStreak = 0;
+		Event Player.LastSleptBy = Null;
+		If(Score Of(Event Player) < Global.NANO_SCORE);
+			Set Ultimate Charge(Event Player, Score Of(Event Player) / Global.NANO_SCORE * 100);
+		End;
+		Wait(2.100 - Global.CUSTOM_RESPAWN_TIME, Ignore Condition);
+		Event Player.NanoDelay = 1;
+		Wait(0.500, Ignore Condition);
+		Event Player.DemotedEffect = Null;
+	}
+}
+
+rule("fix movement bug")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Player.FixMovementBug == True;
+	}
+
+	actions
+	{
+		Wait Until(Is Alive(Event Player), 69);
+		Start Forcing Player To Be Hero(Event Player, Hero(Ashe));
+		Start Forcing Player To Be Hero(Event Player, Hero(Ana));
+		Event Player.FixMovementBug = False;
+	}
+}
+
+rule("Send honor medal")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Ability 2)) == True;
+		Event Player.HonorTarget != Null;
+		Event Player.HonorBar != 0;
+	}
+
+	actions
+	{
+		Modify Player Variable(Event Player.HonorTarget, HonorQueue, Append To Array, Event Player);
+		Modify Player Variable(Event Player.HonorTarget, MedalQueue, Append To Array, 1);
+		Event Player.HonorBar = 0;
+		Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+		Small Message(Event Player, Custom String("    {0}  honor sent to {1}!", Icon String(Happy), Event Player.HonorTarget));
+		Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Color(White), Event Player, 200);
+	}
+}
+
+rule("sleep hit sys msg")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Event Was Environment == False;
+	}
+
+	actions
+	{
+		Attacker.MedalQueue = Append To Array(Array(0), Attacker.MedalQueue);
+	}
+}
+
+rule("Jumps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Jumping(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.Jumps += 1;
+		If(Event Player.Jumps == 200);
+			Modify Player Variable(Event Player, MedalQueue, Append To Array, 29);
+	}
+}
+
+rule("perfect quickscopes")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Firing Secondary(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.ElimsBeforeQS = Event Player.KillStreak;
+		"Scope-in time"
+		Wait(0.240, Abort When False);
+		"1 frame time window"
+		Wait Until(Is Firing Primary(Event Player), 0.016);
+		If(Is Firing Primary(Event Player));
+			"Scope-out time"
+			Wait(0.160, Ignore Condition);
+			If(!Is Firing Secondary(Event Player) && Event Player.KillStreak >= Event Player.ElimsBeforeQS + 1);
+				Modify Player Variable(Event Player, MedalQueue, Append To Array, 5);
+				Event Player.PerfectQuickscopes += 1;
+				Event Player.PerfectQSVFX = True;
+				Play Effect(Event Player, Wrecking Ball Minefield Explosion Sound, Color(Team 1), Position Of(Event Player) + Throttle Of(
+					Event Player) * Speed Of(Event Player), 200);
+				If(Event Player.PerfectQuickscopes == 5);
+					Modify Player Variable(Event Player, MedalQueue, Append To Array, 40);
+					Big Message(Event Player, Custom String("{0}  Perfectionist!  {0}", Ability Icon String(Hero(Kiriko), Button(Ultimate))));
+				End;
+				Wait(0.500, Ignore Condition);
+				Event Player.PerfectQSVFX = Null;
+	}
+}
+
+rule("Quadfeed")
+{
+	event
+	{
+		Player Earned Elimination;
+		All;
+		Ana;
+	}
+
+	actions
+	{
+		Attacker.QuadFeedTimes = Filtered Array(Attacker.QuadFeedTimes, Total Time Elapsed - Current Array Element <= 7.500);
+		Modify Player Variable(Attacker, QuadFeedTimes, Append To Array, Total Time Elapsed);
+		Remove From Array(All Players(All Teams), Attacker).QuadFeedTimes = Empty Array;
+		If(Count Of(Attacker.QuadFeedTimes) == 4);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 25);
+			Attacker.QuadFeedTimes = Empty Array;
+			Big Message(Attacker, Custom String("{0}  Quadfeed!  {0}", Ability Icon String(Hero(Pharah), Button(Ultimate))));
+			Play Effect(Attacker, Echo Sticky Bomb Explosion Sound, Color(Team 1), Position Of(Attacker) + Throttle Of(Attacker) * Speed Of(
+				Attacker), 200);
+	}
+}
+
+rule("Multikills")
+{
+	event
+	{
+		Player Earned Elimination;
+		All;
+		Ana;
+	}
+
+	actions
+	{
+		Attacker.MultiKillCount += 1;
+		If(Attacker.MultiKillCount == 5);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 26);
+			Play Effect(Attacker, Echo Sticky Bomb Explosion Sound, Color(Team 1), Position Of(Attacker) + Throttle Of(Attacker) * Speed Of(
+				Attacker), 200);
+			"For loop required for SYSMSG that target multiple players"
+			For Global Variable(i, 0, Number Of Players(All Teams) - 1, 1);
+				Remove From Array(All Players(All Teams), Attacker)[Global.i].MedalQueue = Append To Array(Array(0), Remove From Array(All Players(
+					All Teams), Attacker)[Global.i].MedalQueue);
+			End;
+			Small Message(Remove From Array(All Players(All Teams), Attacker), Custom String("    {0} got a pentakill!", Ability Icon String(
+				Hero(Kiriko), Button(Ability 2))));
+		Else If(Attacker.MultiKillCount == 6);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 27);
+			Play Effect(Attacker, Echo Sticky Bomb Explosion Sound, Color(Team 1), Position Of(Attacker) + Throttle Of(Attacker) * Speed Of(
+				Attacker), 200);
+			"For loop required for SYSMSG that target multiple players"
+			For Global Variable(i, 0, Number Of Players(All Teams) - 1, 1);
+				Remove From Array(All Players(All Teams), Attacker)[Global.i].MedalQueue = Append To Array(Array(0), Remove From Array(All Players(
+					All Teams), Attacker)[Global.i].MedalQueue);
+			End;
+			Small Message(Remove From Array(All Players(All Teams), Attacker), Custom String("    {0} got an ultrakill!", Ability Icon String(
+				Hero(Zenyatta), Button(Primary Fire))));
+		Else If(Attacker.MultiKillCount >= 7);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 28);
+			Play Effect(Attacker, Echo Sticky Bomb Explosion Sound, Color(Team 1), Position Of(Attacker) + Throttle Of(Attacker) * Speed Of(
+				Attacker), 200);
+			"For loop required for SYSMSG that target multiple players"
+			For Global Variable(i, 0, Number Of Players(All Teams) - 1, 1);
+				Remove From Array(All Players(All Teams), Attacker)[Global.i].MedalQueue = Append To Array(Array(0), Remove From Array(All Players(
+					All Teams), Attacker)[Global.i].MedalQueue);
+			End;
+			Small Message(Remove From Array(All Players(All Teams), Attacker), Custom String("    {0} got a pentakill!", Ability Icon String(
+				Hero(Zenyatta), Button(Ultimate))));
+		End;
+		Wait(3, Restart When True);
+		Attacker.MultiKillCount = 0;
+	}
+}
+
+rule("Killstreak effects & announcements")
+{
+	event
+	{
+		Player Earned Elimination;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		(Event Ability == Button(Ability 1)) == False;
+	}
+
+	actions
+	{
+		If(Attacker.KillStreak >= Global.ONFIRE_STREAK && Is Alive(Attacker) && !Attacker.IsOnFire);
+			Attacker.IsOnFire = True;
+			Set Status(Attacker, Null, Burning, 9999);
+			Play Effect(All Players(All Teams), Ashe Dynamite Explosion Sound, Color(Team 1), Attacker,
+				Event Player == Local Player ? 70 : 200);
+			Start Forcing Player Outlines(Attacker, All Players(All Teams), True, Color(Orange), Default);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 15);
+			"For loop required for SYSMSG that target multiple players"
+			For Global Variable(i, 0, Number Of Players(All Teams) - 1, 1);
+				Remove From Array(All Players(All Teams), Attacker)[Global.i].MedalQueue = Append To Array(Array(0), Remove From Array(All Players(
+					All Teams), Attacker)[Global.i].MedalQueue);
+			End;
+			Small Message(Remove From Array(All Players(All Teams), Attacker), Custom String("    {0}  {1} is on fire!  {0}",
+				Ability Icon String(Hero(Torbjörn), Button(Ultimate)), Attacker));
+		Else If(Attacker.KillStreak >= Global.RAMPAGE_STREAK && Is Alive(Attacker) && !Attacker.IsOnRampage);
+			Attacker.IsOnRampage = True;
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 17);
+			Attacker.RampageSFX = True;
+			Start Forcing Player Outlines(Attacker, All Players(All Teams), True, Color(Yellow), Default);
+			Big Message(Remove From Array(All Players(All Teams), Attacker), Custom String("{0}  {1} is on a rampage!  {0}",
+				Ability Icon String(Hero(Reaper), Button(Ultimate)), Attacker));
+			Attacker.RampageVFX = True;
+			Wait(1, Ignore Condition);
+			Attacker.RampageVFX = False;
+		Else If(Attacker.KillStreak >= Global.NUCLEAR_STREAK && !Attacker.IsNuclear);
+			Attacker.IsNuclear = True;
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 20);
+			Play Effect(All Players(All Teams), Ana Biotic Grenade No Healing Sound, Color(White), Attacker, 200);
+			Create In-World Text(Attacker, Custom String("    {0} Nuclear killstreak! {0}\nPress [{1}] to request Nano-nuke", Icon String(
+				Radioactive), Input Binding String(Button(Ultimate))), Update Every Frame(Eye Position(Local Player) + 100 * (
+				0.490 * Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(Local Player)),
+				Vertical Angle From Direction(Facing Direction Of(Local Player)) - 90) + 3 * Facing Direction Of(Local Player))), 9,
+				Do Not Clip, Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(
+				Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+				Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+				Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Default Visibility);
+			Big Message(Remove From Array(All Players(All Teams), Attacker), Custom String("{0}  {1} is Nuclear!  {0}", Icon String(
+				Radioactive), Attacker));
+	}
+}
+
+rule("Killstreak shutdown announcements")
+{
+	event
+	{
+		Player Dealt Final Blow;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Was Environment == False;
+		"?"
+		Victim.SleepLock < 1;
+		Victim.KillStreak >= Global.ONFIRE_STREAK;
+	}
+
+	actions
+	{
+		Attacker.ShutdownVictim = Victim;
+		Communicate(Attacker, Goodbye);
+		Play Effect(All Players(All Teams), Sombra Translocator Disappear Sound, Color(White), Position Of(Victim), 200);
+		"For loop required for SYSMSG that target multiple players"
+		For Global Variable(i, 0, Number Of Players(All Teams) - 2, 1);
+			Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue = Append To Array(Array(0),
+				Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue);
+		End;
+		If(Victim.KillStreak < Global.RAMPAGE_STREAK);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 16);
+			Small Message(Remove From Array(All Players(All Teams), Array(Victim, Attacker)), Custom String(
+				"    {0}  {1}'s {2} killstreak ended", Ability Icon String(Hero(Tracer), Button(Ability 2)), Victim, Victim.KillStreak));
+		Else If(Victim.KillStreak < Global.NUCLEAR_STREAK);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 18);
+			Small Message(Remove From Array(All Players(All Teams), Array(Victim, Attacker)), Custom String(
+				"    {0}  {1}'s {2} kills rampage ended", Ability Icon String(Hero(Tracer), Button(Ability 2)), Victim, Victim.KillStreak));
+		End;
+		"why"
+		Wait(2, Ignore Condition);
+	}
+}
+
+rule("environmental kills")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Was Environment == True;
+		Event Ability == Button(Ability 1);
+	}
+
+	actions
+	{
+		Modify Player Variable(Attacker, MedalQueue, Append To Array, 14);
+		Big Message(Attacker, Custom String("{0}  Environmental Kill!  {0}", Ability Icon String(Hero(Sigma), Button(Ultimate))));
+		"For loop required for SYSMSG that target multiple players"
+		For Global Variable(i, 0, Number Of Players(All Teams) - 2, 1);
+			Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue = Append To Array(Array(0),
+				Remove From Array(All Players(All Teams), Array(Victim, Attacker))[Global.i].MedalQueue);
+		End;
+		Small Message(Remove From Array(All Players(All Teams), Array(Victim, Attacker)), Custom String(
+			"    {0} made {1} fall off the map...", Victim, Attacker));
+	}
+}
+
+rule("Environement death")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Was Environment == True;
+	}
+
+	actions
+	{
+		If(!String Contains(Custom String("{0}", Event Player), Custom String("ml7")));
+			Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    {0}  no wings?", Hero Icon String(Random Value In Array(
+				Array(Hero(Echo), Hero(Mercy))))), Custom String("    {0}  no jetpacks?", Hero Icon String(Random Value In Array(Array(Hero(
+				Pharah), Hero(Winston))))), Custom String("    {0}  no translocators?", Hero Icon String(Hero(Sombra))), Custom String(
+				"    {0}  no grapples?", Hero Icon String(Random Value In Array(Array(Hero(Wrecking Ball), Hero(Widowmaker))))), Custom String(
+				"    {0}  no teleports?", Hero Icon String(Hero(Kiriko))), Custom String("    {0}  no recalls?", Hero Icon String(Hero(
+				Tracer))), Custom String("    {0}  no wallrides?", Hero Icon String(Hero(Lúcio))), Custom String("    {0}  no slams?",
+				Hero Icon String(Hero(Doomfist))), Custom String("    {0}  no mekas?", Hero Icon String(Hero(D.Va))), Custom String(
+				"    {0}  no double jumps?", Hero Icon String(Hero(Genji))), Custom String("    {0}  no wallclimbs?", Hero Icon String(
+				Random Value In Array(Array(Hero(Genji), Hero(Hanzo), Hero(Kiriko))))), Custom String("    {0}  no life grips?",
+				Hero Icon String(Hero(Lifeweaver))), Custom String("    {0}  no rocket legs?", Hero Icon String(Hero(Sojourn))))));
+		"for ml7"
+		Else;
+			Event Player.MedalQueue = Append To Array(Array(0), Event Player.MedalQueue);
+			Small Message(Event Player, Random Value In Array(Array(Custom String("    {0} would have survived this", Random Value In Array(
+				Array(Custom String("Olaf"), Custom String("Denn"), Custom String("Umarrii")))), Custom String(
+				"    {0} would never die like that", Random Value In Array(Array(Custom String("Demmos"), Custom String("Sp33dyal"),
+				Custom String("Zeldig")))), Custom String("    Demmos would have never done this"), Custom String(
+				"    Who put that wall there???"), Custom String("    Are y'all really subbed to this guy?"), Custom String("    COOM?!?"))));
+	}
+}
+
+rule("Longshot")
+{
+	event
+	{
+		Player Took Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Distance Between(Attacker, Victim) >= Global.LONGSHOT_DISTANCE;
+		Event Was Environment == False;
+		Score Of(Attacker) != Global.NANO_SCORE;
+	}
+
+	actions
+	{
+		"try removing"
+		Wait(0.016, Ignore Condition);
+		Modify Player Variable(Attacker, MedalQueue, Append To Array, 12);
+		Attacker.LongshotCount += 1;
+		Attacker.OofDistance = Distance Between(Attacker, Victim);
+		Create In-World Text(All Players(All Teams), Random Value In Array(Array(Custom String("oof"), Custom String("ouch"),
+			Custom String("damn"), Custom String("owie"), Custom String("bonk"))), Victim, 1, Clip Against Surfaces,
+			Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 150 % 841.500 - 420.750)
+			- 25.500, 114.750), 255), Min(Max(Absolute Value((Total Time Elapsed * 150 + 280.500) % 841.500 - 420.750) - 25.500, 114.750),
+			255), Min(Max(Absolute Value((Total Time Elapsed * 150 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255),
+			Visible Never);
+		Victim.OofText = Last Text ID;
+		If(Attacker.OofDistance > Attacker.LongestLongshot);
+			Attacker.LongestLongshot = Distance Between(Attacker, Victim);
+		End;
+		"try removing"
+		Wait(0.016, Ignore Condition);
+		If(Attacker.LongestLongshot > Global.LongestShotValue);
+			Global.LongestShotPlayer = Attacker;
+			Global.LongestShotValue = Attacker.LongestLongshot;
+		End;
+		If(Attacker.LongshotCount >= 10);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 35);
+			Big Message(Attacker, Custom String("{0}  Deadeye!  {0}", Ability Icon String(Hero(Cassidy), Button(Ultimate))));
+		End;
+		If(Event Ability == Button(Ability 1));
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 36);
+			Big Message(Attacker, Custom String("{0}  Sleep Sniper!  {0}", Ability Icon String(Hero(Orisa), Button(Secondary Fire))));
+		End;
+		Wait(0.500, Ignore Condition);
+		Destroy In-World Text(Victim.OofText);
+	}
+}
+
+rule("Sandman")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Event Was Environment == False;
+		Is Alive(Attacker) == True;
+		Has Status(Victim, Asleep) == False;
+	}
+
+	actions
+	{
+		Attacker.Sandman += 1;
+		If(Attacker.Sandman == 3);
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 37);
+			Attacker.Sandman = 0;
+	}
+}
+
+rule("MEDALS")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Count Of(Event Player.MedalQueue) > 0;
+		Global.MatchEnded == False;
+	}
+
+	actions
+	{
+		Wait(0.016, Ignore Condition);
+		Event Player.DisplayMedal = First Of(Event Player.MedalQueue);
+		If(Event Player.DisplayMedal != 0);
+			Small Message(Event Player, Array(Custom String("    {0}  {1} said: '{2}'", Hero Icon String(Hero(Ana)), First Of(
+				Event Player.HonorQueue), Random Value In Array(Array(Custom String("Nice one!"), Custom String("Sheeeesh"), Custom String(
+				"Damn!"), Custom String("Wow"), Custom String("Oof"), Custom String("Clean"), Custom String("{0}{0}{0}", Icon String(Fire))))),
+				Custom String("    {0}{1}  Execution! Max ammo", Ability Icon String(Hero(Ana), Button(Melee)), Icon String(Recycle)),
+				Custom String("    {0}  Demotion! {1} lost a point", Ability Icon String(Hero(Wrecking Ball), Button(Crouch)),
+				Event Player.DemotionVictim), Custom String("    {0}  Terminator", Ability Icon String(Hero(Baptiste), Button(Ability 2))),
+				Custom String("    {0}  Perfect quickscope", Ability Icon String(Hero(Kiriko), Button(Jump))), Custom String(
+				"    {0}  Perfectionist", Ability Icon String(Hero(Kiriko), Button(Ultimate))), Custom String("    {0}  Stole {1}'s kill",
+				Ability Icon String(Hero(Roadhog), Button(Ability 1)), Event Player.StolenFrom), Custom String("    {0}  Sleep thief",
+				Ability Icon String(Hero(Moira), Button(Secondary Fire))), Custom String("    {0}  Comeback", Ability Icon String(Hero(Mercy),
+				Button(Ultimate))), Custom String("    {0}  Iron will", Ability Icon String(Hero(Pharah), Button(Jump))), Custom String(
+				"    {0}  First blood", Ability Icon String(Hero(Brigitte), Button(Ultimate))), Custom String("    {0}  First sleep",
+				Ability Icon String(Hero(Brigitte), Button(Ultimate))), Custom String("    {0}  Longshot! {1}m", Hero Icon String(Hero(
+				Widowmaker)), String Slice(Custom String("{0}", Event Player.OofDistance + 0.001), 0, String Length(Custom String("{0}",
+				Event Player.OofDistance + 0.001)) - 1)), Custom String("    {0}  Nanopunch", Ability Icon String(Hero(Ramattra), Button(
+				Ability 1))), Custom String("    {0}  Environmental kill", Ability Icon String(Hero(Sigma), Button(Ultimate))), Custom String(
+				"    {0}  On fire", Ability Icon String(Hero(Torbjörn), Button(Ultimate))), Custom String(
+				"    {0}  Ended {1}'s {2} Kills streak", Ability Icon String(Hero(Tracer), Button(Ability 2)), Event Player.ShutdownVictim,
+				Event Player.ShutdownVictim.KillStreakBeforeDeath), Custom String("    {0}  {1}", Ability Icon String(Hero(Reaper), Button(
+				Ultimate)), Random Value In Array(Array(Custom String("You are on a rampage!"), Custom String("Rampage!")))), Custom String(
+				"    {0}  Ended {1}'s {2} kills rampage", Ability Icon String(Hero(Tracer), Button(Ability 2)), Event Player.ShutdownVictim,
+				Event Player.ShutdownVictim.KillStreakBeforeDeath), Custom String("    {0}  Nuclear", Icon String(Radioactive)), Custom String(
+				"    {0}{1}  Countermeasure", Icon String(No), Icon String(Radioactive)), Custom String("    {0}  Catastrophe",
+				Ability Icon String(Hero(Bastion), Button(Ultimate))), Custom String("    {0}  Streak Squasher", Ability Icon String(Hero(
+				Doomfist), Button(Ability 1))), Custom String("    {0}  Showstopper", Icon String(Stop)), Custom String("    {0}  Quadfeed",
+				Ability Icon String(Hero(Pharah), Button(Ultimate))), Custom String("    {0}  Pentakill", Ability Icon String(Hero(Kiriko),
+				Button(Ability 2))), Custom String("    {0}  Ultrakill", Ability Icon String(Hero(Zenyatta), Button(Primary Fire))),
+				Custom String("    {0}  Killionaire", Ability Icon String(Hero(Zenyatta), Button(Ultimate))), Custom String(
+				"    {0}  Jolly jumper", Ability Icon String(Hero(Baptiste), Button(Crouch))), Custom String("    {0}  Collateral kills",
+				Ability Icon String(Hero(Zarya), Button(Ability 2))), Custom String("    {0}  Mutual sleep, awaking...", Ability Icon String(
+				Hero(Mercy), Button(Ability 2))), Custom String("    {0}  Last bullet kill", Icon String(Club)), Custom String(
+				"    {0}  Dreamcatcher", Ability Icon String(Hero(Ramattra), Button(Ability 2))), Custom String("    {0}  No scope needed",
+				Ability Icon String(Hero(Sojourn), Button(Ultimate))), Custom String("    {0}  Deadeye", Ability Icon String(Hero(Cassidy),
+				Button(Ultimate))), Custom String("    {0}  Sleep sniper", Ability Icon String(Hero(Orisa), Button(Secondary Fire))),
+				Custom String("    {0}{1}  Sandman", Ability Icon String(Hero(Ana), Button(Ability 1)), Ability Icon String(Hero(Echo), Button(
+				Ultimate))), Custom String("    {0}{1}  Punch drunk", Ability Icon String(Hero(Ana), Button(Melee)), Icon String(Dizzy)),
+				Custom String("    {0}  From the grave", Ability Icon String(Hero(Reaper), Button(Ultimate))))[Max(False, Index Of Array Value(
+				Array(1, 2, 3, 4, 5, 40, 6, 7, 10, 11, 8, 9, 12, 13, 14, 15, 16, 17, 18, 20, 23, 22, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32,
+				33, 34, 35, 36, 37, 38, 39), Event Player.DisplayMedal))]);
+			If(False);
+			End;
+			Play Effect(Event Player, Brigitte Repair Pack Armor Sound, Color(White), Event Player, 200);
+		Else If(False);
+			Event Player.SysMsgCount += 1;
+		End;
+		Modify Player Variable(Event Player, MedalQueue, Remove From Array By Index, 0);
+		Wait(0.500, Ignore Condition);
+		If(Event Player.DisplayMedal == 1);
+			Modify Player Variable(Event Player, HonorQueue, Remove From Array By Index, 0);
+		End;
+		Loop If Condition Is True;
+	}
+}
+
+rule("Set up SleepUsedAndDied")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Is Using Ability 1(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.SleepUsedAndDied = False;
+	}
+}
+
+rule("Sleeping an already sleeping player adds 1 to your SleepLock")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Has Status(Victim, Asleep) == True;
+		Victim.LastSleptBy == Attacker;
+	}
+
+	actions
+	{
+		Event Player.SleepLock += 1;
+	}
+}
+
+rule("If SleepLock = 2, execute attacker, wake victim, reset attacker SleepLock and KillStreak")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Has Status(Victim, Asleep) == True;
+		Victim.LastSleptBy == Attacker;
+		Event Player.SleepLock == 2;
+		Event Was Environment == False;
+	}
+
+	actions
+	{
+		Kill(Event Player, Event Player);
+		Set Player Score(Attacker, Score Of(Attacker) - 1);
+		Victim.MedalQueue = Append To Array(Array(0), Victim.MedalQueue);
+		Small Message(Victim, Custom String("    {0}  Executed {1} for sleep-locking", Ability Icon String(Hero(Genji), Button(Ability 2)),
+			Event Player));
+		Attacker.MedalQueue = Append To Array(Array(0), Attacker.MedalQueue);
+		Small Message(Attacker, Custom String("    {0}  Executed for sleep-locking {1}", Ability Icon String(Hero(Genji), Button(
+			Ability 2)), Victim));
+	}
+}
+
+rule("Sleep-lock resets after 5s without sleeping anyone")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Event Player.SleepLock > 0;
+		Event Was Environment == False;
+	}
+
+	actions
+	{
+		Wait(5, Abort When False);
+		Event Player.SleepLock = 0;
+	}
+}
+
+rule("Wake slept player if attacker dies after using sleep dart")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Score Of(Attacker) != Global.NANO_SCORE;
+	}
+
+	actions
+	{
+		"if the attacker is alive when sleep dart hits"
+		If(!Attacker.SleepUsedAndDied);
+			Wait Until(Is Dead(Victim) || Is Dead(Attacker), 3.500);
+			If(Is Dead(Victim) && Is Alive(Attacker));
+				Attacker.SleepUsedAndDied = True;
+				Abort;
+			End;
+			Wait(0.500, Abort When False);
+			Damage(Victim, Null, 1);
+			Communicate(Victim, Thanks);
+		"if the attacker is dead when sleep dart hits"
+		Else;
+			Victim.MedalQueue = Append To Array(Array(0), Victim.MedalQueue);
+			Small Message(Victim, Custom String("    {0}  {1} died, awaking...", Ability Icon String(Hero(Mercy), Button(Ability 2)),
+				Attacker));
+			Wait(0.500, Abort When False);
+			Damage(Victim, Null, 1);
+			Wait(0.500, Ignore Condition);
+			Communicate(Victim, Goodbye);
+	}
+}
+
+rule("Detect mutual sleeps")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Has Status(Attacker, Asleep) == True;
+		Event Ability == Button(Ability 1);
+		Victim == Attacker.LastSleptBy;
+	}
+
+	actions
+	{
+		Modify Player Variable(Array(Event Player, Victim), MedalQueue, Append To Array, 31);
+		Big Message(Array(Event Player, Victim), Custom String("Akward moment..."));
+		Wait(1.500, Abort When False);
+		If(Is Alive(Attacker) && Is Alive(Victim));
+			Damage(Array(Event Player, Victim), Null, 1);
+	}
+}
+
+rule("While score < NANO_SCORE, allow all buttons")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) < Global.NANO_SCORE;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		"?"
+		Wait(0.200, Ignore Condition);
+		Allow Button(Event Player, Button(Primary Fire));
+		Allow Button(Event Player, Button(Secondary Fire));
+		Allow Button(Event Player, Button(Melee));
+		Allow Button(Event Player, Button(Reload));
+		Stop Holding Button(Event Player, Button(Ultimate));
+	}
+}
+
+rule("When reaching NANO_SCORE, nanoboost self")
+{
+	event
+	{
+		Player Earned Elimination;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) == Global.NANO_SCORE;
+	}
+
+	actions
+	{
+		If(Is Meleeing(Event Player));
+			Modify Player Variable(Attacker, MedalQueue, Append To Array, 13);
+		End;
+		"for people using toggle scope"
+		If(Is Firing Secondary(Event Player));
+			Press Button(Event Player, Button(Secondary Fire));
+		End;
+		Set Ultimate Charge(Event Player, 100);
+		Set Ability Cooldown(Event Player, Button(Ability 1), 1);
+		Press Button(Event Player, Button(Ultimate));
+		"for people using \"confirm nano target\""
+		Wait(0.016, Ignore Condition);
+		Press Button(Event Player, Button(Ultimate));
+	}
+}
+
+rule("When score = NANO_SCORE, disable all except sleep dart, warn other players, display  objective")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) == Global.NANO_SCORE;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Melee));
+		Disallow Button(Event Player, Button(Reload));
+		Big Message(Remove From Array(All Players(All Teams), Event Player), Custom String("{0}  {1} wins in 1 kill  {0}", Icon String(
+			Warning), Event Player));
+		Big Message(Event Player, Custom String("{0}  use sleep dart to win  {0}", Ability Icon String(Hero(Ana), Button(Ability 1))));
+	}
+}
+
+rule("While score = NANO_SCORE, sleep dart cooldown is 1.5")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) == Global.NANO_SCORE;
+		Is Using Ability 1(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait Until(Ability Cooldown(Event Player, Button(Ability 1)) > 0, 1);
+		Set Ability Cooldown(Event Player, Button(Ability 1), 1.500);
+	}
+}
+
+rule("If NANO_SCORE and died, nanoboost again")
+{
+	event
+	{
+		Player Died;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Score Of(Event Player) == Global.NANO_SCORE;
+	}
+
+	actions
+	{
+		Disallow Button(Event Player, Button(Ability 1));
+		Wait Until(Is Alive(Event Player), 69);
+		While(!Is Using Ultimate(Event Player));
+			Set Ultimate Charge(Event Player, 100);
+			Press Button(Event Player, Button(Ultimate));
+			Wait(0.016, Ignore Condition);
+		End;
+		Allow Button(Event Player, Button(Ability 1));
+	}
+}
+
+rule("Nuclear victory")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Player.IsNuclear != False;
+		Global.MatchEnded == False;
+		(Is Button Held(Event Player, Button(Ultimate)) || Is Dead(Event Player)) == True;
+	}
+
+	actions
+	{
+		Global.MatchEnded = True;
+		Global.Winner = Event Player;
+		"in case winner is asleep"
+		Damage(Global.Winner, Null, 1);
+		Global.NukeCamHorizontalDist = Horizontal Angle From Direction(Direction Towards(Global.NukeImpactPos, Global.NukeCamPos));
+		Global.Camdist = Magnitude Of((Global.NukeCamPos - Global.NukeImpactPos) * Vector(1, 0, 1));
+		Global.NukePos = Global.NukeImpactPos + Direction From Angles(Global.NukeCamHorizontalDist + 90, 0) * Global.Camdist + Vector(0,
+			Y Component Of(Global.NukeCamPos) - 10, 0);
+		Destroy All In-World Text;
+		Destroy All HUD Text;
+		Create In-World Text(Global.Winner, Custom String("{0} Nano-nuke requested! {0}", Icon String(Warning)), Update Every Frame(
+			Eye Position(Local Player) + 100 * (0.490 * Direction From Angles(Horizontal Angle From Direction(Facing Direction Of(
+			Local Player)), Vertical Angle From Direction(Facing Direction Of(Local Player)) - 90) + 3 * Facing Direction Of(
+			Local Player))), 3, Do Not Clip, Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Default Visibility);
+		Disable Game Mode HUD(All Players(All Teams));
+		Disable Hero HUD(All Players(All Teams));
+		Set Status(All Players(All Teams), Null, Phased Out, 69);
+		Teleport(Global.NanoNukeBot, Global.Winner);
+		Wait(0.500, Ignore Condition);
+		Press Button(Global.NanoNukeBot, Button(Ultimate));
+		Wait(0.016, Ignore Condition);
+		Cancel Primary Action(Global.NanoNukeBot);
+		Wait(0.016, Ignore Condition);
+		Destroy Dummy Bot(All Teams, 10);
+		Wait(0.016, Ignore Condition);
+		"Create bot for 2nd siren"
+		Create Dummy Bot(Hero(Bastion), All Teams, 10, Vector(0, 999, 0), Up);
+		Global.NanoNukeBot = Last Created Entity;
+		Start Forcing Dummy Bot Name(Global.NanoNukeBot, Custom String("NANO-NUKE"));
+		Set Invisible(Global.NanoNukeBot, All);
+		Set Status(Global.NanoNukeBot, Null, Phased Out, 9999);
+		Set Gravity(Global.NanoNukeBot, 0);
+		Start Modifying Hero Voice Lines(Global.NanoNukeBot, 0.500, False);
+		Start Forcing Player Outlines(Global.NanoNukeBot, Array(All Players(All Teams), !Local Player.IsPlayer), False, Color(Red),
+			Default);
+		Wait(2, Ignore Condition);
+		"Winner cam"
+		Destroy All In-World Text;
+		Start Camera(All Players(All Teams), Ray Cast Hit Position(Update Every Frame(Eye Position(Global.Winner)), Update Every Frame(
+			Facing Direction Of(Global.Winner)) + Update Every Frame(Eye Position(Global.Winner)), Null, Null, True), Update Every Frame(
+			Eye Position(Global.Winner)), 0);
+		Set Status(All Players(All Teams), Null, Rooted, 999);
+		Set Aim Speed(All Players(All Teams), 10);
+		Set Move Speed(All Players(All Teams), 10);
+		Disallow Button(Event Player, Button(Ability 1));
+		Disallow Button(Event Player, Button(Ability 2));
+		Disallow Button(Event Player, Button(Crouch));
+		Disallow Button(Event Player, Button(Primary Fire));
+		Disallow Button(Event Player, Button(Secondary Fire));
+		Disallow Button(Event Player, Button(Reload));
+		Disallow Button(Event Player, Button(Melee));
+		Call Subroutine(RandomEmote);
+		Communicate(Global.Winner, Goodbye);
+		Wait(2, Ignore Condition);
+		Destroy All In-World Text;
+		"Swap to nuke cam"
+		Start Facing(Event Player, Facing Direction Of(Event Player), 1000, To Player, None);
+		Start Camera(All Players(All Teams), World Vector Of(Vector(0, 2, 2), Global.Winner, Rotation And Translation), Position Of(
+			Global.Winner), 0);
+		Start Camera(All Players(All Teams), Global.NukeCamPos, Global.NukeImpactPos, 1);
+		"2nd siren"
+		Teleport(Global.NanoNukeBot, World Vector Of(Vector(0, 30, 0), Global.Winner, Rotation And Translation));
+		Wait(0.500, Ignore Condition);
+		Destroy All In-World Text;
+		Press Button(Global.NanoNukeBot, Button(Ultimate));
+		Wait(0.016, Ignore Condition);
+		Destroy Dummy Bot(All Teams, 10);
+		Wait(2, Ignore Condition);
+		"Create nuke effect"
+		Create Projectile Effect(All Players(All Teams), Baptiste Biotic Launcher, Null, Global.NukePos, Direction Towards(Global.NukePos,
+			Global.NukeImpactPos), 0.400, Visible To Position Direction and Size);
+		Global.Winner.NukeEffects[0] = Last Created Entity;
+		Create Projectile Effect(All Players(All Teams), Pharah Rocket, Null, Global.NukePos, Direction Towards(Global.NukePos,
+			Global.NukeImpactPos), 1, Visible To Position Direction and Size);
+		Global.Winner.NukeEffects[1] = Last Created Entity;
+		Wait(2, Ignore Condition);
+		Chase Global Variable Over Time(NukePos, Global.NukeImpactPos, 5, Destination and Duration);
+		Wait(4.800, Ignore Condition);
+		Declare Player Victory(Global.Winner);
+		Destroy Effect(First Of(Global.Winner.NukeEffects));
+		Destroy Effect(Global.Winner.NukeEffects[1]);
+		Kill(Remove From Array(All Players(All Teams), Array(Global.OutOfBoundBot, Global.NanoNukeBot)), Null);
+		"to compensate for bomb \"suicide\" caused by \"null\" killer"
+		Modify Player Score(Remove From Array(All Players(All Teams), Array(Global.OutOfBoundBot, Global.NanoNukeBot)), 1);
+		Modify Player Score(Global.Winner, Count Of(Remove From Array(All Players(All Teams), Array(Global.OutOfBoundBot,
+			Global.NanoNukeBot, Global.Winner))));
+		Disable Built-In Game Mode Respawning(All Players(All Teams));
+		"Explosion effects at NukeImpactPos"
+		Play Effect(All Players(All Teams), DVa Self Destruct Explosion Effect, Color(Team 1), Global.NukeImpactPos, 200);
+		Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Global.NukeImpactPos, 200);
+		"Explosion frames in front of NukeCamPos"
+		Play Effect(All Players(All Teams), DVa Self Destruct Explosion Effect, Color(White), Global.NukeCamPos + Direction Towards(
+			Global.NukeCamPos, Global.NukeImpactPos), 50);
+		Play Effect(All Players(All Teams), Zarya Particle Cannon Explosion Effect, Color(White), Global.NukeCamPos + Direction Towards(
+			Global.NukeCamPos, Global.NukeImpactPos), 200);
+		Play Effect(All Players(All Teams), Bad Explosion, Color(White), Global.NukeCamPos + Direction Towards(Global.NukeCamPos,
+			Global.NukeImpactPos), 200);
+		Play Effect(All Players(All Teams), DVa Self Destruct Explosion Sound, Color(White), Global.NukeCamPos + Direction Towards(
+			Global.NukeCamPos, Global.NukeImpactPos), 200);
+		"Explosion radius effect + smoke"
+		Create Effect(All Players(All Teams), Sphere, Color(Red), Global.NukeImpactPos, Global.NukeExplodeFxPos,
+			Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Cloud, Color(Red), Global.NukeImpactPos, Global.NukeExplodeFxPos,
+			Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Sphere, Color(Orange), Global.NukeImpactPos, Global.NukeExplodeFxPos - 5,
+			Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Sphere, Color(White), Global.NukeImpactPos, Global.NukeExplodeFxPos - 10,
+			Visible To Position and Radius);
+		Create Effect(All Players(All Teams), Cloud, Color(Orange), Global.NukeImpactPos, Global.NukeExplodeFxPos,
+			Visible To Position and Radius);
+		Chase Global Variable At Rate(NukeExplodeFxPos, 220, 20, Destination and Rate);
+		Create In-World Text(All Players(All Teams), Custom String("Nuclear victory!"), Update Every Frame(Global.NukeCamPos + 100 * (
+			0.600 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(Global.NukeCamPos, Global.NukeImpactPos)),
+			Vertical Angle From Direction(Direction Towards(Global.NukeCamPos, Global.NukeImpactPos)) - 90) + 3 * Direction Towards(
+			Global.NukeCamPos, Global.NukeImpactPos))), 10, Do Not Clip, Visible To Position String and Color, Custom Color(Min(Max(
+			Absolute Value(Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Visible Never);
+		Create In-World Text(All Players(All Teams), Custom String("join the discord server!\n        jinko.dev/discord"),
+			Update Every Frame(Global.NukeCamPos + 100 * (-1.200 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(
+			Global.NukeCamPos, Global.NukeImpactPos)), Vertical Angle From Direction(Direction Towards(Global.NukeCamPos,
+			Global.NukeImpactPos)) - 90) + 3 * Direction Towards(Global.NukeCamPos, Global.NukeImpactPos))), 10, Do Not Clip,
+			Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 500 % 841.500 - 420.750)
+			- 25.500, 114.750), 255), Min(Max(Absolute Value((Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750),
+			255), Min(Max(Absolute Value((Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255),
+			Visible Never);
+		"camera shake"
+		Wait(0.300, Ignore Condition);
+		For Global Variable(i, 0, 30, 1);
+			Global.NukeCamShakeX = Random Real(-10, 10);
+			Global.NukeCamShakeY = Random Real(-5, 5);
+			Global.NukeCamShakeZ = Random Real(-5, 5);
+			Start Camera(All Players(All Teams), Vector(Global.NukeCamShakeX + X Component Of(Global.NukeCamPos),
+				Global.NukeCamShakeY + Y Component Of(Global.NukeCamPos), Global.NukeCamShakeZ + Z Component Of(Global.NukeCamPos)), Vector(
+				Global.NukeCamShakeX + X Component Of(Global.NukeImpactPos), Global.NukeCamShakeY + Y Component Of(Global.NukeImpactPos),
+				Global.NukeCamShakeZ + Z Component Of(Global.NukeImpactPos)), 10);
+			Wait(0.050, Ignore Condition);
+		End;
+		For Global Variable(i, 0, 30, 1);
+			Global.NukeCamShakeX = Random Real(-10, 10);
+			Global.NukeCamShakeY = Random Real(-5, 5);
+			Global.NukeCamShakeZ = Random Real(-5, 5);
+			Start Camera(All Players(All Teams), Vector(Global.NukeCamShakeX + X Component Of(Global.NukeCamPos),
+				Global.NukeCamShakeY + Y Component Of(Global.NukeCamPos), Global.NukeCamShakeZ + Z Component Of(Global.NukeCamPos)), Vector(
+				Global.NukeCamShakeX + X Component Of(Global.NukeImpactPos), Global.NukeCamShakeY + Y Component Of(Global.NukeImpactPos),
+				Global.NukeCamShakeZ + Z Component Of(Global.NukeImpactPos)), 10);
+			Wait(0.050, Ignore Condition);
+		End;
+	}
+}
+
+disabled rule("rainbow outline for nuclear winner")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Global.MatchEnded != False;
+		Global.Winner != False;
+		Global.Winner.IsNuclear != False;
+	}
+
+	actions
+	{
+		Start Forcing Player Outlines(Global.Winner, All Players(All Teams), True, Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 250 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 250 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 250 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Always);
+		Wait(0.016, Ignore Condition);
+		Loop;
+	}
+}
+
+rule("Sleep Dart victory")
+{
+	event
+	{
+		Player Dealt Damage;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Event Ability == Button(Ability 1);
+		Score Of(Attacker) == Global.NANO_SCORE;
+		Global.MatchEnded == False;
+	}
+
+	actions
+	{
+		Global.MatchEnded = True;
+		Global.FinalVictim = Victim;
+		Global.Winner = Attacker;
+		Disable Game Mode HUD(All Players(All Teams));
+		Disable Hero HUD(All Players(All Teams));
+		Declare Player Victory(Event Player);
+		Set Player Score(Global.Winner, Global.NANO_SCORE + 1);
+		Victim.OofDistance = Distance Between(Attacker, Victim);
+		If(Victim.OofDistance >= Global.LONGSHOT_DISTANCE);
+			Global.LongshotWin = !Global.LongshotWin;
+		End;
+		Start Forcing Player Outlines(Remove From Array(All Players(All Teams), Global.Winner), All Players(All Teams), False, Color(Red),
+			Occluded);
+		Create Effect(All Players(All Teams), Soldier: 76 Sprinting Effect, Color(White), Victim, 1, Position and Radius);
+		Set Status(All Players(All Teams), Null, Invincible, 999);
+		Set Status(All Players(All Teams), Null, Rooted, 999);
+		Set Aim Speed(All Players(All Teams), 10);
+		Set Move Speed(All Players(All Teams), 10);
+		Set Slow Motion(5);
+		Start Camera(All Players(All Teams), Ray Cast Hit Position(Position Of(Attacker), Position Of(Attacker) + Direction Towards(Victim,
+			Position Of(Attacker)) * 3 + Up * 1.500, Null, Null, True), Position Of(Victim), 0);
+		Wait(0.350, Ignore Condition);
+		Start Camera(All Players(All Teams), Ray Cast Hit Position(Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker,
+			Victim) * -2 + Up * 0.500, Null, Null, True), Eye Position(Victim) + Vector(0, -1, 0), 25);
+		Wait(0.500, Ignore Condition);
+		"Amazing in-world text code by josbird https://workshop.codes/wiki/articles/rendering-an-inworld-text-at-a-specific-onscreen-position"
+		Create In-World Text(All Players(All Teams), Victim.OofDistance >= Global.LONGSHOT_DISTANCE ? Custom String(
+			"longshot victory! {0}m hit!", String Slice(Custom String("{0}", Victim.OofDistance + 0.001), 0, String Length(Custom String(
+			"{0}", Victim.OofDistance + 0.001)) - 1)) : Custom String("{0}m sleep dart hit!", String Slice(Custom String("{0}",
+			Victim.OofDistance + 0.001), 0, String Length(Custom String("{0}", Victim.OofDistance + 0.001)) - 1)), Update Every Frame(
+			Ray Cast Hit Position(Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null,
+			Null, True) + 100 * (0.600 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(Ray Cast Hit Position(
+			Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null, Null, True),
+			Eye Position(Victim) + Vector(0, -1, 0))), Vertical Angle From Direction(Direction Towards(Ray Cast Hit Position(Eye Position(
+			Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null, Null, True), Eye Position(Victim)
+			+ Vector(0, -1, 0))) - 90) + 3 * Direction Towards(Ray Cast Hit Position(Eye Position(Victim), Eye Position(Victim)
+			+ Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null, Null, True), Eye Position(Victim) + Vector(0, -1, 0)))), 10,
+			Do Not Clip, Visible To Position String and Color, Victim.OofDistance >= Global.LONGSHOT_DISTANCE ? Custom Color(Min(Max(
+			Absolute Value(Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255) : Custom Color(63, 191, 116, 255),
+			Visible Never);
+		Create In-World Text(All Players(All Teams), Custom String("join the discord server!\n        jinko.dev/discord"),
+			Update Every Frame(Ray Cast Hit Position(Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim)
+			* -2 + Up * 0.500, Null, Null, True) + 100 * (-1 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(
+			Ray Cast Hit Position(Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null,
+			Null, True), Eye Position(Victim) + Vector(0, -1, 0))), Vertical Angle From Direction(Direction Towards(Ray Cast Hit Position(
+			Eye Position(Victim), Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null, Null, True),
+			Eye Position(Victim) + Vector(0, -1, 0))) - 90) + 3 * Direction Towards(Ray Cast Hit Position(Eye Position(Victim),
+			Eye Position(Victim) + Direction Towards(Attacker, Victim) * -2 + Up * 0.500, Null, Null, True), Eye Position(Victim) + Vector(
+			0, -1, 0)))), 10, Do Not Clip, Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(
+			Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+			Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Visible Never);
+		Wait(0.950, Ignore Condition);
+		Play Effect(All Players(All Teams), DVa Self Destruct Explosion Effect, Color(Rose), Position Of(Victim), 999);
+		Wait(18.500, Ignore Condition);
+		Restart Match;
+	}
+}
+
+rule("Fix camera if last victim leaves the game")
+{
+	event
+	{
+		Player Left Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.MatchEnded != False;
+	}
+
+	actions
+	{
+		If(Global.FinalVictim == Event Player);
+			Destroy All In-World Text;
+			Start Camera(All Players(All Teams), Global.NukeCamPos, Global.NukeImpactPos, 0);
+			Create In-World Text(All Players(All Teams), Custom String("The last victim left the game lol"), Update Every Frame(
+				Global.NukeCamPos + 100 * (0.600 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(Global.NukeCamPos,
+				Global.NukeImpactPos)), Vertical Angle From Direction(Direction Towards(Global.NukeCamPos, Global.NukeImpactPos)) - 90)
+				+ 3 * Direction Towards(Global.NukeCamPos, Global.NukeImpactPos))), 10, Do Not Clip, Visible To Position String and Color,
+				Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 500 % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(
+				Absolute Value((Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750), 255), Min(Max(Absolute Value((
+				Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255), Visible Never);
+			Create In-World Text(All Players(All Teams), Custom String("join the discord server!\n        jinko.dev/discord"),
+				Update Every Frame(Global.NukeCamPos + 100 * (-1.200 * Direction From Angles(Horizontal Angle From Direction(Direction Towards(
+				Global.NukeCamPos, Global.NukeImpactPos)), Vertical Angle From Direction(Direction Towards(Global.NukeCamPos,
+				Global.NukeImpactPos)) - 90) + 3 * Direction Towards(Global.NukeCamPos, Global.NukeImpactPos))), 10, Do Not Clip,
+				Visible To Position String and Color, Custom Color(Min(Max(Absolute Value(Total Time Elapsed * 500 % 841.500 - 420.750)
+				- 25.500, 114.750), 255), Min(Max(Absolute Value((Total Time Elapsed * 500 + 280.500) % 841.500 - 420.750) - 25.500, 114.750),
+				255), Min(Max(Absolute Value((Total Time Elapsed * 500 + 561) % 841.500 - 420.750) - 25.500, 114.750), 255), 255),
+				Visible Never);
+	}
+}
+
+rule("CREATE all jump pads")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(True);
+			Skip(Array(44, 0, 0, 4, 8, 8, 12, 12, 16, 20, 20, 24, 24, 28, 32, 32, 36, 36, 40)[1 + Index Of Array Value(Array(Map(Eichenwalde),
+				Map(Eichenwalde Halloween), Map(Petra), Map(Château Guillard), Map(Château Guillard Halloween), Map(
+				Ecopoint: Antarctica Winter), Map(Ecopoint: Antarctica), Map(Malevento), Map(Black Forest Winter), Map(Black Forest), Map(
+				Blizzard World Winter), Map(Blizzard World), Map(Dorado), Map(Hollywood Halloween), Map(Hollywood), Map(
+				Lijiang Control Center Lunar New Year), Map(Lijiang Control Center), Map(Kanezaka)), Current Map)]);
+			Global.JumpPadPos = Array(Vector(47.050, 2.910, -75.460), Vector(60.910, 8.900, -58.980), Vector(67.980, 11.050, -104.860));
+			Global.JumpPadPower = Array(23.500, 15, 17);
+			Global.JumpPadSize = Array(3.900, 3.100, 1.800);
+		Else;
+			Global.JumpPadPos = Array(Vector(1.910, -16.700, 46.100), Vector(-2.540, -11.770, 16.850), Vector(-15.330, -10.700, 30.070),
+				Vector(-38.520, -15.720, 18.040), Vector(1.960, -5.800, -19), Vector(16.050, -11.400, 8.720));
+			Global.JumpPadPower = Array(22.200, 19, 19, 18.500, 13, 12);
+			Global.JumpPadSize = Array(3.900, 2.400, 2, 3.500, 2.200, 2.700);
+		Else;
+			Global.JumpPadPos = Array(Vector(229.490, 0.380, 83.100), Vector(187.320, -0.600, 69.500), Vector(218.550, 10.440, 47.060), Vector(
+				172, -1.250, 53.800));
+			Global.JumpPadPower = Array(17.500, 17.500, 17.500, 17.500);
+			Global.JumpPadSize = Array(2.300, 2, 2, 1.800);
+		Else;
+			Global.JumpPadPos = Array(Vector(-6.100, 4.700, 17), Vector(-6.100, 4.700, -17), Vector(10.350, 2.180, 0), Vector(-15, 4.850, 0));
+			Global.JumpPadPower = Array(16, 16, 15.500, 15);
+			Global.JumpPadSize = Array(2.600, 2.600, 2.300, 2.900);
+		Else;
+			Global.JumpPadPos = Array(Vector(-29.650, -4.570, -8), Vector(0, -2.620, -7.230), Vector(11.720, 0, 9.650), Vector(0, -1.780,
+				34.060));
+			Global.JumpPadPower = Array(17, 20.900, 15, 26);
+			Global.JumpPadSize = Array(2, 2, 3.700, 4.100);
+		Else;
+			Global.JumpPadPos = Array(Vector(4.600, 10, 5), Vector(0, 10.820, 24.240), Vector(0, 10.820, -14.870), Vector(-20.550, 11.400, 22),
+				Vector(-20.550, 11.400, -11), Vector(21.400, 9.600, 19.160), Vector(21.400, 9.500, -8.700));
+			Global.JumpPadPower = Array(15, 15, 15, 15, 15, 15, 15);
+			Global.JumpPadSize = Array(2.800, 2, 2, 2, 2, 2, 2);
+		Else;
+			Global.JumpPadPos = Array(Vector(-75.500, -1.450, 75), Vector(-41.300, -3.300, 84.300), Vector(-20, -1.160, 92.150), Vector(
+				-63.500, -4.100, 92.140), Vector(-41, -4.800, 145.450), Vector(-70, -1.900, 116.500));
+			Global.JumpPadPower = Array(16.500, 16, 15, 17, 14, 16.500);
+			Global.JumpPadSize = Array(2, 3.300, 3.400, 4, 3, 3);
+		Else;
+			Global.JumpPadPos = Array(Vector(129.710, 7.770, 16.900), Vector(92.500, 9.670, 31.880), Vector(102.900, 7.700, 8.900), Vector(
+				110.900, 7.660, 17.800));
+			Global.JumpPadPower = Array(17.500, 18.500, 17.500, 16.300);
+			Global.JumpPadSize = Array(3.500, 3.500, 3.500, 3.600);
+		Else;
+			Global.JumpPadPos = Array(Vector(-6.150, -3.650, -34.400), Vector(18.250, -3.650, -70.560), Vector(2.730, -1.040, -15.850));
+			Global.JumpPadPower = Array(20, 22.500, 17);
+			Global.JumpPadSize = Array(5.500, 5.600, 3.200);
+		Else;
+			Global.JumpPadPos = Array(Vector(0, 263.850, 285.880), Vector(25.150, 263.750, 291.550), Vector(-25.150, 263.750, 291.550), Vector(
+				5.630, 267.790, 313.710), Vector(-5.630, 267.790, 313.710), Vector(7.220, 264, 271.400), Vector(-7.220, 264, 271.400));
+			Global.JumpPadPower = Array(20.500, 13, 13, 18.500, 18.500, 13, 13);
+			Global.JumpPadSize = Array(4, 3.400, 3.400, 2.500, 2.500, 3.350, 3.350);
+		Else;
+			Global.JumpPadPos = Array(Vector(-38, 3.700, -40.580), Vector(-38.130, 2.600, 3.200), Vector(-26.420, 2.650, 27));
+			Global.JumpPadPower = Array(15, 17, 14);
+			Global.JumpPadSize = Array(3.500, 3.500, 3.500);
+		Else;
+		End;
+		For Global Variable(JumpPadFx, 0, Count Of(Global.JumpPadPos), 1);
+			Create Effect(All Players(All Teams), Sphere, Global.JUMP_PAD_COLOR, Global.JumpPadPos[Global.JumpPadFx],
+				Global.JumpPadSize[Global.JumpPadFx], Visible To and Color);
+		End;
+	}
+}
+
+rule("TRIGGER any jump pad")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Ana;
+	}
+
+	conditions
+	{
+		Has Spawned(Event Player) == True;
+		Count Of(Global.JumpPadPos) > 0;
+		Is True For Any(Global.JumpPadPos, Distance Between(Event Player, Current Array Element)
+			<= Global.JumpPadSize[Current Array Index]) == True;
+	}
+
+	actions
+	{
+		Event Player.ClosestPadIndex = Index Of Array Value(Global.JumpPadPos, Sorted Array(Global.JumpPadPos, Distance Between(
+			Event Player, Current Array Element)));
+		Apply Impulse(Event Player, Up, Global.JumpPadPower[Event Player.ClosestPadIndex], To World, Cancel Contrary Motion XYZ);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(White), Event Player, 30);
+	}
+}
+
+rule("Subroutine FromTheGrave")
+{
+	event
+	{
+		Subroutine;
+		FromTheGrave;
+	}
+
+	actions
+	{
+		Wait Until(Is Alive(Attacker), 69);
+		Modify Player Variable(Attacker, MedalQueue, Append To Array, 39);
+	}
+}
+
+rule("Subroutine SayVoiceline")
+{
+	event
+	{
+		Subroutine;
+		SayVoiceline;
+	}
+
+	actions
+	{
+		Wait(0.400, Ignore Condition);
+		If(Is Alive(Attacker));
+			If(True);
+				Skip(Array(4, 0, 1, 2, 3)[1 + Index Of Array Value(Array(1, 2, 3, 4), Random Integer(1, 4))]);
+				Communicate(Event Player, Voice Line Up);
+				Communicate(Event Player, Voice Line Right);
+				Communicate(Event Player, Voice Line Down);
+				Communicate(Event Player, Voice Line Left);
+			End;
+		End;
+	}
+}
+
+rule("Subroutine SayUltStatus")
+{
+	event
+	{
+		Subroutine;
+		SayUltStatus;
+	}
+
+	actions
+	{
+		Wait(0.400, Ignore Condition);
+		Communicate(Attacker, Ultimate Status);
+	}
+}
+
+rule("Subroutine SayThanks")
+{
+	event
+	{
+		Subroutine;
+		SayThanks;
+	}
+
+	actions
+	{
+		Wait(0.400, Ignore Condition);
+		Communicate(Attacker, Thanks);
+	}
+}
+
+rule("Subroutine SaySorry")
+{
+	event
+	{
+		Subroutine;
+		SaySorry;
+	}
+
+	actions
+	{
+		Wait(0.400, Ignore Condition);
+		Communicate(Attacker, Sorry);
+	}
+}
+
+rule("Subroutine RandomEmote")
+{
+	event
+	{
+		Subroutine;
+		RandomEmote;
+	}
+
+	actions
+	{
+		If(True);
+			Skip(Array(4, 0, 1, 2, 3)[1 + Index Of Array Value(Array(1, 2, 3, 4), Random Integer(1, 4))]);
+			Communicate(Event Player, Emote Up);
+			Communicate(Event Player, Emote Right);
+			Communicate(Event Player, Emote Down);
+			Communicate(Event Player, Emote Left);
+		End;
+		Wait(1, Ignore Condition);
+		If(!Is Communicating Any(Attacker));
+			Communicate(Attacker, Goodbye);
+		End;
+	}
+}
