@@ -17,12 +17,24 @@
 
 "use strict";
 import { DEBUG_MODE, encounteredWarnings, fileStack, globallySuppressedWarningTypes, hiddenWarnings, setFileStack, suppressedWarningTypes } from "../globalVars";
-import { Type } from "../types";
+import { CompilationDiagnostic, FileStackMember, Type } from "../types";
 import { Ast } from "./ast";
 import { tabLevel } from "./other";
 import { escapeString } from "./strings";
 import { dispTokens } from "./tokens";
 import { isTypeSuitable } from "./types";
+
+export class OpyError extends Error implements CompilationDiagnostic {
+    fileStack?: FileStackMember[];
+    severity: "error" = "error";
+
+    constructor(message: string, fileStack?: FileStackMember[]) {
+        super(message);
+        this.name = "OpyError";
+        this.fileStack = fileStack;
+        Object.setPrototypeOf(this, OpyError.prototype);
+    }
+}
 
 //Logging stuff
 export function error(str: string, token?: any): never {
@@ -38,8 +50,7 @@ export function error(str: string, token?: any): never {
     }
     if (fileStack) {
         if (fileStack.length !== 0) {
-            fileStack.reverse();
-            for (var file of fileStack) {
+            for (var file of fileStack.toReversed()) {
                 err += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
             }
         }
@@ -47,15 +58,14 @@ export function error(str: string, token?: any): never {
         err += "\n    | <no filestack>";
     }
 
-    throw new Error(err);
+    throw new OpyError(err, [...fileStack]);
 }
 
 export function warn(warnType: string, message: string) {
     let warning = message + " (" + warnType + ")";
     if (fileStack) {
         if (fileStack.length !== 0) {
-            fileStack.reverse();
-            for (var file of fileStack) {
+            for (var file of fileStack.toReversed()) {
                 warning += "\n    | line " + file.currentLineNb + ", col " + file.currentColNb + ", at " + file.name;
             }
         }
@@ -69,7 +79,11 @@ export function warn(warnType: string, message: string) {
     }
 
     console.warn(warning);
-    encounteredWarnings.push(warning);
+    encounteredWarnings.push({
+        message: warning,
+        fileStack,
+        severity: "warning"
+    });
 }
 
 export const debug = (data: string) => {

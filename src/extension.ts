@@ -6,9 +6,10 @@ import * as vscode from "vscode";
 // ! Yes, this sucks. Too bad!
 import { decompileAllRules } from "./decompiler/decompiler";
 import { compile } from "./compiler/compiler";
-import { postInitialLoad } from "./globalVars";
+import { postInitialLoad, rootPath } from "./globalVars";
 import { allFuncList, constantValuesCompLists, defaultCompList, fillAutocompletionAstMacros, fillAutocompletionConstants, fillAutocompletionEnums, fillAutocompletionMacros, fillAutocompletionSubroutines, fillAutocompletionVariables, memberCompletionItems, metaRuleParamsCompList, preprocessingDirectivesList, refreshAutoComplete, setActivatedExtensions, setAvailableExtensionPoints, setSpentExtensionPoints, stringEntitiesCompList } from "./autocomplete";
-import { Argument, OWLanguage, ow_languages } from "./types.d";
+import { Argument, CompilationDiagnostic, OWLanguage, ow_languages } from "./types.d";
+import { OpyError as OverpyError } from "./utils/logging";
 
 const overpyTemplate = `
 #OverPy starter pack
@@ -48,6 +49,7 @@ rule "Display position":
 
 export function activate(context: vscode.ExtensionContext) {
     postInitialLoad();
+    const diagnostics = vscode.languages.createDiagnosticCollection('opy');
 
     vscode.commands.registerCommand("overpy.insertTemplate", () => {
         try {
@@ -95,6 +97,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand("overpy.compile", async () => {
         try {
+            diagnostics.clear();
             let activeEditor = vscode.window.activeTextEditor;
             if (activeEditor === undefined) {
                 vscode.window.showErrorMessage("No active text editor tab found. Please open a new editor tab before re-running this command.");
@@ -111,8 +114,9 @@ export function activate(context: vscode.ExtensionContext) {
             }
             const compileResult = await compile(activeEditor.document.getText(), configuredLanguage as OWLanguage, rootPath, mainFileName);
             for (let warning of compileResult.encounteredWarnings) {
-                vscode.window.showWarningMessage(`Warning: ${warning}`);
+                vscode.window.showWarningMessage(`Warning: ${warning.message}`);
             }
+            applyCompilationDiagnostics(diagnostics, compileResult.encounteredWarnings);
             vscode.env.clipboard.writeText(compileResult.result);
 
             const showElementCount = vscode.workspace.getConfiguration("overpy").showElementCountOnCompile;
@@ -132,6 +136,10 @@ export function activate(context: vscode.ExtensionContext) {
             if (e instanceof Error) {
                 console.error(e);
                 vscode.window.showErrorMessage("Error: " + e.message);
+
+                if (e instanceof OverpyError) {
+                    applyCompilationDiagnostics(diagnostics, [e]);
+                }
             } else {
                 console.error(e);
             }
@@ -299,4 +307,41 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function showOverPyExtensionError(message: string): void {
     vscode.window.showErrorMessage(`Error: ${message}, contact CactusPuppy about this.`);
+}
+
+async function applyCompilationDiagnostics(diagnostics: vscode.DiagnosticCollection, content: CompilationDiagnostic[]) {
+    const apply = new Map<string, vscode.Diagnostic[]>;
+
+    // Collect all diagnostics first.
+    for (const item of content) {
+        // Place the error on the last item in the stack. Skip macro locations.
+        const fileInfo = item.fileStack?.findLast(fileStack => fileStack.staticMember);
+
+        // If path information is missing, ignore this diagnostic.
+        if (!fileInfo || !(fileInfo.path ?? rootPath)) continue;
+
+        // Use `fileInfo.path` if is is provided. Trigger document is
+        // extracted with `rootPath` and `fileInfo.name`.
+        const fullPath = fileInfo.path ?? rootPath + fileInfo.name;
+    
+        // Add the file to the diagnostics map.
+        if (!apply.has(fullPath)) {
+            apply.set(fullPath, []);
+        }
+
+        const startPos = new vscode.Position(fileInfo.currentLineNb - 1, fileInfo.currentColNb);
+        const range = new vscode.Range(startPos, startPos);
+
+        apply.get(fullPath)?.push({
+            message: item.message,
+            severity: item.severity === 'error' ? vscode.DiagnosticSeverity.Error : vscode.DiagnosticSeverity.Warning,
+            range: range
+        });
+    }
+
+    // Apply all diagnostics at once.
+    for (const [fileName, list] of apply.entries()) {
+        const uri = vscode.Uri.parse("file:///" + fileName);
+        diagnostics.set(uri, list);
+    }
 }

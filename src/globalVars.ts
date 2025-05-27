@@ -23,7 +23,7 @@ import { mapKw } from "./data/maps";
 import { opyKeywords } from "./data/opy/keywords";
 import { camelCaseToUpperCase } from "./utils/other";
 import { Constant, constantValues } from "./data/constants";
-import { AstConstantData, AstMacroData, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, ScriptFileStackMember, Subroutine, Type, Value, Variable } from "./types.d.js";
+import { AstConstantData, AstMacroData, CompilationDiagnostic, FileStackMember, MacroData, Overwatch2Heroes, ow_languages, OWLanguage, ScriptFileStackMember, Subroutine, Type, Value, Variable } from "./types.d.js";
 import { Ast, getAstForE, getAstForFalse, getAstForInfinity, getAstForNull, getAstForNullVector, getAstForNumber, getAstForTeamAll, getAstForTrue } from "./utils/ast";
 import { TranslatedString, TranslationLanguage } from "./compiler/translations";
 import { heroKw } from "./data/heroes";
@@ -116,7 +116,7 @@ export var astMacroLocalVariables: string[] = [];
 export const resetAstMacroLocalVariables = () => (astMacroLocalVariables = []);
 
 /** All warnings encountered during this compilation run. */
-export var encounteredWarnings: string[] = [];
+export var encounteredWarnings: CompilationDiagnostic[] = [];
 /** All warnings encountered during this compilation run that were either suppressed or otherwise ignored. */
 export let hiddenWarnings: string[] = [];
 /** A set of warning types that will not invoke a visible warning.

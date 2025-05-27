@@ -33,7 +33,7 @@ import { astRulesToWs } from "./astToWorkshop";
 import { parseLines } from "./parser";
 import { Token, tokenize } from "./tokenizer";
 import { addVariable } from "../utils/varNames";
-import { AstConstantData, AstMacroData, MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
+import { AstConstantData, AstMacroData, CompilationDiagnostic, MacroData, OWLanguage, ScriptFileStackMember, Subroutine, Variable } from "../types";
 import { compileCustomGameSettingsDict } from "../utils/compilation";
 import { reinitInterpreter } from "../jsInterpreter";
 import PO from "pofile";
@@ -57,7 +57,7 @@ export async function compile(
     globalVariables: Variable[];
     playerVariables: Variable[];
     subroutines: Subroutine[];
-    encounteredWarnings: string[];
+    encounteredWarnings: CompilationDiagnostic[];
     hiddenWarnings: string[];
     enumMembers: Record<string, Record<string, Ast>>;
     nbElements: number;
