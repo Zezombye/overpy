@@ -41,6 +41,7 @@ export type Value = {
     args: Argument[] | null;
     return: ReturnType | ReturnType[];
     isConstant?: boolean;
+    isLiteral?: boolean;
     class?: string;
     canBePutInBoolean?: boolean;
     hideFromAutocomplete?: boolean;

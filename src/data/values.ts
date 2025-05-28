@@ -2414,6 +2414,7 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "isConstant": true,
+        "isLiteral": true,
         "canBePutInBoolean": false,
         "return": "Button",
         "guid": "000000010B3B",
@@ -2444,6 +2445,7 @@ export const valueFuncKw: Record<string, Value> =
         ],
         "canBePutInBoolean": false,
         "isConstant": true,
+        "isLiteral": true,
         "return": "Color",
         "guid": "000000011D42",
         "en-US": "Color",
@@ -2783,6 +2785,7 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "isConstant": true,
+        "isLiteral": true,
         "canBePutInBoolean": false,
         "return": "Gamemode",
         "en-US": "Game Mode",
@@ -2860,6 +2863,7 @@ export const valueFuncKw: Record<string, Value> =
         ],
         "canBePutInBoolean": false,
         "isConstant": true,
+        "isLiteral": true,
         "return": "Hero",
         "en-US": "Hero",
         "es-MX": "Héroe",
@@ -3054,6 +3058,7 @@ export const valueFuncKw: Record<string, Value> =
         ],
         "canBePutInBoolean": false,
         "isConstant": true,
+        "isLiteral": true,
         "return": "Map",
         "en-US": "Map",
         "es-MX": "Mapa",
@@ -3217,6 +3222,7 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "isConstant": true,
+        "isLiteral": true,
         "return": "float",
         "guid": "00000000AC38",
         "en-US": "Number",
@@ -3833,7 +3839,9 @@ export const valueFuncKw: Record<string, Value> =
                 "description": "A Team constant."
             }
         ],
+        "canBePutInBoolean": false,
         "isConstant": true,
+        "isLiteral": true,
         "guid": "00000000BB26",
         "return": "Team",
         "en-US": "Team",
@@ -4593,7 +4601,6 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "canBePutInBoolean": false,
-        "isConstant": true,
         "return": "String",
         "guid": "0000000111B7",
         "en-US": "Input Binding String",
@@ -6500,6 +6507,7 @@ export const valueFuncKw: Record<string, Value> =
         ],
         "canBePutInBoolean": false,
         "isConstant": true,
+        "isLiteral": true,
         "return": "String",
         "guid": "00000000C1FE",
         "en-US": "Hero Icon String",
@@ -6609,6 +6617,7 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "isConstant": true,
+        "isLiteral": true,
         "canBePutInBoolean": false,
         "return": "String",
         "guid": "00000000CCDC",
@@ -7759,6 +7768,7 @@ export const valueFuncKw: Record<string, Value> =
             }
         ],
         "canBePutInBoolean": false,
+        "isLiteral": true,
         "isConstant": true,
         "return": "Vector",
         "en-US": "Vector",

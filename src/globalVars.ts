@@ -104,6 +104,8 @@ export var enableOptimization: boolean;
 export const setOptimizationEnabled = (enabled: boolean) => (enableOptimization = enabled);
 export var optimizeForSize: boolean;
 export const setOptimizationForSize = (size: boolean) => (optimizeForSize = size);
+export var optimizeStrict: boolean;
+export const setOptimizeStrict = (strict: boolean) => (optimizeStrict = strict);
 
 /** Contains all macros. */
 export var macros: MacroData[] = [];
@@ -276,6 +278,7 @@ export function resetGlobalVariables(language: OWLanguage) {
     compiledCustomGameSettings = "";
     enableOptimization = true;
     optimizeForSize = false;
+    optimizeStrict = false;
     uniqueNumber = 1;
     globalInitDirectives = [];
     playerInitDirectives = [];
@@ -624,6 +627,16 @@ postLoadTasks.push({
 */
 export let notConstantFunctions: string[];
 
+/*
+A literal is defined as a constant function that returns a constant value unique among all other constants (according to ==).
+For example, getAllHeroes() is not a literal as it is a composite of [Hero.REAPER, Hero.TRACER, ...]
+Literals are basically just numbers, strings, vectors, and built-in constants such as heroes and maps.
+Arrays are not literals as [123] == 123, and true/false/null are not literals as true == 1, false == 0, and null == 0.
+heroIcon is a literal, but abilityIconString is not, as different heroes can have the same ability icon.
+Strings are only literals if containing no formatters.
+*/
+export let literalFunctions: string[];
+
 export let constantKw: Record<string, Constant> = {};
 
 
@@ -639,6 +652,7 @@ postLoadTasks.push({
         Object.assign(eventPlayerKw, eventSlotKw, heroKw);
 
         notConstantFunctions = Object.keys(valueFuncKw).filter(x => !valueFuncKw[x].isConstant);
+        literalFunctions = Object.keys(valueFuncKw).filter(x => valueFuncKw[x].isLiteral);
 
         for (var constant of Object.keys(constantValues)) {
             for (var value of Object.keys(constantValues[constant])) {

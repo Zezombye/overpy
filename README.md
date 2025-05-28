@@ -552,6 +552,16 @@ The `#!disableOptimizations` directive can be used to disable all optimizations 
 
 The `#!optimizeForSize` directive prioritizes lowering the number of elements over optimizing the runtime (see [here](https://github.com/Zezombye/overpy/issues/238) for a list of optimizations).
 
+The `#!optimizeStrict` directive disables some optimizations that may cause issues in extreme cases of type conversion. For example:
+
+- A*0 can return vect(0,0,0) instead of 0
+- A+0 and A*1 can return 0 if A is not a number
+- A or true should return A instead of true if A is truthy
+
+Those optimizations (and others) will be disabled so that the behavior of the gamemode will not be altered.
+
+This directive is added by default upon decompilation. Only remove it if you are sure that your gamemode does not rely on type conversion tricks. It is recommended to use a website such as http://diffchecker.com to compare the differences in the output when enabling/disabling this directive.
+
 ## Replacements
 
 Several compiler options are available to automatically replace some constants, in order to save elements:
